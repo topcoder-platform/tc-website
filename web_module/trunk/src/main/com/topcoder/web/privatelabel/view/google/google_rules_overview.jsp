@@ -107,17 +107,17 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 
             <tr>
                <td width="50%">&nbsp;</td>
-               <td id=1 bgcolor=#efefef align=center width=95 nowrap onClick="return c('www.google.com/imghp','wi',event);" style=cursor:pointer;cursor:hand;><a href="/pl/?&module=Static&d1=google&d2=google_overview"><font size=-1>Overview</font></a></td>
+               <td bgcolor="#efefef" align="center" width=95 nowrap><a href="/pl/?&module=Static&d1=google&d2=google_overview" style="text-decoration:none" ><font size="-1">Overview</font></a></td>
                <td width=15><img src="/i/clear.gif" width="15" height="1"></td>
-               <td id=1 bgcolor=#efefef align=center width=95 nowrap onClick="return c('www.google.com/imghp','wi',event);" style=cursor:pointer;cursor:hand;><a href="/pl/?&module=Static&d1=google&d2=google_sched"><font size=-1>Schedule</font></a></td>
+               <td bgcolor="#efefef" align="center" width=95 nowrap><a href="/pl/?&module=Static&d1=google&d2=google_sched" style="text-decoration:none" ><font size="-1">Schedule</font></a></td>
                <td width=15><img src="/i/clear.gif" width="15" height="1"></td>
-               <td id=0 bgcolor=#3366cc align=center width=95 nowrap><font color=#ffffff size=-1><img src="/i/events/google2003/rules_arrow_white.gif" width="15" height="10" border="0"/><b>Rules</b></font></td>
+               <td bgcolor="#3366cc" align="center" width=95 nowrap><font color="#ffffff" size="-1"><img src="/i/events/google2003/rules_arrow_white.gif" width="15" height="10" border="0"/><b>Rules</b></font></td>
                <td width=15><img src="/i/clear.gif" width="15" height="1"></td>
-               <td id=1 bgcolor=#efefef align=center width=95 nowrap onClick="return c('www.google.com/imghp','wi',event);" style=cursor:pointer;cursor:hand;><a href="/pl/?&module=Static&d1=google&d2=google_registration"><font size=-1>Register Now</font></a></td>
+               <td bgcolor="#efefef" align="center" width=95 nowrap><a href="/pl/?&module=Static&d1=google&d2=google_registration" style="text-decoration:none" ><font size="-1">Register Now</font></a></td>
                <td width="50%">&nbsp;</td>
             </tr>
             <tr>
-               <td colspan=9 bgcolor=#3366cc>
+               <td colspan=9 bgcolor="#3366cc">
                <jsp:include page="googleSublinks.jsp" >
                   <jsp:param name="selectedList" value="rules"/>
                   <jsp:param name="selectedTab" value="overview"/>

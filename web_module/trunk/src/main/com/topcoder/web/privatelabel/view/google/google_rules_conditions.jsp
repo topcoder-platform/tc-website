@@ -107,13 +107,13 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 
             <tr>
                <td width="50%">&nbsp;</td>
-               <td id=1 bgcolor=#efefef align=center width=95 nowrap onClick="return c('www.google.com/imghp','wi',event);" style=cursor:pointer;cursor:hand;><a href="/pl/?&module=Static&d1=google&d2=google_overview"><font size=-1>Overview</font></a></td>
+               <td bgcolor="#efefef" align="center" width=95 nowrap><a href="/pl/?&module=Static&d1=google&d2=google_overview" style="text-decoration:none" ><font size="-1">Overview</font></a></td>
                <td width=15><img src="/i/clear.gif" width="15" height="1"></td>
-               <td id=1 bgcolor=#efefef align=center width=95 nowrap onClick="return c('www.google.com/imghp','wi',event);" style=cursor:pointer;cursor:hand;><a href="/pl/?&module=Static&d1=google&d2=google_sched"><font size=-1>Schedule</font></a></td>
+               <td bgcolor="#efefef" align="center" width=95 nowrap><a href="/pl/?&module=Static&d1=google&d2=google_sched" style="text-decoration:none" ><font size="-1">Schedule</font></a></td>
                <td width=15><img src="/i/clear.gif" width="15" height="1"></td>
-               <td id=0 bgcolor=#3366cc align=center width=95 nowrap><font color=#ffffff size=-1><img src="/i/events/google2003/rules_arrow_white.gif" width="15" height="10" border="0"/><b>Rules</b></font></td>
+               <td bgcolor="#3366cc" align="center" width=95 nowrap><font color="#ffffff" size="-1"><img src="/i/events/google2003/rules_arrow_white.gif" width="15" height="10" border="0"/><b>Rules</b></font></td>
                <td width=15><img src="/i/clear.gif" width="15" height="1"></td>
-               <td id=1 bgcolor=#efefef align=center width=95 nowrap onClick="return c('www.google.com/imghp','wi',event);" style=cursor:pointer;cursor:hand;><a href="/pl/?&module=Static&d1=google&d2=google_registration"><font size=-1>Register Now</font></a></td>
+               <td bgcolor="#efefef" align="center" width=95 nowrap><a href="/pl/?&module=Static&d1=google&d2=google_registration" style="text-decoration:none" ><font size="-1">Register Now</font></a></td>
                <td width="50%">&nbsp;</td>
             </tr>
             <tr>
@@ -157,7 +157,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
             and all registration forms required by Google and TopCoder.</p>
 
             <p>As a condition of winning and redeeming a cash prize, winners will be required to complete and provide to Google a 
-            completed (i) Affidavit of Eligibility and Liability and Publicity Release (the “Affidavit”), and (ii) IRS Form W-9 or 
+            completed (i) Affidavit of Eligibility and Liability and Publicity Release (the "Affidavit"), and (ii) IRS Form W-9 or 
             W-8BEN, as appropriate.  In completing the Affidavit, a winner (i) confirms his/her eligibility, (ii) represents and 
             warrants that he/she has not cheated; that the idea for the code and/or challenge submitted is his/hers alone, (iii) verifies 
             the accuracy of the information submitted in the Google Extreme Challenge registration process, (iv) authorizes TopCoder 
@@ -178,7 +178,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
             of a prize. Google and TopCoder specifically disclaim all liability associated with, and make no warranties with regard to, any 
             prize given.</p>
 
-            <p>In addition, all prizewinners agree to cooperate with Google’s and TopCoder's publicity efforts, without further compensation. 
+            <p>In addition, all prizewinners agree to cooperate with Google's and TopCoder's publicity efforts, without further compensation. 
             This includes the agreement to use their name, handle, address (city and state) and likeness for publicity purposes, where legal, 
             for this or similar future tournaments, and to use the statements made by, or attributed to, the winners relating to Google and 
             TopCoder and any and all rights to said use, without further compensation.</p>
