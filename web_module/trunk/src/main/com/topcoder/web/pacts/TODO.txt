@@ -59,6 +59,12 @@ date wrong.
 6/12/2002 01:19 edt jason n. evans
 Need an "edit affidavit template" internal pacts jsp.
 
+printing the payments does not mark them as unreviewed???
+
+fixed the formating of the due_date for printing payments
+added name to the vender list address
+move the print payments links
+
 
 
 ****************** BEING WORKED ON  ***********************
