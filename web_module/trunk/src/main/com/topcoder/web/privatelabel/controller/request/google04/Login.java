@@ -127,7 +127,10 @@ public class Login extends FullLogin {
             info = getCommonInfo(userId, db);
 
             Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
+            try {
             info.setCoderType(coder.getCoderTypeId(userId, db));
+            } catch (Exception e) {
+            }
 
             //load up the demographic information
             Response response = (Response) createEJB(getInitialContext(), Response.class);
@@ -138,7 +141,7 @@ public class Login extends FullLogin {
 
             for (Iterator it = responses.iterator(); it.hasNext();) {
                 row = (ResultSetContainer.ResultSetRow) it.next();
-                question = findQuestion(row.getLongItem("demographic_question_id"), getQuestions(transDb, info.getCoderType(), Integer.parseInt(getRequestParameter(Constants.COMPANY_ID))));
+                question = findQuestion(row.getLongItem("demographic_question_id"), getQuestions(transDb, Constants.PROFESSIONAL, Integer.parseInt(getRequestParameter(Constants.COMPANY_ID))));
                 DemographicResponse r = new DemographicResponse();
                 r.setQuestionId(question.getId());
                 r.setSort(row.getIntItem("sort"));
