@@ -336,7 +336,9 @@ public final class MainServlet extends HttpServlet {
                     StringTokenizer params = new StringTokenizer(HTMLString, "~");
                     params.nextToken();
                     if (params.hasMoreTokens()) {
-                        response.sendRedirect(params.nextToken());
+                        String temp = params.nextToken();
+                        log.debug("redirecting to " + temp + " after login");
+                        response.sendRedirect(temp);
                     }
                 } else {
                     if (!nav.cookiesEnabled(request, response)) {
