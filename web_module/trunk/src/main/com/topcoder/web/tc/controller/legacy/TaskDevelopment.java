@@ -121,7 +121,7 @@ public final class TaskDevelopment {
         String cacheKey = null;
         try {
             String command = Conversion.checkNull(request.getParameter("c"));
-            log.debug("command is: " + command);
+            log.debug("Initial command is: " + command);
             boolean requiresLogin = false;
             RecordTag devTag = new RecordTag("DEVELOPMENT");
             String comp = Conversion.checkNull(request.getParameter("comp"));
@@ -378,9 +378,11 @@ public final class TaskDevelopment {
                     msgText.append("\n\nComment:\n");
                     msgText.append(comment);
                     boolean permissionAdded = false;
-                    User user = nav.getUser();
-                    CoderRegistration coder = (CoderRegistration) user.getUserTypeDetails().get("Coder");
-                    int rating = coder.getRating().getRating();
+                    //User user = nav.getUser();
+                    //CoderRegistration coder = (CoderRegistration) user.getUserTypeDetails().get("Coder");
+                    log.debug("Get Rating");
+                    int rating = nav.getSessionInfo().getRating();
+                    log.debug("Got Rating");
                     if (comp.length() > 0) {
 
                         Context CONTEXT = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
