@@ -83,12 +83,12 @@
                 Please note that by registering for the project, you are agreeing to the requirements and committing to
                 perform the work outlined in the requirement specifications.
             </p>
-            
+
 <!-- Open Component Design Projects begins -->
 
             <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
                 <tr>
-                    <td class="projectTitles" colspan="9">Component Design Projects</td>
+                    <td class="usdc_banner" colspan="9">USDC Component Design Projects</td>
                 </tr>
                 <tr valign="middle">
                     <td class="projectHeaders" align="center">Catalog</td>
