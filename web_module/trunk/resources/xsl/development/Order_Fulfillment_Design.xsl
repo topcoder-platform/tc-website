@@ -99,12 +99,12 @@
                                                         the new environment will be hosted on Windows Server 2003.  This technology
                                                         will increase the speed and scalability of the application.
 
-                                                        <strong>Objectives</strong>
-                                                        Provide an extensible platform designed to handle the functional requirements identified by the client.
-                                                        Deliver the ability to scale through the addition of hardware, not requiring changes to the underlying software.
-                                                        Deliver an improved user experience and site navigation.
-
-
+                                                        <ul class="noSpList">
+                                                           <strong>Objectives</strong>
+                                                            <li>Provide an extensible platform designed to handle the functional requirements identified by the client.2</li>
+                                                            <li>Deliver the ability to scale through the addition of hardware, not requiring changes to the underlying software.</li>
+                                                            <li>Deliver an improved user experience and site navigation.</li>
+                                                        </ul>
 
                                                     </p>
 
