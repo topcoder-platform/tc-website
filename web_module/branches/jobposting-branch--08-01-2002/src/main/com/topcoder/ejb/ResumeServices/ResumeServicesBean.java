@@ -40,6 +40,7 @@ public class ResumeServicesBean extends BaseEJB {
             conn = DBMS.getTransConnection();
             ps = conn.prepareStatement(GET_RESUME_QUERY);
             rs = ps.executeQuery();
+            if(!rs.next())throw new SQLException(userID+" does not hava a submitted resume.");
             byte[] b = rs.getBytes("file");
             return b;
         } catch (SQLException sqe) {
@@ -92,6 +93,7 @@ public class ResumeServicesBean extends BaseEJB {
             ps = conn.prepareStatement(GET_FILE_TYPE_ID_QUERY);
             ps.setString(1,fileType);
             rs = ps.executeQuery();
+            if(!rs.next())throw new Exception("Unsupported file type: "+fileType);
             ps.close();
             ps = conn.prepareStatement(PUT_RESUME_QUERY);
             ps.setInt(1,DBMS.getTransSeqId(conn,DBMS.RESUME_SEQ));
@@ -99,7 +101,6 @@ public class ResumeServicesBean extends BaseEJB {
             ps.setString(3,fileName);
             ps.setInt(4,rs.getInt("file_type_id"));
             ps.setBytes(5,file);
-            rs.close();
             int numUpdated = ps.executeUpdate();
             if(numUpdated!=1)throw new Exception(numUpdated + " columns where inserted, when 1 was expected.");
         } catch (SQLException sqe) {
