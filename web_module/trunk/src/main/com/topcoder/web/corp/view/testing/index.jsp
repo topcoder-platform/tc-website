@@ -27,8 +27,8 @@
 <!-- Left Column Begins -->
         <td width="170" bgcolor="#CCCCCC">
             <jsp:include page="../includes/left.jsp">
-                <jsp:param name="level1" value="sponsorship"/>
-                <jsp:param name="level2" value="overview"/>
+                <jsp:param name="level1" value="testing"/>
+                <jsp:param name="level2" value="overview"/> 
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -42,56 +42,18 @@
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td class="bodyText" width="100%" colspan="3">
-                        <h1 class="testHead">Targeted Sponsorship Program</h1>
+                        <h1 class="testHead">Candidate Evaluation Application</h1>
                     </td>
                 <tr>
                 
                 <tr valign="top">
                     <td class="bodyText" width="99%">
-                        <p><strong>The fastest growing online property attracting developers from around the world</strong></p>
-                        
-                        <p><strong>Reaching the Developer Community</strong><br>
-                        TopCoder has created an online venue that brings together some of the most talented developers from around the world.</p>
-
-                        <p>Each week, TopCoder hosts an online programming competition during which developers compete for 
-                        ratings, bragging rights, and a major tournament invitation.</p>
-
-                        <p><strong>First of Its Kind</strong><br>
-                        TopCoder competitions offer a venue previously unavailable to the programming world&#151;the ability to conduct 
-                        real-time competitions that are judged immediately and objectively.</p>
-
-                        With TopCoder, technologists from around the world are able to compete online and in a short and concentrated period 
-                        of time. Moreover, with each of the weekly Single Round Matches (SRMs) lasting only 90 minutes, programmers 
-                        don't have to sacrifice as much free time to compete and have the chance to compete more often.</p>
-
-                        <p><strong>Time Spent per Week</strong><br>
-                        Members use TopCoder not only to compete, but to prepare for competition as well. Members will build their skills 
-                        through the Practice Room feature of TopCoder's Arena Applet.</p>
-
-                        <p>TopCoder captures the attention of developers for significant periods of time during the SRMs. Example&#151;the 
-                        average time spent in the Practice Room is 107 minutes. This is in addition to the average time spent (2.5 hours) 
-                        by participants in a Single Round Match.</p>
-
-                        <p><strong>A Benefit to Both</strong><br>
-                        Sponsors benefit from a branded, interactive and learning experience for programmers. TopCoder 
-                        members benefit from the ability to compete in managed, professional matches and tournaments. 
-                        This experience brings programmers and marketers together in a rich and inviting environment.</p>
-
-                        <p><strong>Sponsorship Programs</strong><br>
-                        The goal of TopCoder’s sponsorship program is to provide companies with an opportunity to educate, interact with 
-                        and brand themselves to the membership.</p>
-
-                        <p>This is accomplished by putting sponsoring companies in front of developers in the most applicable places and at the 
-                        most visited times.</p>
-
-                        <p>Over the course of a week, sponsors are promoted as the “exclusive” Single Round Match sponsor and highlighted 
-                        throughout the web site, the TopCoder Arena Applet, and email notification. In addition, sponsors are able to 
-                        survey all participants during the match registration time. (Answering the survey is required to compete.) A landing 
-                        page is set up for sponsors to promote their membership programs (such as a developer network), product 
-                        offerings, demo downloads, and more.</p>
-
-                        <p>In all facets of the sponsorship program, companies are exclusively promoted to eliminate the noise and clutter of 
-                        competing messages.</p>
+                        <p>The TopCoder Testing Program allows companies to test the technical abilities of candidates during the interview process, thereby 
+                        reducing the time incurred by in-house engineers.  Employers can choose problem sets to test candidates' problem solving skills 
+                        with scenarios that mirror on-the-job issues. <font color="#CC0000"><strong><em>Instead of only assessing an employee's skills 
+                        months after the hire date, detailed statistics and all submitted code are released to the employers during the interview process as a 
+                        way to measure and compare candidates. This information drastically reduces the time and effort it takes to identify proven  
+                        developers.</em></strong></font></p>
                     </td>
 
 <!-- Gutter -->
