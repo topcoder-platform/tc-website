@@ -81,6 +81,7 @@
                </li>
                <li>2 members will be randomly chosen on November 11th to receive a grand-prize.  All members who raise a minimum of 
                $100 will be entered into the drawing.  Members will receive one chance for every $100 he/she raises</li>
+               <li>If a top four point scorer is also a top four fundraiser, then TopCoder will choose an additional wildcard from the random drawing.</li>
                </ul>
 
                <p>The grand prize is an expenses paid trip to New York City on Monday, November 24th to attend <a href="/tc/?module=Static&d1=crpf&d2=crpf_overview"><i>A Magical Evening</i></a>, 
