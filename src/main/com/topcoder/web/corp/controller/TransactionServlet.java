@@ -18,20 +18,32 @@ import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.security.GeneralSecurityException;
+import com.topcoder.security.NoSuchUserException;
+import com.topcoder.security.RolePrincipal;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.NotAuthorizedException;
+import com.topcoder.security.UserPrincipal;
+import com.topcoder.security.admin.PrincipalMgrRemote;
 
+import javax.ejb.CreateException;
 import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.transaction.Transaction;
+
 import java.io.IOException;
+import java.rmi.RemoteException;
 import java.sql.Date;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Vector;
 import java.net.URLEncoder;
 
@@ -344,8 +356,8 @@ public class TransactionServlet extends HttpServlet {
         TransactionInfo txInfo = buildTransactionInfo(req, resp);
         InitialContext ic = (InitialContext) TCContext.getInitial();
         UserTermsOfUse userTerms = ((UserTermsOfUseHome) ic.lookup("corp:"+UserTermsOfUseHome.EJB_REF_NAME)).create();
-        if (!userTerms.hasTermsOfUse(txInfo.getContactID(), Constants.GENERAL_PRODUCT_TERMS_ID)) {
-            userTerms.createUserTermsOfUse(txInfo.getContactID(), Constants.GENERAL_PRODUCT_TERMS_ID);
+        if (!userTerms.hasTermsOfUse(txInfo.getBuyerID(), Constants.GENERAL_PRODUCT_TERMS_ID)) {
+            userTerms.createUserTermsOfUse(txInfo.getBuyerID(), Constants.GENERAL_PRODUCT_TERMS_ID);
         }
         txInfo.setAgreed(true);
         req.setAttribute(Constants.KEY_CCTX_SUM, "" + (txInfo.getCost()));
@@ -426,13 +438,18 @@ public class TransactionServlet extends HttpServlet {
             purchaseID = purchaseTable.createPurchase(
                     txInfo.getCompanyID(),
                     txInfo.getProductID(),
-                    txInfo.getContactID(),
+                    txInfo.getBuyerID(),
                     txInfo.getCost()
             );
             Date startDate = purchaseTable.getCreateDate(purchaseID);
             purchaseTable.setStartDate(purchaseID, startDate);
             purchaseTable.setEndDate(purchaseID, txInfo.getEnd(startDate));
             //purchaseTable.setSumPaid(purchaseID, txInfo.sum);
+            
+            // before commit transaction we are required
+            // to set roles, on per product basis
+            assignPerProductRoles(txInfo);
+            
             dbTx.commit();
             log.debug("CcTx completed, redirectURL is "+txInfo.getUserBackPage());
         } catch (Exception e) {
@@ -477,7 +494,7 @@ public class TransactionServlet extends HttpServlet {
         TermsOfUse terms = ((TermsOfUseHome) ic.lookup("corp:"+TermsOfUseHome.EJB_REF_NAME)).create();
         txInfo.setTerms(terms.getText(Constants.GENERAL_PRODUCT_TERMS_ID));
         UserTermsOfUse userTerms = ((UserTermsOfUseHome) ic.lookup("corp:"+UserTermsOfUseHome.EJB_REF_NAME)).create();
-        if (userTerms.hasTermsOfUse(txInfo.getContactID(), Constants.GENERAL_PRODUCT_TERMS_ID)) {
+        if (userTerms.hasTermsOfUse(txInfo.getBuyerID(), Constants.GENERAL_PRODUCT_TERMS_ID)) {
             txInfo.setAgreed(true);
         } else {
             txInfo.setAgreed(false);
@@ -598,7 +615,60 @@ public class TransactionServlet extends HttpServlet {
         fetchRegularPage(req, resp, loginPageDest.toString(), true);
     }
 
-
+    /**
+     * Sets up roles for user on per product basis. If any exeption has arised,
+     * then all changes are rolled back programmaticaly (because PrincipalManager
+     * usage this cant be performed in transaction scope and, thus can't be
+     * rolled back automatically)
+     * 
+     * @param txInfo
+     */
+    private void assignPerProductRoles(TransactionInfo txInfo)
+    throws CreateException, NamingException,RemoteException,
+            GeneralSecurityException, NoSuchUserException, Exception
+    {
+        PrincipalMgrRemote mgr = Util.getPrincipalManager();
+        TCSubject buyerSubject = mgr.getUserSubject(txInfo.getBuyerID());
+        UserPrincipal buyerPrincipal = mgr.getUser(txInfo.getBuyerID());
+        Collection assignedRoles = mgr.getRoles(buyerSubject);
+        TCSubject appSubject = Util.retrieveTCSubject(Constants.CORP_PRINCIPAL);
+        Iterator i = txInfo.getRolesPerProduct().iterator();
+        
+        HashSet rollbackStore = new HashSet();
+        Exception caught = null;
+        
+        while( i.hasNext() ) {
+            RolePrincipal newRole = (RolePrincipal)i.next();
+            if( assignedRoles.contains(newRole) ) continue;
+            
+            // it is really new role - try to assign it
+            try {
+                mgr.assignRole(buyerPrincipal, newRole, appSubject);
+                rollbackStore.add(newRole);
+            }
+            catch(Exception e) {
+                caught = e;
+                break;
+            }
+        }
+        if( caught != null ) {
+            // some errors - rollback
+            i = rollbackStore.iterator();
+            while(i.hasNext()) {
+                RolePrincipal role = (RolePrincipal)i.next();
+                try {
+                    mgr.unAssignRole(buyerPrincipal, role, appSubject);
+                }
+                catch(Exception ignore) {
+                    log.error(
+                        "Cant unassign role "+role+" within the bounds of transaction rollback"
+                    );
+                }
+            }
+            // rethrow caught exception to provide entire transaction rollback 
+            throw caught; 
+        }
+    }
 
 
 }
