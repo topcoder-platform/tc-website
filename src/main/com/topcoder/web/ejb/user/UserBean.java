@@ -20,6 +20,8 @@ import java.sql.SQLException;
 
 /**
 *
+* @author	George Nassar
+* @version	$Revision$
 *
 */
 

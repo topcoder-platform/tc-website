@@ -13,7 +13,7 @@ import javax.ejb.EJBException;
 */
 
 public interface User EJBObject {
-	long createUser() throws RemoteException;
+	long createUser() throws RemoteException, EJBException;
 	void setFirstName(long userId, String firstName) throws RemoteException, EJBException;
 	void setLastName(long userId, string lastName) throws RemoteException, EJBException;
 	void setUserStatusId(long userId, long userStatusId) throws RemoteException, EJBException;
