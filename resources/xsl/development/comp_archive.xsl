@@ -123,9 +123,9 @@
         					<td><img src="/i/clear.gif" alt="" width="2" height="18" border="0" /></td>
         					<td background="" class="statText"><xsl:value-of select="./component_name"/></td>
         					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
-        					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="REVIEW_COMPLETE_DATE"/></xsl:call-template></td>
-        					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="FINAL_SUBMISSION_DATE"/></xsl:call-template></td>
-        					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="PHASE_COMPLETE_DATE"/></xsl:call-template></td>
+        					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="review_complete_date"/></xsl:call-template></td>
+        					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="final_submission_date"/></xsl:call-template></td>
+        					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="phase_complete_date"/></xsl:call-template></td>
         					<td><img src="/i/clear.gif" alt="" width="2" height="18" border="0" /></td>
         				</tr>                 
         		    </xsl:if>
