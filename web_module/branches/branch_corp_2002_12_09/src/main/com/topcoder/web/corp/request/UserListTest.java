@@ -84,7 +84,7 @@ public class UserListTest extends BaseProcessor {
 
         try {
             StringBuffer query = new StringBuffer();
-            query.append("SELECT u.first_name, u.last_name, u.user_id FROM user u");
+            query.append("SELECT first_name, last_name, user_id FROM user");
 
 //        query.append("SELECT u.user_id 
 //                           , su.user_id AS handle
@@ -105,6 +105,7 @@ public class UserListTest extends BaseProcessor {
             rs = ps.executeQuery();
             if (rs.next()) {
                 ret = new ResultSetContainer(rs);
+                log.error("return contains total of "+ret.size()+" rows.");
                 request.setAttribute("companyUsers",ret);
             }
 
