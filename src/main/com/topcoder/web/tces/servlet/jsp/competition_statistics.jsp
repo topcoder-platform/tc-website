@@ -49,7 +49,7 @@
             <TD BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
             <TD class="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
               <P ALIGN="center">
-                <tces:trailIterator id="trailItem" trailList="<%=CompetionStatisticsTask.getTrail()%>">
+                <tces:trailIterator id="trailItem" trailList="<%=CompetitionStatisticsTask.getTrail()%>">
                   <A HREF="<jsp:getProperty name="trailItem" property="href"/>" class="statText"><jsp:getProperty name="trailItem" property="name"/></A> &gt;
                 </tces:trailIterator>
               </P>
