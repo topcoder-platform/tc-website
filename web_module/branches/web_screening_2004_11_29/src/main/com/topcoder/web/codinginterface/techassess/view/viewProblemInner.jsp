@@ -17,19 +17,8 @@
       inputItem.value='';
     }
     var windowHandle = null;
-
-    function openTestingWindow() {
-      if(windowHandle && !windowHandle.closed) {
-        windowHandle.focus();
-        return;
-      }
-      var w = 500;
-      var h = 300;
-      var left = (screen.availWidth - w) / 2;
-      var top = (screen.availHeight - h) / 2;
-      windowHandle = window.open("testWindow.jsp?<%=Constants.COMPONENT_ID%>=" + document.problemForm.<%=Constants.COMPONENT_ID%>.value, "", "statusbar=no,menubar=no,status=no,toolbar=no,width=" + w + ",height=" + h + ",screenX=" + left + ",screenY=" + top);
-    }
 </SCRIPT>
+
 <jsp:include page="problemTimer.jsp">
   <jsp:param name="countDown" value="true"/>
 </jsp:include>
@@ -40,6 +29,20 @@
 <tc-webtag:useBean id="problemInfo" name="<%=Constants.PROBLEM%>" type="com.topcoder.web.codinginterface.techassess.model.ProblemInfo" toScope="page" />
 <tc-webtag:useBean id="language" name="<%=Constants.PROBLEM%>" type="com.topcoder.shared.language.Language" toScope="page" property="language"/>
 <tc-webtag:useBean id="languages" name="<%=Constants.LANGUAGES%>" type="java.util.List" toScope="page" />
+
+<SCRIPT type="text/javascript">
+    function openTestingWindow() {
+      if(windowHandle && !windowHandle.closed) {
+        windowHandle.focus();
+        return;
+      }
+      var w = 500;
+      var h = 300;
+      var left = (screen.availWidth - w) / 2;
+      var top = (screen.availHeight - h) / 2;
+      windowHandle = window.open("<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_TEST%>&<%=Constants.COMPONENT_ID%>=<jsp:getProperty name="problemInfo" property="componentId"/>&<%=Constants.COMPONENT_ID%>=<jsp:getProperty name="problemInfo" property="problemTypeId"/>, "", "statusbar=no,menubar=no,status=no,toolbar=no,width=" + w + ",height=" + h + ",screenX=" + left + ",screenY=" + top);
+    }
+</SCRIPT>
 
 
 <table class=bodyCenter cellspacing=0 cellpadding=0>
@@ -73,11 +76,6 @@
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE%>"/>
                     <tc-webtag:hiddenInput name="<%=Constants.COMPONENT_ID%>" value="<%=String.valueOf(problemInfo.getComponentId())%>"/>
                     <tc-webtag:hiddenInput name="<%=Constants.PROBLEM_TYPE_ID%>" value="<%=String.valueOf(problemInfo.getProblemTypeId())%>"/>
-
-                    <input type=hidden name="arg0" value=""/>
-                    <input type=hidden name="arg1" value=""/>
-
-
 
                     <table cellspacing=0 cellpadding=0 border=0 width="100%">
                        <tr>
