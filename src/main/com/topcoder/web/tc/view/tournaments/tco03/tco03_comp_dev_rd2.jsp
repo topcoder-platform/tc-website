@@ -278,11 +278,11 @@
                     <td class="formHandleOdd" align="right">84.04</td>
                 </tr>
                 <tr valign="middle">
-                    <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=6409400" class="statText" target="_blank">MathML</a></td>
-                    <td class="formHandleOdd" align="center">1</td>
-                    <td class="formHandleOdd" align="center"></td>
-                    <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=277356">aksonov</a></td>
-                    <td class="formHandleOdd" align="right">95.34</td>
+                    <td class="formHandleEven"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=6409400" class="statText" target="_blank">MathML</a></td>
+                    <td class="formHandleEven" align="center">1</td>
+                    <td class="formHandleEven" align="center"></td>
+                    <td class="formHandleEven"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=277356">aksonov</a></td>
+                    <td class="formHandleEven" align="right">95.34</td>
                 </tr>
 
             </table>
