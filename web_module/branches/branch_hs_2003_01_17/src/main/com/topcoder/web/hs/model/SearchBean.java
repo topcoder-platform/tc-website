@@ -6,9 +6,9 @@ public class SearchBean {
 
   private final static int MAX_RESULTS_PER_PAGE=15;
 
-  private Integer prev=0;
+  private Integer prev=null;
 
-  private Integer next=new Integer(MAX_RESULTS_PER_PAGE);
+  private Integer next=null;
 
   private String handle=null;
 
@@ -24,7 +24,7 @@ public class SearchBean {
 
   private List school_list=null;
 
-  public int getMaxResultsPerPage() {
+  public static int getMaxResultsPerPage() {
     return(MAX_RESULTS_PER_PAGE);
   }
 
