@@ -73,7 +73,7 @@
                 <tr><td height="1"><img src="/i/clear.gif" alt="" width="10" height="3" border="0"/></td></tr>
                 <tr><td class="tourney_subnav"><strong>Weekend Schedule</strong></td></tr>
                 <tr valign="top">
-                    <td width="99%" class="bodyText" align="center" bgcolor="#333333">
+                    <td width="99%" class="bodyText" align="center" bgcolor="#000000">
                         
                         <p> 
                         <br />       
