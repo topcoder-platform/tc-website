@@ -40,15 +40,15 @@
 <QuickStatItem url="/stat?c=best_challengers">Challenge Success</QuickStatItem>
 </QuickStatList>
 <ContentList>
-<ContentItem contentHandle="all_time_wins" nextPage="/stat_jsp/allTimeSkell.jsp" access="0" />
-<ContentItem contentHandle="all_time_wins_by_div" nextPage="/stat_jsp/allTimeWinsByDivSkell.jsp" access="0"/>
-<ContentItem contentHandle="winning_debuts" nextPage="/stat_jsp/winDebutsSkell.jsp" access="0"/>
-<ContentItem contentHandle="impressive_debuts" nextPage="/stat_jsp/impressiveDebutSkell.jsp" access="0"/>
-<ContentItem contentHandle="highest_totals" nextPage="/stat_jsp/highTotalSkell.jsp" access="0"/>
-<ContentItem contentHandle="biggest_rating_gains" nextPage="/stat_jsp/ratingGainSkell.jsp" access="0"/>
-<ContentItem contentHandle="most_consecutive_wins" nextPage="/stat_jsp/consecutiveSkell.jsp" access="0"/>
-<ContentItem contentHandle="highest_accuracy" nextPage="/stat_jsp/submitAccuracySkell.jsp" access="0"/>
-<ContentItem contentHandle="best_challengers" nextPage="/stat_jsp/bestChallengeSkell.jsp" access="0"/>
+<ContentItem contentHandle="all_time_wins" nextPage="/stat_jsp/allTimeWins.jsp" access="0" />
+<ContentItem contentHandle="all_time_wins_by_div" nextPage="/stat_jsp/allTimeWinsByDiv.jsp" access="0"/>
+<ContentItem contentHandle="winning_debuts" nextPage="/stat_jsp/winDebuts.jsp" access="0"/>
+<ContentItem contentHandle="impressive_debuts" nextPage="/stat_jsp/impressiveDebut.jsp" access="0"/>
+<ContentItem contentHandle="highest_totals" nextPage="/stat_jsp/highTotals.jsp" access="0"/>
+<ContentItem contentHandle="biggest_rating_gains" nextPage="/stat_jsp/ratingGain.jsp" access="0"/>
+<ContentItem contentHandle="most_consecutive_wins" nextPage="/stat_jsp/consecutiveWins.jsp" access="0"/>
+<ContentItem contentHandle="highest_accuracy" nextPage="/stat_jsp/submitAccuracy.jsp" access="0"/>
+<ContentItem contentHandle="best_challengers" nextPage="/stat_jsp/challengeAccuracy.jsp" access="0"/>
 <ContentItem contentHandle="round_stats" nextPage="/stat_jsp/roundStats.jsp" access="0"/>
 <ContentItem contentHandle="round_stats_sorted" nextPage="/stat_jsp/roundStats.jsp" access="0"/>
 <ContentItem contentHandle="last_match" nextPage="/stat_jsp/roundStats.jsp" access="0"/>
