@@ -93,16 +93,16 @@ public class EmailInfo extends BaseModel {
         StringBuffer msgText = new StringBuffer(1000);
         msgText.append("Thank you for your interest in working at ");
         msgText.append(companyName);
-        msgText.append(".  We would like you to participate in the next stage of our screening ");
-        msgText.append("process - the Private Candidate Testing Application powered by TopCoder.  ");
-        msgText.append("Through this Testing Application, you will be asked to solve algorithmic ");
-        msgText.append("problems as an objective measure of your programming ability. Your results ");
-        msgText.append("will then be compared to other candidates being evaluated for the same position.\n");
-        msgText.append("\n");
+        msgText.append(".  We would like you to participate in the Private Candidate Testing Application powered by ");
+        msgText.append("TopCoder.  Through this Testing Application, you will be asked to solve algorithmic problems ");
+        msgText.append("as an objective measure of your programming ability. Your results will then be compared to ");
+        msgText.append("other candidates being evaluated for the same position.");
+        msgText.append("\n\n");
         msgText.append("Please review the Help Manual before getting started: ");
-        msgText.append("******<URL to online help manual> OR attached Word document*******\n");
-        msgText.append("\n");
-        msgText.append("The following session has been scheduled for you:\n");
+        msgText.append("http://corporate.topcoder.com/testing/help/index.jsp");
+        msgText.append("\n\n");
+        msgText.append("The following session has been scheduled for you:");
+        msgText.append("\n\n");
         msgText.append("Begin: ");
         msgText.append(sdf.format(sessionInfo.getBeginDate()));
         msgText.append("\n");
@@ -115,19 +115,23 @@ public class EmailInfo extends BaseModel {
         msgText.append("Password:  ");
         msgText.append(candidatePassword);
         msgText.append("\n\n");
+        msgText.append("PLEASE NOTE THAT YOU MUST COMPLETE ALL PORTIONS OF THE TESTING APPLICATION PRIOR TO THE END ");
+        msgText.append("TIME SHOWN ABOVE.  YOU SHOULD ALLOW APPROXIMATELY 2 HOURS TO COMPLETE ALL PORTIONS OF THE TEST.");
+        msgText.append("\n\n");
         msgText.append("Windows, Linux and Unix users need to have the Java 1.4.x runtime installed and can access ");
         msgText.append("the Testing Application here: http://corporate.topcoder.com/testing/testingApp.jsp?company=");
         msgText.append(companyId);
         msgText.append("\n\n");
-        msgText.append("Mac OS X users need to have the Java 1.4.x runtime installed which requires OS X version ");
-        msgText.append("10.2.x.  You may access the Testing Application here: ");
+        msgText.append("Mac OS X users need to have the Java 1.4.x runtime installed, which requires OS X version ");
+        msgText.append("10.2.x.  Those users may access the Testing Application here: ");
         msgText.append("http://corporate.topcoder.com/testing/testingApp.jsp?company=");
         msgText.append(companyId);
         msgText.append("\n\n");
-        msgText.append("Best of luck!\n");
+        msgText.append("Thank you,\n");
         msgText.append(repName);
         msgText.append("\n");
         msgText.append(companyName);
+
         return msgText.toString();
     }
 
