@@ -176,7 +176,7 @@ End Class </pre><br/><br/>
                         compilation will dictate to which language compiler the compilation request is sent.  A compilation request will send the code that is currently in the coding 
                         window to the TopCoder compiler.  If a compilation is successful, you will be notified of such.  If the compilation is not successful, the errors that are 
                         returned by the compiler will be displayed to you in the compilation results window.  Once a successful compilation is accomplished, the resultant compiled 
-                        object will be stored on TopCoder's server.  Any user test or code submission will always utilize the most recent successfully compiled code.</dd><br/>
+                        object will be stored on TopCoder's server.  Any user test or code submission will always utilize the most recent successfully compiled code.<br/><br/>
                           
                           
                             <dd><strong>User Testing</strong><br/>
@@ -186,17 +186,17 @@ End Class </pre><br/><br/>
                             test based on the examples in the problem statement will provide a fairly good measure of the correctness of your solution since the examples will specify 
                             what the return value for a given set of input parameters should be.  However, the examples do not represent an exhaustive test suite for a given problem 
                             - just because your code produces the proper results for all examples does not necessarily mean that it will produce the proper result for other input 
-                            parameters.  Think about potential border cases that may cause variations in the behavior of your solution and test these cases thoroughly.</dd><br/>
+                            parameters.  Think about potential border cases that may cause variations in the behavior of your solution and test these cases thoroughly.<br/><br/>
                             
                             <dd>If your compiled code executes successfully (without errors) for the input parameters that you've provided, you will be presented with the return 
                             value(s) that your code produced.  In the event that an error occurs during the execution of your code, you will be presented with the error message(s) 
-                            that the execution of your code produced.</dd><br/>
+                            that the execution of your code produced.<br/><br/>
                             
                             <dd><i>Important note: All code submissions must run in under eight (8) seconds for ALL test cases, otherwise the code submission will be marked as incorrect, 
-                            and you will not receive any points.</i></dd><br/>
+                            and you will not receive any points.</i><br/><br/>
                             
                             <dd>NOTE: any standard output (i.e., System.out.println) from the execution of your class/method will be returned to you along with the results of your 
-                            test.  This may be useful for debugging your code.</dd><br/>
+                            test.  This may be useful for debugging your code.<br/><br/>
                             
                             <dd><strong>The Problem Arguments Window</strong><br/>
                             When you click on the "Test" button from within the coding window, the "Problem Arguments Window" will appear.  The problem arguments window is 
@@ -206,7 +206,7 @@ End Class </pre><br/><br/>
                            <dd><strong>Simple Data Types</strong><br/>
                            For all non-array data types - such as int, long, char and String - the test box input dialog will present you with a field to input the data.  The data 
                            should be input without any quotes or other extra characters.  So, if you want to test with the String "abc" you should just type abc into the 
-                           input field, not "abc".</dd><br/>
+                           input field, not "abc".<br/><br/>
                             
                             <dd><strong>Complex Data Types</strong><br/>
                            When one of the inputs is an array such as <tt>int[] (vector &#60;int&#62; in C++)</tt>, the test case dialog will present you with a button to create the array.  
