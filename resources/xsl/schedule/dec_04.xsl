@@ -104,14 +104,14 @@
                             
                             <tr> 
                                 <td id="calendar">5</td>
+                                <td id="calendar">6</td>
                                 <td id="calendarSRM">
-                                    <span id="calendarSRMDate">6</span><br />
+                                    <span id="calendarSRMDate">7</span><br />
                                     <strong>Match 222</strong><br />
                                     Register: 10:00&#160;AM<br />
                                     Compete: 1:00&#160;PM<br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=5868&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
-                                <td id="calendar">7</td>
                                 <td id="calendar">8</td>
                                 <td id="calendar">9</td>
                                 <td id="calendar">10</td>
