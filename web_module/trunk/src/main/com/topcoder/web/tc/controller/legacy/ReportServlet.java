@@ -1226,8 +1226,8 @@ public final class ReportServlet extends HttpServlet {
 
     private static final Integer PRO_REG_INFO_ID = new Integer(16);
     private static final String PRO_REG_INFO_TITLE = "Professional Registration Information";
-    private static final int[] PRO_REG_INFO_TYPES = {ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, };
-    private static final String[] PRO_REG_INFO_HEADINGS = {"Status", "Company", "Title", "First", "Last", "Email", "Handle", "City", "State", "Country", "Date Registered"};
+    private static final int[] PRO_REG_INFO_TYPES = {ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING};
+    private static final String[] PRO_REG_INFO_HEADINGS = {"Status", "Company", "Title", "First", "Last", "Email", "Handle", "City", "State", "Country", "Date Registered", "Referral Info"};
     private static final String PRO_REG_INFO =
             " SELECT status "+
             "  ,(SELECT dr.demographic_response "+
@@ -1259,6 +1259,7 @@ public final class ReportServlet extends HttpServlet {
              " ,country co "+
             " ,coder_referral cr" +
              " WHERE u.user_id = c.coder_id "+
+             " and c.coder = cr.coder_id" +
              " AND c.coder_type_id = 2 "+
              " AND DATE(member_since) >= today-7 "+
              " AND handle NOT LIKE 'guest%' "+
@@ -1272,8 +1273,8 @@ public final class ReportServlet extends HttpServlet {
 
     private static final Integer STUDENT_REG_INFO_ID = new Integer(17);
     private static final String STUDENT_REG_INFO_TITLE = "Student Registration Information";
-    private static final int[] STUDENT_REG_INFO_TYPES = {ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING};
-    private static final String[] STUDENT_REG_INFO_HEADINGS = {"Status", "Handle", "First", "Last", "Email", "Date Registered", "City", "State", "Country"};
+    private static final int[] STUDENT_REG_INFO_TYPES = {ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING};
+    private static final String[] STUDENT_REG_INFO_HEADINGS = {"Status", "Handle", "First", "Last", "Email", "Date Registered", "City", "State", "Country", "Referral Info"};
     private static final String STUDENT_REG_INFO =
     " SELECT status " +
     "     ,handle" +
