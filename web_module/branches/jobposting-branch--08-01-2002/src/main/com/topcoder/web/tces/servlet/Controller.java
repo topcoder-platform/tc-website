@@ -100,8 +100,8 @@ public class Controller extends HttpServlet {
                         ctx.lookup(ApplicationServer.TCES_SERVICES);
                 TCESServices tcesServices = tcesHome.create();
                 tcesServices.addJobHit(userId, jobId, hitTypeId);
-            } catch (Exception e) {
-                forwardToErrorPage(request, response, e);
+            } catch (Exception ex) {
+                forwardToErrorPage(request, response, ex);
             }
         } else {
             forwardToErrorPage(request, response,
@@ -137,55 +137,50 @@ public class Controller extends HttpServlet {
                     " in request"));
         }
 
-        InitialContext ctx = (InitialContext) TCContext.getInitial();
-        Request dataRequest = new Request();
-        dataRequest.setProperty("c", "tces_user_and_pw");
-        dataRequest.setProperty("hn", "" + handle);
-        DataAccessInt dai = new DataAccess((javax.sql.DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
-
-        Map resultMap = dai.getData(dataRequest);
-        ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_User_And_Password");
-
-        if (rsc.getRowCount() == 0) {
-            request.setAttribute(TCESConstants.MSG_ATTR_KEY, "User handle incorrect.  Please retry.");
-
-            getServletContext().getContext("/").getRequestDispatcher(
-                response.encodeURL("/es/login.jsp")).forward(request, response);
-
-            return;
-        }
-
-        ResultSetContainer.ResultSetRow rRow = rsc.getRow(0);
-
-        String actualPassword=null;
         try {
-            actualPassword = TCData.getTCString(rRow, "password");
-        } catch (Exception e) {
-            log.debug("Exception occured getting user data in handleLogin.");
-            forwardToErrorPage(request, response, e);
-        } finally {
+            InitialContext ctx = (InitialContext) TCContext.getInitial();
+
+            Request dataRequest = new Request();
+            dataRequest.setProperty("c", "tces_user_and_pw");
+            dataRequest.setProperty("hn", "" + handle);
+            DataAccessInt dai = new DataAccess((javax.sql.DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
+
+            Map resultMap = dai.getData(dataRequest);
+            ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_User_And_Password");
+
+            if (rsc.getRowCount() == 0) {
+                request.setAttribute(TCESConstants.MSG_ATTR_KEY, "User handle incorrect.  Please retry.");
+
+                getServletContext().getContext("/").getRequestDispatcher(
+                    response.encodeURL("/es/login.jsp")).forward(request, response);
+
+                return;
+            }
+
+            ResultSetContainer.ResultSetRow rRow = rsc.getRow(0);
+
+            String actualPassword = TCData.getTCString(rRow, "password");
             if (actualPassword == null) {
                 log.debug("Exception occured getting user data in handleLogin.");
-                forwardToErrorPage(request, response, e);
+                forwardToErrorPage(request, response, new Exception("Unable to read user data from DB in handleLogin"));
             }
+
+            if (!actualPassword.trim().equals(password)) {
+                request.setAttribute(TCESConstants.MSG_ATTR_KEY, "Password incorrect.  Please retry.");
+
+                getServletContext().getContext("/").getRequestDispatcher(
+                    response.encodeURL("/es/login.jsp")).forward(request, response);
+
+                return;
+            }
+        } catch (Exception ex) {
+            forwardToErrorPage(request, response, ex);
         }
-
-        if (!actualPassword.trim().equals(password)) {
-            request.setAttribute(TCESConstants.MSG_ATTR_KEY, "Password incorrect.  Please retry.");
-
-            getServletContext().getContext("/").getRequestDispatcher(
-                response.encodeURL("/es/login.jsp")).forward(request, response);
-
-            return;
-        }
-
 
         request.setAttribute(TCESConstants.MSG_ATTR_KEY,new String("Login OK!"));
 
         getServletContext().getContext("/").getRequestDispatcher(
             response.encodeURL("/es/login.jsp")).forward(request, response);
-
-
     }
 
 
