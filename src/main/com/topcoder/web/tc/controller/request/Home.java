@@ -33,8 +33,8 @@ public class Home extends Base {
             CachedDataAccess nextRoundDai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
             nextRoundDai.setExpireTime(30*60*1000);
             Request nextRoundReq = new Request();
-            nextRoundReq.setContentHandle("next_round");
-            getRequest().setAttribute("next_round", nextRoundDai.getData(countReq).get("next_round"));
+            nextRoundReq.setContentHandle("next_srm");
+            getRequest().setAttribute("Next_SRM", nextRoundDai.getData(countReq).get("Next_SRM"));
 
             CachedDataAccess dwDai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
             Request dataRequest = new Request();
