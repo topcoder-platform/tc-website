@@ -128,7 +128,7 @@ if (srb.getProperty("sq")!=null){
 	sortString+="&sc=" + srb.getProperty("sc");
 	sortString+="&sd=" + srb.getProperty("sd", "desc");	
 }
-String sSortUrl = "/stat?c=reliability_rating&cr="+srb.getProperty("cr")+"&sq=reliability_rating";
+String sSortUrl = "/stat?c=reliability_history&cr="+srb.getProperty("cr")+"&sq=reliability_history";
 %>
           
                
