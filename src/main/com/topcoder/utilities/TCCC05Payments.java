@@ -76,6 +76,7 @@ public class TCCC05Payments {
 
 
     private void makePayments() throws Exception {
+        log.debug("makePayments running...");
         //figure out all the winners
         //figure out what they all won
         //insert all the records
@@ -94,6 +95,7 @@ public class TCCC05Payments {
             all.add(new Data(rs.getLong("room_id"), rs.getLong("coder_id"),
                     rs.getLong("round_id"), rs.getInt("room_placed")));
         }
+        log.debug("found " + all.size() + " competitors");
 
         ArrayList winners = getWinnerPaymentInfo(all);
         for (int i=0; i<winners.size(); i++) {
