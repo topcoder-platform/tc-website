@@ -158,10 +158,10 @@ public class GoogleLogin extends FullLogin {
 
             for (Iterator it = responses.iterator(); it.hasNext();) {
                 row = (ResultSetContainer.ResultSetRow) it.next();
-                question = findQuestion(row.getLongItem("demographic_question_id"));
+                long tcQuestionId = row.getLongItem("demographic_question_id");
                 //only add the response if we have a mapping for it
-                if (question != null) {
-                    if (TC_TO_PL_QUESTION_MAP.containsKey(new Long(question.getId()))) {
+                    if (TC_TO_PL_QUESTION_MAP.containsKey(new Long(tcQuestionId))) {
+                        question = findQuestion(((Long)TC_TO_PL_QUESTION_MAP.get(new Long(tcQuestionId))).longValue());
                         DemographicResponse r = new DemographicResponse();
                         r.setQuestionId(question.getId());
                         r.setSort(row.getIntItem("sort"));
@@ -178,7 +178,6 @@ public class GoogleLogin extends FullLogin {
                             info.addResponse(r);
                         }
                     }
-                }
             }
         }
         //returning null if they don't have an account in either system
