@@ -18,6 +18,7 @@ public class AnswerInput extends BaseTag {
     private String cssclass;
     private Question question;
     private Iterator answers;
+    private boolean processed = false;
 
     public AnswerInput() {
         super();
@@ -54,13 +55,14 @@ public class AnswerInput extends BaseTag {
             /* if we haven't done so already, set the information
                to make it accessible from the jsp and evaluate, otherwise, skip the body
              */
-            if (pageContext.getAttribute(getId())==null) {
-                log.debug("evaluating");
-                pageContext.setAttribute(getId(), inputText, PageContext.PAGE_SCOPE);
-                return EVAL_BODY_TAG;
-            } else {
+            if (processed) {
                 log.debug("not evaluating");
                 return wrapItUp();
+            } else {
+                log.debug("evaluating");
+                pageContext.setAttribute(getId(), inputText, PageContext.PAGE_SCOPE);
+                processed = true;
+                return EVAL_BODY_TAG;
             }
         } else if (answers!=null && answers.hasNext()) {
             log.debug("answers wasn't null and there were more elements");
