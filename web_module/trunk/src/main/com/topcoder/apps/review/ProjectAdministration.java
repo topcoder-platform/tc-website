@@ -471,7 +471,7 @@ public class ProjectAdministration implements Model {
             for (int i = 0; i < oldRoles.length && i < newRoles.length; i++) {
                 if (!oldRoles[i].getRole().equals(newRoles[i].getRole())
                         || !equals(newRoles[i].getUser(), oldRoles[i].getUser())) {
-                    changeType = MailHelper.ROLE_CHANGE;
+                    changeType |= MailHelper.ROLE_CHANGE;
                     isRoleChange = true;
                     if (submitterSet.contains(newRoles[i].getUser())) {
                         problemSet.add(newRoles[i].getUser());
