@@ -6,6 +6,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.corp.common.TCESAuthenticationException;
 import com.topcoder.web.corp.common.TCESConstants;
 import com.topcoder.web.corp.controller.request.tces.BaseTask;
+import com.topcoder.security.NotAuthorizedException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -352,7 +353,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
 
             rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Job_Access");
             if (rsc.getRowCount() == 0 && !super.getSessionInfo().isAdmin()) {
-                throw new TCESAuthenticationException(" cid=" + Integer.toString(getCampaignID()) +
+                throw new NotAuthorizedException(" cid=" + Integer.toString(getCampaignID()) +
                         " pid=" + Integer.toString(getJobID()) +
                         " does not belong to uid=" + Long.toString(uid));
             }
@@ -361,7 +362,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
 
             rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Campaign_Access");
             if (rsc.getRowCount() == 0 && !super.getSessionInfo().isAdmin()) {
-                throw new TCESAuthenticationException(" cid=" + Integer.toString(getCampaignID()) +
+                throw new NotAuthorizedException(" cid=" + Integer.toString(getCampaignID()) +
                         "does not belong to uid=" + Long.toString(uid));
             }
         }

@@ -7,6 +7,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.corp.common.TCESAuthenticationException;
 import com.topcoder.web.corp.common.TCESConstants;
 import com.topcoder.web.corp.controller.request.tces.BaseTask;
+import com.topcoder.security.NotAuthorizedException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -232,14 +233,14 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_Info");
         if (rsc.getRowCount() == 0) {
-            throw new TCESAuthenticationException("Bad campaign ID or campaign does not belong to user.");
+            throw new NotAuthorizedException("Bad campaign ID or campaign does not belong to user.");
         }
         ResultSetContainer.ResultSetRow cpgnInfRow = rsc.getRow(0);
         setCampaignName(cpgnInfRow.getItem("campaign_name").toString());
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Job_Access");
         if (rsc.getRowCount() == 0 && !super.getSessionInfo().isAdmin()) {
-            throw new TCESAuthenticationException("jid=" + Integer.toString(getJobID()) +
+            throw new NotAuthorizedException("jid=" + Integer.toString(getJobID()) +
                     " cid=" + Integer.toString(getCampaignID()) +
                     "does not belong to uid=" + Long.toString(uid));
         }

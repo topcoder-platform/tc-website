@@ -17,6 +17,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.corp.common.TCESAuthenticationException;
 import com.topcoder.web.corp.common.TCESConstants;
 import com.topcoder.web.corp.controller.request.tces.BaseTask;
+import com.topcoder.security.NotAuthorizedException;
 
 import java.io.Serializable;
 import java.io.StringReader;
@@ -84,7 +85,7 @@ public class ProblemStatementTask extends BaseTask implements Task, Serializable
 
         ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Member_Access");
         if (rsc.getRowCount() == 0 && !super.getSessionInfo().isAdmin()) {
-            throw new TCESAuthenticationException("mid=" + Integer.toString(getMemberID()) +
+            throw new NotAuthorizedException("mid=" + Integer.toString(getMemberID()) +
                     " jid=" + Integer.toString(getJobID()) +
                     " cid=" + Integer.toString(getCampaignID()) +
                     " does not belong to uid=" + Long.toString(uid));
@@ -94,7 +95,7 @@ public class ProblemStatementTask extends BaseTask implements Task, Serializable
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Problem_Statement");
         if (rsc.getRowCount() == 0) {
-            throw new TCESAuthenticationException("No problem data!");
+            throw new NotAuthorizedException("No problem data!");
         }
         ResultSetContainer.ResultSetRow problemRow = rsc.getRow(0);
         setContestName(problemRow.getItem("contest_name").toString());
