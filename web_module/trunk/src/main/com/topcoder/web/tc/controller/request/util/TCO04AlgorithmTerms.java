@@ -36,9 +36,12 @@ public class TCO04AlgorithmTerms extends TermsBase {
     }
 
     protected void setSuccessPage() throws Exception {
-        if (!isRegistered())
+        if (isRegistered()) {
+            setIsNextPageInContext(false);
+        } else {
             setNextPage(Constants.TCO04_TERMS);
-        setIsNextPageInContext(true);
+            setIsNextPageInContext(true);
+        }
     }
 
     public boolean isEligible() throws Exception {
