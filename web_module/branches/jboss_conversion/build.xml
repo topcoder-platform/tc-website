@@ -113,7 +113,7 @@
              destdir="${classes}"
              classpathref="class.path"
              debug="${debug}"
-             deprecation="true">
+             deprecation="${deprecation}">
              <include name="com/topcoder/dde/**"/>
              <include name="com/topcoder/util/**"/>
              <include name="com/topcoder/web/common/**"/>
