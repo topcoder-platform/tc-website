@@ -147,7 +147,7 @@
 
                 <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=289824">MPhk</a></td>
+                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=289824">MPhk</a></td>
                     <td class="statText" align="center">1</td>
                     <td class="statText" align="center">88.46</td>
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -297,7 +297,7 @@
 
                 <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=280167">Ttsuchi</a></td>
+                    <td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=280167">ttsuchi</a></td>
                     <td class="statText" align="center">2</td>
                     <td class="statText" align="center">80.35</td>
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -397,7 +397,7 @@
 
                 <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=300664">ahoenig</a></td>
+                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=300664">ahoenig</a></td>
                     <td class="statText" align="center">1</td>
                     <td class="statText" align="center">69.35</td>
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -417,7 +417,7 @@
 
                 <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=263386">TemporarilyBlue</a></td>
+                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=263386">TemporarilyBlue</a></td>
                     <td class="statText" align="center">1</td>
                     <td class="statText" align="center">67.21</td>
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -458,7 +458,7 @@
                 <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td class="statText"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=261909">RedSpectra</a></td>
-                    <td class="statText" align="center">1</td>
+                    <td class="statText" align="center">2</td>
                     <td class="statText" align="center">60.71</td>
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>

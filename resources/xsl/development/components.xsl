@@ -385,7 +385,7 @@
 
                 <tr valign="middle">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=5709951" class="statText" target="parent">SVG 2DSGraphics</a></td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=5709951" class="statText" target="parent">SVG 2DGraphics</a></td>
                     <td class="statText" height="15" align="center">1</td>
                     <td class="statText" height="15"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=289824"><strong>MPhk</strong></a></td>
                     <td class="statText" height="15" align="center">88.46</td>
@@ -442,7 +442,7 @@
 
                 <tr valign="middle">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=2803396" class="statText" target="parent">Randon String Generator</a></td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=2803396" class="statText" target="parent">Random String Generator</a></td>
                     <td class="statText" height="15" align="center">25</td>
                         <td class="statText" height="15"><a href="/stat?c=member_profile&amp;cr=108262" class="coderTextYellow"><strong>mathgodleo</strong></a></td>
                     <td class="statText" height="15" align="center">99.27</td>
