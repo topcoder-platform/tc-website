@@ -64,7 +64,7 @@
               <tr valign="top">
                   <td width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
                       <form name="searchForm" method="get">
-                          <input type="hidden" name="module" value="SimpleSearch"/>
+                          <input type="hidden" name="module" value="AdvancedSearch"/>
                           <input type="hidden" name=<%=DataAccessConstants.START_RANK%> value=""/>
                           <input type="hidden" name=<%=DataAccessConstants.END_RANK%> value=""/>
                           <input type="hidden" name=<%=Constants.HANDLE%> value="<jsp:getProperty name="memberSearch" property="handle"/>"/>
