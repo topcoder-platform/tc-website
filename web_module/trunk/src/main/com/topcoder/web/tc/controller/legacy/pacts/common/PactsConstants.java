@@ -298,6 +298,7 @@ public interface PactsConstants {
     public static final String TABLE_MODEL = "table_data";
     public static final String MODULE_KEY = "module";
     public static final String AFFIDAVIT_TYPE_ID = "aftid";
+    public static final String AFFIDAVIT_TEXT = "atxt";
 
     // affidavit member jsps
     public static final String AFFIDAVIT_TASK = "affidavit";
@@ -431,6 +432,7 @@ public interface PactsConstants {
     public static final String INTERNAL_AFFIRM_AFFIDAVIT_JSP = INTERNAL_JSP_DIR + "/affirmAffidavit.jsp";
     public static final String INTERNAL_ERROR_JSP = INTERNAL_JSP_DIR + "/error.jsp";
     public static final String INTERNAL_GENERATE_PAYMENTS = INTERNAL_JSP_DIR + "/generatePayments.jsp";
+    public static final String INTERNAL_CREATE_AFFIDAVIT = INTERNAL_JSP_DIR + "/createAffidavitTemplate.jsp";
 
     /*
       veredox - Don't get your panties in a knot.
