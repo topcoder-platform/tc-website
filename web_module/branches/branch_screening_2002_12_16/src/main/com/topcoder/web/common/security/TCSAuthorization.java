@@ -9,6 +9,7 @@ import com.topcoder.security.policy.GenericPermission;
 import com.topcoder.security.policy.PolicyRemoteHome;
 import com.topcoder.security.policy.PolicyRemote;
 import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.util.Hashtable;
 import javax.naming.InitialContext;
@@ -26,6 +27,8 @@ import javax.ejb.CreateException;
  */
 
 public class TCSAuthorization implements Authorization {
+
+    private static Logger log = Logger.getLogger(TCSAuthorization.class);
 
     private TCSubject user;
 
@@ -49,9 +52,10 @@ public class TCSAuthorization implements Authorization {
         Context ctx = null;
 
         try {
+            log.debug("Getting Policy EJB");
             Hashtable env = new Hashtable();
             env.put(Context.INITIAL_CONTEXT_FACTORY,
-                "org.jnp.interfaces.NamingContextFactory");
+                ApplicationServer.SECURITY_FACTORY);
             env.put(Context.PROVIDER_URL,
                 ApplicationServer.SECURITY_PROVIDER_URL);
             ctx = new InitialContext(env);
@@ -60,6 +64,7 @@ public class TCSAuthorization implements Authorization {
                     ctx.lookup(PolicyRemoteHome.EJB_REF_NAME);
             PolicyRemote policy = pHome.create();
 
+            log.debug("Checking permissions");
             GenericPermission permission = new GenericPermission(r.getName());
 
             if (user != null)

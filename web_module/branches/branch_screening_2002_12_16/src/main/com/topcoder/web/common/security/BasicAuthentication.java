@@ -101,7 +101,7 @@ public class BasicAuthentication implements WebAuthentication {
             log.debug("Getting Login EJB");
             Hashtable env = new Hashtable();
             env.put(Context.INITIAL_CONTEXT_FACTORY,
-                "org.jnp.interfaces.NamingContextFactory");
+                ApplicationServer.SECURITY_FACTORY);
             env.put(Context.PROVIDER_URL,
                 ApplicationServer.SECURITY_PROVIDER_URL);
             InitialContext context = new InitialContext(env);
