@@ -54,24 +54,80 @@
                 </tr>
             </table>
                 
-            <table border="0" cellspacing="0" cellpadding="5" bgcolor="#001B35" width="100%">
+            <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
                 <tr valign="top">
                     <td class="statText">
-                        <div align="center">
-                            <p><img src="/i/development/bonusContestGraphic.gif" alt="TopCoder Software Development Bonus Contest" width="555" height="84" border="0" /></p>
-                        </div></td>
+                        <div align="center"><img src="/i/development/bonusContestGraphic.gif" alt="TopCoder Software Development Bonus Contest" width="470" height="59" border="0" /></div>
+                        
+                        <p><strong>With an average score of 93.09 on 5 submissions, Pops beat out 40 other TopCoder members to take the top spot... and the $2000 bonus.</strong></p>
+
+                        <p>In addition, Pops has earned $1120 for his winning designs, as well as royalty payments. These are the projects for which Pops submitted winning design solutions:</p>
+                        
+                    </td>
+                </tr>
+            </table>
+
+            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
+                <tr>
+                    <td align="center">
+                        <table border="0" cellspacing="0" cellpadding="3">
+                            <tr valign="middle">
+                                <td background="/i/steel_bluebv_bg.gif" width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
+                                <td background="/i/steel_bluebv_bg.gif" width="150" class="statText">Project</td>
+                                <td background="/i/steel_bluebv_bg.gif" width="80" class="statText" align="center">Submissions</td>
+                                <td background="/i/steel_bluebv_bg.gif" width="80" class="statText" align="center">Score</td>
+                                <td background="/i/steel_bluebv_bg.gif" width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
+                            </tr>
+                
+                            <tr valign="top">
+                                <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
+                                <td class="statText"><a class="statText" href="http://software.topcoder.com/pages/c_component.jsp?comp=6508770">Bag Collection</a></td>
+                                <td class="statText" align="center">2</td>
+                                <td class="statText" align="center">95.14</td>
+                                <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
+                            </tr>
+
+                            <tr valign="top">
+                                <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
+                                <td class="statText"><a class="statText" href="http://software.topcoder.com/pages/c_component.jsp?comp=3304122">Chat Server</a></td>
+                                <td class="statText" align="center">1</td>
+                                <td class="statText" align="center">95.00</td>
+                                <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
+                            </tr>
+
+                            <tr valign="top">
+                                <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
+                                <td class="statText"><a class="statText" href="http://software.topcoder.com/pages/c_component.jsp?comp=6402357">Class Discovery</a></td>
+                                <td class="statText" align="center">1</td>
+                                <td class="statText" align="center">93.77</td>
+                                <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
+                            </tr>
+
+                            <tr valign="top">
+                                <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
+                                <td class="statText"><a class="statText" href="http://software.topcoder.com/pages/c_component.jsp?comp=4201389">Heartbeat</a></td>
+                                <td class="statText" align="center">1</td>
+                                <td class="statText" align="center">85.39</td>
+                                <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
+                            </tr>
+
+                            <tr valign="top">
+                                <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
+                                <td class="statText"><a class="statText" href="http://software.topcoder.com/pages/c_component.jsp?comp=3300871">URL Loader</a></td>
+                                <td class="statText" align="center">2</td>
+                                <td class="statText" align="center">96.13</td>
+                                <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
+                            </tr>
+
+                        </table>
+                    </td>
                 </tr>
             </table>
 
             <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
                 <tr valign="top">
                     <td class="statText">
-                        <strong>As a TopCoder member you can earn cash, royalties, recognition... AND a $2,000 cash bonus!</strong>
-
-                        <p>The TopCoder member with the highest average Architecture Review Board score for design submissions 
-                        during February and March will win a $2,000** cash bonus on top of the regular payment and royalties for each winning design solution.
-                        </p>
-                        
+                        <p>Thank you to everyone who submitted entries for our February/March Component Design Contest. Stay tuned for our next Bonus Contest coming up soon!</p>
                     </td>
                 </tr>
             </table>
