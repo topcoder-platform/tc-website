@@ -47,7 +47,8 @@ function getProblemDetail(id) {
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
 	        <TR>
 		       <TD COLSPAN="8" VALIGN="top" CLASS="bodyText">
-                           <B>Candidate:</B> <screen:servletLink processor="PopulateCandidate" param="<%=Constants.CANDIDATE_ID+'='+candidateInfo.getUserId()%>" styleClass="bodyText"><jsp:getProperty name="candidateInfo" property="emailAddress"/></screen:servletLink>
+<% String params = Constants.CANDIDATE_ID + '=' + candidateInfo.getUserId() + "&referrer=TestResults";%>
+                           <B>Candidate:</B> <screen:servletLink processor="PopulateCandidate" param="<%=params%>" styleClass="bodyText"><jsp:getProperty name="candidateInfo" property="emailAddress"/></screen:servletLink>
                        </TD>
 	        </TR>
 	        <TR>
