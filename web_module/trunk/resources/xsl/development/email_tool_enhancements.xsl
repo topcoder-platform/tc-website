@@ -191,11 +191,11 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="bodyText">Updated Submission Due Date:</td>
-                                                    <td class="bodyText" align="right">11.06.2003</td>
+                                                    <td class="bodyText" align="right">11.08.2003</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="bodyText">Estimated Development End Date:</td>
-                                                    <td class="bodyText" align="right">10.06.2003</td>
+                                                    <td class="bodyText" align="right">01.08.2003</td>
                                                 </tr>
                                             </table>
                                         </p>
