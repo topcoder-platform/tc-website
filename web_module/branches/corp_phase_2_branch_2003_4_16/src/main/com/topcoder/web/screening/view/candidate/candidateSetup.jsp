@@ -39,9 +39,19 @@ function back() {
                 <tr valign="top">
                     <td class="bodyText">
                     
-
-                        <% if("PopulateSession".equals(candidateInfo.getReferrer())) { %><h1 class="testHead">Create a New Session - <%} else if("BuildCandidateList".equals(candidateInfo.getReferrer())) {%><h1 class="testHead">Candidate List - <%}%><FONT COLOR="#000000"><%if(candidateInfo.isNew()) { %>Set up a Candidate<%} else {%>Candidate Info<%}%></h1>
-                    
+                        <% if("PopulateSession".equals(candidateInfo.getReferrer())) { %>
+                          <h1 class="testHead">Create a New Session -
+                        <%} else if("BuildCandidateList".equals(candidateInfo.getReferrer())) {%>
+                          <h1 class="testHead">Candidate List -
+                        <%}%>
+                        <FONT COLOR="#000000">
+                          <%if(candidateInfo.isNew()) { %>
+                            Set up a Candidate
+                          <%} else {%>
+                            Candidate Info
+                          <%}%>
+                        </FONT>
+                        </h1>
                     </td>
                 </tr>
             </table>
@@ -90,7 +100,7 @@ function back() {
             </screen:form>
 
             <p></p>
-
+            <%if(!candidateInfo.isNew()) { %>
             <table cellspacing="0" cellpadding="3" width="70%" class="testFrame">
                 <tr>
                     <td width="70%" class="testTableTitleSmall">Notes</td>
@@ -98,7 +108,9 @@ function back() {
                     <td width="15%" align="center" class="testTableTitleSmall">Date Created</td>
                 </tr>
 
-                <% { boolean even = true; %>
+                <% if (candidateInfo.getNoteList().isEmpty()) { %>
+                  <td colspan="3" align="center" class="testTableOdd">There are currently no notes for this candidate.</td>
+                <% } else { boolean even = true; %>
                 <screen:resultSetRowIterator id="row" list="<%=candidateInfo.getNoteList()%>">
                 <tr>
                     <td <% if(even){ %>class="testTableEven"<% } else { %>class="testTableOdd"<% } %>><%=StringUtils.htmlEncode((String)row.getItem("text").getResultData())%></td>
@@ -112,12 +124,12 @@ function back() {
 
             <table border="0" cellspacing="10" cellpadding="0" width="70%">
                  <tr>
-                    <td><div align="center"><p class="button"><screen:servletLink processor="NoteCreate" param="<%=Constants.CANDIDATE_ID+'='+candidateInfo.getUserId()%>" styleClass="button">Add</screen:servletLink></p></div></td>
+                    <td><div align="center"><p class="button"><screen:servletLink processor="NoteCreate" param="<%=Constants.CANDIDATE_ID+'='+candidateInfo.getUserId()%>" styleClass="button">Add Note</screen:servletLink></p></div></td>
                 </form></tr>
             </table>
 
             <p><br></p>
-
+            <% } %>
 
 
 
