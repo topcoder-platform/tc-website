@@ -33,7 +33,7 @@
 </jsp:include>
 <!-- Top ends -->
 
-<table width="100%" border="1" cellpadding="0" cellspacing="0">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
 
 <!-- Left Column Begins -->
@@ -73,7 +73,6 @@
                         After you complete the registration process, we will send your account activation code via email.</p>
                     </td>
                 </tr>
-                <tr><td class="testTableTitle">Login</td></tr>
                 <tr valign="middle">
                   <form method="post" name="frmLogin" action="/">
                     <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= nextpage %>">
