@@ -241,7 +241,7 @@ public class PDFGenerator extends BaseProcessor {
     }    
     
     private void drawPageOne(Document doc, PlacementConfig info) throws Exception {
-        Image logo = Image.getInstance("http://" + ApplicationServer.SERVER_NAME + "/i/profile/topcoder_logo_tagline.jpg");
+        Image logo = Image.getInstance("http://" + ApplicationServer.SERVER_NAME + "/i/profiles/topcoder_logo_tagline.jpg");
         logo.setAlignment(Element.ALIGN_CENTER);
         logo.scalePercent(60f);
         Paragraph p = new Paragraph(" ");
