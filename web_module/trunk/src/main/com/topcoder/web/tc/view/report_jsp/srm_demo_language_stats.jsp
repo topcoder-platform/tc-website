@@ -42,7 +42,7 @@
 				dataRequest.setProperty("rd", request.getParameter("rd")==null?"4445":request.getParameter("rd"));
 				
 				           DataAccessInt dai = new CachedDataAccess(
-                                    dataRequest.getProperty(Constants.DB_KEY, Query.TRANSACTIONAL));
+                                    dataRequest.getProperty(Constants.DB_KEY, Query.WAREHOUSE));
                     Map dataMap = null;
                     dataMap = dai.getData(dataRequest);
 					
