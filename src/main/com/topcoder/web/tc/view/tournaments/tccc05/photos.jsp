@@ -87,21 +87,21 @@ function changeImage(place, imageIndex) {
             
             <a name="spot"></a>
             <p class="terciary"><div align="center" nowrap=nowrap>
-                <a href="Javascript:void changeImage('slideImg', 1);">Reception</a>
+                <a href="Javascript:void changeImage('slideImg', 1);">Game Room</a>
+<%--
                 &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 22);">Room 1</a>
                 &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 45);">Room 2</a>
                 &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 69);">Room 3</a>
                 &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 92);">WildCard</a>
                 &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 114);">Algorithm Finals</a>
-<%--
 --%>
 
 <br/>
 
+<%--
                 <a href="Javascript:void changeImage('slideImg', 133);">Winners</a>
                 &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 149);">Spectator Showdown</a>
                 &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 162);">Press Conference</a>
-<%--
 --%>                
             </div></p>
             
