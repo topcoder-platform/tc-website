@@ -5,41 +5,8 @@
 <html>
 <head>
 <title>TopCoder Problem Rating Questions - <%= request.getAttribute("problemName") %></title>
-<LINK REL="stylesheet" TYPE="text/css" href="/css/style.css"/>
-<LINK REL="stylesheet" TYPE="text/css" href="/css/coders.css"/>
-<SCRIPT type="text/javascript">
-if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
-  // Linux Stylesheets
-  document.write('<link type="text/css" rel="stylesheet" href="/css/style_linux.css"/>');
-  document.write('<link type="text/css" rel="stylesheet" href="/css/coders_linux.css"/>');
-} else {
-  // NonLinux Stylesheets
-  document.write('<link type="text/css" rel="stylesheet" href="/css/style.css"/>');
-  document.write('<link type="text/css" rel="stylesheet" href="/css/coders.css"/>');
-}
-function verify(){
-    var rf = document.ratings;
-    var tot = 0;
-    for(var i = 0; i<rf.elements.length; i++){
-        if(rf.elements[i].name.charAt(0)=='q' && rf.elements[i].checked){
-            tot ++;
-        }
-    }
-    if(tot != <%=problemRatingQuestions.size()%>){
-        window.alert("Please answer all of the questions");
-    }else{
-        rf.submit();
-    }
-}
+<jsp:include page="../script.jsp"/>
 </SCRIPT>
-<STYLE TYPE="text/css">
-BODY
-{
-	background-color: #001B35;
-	padding: 0px;
-	margin: 0px;
-}
-</STYLE>
 </head>
 <body bgcolor="#001B35">
 <center><h3><font color="#FFFFFF"><%= request.getAttribute("problemName") %></font></h3></center>
@@ -63,7 +30,7 @@ BODY
                     for(int i = 1; i<=10; i++){
                 %>
             <td>
-                        <input type="radio" name="q<%= qid %>" value="<%= i %>">
+                        <input type="radio" name="q<%= qid %>" value="<%= i %>" <%= String.valueOf(i).equals(request.getParaeter("q"+qid))?"SELECTED":"" %>>
             </td>
                 <%  } %>
         </tr>
@@ -74,7 +41,7 @@ BODY
         <td align="right">
             <a href="/tc/?module=ProblemRatingResults&pid=<%= request.getParameter("pid") %>" class="statText">View Results</a>&nbsp;&nbsp;
         </td><td align="right">
-            <a href="javascript:verify()" class="statText">Submit Ratings</a>&nbsp;&nbsp;
+            <a href="javascript:document.ratings.submit()" class="statText">Submit Ratings</a>&nbsp;&nbsp;
         </td></tr>
     </table>
 </form>
