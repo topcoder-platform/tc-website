@@ -134,8 +134,8 @@ public class MainServlet extends HttpServlet {
 
                     /* forward to the login page, with a message and a way back */
                     request.setAttribute("message", "You must login to view this page.");
-                    log.debug("login nextpage will be: " + HttpUtils.getRequestURL(request) + request.getQueryString());
-                    request.setAttribute("nextpage", HttpUtils.getRequestURL(request) + request.getQueryString());
+                    log.debug("login nextpage will be: " + HttpUtils.getRequestURL(request) + "?" + request.getQueryString());
+                    request.setAttribute("nextpage", HttpUtils.getRequestURL(request) + "?" + request.getQueryString());
                     processorModule = new Login();
                     callProcess(processorModule, request, authToken);
                 } else {
