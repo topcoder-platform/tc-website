@@ -66,7 +66,7 @@ function submitEnter(e) {
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td class="bodyText">
                             First Name
                         </td>
                         <td>
@@ -80,7 +80,7 @@ function submitEnter(e) {
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td class="bodyText">
                             Last Name
                         </td>
                         <td>
@@ -94,7 +94,7 @@ function submitEnter(e) {
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td class="bodyText">
                             Email Address
                         </td>
                         <td>
@@ -103,14 +103,14 @@ function submitEnter(e) {
                     </tr>
                     <tr><td><br/></td></tr>
                     <tr>
-                        <td colspan="2" align="center">
+                        <td colspan="2" align="center" class="bodyText">
                             <p>(This must be the same information you used when you registered.)</p>
                         </td>
                     </tr>
                     <tr><td><br/></td></tr>
                     <tr>
-                        <td colspan="2" align="center">
-                            <a href="JavaScript:document.frmPass.submit()">Submit</a>
+                        <td colspan="2" align="center" class="bodyText">
+                            <a href="JavaScript:document.frmPass.submit()" class="bodyText">Submit</a>
                         </td>
                     </tr>
                 </form>
