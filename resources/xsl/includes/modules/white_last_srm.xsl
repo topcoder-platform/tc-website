@@ -9,15 +9,11 @@
 		<TD CLASS="bodyText" VALIGN="top">
 <!-- <A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">tck</A> -->	
 <P>
-<SPAN CLASS="bodyTextBold">Single Round Match 88</SPAN><BR/>
-Wednesday, May 15, 2002<BR/>
+<SPAN CLASS="bodyTextBold">Single Round Match 89</SPAN><BR/>
+Saturday, May 18, 2002<BR/>
 By Adam Loss, <I>TopCoder Staff Writer</I><BR/>
-
-The closest match of the night took place in Room 5. <A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">Zaen</A>
- was a 1159.03 to 1157.61 winner 
-over <A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">lbackstrom</A>.  
-That's a difference of just 1.42 points
-...<A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">full&#160;story</A> 
+The second, fifth and sixth highest rating point gains were earned in both Division-I 
+and Division-II in Single Round Match 89...<A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">full&#160;story</A> 
 </P>
 				
 <!-- <P><B>Division-I</B><BR/>
