@@ -949,7 +949,8 @@
   </xsl:template>
 
   <xsl:template name="left_nav_btm_row">
-            <img alt="" width="170" height="69" src="/i/left_nav_btm.gif" border="0"/><br/><br/><img src="/i/logo_ghosted_bracket.gif" width="160" height="77" alt="[ TopCoder ]" vspace="10" border="0"/>
+            <img alt="" width="170" height="23" src="/i/left_nav_btm.gif" border="0"/><br/><br/>
+            <img src="/i/logo_ghosted_bracket.gif" width="160" height="77" alt="[ TopCoder ]" vspace="10" border="0"/>
   </xsl:template>
 
   <xsl:template name="member_features">
