@@ -54,7 +54,7 @@ public final class TaskImage {
         }
         
         int iCurr = val.intValue();
-        if (iCurr < size) { 
+        if (size > 1 && iCurr < (size-1)) { 
             iCurr++;
         } else {
             iCurr = 0;
