@@ -8,6 +8,7 @@
         <form name=frmUpload method=post enctype="multipart/form-data" action="/tc">
         <input type="hidden" name="module" value="DOCConversionProcessing"/>
         <input type="upload" name="file"/>
+        <input type="submit"/>
         </form>
     </body>
 </html>
