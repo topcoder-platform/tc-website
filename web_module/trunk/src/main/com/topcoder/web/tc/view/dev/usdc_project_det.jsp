@@ -40,8 +40,14 @@
    <jsp:param name="selectedTab" value="results"/>
 </jsp:include>
 
+<p>
+<a href="/">Contest Results</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="/">Contest Details</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="/">Project Details</a>
+</p>
 
-<h2>Project Details</h2>
+<h2>Results</h2>
+
 
                         <table width="510" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                             <tr>

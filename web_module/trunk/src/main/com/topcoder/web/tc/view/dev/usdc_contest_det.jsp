@@ -41,7 +41,7 @@
 </jsp:include>
 
 
-<h2>Contest Details</h2>
+<h2>Results</h2>
 
                         <table width="510" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                             <tr>
