@@ -25,7 +25,7 @@ public class MapIteratorTag
 
     public int doStartTag()
             throws JspException {
-        setCollection(CampaignInfoList);
+        setCollection(MapList);
 
         return super.doStartTag();
     }
