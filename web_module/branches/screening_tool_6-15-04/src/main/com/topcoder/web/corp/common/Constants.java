@@ -62,6 +62,7 @@ public class Constants
     public static String ROUND_PROBLEM_ID;
     public static String SESSION_ID;
     public static String SEARCH_PAGE;
+    public static String SEARCH_RESULTS_PAGE;
     
     public static String FIRST_NAME;
     public static String LAST_NAME;

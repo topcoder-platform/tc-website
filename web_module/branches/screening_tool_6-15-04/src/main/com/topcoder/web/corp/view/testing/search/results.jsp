@@ -1,15 +1,18 @@
+<%@ page import="com.topcoder.web.corp.common.Constants" %>
+<%@ taglib uri="screening.tld" prefix="screen" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <title>Topcoder | Testing Application Management Tool</title>
+
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <jsp:include page="../includes/script.jsp"/>
 </HEAD>
 <body>
 
 <!-- Header begins -->
-<%--<jsp:include page="../includes/top.jsp" />--%>
-<jsp:include page="../includes/topTemp.jsp" />
+<jsp:include page="../includes/top.jsp" />
 <!-- Header ends -->
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -21,11 +24,12 @@
 
 <!-- Center Column Begins -->
  <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="10"border="0"><br>
-                      <form name="searchForm" method="get">
+                     <screen:form name='searchForm' method='get' action='<%=sessionInfo.getServletPath()%>'>
+                        <INPUT type="hidden" name='<%=Constants.MODULE_KEY%>' value='SearchResults'/>
                           <jsp:include page="searchForm.jsp"/>
                           <br/>
                           <jsp:include page="resultsForm.jsp"/>
-                      </form>
+                      </screen:form>
 <P><BR/></P>
 </td> 
 

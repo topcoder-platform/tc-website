@@ -558,6 +558,12 @@
             <param-value>/testing/search/search.jsp</param-value>
             <description>where to forward for searching</description>
         </init-param>
+        
+        <init-param>
+            <param-name>search_results_page</param-name>
+            <param-value>/testing/search/results.jsp</param-value>
+            <description>where to forward for searching</description>
+        </init-param>
 
         <!-- URL Parameter constant names -->
         <init-param>

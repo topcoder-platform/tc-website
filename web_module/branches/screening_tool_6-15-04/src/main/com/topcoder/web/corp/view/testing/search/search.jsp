@@ -25,9 +25,8 @@
 <!-- Center Column Begins -->
  <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="10"border="0"><br>
                       <screen:form name='searchForm' method='get' action='<%=sessionInfo.getServletPath()%>'>
-                        <INPUT type="hidden" name='<%=Constants.MODULE_KEY%>' value='Search'/>
+                        <INPUT type="hidden" name='<%=Constants.MODULE_KEY%>' value='SearchResults'/>
                           <jsp:include page="searchForm.jsp"/>
-                          <jsp:include page="resultsForm.jsp"/>
                       </screen:form>
 <P><BR/></P>
 </td> 
