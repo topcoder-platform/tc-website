@@ -72,7 +72,7 @@
                         <table border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align="center">
                             <tr>
                                 <td class="sidebarTitle">Round</td>
-                                <td class="sidebarTitle">Date and Time - Chennai Time</td>
+                                <td class="sidebarTitle">Date and Time - IST</td>
                                 <td class="sidebarTitle" align="center"># of Participants</td>
                                 <td class="sidebarTitle" align="center"># of Advancers</td>
                             </tr>
@@ -80,9 +80,8 @@
                             <tr valign="top">
                                 <td class="sidebarText">Round #1</td>
                                 <td class="sidebarText" nowrap="nowrap">
-                                    Wednesday, August 20th<br />
-                                    Sign In: 6:00 PM - 8:55 PM<br />
-                                    START: 9:00 PM<br />
+                                    Friday, October 31st<br />
+                                    START: 7:00 PM<br />
                                 </td>
                                 <td class="sidebarText" align="center">500</td>
                                 <td class="sidebarText" align="center">250</td>
@@ -91,8 +90,8 @@
                             <tr valign="top">
                                 <td class="sidebarText">Round #2</td>
                                 <td class="sidebarText" nowrap="nowrap">
-                                    Monday, August 25th<br />
-                                    START: 9:30 PM<br />
+                                    Monday, November 3rd<br />
+                                    START: 7:00 PM<br />
                                 </td>
                                 <td class="sidebarText" align="center">250</td>
                                 <td class="sidebarText" align="center">25</td>
@@ -101,8 +100,8 @@
                             <tr valign="top">
                                 <td class="sidebarText">Round #3 - Championship Round</td>
                                 <td class="sidebarText" nowrap="nowrap">
-                                    Friday, August 29th<br />
-                                    START: 9:30 PM<br />
+                                    Friday, October 7th<br />
+                                    START: 6:00 PM<br />
                                 </td>
                                 <td class="sidebarText" align="center">25</td>
                                 <td class="sidebarText" align="center">4 Prize  Winners</td>
