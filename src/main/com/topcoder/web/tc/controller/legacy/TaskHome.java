@@ -172,7 +172,7 @@ public final class TaskHome {
 
                 dataRequest = new Request();
                 dataRequest.setContentHandle("recent_srm_survey_question");
-                resultMap = dai.getData(dataRequest);
+                resultMap = transDai.getData(dataRequest);
                 rsc = (ResultSetContainer) resultMap.get("recent_srm_survey_question");
                 homeTag.addTag(rsc.getTag("SurveyInfo", "QuestionInfo"));
 
