@@ -21,7 +21,7 @@ public class AdvancedSearch extends SimpleSearch {
             if (m.getTotal()==1) {
                 long userId = m.getResults().getLongItem(0, "user_id");
                 setNextPage("/stat?c=member_profile&cr="+userId);
-                setIsNextPageInContext(true);
+                setIsNextPageInContext(false);
             } else {
                 setNextPage(Constants.ADVANCED_SEARCH_RESULTS);
                 setIsNextPageInContext(true);
