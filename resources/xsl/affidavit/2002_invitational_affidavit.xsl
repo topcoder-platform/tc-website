@@ -40,7 +40,7 @@ LIABILITY AND PUBLICITY RELEASE<BR/>
 <BR/> 
 <BR/>
 </CENTER>
-I, _________, residing at 
+I, <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/>&#160;<xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/last_name"/>, residing at 
 (
 <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/address1"/>&#160;
 <xsl:if test="/TC/AFFIDAVIT/Affidavit/Info/address2!=''">
