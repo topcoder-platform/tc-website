@@ -60,61 +60,21 @@
             <p>by Matt Murphy, <em>TopCoder Staff</em><br />
             Friday, December 5, 2003</p>
 
-            <p>Text <strong>handle</strong> text, text, text.</p>
-
-            <p>Text <strong>handle</strong> text, text, text.</p>
-
-            <div align="center">
-            <table border="0" cellspacing="2" cellpadding="0" class="pointsTable">
-                <tr>
-                    <td  class="pointsName">handle</td>
-                    <td class="pointsScore">xxx.xx</td>
-                </tr>
-                               			
-                <tr>
-                    <td  class="pointsName">handle</td>
-                    <td class="pointsScore">xxx.xx</td>
-                </tr>
-                               			
-                <tr>
-                    <td  class="pointsName">handle</td>
-                    <td class="pointsScore">xxx.xx</td>
-                </tr>
-                               			
-                <tr>
-                    <td  class="pointsName">handle</td>
-                    <td class="pointsScore">xxx.xx</td>
-                </tr>
-            </table>
-            </div>	
-
-            <p>Text <strong>handle</strong> text, text, text.</p>
-
-            <div align="center">
-            <table border="0" cellspacing="2" cellpadding="0" class="pointsTable">
-                <tr>
-                    <td  class="pointsName">handle</td>
-                    <td class="pointsScore">xxx.xx</td>
-                </tr>
-                               			
-                <tr>
-                    <td  class="pointsName">handle</td>
-                    <td class="pointsScore">xxx.xx</td>
-                </tr>
-                               			
-                <tr>
-                    <td  class="pointsName">handle</td>
-                    <td class="pointsScore">xxx.xx</td>
-                </tr>
-                               			
-                <tr>
-                    <td  class="pointsName">handle</td>
-                    <td class="pointsScore">xxx.xx</td>
-                </tr>
-            </table>
-            </div>	
-
-            <p>Text <strong>handle</strong> text, text, text.</p>
+            <p>Floats like a butterfly, codes in C.  The crowd could not stop roaring as tomek, the new TopCoder 
+            Open Champion, bounced up to receive his $50,000 check. </p>
+ 
+            <p>The sociable student from Poland made his first appearance in TopCoder competitions just 3 months 
+            before the start of the tournament.  His friends back home did not think he would be able to come to America 
+            and win this kind of money.  "I told them I was going to win," tomek said with a grin.  He hopes that his 
+            success will encourage other coders from Poland to compete in TopCoder competitions.</p>
+ 
+            <p>It was a close match.  Yarin held the lead all the way up until the final system test was run on the 
+            1000-point problem.  "I was pretty afraid of Yarin," tomek admitted, "I was looking at his score all 
+            the time." </p>
+ 
+            <p>As one would expect, winning $50,000 put tomek in a pretty good mood.  His comical responses to 
+            the interviewers' questions could barely be heard over the crowd's boisterous laughter.  When asked 
+            what he thought about winning, tomek chuckled and replied, "That's what I wanted."</p>
 
             <p><br/></p>
         </td>
