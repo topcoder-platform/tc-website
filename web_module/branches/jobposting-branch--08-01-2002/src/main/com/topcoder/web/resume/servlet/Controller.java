@@ -20,9 +20,10 @@ public class Controller
     public static final String EXCEPTION = "exception";
     public static final String NAVIGATION = "navigation";
     public static final String TASK = "task";
-    public static final String ALIAS = "/RESUME";
+    public static final String ALIAS = "/Resume";
     public static final String RESUME_UPLOAD_TASK = "ResumeUploadTask";
-    static final String CONTROLLER_ERROR_URL = "/error.jsp";
+    public static final String RESUME_DOWNLOAD_TASK = "ResumeDownloadTask";
+    public static final String CONTROLLER_ERROR_URL = "/error.jsp";
     static final String TASK_PACKAGE = "com.topcoder.web.resume.bean";
 
     public void init(Servlet servletConfig)
@@ -79,7 +80,7 @@ public class Controller
                     forwardToError(request, response, e);
                     return;
                 }
-                forward(request, response, task.getNextPage());
+                task.getNextPage(request,response);
             }
         } catch (ServletException se) {
             throw se;
@@ -99,23 +100,6 @@ public class Controller
             if (!Character.isLetter(s.charAt(i))) return false;
         }
         return true;
-    }
-
-    void forward(HttpServletRequest request, HttpServletResponse response, String url)
-            throws ServletException {
-        response.setHeader("Cache-Control", "no-store");
-        response.setHeader("Pragma", "no-cache");
-        response.setDateHeader("Expires", 0);
-        try {
-            if (url != null) {
-                response.sendRedirect(response.encodeURL(url));
-            } else {
-                response.sendRedirect(response.encodeURL(CONTROLLER_ERROR_URL));
-            }
-        } catch (IOException e) {
-            log.error(e.getMessage());
-            throw new ServletException(e);
-        }
     }
 
     void forwardToError(HttpServletRequest request, HttpServletResponse response)

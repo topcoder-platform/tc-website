@@ -7,6 +7,7 @@ import com.topcoder.common.web.data.stat.coder.Coder;
 import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.resume.bean.Resume;
 
 import java.rmi.RemoteException;
 import java.sql.*;
@@ -27,22 +28,33 @@ public class ResumeServicesBean extends BaseEJB {
     private static Logger log = Logger.getLogger(ResumeServicesBean.class);
 
     private static final String GET_RESUME_QUERY =
-            "SELECT file AS file "+
-            "FROM resume "+
-            "WHERE coder_id = ?";
+            "SELECT " +
+            "   r.file AS file, " +
+            "   r.file_name AS file_name, " +
+            "   ftl.file_type_desc AS file_type" +
+            "FROM " +
+            "   resume r " +
+            "JOIN " +
+            "   file_type_lu ftl " +
+            "   ON ftl.file_type_id = r.file_type_id " +
+            "WHERE" +
+            "    coder_id=?";
 
-    public byte[] getResume(int userID) throws RemoteException{
+    public Resume getResume(int userID) throws RemoteException{
         log.debug("ejb:ResumeServices:getResume("+userID+") called...");
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
+        Resume ret = null;
         try{
             conn = DBMS.getTransConnection();
             ps = conn.prepareStatement(GET_RESUME_QUERY);
             rs = ps.executeQuery();
             if(!rs.next())throw new SQLException(userID+" does not hava a submitted resume.");
-            byte[] b = rs.getBytes("file");
-            return b;
+            byte[] file = rs.getBytes("file");
+            String name = rs.getString("file_name");
+            String type = rs.getString("file_type");
+            ret = new Resume(name,type,file);
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new RemoteException(sqe.getMessage());
@@ -66,6 +78,7 @@ public class ResumeServicesBean extends BaseEJB {
             ps = null;
             conn = null;
         }
+        return ret;
     }
     private static final String PUT_RESUME_QUERY =
             "INSERT INTO resume "+
