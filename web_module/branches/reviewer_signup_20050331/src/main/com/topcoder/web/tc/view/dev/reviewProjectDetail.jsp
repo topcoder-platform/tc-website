@@ -155,7 +155,7 @@
                             <% } else if (((ReviewBoardApplication) reviewer).isSpotFilled()) { %>
                                 <tc:beanWrite name="reviewer" property="handle"/>
                             <% } else if (isWaiting) { %>
-                                   Waiting****
+                                   <i>Waiting ****</i>
                             <% } else { %>
                                 <a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ProjectReviewApply&<%=Constants.PROJECT_ID%>=<tc:beanWrite name="reviewer" property="projectId"/>&<%=Constants.PHASE_ID%>=<tc:beanWrite name="reviewer" property="phaseId"/>&<%=Constants.PRIMARY_FLAG%>=<%=((ReviewBoardApplication)reviewer).isPrimary()%>&<%=Constants.REVIEWER_TYPE_ID%>=<tc:beanWrite name="reviewer" property="reviewerTypeId"/>">Apply Now</a>**
                             <% } %>
