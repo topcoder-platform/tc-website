@@ -72,7 +72,7 @@ public class UserListTest extends BaseProcessor {
 
         try { 
             ResultSetContainer rsc = GetUserList.run(companyId);
-            request.setAttribute("companyUsers",ret);
+            request.setAttribute("companyUsers",rsc);
         }
         catch (Exception e) {
             throw new Exception("Error retrieving user list");        
