@@ -42,7 +42,7 @@ public class Contact2Bean implements javax.ejb.SessionBean {
 		try {
 			Context	context = new InitialContext();
 			DataSource	ds = (DataSource)
-			  context.lookup( OLTP );
+			  context.lookup( "OLTP" );
 			conn = ds.getConnection();
 		}
 		catch( NamingException e ) {
