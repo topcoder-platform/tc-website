@@ -156,11 +156,6 @@
       <rtexprvalue>true</rtexprvalue>
     </attribute>
     <attribute>
-      <name>value</name>
-      <required>false</required>
-      <rtexprvalue>true</rtexprvalue>
-    </attribute>
-    <attribute>
       <name>class</name>
       <required>false</required>
       <rtexprvalue>true</rtexprvalue>
@@ -206,11 +201,6 @@
     </attribute>
     <attribute>
       <name>multiple</name>
-      <required>false</required>
-      <rtexprvalue>true</rtexprvalue>
-    </attribute>
-    <attribute>
-      <name>value</name>
       <required>false</required>
       <rtexprvalue>true</rtexprvalue>
     </attribute>
@@ -269,11 +259,6 @@
       <rtexprvalue>true</rtexprvalue>
     </attribute>
     <attribute>
-      <name>value</name>
-      <required>false</required>
-      <rtexprvalue>true</rtexprvalue>
-    </attribute>
-    <attribute>
       <name>class</name>
       <required>false</required>
       <rtexprvalue>true</rtexprvalue>
@@ -329,11 +314,6 @@
       <rtexprvalue>true</rtexprvalue>
     </attribute>
     <attribute>
-      <name>value</name>
-      <required>false</required>
-      <rtexprvalue>true</rtexprvalue>
-    </attribute>
-    <attribute>
       <name>class</name>
       <required>false</required>
       <rtexprvalue>true</rtexprvalue>
@@ -385,11 +365,6 @@
     <attribute>
       <name>list</name>
       <required>true</required>
-      <rtexprvalue>true</rtexprvalue>
-    </attribute>
-    <attribute>
-      <name>value</name>
-      <required>false</required>
       <rtexprvalue>true</rtexprvalue>
     </attribute>
     <attribute>
