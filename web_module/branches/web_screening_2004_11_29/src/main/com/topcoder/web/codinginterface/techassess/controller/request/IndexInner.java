@@ -33,7 +33,6 @@ public class IndexInner extends Base {
                 if (hasDefault(Constants.PROBLEM_SETS)) {
                     log.debug("has defaults");
                     getRequest().setAttribute(Constants.PROBLEM_SETS, getDefault(Constants.PROBLEM_SETS));
-                    getRequest().setAttribute(Constants.LANGUAGES, getLanguages());
                     setNextPage(successPage);
                     setIsNextPageInContext(true);
                 }
