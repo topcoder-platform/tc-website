@@ -3,10 +3,11 @@
                  com.topcoder.web.corp.Constants,
                  com.topcoder.shared.security.User,
                  com.topcoder.web.common.security.SessionPersistor,
-                 com.topcoder.web.common.security.BasicAuthentication "
+                 com.topcoder.web.common.security.BasicAuthentication,
+                 com.topcoder.web.corp.model.SessionInfo"
          autoFlush="false" %>
-<% BasicAuthentication auth = new BasicAuthentication(new SessionPersistor(request.getSession(true)), request, response);
-   User activeUser = auth.getActiveUser();
+<jsp:usebean id="sessionInfo" class="com.topcoder.web.corp.model.SessionInfo" scope="request" />
+<%
    boolean isHomePage = "true".equals(request.getParameter("isHomePage"));
 %>
 
@@ -15,11 +16,11 @@
     <tr valign="middle">
         <td class="login" width="99%">&nbsp;</td>
         <td class="login" nowrap="nowrap">
-    <% if (activeUser.isAnonymous()) {  // no logged user %>
+    <% if (sessionInfo.isGuest()) {  // no logged user %>
            <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=LoginPage" class="globalNavSmall" target="_parent">Login</a>
             &#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Registration" class="loginLinks">Register</a>
     <% } else { %>
-            <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Logout" class="loginLinks" target="_parent">Logout</a>
+            Hello <jsp:getproperty name="sessionInfo" property="Handle" /> <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Logout" class="loginLinks" target="_parent">Logout</a>
             &#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Registration" class="loginLinks">My Account</a>
     <% } %>
 
@@ -44,7 +45,7 @@
         </td>
         <td width="20"><img src="/i/clear.gif" width="1" height="1" border="0" hspace="15" /></td>
         <td width="100%" nowrap="nowrap" align="right">
-<% if( activeUser.isAnonymous() ) { %>
+<% if( sessionInfo.isGuest() ) { %>
            <table border="0" cellpadding="0" cellspacing="0" align="right">
                 <tr valign="middle"><form name="frmMiniLogin" method="POST" action="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Login">
                     <td nowrap="nowrap" class="loginText" align="right">User Name:&#160;&#160;</td>
