@@ -52,7 +52,8 @@ public class DBMS {
     public final static String INFORMIX_DATETIME_FORMAT = bundle.getProperty("INFORMIX_DATETIME_FORMAT", "yyyy-MM-dd HH:mm:ss.SSS");
 
     // Sequence Ids
-    public static final int JMA_SEQ = getIntProperty("JMA_SEQ", 1);
+    public static final int JMA_SEQ = getIntProperty("MAIN_SEQ", 200);
+//    public static final int JMA_SEQ = getIntProperty("JMA_SEQ", 1);
     public static final int CORPORATE_SEQ = getIntProperty("CORPORATE_SEQ", 2);
     public static final int SCHOOL_SEQ = getIntProperty("SCHOOL_SEQ", 3);
     public static final int PROBLEM_SEQ = getIntProperty("PROBLEM_SEQ", 4);
