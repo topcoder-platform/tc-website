@@ -222,18 +222,6 @@
          </jar>
      </target>
 
-     <target name="package-EJB-RequestServicesBean" depends="compile">
-         <antcall target="build-ejb-unit">
-             <param name="unit-jar-name" value="RequestServices"/>
-             <param name="unit-class-path" value="com/topcoder/web/ejb/requestservices"/>
-         </antcall>
-         <jar jarfile="${ejb_jars}/Reporting.jar" update="true">
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
-         </jar>
-     </target>
-
      <target name="package-EJB-ProjectServicesBean" depends="compile">
          <antcall target="build-ejb-unit">
              <param name="unit-jar-name" value="ProjectServices"/>
@@ -902,7 +890,6 @@
          <antcall target="package-EJB-UserBean"/>
          <antcall target="package-EJB-ScreeningCoderBean"/>
          <antcall target="package-EJB-NoteBean"/>
-         <antcall target="package-EJB-RequestServicesBean"/>
          <antcall target="package-EJB-SessionBean"/>
          <antcall target="package-EJB-SessionProfileBean"/>
          <!-- Since Screening Tool 1.1 -->
@@ -1039,7 +1026,6 @@
          <antcall target="package-EJB-AddressBean"/>
          <antcall target="package-EJB-EmailBean"/>
          <antcall target="package-EJB-CompanyBean"/>
-         <antcall target="package-EJB-RequestServicesBean"/>
          <antcall target="package-EJB-DemographicBean"/>
          <antcall target="package-EJB-SchoolBean"/>
          <antcall target="package-EJB-JobPostingServicesBean"/>
@@ -1153,7 +1139,6 @@
          <antcall target="package-EJB-ProblemRatingBean"/>
          <antcall target="package-EJB-SurveyBean"/>
          <antcall target="package-EJB-RBoard"/>
-         <antcall target="package-EJB-RequestServicesBean"/>
          <antcall target="package-EJB-UserEvent"/>
          <!-- Since Screening Tool 1.1 -->
          <antcall target="package-EJB-PreferenceLevelBean"/>
