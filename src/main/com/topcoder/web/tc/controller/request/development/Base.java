@@ -12,6 +12,7 @@ import com.topcoder.common.web.data.report.Constants;
 import com.topcoder.common.web.data.report.Query;
 
 import java.util.Map;
+import java.util.Iterator;
 
 /**
  * @author dok
@@ -23,9 +24,25 @@ public abstract class Base extends BaseProcessor {
         //get the data for the right side
         try {
 
-            getRequest().setAttribute("OpenProjects", getOpenProjects());
-            //todo iterate through and sum up the project totals
-            getRequest().setAttribute("ProjectTotals", getProjectTotals());
+            ResultSetContainer openProjects = getOpenProjects();
+
+            double devSum = 0.0d;
+            double designSum = 0.0d;
+            ResultSetContainer.ResultSetRow row = null;
+            for (Iterator it=openProjects.iterator(); it.hasNext();) {
+                row = (ResultSetContainer.ResultSetRow)it.next();
+                if (row.getLongItem("phase_id")==113) {
+                    devSum+=row.getDoubleItem("price");
+                } else if (row.getLongItem("phase_id")==112) {
+                    designSum+=row.getDoubleItem("price");
+                }
+            }
+            devSum*=1.75;
+            designSum*=1.75;
+
+            getRequest().setAttribute("DevSum", new Double(devSum));
+            getRequest().setAttribute("DesignSum", new Double(designSum));
+            getRequest().setAttribute("OpenProjects", openProjects);
 
 
         } catch (TCWebException e) {

@@ -16,7 +16,7 @@
                     <td bgcolor="#EEEEEE">
                         <table width="100%" border="0" cellspacing="3" cellpadding="0">
                             <tr>
-                                <td class="devProjectText">Currently open projects total <span style="font-size:130%; font-weight:bold; color:#CC0000;"><tc:format object='<%=request.getAttribute("DesignSum")%>' format='#,###.00'/></span>
+                                <td class="devProjectText">Currently open projects total <span style="font-size:130%; font-weight:bold; color:#CC0000;">$<tc:format object='<%=request.getAttribute("DesignSum")%>' format='#,###.00'/></span>
                                     in payments. </td>
                             </tr>
                         </table>
@@ -72,7 +72,7 @@
                     <td bgcolor="#EEEEEE">
                         <table width="100%" border="0" cellspacing="3" cellpadding="0">
                             <tr>
-                                <td class="devProjectText">Currently open projects total <span style="font-size:130%; font-weight:bold; color:#CC0000;"><tc:format object='<%=request.getAttribute("DevSum")%>' format='#,###.00'/></span>
+                                <td class="devProjectText">Currently open projects total <span style="font-size:130%; font-weight:bold; color:#CC0000;">$<tc:format object='<%=request.getAttribute("DevSum")%>' format='#,###.00'/></span>
                                     in payments. </td>
                             </tr>
                         </table>
