@@ -34,16 +34,12 @@ public class AnswerInput extends BaseTag {
 
     public int doStartTag() throws JspException {
         List l = question.getAnswerInfo();
-        if (l!=null)
+        if (l!=null) {
             answers = l.iterator();
-        return doAfterBody();
-    }
-
-    public int doAfterBody() throws JspException {
-
-        Answer answer = null;
+        }
         String inputText = null;
-        if (answers==null) {
+        if (l==null || l.isEmpty()) {
+            log.debug("answers was null or empty");
             if (question.getStyleId()==Question.LONG_ANSWER) {
                 inputText = buildText();
             } else if (question.getStyleId()==Question.SHORT_ANSWER) {
@@ -51,17 +47,27 @@ public class AnswerInput extends BaseTag {
             }
             pageContext.setAttribute(getId(), inputText, PageContext.PAGE_SCOPE);
             return wrapItUp();
-        } else if (answers!=null && answers.hasNext()) {
+        } else {
+            return doAfterBody();
+        }
+    }
+
+    public int doAfterBody() throws JspException {
+
+        Answer answer = null;
+        String inputText = null;
+        if (answers.hasNext()) {
+            log.debug("answers wasn't null and there were more elements");
             answer = (Answer)answers.next();
             if (question.getStyleId()==Question.MULTIPLE_CHOICE) {
                 inputText = buildCheckBox(answer.getId());
             } else if (question.getStyleId()==Question.SINGLE_CHOICE) {
                 inputText = buildRadioButton(answer.getId());
             }
-            log.debug("pagecontext: " + pageContext + " id: " + getId() + " inputText: " + inputText);
             pageContext.setAttribute(getId(), inputText, PageContext.PAGE_SCOPE);
             return EVAL_BODY_TAG;
         } else {
+            log.debug("answers wasn't null and there were no more elements");
             return wrapItUp();
         }
     }
