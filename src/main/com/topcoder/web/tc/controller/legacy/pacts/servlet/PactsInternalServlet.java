@@ -2564,7 +2564,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
         response.setContentType(mime_type);
         response.setHeader("Content-disposition",
-                "attachment; filename=\"" +
+                "inline; filename=\"" +
                 filename + "\"");
 
         log.debug("filename is " + filename);
