@@ -92,7 +92,7 @@
                                       <xsl:value-of select="handle"/>
                                   </a>
                                 </td>
-                              <td class="formHandleEvent" align="right" width="50%"><xsl:value-of select="rating"/></td>
+                              <td class="formHandleEven" align="right" width="50%"><xsl:value-of select="rating"/></td>
                             </tr>
                           </xsl:for-each>
 
