@@ -3,7 +3,16 @@ package com.topcoder.web.screening.request;
 import com.topcoder.web.common.RequestProcessor;
 
 import javax.servlet.ServletRequest;
-import com.topcoder.shared.security.Authentication;
+import java.util.Hashtable;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.admin.PrincipalMgrRemoteHome;
+import com.topcoder.security.TCSubject;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.security.*;
+import com.topcoder.web.common.security.*;
+import com.topcoder.web.screening.common.*;
 
 /** Provides some of the basic methods and data common to request processors.
  * @author Porgery
@@ -34,6 +43,36 @@ public abstract class BaseProcessor implements RequestProcessor {
      * @throws Exception
      */    
     public abstract void process() throws Exception;
+    
+    protected void authorize(String redirect) throws Exception{
+        User u = getAuthentication().getUser();
+        
+        Hashtable env = new Hashtable();
+        env.put(Context.INITIAL_CONTEXT_FACTORY,
+            "org.jnp.interfaces.NamingContextFactory");
+        env.put(Context.PROVIDER_URL,
+            ApplicationServer.SECURITY_PROVIDER_URL);
+        InitialContext context = new InitialContext(env);
+            
+        PrincipalMgrRemoteHome pmHome = (PrincipalMgrRemoteHome)
+            context.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+        PrincipalMgrRemote principalMgr = pmHome.create();
+        
+        TCSubject sub = 
+            principalMgr.getUserSubject(getAuthentication().getUser().getId());
+        
+        Authorization auth = new TCSAuthorization(sub);
+        Resource r = new ClassResource(this.getClass());
+        if(!auth.hasPermission(r)){
+            if(getAuthentication().getUser().getId() == User.USER_ANONYMOUS_ID){
+                throw new AnonymousUserException(
+                    "Login required for "+r.getName(),redirect);
+            }else{
+                throw new PermissionDeniedException(
+                    "Access denied for "+r.getName());
+            }
+        }
+    }
     
     /** Getter for property nextPageInContext.
      * @return Value of property nextPageInContext.
