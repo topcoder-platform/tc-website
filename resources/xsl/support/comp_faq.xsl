@@ -481,7 +481,7 @@ Since math involving floating point numbers is subject to rounding errors, doubl
 For most return types, your method's result must exactly match the result of the reference solution.  Doubles, however, are a special case
 where your result must be correct only to a certain degree of precision.  To determine whether or not your solution is close enough, the system will test as follows:
 <br/><ul>
-<li>If the epected result is NaN, +Infinity, or -Infinity, your result must be also.  (We do not plan on using any of these returns for the time being.)</li>
+<li>If the expected result is NaN, +Infinity, or -Infinity, your result must be also.  (We do not plan on using any of these returns for the time being.)</li>
 <li>If your result is within 10<sup>-9</sup> of the expected result, your solution will be evaluated as correct.</li>
 <li>If your result is between (1+10<sup>-9</sup>) * expected and (1-10<sup>-9</sup>) * expected, it will be evaluated as correct.</li>
 <li>If none of the above are true, your result will be evaluated as incorrect.</li></ul>
