@@ -10,6 +10,7 @@
  <INPUT TYPE="hidden" NAME="cmd" VALUE="adv">
  <INPUT TYPE="hidden" NAME="start" VALUE="<jsp:getProperty name="search" property="Start"/>">
  <INPUT TYPE="hidden" NAME="end" VALUE="<jsp:getProperty name="search" property="End"/>">
+ <INPUT TYPE="hidden" NAME="next" VALUE="">
  <TABLE WIDTH="100%" CELLPADDING="0" CELLSPACING="0" BORDER="0">
   <TR>
    <TD COLSPAN="4" BACKGROUND="/i/steel_darkblue_bg.gif"><IMG SRC="/i/hs/clear.gif" HEIGHT="4" WIDTH="1" BORDER="0"></TD>
@@ -105,15 +106,15 @@
      </TR>
      <TR>
       <TD COLSPAN="5" ALIGN="center">
-       <%=(search.getHasPrev()?"<A HREF=\"\">&lt;&lt; prev</A>":"&lt;&lt; prev")%> | <%=(search.getHasNext()?"<A HREF=\"\">next &gt;&gt;</A>":"&gt;&gt; next")%>
+       <%=(search.getHasPrev()?"<A HREF=\"Javascript:document.advForm.next.value='true';Javascript:document.advForm.submit()\">&lt;&lt; prev</A>":"&lt;&lt; prev")%> | <%=(search.getHasNext()?"<A HREF=\"Javascript:document.advForm.next.value='false';Javascript:document.advForm.submit()\">next &gt;&gt;</A>":"&gt;&gt; next")%>
       </TD>
      </TR>
      <TR>
-      <TD>Handle</TD>
-      <TD>Rating</TD>
-      <TD>State</TD>
-      <TD>School</TD>
-      <TD>Last Competed</TD>
+      <TD><B>Handle</B></TD>
+      <TD><B>Rating</B></TD>
+      <TD><B>State</B></TD>
+      <TD><B>School</B></TD>
+      <TD><B>Last Competed</B></TD>
      </TR>
       <% List member_list=search.getMemberList();
          for (int i=0;i<member_list.size();i++) {
