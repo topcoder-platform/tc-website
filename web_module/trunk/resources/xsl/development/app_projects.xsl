@@ -77,8 +77,8 @@
                                     <td class="projectCells">
                                         <a href="?t=development&amp;c=Palm_Common_Connectivity_Design ">Palm Common Connectivity Application</a>
                                     </td>
-                                    <td class="projectCells" align="right">$0,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$1,050 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$300 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">05/10/2004 9:00AM ET</td>
                                 </tr>
 
