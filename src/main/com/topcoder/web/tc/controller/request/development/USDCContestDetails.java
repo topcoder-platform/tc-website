@@ -18,6 +18,7 @@ public class USDCContestDetails extends StatBase {
     String getCommandName() {
         if(getRequest().getParameter("type").equals("1"))
         {
+            //first winning submission
             return "usdc_contest_details_first_winner";
         }
         else
@@ -35,6 +36,8 @@ public class USDCContestDetails extends StatBase {
     void statProcessing() throws com.topcoder.web.common.TCWebException {
         if(getRequest().getParameter("type").equals("1"))
         {
+            //reposition result->resultMap->contest_results_only_winners to contest_results so that the page doesn't have to know what
+            //type of contest this is
             Map result =  (Map)getRequest().getAttribute("resultMap");
             
             result.put("contest_results", result.get("contest_results_only_winners"));
