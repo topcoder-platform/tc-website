@@ -11,7 +11,7 @@ import com.topcoder.shared.util.DBMS;
 import javax.naming.InitialContext;
 import java.util.Arrays;
 
-abstract public class Activate extends BaseProcessor {
+abstract public class Activate extends RegistrationBase {
 
     static final char[] INACTIVE_STATI = {'I', '0', '9', '6', '5', '4'};
     static final char[] UNACTIVE_STATI = {'U', '2'};
@@ -27,26 +27,23 @@ abstract public class Activate extends BaseProcessor {
     }
 
     protected void businessProcessing() throws TCWebException {
-        InitialContext ctx = null;
 
         String code = StringUtils.checkNull(getRequest().getParameter(ACTIVATION_CODE));
         long userId = StringUtils.getCoderId(code);
 
         try {
-            ctx = new InitialContext();
-            Coder coder = (Coder) createEJB(ctx, Coder.class);
+            User user = (User) createEJB(getInitialContext(), User.class);
             String dbCode = null;
             try {
-                dbCode = coder.getActivationCode(userId, DBMS.OLTP_DATASOURCE_NAME);
+                dbCode = user.getActivationCode(userId, db);
             } catch (Exception e) {
                 throw new NavigationException("Sorry, incorrect activation code, account not activated.", e);
             }
             if (dbCode.equals(code)) {
                 //activate account
-                User user = (User) createEJB(ctx, User.class);
-                char status = user.getStatus(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                char status = user.getStatus(userId, db);
                 if (Arrays.binarySearch(UNACTIVE_STATI, status) > 0) {
-                    user.setStatus(userId, ACTIVE_STATI[1], DBMS.COMMON_OLTP_DATASOURCE_NAME); //want to get 'A'
+                    user.setStatus(userId, ACTIVE_STATI[1], db); //want to get 'A'
                     setNextPage();
                 } else if (Arrays.binarySearch(ACTIVE_STATI, status) > 0) {
                     throw new NavigationException("Account has already been activated.");
@@ -60,8 +57,6 @@ abstract public class Activate extends BaseProcessor {
             throw e;
         } catch (Exception e) {
             throw new TCWebException(e);
-        } finally {
-            close(ctx);
         }
     }
 
