@@ -14,6 +14,10 @@ public class TestCache {
             log.error("error", e);
         }
         String s = new String("af;lkjadf;lkjasdlkfjasl;kfjaslkfjas;lkdjfas;lkfjas;lkdjflaksdjf;laksdjf;lkadsjfl;kasjf;lkasjfl;kasjfl;kasjf;lkasdjflkasjflk;sdjal;kfjasd;lkfjasdlk;fjas;lkfjasdk;lfjlkasjf;laksjf;klasdjf;lkasjf;lkasdjfl;kasjf;lkasjf;lkasjf;klasjdf;klasjdf;lkajs;lfkjsa;lkfjaslk;fjaslkfjalskfja;klsdjfa;klsjf;alskdjf;lkasjfl;kadsfja;lksjf;lkasdjf;laksjf;lkasjf;lkasdjf;lkadsjf;lkasdjfl;kasdjf;lkasdjf;l");
+        StringBuffer big = new StringBuffer(10000);
+        for (int i=0; i<10000; i++) {
+            big.append(String.valueOf(i));
+        }
         try {
             int max = 1000;
             log.debug("add " + max + " items to the cache");
@@ -21,6 +25,7 @@ public class TestCache {
                 cc.set("mykey"+i, s, 1000*60*30);
                 log.debug("added item " + i);
             }
+            log.debug("add " + 10*max + " items to the cache, and get every 5th");
             for (int i=0; i<10*max; i++) {
                 cc.set("mynewkey"+i, s, 1000*60*60);
                 if (i%5==0) {
@@ -28,7 +33,14 @@ public class TestCache {
                     cc.get("mynewkey"+i);
                 }
             }
-        } catch (Exception e) {
+            log.debug("add " + 10*max + " 20k items to the cache, and get every 5th");
+            for (int i=0; i<10*max; i++) {
+                cc.set("anothernewkey"+i, s, 1000*60*60);
+                if (i%5==0) {
+                    log.debug("get key " + i);
+                    cc.get("mynewkey"+i);
+                }
+            }        } catch (Exception e) {
             log.error("error", e);
         }
     }
