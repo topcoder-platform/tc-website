@@ -32,6 +32,7 @@ public class CommandList extends BaseProcessor {
     }
 
 	protected void baseProcessing() throws Exception {
+        super.baseProcessing();
         Enumeration parameterNames = getRequest().getParameterNames();
         log.debug("baseProcessng called: " + parameterNames.toString());
         while (parameterNames.hasMoreElements()) {

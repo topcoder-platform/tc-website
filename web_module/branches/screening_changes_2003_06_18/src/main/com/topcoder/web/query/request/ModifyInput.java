@@ -46,6 +46,7 @@ public class ModifyInput extends BaseProcessor {
 
 
 	protected void baseProcessing() throws Exception {
+        super.baseProcessing();
         Enumeration parameterNames = getRequest().getParameterNames();
         while (parameterNames.hasMoreElements()) {
             String parameterName = parameterNames.nextElement().toString();

@@ -33,6 +33,7 @@ public class QuerySearch extends BaseProcessor {
     }
 
 	protected void baseProcessing() throws Exception {
+        super.baseProcessing();
 
         Enumeration parameterNames = getRequest().getParameterNames();
         while (parameterNames.hasMoreElements()) {
