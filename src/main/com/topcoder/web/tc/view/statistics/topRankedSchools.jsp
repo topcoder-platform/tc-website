@@ -80,7 +80,7 @@ pageContext.setAttribute("resultSet", rsc);
                  <logic:iterate name="resultSet" id="resultRow" type="ResultSetContainer.ResultSetRow">
                    <TR>
                      <TD VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                     <TD CLASS="statText" HEIGHT="13"><bean:write name="resultRow" property='<%= "item[" + 3 /* rank */ + "]" %>'/></TD>
+                     <TD CLASS="statText" HEIGHT="13"><bean:write name="resultRow" property='<%= "item[" + 4 /* rank */ + "]" %>'/></TD>
                      <TD CLASS="statText" HEIGHT="13" ALIGN="left"><bean:write name="resultRow" property='<%= "item[" + 0 /* name */ + "]" %>'/></TD>
                      <TD CLASS="statText" HEIGHT="13" ALIGN="left"><bean:write name="resultRow" property='<%= "item[" + 2 /* rated count */ + "]" %>'/></TD>
                      <TD CLASS="statText" HEIGHT="13" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 1 /* avg. rating */ + "]" %>'/></TD>
