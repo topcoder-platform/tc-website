@@ -83,7 +83,7 @@
 							<p><strong>Developer</strong><br />
 							Royalty Percentage - 25%</p>
 							
-							<p>Total Payment - $192.00<br/>
+							<p>Total Payment - $192.00</p>
 
 							<p><sup>*</sup>Completion of the project is defined as follows:</p>
 
@@ -114,7 +114,7 @@
 							<p>After inquiring for this project please make sure you are registered at <a href="http://www.topcodersoftware.com" class="statText">TopCoder Software</a>.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
 
                             <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Unique Key Generator: Development" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
-						<p><br /></p>
+						<p><br/></p>
 					</td>
 
 					<td valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
