@@ -87,13 +87,9 @@ function submitSession() {
 
             <jsp:useBean id="sessionInfo" type="com.topcoder.web.screening.model.SessionInfo" scope="session" />
             
-             <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                <tr><screen:form name="sessionSetupForm" action="<%=Constants.CONTROLLER_URL%>" method="GET">
-                    <input type="HIDDEN" name="rp" value="" >
-                    <td width="100%"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"></td>
-                </tr>
-            </table>
- 
+            <screen:form name="sessionSetupForm" action="<%=Constants.CONTROLLER_URL%>" method="GET">
+            <input type="HIDDEN" name="rp" value="" >
+
             <table cellspacing="0" cellpadding="3" width="70%" class="testFrame">
                 <tr><td class="testTableTitle" colspan="3">Test Profile</td></tr>
                 <tr>
