@@ -6,7 +6,7 @@
 		<TD VALIGN="middle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
 	</TR> -->
 	<TR>
-		<TD VALIGN="middle" HEIGHT="16" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig" NOWRAP="0">&#160;&#160;Match 73 - March 21, 2002<!-- 2002 TCCC Regional Championships - Mar. 13 --> &#160;</TD>
+		<TD VALIGN="middle" HEIGHT="16" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig" NOWRAP="0">&#160;&#160;Match 76 - April 1, 2002<!-- 2002 TCCC Regional Championships - Mar. 13 --> &#160;</TD>
 	</TR>
 	<TR>
 		<TD VALIGN="middle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
@@ -20,7 +20,8 @@
  	<TR>
 		<TD CLASS="statText" VALIGN="top">
 <P>
-2002 Collegiate Challenge finalist <A HREF="/stat?c=member_profile&amp;cr=252076" CLASS="coderTextRed">Wasteland</A> won Room 3  by the smallest margin in the division.  <A HREF="/stat?c=member_profile&amp;cr=252076" CLASS="coderTextRed">Wasteland</A> coded all three problems for 1152.16 final points.
+An extremely close battle took place in Room 4, as <A HREF="/stat?c=member_profile&amp;cr=128924" CLASS="coderTextYellow">thekcc</A> outscored <A HREF="/stat?c=member_profile&amp;cr=152476" CLASS="coderTextYellow">kalmes</A>
+ by .84 points (1416.95 to 1416.11) to win the room.
 </P>
 
        </TD>
@@ -37,10 +38,11 @@
  	<TR>
 		<TD CLASS="statText" VALIGN="top">
 <P>
-The closest battle in Division-II took place in Room 37, as <A HREF="/stat?c=member_profile&amp;cr=266084" CLASS="coderTextGreen">stimpil</A> beat 
-<A HREF="/stat?c=member_profile&amp;cr=267221" CLASS="coderTextGreen">bml137</A> by 20.45 points, 762.09 to 741.64.  Both <A HREF="/stat?c=member_profile&amp;cr=266084" CLASS="coderTextGreen">stimpil</A> and 
-<A HREF="/stat?c=member_profile&amp;cr=267221" CLASS="coderTextGreen">bml137</A> coded the Level One and Level Two problems successfully, but failed on the Level Three problem
-...&#160;//&#160;<A HREF="/index?t=statistics&amp;c=match_summary" CLASS="statText">read&#160;more</A>.
+<A HREF="/stat?c=member_profile&amp;cr=265299" CLASS="coderTextGray">HotStuff</A>
+ pulled off the biggest upset in the division, winning Room 48 with 633.70 final points as the 10th seed in the room.  <A HREF="/stat?c=member_profile&amp;cr=265299" CLASS="coderTextGray">HotStuff</A>
+ just edged <A HREF="/stat?c=member_profile&amp;cr=273419" CLASS="coderTextGreen">FatAlbert</A>
+, who finished with 629.44 points
+...<A HREF="/index?t=statistics&amp;c=match_summary" CLASS="statText">full&#160;story</A>
 </P>
        </TD>
 	</TR>
