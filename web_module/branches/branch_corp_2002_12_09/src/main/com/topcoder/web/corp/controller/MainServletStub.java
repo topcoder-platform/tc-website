@@ -20,14 +20,14 @@ import com.topcoder.web.common.RequestProcessor;
  *
  */
 public class MainServletStub extends HttpServlet {
-    //private final static Logger log = Logger.getLogger(MainServletStub.class);
+    private final static Logger log = Logger.getLogger(MainServletStub.class);
     
     public void doGet(HttpServletRequest request, HttpServletResponse response)
                                    throws ServletException, IOException {
         log.debug("URI Request received: "+request.getRequestURI() + "?" +
                    request.getQueryString());
         RequestProcessor currentProc = new com.topcoder.web.corp.request.Static();
-        currentProc.prepare(request, response);
+        currentProc.prepare(request);
         try {
             currentProc.process();
         }
