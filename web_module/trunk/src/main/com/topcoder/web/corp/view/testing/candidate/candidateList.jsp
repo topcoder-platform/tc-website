@@ -74,7 +74,7 @@
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                  <tr>
                    <td align="left" class="screeningHeader">
-                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=DataAccessConstants.SORT_COLUMN%>=1">
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=DataAccessConstants.SORT_COLUMN%>=6">
                             Candidate
                         </A>
                    </td>
