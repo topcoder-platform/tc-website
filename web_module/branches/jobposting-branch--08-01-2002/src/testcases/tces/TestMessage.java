@@ -62,8 +62,15 @@ public class TestMessage{
 
 	// add methods
 
+	public static void addDetailMessage(String str, String color) { 
+		if(showDetail) {
+			sb.append(nextLine + (htmlDoc?"<font color="+color+">":"") + 
+					str + (htmlDoc?"</font>":""));
+		}
+	}
+
 	public static void addDetailMessage(String str) { 
-		if(showDetail) sb.append(nextLine+str); 
+		addDetailMessage(str, "000000"); 
 	}
 
 	public static void addDetailMessage(java.net.URL url) { 

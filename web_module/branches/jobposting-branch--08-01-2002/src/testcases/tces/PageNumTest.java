@@ -103,11 +103,11 @@ public class PageNumTest implements TestConst{
 
 	public static void checkResponse(WebResponse resp) throws IOException	{ 
 		if (resp==null)	{	
-			TestMessage.addDetailMessage("== Null Response =="); 
+			TestMessage.addDetailMessage("== Null Response ==", "FF0000"); 
 		}else if (resp.getText().indexOf("Navigation Error")!=-1){
-			TestMessage.addDetailMessage("== Navigation Error =="); 
+			TestMessage.addDetailMessage("== Navigation Error ==", "006600"); 
 		}else{
-			TestMessage.addDetailMessage("== Page Found =="); 
+			TestMessage.addDetailMessage("== Page Found ==", "000099"); 
 		}
 	}
 
@@ -132,7 +132,7 @@ public class PageNumTest implements TestConst{
 	public WebResponse loginTask() throws IOException, org.xml.sax.SAXException{
 		try{
 			WebResponse resp	=  wc.getResponse( new PostMethodWebRequest( LOGIN_URL ) );
-			TestMessage.addDetailMessage( "loginTask: " );
+			TestMessage.addDetailMessage( "loginTask: " , "333366");
 			if(resp!=null) { TestMessage.addDetailMessage( " = " + resp.getURL() ); }
 			return resp;
 		}catch(com.meterware.httpunit.HttpInternalErrorException hiee){
@@ -161,7 +161,7 @@ public class PageNumTest implements TestConst{
 	public WebResponse mainTask() throws IOException, org.xml.sax.SAXException{
 		try{
 			WebResponse resp	= userLogin();
-			TestMessage.addDetailMessage( "mainTask: " );
+			TestMessage.addDetailMessage( "mainTask: " , "333366");
 			if(resp!=null) { TestMessage.addDetailMessage( " = " + resp.getURL() ); }
 			return resp;
 		}catch(com.meterware.httpunit.HttpInternalErrorException hiee){
@@ -174,7 +174,7 @@ public class PageNumTest implements TestConst{
 	public WebResponse campaignDetailTask() throws IOException, org.xml.sax.SAXException{
 		try{
 			WebResponse resp	= mainTask();
-			TestMessage.addDetailMessage( "campaignDetailTask: " );
+			TestMessage.addDetailMessage( "campaignDetailTask: " , "333366");
 			if(resp!=null){
 				resp = getLinkOfRowWith(resp, mainTableRow, "task="+PAGE_3_LINK_HREF);
 				if(resp!=null) { TestMessage.addDetailMessage( " = " + resp.getURL() ); }
@@ -190,7 +190,7 @@ public class PageNumTest implements TestConst{
 	public WebResponse campaignInterestTask() throws IOException, org.xml.sax.SAXException{
 		try{
 			WebResponse resp	= campaignDetailTask();
-			TestMessage.addDetailMessage( "campaignInterestTask: " );
+			TestMessage.addDetailMessage( "campaignInterestTask: " , "333366" );
 			if(resp!=null){
 				WebLink viewLink = resp.getLinkWith(VIEW_HIT_LINK_TEXT);
 				resp =  (viewLink==null)?null:wc.getResponse( viewLink.getRequest() );	// goto  CampaignInterest
@@ -207,7 +207,7 @@ public class PageNumTest implements TestConst{
 	public WebResponse positionInterestTask() throws IOException, org.xml.sax.SAXException{
 		try{
 			WebResponse resp	= campaignDetailTask();
-			TestMessage.addDetailMessage( "positionInterestTask: " );
+			TestMessage.addDetailMessage( "positionInterestTask: " , "333366" );
 			if(resp!=null){
 				resp =   getLinkOfRowWith(resp, campaignDetailRow, "task="+PAGE_5_LINK_HREF);
 				if(resp!=null) { TestMessage.addDetailMessage( " = " + resp.getURL() ); }
@@ -225,7 +225,7 @@ public class PageNumTest implements TestConst{
 			WebResponse resp;
 			if(from_4_5 == 4)	resp	= campaignInterestTask();
 			else				resp	= positionInterestTask();
-			TestMessage.addDetailMessage( "overallDemographicInfoTask: " );
+			TestMessage.addDetailMessage( "overallDemographicInfoTask: " , "333366" );
 			if(resp!=null){
 				WebLink viewLink = resp.getLinkWith(VIEW_COL_DEMO_LINK_TEXT);
 				resp =  (viewLink==null)?null:wc.getResponse( viewLink.getRequest() );	// goto  CampaignInterest
@@ -244,7 +244,7 @@ public class PageNumTest implements TestConst{
 			WebResponse resp;
 			if(from_4_5 == 4)	resp	= campaignInterestTask();
 			else				resp	= positionInterestTask();
-			TestMessage.addDetailMessage( "memberProfileTask: " );
+			TestMessage.addDetailMessage( "memberProfileTask: " , "333366" );
 			if(resp!=null){
 				resp = getLinkOfRowWith(resp, campaignInterestRow, "task="+PAGE_7_LINK_HREF);
 				if(resp!=null) { TestMessage.addDetailMessage( " = " + resp.getURL() ); }
@@ -260,7 +260,7 @@ public class PageNumTest implements TestConst{
 	public WebResponse individualDemographicInfoTask() throws IOException, org.xml.sax.SAXException{
 		try{
 			WebResponse resp	= memberProfileTask();
-			TestMessage.addDetailMessage( "individualDemographicInfoTask: " );
+			TestMessage.addDetailMessage( "individualDemographicInfoTask: " , "333366" );
 			if(resp!=null){
 				WebLink viewLink = resp.getLinkWith(CODER_DEMO_LINK_TEXT);
 				resp = (viewLink==null)?null:wc.getResponse( viewLink.getRequest() );	
@@ -277,7 +277,7 @@ public class PageNumTest implements TestConst{
 	public WebResponse competitionHistoryTask() throws IOException, org.xml.sax.SAXException{
 		try{
 			WebResponse resp	= memberProfileTask();
-			TestMessage.addDetailMessage( "competitionHistoryTask: " );
+			TestMessage.addDetailMessage( "competitionHistoryTask: " , "333366" );
 			if(resp!=null){
 				WebLink viewLink = resp.getLinkWith(CODER_COMP_HIST_LINK_TEXT);
 				resp = (viewLink==null)?null:wc.getResponse( viewLink.getRequest() );	
@@ -294,7 +294,7 @@ public class PageNumTest implements TestConst{
 	public WebResponse problemSubmissionTask() throws IOException, org.xml.sax.SAXException{
 		try{
 			WebResponse resp	= memberProfileTask();
-			TestMessage.addDetailMessage( "problemSubmissionTask: " );
+			TestMessage.addDetailMessage( "problemSubmissionTask: " , "333366" );
 			if(resp!=null){
 				WebLink viewLink = resp.getLinkWith(CODER_PROB_SUBM_LINK_TEXT);
 				resp = (viewLink==null)?null:wc.getResponse( viewLink.getRequest() );	
@@ -311,7 +311,7 @@ public class PageNumTest implements TestConst{
 	public WebResponse ratingHistoryTask() throws IOException, org.xml.sax.SAXException{
 		try{
 			WebResponse resp	= competitionHistoryTask();
-			TestMessage.addDetailMessage( "ratingHistoryTask: " );
+			TestMessage.addDetailMessage( "ratingHistoryTask: " , "333366" );
 			if(resp!=null){
 				WebLink viewLink = resp.getLinkWith(RATING_HIST_GRAPH_LINK_TEXT);
 				resp = (viewLink==null)?null:wc.getResponse( viewLink.getRequest() );	
@@ -328,7 +328,7 @@ public class PageNumTest implements TestConst{
 	public WebResponse overallRatingDistributionGraphTask() throws IOException, org.xml.sax.SAXException{
 		try{
 			WebResponse resp	= competitionHistoryTask();
-			TestMessage.addDetailMessage( "overallRatingDistributionGraphTask: " );
+			TestMessage.addDetailMessage( "overallRatingDistributionGraphTask: " , "333366" );
 			if(resp!=null){
 				WebLink viewLink = resp.getLinkWith(OVERALL_RATING_DIST_GRAPH_LINK_TEXT);
 				resp = (viewLink==null)?null:wc.getResponse( viewLink.getRequest() );	
@@ -345,7 +345,7 @@ public class PageNumTest implements TestConst{
 	public WebResponse competitionStatisticsTask() throws IOException, org.xml.sax.SAXException{
 		try{
 			WebResponse resp	= competitionHistoryTask();
-			TestMessage.addDetailMessage( "competitionStatisticsTask: " );
+			TestMessage.addDetailMessage( "competitionStatisticsTask: " , "333366" );
 			if(resp!=null){
 				resp = getLinkOfRowWith(resp, 0, "task="+PAGE_13_LINK_HREF);
 				if(resp!=null) { TestMessage.addDetailMessage( " = " + resp.getURL() ); }
@@ -363,7 +363,7 @@ public class PageNumTest implements TestConst{
 			WebResponse resp;
 			if(from_10_13 == 10)	resp	= problemSubmissionTask();
 			else					resp	= competitionStatisticsTask();
-			TestMessage.addDetailMessage( "problemStatisticsTask: " );
+			TestMessage.addDetailMessage( "problemStatisticsTask: "  , "333366");
 			if(resp!=null){
 				resp	= getLinkOfRowWith(resp, 0, "task="+PAGE_14_LINK_HREF);
 				if(resp!=null) { TestMessage.addDetailMessage( " = " + resp.getURL() ); }
@@ -379,7 +379,7 @@ public class PageNumTest implements TestConst{
 	public WebResponse problemStatementTask() throws IOException, org.xml.sax.SAXException{
 		try{
 			WebResponse resp	= problemStatisticsTask();
-			TestMessage.addDetailMessage( "problemStatementTask: " );
+			TestMessage.addDetailMessage( "problemStatementTask: "  , "333366");
 			if(resp!=null){
 				WebLink viewLink = resp.getLinkWith(PROB_STMT_LINK_TEXT);
 				resp = (viewLink==null)?null:wc.getResponse( viewLink.getRequest() );	
