@@ -3,6 +3,7 @@ package com.topcoder.web.resume.ejb.ResumeServices;
 import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.resume.bean.Resume;
 
 import java.rmi.RemoteException;
@@ -133,28 +134,24 @@ public class ResumeServicesBean extends BaseEJB {
             conn = null;
         }
     }
+
     private static final String GET_FILE_TYPES_QUERY =
             "SELECT file_type_id AS file_type_id " +
                   " ,file_type_desc AS file_type_desc " +
                   " ,sort " +
              " FROM file_type_lu" +
             " ORDER BY sort ASC";
-    public ArrayList getFileTypes() throws RemoteException{
+    public ResultSetContainer getFileTypes() throws RemoteException{
         log.debug("ejb:ResumeServices:getFileTypes() called...");
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        ArrayList ret = new ArrayList();
+        ResultSetContainer ret = null;
         try{
             conn = DBMS.getTransConnection();
             ps = conn.prepareStatement(GET_FILE_TYPES_QUERY);
             rs = ps.executeQuery();
-            while(rs.next()){
-                Integer id = new Integer(rs.getInt("file_type_id"));
-                String desc = rs.getString("file_type_desc");
-                ret.add(id);
-                ret.add(desc);
-            }
+            ret = new ResultSetContainer(rs);
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new RemoteException(sqe.getMessage());

@@ -5,17 +5,17 @@ import com.topcoder.web.resume.ejb.ResumeServices.ResumeServicesHome;
 import com.topcoder.web.resume.ejb.ResumeServices.ResumeServices;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.common.web.data.Navigation;
 
 import javax.servlet.http.*;
-import java.util.ArrayList;
 
 public class ViewUploadTask extends ResumeTask{
     private static Logger log = Logger.getLogger(UploadTask.class);
 
     private int userId;
     private boolean hasResume;
-    private ArrayList fileTypes;
+    private ResultSetContainer fileTypes;
 
     public ViewUploadTask() throws ResumeTaskException{
         super();
@@ -67,11 +67,11 @@ public class ViewUploadTask extends ResumeTask{
         this.hasResume = hasResume;
     }
 
-    public ArrayList getFileTypes() {
+    public ResultSetContainer getFileTypes() {
         return fileTypes;
     }
 
-    public void setFileTypes(ArrayList fileTypes) {
+    public void setFileTypes(ResultSetContainer fileTypes) {
         this.fileTypes = fileTypes;
     }
 
