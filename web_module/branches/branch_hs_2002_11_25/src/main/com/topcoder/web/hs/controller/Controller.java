@@ -28,9 +28,16 @@ public final class Controller extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            System.out.println("request.getContextPath()="+request.getContextPath());
-            System.out.println("request.getServletPath()="+request.getServletPath());
-            System.out.println("query \"" + request.getQueryString() + "\" from host " + request.getRemoteHost());
+            //System.out.println("request.getContextPath()="+request.getContextPath());
+            //System.out.println("request.getServletPath()="+request.getServletPath());
+            String query = request.getQueryString();
+            System.out.println("query \"" + query + "\" from host " + request.getRemoteHost());
+
+            if(query==null || query.equals("")) {
+                //@@@ dont hardcode this path... is there a saner way to handle empty queries further down?
+                getServletContext().getRequestDispatcher(response.encodeURL("/hs"+"/home/index.jsp")).forward(request, response);
+                return;
+            }
 
             String cmd = checkNull(request.getParameter("c"));
             System.out.println("cmd="+cmd);
@@ -48,11 +55,12 @@ public final class Controller extends HttpServlet {
             }
 
         } catch (Exception e) {
+            response.setStatus(404);
+//@@@ or forward to an error page, although that requires another round of catching and throwing
             PrintWriter out = response.getWriter();
             out.println("<pre>");
             e.printStackTrace(out);
             out.println("</pre>");
-            //@@@response.flushBuffer();
         }
     }
 

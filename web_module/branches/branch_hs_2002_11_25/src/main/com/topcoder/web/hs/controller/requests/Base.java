@@ -2,6 +2,7 @@ package com.topcoder.web.hs.controller.requests;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
+import com.topcoder.web.hs.model.*;
 
 /**
  * Contains some of the basic methods and data for request processors.
@@ -21,6 +22,22 @@ public abstract class Base implements RequestProcessor {
 
     public void setRequest(ServletRequest sr) {
         request = sr;
+    }
+
+    protected buildSessionInfo() {
+        SessionInfoBean si = new SessionInfoBean();
+        try {
+          String p;
+          p = request.getParameter("handle");
+          if(p!=null) si.setHandle(p);
+          p = request.getParameter("userid");
+          if(p!=null) si.setUserId(Integer.parseInt(p));
+          p = request.getParameter("group");
+          if(p!=null) si.setGroup(p.charAt(0));
+          p = request.getParameter("rating");
+          if(p!=null) si.setRating(Integer.parseInt(p));
+       } catch(Exception e) { e.printStackTrace(); }
+       sr.setAttribute("SessionInfo", si);
     }
 
     public abstract void process();
