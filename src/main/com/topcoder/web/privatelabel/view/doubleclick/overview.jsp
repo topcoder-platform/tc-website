@@ -21,7 +21,7 @@
 </table>
 
 <jsp:include page="links.jsp" >
-   <jsp:param name="tabLev1" value="home"/>
+   <jsp:param name="tabLev1" value="overview"/>
 </jsp:include>
 
 
@@ -140,35 +140,7 @@ Data Management<br>
 </div>
 </td></tr></table>
 
-<table width="750" cellpadding="5" cellspacing="0" border="0" align="center">
-<tr>
-<td class="smalltext" valign="middle" align="center" bgcolor="#d4e1ee">Visit other DoubleClick sites: &nbsp; &nbsp; <a class="smalltext" 
-
-href="http://www.abacus-direct.com/"><b>Abacus</b></a> &nbsp; &nbsp; | &nbsp; &nbsp; <a class="smalltext" 
-
-href="http://www2.doubleclick.com/apac/"><b>Asia Pacific</b></a> &nbsp; &nbsp; | &nbsp; &nbsp; <a class="smalltext" 
-
-href="http://www.doubleclick.net/emea/"><b>Europe</b></a> &nbsp; &nbsp; | &nbsp; &nbsp; <a class="smalltext" 
-
-href="http://www.doubleclick.net/insight/"><b>Insight</b></a> &nbsp; &nbsp; | &nbsp; &nbsp; <a class="smalltext" 
-
-href="http://kb.doubleclick.com/article.asp?article=3521&p=934"><b>Support</b></a> &nbsp; &nbsp; | &nbsp; &nbsp; <a class="smalltext" 
-
-href="http://www3.doubleclick.net/market/"><b>The Smart Marketing Report</b></a></td>
-</tr>
-</table>
-<table width="750" cellpadding="0" cellspacing="0" border="0" align="center">
-<tr>
-<td valign="middle" align="left" class="smalltext"> &#169; 2004 DoubleClick Inc. All Rights Reserved. &nbsp; &nbsp; (212) 271-CLICK (2542) &nbsp; &nbsp; 
-
-&nbsp;<a class="smalltext" href="javascript:openLegal('http://www.doubleclick.com:80/us/legal/default.asp');">Legal Disclaimer</a> &nbsp; <a class="smalltext" href="http://www.doubleclick.com/us/about_doubleclick/privacy/">Privacy Policy</a> &nbsp; <a 
-
-class="smalltext" href="http://www.doubleclick.com/us/sitemap/">Site Map</a>
-</td><td align="right" valign="middle">
-<img src="http://www.doubleclick.com/images/finalmark.gif" border="0" vspace="5"></td>
-</tr>
-</table>
-
+<jsp:include page="foot.jsp" />
 
 </body>
 </html>
