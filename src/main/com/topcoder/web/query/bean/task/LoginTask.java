@@ -1,15 +1,10 @@
 package com.topcoder.web.query.bean.task;
 
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.query.common.Authentication;
-import com.topcoder.web.query.common.AuthenticationException;
+import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.shared.security.LoginException;
 import com.topcoder.web.query.common.Constants;
-import com.topcoder.web.query.bean.task.BaseTask;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.io.Serializable;
+import com.topcoder.web.common.BaseProcessor;
 
 /**
  * @author Greg Paul
@@ -17,101 +12,51 @@ import java.io.Serializable;
  *
  */
 
-public class LoginTask extends BaseTask implements Task, Serializable {
+public class LoginTask extends BaseProcessor {
 
     private static Logger log = Logger.getLogger(LoginTask.class);
 
-    /* Holds user input from the handle field */
-    private String handleInput;
 
-    /* Holds user input from the password field */
-    private String passwordInput;
+    protected void businessProcessing() throws Exception {
 
-    private HttpSession session;
+        /* may be null */
+        String username = request.getParameter(Constants.HANDLE_PARAM);
+        String password = request.getParameter(Constants.PASSWORD_PARAM);
 
-    private String errorMessage;
+        /* if not null, we got here via a form submit;
+         * otherwise, skip this and just draw the login form */
+        if (username != null) {
 
-    /* Creates a new LoginTask */
-    public LoginTask() {
-        super();
-        setHandleInput("");
-        setPasswordInput("");
-        setErrorMessage("");
-    }
-
-	public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
-        session = request.getSession(true);
-        super.setAuthentication(Authentication.getAuthentication(session));
-    }
-
-    public void process(String step) throws Exception {
-
-        if (step!=null && step.equals(Constants.NEW_STEP)) {
-            if (!super.getAuthentication().isLoggedIn()) {
+            password = checkNull(password);
+            if (username.equals("") || password.equals("")) {
+                request.setAttribute("message", "You must enter a username and a password.");
+            } else {
                 try {
-                    super.getAuthentication().attemptLogin(getHandleInput(), getPasswordInput(), getInitialContext(), session);
-                } catch (AuthenticationException e) {
-                    setErrorMessage(e.getMessage());
+
+                    auth.login(new SimpleUser(0, username, password));
+
+                    /* no need to reset user or sessioninfo, since we immediately proceed to a new page */
+                    String dest = checkNull(request.getParameter("nextpage"));
+                    setNextPage(dest);
+                    setIsNextPageInContext(false);
+                    return;
+
+                } catch (LoginException e) {
+
+                    /* the login failed, so tell them what happened */
+                    request.setAttribute("message", e.getMessage());
                 }
             }
-            if (super.getAuthentication().isLoggedIn()) {
-                setNextPage(getServletPath() + "?" + Constants.TASK_PARAM + "=" + Constants.DB_SELECTION_TASK);
-                super.setInternalResource(false);
-            } else {
-                setNextPage(Constants.LOGIN_PAGE);
-            }
-        } else {
-            setNextPage(Constants.LOGIN_PAGE);
+
+            /* whatever was wrong with the submission, make sure they are logged out */
+            auth.logout();
         }
-    }
 
-    public void setAttributes(String paramName, String paramValues[]) {
-        String value = paramValues[0];
-        value = (value == null?"":value.trim());
-
-        if (paramName.equalsIgnoreCase(Constants.HANDLE_PARAM))
-            setHandleInput(value);
-        else if (paramName.equalsIgnoreCase(Constants.PASSWORD_PARAM))
-            setPasswordInput(value);
-    }
-
-    /** Setter for property handleInput.
-     * @param handleInput New value of property handleInput.
-     */
-    public void setHandleInput(String handleInput) {
-        this.handleInput=handleInput;
-    }
-
-    /** Getter for property handleInput
-     * @return Value of property handleInput
-     */
-    public String getHandleInput() {
-        return handleInput;
-    }
-
-    /** Setter for property passwordInput.
-     * @param passwordInput New value of property passwordInput.
-     */
-    public void setPasswordInput(String passwordInput) {
-        this.passwordInput=passwordInput;
-    }
-
-    /** Getter for property passwordInput
-     * @return Value of property passwordInput
-     */
-    public String getPasswordInput() {
-        return passwordInput;
+        setNextPage(Constants.LOGIN_PAGE);
+        setIsNextPageInContext(true);
     }
 
 
-    public String getErrorMessage() {
-        return errorMessage;
-    }
-
-    public void setErrorMessage(String errorMessage) {
-        this.errorMessage = errorMessage;
-    }
 
 }
 

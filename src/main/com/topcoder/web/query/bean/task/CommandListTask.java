@@ -7,18 +7,16 @@ import com.topcoder.web.query.common.AuthenticationException;
 import com.topcoder.web.query.common.Constants;
 import com.topcoder.web.query.ejb.QueryServices.Command;
 import com.topcoder.web.query.ejb.QueryServices.CommandHome;
-import com.topcoder.web.query.bean.task.BaseTask;
+import com.topcoder.web.common.BaseProcessor;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.Serializable;
+import java.util.Enumeration;
 
 /**
  * @author Greg Paul
  *
  */
 
-public class CommandListTask extends BaseTask implements Task, Serializable {
+public class CommandListTask extends BaseProcessor {
 
     private static Logger log = Logger.getLogger(CommandListTask.class);
 
@@ -31,16 +29,21 @@ public class CommandListTask extends BaseTask implements Task, Serializable {
         db = "";
     }
 
-
-	public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
-            throws AuthenticationException, Exception {
-        super.servletPreAction(request, response);
-        if (!super.getAuthentication().isLoggedIn()) {
+	protected void baseProcessing() throws Exception {
+        if (userIdentified()) {
             throw new AuthenticationException("User not authenticated for access to query tool resource.");
+        }
+        Enumeration parameterNames = request.getParameterNames();
+        while (parameterNames.hasMoreElements()) {
+            String parameterName = parameterNames.nextElement().toString();
+            String[] parameterValues = request.getParameterValues(parameterName);
+            if (parameterValues != null) {
+                setAttributes(parameterName, parameterValues);
+            }
         }
  	}
 
-    public void process(String step) throws Exception {
+    protected void businessProcessing() throws Exception {
         CommandHome cHome = (CommandHome) getInitialContext().lookup(ApplicationServer.Q_COMMAND);
         Command c = cHome.create();
         setCommandList(c.getCommandList(getDb()));

@@ -8,11 +8,8 @@ import com.topcoder.web.query.common.Constants;
 import com.topcoder.web.query.bean.InputBean;
 import com.topcoder.web.query.bean.QueryInputBean;
 import com.topcoder.web.query.ejb.QueryServices.*;
-import com.topcoder.web.query.bean.task.BaseTask;
+import com.topcoder.web.common.BaseProcessor;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.Serializable;
 import java.util.*;
 
 /**
@@ -20,7 +17,7 @@ import java.util.*;
  *
  */
 
-public class ModifyQueryInputTask extends BaseTask implements Task, Serializable {
+public class ModifyQueryInputTask extends BaseProcessor {
 
     private static Logger log = Logger.getLogger(ModifyQueryInputTask.class);
 
@@ -48,16 +45,22 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
         attributeQueue = new HashMap();
     }
 
-
-	public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
-            throws AuthenticationException, Exception {
-        super.servletPreAction(request, response);
-        if (!super.getAuthentication().isLoggedIn()) {
+	protected void baseProcessing() throws Exception {
+        if (userIdentified()) {
             throw new AuthenticationException("User not authenticated for access to query tool resource.");
         }
-	}
+        Enumeration parameterNames = request.getParameterNames();
+        while (parameterNames.hasMoreElements()) {
+            String parameterName = parameterNames.nextElement().toString();
+            String[] parameterValues = request.getParameterValues(parameterName);
+            if (parameterValues != null) {
+                setAttributes(parameterName, parameterValues);
+            }
+        }
+ 	}
 
-    public void process(String step) throws Exception {
+    protected void businessProcessing() throws Exception {
+        String step = request.getParameter(Constants.STEP_PARAM);
         InputHome iHome = (InputHome) getInitialContext().lookup(ApplicationServer.Q_INPUT);
         Input i = iHome.create();
 

@@ -3,18 +3,14 @@ package com.topcoder.web.query.bean.task;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.query.common.AuthenticationException;
 import com.topcoder.web.query.common.Constants;
-import com.topcoder.web.query.bean.task.BaseTask;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.Serializable;
+import com.topcoder.web.common.BaseProcessor;
 
 /**
  * @author Greg Paul
  *
  */
 
-public class DBSelectionTask extends BaseTask implements Task, Serializable {
+public class DBSelectionTask extends BaseProcessor {
 
     private static Logger log = Logger.getLogger(DBSelectionTask.class);
 
@@ -24,19 +20,14 @@ public class DBSelectionTask extends BaseTask implements Task, Serializable {
     }
 
 
-	public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
-            throws AuthenticationException, Exception {
-        super.servletPreAction(request, response);
-        if (!super.getAuthentication().isLoggedIn()) {
+	protected void baseProcessing() throws Exception {
+        if (userIdentified()) {
             throw new AuthenticationException("User not authenticated for access to query tool resource.");
         }
-	}
+ 	}
 
-    public void process(String step) throws Exception {
+    protected void businessProcessing() throws Exception {
         super.setNextPage(Constants.DB_SELECTION_PAGE);
-    }
-
-    public void setAttributes(String paramName, String paramValues[]) {
     }
 
 }

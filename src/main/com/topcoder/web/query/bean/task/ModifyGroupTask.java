@@ -6,18 +6,16 @@ import com.topcoder.web.query.common.AuthenticationException;
 import com.topcoder.web.query.common.Constants;
 import com.topcoder.web.query.ejb.QueryServices.CommandGroup;
 import com.topcoder.web.query.ejb.QueryServices.CommandGroupHome;
-import com.topcoder.web.query.bean.task.BaseTask;
+import com.topcoder.web.common.BaseProcessor;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.Serializable;
+import java.util.Enumeration;
 
 /**
  * @author Greg Paul
  *
  */
 
-public class ModifyGroupTask extends BaseTask implements Task, Serializable {
+public class ModifyGroupTask extends BaseProcessor {
 
     private static Logger log = Logger.getLogger(ModifyGroupTask.class);
 
@@ -34,22 +32,29 @@ public class ModifyGroupTask extends BaseTask implements Task, Serializable {
     }
 
 
-	public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
-            throws AuthenticationException, Exception {
-        super.servletPreAction(request, response);
-        if (!super.getAuthentication().isLoggedIn()) {
+	protected void baseProcessing() throws Exception {
+        if (userIdentified()) {
             throw new AuthenticationException("User not authenticated for access to query tool resource.");
+        }
+        Enumeration parameterNames = request.getParameterNames();
+        while (parameterNames.hasMoreElements()) {
+            String parameterName = parameterNames.nextElement().toString();
+            String[] parameterValues = request.getParameterValues(parameterName);
+            if (parameterValues != null) {
+                setAttributes(parameterName, parameterValues);
+            }
         }
  	}
 
-    public void process(String step) throws Exception {
+    protected void businessProcessing() throws Exception {
+        String step = request.getParameter(Constants.STEP_PARAM);
         CommandGroupHome cgHome = (CommandGroupHome) getInitialContext().lookup(ApplicationServer.Q_COMMAND_GROUP);
         CommandGroup cg = cgHome.create();
 
         if (step!=null && step.equals(Constants.SAVE_STEP)) {
             checkGroupDesc(getGroupDesc());
             checkGroupId(getGroupId(), cg);
-            if (!super.hasErrors()) {
+            if (!hasErrors()) {
                 if (isNewGroup()) {
                     setGroupId(cg.createCommandGroup(getGroupDesc(), getDb()));
                 } else {
@@ -61,7 +66,7 @@ public class ModifyGroupTask extends BaseTask implements Task, Serializable {
                 setGroupDesc(cg.getCommandGroupName(getGroupId(), getDb()));
             }
         }
-        super.setNextPage(Constants.MODIFY_GROUP_PAGE);
+        setNextPage(Constants.MODIFY_GROUP_PAGE);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {
@@ -74,7 +79,7 @@ public class ModifyGroupTask extends BaseTask implements Task, Serializable {
             try {
                 setGroupId(Integer.parseInt(value));
             } catch (NumberFormatException e) {
-                super.addError(Constants.GROUP_ID_PARAM, e);
+                addError(Constants.GROUP_ID_PARAM, e);
             }
         } else if (paramName.equalsIgnoreCase(Constants.GROUP_DESC_PARAM)) {
             setGroupDesc(value);
@@ -83,17 +88,17 @@ public class ModifyGroupTask extends BaseTask implements Task, Serializable {
     }
 
     private void checkGroupDesc(String groupDesc) {
-        if (super.isEmpty(groupDesc)) {
-            super.addError(Constants.GROUP_DESC_PARAM, "You must specify a group description");
+        if (isEmpty(groupDesc)) {
+            addError(Constants.GROUP_DESC_PARAM, "You must specify a group description");
         } else if (groupDesc.length() > 100) {
-            super.addError(Constants.GROUP_DESC_PARAM, "Invalid Group Description, too long");
+            addError(Constants.GROUP_DESC_PARAM, "Invalid Group Description, too long");
         }
     }
 
     private void checkGroupId(int groupId, CommandGroup cg) throws Exception {
         if (!isNewGroup()) {
             if (cg.getCommandGroupName(groupId, getDb())==null) {
-                super.addError(Constants.GROUP_ID_PARAM, "Invalid Group Id");
+                addError(Constants.GROUP_ID_PARAM, "Invalid Group Id");
             }
         }
     }
@@ -124,6 +129,10 @@ public class ModifyGroupTask extends BaseTask implements Task, Serializable {
 
     public void setGroupId(int groupId) {
         this.groupId = groupId;
+    }
+
+    private boolean isEmpty(String s) {
+        return !(s != null && s.trim().length() > 0);
     }
 }
 
