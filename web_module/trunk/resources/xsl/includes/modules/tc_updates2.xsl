@@ -10,7 +10,7 @@
 
             <table width="100%" border="0" cellspacing="0" cellpadding="4">   
 
-                <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_07_22_03">TopCoder Adds VB.NET Competitions</A> [June 17]</td></tr>  
+                <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_07_22_03">TopCoder Adds VB.NET Competitions</A> [July 21]</td></tr>  
                                               
                 <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_06_17_03">Sweden Added to TopCoder Developer Community</A> [June 17]</td></tr>  
                 
