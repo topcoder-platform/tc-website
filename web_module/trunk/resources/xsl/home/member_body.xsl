@@ -506,8 +506,6 @@ Numerous other coders also sped through the first two, later to be stopped in th
             <a href="?t=development&amp;c=index"><img src="/i/header_software_development.gif" alt="Software Development" width="244" height="20" border="0" /></a><br />
             <a href="/?t=development&amp;c=des_bonus_contest_2"><img src="/i/development/tcs_des_bonus2_promo.gif" alt="Component Design Contest 2: $6000 total prizes" border="0" width="244" height="113" /></a><br />
 <!-- Bonus Contest-->
-
-
             <img src="/i/clear.gif" alt="" width="1" height="2" border="0" /><br />
             <a href="/?t=development&amp;c=des_bonus_contest_2"><img src="/i/header_contest_leaders.gif" alt="Contest Leaders" width="244" height="20" border="0" /></a><br />
 
@@ -533,6 +531,13 @@ Numerous other coders also sped through the first two, later to be stopped in th
                     <td class="statText" align="right">90.83</td>
                 </tr>
                 
+                 <tr valign="top">
+                	<td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
+                    <td class="statText"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=286907">WishingBone</a></td>
+                    <td class="statText" align="center">2</td>
+                    <td class="statText" align="right">89.26</td>
+                </tr>
+                
                 <tr valign="top">
                 	<td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
                     <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=278342">adic</a></td>
@@ -543,18 +548,12 @@ Numerous other coders also sped through the first two, later to be stopped in th
                 <tr valign="top">
                 	<td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
                     <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=268546">TangentZ</a></td>
-                    <td class="statText" align="center">2</td>
-                    <td class="statText" align="right">88.11</td>
+                    <td class="statText" align="center">3</td>
+                    <td class="statText" align="right">88.37</td>
                 </tr>
                 
-                 <tr valign="top">
-                	<td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=286907">WishingBone</a></td>
-                    <td class="statText" align="center">1</td>
-                    <td class="statText" align="right">87.31</td>
-                </tr>
+               
 
-                
                 <tr valign="top">
                     <td width="25%" colspan="4"><img src="/i/clear.gif" width="1" height="3" border="0" /></td>
                 </tr>
