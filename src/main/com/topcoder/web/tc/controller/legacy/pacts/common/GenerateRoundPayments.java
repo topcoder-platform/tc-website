@@ -19,26 +19,18 @@ import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
  */
 
 public class GenerateRoundPayments {
-    public void generatePayments(long roundId, boolean makeChanges) {
-        try {
+    public void generatePayments(long roundId, boolean makeChanges) throws Exception {
             DataInterfaceBean d = new DataInterfaceBean();
             int pairsInserted = d.generateRoundPayments(roundId, makeChanges);
-            if (pairsInserted > 0) {
-                System.out.println("GenerateRoundPayments: " + pairsInserted + " affidavit/payment pairs");
-                if (!makeChanges) {
-                    System.out.print("would have been ");
-                }
-                System.out.println("inserted successfully.");
-            } else {
-                System.out.println("GenerateRoundPayments: Nobody is owed money for the given round.");
-            }
-        } catch (Exception e) {
-            System.out.print("GenerateRoundPayments: Program execution unsuccessful");
-            if (makeChanges)
-                System.out.print("; database not updated");
-            System.out.println(".  Cause:");
-            e.printStackTrace();
-        }
+//            if (pairsInserted > 0) {
+//                System.out.println("GenerateRoundPayments: " + pairsInserted + " affidavit/payment pairs");
+//                if (!makeChanges) {
+//                    System.out.print("would have been ");
+//                }
+//                System.out.println("inserted successfully.");
+//            } else {
+//                System.out.println("GenerateRoundPayments: Nobody is owed money for the given round.");
+//            }
     }
 
     public static void main(String args[]) {
@@ -68,7 +60,11 @@ public class GenerateRoundPayments {
         }
 
         GenerateRoundPayments grp = new GenerateRoundPayments();
-        grp.generatePayments(roundId, makeChanges);
+        try {
+            grp.generatePayments(roundId, makeChanges);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
 
