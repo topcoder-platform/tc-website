@@ -77,7 +77,7 @@
                             <li>Ensure the collection of any outstanding payments due to TopCoder.</li>
                         </ul>
                         This position is at our Glastonbury, CT offices. No telecommuting options are available. <a class="bodyText" href="mailto:tces@topcoder.com?subject=TopCoder Employment Services Salesperson">Apply for this job</a> by email.
-
+                        <p><br /></p>
                     </td>
                 </tr>
             </table>
