@@ -65,28 +65,24 @@
 <!-- Client Job List begins -->
                         <p><A href="/?&amp;t=tces&amp;c=diversifieddata" class="bodyText"><img src="/i/es/diversifieddata/diversifieddata_logo.gif" width="150" height="38" alt="DiversifiedData" border="0" /></A></p>
 
-                        <p><h3>Software Developer</h3></p>
+                        <p><h3>Software Engineer/Consultant</h3></p>
                         
                         <p><strong>Job Description</strong><br>
-                        Diversified Data needs to fill 1-2 contract-to-hire positions.  The successful candidates for the
-                        Software Developer position will possess most of the following skills:
+                        Diversified Data needs to fill 1-2 contract-to-hire positions.  The successful candidates for the\
+                        Software Engineer/Consultant position will possess most of the following skills:
                         </br>
                         </p>
                         
                         <ul>
-                        <li>Working knowledge of the ODBC interface (must have built an ODBC application in C) </li>
-                        <li>Expert-level knowledge of the "C" programming language</li>
-                        <li>Strong knowledge of the Win32 API</li>
-                        <li>Must have implemented at least one NT/Win2K service application</li>
-                        <li>Comfortable working with Visual C++ and Visual SourceSafe</li>
-                        <li>Must have knowledge of windows shell programming techniques, including the system tray</li>
-                        <li>Must have expertise in implementing control panel extensions for Windows</li>
+                        <li>PERL and C on Unix platforms</li>
+                        <li>Must have excellent analytical and design skills (architectural)</li>
+                        <li>Must have 3+ years experience</li>
+                        <li>Must be familiar with Unix Administration and Performance Monitoring</li>
                         <li>Communication skills (both written and verbal in English) a MUST</li>
                         <li>Ability to travel to Danvers, MA to work onsite occasionally (up to 25%)</li>
-                        </ul>
+                        </ul>                        
                         
-                        
-                        <p><A href="/jobposting?&amp;t=JobHitTask&amp;jid=126&amp;jt=2" class="bodyText">Apply now!</A></p>
+                        <p><A href="/jobposting?&amp;t=JobHitTask&amp;jid=127&amp;jt=2" class="bodyText">Apply now!</A></p>
 
 <!-- Client Job List ends -->
 
