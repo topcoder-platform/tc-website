@@ -138,8 +138,12 @@ public final class MainServlet extends HttpServlet {
             nav = setupSession(request, response, session);
             addURLTags(nav, request, response, document);
             // NEED THE TASK TO SEE WHAT THE USER WANTS
-            requestTask = Conversion.checkNull(request.getParameter("t"));
-            requestCommand = Conversion.checkNull(request.getParameter("c"));
+            requestTask = request.getParameter("t");
+            requestCommand = request.getParameter("c");
+            if (requestTask==null)
+                requestTask = Conversion.checkNull((String) request.getAttribute("t"));
+            if (requestCommand==null)
+                requestCommand = Conversion.checkNull((String) request.getAttribute("c"));
             String handle = "";
             if (nav.getUser() != null) {
                 handle = Conversion.checkNull(nav.getUser().getHandle());

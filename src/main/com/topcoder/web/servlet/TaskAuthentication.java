@@ -114,8 +114,16 @@ public final class TaskAuthentication {
             throws NavigationException {
         String result = null;
         try {
-            document.addTag(new ValueTag("ErrorURL", Conversion.checkNull(request.getParameter("errorURL"))));
-            document.addTag(new ValueTag("ErrorMsg", Conversion.checkNull(request.getParameter("errorMsg"))));
+            String url = request.getParameter("errorURL");
+            if (url==null) url = (String) request.getAttribute("errorURL");
+            if (url==null) url = "";
+
+            String msg = request.getParameter("errorMsg");
+            if (msg==null) msg = (String) request.getAttribute("errorMsg");
+            if (msg==null) msg = "";
+
+            document.addTag(new ValueTag("ErrorURL", url));
+            document.addTag(new ValueTag("ErrorMsg", msg));
             String xsldocURLString = LOGIN_PAGE;
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (Exception e) {
