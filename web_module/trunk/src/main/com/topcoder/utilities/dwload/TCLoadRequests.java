@@ -387,8 +387,8 @@ public class TCLoadRequests extends TCLoad {
             log.debug("url " + url);
 
             //we only want the query string for the parameter extraction
-            if (trimedUrl.indexOf('?') >= 0) {
-                trimedUrl = trimedUrl.substring(0, trimedUrl.indexOf('?'));
+            if (trimedUrl.indexOf('?') > 0) {
+                trimedUrl = trimedUrl.substring(trimedUrl.indexOf('?'));
             }
             log.debug("trimedurl " + trimedUrl);
 
