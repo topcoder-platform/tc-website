@@ -131,7 +131,7 @@ public class Controller extends HttpServlet {
             throws ServletException, IOException {
         log.debug((forward?"forwarding ":"redirecting ") + "to " + page);
         if (forward) {
-            getServletContext().getRequestDispatcher(response.encodeURL("/"+page)).forward(request, response);
+            getServletContext().getRequestDispatcher(response.encodeRedirectURL(page)).forward(request, response);
         } else {
             response.sendRedirect(response.encodeURL(page));
         }
