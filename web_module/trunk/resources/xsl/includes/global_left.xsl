@@ -381,67 +381,91 @@
 <xsl:call-template name="left_nav_btm_row"/>
       </xsl:when>
 
+<!-- Tournaments begins -->
       <xsl:when test="/TC/Task='tournaments'">
             <!-- <xsl:call-template name="member_features"/> -->
-          <table width="170" bgcolor="#000000" cellspacing="0" cellpadding="0" border="0">
-            <xsl:call-template name="label_row"/>
-            <xsl:call-template name="sched_row"/>
-            <xsl:call-template name="stats_row"/>
-            <xsl:call-template name="feat_row"/>
-            <xsl:call-template name="dev_row"/>
-            <tr>
-              <td valign="top" bgcolor="#333333"><img alt="" width="6" height="1" src="/i/clear.gif" border="0"/></td>
-              <td valign="middle" height="18" class="statTextBig" bgcolor="#333333"><img alt="" width="10" height="10" src="/i/arrow_white_down.gif" border="0"/>&#160; <a class="statTextBig"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tourny_index</xsl:attribute>Tournaments:</a></td>
-              <td valign="top" bgcolor="#333333"><img alt="" width="8" height="1" src="/i/clear.gif" border="0"/></td>
-            </tr>
-            <xsl:call-template name="div_line_row"/>
-            <tr><td valign="top" class="statText" bgcolor="#333333">&#160;</td><td valign="middle" height="15" class="statText" bgcolor="#333333">
-            <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
-            <xsl:when test="starts-with(/TC/Command,'tccc03_')">graybv_lite_bg</xsl:when>
-            <xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
-            &#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tccc03_sched</xsl:attribute>&#160;&#160;'03 [TC] Collegiate Challenge</a></td><td valign="top" class="statText" bgcolor="#333333">&#160;</td></tr>
-            <xsl:call-template name="div_line_row"/>
-            <tr><td valign="top" class="statText" bgcolor="#333333">&#160;</td><td valign="middle" height="15" class="statText" bgcolor="#333333">
-            <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
-            <xsl:when test="/TC/Command='index'">graybv_lite_bg</xsl:when>
-            <xsl:when test="starts-with(/TC/Command,'invit02')">graybv_lite_bg</xsl:when>
-            <xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
-            &#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=invit02_champ</xsl:attribute>&#160;&#160;'02 [TC] Invitational</a></td><td valign="top" class="statText" bgcolor="#333333">&#160;</td></tr>
-            <xsl:call-template name="div_line_row"/>
-            <tr><td valign="top" class="statText" bgcolor="#333333">&#160;</td><td valign="middle" height="15" class="statText" bgcolor="#333333">
-            <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
-            <xsl:when test="/TC/Command='index'">graybv_lite_bg</xsl:when>
-            <xsl:when test="starts-with(/TC/Command,'tourny_s')">graybv_lite_bg</xsl:when>
-            <xsl:when test="starts-with(/TC/Command,'tourny_r')">graybv_lite_bg</xsl:when>
-            <xsl:when test="starts-with(/TC/Command,'tccc02')">graybv_lite_bg</xsl:when>
-            <xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
-            &#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tourny_sched</xsl:attribute>&#160;&#160;'02 [TC] Collegiate Challenge</a></td><td valign="top" class="statText" bgcolor="#333333">&#160;</td></tr>
-            <xsl:call-template name="div_line_row"/>
-            <tr><td valign="top" class="statText" bgcolor="#333333">&#160;</td><td valign="middle" height="15" class="statText" bgcolor="#333333">
-            <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
-            <xsl:when test="/TC/Command='index'">graybv_lite_bg</xsl:when>
-            <xsl:when test="starts-with(/TC/Command,'tourny_tci_01')">graybv_lite_bg</xsl:when>
-            <xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
-            &#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tourny_tci_01</xsl:attribute>&#160;&#160;'01 [TC] Invitational</a></td><td valign="top" class="statText" bgcolor="#333333">&#160;</td></tr>
-            <xsl:call-template name="div_line_row"/>
-            <tr><td valign="top" class="statText" bgcolor="#333333">&#160;</td><td valign="middle" height="15" class="statText" bgcolor="#333333">
-            <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
-            <xsl:when test="/TC/Command='index'">graybv_lite_bg</xsl:when>
-            <xsl:when test="starts-with(/TC/Command,'tourny_tccc_01')">graybv_lite_bg</xsl:when>
-            <xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
-            &#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tourny_tccc_01</xsl:attribute>&#160;&#160;'01 [TC] Collegiate Challenge</a></td><td valign="top" class="statText" bgcolor="#333333">&#160;</td></tr>
-            <xsl:call-template name="div_line_row"/>
-            <xsl:call-template name="rtables_row"/>
-            <xsl:call-template name="rules_row"/>
-            <!-- <xsl:call-template name="new_mbr_row"/> -->
-            <xsl:call-template name="corp_label_row"/>
-            <xsl:call-template name="about_row"/>
-            <xsl:call-template name="press_row"/>
-            <xsl:call-template name="contacts_row"/>
-          </table>
-<xsl:call-template name="simple_search"/>
-<xsl:call-template name="left_nav_btm_row"/>
+            <table width="170" bgcolor="#000000" cellspacing="0" cellpadding="0" border="0">
+                <xsl:call-template name="label_row"/>
+                <xsl:call-template name="sched_row"/>
+                <xsl:call-template name="stats_row"/>
+                <xsl:call-template name="feat_row"/>
+                <xsl:call-template name="dev_row"/>
+            
+                <tr>
+                    <td valign="top" bgcolor="#333333"><img alt="" width="6" height="1" src="/i/clear.gif" border="0"/></td>
+                    <td valign="middle" height="18" class="statTextBig" bgcolor="#333333"><img alt="" width="10" height="10" src="/i/arrow_white_down.gif" border="0"/>&#160; <a class="statTextBig"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tourny_index</xsl:attribute>Tournaments:</a></td>
+                    <td valign="top" bgcolor="#333333"><img alt="" width="8" height="1" src="/i/clear.gif" border="0"/></td>
+                </tr>
+            
+                <xsl:call-template name="div_line_row"/>
+            
+                <tr>
+                    <td valign="middle" height="15" class="statText" bgcolor="#333333" colspan="3">
+                <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
+                <xsl:when test="starts-with(/TC/Command,'tccc03_')">graybv_lite_bg</xsl:when>
+                <xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
+                        &#160;&#160;&#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tccc03_sched</xsl:attribute>2003 Collegiate Challenge</a></td>
+                </tr>
+                
+                <xsl:call-template name="div_line_row"/>
+                
+                <tr>
+                    <td valign="middle" height="15" class="statText" bgcolor="#333333" colspan="3">
+                <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
+                <xsl:when test="/TC/Command='index'">graybv_lite_bg</xsl:when>
+                <xsl:when test="starts-with(/TC/Command,'invit02')">graybv_lite_bg</xsl:when>
+                <xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
+                        &#160;&#160;&#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=invit02_champ</xsl:attribute>2002 Invitational</a></td>
+                </tr>
+            
+                <xsl:call-template name="div_line_row"/>
+            
+                <tr>
+                    <td valign="middle" height="15" class="statText" bgcolor="#333333" colspan="3">
+                <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
+                <xsl:when test="/TC/Command='index'">graybv_lite_bg</xsl:when>
+                <xsl:when test="starts-with(/TC/Command,'tourny_s')">graybv_lite_bg</xsl:when>
+                <xsl:when test="starts-with(/TC/Command,'tourny_r')">graybv_lite_bg</xsl:when>
+                <xsl:when test="starts-with(/TC/Command,'tccc02')">graybv_lite_bg</xsl:when>
+                <xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
+                        &#160;&#160;&#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tourny_sched</xsl:attribute>2002 Collegiate Challenge</a></td>
+                </tr>
+                
+                <xsl:call-template name="div_line_row"/>
+                
+                <tr>
+                    <td valign="middle" height="15" class="statText" bgcolor="#333333" colspan="3">
+                <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
+                <xsl:when test="/TC/Command='index'">graybv_lite_bg</xsl:when>
+                <xsl:when test="starts-with(/TC/Command,'tourny_tci_01')">graybv_lite_bg</xsl:when>
+                <xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
+                        &#160;&#160;&#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tourny_tci_01</xsl:attribute>2001 Invitational</a></td>
+                </tr>
+                
+                <xsl:call-template name="div_line_row"/>
+                
+                <tr>
+                    <td valign="middle" height="15" class="statText" bgcolor="#333333" colspan="3">
+                <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
+                <xsl:when test="/TC/Command='index'">graybv_lite_bg</xsl:when>
+                <xsl:when test="starts-with(/TC/Command,'tourny_tccc_01')">graybv_lite_bg</xsl:when>
+                <xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
+                        &#160;&#160;&#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tourny_tccc_01</xsl:attribute>2001 Collegiate Challenge</a></td>
+                </tr>
+                
+                <xsl:call-template name="div_line_row"/>
+                <xsl:call-template name="rtables_row"/>
+                <xsl:call-template name="rules_row"/>
+                <!-- <xsl:call-template name="new_mbr_row"/> -->
+                <xsl:call-template name="corp_label_row"/>
+                <xsl:call-template name="about_row"/>
+                <xsl:call-template name="press_row"/>
+                <xsl:call-template name="contacts_row"/>
+            </table>
+    <xsl:call-template name="simple_search"/>
+    <xsl:call-template name="left_nav_btm_row"/>
       </xsl:when>
+<!-- Tournaments ends -->
 
       <xsl:when test="/TC/Task='support'">
             <!-- <xsl:call-template name="member_features"/> -->
