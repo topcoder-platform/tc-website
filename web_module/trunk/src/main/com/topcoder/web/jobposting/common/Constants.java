@@ -18,6 +18,7 @@ public class Constants {
     public static String JOB_POSTING_PACKAGE = null;
     public static String ERROR_PAGE = null;
     public static String PROFILE_PAGE = null;
+    public static String UNRATED_PAGE = null;
 
     public static void init(ServletConfig servletConfig) throws ServletException {
 /*
@@ -43,6 +44,7 @@ public class Constants {
         JOB_POSTING_PACKAGE = bundle.getProperty("job_posting_package", "com.topcoder.web.jobposting.bean");
         ERROR_PAGE = bundle.getProperty("error_page", "errorPage.jsp");
         PROFILE_PAGE = bundle.getProperty("profile_page", "profile.jsp");
+        UNRATED_PAGE = bundle.getProperty("unrated_page", "unrated.jsp");
     }
 /*
     private static int getIntParameter(ServletConfig servletConfig, String key)
