@@ -78,19 +78,19 @@
                     <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
                 </tr>
                
-                <tr valign="top">
+                <!--tr valign="top">
                     <td width="3"><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
                     <td width="1" ><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td>
                     <td align="center" colspan="5" class="statText">No New Projects Available</td>
                     <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
-                </tr>
+                </tr-->
                 <tr valign="top">
                     <td width="3"><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
                     <td width="1" ><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td>
                     <td class="statText"><a class="statText" href="?&amp;t=development&amp;c=admin_tool_enhancements">Admin Tool Enhancements</a></td>
                     <td class="statText" align="center">$1,600</td>
-                    <td class="statText" align="center">$600</td>
-                    <td class="statText" align="center">5.27.2003</td>
+                    <td class="statText" align="center">$800</td>
+                    <td class="statText" align="center">7.18.2003</td>
                     <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
                 </tr>
 		<tr><td colspan="5"><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></td></tr>

@@ -40,7 +40,7 @@
                             <xsl:call-template name="BodyTop">
                                 <xsl:with-param name="image1">steelblue</xsl:with-param>
                                 <xsl:with-param name="image">development</xsl:with-param>
-                                <xsl:with-param name="title">&#160;Component Development</xsl:with-param>
+                                <xsl:with-param name="title">&#160;Application Development</xsl:with-param>
                             </xsl:call-template>
                             <xsl:variable name='month' select='/TC/DEVELOPMENT/month'/>
                             <xsl:variable name='day' select='/TC/DEVELOPMENT/day'/>
