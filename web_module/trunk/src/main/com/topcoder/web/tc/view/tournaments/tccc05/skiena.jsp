@@ -28,10 +28,10 @@
          </center>
 
          <p>
-The well-known author and algorist Prof.
+The well-known author and algorist Professor
 <a href="http://www.cs.sunysb.edu/~skiena">Steven Skiena</a>
-will be featured presenter at the Topcoder Collegiate
-Challenge (TCCC '05) finals, to be held March 11, 2005 at the
+will be the featured presenter at the 2005 Topcoder Collegiate
+Challenge finals, held on March 10 & 11, 2005 at the
 Marriott hotel in Santa Clara, CA.
 <br><br>
 Skiena is author (with Miguel Revilla) of
@@ -53,6 +53,8 @@ and
 Calculated Bets: Computers, Gambling, and Mathematical Modeling to Win</a>.
 He is recipient of the ONR Young Investigator Award and the
 IEEE Computer Science and Engineering Undergraduate Teaching Award.
+<br><br>
+Skiena will be speaking from 1:00 – 2:00pm in the Portland/Santa Barbara room at the Santa Clara Marriott.  The presentation is open to the public.
          </p>
 
         </div>
