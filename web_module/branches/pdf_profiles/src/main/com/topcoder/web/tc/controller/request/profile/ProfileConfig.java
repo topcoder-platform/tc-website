@@ -93,7 +93,7 @@ public class ProfileConfig extends BaseProcessor {
             r.setContentHandle("best_problem");
             r.setProperty("cr", String.valueOf(uid));
 
-            rsc = (ResultSetContainer)getDWDataAccess().getData(r).get("successful_problems");
+            rsc = (ResultSetContainer)getDWDataAccess().getData(r).get("best_problem");
             if(rsc.size() != 0) {
                 setDefault("component", rsc.getStringItem(0, "problem_id"));
             }
