@@ -139,24 +139,26 @@
                 <tr><td valign="top" colspan="7"><img src="/i/label_coder_view.gif" alt="Coder's Point of View" width="148" height="26" border="0" /></td></tr>
 
                 <tr>
-                    <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br />
-                        By&#160;Yarin<br /><i>[TC]&#160;Member</i><br /></td>
+                    <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/brett1479_mug.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br />
+                        By&#160;brett1479<br/><i>[TC]&#160;Member</i><br /></td>
                     <td valign="top" width="8" rowspan="2"><img src="/i/clear.gif" alt="" width="8" height="1" border="0" /></td>
                     <td valign="top" width="100%" align="left" class="bodyText" colspan="2">
-                        <font size="2" color="#000000" face="arial, verdana"><strong>TCCC '03 Regional Semifinals</strong></font></td>
+                        <font size="2" color="#000000" face="arial, verdana"><strong>Single Round Match 137</strong></font></td>
                 </tr>
 
                 <tr>
                     <td valign="top" class="bodyText" width="100%">
                         <a class="bodyGeneric">
-                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=tccc03_reg_semi_prob</xsl:attribute><strong>Problem Set Analysis &amp; Opinion</strong></a><br />
+                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm137_prob.xsl</xsl:attribute><strong>Problem Set Analysis &amp; Opinion</strong></a><br />
 
-                        <p>                                            The regional semifinals caused some huge upsets when top seeded <b>John Dethridge</b> was knocked out,
-                                            together with other high ranked coders such as <b>reid</b> and <b>malpt</b> (<b>reid</b> did not show
-                                            up at all). The cutoffs for the different regions differed quite a lot; <b>John Dethridge</b> would
-                                            for instance have qualified had he competed in any other region. Top scorers were <b>bigg_nate</b>
-                                            and <b>Yarin</b>. The problem set was arguably one of the better in this CC, with a mix of math,
-                                            dynamic programming and geometry.</p>
+                        <p>The phrase "March Madness" best describes the last SRM.  Over 15% of the division 1 competitors
+                            submitted the hard problem, but only 2 passed systests.  SnapDragon, who won the competition,
+                            resubmitted the hard problem twice, and eventually won by successfully challenging 5 of the
+                            coders in his room.  "I didn't even check the last [challenge], I just went for the sweep"
+                            said SnapDragon, after sucessfully challenging all of the div 1 hards in his room.  schveiguy,
+                            the second place finisher, had the highest problem score but could not top SnapDragon's challenge
+                            round performance.  Division 2 coders faced similar difficulties, with only 10 coders passing
+                            systests on the hard problem.</p>
                     </td>
                 </tr>
             </table>
