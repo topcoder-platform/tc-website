@@ -30,6 +30,14 @@ public interface Phone extends EJBObject {
     /**
      *
      *
+     * @see com.topcoder.web.ejb.phone.PhoneBean#getPhoneId
+     */
+    long getPhoneId(long userId)
+                 throws RemoteException, EJBException;
+
+    /**
+     *
+     *
      * @see com.topcoder.web.ejb.phone.PhoneBean#getNumber
      */
     String getNumber(long userId, long phoneId)

@@ -10,9 +10,7 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 import javax.transaction.Transaction;
 
-import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.GroupPrincipal;
-import com.topcoder.security.NoSuchUserException;
 import com.topcoder.security.RolePrincipal;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
@@ -48,7 +46,7 @@ import com.topcoder.web.ejb.user.UserHome;
  * @version 1.02
  *
  */
-public class Registration extends BaseProcessor {
+public class Registration extends BaseRegistration {
     private final static Logger log = Logger.getLogger(Registration.class);
    
     public static final String KEY_FIRSTNAME    = "prim-first-name";
@@ -63,13 +61,11 @@ public class Registration extends BaseProcessor {
     public static final String KEY_COUNTRY      = "prim-company-country";
     public static final String KEY_PHONE        = "prim-phone";
     public static final String KEY_LOGIN        = "prim-username";
-    public static final String KEY_PASSWORD1    = "prim-password";
+    public static final String KEY_PASSWORD     = "prim-password";
     public static final String KEY_PASSWORD2    = "prim-password-once-more";
-    public static final String KEY_EMAIL1       = "prim-email";
+    public static final String KEY_EMAIL        = "prim-email";
     public static final String KEY_EMAIL2       = "prim-email-once-more";
 
-    private String firstName;
-    private String lastName;
     private String title;
     private String company;
     private String compAddress1;
@@ -78,12 +74,8 @@ public class Registration extends BaseProcessor {
     private String state;
     private String zip;
     private String country;
-    private String phone;
-    private String userName;
-    private String password;
     private String password2;
 
-    private String email;
     private String email2;
     
     private boolean stateFieldEmpty = false;
@@ -123,9 +115,9 @@ public class Registration extends BaseProcessor {
         country        = (String) request.getParameter(KEY_COUNTRY);
         phone          = (String) request.getParameter(KEY_PHONE);
         userName       = (String) request.getParameter(KEY_LOGIN);
-        password       = (String) request.getParameter(KEY_PASSWORD1);
+        password       = (String) request.getParameter(KEY_PASSWORD);
         password2      = (String) request.getParameter(KEY_PASSWORD2);
-        email          = (String) request.getParameter(KEY_EMAIL1);
+        email          = (String) request.getParameter(KEY_EMAIL);
         email2         = (String) request.getParameter(KEY_EMAIL2);
         
         try {
@@ -140,9 +132,9 @@ public class Registration extends BaseProcessor {
 
         boolean formDataValid = isValid();
         if( formDataValid ) {
-                log.debug("data entered seem to be valid");
+            log.debug("data entered seem to be valid");
 
-                makePersistent();
+            makePersistent();
             nextPage = "/reg/RegSuccess.jsp";
         }
         else {
@@ -230,10 +222,10 @@ public class Registration extends BaseProcessor {
         );
 
         ret &= // username validity
-        checkUsernameValidity();
+        checkUsernameValidity(KEY_LOGIN, false); 
 
         ret &= // password validity
-        checkItemValidity(KEY_PASSWORD1, password, 
+        checkItemValidity(KEY_PASSWORD, password, 
             StringUtils.ALPHABET_ALPHA_NUM_EN, true, 1,
             "Ensure password is not empty and, consists of letters and digits only"
         );
@@ -250,7 +242,7 @@ public class Registration extends BaseProcessor {
         }
         
         ret &= // email validity
-        checkItemValidity(KEY_EMAIL1, email, 
+        checkItemValidity(KEY_EMAIL, email, 
             StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, true, 1,
             "Ensure email address is not empty and, has written correct"
         );
@@ -269,49 +261,49 @@ public class Registration extends BaseProcessor {
     }
     
     
-    private boolean checkItemValidity(
-        String itemKey, 
-        String itemValue, 
-        String alphabet, 
-        boolean required,
-        int maxWords,
-        String errMsg
-    )
-    {
-        boolean ret = true;
-        boolean chkMore = true;
-        
-        setFormFieldDefault(itemKey, itemValue == null ? "" : itemValue);
-        
-        if( !required ) {
-            if( itemValue == null || itemValue.length() == 0 ) {
-                chkMore = false;
-            }
-        }
-        if( ! chkMore ) return ret;
-        
-        // either this field is required or (optional and not empty)
-        if( itemValue == null || itemValue.length() == 0 ) {
-            ret = false;
-            markFormFieldAsInvalid(itemKey, errMsg);
-        }
-        else {
-            //  alphabet check
-            if( (! StringUtils.consistsOf(itemValue, alphabet, true )) )  {
-                ret = false;
-                markFormFieldAsInvalid(itemKey, errMsg);
-            }
-            else {
-                if( maxWords <= 1 ) maxWords = 1;
-                
-                if( ! StringUtils.hasNotMoreWords(itemValue, maxWords) ) {
-                    ret = false;
-                    markFormFieldAsInvalid(itemKey, errMsg);
-                }
-            }
-        }
-        return ret;
-    }
+//    private boolean checkItemValidity(
+//        String itemKey, 
+//        String itemValue, 
+//        String alphabet, 
+//        boolean required,
+//        int maxWords,
+//        String errMsg
+//    )
+//    {
+//        boolean ret = true;
+//        boolean chkMore = true;
+//        
+//        setFormFieldDefault(itemKey, itemValue == null ? "" : itemValue);
+//        
+//        if( !required ) {
+//            if( itemValue == null || itemValue.length() == 0 ) {
+//                chkMore = false;
+//            }
+//        }
+//        if( ! chkMore ) return ret;
+//        
+//        // either this field is required or (optional and not empty)
+//        if( itemValue == null || itemValue.length() == 0 ) {
+//            ret = false;
+//            markFormFieldAsInvalid(itemKey, errMsg);
+//        }
+//        else {
+//            //  alphabet check
+//            if( (! StringUtils.consistsOf(itemValue, alphabet, true )) )  {
+//                ret = false;
+//                markFormFieldAsInvalid(itemKey, errMsg);
+//            }
+//            else {
+//                if( maxWords <= 1 ) maxWords = 1;
+//                
+//                if( ! StringUtils.hasNotMoreWords(itemValue, maxWords) ) {
+//                    ret = false;
+//                    markFormFieldAsInvalid(itemKey, errMsg);
+//                }
+//            }
+//        }
+//        return ret;
+//    }
     
     /**
      * Makes user data persistent. Not implemented yet (until ejbs will be
@@ -450,110 +442,110 @@ public class Registration extends BaseProcessor {
         }
     }
 
-    /**
-     * Performs transaction rollback
-     * 
-     * @param tx
-     * @param user
-     * @param mgr
-     * @param corpAppSubject
-     */    
-    private void rollbackRoutine(
-        Transaction tx,
-        UserPrincipal user,
-        PrincipalMgrRemote mgr,
-        TCSubject corpAppSubject
-    )
-    {
-        if( tx != null ) {
-            log.error("rolling transaction back "+tx);
-            try {
-                tx.rollback();
-            }
-            catch(Exception ignore) {
-                ignore.printStackTrace();
-                log.error("tx.roolback(): op has failed");
-            }
-        }
-        if( user != null ) {
-            // security user creation is performed by the remote component
-            // (thus, outside of transaction scope) so we have remove it
-            // by hands
-            try {
-                mgr.removeUser(user, corpAppSubject);
-            }
-            catch(Exception ignore) {
-                ignore.printStackTrace();
-                log.error("tx.roolback(): removing of security user has failed");
-            }
-        }
-    }
+//    /**
+//     * Performs transaction rollback
+//     * 
+//     * @param tx
+//     * @param user
+//     * @param mgr
+//     * @param corpAppSubject
+//     */    
+//    private void rollbackRoutine(
+//        Transaction tx,
+//        UserPrincipal user,
+//        PrincipalMgrRemote mgr,
+//        TCSubject corpAppSubject
+//    )
+//    {
+//        if( tx != null ) {
+//            log.error("rolling transaction back "+tx);
+//            try {
+//                tx.rollback();
+//            }
+//            catch(Exception ignore) {
+//                ignore.printStackTrace();
+//                log.error("tx.roolback(): op has failed");
+//            }
+//        }
+//        if( user != null ) {
+//            // security user creation is performed by the remote component
+//            // (thus, outside of transaction scope) so we have remove it
+//            // by hands
+//            try {
+//                mgr.removeUser(user, corpAppSubject);
+//            }
+//            catch(Exception ignore) {
+//                ignore.printStackTrace();
+//                log.error("tx.roolback(): removing of security user has failed");
+//            }
+//        }
+//    }
     
-    /**
-     * Checks if login consists of valid symbols and will it be allowed by DB
-     * rules (uniquiness)
-     * @return boolean true if allowed
-     */
-    private boolean checkUsernameValidity() {
-        boolean success;
-        //as usually check against alphabet 
-        success = checkItemValidity(KEY_LOGIN, userName, 
-            StringUtils.ALPHABET_ALPHA_EN, true, 1,
-            "Handle entered must consist of alpha numeric symbols"
-        );
-        if( !success ) {
-            return false;
-        }
-        // and additionally check against DB - not implemented for now
-        boolean techProblems = false;
-        try {
-            PrincipalMgrRemote mgr = Util.getPrincipalManager();
-            
-            try {
-                success = false;
-                UserPrincipal user = mgr.getUser(userName);
-                markFormFieldAsInvalid(
-                    KEY_LOGIN,
-                    "There is the user with given handle at the database"
-                );
-            }
-            catch(NoSuchUserException nsue) {
-                // it is fine - handle seem to be free yet
-                success = true;
-            }
-        }
-        catch(RemoteException re) {
-            techProblems = true;
-            log.error("RemoteException - primary registration process");
-            re.printStackTrace();
-        }
-        catch(CreateException ce) {
-            techProblems = true;
-            log.error("CreateException - primary registration process");
-            ce.printStackTrace();
-        }
-        catch(NamingException ne) {
-            techProblems = true;
-            log.error("NamingException - primary registration process");
-            ne.printStackTrace();
-        }
-        catch(GeneralSecurityException gse) {
-            techProblems = true;
-            log.error("GeneralSecurityException - primary registration process");
-            gse.printStackTrace();
-        }
-        finally {
-//            Util.closeIC(ic);
-            if( techProblems ) {
-                markFormFieldAsInvalid(
-                    KEY_LOGIN,
-                    "Some technical problems prevent further processing. Try again later"
-                );
-                return false;
-            }
-        }
-        return success;
-    }
+//    /**
+//     * Checks if login consists of valid symbols and will it be allowed by DB
+//     * rules (uniquiness)
+//     * @return boolean true if allowed
+//     */
+//    private boolean checkUsernameValidity() {
+//        boolean success;
+//        //as usually check against alphabet 
+//        success = checkItemValidity(KEY_LOGIN, userName, 
+//            StringUtils.ALPHABET_ALPHA_EN, true, 1,
+//            "Handle entered must consist of alpha numeric symbols"
+//        );
+//        if( !success ) {
+//            return false;
+//        }
+//        // and additionally check against DB - not implemented for now
+//        boolean techProblems = false;
+//        try {
+//            PrincipalMgrRemote mgr = Util.getPrincipalManager();
+//            
+//            try {
+//                success = false;
+//                UserPrincipal user = mgr.getUser(userName);
+//                markFormFieldAsInvalid(
+//                    KEY_LOGIN,
+//                    "There is the user with given handle at the database"
+//                );
+//            }
+//            catch(NoSuchUserException nsue) {
+//                // it is fine - handle seem to be free yet
+//                success = true;
+//            }
+//        }
+//        catch(RemoteException re) {
+//            techProblems = true;
+//            log.error("RemoteException - primary registration process");
+//            re.printStackTrace();
+//        }
+//        catch(CreateException ce) {
+//            techProblems = true;
+//            log.error("CreateException - primary registration process");
+//            ce.printStackTrace();
+//        }
+//        catch(NamingException ne) {
+//            techProblems = true;
+//            log.error("NamingException - primary registration process");
+//            ne.printStackTrace();
+//        }
+//        catch(GeneralSecurityException gse) {
+//            techProblems = true;
+//            log.error("GeneralSecurityException - primary registration process");
+//            gse.printStackTrace();
+//        }
+//        finally {
+////            Util.closeIC(ic);
+//            if( techProblems ) {
+//                markFormFieldAsInvalid(
+//                    KEY_LOGIN,
+//                    "Some technical problems prevent further processing. Try again later"
+//                );
+//                return false;
+//            }
+//        }
+//        return success;
+//    }
 
     /**
      * 
