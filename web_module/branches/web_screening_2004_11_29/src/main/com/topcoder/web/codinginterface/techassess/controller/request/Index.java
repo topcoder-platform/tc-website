@@ -4,10 +4,10 @@ import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 import com.topcoder.shared.netCommon.screening.request.ScreeningGetProblemSetsRequest;
 import com.topcoder.shared.netCommon.screening.response.ScreeningGetProblemSetsResponse;
-import com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemSet;
 import com.topcoder.shared.util.logging.Logger;
 
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * User: dok
@@ -36,11 +36,7 @@ public class Index extends Base {
 
             ScreeningGetProblemSetsResponse response = (ScreeningGetProblemSetsResponse)receive(5000);
 
-            ScreeningProblemSet[] problemSets = response.getProblemSets();
-            ArrayList sets = new ArrayList();
-            for (int i=0; i<problemSets.length; i++) {
-                sets.add(problemSets[i]);
-            }
+            List sets = Arrays.asList(response.getProblemSets());
             log.debug("there are " + sets.size() + " problem sets");
 
             setDefault(Constants.PROBLEM_SETS, sets);
