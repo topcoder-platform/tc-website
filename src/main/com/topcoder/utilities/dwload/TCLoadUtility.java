@@ -234,11 +234,15 @@ public class TCLoadUtility {
         }
 
         setDatabases(load, params);
-        if (!doLoad(load))
-            fatal_error();
+        try {
+            doLoad(load);
+        } catch (Exception e) {
+            fatal_error(e);
+        }
+
     }
 
-    public static boolean doLoad(TCLoad tcload) {
+    public static void doLoad(TCLoad tcload) throws Exception {
         try {
             log.info("Creating source database connection...");
             tcload.buildSourceDBConn();
@@ -248,7 +252,7 @@ public class TCLoadUtility {
             sErrorMsg.append("Creation of source DB connection failed. ");
             sErrorMsg.append("Cannot continue.\n");
             sErrorMsg.append(sqle.getMessage());
-            return false;
+            throw sqle;
         }
 
         try {
@@ -260,18 +264,19 @@ public class TCLoadUtility {
             sErrorMsg.append("Creation of target DB connection failed. ");
             sErrorMsg.append("Cannot continue.\n");
             sErrorMsg.append(sqle2.getMessage());
-            return false;
+            throw sqle2;
         }
 
-        if (!tcload.performLoad()) {
+        try {
+            tcload.performLoad();
+        } catch (Exception e) {
             sErrorMsg.setLength(0);
             sErrorMsg.append(tcload.getReasonFailed());
             closeLoad(tcload);
-            return false;
-        }
+            throw e;
 
+        }
         closeLoad(tcload);
-        return true;
     }
 
     /**

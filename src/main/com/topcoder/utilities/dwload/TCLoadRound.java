@@ -159,7 +159,7 @@ public class TCLoadRound extends TCLoad {
     /**
      * This method performs the load for the round information tables
      */
-    public boolean performLoad() {
+    public void performLoad() throws Exception {
         try {
             log.info("Loading round: " + fRoundId);
 
@@ -201,10 +201,9 @@ public class TCLoadRound extends TCLoad {
 
             log.info("SUCCESS: Round " + fRoundId +
                     " load ran successfully.");
-            return true;
         } catch (Exception ex) {
             setReasonFailed(ex.getMessage());
-            return false;
+            throw ex;
         }
     }
 

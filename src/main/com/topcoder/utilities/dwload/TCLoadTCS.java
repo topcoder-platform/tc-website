@@ -49,7 +49,7 @@ public class TCLoadTCS extends TCLoad {
     /**
      * This method performs the load for the coder information tables
      */
-    public boolean performLoad() {
+    public void performLoad() throws Exception {
         try {
 
             PreparedStatement ps = prepareStatement("set lock mode to wait 5", SOURCE_DB);
@@ -129,15 +129,14 @@ public class TCLoadTCS extends TCLoad {
             doClearCache();
 
             log.info("SUCCESS: TCS load ran successfully.");
-            return true;
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
             setReasonFailed(("Load failed.\n" +
                 sqle.getMessage()));
-            return false;
+            throw sqle;
         } catch (Exception ex) {
             setReasonFailed(ex.getMessage());
-            return false;
+            throw ex;
         }
     }
 

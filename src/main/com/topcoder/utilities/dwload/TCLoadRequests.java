@@ -374,7 +374,7 @@ public class TCLoadRequests extends TCLoad {
 
     private class URL {
         private String baseUrl;
-        private TreeMap paramMap;
+        private TreeMap paramMap=new TreeMap();
 
         private URL(String url) {
             String trimedUrl = null;
