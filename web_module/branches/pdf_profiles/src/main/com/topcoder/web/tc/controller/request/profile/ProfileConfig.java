@@ -37,9 +37,7 @@ import java.util.Map;
 public class ProfileConfig extends BaseProcessor { 
 
     protected void businessProcessing() throws TCWebException {
-        try {
-            //load any data for errors?
-            
+        try {        
             //lookup user id
             int uid = Integer.parseInt(StringUtils.checkNull(getRequest().getParameter("uid")));
 
@@ -101,11 +99,13 @@ public class ProfileConfig extends BaseProcessor {
             
             getRequest().setAttribute("configInfo", info);
             
-            //debugging
+            //debugging / probably want to pass these cookies in for processing
             Cookie[] cookies = getRequest().getCookies();
             for(int i = 0; i < cookies.length; i++) {
                 System.out.println(cookies[i].getName() + ":" + cookies[i].getValue());
             }
+            
+            //load any data
 
             setNextPage(Constants.PROFILE_CONFIG_PAGE); 
             setIsNextPageInContext(true);

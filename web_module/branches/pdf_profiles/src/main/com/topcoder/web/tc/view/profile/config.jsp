@@ -70,7 +70,7 @@
                             <tc:skillIterator id="skill" list="<%=configInfo.getSkills((String)skillGroup)%>">
                         <tr>
                             <td>
-                                <input type="checkbox" name="skills" checked="checked" value="<%=skill.getID()%>" id="skill<%=skill.getID()%>" />
+                                <tc:chkBox name="skills" value="<%=skill.getID()%>" id="skill<%=skill.getID()%>" />
                             </td>
                             <td>
                                 <label for="skill<%=skill.getID()%>"><%=skill.getText()%> - <%=configInfo.getSkillRating(skill)%></label>
