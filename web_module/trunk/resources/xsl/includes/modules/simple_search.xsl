@@ -13,11 +13,13 @@
                         <input type="hidden" name="t" value="search"/>
                         <input type="hidden" name="c" value="simple_search"/>
                         
-                        <!-- <SCRIPT type="text/javascript"> // Steve's javascript to place focus on Member Search
-                        document.write("<input type="text" name="SearchHandle" size="12" maxlength="15" value="Handle" onFocus="if (document.searchForm.SearchHandle.value == 'Handle') document.searchForm.SearchHandle.value = '';"; onBlur="if (document.searchForm.SearchHandle.value == '') document.searchForm.SearchHandle.value = 'Handle';" />");
-                        </SCRIPT> -->
-                        
-                        <input type="text" name="SearchHandle" size="12" maxlength="15" value="Handle" />
+                        <!--
+                        <script type="text/javascript" language="Javascript">
+                        document.write("<input type=text name=search size=12 maxlength=15 value=\"Handle\" onFocus=\"if (document.simpleSearchForm.search.value == 'Handle') document.simpleSearchForm.search.value = '';\"; onBlur=\"if (document.simpleSearchForm.search.value == '') document.simpleSearchForm.search.value = 'Handle';\">");
+                        </script>
+                        -->
+
+                        <input type="text" name="search" size="12" maxlength="15" />
                     </td>
                     <td class="statTextBig"><A href="javascript:void document.simpleSearchForm.submit();"><img src="/i/button_go_member_search.gif" alt="Go" width="24" height="18" vspace="3" border="0" /></A></td>
                     <td width="99%"><img src="/i/clear.gif" alt="" width="5" height="5" border="0" /></td>
