@@ -14,7 +14,6 @@
 </head>
 <body>
 <% ResultSetContainer rscProject = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("project_details"); %>
-<% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("tccc05_project_results"); %>
 <% ResultSetContainer rscContest = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("contest_details"); %>
 <% List lst = (List)request.getAttribute("results");%>
 <%
