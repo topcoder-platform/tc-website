@@ -59,7 +59,7 @@ public class MainServlet extends BaseServlet {
         log.debug("create queue response manager");
         receiver = new QueueResponseManager(ScreeningApplicationServer.JMS_FACTORY,
                 DBMS.RESPONSE_QUEUE, context,
-                "server=" + com.topcoder.web.codinginterface.techassess.Constants.SERVER_ID);
+                "serverID = " + com.topcoder.web.codinginterface.techassess.Constants.SERVER_ID);
         log.info("created queue response manager");
 
 

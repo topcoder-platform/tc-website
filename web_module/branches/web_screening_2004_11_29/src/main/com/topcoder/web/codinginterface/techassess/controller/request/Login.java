@@ -3,17 +3,8 @@ package com.topcoder.web.codinginterface.techassess.controller.request;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.shared.netCommon.screening.request.ScreeningLoginRequest;
-import com.topcoder.shared.messaging.QueueMessageSender;
-import com.topcoder.shared.messaging.QueueMessageReceiver;
-import com.topcoder.shared.screening.common.ScreeningApplicationServer;
-import com.topcoder.shared.screening.common.ScreeningContext;
-import com.topcoder.shared.util.DBMS;
 
 import javax.jms.ObjectMessage;
-import javax.naming.Context;
-import javax.naming.NamingException;
-import javax.servlet.ServletException;
-import java.util.HashMap;
 
 /**
  * User: dok
@@ -48,7 +39,7 @@ public class Login extends Base {
 
         ScreeningLoginRequest request = new ScreeningLoginRequest(handle, password, companyId);
         request.setServerID(Constants.SERVER_ID);
-/*
+
         log.debug("send message");
         String messageId = send(request);
         log.debug("sent message " + messageId);
@@ -56,41 +47,6 @@ public class Login extends Base {
         log.debug(Thread.currentThread().toString());
         ObjectMessage response = receive(2000, messageId);
         log.debug("response " + response);
-*/
-
-
-        Context context = null;
-        try {
-            context = ScreeningContext.getJMSContext();
-        } catch (NamingException e) {
-            throw new ServletException(e);
-        }
-
-
-
-
-
-
-
-
-
-        QueueMessageSender qms = new QueueMessageSender(ScreeningApplicationServer.JMS_FACTORY, DBMS.REQUEST_QUEUE, context);
-        qms.setPersistent(false);
-        qms.setDBPersistent(false);
-        qms.setFaultTolerant(false);
-        log.debug("send message");
-        String messId = qms.sendMessageGetID(new HashMap(), request);
-        log.debug("sent message " + messId);
-
-        QueueMessageReceiver qmr = new QueueMessageReceiver(ScreeningApplicationServer.JMS_FACTORY, DBMS.RESPONSE_QUEUE,
-                context, messId);
-        ObjectMessage resp = qmr.getMessage(2000);
-        log.debug("response " + resp);
-
-
-
-
-
 
         setNextPage(Constants.PAGE_INDEX);
         setIsNextPageInContext(true);
