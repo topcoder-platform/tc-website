@@ -10,6 +10,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.dataAccess.resultSet.*;
 import com.topcoder.shared.dataAccess.*;
 
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.model.TCO04OverallResult;
 
 import java.util.*;
@@ -47,14 +48,22 @@ public class TCO04ContestDetailsOverall extends StatBase {
         for(int i = 0; i < rsc.size(); i++)
         {
             Request dataRequest = new Request();
-            dataRequest.setContentHandle("tco04_user_details"); 
-            dataRequest.setProperty("ct", getRequest().getParameter("ct"));
-            dataRequest.setProperty("uid", String.valueOf( rsc.getIntItem(i, "user_id")));
+            Map result;
+            try{
+                dataRequest.setContentHandle("tco04_user_details"); 
+                dataRequest.setProperty("ct", getRequest().getParameter("ct"));
+                dataRequest.setProperty("uid", String.valueOf( rsc.getIntItem(i, "user_id")));
+
+                DataAccessInt dai = getDataAccess(getDataSourceName(), true);
+                result = dai.getData(dataRequest);
+
+            }
+            catch(Exception e)
+            {
+                throw new TCWebException(e);
+            }
             
-            DataAccessInt dai = getDataAccess(getDataSourceName(), true);
-            Map result = dai.getData(dataRequest);
-            
-            ResultSetContainer rscDetails = (ResultSetContainer)result.get("tco04_overall_details");
+            ResultSetContainer rscDetails = (ResultSetContainer)result.get("tco04_overall_details"); 
             
             //build points
             int pts = 0;
