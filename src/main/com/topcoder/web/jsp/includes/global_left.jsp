@@ -89,6 +89,7 @@
                     <tr><td id="<%=level3.equals("open")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_comp_overview">TCO Component Contest</A></td></tr>
                     <tr><td id="<%=level3.equals("descontest2")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=des_bonus_contest_2">Design Bonus Contest 2</A></td></tr>
                     <tr><td id="<%=level3.equals("descontest1")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=bonus_contest_0303">Design Bonus Contest 1</A></td></tr>
+                    <tr><td id="<%=level3.equals("ultimate")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=dev&d2=usdc_overview">Ultimate Contest</A></td></tr>
                 <% } %>
             </table>
 
