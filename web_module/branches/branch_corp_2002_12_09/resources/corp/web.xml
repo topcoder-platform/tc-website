@@ -12,33 +12,15 @@
   <servlet-class>com.topcoder.web.corp.controller.MainServlet</servlet-class>
 
   <init-param>
-    <param-name>processor-1</param-name>
-    <param-value>com.topcoder.web.corp.request.ContentFetcherA</param-value>
-    <description>just a stub</description>
+    <param-name>prim-reg</param-name>
+    <param-value>com.topcoder.web.corp.request.PrimaryRegistrationProcessor</param-value>
+    <description>handles primary registration page</description>
   </init-param>
-
-  <init-param>
-    <param-name>processor-2</param-name>
-    <param-value>com.topcoder.web.corp.request.ContentFetcherB</param-value>
-    <description>just a stub</description>
-  </init-param>
-</servlet>
-
-<servlet>
-  <servlet-name>MainServletStub</servlet-name>
-  <display-name>MainServletStub</display-name>
-  <description>Static Processor Controller Testing of Topcoder Corporate</description>
-  <servlet-class>com.topcoder.web.corp.controller.MainServletStub</servlet-class>
 </servlet>
 
 <servlet-mapping>
   <servlet-name>MainServlet</servlet-name>
   <url-pattern>/</url-pattern>
-</servlet-mapping>
-
-<servlet-mapping>
-  <servlet-name>MainServletStub</servlet-name>
-  <url-pattern>/hs</url-pattern>
 </servlet-mapping>
 
 <taglib>

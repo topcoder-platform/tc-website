@@ -5,6 +5,7 @@ import java.util.HashMap;
 import javax.servlet.ServletRequest;
 
 import com.topcoder.web.common.RequestProcessor;
+import com.topcoder.web.common.tag.BaseTag;
 
 /**
  * Base abstract class for RequestProcessor implementors.
@@ -50,10 +51,10 @@ public abstract class BaseProcessor implements RequestProcessor {
 
         // if it is form, then place default values of form fields and possible errors into request
         if( formDefaults != null ) {
-            request.setAttribute("form-defaults", formDefaults);
+            request.setAttribute(BaseTag.CONTAINER_NAME_FOR_DEFAULTS, formDefaults);
         }  
         if( formErrors != null ) {
-            request.setAttribute("form-errors", formErrors);
+            request.setAttribute(BaseTag.CONTAINER_NAME_FOR_ERRORS, formErrors);
         }
     }
 
@@ -73,11 +74,6 @@ public abstract class BaseProcessor implements RequestProcessor {
 	public final boolean isNextPageInContext() {
 		return pageInContext;
 	}
-
-//
-//    protected void setIsNextPageInContext(boolean flag) {
-//        pageInContext = flag;
-//    }
 
     /**
      * Stores given request inside for further processing
@@ -101,17 +97,4 @@ public abstract class BaseProcessor implements RequestProcessor {
      * 
      */
     abstract void businessProcessing() throws Exception;
-    
-    /**
-     * Sets next page as current one. May be useful in form processing when
-     * there is the need to get back and correct some errors in user data.
-     */
-    protected void setRollback() {
-        String entireUri = request.getRequestURI();
-        if( null != request.getQueryString() ) {
-            entireUri += "?"+request.getQueryString();
-        }
-        nextPage = entireUri;
-        pageInContext = true;
-    }  
 }

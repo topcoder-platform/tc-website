@@ -19,7 +19,7 @@
 
     <attribute>
       <name>value</name>
-      <required>true</required>
+      <required>false</required>
     </attribute>
 
     <attribute>

@@ -48,7 +48,7 @@ public final class StringUtils {
      */
     public static boolean consistsOf(String string, String alphabet, boolean wsAllowed) {
         int n = string.length();
-        for( int i=0; i<n; ++n) {
+        for( int i=0; i<n; ++i) {
             char ch = string.charAt(i);
             int foundAt = alphabet.indexOf(ch);
             if( foundAt < 0 ) {
@@ -86,5 +86,10 @@ public final class StringUtils {
             }
         }
         return wordCnt <= maxWords;
+    }
+    
+    public static void main(String[] args) {
+        String blabla = "bla-bla";
+        System.out.println(consistsOf(blabla, ALPHABET_ALPHA_EN, true));
     }
 }
