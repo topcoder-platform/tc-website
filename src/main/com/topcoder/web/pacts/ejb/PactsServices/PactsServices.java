@@ -1,6 +1,7 @@
 package com.topcoder.web.pacts.ejb.PactsServices;
 
 import javax.ejb.*;
+import javax.jms.*;
 import java.sql.*;
 import java.rmi.RemoteException;
 import java.util.*;
@@ -95,10 +96,12 @@ public interface PactsServices extends EJBObject {
         throws RemoteException, NoObjectFoundException, SQLException;
         
     // Special payment update routines 
-    public void batchUpdatePaymentStatus(long paymentId[], int statusId) 
-        throws RemoteException, NoObjectFoundException, IllegalUpdateException, PaymentPaidException, SQLException;
+    public void batchUpdatePaymentStatus(long paymentId[], int statusId, long userId) 
+        throws RemoteException, IllegalUpdateException, JMSException;
+    public UpdateResults doBatchUpdatePaymentStatus(long paymentId[], int statusId)
+        throws RemoteException, SQLException;
     public void reviewPayments(long paymentId[]) 
-        throws RemoteException, NoObjectFoundException, SQLException;
+        throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException;
     public void markPaymentsPaid(long paymentId[]) 
         throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException;
 
