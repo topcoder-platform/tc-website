@@ -13,7 +13,6 @@ import javax.naming.Context;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.lang.reflect.Method;
-import java.lang.reflect.InvocationTargetException;
 
 public abstract class BaseProcessor implements RequestProcessor {
 
@@ -220,12 +219,7 @@ public abstract class BaseProcessor implements RequestProcessor {
      *
      */
     public static Object createEJB(InitialContext ctx, Class remoteclass) throws NamingException, Exception {
-        return createEJB(ctx, remoteclass, "");
-    }
-
-    public static Object createEJB(InitialContext ctx, Class remoteclass, String prefix) throws NamingException,
-            NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        Object remotehome = ctx.lookup(prefix + remoteclass.getName() + "Home");
+        Object remotehome = ctx.lookup(remoteclass.getName() + "Home");
         Method createmethod = remotehome.getClass().getMethod("create", null);
         return createmethod.invoke(remotehome, null);
     }

@@ -86,7 +86,7 @@ public class UpdateCandidate extends BaseProcessor {
                 PrincipalMgr principalMgr = new PrincipalMgr();
                 EmailHome eHome = (EmailHome)
                         PortableRemoteObject.narrow(
-                                context.lookup("screening:" + EmailHome.class.getName()), EmailHome.class);
+                                context.lookup(EmailHome.class.getName()), EmailHome.class);
                 Email email = eHome.create();
 
                 //check to see if user is logged in...
@@ -133,9 +133,9 @@ public class UpdateCandidate extends BaseProcessor {
                         Coder coder = cHome.create();
                         coder.createCoder(userId, createCoderStatusId);
 
-                        long emailId = email.createEmail(userId);
-                        email.setAddress(emailId, info.getUserName());
-                        email.setPrimaryEmailId(userId, emailId);
+                        long emailId = email.createEmail(userId, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                        email.setAddress(emailId, info.getUserName(), DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+                        email.setPrimaryEmailId(userId, emailId, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
                     }
 
                     DataAccessInt access = Util.getDataAccess();

@@ -87,7 +87,7 @@ public class UserMover {
 
 
             User userEJB = ((UserHome) ctx.lookup(UserHome.EJB_REF_NAME)).create();
-            Email emailEJB = ((EmailHome) ctx.lookup("main:" + EmailHome.EJB_REF_NAME)).create();
+            Email emailEJB = ((EmailHome) ctx.lookup(EmailHome.EJB_REF_NAME)).create();
             Address addressEJB = ((AddressHome) ctx.lookup(AddressHome.EJB_REF_NAME)).create();
             Phone phoneEJB = ((PhoneHome) ctx.lookup(PhoneHome.EJB_REF_NAME)).create();
             UserAddress userAddressEJB = ((UserAddressHome) ctx.lookup(UserAddressHome.EJB_REF_NAME)).create();
@@ -154,10 +154,10 @@ public class UserMover {
                     }
 
                     try {
-                        long emailId = emailEJB.createEmail(userId);
-                        emailEJB.setAddress(emailId, email);
-                        emailEJB.setPrimaryEmailId(userId, emailId);
-                        emailEJB.setEmailTypeId(emailId, 1);
+                        long emailId = emailEJB.createEmail(userId, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                        emailEJB.setAddress(emailId, email, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+                        emailEJB.setPrimaryEmailId(userId, emailId, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+                        emailEJB.setEmailTypeId(emailId, 1, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
                     } catch (Exception e) {
                         log.error("error moving over email for " + handle + "(" + userId + ")");
                         e.printStackTrace();
@@ -165,14 +165,14 @@ public class UserMover {
 
                     long addressId = 0;
                     try {
-                        addressId = addressEJB.createAddress();
-                        addressEJB.setAddress1(addressId, address1);
-                        addressEJB.setAddress2(addressId, address2);
-                        addressEJB.setCity(addressId, city);
-                        addressEJB.setStateCode(addressId, state);
-                        addressEJB.setCountryCode(addressId, country);
-                        addressEJB.setZip(addressId, zip);
-                        addressEJB.setAddressTypeId(addressId, 2);
+                        addressId = addressEJB.createAddress(DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                        addressEJB.setAddress1(addressId, address1, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+                        addressEJB.setAddress2(addressId, address2, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+                        addressEJB.setCity(addressId, city, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+                        addressEJB.setStateCode(addressId, state, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+                        addressEJB.setCountryCode(addressId, country, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+                        addressEJB.setZip(addressId, zip, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+                        addressEJB.setAddressTypeId(addressId, 2, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
                     } catch (Exception e) {
                         log.error("error moving over address for " + handle + "(" + userId + ")");
                         e.printStackTrace();
@@ -186,10 +186,10 @@ public class UserMover {
                     }
 
                     try {
-                        long phoneId = phoneEJB.createPhone(userId);
-                        phoneEJB.setNumber(phoneId, phone);
-                        phoneEJB.setPrimaryPhoneId(userId, phoneId);
-                        phoneEJB.setPhoneTypeId(phoneId, 2);
+                        long phoneId = phoneEJB.createPhone(userId, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                        phoneEJB.setNumber(phoneId, phone, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+                        phoneEJB.setPrimaryPhoneId(userId, phoneId, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+                        phoneEJB.setPhoneTypeId(phoneId, 2, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
                     } catch (Exception e) {
                         log.error("error moving over phone for " + handle + "(" + userId + ")");
                         e.printStackTrace();

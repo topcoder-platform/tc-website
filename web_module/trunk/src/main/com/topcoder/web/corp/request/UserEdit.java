@@ -117,7 +117,7 @@ public class UserEdit extends BaseProcessor {
                     mgr.editPassword(secTok.targetUser, password, secTok.requestor);
                 }
 
-                icEJB = (InitialContext) TCContext.getInitial();
+                icEJB = TCContext.getInitial();
                 storeUserDataIntoDB(icEJB);
 
                 tx.commit();
@@ -151,7 +151,7 @@ public class UserEdit extends BaseProcessor {
                 password = mgr.getPassword(targetUserID);
                 password2 = password;
                 userName = secTok.targetUser.getName();
-                retrieveUserDataFromDB((InitialContext) TCContext.getInitial());
+                retrieveUserDataFromDB(TCContext.getInitial());
             }
             setFormFieldsDefaults();
             setNextPage(formPage);
@@ -227,15 +227,15 @@ public class UserEdit extends BaseProcessor {
         lastName = userTable.getLastName(targetUserID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
 
         // email for user
-        Email emailTable = ((EmailHome) ic.lookup("corp:" + EmailHome.EJB_REF_NAME)).create();
-        long emailID = emailTable.getPrimaryEmailId(targetUserID);
-        email = emailTable.getAddress(emailID);
+        Email emailTable = ((EmailHome) ic.lookup(EmailHome.EJB_REF_NAME)).create();
+        long emailID = emailTable.getPrimaryEmailId(targetUserID, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+        email = emailTable.getAddress(emailID, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
         email2 = email;
 
         // phone
         Phone phoneTable = ((PhoneHome) ic.lookup(PhoneHome.EJB_REF_NAME)).create();
-        long phoneID = phoneTable.getPrimaryPhoneId(targetUserID);
-        phone = phoneTable.getNumber(phoneID);
+        long phoneID = phoneTable.getPrimaryPhoneId(targetUserID, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+        phone = phoneTable.getNumber(phoneID, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
     }
 
     /**
@@ -619,7 +619,7 @@ public class UserEdit extends BaseProcessor {
             throws RemoteException, CreateException, NamingException {
         // user first, last names
         User userTable = (
-                (UserHome) ic.lookup("corp:" + UserHome.EJB_REF_NAME)
+                (UserHome) ic.lookup(UserHome.EJB_REF_NAME)
                 ).create();
         if (createNew) {
             userTable.createUser(targetUserID, userName, 'A', DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
@@ -633,32 +633,32 @@ public class UserEdit extends BaseProcessor {
                 ).create();
         long phoneID = -1;
         if (!createNew) {
-            phoneID = phoneTable.getPrimaryPhoneId(targetUserID);
+            phoneID = phoneTable.getPrimaryPhoneId(targetUserID, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
         }
         if (phoneID <= 0) {
-            phoneID = phoneTable.createPhone(targetUserID);
-            phoneTable.setPrimaryPhoneId(targetUserID, phoneID);
+            phoneID = phoneTable.createPhone(targetUserID, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+            phoneTable.setPrimaryPhoneId(targetUserID, phoneID, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
         }
-        phoneTable.setNumber(phoneID, phone);
+        phoneTable.setNumber(phoneID, phone, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
         if (createNew) {
-            phoneTable.setPhoneTypeId(phoneID, 1); // *HARDCODED*
+            phoneTable.setPhoneTypeId(phoneID, 1, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME); // *HARDCODED*
         }
 
         // setup email for user
         Email emailTable = (
-                (EmailHome) ic.lookup("corp:" + EmailHome.EJB_REF_NAME)
+                (EmailHome) ic.lookup(EmailHome.EJB_REF_NAME)
                 ).create();
         long emailID = -1;
         if (!createNew) {
-            emailID = emailTable.getPrimaryEmailId(targetUserID);
+            emailID = emailTable.getPrimaryEmailId(targetUserID, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
         }
         if (emailID <= 0) {
-            emailID = emailTable.createEmail(targetUserID);
-            emailTable.setPrimaryEmailId(targetUserID, emailID);
+            emailID = emailTable.createEmail(targetUserID, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+            emailTable.setPrimaryEmailId(targetUserID, emailID, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
         }
-        emailTable.setAddress(emailID, email);
+        emailTable.setAddress(emailID, email, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
         if (createNew) {
-            emailTable.setEmailTypeId(emailID, 1); // *HARDCODED*
+            emailTable.setEmailTypeId(emailID, 1, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME); // *HARDCODED*
         }
     }
 
@@ -703,8 +703,8 @@ public class UserEdit extends BaseProcessor {
             }
 
             try {
-                icEJB = (InitialContext) TCContext.getInitial();
-                contactTable = ((ContactHome) icEJB.lookup("corp:" + ContactHome.EJB_REF_NAME)).create();
+                icEJB = TCContext.getInitial();
+                contactTable = ((ContactHome) icEJB.lookup(ContactHome.EJB_REF_NAME)).create();
                 loggedUserCompanyID = contactTable.getCompanyId(getAuthentication().getUser().getId(), DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
                 Company companyTable = ((CompanyHome) icEJB.lookup(CompanyHome.EJB_REF_NAME)).create();
                 primaryUserID = companyTable.getPrimaryContactId(loggedUserCompanyID);
@@ -742,9 +742,9 @@ public class UserEdit extends BaseProcessor {
                     InitialContext ic = null;
 
                     try {
-                        ic = (InitialContext) TCContext.getInitial();
+                        ic = TCContext.getInitial();
                         contactTable = (
-                                (ContactHome) ic.lookup("corp:" + ContactHome.EJB_REF_NAME)
+                                (ContactHome) ic.lookup(ContactHome.EJB_REF_NAME)
                                 ).create();
                     } finally {
                         Util.closeIC(ic);
@@ -775,7 +775,7 @@ public class UserEdit extends BaseProcessor {
         InitialContext ic = null;
         ResultSetContainer rsc = null;
         try {
-            ic = (InitialContext) TCContext.getInitial();
+            ic = TCContext.getInitial();
             DataAccessInt dai = new DataAccess((DataSource) ic.lookup(DBMS.CORP_OLTP_DATASOURCE_NAME));
             Map resultMap = dai.getData(dataRequest);
             rsc = (ResultSetContainer) resultMap.get("qry-permissions-for-user");

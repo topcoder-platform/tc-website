@@ -6,19 +6,19 @@ import java.rmi.RemoteException;
 
 public interface TermsOfUse extends EJBObject {
 
-    public long createTermsOfUse() throws EJBException, RemoteException;
+    long createTermsOfUse(String dataSource, String idDataSource) throws EJBException, RemoteException;
 
-    public long getTermsOfUseTypeId(long _terms_of_use_id)
+    long getTermsOfUseTypeId(long termsOfUseId, String dataSource)
             throws EJBException, RemoteException;
 
-    public void setTermsOfUseTypeId(long _terms_of_use_id,
-                                    long _terms_of_use_type_id)
+    void setTermsOfUseTypeId(long termsOfUseId,
+                                    long termsOfUseTypeId, String dataSource)
             throws EJBException, RemoteException;
 
-    public String getText(long _terms_of_use_id)
+    String getText(long termsOfUseId, String dataSource)
             throws EJBException, RemoteException;
 
-    public void setText(long _terms_of_use_id, String _text)
+    void setText(long termsOfUseId, String text, String dataSource)
             throws EJBException, RemoteException;
 
 }

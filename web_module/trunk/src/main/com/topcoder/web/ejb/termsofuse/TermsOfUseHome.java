@@ -13,4 +13,4 @@ public interface TermsOfUseHome extends EJBHome {
 
 }
 
-;
+

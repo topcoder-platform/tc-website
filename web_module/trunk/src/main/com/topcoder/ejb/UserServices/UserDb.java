@@ -2,7 +2,6 @@ package com.topcoder.ejb.UserServices;
 
 import com.topcoder.common.web.data.*;
 import com.topcoder.common.web.error.TCException;
-import com.topcoder.ejb.AuthenticationServices.*;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.ApplicationServer;
@@ -108,15 +107,15 @@ final class UserDb {
                 /* make inserts for common db */
                 InitialContext ctx = new InitialContext();
                 com.topcoder.web.ejb.user.User userEJB = ((UserHome) ctx.lookup(UserHome.EJB_REF_NAME)).create();
-                Email emailEJB = ((EmailHome) ctx.lookup("main:"+EmailHome.EJB_REF_NAME)).create();
+                Email emailEJB = ((EmailHome) ctx.lookup(EmailHome.EJB_REF_NAME)).create();
                 userEJB.createUser(user.getUserId(), user.getHandle(), user.getStatus().charAt(0), DBMS.COMMON_OLTP_DATASOURCE_NAME);
                 userEJB.setFirstName(user.getUserId(), coder.getFirstName(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
                 userEJB.setLastName(user.getUserId(), coder.getLastName(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
 
-                long emailId = emailEJB.createEmail(coder.getCoderId());
-                emailEJB.setAddress(emailId, user.getEmail());
-                emailEJB.setPrimaryEmailId(user.getUserId(), emailId);
-                emailEJB.setEmailTypeId(emailId, DEFAULT_EMAIL_TYPE_ID);
+                long emailId = emailEJB.createEmail(coder.getCoderId(), DBMS.COMMON_OLTP_DATASOURCE_NAME, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                emailEJB.setAddress(emailId, user.getEmail(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                emailEJB.setPrimaryEmailId(user.getUserId(), emailId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                emailEJB.setEmailTypeId(emailId, DEFAULT_EMAIL_TYPE_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME);
 
 
                 UserDbCoder.insertCoder(conn, coder);
@@ -225,13 +224,13 @@ final class UserDb {
 
                 InitialContext ctx = new InitialContext();
                 com.topcoder.web.ejb.user.User userEJB = ((UserHome) ctx.lookup(UserHome.EJB_REF_NAME)).create();
-                Email emailEJB = ((EmailHome) ctx.lookup("main:"+EmailHome.EJB_REF_NAME)).create();
+                Email emailEJB = ((EmailHome) ctx.lookup(EmailHome.EJB_REF_NAME)).create();
                 userEJB.setFirstName(user.getUserId(), coder.getFirstName(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
                 userEJB.setLastName(user.getUserId(), coder.getLastName(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
                 userEJB.setStatus(user.getUserId(), user.getStatus().charAt(0), DBMS.COMMON_OLTP_DATASOURCE_NAME);
 
-                long emailId = emailEJB.getPrimaryEmailId(coder.getCoderId());
-                emailEJB.setAddress(emailId, user.getEmail());
+                long emailId = emailEJB.getPrimaryEmailId(coder.getCoderId(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                emailEJB.setAddress(emailId, user.getEmail(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
 
                 coder.setAllModifiedStable();
             }

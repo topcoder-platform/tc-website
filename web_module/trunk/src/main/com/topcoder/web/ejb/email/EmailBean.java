@@ -19,10 +19,7 @@ import java.sql.SQLException;
 public class EmailBean extends BaseEJB {
     private static Logger log = Logger.getLogger(EmailBean.class);
 
-    private final static String DATA_SOURCE = "java:comp/env/datasource_name";
-    private final static String JTS_DATA_SOURCE = "java:comp/env/jts_datasource_name";
-
-    public long createEmail(long userId) throws EJBException, RemoteException {
+    public long createEmail(long userId, String dataSource, String idDataSource) throws EJBException, RemoteException {
 
         long email_id = 0;
 
@@ -33,10 +30,10 @@ public class EmailBean extends BaseEJB {
         try {
 
             ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             if (!IdGenerator.isInitialized()) {
-                IdGenerator.init(new SimpleDB(), (DataSource) ctx.lookup(DATA_SOURCE), "sequence_object", "name",
+                IdGenerator.init(new SimpleDB(), (DataSource) ctx.lookup(idDataSource), "sequence_object", "name",
                         "current_value", 9999999999L, 1, false);
             }
 
@@ -71,7 +68,7 @@ public class EmailBean extends BaseEJB {
         return (email_id);
     }
 
-    public void setPrimaryEmailId(long userId, long _email_id)
+    public void setPrimaryEmailId(long userId, long emailId, String dataSource)
             throws EJBException, RemoteException {
 
         Connection conn = null;
@@ -80,7 +77,7 @@ public class EmailBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("UPDATE email ");
@@ -105,7 +102,7 @@ public class EmailBean extends BaseEJB {
 
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, userId);
-            ps.setLong(2, _email_id);
+            ps.setLong(2, emailId);
 
             rc = ps.executeUpdate();
             if (rc != 1) {
@@ -125,7 +122,7 @@ public class EmailBean extends BaseEJB {
         }
     }
 
-    public long getPrimaryEmailId(long userId)
+    public long getPrimaryEmailId(long userId, String dataSource)
             throws EJBException, RemoteException {
         long email_id = 0;
 
@@ -136,7 +133,7 @@ public class EmailBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT email_id ");
@@ -169,7 +166,7 @@ public class EmailBean extends BaseEJB {
         return (email_id);
     }
 
-    public void setEmailTypeId(long _email_id, long _email_type_id)
+    public void setEmailTypeId(long emailId, long emailTypeId, String dataSource)
             throws EJBException, RemoteException {
 
         Connection conn = null;
@@ -179,7 +176,7 @@ public class EmailBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("UPDATE email ");
@@ -188,8 +185,8 @@ public class EmailBean extends BaseEJB {
 
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
-            ps.setLong(1, _email_type_id);
-            ps.setLong(2, _email_id);
+            ps.setLong(1, emailTypeId);
+            ps.setLong(2, emailId);
 
             int rc = ps.executeUpdate();
             if (rc != 1) {
@@ -209,7 +206,7 @@ public class EmailBean extends BaseEJB {
         }
     }
 
-    public long getEmailTypeId(long _email_id)
+    public long getEmailTypeId(long emailId, String dataSource)
             throws EJBException, RemoteException {
 
         long email_type_id = 0;
@@ -221,7 +218,7 @@ public class EmailBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT email_type_id ");
@@ -230,14 +227,14 @@ public class EmailBean extends BaseEJB {
 
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
-            ps.setLong(1, _email_id);
+            ps.setLong(1, emailId);
 
             rs = ps.executeQuery();
             if (rs.next()) {
                 email_type_id = rs.getLong(1);
             } else {
                 throw(new EJBException("No rows found when selecting from 'email' " +
-                        "with email_id=" + _email_id + "."));
+                        "with email_id=" + emailId + "."));
             }
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
@@ -254,7 +251,7 @@ public class EmailBean extends BaseEJB {
         return (email_type_id);
     }
 
-    public void setAddress(long _email_id, String _address)
+    public void setAddress(long emailId, String address, String dataSource)
             throws EJBException, RemoteException {
 
         Connection conn = null;
@@ -264,7 +261,7 @@ public class EmailBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("UPDATE email ");
@@ -273,8 +270,8 @@ public class EmailBean extends BaseEJB {
 
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
-            ps.setString(1, _address);
-            ps.setLong(2, _email_id);
+            ps.setString(1, address);
+            ps.setLong(2, emailId);
 
             int rc = ps.executeUpdate();
             if (rc != 1) {
@@ -294,7 +291,7 @@ public class EmailBean extends BaseEJB {
         }
     }
 
-    public String getAddress(long _email_id)
+    public String getAddress(long emailId, String dataSource)
             throws EJBException, RemoteException {
 
         String address = "";
@@ -306,7 +303,7 @@ public class EmailBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT address ");
@@ -315,14 +312,14 @@ public class EmailBean extends BaseEJB {
 
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
-            ps.setLong(1, _email_id);
+            ps.setLong(1, emailId);
 
             rs = ps.executeQuery();
             if (rs.next()) {
                 address = rs.getString(1);
             } else {
                 throw(new EJBException("No rows found when selecting from 'email' " +
-                        "with email_id=" + _email_id + "."));
+                        "with email_id=" + emailId + "."));
             }
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);

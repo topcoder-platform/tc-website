@@ -17,14 +17,14 @@ public interface Phone extends EJBObject {
      *
      * @see com.topcoder.web.ejb.phone.PhoneBean#createPhone
      */
-    long createPhone(long userId) throws RemoteException, EJBException;
+    long createPhone(long userId, String dataSource, String idDataSource) throws RemoteException, EJBException;
 
     /**
      *
      *
      * @see com.topcoder.web.ejb.phone.PhoneBean#getPhoneTypeId
      */
-    long getPhoneTypeId(long phoneId)
+    long getPhoneTypeId(long phoneId, String dataSource)
             throws RemoteException, EJBException;
 
     /**
@@ -32,7 +32,7 @@ public interface Phone extends EJBObject {
      *
      * @see com.topcoder.web.ejb.phone.PhoneBean#getNumber
      */
-    String getNumber(long phoneId)
+    String getNumber(long phoneId, String dataSource)
             throws RemoteException, EJBException;
 
     /**
@@ -40,7 +40,7 @@ public interface Phone extends EJBObject {
      *
      * @see com.topcoder.web.ejb.phone.PhoneBean#setPhoneTypeId
      */
-    void setPhoneTypeId(long phoneId, long phoneTypeId)
+    void setPhoneTypeId(long phoneId, long phoneTypeId, String dataSource)
             throws RemoteException, EJBException;
 
     /**
@@ -48,7 +48,7 @@ public interface Phone extends EJBObject {
      *
      * @see com.topcoder.web.ejb.phone.PhoneBean#setNumber
      */
-    void setNumber(long phoneId, String number)
+    void setNumber(long phoneId, String number, String dataSource)
             throws RemoteException, EJBException;
 
     /**
@@ -56,7 +56,7 @@ public interface Phone extends EJBObject {
      *
      * @see com.topcoder.web.ejb.phone.PhoneBean#getPrimaryPhoneId
      */
-    long getPrimaryPhoneId(long userId)
+    long getPrimaryPhoneId(long userId, String dataSource)
             throws RemoteException, EJBException;
 
     /**
@@ -64,7 +64,7 @@ public interface Phone extends EJBObject {
      *
      * @see com.topcoder.web.ejb.phone.PhoneBean#setPrimaryPhoneId
      */
-    void setPrimaryPhoneId(long userId, long phoneId)
+    void setPrimaryPhoneId(long userId, long phoneId, String dataSource)
             throws RemoteException, EJBException;
 
     /**
@@ -72,7 +72,7 @@ public interface Phone extends EJBObject {
      *
      * @see com.topcoder.web.ejb.phone.PhoneBean#isPrimaryPhoneId
      */
-    boolean isPrimaryPhoneId(long userId, long phoneId)
+    boolean isPrimaryPhoneId(long userId, long phoneId, String dataSource)
             throws RemoteException, EJBException;
 
 }
