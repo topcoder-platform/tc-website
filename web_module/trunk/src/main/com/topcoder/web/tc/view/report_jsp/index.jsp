@@ -82,7 +82,7 @@
       <br/>
       <br/>
       <br/>
-      <a href=<%=Constants.SERVLET_ADDR+"?"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY%>>Additional Reports<a><br/><br/>
+      <a href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?module=Static&d1=report_jsp&d2=newIndex">Additional Reports<a><br/><br/>
 
       <b>Profile Information<b><br/>
       <ul><li><a href=<%=Constants.SERVLET_ADDR + "&" + Constants.TASK_NAME_KEY + "=" + Constants.REPORT_PROFILE_LIST_MENU_KEY%>>Profile List<a></li></ul>
