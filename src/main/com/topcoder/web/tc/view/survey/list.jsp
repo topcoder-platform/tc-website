@@ -25,7 +25,7 @@
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value=""/>
-                <jsp:param name="level2" value=""/> 
+                <jsp:param name="level2" value=""/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -34,17 +34,17 @@
         <td width="10"><img src="/i/clear.gif" width="10" height="1"></td>
 <!-- Gutter Ends -->
 
-<!-- Center Column Begins --> 
+<!-- Center Column Begins -->
          <td width="100%" class="bodyText" valign="top">
                   <table width="100%" border="0" cellpadding="10" cellspacing="0" class="bodyText">
                      <tr>
                         <td class ="bodyText" width="100%"><img src="/i/header_questions.gif" width="210" height="26" border="0"></td>
                      </tr>
                   </table>
-            <p>Each week, we poll TopCoder competitors to find out answers to questions that are important to the coding community.  
-            The following is a list of those questions.  Feel free to click "view results" next to any question to see how the TopCoder member 
+            <p>Each week, we poll TopCoder competitors to find out answers to questions that are important to the coding community.
+            The following is a list of those questions.  Feel free to click "view results" next to any question to see how the TopCoder member
             base responded:</p>
-             
+
             <table border="0" cellpadding="5" cellspacing="0"width="100%">
                <tr><td class="header">Archive</td></tr>
             </table>
@@ -53,7 +53,7 @@
             <% boolean even = false; %>
                <rsc:iterator list="<%=surveyList%>" id="survey">
                <tr class="<%=even?"formTextOdd":"formTextEven"%>">
-                  <td>DateHere</td>
+                  <td><rsc:item row="<%=survey%>" name="date" format="MM/dd/yyyy"/></td>
                   <td>
                      <rsc:item row="<%=survey%>" name="question_text"/>
                   </td>
@@ -81,7 +81,7 @@
        <td width="170">
             <jsp:include page="../public_right.jsp">
                 <jsp:param name="level1" value="review_board"/>
-                <jsp:param name="level2" value="competition"/> 
+                <jsp:param name="level2" value="competition"/>
             </jsp:include>
         </td>
 <!-- Right Column Ends -->

@@ -9,14 +9,9 @@ public class SurveyList extends Base {
     protected void businessProcessing() throws TCWebException {
         Request r = new Request();
         try {
-            if (getAuthentication().getActiveUser().isAnonymous()) {
-                r.setContentHandle("survey_list");
-                getRequest().setAttribute("surveyList", getDataAccess().getData(r).get("survey_list"));
-            } else {
-                r.setContentHandle("user_survey_list");
-                r.setProperty("cr", String.valueOf(getAuthentication().getActiveUser().getId()));
-                getRequest().setAttribute("surveyList", getDataAccess().getData(r).get("user_survey_list"));
-            }
+            r.setContentHandle("survey_list");
+            r.setProperty("cr", String.valueOf(getAuthentication().getActiveUser().getId()));
+            getRequest().setAttribute("surveyList", getDataAccess().getData(r).get("survey_list"));
         } catch (Exception e) {
             throw new TCWebException(e);
         }
