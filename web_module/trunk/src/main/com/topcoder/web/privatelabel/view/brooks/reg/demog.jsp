@@ -35,7 +35,7 @@
                         </tr>
                         <tr>
                             <td class="brRegTableQuestion"></td>
-                            <td class="brRegTableAnswer">
+                            <td class="brRegTableAnswer" nowrap=nowrap>
                             <br/><a class="brRegTableAnswer" href="/pl/?&module=Static&d1=brooks&d2=reg&d3=confirm">Submit</a>
                             <br/><br/>
 
