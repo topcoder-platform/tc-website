@@ -116,9 +116,9 @@
 
 
                                 <li>
-                                <p><strong>TAX FORM</strong> - must be faxed to (860.657.4276) or postmarked on or before 9:00 PM ET on Wednesday, March 24.</p>
                                 <xsl:choose>
                                     <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_tax_form)=0">
+                                        <p><strong>TAX FORM</strong> - must be faxed to (860.657.4276) or postmarked on or before 9:00 PM ET on Wednesday, March 24.</p>
                                         <p>You must complete, sign and return the appropriate tax form (Form W-9 or Form W-8BEN) via fax or mail to the address below.  If you don't know the form
                                         that applies to you, please refer to the instructions below:</p>
 
@@ -131,6 +131,7 @@
                                         Form W-8BEN <a href="/contest/fw8ben.pdf">here (W8)</a></p>
                                     </xsl:when>
                                     <xsl:otherwise>
+                                        <p><strong>TAX FORM</strong></p>
                                         We already have your tax form on file.  You do NOT need to complete and return another form.
                                     </xsl:otherwise>
                                 </xsl:choose>
