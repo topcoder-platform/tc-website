@@ -170,18 +170,18 @@ the SunNetwork<sup>sm</sup> Conference.
 <tr>
 <td colspan="2" valign="top" style='width:216.15pt;border:solid windowtext .5pt;
   background:#0C0C0C;padding:0in 5.4pt 0in 5.4pt'>
-<p class="statText"><b>Qualification Period<o:p></o:p></b></p>
+<p class="statText"><b>Qualification Period</b></p>
 </td>
 </tr>
 <tr>
 <td width="216" valign="top" style='width:216.15pt;border:solid windowtext .5pt;
   background:#666666;padding:0in 5.4pt 0in 5.4pt'>
-<p class="statText"><b>Date<o:p></o:p></b></p>
+<p class="statText"><b>Date</b></p>
 </td>
 <td width="215" valign="top" style='width:214.85pt;border:solid windowtext .5pt;
   border-left:none;mso-border-left-alt:solid windowtext .5pt;background:#666666;
   padding:0in 5.4pt 0in 5.4pt'>
-<p class="statText"><b>Time<o:p></o:p></b></p>
+<p class="statText"><b>Time</b></p>
 </td>
 </tr>
 <tr>
@@ -290,12 +290,12 @@ The dates and times of the Quarterfinal, Semifinal and Championship rounds are a
 <tr>
 <td width="216" valign="top" style='width:216.15pt;border:solid windowtext .5pt;
   background:#0C0C0C;padding:0in 5.4pt 0in 5.4pt'>
-<p class="statText"><b>Round of Competition<o:p></o:p></b></p>
+<p class="statText"><b>Round of Competition</b></p>
 </td>
 <td width="215" valign="top" style='width:214.85pt;border:solid windowtext .5pt;
   border-left:none;mso-border-left-alt:solid windowtext .5pt;background:#0C0C0C;
   padding:0in 5.4pt 0in 5.4pt'>
-<p class="statText"><b>Date and Time<o:p></o:p></b></p>
+<p class="statText"><b>Date and Time</b></p>
 </td>
 </tr>
 <tr>
