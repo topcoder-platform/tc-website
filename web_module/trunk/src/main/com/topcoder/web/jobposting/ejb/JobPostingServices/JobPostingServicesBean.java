@@ -74,6 +74,25 @@ public class JobPostingServicesBean extends BaseEJB {
             throw new RemoteException("JobPostingServicesBean.addJobHit(int, int, int):ERROR: " + se);
         } catch (Exception e) {
             throw new RemoteException(e.getMessage());
+        } finally {
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                }
+            }
         }
 
     }
@@ -113,6 +132,25 @@ public class JobPostingServicesBean extends BaseEJB {
             throw new RemoteException("JobPostingServicesBean.getLink(int):ERROR: " + se);
         } catch (Exception e) {
             throw new RemoteException(e.getMessage());
+        } finally {
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                }
+            }
         }
         return ret;
     }
