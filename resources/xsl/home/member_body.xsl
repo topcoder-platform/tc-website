@@ -418,6 +418,9 @@
                 <area shape="rect" alt="TCES" coords="1,1,243,85" href="/?t=tournaments&amp;c=tco03_nvidia" />
                 <area shape="rect" alt="SRM Match 167" coords="0,93,243,141" href="/index?t=tournaments&amp;c=tco03_sched" />
             </map>
+        
+            <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br />
+
 <!-- TCO Promo Ends -->
 
 <!-- Coder of the Month Begins -->
