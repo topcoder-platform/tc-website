@@ -139,7 +139,7 @@ public class SimpleSearch extends Base {
         if (m.getStateCode() != null)
             queryBottom.append(" AND c.state_code like '").append(StringUtils.replace(m.getStateCode(), "'", "''")).append("'");
         if (m.getHandle() != null)
-            queryBottom.append(" AND LOWER(c.handle) like LOWER('").append(StringUtils.replace(m.getHandle(), "'", "''")).append("')");
+            queryBottom.append(" AND c.handle_lower like LOWER('").append(StringUtils.replace(m.getHandle(), "'", "''")).append("')");
         queryBottom.append(" AND r.last_rated_round_id = ro.round_id");
         queryBottom.append(" AND r.rating BETWEEN ");
         queryBottom.append(m.getMinRating() == null ? "0" : m.getMinRating().toString());
@@ -179,7 +179,7 @@ public class SimpleSearch extends Base {
         StringBuffer searchQuery = new StringBuffer(400);
         searchQuery.append(" SELECT c.coder_id AS user_id");
         searchQuery.append(" , c.handle");
-        searchQuery.append(" , LOWER(c.handle) lower_handle");
+        searchQuery.append(" , c.handle_lower lower_handle");
         searchQuery.append(" , CASE WHEN r.rating= 0 THEN 'Unrated' ELSE ''||r.rating END as rating");
         searchQuery.append(" , case when co.country_code = '840' then c.state_code else case when c.state_code='ZZ' then '' else c.state_code end end as state_code");
         searchQuery.append(" , r.num_ratings");
