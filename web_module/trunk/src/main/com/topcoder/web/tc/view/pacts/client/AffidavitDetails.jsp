@@ -82,16 +82,21 @@ The <B>W-8BEN form</B> should be filled out by all non-U.S. Citizens.<BR><A clas
 <p><a href="PactsMemberServlet?t=affidavit&c=render_affidavit&affidavit_id=<%=a.affidavit._header._id%>">click here for a printer friendly version of the affidavit</a></p>
 <% } %>
 <% }
-	if(!a.canAffirmOnline()) {
-        if (!a.hasNotarizedAffidavit()) { %>
-        <b><p>You cannot affirm this affidavit online, please use the link above to print out a copy of the affidavit, have it notarized and mail it to TopCoder.</p></b>
+	if(!a.canAffirmOnline()) { %>
+        <b><p>
+          You cannot affirm the this affidavit online for the following reason(s):
+          <ul>
+      <% if (!a.hasNotarizedAffidavit()) { %>
+        <li>You do not have a notarized affidavit on file.</li>
       <% } else if (!a.hasTaxForm()) { %>
-        <b><p>You cannot affirm this affidavit online because you do not have a tax form on file, please file out the appropriate form and send it to TopCoder.</p></b>
+        <li>You do not have a tax form on file.</li>
       <% } else if (!a.hasAllDemographicAnswers()) { %>
-        <b><p>You cannot affirm this affidavit online because your demographic information is incomplete, please update your profile information.</p></b>
+        <li>Your demographic answers are incomplete.</li>
       <% } else if (a.daysLeft<=0) { %>
-        <b><p>You cannot affirm this affidavit online because it has expired.</p></b>
+        <li>This affidavit has expired.</li>
       <% } %>
+      </ul>
+        </p></b>
 <%
 	} else {
 		if(!a.affidavit._header._affirmed) {
