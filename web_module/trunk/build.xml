@@ -647,6 +647,120 @@
         </fileset>
       </copy>
     </target>
+    
+    <target name="war_email" depends="compile">
+        <war warfile="${war.dir}/${email.war.name}.war" webxml="${resources}/email/web.xml">
+            <fileset dir="${java}/com/topcoder/web/email/servlet/jsp">
+                <include name="**/*.jsp"/>
+            </fileset>
+            <classes dir="${classes}">
+                <include name="com/topcoder/web/email/**"/>
+            </classes>
+            <webinf dir="${resources}/email">
+                <include name="email-taglib.tld"/>
+            </webinf>
+            <zipfileset dir="${java}/com/topcoder/web/email/servlet/jsp">
+                <include name="**/*.jpg"/>
+            </zipfileset>
+        </war>
+    </target>
+
+    <target name="war_query" depends="compile">
+        <war warfile="${war.dir}/${query.war.name}.war" webxml="${resources}/query/web.xml">
+            <fileset dir="${java}/com/topcoder/web/query/servlet/jsp">
+                <include name="**/*.jsp"/>
+            </fileset>
+            <classes dir="${classes}">
+                <include name="com/topcoder/web/query/**"/>
+            </classes>
+            <webinf dir="${resources}/query">
+                <include name="query-taglib.tld"/>
+            </webinf>
+        </war>
+    </target>
+
+<!-- hs -->
+   <target name="deploy_hs" depends="dev_war_hs,build_hs_ejbs">
+   </target>
+
+   <target name="build_hs_ejbs" depends="compile">
+        <antcall target="package-EJB-QueryServicesBean"/>
+        <antcall target="package-EJB-UserBean"/>
+        <antcall target="package-EJB-TermsOfUseBean"/>
+        <antcall target="package-EJB-EmailBean"/>
+        <antcall target="package-EJB-SchoolBean"/>
+   </target>
+
+   
+    <target name="package-EJB-UserBean" depends="compile,init-UserBean-properties,package-EJB-GenericBean"/>
+
+    <target name="init-UserBean-properties" >
+        <property name="bean.dir"          value="user" />
+        <property name="bean.jar.name"     value="User.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/web/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+    </target>
+
+    <target name="package-EJB-TermsOfUseBean" depends="compile,init-TermsOfUseBean-properties,package-EJB-GenericBean"/>
+
+    <target name="init-TermsOfUseBean-properties" >
+        <property name="bean.dir"          value="termsofuse" />
+        <property name="bean.jar.name"     value="TermsOfUse.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/web/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+    </target>
+
+    <target name="package-EJB-EmailBean" depends="compile,init-EmailBean-properties,package-EJB-GenericBean"/>
+
+    <target name="init-EmailBean-properties" >
+        <property name="bean.dir"          value="email" />
+        <property name="bean.jar.name"     value="Email.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/web/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+    </target>
+
+
+    <target name="init-SchoolBean-properties" >
+        <property name="bean.dir"          value="school" />
+        <property name="bean.jar.name"     value="School.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/web/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+   </target>
+
+
+    <target name="package-EJB-RatingBean" depends="compile,init-RatingBean-properties,package-EJB-GenericBean"/>
+
+    <target name="init-RatingBean-properties" >
+        <property name="bean.dir"          value="rating" />
+        <property name="bean.jar.name"     value="Rating.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/web/hs/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+   </target>
+
+
+    <target name="package-EJB-CoderBean" depends="compile,init-CoderBean-properties,package-EJB-GenericBean"/>
+
+    <target name="init-CoderBean-properties" >
+        <property name="bean.dir"          value="coder" />
+        <property name="bean.jar.name"     value="Coder.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/web/hs/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+   </target>
+
+
+
 
     <target name="dev_war_hs" depends="compile">
       <delete dir="${tc_cluster}/${hs.war.name}"/>
@@ -681,37 +795,7 @@
       </copy>
     </target>
 
-    
-    <target name="war_email" depends="compile">
-        <war warfile="${war.dir}/${email.war.name}.war" webxml="${resources}/email/web.xml">
-            <fileset dir="${java}/com/topcoder/web/email/servlet/jsp">
-                <include name="**/*.jsp"/>
-            </fileset>
-            <classes dir="${classes}">
-                <include name="com/topcoder/web/email/**"/>
-            </classes>
-            <webinf dir="${resources}/email">
-                <include name="email-taglib.tld"/>
-            </webinf>
-            <zipfileset dir="${java}/com/topcoder/web/email/servlet/jsp">
-                <include name="**/*.jpg"/>
-            </zipfileset>
-        </war>
-    </target>
 
-    <target name="war_query" depends="compile">
-        <war warfile="${war.dir}/${query.war.name}.war" webxml="${resources}/query/web.xml">
-            <fileset dir="${java}/com/topcoder/web/query/servlet/jsp">
-                <include name="**/*.jsp"/>
-            </fileset>
-            <classes dir="${classes}">
-                <include name="com/topcoder/web/query/**"/>
-            </classes>
-            <webinf dir="${resources}/query">
-                <include name="query-taglib.tld"/>
-            </webinf>
-        </war>
-    </target>
     <target name="war_hs" depends="compile">
         <war warfile="${war.dir}/${hs.war.name}.war" webxml="${resources}/hs/web.xml">
             <fileset dir="${java}/com/topcoder/web/hs/view">
