@@ -7,12 +7,12 @@
 
 <!-- TCO Header -->
 <a name="top_page"></a>
-            <object 
+            <object
             type="application/x-shockwave-flash"
             data="/i/tournament/vcc03/vcc03_still.swf"
             width="100%"
             height="125"
-            border="0">           
+            border="0">
             <param name="movie" value="/i/tournament/vcc03/vcc03_still.swf" />
             <param name="quality" value="high" />
             <param name="salign" value="t">
@@ -32,14 +32,14 @@
          <img src="/i/tournament/vcc03/vcc03_right.gif" width="180" height="400" border="0"/><br />
          <img src="/i/clear.gif" width="180" height="40" border="0"/>
          </p>
-         </td>         
+         </td>
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
-<!-- Center Column Begins -->  
+<!-- Center Column Begins -->
 <td class="bodyText" width="100%">
 
 <!-- Tab bar links-->
@@ -59,7 +59,7 @@ Thank you for registering<br/>
 <br/>
 </p>
 <p>
-If you would like to upload a resume, click <a href="JavaScript:void window.open('/Resume?&t=ViewUploadTask&compid=1','Resume_Upload','top=2,left=2,width=300,height=300,status=0');">here</a>
+If you would like to upload a resume, click <a href="JavaScript:void window.open('/Resume?&t=ViewUploadTask&compid=1747','Resume_Upload','top=2,left=2,width=300,height=300,status=0');">here</a>
 </p>
 </blockquote>
 <p><br /></p>
