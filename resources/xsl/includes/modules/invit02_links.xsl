@@ -1,11 +1,10 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:template name="invit02_links">
-  <BR/>
 	<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="1">
-	  <!-- <TR><TD COLSPAN="5"><DIV ALIGN="center"><A HREF="/index?t=schedule&amp;c=tourny_spons" CLASS="statTextBig"><IMG SRC="/i/tournament/sun_banner.gif" ALT="" WIDTH="428" HEIGHT="84" VSPACE="5" BORDER="0"/></A></DIV></TD></TR> -->    
+	  <TR><TD COLSPAN="4"><DIV ALIGN="center"><A HREF="/index?t=schedule&amp;c=invit02_sched"><IMG SRC="/i/invit02_logob.gif" ALT="" WIDTH="155" HEIGHT="105" VSPACE="5" BORDER="0"/></A></DIV></TD></TR>  
       <TR>
-        <TD COLSPAN="5" ALIGN="center" VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif">&#160;&#160;INVITATIONAL FEATURES</TD>
+        <TD COLSPAN="4" ALIGN="center" VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif">&#160;&#160;INVITATIONAL FEATURES</TD>
       </TR>                    						
 	  <TR>
 		<!-- <TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" >
