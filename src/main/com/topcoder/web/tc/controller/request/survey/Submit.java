@@ -86,9 +86,15 @@ public class Submit extends View {
                     if (answers.length > 1) {
                         addError(paramName, "Invalid answer.");
                     }
-                    answerId = Long.parseLong(answers[i]);
-                    if (question.getStyleId()==Question.SINGLE_CHOICE && findAnswer(answerId, question)==null) {
-                        addError(paramName, "Invalid answer.");
+                    if (question.getStyleId()==Question.SINGLE_CHOICE) {
+                        try {
+                            answerId = Long.parseLong(answers[i]);
+                        } catch (NumberFormatException e) {
+                            addError(paramName, "Invalid answer.");
+                        }
+                        if (findAnswer(answerId, question)==null) {
+                            addError(paramName, "Invalid answer.");
+                        }
                     }
                 }
             }
@@ -103,7 +109,9 @@ public class Submit extends View {
                 retAnswers.add(a);
             }
         }
-        question.setAnswerInfo(retAnswers);
+        if (!hasErrors()&&question!=null) {
+            question.setAnswerInfo(retAnswers);
+        }
         return hasErrors()?null:question;
     }
 
