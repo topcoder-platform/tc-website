@@ -51,6 +51,7 @@ public class TestResults extends BaseProcessor {
         TestResultsInfo tinfo = new TestResultsInfo();
         ProfileInfo pinfo = new ProfileInfo();
         if (result.isEmpty()) {
+            pinfo.setIsNew(false);
             pinfo.setTestSetA(new Long(Constants.NO_TEST_SET_A));
         }
         if (pinfo.hasTestSetA()) {
