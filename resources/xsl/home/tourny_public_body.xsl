@@ -17,7 +17,7 @@
   <xsl:import href="../includes/modules/arena2.xsl"/>  
   <xsl:import href="../includes/modules/calendar.xsl"/>
   <xsl:import href="../includes/modules/editorials.xsl"/>    
-  <xsl:import href="../includes/modules/simple_search.xsl"/>    
+  <xsl:import href="../includes/modules/simple_search.xsl"/>     
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template name="PublicBody">
 
@@ -97,17 +97,55 @@
 <B>Where:</B> Mohegan Sun Casino in Uncasville, CT<BR/>
 <B>Total Prize:</B> $150,000<BR/><BR/>
 <!--
-<A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=authentication&amp;c=login</xsl:attribute>Login</A> to sign up!<BR/>-->
-<A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=invit02_sched</xsl:attribute>Get more details!</A><BR/>
+<A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=authentication&amp;c=login</xsl:attribute>Login</A> to sign up!<BR/>
+<A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=invit02_sched</xsl:attribute>Get more details!</A><BR/>-->
     </TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
   </TR>
   <TR>  
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-    <TD CLASS="bodyText" VALIGN="top" WIDTH="100%" BGCOLOR="#FFFF99">
-<B>Update:</B><BR/>
-The assignments for the first round of the tournament are now available.  Each part lists the assigned members alphabetically by handle.<BR/><BR/>
-<B>View Online Round #1</B>:<BR/><A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=invit02_pt1</xsl:attribute>Part 1 (Oct. 8th) - Seeding</A>  |    
+    <TD CLASS="bodyText" VALIGN="top" WIDTH="100%" BGCOLOR="#CCCCCC">
+<!-- tourney links -->    
+	<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="1">
+      <TR>
+        <TD COLSPAN="4" ALIGN="center" VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif">&#160;&#160;INVITATIONAL FEATURES</TD>
+      </TR>                    						
+	  <TR>
+		<!-- <TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" >
+			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='tourny_spons'">orangebv_bg</xsl:when><xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
+		<A HREF="/index?t=schedule&amp;c=tourny_spons" CLASS="statTextBig">Sponsor</A></TD> -->
+		<TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
+			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='invit02_pt1'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_pt2'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rnd2'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rnd3'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rnd4'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_semi'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_champ'">orangebv_bg</xsl:when>
+			<xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>		
+		<A HREF="/index?t=schedule&amp;c=invit02_pt1" CLASS="statTextBig">Round Updates</A></TD>
+		<TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
+			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='invit02_sched'">orangebv_bg</xsl:when><xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>		
+		<A HREF="/index?t=schedule&amp;c=invit02_sched" CLASS="statTextBig">Schedule</A></TD>
+		<TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig">
+			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='tourny_rules_overview'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rules_overview'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rules_scoring'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rules_conditions'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rules_prizes'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rules_onsite'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rules_structure'">orangebv_bg</xsl:when>
+			<xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>	
+		<A HREF="/index?t=schedule&amp;c=invit02_rules_overview" CLASS="statTextBig">Rules</A></TD>
+		<!-- <TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
+			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='nopage'">orangebv_bg</xsl:when><xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>		
+		<A HREF="/TourneyReg?&amp;cd=4320&amp;rd=4320" CLASS="statTextBig">Sign Up</A></TD>	-->	
+	  </TR>
+    </TABLE>
+<!-- tourney links end -->     
+<!-- <B>Update:</B><BR/>
+The assignments for the first round of the tournament are now available.  Each part lists the assigned members alphabetically by handle.<BR/><BR/> -->
+<B>View Online Round #1</B>:<BR/>Part 1<A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=invit02_pt1_adv</xsl:attribute> - Advancers</A>  |    
 <A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=invit02_pt2</xsl:attribute>Part 2 (Oct. 10th) - Seeding</A><BR/><BR/>
     </TD>    
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
@@ -201,8 +239,8 @@ Round Updates/Schedule
   <TR> 
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" COLSPAN="3" CLASS="bodyText"><A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><B>Single Round Match 115</B></A><BR/>
-Monday, September 30, 2002<BR/><BR/> 
+        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><B>2002 TopCoder Invitational Round 1 - Part 1</B></A><BR/>
+Wednesday, October 9, 2002<BR/><BR/> 
     </TD>    
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
   </TR> 
@@ -276,44 +314,22 @@ Monday, September 30, 2002<BR/><BR/>
   </TR>  
   <TR>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
-    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> By&#160;ZorbaTHut<BR/><I>[TC]&#160;Member</I><BR/></TD>
+    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/Logan_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> By&#160;Logan<BR/><I>[TC]&#160;Member</I><BR/></TD>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText" COLSPAN="2">
-    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>SRM 115</B></FONT>
+    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>2002 TopCoder Invitational Round 1 - Part 1</B></FONT>
     </TD>
   </TR>      
   <TR>
     <TD VALIGN="top" CLASS="bodyText" WIDTH="100%">
 	<A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm115_prob</xsl:attribute>
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=invit02_r1a_prob</xsl:attribute>
         <B>Problem Set Analysis &amp; Opinion</B>
       </A><BR/>
-<P>
-Last match before the invitational! Curiously enough, the match wasn't
-bigger than usual - if anything, it was smaller. I'm guessing a lot of
-people were holding on to their ratings, worried that they'd drop too far.
-Well, by now you've heard the news, whether it's good or bad for you, so
-I'll stop speculating and get down to the problems.
-</P>
-
-<P>
-SRM 115 had a nice selection of problems, none spectacularly hard or
-spectacularly easy. The Division-I Level Two problem proved extremely quick
-for many people if they knew the solution from past Topcoder rounds. The
-Level Three problems in both divisions were extremely difficult, with a
-total of nine people from both divisions getting their Level Three.
-</P>
-
 	  <P>
-The only oddity problem-wise was a surprisingly low success rate on the
-Division-II Level One problem, due to some tricky calculations and rather
-odd rules. As for solutions, I find it worth pointing out that despite the
-fastest successful submissions on the Level One and Level Two problems, I
-still ended up in third place due to some ghastly bugs on my Level Three
-problem, <B>Yarin</B> and <B>NDBronson</B> both beating me - though in <B>NDBronson</B>'s case,
-this was augmented by a successful challenge.... 
+The problems for this round of the Invitational were relatively easy, compared to your typical SRM Division-I problems. I suspect that the problems will get more difficult as the rounds progress, with the on-site problems being more difficult than typical Division-I problems. The Level 3 problem was the only problem that was really on par with Division-I difficulty. I suppose this was to give at least some challenge to the higher-ranked competitors... 
 	  <A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm115_prob</xsl:attribute>get&#160;analysis
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=invit02_r1a_prob</xsl:attribute>get&#160;analysis
       </A></P>
     </TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>     
@@ -351,18 +367,18 @@ this was augmented by a successful challenge....
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
     <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/>
 <!-- <IMG SRC="/i/f/feat_050102_tn2.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/> -->   
-<IMG SRC="/i/m/pearl_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/>
-By&#160;pearl<BR/><I>[TC] Member</I><BR/></TD>
+<IMG SRC="/i/m/Penwiper_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/>
+By&#160;Penwiper<BR/><I>[TC] Member</I><BR/></TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText"><BR/>
 <A CLASS="bodyGeneric">
-  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=feat_100202</xsl:attribute>
-  <B>"Finding a Job is a Job"</B></A><BR/>
+  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=feat_100902</xsl:attribute>
+  <B>Graphics Programming for Motion Capture</B></A><BR/>
 <!-- <I>"If you take it slow you'll move up."</I><BR/> -->
-October 2, 2002<BR/>
+October 9, 2002<BR/>
 
 <P>
- Back in the ancient days, there were few avenues open to job-seekers:  we had newspaper ads, professional recruiters, college recruitment centers, and word of mouth.  That has all changed with the information age, of course.  Out of curiosity, I decided to look into the modern world of job-hunting...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=feat_100202</xsl:attribute>full&#160;story</A></P>
+If you have ever played a video game, gone to a movie, or just watched a bit of television at some point in the last ten years, chances are you have already seen the end results of what motion capture (mocap) technology can help to produce. Mocap technology as we know it today probably first came into widespread use in the late 1970s and early 1980s when biomechanics labs began to use computers to analyze human motion. Throughout the late 1980s and early 1990s mocap was adopted by the film and entertainment industries, often on an experimental basis. Although they were initially designed to save time and obviate the need for hiring scores of key-frame animators, many of the early systems were difficult to use, and did not work very well. The early optical systems which required markers placed on an actor's body and multiple cameras, would often suffer from occlusion, requiring animators to painstakingly edit the captured motion data by hand...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=feat_100902</xsl:attribute>full&#160;story</A></P>
 <!-- <P><A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">Have an idea for the weekly feature?</A></P> -->
   </TD>
     <TD VALIGN="top" WIDTH="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

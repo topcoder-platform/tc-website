@@ -395,11 +395,11 @@
   <TR> 
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" COLSPAN="3" CLASS="bodyText"><A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><B>Single Round Match 115</B></A><BR/>
-Monday, September 30, 2002<BR/><BR/> 
+        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><B>2002 TopCoder Invitational Round 1 - Part 1</B></A><BR/>
+Wednesday, October 9, 2002<BR/><BR/> 
     </TD>    
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
-  </TR> 
+  </TR>
   <TR> 
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="33%" NOWRAP="0" HEIGHT="15">
@@ -470,44 +470,22 @@ Monday, September 30, 2002<BR/><BR/>
   </TR>  
   <TR>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
-    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> By&#160;ZorbaTHut<BR/><I>[TC]&#160;Member</I><BR/></TD>
+    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/Logan_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> By&#160;Logan<BR/><I>[TC]&#160;Member</I><BR/></TD>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText" COLSPAN="2">
-    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>SRM 115</B></FONT>
+    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>2002 TopCoder Invitational Round 1 - Part 1</B></FONT>
     </TD>
   </TR>      
   <TR>
     <TD VALIGN="top" CLASS="bodyText" WIDTH="100%">
 	<A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm115_prob</xsl:attribute>
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=invit02_r1a_prob</xsl:attribute>
         <B>Problem Set Analysis &amp; Opinion</B>
       </A><BR/>
-<P>
-Last match before the invitational! Curiously enough, the match wasn't
-bigger than usual - if anything, it was smaller. I'm guessing a lot of
-people were holding on to their ratings, worried that they'd drop too far.
-Well, by now you've heard the news, whether it's good or bad for you, so
-I'll stop speculating and get down to the problems.
-</P>
-
-<P>
-SRM 115 had a nice selection of problems, none spectacularly hard or
-spectacularly easy. The Division-I Level Two problem proved extremely quick
-for many people if they knew the solution from past Topcoder rounds. The
-Level Three problems in both divisions were extremely difficult, with a
-total of nine people from both divisions getting their Level Three.
-</P>
-
 	  <P>
-The only oddity problem-wise was a surprisingly low success rate on the
-Division-II Level One problem, due to some tricky calculations and rather
-odd rules. As for solutions, I find it worth pointing out that despite the
-fastest successful submissions on the Level One and Level Two problems, I
-still ended up in third place due to some ghastly bugs on my Level Three
-problem, <B>Yarin</B> and <B>NDBronson</B> both beating me - though in <B>NDBronson</B>'s case,
-this was augmented by a successful challenge.... 
+The problems for this round of the Invitational were relatively easy, compared to your typical SRM Division-I problems. I suspect that the problems will get more difficult as the rounds progress, with the on-site problems being more difficult than typical Division-I problems. The Level 3 problem was the only problem that was really on par with Division-I difficulty. I suppose this was to give at least some challenge to the higher-ranked competitors... 
 	  <A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm115_prob</xsl:attribute>get&#160;analysis
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=invit02_r1a_prob</xsl:attribute>get&#160;analysis
       </A></P>
     </TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>     
