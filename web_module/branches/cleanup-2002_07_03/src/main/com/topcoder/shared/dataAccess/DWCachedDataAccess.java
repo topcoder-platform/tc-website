@@ -18,6 +18,9 @@ import com.topcoder.shared.distCache.CacheClientFactory;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.1.2.2  2002/07/11 17:05:55  gpaul
+ *           check if connection is closed before attempting to do it.
+ *
  *           Revision 1.1.2.1  2002/07/09 23:41:27  gpaul
  *           switched to use com.topcoder.shared.util.logging.Logger
  *
@@ -100,7 +103,7 @@ public class DWCachedDataAccess implements DataAccessInt {
               conn = DBMS.getDWConnection();
               dr = new DataRetriever(conn);
               map = dr.executeCommand(request.getProperties());
-              if (conn != null && !conn.isClose()) {
+              if (conn != null && !conn.isClosed()) {
                 try {
                   conn.close();
                 } catch (Exception ce) { 
