@@ -805,8 +805,7 @@ public class ComponentManagerBean
             }
         }
 
-        long newForum;
-        boolean isNewForumCreated = false;
+        long newForum = -1;
 
         // If the version is changing to specification or development
         // Makes sure the specification forum is created even if the component
@@ -837,7 +836,6 @@ public class ComponentManagerBean
                     newForum = forum.getId();
                     compforumHome.create(newForum, Forum.SPECIFICATION, versionBean);
                     createForumRoles(newForum, Forum.SPECIFICATION, info.getPublicForum());
-                    isNewForumCreated = true;
                 } catch(ForumException exception) {
                     ejbContext.setRollbackOnly();
                     throw new CatalogException(
@@ -898,7 +896,7 @@ log.debug("qq1" );
                         requestor,
                         levelId);
 log.debug("qq2");
-                if (isNewForumCreated) {
+                if (newForum >= 0) {
 log.debug("qq3");
                     Project project = pt.getProjectById(projectId, requestor);
 log.debug("qq4");
@@ -912,7 +910,7 @@ log.debug("qq5");
                     Notification notification = notificationHome.create();
 log.debug("qq6");
 
-                    Notification.createNotification("forum post "+
+                    notification.createNotification("forum post "+
                               newForum,project.getProjectManager().getId(),
                               notification.FORUM_POST_TYPE_ID);
 log.debug("qq7");
