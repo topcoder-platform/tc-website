@@ -234,7 +234,7 @@
             <% if (level1.equals("support")) { %>
                 <tr><td id="<%=level2.equals("guide")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=help&d2=index">Algorithm Competition Guide</A></td></tr>
                 <tr><td id="<%=level2.equals("general")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?&t=support&c=index">General FAQ</A></td></tr>
-                <tr><td id="<%=level2.equals("competition")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="//?&t=support&c=comp_faq">Competition FAQ</A></td></tr>
+                <tr><td id="<%=level2.equals("competition")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?&t=support&c=comp_faq">Competition FAQ</A></td></tr>
                 <tr><td id="<%=level2.equals("forms")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?&t=support&c=form_faq">Forms W-9 & W-8BEN FAQ</A></td></tr>
                 <tr><td id="<%=level2.equals("ratings")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?&t=support&c=ratings">Ratings Overview</A></td></tr>
                 <tr><td id="<%=level2.equals("charity")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?&t=support&c=charities">Charity Donations</A></td></tr>
