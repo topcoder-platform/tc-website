@@ -10,7 +10,7 @@
 
 <table width="180" border="0" cellspacing="0" cellpadding="5" bgcolor="#555555">
     <tr>
-        <td class="statTextBig" bgcolor="#333333">April: <a href="/stat?c=member_profile&cr=7462698" class="coderTextYellow">kolodrub</a></td>
+        <td class="statTextBig" bgcolor="#333333">May: <a href="/stat?c=member_profile&cr=8416646" class="coderTextYellow">Kawigi</a></td>
     </tr>
 </table>
 
@@ -21,25 +21,19 @@
         <td align="right" background="/i/graybv_lite_bg.gif" class="statText"></td>
     </tr>
 
-<%--
     <tr>
-        <td class="formHandleEven" nowrap="nowrap">TCCC Rd 1</td>
-        <td class="formHandleEven" align="right">1615</td>
-        <td rowspan="5" align="center" valign="middle"><img src="/i/m/GustavoBR_mug.gif" alt="" width="55" height="61" border="0" class="myStatsPhoto"/></td>
+        <td class="formHandleEven" nowrap="nowrap">SRM 192</td>
+        <td class="formHandleEven" align="right">1943</td>
+        <td rowspan="5" align="center" valign="middle"><img src="/i/m/Kawigi_mug.gif" alt="" width="55" height="61" border="0" class="myStatsPhoto"/></td>
     </tr>
---%>    
 
     <tr>
-        <td class="formHandleEven">SRM 189</td>
-        <td class="formHandleEven" align="right">1575</td>
+        <td class="formHandleEven">SRM 191</td>
+        <td class="formHandleEven" align="right">1934</td>
     </tr>
     <tr>
-        <td class="formHandleEven">SRM 188</td>
-        <td class="formHandleEven" align="right">1519</td>
-    </tr>
-    <tr>
-        <td class="formHandleEven">SRM 187</td>
-        <td class="formHandleEven" align="right">1234</td>
+        <td class="formHandleEven">SRM 190</td>
+        <td class="formHandleEven" align="right">1894</td>
     </tr>
 </table>
 
