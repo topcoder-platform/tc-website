@@ -364,7 +364,7 @@
             <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
             <xsl:when test="/TC/Command='app_meth'">graybv_lite_bg</xsl:when>
             <xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
-            &#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=app_meth</xsl:attribute>&#160;&#160;Application Project<br/>&#160;&#160;&#160;&#160;&#160;Methodology</a></td><td valign="top" class="statText" bgcolor="#333333">&#160;</td></tr>
+            &#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=app_meth</xsl:attribute>&#160;&#160;Application Development<br/>&#160;&#160;&#160;&#160;&#160;Methodology</a></td><td valign="top" class="statText" bgcolor="#333333">&#160;</td></tr>
             <xsl:call-template name="div_line_row"/>            
             <xsl:call-template name="tourney_row"/>
             <xsl:call-template name="rtables_row"/> 
