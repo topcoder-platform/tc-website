@@ -98,6 +98,10 @@ public class MainTask extends BaseTask implements Task, Serializable {
 
         User curUser = getAuthenticityToken().getUser();
         uid = curUser.getId();
+
+// for test purposes if user anonymous, set user id to dok's user id
+        if (uid == -1) { uid = 132456; }
+
         log.debug("User id set in MainTask: "+uid);
     }
 
