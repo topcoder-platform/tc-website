@@ -74,19 +74,11 @@
                                 </tr>
                                 <tr valign="middle">
                                     <td class="projectCells">
-                                        <a href="?t=development&amp;c=Team_App_EDI_Certification_Website">EDI Certification Website</a>
+                                        <a href="?t=development&amp;c=Team_App_EDI_Certification_Website">Seat Service Shell</a>
                                     </td>
-                                    <td class="projectCells" align="right">$12,600 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$8,400 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">10.20.2004&#160;&#160;&#160;5:00 PM ET</td>
-                                </tr>
-                                <tr valign="middle">
-                                    <td class="projectCells">
-                                        <a href="?t=development&amp;c=Team_App_EDI_Transaction_Processor">EDI Transaction Processor</a>
-                                    </td>
-                                    <td class="projectCells" align="right">9,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$9,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$6,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">10.20.2004&#160;&#160;&#160;5:00 PM ET</td>
+                                    <td class="projectCells" align="right">10.22.2004&#160;&#160;&#160;5:00 PM ET</td>
                                 </tr>
 
                             </table>
@@ -143,6 +135,43 @@
 
 
                             <br/>
+
+
+                            <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
+                                <tr valign="middle">
+                                    <td class="projectTitles" colspan="3">Recent Application Design Projects</td>
+                                </tr>
+
+                                <tr valign="top">
+                                    <tr valign="middle">
+                                        <td class="projectHeaders" nowrap="nowrap" width="75%">Project</td>
+                                        <td class="projectHeaders" align="center" nowrap="nowrap">Winning Developer</td>
+                                        <td class="projectHeaders" align="center" nowrap="nowrap">Second Place</td>
+                                    </tr>
+                                </tr>
+                                <tr valign="middle">
+                                    <td class="projectCells">
+                                        <a href="?t=development&amp;c=Team_App_EDI_Certification_Website">EDI Certification Website</a>
+                                    </td>
+                                    <td class="projectCells" align="right">$12,600 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$8,400 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">10.20.2004&#160;&#160;&#160;5:00 PM ET</td>
+                                </tr>
+                                <tr valign="middle">
+                                    <td class="projectCells">
+                                        <a href="?t=development&amp;c=Team_App_EDI_Transaction_Processor">EDI Transaction Processor</a>
+                                    </td>
+                                    <td class="projectCells" align="right">9,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$6,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">10.20.2004&#160;&#160;&#160;5:00 PM ET</td>
+                                </tr>
+                            </table>
+
+
+                            <br/>
+
+
+
 
 
                             <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
