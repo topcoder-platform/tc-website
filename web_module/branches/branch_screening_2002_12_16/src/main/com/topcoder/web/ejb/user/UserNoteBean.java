@@ -2,8 +2,6 @@ package com.topcoder.web.ejb.user;
 
 import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
-import com.topcoder.web.ejb.note.NoteBean;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -24,7 +22,8 @@ import java.sql.SQLException;
 public class UserNoteBean extends BaseEJB {
 
     private static Logger log = Logger.getLogger(UserNoteBean.class);
-    private static final String dataSourceName = "java:comp/env/datasource";
+    private static final String dsName = "java:comp/env/datasource";
+    private static final String transDsName = "java:comp/env/jts_datasource";
 
     /**
      *
@@ -60,7 +59,7 @@ public class UserNoteBean extends BaseEJB {
             query.append("values(?,?) ");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup(transDsName);
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(query.toString());
 
@@ -125,7 +124,7 @@ public class UserNoteBean extends BaseEJB {
             query.append("AND note_id = ? ");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup(dsName);
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(query.toString());
 

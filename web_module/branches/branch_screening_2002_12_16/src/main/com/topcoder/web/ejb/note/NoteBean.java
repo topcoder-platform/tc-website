@@ -24,7 +24,8 @@ import java.sql.ResultSet;
 public class NoteBean extends BaseEJB {
 
     private static Logger log = Logger.getLogger(NoteBean.class);
-    private static final String dataSourceName = "java:comp/env/datasource";
+    private static final String dsName = "java:comp/env/datasource";
+    private static final String transDsName = "java:comp/env/jts_datasource";
 
     /**
      *
@@ -54,7 +55,7 @@ public class NoteBean extends BaseEJB {
             query.append("VALUES(?,?,?,?) ");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup(transDsName);
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(query.toString());
 
@@ -102,7 +103,7 @@ public class NoteBean extends BaseEJB {
             query.append("UPDATE note set text = ? where note_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup(dsName);
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(query.toString());
 
@@ -145,7 +146,7 @@ public class NoteBean extends BaseEJB {
             query.append("UPDATE note set submitted_by = ? where note_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup(dsName);
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(query.toString());
 
@@ -188,7 +189,7 @@ public class NoteBean extends BaseEJB {
             query.append("UPDATE note set note_type_id = ? where note_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup(dsName);
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(query.toString());
 
@@ -232,7 +233,7 @@ public class NoteBean extends BaseEJB {
             query.append("SELECT text from note where note_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup(dsName);
             conn = ds.getConnection();
 
             pstmt = conn.prepareStatement(query.toString());
@@ -281,7 +282,7 @@ public class NoteBean extends BaseEJB {
             query.append("SELECT submitted_by from note where note_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup(dsName);
             conn = ds.getConnection();
 
             pstmt = conn.prepareStatement(query.toString());
@@ -330,7 +331,7 @@ public class NoteBean extends BaseEJB {
             query.append("SELECT note_type_id from note where note_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup(dsName);
             conn = ds.getConnection();
 
             pstmt = conn.prepareStatement(query.toString());
@@ -379,7 +380,7 @@ public class NoteBean extends BaseEJB {
             query.append("SELECT note_type_desc from note where note_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup(dsName);
             conn = ds.getConnection();
 
             pstmt = conn.prepareStatement(query.toString());

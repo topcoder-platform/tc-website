@@ -15,6 +15,11 @@
                 <res-type>javax.sql.DataSource</res-type>
                 <res-auth>Container</res-auth>
             </resource-ref>
+            <resource-ref>
+                <res-ref-name>jts_datasource</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
         </session>
         <session>
             <ejb-name>SessionProfileProblem</ejb-name>
@@ -28,6 +33,11 @@
                 <res-type>javax.sql.DataSource</res-type>
                 <res-auth>Container</res-auth>
             </resource-ref>
+            <resource-ref>
+                <res-ref-name>jts_datasource</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
         </session>
         <session>
             <ejb-name>SessionProfileLanguage</ejb-name>
@@ -38,6 +48,11 @@
             <transaction-type>Container</transaction-type>
             <resource-ref>
                 <res-ref-name>datasource</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+            <resource-ref>
+                <res-ref-name>jts_datasource</res-ref-name>
                 <res-type>javax.sql.DataSource</res-type>
                 <res-auth>Container</res-auth>
             </resource-ref>

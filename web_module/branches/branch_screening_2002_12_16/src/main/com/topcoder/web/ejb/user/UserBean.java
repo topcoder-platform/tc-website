@@ -13,6 +13,7 @@ public class UserBean implements SessionBean {
     private static Logger log = Logger.getLogger(UserBean.class);
     private transient InitialContext init_ctx = null;
     private DataSource ds = null;
+    private DataSource transDs = null;
     private SessionContext ctx;
 
     public void ejbActivate() {
@@ -27,6 +28,7 @@ public class UserBean implements SessionBean {
         try {
             init_ctx = new InitialContext();
             ds = (DataSource) init_ctx.lookup("java:comp/env/datasource");
+            transDs = (DataSource) init_ctx.lookup("java:comp/env/jts_datasource");
         } catch (NamingException _ne) {
             _ne.printStackTrace();
         }
@@ -50,7 +52,7 @@ public class UserBean implements SessionBean {
             query.append("INTO user (user_id,handle,status) ");
             query.append("VALUES (?,?,?)");
 
-            conn=ds.getConnection();
+            conn=transDs.getConnection();
             ps=conn.prepareStatement(query.toString());
             ps.setLong(1,userId);
             ps.setString(2,handle);
@@ -369,7 +371,4 @@ public class UserBean implements SessionBean {
         }
         return user_status_id;
     }
-
-}
-
-;
+};
