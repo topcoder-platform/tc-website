@@ -40,7 +40,7 @@ function goTo(selection){
 </script>  
 	
 <table width="100%" class="srmFrame">	
-<tr>	<td width="10%">&nbsp;</td><td>
+<tr><td>
 <select name="round" onChange="goTo(this)">
 	<option value='#'>Select SRM to view...</option>
 		<rsc:iterator list="<%=rsc%>" id="Row" >
@@ -48,7 +48,7 @@ function goTo(selection){
 		<rsc:item name="contest_name" row='<%=Row%>'/></option>
 	</rsc:iterator>
  </select></td>
- <td width="10%">&nbsp;</td>
+ 
  </tr>
   </table>
 

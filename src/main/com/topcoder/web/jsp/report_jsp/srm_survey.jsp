@@ -50,25 +50,24 @@ private String getPercentage (ResultSetContainer total, ResultSetContainer.Resul
 <jsp:include page="../script.jsp" />
 
 
- <table width="100%" class="srmFrame" border=1>
- <tr><td colspan="9"><span class=sectionTitle><%= rsc6.getItem(0,"contest_name") %> on <%= rsc6.getItem(0,"contest_date") %></span></td></tr>
- <tr><td colspan="9"><span class=sectionTitle>QUESTION: <%= rsc.getItem(0,"question_text") %></span></td>
+ <table width="100%" class="srmFrame">
+ <tr><td colspan="7"><span class=sectionTitle><%= rsc6.getItem(0,"contest_name") %> on <%= rsc6.getItem(0,"contest_date") %></span></td></tr>
+ <tr><td colspan="7" class="srmQuestion">QUESTION: <%= rsc.getItem(0,"question_text") %></td>
  </tr>
  <tr>
-  <td width="10%">&nbsp;</td>
  <td>&nbsp;</td>
  <td width=115 colspan="2" class="bodyText"><strong>Overall (<%= rsc3.getItem(0,"cnt") %>)</strong></td>
  
  <rsc:iterator list="<%=rsc2%>" id="Row" >
  <td width=115 colspan="2" class="bodyText"><strong><rsc:item name='<%="coder_type_desc"%>' row="<%=Row%>"/> (<rsc:item name='<%="cnt"%>' row="<%=Row%>"/> )</strong></td>
   </rsc:iterator>
-   <td width="10%">&nbsp;</td>
+   
  </tr>
  
   <%boolean even=false;%>
   <rsc:iterator list="<%=rsc4%>" id="Row" >
   <tr>
-   <td width="10%">&nbsp;</td>
+
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><rsc:item name='<%="answer_text"%>' row="<%=Row%>"/></td>
   <td width="40" class="<%=even?"srmTableEven":"srmTableOdd"%>" ><rsc:item name='<%="all"%>' row="<%=Row%>"/></td>
   <td width="40" class="<%=even?"srmTableEven":"srmTableOdd"%>" ><%=getPercentage(rsc3,Row,"all")%>%</td>
@@ -76,7 +75,7 @@ private String getPercentage (ResultSetContainer total, ResultSetContainer.Resul
   <td width="40" class="<%=even?"srmTableEven":"srmTableOdd"%>" ><%=getPercentage(rsc3,Row,"stud")%>%</td>
   <td width="40" class="<%=even?"srmTableEven":"srmTableOdd"%>" ><rsc:item name='<%="prof"%>' row="<%=Row%>"/></td>
   <td width="40" class="<%=even?"srmTableEven":"srmTableOdd"%>" ><%=getPercentage(rsc3,Row,"prof")%>%</td>
-   <td width="10%">&nbsp;</td>
+  
   </tr><%even=!even;%>
   </rsc:iterator>
  </table>

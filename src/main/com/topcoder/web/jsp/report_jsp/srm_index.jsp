@@ -27,11 +27,18 @@
     <title>TopCoder SRM Reports</title>
   </head>
   <body>
-  
+  <table>
+  <tr valign="top">
+  <td width="10%"><jsp:include page="srm_nav.jsp" /></td><td><jsp:include page="srm_survey.jsp" /></td>
+  </tr>
+  <tr>
+  <td>&nbsp;</td><td><jsp:include page="srm_chooser.jsp" /></td>
+  </tr>
+  </table>
   
  
-<jsp:include page="srm_survey.jsp" />
 
-<jsp:include page="srm_chooser.jsp" />
+
+
   </body>
 </html>
