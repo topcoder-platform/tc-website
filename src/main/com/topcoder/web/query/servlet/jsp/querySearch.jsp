@@ -51,7 +51,7 @@
           </tr>
         </table>
         <table width="60%" border="0" cellpadding="3" cellspacing="1">
-          <query:listIterator id="query" list="<%=QuerySearch.getSearchResults()%>">
+          <query:queryIterator id="query" list="<%=QuerySearch.getSearchResults()%>">
             <tr>
               <td class="statText" ALIGN="right">
                 <A href="<jsp:getProperty name="SessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_QUERY_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="QuerySearch" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="query" property="QueryId"/>" class="statText">
@@ -63,7 +63,7 @@
                 <jsp:getProperty name="query" property="name"/>
               </td>
             </tr>
-          </query:listIterator>
+          </query:queryIterator>
         </table>
       </td>
       <td width="4" bgcolor="#000000"><img src="/i/clear.gif" width="4" height="1" border="0"></td>

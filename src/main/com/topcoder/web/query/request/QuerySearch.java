@@ -116,6 +116,9 @@ public class QuerySearch extends BaseProcessor {
                     word.append(temp.charAt(i));
             }
         }
+        //add the last chunk that's remaining
+        if (word.length()>0)
+            searchList.add(word.toString());
         log.debug("searching for: " + searchList);
 
         ResultSetContainer.ResultSetRow row = null;
