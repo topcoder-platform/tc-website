@@ -1083,7 +1083,7 @@
                 includes="com/topcoder/web/forums/**/*.class"
                 />
             <fileset dir="${java}/com/topcoder/web/forums"
-                includes="**/*.jsp"/>
+                includes="**/*.jsp"
             />
         </jar>
     </target>
