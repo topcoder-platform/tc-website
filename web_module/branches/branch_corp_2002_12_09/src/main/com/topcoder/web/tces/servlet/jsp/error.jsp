@@ -36,8 +36,15 @@
 	   <IMG BORDER="0" VSPACE="5" HEIGHT="1" width="400" src="/i/clear.gif"><BR>
 	   <BR>
 	   </TD>
-	   <TR><TD COLSPAN="2"></TD>
-		<TD>
+	   <TR>
+      <TD WIDTH="170" bgcolor="#001935" VALIGN="top">
+        <!-- Left Column Include Begins -->
+        <!-- Global Seconday Nav Begins -->
+        <!-- Global Seconday Nav Ends -->
+        <!-- Left Column Include Ends -->
+      </TD>
+	  <TD WIDTH="4" BGCOLOR="#001935" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
+		<TD><BR>
 
 	   <DIV CLASS="header">
 
@@ -68,7 +75,7 @@
 		  <!-- Gutter -->
 		  <TD WIDTH="10"><IMG SRC="/i/p/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
 		  <!-- Gutter Ends -->
-		<TR>
+		<TR><TD>
 		<IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"><BR>
         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
           <TR>
