@@ -74,6 +74,8 @@ public class Constants
     
     public static String CITY;
     public static int AREA_OF_INTEREST_ID;
+    
+    public static String DEMOG_PREFIX;
 
     //Candidate constants
     public static String CANDIDATE_INFO;

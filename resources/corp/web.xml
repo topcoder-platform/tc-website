@@ -528,6 +528,12 @@
         </init-param>
         
         <init-param>
+            <param-name>demog_prefix</param-name>
+            <param-value>demog_</param-value>
+            <description></description>
+        </init-param>
+        
+        <init-param>
             <param-name>area_of_interest_id</param-name>
             <param-value>10</param-value>
             <description></description>

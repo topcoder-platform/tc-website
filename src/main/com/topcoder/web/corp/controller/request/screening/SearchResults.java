@@ -15,6 +15,13 @@ import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.*;
 import com.topcoder.web.corp.common.Util;
 import java.util.*;
+
+import com.topcoder.web.privatelabel.model.*;
+
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.corp.common.Util;
 /**
  *
  * @author  rfairfax
@@ -29,6 +36,36 @@ public class SearchResults extends BaseScreeningProcessor {
         setDefault(Constants.FIRST_NAME, sm.getFirstName());
         setDefault(Constants.LAST_NAME, sm.getLastName());
         setDefault(Constants.EMAIL_ADDRESS, sm.getEmailAddress());
+        
+        //demographic responses
+        List responses = sm.getResponses();
+        DemographicResponse response = null;
+        DemographicQuestion question = null;
+        
+        HashMap multiAnswerMap = new HashMap();
+        Map questions = getQuestions();
+        for (Iterator it = responses.iterator(); it.hasNext();) {
+            response = (DemographicResponse) it.next();
+            question = findQuestion(response.getQuestionId(), questions);
+            if (question.getAnswerType() == DemographicQuestion.SINGLE_SELECT) {
+                setDefault(Constants.DEMOG_PREFIX + response.getQuestionId(), String.valueOf(response.getAnswerId()));
+            } else if (question.getAnswerType() == DemographicQuestion.FREE_FORM) {
+                setDefault(Constants.DEMOG_PREFIX + response.getQuestionId(), response.getText());
+            } else if (question.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
+                //todo handle multiple select
+                ArrayList al = new ArrayList();
+                if(multiAnswerMap.containsKey(new Long(response.getQuestionId())))
+                {
+                    al = (ArrayList)multiAnswerMap.get(new Long(response.getQuestionId()));
+                }
+                al.add(String.valueOf(response.getAnswerId()));
+                multiAnswerMap.put(new Long(response.getQuestionId()), al);
+            }
+        }
+        for(Iterator it = multiAnswerMap.keySet().iterator(); it.hasNext();) {
+            String s = String.valueOf(((Long)it.next()).longValue());
+            setDefault(Constants.DEMOG_PREFIX + s, multiAnswerMap.get(new Long(s)));
+        }
         
         getRequest().setAttribute("searchResults", sm);
         
@@ -48,6 +85,57 @@ public class SearchResults extends BaseScreeningProcessor {
         ret.setEmailAddress(StringUtils.checkNull(getRequest().getParameter(Constants.EMAIL_ADDRESS)));
         
         ret.setUserId(getUser().getId());
+        
+        //load demographic info
+
+        List l = getQuestionList();
+        Collections.sort(l);
+
+        ret.setQuestions(l);
+        
+        //get the demographic responses
+        DemographicQuestion q = null;
+        String[] values = null;
+        DemographicResponse rs = null;
+        String key = null;
+        List questionList = getQuestionList();
+        //loop through all the questions
+        List responses = new ArrayList();
+        
+        for (Iterator it = questionList.iterator(); it.hasNext();) {
+            q = (DemographicQuestion) it.next();
+            key = Constants.DEMOG_PREFIX + q.getId(); 
+            values = getRequest().getParameterValues(key);
+            if (values != null) {
+                String value = null;
+                //loop through all the responses in the request
+                for (int i = 0; i < values.length; i++) {
+                    value = StringUtils.checkNull(values[i]).trim();
+                    if (value.length() > 0) {
+                        rs = new DemographicResponse();
+                        rs.setQuestionId(q.getId());
+                        if (q.getAnswerType() == DemographicQuestion.FREE_FORM) {
+                            rs.setText(values[i]);
+                            rs.setSort(q.getSort());
+                            responses.add(rs);
+                        } else if (q.getAnswerType() == DemographicQuestion.SINGLE_SELECT ||
+                                q.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
+                            try {
+                                rs.setAnswerId(Long.parseLong(values[i]));
+                                rs.setSort(q.getSort());
+                                responses.add(rs);
+                            } catch (NumberFormatException e) {
+                                //skip it, it's invalid, checking will have to pick it up later
+                            }
+                        } else {
+                            throw new Exception("invalid answer type found: " + q.getAnswerType() + " for question " + q.getId());
+                        }
+                    }
+                }
+            }
+        }
+        
+        ret.setResponses(responses);
         
         String start = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
         if (start.equals(""))
@@ -167,6 +255,83 @@ public class SearchResults extends BaseScreeningProcessor {
             ret.setStart(0);
         }
         
+        return ret;
+    }
+    
+    protected final List getQuestionList() throws Exception {
+        //in case we need the list before we've populated it.  this is most
+        //likely to happen in makeRegInfo()
+        Map questions;
+        questions = getQuestions();
+        
+        List ret = new ArrayList(questions.size());
+        DemographicQuestion q = null;
+        for (Iterator it = questions.values().iterator(); it.hasNext();) {
+            q = (DemographicQuestion) it.next();
+            ret.add(q.clone());
+        }
+        return ret;
+    }
+
+     protected static Map getQuestions() throws Exception {
+        Request r = new Request();
+        r.setContentHandle("demographic_question_list");
+        r.setProperty("ct", "2"); //professional
+        Map qMap =  Util.getDataAccess(true).getData(r);
+        ResultSetContainer questions = (ResultSetContainer) qMap.get("demographic_question_list");
+        ResultSetContainer.ResultSetRow row = null;
+
+        Map ret = new HashMap();
+        DemographicQuestion q = null;
+        for (Iterator it = questions.iterator(); it.hasNext();) {
+            row = (ResultSetContainer.ResultSetRow) it.next();
+            q = makeQuestion(row); 
+            ret.put(new Long(q.getId()), q);
+        }
+        return ret;
+    }
+     
+     private static DemographicQuestion makeQuestion(ResultSetContainer.ResultSetRow row) throws Exception {
+        DemographicQuestion ret = new DemographicQuestion();
+        ret.setId(row.getLongItem("demographic_question_id"));
+        ret.setDesc(row.getStringItem("demographic_question_desc"));
+        ret.setText(row.getStringItem("demographic_question_text"));
+        ret.setSelectable(row.getStringItem("selectable"));
+        ret.setRequired(row.getItem("is_required").getResultData() != null && row.getIntItem("is_required") == 1);
+        ret.setSort(row.getIntItem("sort"));
+
+        DataAccessInt dataAccess = Util.getDataAccess(true);
+        Request r = new Request();
+        r.setContentHandle("demographic_answer_list");
+        r.setProperty("dq", String.valueOf(ret.getId()));
+        Map aMap = dataAccess.getData(r);
+        ResultSetContainer answers = (ResultSetContainer) aMap.get("demographic_answer_list");
+
+        ResultSetContainer.ResultSetRow aRow = null;
+        List answerList = new ArrayList(answers.size());
+        for (Iterator it = answers.iterator(); it.hasNext();) {
+            aRow = (ResultSetContainer.ResultSetRow) it.next();
+            answerList.add(makeAnswer(aRow));
+        }
+        ret.setAnswers(answerList);
+        return ret;
+    }
+     
+     private static DemographicAnswer makeAnswer(ResultSetContainer.ResultSetRow row) {
+        DemographicAnswer ret = new DemographicAnswer();
+        ret.setAnswerId(row.getLongItem("demographic_answer_id"));
+        ret.setText(row.getStringItem("demographic_answer_text"));
+        ret.setQuestionId(row.getLongItem("demographic_question_id"));
+        ret.setSort(row.getIntItem("sort"));
+        return ret;
+    }
+     
+     protected static DemographicQuestion findQuestion(long questionId, Map questions) {
+        DemographicQuestion ret = null;
+        Long id = new Long(questionId);
+        if (questions.containsKey(id)) {
+            ret = (DemographicQuestion) ((DemographicQuestion) questions.get(id)).clone();
+        }
         return ret;
     }
     
