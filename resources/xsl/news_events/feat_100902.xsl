@@ -87,8 +87,8 @@ After a few years, my wife and I decided to move so that we could be closer to h
 <OL>
 <LI>Time required to send request for data out to all sensors, and receive data from all sensors</LI> 
 <LI>Time required to transmit the sensor data over a wireless network link from the embedded computer to a PC</LI> 
-<LI>Time required to check the data at the PC, convert it to 3-D data, and then apply the 3-D data to a human body model, and</LI>
-<LI>Time required to swap the back graphics buffer with the front graphics buffer, and draw data for the current sample to the back buffer.</LI>
+<LI>Time required to check the data at the PC, convert it to 3-D data, and then apply the 3-D data to a human body model</LI>
+<LI>Time required to swap the back graphics buffer with the front graphics buffer, and draw data for the current sample to the back buffer</LI>
 </OL>
 An extensive amount of code optimization was undertaken to reduce the latency, but in the end it was just some judicious hardware purchases that really saved the day. By switching to a standard 802.11b ethernet link we saved about 100 ms of latency. In fact our 802.11b link was only a few ms worse than running over wired ethernet. We got a second big performance improvement from buying a decent video card. Because we had to double-buffer the drawing of our graphics to get a nice smooth display, this meant that we could suffer as much as 100 ms of additional latency if our graphics update rate was only 20 Hz. Most video cards available now do offer update rates as high as the monitor refresh rate, providing you aren't trying to do millions of graphics operations per sample. For a monitor refresh rate of 70 Hz, this resulted in a much-improved maximum latency contribution of 29 ms. These hardware changes, coupled with a doubling of our processing power at the PC end, and better coding efficiency helped to reduce the latency down to a practically real-time value of about 60 ms. Personally I can not distinguish 60 ms time differences between consecutive events, although some people claim that they can.</P>
 
