@@ -13,6 +13,10 @@ public class MemberSearch {
     private String schoolName = null;
     private Integer minRating = null;
     private Integer maxRating = null;
+    private Integer minDesignRating = null;
+    private Integer maxDesignRating = null;
+    private Integer minDevRating = null;
+    private Integer maxDevRating = null;
     private Integer minNumRatings = null;
     private Integer maxNumRatings = null;
     private ResultSetContainer stateList = null;
@@ -138,6 +142,38 @@ public class MemberSearch {
 
     public void setSchoolName(String schoolName) {
         this.schoolName = schoolName;
+    }
+
+    public Integer getMinDesignRating() {
+        return minDesignRating;
+    }
+
+    public void setMinDesignRating(Integer minDesignRating) {
+        this.minDesignRating = minDesignRating;
+    }
+
+    public Integer getMaxDesignRating() {
+        return maxDesignRating;
+    }
+
+    public void setMaxDesignRating(Integer maxDesignRating) {
+        this.maxDesignRating = maxDesignRating;
+    }
+
+    public Integer getMinDevRating() {
+        return minDevRating;
+    }
+
+    public void setMinDevRating(Integer minDevRating) {
+        this.minDevRating = minDevRating;
+    }
+
+    public Integer getMaxDevRating() {
+        return maxDevRating;
+    }
+
+    public void setMaxDevRating(Integer maxDevRating) {
+        this.maxDevRating = maxDevRating;
     }
 
 }

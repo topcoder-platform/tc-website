@@ -38,6 +38,10 @@ public class AdvancedSearch extends SimpleSearch {
         setDefault(Constants.SCHOOL_NAME, m.getSchoolName() == null ? "" : m.getSchoolName().toString());
         setDefault(Constants.MIN_RATING, m.getMinRating() == null ? "" : m.getMinRating().toString());
         setDefault(Constants.MAX_RATING, m.getMaxRating() == null ? "" : m.getMaxRating().toString());
+        setDefault(Constants.MIN_DESIGN_RATING, m.getMinRating() == null ? "" : m.getMinDesignRating().toString());
+        setDefault(Constants.MAX_DESIGN_RATING, m.getMaxRating() == null ? "" : m.getMaxDesignRating().toString());
+        setDefault(Constants.MIN_DEV_RATING, m.getMinRating() == null ? "" : m.getMinDevRating().toString());
+        setDefault(Constants.MAX_DEV_RATING, m.getMaxRating() == null ? "" : m.getMaxDevRating().toString());
         setDefault(Constants.MIN_NUM_RATINGS, m.getMinNumRatings() == null ? "" : m.getMinNumRatings().toString());
         setDefault(Constants.MAX_NUM_RATINGS, m.getMaxNumRatings() == null ? "" : m.getMaxNumRatings().toString());
         setDefault(Constants.MAX_DAYS_SINCE_LAST_COMP, m.getMaxDaysSinceLastComp() == null ? "" : m.getMaxDaysSinceLastComp().toString());
@@ -69,6 +73,22 @@ public class AdvancedSearch extends SimpleSearch {
         String maxRating = StringUtils.checkNull(getRequest().getParameter(Constants.MAX_RATING));
         if (!maxRating.equals(""))
             ret.setMaxRating(new Integer(maxRating));
+
+        String minDesignRating = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_DESIGN_RATING));
+        if (!minDesignRating.equals(""))
+            ret.setMinDesignRating(new Integer(minDesignRating));
+
+        String maxDesignRating = StringUtils.checkNull(getRequest().getParameter(Constants.MAX_DESIGN_RATING));
+        if (!maxDesignRating.equals(""))
+            ret.setMaxDesignRating(new Integer(maxDesignRating));
+
+        String minDevRating = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_DEV_RATING));
+        if (!minDevRating.equals(""))
+            ret.setMinDevRating(new Integer(minDevRating));
+
+        String maxDevRating = StringUtils.checkNull(getRequest().getParameter(Constants.MAX_DEV_RATING));
+        if (!maxDevRating.equals(""))
+            ret.setMaxDevRating(new Integer(maxDevRating));
 
         String minNumRatings = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_NUM_RATINGS));
         if (!minNumRatings.equals(""))

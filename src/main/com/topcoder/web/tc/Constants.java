@@ -37,6 +37,10 @@ public class Constants {
     public static String COUNTRY_CODE;
     public static String MIN_RATING;
     public static String MAX_RATING;
+    public static String MIN_DESIGN_RATING;
+    public static String MAX_DESIGN_RATING;
+    public static String MIN_DEV_RATING;
+    public static String MAX_DEV_RATING;
     public static String MIN_NUM_RATINGS;
     public static String MAX_NUM_RATINGS;
     public static String MAX_DAYS_SINCE_LAST_COMP;
