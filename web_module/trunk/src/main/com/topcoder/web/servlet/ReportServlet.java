@@ -243,6 +243,7 @@ public final class ReportServlet extends HttpServlet {
         ResultSetContainer profileList = (ResultSetContainer)mainMap.get("main_profile_info");
 
         log.debug("found " + profileList.size() + " people matching search criteria");
+        log.debug("request was: " + mainRequest.toString());
         ArrayList result = new ArrayList(profileList.size());
 
         Request detailRequest = new Request();
