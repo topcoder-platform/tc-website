@@ -42,7 +42,7 @@ public final class TaskSchedule {
 
             String roundids = Conversion.checkNull(request.getParameter("rds"));
             String sortCol = request.getParameter("sc");
-            String sortDir = request.getParameter("sdir");
+            String sortDir = request.getParameter("sd");
             if (!roundids.equals("")) {
                 ctx = TCContext.getInitial();
                 dai = new CachedDataAccess((javax.sql.DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
@@ -52,7 +52,7 @@ public final class TaskSchedule {
                 if (sortCol!=null)
                     dataRequest.setProperty("sc", sortCol);
                 if (sortDir!=null)
-                    dataRequest.setProperty("sdir", sortDir);
+                    dataRequest.setProperty("sd", sortDir);
                 resultMap = dai.getData(dataRequest);
                 rsc = (ResultSetContainer) resultMap.get("Tourney_Advancers");
                 schedTag.addTag(rsc.getTag("Advancers", "Advancer"));
