@@ -87,8 +87,8 @@ public class TransactionServlet extends HttpServlet {
     private static final String KEY_RC = "rc";
     private static final String KEY_TRANSACTION_INFO = "TransactionInfo";
 
-    public static final String KEY_PRODUCT_ID = "prod-id";
-    public static final String KEY_RETPAGE = "back-to";
+    public static final String KEY_PRODUCT_ID = "pid";
+    public static final String KEY_RETPAGE = "back-to";      //TODO wack
     public static final String KEY_EXCEPTION = "caught-exception";
 
     public static final String OP_TX_BEGIN = "begin";
@@ -145,6 +145,7 @@ public class TransactionServlet extends HttpServlet {
         String op = req.getParameter(KEY_OPERATION);
         req.setAttribute(Constants.KEY_LINK_PREFIX, Util.appRootPage());
         WebAuthentication auth = null;
+        log.debug("query: " + req.getQueryString());
         if (OP_TX_STATUS.equals(op)) {
             try {
                 // put prefix of the url into request
@@ -174,6 +175,7 @@ public class TransactionServlet extends HttpServlet {
                     req.setAttribute(KEY_TRANSACTION_INFO, txInfo);
                     req.getRequestDispatcher(defaultPageTerms).forward(req, resp);
                 } else {
+                    //TODO put the right page in here
                     req.getRequestDispatcher(defaultPageTerms).forward(req, resp);
                 }
             } catch (NotAuthorizedException nae) {
