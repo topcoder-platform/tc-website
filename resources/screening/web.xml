@@ -26,7 +26,7 @@
         </init-param>
 
         <init-param>
-            <param-name>error_page</param-name>
+            <param-name>perm_error_page</param-name>
             <param-value>/permErrorPage.jsp</param-value>
             <description></description>
         </init-param>
