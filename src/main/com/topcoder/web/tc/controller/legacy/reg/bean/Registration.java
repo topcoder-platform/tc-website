@@ -409,7 +409,6 @@ public class Registration
                     //  or new registration and the handle exists
                     || (isRegister() && handleExists(this.handle))
                     || (isRegister() && this.handle.trim().length()<=1)
-                    || (isRegister() && containsAllPunctuation(this.handle))
                     //  or update registration, the handle changes, and the new handle exists
                     || (!isRegister() && !this.handle.equalsIgnoreCase(user.getHandle()) && handleExists(this.handle))
             ) {
@@ -618,6 +617,7 @@ public class Registration
                 return false;
             }
         }
+
         return true;
     }
 
