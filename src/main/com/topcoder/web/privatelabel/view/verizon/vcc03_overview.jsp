@@ -31,6 +31,8 @@
             </object>
 -->
        <img src="/i/tournament/vcc03/vcc03.jpg" width="750" height="120" border="0"/>
+       <area shape="rect" alt="TC" coords="1,1,243,85" href="/" />
+
 
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
