@@ -35,9 +35,9 @@ public class TCCC05ProjectDetails extends StatBase {
     }
     
     void statProcessing() throws TCWebException  {
-        Map result2 =  (Map)getRequest().getAttribute("tccc05_project_results");
+        Map result2 =  (Map)getRequest().getAttribute("resultMap");
 
-        ResultSetContainer rsc = (ResultSetContainer)result2.get("tco04_contest_results_overall");
+        ResultSetContainer rsc = (ResultSetContainer)result2.get("tccc05_project_results");
         
         ArrayList arr = new ArrayList();
         
