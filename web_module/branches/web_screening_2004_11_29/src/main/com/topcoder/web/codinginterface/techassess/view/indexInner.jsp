@@ -1,5 +1,4 @@
-<%@ page import="com.topcoder.web.codinginterface.techassess.Constants,
-                 com.topcoder.web.common.BaseProcessor"%>
+<%@ page import="com.topcoder.web.codinginterface.techassess.Constants"%>
 <%@ taglib uri="/WEB-INF/tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <html>
@@ -9,12 +8,8 @@
 <link type="text/css" rel="stylesheet" href="/css/screening.css" >
 </head>
 <body>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <tc-webtag:useBean id="problemSets" name="<%=Constants.PROBLEM_SETS%>" type="java.util.ArrayList" scope="page" />
-<%
-    System.out.println("sets; " + request.getAttribute(Constants.PROBLEM_SETS));
-    System.out.println("sets; " + session.getAttribute(Constants.PROBLEM_SETS));
-    System.out.println("sets; " + request.getAttribute(BaseProcessor.DEFAULTS_KEY));
-%>
 
 <table class=bodyCenter cellspacing=0 cellpadding=0>
    <tr>
@@ -69,7 +64,7 @@
                </tr>
                <tc-webtag:listIterator id="problem" list="problemSets">
                    <tr>
-                      <td class=tableTextOdd><a href="/mockup/exampleDirections.jsp"><img src="/i/corp/screening/buttonEnter.gif" alt="" /></a></td>
+                      <td class=tableTextOdd><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_PROBLEM_SET%>&<%=Constants.PROBLEM_TYPE_ID%>=<jsp:getProperty name="problem" property="type"/>"><img src="/i/corp/screening/buttonEnter.gif" alt="" /></a></td>
                       <td class=tableTextOdd><jsp:getProperty name="problem" property="problemSetName"/></td>
                       <td class=tableTextOdd align=center>X/Y</td>
                       <td class=tableTextOdd><jsp:getProperty name="problem" property="problemSetDesc"/></td>
