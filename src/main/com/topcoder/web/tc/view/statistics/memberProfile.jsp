@@ -131,6 +131,13 @@ if (!rsc.isEmpty()) {
                                 <TD COLSPAN="2" HEIGHT="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"></TD>
                             </TR>
 
+                            <% if (rsr.getStringItem("school_name")!=null) { %>
+                            <TR>
+                                <TD CLASS="statText">&#160;School: <br/>
+                                &#160;<strong><rsc:item name="school_name" row="<%=rsr%>"/></strong></TD>
+                            </TR>
+                            <% } %>
+
                             <TR>
                                 <TD CLASS="statText">&#160;Country: <br/>
                                 &#160;<strong><rsc:item name="country_name" row="<%=rsr%>"/></strong></TD>
