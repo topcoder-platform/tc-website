@@ -169,12 +169,16 @@
 </script>-->
  <!--Vertex ends -->
 
-<!-- TopCoder begins
+<!-- TopCoder begins -->
                             <tr valign="top">
-                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=nvidia"><img src="/i/es/topcoder/topcoder_logo.gif" width="160" height="31" border="0"/></a></td>
-                                <td width="99%" class="bodyText">TopCoder<a href="/?&amp;t=tces&amp;c=nvidia" class="bodyText">Click here</a><br /><br /></td>
+                                <td class="bodyText" align="center"><A HREF="/?&amp;t=tces&amp;c=topcoder_developer&amp;a=secure" CLASS="bodyText"><img src="/i/es/topcoder/topcoder_logo.gif" width="160" height="31" border="0"/></A></td>
+                                <td width="99%" class="bodyText">Incorporated in 2001, TopCoder, Inc. is fast becoming the standard by which talent 
+                                and software are measured. Our small staff is young, enthusiastic and welcomes the challenges of charting new territory within the 
+                                industry. Through our high-quality software, cutting-edge recruiting offerings, and world-renowned programming tournaments, we 
+                                are committed to excellence. We expect the same commitment and drive from our current and future employees. We're looking for 
+                                a <A HREF="/?&amp;t=tces&amp;c=topcoder_developer&amp;a=secure" CLASS="bodyText">Developer</A>.<br /><br /></td>
                             </tr>
-Topcoder ends -->
+<!--Topcoder ends -->
 
                         </table>
 
