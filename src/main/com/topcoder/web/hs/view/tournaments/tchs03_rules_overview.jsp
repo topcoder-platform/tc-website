@@ -51,24 +51,49 @@
                         </div>
                         
                         <p><font size="3"><strong>Overview</strong></font><br>
-                        The 2003 TopCoder High School Challenge tournament will consist of one (1) onsite round. The top 8 finishing schools 
-                        from the eight (8) regular season online rounds will advance to the onsite Championship round, being held at the Home 
-                        Babbage Library at the University of Connecticut on May 20, 2003.</p>
+                        The 2003 TopCoder High School tournament will take place on May 20, 2003.  It will consist of one (1) onsite round 
+                        being held at the University of Connecticut's Storrs campus ("UCONN").  The top performing 10 schools, as determined 
+                        during the regular season, will be invited to advance to the onsite Championship round.  Each school will appoint three (3) 
+                        competitors to represent their school at the finals.</p>
 
                         <p><font size="3"><strong>Eligibility</strong></font><br>
-                        The tournament is open to members who meet the following criteria: <br>
-                        Are at least 13 years of age (as of February 20th, 2003); <br>
-                        Are matriculated full time at an accredited Connecticut high school; <br>
-                        Have participated in at least two (4) TopCoder regular season online rounds prior to May 20, 2003. </p>
+                        The tournament is open to the CT high schools who have participated in at least four (4) of the eight (8) TopCoder High 
+                        School rated events held during the regular season (March 20 - May 8, 2003).  In order to be invited to the playoffs, a 
+                        high school must have competed in at least 4 "scored" rounds. This means that they must have had at least 4 rounds in 
+                        which they had at least 3 students competing. The highest ranked schools at the end of the regular season will be invited 
+                        to the playoffs. A high school's rank will be determined by the average of that high school's best 4 scores.</p>
 
-                        <p><font size="3"><strong>Invitations and Registration</strong></font><br>
-                        The top eight (8) rated TopCoder High School teams as of May 8, 2003 who meet the eligibility criteria defined above 
-                        will be invited to compete in the tournament. Invitations will be emailed no later than XXX. </p>
+                        <p>Employees of TopCoder, Inc. and those involved in the development, production (including prize suppliers), 
+                        implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, 
+                        service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with 
+                        the tournament and members of the immediate families and/or persons living in the same household as such persons, 
+                        are ineligible to enter the tournament.</p>
 
-                        <p>Employees of TopCoder, Inc. and those involved in the development, production, implementation and distribution 
-                        of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, 
-                        subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the 
-                        immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament. </p>
+                        <p><font size="3"><strong>About the Tournament</strong></font><br>
+                        All competitors who are appointed to compete in the Final round will be assigned to a specific room. TopCoder will 
+                        determine all room assignments prior to the start of the Final round in a manner such that the average competitor 
+                        rating for each room will be similar. The dates and times of the Final round is as follows: </p>
+                        
+                        <div align="center">
+                        <table border="0" cellpadding="3" cellspacing="2" width="400">
+                            <tr valign="top">
+                                <td class="statTitle">Round of Competition</td>
+                                <td class="statTitle">Date and Time</td>
+                            </tr>
+                            
+                            <tr valign="top">
+                                <td class="statText" bgcolor="#1B2E5D" width="40%">Championship Round</td>
+                                <td class="statText" bgcolor="#1B2E5D" width="60%">
+                                    Tuesday, May 20, 2002<br>
+                                    Welcome Reception: 12:00pm - 12:45pm<br>
+                                    Registration: 12:45pm - 12:55pm<br>
+                                    <strong>START: 1:00pm</strong>
+                                </td>
+                            </tr>
+                        </table>
+                        </div>
+
+                        <p><br></p>
                         
                         <table width="100%" border="0" cellpadding="0" cellspacing="0">
                             <tr><td width="100%" class="tourney_subnav"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td></tr>
