@@ -66,10 +66,10 @@
 <!-- BWO Google article -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><A href="http://www.businessweek.com/technology/cnet/stories/5078400.htm"><img src="/i/pressroom/bwo_logo.gif" alt="bwo_logo" width="135" height="25" border="0" /></A></td>
+                    <td width="274"><A href="http://www.businessweek.com/technology/cnet/stories/5078400.htm" target="_blank"><img src="/i/pressroom/bwo_logo.gif" alt="bwo_logo" width="135" height="25" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="http://www.businessweek.com/technology/cnet/stories/5078400.htm">Google seeking a few good code jockeys</A></strong></font><br />
+                        <p><font size="3"><strong><A href="http://www.businessweek.com/technology/cnet/stories/5078400.htm" target="_blank">Google seeking a few good code jockeys</A></strong></font><br />
                         "Google, one of the most aggressive staff recruiters in Silicon Valley, is putting on a programming contest worth up to $10,000 and a possible career at the search company. <span class="prHead">[September 24]</span></p>
                     </td>
                 </tr>
@@ -86,6 +86,15 @@
                         <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_09_22_03">NVIDIA Signs On To Sponsor 2003 TopCoder Open</A></strong></font><br />
                         "TopCoder, Inc., the leader in on-line programming competition, skills assessment and competitive software development, today announced NVIDIA as a premier sponsor for its 
                         2003 TopCoder Open.  NVIDIA is seeking exceptional candidates for their open programming positions while continuing to increase exposure of the NVIDIA suite of graphics cards. <span class="prHead">[September 22]</span></p>
+
+                        <table border="0" cellpadding="0" cellspacing="0">
+                            <tr valign="middle">
+                                <td class="prOtherPubs">AS SEEN ON:</td>
+                                <td><A href="http://finance.lycos.com/qc/news/story.aspx?symbols=PRNEWS:100&amp;story=35762282" target="_blank"><img src="/i/pressroom/lycos_logo_sm.gif" alt="Lycos" width="59" height="20" hspace="3" border="0" /></A></td>
+                                <td><A href="http://finance.canada.com/bin/story?StoryId=Cp25ZWbWbtLLnmtm0&amp;Topic=PR_Newswire&amp;Type=&amp;Heading=News%20from%20PR%20Newswire&amp;BC=PR%20Newswire" target="_blank"><img src="/i/pressroom/canada_dotcom_logo_sm.gif" alt="Canada.com" width="140" height="27" hspace="3" border="0" /></A></td>
+                            </tr>
+                         </table>
+
                     </td>
                 </tr>
             </table>
@@ -95,11 +104,11 @@
 <!-- CIO article -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><A href="http://www.cio.com/archive/091503/staffsurvey.html"><img src="/i/pressroom/ciocom_logo_1201.gif" alt="bwo_logo" width="135" height="60" border="0" /></A></td>
+                    <td width="274"><A href="http://www.cio.com/archive/091503/staffsurvey.html" target="_blank"><img src="/i/pressroom/ciocom_logo_1201.gif" alt="bwo_logo" width="135" height="60" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="http://www.cio.com/archive/091503/staffsurvey.html">What They're Saying About You </A></strong></font><br />
-                        "IT staffers have a clear message for their bosses: CIOs better take a break from their budgets and their executive meetings and pay a lot more attention to staff morale"<span class="prHead">[September 15]</span></p>
+                        <p><font size="3"><strong><A href="http://www.cio.com/archive/091503/staffsurvey.html" target="_blank">What They're Saying About You </A></strong></font><br />
+                        "IT staffers have a clear message for their bosses: CIOs better take a break from their budgets and their executive meetings and pay a lot more attention to staff morale" <span class="prHead">[September 15]</span></p>
                         
                     </td>
                 </tr>
