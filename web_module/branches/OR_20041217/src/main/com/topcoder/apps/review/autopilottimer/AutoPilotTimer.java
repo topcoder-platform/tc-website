@@ -40,7 +40,7 @@ public class AutoPilotTimer
     /**
      * Number of minutes between refreshes.
      */
-    private static final int DELAY = 1; // cucu restore to 5!!!
+    private static final int DELAY = 5;
     private static Logger logger = Logger.getLogger(AutoPilotTimer.class);
     private static final String NAME = "AutoPilotTimer";
     private Boolean isInitialised = Boolean.FALSE;
@@ -97,11 +97,6 @@ public class AutoPilotTimer
                 UserProjectInfo[] projs = projectTracker.getProjectInfo(user.getTCSubject());
 
                 for(int i = 0; i < projs.length;i++) {
-                    logger.debug("Project: " + projs[i].getProjectName());
-                    logger.debug("Phase: " + projs[i].getCurrentPhaseInstance().getPhase().getId());
-                    logger.debug("End time: " + projs[i].getCurrentPhaseInstance().getEndDate().getTime());
-                    logger.debug("Current time: " + System.currentTimeMillis());
-
                     if(projs[i].getCurrentPhaseInstance().getPhase().getId() == Phase.ID_SUBMISSION) {
                         if(projs[i].getCurrentPhaseInstance() != null && projs[i].getCurrentPhaseInstance().getEndDate() !=null && projs[i].getCurrentPhaseInstance().getEndDate().getTime() <= System.currentTimeMillis()) {
                             logger.debug("SELECTED: " + projs[i].getProjectName());
