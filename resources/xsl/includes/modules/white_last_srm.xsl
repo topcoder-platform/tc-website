@@ -2,38 +2,25 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:template name="last_srm">
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
-	<!-- <TR>
-		<TD VALIGN="middle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
-	</TR> -->
-	<!-- <TR>
-		<TD VALIGN="top" ROWSPAN="8"><IMG SRC="/i/m/coder_mug_a.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/></TD>		
-		<TD VALIGN="top"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-	</TR>	
-	<TR>
-		<TD VALIGN="top" CLASS="bodyText" NOWRAP="0"><SPAN CLASS="bodyTextBold">Match 77 - April 3, 2002</SPAN><BR/>
-		Adam Loss, TopCoder Staff Writer<BR/></TD>
-	</TR> -->
 	<TR>
 		<TD VALIGN="middle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
-	</TR>
-	<!--  <TR>
-		<TD VALIGN="middle" CLASS="bodyTextBold">Division-INortheast Region</TD>
-	</TR> -->
-	<!-- <TR>
-		<TD VALIGN="middle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"/></TD>
-	</TR> -->	
+	</TR>	
  	<TR>
 		<TD CLASS="bodyText" VALIGN="top">
-		
+<!-- <A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">tck</A> -->	
 <P>
-<SPAN CLASS="bodyTextBold">Single Round Match 85</SPAN><BR/>
-Wednesday May1, 2002<BR/>
+<SPAN CLASS="bodyTextBold">Single Round Match 86</SPAN><BR/>
+Wednesday, May 8, 2002<BR/>
 By Adam Loss, <I>TopCoder Staff Writer</I><BR/>
-Four huge upsets took place in Division-I as four 10 seeds won their rooms.<BR/>
-In Room 4, <A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">tck</A> was the winner with 1296.97 final points. That was 26.44 points more than <A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">DjinnKahn</A>, who finished with 1270.53
-<BR CLEAR="all"/>
+A close battle took place in Room 23, where the top three coders were separated by just 15.14 points.  
+<A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">z-man</A>
+ won the room with 231.97 final points by submitting the Level One problem in 12:43.  
+<A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">tenken</A>
+ finished second with 226.53 final points by finishing the Level One problem in 13:45, 
+while <A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">huntergt</A>
+ took 15:36 to complete the Level One problem, and finished with 216.83 final points...<A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">full&#160;story</A> 
 </P>
-					
+				
 <!-- <P><B>Division-I</B><BR/>
 Four Division-I coders used two challenges for come-from-behind room wins.
 </P>
