@@ -21,7 +21,7 @@
                 </td>
             <% } %>
         </tr>
-        <tc:roblemRatingIteratorc list="<%=problemRatingQuestions%>" id="question">
+        <tc:problemRatingIterator list="<%=problemRatingQuestions%>" id="question">
         <tr>
             <tc:problemRatingInput id="problemRatingInput" question="<%=question%>">
             <td class="statText">
@@ -32,7 +32,7 @@
             </td>
             </tc:problemRatingInput>
         </tr>
-        </logic:iterate>
+        </tc:problemRatingIterator>
     </table>
     <table align="right">
         <tr>
