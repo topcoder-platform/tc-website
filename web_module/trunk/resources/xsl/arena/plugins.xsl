@@ -69,6 +69,17 @@
                         <hr width="100%" noshade="noshade" color="#666666" />
 
                         <p class="statText">
+                        Plugin Name: <strong>PopsPack</strong><br />
+                        Description: Adding a new dimension to the applet.<br />
+                        Author: Pops<br />
+                        Date: 01/20/2004<br />
+                        <a href="/contest/classes/PopsPack/PopsPack.html" class="statText">Documentation</a><br />
+                        Version: 1.0<br />
+                        EntryPoint: see documentation<br />
+                        ClassPath: see documentation<br />
+                        <a href="/contest/classes/PopsPack/PopsPack.jar" class="statText">PopsPack.jar Plugin</a></p>
+
+                        <p class="statText">
                         Plugin Name: <strong>TZTester</strong><br />
                         Description: TZTester is a CodeProcessor plug-in that automatically extracts the examples test cases given in the problem 
                         description and generates C++ code that runs the test cases. <br />
