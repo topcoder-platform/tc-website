@@ -26,7 +26,7 @@
                         Thursday, October 9, 2003</p>
 
 <p>
-With another day of fierce competition in the books, the 2003 TopCoder Open sponsored by Intel&#174; sponsored by Intel&#174; heads 
+With another day of fierce competition in the books, the 2003 TopCoder Open sponsored by Intel&#174; heads 
 into its opening round.  600+ coders battled furiously for the 200 advancing 
 spots.  Many competitors, who hadn't qualified on Tuesday, came back to try 
 and change their fate.  The new unrated coders, covered in a veil of mystery, 
