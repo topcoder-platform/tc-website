@@ -82,7 +82,7 @@ public final class Controller extends HttpServlet {
                     callProcess(rp, request, response);
 
                 } catch(PermissionException pe) {
-                    log.info("caught PermissionException", pe);
+                    log.info("caught PermissionException");  // no stack trace to the logs
 
                     if(pe.getUser()!=null && !pe.getUser().isGuest()) {
                         log.info("already logged in, rethrowing");
@@ -95,6 +95,13 @@ public final class Controller extends HttpServlet {
 
                     rp = new com.topcoder.web.hs.controller.requests.Login();
                     callProcess(rp, request, response);
+                }
+
+                /* try this once here and hopefully display a pretty error if it fails */
+                if(rp.isNextPageInContext()) {
+                    getServletContext().getRequestDispatcher(response.encodeURL(rp.getNextPage())).forward(request, response);
+                } else {
+                    response.sendRedirect(response.encodeRedirectURL(rp.getNextPage()));
                 }
 
             } catch(Exception e) {
@@ -119,9 +126,8 @@ public final class Controller extends HttpServlet {
             response.setStatus(500);
             PrintWriter out = response.getWriter();
             out.println("<html><head><title>Internal Error</title></head>");
-            out.println("Exception encountered:<br><pre>");
-            e.printStackTrace(out);
-            out.println("</pre></body></html>");
+            out.println("<body><h3>Error: "+e.getMessage()+"</h3>");
+            out.println("</body></html>");
         }
     }
 
