@@ -62,23 +62,13 @@
 
 
 
-<P><B>SYSTEMS ENGINEER</B></P>
-<p>Systems Engineers are members of the team responsible for developing NVIDIA's cutting edge graphics board products.  Primary responsibilities are to work hands on with new NVIDIA hardware to ensure it meets design, feature and quality objectives.  Specific responsibilities include:</p>
+<P><B>ANALOG/MIXED-SIGNAL DESIGN ENGINEER - WIRELESS</B></P>
+<p>As a Analog/Mixed-Signal Design Engineer at NVIDIA, you'll be responsible for baseband mixed-signal design for Wireless LAN applications at the transistor level. You'll be responsible for state-of-the-art linear analog circuit designs including high speed, high resolution pipelined ADC's, high dynamic range delta-sigma modulators, tuned-active RC filters, gm-C filters, oscillators, LVDS receivers, PLL, etc. You'll help with transistor modeling, board design, and lab characterizations.</p>
 
-<p>Hardware Bringup - As a member of the board "bring-up" team, you and your teammates will bring-up and test NVIDIA's graphics board and chip products.  You will experience the world's fastest 3D graphics products 4-6 months before arriving on the store shelves.  Expect to learn pc architecture, graphics architecture, laboratory methodologies, lab experimentation and measurement techniques.</p>
+<p>Minimum GPA:  3.5</p>
 
-<p>Hardware Qualification - Working along side the chip &amp; board designers, you will verify new NVIDIA hardware meets design objectives and is ready for mass production.  It is here that you will learn state of the art techniques for ensuring hardware designs meet specification and the highest quality standards.</p>
-
-<p>Design Review  - Participate in the design reviews of new products to provide feedback to designers and to better understand the product before prototypes are built.  Here you will learn about schematic circuit design as well as high-speed PCB layout techniques.</p>
-
-<p>Troubleshoot - When NVIDIA HW design or product issue is encountered, your task will be to understand the problem and work on innovative solutions to reach resolution.  This involves working with the various organizations within NVIDIA to learn more details about the product and working in the lab to test and prove hypothesis.</p>
-
-<p>This position provides excellent exposure to the many engineering activities required to design and deliver world-class graphics products.  It is especially beneficial to Co-op and interns who desire to become hardware design engineers. Systems Engineers are exposed to a wide range of engineering activities and is an excellent way to help determine the engineering path that is right for you.</p>
-
-<p>Minimum GPA 3.5</p>
-
-<p>Successful candidates will have strong fundamentals in electrical engineering and an insatiable appetite to learn as well as the discipline to perfect your engineering skills.</p>
-
+<p>MSEE or PhD with thesis in analog/mixed-signal design preferred.  Internship in IC design preferred. </p>
+<p>Previous experience designing PLLs, VCOs, Mixers, Filters, Amplifiers, modulators, A/Ds, D/As, OP AMPs and references expected. Must have hands on experience using analog, mixed mode and RF tools.  Must have CMOS transistor level design skills.  Must be self-starter and have passion in his/her work.</p>
 
 <P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=206&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_jobs&amp;a=secure" CLASS="bodyText">More Positions at NVIDIA</A></P>   
 
