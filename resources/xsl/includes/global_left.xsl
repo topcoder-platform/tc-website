@@ -872,19 +872,6 @@
                                 </td>
                             </tr>
 
-            <!-- Documentation and Samples -->
-                            <tr>
-                                <td id="leftSubnav">
-                                    <xsl:attribute name="id">
-                                    <xsl:choose>
-                                        <xsl:when test="$level3='tcs_sample_docs'">leftSubnavOn</xsl:when>
-                                        <xsl:otherwise>leftSubnav</xsl:otherwise>
-                                    </xsl:choose>
-                                    </xsl:attribute>
-                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=tcs_sample_docs</xsl:attribute>Documentation and Sample Submissions</A>
-                                </td>
-                            </tr>
-
         </xsl:if>
     </xsl:template>
 
@@ -946,19 +933,7 @@
         </td>
     </tr>
 
-<!-- Documentation and Samples -->
-    <tr>
-        <td id="leftSubnav">
-            <xsl:attribute name="id">
-            <xsl:choose>
-                <xsl:when test="$level3='app_sample_docs'">leftSubnavOn</xsl:when>
-                <xsl:otherwise>leftSubnav</xsl:otherwise>
-            </xsl:choose>
-            </xsl:attribute>
-            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=app_sample_docs</xsl:attribute>Documentation</A>
-        </td>
-    </tr>
-        </xsl:if>
+    </xsl:if>
   </xsl:template>
 
 <!-- Contests -->
@@ -1094,7 +1069,20 @@
        </td>
     </tr>
 
-<!-- dev faq -->
+<!-- Documentation -->
+    <tr>
+        <td id="leftSubnav">
+            <xsl:attribute name="id">
+            <xsl:choose>
+                <xsl:when test="$level3='documentation'">leftSubnavOn</xsl:when>
+                <xsl:otherwise>leftSubnav</xsl:otherwise>
+            </xsl:choose>
+            </xsl:attribute>
+            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=dev&amp;d2=documentation</xsl:attribute>Documentation</A>
+        </td>
+    </tr>
+
+<!-- Ratings -->
     <tr>
         <td id="leftSubnav">
             <xsl:attribute name="id">
@@ -1130,19 +1118,6 @@
             </xsl:choose>
             </xsl:attribute>
             <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=dev_payment</xsl:attribute>How to Get Paid</A>
-        </td>
-    </tr>
-
-<!-- Documentation -->
-    <tr>
-        <td id="leftSubnav">
-            <xsl:attribute name="id">
-            <xsl:choose>
-                <xsl:when test="$level3='documentation'">leftSubnavOn</xsl:when>
-                <xsl:otherwise>leftSubnav</xsl:otherwise>
-            </xsl:choose>
-            </xsl:attribute>
-            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=dev&amp;d2=documentation</xsl:attribute>Documentation</A>
         </td>
     </tr>
 
