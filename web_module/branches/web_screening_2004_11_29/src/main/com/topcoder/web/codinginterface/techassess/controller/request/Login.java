@@ -6,9 +6,6 @@ import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.shared.netCommon.screening.request.ScreeningLoginRequest;
 import com.topcoder.shared.messaging.QueueMessageSender;
 import com.topcoder.shared.messaging.QueueMessageReceiver;
-import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 import com.topcoder.shared.screening.common.ScreeningContext;
 
