@@ -104,13 +104,13 @@ View consecutive rating increase streaks for <A CLASS="statText" HREF="/stat?c=c
 
             <rsc:iterator list="<%=rsc%>" id="resultRow">
                 <tr valign="middle">
-                    <td CLASS="smallFoot" align="right" height="13"><rsc:item row="<%=resultRow%>" name="rank"/>&nbsp;</td>
-                    <td><tc:ratingImage link='<%=sLink + resultRow.getIntItem("coder_id")%>' bg='B' cid='<%=resultRow.getIntItem("coder_id")%>' /></td>
-                    <TD CLASS="statText" ALIGN="center"><rsc:item row="<%=resultRow%>" name="length"/></TD>
-                    <TD CLASS="statText" ALIGN="right" width="18%"><rsc:item row="<%=resultRow%>" name="start_contest_name"/></td>
-                    <TD CLASS="statText" ALIGN="center" width="4%">&nbsp;-&nbsp;</td>
-                    <TD CLASS="statText" ALIGN="left" width="18%"><rsc:item row="<%=resultRow%>" name="end_contest_name"/></TD>
-                    <TD CLASS="statText" ALIGN="center"><rsc:item row="<%=resultRow%>" name="start_date" format="MM.dd.yy"/>&nbsp;-&nbsp;<rsc:item row="<%=resultRow%>" name="end_date" format="MM.dd.yy"/></TD>
+                    <td nowrap=nowrap CLASS="smallFoot" align="right" height="13"><rsc:item row="<%=resultRow%>" name="rank"/>&nbsp;</td>
+                    <td nowrap=nowrap CLASS="statText"><tc:ratingImage link='<%=sLink + resultRow.getIntItem("coder_id")%>' bg='B' cid='<%=resultRow.getIntItem("coder_id")%>' /></td>
+                    <TD nowrap=nowrap CLASS="statText" ALIGN="center"><rsc:item row="<%=resultRow%>" name="length"/></TD>
+                    <TD nowrap=nowrap CLASS="statText" ALIGN="right" width="18%"><rsc:item row="<%=resultRow%>" name="start_contest_name"/></td>
+                    <TD nowrap=nowrap CLASS="statText" ALIGN="center" width="4%">&nbsp;-&nbsp;</td>
+                    <TD nowrap=nowrap CLASS="statText" ALIGN="left" width="18%"><rsc:item row="<%=resultRow%>" name="end_contest_name"/></TD>
+                    <TD nowrap=nowrap CLASS="statText" ALIGN="center"><rsc:item row="<%=resultRow%>" name="start_date" format="MM.dd.yy"/>&nbsp;-&nbsp;<rsc:item row="<%=resultRow%>" name="end_date" format="MM.dd.yy"/></TD>
                 </tr>
             </rsc:iterator>
             <TR>
