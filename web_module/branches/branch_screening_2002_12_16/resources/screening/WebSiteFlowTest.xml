@@ -11,7 +11,7 @@
 	  <httpurl>screening?rp=Login
 	  </httpurl>
 	  <identification>
-	     <text-pattern>form action.*screening.*screening.*login</text-pattern>
+	     <text-pattern>form action="/screening/screening</text-pattern>
 	  </identification>
 	  <links>
 	     <link>
@@ -21,10 +21,96 @@
 	     </link>
 	  </links>
     </page>
+    
+    <page name="TestResults">
+      <httpurl>?rp=TestResults</httpurl>
+      <identification>
+        <re-pattern>.*Test Results.*Candidate:.*Test Profile:.*</re-pattern>
+      </identification>
+      <links>
+         <link>
+            <with-text>Create a new session</with-text>
+            <url></url>
+            <target-name>SessionSetup</target-name>
+         </link>
+         <link>
+            <with-text>Test Profiles</with-text>
+            <url></url>
+            <target-name>ProfileList</target-name>
+         </link>
+         <link>
+            <with-text>Problems</with-text>
+            <url></url>
+            <target-name>ProblemList</target-name>
+         </link>
+         <link>
+            <with-text>Candidates</with-text>
+            <url></url>
+            <target-name>BuildCandidateList</target-name>
+         </link>
+      </links>
+    </page>
 
-    <page name="SessionSetup">
+    <page name="ProblemList">
+      <httpurl>?rp=ProblemList</httpurl>
+      <identification>
+        <text-pattern>Overall Accuracy</text-pattern>
+      </identification>
+      <links>
+         <link>
+            <with-text>Create a new session</with-text>
+            <url></url>
+            <target-name>SessionSetup</target-name>
+         </link>
+         <link>
+            <with-text>Test Profiles</with-text>
+            <url></url>
+            <target-name>ProfileList</target-name>
+         </link>
+         <link>
+            <with-text>Candidates</with-text>
+            <url></url>
+            <target-name>BuildCandidateList</target-name>
+         </link>
+         <link>
+            <with-text>Problem A</with-text>
+            <url/>
+            <target-name></target-name>
+         </link>
+       </links>
     </page>
 	
+    <page name="TCProblemResult">
+       <httpurl>?rp=TCProblemResult</httpurl>
+       <identification>
+          <text-pattern>Top TopCoder Problem Results</text-pattern>
+       </identification>
+       <links>
+       </links>
+    </page>
+	
+    <page name="BuildCandidateList">
+       <httpurl>?rp=BuildCandidateList</httpurl>
+       <identification>
+          <re-pattern>.*Candidate List.*Handle.*Profile.*Begin.*End.*Status.*Notes.*</re-pattern>
+       </identification>
+    </page>
+    
+    <page name="PopulateCandidate">
+       <httpurl>?rp=PopulateCandidate</httpurl>
+       <identification>
+          <text-pattern> Create a new candidate or update the existing one</text-pattern>
+       </identification>
+    </page>
+    
+    <page name="ProblemResult">
+       <httpurl>?rp=ProblemResult</httpurl>
+       <identification>
+          <text-pattern>Problem Results</text-pattern>
+          <re-pattern>.*Code:.*System Test.*Top TopCoder Solutions.*</re-pattern>
+       </identification>
+    </page>
+    
     <page name="CandidateList">
     </page>
 </pages>

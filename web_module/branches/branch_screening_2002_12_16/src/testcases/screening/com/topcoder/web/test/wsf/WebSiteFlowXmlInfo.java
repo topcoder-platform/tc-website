@@ -26,8 +26,8 @@ import javax.xml.parsers.*;
  * */
 public class WebSiteFlowXmlInfo {
 
-	//String xmlFileName = "resources/screening/WebSiteFlowTest.xml";
-	String xmlFileName = "MisFlow.xml";
+	String xmlFileName = "resources/screening/WebSiteFlowTest.xml";
+	//String xmlFileName = "MisFlow.xml";
 	Map parameters = new HashMap();
 	Document doc = null;
 	Map pages = new HashMap(); 
