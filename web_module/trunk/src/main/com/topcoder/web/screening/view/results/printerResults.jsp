@@ -27,13 +27,13 @@
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">
     <tr>
-        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
+        <td width="15"><img src="/i/corp/clear.gif" width="15" height="1" border="0"/></td>
         <td width="206">
-            <img src="/i/logo_testing.gif" width="206" height="49" border="0" vspace="5"/>
+            <img src="/i/corp/logo_testing.gif" width="206" height="49" border="0" vspace="5"/>
         </td>
-        <td width="99%"><img src="/i/clear.gif" width="1" height="1" border="0"/></td>
+        <td width="99%"><img src="/i/corp/clear.gif" width="1" height="1" border="0"/></td>
    </tr>
-    <tr><td height="3" class="headStripe" colspan="3"><img src="/i/clear.gif" alt="" height="3" alt="" border="0"></td></tr>
+    <tr><td height="3" class="headStripe" colspan="3"><img src="/i/corp/clear.gif" alt="" height="3" alt="" border="0"></td></tr>
 </table>
 
 
@@ -43,11 +43,11 @@
     <tr valign="top">
 
 <!-- gutter begins -->
-        <td width="25"><img src="/i/clear.gif" width="25" height="1" alt="" border="0"></td>
+        <td width="25"><img src="/i/corp/clear.gif" width="25" height="1" alt="" border="0"></td>
 <!-- gutter ends -->
 
 <!-- Middle column begins -->
-        <td width="100%" align="center"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
+        <td width="100%" align="center"><img src="/i/corp/clear.gif" width="400" height="11" alt="" border="0"><br>
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr valign="top">
                     <td class="bodyText">
@@ -291,7 +291,7 @@
 <!-- Middle Column ends -->
 
 <!-- Gutter -->
-        <td width="25"><img src="/i/clear.gif" width="25" height="1" alt="" border="0"></td>
+        <td width="25"><img src="/i/corp/clear.gif" width="25" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
 
     </tr>

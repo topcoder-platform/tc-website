@@ -34,11 +34,11 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+        <td width="10"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
 
 <!-- Body Area -->
-        <td width="100%"><img src="/i/clear.gif" height="11"  alt="" border="0"><br>
+        <td width="100%"><img src="/i/corp/clear.gif" height="11"  alt="" border="0"><br>
 
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr valign="top">
@@ -53,9 +53,9 @@
                         <p><a href="/testing/">Go to Testing Application Management Tool now</a></p>
                     </td>
                        
-                    <td><img src="/i/clear.gif" width="8" height="1" alt="" border="0"></td>
-                    <td bgcolor="#CCCCCC"><img src="/i/clear.gif" width="1" height="1" alt="" border="0"></td>
-                    <td><img src="/i/clear.gif" width="8" height="1" alt="" border="0"></td>
+                    <td><img src="/i/corp/clear.gif" width="8" height="1" alt="" border="0"></td>
+                    <td bgcolor="#CCCCCC"><img src="/i/corp/clear.gif" width="1" height="1" alt="" border="0"></td>
+                    <td><img src="/i/corp/clear.gif" width="8" height="1" alt="" border="0"></td>
                        
                     <td width="33%" class="bodyText">
                       <h1 class="bodyTitle"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=recruiting&d3=index">Recruiting</a></h1>
@@ -67,9 +67,9 @@
                         <p><a href="/tces/?task=MainTask">Go to Recruiting Reporting Tool now</a></p>
                     </td>
                        
-                    <td><img src="/i/clear.gif" width="8" height="1" alt="" border="0"></td>
-                    <td bgcolor="#CCCCCC"><img src="/i/clear.gif" width="1" height="1" alt="" border="0"></td>
-                    <td><img src="/i/clear.gif" width="8" height="1" alt="" border="0"></td>
+                    <td><img src="/i/corp/clear.gif" width="8" height="1" alt="" border="0"></td>
+                    <td bgcolor="#CCCCCC"><img src="/i/corp/clear.gif" width="1" height="1" alt="" border="0"></td>
+                    <td><img src="/i/corp/clear.gif" width="8" height="1" alt="" border="0"></td>
                        
                     <td width="33%" class="bodyText">
                        <h1 class="bodyTitle"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=spon_prog&d3=index">Sponsorship</a></h1>
@@ -93,7 +93,7 @@
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+        <td width="10"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
    </tr>
 </table>

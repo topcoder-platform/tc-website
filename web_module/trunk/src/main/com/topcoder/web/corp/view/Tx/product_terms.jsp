@@ -34,11 +34,11 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td valign="top"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+        <td valign="top"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column begins -->
-        <td width="99%" class="bodyText"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
+        <td width="99%" class="bodyText"><img src="/i/corp/clear.gif" width="400" height="11" alt="" border="0"><br>
 
             <p>In order to process your order, you must agree to the Customer Terms below. Please read the Terms and select the checkbox next to "I Agree to the 
             Customer Terms and Conditions stated above" to continue.</p>
@@ -72,7 +72,7 @@
 <!-- Center Column ends -->
 
 <!-- Gutter -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+        <td width="10"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
     </tr>
 </table>

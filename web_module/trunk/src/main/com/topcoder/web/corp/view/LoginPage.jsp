@@ -34,11 +34,11 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td valign="top"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+        <td valign="top"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column begins -->
-        <td width="100%"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
+        <td width="100%"><img src="/i/corp/clear.gif" width="400" height="11" alt="" border="0"><br>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td class="bodyText" width="100%">
@@ -77,7 +77,7 @@
                     <input type="hidden" name="module" value="Login">
                     <td class="statText" align="center">
                         <table border="0" cellpadding="3" cellspacing="0">
-                           <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
+                           <tr><td colspan="3"><img src="/i/corp/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
 
                             <tr valign="middle">
                                 <td nowrap class="loginText" align="right">User Name:</td>
@@ -90,7 +90,7 @@
                                 <td nowrap class="loginText">&#160;&#160;<a href="JavaScript:document.frmLogin.submit()" class="loginText">Login&#160;&gt;</a></td>
                             </tr>
 
-                           <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
+                           <tr><td colspan="3"><img src="/i/corp/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
                         </table>
 
                     <script>
@@ -109,15 +109,15 @@
 <!-- Center Column ends -->
 
 <!-- Gutter -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+        <td width="10"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-        <td width="170"><img src="/i/clear.gif" width="170" height="1" alt="" border="0"></td>
+        <td width="170"><img src="/i/corp/clear.gif" width="170" height="1" alt="" border="0"></td>
 <!-- Left Column Ends -->
 
 <!-- Gutter -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+        <td width="10"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
 
     </tr>

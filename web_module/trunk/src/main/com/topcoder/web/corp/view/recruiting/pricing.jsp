@@ -36,18 +36,18 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td valign="top"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-        <td valign="top" width="7"><img src="/i/title_brackets.gif" width="7" height="47" alt="[ ]" border="0"></td>
+        <td valign="top"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
+        <td valign="top" width="7"><img src="/i/corp/title_brackets.gif" width="7" height="47" alt="[ ]" border="0"></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column begins -->
         <td width="100%">
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                <tr valign="top"><td id="corpTitle" width="100%" colspan="3"><img src="/i/header_topcoder_recruiting.gif" alt="TopCoder Recruiting" width="546" height="41" border="0"></td></tr>
+                <tr valign="top"><td id="corpTitle" width="100%" colspan="3"><img src="/i/corp/header_topcoder_recruiting.gif" alt="TopCoder Recruiting" width="546" height="41" border="0"></td></tr>
                 
                 <tr valign="top">
                     <td class="bodyText" width="99%">
-                        <img src="/i/clear.gif" width="1" height="7" alt="" border="0"><br>
+                        <img src="/i/corp/clear.gif" width="1" height="7" alt="" border="0"><br>
 
                         <h2 class="corpHead">Pricing</h2>
                         
@@ -57,9 +57,9 @@
                         
                         <div align="center">
                         
-                        <A href="<%=request.getContextPath()+"/Tx/?&"+TransactionServlet.KEY_OPERATION+"="+TransactionServlet.OP_TERMS+"&pid=3"%>"><img src="/i/title_3_month_program.gif" alt="3 Month Program - $5,000" width="286" height="167" border="0"></A><br>
+                        <A href="<%=request.getContextPath()+"/Tx/?&"+TransactionServlet.KEY_OPERATION+"="+TransactionServlet.OP_TERMS+"&pid=3"%>"><img src="/i/corp/title_3_month_program.gif" alt="3 Month Program - $5,000" width="286" height="167" border="0"></A><br>
                         
-                        <img src="/i/verisign_m.gif" alt="Payment Services by Verisign" width="103" height="43" border="0" vspace="20">
+                        <img src="/i/corp/verisign_m.gif" alt="Payment Services by Verisign" width="103" height="43" border="0" vspace="20">
                         
                         </div>
 
@@ -67,7 +67,7 @@
                     </td>
 
 <!-- Gutter -->
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+                    <td width="10"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column begins -->

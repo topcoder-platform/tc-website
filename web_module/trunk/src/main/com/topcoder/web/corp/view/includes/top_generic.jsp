@@ -16,11 +16,11 @@
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">
     <tr valign="middle">
-        <td width="15"><img src="/i/clear.gif" width="15" height="1" alt="" border="0"></td>
-        <td width="206"><img src="/i/logo.gif" width="206" height="49" border="0" alt="TopCoder Corporate Services" vspace="13"></td>
-        <td width="99%"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" hspace="15"></td>
+        <td width="15"><img src="/i/corp/clear.gif" width="15" height="1" alt="" border="0"></td>
+        <td width="206"><img src="/i/corp/logo.gif" width="206" height="49" border="0" alt="TopCoder Corporate Services" vspace="13"></td>
+        <td width="99%"><img src="/i/corp/clear.gif" width="1" height="1" alt="" border="0" hspace="15"></td>
     </tr>
-    <tr><td height="4" class="headStripe" colspan="3"><img src="/i/clear.gif" alt="" height="4" alt="" border="0"></td></tr>
+    <tr><td height="4" class="headStripe" colspan="3"><img src="/i/corp/clear.gif" alt="" height="4" alt="" border="0"></td></tr>
 </table>
 <!-- Header ends -->
 
@@ -30,6 +30,6 @@
 </table>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
-	<tr><td width="100%" height="2" class="nonBreadcrumb"><img src="/i/clear.gif" alt="" width="10" height="2" alt="" border="0"></td></tr>
+	<tr><td width="100%" height="2" class="nonBreadcrumb"><img src="/i/corp/clear.gif" alt="" width="10" height="2" alt="" border="0"></td></tr>
 </table>
 <!-- Main Navigation bar ends -->

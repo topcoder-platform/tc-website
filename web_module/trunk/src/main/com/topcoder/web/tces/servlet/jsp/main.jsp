@@ -29,15 +29,15 @@
     <TR valign="top">
 
 <!-- Left Column Begins -->
-      <td width="25"><img src="/i/clear.gif" width="25" height="11" alt="" border="0"></td>
+      <td width="25"><img src="/i/corp/clear.gif" width="25" height="11" alt="" border="0"></td>
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-      <td width="6"><img src="/i/clear.gif" width="6" height="8" alt="" border="0"></td>
+      <td width="6"><img src="/i/corp/clear.gif" width="6" height="8" alt="" border="0"></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-        <td width="100%" align="center"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
+        <td width="100%" align="center"><img src="/i/corp/clear.gif" width="400" height="11" alt="" border="0"><br>
             <table border="0" cellspacing="0" cellpadding="0" width="50%" align="center">
                 <tr valign="top">
                     <td class="bodyText">
@@ -73,14 +73,14 @@
                    currCompany = Integer.parseInt(campaignInfo.getItem("company_id").toString()); 
                    if (currCompany != lastCompany || (MainTask.hasManyCompanies() && i==1)) { %> 
                 
-                <tr><td colspan="4"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
+                <tr><td colspan="4"><img src="/i/corp/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
                 <tr><td colspan="4" class="testFormHeader"><%= campaignInfo.getItem("company_name").toString() %></td></tr>
                 
                 <% lastCompany = currCompany;
                    } %>
 
                 <tr>
-                    <td width="5" class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><img src="/i/clear.gif" alt="" width="5" height="1" border="0"></td>
+                    <td width="5" class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><img src="/i/corp/clear.gif" alt="" width="5" height="1" border="0"></td>
                     <td width="60%" class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><A HREF="<jsp:getProperty name="MainTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_DETAIL_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=campaignInfo.getItem("campaign_id").toString()%>" class="bodyText"><%=campaignInfo.getItem("campaign_name").toString()%></A></td>
                     <td width="20%" class="<%=i%2==1?"testTableOdd":"testTableEven"%>" nowrap="nowrap"><%=campaignInfo.getItem("start_date").toString()%></td>
                     <td width="20%" class="<%=i%2==1?"testTableOdd":"testTableEven"%>" nowrap="nowrap"><%=campaignInfo.getItem("end_date").toString()%></td>
@@ -92,9 +92,9 @@
                 
                 <tr>
                     <td class="testTableOdd" colspan="4">
-                        <img src="/i/clear.gif" alt="" width="10" height="10" border="0"><br>
+                        <img src="/i/corp/clear.gif" alt="" width="10" height="10" border="0"><br>
                         Your job campaigns have expired. Contact <A HREF="mailto:tces@topcoder.com" class="bodyText">tces@topcoder.com</A> to renew your contract.<br>
-                        <img src="/i/clear.gif" alt="" width="10" height="10" border="0"></td>
+                        <img src="/i/corp/clear.gif" alt="" width="10" height="10" border="0"></td>
                 </tr>
 
                 <% } %>
@@ -107,11 +107,11 @@
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
-      <td width="6"><img src="/i/clear.gif" width="6" height="1" alt="" border="0"></td>
+      <td width="6"><img src="/i/corp/clear.gif" width="6" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-      <td width="25"><img src="/i/clear.gif" width="25" height="11" alt="" border="0"></td>
+      <td width="25"><img src="/i/corp/clear.gif" width="25" height="11" alt="" border="0"></td>
 <!-- Right Column Ends -->
 
     </tr>
