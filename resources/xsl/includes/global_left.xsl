@@ -1020,8 +1020,7 @@
         <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=components</xsl:attribute>Components:</A>
       </td>
     </tr>
-    <xsl:choose>
-        <xsl:when test="$level2=components">
+        <xsl:if test="$level2=components">
             <!-- Project Winners -->
                             <tr>
                                 <td id="leftSubnav">
@@ -1112,8 +1111,8 @@
                                     <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=bonus_contest_0303</xsl:attribute>Design Bonus Contest 1</A>
                                 </td>
                             </tr>
-        </xsl:when>
-    </xsl:choose>
+        </xsl:if>
+
 
 </xsl:template>
 
