@@ -8,6 +8,7 @@ import com.topcoder.web.resume.ejb.ResumeServices.ResumeServices;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.util.logging.Logger;
 
 import javax.naming.InitialContext;
 import java.util.List;
@@ -20,6 +21,8 @@ import java.util.ArrayList;
  * @author gpaul 07.02.2003
  */
 public class FullRegDemog extends FullRegBase {
+    protected static Logger log = Logger.getLogger(FullRegDemog.class);
+
     protected void registrationProcessing() throws TCWebException {
 
         checkRegInfo(regInfo);
@@ -71,6 +74,7 @@ public class FullRegDemog extends FullRegBase {
     }
 
     private DemographicQuestion makeQuestion(ResultSetContainer.ResultSetRow row) throws Exception {
+        log.debug("makeQuestion: " + row);
         DemographicQuestion ret = new DemographicQuestion();
         ret.setDemographicQuestionId(row.getLongItem("demographic_question_id"));
         ret.setDemographicQuestionDesc(row.getStringItem("demographic_question_desc"));
@@ -94,6 +98,7 @@ public class FullRegDemog extends FullRegBase {
     }
 
     private DemographicAnswer makeAnswer(ResultSetContainer.ResultSetRow row) {
+        log.debug("makeAnswer: " + row);
         DemographicAnswer ret = new DemographicAnswer();
         ret.setDemographicAnswerId(row.getLongItem("demographic_answer_id"));
         ret.setDemographicAnswerText(row.getStringItem("demographic_answer_text"));
