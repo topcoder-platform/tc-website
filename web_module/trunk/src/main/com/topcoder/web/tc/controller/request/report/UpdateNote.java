@@ -48,7 +48,7 @@ public class UpdateNote extends Base {
                     uTx.begin();
                     long noteId = note.createNote(noteText, getUser().getId(), Constants.INTERNAL_NOTE_TYPE_ID,
                             DBMS.JTS_OLTP_DATASOURCE_NAME, DBMS.OLTP_DATASOURCE_NAME);
-                    userNote.createUserNote(getUser().getId(), noteId, DBMS.JTS_OLTP_DATASOURCE_NAME);
+                    userNote.createUserNote(Long.parseLong(userId), noteId, DBMS.JTS_OLTP_DATASOURCE_NAME);
 
                     uTx.commit();
                 } catch (Exception e) {

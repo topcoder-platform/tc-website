@@ -34,6 +34,7 @@ public class ViewNotes extends Base {
                 getRequest().setAttribute("note_list", dai.getData(r).get("note_list"));
                 User user = (User)createEJB(getInitialContext(), User.class);
                 getRequest().setAttribute(Constants.HANDLE, user.getHandle(Long.parseLong(userId), DBMS.OLTP_DATASOURCE_NAME));
+                getRequest().setAttribute(Constants.USER_ID, userId);
 
                 setNextPage(Constants.NOTE_LIST);
                 setIsNextPageInContext(true);
