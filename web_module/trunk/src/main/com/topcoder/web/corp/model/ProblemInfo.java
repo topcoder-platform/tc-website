@@ -393,7 +393,7 @@ public class ProblemInfo extends BaseModel {
 
             accuracyInfo.setProperty("pid", String.valueOf(problemId));
             accuracyInfo.setProperty("uid", String.valueOf(user.getId()));
-            map = cached.getData(accuracyInfo);
+            map = dwAccess.getData(accuracyInfo);
             rsc = (ResultSetContainer) map.get("problem_statistics_by_company");
 
             if (rsc.size() == 0) {
