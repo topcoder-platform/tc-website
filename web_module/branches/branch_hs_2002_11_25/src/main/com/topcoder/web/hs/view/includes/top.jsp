@@ -40,7 +40,7 @@
         &nbsp;&nbsp;&nbsp;<A HREF="?module=Static&d1=tour&d2=mem_tour" CLASS="rednav">Competition Guide</A>
 <% } %>
 
-        &nbsp;&nbsp;&nbsp;<a class="rednav" href="Javascript:openWin('/?module=Static&d1=arena&d2=quick_launch','comp',300,225);"><I><FONT COLOR="#FFF600">Quick Launch>></FONT></I></A>
+        &nbsp;&nbsp;&nbsp;<a class="rednav" href="Javascript:openWin('?module=Static&d1=arena&d2=quick_launch','comp',300,225);"><I><FONT COLOR="#FFF600">Quick Launch>></FONT></I></A>
         </TD>
     </TR>
 </TABLE>

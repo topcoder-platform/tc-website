@@ -1,7 +1,7 @@
 <!--Left Navigation Include Begins-->
 
 <jsp:useBean id="SessionInfo" class="com.topcoder.web.hs.model.SessionInfoBean" scope="request" />
-<jsp:useBean id="nav" class="com.topcoder.web.hs.model.NavZoneBean" scope="request" />
+<jsp:useBean id="NavZone" class="com.topcoder.web.hs.model.NavZoneBean" scope="request" />
 
 <TABLE WIDTH="170" CELLSPACING="0" CELLPADDING="0" BORDER="0" BGCOLOR="#000000">
     <TR>
@@ -28,7 +28,7 @@
     <TR>
 
 
-<% if(!nav.getFolder().equals("stats")) { %>
+<% if(!NavZone.getFolder().equals("stats")) { %>
 
          <TD CLASS="sidenav">&nbsp;<A HREF="?module=Statistics&c=round_overview" CLASS="sidenav"><IMG SRC="/i/hs/nav_arrow_right.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>Statistics</A></TD>
 
@@ -67,7 +67,7 @@
     <TR>
 
 
-<% if(!nav.getFolder().equals("faq")) { %>
+<% if(!NavZone.getFolder().equals("faq")) { %>
 
          <TD CLASS="sidenav">&nbsp;<A HREF="?module=Static&d1=faq&d2=faq" CLASS="sidenav"><IMG SRC="/i/hs/nav_arrow_right.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>Support/FAQs</A></TD>
 
@@ -111,7 +111,7 @@
     <TR>
 
 
-<% if(!nav.getFolder().equals("about")) { %>
+<% if(!NavZone.getFolder().equals("about")) { %>
 
          <TD CLASS="sidenav">&nbsp;<A HREF="?module=Static&d1=about&d2=about" CLASS="sidenav"><IMG SRC="/i/hs/nav_arrow_right.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>About Us</A></TD>
 
