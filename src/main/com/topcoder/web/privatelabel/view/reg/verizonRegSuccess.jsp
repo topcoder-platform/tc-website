@@ -54,13 +54,24 @@
                 <tr valign="top">
                     <td width="427" class="bodyCopy">
 
-                        <h2 class="pgTitle">Registration</h2>
+<p><font size="-1">
+<br/>
 
-                        <p>Thank you for registering<br/><br/></p>
+In order to be eligible to compete in the Verizon Coding Challenge,
+you must activate your account by following the directions sent to the email
+address provided during registration. You <u>will not</u> be able to compete if you
+do not activate your account.
 
-                        <p>If you would like to upload a resume, <a href="JavaScript:void window.open('<jsp:getProperty name="sessionInfo" property="ServletPath"/>resume?&<%=Constants.MODULE_KEY%>=ViewUpload&<%=Constants.COMPANY_ID%>=1747','Resume_Upload','top=2,left=2,width=300,height=300,status=0');">click here</a></p>
-                        
-                        <p><img src="/i/clear.gif" width="427" height="20" border="0"/></p>
+<br/><br/>
+
+<b><font color="#FF0000">OPTIONAL:</font></b> If you would like to upload a resume, click <a href="JavaScript:void window.open('<jsp:getProperty name="sessionInfo" property="ServletPath"/>resume?&<%=Constants.MODULE_KEY%>=ViewUpload&<%=Constants.COMPANY_ID%>=1747','Resume_Upload','top=2,left=2,width=350,height=300,status=0');">here</a><br/><br/>
+
+<br/><br/>
+
+Spend time in the Practice Rooms prior to the Qualification Round by clicking the Practice Arena tab above.<br/><br/>
+
+Good luck to you in the Arena!
+</font></p>
                     </td>
                     
 <!-- Gutter Begins -->
