@@ -19,6 +19,12 @@ public class TCESConstants {
     public static String CAMPAIGN_INTEREST_PAGE = "/campaign_interest.jsp";
     public static String DEMOGRAPHIC_PAGE = "/demographic_info.jsp";
     public static String MEMBER_PROFILE_PAGE = "/member_profile.jsp";
+    public static String CODER_DEMOGRAPHICS_PAGE = "/coder_demographics.jsp";
+    public static String COMPETITION_HISTORY_PAGE = "/competition_history.jsp";
+    public static String COMPETITION_STATISTICS_PAGE = "/competition_statistics.jsp";
+    public static String PROBLEM_SUBMISSIONS_PAGE = "/problem_submissions.jsp";
+    public static String PROBLEM_STATISTICS_PAGE = "/problem_statistics.jsp";
+    public static String PROBLEM_STATEMENT_PAGE = "/problem_statement.jsp";
 
     public static String LOGIN_TASK = "LoginTask";
     public static String LOGIN_TASK_STEP_VIEW = "v";
@@ -29,6 +35,12 @@ public class TCESConstants {
     public static String POSITION_INTEREST_TASK = "PositionInterestTask";
     public static String DEMOGRAPHIC_TASK = "DemographicTask";
     public static String MEMBER_PROFILE_TASK = "MemberProfileTask";
+    public static String CODER_DEMOGRAPHICS_TASK = "CoderDemographicsTask";
+    public static String COMPETITION_HISTORY_TASK = "CompetitionHistoryTask";
+    public static String COMPETITION_STATISTICS_TASK = "CompetitionStatisticsTask";
+    public static String PROBLEM_SUBMISSIONS_TASK = "ProblemSubmissionsTask";
+    public static String PROBLEM_STATISTICS_TASK = "ProblemStatisticsTask";
+    public static String PROBLEM_STATEMENT_TASK = "ProblemStatementTask";
 
     public static String TASK_PARAM = "task";
     public static String STEP_PARAM = null;
