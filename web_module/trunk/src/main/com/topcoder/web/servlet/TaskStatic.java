@@ -4,7 +4,6 @@ import com.topcoder.common.web.constant.TCServlet;
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.common.web.error.NavigationException;
 import com.topcoder.common.web.util.Conversion;
-import com.topcoder.common.web.util.Cache;
 import com.topcoder.common.web.xml.HTMLRenderer;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
@@ -145,6 +144,26 @@ public final class TaskStatic {
                     if (sortCol != null && sortDir != null)
                         rsc.sortByColumn(sortCol, sortDir.trim().toLowerCase().equals("asc"));
                     tournamentTag.addTag(rsc.getTag("Advancers", "Advancer"));
+
+                    dataRequest = new Request();
+                    dataRequest.setContentHandle("regional_tourney_competitors");
+                    if (roundids!=null) dataRequest.setProperty("rds", roundids.trim());
+                    for (int i=0; i<5; i++) {
+                        String regionCode = null;
+                        switch(i) {
+                            case 1: regionCode = "STH"; break;
+                            case 2: regionCode = "N"; break;
+                            case 3: regionCode = "W"; break;
+                            case 4: regionCode = "MW"; break;
+                            case 5: regionCode = "INT"; break;
+                        }
+                        if (region!=null) dataRequest.setProperty("rc", regionCode);
+                        resultMap = dai.getData(dataRequest);
+                        rsc = (ResultSetContainer) resultMap.get("Regional_Tourney_Competitorss");
+                        if (sortCol != null && sortDir != null)
+                            rsc.sortByColumn(sortCol, sortDir.trim().toLowerCase().equals("asc"));
+                        tournamentTag.addTag(rsc.getTag(regionCode+"Competitors", "Competitor"));
+                    }
                     document.addTag(tournamentTag);
                 }
             } catch (NamingException e) {
@@ -173,7 +192,7 @@ public final class TaskStatic {
             e.printStackTrace();
         }
 
-//        log.debug(document.getXML(2));
+        log.debug(document.getXML(2));
         try {
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (Exception e) {
