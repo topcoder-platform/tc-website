@@ -15,35 +15,21 @@
 </head>
 
 <body>
-
-<jsp:include page="../../top.jsp" >
-    <jsp:param name="level1" value=""/>
+<!-- Tab barlinks-->
+<jsp:include page="links.jsp" >
+<jsp:param name="tabLev1" value="overview"/>
+<jsp:param name="tabLev2" value="details"/>
+<jsp:param name="tabLev3" value=""/>
 </jsp:include>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-   <tr valign="top">
-<!-- Left Column Begins-->
-        <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
-                <jsp:param name="level1" value="events"/>
-                <jsp:param name="level2" value="tournaments"/>
-            </jsp:include>
-        </td>
-<!-- Left Column Ends -->
+<table width="100%" border=0 cellpadding=0 cellspacing=0>
+<!-- Body-->
+	<tr valign=top>
+		<td valign=top align=center>
+		<div class=bodySpacer>
+            
+        <p class=bigTitle>Student Representatives</p>
 
-<!-- Gutter Begins -->
-        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
-<!-- Gutter Ends -->
-
-<!-- Center Column Begins -->
-         <td class="bodyText" width="100%">
-
-<table width="550" align="center" border="0" cellpadding="0" cellspacing="10">
-	<tr><td colspan="2" class="bodyText">
-		<div align="center"><img src="/i/tournament/tccc05/monitor_logo.jpg" width="424" height="336" border="0"/></div>
-                
-                <table width="510" align="center" border=0 cellpadding=0 cellspacing=0>
-					<tr><td><h2>Student Reps</h2></td></tr>
 				</table>
                 <table width="510" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
@@ -65,36 +51,21 @@
                     </rsc:iterator>
                 </tr>
                 </table>
-	</td></tr>
-</table>
 
-            
-
-
-         <p><br/></p>
-         </td>
-<!-- Center Column Ends -->
-
-<!-- Gutter -->
-         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"></td>
-<!-- Gutter Ends -->
-
-<!-- Right Column Begins -->
-         <td width="170">
+        </div>
+		</td>
+        
+         
+<!-- Right Column-->
+        <td width=170 align=right>
             <jsp:include page="../../public_right.jsp">
-               <jsp:param name="level1" value="tccc05"/>
+            <jsp:param name="level1" value="tccc05"/>
             </jsp:include>
          </td>
-<!-- Right Column Ends -->
-
-<!-- Gutter -->
-         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
-<!-- Gutter Ends -->
-    </tr> 
+		
+	</tr>
+	
 </table>
-
 <jsp:include page="../../foot.jsp" />
-
 </body>
-
 </html>
