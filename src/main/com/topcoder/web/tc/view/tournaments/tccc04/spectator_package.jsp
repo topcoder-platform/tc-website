@@ -43,36 +43,38 @@
    <jsp:param name="tabLev3" value="spectator"/>
 </jsp:include>
 
-            <h2>The 2004 TopCoder Collegiate Challenge</h2>
+   
+                <h2>Join the excitement onsite!</h2>
 
-            <p><span class="bodySubtitle">What is the TCCC?</span><br/>
-            Once again TopCoder is bringing the frontline of competitive programming to a campus near you! Over the next few months, the 2004 TopCoder Collegiate Challenge will have college students all over the world competing for a chance to attend the onsite finals in Boston, MA, USA in April.  Students have their choice of playing field, either the Algorithm or Component Competition, or both should you be that skilled.  The stage is set and the competition is fierce.  Let the games begin!
-            </p>
+                <p><img src="/i/tournament/tccc04/spectator_images.jpg" width="285" height="392" border="0" align="right"><span class="bodySubtitle">Would you like to see the 2004 Collegiate Challenge finals in-person?</span><br/>
+                TopCoder is now offering a special discounted spectator package for our members.</p>
             
-            <p><span class="bodySubtitle">What's new?</span><br/>
-            <ul>
-            <li><b>More onsite competitors:</b> This tournament is bigger than ever.  24 Algorithm finalists and 8 Component finalists will be invited to compete live at the onsite finals in Boston.  There may be more finalists now, but only three of them will be crowned champions.  Will you be one of them?</li>
-            <li><b>Second Chance in Algorithm Competition:</b> The 2nd and 3rd place finishers in each Semifinal Round will compete in a Wildcard Round for a second chance to make it to the Championship Round.</li>
-            <li><b>Coaches:</b> The 2004 TCCC marks the first TopCoder tournament to have coaches.  Coaches will provide competitors in the Component Design Competition with technical guidance and support during the contest.  Not in college, but love to design components?  <a href="mailto:service@topcoder.com?subject=TCCC04 Coaches">Sign up to be a coach</a>.  Looking for a little guidance in the tournament?  <A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_comp_coachesreq">Request a coach</a>.</li>
-            <li><b>Registration:</b> In addition to being a TopCoder member, each competition hopeful must register for the Algorithm Competition.  Registration is unlimited but each competitor may only register once.</li>
-            <li><b>Open Qualification:</b> Each registered competitor will attempt to qualify at any time during an open 24-hour period.</li>
-            </ul>
+                <p><span class="bodySubtitle">What does the package include?</span><br/>
+                <ul>
+                <li><b>See the action live and in-person:</b> Attendence to all the onsite rounds of competition.</li>
+                <li><b>Learn tricks of the trade from the experts:</b> attendance at all onsite events (sponsor and member presentations)</li>
+                <li><b>Stay at a great hotel:</b> 2 nights hotel accomodations at the Boston Park Plaza Hotel.</li>
+                <li><b>Hang-out and dine with the semifinalists:</b> All meals are included.</li>
+                <li><b>Take home TopCoder collectables:</b> Program, T-shirt and other goodies from the event.</li>
+                </ul>
             
             
-            <p><span class="bodySubtitle">The details:</span><br/>
+                <p><span class="bodySubtitle">The details:</span><br/>
 
-            <ul>
-                <li><strong>$100,000 prize purse</strong><br />
-                <li><strong>Competition Starts</strong><br />
-                    January 27, 2004 - Component<br />
-                    February 23, 2004 - Algorithm<br /></li>
-                <li><strong>Onsite Finals</strong><br />
-                    April 15 & 16, 2004 at the Boston Park Plaza Hotel & Towers in Boston, MA, USA</li>
-                <li><strong>Free Competition</strong></li>
-                <li><strong>Open to all eligible college students</strong></li>
-            </ul>
+                <ul>
+                    <li><strong>$100,000 prize purse</strong><br />
+                    <li><strong>Competition Starts</strong><br />
+                        January 27, 2004 - Component<br />
+                        February 23, 2004 - Algorithm<br /></li>
+                    <li><strong>Onsite Finals</strong><br />
+                     April 15 & 16, 2004 at the Boston Park Plaza Hotel & Towers in Boston, MA, USA</li>
+                 <li><strong>Free Competition</strong></li>
+                 <li><strong>Open to all eligible college students</strong></li>
+                </ul>
             
-            <p>See the official rules and regulations for more details.</p>
+                <p>See the official rules and regulations for more details.</p>
+            
+
 
          <p><br/></p>
          </td>
