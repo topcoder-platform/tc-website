@@ -71,6 +71,7 @@ window.location=sel;
             This chart represents the longest consecutive rating increase streaks.
             </P>
             <P CLASS="statText">
+<% String sLink = "/stat?c=member_profile&cr=";%>
 <% if (streakType.equals("4")){ %>
 View consecutive rating increase streaks for <A CLASS="statText" HREF="/stat?c=consecutive_rating_increases&wst=3">Single Round Matches</A>
     <% } else { %>
@@ -104,7 +105,7 @@ View consecutive rating increase streaks for <A CLASS="statText" HREF="/stat?c=c
             <rsc:iterator list="<%=rsc%>" id="resultRow">
                 <tr valign="middle">
                     <td CLASS="smallFoot" align="right" height="13"><rsc:item row="<%=resultRow%>" name="rank"/>&nbsp;</td>
-                    <td><a href="/stat?c=member_profile&cr=<rsc:item row="<%=resultRow%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item row="<%=resultRow%>" name="handle"/></a></td>
+                    <td><tc:ratingImage link='<%=sLink + resultRow.getIntItem("coder_id")%>' bg='B' cid='<%=resultRow.getIntItem("coder_id")%>' /></td>
                     <TD CLASS="statText" ALIGN="center"><rsc:item row="<%=resultRow%>" name="length"/></TD>
                     <TD CLASS="statText" ALIGN="right" width="18%"><rsc:item row="<%=resultRow%>" name="start_contest_name"/></td>
                     <TD CLASS="statText" ALIGN="center" width="4%">&nbsp;-&nbsp;</td>
