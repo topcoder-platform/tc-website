@@ -1,78 +1,73 @@
-<HTML>
-<HEAD>
-	<title>TopCoder | High School</title>
-    <META NAME="description" CONTENT="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
-    <META NAME="keywords" CONTENT="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
+<html>
+
+<head>
+
+<title>TopCoder | High School</title>
+
+<meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
+<meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
+
 <jsp:include page="../includes/css.jsp" />
-</HEAD>
-<BODY BGCOLOR="#001934" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
+
+</head>
+
+<body>
+
+<!-- Top begins -->
 <jsp:include page="../includes/top.jsp" />
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000000" WIDTH="100%">
-<TR><TD>
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
-    <TR VALIGN="top">
-		<TD WIDTH="170" BGCOLOR="#001934">
-        <jsp:include page="../includes/left_nav.jsp" />
-        <jsp:include page="../includes/left_calendar.jsp" />
-        </TD>
+<!-- Top ends -->
+
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+    <tr valign="top">
+
+<!-- Left Column begins -->
+        <td width="170" bgcolor="#001934">
+            <jsp:include page="../includes/left_nav.jsp" />
+            <jsp:include page="../includes/left_calendar.jsp" />
+        </td>
+<!-- Left Column begins -->
         
-        
-        <TD VALIGN="top" BACKGROUND="/i/bluegradiant_bg.gif" BGCOLOR="#FFFFFF">
-            <TABLE CELLSPACING="0" CELLPADDING="0" BORDER="0" WIDTH="100%">
-    <TR>
-        <TD>
-            <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="" WIDTH="100%">
-             <TR><TD ALIGN="left" HEIGHT="44" WIDTH="348"><IMG SRC="/i/headinginside_faq.gif" WIDTH="348" HEIGHT="44" BORDER="0"></TD>
-             <TD BACKGROUND="/i/headinginside_1pix_bg.gif" ALIGN="left" HEIGHT="44" WIDTH="4096">&nbsp;
-             </TD></TR>
-            </TABLE>
-        </TD>
-    </TR>
-    <TR>
-        <TD>
-        <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-        <TR>
-            <TD>
-                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-                <TR>
-                    <TD WIDTH="10"><IMG SRC="/i/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                </TR>
-                </TABLE>
-            </TD>
-            <TD HEIGHT="100%" CLASS="bodyText">
-            <!--Body starts here-->
-<BR><BR><B>New ratings are calculated as follows:</B><BR><BR>
+<!-- Center Column begins -->
+        <td valign="top" background="/i/bluegradiant_bg.gif" bgcolor="#FFFFFF" width="99%">
+            <table cellspacing="0" cellpadding="10" border="0" width="100%">
+                <tr><td width="100%" bgcolor="#001934"><img src="/i/headinginside_faq.gif" width="348" height="44" alt="Support" border="0"></td></tr>
+                
+                <tr valign="top">
+                    <td width="100%" class="bodyText">
+                        <h2>How Ratings Work (continued)</h2><a name="top"></a>
+                        
+                        <b>New ratings are calculated as follows:</b><br><br>
                 After each competition, each coder who attended the competition is re-rated according
                 the following algorithm.  Keep in mind that only coders who shared the same problem set are rated against one another.  The average rating of everyone in the competition is calculated:
-                <BR><BR><IMG BORDER="0" ALIGN="center" SRC="/i/rating/avg.gif" WIDTH="167" HEIGHT="58" ALT="average rating"><BR><BR>
+                <br><br><img border="0" align="center" src="/i/rating/avg.gif" width="167" height="58" alt="average rating"><br><br>
                 Where NumCoders is the number of coders in the competition and Rating is the
                 rating without the volatility of the coder in the competition before the competition.
-                <BR><BR><B>The competition factor is calculated:</B><BR><BR><IMG BORDER="0" ALIGN="center" SRC="/i/rating/cf.gif" WIDTH="356" HEIGHT="62" ALT="competition factor"><BR><BR>
+                <br><br><b>The competition factor is calculated:</b><br><br><img border="0" align="center" src="/i/rating/cf.gif" width="356" height="62" alt="competition factor"><br><br>
                 Where Volatility is the volatility of the coder in the competition before the competition.
-                <BR><BR><B>The skill of the coder is calculated:</B><BR><BR><IMG BORDER="0" ALIGN="center" SRC="/i/rating/skill.gif" WIDTH="138" HEIGHT="34" ALT="skill"><BR><BR>
+                <br><br><b>The skill of the coder is calculated:</b><br><br><img border="0" align="center" src="/i/rating/skill.gif" width="138" height="34" alt="skill"><br><br>
                 Where Rating is the coder's rating before the competition.
-                <BR><BR><B>The deviation of the coder is calculated:</B><BR><BR><IMG BORDER="0" ALIGN="center" SRC="/i/rating/dev.gif" WIDTH="141" HEIGHT="34" ALT="deviation"><BR><BR>
+                <br><br><b>The deviation of the coder is calculated:</b><br><br><img border="0" align="center" src="/i/rating/dev.gif" width="141" height="34" alt="deviation"><br><br>
                 Where Volatility is the volatility of the coder before the competition.
-                <BR><BR>
+                <br><br>
                 The probability of the coder getting a higher score than another coder in the
                 competition (WPi for i from 1 to NumCoders) is estimated.  See below for the 'Estimation Algorithm'.
                 The expected rank of the coder is calculated:
-                <BR><BR><IMG BORDER="0" ALIGN="center" SRC="/i/rating/er.gif" WIDTH="118" HEIGHT="39" ALT="expected rank"><BR><BR><B>The expected performance of the coder is calculated:</B><BR><BR><IMG BORDER="0" ALIGN="center" SRC="/i/rating/ep.gif" WIDTH="170" HEIGHT="34" ALT="expected performance"><BR><BR>
-                Where <IMG BORDER="0" SRC="/i/rating/phi.gif" WIDTH="11" HEIGHT="11" ALT="inverse standard normal">
+                <br><br><img border="0" align="center" src="/i/rating/er.gif" width="118" height="39" alt="expected rank"><br><br><b>The expected performance of the coder is calculated:</b><br><br><img border="0" align="center" src="/i/rating/ep.gif" width="170" height="34" alt="expected performance"><br><br>
+                Where <img border="0" src="/i/rating/phi.gif" width="11" height="11" alt="inverse standard normal">
                 is the inverse of the standard normal function.
-                <BR><BR><B>The actual performance of each coder is calculated:</B><BR><BR><IMG BORDER="0" ALIGN="center" SRC="/i/rating/ap.gif" WIDTH="170" HEIGHT="34" ALT="expected performance"><BR><BR>
+                <br><br><b>The actual performance of each coder is calculated:</b><br><br><img border="0" align="center" src="/i/rating/ap.gif" width="170" height="34" alt="expected performance"><br><br>
                 Where ARank is the actual rank of the coder in the competition based on score
                 (1 for first place, NumCoders forlast).  If the coder tied with another coder,
                 the rank is the average of the positions covered by the tied coders.
-                <BR><BR><B>The performed as rating of the coder is calculated:</B><BR><BR><IMG BORDER="0" ALIGN="center" SRC="/i/rating/pa.gif" WIDTH="286" HEIGHT="14" ALT="performed as"><BR><BR><B>The weight of the competition for the coder is calculated:</B><BR><BR><IMG BORDER="0" ALIGN="center" SRC="/i/rating/wt.gif" WIDTH="223" HEIGHT="37" ALT="weight of the competition"><BR><BR>
+                <br><br><b>The performed as rating of the coder is calculated:</b><br><br><img border="0" align="center" src="/i/rating/pa.gif" width="286" height="14" alt="performed as"><br><br><b>The weight of the competition for the coder is calculated:</b><br><br><img border="0" align="center" src="/i/rating/wt.gif" width="223" height="37" alt="weight of the competition"><br><br>
                 Where TimesPlayed is the number of times the coder has been rated before.
-                <BR><BR>
+                <br><br>
                 To stabilize the higher rated members, the Weight of members whose rating is
                 between 2000 and 2500 is decreased 10% and the Weight of members whose rating
                 is over 2500 is decreased 20%.
-                <BR><BR><B>A cap is calculated:</B><BR><BR><IMG BORDER="0" ALIGN="center" SRC="/i/rating/cap.gif" WIDTH="186" HEIGHT="37" ALT="cap"><BR><BR><B>The new volatility of the coder is calculated:</B><BR><BR><IMG BORDER="0" ALIGN="center" SRC="/i/rating/nv.gif" WIDTH="421" HEIGHT="46" ALT="new volatility"><BR><BR><B>The new rating of the coder is calculated:</B><BR><BR><IMG BORDER="0" ALIGN="center" SRC="/i/rating/nr.gif" WIDTH="253" HEIGHT="37" ALT="new rating"><BR><BR>
+                <br><br><b>A cap is calculated:</b><br><br><img border="0" align="center" src="/i/rating/cap.gif" width="186" height="37" alt="cap"><br><br><b>The new volatility of the coder is calculated:</b><br><br><img border="0" align="center" src="/i/rating/nv.gif" width="421" height="46" alt="new volatility"><br><br><b>The new rating of the coder is calculated:</b><br><br><img border="0" align="center" src="/i/rating/nr.gif" width="253" height="37" alt="new rating"><br><br>
                 If |NewRating - Rating| &gt; Cap the NewRating is adjusted so it is at most Cap different than Rating.
-                <BR><BR><HR><BR><BR><B>Estimation Algorithm:</B><BR><BR>
+                <br><br><hr><br><br><b>Estimation Algorithm:</b><br><br>
 Estimating the probability a coder gets a higher score than another coder is done by looking at either coder's
 expected performance rating on a range of good to bad days.  Each coder's performance is modeled as a
 normal distribution with a mean (the rating) and standard deviation (the volatility).  Using this model, a coder's
@@ -81,73 +76,63 @@ performance and 25% represents better three days out of four, etc.  Then, to est
 coder beats coder i, the range from 0% to 100% is broken into 1% blocks, and the midpoint is taken of each
 block and the corresponding performance is computed.  The win probability is the number of blocks where the
 midpoint favors coder i.  If it's a tie, the block is split between both coders.
-                <BR><BR>
+                <br><br>
 Here is the psuedo-code function to estimate the probability of coder A beating coder B
-(<SPAN STYLE="font-family:Symbol;">f</SPAN> is the inverse of the
+(<span style="font-family:Symbol;">f</span> is the inverse of the
 standard normal function):
-                <BR><BR>
+                <br><br>
 WinProbability( SkillA, DeviationA, SkillB, DeviationB)
-                <BR>
+                <br>
          Set count, a, b to 0.
-                <BR>
+                <br>
          Set fa = SkillA + f((a + .5)/100)*DeviationA
-                <BR>
+                <br>
          Set fb = SkillB + f((b + .5)/100)*DeviationB
-                <BR>
+                <br>
          While (a&lt;100)
-                <BR>
+                <br>
  &nbsp;&nbsp;        If fa&lt;fb:
-                <BR>
+                <br>
  &nbsp;&nbsp;&nbsp;&nbsp;         Add 100-b to count
-                <BR>
+                <br>
   &nbsp;&nbsp;&nbsp;&nbsp;        Increment a
-                <BR>
+                <br>
 &nbsp;&nbsp;&nbsp;&nbsp; Set fa = SkillA + f((a + .5)/100)*DeviationA
-                <BR>
+                <br>
 &nbsp;&nbsp;         If fa == fb:
-                <BR>
+                <br>
 &nbsp;&nbsp;&nbsp;&nbsp;          Add 100-b-.5 to count
-                <BR>
+                <br>
 &nbsp;&nbsp;&nbsp;&nbsp;          Increment a
-                <BR>
+                <br>
 &nbsp;&nbsp;&nbsp;&nbsp;          Increment b
-                <BR>
+                <br>
 &nbsp;&nbsp;&nbsp;&nbsp;         Set fa = SkillA + f((a + .5)/100)*DeviationA
-                <BR>
+                <br>
 &nbsp;&nbsp;&nbsp;&nbsp;         Set fb = SkillB + f((b + .5)/100)*DeviationB
-                <BR>
+                <br>
 &nbsp;&nbsp;         If fa&gt;fb:
-                <BR>
+                <br>
 &nbsp;&nbsp;&nbsp;&nbsp;            Increment b
-                <BR>
+                <br>
 &nbsp;&nbsp;&nbsp;&nbsp;            Set fb = SkillB + f((b + .5)/100)*DeviationB
-                <BR>
+                <br>
             Return count  (count is the win probability)
-                <BR><P><BR></P>
-              <!--Body Ends Here-->
-            </TD>
-             <TD>
-                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-                 <TR>
-                    <TD WIDTH="10"><IMG SRC="/i/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                 </TR>
-                </TABLE>
-            </TD>
-           </TR>
-          </TABLE>
-         </TD>
-        </TR>
-
-       </TABLE>
-        </TD>
+	                <p><br></p>
+	                
+                    </td>
+                </tr>
+            </table>
+        </td>
         
         
-        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">
+        <td width="" bgcolor="#001934" valign="top">
+            <jsp:include page="../includes/right_resources.jsp" />
+        </td>
+    </tr>
+</table>
 
-<jsp:include page="../includes/right_resources.jsp" /></TD>
-	</TR>
-</TABLE>
-</TD></TR></TABLE>
 <jsp:include page="../includes/foot.jsp" />
-</BODY>
-</HTML>
+
+</body>
+</html>
