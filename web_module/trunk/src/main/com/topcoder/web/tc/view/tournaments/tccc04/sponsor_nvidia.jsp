@@ -42,7 +42,7 @@
                 </tr>
                 
                 <tr valign="top">
-                    <td class="bodyText" align="left" width="232.5">
+                    <td class="bodyText" align="left" width="100%">
                        <p>At NVIDIA we're continually looking for the elite few who will shape the future of the software 
                         industry&#133;  those who play hard, work smart, and always strive to win.  The visual computing industry is ultra-competitive and the stakes are high&#133;
                         to remain a market leader we hire only the brightest and most innovative engineering talent.  As a TopCoder member, you've distinguished yourself 
