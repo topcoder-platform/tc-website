@@ -47,8 +47,10 @@
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15"><B>Last Name</B></TD>
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15"><B>&#160;</B></TD>		
 	</TR>
-	<TD COLSPAN=4> <%=rsc.toString()%>
-	<tc-webtag:iterator id="resultRow" collection="<%=rsc%>">
+	<%-- testing code --%>
+	<TD COLSPAN=4> number of user's found: <%=rsc.size()%> </TD>
+
+	<tc-webtag:iterator list="<%=rsc%>" id="resultRow" >
 	  <TR>
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC">&#160;
 			<tc-webtag:item row="<%=resultRow%>" name="user_id"/></TD>
