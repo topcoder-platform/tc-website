@@ -19,7 +19,7 @@
 
                     <td  width="99%" class="bodyText"  valign="top">
                         <p><a href="/?&amp;t=features&amp;c=feat_040104" class="bodyText"><font size="4"><strong>Dynamic Programming</strong></font></a><br />
-                        Thursday, April 1, 2003</p>
+                        Thursday, April 1, 2004</p>
 
                         <p>
 If you were to survey the reds, you would probably find that 9 out of 10 of them recommend the 
