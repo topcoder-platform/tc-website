@@ -124,30 +124,35 @@ public class MainServlet extends HttpServlet {
             Class procClass = Class.forName(className);
             Resource r = new ClassResource(procClass);
 
-            if (!author.hasPermission(r)) {
-                if (authen.getActiveUser().isAnonymous()) {
-                    request.setAttribute("message", "In order to continue, you must provide your user name " +
-                            "and password, even if you’ve logged in already.");
-                    log.debug("login nextpage will be: " + HttpUtils.getRequestURL(request) + "?" + request.getQueryString());
-                    request.setAttribute(Login.KEY_DESTINATION_PAGE, HttpUtils.getRequestURL(request) + "?" + request.getQueryString());
-                    Login l = new Login();
-                    l.setRequest(request);
-                    l.setAuthentication(authen);
-                    l.process();
-                    boolean forward = l.isNextPageInContext();
-                    String destination = l.getNextPage();
-                    sendToPage(request, response, destination, forward);
-                    return;
-                } else {
-                    throw new PermissionDeniedException(authen.getActiveUser(), r);
+            RequestProcessor rp = null;
+            try {
+                if (!author.hasPermission(r)) {
+                    if (authen.getActiveUser().isAnonymous()) {
+                        throw new AnonymousUserException("Must log in to access this resource.");
+                    } else {
+                        throw new PermissionDeniedException(authen.getActiveUser(), r);
+                    }
                 }
+
+                rp = (RequestProcessor) procClass.newInstance();
+
+                rp.setRequest(request);
+                rp.setAuthentication(authen);
+                rp.process();
+            } catch (AnonymousUserException e) {
+                request.setAttribute("message", "In order to continue, you must provide your user name " +
+                        "and password, even if you’ve logged in already.");
+                log.debug("login nextpage will be: " + HttpUtils.getRequestURL(request) + "?" + request.getQueryString());
+                request.setAttribute(Login.KEY_DESTINATION_PAGE, HttpUtils.getRequestURL(request) + "?" + request.getQueryString());
+                Login l = new Login();
+                l.setRequest(request);
+                l.setAuthentication(authen);
+                l.process();
+                boolean forward = l.isNextPageInContext();
+                String destination = l.getNextPage();
+                sendToPage(request, response, destination, forward);
+                return;
             }
-
-            RequestProcessor rp = (RequestProcessor) procClass.newInstance();
-
-            rp.setRequest(request);
-            rp.setAuthentication(authen);
-            rp.process();
             String wherenow = rp.getNextPage();
             boolean forward = rp.isNextPageInContext();
 
