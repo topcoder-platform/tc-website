@@ -19,6 +19,8 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
+import javax.rmi.PortableRemoteObject;
+
 import java.util.*;
 
 /**
