@@ -80,7 +80,7 @@
                       <a class="statTextBig" href="/?&amp;t=tournaments&amp;c=tco03_bracket&amp;sc=seed&amp;sdir=asc">Seed</a>
                   </td>
                   <td width = "28%" align = "left" class="advancers_header"><a class="statTextBig" href="/?&amp;t=tournaments&amp;c=tco03_bracket&amp;sc=handle&amp;sdir=asc">Handle</a></td>
-                  <td width = "28%" align = "right" class="advancers_header"><a class="statTextBig" href="/?&amp;t=tournaments&amp;c=tco03_bracket&amp;sc=rating&amp;sdir=asc">Rating</a></td>
+                  <td width = "28%" align = "right" class="advancers_header"><a class="statTextBig" href="/?&amp;t=tournaments&amp;c=tco03_bracket&amp;sc=rating&amp;sdir=desc">Rating</a></td>
                   <td width = "12%" align = "center" class="advancers_header"><a class="statTextBig" href="/?&amp;t=tournaments&amp;c=tco03_bracket&amp;sc=round1&amp;sdir=asc">Round 1</a></td>
                   <td width = "12%" align = "center" class="advancers_header"><a class="statTextBig" href="/?&amp;t=tournaments&amp;c=tco03_bracket&amp;sc=round2&amp;sdir=asc">Round 2</a></td>
                   <td width = "12%" align = "center" class="advancers_header"><a class="statTextBig" href="/?&amp;t=tournaments&amp;c=tco03_bracket&amp;sc=round3&amp;sdir=asc">Round 3</a></td>
