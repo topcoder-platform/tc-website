@@ -60,7 +60,7 @@
 %>
 
 <h1>PACTS</h1>
-<h2>Add 
+<h2>Add
 <% if (payment_is_for_contract) out.print("Contract"); %>
 Payment</h2>
 
@@ -110,7 +110,7 @@ Payment</h2>
 			out.print(contract._id);
 			out.print("\">"+contract._name+"</a>\n");
 		}
-		else { 
+		else {
 			out.print("<b>User:</b></td>");
  			out.print("<td><a href=\"");
 			out.print(PactsConstants.INTERNAL_SERVLET_URL);
@@ -196,7 +196,7 @@ Payment</h2>
 
 <input type=submit>
 </form>
-<jsp:include page="/pacts/internal/InternalFooter.jsp" flush="true" />
+<jsp:include page="InternalFooter.jsp" flush="true" />
 </body>
 
 </html>

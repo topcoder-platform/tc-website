@@ -20,5 +20,6 @@
                 </table>
             </form>
         </center>
+        <jsp:include page="InternalFooter.jsp" flush="true" />
     </body>
 </html>

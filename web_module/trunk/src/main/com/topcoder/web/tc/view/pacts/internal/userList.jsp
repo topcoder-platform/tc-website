@@ -43,11 +43,11 @@
 			out.print(PactsConstants.USER_ID+"=");
 			out.print(userList[n]._id);
 			out.print("\">"+userList[n]._handle+"</a></td>\n");
-			
+
 			out.print("<td>" + userList[n]._last + "</td>");
 			out.print("<td>" + userList[n]._first + "</td>");
 			out.print("<td>" + userList[n]._middle + "</td>");
-			
+
 			out.print("</tr>\n");
 		}
 	}
@@ -55,7 +55,7 @@
 
 </table>
 
-<jsp:include page="/pacts/internal/InternalFooter.jsp" flush="true" />
+<jsp:include page="InternalFooter.jsp" flush="true" />
 </body>
 
 </html>

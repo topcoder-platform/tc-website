@@ -123,7 +123,7 @@
 %>
 <p>
 
-<% 
+<%
    out.println("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
    out.print(PactsConstants.TASK_STRING+"="+PactsConstants.LIST_TASK+"&");
    out.println(PactsConstants.CMD_STRING+"="+PactsConstants.PAYMENT_CMD+"&");
@@ -147,7 +147,7 @@
    out.println(PactsConstants.CMD_STRING+"="+PactsConstants.USER_TAX_FORM_CMD+"&");
    out.println(PactsConstants.USER_ID+"="+user._header._id);
    out.println("\">Search for User's Tax Forms</a><br>");
-   
+
    out.println("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
    out.print(PactsConstants.TASK_STRING+"="+PactsConstants.LIST_TASK+"&");
    out.println(PactsConstants.CMD_STRING+"="+PactsConstants.NOTE_CMD+"&");
@@ -190,7 +190,7 @@
 %>
 
 
-<jsp:include page="/pacts/internal/InternalFooter.jsp" flush="true" />
+<jsp:include page="InternalFooter.jsp" flush="true" />
 
 </body>
 

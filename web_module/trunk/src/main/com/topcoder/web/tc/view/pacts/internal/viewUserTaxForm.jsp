@@ -98,7 +98,7 @@
     }
 %>
 <p>
-<% 
+<%
    out.println("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
    out.print(PactsConstants.TASK_STRING+"="+PactsConstants.VIEW_TASK+"&");
    out.println(PactsConstants.CMD_STRING+"="+PactsConstants.TEXT_CMD+"&");
@@ -123,7 +123,7 @@
 %>
 
 
-<jsp:include page="/pacts/internal/InternalFooter.jsp" flush="true" />
+<jsp:include page="InternalFooter.jsp" flush="true" />
 
 </body>
 
