@@ -790,7 +790,7 @@
         </init-param>
 
         <init-param>
-            <param-name>position_list_page</param-name>
+            <param-name>campaign_positions_page</param-name>
             <param-value>/testing/results/positionList.jsp</param-value>
             <description>the URL for the JSP page to be used to display the company campaign's position list</description>
         </init-param>
@@ -801,6 +801,23 @@
             <description>the url parameter that contains the ID of a requested campaign</description>
         </init-param>
 
+        <init-param>
+            <param-name>campaign_info</param-name>
+            <param-value>campaignInfo</param-value>
+            <description>the name of the query to be used to get the details for specified campaign</description>
+        </init-param>
+
+        <init-param>
+            <param-name>campaign_positions_list</param-name>
+            <param-value>campaignPositionsList</param-value>
+            <description>the name of a query to be used to get the campaign positions list</description>
+        </init-param>
+
+        <init-param>
+            <param-name>job_position_id</param-name>
+            <param-value>positionId</param-value>
+            <description>the url parameter that contains the ID of a requested position associated with ampaign</description>
+        </init-param>
         <!-- Parameters used by Candidate -->
         <init-param>
             <param-name>candidate_info</param-name>
