@@ -42,7 +42,7 @@ import com.topcoder.dde.forum.DDEForum;
 import com.topcoder.dde.user.UserManagerRemoteHome;
 import com.topcoder.dde.user.UserManagerRemote;
 import com.topcoder.dde.user.PricingTier;
- 
+
 import javax.rmi.PortableRemoteObject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -51,6 +51,7 @@ import javax.naming.Context;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Map;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.text.DateFormat;
@@ -77,14 +78,14 @@ public final class TaskDevelopment {
            char c = phoneNumber.charAt(i);
            if(Character.isDigit(c)){
               phoneFormatted.append(c);
-           } 
+           }
         }
         String phone = phoneFormatted.toString();
         String[] phoneElements = new String[3];
         int[] limits = {10, 7, 0};
         for (int i = 0; i < 3; i++) {
             int limit = limits[i];
-                        
+
             String s;
             int length = phone.length();
             if (length > limit) {
@@ -103,8 +104,8 @@ public final class TaskDevelopment {
     {
         while(formatName.indexOf(" ") != -1)
         {
-            formatName = formatName.substring(0, formatName.indexOf(" ")  ) + "%20" + 
-                         formatName.substring(formatName.indexOf(" ") + 1); 
+            formatName = formatName.substring(0, formatName.indexOf(" ")  ) + "%20" +
+                         formatName.substring(formatName.indexOf(" ") + 1);
         }
         return formatName;
     }
@@ -123,28 +124,28 @@ public final class TaskDevelopment {
             devTag.addTag(new ValueTag("comp", comp));
             String date = Conversion.checkNull(request.getParameter("date"));
             String payment = Conversion.checkNull(request.getParameter("payment"));
-            
+
             String xsldocURLString = null;
             String project = Conversion.checkNull(request.getParameter("Project"));
             if(!payment.equals(""))
             {
                 NumberFormat format = NumberFormat.getCurrencyInstance();
-                
+
                 double paymentAmt = Double.parseDouble(payment);
                 devTag.addTag(new ValueTag("payment", format.format(paymentAmt)));
                 log.debug(format.format(paymentAmt*.75));
                 devTag.addTag(new ValueTag("first_payment", format.format(paymentAmt*.75)));
                 devTag.addTag(new ValueTag("second_payment", format.format(paymentAmt*.25)));
-                
+
             }
             else{
                 devTag.addTag(new ValueTag("payment", payment));
             }
             if(!date.equals(""))
             {
-                
+
                 Calendar cal = Calendar.getInstance();
-                
+
                 SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                 Date initialDate = df.parse(date);
                 devTag.addTag(new ValueTag("date", df.format(initialDate)));
@@ -153,25 +154,25 @@ public final class TaskDevelopment {
                 devTag.addTag(new ValueTag("day", cal.get(Calendar.DATE)));
                 devTag.addTag(new ValueTag("year", cal.get(Calendar.YEAR)));
                 cal.add(Calendar.DATE, 8);
-                devTag.addTag(new ValueTag("DesWinner", df.format(cal.getTime())));    
+                devTag.addTag(new ValueTag("DesWinner", df.format(cal.getTime())));
                 cal.add(Calendar.DATE, 4);
-                devTag.addTag(new ValueTag("DesFinal", df.format(cal.getTime())));    
+                devTag.addTag(new ValueTag("DesFinal", df.format(cal.getTime())));
                 cal.add(Calendar.DATE, 37);
-                devTag.addTag(new ValueTag("DesDevFinal", df.format(cal.getTime())));    
+                devTag.addTag(new ValueTag("DesDevFinal", df.format(cal.getTime())));
 
 
                 cal.setTime(initialDate);
                 cal.add(Calendar.DATE, 13);
-                devTag.addTag(new ValueTag("DevWinner", df.format(cal.getTime())));    
+                devTag.addTag(new ValueTag("DevWinner", df.format(cal.getTime())));
                 cal.add(Calendar.DATE, 5);
-                devTag.addTag(new ValueTag("DevFinal", df.format(cal.getTime())));    
+                devTag.addTag(new ValueTag("DevFinal", df.format(cal.getTime())));
 
 
             }
             else{
                 devTag.addTag(new ValueTag("date", date));
             }
-        
+
 
             if (command.equals("inquire")) {
                 if (nav.getLoggedIn()) {
@@ -203,7 +204,7 @@ public final class TaskDevelopment {
                RecordTag designProjectsTag = new RecordTag("design_projects");
                Collection colComponents = getCatalog().getComponentsByStatus(ComponentInfo.APPROVED);
                ComponentSummary summaries[] = (ComponentSummary[])colComponents.toArray(new ComponentSummary[0]);
-               
+
                for(int k = 0; k < summaries.length; k++){
                     long lngComponent = summaries[k].getComponentId();
                     ComponentManager componentManager = getComponentManager(lngComponent);
@@ -215,7 +216,7 @@ public final class TaskDevelopment {
                     long phaseId = -1L;
                     for(int i=0;i<versions.length;i++)
                     {
-                        if(versions[i].getVersion() > versionId && ((versions[i].getPhase() == ComponentVersionInfo.SPECIFICATION) || 
+                        if(versions[i].getVersion() > versionId && ((versions[i].getPhase() == ComponentVersionInfo.SPECIFICATION) ||
                                 (versions[i].getPhase() == ComponentVersionInfo.DEVELOPMENT)))
                         {
                             versionId = versions[i].getVersion();
@@ -223,26 +224,26 @@ public final class TaskDevelopment {
                         }
                     }
 
-                    
-                    
+
+
                     if(phaseId == ComponentVersionInfo.SPECIFICATION)
                     {
                         componentManager = getComponentManager(lngComponent, versionId);
                         ComponentInfo compInfo = componentManager.getComponentInfo();
-                        RecordTag designProject = new RecordTag("designproject");         
+                        RecordTag designProject = new RecordTag("designproject");
                         ValueTag projectTag = new ValueTag("payment", "343");
                         ValueTag nameTag = new ValueTag("componentName", compInfo.getName());
                         ValueTag componentId = new ValueTag("componentId", compInfo.getId());
-    
+
                         designProject.addTag(projectTag);
                         designProject.addTag(nameTag);
                         designProjectsTag.addTag(designProject);
                     }
                     else if (phaseId == ComponentVersionInfo.DEVELOPMENT){
                     }
-               }  
+               }
   */
-  
+
 //               DataAccessInt dai = null;
 //               DataAccessInt transDai = null;
                Request dataRequest = null;
@@ -258,7 +259,7 @@ public final class TaskDevelopment {
                resultMap = dai.getData(dataRequest);
                rsc = (ResultSetContainer) resultMap.get("Top_Scorers");
 
-               devTag.addTag(rsc.getTag("projects", "project")); 
+               devTag.addTag(rsc.getTag("projects", "project"));
                xsldocURLString = XSL_DIR + command + ".xsl";
 
             }
@@ -270,22 +271,22 @@ public final class TaskDevelopment {
 
                     ComponentManager componentManager  = getComponentManager(componentId);
                     ComponentInfo componentInfo  = componentManager.getComponentInfo();
-                    
+
                     devTag.addTag(new ValueTag("componentName", componentInfo.getName()));
                     devTag.addTag(new ValueTag("formattedName", formatName("This is a test")));
                     devTag.addTag(new ValueTag("overview", componentInfo.getDescription()));
 
                     try {
-    
-                        
+
+
                         Collection colVersions = componentManager.getAllVersionInfo();
                         ComponentVersionInfo versions[] = (ComponentVersionInfo[])colVersions.toArray(new ComponentVersionInfo[0]);
-   
+
                         long versionId = 0L;
                         long phaseId = 0L;
                         for(int i=0;i<versions.length;i++)
                         {
-                            if(versions[i].getVersion() > versionId && ((versions[i].getPhase() == ComponentVersionInfo.SPECIFICATION) || 
+                            if(versions[i].getVersion() > versionId && ((versions[i].getPhase() == ComponentVersionInfo.SPECIFICATION) ||
                                     (versions[i].getPhase() == ComponentVersionInfo.DEVELOPMENT)))
                             {
                                 versionId = versions[i].getVersion();
@@ -296,7 +297,7 @@ public final class TaskDevelopment {
                         java.util.Collection colTempDocuments = componentManager.getDocuments();
 
                         java.util.Iterator itr = colTempDocuments.iterator();
-                        Document requirementsDoc = null; 
+                        Document requirementsDoc = null;
                         while( itr.hasNext() && requirementsDoc == null) {
                             Document doc = (Document) itr.next();
                             if(doc.getType() == 0)
@@ -313,10 +314,10 @@ public final class TaskDevelopment {
                         devTag.addTag(new ValueTag("version", versionId));
                     } catch (CatalogException e) {
                         System.out.println(e.getMessage());
-        
+
                     } catch (Exception e) {
                         System.out.println("here:" + e.getMessage());
-                    }        
+                    }
 
                     xsldocURLString = XSL_DIR + command + ".xsl";
                 }
@@ -365,7 +366,7 @@ public final class TaskDevelopment {
             }
             /********************** tcs_send *******************/
             else if (command.equals("tcs_send")) {
-                
+
                 if (nav.getLoggedIn()) {
                     String version = Conversion.checkNull(request.getParameter("version"));
                     String phase = Conversion.checkNull(request.getParameter("phase"));
@@ -416,7 +417,7 @@ public final class TaskDevelopment {
 
 
                     //get forum object
-                    DDEForumHome ddeforumhome = (DDEForumHome) PortableRemoteObject.narrow(CONTEXT.lookup("dde/DDEForum"), DDEForumHome.class);  
+                    DDEForumHome ddeforumhome = (DDEForumHome) PortableRemoteObject.narrow(CONTEXT.lookup("dde/DDEForum"), DDEForumHome.class);
                     DDEForum ddeforum = ddeforumhome.create();
 
                     //retrieve the coder registration information
@@ -424,11 +425,11 @@ public final class TaskDevelopment {
                     User user = nav.getUser();
                     CoderRegistration coder = (CoderRegistration) user.getUserTypeDetails().get("Coder");
                     int rating = coder.getRating().getRating();
-                    
+
 
                     log.debug("creating user");
-                    Object objUserManager = CONTEXT.lookup("dde/UserManager");        
-  	            UserManagerRemoteHome userManagerHome = (UserManagerRemoteHome)  PortableRemoteObject.narrow(objUserManager, UserManagerRemoteHome.class); 
+                    Object objUserManager = CONTEXT.lookup("dde/UserManager");
+  	            UserManagerRemoteHome userManagerHome = (UserManagerRemoteHome)  PortableRemoteObject.narrow(objUserManager, UserManagerRemoteHome.class);
   	            UserManagerRemote USER_MANAGER = userManagerHome.create();
 
                     try {
@@ -438,8 +439,8 @@ public final class TaskDevelopment {
                     }
                     catch (NoSuchUserException noSuchUserException)
 	            {
-                        RegistrationInfo registration = new RegistrationInfo();                        
-                         
+                        RegistrationInfo registration = new RegistrationInfo();
+
                         registration.setUsername(handle);
                         registration.setPassword(user.getPassword());
                         registration.setEmail(from);
@@ -448,11 +449,11 @@ public final class TaskDevelopment {
 
                         String address = coder.getHomeAddress1();
                         if(coder.getHomeAddress2() != null)
-                        { 
+                        {
                           address = address + " " + coder.getHomeAddress2();
-                        } 
+                        }
                         registration.setAddress(address.trim());
-                        
+
                         registration.setCity(coder.getHomeCity());
                         registration.setPostalcode(coder.getHomeZip());
                         String[] phoneParts = setFields(coder.getHomePhone());
@@ -469,7 +470,7 @@ public final class TaskDevelopment {
 
                         Context ctx = TCContext.getInitial();
                         DataAccessInt dai = new DataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
-                      
+
                         String companyName = "";
                         //coder is a professional
                         if(coder.getCoderType().getCoderTypeId() == 2)
@@ -477,12 +478,12 @@ public final class TaskDevelopment {
 
                            Request companyRequest = new Request(); companyRequest.setContentHandle("user_company_name");
                            companyRequest.setProperty("cr", "" + nav.getUserId());
-                           java.util.Map companyMap = dai.getData(companyRequest); 
+                           java.util.Map companyMap = dai.getData(companyRequest);
                            ResultSetContainer companyRsc = (ResultSetContainer)companyMap.get("user_company_name");
-                           
+
                            if (companyRsc.size() == 1) {
 
-                              companyName = (String)companyRsc.getItem(0, "company_name").getResultData(); 
+                              companyName = (String)companyRsc.getItem(0, "company_name").getResultData();
                            }
                         }
                         else //coder is a student
@@ -493,7 +494,7 @@ public final class TaskDevelopment {
                             java.util.Map schoolMap = dai.getData(schoolRequest);
                             ResultSetContainer schoolRsc = (ResultSetContainer)schoolMap.get("user_school_name");
                             if (schoolRsc.size() == 1) {
-                               companyName = (String)schoolRsc.getItem(0, "school_name").getResultData(); 
+                               companyName = (String)schoolRsc.getItem(0, "school_name").getResultData();
                                //this cat doesn't have a company associated...
                             }
 
@@ -507,23 +508,23 @@ public final class TaskDevelopment {
                         com.topcoder.dde.user.User tcsUser = USER_MANAGER.register(registration, false);
                         userId = tcsUser.getId();
                         log.debug("Registered user");
-                        tcsUser.setStatus(com.topcoder.dde.user.UserStatus.ACTIVE); 
+                        tcsUser.setStatus(com.topcoder.dde.user.UserStatus.ACTIVE);
                         log.debug("Updating user");
                         USER_MANAGER.updateUser(tcsUser);
                         log.debug("Updated user");
-                        
+
 
                     }
                     catch (Exception e) {
                         throw e;
-                        
+
                     }
 
                     long componentId = Long.parseLong(request.getParameter("comp"));
 
 
                     //add the user to the appropriate role to view the specification
-                    java.util.HashSet rolesSet = (java.util.HashSet)PRINCIPAL_MANAGER.getRoles(null);  
+                    java.util.HashSet rolesSet = (java.util.HashSet)PRINCIPAL_MANAGER.getRoles(null);
                     RolePrincipal[] roles = (RolePrincipal[])rolesSet.toArray(new RolePrincipal[0]);
                     //String formattedProject = project.substring(0, project.lastIndexOf(' ')-1);
 
@@ -542,7 +543,7 @@ public final class TaskDevelopment {
                     //get catalog object
                     Object objTechTypes = CONTEXT.lookup("ComponentManagerEJB");
                     ComponentManagerHome home = (ComponentManagerHome) PortableRemoteObject.narrow(objTechTypes, ComponentManagerHome.class);
-                    
+
                     ComponentManager componentMgr = home.create(componentId);
                     com.topcoder.dde.catalog.Forum activeForum = componentMgr.getActiveForum(com.topcoder.dde.catalog.Forum.SPECIFICATION);
 
@@ -552,12 +553,12 @@ public final class TaskDevelopment {
                         if(roleName.startsWith("ForumUser"))
                         {
 
-        
+
                             if(activeForum != null)
                             {
-                                
+
                                    log.debug("Role: " + roleName);
-                                   log.debug("FormName:  FormUser " +activeForum.getId()); 
+                                   log.debug("FormName:  FormUser " +activeForum.getId());
                                    activeForumId= Long.toString(activeForum.getId());
                                    devTag.addTag(new ValueTag("forumId", activeForumId));
                                    if(roleName.equalsIgnoreCase("ForumUser " + activeForumId)){
@@ -565,8 +566,8 @@ public final class TaskDevelopment {
                                       notFound = false;
                                       RolePrincipal roleToAdd = roles[i];
                                       try{
-                                      
-                                          PRINCIPAL_MANAGER.assignRole(selectedPrincipal, roles[i], null); 
+
+                                          PRINCIPAL_MANAGER.assignRole(selectedPrincipal, roles[i], null);
                                           permissionAdded = true;
                                       }
                                       catch(com.topcoder.security.GeneralSecurityException gse)
@@ -575,7 +576,7 @@ public final class TaskDevelopment {
                                          log.error("GeneralSecurityException occurred! ", gse);
                                          msgText.append("GeneralSecurityException occurred! " + gse.getMessage());
                                          notFound = true;
-                                         
+
                                       }
                                    }
 
@@ -588,8 +589,8 @@ public final class TaskDevelopment {
                         i++;
                      }
                     }
-                    
-                   if(!permissionAdded && rating > 0) 
+
+                   if(!permissionAdded && rating > 0)
                    {
                       msgText.append("\n\nCould not find a match for the forum");
                       log.error("Could not find a match for the forum");
@@ -608,7 +609,7 @@ public final class TaskDevelopment {
                     if (rating <= 0)
                         xsldocURLString = XSL_DIR + "inquiry_sent_neg.xsl";
                     else{
-              
+
                         //log.debug("http://172.16.20.222:8080/pages/c_forum.jsp?f=" +activeForumId);
                         //response.sendRedirect("http://172.16.20.222:8080/pages/c_forum.jsp?f=" +activeForumId);
                         //log.debug("afterwards?");
@@ -678,7 +679,7 @@ public final class TaskDevelopment {
           log.error("Could not create component Manager: " + remoteException.getMessage());
        }
           return componentMgr;
-    }    
+    }
 
     static ComponentManager getComponentManager(long componentId, long version){
 
@@ -702,7 +703,7 @@ public final class TaskDevelopment {
           log.error("Could not create component Manager: " + remoteException.getMessage());
        }
           return componentMgr;
-    }    
+    }
 
     static Catalog getCatalog(){
 
@@ -712,7 +713,7 @@ public final class TaskDevelopment {
             Object objTechTypes = CONTEXT.lookup("CatalogEJB");
             CatalogHome home = (CatalogHome) PortableRemoteObject.narrow(objTechTypes, CatalogHome.class);
 	        catalog = home.create();
-            
+
        }
        catch(javax.naming.NamingException namingException)
        {
@@ -727,7 +728,7 @@ public final class TaskDevelopment {
           log.error("Could not create catalog: " + remoteException.getMessage());
        }
        return catalog;
-    }    
+    }
 
 
 }
