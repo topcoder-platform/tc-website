@@ -6,10 +6,10 @@ package com.topcoder.web.pacts.common;
 import java.util.*;
 import com.topcoder.web.common.*;
 import org.apache.log4j.*;
-   
+
 public class UserDemographics implements PactsConstants, java.io.Serializable {
-    private static Category log = 
-	Category.getInstance(UserDemographics.class.getName()); 
+    private static Category log =
+	Category.getInstance(UserDemographics.class.getName());
 
     public String[] answers;
     public String[] questions;
@@ -31,22 +31,22 @@ public class UserDemographics implements PactsConstants, java.io.Serializable {
      */
     public UserDemographics (Map results) {
 	ResultSetContainer rsc = (ResultSetContainer) results.get(USER_DEMOGRAPHICS);
-	
-	
+
+
 	// check if it was there
 	if(rsc == null) {
 	    log.error("The result map did not contain " + CONTRACT_HEADER_LIST );
 	    setDefaults();
 	    return;
 	}
-	
+
 	int numRows = rsc.getRowCount();
 	answers = new String[numRows];
 	questions = new String[numRows];
-	
+
 	for(int idx=0;idx<numRows;idx++) {
 	    // now fill up the data structure
-	    ResultSetContainer.ResultSetRow rRow = rsc.getRow(idx);	    
+	    ResultSetContainer.ResultSetRow rRow = rsc.getRow(idx);
 
 	    try {
 		  questions[idx] = TCData.getTCString(rRow,"demographic_question_text");
@@ -77,5 +77,6 @@ public class UserDemographics implements PactsConstants, java.io.Serializable {
           log.error("The result set '" + USER_CURRENT_SCHOOL + "' was empty!");
           ResultSetContainer.ResultSetRow rRow = rsc.getRow(0);
           _schoolName = TCData.getTCString(rRow,"school_name");
+      }
     }
 }
