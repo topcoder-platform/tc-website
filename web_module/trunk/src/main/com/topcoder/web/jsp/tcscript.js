@@ -111,67 +111,7 @@ function goTo(selection) {
   {
     window.location = "/stat?c=best_challengers";
   }
-  //sponsor
-  else if (sel == "general_charts")
-  {
-    window.location = "/index?t=about_tc&c=spons_demo_gen";
-  }
-  else if (sel == "professional_charts")
-  {
-    window.location = "/index?t=about_tc&c=spons_demo_prof";
-  }
-  else if (sel == "student_charts")
-  {
-    window.location = "/index?t=about_tc&c=spons_demo_stud";
-  }
-  else if (sel == "spons_srm_web")
-  {
-    window.location = "/index?t=about_tc&c=spons_srm_web";
-  }
-  else if (sel == "spons_srm_applet")
-  {
-    window.location = "/index?t=about_tc&c=spons_srm_applet";
-  }
-  else if (sel == "spons_srm_email")
-  {
-    window.location = "/index?t=about_tc&c=spons_srm_email";
-  }
-  else if (sel == "spons_tourny_web")
-  {
-    window.location = "/index?t=about_tc&c=spons_tourny_web";
-  }
-  else if (sel == "spons_tourny_applet")
-  {
-    window.location = "/index?t=about_tc&c=spons_tourny_applet";
-  }
-  else if (sel == "spons_tourny_email")
-  {
-    window.location = "/index?t=about_tc&c=spons_tourny_email";
-  }
-  else if (sel == "spons_tourny_marketing")
-  {
-    window.location = "/index?t=about_tc&c=spons_tourny_marketing";
-  }
-  else if (sel == "spons_tourny_onsite")
-  {
-    window.location = "/index?t=about_tc&c=spons_tourny_onsite";
-  }
-  else if (sel == "spons_tourny_pr")
-  {
-    window.location = "/index?t=about_tc&c=spons_tourny_pr";
-  }
-  else if (sel == "spons_report_gen")
-  {
-    window.location = "/index?t=about_tc&c=spons_report_gen";
-  }
-  else if (sel == "spons_report_stud")
-  {
-    window.location = "/index?t=about_tc&c=spons_report_stud";
-  }
-  else if (sel == "spons_report_prof")
-  {
-    window.location = "/index?t=about_tc&c=spons_report_prof";
-  }
+
 
   else {}
 }
