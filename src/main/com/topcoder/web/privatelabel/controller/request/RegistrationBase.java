@@ -19,8 +19,6 @@ import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 import javax.naming.InitialContext;
-import javax.rmi.PortableRemoteObject;
-import javax.sql.DataSource;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -29,7 +27,7 @@ import java.util.Map;
  * processors.
  * @author gpaul 06.26.2003
  */
-abstract class RegistrationBase extends BaseProcessor {
+public abstract class RegistrationBase extends BaseProcessor {
 
     protected String transDb;
     protected String db;
