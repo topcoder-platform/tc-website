@@ -36,14 +36,11 @@ public class MainServlet extends BaseServlet {
      */
     protected void handleLogin(HttpServletRequest request, HttpServletResponse response, SessionInfo info) throws Exception {
 
-        StringBuffer buf = new StringBuffer(200);
-        buf.append("http://");
-        buf.append(info.getServerName());
-        buf.append("/?t=authentication&c=login&errorMsg=");
-        buf.append("In order to continue, you must provide your user name and password.");
-
+        request.setAttribute(MESSAGE_KEY, "In order to continue, you must provide your user name and password.");
         request.setAttribute(NEXT_PAGE_KEY, info.getRequestString());
+        request.setAttribute("t", "authentication");
+        request.setAttribute("c", "login");
 
-        fetchRegularPage(request, response, buf.toString(), false);
+        fetchRegularPage(request, response, "http://"+info.getServerName(), true);
     }
 }
