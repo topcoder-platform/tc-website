@@ -30,10 +30,9 @@
         <!-- Gutter Ends -->
         <!-- Body Area -->
       <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/ev/clear.gif" width="400" height="1" vspace="5" border="0" /><BR>
-<FONT SIZE="3" COLOR="#666666"><B>Candidate List</B></FONT><BR/>                 
+<FONT SIZE="3" COLOR="#666666"><B>ERROR</B></FONT><BR/>                 
 <P>
-               Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-               ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
+Please try your request again.  If the error persists, please contact the administrator.
 </P><BR>       
 
  <TABLE BGCOLOR="#CCCCCC" CELLSPACING="0" CELLPADDING="0" BORDER="0" HEIGHT="69%" WIDTH="100%">

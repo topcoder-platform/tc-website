@@ -21,6 +21,13 @@ public abstract class BaseSessionProcessor extends BaseProcessor {
         return info;
     }
 
+    protected void clearSessionInfo() {
+        HttpServletRequest request = (HttpServletRequest)getRequest();
+        HttpSession session = request.getSession();
+        session.removeAttribute(Constants.SESSION_INFO);
+
+    }
+
     protected void updateSessionInfo() {
         SessionInfo info = getSessionInfo();
 

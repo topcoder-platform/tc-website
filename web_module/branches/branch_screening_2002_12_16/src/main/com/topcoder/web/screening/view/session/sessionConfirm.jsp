@@ -113,7 +113,7 @@ document.sessionConfirmForm.submit();
               <TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
            </TR>
            <TR>
-              <TD ALIGN="center"><A HREF="#" CLASS="bodyText">Cancel</A> | <A HREF="JavaScript:submitEdit()" CLASS="bodyText">Edit</A> | <A HREF="JavaScript:submitUpdate()" CLASS="bodyText">Submit</A></TD>
+              <TD ALIGN="center"><screen:servletlink processor="CancelSession" styleClass="bodyText">Cancel</screen:servletLink> | <A HREF="JavaScript:submitEdit()" CLASS="bodyText">Edit</A> | <A HREF="JavaScript:submitUpdate()" CLASS="bodyText">Submit</A></TD>
            </TR>                                                
          </TABLE>                
 </screen:form>         

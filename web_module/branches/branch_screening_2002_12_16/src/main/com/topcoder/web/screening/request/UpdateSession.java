@@ -29,6 +29,7 @@ public class UpdateSession extends BaseSessionProcessor {
     public void process() throws Exception {
         requireLogin();
         
+        updateSessionInfo(); // we need this just in case of session timeout
         SessionInfo info = getSessionInfo();
         InitialContext context = new InitialContext();
         SessionHome sHome = (SessionHome)
@@ -106,6 +107,7 @@ public class UpdateSession extends BaseSessionProcessor {
             throw e;
         }
         ut.commit();
+        clearSessionInfo();
 
         setNextPage(Constants.DEFAULT_PAGE);
         setNextPageInContext(false);
