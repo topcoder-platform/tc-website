@@ -2,14 +2,18 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 com.topcoder.shared.dataAccess.resultSet.TCTimestampResult,
+                 com.topcoder.web.common.BaseProcessor,
                  com.topcoder.web.tc.model.ReviewBoardApplication,
-                 java.util.List,
-                 com.topcoder.web.tc.Constants"%>
+                 com.topcoder.web.tc.Constants,
+                 java.sql.Timestamp,
+                 java.util.List"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
-<% ResultSetContainer projectDetail= (ResultSetContainer)request.getAttribute("projectDetail");%>
-<% List reviewerList= (List)request.getAttribute("reviewerList");%>
+<% ResultSetContainer projectDetail = (ResultSetContainer) request.getAttribute("projectDetail"); %>
+<% List reviewerList = (List) request.getAttribute("reviewerList"); %>
+<% boolean isWaiting = ((Boolean) request.getAttribute("waitingToReview")).booleanValue(); %>
 <head>
 <title>Open Component Projects Available for Review</title>
 
@@ -140,14 +144,18 @@
                 <tc:listIterator id="reviewer" list="<%=reviewerList%>">
                     <tr>
                         <td class="projectCells">
-                            <% if (((ReviewBoardApplication)reviewer).isPrimary()) { %>
+                            <% if (((ReviewBoardApplication) reviewer).isPrimary()) { %>
                               Primary
                             <% } %>
                             <tc:beanWrite name="reviewer" property="reviewerType"/>
                         </td>
                         <td class="projectCells" align="center" nowrap>
-                            <% if (((ReviewBoardApplication)reviewer).isSpotFilled()) { %>
+                            <% if (((TCTimestampResult) projectDetail.getItem(0, "opens_on")).compareTo(new TCTimestampResult(new Timestamp(System.currentTimeMillis()))) == 1) { %>
+                                <i>Not open yet ***</i>
+                            <% } else if (((ReviewBoardApplication) reviewer).isSpotFilled()) { %>
                                 <tc:beanWrite name="reviewer" property="handle"/>
+                            <% } else if (isWaiting) { %>
+                                <i>Waiting ****</i>
                             <% } else { %>
                                 <a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ProjectReviewApply&<%=Constants.PROJECT_ID%>=<tc:beanWrite name="reviewer" property="projectId"/>&<%=Constants.PHASE_ID%>=<tc:beanWrite name="reviewer" property="phaseId"/>&<%=Constants.PRIMARY_FLAG%>=<%=((ReviewBoardApplication)reviewer).isPrimary()%>&<%=Constants.REVIEWER_TYPE_ID%>=<tc:beanWrite name="reviewer" property="reviewerTypeId"/>">Apply Now</a>**
                             <% } %>
@@ -164,12 +172,22 @@
             <table cellspacing="0" cellpadding="0" width="530" class="bodyText">
                 <tr>
                     <td class="bodyText">
-                    <p align="left">*This number assumes that all submissions pass screening, the actual payment may differ.</p>
+                    <p align="left">* This number assumes that all submissions pass screening, the actual payment may differ.</p>
                     </td>
                 </tr>
                 <tr>
                     <td class="bodyText">
-                    <p align="left">**By applying to review the component you are committing to the presented timeline.  Failure to meet the provided timeline may result in a suspension from the TopCoder Review Board.</p>
+                    <p align="left">** By applying to review the component you are committing to the presented timeline.  Failure to meet the provided timeline may result in a suspension from the TopCoder Review Board.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="bodyText">
+                    <p align="left">*** Review positions for new projects become open 24 hours after the project starts.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="bodyText">
+                    <p align="left">**** You may only apply for a new component review every six hours..</p>
                     <p align="left"><a href="/tc?module=ViewReviewProjects">View all projects</a></p>
                     </td>
                 </tr>

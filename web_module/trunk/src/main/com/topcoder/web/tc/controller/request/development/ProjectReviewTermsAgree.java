@@ -58,7 +58,11 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
         long userId = getUser().getId();
         RBoardApplication rba = (RBoardApplication) createEJB(getInitialContext(), RBoardApplication.class);
 
-        //todo wrap in a transaction
+        // TODO:  Perform thorough sanity checking here, and wrap it in a transaction.
+        //
+        // 1) Ensure that the review spot being requested isn't taken.
+        // 2) Check the reviewer's permissions and status.
+        // 3) Ensure that the reviewer isn't currently being tarpitted.
         if (rba.getReviewers(DBMS.TCS_OLTP_DATASOURCE_NAME, projectId, phaseId).size()==3) {
             throw new NavigationException("Sorry, this project is full.");
         } else {

@@ -2,13 +2,19 @@ package com.topcoder.web.tc.controller.request.development;
 
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.RowNotFoundException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.ejb.rboard.RBoardApplication;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.request.development.ProjectReviewApply;
 import com.topcoder.web.tc.model.ReviewBoardApplication;
 import com.topcoder.web.tc.model.SoftwareComponent;
 
+import java.rmi.RemoteException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
@@ -142,6 +148,23 @@ public class ReviewProjectDetail extends Base {
                 }
 
                 getRequest().setAttribute("reviewerList", reviewerList);
+                
+                RBoardApplication rba = (RBoardApplication) createEJB(getInitialContext(), RBoardApplication.class);
+                Timestamp ts = null;
+                try {
+                    ts = rba.getLatestReviewApplicationTimestamp(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId());
+                } catch (RemoteException e) {
+                    if (e.detail instanceof RowNotFoundException) {
+                        // No previous review application found, we don't need to do anything here.
+                    } else {
+                        throw e;
+                    }
+                }
+                if (ts != null && System.currentTimeMillis() < ts.getTime() + ProjectReviewApply.APPLICATION_DELAY) {
+                    getRequest().setAttribute("waitingToReview", Boolean.TRUE);
+                } else {
+                    getRequest().setAttribute("waitingToReview", Boolean.FALSE);
+                }
             }
 
         } catch (TCWebException e) {
