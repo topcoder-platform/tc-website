@@ -69,25 +69,25 @@
 
                                 <td class="statText" width="50%">
                                     <a href="/stat?&amp;c=highest_accuracy" class="statText"><img src="/i/stat_labels_sub.gif" alt="Submission Accuracy" width="158" height="17" border="0"/></a><br />
-                                    Submission Accuracy is measured by dividing the  number of correct submissions by the number of total submissions by a member...// <a href="/stat?&amp;c=highest_accuracy" class="statText">more</a><br /></td>
+                                    Submission Accuracy is measured by dividing the number of correct submissions by the number of total submissions by a member...// <a href="/stat?&amp;c=highest_accuracy" class="statText">more</a><br /></td>
                             </tr>
                             
                             <tr valign="top">
                                 <td class="statText">
                                     <a href="/stat?&amp;c=all_time_wins" class="statText"><img src="/i/stat_labels_all_wins.gif" alt="All-Time Wins" width="158" height="17" border="0"/></a><br />
-                                    This chart ranks the Top-10 in Single Round Match Room Wins.<br/>
+                                    This chart ranks the Top-10 in Wins.<br/>
                                     <a href="/stat?&amp;c=all_time_wins" class="statText">Overall</a> : 
                                     <a href="/stat?&amp;c=all_time_wins_by_div&amp;dn=1" class="statText">Division I</a> : 
                                     <a href="/stat?&amp;c=all_time_wins_by_div&amp;dn=2" class="statText">Division II</a><br/></td>
                                 <td class="statText">
                                     <a href="/stat?&amp;c=impressive_debuts" class="statText"><img src="/i/stat_labels_imp_debuts.gif" alt="Impressive Debuts" width="158" height="17" border="0"/></a><br />
-                                    This chart represents the members who have made the most impressive debuts in a Single Round Match... // <a href="/stat?&amp;c=impressive_debuts" class="statText">more</a><br /></td>
+                                    This chart represents the members who have made the most impressive debuts... // <a href="/stat?&amp;c=impressive_debuts" class="statText">more</a><br /></td>
                             </tr>
     
                             <tr>
                                 <td class="statText" valign="top">
                                     <a href="/stat?&amp;c=highest_totals&amp;dn=1" class="statText"><img src="/i/stat_labels_total.gif" alt="Highest Match Total" width="158" height="17" border="0"/></a><br />
-                                    This chart represents the Top-10 highest point totals earned in a Single Round Match.<br/>
+                                    This chart represents the Top-10 highest point totals earned.<br/>
                                     <a href="/stat?&amp;c=highest_totals&amp;dn=1" class="statText">Division I</a> : 
                                     <a href="/stat?&amp;c=highest_totals&amp;dn=2" class="statText">Division II</a><br/></td>
                                 <td class="statText" valign="top">
@@ -100,7 +100,7 @@
                             <tr>
                                 <td class="statText" valign="top">
                                     <a href="/stat?&amp;c=biggest_rating_gains&amp;dn=1" class="statText"><img src="/i/stat_labels_rating.gif" alt="Rating Point Gain" width="158" height="17" border="0"/></a><br />
-                                    This chart represents the biggest rating point gain in a Single Round Match.<br/>
+                                    This chart represents the biggest rating point gain.<br/>
                                     <a href="/stat?&amp;c=biggest_rating_gains&amp;dn=1" class="statText">Division I</a> : 
                                     <a href="/stat?&amp;c=biggest_rating_gains&amp;dn=2" class="statText">Division II</a><br/></td>
                                 <td class="statText" valign="top">

@@ -64,12 +64,12 @@ function goTo(selection){
                 <TD VALIGN="top" WIDTH="100%"><IMG src="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
                   <P CLASS="statText">
 <% if (sDivision.equals("S")){ %>  
-                    This chart represents the biggest rating point gain in Division II Single Round Matches.
+                    This chart represents the biggest rating point gain in Division II.
                   </P>
                   <P CLASS="statText">
                     See Rating Point Gain for <A CLASS="statText" HREF="/stat?c=biggest_rating_gains&dn=1">Division I</A>
 <% } else { %>
-                    This chart represents the biggest rating point gain in Division I Single Round Matches.
+                    This chart represents the biggest rating point gain in Division I.
                   </P>
                   <P CLASS="statText">
                     See Rating Point Gain for <A CLASS="statText" HREF="/stat?c=biggest_rating_gains&dn=2">Division II</A>

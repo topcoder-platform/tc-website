@@ -6,7 +6,7 @@
                           The following data is available to both members and non-members.
                           Members are given a deeper view of statistics as well as the ability
                           to review individual member history, submissions, and of course,
-                          statistics. Login now if you are a member, or <A HREF="#" CLASS="statText">Register today!</A>
+                          statistics. Login now if you are a member, or <A HREF="/Registration" CLASS="statText">Register today!</A>
                         </P>
                       </TD>
                       <TD ROWSPAN="2" CLASS="statText" VALIGN="top" WIDTH="20"><IMG src="/i/clear.gif" WIDTH="20" HEIGHT="1" BORDER="0"/></TD>
