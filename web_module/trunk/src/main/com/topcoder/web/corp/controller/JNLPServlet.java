@@ -65,16 +65,16 @@ public final class JNLPServlet extends HttpServlet {
                      "<information>\r\n" +
                      "<title>TopCoder Testing Application</title>\r\n" +
                      "<vendor>TopCoder, Inc.</vendor>\r\n" +
-                     "<homepage href=\"http://corporate.topcoder.com\"/>\r\n" +
+                     "<homepage href=\"http://www.topcoder.com\"/>\r\n" +
                      "<description>TopCoder Testing Application</description>\r\n" +
-                     "<icon href=\"http://corporate.topcoder.com/i/ScreeningJWS.jpg\"/>\r\n" +
+                     "<icon href=\"http://www.topcoder.com/i/ScreeningJWS.jpg\"/>\r\n" +
                      "</information>\r\n" +
                      "<security>\r\n" +
                      "<all-permissions/>\r\n" +
                      "</security>\r\n" +
                      "<resources>\r\n" +
                      "<j2se version=\"1.4+\"/>\r\n" +
-                     "<jar href=\"http://corporate.topcoder.com/contest/classes/ScreeningClient.jar\"/>\r\n" +
+                     "<jar href=\"http://www.topcoder.com/contest/classes/ScreeningClient.jar\"/>\r\n" +
                      "</resources>\r\n" +
                      "<application-desc " +
                      "main-class=\"com.topcoder.client.screening.tool.view.screeningClient.GenericStarter\">\r\n"+
