@@ -114,7 +114,7 @@
                         <%= submission.getItem("end_status_desc") %>
                     </TD>
                   </TR>
-                </tces:mapIterator>
+                </tces:rowIterator>
 
               </TABLE>
               <P><BR></P>
