@@ -7,7 +7,7 @@
         <%-- <jsp:getProperty name="beanInstanceName"  property="propertyName" /> --%>
         <form name=frmUpload method=post enctype="multipart/form-data" action="/tc">
         <input type="hidden" name="module" value="DOCConversionProcessing"/>
-        <input type="upload" name="file"/>
+        <input type="file" name="file"/>
         <input type="submit"/>
         </form>
     </body>
