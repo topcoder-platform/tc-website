@@ -265,8 +265,13 @@ if ( MM_FlashCanPlay ) {
 
                 <tr>
                     <td class="screeningCellEven" colspan="3" align=center>
-                       <a href=''><img src="/i/corp/addNoteButton.gif" border=0/></a>
-                    </td>
+                        <screen:resultSetRowIterator id="row"
+                                list="<%=(List) request.getAttribute(Constants.CANDIDATE_PERSONAL_INFO)%>">
+                        <a href='/corp/testing/?<%=Constants.MODULE_KEY%>=<%=Constants.NOTE_CREATE_PROCESSOR%>&<%=Constants.CANDIDATE_ID%>=<screen:resultSetItem row="<%=row%>" name="user_id"/>'>
+                                <img src="/i/corp/addNoteButton.gif" border=0 />
+                        </a>
+                        </screen:resultSetRowIterator>
+                     </td>
                 </tr>
             </table>
 
