@@ -427,7 +427,7 @@ ret[i%n]+=codedMessage.charAt(i); //Place char on the appropriate string
       </tr>
       <tr>
         <td style="background: #eee;" class="bodyText">
-          <b>High Score</b> (and only score)
+          <b>High Score</b>
         </td>
         <td style="background: #eee;" class="bodyText">
 <B>WishingBone</B> for 694.52 points  
