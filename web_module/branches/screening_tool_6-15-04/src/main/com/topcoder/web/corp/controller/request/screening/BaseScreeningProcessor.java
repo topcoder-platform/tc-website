@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
 public abstract class BaseScreeningProcessor extends BaseProcessor {
     private final static Logger log = Logger.getLogger(TestResults.class);
 
-    protected long getUsageType() {
+    protected long getUsageType() throws TCWebException {
         HttpSession session = getRequest().getSession();
         Long usageType = (Long)
             session.getAttribute(Constants.SESSION_INFO);

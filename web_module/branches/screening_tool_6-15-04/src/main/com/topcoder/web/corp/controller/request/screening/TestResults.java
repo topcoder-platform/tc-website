@@ -22,7 +22,7 @@ import java.util.Date;
  * Processing for the Test Results page.
  * @author Porgery
  */
-public class TestResults extends BaseProcessor {
+public class TestResults extends BaseScreeningProcessor {
     private final static Logger log = Logger.getLogger(TestResults.class);
 
     protected CandidateInfo cinfo = new CandidateInfo();
@@ -34,6 +34,8 @@ public class TestResults extends BaseProcessor {
      */
     protected void businessProcessing() throws TCWebException {
         try {
+            log.info("USAGE TYPE CODE");
+            
             DataAccessInt dAccess = Util.getDataAccess();
             Request dr = new Request();
             dr.setProperties(HttpUtils.parseQueryString(getRequest().getQueryString()));
