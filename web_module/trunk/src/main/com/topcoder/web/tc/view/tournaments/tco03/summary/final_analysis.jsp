@@ -81,19 +81,21 @@ It turns out that even a naive implementation (without dynamic programming or me
 Most baseball lineups follow a pretty standard format.  The fastest player generally leads off, and the power hitters are usually in the 3 and 4 positions.  Our simulation wasn't quite advanced enough to take things like speed into account, but it still gives us an idea of how many runs a particular lineup will score.  One approach to this is to run a large number of monte carlo simulations.  Just do each of the events with the probability given, and take the average of the scores over all simulations.  However, this isn't precise enough to work, and usually ends up being off by at least 0.1.  To solve the problem in time, and with sufficient precision, we need to use dynamic programming.  We need to calculate the probability of achieving each state, in each inning.  A state consists of which bases are occupied, who is at bat, how many outs there are, and how many batters there have been in the inning, there are 3*9*2^3*20 = 4320 states.  If we start by assigning our start state a probability of 1, we can iteratively compute the probabilities for all of the other states.  Basically, we just simulate each event - an out, walk, hit, double, triple, or home run - and that gives us a new state, and we adjust the probability of the new state.  So, in high level pseudocode:
 <pre>
 foreach state
-	foreach event
-		compute nextState from state and event
-		probability[nextState] = probability[nextState]+probability[state]*probability[event]
+   foreach event
+      compute nextState from state and event
+      probability[nextState] = 
+         probability[nextState]+probability[state]*probability[event]
 </pre>
 For this to work, we have to iterate the states in the right order, but thats pretty easy to do.
 <br/><br/>
 That will give us the probability of the states, but we care about runs.  It's actually really simple to compute the expected number of runs, once we know the probabilities of the states.  As we are computing the probabilities of the transitions from one state to the next, we can also compute the number of runs expected from the event.
 <pre>
 foreach state
-	foreach event
-		compute nextState from state and event
-		probability[nextState] = probability[nextState]+probability[state]*probability[event]
-		runs = runs + probability[state]*probability[event]*runsScored(state,event)
+   foreach event
+      compute nextState from state and event
+      probability[nextState] = 
+         probability[nextState]+probability[state]*probability[event]
+      runs = runs + probability[state]*probability[event]*runsScored(state,event)
 </pre>
 The one drawback to this approach is that it leads to a ton of nested loops, and results in some messy code.  I usually favor iterative dynamic programming over recursive memoization, but in this case, I think that a memoized solution ends up being cleaner.  NGBronson's solution is quite elegant:
 <pre>
