@@ -22,15 +22,15 @@
 	<tr><td>&#160;</td></tr>
 	<tr>
 		<td align=center nowrap=nowrap class=smallGreenBox>
-		<span class=bodyTextGreen>Rs. 1,600,000 in<br/>Cash Prizes!</span>
+		<span class=bodyTextGreen>Rs. 16,00,000 in<br/>Cash Prizes!</span>
 		<br/><br/>
-		<b>1st Place - Rs. 300,000</b><br/>
-		2nd Place - Rs. 200,000<br/>
-		3rd Place - Rs. 125,000<br/>
+		<b>1st Place - Rs. 3,00,000</b><br/>
+		2nd Place - Rs. 2,00,000<br/>
+		3rd Place - Rs. 1,25,000<br/>
 		4th Place - Rs. 75,000<br/>
 		5th Place - Rs. 50,000
 		<br/><br/>
-		6th to 50th Place<br/>will share Rs. 850,000
+		6th to 50th Place<br/>will share Rs. 8,50,000
       <br><br>
       <A href="/pl/?&module=Static&d1=gicj05&d2=rules#prizes">Learn more</A>
 		</td>
