@@ -1,6 +1,5 @@
 <%@  page 
   language="java"
-  errorPage="errorPage.jsp"
   import="java.util.*,
           com.topcoder.web.tces.common.*,
           com.topcoder.web.tces.bean.*" %>
