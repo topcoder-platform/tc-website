@@ -81,7 +81,7 @@
                             <tr>
                               <td class="statText">
                                   <a>
-                                    <xsl:attribute name="HREF">stat?c=member_profile&amp;cr=<xsl:value-of select="user_id"/></xsl:attribute>
+                                    <xsl:attribute name="HREF">/stat?c=member_profile&amp;cr=<xsl:value-of select="user_id"/></xsl:attribute>
                                     <xsl:attribute name="CLASS">statText</xsl:attribute>
                                     <font>
                                       <xsl:attribute name="color">

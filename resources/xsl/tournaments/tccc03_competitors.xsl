@@ -88,7 +88,7 @@
                             <td align="left" class="statText">
                                 <xsl:for-each select="/TC/TOURNAMENTS/N_Competitors/Competitor">
                                 <a>
-                                    <xsl:attribute name="HREF">stat?c=member_profile&amp;cr=<xsl:value-of select="user_id"/></xsl:attribute>
+                                    <xsl:attribute name="HREF">/stat?c=member_profile&amp;cr=<xsl:value-of select="user_id"/></xsl:attribute>
                                     <xsl:attribute name="CLASS">statText</xsl:attribute>
                                     <font>
                                       <xsl:attribute name="color">
@@ -104,7 +104,7 @@
                             <td align="left" class="statText">
                                 <xsl:for-each select="/TC/TOURNAMENTS/STH_Competitors/Competitor">
                                 <a>
-                                    <xsl:attribute name="HREF">stat?c=member_profile&amp;cr=<xsl:value-of select="user_id"/></xsl:attribute>
+                                    <xsl:attribute name="HREF">/stat?c=member_profile&amp;cr=<xsl:value-of select="user_id"/></xsl:attribute>
                                     <xsl:attribute name="CLASS">statText</xsl:attribute>
                                     <font>
                                       <xsl:attribute name="color">
@@ -120,7 +120,7 @@
                             <td align="left" class="statText">
                                 <xsl:for-each select="/TC/TOURNAMENTS/W_Competitors/Competitor">
                                 <a>
-                                    <xsl:attribute name="HREF">stat?c=member_profile&amp;cr=<xsl:value-of select="user_id"/></xsl:attribute>
+                                    <xsl:attribute name="HREF">/stat?c=member_profile&amp;cr=<xsl:value-of select="user_id"/></xsl:attribute>
                                     <xsl:attribute name="CLASS">statText</xsl:attribute>
                                     <font>
                                       <xsl:attribute name="color">
@@ -136,7 +136,7 @@
                             <td align="left" class="statText">
                                 <xsl:for-each select="/TC/TOURNAMENTS/MW_Competitors/Competitor">
                                 <a>
-                                    <xsl:attribute name="HREF">stat?c=member_profile&amp;cr=<xsl:value-of select="user_id"/></xsl:attribute>
+                                    <xsl:attribute name="HREF">/stat?c=member_profile&amp;cr=<xsl:value-of select="user_id"/></xsl:attribute>
                                     <xsl:attribute name="CLASS">statText</xsl:attribute>
                                     <font>
                                       <xsl:attribute name="color">
@@ -152,7 +152,7 @@
                             <td align="left" class="statText">
                                 <xsl:for-each select="/TC/TOURNAMENTS/INT_Competitors/Competitor">
                                 <a>
-                                    <xsl:attribute name="HREF">stat?c=member_profile&amp;cr=<xsl:value-of select="user_id"/></xsl:attribute>
+                                    <xsl:attribute name="HREF">/stat?c=member_profile&amp;cr=<xsl:value-of select="user_id"/></xsl:attribute>
                                     <xsl:attribute name="CLASS">statText</xsl:attribute>
                                     <font>
                                       <xsl:attribute name="color">
