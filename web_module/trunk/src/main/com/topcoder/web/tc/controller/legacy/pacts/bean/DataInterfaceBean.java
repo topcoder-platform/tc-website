@@ -2,6 +2,7 @@ package com.topcoder.web.tc.controller.legacy.pacts.bean;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.ejb.pacts.PactsServices;
 import com.topcoder.web.ejb.pacts.PactsServicesBean;
@@ -56,6 +57,8 @@ import java.util.Map;
  */
 
 public class DataInterfaceBean implements PactsConstants {
+
+    private static final Logger log = Logger.getLogger(DataInterfaceBean.class);
 
     // Get handle to the EJB.  All miscellaneous exceptions that can be
     // thrown by the various calls herein (CreateException, NamingException,
@@ -1294,6 +1297,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem updating the database
      */
     public String[] printPayments() throws RemoteException, PaymentNotReviewedException, SQLException {
+        log.debug("printPayments called...");
         PactsServices ps = getEjbHandle();
         return ps.printPayments();
     }
