@@ -17,7 +17,9 @@
     <property name="tcslibdir" value="../tcs/lib" />
     <property name="libdir" value="lib" />
     <property name="jardir" value="${libdir}/jars"/>
+<!--
     <property name="shared" value="../shared/src/main"/>
+-->
 
     <property name="docsdir" value="docs" />
     <property name="configdir" value="conf" />
@@ -169,7 +171,7 @@
         <pathelement location="${jdbc.jar}"/>
     </path>
 
-    <target name="compile" depends="compile_shared">
+    <target name="compile" depends="">
         <echo message="java.vm.version=${java.vm.version}"/>
         <javac srcdir="${javamain}"
             destdir="${build_classdir}"
@@ -184,6 +186,7 @@
         </javac>
     </target>
 
+<!--
     <target name="compile_shared">
         <mkdir dir="${build_classdir}"/>
          <javac
@@ -201,6 +204,7 @@
         <rmic classname="com.topcoder.shared.distCache.CacheClientImpl" base="${build_classdir}"/>
         <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${build_classdir}"/>
     </target>
+-->
 
     <target name="package" depends="compile,build-or">
         <mkdir dir="${dist.jars.dir}"/>
@@ -224,7 +228,6 @@
                       ${packagedir}/DDEException.class
                       ${packagedir}/util/Constants.class
                       ${packagedir}/util/ConstantsInt.class
-                      com/topcoder/shared/util/TCResourceBundle.class
                       ${userdir}/**"
             >
             <metainf dir="${user.src.dir}" includes="*.xml"/>
@@ -280,7 +283,6 @@
                 <include name="com/topcoder/dde/servlet/**"/>
                 <include name="com/topcoder/dde/request/**"/>
                 <include name="com/topcoder/dde/util/**"/>
-                <include name="com/topcoder/shared/**/*.class"/>
                 <include name="com/topcoder/web/common/**/*.class"/>
             </classes>
         </war>
