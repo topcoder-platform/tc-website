@@ -139,6 +139,7 @@ public class RequestTracker {
             this.url = buf.toString();
             this.time = System.currentTimeMillis();
             this.sessionId=r.getSession().getId();
+            log.debug("session: " + this.sessionId);
         }
     }
 
