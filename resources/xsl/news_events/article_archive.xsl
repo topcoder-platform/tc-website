@@ -61,6 +61,8 @@
 <!-- 2004 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2004</font></td></tr>
 
+                            <tr><td class="newsText"><A href="http://java.sun.com/developer/technicalArticles/Programming/TopCoder2004/" target="_blank">Who's the Best Coder?</A> [June - Sun]</td></tr>
+
                             <tr><td class="newsText"><A href="/?&amp;t=news_events&amp;c=art_06_01_04">Cracking the Hiring Code</A> [June 1 - Workforce Management]</td></tr>
 
                             <tr><td class="newsText"><A href="http://online.wsj.com/article_email/0,,SB108605863196125506-IVjeoNllaV3nJunZXSGcaaBm4,00.html" target="_blank">Win in a Corporate Competition, Land on Square That Offers a Job</A> [June 1 - WSJ]</td></tr>
