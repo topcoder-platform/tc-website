@@ -3,6 +3,8 @@ package com.topcoder.web.tc.model;
 import java.io.Serializable;
 import java.util.*;
 import com.topcoder.servlet.request.*;
+
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 /**
  *
  * @author  rfairfax
@@ -15,6 +17,7 @@ public class PlacementConfigInfo implements Serializable {
     private String presentedBy;
     private String presentedByEmail;
     private HashMap skillGroups;
+    private ResultSetContainer problems;
     
     public PlacementConfigInfo() {
         userID = 0;
@@ -23,6 +26,14 @@ public class PlacementConfigInfo implements Serializable {
         presentedBy = "";
         presentedByEmail = "";
         skillGroups = new HashMap();
+    }
+    
+    public void setProblems(ResultSetContainer problems) {
+        this.problems = problems;
+    }
+    
+    public ResultSetContainer getProblems() {
+        return problems;
     }
     
     public List getSkillGroups() {

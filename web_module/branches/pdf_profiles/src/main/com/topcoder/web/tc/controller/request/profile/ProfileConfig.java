@@ -79,6 +79,17 @@ public class ProfileConfig extends BaseProcessor {
                 }
             }
             
+            //load problems list for coder
+            
+            r = new Request();
+            r.setContentHandle("successful_problems");
+            r.setProperty("cr", String.valueOf(uid));
+
+            rsc = (ResultSetContainer)getDataAccess().getData(r).get("successful_problems");
+            info.setProblems(rsc);
+            
+            //get default selected problem
+            
             getRequest().setAttribute("configInfo", info);
 
             setNextPage(Constants.PROFILE_CONFIG_PAGE); 

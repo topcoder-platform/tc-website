@@ -81,7 +81,14 @@
                     </tc:listIterator>
                 </td>
             </tr>
-            
+            <tr>
+                <td valign=top>
+                    <b>Sample Problem</b>
+                </td>
+                <td>
+                    <tc-webtag:rscSelect name="component" list="<%=configInfo.getProblems()%>" fieldText="name" fieldValue="problem_id"/>
+                </td>
+            </tr>
             <tr>
                 <td>
                     &nbsp;
