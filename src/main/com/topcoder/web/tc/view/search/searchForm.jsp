@@ -15,7 +15,7 @@
                         <td colspan="2"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
                             <table border="0" cellspacing="0" cellpadding="5" width="100%" bgcolor="#FFFFFF">
                                 <tr>
-                                <td class="statTextBig">
+                                <td class="bodyText">
                                 Enter search criteria below then click the go button. Search results matching the criteria
                                 selections will be returned. Click on a Handle to view information about the Coder.
                                 </td>
