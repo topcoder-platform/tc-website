@@ -7,6 +7,7 @@ import java.lang.reflect.Field;
 
 public class Constants
 {
+
     //don't instantiate this class
     private Constants() { }
 
@@ -183,7 +184,7 @@ public class Constants
      *
      * @since Screening Tool 1.1
      */
-    public static String POSITION_LIST_PAGE;
+    public static String CAMPAIGN_POSITIONS_PAGE;
 
     /**
      * <p>A <code>String</code> name of a configuration parameter of a controller servlet holding the name of a
@@ -194,6 +195,46 @@ public class Constants
      * @since Screening Tool 1.1
      */
     public static String CAMPAIGN_ID;
+
+    /**
+     * <p>A <code>String</code> name of the command within <code>Query Tool</code> to be executed to get the details for
+     * specified campaign for the company the user is associated with.</p>
+     *
+     * <p>The controller servlet configuration file must have a "campaign_info" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String CAMPAIGN_INFO;
+
+    /**
+     * <p>A <code>String</code> name of the command within <code>Query Tool</code> to be executed to get the details for
+     * positions assigned to specified campaign.</p>
+     *
+     * <p>The controller servlet configuration file must have a "campaign_positions_list" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String CAMPAIGN_POSITIONS_LIST;
+
+    /**
+     * <p>A <code>String</code> name of a configuration parameter of a controller servlet holding the name of a
+     * parameter of incoming request containing the ID of requested position associated with campaign.</p>
+     *
+     * <p>The controller servlet configuration file must have a "job_position_id" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String JOB_POSITION_ID;
+
+    /**
+     * <p>A <code>String</code> name of a configuration parameter of a controller servlet holding the name of a JSP page
+     * providing the users with the user results relevant to requested position associated with campaign.</p>
+     *
+     * <p>The controller servlet configuration file must have a "job_position_results_page" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String JOB_POSITION_RESULTS_PAGE;
 
     //Profile constants
     public static String PROFILE_INFO;
