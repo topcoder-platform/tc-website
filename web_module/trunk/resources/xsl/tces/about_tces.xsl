@@ -54,7 +54,7 @@
           <TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/><BR/>
 
 <P>
-<B>About TCES:</B><BR/>Program Description/Various Components/Pricing/Website Specifications
+<B>About TCES:</B>
 </P>
 
 <P>
@@ -75,7 +75,7 @@ TopCoder Employment Services [TCES] provides employers with innovative programs 
 to attract, identify, evaluate and package collegiate candidates, as well as experienced 
 professionals, for full time employment consideration. [TCES] provides select employers with 
 intelligence about both graduating students and experienced professionals. With a member base in 
-excess of 18,000 - including more than 10,000 students from over 750 schools - select employers 
+excess of 19,000 - including more than 10,000 students from over 750 schools - select employers 
 obtain objective measurement and detail about candidates not found elsewhere. 
 </P>
 
