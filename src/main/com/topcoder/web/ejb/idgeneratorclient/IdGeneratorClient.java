@@ -14,7 +14,7 @@ import java.sql.SQLException;
  * The Client which uses the IdGenerator component to generate
  * an long sequence id for any sequence name in the Screening Database
  *
- * @author Fred Wang (fred@fredwang.com)
+ * @author Fred Wang (silentmobius)
  * @version $Revision$ 
  * Dec 23, 2002 6:44:37 PM
  */
