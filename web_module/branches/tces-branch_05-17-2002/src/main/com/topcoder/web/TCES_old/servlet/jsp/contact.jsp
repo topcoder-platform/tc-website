@@ -13,7 +13,7 @@
 
 		<%@ page import="com.topcoder.web.TCES.ejb.*" %>
 		<%
-			if (session.getAttribute("tces") == null || !session.getAttribute("tces") instanceof TCES) {
+			if (session.getAttribute("tces") == null || !(session.getAttribute("tces") instanceof TCES)) {
 				response.sendRedirect(TCESController.ALIAS);
 			}
 			TCES tces = (TCES)session.getAttribute("tces");
