@@ -5,12 +5,10 @@
 
   <xsl:template name="CSS">
     <SCRIPT type="text/javascript"><![CDATA[
-if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
-  // Linux Stylesheets
+if ( window.navigator.appName.indexOf("Netscape")>-1 && window.navigator.appVersion.charAt(0)=='4') {
   document.write('<link type="text/css" rel="stylesheet" href="/css/style_linux.css"/>');
   document.write('<link type="text/css" rel="stylesheet" href="/css/coders_linux.css"/>');
 } else {
-  // NonLinux Stylesheets
   document.write('<link type="text/css" rel="stylesheet" href="/css/style.css"/>');
   document.write('<link type="text/css" rel="stylesheet" href="/css/coders.css"/>');
 }

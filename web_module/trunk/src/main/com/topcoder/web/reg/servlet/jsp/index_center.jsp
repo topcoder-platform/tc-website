@@ -401,7 +401,7 @@ Founder and Chairman, TopCoder, Inc.
     </tr>
   <tr>
     <td class="statTextBig" align="right" height="18" valign="middle" background="/i/steel_gray_bg.gif"><b>Student</b>&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-    <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="radio" name="<%=Registration.CODER_TYPE%>" value ="<%=Registration.CODER_TYPE_STUDENT%>" <%=(coderType.equalsIgnoreCase(Registration.CODER_TYPE_STUDENT)?"checked":"")%>></td>
+    <td bgcolor="#43515E" colspan="2" class="statTextBig" align="left" valign="middle"><input type="radio" name="<%=Registration.CODER_TYPE%>" value ="<%=Registration.CODER_TYPE_STUDENT%>" <%=(coderType.equalsIgnoreCase(Registration.CODER_TYPE_STUDENT)?"checked":"")%>></td>
   </tr>  
 <%--
   <tr>
@@ -414,7 +414,7 @@ Founder and Chairman, TopCoder, Inc.
   </tr>      
   <tr>
     <td class="statTextBig" align="right" height="18" valign="middle" background="/i/steel_gray_bg.gif"><b>Professional</b>&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-    <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="radio" name="<%=Registration.CODER_TYPE%>" value ="<%=Registration.CODER_TYPE_PROFESSIONAL%>" <%=(coderType.equalsIgnoreCase(Registration.CODER_TYPE_PROFESSIONAL)?"checked":"")%>></td>
+    <td bgcolor="#43515E" colspan="2" class="statTextBig" align="left" valign="middle"><input type="radio" name="<%=Registration.CODER_TYPE%>" value ="<%=Registration.CODER_TYPE_PROFESSIONAL%>" <%=(coderType.equalsIgnoreCase(Registration.CODER_TYPE_PROFESSIONAL)?"checked":"")%>></td>
   </tr>
 
 
