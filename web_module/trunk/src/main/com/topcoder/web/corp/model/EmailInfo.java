@@ -120,14 +120,11 @@ public class EmailInfo extends BaseModel {
         msgText.append("PLEASE NOTE THAT YOU MUST COMPLETE ALL PORTIONS OF THE TESTING APPLICATION PRIOR TO THE END ");
         msgText.append("TIME SHOWN ABOVE.  YOU SHOULD ALLOW APPROXIMATELY 2 HOURS TO COMPLETE ALL PORTIONS OF THE TEST.");
         msgText.append("\n\n");
-        msgText.append("Windows, Linux and Unix users need to have the Java 1.4.x runtime installed and can access ");
+        msgText.append("You must have the Java 1.4.x runtime installed to access ");
         msgText.append("the Testing Application here: http://www.topcoder.com/corp/testing/testingApp.jsp?company=");
         msgText.append(companyId);
         msgText.append("\n\n");
-        msgText.append("Mac OS X users need to have the Java 1.4.x runtime installed, which requires OS X version ");
-        msgText.append("10.2.x.  Those users may access the Testing Application here: ");
-        msgText.append("http://www.topcoder.com/corp/testing/testingApp.jsp?company=");
-        msgText.append(companyId);
+        msgText.append("If you are unable to connect when you attempt to login, please try checking the HTTP Tunneling option and entering your login/password again.");
         msgText.append("\n\n");
         msgText.append("Thank you,\n");
         msgText.append(repName);
