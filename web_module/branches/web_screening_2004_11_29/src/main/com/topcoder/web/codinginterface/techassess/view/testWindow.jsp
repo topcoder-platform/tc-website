@@ -152,7 +152,6 @@
                 for(var i = 0; i < numArgs; i++) {
                     <%--array fields won't work, and they've already been set by the arrayEntry page any, so do bother with them here.--%>
                     if (getValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i)) {
-                        alert("setting <%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i + " to " + getValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i));
                         switch(argTypes[i]) {
                             case "String[]":
                             case "int[]":
