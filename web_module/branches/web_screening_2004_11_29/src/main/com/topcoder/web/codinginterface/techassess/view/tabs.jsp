@@ -13,8 +13,8 @@
       <td class=tabBarEnd align=right rowspan=2><img src="/i/corp/screening/tabBarEnd.gif" alt=""/></td>
    </tr>
    <tr>
-      <td class=tabBar><A href="/mockup/directions.jsp"><img src="/i/corp/screening/mainTab.gif" alt=""/></A></td>
-      <td class=tabBar><A href="/mockup/help.jsp"><img src="/i/corp/screening/helpTab.gif" alt=""/></A></td>
-      <td class=tabBar><A href="/mockup/login.jsp"><img src="/i/corp/screening/logoutTab.gif" alt=""/></A></td>
+      <td class=tabBar><a href="/mockup/directions.jsp"><img src="/i/corp/screening/mainTab.gif" alt=""/></a></td>
+      <td class=tabBar><a href="/mockup/help.jsp"><img src="/i/corp/screening/helpTab.gif" alt=""/></a></td>
+      <td class=tabBar><a href="/mockup/login.jsp"><img src="/i/corp/screening/logoutTab.gif" alt=""/></a></td>
    </tr>
 </table>
