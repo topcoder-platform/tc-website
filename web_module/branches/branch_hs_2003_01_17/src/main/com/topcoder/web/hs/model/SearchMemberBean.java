@@ -1,5 +1,7 @@
 package com.topcoder.hs.web.model;
 
+import java.util.*;
+
 public class SearchMemberBean {
 
   private Long user_id=null;
