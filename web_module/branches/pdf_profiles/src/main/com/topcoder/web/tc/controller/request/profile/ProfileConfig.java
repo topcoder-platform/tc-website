@@ -99,6 +99,12 @@ public class ProfileConfig extends BaseProcessor {
             }
             
             getRequest().setAttribute("configInfo", info);
+            
+            //debugging
+            Cookie[] cookies = getRequest().getCookies();
+            for(int i = 0; i < cookies.length; i++) {
+                System.out.println(cookies[i].getName() + ":" + cookies[i].getValue());
+            }
 
             setNextPage(Constants.PROFILE_CONFIG_PAGE); 
             setIsNextPageInContext(true);

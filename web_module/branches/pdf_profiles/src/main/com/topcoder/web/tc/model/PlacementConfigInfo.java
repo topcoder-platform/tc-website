@@ -3,6 +3,7 @@ package com.topcoder.web.tc.model;
 import java.io.Serializable;
 import java.util.*;
 import com.topcoder.servlet.request.*;
+import javax.servlet.http.Cookie;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 /**
