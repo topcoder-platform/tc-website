@@ -22,8 +22,8 @@
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" /> -->
 
-                        <img src="/i/m/brett1479_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=251317"><strong>brett1479</strong></a><br/>
+                        <img src="/i/m/schveiguy_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
+                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=273217"><strong>schveiguy</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -32,21 +32,23 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                     
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm161_prob">Problem Set Analysis &amp; Opinion: SRM 161</a></font></strong><br />
-                        Thursday, August 28, 2003</p>
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm162_prob">Problem Set Analysis &amp; Opinion: SRM 162</a></font></strong><br />
+                        Wednesday, September 3, 2003</p>
 
-                        <p>SRM 161 had a familiar script. Division 1 coders rushed through the easy and 
-                        medium problems to be faced with a ferocious hard. <b>SnapDragon</b>, the first coder 
-                        to finish, entered the challenge round in first, only a few points ahead of 
-                        second place <b>Tome</b>k. In the closing minutes of the challenge round, <b>SnapDragon</b> 
-                        successfully challenged <b>Tomek</b> pushing him well into first. He had sighted a 
-                        nasty precision error that claimed most of the Division 1 submissions. Once 
-                        systests had completed all but one submission of the Division 1 hard failed. As 
-                        a result, <b>SnapDragon</b> beat all competitors by a large margin, solidifying his 
-                        position as the highest rated coder ever. In Division 2, <b>Javaholic</b> finished all 
-                        of the problems well before anyone else, but his medium failed systests allowing 
-                        <b>Chaotica</b> to take the top spot.
-                       <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=statistics&amp;c=srm161_prob</xsl:attribute><strong>full&#160;story</strong></a>
+<p> 
+About 15 minutes into the competition, both <b>SnapDragon</b> and <b>tomek</b>
+had submitted the easy and medium, with <b>SnapDragon</b> leading by only 17
+hundredths of  a point.  However, by submitting the level 3 in under 14
+minutes, <b>tomek</b> pulled ahead and ended up winning the division.  With his
+second contest win, <b>tomek</b> pushed his rating up to become the second
+highest rated coder.  The problem set provided some interesting stats, with
+some of the highest success rates among submissions that I've seen in a while.
+In Division 1 alone, over 80% of all problems submitted passed system tests.
+In Division 2, newcomers <b>EugeneY</b> and <b>iforiq</b> took the first and
+second spots.  A good mix of topics, the problems covered simulation, geometry,
+combinatorics, and of course, brute force.
+
+                       <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=statistics&amp;c=srm162_prob</xsl:attribute><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
