@@ -6,7 +6,7 @@
 <html>
 <head>
 <title>TopCoder Charity Challenge</title>
-<% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("tco03_advancers"); %>
+<% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("crpf_advancers"); %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <jsp:include page="../script.jsp" />
 
@@ -89,7 +89,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                </tr>
                 <rsc:iterator list="<%=rsc%>" id="resultRow">
                     <tr valign="top">
-                        <td class="sidebarText" align="left"><A HREF="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>" CLASS="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item name="handle" row="<%=resultRow%>"/></A></td>
+                        <td class="sidebarText" align="left"><A HREF="/stat?c=member_profile&cr=<rsc:item name="coder_id" row="<%=resultRow%>"/>" CLASS="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item name="handle" row="<%=resultRow%>"/></A></td>
                         <td class="sidebarText" align="right"><rsc:item name="rating" row="<%=resultRow%>"/></td>
                         <td class="sidebarText" align="right"><rsc:item name="points" row="<%=resultRow%>" format="0.00"/></td>
                     </tr>
