@@ -287,6 +287,15 @@
 
                 <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
+                <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=java_stress_tester-design">Java Stress Tester</a></td>
+                    <td background="" class="statText" align="center">$210.00</td>
+                    <td background="" class="statText" align="center">2.5.2003</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
                 <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -343,7 +352,7 @@
                 <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=object_factory-design">Object Factory</a></td>
-                    <td background="" class="statText" align="center">$140.00</td>
+                    <td background="" class="statText" align="center">$175.00</td>
                     <td background="" class="statText" align="center">2.5.2003</td>
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
@@ -361,25 +370,7 @@
 
                 <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=java_stress_tester-design">Java Stress Tester</a></td>
-                    <td background="" class="statText" align="center">$210.00</td>
-                    <td background="" class="statText" align="center">2.5.2003</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
 
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=object_factory-design">Object Factory</a></td>
-                    <td background="" class="statText" align="center">$175.00</td>
-                    <td background="" class="statText" align="center">2.5.2003</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
                <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -393,8 +384,8 @@
 
                <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=value_object_generator-design">Value Object Generator</a></td>
-                    <td background="" class="statText" align="center">$175.00</td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=url_loader_generator-design">URL Loader</a></td>
+                    <td background="" class="statText" align="center">$280.00</td>
                     <td background="" class="statText" align="center">2.5.2003</td>
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
