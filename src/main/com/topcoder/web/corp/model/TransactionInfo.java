@@ -332,7 +332,7 @@ public class TransactionInfo {
             Map resultMap = dai.getData(dataRequest);
             rsc = (ResultSetContainer) resultMap.get("qry-roles-per-product");
             for( int i=0; i<rsc.size(); ++i ) {
-                TCResultItem roleID  =(TCResultItem)rsc.getItem(i, "role_id");
+                TCResultItem roleID  =rsc.getItem(i, "role_id");
                 String roleDescr = (String)rsc.getItem(i, "description").getResultData();
                 long id;
                 switch( roleID.getType() ) {
