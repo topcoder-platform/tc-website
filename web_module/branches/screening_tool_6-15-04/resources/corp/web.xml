@@ -933,6 +933,18 @@
             <description>the name of a parameter of request containing the name of a column to sort the result set</description>
         </init-param>
 
+        <init-param>
+            <param-name>page_start_index</param-name>
+            <param-value>startIndex</param-value>
+            <description>the name of a parameter of request containing the start index of element of results list</description>
+        </init-param>
+
+        <init-param>
+            <param-name>page_size</param-name>
+            <param-value>20</param-value>
+            <description>the number of elements to be displayed at page at one time</description>
+        </init-param>
+
         <!-- Parameters used by Candidate -->
         <init-param>
             <param-name>candidate_info</param-name>
