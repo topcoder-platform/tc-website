@@ -256,13 +256,7 @@ public final class TaskStatic {
         try {
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (Exception e) {
-            e.printStackTrace();
-            StringBuffer msg = new StringBuffer(150);
-            msg.append("processStatic:displayStatic:");
-            msg.append(requestCommand);
-            msg.append(":ERROR:");
-            msg.append(e.getMessage());
-            throw new NavigationException(msg.toString(), TCServlet.NAVIGATION_ERROR_PAGE);
+            throw new NavigationException(e);
         }
         return result;
     }
