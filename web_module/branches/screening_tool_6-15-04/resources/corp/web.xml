@@ -904,6 +904,12 @@
         </init-param>
 
         <init-param>
+            <param-name>note_create_processor</param-name>
+            <param-value>NoteCreate</param-value>
+            <description>the name of a processor to be used to add new note for candidate profile</description>
+        </init-param>
+
+        <init-param>
             <param-name>campaign_results_processor</param-name>
             <param-value>CampaignResults</param-value>
             <description>the name of a processor to be used to handle the requests for campaign results</description>
