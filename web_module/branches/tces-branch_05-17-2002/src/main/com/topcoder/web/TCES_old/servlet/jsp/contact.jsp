@@ -244,7 +244,7 @@ src="/i/clear.gif" width="1" height="1" border="0
 "></td>
     <td colspan="2" align="left" valign="middle" class="statTextBig">
       
-      <select name="country" class="dropdown" onChange="changeState()">
+      <select name="country" class="dropdown">
 <option value=""></option><option value="840">United States</option>
 <option value="036">Australia</option>
 <option value="124">Canada</option>
@@ -487,18 +487,6 @@ src="/i/clear.gif" width="1" height="1" border="0
 </select>
 
     </td>
-    <SCRIPT type="text/javascript">
-  reg=window.document.frmReg;
-  if ( window.navigator.userAgent.indexOf('Opera') ) {
-    for(i=0;i<reg.country.length;i++){
-      if(reg.country[i].value=="840"){usIndex=i;break;}
-    }
-  } else {
-    for(i=0;i<reg.country.options.length;i++){
-      if(reg.country.options[i].value=="840"){usIndex=i;break;}
-    }
-  }
-    </SCRIPT>
   </tr>
 
 
