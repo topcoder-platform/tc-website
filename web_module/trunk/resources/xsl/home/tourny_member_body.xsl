@@ -448,7 +448,7 @@ The assignments for the first round of the tournament are now available.  Each p
 
     </TD>    
   </TR>
-  <TR> 
+  <!-- <TR> 
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" CLASS="bodyText"><BR/>
 <FONT SIZE="3" FACE="verdana, arial, tahoma"><B>The Reception: A View from the Inside</B></FONT><BR/>
@@ -464,7 +464,7 @@ is slated to be the most exciting onsite event yet.  Join me as the scene unfold
 <BR/><BR/>
     </TD>    
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
-  </TR>    
+  </TR>     
   <TR>
     <TD VALIGN="top" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
   </TR>  
@@ -472,7 +472,7 @@ is slated to be the most exciting onsite event yet.  Join me as the scene unfold
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
     <TD VALIGN="top" WIDTH="100%" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-  </TR>   
+  </TR> -->  
 </TABLE>
 
 <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/>
@@ -485,18 +485,7 @@ is slated to be the most exciting onsite event yet.  Join me as the scene unfold
   </TR>
 </TABLE>
 <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
-  <TR> 
-    <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
-    <TD VALIGN="top" COLSPAN="3" CLASS="bodyText"><A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><B>Single Round Match 120</B></A><BR/>
-Wednesday, November 13, 2002<BR/><BR/>
-    </TD>    
-    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
-  </TR>  
-  
-<!-- Use for Invit..delete row above -->  
-
-  <!-- <TR> 
+<TR> 
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" COLSPAN="3" CLASS="bodyText"><A CLASS="bodyGeneric">
         <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><B>The 2002 TopCoder Invitational: Room 1</B></A><BR/>
@@ -506,7 +495,7 @@ Friday, November 22, 2002<BR/><BR/>
 <BR/><BR/>
     </TD>    
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
-  </TR> -->
+  </TR>
   <TR> 
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="33%" NOWRAP="0" HEIGHT="15">
@@ -568,28 +557,35 @@ Friday, November 22, 2002<BR/><BR/>
   
 <!-- Uncomment for invit02 -->
  
-  <!-- <TR> 
+  <TR> 
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" COLSPAN="3" CLASS="bodyText"><BR/>
-Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu 
-feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril 
-delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue 
-nihil imperdiet doming id quod mazim placerat facer possim assum...
-<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_semiroom1</xsl:attribute>read&#160;more</A>
+<B>As expected, SnapDragon struts his stuff</B><BR/>
+by MaryBeth Biondi, <I>TopCoder Staff</I><BR/>
+<P>
+In front of a sparse crowd, the morning competitors dealt with some minor system issues and tough 
+problem statements as the first round of competition started at 8:00am.  
+</P>
 
-<BR/><BR/>
+<P>
+All four competitors started the round by opening the 300-point problem.  Ten minutes later, 
+<B>SnapDragon</B> was the first to weigh in with a submission for 268.59 points.  Within the next 
+minute, both <B>malpt</B> and <B>ambrose</B> submitted their solutions for 260.51 points and 257.85 points, 
+respectively.  <B>kyky</B> worked on his solution for 7 more minutes before submitting for 219.80 points...
+<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_semiroom1</xsl:attribute>read&#160;more</A>
+</P>
 <B>Room 2</B>: 11AM (EST)(<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=invit02_sched</xsl:attribute>Get details</A>). Logon to view round activity.
 <BR/><BR/>
     </TD>    
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
-  </TR> 
+  </TR>
   
   <TR><TD COLSPAN="3" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"/></TD></TR>
   <TR>  
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
     <TD VALIGN="top" WIDTH="100%" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-  </TR> -->   
+  </TR>   
 </TABLE>
 <!-- Summary/Best/Worst Ends -->
 
@@ -605,21 +601,21 @@ nihil imperdiet doming id quod mazim placerat facer possim assum...
     By&#160;Logan<BR/><I>[TC]&#160;Member</I><BR/></TD>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText" COLSPAN="2">
-    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>SRM 120</B></FONT>
+    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>The 2002 TopCoder Invitational: Room 1</B></FONT>
     </TD>
   </TR>      
   <TR>
     <TD VALIGN="top" CLASS="bodyText" WIDTH="100%">
 	<A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm120_prob</xsl:attribute>
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournament&amp;c=invit02_prob1</xsl:attribute>
         <B>Problem Set Analysis &amp; Opinion</B>
       </A><BR/>	  
-<P>
- This match was marred by some downtime, which fortunately occurred during intermission. Unfortunately, this meant there was no challenge phase, which was made even worse by the fact that yours truly failed to devise good test data for the Vending problem.
-</P>
 
 <P>
-Otherwise, there were no major issues. The Division-I Level 1 and Level 2 problems were relatively easy, but the Level 3 problem appeared to make up for it in difficulty, as only 13 coders were able to complete a submission in time. Division-II made off like bandits with a very easy Level 1 and my flawed Level 3, but the difficulty of their Level 2 problem perhaps made up for that...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm120_prob</xsl:attribute>Get the analysis</A>
+As expected, this problem set was more difficult than the standard single round match
+problem set.  The Level 1 problem was not very hard, but the Level 2 and Level 3
+problems made up for this.  The Level 2 problem in particular may have been the most
+difficult, requiring an interesting dynamic programming solution...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournament&amp;c=invit02_prob1</xsl:attribute>Get the analysis</A>
 </P>
     </TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>     
