@@ -60,6 +60,7 @@ import java.util.Arrays;
 public class PDFGenerator extends BaseProcessor { 
     
     PlacementConfig info;
+    private boolean inResume = false;
     
     private PlacementConfig getConfig() throws Exception {
         int uid = Integer.parseInt(StringUtils.checkNull(getRequest().getParameter("uid")));
@@ -762,7 +763,8 @@ public class PDFGenerator extends BaseProcessor {
         ResumeServices resumebean = (ResumeServices)createEJB(ctx, ResumeServices.class);
         
         if(resumebean.hasResume(info.getUserID(), DBMS.OLTP_DATASOURCE_NAME)) {
-            System.out.println(resumebean.getResume(info.getUserID(), DBMS.OLTP_DATASOURCE_NAME).getFileName());
+            inResume = true;
+            log.debug(resumebean.getResume(info.getUserID(), DBMS.OLTP_DATASOURCE_NAME).getFileName());
             byte[] rawBytes = resumebean.getResume(info.getUserID(), DBMS.OLTP_DATASOURCE_NAME).getFile();
             //pass through the converter
             
@@ -797,7 +799,7 @@ public class PDFGenerator extends BaseProcessor {
 
         public void onStartPage(PdfWriter writer, Document document) {
             try {
-                if(writer.getPageNumber() > 1) {
+                if(writer.getPageNumber() > 1 && (!inResume)) {
                     cb = writer.getDirectContent();
                     cb.beginText();
                     cb.setColorFill(Color.white);
@@ -819,15 +821,17 @@ public class PDFGenerator extends BaseProcessor {
         public void onEndPage(PdfWriter writer, Document document) {
             
             try {
-                //super.onEndPage(writer, document);
-                Image footerimg = Image.getInstance("http://" + ApplicationServer.SERVER_NAME + "/i/profiles/topcoder_logo_footer.jpg");
-                footerimg.setAlignment(Element.ALIGN_LEFT);
-                footerimg.scalePercent(70f);
+                if(!inResume) {
+                    //super.onEndPage(writer, document);
+                    Image footerimg = Image.getInstance("http://" + ApplicationServer.SERVER_NAME + "/i/profiles/topcoder_logo_footer.jpg");
+                    footerimg.setAlignment(Element.ALIGN_LEFT);
+                    footerimg.scalePercent(70f);
 
-                footerimg.setAbsolutePosition(45,30);
+                    footerimg.setAbsolutePosition(45,30);
 
-                cb = writer.getDirectContent();
-                cb.addImage(footerimg);
+                    cb = writer.getDirectContent();
+                    cb.addImage(footerimg);
+                }
             
             }
             catch(Exception e) {
