@@ -13,7 +13,7 @@
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <% ResultSetContainer projectDetail = (ResultSetContainer) request.getAttribute("projectDetail"); %>
 <% List reviewerList = (List) request.getAttribute("reviewerList"); %>
-<% boolean isWaiting = ((Boolean) request.getAttribute("waitingToReview")).booleanValue(); %>
+<% boolean isWaiting = ((Boolean) request.getAttribute("waitingToReview")).booleanValue();%>
 <head>
 <title>Open Component Projects Available for Review</title>
 
@@ -47,9 +47,9 @@
         <td width="100%" align="center" class="bodyText">
         <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br/>
         <jsp:include page="../body_top.jsp" >
-           <jsp:param name="image" value="development"/>  
-           <jsp:param name="image1" value="white"/>  
-           <jsp:param name="title" value="Components"/>  
+           <jsp:param name="image" value="development"/>
+           <jsp:param name="image1" value="white"/>
+           <jsp:param name="title" value="Components"/>
         </jsp:include>
         <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br/>
 
@@ -61,7 +61,7 @@
                     </td>
                 </tr>
             </table>
-            
+
             <table cellspacing="0" width="530" class="formFrame">
                 <tr>
                     <td class="projectTitles" colspan="3">Component Details</td>
@@ -129,7 +129,7 @@
                     <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="final_review_end" format="MM.dd.yyyy"/></td>
                 </tr>
             </table>
-            
+
             <br/>
 
             <table cellspacing="0" width="530" class="formFrame">
