@@ -131,9 +131,6 @@ public class ModifyGroupTask extends BaseProcessor {
         this.groupId = groupId;
     }
 
-    private boolean isEmpty(String s) {
-        return !(s != null && s.trim().length() > 0);
-    }
 }
 
 
