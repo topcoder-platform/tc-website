@@ -4,14 +4,12 @@ import com.topcoder.shared.util.*;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.dataAccess.resultSet.TCTimestampResult;
 import com.topcoder.web.jobposting.common.Constants;
 import com.topcoder.web.jobposting.ejb.JobPostingServices.JobPostingServicesHome;
 import com.topcoder.web.jobposting.ejb.JobPostingServices.JobPostingServices;
 import com.topcoder.web.resume.ejb.ResumeServices.ResumeServices;
 import com.topcoder.web.resume.ejb.ResumeServices.ResumeServicesHome;
 import com.topcoder.common.web.data.*;
-import com.topcoder.ejb.AuthenticationServices.User;
 
 import javax.servlet.http.*;
 import java.io.Serializable;
@@ -105,9 +103,13 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
             jpServices = jpHome.create();
             if (jobHits.size() > 0) {
                 for (int i = 0; i < jobHits.size(); i++) {
+                    int currJob = ((Integer) jobHits.get(i)).intValue();
                     try {
-                        jpServices.addJobHit(userId, ((Integer) jobHits.get(i)).intValue(),
-                                Constants.JOB_POSTING_ID);
+                        if (jpServices.jobExists(currJob)) {
+                            jpServices.addJobHit(userId, currJob, Constants.JOB_POSTING_ID);
+                        } else {
+                            throw new Exception("job: " + currJob + " either doesn't exist or isn't active");
+                        }
                     } catch (Exception e) {
                         throw new Exception("failed to add job hit for user: " + userId +
                                 " job: " + jobHits.get(i) +
@@ -118,13 +120,17 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
                 setNextPageInternal(true);
             } else {
                 try {
-                    jpServices.addJobHit(userId, jobId, hitType);
-                    if (hitType==Constants.CLICK_THRU_ID) {
-                        setNextPage(jpServices.getLink(jobId));
-                        setNextPageInternal(false);
+                    if (jpServices.jobExists(jobId)) {
+                        jpServices.addJobHit(userId, jobId, hitType);
+                        if (hitType==Constants.CLICK_THRU_ID) {
+                            setNextPage(jpServices.getLink(jobId));
+                            setNextPageInternal(false);
+                        } else {
+                            setNextPage(Constants.PROFILE_PAGE);
+                            setNextPageInternal(true);
+                        }
                     } else {
-                        setNextPage(Constants.PROFILE_PAGE);
-                        setNextPageInternal(true);
+                        throw new Exception("job: " + jobId + " either doesn't exist or isn't active");
                     }
                 } catch (Exception e) {
                     throw new Exception("failed to add job hit for user: " + userId +
