@@ -46,69 +46,11 @@ public class TCESController
                 return;
             }
             session = request.getSession(true); // for now create a new session, later this'll be done in the front page
-/*
-            Object taskObject = session.getAttribute(taskName);
-            Task task = null;
-            Class taskClass = null;
-            try
-            {
-                taskClass = Class.forName(TASK_PACKAGE + "." + taskName);
-            }
-            catch (ClassNotFoundException e)
-            {
-                Log.msg(e.getMessage());
-                forwardToError(request,response,e);
-                return;
-            }
-            if (taskObject == null)
-            {
-                try
-                {
-                    task = (Task) taskClass.newInstance();
-                }
-                catch (Exception e)
-                {
-                    Log.msg(e.getMessage());
-                    forwardToError(request,response,e);
-                    return;
-                }
-                session.setAttribute(taskName,task);
-            }
-            else
-            {
-                try
-                {
-                    task = (Task) taskObject;
-                }
-                catch (ClassCastException e)
-                {
-                    Log.msg(e.getMessage());
-                    forwardToError(request,response,e);
-                    return;
-                }
-            }
-            task.setUser(getUser(session));
-            task.setStep(request.getParameter(STEP));
-            Enumeration parameterNames = request.getParameterNames();
-            while (parameterNames.hasMoreElements())
-            {
-                String parameterName = parameterNames.nextElement().toString();
-                String[] parameterValues = request.getParameterValues(parameterName);
-                if (parameterValues != null) {
-                    task.setAttributes(parameterName,parameterValues);
-                }
-            }
-
-            try {
-                task.process();
-            }
-            catch (TaskException e)
-            {
-                Log.msg(e.getMessage());
-                forwardToError(request,response,e);
-            }
-*/
-            forward(request,response,taskName);
+						if (getUser(session) == null) {
+							forward(request,response,"/?t=authentication&c=login");
+						} else {
+            	forward(request,response,TCES.PATH + taskName + ".jsp");
+						}
          } 
       } catch ( ServletException se ) {
         throw se;
@@ -137,28 +79,12 @@ public class TCESController
         throws ServletException, IOException
     {
         Log.msg(" => forward() to " + url);
-/*				
-        response.setHeader("Cache-Control","no-store");
-        response.setHeader("Pragma","no-cache");
-        response.setDateHeader ("Expires", 0);
-        try
-        {
-            if (url != null) {
-                response.sendRedirect(response.encodeURL(url));
-            } else {
-                response.sendRedirect(response.encodeURL(CONTROLLER_ERROR_URL));
-            }
-        } catch (IOException e) {
-            Log.msg(e.getMessage());
-            throw new ServletException(e);
-        }
-*/
-        if (url == null || url.length() == 0) url = "error";
+        if (url == null || url.length() == 0) url = TCES.PATH + "error.jsp";
         RequestDispatcher rd = null;
         synchronized(this) {
             //rd = (RequestDispatcher) dispatcherMap.get(url);
             if (rd == null) {
-                rd = getServletContext().getRequestDispatcher(TCES.PATH + url + ".jsp");
+                rd = getServletContext().getRequestDispatcher(url);
                 if (rd == null) {
         					Log.msg(" => tces.TCES RequestDispatcher is null");
 									throw new ServletException("cannot obtain request dispatcher");
