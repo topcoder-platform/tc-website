@@ -50,7 +50,7 @@
 
                             <tr>
                                 <td class="devProjectWinner">Group 1</td>
-                                <td class="devProjectWinnerMoney">&nbsp;</td>
+                                <td class="devProjectWinnerMoney"></td>
                             </tr>
                             <tr>
                                 <td class="devProjectWinner">Winning Developer:</td>
@@ -63,7 +63,7 @@
                             </tr>
                             <tr>
                                 <td class="devProjectSecond">Group 2</td>
-                                <td class="devProjectSecondMoney">&nbsp;</td>
+                                <td class="devProjectSecondMoney"></td>
                             </tr>                            
                             <tr>
                                 <td class="devProjectSecond">Winning Developer:</td>
