@@ -191,7 +191,7 @@
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= CompetitionStatisticsTask.timeFormat(level.getItem("time_elapsed")) %>
+                        <%= JSPUtils.timeFormat(level.getItem("time_elapsed")) %>
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
@@ -244,7 +244,7 @@
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= CompetitionStatisticsTask.autoFormat(level.getItem("submit_percent")) %>%
+                        <%= JSPUtils.autoFormat(level.getItem("submit_percent")) %>%
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
@@ -252,15 +252,15 @@
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= CompetitionStatisticsTask.autoFormat(level.getItem("submission_accuracy")) %>%
+                        <%= JSPUtils.autoFormat(level.getItem("submission_accuracy")) %>%
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= CompetitionStatisticsTask.autoFormat(level.getItem("overall_accuracy")) %>%
+                        <%= JSPUtils.autoFormat(level.getItem("overall_accuracy")) %>%
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= CompetitionStatisticsTask.autoFormat(level.getItem("avg_submission_points")) %>
+                        <%= JSPUtils.autoFormat(level.getItem("avg_submission_points")) %>
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
@@ -268,7 +268,7 @@
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= CompetitionStatisticsTask.timeFormat(level.getItem("avg_time_elapsed")) %>
+                        <%= JSPUtils.timeFormat(level.getItem("avg_time_elapsed")) %>
                     </TD>
                   </TR>
                 </tces:rowIterator>
@@ -311,7 +311,7 @@
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= CompetitionStatisticsTask.timeFormat(CompetitionStatisticsTask.getCompetitionStats().getItem("overall_time_per_problem")) %>
+                        <%= JSPUtils.timeFormat(CompetitionStatisticsTask.getCompetitionStats().getItem("overall_time_per_problem")) %>
                     </TD>
                   </TR>
               </TABLE>

@@ -12,10 +12,10 @@ import com.topcoder.shared.dataAccess.resultSet.TCResultItem;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tces.common.TCESConstants;
+import com.topcoder.web.tces.common.JSPUtils;
 
 import javax.servlet.http.*;
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -44,30 +44,9 @@ public class ProblemStatisticsTask extends BaseTask implements Task, Serializabl
     /** Holds value of property problemStatsByLanguage. */
     private List problemStatsByLanguage;
     
-    public String timeFormat(TCResultItem result){
-        double millisec = Double.parseDouble(result.toString());
-        int sec = (int)(millisec / 1000);
-        int min = sec/60;
-        sec %= 60;
-        return min + " mins " + sec + " secs";
-    }
-    
-    public String autoFormat(TCResultItem result){
-        switch(result.getType()){
-            case TCResultItem.DOUBLE:
-                return TCESConstants.NUMBER_FORMAT.format(((Double)result.getResultData()).doubleValue());
-            case TCResultItem.FLOAT:
-                return TCESConstants.NUMBER_FORMAT.format(((Float)result.getResultData()).floatValue());
-            case TCResultItem.BIGDECIMAL:
-                return TCESConstants.NUMBER_FORMAT.format(((BigDecimal)result.getResultData()).doubleValue());
-            default:
-                return result.toString();
-        }
-    }
-    
     public String getStatistic(String name){
         try{
-            return autoFormat(getProblemStats().getItem(name));
+            return JSPUtils.autoFormat(getProblemStats().getItem(name));
         }catch(NullPointerException npe){
             log.debug("Null pointer exception in ProblemStatisticsTask.getStatistic(\""
                       + name + "\")");

@@ -117,7 +117,7 @@
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= ProblemStatisticsTask.autoFormat(language.getItem("submit_percent")) %>%
+                        <%= JSPUtils.autoFormat(language.getItem("submit_percent")) %>%
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
@@ -125,23 +125,23 @@
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= ProblemStatisticsTask.autoFormat(language.getItem("submission_accuracy")) %>%
+                        <%= JSPUtils.autoFormat(language.getItem("submission_accuracy")) %>%
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= ProblemStatisticsTask.autoFormat(language.getItem("overall_accuracy")) %>%
+                        <%= JSPUtils.autoFormat(language.getItem("overall_accuracy")) %>%
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= ProblemStatisticsTask.autoFormat(language.getItem("avg_submission_points")) %>
+                        <%= JSPUtils.autoFormat(language.getItem("avg_submission_points")) %>
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= ProblemStatisticsTask.autoFormat(language.getItem("avg_final_points")) %>
+                        <%= JSPUtils.autoFormat(language.getItem("avg_final_points")) %>
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= ProblemStatisticsTask.timeFormat(language.getItem("avg_time_elapsed")) %>
+                        <%= JSPUtils.timeFormat(language.getItem("avg_time_elapsed")) %>
                     </TD>
                   </TR>
                 </tces:rowIterator>
@@ -184,7 +184,7 @@
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= ProblemStatisticsTask.timeFormat(ProblemStatisticsTask.getProblemStats().getItem("avg_time_elapsed")) %>
+                        <%= JSPUtils.timeFormat(ProblemStatisticsTask.getProblemStats().getItem("avg_time_elapsed")) %>
                     </TD>
                   </TR>
               </TABLE>
@@ -197,7 +197,7 @@
               <p>
               Status: <b><%= ProblemStatisticsTask.getStatistic("end_status_text") %></b>
               <br>
-              Time to Submit: <b><%= ProblemStatisticsTask.timeFormat(ProblemStatisticsTask.getProblemStats().getItem("time_elapsed")) %></b>
+              Time to Submit: <b><%= JSPUtils.timeFormat(ProblemStatisticsTask.getProblemStats().getItem("time_elapsed")) %></b>
               <br>
               Points: <b><%= ProblemStatisticsTask.getStatistic("final_points") %></b>
               </p>

@@ -1,5 +1,7 @@
 package com.topcoder.web.tces.common;
 
+import java.math.BigDecimal;
+import com.topcoder.shared.dataAccess.resultSet.TCResultItem;
 
 /**
  * <p>Title: JSPUtils </p>
@@ -64,4 +66,26 @@ public class JSPUtils {
         else
             return "";
     }
+    
+    public static String timeFormat(TCResultItem result) {
+        double millisec = Double.parseDouble(result.toString());
+        int sec = (int)(millisec / 1000);
+        int min = sec/60;
+        sec %= 60;
+        return min + " mins " + sec + " secs";
+    }
+    
+    public static String autoFormat(TCResultItem result) {
+        switch(result.getType()){
+            case TCResultItem.DOUBLE:
+                return TCESConstants.NUMBER_FORMAT.format(((Double)result.getResultData()).doubleValue());
+            case TCResultItem.FLOAT:
+                return TCESConstants.NUMBER_FORMAT.format(((Float)result.getResultData()).floatValue());
+            case TCResultItem.BIGDECIMAL:
+                return TCESConstants.NUMBER_FORMAT.format(((BigDecimal)result.getResultData()).doubleValue());
+            default:
+                return result.toString();
+        }
+    }
+    
 }
