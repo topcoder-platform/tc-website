@@ -206,7 +206,7 @@
 <P>
 
 <xsl:choose>
-    <xsl:when test="/TC/AFFIDAVIT/Affidavit/Info/country_name='United States'">'
+    <xsl:when test="/TC/AFFIDAVIT/Affidavit/Info/country_name='India'">'
         <center>
             [TO BE EXECUTED ON A STAMP PAPER OF TWENTY FIVE RUPEES]<br/><br/>
             AFFIDAVIT OF ELIGIBILITY AND LIABILITY AND PUBLICITY RELEASE<br/><br/>
