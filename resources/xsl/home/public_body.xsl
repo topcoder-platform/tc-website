@@ -139,26 +139,24 @@
                 <tr><td valign="top" colspan="7"><img src="/i/label_coder_view.gif" alt="Coder's Point of View" width="148" height="26" border="0" /></td></tr>
 
                 <tr>
-                    <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/brett1479_mug.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br />
-                        By&#160;brett1479<br/><i>[TC]&#160;Member</i><br /></td>
+                    <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br />
+                        By&#160;lbackstrom<br/><i>[TC]&#160;Member</i><br /></td>
                     <td valign="top" width="8" rowspan="2"><img src="/i/clear.gif" alt="" width="8" height="1" border="0" /></td>
                     <td valign="top" width="100%" align="left" class="bodyText" colspan="2">
-                        <font size="2" color="#000000" face="arial, verdana"><strong>Single Round Match 137</strong></font></td>
+                        <font size="2" color="#000000" face="arial, verdana"><strong>Single Round Match 138</strong></font></td>
                 </tr>
 
                 <tr>
                     <td valign="top" class="bodyText" width="100%">
                         <a class="bodyGeneric">
-                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm137_prob</xsl:attribute><strong>Problem Set Analysis &amp; Opinion</strong></a><br />
+                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm138_prob</xsl:attribute><strong>Problem Set Analysis &amp; Opinion</strong></a><br />
 
-                        <p>The phrase "March Madness" best describes the last SRM.  Over 15% of the division 1 competitors
-                            submitted the hard problem, but only 2 passed systests.  SnapDragon, who won the competition,
-                            resubmitted the hard problem twice, and eventually won by successfully challenging 5 of the
-                            coders in his room.  "I didn't even check the last [challenge], I just went for the sweep"
-                            said SnapDragon, after sucessfully challenging all of the div 1 hards in his room.  schveiguy,
-                            the second place finisher, had the highest problem score but could not top SnapDragon's challenge
-                            round performance.  Division 2 coders faced similar difficulties, with only 10 coders passing
-                            systests on the hard problem.</p>
+                        <p>Div 1 had a rather rough set tonight, as only 1 person (SnapDragon) was able to solve all three
+                            problems successfully.  However, SnapDragon was rather slow on the hard problem, and despite
+                            being the only one to solve all three problems, he came in third.  It was lars, with the highest
+                            score on the hard, who took first place, pushing him up 184 rating points.  WishingBone was a
+                            close second, and moved up 93 points.  Div 2 had a rather easy set, and first timer TekGoNos won
+                            by a large margain.</p>
                     </td>
                 </tr>
             </table>
