@@ -9,7 +9,7 @@
             <% if (selectedRound.equals("round1")) {%>
                  Round 1 &nbsp;|&nbsp; 
             <% } else { %>
-                  <a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_radeye_rd1">Round1</a> &nbsp;|&nbsp; 
+                  <a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_radeye_rd1">Round 1</a> &nbsp;|&nbsp; 
             <% } %>
 
 <!-- Schedule tab -->
