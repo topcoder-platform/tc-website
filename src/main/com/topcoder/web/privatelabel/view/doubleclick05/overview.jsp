@@ -36,7 +36,7 @@ The DoubleClick&#153; 2005 Coding Challenge, Powered by TopCoder&#174;, is your 
 Participants will have their choice of using Java, C++, C# or VB.Net to solve complex algorithmic problems. 
 <br><br>         
 <span class="dc_subTitle">Here's what you do</span><br>
-Download the DoubleClick 2005 Coding Challenge Qualification Round <A href="/">Competition Manual</A>.
+Download the DoubleClick 2005 Coding Challenge Qualification Round <A href="/i/events/doubleclick05/CompetitionManual.pdf">Competition Manual</A>.
 <br><br>         
 The tournament is a timed contest where all participants compete online to solve the same problems under the same time constraints. Here's how it works:
 
