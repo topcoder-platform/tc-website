@@ -1,4 +1,4 @@
-<%--     
+<%--
 /**
  * post.jsp
  * Coolservlets.com
@@ -6,7 +6,7 @@
  */
 --%>
 
-<%@ page    
+<%@ page
     language="java"
     import="java.util.*,
             java.text.*,
@@ -253,7 +253,7 @@
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
   <TR>
     <TD BGCOLOR="#001B35" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-    <TD class="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#001B35" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="10" BORDER="0"/><BR/>          
+    <TD class="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#001B35" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="10" BORDER="0"/><BR/>
           <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
       <tr>
         <td valign="top" height="5"><img src="/i/clear.gif" width="1" height="5" /></td>
@@ -333,7 +333,7 @@
 <% }%>
              </tr>
 
-<%  
+<%
    String parentSubject = "";
    if( message != null ) {
      parentSubject = message.getSubject();
@@ -359,6 +359,9 @@
              </tr>
              <tr>
                <td valign="middle" class="statText">Message: (8000 character max)</td>
+             </tr>
+             <tr>
+               <td valign="middle" class="statText">&lt;pre&gt;&lt;/pre&gt; tags may be used to format your post.  This is the only tag that will work.</td>
              </tr>
              <tr>
                <td><textarea cols="60" rows="15" name="body" wrap="virtual"></textarea></td>
@@ -504,7 +507,7 @@
   </TR>
   <TR>
     <TD COLSPAN="3" VALIGN="top" BGCOLOR="#001B35" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-  </TR>     
+  </TR>
 </TABLE>
 
 <p><br></p>
