@@ -31,7 +31,7 @@
 
 </head>
 
-<body bgcolor="#FFFFFF" topmargin="0" marginheight="0" leftmargin="0" marginwidth="0">
+<body onLoad="timer(1);" bgcolor="#FFFFFF" topmargin="0" marginheight="0" leftmargin="0" marginwidth="0">
 
 <!-- Top begins -->
 <xsl:call-template name="Top"/>
@@ -137,29 +137,6 @@
                         items that need to be mailed via the postal service must be postmarked by this date.</strong></p>
 
                         <p>If you have questions, please contact <a href="mailto:tlongo@topcoder.com" >Tom Longo</a>.</p>
-<!--
-          <TABLE WIDTH="100%" BORDER="0" CELLPADDING="2" CELLSPACING="0" BGCOLOR="#FFFFFF">
-            <TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>
-            <TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2">blah blah blah blah blah</TD></TR>
-            <TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2">has notorized affidavit <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/has_notarized_affidavit"/></TD></TR>
-            <TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2">has tax form <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/has_tax_form"/></TD></TR>
-            <TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2">has image <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/has_image"/></TD></TR>
-            <TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2">handle <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/handle"/></TD></TR>
-            <TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2">first name <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/></TD></TR>
-            <TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2">last name <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/last_name"/></TD></TR>
-            <TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2">email <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/email"/></TD></TR>
-            <TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2">address1 <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/address1"/></TD></TR>
-            <TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2">address2 <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/address2"/></TD></TR>
-            <TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2">city <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/city"/></TD></TR>
-            <TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2">state code <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/stat_code"/></TD></TR>
-            <TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2">zip <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/zip"/></TD></TR>
-            <TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2">country <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/country_name"/></TD></TR>
-            <TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2">home phone <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/home_phone"/></TD></TR>
-            <TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2">work phone <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/work_phone"/></TD></TR>
-            <TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2">coder_type <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/coder_type_desc"/></TD></TR>
-            <TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><A HREF="/?&amp;t=affidavit&amp;c=2003_collegiate_affidavit" CLASS="bodyText">get affidavit</A></TD></TR>
-          </TABLE>
--->
                         <p><br/></p>
                     </td>
                     <td valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
