@@ -8,7 +8,7 @@ public class RatingStyleTag extends TagSupport {
     private int rating;
 
     private static final String[] styles =
-            {"coderTextOrange", "coderTextWhite", "coderTextGray", "coderTextBlue", "coderTextYellow", "coderTextRed"};
+            {"coderTextOrange", "coderTextWhite", "coderTextGray", "coderTextGreen", "coderTextBlue", "coderTextYellow", "coderTextRed"};
 
 
     public void setRating(int rating) {
