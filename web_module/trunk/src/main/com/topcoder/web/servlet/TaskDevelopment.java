@@ -29,7 +29,7 @@ import com.topcoder.dde.catalog.CatalogException;
 import com.topcoder.dde.catalog.ComponentInfo;
 import com.topcoder.dde.catalog.ComponentManagerHome;
 import com.topcoder.dde.catalog.ComponentManager;
-import com.topcoder.dde.catalog.ComponentSummary
+import com.topcoder.dde.catalog.ComponentSummary;
 import com.topcoder.dde.catalog.ComponentVersionInfo;
 import com.topcoder.dde.catalog.Document;
 import com.topcoder.dde.user.RegistrationInfo;
@@ -201,12 +201,12 @@ public final class TaskDevelopment {
             else if (command.equals("comp_projects2")) {
 
                RecordTag designProjectsTag = new RecordTag("design_projects");
-               Collection colComponents = catalog.getComponentsByStatus(ComponentInfo.APPROVED);
+               Collection colComponents = getCatalog().getComponentsByStatus(ComponentInfo.APPROVED);
                ComponentSummary summaries[] = (ComponentSummary[])colComponents.toArray(new ComponentSummary[0]);
                
                for(int k = 0; k < summaries.length; k++){
-                    lngComponent = summaries[k].getComponentId();
-                    componentManager = getComponentManager(lngComponent);
+                    long lngComponent = summaries[k].getComponentId();
+                    ComponentManager componentManager = getComponentManager(lngComponent);
 
                     Collection colVersions = componentManager.getAllVersionInfo();
                     ComponentVersionInfo versions[] = (ComponentVersionInfo[])colVersions.toArray(new ComponentVersionInfo[0]);
@@ -684,4 +684,29 @@ public final class TaskDevelopment {
        }
           return componentMgr;
     }    
+
+    static Catalog getCatalog(long componentId, long version){
+
+       Catalog catalog = null;
+       try{
+            Object objTechTypes = CONTEXT.lookup("CatalogEJB");
+            CatalogHome home = (CatalogHome) PortableRemoteObject.narrow(objTechTypes, CatalogHome.class);
+	        catalog = home.create();
+            
+       }
+       catch(javax.naming.NamingException namingException)
+       {
+          log.error("Could not create context: " + namingException.getMessage());
+       }
+       catch(javax.ejb.CreateException createException)
+       {
+          log.error("Could not create catalog: " + createException.getMessage());
+       }
+       catch(java.rmi.RemoteException remoteException)
+       {
+          log.error("Could not create catalog: " + remoteException.getMessage());
+       }
+          return componentMgr;
+    }    
+
 }
