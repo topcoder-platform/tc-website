@@ -127,25 +127,25 @@ Requirements: Database design experience, OO design experience, J2EE experience 
 	
 <P>
 <B>Back-End Developer</B> (2)<BR/>
-The back-end developers will assist finalizing the database schema and system architecture and design, implementing the schema, developing the business logic and persistence layers, and creating any maintenance scripts required to support the persistent store.
+The back-end developers are responsible for finalizing the database schema and system architecture and design, implementing the schema, developing the business logic persistence layer and the database persistence layer, and creating any maintenance scripts required to support the persistent store.  In addition, the back-end developers will be responsible for developing installation and user guides pertinent to the application.
 </P>
 
 <P>
-Requirements: Relational Database design experience, J2EE experience including JDBC and EJB.
+Requirements: OO design experience, Relational Database design experience, J2EE experience including JDBC and EJB.
 </P>
 	
 <P>
 <B>Front-End Developer</B> (2)<BR/>
-The front-end developers will assist in finalizing the system architecture and design, developing the business logic persistence layer and designing and implementing the application front-end.
+The front-end developers are responsible for finalizing the system architecture and design, developing the business logic persistence layer and designing and implementing the application front-end,  In addition, the front-end developers will need to provide documentation on how to customize and configure the front-end "look and feel."
 </P>
 	
 <P>
-Requirements: J2EE experience with EJB and JSP.
+Requirements: OO design experience, Java programming experience with JDBC, EJB and JSP.
 </P>
 
 <P>
 <B>QA Developer</B> (2)<BR/>
-The QA developers will assist in finalizing the system architecture and design, developing written test cases for the QA and Product Test phases, developing the test cases using J-Unit and HTTP-Unit, executing all tests and providing documentation outlining the test cases and their results.
+The QA developers will be responsible for finalizing the system architecture and design, developing written test cases for the QA and Product Test phases, developing the test cases using J-Unit and HTTP-Unit, executing all tests and providing documentation outlining the test cases and their results.
 </P>
 	
 <P>
@@ -165,7 +165,7 @@ The purpose of Specification phase is to finalize the system design, test cases 
 <B>Software Architecture Documents</B>
 Requirements
 <UL>
-	<LI> UML diagrams including use case, class, interaction and deployment diagrams</LI>
+	<LI> UML, dataflow and class interaction diagrams</LI>
 	<LI> Database Schema and XML Schema</LI>
 	<LI> GUI requirements: HTML page design, required data elements and process flow</LI>
 </UL>
@@ -403,7 +403,7 @@ The component goes through final approval from the product manager, which includ
 </P>
 
 <P>
-TopCoder will compensate all team members for their work on the project.  Compensation will consist of both initial payments and royalties on the sale of the component.  The initial payment will be distributed in three installments: at the start of the project; at the completion of the second milestone; and at the completion of the project.  
+TopCoder will compensate all team members for their work on the project.  Compensation will consist of both initial payments and royalties on the sale of the component.  The initial payment will be distributed in three installments: at the completion of the design phase; at the completion of the development phase; and at the completion of the project.   
 </P>
 
 <P>
@@ -416,7 +416,7 @@ Royalty Percentage - 25.00%<BR/>
 Total Payment - $7,500.00</B><BR/>
 First Payment - $750.00<BR/>
 Second Payment - $3,000.00<BR/>
-Third Payment - $3,750.00<BR/>
+Third Paymentv$3,750.00<BR/>
 </P>
 	
 <P>
@@ -467,6 +467,8 @@ You must be a rated TopCoder member, at least 18 years of age, meeting all of th
 	<LI> A US Citizen</LI>
 	<LI> A Lawful Permanent Resident of the US (i.e., a Green Card holder) </LI>
 	<LI> Currently lawfully residing in the US with valid employment authorization to act as an independent contractor.</LI>
+	<LI> A Non US Citizen working in their country of residence. </LI>
+
 </UL>
 </P>
 
