@@ -193,8 +193,8 @@
 		<td class="<%=tabLev3.equals("hotels")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=hotels" class="subNavLink">Hotels</a></td>
 	<% } else if (tabLev2.equals("onsite_events")) {%>
 		<td class="<%=tabLev3.equals("photos")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=photos" class="subNavLink">Photos</a></td>
-		<%--
 		<td class="<%=tabLev3.equals("movies")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=movies" class="subNavLink">Movies</a></td>
+		<%--
 		--%>
 		<% } else if (tabLev2.equals("sponsors")) {%>
 		<td class="<%=tabLev3.equals("microsoft")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=microsoft" class="subNavLink">Microsoft</a></td>
