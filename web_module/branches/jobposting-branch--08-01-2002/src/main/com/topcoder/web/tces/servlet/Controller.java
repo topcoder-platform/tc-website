@@ -50,13 +50,15 @@ public class Controller extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String debugMsg = "service called.";
+log.debug("in doPost");
+
         String command = request.getParameter(DataAccessConstants.COMMAND);
         String taskName = request.getParameter(TCESConstants.TASK_PARAM);
         String taskStepName = request.getParameter(TCESConstants.STEP_PARAM);
 
         InitialContext ctx = null;
         try {
+log.debug("getting initial context");
             ctx = (InitialContext) TCContext.getInitial();
 
             if (taskName != null && taskName.trim().length() > 0) {
