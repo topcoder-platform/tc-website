@@ -67,4 +67,6 @@ public interface Task {
 
     List getNavLinks();
 
+    boolean isInternalResource();
+
 }

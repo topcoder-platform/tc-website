@@ -91,7 +91,12 @@ public class Controller extends HttpServlet {
 
                 log.debug("next page is " + task.getNextPage());
 
-                getServletContext().getRequestDispatcher(response.encodeURL("/"+task.getNextPage())).forward(request, response);
+                if (task.isInternalResource()) {
+                    getServletContext().getRequestDispatcher(
+                            response.encodeURL("/"+task.getNextPage())).forward(request, response);
+                } else {
+                    response.sendRedirect(response.encodeURL(task.getNextPage()));
+                }
 
             }
             else {
