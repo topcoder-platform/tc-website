@@ -120,7 +120,7 @@ abstract public class PRBase extends Base {
         ProblemRatingResult ret = new ProblemRatingResult();
         List freqs = new ArrayList(sums.length);
         //generate an average of the distributions
-        for (int i=sums.length; --i>=0;) {
+        for (int i=0; i<sums.length; i++) {
             freqs.add(new Float((float)sums[i]/list.size()));
         }
         ret.setFrequencies(freqs);
