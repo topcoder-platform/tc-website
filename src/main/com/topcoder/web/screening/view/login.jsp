@@ -18,6 +18,8 @@
     } else return true;
   }
 </script>
+
+<link rel="Stylesheet" href="/css/style.css" type="text/css">
 </head>
 
 <body>
@@ -83,6 +85,7 @@
                 </tr>           
             </table>
             <p><br></p>
+            <p><br></p>   
             <p><br></p>   
         </td>
 <!-- Center Column Ends -->
