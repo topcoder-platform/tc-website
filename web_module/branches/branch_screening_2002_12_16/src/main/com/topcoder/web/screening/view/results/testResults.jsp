@@ -124,20 +124,24 @@ function getProblemDetail(id) {
 		       <TD VALIGN="middle" ALIGN="center" WIDTH="10%" CLASS="statText" BGCOLOR="#666666"><B>Overall Corr. %</B></TD>
 		       <TD VALIGN="middle" ALIGN="center" WIDTH="10%" CLASS="statText" BGCOLOR="#666666"><B>Time</B></TD>		       	        
 	        </TR>
-                <% { boolean even = true; %>
+                <% if(testResultsInfo.getProblemSetATCStats().isEmpty()){ %>
+	             <TR>
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" colspan='10'>No statistics available for this round.</TD>		       
+	             </TR>
+                <% }else{ boolean even = true; %>
                    <screen:resultSetRowIterator id="row" list="<%=testResultsInfo.getProblemSetATCStats()%>">
                      <% String color = even ? "BGCOLOR='#CCCCCC'" : ""; %>
 	             <TR>
-		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText" <%= color %>>&#160;Problem A</TD>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <%= color %>>I</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%= color %>>3</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%= color %>>300</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%= color %>>200</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%= color %>>66.6%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%= color %>>100</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%= color %>>50%</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%= color %>>33%</TD>		       		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%= color %>>65:45</TD>		       
+		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText" <%= color %>>&#160;<screen:resultSetItem row="<%=row%>" name="name" /></TD>
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="division_desc" /></TD>		       
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="level_desc" /></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="coders" /></TD>		       
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="submissions" /></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="submit_pct" />%</TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="correct" /></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="submit_pct_correct" />%</TD>		       
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="overall_pct_correct" />%</TD>		       		       
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="time_elapsed" /></TD>		       
 	             </TR>
                      <% even = !even; %>
                    </screen:resultSetRowIterator>

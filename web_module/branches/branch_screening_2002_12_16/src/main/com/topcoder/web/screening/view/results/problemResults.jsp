@@ -7,15 +7,19 @@
 <TITLE>TopCoder - Candidate Evaluation</TITLE>
 <jsp:include page="/script.jsp"/>
 <SCRIPT TYPE="text/javascript">
-function getProblemDetail(id) {
+function getTCProblemResult(coderId, roundId, problemId, divisionId) {
     var width = screen.availWidth * 2 / 3;
     var height = screen.availHeight / 2;
     var left = (screen.availWidth - width) / 2;
     var top = 0;
     var cmd = "toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes,top=" + top + ",left=" + left + ",width=" + width + ",height=" + height + ",status=0";
     var name="problemDetail";
-    <% String url = Constants.CONTROLLER_URL + "?" + Constants.REQUEST_PROCESSOR + "=PopulateProblemDetail"; %>
-    window.open('<screen:rewrite page="<%=url%>" />&<%=Constants.ROUND_PROBLEM_ID%>='+id,name,cmd);
+    <% String url = Constants.CONTROLLER_URL + "?" + Constants.REQUEST_PROCESSOR + "=TCProblemResult"; %>
+    var params = '&<%=Constants.USER_ID%>=' + coderId +
+                 '&<%=Constants.ROUND_ID%>=' + roundId +
+                 '&<%=Constants.PROBLEM_ID%>=' + problemId +
+                 '&<%=Constants.DIVISION_ID%>=' + divisionId;
+    window.open('<screen:rewrite page="<%=url%>" />'+params,name,cmd);
     return;
   }
 </SCRIPT>
@@ -132,7 +136,7 @@ function getProblemDetail(id) {
            </TR>	        
            <screen:resultSetRowIterator id="solution" list="<%= submissionInfo.getTopTCSolutions() %>">
 	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="JavaScript:getProblemDetail('/eval/tc_prob_results.jsp','600','500')" CLASS="bodyText">328.45</A></TD>
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="JavaScript:getTCProblemResults('0','0','0','0')" CLASS="bodyText"><screen:resultSetItem row="<%=solution%>" name="final_points" /></A></TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;I</TD>		       
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Level 2</TD>		       
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Category Name</TD>		       	        
