@@ -2,11 +2,13 @@
 
 <html>
   <head>
-    <title></title>
+    <title>Test Arguments</title>
+   <link type="text/css" rel="stylesheet" href="/css/screening.css" >
   </head>
   <body>
         <form name="frmArray" onsubmit="return false;">
         <table border=0 width="100%">
+            <tr><td class="testWinTitle">Test Arguments</td></tr>
             <tr>
                 <td>
                     <span id=countSpan></span>

@@ -100,7 +100,7 @@
                     return;
                 }
                 var w = 350;
-                var h = 250;
+                var h = 300;
                 var left = (screen.availWidth - w) / 2;
                 var top = (screen.availHeight - h) / 2;
 
@@ -108,7 +108,7 @@
                 putValue("document.frmTesting", "arrayArgType", argTypes[id]);
                 putValue("document.frmTesting", "arrayDisplayArgType", displayTypes[id]);
 
-                windowHandle = window.open("arrayEntry.jsp", "", "statusbars=no,menubar=no,status=no,toolbar=no,width=" + w + ",height=" + h + ",screenX=" + left + ",screenY=" + top);
+                windowHandle = window.open("arrayEntry.jsp", "", "statusbars=no,menubar=no,scrollbars=yes,resizable=yes,status=no,toolbar=no,width=" + w + ",height=" + h + ",screenX=" + left + ",screenY=" + top);
             }
 
             function ok() {
