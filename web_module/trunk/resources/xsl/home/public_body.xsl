@@ -140,29 +140,24 @@
 
             <xsl:call-template name="top_10_coders" />
             <xsl:call-template name="top_10_schools" />
-<!--             <xsl:call-template name="top_5_states" />  -->
             <xsl:call-template name="top_5_countries" />
+        
+            <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br />
 
 <!-- Statistics Begins -->
-            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001935" width="100%">
-                <tr><td colspan="3" bgcolor="#093158"><img src="/i/label_quick_stats_home.gif" alt="Statistics" width="244" height="20" border="0" /></td></tr>
+            <table border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#EEEEEE">
+                <tr><td bgcolor="#838383"><img src="/i/label_quick_stats_home.gif" alt="Statistics" width="244" height="20" border="0" /></td></tr>
                 <tr>
-                    <td rowspan="5"><img src="/i/clear.gif" width="6" height="1" border="0" /></td>
-                    <td><img src="/i/clear.gif" alt="" width="1" height="3" border="0" /></td>
-                    <td rowspan="5"><img src="/i/clear.gif" width="6" height="1" border="0" /></td>
+                    <td><img src="/i/clear.gif" alt="" width="1" height="3" border="0" /><br/>
+                        <table border="0" cellspacing="5" cellpadding="0" width="100%">
+                            <tr><td class="bodyText">Select a Statistic from the menu below.</td></tr>
+                            <xsl:call-template name="quick_stats_pulldown"/>
+                        </table></td>
                 </tr>
-                <tr><td class="statText">Select a Statistic from the menu below.</td></tr>
-                <tr><td><img src="/i/clear.gif" alt="" width="1" height="3" border="0" /></td></tr>
-                <tr><td class="quickstatText" valign="top">
-
-                <xsl:call-template name="quick_stats_pulldown"/>
-
-                    </td>
-                </tr>
-                <tr><td><img src="/i/clear.gif" alt="" width="1" height="15" border="0"/></td></tr>
             </table>
+            <img src="/i/home_right_bottom.gif" width="244" height="20" border="0" />
 <!-- Statistics Ends -->
-
+            <p><br/></p>
         </td>
 <!-- Right Column Ends -->
 
