@@ -49,7 +49,7 @@
             <xsl:call-template name="big_promo"/>
 <!-- Big Promo ends -->
 
-            <img src="/i/clear.gif" alt="" width="1" height="15" border="0" /><br />
+            <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br />
 
 <!-- Small Promos begin -->
             <xsl:call-template name="small_promos"/>
