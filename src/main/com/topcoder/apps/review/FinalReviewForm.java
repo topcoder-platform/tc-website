@@ -204,7 +204,8 @@ public class FinalReviewForm extends AggregationWorksheetForm {
                     errors.add("responses[" + i + "]",
                                new ActionError("error.status.required"));
 
-                } else if (status.equalsIgnoreCase("Not Fixed")) {
+                } else if (status.equalsIgnoreCase("Not Fixed")
+                           && getResponses()[i].getResponseType().equalsIgnoreCase("Required")) {
                     mustReject = true;
                 }
             }
