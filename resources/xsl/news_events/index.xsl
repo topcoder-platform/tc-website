@@ -63,6 +63,36 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
             
+<!-- TCCC05 -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_03_14_05a"><img src="/i/pressroom/tccc05_logo.gif" alt="TCCC05" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_03_14_05a">Champions Announced In 2005 TCCC Sponsored by Yahoo!&#174;</A></strong></font><br />
+                        TopCoder today announced that Mathijs Vogelzang of the University of Groningen, The Netherlands, Adrian Nicolae Carcu of  the Babes-Bolyai Computer Science University, Romania, and Gary Linscott of Queens University, Canada have won the Algorithm, Design and Development Component tournaments of the 2005 TopCoder Collegiate Challenge sponsored by Yahoo!<span class="prHead"> [March 14]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+<!-- Logic Library -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_03_14_05b"><img src="/i/pressroom/logiclib_logo.gif" alt="Logic Library" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_03_14_05b">LogicLibrary Teams with TopCoder to Accelerate SOA Deployments</A></strong></font><br />
+						      "As developers turn to SOA, reusable components are becoming the building blocks of applications because of their ability to reduce costs, streamline projects and improve productivity."<span class="prHead"> [March 14]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <!-- NW Polska -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
