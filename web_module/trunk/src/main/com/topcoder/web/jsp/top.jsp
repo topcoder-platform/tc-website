@@ -79,7 +79,11 @@
                     <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">            
                        <TR>
                           <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="75" BORDER="0"/></TD>
+                          <% if (rating > 1199) { %>
                           <TD BACKGROUND="/i/top_div1_badge.jpg" WIDTH="100%" BGCOLOR="#333333"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="75" BORDER="0"/></TD>
+                          <% } else { %>
+                          <TD BACKGROUND="/i/top_div2_badge.jpg" WIDTH="100%" BGCOLOR="#333333"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="75" BORDER="0"/></TD>
+                          <% } %>
                           <TD CLASS="time" ALIGN="right" VALIGN="middle" WIDTH="150" BGCOLOR="#333333"><IMG SRC="/i/clear.gif" WIDTH="150" HEIGHT="1" BORDER="0"/><BR/>
                              <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">            
                                 <TR>
