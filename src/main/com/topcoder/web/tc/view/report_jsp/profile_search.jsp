@@ -10,7 +10,7 @@
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
 <%
     String s;
-    Set hs;
+    String[] sa;
     Map m = null;
     ResultSetContainer.ResultSetRow p;
     m = (Map)request.getAttribute(Constants.REPORT_PROFILE_SEARCH_KEY);
@@ -23,6 +23,15 @@
     ResultSetContainer skills = (ResultSetContainer)m.get("skills");
     Map skillNames = new HashMap();
     boolean revise = "on".equals(request.getParameter("revise"));
+    Set states = new HashSet(); 
+    Set country = new HashSet(); 
+    Set coo= new HashSet(); 
+    sa = request.getParameterValues("states");
+    if(sa!=null)states.addAll(Arrays.asList(sa));
+    sa = request.getParameterValues("country");
+    if(sa!=null)country.addAll(Arrays.asList(sa));
+    sa = request.getParameterValues("countryoforigin");
+    if(sa!=null)coo.addAll(Arrays.asList(sa));
 
     ResultSetContainer.ResultSetRow answer;
     ResultSetContainer.ResultSetRow skill;
@@ -107,35 +116,32 @@
       <tr><td>City: <input type="text" name="city" size="15" value="<%=request.getParameter("city")%>"></td></tr>
       <tr><td>Company: <input type="text" name="company" size="15" value="<%=request.getParameter("company")%>"></td></tr>
       <tr><td>State: <select name="states" multiple size=5>
-      <% hs = new HashSet(Arrays.asList(request.getParameterValues("states"))); %>
         <rsc:iterator list="<%=states%>" id="resultRow">
-          <option value="<rsc:item name="state_code" row="<%=resultRow%>"/>"<%=hs.contains(resultRow.getStringItem("state_code")) ? " selected" : ""%><rsc:item name="state_code" row="<%=resultRow%>"/></option>
+          <option value="<rsc:item name="state_code" row="<%=resultRow%>"/>"<%=states.contains(resultRow.getStringItem("state_code")) ? " selected" : ""%><rsc:item name="state_code" row="<%=resultRow%>"/></option>
         </rsc:iterator>
         </select>
         <a href="JavaScript:deselect('states')">Deselect</a>
       </td></tr>
       <tr><td>Country: <select name="country" multiple size=5>
-      <% hs = new HashSet(Arrays.asList(request.getParameterValues("country_code"))); %>
-        <option value="840" <%=hs.contains("840") ? " selected" : ""%>>United States</option>
+        <option value="840" <%=country.contains("840") ? " selected" : ""%>>United States</option>
         <rsc:iterator list="<%=countries%>" id="resultRow">
           <% 
             String countryCode = resultRow.getStringItem("country_code");
             if(countryCode == null || countryCode.equals("840") || countryCode.equals(""))continue;//put the US first for convenience 
           %>
-          <option value="<rsc:item name="country_code" row="<%=resultRow%>"/>"<%=hs.contains(resultRow.getStringItem("country_code")) ? " selected" : ""%>><rsc:item name="country_name" row="<%=resultRow%>"/></option>
+          <option value="<rsc:item name="country_code" row="<%=resultRow%>"/>"<%=country.contains(resultRow.getStringItem("country_code")) ? " selected" : ""%>><rsc:item name="country_name" row="<%=resultRow%>"/></option>
         </rsc:iterator>
         </select>
         <a href="JavaScript:deselect('country')">Deselect</a>
       </td></tr>
       <tr><td>Country of Origin: <select name="countryoforigin" multiple size=5>
-      <% hs = new HashSet(Arrays.asList(request.getParameterValues("countryoforigin"))); %>
-        <option value="840" <%=hs.contains("840") ? " selected" : ""%>>United States</option>
+        <option value="840" <%=coo.contains("840") ? " selected" : ""%>>United States</option>
         <rsc:iterator list="<%=countries%>" id="resultRow">
           <% 
             String countryCode = resultRow.getStringItem("country_code");
             if(countryCode == null || countryCode.equals("840") || countryCode.equals(""))continue;//put the US first for convenience 
           %>
-          <option value="<rsc:item name="country_code" row="<%=resultRow%>"/>"<%=hs.contains(resultRow.getStringItem("countryoforigin")) ? " selected" : ""%>><rsc:item name="country_name" row="<%=resultRow%>"/></option>
+          <option value="<rsc:item name="country_code" row="<%=resultRow%>"/>"<%=coo.contains(resultRow.getStringItem("countryoforigin")) ? " selected" : ""%>><rsc:item name="country_name" row="<%=resultRow%>"/></option>
         </rsc:iterator>
         </select>
         <a href="JavaScript:deselect('countryoforigin')">Deselect</a>
@@ -157,8 +163,9 @@
         <rsc:item name="demographic_question_text" row="<%=resultRow%>"/>:
         <select size="3" multiple name="demo_<rsc:item name="demographic_question_id" row="<%=resultRow%>"/>">
         <%
-        hs = new HashSet();
-        hs.addAll(Arrays.asList(request.getParameterValues("demo_"+resultRow.getIntItem("demographic_question_id"))));
+        Set hs = new HashSet();
+        sa = request.getParameterValues("demo_"+resultRow.getIntItem("demographic_question_id"));
+        if(sa!=null) hs.addAll(Arrays.asList(sa));
         while(idx < demographic_answers.getRowCount()){
             answer = demographic_answers.getRow(idx);
             if(answer.getIntItem("demographic_question_id") == resultRow.getIntItem("demographic_question_id")){
