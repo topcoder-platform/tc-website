@@ -43,6 +43,16 @@
                 <tr valign="top">
                     <td class="bodyText" width="100%">
                         <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                            <tr valign="middle"><td class="statTextLarge" bgcolor="#999999" colspan="2"><font size="3">Match Editorial Archive - 2004</font></td></tr>
+
+                            <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
+                            <tr><td valign="middle" class="bodyText" colspan="2">&#160;<strong>January</strong></td></tr>
+                            <tr><td class="bodyText">&#160;01.07.04</td><td class="bodyText" nowrap="0" width="100%">&#160;SRM 178 - <a href="/index?t=statistics&amp;c=srm178_prob">Problem Set &amp; Analysis</a></td></tr>
+                        </table>
+                        
+                        <br/><br/>
+
+                        <table width="100%" border="0" cellspacing="0" cellpadding="3">
                             <tr valign="middle"><td class="statTextLarge" bgcolor="#999999" colspan="2"><font size="3">Match Editorial Archive - 2003</font></td></tr>
 
                             <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
@@ -161,7 +171,7 @@
                             <tr><td class="bodyText">&#160;01.30.03</td><td class="bodyText" nowrap="0">&#160;SRM 131 - <a href="/index?t=statistics&amp;c=srm131_prob">Problem Set &amp; Analysis</a></td></tr>
                             <tr><td class="bodyText">&#160;01.14.03</td><td class="bodyText" nowrap="0">&#160;SRM 129 - <a href="/index?t=statistics&amp;c=srm129_prob">Problem Set &amp; Analysis</a></td></tr>
                             <tr><td class="bodyText">&#160;01.06.03</td><td class="bodyText" nowrap="0">&#160;SRM 128 - <a href="/index?t=statistics&amp;c=srm128_prob">Problem Set &amp; Analysis</a></td></tr>
-                            <tr><td class="bodyText">&#160;01.02.03</td><td class="bodyText" nowrap="0">&#160;SRM 127 - <a href="/index?t=statistics&amp;c=srm127_prob">Problem Set &amp; Analysis</a></td></tr>
+                            <tr><td class="bodyText">&#160;01.02.03</td><td class="bodyText" nowrap="0" width="100%">&#160;SRM 127 - <a href="/index?t=statistics&amp;c=srm127_prob">Problem Set &amp; Analysis</a></td></tr>
                         </table>
 
                         <br/><br/>
@@ -266,7 +276,7 @@
                             <tr><td class="bodyText">&#160;04.22.02</td><td valign="middle" class="bodyText">&#160;SRM 81 - This match was rescheduled to Saturday, April 27th as SRM 83</td></tr>
                             <tr><td class="bodyText">&#160;04.15.02</td><td valign="middle" class="bodyText">&#160;SRM 80 - <a href="/index?t=statistics&amp;c=srm80_room1">Room 1</a> | <a href="/index?t=statistics&amp;c=srm80_rookie">Rookie Review</a> | <a href="/index?t=statistics&amp;c=srm80_prob">Problem Set Analysis &amp; Opinion</a></td></tr>
                             <tr><td class="bodyText">&#160;04.10.02</td><td valign="middle" class="bodyText">&#160;SRM 79 - <a href="/index?t=statistics&amp;c=srm79_room1">Room 1</a> | <a href="/index?t=statistics&amp;c=srm79_rookie">Rookie Review</a> | <a href="/index?t=statistics&amp;c=srm79_prob">Problem Set Analysis &amp; Opinion</a></td></tr>
-                            <tr><td class="bodyText">&#160;04.09.02</td><td valign="middle" class="bodyText">&#160;SRM 78 - <a href="/index?t=statistics&amp;c=srm78_room1">Room 1</a> | <a href="/index?t=statistics&amp;c=srm78_rookie">Rookie Review</a> | <a href="/index?t=statistics&amp;c=srm78_prob">Problem Set Analysis &amp; Opinion</a></td></tr>
+                            <tr><td class="bodyText">&#160;04.09.02</td><td valign="middle" class="bodyText"  width="100%">&#160;SRM 78 - <a href="/index?t=statistics&amp;c=srm78_room1">Room 1</a> | <a href="/index?t=statistics&amp;c=srm78_rookie">Rookie Review</a> | <a href="/index?t=statistics&amp;c=srm78_prob">Problem Set Analysis &amp; Opinion</a></td></tr>
                             <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
 
                             <tr><td colspan="2" align="left"><br/><a href="mailto:editorial@topcoder.com">Are you a member interested in writing a review?</a></td></tr>
