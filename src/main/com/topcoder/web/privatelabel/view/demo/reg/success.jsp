@@ -28,18 +28,18 @@
                             <tr>
                                 <td class="brBodyTitle" align=left>Application Received
                                 </td>
-                                <td class="brBodyTitle" align=right width="50%" nowrap=nowrap><A href="http://www.brooks.com/pages/2730_software.cfm" target="_blank" class="brRegTableAnswer">Learn about Brooks Software</A>
+                                <td class="brBodyTitle" align=right width="50%" nowrap=nowrap><A href="/corp/?module=Static&d1=corp&d2=testing&d3=index" target="_blank" class="brRegTableAnswer">Learn more about the TopCoder Technical Assessment Tool</A>
                                 </td>
                            </tr>
                            <tr>
                                 <td class="brBody" colspan=2 align=center>
                                 
                                 <p>
-                                Thank you for applying to Brooks Automation and for registering for the Technical Assessment Tool, which you must complete within the next four (4) days.
+                                Thank you for applying to XYZ Company and for registering for the Technical Assessment Tool, which you must complete within the next four (4) days.
                                 <br/><br/>
                                 You will receive an email at the address with which you registered that outlines the specifics of the Technical Assessment Tool.  Please read it carefully and in its entirety before beginning.
                                 <br/><br/>
-                                If you have any questions while using the Technical Assessment Tool, please email them to <a href="mailto:brooks@topcoder.com?subject=Question regarding the Brooks Automation Technical Assessment Tool">brooks@topcoder.com</a>.
+                                If you have any questions while using the Technical Assessment Tool, please email them to <a href="mailto:service@topcoder.com">service@topcoder.com</a>.
                                 </p>
                                 </td>
                             </tr>
