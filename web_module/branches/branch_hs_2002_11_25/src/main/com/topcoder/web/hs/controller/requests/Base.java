@@ -36,8 +36,8 @@ public abstract class Base implements RequestProcessor {
     protected void buildSessionInfo() {
         SessionInfoBean si = new SessionInfoBean();
         si.setUserId(user.getId());
-        si.setHandle(user.getName());
-        si.setGroup(user.getId==0 ? 'A' : 'S');  //@@@
+        si.setHandle(user.getUserName());
+        si.setGroup(user.getId()==0 ? 'A' : 'S');  //@@@
         si.setRating(2500);  //@@@
         request.setAttribute("SessionInfo", si);
     }
@@ -50,7 +50,7 @@ public abstract class Base implements RequestProcessor {
         user = auth.getUser();
 
         hsa = new HSAuthorization(user.getId());
-        if(!hsa.checkPermission(new SimpleResource(this.getClass().getName())))
+        if(!hsa.hasPermission(new SimpleResource(this.getClass().getName())))
             throw new RuntimeException("@@@ use authexception");
 
         buildSessionInfo();

@@ -4,9 +4,9 @@ import java.util.Hashtable;
 import javax.naming.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
+import com.topcoder.security.*;
 import com.topcoder.security.admin.*;
 import com.topcoder.security.login.*;
-import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.*;
 
 /**

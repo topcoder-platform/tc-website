@@ -25,7 +25,7 @@ public class Static extends Base {
             path = "/home/index";  //@@@ name this, make it different if we are logged in?
 
         /* here we check whether the path is allowed for this type of user */
-        if(!hsa.checkPermission(path))
+        if(!hsa.hasPermission(path))
             throw new RuntimeException("@@@ not authorized to view this page");
 
         path += ".jsp";
