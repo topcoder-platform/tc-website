@@ -79,26 +79,30 @@ public class TCES extends Task implements Serializable {
 CoderBean beanCoder = new CoderBean();
 coderObject.coder_id = new Long( (long)currentUser.getUserId() );
 coderObject = beanCoder.request(com.topcoder.web.TCES.ejb.Coder.SELECT, coderObject);
+
+
+
 boolean doUpdate = false;
 
 String[] parameterValues;
 
 isTaskValidated = true;
+
+
 parameterValues = (String[])htParams.get("firstName");
 if (this.isValid(parameterValues)) {
         coderObject.first_name = parameterValues[0];
 } else {
     //xxx todo - add error redirect
-    coderObject.first_name = null;
     isTaskValidated = false;
 }
+
 
 parameterValues = (String[])htParams.get("lastName");
 if (this.isValid(parameterValues)) {
         coderObject.last_name = parameterValues[0];
 } else {
     //xxx todo - add error redirect
-    coderObject.last_name = null;
     isTaskValidated = false;
 }
 
@@ -107,15 +111,12 @@ if (this.isValid(parameterValues)) {
         coderObject.address1 = parameterValues[0];
 } else {
     //xxx todo - add error redirect
-    coderObject.address1 = null;
     isTaskValidated = false;
 }
 
 parameterValues = (String[])htParams.get("address2");
 if (this.isValid(parameterValues)) {
         coderObject.address2 = parameterValues[0];
-} else {
-    coderObject.address2 = null;
 }
 
 parameterValues = (String[])htParams.get("city");
@@ -123,7 +124,6 @@ if (this.isValid(parameterValues)) {
         coderObject.city = parameterValues[0];
 } else {
     //xxx todo - add error redirect
-    coderObject.city = null;
     isTaskValidated = false;
 }
 
@@ -132,7 +132,6 @@ if (this.isValid(parameterValues)) {
         coderObject.state_code = parameterValues[0];
 } else {
     //xxx todo - add error redirect
-    coderObject.state_code = null;
     isTaskValidated = false;
 }
 
@@ -141,7 +140,6 @@ if (this.isValid(parameterValues)) {
         coderObject.zip = parameterValues[0];
 } else {
     //xxx todo - add error redirect
-    coderObject.zip = null;
     isTaskValidated = false;
 }
 
@@ -151,7 +149,6 @@ if (this.isValid(parameterValues)) {
         coderObject.country_code = parameterValues[0];
 } else {
     //xxx todo - add error redirect
-    coderObject.country_code = null;
     isTaskValidated = false;
 }
 
@@ -160,7 +157,6 @@ if (this.isValid(parameterValues)) {
     coderObject.home_phone = parameterValues[0];
 } else {
     //xxx todo - add error redirect
-    coderObject.home_phone = null;
     isTaskValidated = false;
 }
 
