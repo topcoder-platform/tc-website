@@ -86,7 +86,8 @@ function getProblemDetail(id) {
                         String color = even ? "BGCOLOR='#CCCCCC'" : "";
                         String prparam = Constants.SESSION_ID + '=' + testResultsInfo.getSessionId() + '&' + 
                                          Constants.ROUND_ID + '=' + row.getItem("session_round_id") + '&' +
-                                         Constants.PROBLEM_ID + '=' + row.getItem("problem_id");
+                                         Constants.PROBLEM_ID + '=' + row.getItem("problem_id") + '&' +
+                                         Constants.PROBLEM_TYPE_ID + '=' + row.getItem("problem_type_id");
                      %>
 	             <TR>
 		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText" <%= color %>>&#160;<A HREF="JavaScript:getProblemDetail('<screen:resultSetItem row="<%=row%>" name="session_round_id" />,<screen:resultSetItem row="<%=row%>" name="problem_id" />')" CLASS="bodyText"><screen:resultSetItem row="<%=row%>" name="problem_name" /></A></TD>
@@ -176,7 +177,8 @@ function getProblemDetail(id) {
                         String color = even ? "BGCOLOR='#CCCCCC'" : "";
                         String prparam = Constants.SESSION_ID + '=' + testResultsInfo.getSessionId() + '&' + 
                                          Constants.ROUND_ID + '=' + row.getItem("session_round_id") + '&' +
-                                         Constants.PROBLEM_ID + '=' + row.getItem("problem_id");
+                                         Constants.PROBLEM_ID + '=' + row.getItem("problem_id") + '&' +
+                                         Constants.PROBLEM_TYPE_ID + '=' + row.getItem("problem_type_id");
                      %>
 	             <TR>
 		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText" <%= color %>>&#160;<A HREF="JavaScript:getProblemDetail('<screen:resultSetItem row="<%=row%>" name="session_round_id" />,<screen:resultSetItem row="<%=row%>" name="problem_id" />')" CLASS="bodyText"><screen:resultSetItem row="<%=row%>" name="problem_name" /></A></TD>
