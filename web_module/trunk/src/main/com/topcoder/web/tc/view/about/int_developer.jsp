@@ -62,13 +62,13 @@
 </P>
 
 <p>
-TopCoder is looking to hire a full-time software developer to administer, enhance, and maintain the TopCoder competition engine. Candidates must work well under pressure in a high-risk environment and must have good communication skills. 
+TopCoder is looking to hire a full-time software developer to design and implement enhancements to TopCoder’s internal systems.  Candidates must work well under pressure in a high-risk environment and must have good communication skills.
 </p>
 <p><b>Responsibilities</b></p>
 <ul>
-<li>Setup and administration of TopCoder competitions</li>
 <li>Implement enhancements to the TopCoder competition engine and TopCoder website</li>
-<li>Design and develop new functionality to compliment TopCoder's internal systems and private label software offerings</li>
+<li>Design and develop new functionality to compliment TopCoder's internal systems and private label software offerings </li>
+<li>Setup and administration of TopCoder SRMs, private label competitions, and major tournaments</li>
 </ul>
 
 <p><b>Environment</b></p>
