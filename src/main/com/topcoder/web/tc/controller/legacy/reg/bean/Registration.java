@@ -138,10 +138,10 @@ public class Registration
     public static final int TOPCODER_EMAIL_REFERRAL = 70;
     public static final int JAVA_USER_GROUP_REFERRAL = 90;
     public static final int SEARCH_ENGINE_REFERRAL = 100;
+    private final static String PUNCTUATION = "-_.{}[]()";
     private final static String HANDLE_ALPHABET="ABCDEFGHIJKLMNOPQRSTUVWXYZ"+
                                                 "abcdefghijklmnopqrstuvwxyz"+
-                                                "0123456789"+
-                                                "-_.{}[]()";
+                                                "0123456789"+PUNCTUATION;
 
     // school ids
     //public static final int OTHER_SCHOOL = 0;
@@ -414,6 +414,8 @@ public class Registration
                     this.handle.toLowerCase().indexOf("guest") >= 0
                     //  or new registration and the handle exists
                     || (isRegister() && handleExists(this.handle))
+                    || (isRegister() && this.handle.trim().length()<=1)
+                    || (isRegister() && containsAllPunctuation(this.handle))
                     //  or update registration, the handle changes, and the new handle exists
                     || (!isRegister() && !this.handle.equalsIgnoreCase(user.getHandle()) && handleExists(this.handle))
             ) {
@@ -551,14 +553,21 @@ public class Registration
         } else if (isStep(STEP_3)) {
             clearErrors();
 
-            register();
 
-            if (isRegister()) {
-                //check for auto activate
-                log.debug("AUTO-ACTIVATE FLAG: " + autoActivate);
-                //resetUser();
-                init();
+            //check yet again
+            if (isRegister()&&handleExists(handle)) {
+                addError(HANDLE, "Please choose another handle.");
+            } else {
+                register();
+                if (isRegister()) {
+                    //check for auto activate
+                    log.debug("AUTO-ACTIVATE FLAG: " + autoActivate);
+                    //resetUser();
+                    init();
+                }
             }
+
+
         } else if (isStep(STEP_4)) {
             clearErrors();
 
@@ -599,6 +608,14 @@ public class Registration
             process();
         } catch (TaskException e) {
         }
+    }
+
+    public static boolean containsAllPunctuation(String handle) {
+        boolean allPunctuation = true;
+        for (int i=0; i<handle.length()&&allPunctuation; i++) {
+            allPunctuation&=PUNCTUATION.indexOf(handle.charAt(i))>=0;
+        }
+        return allPunctuation;
     }
 
     public static boolean isValidHandle(String handle) {
@@ -649,7 +666,7 @@ public class Registration
                     return PAGE_5B;
                 }
             } else {
-                return PAGE_3;
+                return PAGE_1;
             }
         } else if (isStep(STEP_4)) {
             if (isValid()) {
@@ -1582,6 +1599,7 @@ public class Registration
                     coder.getCoderReferral().setReferenceId(referralUser.getUserId());
                 }
             }
+
         }
 
 
