@@ -44,7 +44,7 @@ public class UpdateCoach extends Base {
     String cmd=request.getParameter("cmd");
 
     /* If there is no command, then we are trying to display the main update
-     * student page 
+     * coach page 
      */
     if (cmd==null||cmd.equals("")) {
       CoachRegistrationBean crb=new CoachRegistrationBean();
@@ -59,7 +59,7 @@ public class UpdateCoach extends Base {
       RegistrationHelper.populateCoachFromRequest(request,crb);
       RegistrationHelper.populateCoachStaticContent(crb);
 
-      request.setAttribute("student",crb);
+      request.setAttribute("coach",crb);
 
       setNextPage(UPDATE_BASE+UPDATE_PAGE);
       setIsNextPageInContext(true);
@@ -82,7 +82,7 @@ public class UpdateCoach extends Base {
       RegistrationHelper.populateCoachFromRequest(request,crb);
       RegistrationHelper.populateCoachStaticContent(crb);
 
-      request.setAttribute("student",crb);
+      request.setAttribute("coach",crb);
 
       HashMap errors=new HashMap();
       request.setAttribute("form_errors",errors);
@@ -113,7 +113,7 @@ public class UpdateCoach extends Base {
       RegistrationHelper.populateCoachFromRequest(request,crb);
       RegistrationHelper.populateCoachStaticContent(crb);
 
-      request.setAttribute("student",crb);
+      request.setAttribute("coach",crb);
 
       HashMap errors=new HashMap();
       request.setAttribute("form_errors",errors);
