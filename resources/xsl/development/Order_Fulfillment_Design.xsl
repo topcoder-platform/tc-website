@@ -174,7 +174,7 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total Payment -</td>
-                                                            <td class="bodyText" align="right">$2900.00</td>
+                                                            <td class="bodyText" align="right">$2800.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">First Payment -</td>
@@ -182,7 +182,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Second Payment - </td>
-                                                            <td class="bodyText" align="right">$900.00</td>
+                                                            <td class="bodyText" align="right">$800.00</td>
                                                         </tr>
                                                     </table>
 
@@ -219,7 +219,7 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total - </td>
-                                                            <td class="bodyText" align="right">$5,900.00</td>
+                                                            <td class="bodyText" align="right">$5,000.00</td>
                                                         </tr>
                                                     </table>
 
