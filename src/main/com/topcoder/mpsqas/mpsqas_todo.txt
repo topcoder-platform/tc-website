@@ -7,6 +7,8 @@
  
 - main problem room, method name = class name
 
+-move "all solutions always agree" to after the results
+
 *********** ADDITIONAL FUNCTIONALITY ***************
 
 - separate proposal and submission, add statement preview
