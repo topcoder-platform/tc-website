@@ -178,12 +178,14 @@
                         Requirement Specification</A> for this component project</strong>
                         </p>
 
+                        <xsl:if test="/TC/DEVELOPMENT/tco='t'">
                         <p><strong><A>
                             <xsl:attribute name="href">
                                 <xsl:value-of select="concat('/?&amp;t=development&amp;version=', $version, '&amp;phase=' , $phase, '&amp;comp=', $componentId, '&amp;c=tcs_inquire&amp;Project=', $formattedName, ':%20Development&amp;date=', /TC/DEVELOPMENT/date)"/>
                             </xsl:attribute>
                         Register</A> for this Component Project to get information necessary to submit a solution</strong>
                         </p>
+</xsl:if>
                             
                             <p><br /></p>
                            
