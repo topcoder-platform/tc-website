@@ -16,12 +16,20 @@ public abstract class EJBTestCase extends TestCase {
     super(_name);
   }
 
-  public static InitialContext getContext() throws NamingException {
-    Hashtable env = new Hashtable();
-    env.put(Context.INITIAL_CONTEXT_FACTORY,
-            "weblogic.jndi.WLInitialContextFactory");
-    env.put(Context.PROVIDER_URL,"t3://"+IP+":"+PORT);
-    return(new InitialContext(env));
+  public static InitialContext getContext() {
+    InitialContext ctx=null;
+    try {
+      Hashtable env = new Hashtable();
+      env.put(Context.INITIAL_CONTEXT_FACTORY,
+              "weblogic.jndi.WLInitialContextFactory");
+      env.put(Context.PROVIDER_URL,"t3://"+IP+":"+PORT);
+      ctx=new InitialContext(env);
+    }
+    catch (NamingException _ne) {
+      _ne.printStackTrace();
+      ctx=null;
+    }
+    return(ctx);
   }
 
 };
