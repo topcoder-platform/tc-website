@@ -22,7 +22,7 @@
 
 <xsl:call-template name="Preload"/>
 
-<title>Single Round Match 172 Statistics at TopCoder</title>
+<title>Single Round Match 173 Statistics at TopCoder</title>
 
 <xsl:call-template name="CSS"/>
 
@@ -71,12 +71,12 @@ function openWin(url, name, w, h) {
 <!--body contextual links-->
                         <table width="100%" border="0" cellspacing="0" cellpadding="3">
                             <tr valign="middle">
-                                <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 172</font></td>
+                                <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 173</font></td>
                                 <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
                             </tr>
 
                             <tr valign="middle">
-                                <td class="bodyText">Thursday, November 20, 2003</td>
+                                <td class="bodyText">Tuesday, November 25, 2003</td>
                                 <td class="bodyText" align="right"><a href="mailto:editorial@topcoder.com">Comments / Ideas?</a></td>
                             </tr>
                         </table>
