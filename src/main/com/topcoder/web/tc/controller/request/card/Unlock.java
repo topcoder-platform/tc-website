@@ -32,7 +32,6 @@ public class Unlock extends Preview {
                         if (!(e.detail instanceof RowNotFoundException))
                             throw e;
                     }
-                    getRequest().setAttribute("cardUnlocked", new Boolean(cardUnlocked));
                     if (!cardUnlocked) {
                         UserTransaction tx = null;
                         tx = Transaction.get();
@@ -51,6 +50,7 @@ public class Unlock extends Preview {
                         }
                         Transaction.commit(tx);
                     }
+                    getRequest().setAttribute("cardUnlocked", new Boolean(true));
                     setNextPage(Constants.CARD_INSTRUCTIONS);
                     setIsNextPageInContext(true);
                 } else {
