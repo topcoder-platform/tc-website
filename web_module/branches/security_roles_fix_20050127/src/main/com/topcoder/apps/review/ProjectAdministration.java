@@ -927,7 +927,7 @@ public class ProjectAdministration implements Model {
      *
      * @exception Exception remoting and EJB related
      */
-    private RolePrincipal getRolePrincipal(String roleName, TCSubject requestor, projectId) throws Exception {
+    private RolePrincipal getRolePrincipal(String roleName, TCSubject requestor, long projectId) throws Exception {
         roleName = roleName + " " + projectId;
         RolePrincipal result = (RolePrincipal) rolesCache.get(roleName);
         if (result == null) {
