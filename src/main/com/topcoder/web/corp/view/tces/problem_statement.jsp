@@ -3,8 +3,8 @@
   autoFlush="false"
   buffer="64kb"
   import="java.util.*,
-          com.topcoder.web.tces.common.*,
-          com.topcoder.web.tces.bean.*" %>
+          com.topcoder.web.corp.common.*,
+          com.topcoder.web.corp.controller.request.tces.*" %>
 
 <%@ taglib uri="/tces-taglib.tld" prefix="tces"%>
 

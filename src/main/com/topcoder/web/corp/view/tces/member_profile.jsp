@@ -3,9 +3,9 @@
   autoFlush="false"
   buffer="64kb"
   import="java.util.*,
-          com.topcoder.web.tces.common.*,
+          com.topcoder.web.corp.common.*,
           com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-          com.topcoder.web.tces.bean.*,
+          com.topcoder.web.corp.controller.request.tces.*,
           com.topcoder.web.corp.common.JSPUtils,
           com.topcoder.web.corp.common.TCESConstants" %>
 
