@@ -117,7 +117,7 @@
       Student: <INPUT type="checkbox" name="stud" checked/></td></tr>
       <tr><td>Languages: 
         <rsc:iterator list="<%=languages%>" id="resultRow">
-          <rsc:item name="language_name" row="<%=resultRow%>"/>: <input type="checkbox" name="<rsc:item name="language_id" row="<%=resultRow%>"/>" checked>
+          <rsc:item name="language_name" row="<%=resultRow%>"/>: <input type="checkbox" name="lang_lang_<rsc:item name="language_id" row="<%=resultRow%>"/>" checked>
         </rsc:iterator>
         </select>
       </td></tr>
@@ -128,7 +128,7 @@
       <rsc:iterator list="<%=demographic_questions%>" id="resultRow">
         <tr><td>
         <rsc:item name="demographic_question_text" row="<%=resultRow%>"/>:
-        <select size="3" multiple name="<rsc:item name="demographic_question_id" row="<%=resultRow%>"/>">
+        <select size="3" multiple name="demo_<rsc:item name="demographic_question_id" row="<%=resultRow%>"/>">
         <%
         while(idx < demographic_answers.getRowCount()){
             answer = demographic_answers.getRow(idx);
