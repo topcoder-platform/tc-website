@@ -73,6 +73,13 @@
 
 
                 <tr valign="top">
+                    <td class="formTextOdd"><a href="?&amp;t=development&amp;c=single_sign_on_v10_des">Single Sign-On v1.0</a></td>
+                    <td class="formTextOdd" align="center">$3,306</td>
+                    <td class="formTextOdd" align="center">$1,005</td>
+                    <td class="formTextOdd" align="center">11/3 6:00 PM ET</td>
+                </tr>
+
+                <tr valign="top">
                     <td class="formTextOdd"><a href="?&amp;t=development&amp;c=email_tool_enhancements">Email Tool Enhancements</a></td>
                     <td class="formTextOdd" align="center">$1,290</td>
                     <td class="formTextOdd" align="center">$420</td>
