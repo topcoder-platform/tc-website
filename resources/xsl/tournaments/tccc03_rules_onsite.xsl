@@ -179,19 +179,19 @@ are the responsibility of the contestant and his/her guest.
 						</TR>
 						<TR>
 							<TD VALIGN="top" BGCOLOR="#666666" CLASS="statText">- Semifinal Room #1</TD>
-							<TD VALIGN="top" BGCOLOR="#666666" CLASS="statText">April 4, 2003 at 8:00 AM EST</TD>
+							<TD VALIGN="top" BGCOLOR="#666666" CLASS="statText">April 4, 2003 at 10:00 AM EST</TD>
 						</TR>						
 						<TR>
 							<TD VALIGN="top" BGCOLOR="#666666" CLASS="statText">- Semifinal Room #2</TD>
-							<TD VALIGN="top" BGCOLOR="#666666" CLASS="statText">April 4, 2003 at 11:00 AM EST</TD>
+							<TD VALIGN="top" BGCOLOR="#666666" CLASS="statText">April 4, 2003 at 1:00 PM EST</TD>
 						</TR>						
 						<TR>
 							<TD VALIGN="top" BGCOLOR="#666666" CLASS="statText">- Semifinal Room #3</TD>
-							<TD VALIGN="top" BGCOLOR="#666666" CLASS="statText">April 4, 2003 at 2:00 PM EST</TD>
+							<TD VALIGN="top" BGCOLOR="#666666" CLASS="statText">April 4, 2003 at 4:00 PM EST</TD>
 						</TR>						
 						<TR>
 							<TD VALIGN="top" BGCOLOR="#666666" CLASS="statText">- Semifinal Room #4</TD>
-							<TD VALIGN="top" BGCOLOR="#666666" CLASS="statText">April 4, 2003 at 6:00 PM EST</TD>
+							<TD VALIGN="top" BGCOLOR="#666666" CLASS="statText">April 4, 2003 at 7:00 PM EST</TD>
 						</TR>						
 						<TR>
 							<TD VALIGN="top" BGCOLOR="#666666" CLASS="statText">- Championship Round</TD>

@@ -423,10 +423,10 @@
                     </TR>
                     <TR>
                       <TD ALIGN="right" HEIGHT="13" CLASS="statText">All matches occur on Friday, April 4th</TD>
-                      <TD ALIGN="center" HEIGHT="13" CLASS="statText">8:00am (EST)</TD>
-                      <TD ALIGN="center" HEIGHT="13" CLASS="statText">11:00am (EST)</TD>
-                      <TD ALIGN="center" HEIGHT="13" CLASS="statText">2:00pm (EST)</TD>
-                      <TD ALIGN="center" HEIGHT="13" CLASS="statText">6:00pm (EST)</TD>
+                      <TD ALIGN="center" HEIGHT="13" CLASS="statText">10:00am (EST)</TD>
+                      <TD ALIGN="center" HEIGHT="13" CLASS="statText">1:00pm (EST)</TD>
+                      <TD ALIGN="center" HEIGHT="13" CLASS="statText">4:00pm (EST)</TD>
+                      <TD ALIGN="center" HEIGHT="13" CLASS="statText">7:00pm (EST)</TD>
                       <TD ALIGN="center" HEIGHT="13" CLASS="statText">&#160;</TD>                      
                     </TR>                    
                     <!-- <TR>
