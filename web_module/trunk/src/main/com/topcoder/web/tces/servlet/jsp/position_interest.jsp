@@ -59,7 +59,7 @@
               </P>
                             
               
-              <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">               
+              <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="1">               
                 <TR>
                   <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18">
                     <A HREF="<jsp:getProperty name="PositionInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=PositionInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=PositionInterestTask.getJobID()%>&<%=TCESConstants.SORT_PARAM%>=<%=TCESConstants.SORT_HANDLE%>&<%=TCESConstants.SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_ASC%>" class="statText">
@@ -135,9 +135,11 @@
                   <TD class="statText">
                     <%= (String)hit.get("school") %>
                   </TD>                  
+                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText">
                     <%= (String)hit.get("gpa") %>
                   </TD>                  
+                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText">
                     <%= (String)hit.get("grad_year") %>
                   </TD>                  
@@ -145,6 +147,7 @@
                   <TD class="statText">
                     <%= (String)hit.get("hit_date") %>
                   </TD>
+                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText">
                     <%= (String)hit.get("has_resume") %>
                   </TD>
