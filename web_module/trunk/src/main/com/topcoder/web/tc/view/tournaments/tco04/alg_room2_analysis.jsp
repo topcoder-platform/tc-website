@@ -42,7 +42,7 @@
 <br/><br/>
 In the challenge phase, SnapDragon was first to act, putting himself almost out of reach, providing his submissions suceeded.  Towards the end of the challenge phase, jms137 also moved up 50 points, but it wasn't enough for him to advance.
 <br/><br/>
-Things were far from over, however.  The examples were rather scant, and half of the surviving submissions were destined to go down.  dgarthur lost both his problems, while John Dethridge, jms137, and cnettel each lost one.  Only SnapDragon and monsoon ended up with two successful submissions, and took first and second, respectively.  John Detridge had the only other surviving medium submission, and narrowly edged out jms137.
+Things were far from over, however.  The examples were rather scant, and half of the surviving submissions were destined to go down.  dgarthur lost both his problems, while John Dethridge, jms137, and cnettel each lost one.  Only SnapDragon and monsoon ended up with two successful submissions, and took first and second, respectively.  John Dethridge had the only other surviving medium submission, and narrowly edged out jms137.
 <br/><br/>
 
 <span class=bodySubtitle>BadXML</span>
