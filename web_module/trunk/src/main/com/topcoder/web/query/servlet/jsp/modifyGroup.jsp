@@ -20,12 +20,10 @@
     <TR><TD COLSPAN="6"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="16"></TD></TR>
     <TR>
       <TD WIDTH="170" bgcolor="#000000" VALIGN="top">
-        <TABLE WIDTH="170" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-          <jsp:include page="left.jsp">
-            <jsp:param name="<%=Constants.DB_PARAM%>" value="<jsp:getProperty name="ModifyGroupTask" property="Db"/>"/>
-            <jsp:param name="<%=Constants.SERVLET_PATH_PARAM%>" value="<jsp:getProperty name="ModifyGroupTask" property="ServletPath"/>"/>
-          </jsp:include>
-        </TABLE>
+        <jsp:include page="left.jsp">
+          <jsp:param name="<%=Constants.DB_PARAM%>" value="<jsp:getProperty name="ModifyGroupTask" property="Db"/>"/>
+          <jsp:param name="<%=Constants.SERVLET_PATH_PARAM%>" value="<jsp:getProperty name="ModifyGroupTask" property="ServletPath"/>"/>
+        </jsp:include>
       </TD>
       <TD WIDTH="4" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
       <TD CLASS="statText" WIDTH="100%" BGCOLOR="#000000" VALIGN="top" ALIGN="left">
