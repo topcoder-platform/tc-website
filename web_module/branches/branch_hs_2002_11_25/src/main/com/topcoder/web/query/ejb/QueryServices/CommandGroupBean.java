@@ -48,7 +48,7 @@ public class CommandGroupBean extends BaseEJB {
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
-            ret = getNextValue();
+            ret = (int)getNextValue();
             ps.setInt(1, ret);
             ps.setString(2, commandGroupName);
             int rows = ps.executeUpdate();
@@ -57,7 +57,7 @@ public class CommandGroupBean extends BaseEJB {
             return ret;
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException creating command group: " + commandGroupName);
+            throw new EJBException("SQLException creating command group: " + commandGroupName + " id: " + ret);
         } catch (NamingException e) {
             throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
@@ -184,18 +184,18 @@ public class CommandGroupBean extends BaseEJB {
         return ret;
     }
 
-    private int getNextValue() {
+    private long getNextValue() {
         log.debug("getNextValue called...");
 
         Context ctx = null;
-        int ret = 0;
+        long ret = 0;
         try {
             ctx = new InitialContext();
             if (!IdGenerator.isInitialized()) {
                 IdGenerator.init(new SimpleDB(), (DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME),
                         "sequence_object", "name", "current_value", 9999999, 1, true);
             }
-            ret = (int)IdGenerator.nextId("COMMAND_GROUP_SEQ");
+            ret = IdGenerator.nextId("COMMAND_GROUP_SEQ");
 
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
