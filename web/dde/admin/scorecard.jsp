@@ -183,7 +183,7 @@ if (action != null) {
       template = dmb.getScorecardTemplate(sid);
       groups = template.getGroups();
     } else {
-      template = new ScorecardTemplate(-1, "New Template Name", 0, 1, 1, null);
+      template = new ScorecardTemplate(-1, "New Template Name", 0, 1, 1, null, false);
     }
     session.setAttribute("template", template);
 }
