@@ -1200,6 +1200,7 @@ java com.topcoder.utilities.QueryLoader "DW" 1006 "TCES_Coder_Comp_Stats_by_Leve
 SELECT cp.problem_id
      , cp.level_id
      , cp.level_desc
+     , cp.end_status_id
      , cp.end_status_text
      , cp.final_points
      , cp.time_elapsed
