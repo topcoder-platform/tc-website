@@ -4,7 +4,8 @@
    <property name="version"       value="0.0.1" />
    <property name="build"         value="build" />
    <property name="war.dir"       value="${build}/wars" />
-   <property name="war.name"      value="email.war"/>
+   <property name="email.war.name"      value="email.war"/>
+   <property name="stats.war.name"      value="stats.war"/>
    <property name="ejb_jars"      value="${build}/ejb_jars" />
    <property name="classes"       value="${build}/classes" />
    <property name="testclasses"   value="${build}/testcases" />
@@ -414,10 +415,15 @@
 
    </target>
 
-    <target name="war.email" depends="compile">
+    <target name="build_wars" depends="compile">
         <delete dir="${war.dir}"/>
         <mkdir  dir="${war.dir}"/>
-        <war warfile="${war.dir}/${war.name}" webxml="${resources}/email/web.xml">
+        <antcall target="war.email"/>
+        <antcall target="war.stats"/>
+    </target>
+
+    <target name="war.email" depends="compile">
+        <war warfile="${war.dir}/${email.war.name}" webxml="${resources}/email/web.xml">
             <fileset dir="${java}/com/topcoder/web/email/servlet/jsp">
                 <include name="**/*.jsp"/>
             </fileset>
@@ -430,6 +436,20 @@
             <zipfileset dir="${java}/com/topcoder/web/email/servlet/jsp">
                 <include name="**/*.jpg"/>
             </zipfileset>
+        </war>
+    </target>
+
+    <target name="war.stats" depends="compile">
+        <war warfile="${war.dir}/${stats.war.name}" webxml="${resources}/stat/web.xml">
+            <fileset dir="${java}/com/topcoder/web/stat/servlet/jsp">
+                <include name="**/*.jsp"/>
+            </fileset>
+            <classes dir="${classes}">
+                <include name="com/topcoder/web/stat/**"/>
+            </classes>
+            <webinf dir="${resources}/stat">
+                <include name="*.tld"/>
+            </webinf>
         </war>
     </target>
 
