@@ -97,6 +97,19 @@ if (aString != null && aString.equals("status")) {
     ScorecardTemplate template = new ScorecardTemplate(-sid,"",0,0,0,null);
     dmb.saveScorecardTemplate(template, false, false);
   }
+}  else if (aString != null && aString.equals("default")) {
+    String sidString = request.getParameter("sid");
+    long sid = -1;
+    if (sidString != null) {
+    sid = Long.parseLong(sidString);
+    ScorecardTemplate template = dmb.getScorecardTemplate(sid);
+    if(template.isDefault())
+    {
+        template.setDefault(false);
+    } else {
+        template.setDefault(true);
+    }
+    dmb.saveScorecardTemplate(template, false, false);
 }
 
 ScorecardTemplate[] scorecards = dmb.getScorecardTemplates();
@@ -112,6 +125,8 @@ ScorecardTemplate[] scorecards = dmb.getScorecardTemplates();
     <td><strong>Scorecard Type</td>
     <td><strong>Status</td>
     <td><strong>Action</td>
+    <td><strong>Default</td>
+    <td><strong>Action</td>
     <td><strong>Delete</td>
   </tr>
 <%
@@ -125,6 +140,9 @@ for (int idx=0; idx<scorecards.length; idx++) {
   String[] stOptions = {"Screening","Review"};
   String statusButton = "Activate";
   if (sc.getStatus() == 1) statusButton = "Inactivate";
+  
+  String defaultButton = "Clear Default";
+  if (sc.getStatus() == 1) statusButton = "Make Default";
 %>
   <tr>
     <td><a href="/admin/scorecard.jsp?sid=<%=sc.getId()%>"><%=sc.getName()%></a></td>
@@ -134,6 +152,15 @@ for (int idx=0; idx<scorecards.length; idx++) {
     <td><a href="/admin/scorecard_admin.jsp?a=status&sid=<%=sc.getId()%>">
     <%=statusButton%></a></td>
     <td>
+    <td>
+    <%if (sc.isDefault()) {%>
+        Yes
+    <%} else {%>
+        No
+    <%} %>
+    </td>
+    <td><a href="/admin/scorecard_admin.jsp?a=default&sid=<%=sc.getId()%>">
+    <%=defaultButton%></a></td>
 <% if (sc.getStatus() == 0) { %>
     To delete template:
     <a href="/admin/scorecard_admin.jsp?a=delete&sid=<%=sc.getId()%>"><strong>DELETE</strong></a>

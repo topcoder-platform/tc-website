@@ -4590,6 +4590,7 @@ public class DocumentManagerBean implements SessionBean {
                 int statusId = rs.getInt(3);
                 int projectType = rs.getInt(4);
                 int scorecardType = rs.getInt(5);
+                boolean default_ind = rs.getBoolean(6);
 
                 st = new ScorecardTemplate(templateId,
                         templateName, statusId, projectType, scorecardType, null, default_ind);

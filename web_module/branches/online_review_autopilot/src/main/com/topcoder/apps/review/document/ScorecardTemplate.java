@@ -49,7 +49,7 @@ public class ScorecardTemplate {
         return isDefault;
     }
     
-    public boolean setDefault(boolean b) {
+    public void setDefault(boolean b) {
         this.isDefault = b;
     }
     
