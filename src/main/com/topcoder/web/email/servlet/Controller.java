@@ -1,14 +1,17 @@
 package com.topcoder.web.email.servlet;
 
-import com.topcoder.ejb.AuthenticationServices.*;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.email.bean.Task;
 import com.topcoder.web.email.bean.TaskFactory;
-import com.topcoder.common.web.data.User;
-import com.topcoder.common.web.data.Authentication;
+import com.topcoder.web.common.security.Constants;
+import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.TCSubject;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import java.io.IOException;
@@ -46,8 +49,8 @@ public class Controller
      * resulting page.  Tasks are specified by their class name in the
      * TASK parameter.
      *
-     * @param HttpServletRequest    the servlet request object
-     * @param HttpServletResponse    the servlet response object
+     * @param request the servlet request object
+     * @param response the servlet response object
      *
      * @throws ServletException
      * @throws IOException
@@ -55,54 +58,10 @@ public class Controller
     public void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            String userName = request.getParameter(EmailConstants.USERNAME);
-            String userPass = request.getParameter(EmailConstants.USERPASS);
             String taskName = request.getParameter(EmailConstants.TASK);
             log.debug("Requested task: " + taskName);
 
             try {
-                boolean[] loggedin = (boolean[]) request.getSession().getAttribute("IsUserLoggedIn");
-
-/*
-                if ((loggedin == null
-                  || !loggedin[0])
-                 && (userPass != null
-                  && userPass.equals("bypass"))) {
-                    loggedin = new boolean[1];
-                    loggedin[0] = true;
-                    request.getSession().setAttribute("IsUserLoggedIn", loggedin);
-                }
-*/
-
-                if (loggedin == null
-                        || !loggedin[0]) {
-                    if (userName == null
-                            || userPass == null) {
-                        throw new Exception("No login creditials - going to login page");
-                    }
-
-                    Context context = new InitialContext();
-                    AuthenticationServicesHome serviceHome = (AuthenticationServicesHome) context.lookup(EmailConstants.AUTHENTICATIONSERVICES_EJB);
-                    AuthenticationServices service = serviceHome.create();
-                    Authentication authenticate = service.authenticate(userName, userPass);
-
-                    log.debug("Processing login request for user " +
-                            +authenticate.getUserId().intValue()
-                            + "(" + userName + ")");
-
-                    if (authenticate.getUserId().intValue() <= 0) {
-                        throw new Exception("Not a valid user - going to login page");
-                    }
-
-                    User user = service.loadUser(authenticate.getUserId().intValue());
-                    if (!service.isStaff(user)) {
-                        throw new Exception("Not staff - going to login page");
-                    }
-
-                    loggedin = new boolean[1];
-                    loggedin[0] = true;
-                    request.getSession().setAttribute("IsUserLoggedIn", loggedin);
-                }
 
                 // if there's no task parameter, go home
                 if (taskName == null) {
@@ -117,16 +76,45 @@ public class Controller
             String taskClassName = EmailConstants.TASK_PACKAGE + "." + taskName;
             log.debug("Task bean: " + taskClassName);
 
-            try {
-                Task task = taskFactory.getTask(taskClassName, getClass().getClassLoader());
+            WebAuthentication auth = new BasicAuthentication(new SessionPersistor(request.getSession(true)), request, response);
+            PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
+            //todo perhaps find a better way to do this.  maybe we can beat min one ejb call per request
+            TCSubject user = pmgr.getUserSubject(auth.getActiveUser().getId());
+            SessionInfo info = new SessionInfo(request, auth, user.getPrincipals());
+            if (info.isAdmin()) {
+                try {
+                    Task task = taskFactory.getTask(taskClassName, getClass().getClassLoader());
+                    TaskRouter taskRouter = task.perform(this, request, response);
+                    taskRouter.route(this, request, response);
+                } catch (Exception e) {
+                    forwardToErrorPage(request, response, e);
+                }
+            } else {
+                request.setAttribute(BaseServlet.MESSAGE_KEY, "In order to continue, you must provide your user name " +
+                        "and password.");
+                request.setAttribute(BaseServlet.NEXT_PAGE_KEY, info.getRequestString());
 
-                TaskRouter taskRouter = task.perform(this, request, response);
-                taskRouter.route(this, request, response);
-            } catch (Exception e) {
-                forwardToErrorPage(request, response, e);
+                request.setAttribute("module", "Login");
+                fetchRegularPage(request, response, "/tc", true);
             }
+
         } catch (Exception e) {
             throw new ServletException(e.toString());
+        }
+    }
+
+    protected final void fetchRegularPage(HttpServletRequest request, HttpServletResponse response, String dest,
+                                  boolean forward) throws Exception {
+
+        if (forward) {
+            if (!dest.startsWith("/")) {
+                dest = "/" + dest;
+            }
+            log.debug("forwarding to " + dest);
+            getServletContext().getRequestDispatcher(response.encodeURL(dest)).forward(request, response);
+        } else {
+            log.debug("redirecting to " + dest);
+            response.sendRedirect(response.encodeRedirectURL(dest));
         }
     }
 
@@ -134,8 +122,8 @@ public class Controller
      * Forwards to the navigation error page.  This method is called when an exception
      * occurs while instantiating a Task object and routing to the appropriate page.
      *
-     * @param HttpServletRequest    the servlet request object
-     * @param HttpServletResponse    the servlet response object
+     * @param request the servlet request object
+     * @param response the servlet response object
      *
      * @throws ServletException
      * @throws IOException
