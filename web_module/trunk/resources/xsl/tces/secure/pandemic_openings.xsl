@@ -59,7 +59,6 @@
 <!--body contextual links-->
                         <table width="100%" cellpadding="3" cellspacing="0" border="0">
                             <tr><td valign="middle" bgcolor="#43515E" class="statText"><b>&#160;Pandemic Jobs</b></td></tr>
-                            <tr><td valign="middle" class="bodyText">Jobs</td></tr>
                         </table>
 
 <!-- Client Job List begins -->

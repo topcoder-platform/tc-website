@@ -7,7 +7,7 @@
 
 <head>
 
-<title>Solipsys Employment Program</title>
+<title>Pandemic Studios Employment Program</title>
 
 </head>
 
@@ -34,7 +34,7 @@ has succeeded by pouring the majority of its resources into building and maintai
 programmers, artists, and designers.</p>
 
 <p>If you're interesting in joining the Pandemic team, check out their 
-<A href="/?&amp;t=tces&amp;c=sony" target="_blank">open positions</A></p>
+<A href="/?&amp;t=tces&amp;c=pandemic" target="_blank">open positions</A></p>
 
 <p>Thank you, and as always, good luck in the Arena!<br/>
 The TopCoder Employment Services Team</p>
