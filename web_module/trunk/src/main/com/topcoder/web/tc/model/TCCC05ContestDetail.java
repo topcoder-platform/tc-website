@@ -35,6 +35,10 @@ public class TCCC05ContestDetail implements Serializable {
     public TCCC05ContestDetail(String h, int u) {
         handle = h;
         userID = u;
+        points = new ArrayList();
+        complete = 0;
+        incomplete = 0;
+        payment = "";
     }
     
     public String getPayment() {
