@@ -48,6 +48,7 @@ public class Index extends Base {
             //log.debug("there are " + serverSets.length + " problem sets");
 
             setDefault(Constants.PROBLEM_SETS, a);
+            getRequest().setAttribute(Constants.PROBLEM_SETS, a);
             setLanguages(getLanguages(response.getAllowedLanguages()));
 
             closeProcessingPage(buildProcessorRequestString(Constants.RP_INDEX_RESPONSE,
