@@ -76,7 +76,7 @@ public class AdvancedSearch extends SimpleSearch {
             ret.setMaxNumRatings(new Integer(maxNumRatings));
 
         String maxDaysSinceLastComp = StringUtils.checkNull(getRequest().getParameter(Constants.MAX_DAYS_SINCE_LAST_COMP));
-        if (!maxNumRatings.equals(""))
+        if (!maxDaysSinceLastComp.equals(""))
             ret.setMaxDaysSinceLastComp(new Integer(maxDaysSinceLastComp));
 
 
