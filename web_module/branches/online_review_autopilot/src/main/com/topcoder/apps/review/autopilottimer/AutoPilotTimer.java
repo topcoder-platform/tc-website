@@ -69,6 +69,7 @@ public class AutoPilotTimer
         public void run() {
             logger.debug("AUTO PILOT TIMER FIRED");
             
+            try {
             //setup user
             TCSubject user = new TCSubject(100129);
             
@@ -78,6 +79,9 @@ public class AutoPilotTimer
             UserProjectInfo[] projs = projectTracker.getProjectInfo(user);
             for(int i = 0; i < projs.length;i++) {
                 log.debug("PROJECT: " + projs[i].getProjectName());
+            }
+            } catch(Exception e) {
+                log.error(e.getMessage());
             }
         }
     }
