@@ -60,14 +60,14 @@
                         and employment advertisements on TopCoder's web site. Rated members can showcase their competition achievements and 
                         upload their resume as part of the process.</p>
 
-                        <p><strong>Only rated members can apply for jobs posted by TCES.</strong> This allows companies to differentiate coders 
+                        <p>Only rated members can apply for jobs posted by TCES. This allows companies to differentiate coders 
                         who otherwise look the same on paper. Non-rated members wishing to obtain a rating should review the competition calendar 
                         for the <a class="bodyText"><xsl:attribute name="HREF">/?&amp;t=schedule&amp;c=srm&amp;RoundId=<xsl:value-of select="/TC/TCES/NextSRM/Info/round_id"/></xsl:attribute>next Single Round Match</a> 
                         or <a href="/?&amp;t=schedule&amp;c=index" class="bodyText">click here</a> for a complete list of upcoming Single 
                         Round Matches.</p>
 
                         <table border="0" cellspacing="0" cellpadding="3" width="100%">
-                            <tr valign="middle"><td bgcolor="#43515E" class="statText"><strong>Employers</strong></td></tr>
+                            <tr valign="middle"><td bgcolor="#43515E" class="statText">Employers</td></tr>
                         </table>
 
                         <table border="0" cellspacing="5" cellpadding="0" width="100%">
@@ -76,7 +76,7 @@
 <!-- AlphaSimplex begins -->
                             <tr valign="top">
                                 <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=alphasimplex" target="_top"><img src="/i/es/alphasimplex/alphasimplex_logo.gif" width="150" height="57" alt="AlphaSimplex" border="0" /></a></td>
-                                <td width="99%" class="bodyText"><strong>AlphaSimplex Group, LLC (ASG)</strong> is a quantitative investment management 
+                                <td width="99%" class="bodyText">AlphaSimplex Group, LLC (ASG) is a quantitative investment management 
                                 company based in Cambridge, Massachusetts which, together with its technology affiliate RiskPlex, Inc., develops and integrates 
                                 cutting-edge technologies from several disciplines to create risk-controlled quantitative investment strategies. If you are excited 
                                 by the prospect of changing the investment management industry by developing and implementing cutting-edge technologies that 
@@ -102,7 +102,7 @@
 <!-- Appian begins -->
                             <tr valign="top">
                                 <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=appian" target="_top"><img src="/i/es/appian/appian_logo.gif" width="121" height="38" alt="Appian Corp" border="0" /></a></td>
-                                <td width="99%" class="bodyText"><strong>Appian</strong> is a young, fast growing software and technical consulting firm 
+                                <td width="99%" class="bodyText">Appian is a young, fast growing software and technical consulting firm 
                                 specializing in highly scalable, high performance web and wireless applications for major government and commercial customers.  
                                 Our expertise is in large volume data systems and real-time analytics.  We are looking for. 
                                 <A href="/?&amp;t=tces&amp;c=appian" class="bodyText" target="_top">Software Engineers</A> with a passion for 
@@ -126,7 +126,7 @@
 <!-- DiversifiedData begins -->
                             <tr valign="top">
                                 <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=diversifieddata" target="_top"><img src="/i/es/diversifieddata/diversifieddata_logo.gif" width="150" height="38" alt="AlphaSimplex" border="0" /></a></td>
-                                <td width="99%" class="bodyText"><strong>Diversified Data, </strong>  the leader in Content Addressed Storage (CAS) consulting and the design and integration of 
+                                <td width="99%" class="bodyText">Diversified Data,   the leader in Content Addressed Storage (CAS) consulting and the design and integration of 
                                 complex content and knowledge management environments, is looking to hire developers on a contract-to-hire basis.  Join teams comprised of their leading solutions 
                                 architects, accomplished engineers, project managers, and senior developers as they collaborate to craft end-to-end solutions that can be deployed and sustained locally or globally.  
                                 <A href="/?&amp;t=tces&amp;c=diversifieddata" class="bodyText" target="_top"> Learn more</A> about what Diversified Data has to offer. <br/><br/></td>
@@ -139,7 +139,7 @@
 <!-- FBI begins -->
                             <tr valign="top">
                                 <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=fbi"><img src="/i/es/fbi/fbi_logo.gif" width="100" height="103" border="0"/></a></td>
-                                <td width="99%" class="bodyText"><strong>The FBI.</strong> It is like no other career choice you've explored. It's 
+                                <td width="99%" class="bodyText">The FBI. It is like no other career choice you've explored. It's 
                                     challenging. Compelling. Important. Whatever your background or expertise, you will find an FBI future exceptionally
                                     rewarding. Because the work you perform will have a daily impact on the nation's security and the quality-of-life 
                                     for all U.S. citizens.  <a href="/?&amp;t=tces&amp;c=fbi" class="bodyText">Are you ready?</a><br /><br /></td>
@@ -148,7 +148,7 @@
                             <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
 <!-- FBI ends -->
 
-<!-- Google begins
+<!-- Google begins -->
                             <tr valign="top">
                                 <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=google"><img src="/i/es/google_sm.gif" width="143" height="59" border="0"/></a></td>
                                 <td width="99%" class="bodyText">Google is looking for exceptional people who like to develop innovative new products, especially software 
@@ -158,7 +158,7 @@
                             </tr>
                         
                             <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
- Google ends -->
+<!-- Google ends -->
 
 <!-- Microsoft begins
                             <tr valign="top">
@@ -172,7 +172,7 @@ Microsoft ends -->
 <!-- Nvidia begins-->
                             <tr valign="top">
                                 <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=nvidia"><img src="/i/es/nvidia/nvidia_logo.gif" width="120" height="83" border="0"/></a></td>
-                                <td width="99%" class="bodyText"><strong>NVIDIA&#174; Corporation (Nasdaq: NVDA)</strong> is the worldwide leader in 
+                                <td width="99%" class="bodyText">NVIDIA&#174; Corporation (Nasdaq: NVDA) is the worldwide leader in 
                                     graphics processors and media and communications devices.  At NVIDIA we work hard. We thrive on innovation. We 
                                     define the cutting-edge. We deliver to the nth degree. <a href="/?&amp;t=tces&amp;c=nvidia" class="bodyText">Click here</a> 
                                     to check out our open Software Engineering positions.<br /><br /></td>
@@ -185,7 +185,7 @@ Microsoft ends -->
 <!-- Solipsys begins  ### Solipsys' contract has expired 6/13/03 ###
                             <tr valign="top">
                                 <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=solipsys"><img src="/i/es/solipsys/solipsys_logo.gif" width="135" height="60" border="0"/></a></td>
-                                <td width="99%" class="bodyText"><strong>Solipsys Corporation</strong> is a small, high technology business specializing in products 
+                                <td width="99%" class="bodyText">Solipsys Corporation is a small, high technology business specializing in products 
                                     for defense application.  Our primary corporate focus is the development of products designed to address the 
                                     multi-faceted problem of Joint and Coalition Forces information networking.  We are constantly scanning the horizon 
                                     for motivated, team-oriented management, technology, and engineering professionals to lead our company into the 
@@ -199,7 +199,7 @@ Microsoft ends -->
 <!-- Vertex begins 
                             <tr valign="top">
                                 <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=vertex" target="_top"><img src="/i/es/vertex/vertex_logo.gif" width="76" height="52" alt="" border="0" /></a></td>
-                                <td width="99%" class="bodyText"><strong>Vertex Pharmaceuticals Incorporated (NASDAQ: VRTX)</strong> is a global biotechnology 
+                                <td width="99%" class="bodyText">Vertex Pharmaceuticals Incorporated (NASDAQ: VRTX) is a global biotechnology 
                                 company. Vertex seeks to discover, develop, and commercialize major pharmaceutical products independently and with 
                                 partners. Vertex has more than 12 drug candidates in clinical and preclinical development to treat viral diseases, 
                                 inflammation, cancer, autoimmune diseases, neurological disorders and genetic disorders. They have an 
@@ -227,7 +227,7 @@ IMLP puts information management careers on the fast track. Program graduates ar
 <!-- Apex begins ### Contract expired 6/9/03 ###
                             <tr valign="top">
                                 <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=apex"><img src="/i/es/apex/apexlogo.gif" width="82" height="71" alt="Apex" border="0"/></a></td>
-                                <td class="bodyText" width="99%"><strong>Apex</strong> is a company built upon a set of core values that guide their every action - excellence, human 
+                                <td class="bodyText" width="99%">Apex is a company built upon a set of core values that guide their every action - excellence, human 
                                     dignity and integrity.  They consider themselves "the best place for the best people to work."  
                                     <a href="/?&amp;t=tces&amp;c=apex" class="bodyText">Click here</a> to view current job opportunities available at Apex.<br /><br /></td>
                             </tr>
@@ -238,7 +238,7 @@ IMLP puts information management careers on the fast track. Program graduates ar
 <!-- TopCoder Software begins -->
                             <tr valign="top">
                                 <td class="bodyText" align="center"><A href="/?&amp;t=tces&amp;c=tcs_project_mgr&amp;a=secure" class="bodyText"><img src="/i/es/topcoder/tcs_logo.gif" width="170" height="49" alt="TopCoder Software" border="0" vspace="10" /></A></td>
-                                <td width="99%" class="bodyText"><strong>TopCoder Software</strong> is in need of a project manager to work with our 
+                                <td width="99%" class="bodyText">TopCoder Software is in need of a project manager to work with our 
                                 Applications Manager and Implementation Team to develop and deploy applications at client sites. Candidates should be located 
                                 near Hartford, Boston, NYC, Richmond or Detroit.  Check out more of the details <A href="/?&amp;t=tces&amp;c=tcs_project_mgr&amp;a=secure" class="bodyText">here.</A><br/><br/></td>
                             </tr>
@@ -250,7 +250,7 @@ IMLP puts information management careers on the fast track. Program graduates ar
 
                         <p><br /></p>
                         
-                        <p class="smallText"><strong>Members please note:</strong><br />
+                        <p class="smallText">Members please note:<br />
                             By indicating interest in a job, you authorize TopCoder to release your member profile information, 
                             competition statistics, code samples, resume, rating and ranking to the potential employer.  You will 
                             have the ability to update and change your profile information at any time and we encourage you to keep 
