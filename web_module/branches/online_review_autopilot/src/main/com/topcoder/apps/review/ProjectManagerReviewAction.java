@@ -16,6 +16,7 @@ import org.apache.struts.action.ActionForwards;
 
 import com.topcoder.apps.review.document.AbstractScorecard;
 import com.topcoder.apps.review.document.ScreeningScorecard;
+import com.topcoder.apps.review.document.InitialSubmission;
 
 import java.util.*;
 
@@ -127,12 +128,17 @@ public final class ProjectManagerReviewAction extends ReviewAction {
                     
                     for (int i = 0; i < ((SubmissionForm) form).getScorecards().length; i++) {
                         AbstractScorecard scorecard = ((SubmissionForm) form).getScorecards()[i];
-                        if (scorecard.getSubmission().getSubmitter().getId() == sid && scorecard.isPMReviewed() == false) {
-                            if(scores.contains(new Double(scorecard.getScore()))) {
-                                ((SubmissionForm) form).setAdvanced(true);
+                        if (scorecard.getSubmission().getSubmitter().getId() == sid) {
+                            if(scorecard.isPMReviewed() == false) {
+                                if(scores.contains(new Double(scorecard.getScore()))) {
+                                    ((SubmissionForm) form).setAdvanced(true);
+                                } else {
+                                    ((SubmissionForm) form).setAdvanced(false);
+                                }
                             } else {
-                                ((SubmissionForm) form).setAdvanced(false);
+                                ((SubmissionForm) form).setAdvanced(((InitialSubmission)scorecard.getSubmission()).isAdvancedToReview());
                             }
+                            
                         }
                     }
                 }
