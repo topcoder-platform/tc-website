@@ -50,7 +50,7 @@ public class PopulateCandidate extends BaseProcessor {
                 info.setUserId(new Long(userId));
 
                 long emailId = email.getPrimaryEmailId(userId);
-                info.setEmailAddress(email.getAddress(emailId));
+                info.setUserName(email.getAddress(emailId));
                 info.setPassword(principalMgr.getPassword(userId));
             }
 

@@ -14,7 +14,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
  * @version 1.0
  */
 public class CandidateInfo extends BaseModel {
-    private String emailAddress;
+    private String userName;
     private String password;
     private Long userId;
     private String referrer;
@@ -23,33 +23,33 @@ public class CandidateInfo extends BaseModel {
     private ResultSetContainer noteList;
     
     public CandidateInfo() {
-        emailAddress = "";
+        userName = "";
         password = "";
         referrer = "";
     }
 
     /**
-     * Sets the value of <code>emailAddress</code>.
+     * Sets the value of <code>userName</code>.
      *
-     * @param emailAddress
+     * @param val
      */
-    public void setEmailAddress( String val ) {
-        emailAddress = val;
+    public void setUserName( String val ) {
+        userName = val;
     }
 
     /**
-     * Gets the value of <code>emailAddress</code>.
+     * Gets the value of <code>userName</code>.
      *
      * @return 
      */
-    public String getEmailAddress() {
-        return emailAddress;
+    public String getUserName() {
+        return userName;
     }
 
     /**
      * Sets the value of <code>password</code>.
      *
-     * @param password
+     * @param val
      */
     public void setPassword( String val ) {
         password = val;
@@ -67,7 +67,7 @@ public class CandidateInfo extends BaseModel {
     /**
      * Sets the value of <code>userId</code>.
      *
-     * @param userId
+     * @param val
      */
     public void setUserId( Long val ) {
         userId = val;
@@ -85,7 +85,7 @@ public class CandidateInfo extends BaseModel {
     /**
      * Sets the value of <code>referrer</code>.
      *
-     * @param referrer
+     * @param val
      */
     public void setReferrer( String val )
     {

@@ -139,7 +139,7 @@ public class MainServlet extends HttpServlet {
                         "You must be logged in to access that resource.");
                     throw new AnonymousUserException("Login required for "+r.getName());
                 }else{
-                    throw new PermissionDeniedException("Access denied for "+r.getName());
+                    throw new PermissionDeniedException(authen.getActiveUser(), r);
                 }
             }
 
@@ -157,7 +157,7 @@ public class MainServlet extends HttpServlet {
             sendToPage(request, response, Constants.LOGIN_PAGE, true);
         } catch (PermissionDeniedException e) {
             e.printStackTrace();
-            sendToErrorPage(request, response, e);
+            sendToPermErrorPage(request, response, e);
         } catch (Exception e) {
 //            if("true".equalsIgnoreCase(Constants.DEBUG)) {
                 e.printStackTrace(); //temporary for debugging
@@ -220,6 +220,23 @@ public class MainServlet extends HttpServlet {
                           throws ServletException, IOException {
         request.setAttribute("Exception", exception);
         sendToPage(request, response, Constants.ERROR_PAGE, true);
+    }
+
+    /**
+     * If an error occurs, redirects to an error-handling jsp (called error.jsp for a default).
+     *
+     * @param request
+     * @param response
+     * @param exception exception thrown during request processing.
+     * @throws ServletException
+     * @throws IOException
+     */
+    private void sendToPermErrorPage(HttpServletRequest request,
+                                 HttpServletResponse response,
+                                 Throwable exception)
+                          throws ServletException, IOException {
+        request.setAttribute("Exception", exception);
+        sendToPage(request, response, Constants.PERM_ERROR_PAGE, true);
     }
 
     /**

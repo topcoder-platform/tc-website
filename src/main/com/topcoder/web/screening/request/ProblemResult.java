@@ -36,8 +36,9 @@ public class ProblemResult extends BaseProcessor {
         ResultSetContainer result =
             (ResultSetContainer)map.get("submissionInfo");
         if(result.getRowCount() == 0){
-            throw new PermissionDeniedException(
-                "You are not authorized to view information about that problem result.");
+            throw new PermissionDeniedException(getAuthentication().getActiveUser(),
+                "User not authorized to view information about problem: " +
+                        dr.getProperty("pid")==null?"?":dr.getProperty("pid"));
         }
         String problemId = getRequest().getParameter(Constants.PROBLEM_ID);
         String divisionId = result.getItem(0,"contest_division_id").toString();
@@ -53,7 +54,7 @@ public class ProblemResult extends BaseProcessor {
             throw new ScreeningException("getData failed!");
 
         CandidateInfo cinfo = new CandidateInfo();
-        cinfo.setEmailAddress(result.getItem(0,"handle").toString());
+        cinfo.setUserName(result.getItem(0,"handle").toString());
         cinfo.setUserId(Long.valueOf(result.getItem(0,"user_id").toString()));
         getRequest().setAttribute("candidateInfo",cinfo);
             

@@ -53,7 +53,7 @@ public class TestResults extends BaseProcessor {
             throw new ScreeningException("getData failed!");
         
         CandidateInfo cinfo = new CandidateInfo();
-        cinfo.setEmailAddress(result.getItem(0,"handle").toString());
+        cinfo.setUserName(result.getItem(0,"handle").toString());
         cinfo.setUserId(Long.valueOf(result.getItem(0,"user_id").toString()));
         getRequest().setAttribute("candidateInfo",cinfo);
             

@@ -325,7 +325,7 @@ public class ProblemInfo extends BaseModel {
         ResultSetContainer rsc = (ResultSetContainer)
                     map.get(Constants.CHECK_ACCESS_QUERY_KEY);
         if(rsc.size() == 0) {
-            throw new PermissionDeniedException("User cannot access this problem");
+            throw new PermissionDeniedException(user, "user does not have access to round: " + String.valueOf(roundId));
         }
 
 
