@@ -21,13 +21,30 @@
 				<tr> 
 					<td class=brLeftCol valign="top"><a href="/pl/?&module=Static&d1=brooks&d2=overview"><img src="/i/events/brooks/overview.gif" alt="" width="146" height="19" border="0"></a></td> 
 					<td width="100%" valign="top">
-					    <p class="brBody"><span class="brBodyTitle">Registration</span><br/><br/>
-						Registration explanation goes here.
+					    <p class="content"><span class="brBodyTitle">Registration</span><br/><br/>
+						Confirmation text goes here.
 						</p>
-						<form>
                         <table width="100%" cellpadding="0" cellspacing="3" border="0" >
                         <tr>
-                            <td class="brErrorText" colspan="2"></td>
+                            <td class="brRegTableQuestion"><b>Personal</b></td>
+                            <td class="brRegTableAnswer">
+                                <a class="brRegTableAnswer" href="/">edit<a/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="brRegTableQuestion">Handle</td>
+                            <td class="brRegTableAnswer"></td>
+                        </tr>
+                        </table>
+
+                        <p><br/></p>
+						
+                        <table width="100%" cellpadding="0" cellspacing="3" border="0" >
+                        <tr>
+                            <td class="brRegTableQuestion"><b>Demographics</b></td>
+                            <td class="brRegTableAnswer">
+                                <a class="brRegTableAnswer" href="/">edit<a/>
+                            </td>
                         </tr>
                         <tr>
                             <td class="brRegTableQuestion">Question</td>
@@ -35,15 +52,12 @@
                         </tr>
                         <tr>
                             <td class="brRegTableQuestion"></td>
-                            <td class="brRegTableAnswer">
-                            <br/><a class="brRegTableAnswer" href="/pl/?&module=Static&d1=brooks&d2=reg&d3=confirm">Submit</a>
-                            <br/><br/>
-                            <span class="brErrorText"><b>OPTIONAL:</b></span> If you would like to upload a resume, click <a class="brRegTableAnswer" href="JavaScript:void window.open('/','Resume_Upload','top=2,left=2,width=350,height=300,status=0');">here</a></p>
+                            <td class="brRegTableAnswer"><br/>
+                            <a class="brRegTableAnswer" href="/pl/?&module=Static&d1=brooks&d2=reg&d3=success">Submit</a>
                             </td>
                         </tr>
                         </table>
-                        </form>
-						
+
 						<p><br/></p>
 					</td> 
 

@@ -5,7 +5,7 @@
 
 <title>Brooks Automation, Inc. - Screening</title>
 
-<jsp:include page="../script.jsp" />
+<jsp:include page="../../script.jsp" />
 <link type="text/css" rel="stylesheet" href="/css/brooks.css"/>
 
 </head>
@@ -21,7 +21,7 @@
 				<tr> 
 					<td class=brLeftCol valign="top"><a href="/pl/?&module=Static&d1=brooks&d2=overview"><img src="/i/events/brooks/overview.gif" alt="" width="146" height="19" border="0"></a></td> 
 					<td width="100%" valign="top">
-					    <p class="content"><span class="brBodyTitle">Registration</span><br/><br/>
+					    <p class="brBody"><span class="brBodyTitle">Registration</span><br/><br/>
 						Registration explanation goes here.
 						</p>
 						<form>
@@ -131,7 +131,8 @@
                         </tr>
                         <tr>
                             <td class="brRegTableQuestion"></td>
-                            <td class="brRegTableAnswer"><a class="bodyText_link" href="/">Submit</a>
+                            <td class="brRegTableAnswer">
+                            <br/><a class="brRegTableAnswer" href="/pl/?&module=Static&d1=brooks&d2=reg&d3=demog">Submit</a>
                             </td>
                         </tr>
                         </table>
