@@ -35,6 +35,7 @@ function openWin(url, name, w, h) {
 
 <!-- Register tab -->
                             <tr><td><img src="/i/clear.gif" width="1" height="7" alt="" ></td></tr>
+<%--                            <tr><td><a class="subnavLink" href="https://<%=ApplicationServer.SERVER_NAME%>/pl/?&<%=Constants.MODULE_KEY+"="+Constants.VERIZON_REG_MAIN+"&"+Constants.COMPANY_ID+"=1747&"+Constants.EVENT_ID+"=1"%>" style="margin-left:1px;display:inline;">Register Now</a></td></tr>--%>
                             <tr><td><a class="subnavLink" href="?&<%=Constants.MODULE_KEY+"="+Constants.STATIC+"&d1=verizon&d2=vcc03_reg%>" style="margin-left:1px;display:inline;">Registration</a></td></tr>
                             <tr><td><img src="/i/clear.gif" width="1" height="7" alt="" ></td></tr>
                             <tr><td class="grey"><img src="/i/events/verizon2003/ccc.gif" width="10" height="1" alt="" ></td></tr>
