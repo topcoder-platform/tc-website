@@ -59,7 +59,7 @@ public class TestResults extends BaseScreeningProcessor {
             if (pinfo.hasTestSetA()) {
                 String roundId = result.getItem(0, "contest_round_id").toString();
                 String divisionId = result.getItem(0, "contest_division_id").toString();
-                dAccess = Util.getDataAccess(Constants.DW_DATA_SOURCE, true);
+                DataAccessInt dwAccess = Util.getDataAccess(Constants.DW_DATA_SOURCE, true);
                 dr = new Request();
                 dr.setContentHandle("roundProblemStats");
                 dr.setProperty("rd", roundId);

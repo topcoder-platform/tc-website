@@ -161,6 +161,7 @@ public class Constants {
     
     // profile generator constants
     public static String PROFILE_DOC_CONVERTOR_PAGE;
+    public static String PROFILE_MAIN_PAGE;
 
     /* Contract Constants */
     public static String CONTRACTING_INFO;
