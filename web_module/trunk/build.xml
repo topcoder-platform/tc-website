@@ -812,6 +812,9 @@
             includes="com/topcoder/security/**">
 	        <metainf dir="${resources}/security/conf" includes="*.xml" excludes="application.xml"/>
 	    </jar>
+        <jar jarfile="${ejb_jars}/security.jar" update="true">
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+        </jar>
 
         <ear earfile="${ear.dir}/security.ear" appxml="${resources}/security/conf/application.xml">
             <fileset dir="${jars.dir}">
