@@ -55,7 +55,7 @@
                 </tr>
                 <tr valign="middle">
                     <td class="bodyText">
-                        <tc-webtag:textArea name="<%=Constants.TERMS%>" rows="10" cols="80" readOnly="true" class="bodyText"/>
+                        <tc-webtag:textArea name="<%=Constants.TERMS%>" rows="10" cols="80" readOnly="true" styleClass="bodyText"/>
                     </td>
                 </tr>
                 <tr valign="middle">

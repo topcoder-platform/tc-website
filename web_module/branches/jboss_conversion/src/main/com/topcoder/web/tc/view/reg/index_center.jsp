@@ -408,7 +408,7 @@ function checkInputs(){
 
                 <tr valign="middle"><td colspan="2" class="statTextBig" valign="middle"><img src="/i/clear.gif" width="1" height="2" border="0"></td></tr>
 
-                <tc:notification selectedValues="<%=Registration.getNotifications()%>" class="bodyText">
+                <tc:notification selectedValues="<%=Registration.getNotifications()%>" styleClass="bodyText">
 
                 <tr>
                     <td class="registerLabel"><%=notifyName%>&nbsp;</td>
