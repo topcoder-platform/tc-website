@@ -26,17 +26,32 @@
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
-         <td class="cardCell" width="100%" align="center">
-
+        <td width="100%" align="center">
         <div class="myTCBody">
+
         <jsp:include page="../../page_title.jsp" >
             <jsp:param name="image" value="contract"/>
             <jsp:param name="title" value="Registration"/>
         </jsp:include>
 
-		Thank you for registering!
-		<br/><br/>
-		We will contact you should an opportunity come up that we feel you are qualified for.
+<!-- Breadcrumb-->
+        <table border=0 cellpadding=0 cellspacing=0 width="100%" class=bodyText>
+			<tr>
+				<td class=oppDesc width="100%" valign=top>
+				<span class=bodySubtitle>Registration done</span>
+				<br/><br/>
+				Thank you for registering!
+				<br/><br/>
+				We will contact you should an opportunity come up that we feel you are qualified for.
+				</td>
+				<td valign=top>
+				<jsp:include page="breadcrumb.jsp" >
+				<jsp:param name="phase" value="success"/>
+				</jsp:include>
+				</td>
+			</tr>
+		</table>
+
 
         </div>
         <p><br/></p>
