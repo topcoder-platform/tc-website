@@ -836,11 +836,15 @@
             <classes dir="${classes}">
                 <include name="com/topcoder/web/hs/**"/>
             </classes>
-<!--
             <webinf dir="${resources}/hs">
                 <include name="hs-taglib.tld"/>
             </webinf>
--->
+            <webinf dir="${struts.dir}">
+                    <include name="*.tld" />
+            </webinf>
+            <lib dir="${struts.dir}">
+                    <include name="*.jar" />
+            </lib>
         </war>
     </target>
 
