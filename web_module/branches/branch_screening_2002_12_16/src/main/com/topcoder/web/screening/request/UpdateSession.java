@@ -49,7 +49,6 @@ public class UpdateSession extends BaseSessionProcessor {
                                   repEmail, 
                                   candidateEmail, 
                                   getAuthentication().getUser().getId());
-                                  */
 
 
         //now get info for segments
@@ -87,6 +86,7 @@ public class UpdateSession extends BaseSessionProcessor {
         long testSetBSegment = Long.parseLong(row.getItem("count").toString()) *
             Long.parseLong(Constants.TEST_SET_B_SEGMENT_INTERVAL);
         segment.createSessionSegment(sessionId, Long.parseLong(Constants.SESSION_SEGMENT_TEST_SET_B_ID), testSetBSegment);
+                                  */
 
         setNextPage(Constants.DEFAULT_PAGE);
         setNextPageInContext(false);
