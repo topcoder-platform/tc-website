@@ -5,7 +5,6 @@ import com.topcoder.web.tc.Constants;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.common.web.data.report.Query;
 
 public class Home extends Base {
 

@@ -21,7 +21,7 @@ public class ResultSetItemTag extends FormatTag {
         this.name = name;
     }
 
-    public void setResultSet(ResultSetContainer set) {
+    public void setSet(ResultSetContainer set) {
         this.set = set;
     }
 
