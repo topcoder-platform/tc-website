@@ -39,7 +39,7 @@ public class RegistrationHelper {
 
   private final static long EMAIL_TYPE_ID_DEFAULT=1;
 
-  private final static char NEW_USER_TYPE='A';
+  private final static char NEW_USER_TYPE='U';
 
   private final static String STUDENT_GROUP_NAME="Student";
 
