@@ -337,7 +337,7 @@ public final class MainServlet extends HttpServlet {
                     request.setAttribute(BaseServlet.NEXT_PAGE_KEY, info.getRequestString());
 
                     request.setAttribute("module", "Login");
-                    fetchRegularPage(request, response, info.getServletPath(), true);
+                    fetchRegularPage(request, response, "/tc", true);
                     return;
 
                  } else {
