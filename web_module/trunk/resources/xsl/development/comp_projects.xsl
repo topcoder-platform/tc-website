@@ -158,6 +158,9 @@
                                         Version&#160;<xsl:value-of select="./version_text"/>
                                     </xsl:if>
                                 </a>
+                                <xsl:if test="./max_unrated_registrants = 0">
+                                        **
+                                </xsl:if>
                             </td>
                             <td class="projectCells" align="center">
                                         <xsl:value-of select="./total_rated_inquiries"/>/<xsl:value-of select="./total_unrated_inquiries"/>
@@ -277,8 +280,10 @@
                 </xsl:for-each>
             </table>
 
+            <p>*And that's before royalty payments. The more Component <A href="http://software.topcoder.com/components/subscriptions.jsp">Subscriptions</A> we sell, the more royalties we pay out to our winners!</p>
             <p>*And that's before royalty payments. The more Component <A href="http://software.topcoder.com/components/subscriptions.jsp">Subscriptions</A> we sell, the more royalties we pay out to our winners!  Please note
             that custom components do not get added to the catalog and therefore do not have royalties.</p>
+            <p>** Only rated members may register for this component</p>
 
             <p><br/></p>
 <!-- Open Component Development Projects ends -->
