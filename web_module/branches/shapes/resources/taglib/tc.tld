@@ -114,6 +114,11 @@
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
+        <attribute>
+            <name>bg</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
 	<attribute>
 	    <name>link</name>
             <required>false</required>
