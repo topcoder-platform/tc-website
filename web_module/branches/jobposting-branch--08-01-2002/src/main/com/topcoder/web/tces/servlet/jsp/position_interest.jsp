@@ -79,7 +79,7 @@
                   <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><b>Hit Date</b></TD>                                    
                 </TR>
                 
-                <tces:mapIterator id="hit" mapList="<%=(List)CampaignInterestTask.getHitList()%>">                
+                <tces:mapIterator id="hit" mapList="<%=(List)PositionInterestTask.getHitList()%>">                
                 
                 <TR>
                   <TD class="statText" HEIGHT="18">&#160;<A HREF="#" class="statText">
