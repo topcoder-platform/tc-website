@@ -664,6 +664,110 @@ SELECT dq.demographic_question_id
      , da.sort
 "
 
+java com.topcoder.utilities.QueryLoader "OLTP" 1050 "TCES_Member_Handle" 0 0 "
+SELECT u.handle
+  FROM user u
+ WHERE (u.user_id = @mid@)
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 1051 "TCES_Member_Profile" 0 0 "
+SELECT c.coder_id
+     , c.first_name
+     , c.last_name
+     , c.address1
+     , c.address2
+     , c.city
+     , c.state_code
+     , c.zip
+     , cy.country_name
+     , u.email
+     , c.home_phone
+     , p.path || i.file_name AS image_path
+     , (SELECT COUNT(*)
+          FROM coder_image_xref cix
+             , image i
+         WHERE cix.image_id = i.image_id
+           AND cix.coder_id = c.coder_id
+           AND cix.display_flag = 1
+           AND i.image_type_id = 1) AS has_image
+     , ct.coder_type_desc
+     , cs.school_name
+     ,  (SELECT demographic_answer_text
+           FROM demographic_response dr1 
+              , demographic_answer da1
+          WHERE dr1.coder_id = c.coder_id
+            AND dr1.demographic_question_id = 16
+            AND dr1.demographic_answer_id = da1.demographic_answer_id
+            AND dr1.demographic_question_id = da1.demographic_question_id) AS degree
+     ,  (SELECT demographic_answer_text
+           FROM demographic_response dr1 
+              , demographic_answer da1
+          WHERE dr1.coder_id = c.coder_id
+            AND dr1.demographic_question_id = 17
+            AND dr1.demographic_answer_id = da1.demographic_answer_id
+            AND dr1.demographic_question_id = da1.demographic_question_id) AS major
+     ,  (SELECT demographic_answer_text
+           FROM demographic_response dr1 
+              , demographic_answer da1
+          WHERE dr1.coder_id = c.coder_id
+            AND dr1.demographic_question_id = 23
+            AND dr1.demographic_answer_id = da1.demographic_answer_id
+            AND dr1.demographic_question_id = da1.demographic_question_id) AS grad_month
+     ,  (SELECT demographic_answer_text
+           FROM demographic_response dr1 
+              , demographic_answer da1
+          WHERE dr1.coder_id = c.coder_id
+            AND dr1.demographic_question_id = 18
+            AND dr1.demographic_answer_id = da1.demographic_answer_id
+            AND dr1.demographic_question_id = da1.demographic_question_id) AS grad_year
+     ,  (SELECT demographic_answer_text
+           FROM demographic_response dr1 
+              , demographic_answer da1
+          WHERE dr1.coder_id = c.coder_id
+            AND dr1.demographic_question_id = 7
+            AND dr1.demographic_answer_id = da1.demographic_answer_id
+            AND dr1.demographic_question_id = da1.demographic_question_id) AS industry
+     ,  (SELECT demographic_answer_text
+           FROM demographic_response dr1 
+              , demographic_answer da1
+          WHERE dr1.coder_id = c.coder_id
+            AND dr1.demographic_question_id = 8
+            AND dr1.demographic_answer_id = da1.demographic_answer_id
+            AND dr1.demographic_question_id = da1.demographic_question_id) AS job_title
+  FROM country cy
+     , user u
+     , coder_type ct
+     , coder c
+  LEFT OUTER JOIN (coder_image_xref cix JOIN image i
+                                          ON cix.image_id = i.image_id
+                                        JOIN path p
+                                          ON p.path_id = i.path_id)
+               ON c.coder_id = cix.coder_id
+              AND cix.display_flag = 1
+  LEFT OUTER JOIN current_school cs
+               ON c.coder_id = cs.coder_id
+ WHERE c.country_code = cy.country_code
+   AND u.user_id = c.coder_id
+   AND c.coder_type_id = ct.coder_type_id
+   AND (c.coder_id = @mid@)
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 1052 "TCES_Member_Demographics" 0 0 "
+SELECT dq.demographic_question_id
+     , dq.demographic_question_text
+     , da.demographic_answer_text
+     , da.sort
+  FROM demographic_response dr
+     , demographic_answer da
+     , demographic_question dq
+ WHERE dr.demographic_answer_id = da.demographic_answer_id
+   AND dr.demographic_question_id = dq.demographic_question_id
+   AND da.demographic_question_id = dq.demographic_question_id
+   AND (dr.coder_id = @mid@)
+ ORDER BY dq.demographic_question_id
+     , da.sort
+"
+
 java com.topcoder.utilities.QueryLoader "OLTP" 1097 "TCES_Verify_Member_Access" 0 0 "
 SELECT jh.user_id
      , cjx.job_id
