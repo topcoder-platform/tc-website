@@ -17,7 +17,7 @@
     <br/>
     <br/>
 
-    <table width="100%" border="0" cellpadding="3" cellspacing="0">
+    <table width="100%" border="1" cellpadding="3" cellspacing="0">
 
         <tr><td colspan=3>Notes for <%=request.getAttribute(com.topcoder.web.tc.Constants.HANDLE)%></td></tr>
 
