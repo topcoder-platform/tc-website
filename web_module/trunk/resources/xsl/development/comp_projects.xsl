@@ -351,6 +351,16 @@
 
                 <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=image_resizing-dev">Image Resizing</a></td>
+                    <td background="" class="statText" align="center">$120.00</td>
+                    <td background="" class="statText" align="center">2.6.2003</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+                <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=string-dev">String Class</a></td>
                     <td background="" class="statText" align="center">$120.00</td>
                     <td background="" class="statText" align="center">2.6.2003</td>
