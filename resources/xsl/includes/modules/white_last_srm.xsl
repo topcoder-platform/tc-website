@@ -25,17 +25,15 @@
  	<TR>
 		<TD CLASS="bodyText" VALIGN="top">
 		
-<P><IMG SRC="/i/m/adam_loss_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="3" ALIGN="left"/>
-<SPAN CLASS="bodyTextBold">Match 77</SPAN><BR/>
-April 3, 2002<BR/>
+<P>
+<SPAN CLASS="bodyTextBold">Match 79</SPAN><BR/>
+Wednesday, April 10, 2002<BR/>
 By Adam Loss, <I>TopCoder Staff Writer</I><BR CLEAR="all"/>
 </P>
 					
 <P><B>Division-I</B><BR/>
-<A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=1" CLASS="bodyGeneric">dmwright</A> earned 100 points in the 
-"Challenge Phase" for a come-from-behind win in Room 1.  The room win was the 44th by 
-<A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=1" CLASS="bodyGeneric">dmwright</A>, by far the most of any 
-member (<A HREF="/stat?c=all_time_wins" CLASS="bodyGeneric">View the list of Overall Wins</A>).</P>
+<A HREF="/stat?c=last_match&amp;rd=4120&amp;dn=1" CLASS="bodyGeneric">Logan</A> was the winner in Room 3 with 1357.58 final points.  <A HREF="/stat?c=last_match&amp;rd=4120&amp;dn=1" CLASS="bodyGeneric">Logan</A> earned 275.90 points on the Level One problem, 
+367.53 on the Level Two problem, and 664.15 on the Level Three problem for 1307.58 points during the "Coding Phase".</P>
        </TD>
 	</TR>
 	<TR>
@@ -50,10 +48,9 @@ member (<A HREF="/stat?c=all_time_wins" CLASS="bodyGeneric">View the list of Ove
  	<TR>
 		<TD CLASS="bodyText" VALIGN="top">
 <P>
-The highest score earned by a first-time coder was the 1441.00 point total of <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=2" CLASS="bodyGeneric">antimatter</A>, 
-who was the winner in Room 53.  That point total earned <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=2" CLASS="bodyGeneric">antimatter</A> a 
-1785 debut rating (<A HREF="/stat?c=impressive_debuts" CLASS="bodyGeneric">View the list of Impressive Debuts</A>), 
-which is the 17th highest ever
+The top-point total in Division-II was earned by <A HREF="/stat?c=last_match&amp;rd=4120&amp;dn=2" CLASS="bodyGeneric">cd21</A> in Room 30 with 1385.81 final points.  <A HREF="/stat?c=last_match&amp;rd=4120&amp;dn=2" CLASS="bodyGeneric">cd21</A> earned 291.99 points 
+on the Level One problem, 414.81 on the Level Two problem, and 629.01 on the Level Three problem for a total of 1335.81
+ points in the "Coding Phase"
 
 ...&#160;<A HREF="/index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">full&#160;story</A>.
 </P>
