@@ -143,8 +143,8 @@ public final class JavaDocServlet extends HttpServlet {
             log.info("file = " + file);
 
             //fix the links in the file to start with "javadocs?webServiceName=name&"
-//              file = HTMLLinkChanger.preppendToAllAddresses(SERVLET_NAME + "?" + 
-//                        WEB_SERVICE_NAME + "=" + webServiceName + "&");
+              file = HTMLLinkChanger.prependToAllAddresses(SERVLET_NAME + "?" + 
+                        WEB_SERVICE_NAME + "=" + webServiceName + "&path=", file);
             out.append(file);
         }
 
