@@ -38,9 +38,9 @@ public class Static extends BaseProcessor {
      */
     void businessProcessing() throws Exception {
 
-        String originatingPage = req.getRequestURI();
-        if( req.getQueryString() != null ) {
-            originatingPage += "?"+req.getQueryString();
+        String originatingPage = request.getRequestURI();
+        if( request.getQueryString() != null ) {
+            originatingPage += "?"+request.getQueryString();
         }
         log.debug("\n\n*******Static request = "originatingPage);
 
