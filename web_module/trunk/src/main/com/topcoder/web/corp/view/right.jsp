@@ -19,7 +19,6 @@
 
 <!-- Candidate Testing begins-->
 <% if (level1.equals("testing")) { %>
-						<div class="corpRight"><A href="/corp/?module=Static&d1=corp&d2=testing&d3=demo"><IMG src="/i/corp/testing_promo.gif" alt="TopCoder Testing" width="170" height="105" border="0" /></A></div>
                         <div class="corpRight"><A href="mailto:tces@topcoder.com?subject=Yes, I'm looking to hire top quality developers"><IMG src="/i/es/animated_emp_promo.gif" alt="" width="170" height="119" border="0" /></A></div>
                         <div class="corpRight"><a href="/i/corp/downloads/tc_demo_tces.pdf"><img src="/i/corp/promos/tc_demo_tces.gif" alt="Download TCES Demographics" width="170" height="218" border="0"></a></div>
 <% } %>
