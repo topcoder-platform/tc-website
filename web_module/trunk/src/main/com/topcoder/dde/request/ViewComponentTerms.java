@@ -23,8 +23,9 @@ public class ViewComponentTerms extends BaseProcessor {
         if (getUser().isAnonymous()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         } else {
+            Object objUserManager = getInitialContext().lookup("dde/UserManager");
             UserManagerRemoteHome userManagerHome = (UserManagerRemoteHome)
-                    getInitialContext().lookup("dde/UserManagerEJB");
+                    PortableRemoteObject.narrow(objUserManager, UserManagerRemoteHome.class);
             UserManagerRemote userManager = userManagerHome.create();
 
             getRequest().setAttribute(Constants.TERMS, userManager.getComponentTerms());
