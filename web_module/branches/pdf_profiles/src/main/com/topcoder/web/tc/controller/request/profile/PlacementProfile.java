@@ -16,7 +16,7 @@ import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.*;
 import com.topcoder.shared.util.DBMS;
 
-import java.lang.StringBuilder;
+import java.lang.StringBuffer;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -43,7 +43,7 @@ public class PlacementProfile extends BaseProcessor {
         
         if(!handle.equals("") || !firstname.equals("") || !lastname.equals("")) {
             //search
-            StringBuilder sb = new StringBuilder();
+            StringBuffer sb = new StringBuffer();
             sb.append("SELECT u.user_id, u.handle, c.first_name, c.last_name ");
             sb.append("FROM user u, coder c, common_oltp:user_preference p ");
             sb.append("WHERE c.coder_id = u.user_id ");
