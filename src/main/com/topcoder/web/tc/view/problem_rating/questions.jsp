@@ -26,7 +26,6 @@
         <tc:problemRatingIterator list="<%=problemRatingQuestions%>" id="quest">
         <tr>
             <tc:problemRatingInput id="problemRatingInput" question="<%=quest%>">
-            <% System.out.println("???"); %>
             <td class="statText">
                 <%= question %>
             </td>
