@@ -10,7 +10,7 @@
 <html>
 <head>
 <title>TopCoder | Private Label Registration</title>
-
+<jsp:include page="../script.jsp" />
 </head>
 
 <body>
