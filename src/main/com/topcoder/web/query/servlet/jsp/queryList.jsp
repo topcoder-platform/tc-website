@@ -30,8 +30,8 @@
         <table width="60%" border="0" cellpadding="0" cellspacing="0">
           <tr><td class="statTextBig" colspan="2"><%=Constants.COMMAND_LIST_NAME%></td></TR>
           <tr>
-            <td class="statText" ALIGN="right" colspan="2">DB:&#160;</td>
-            <td class="statText" ALIGN="left" colspan="2">
+            <td class="statText" ALIGN="right">DB:&#160;</td>
+            <td class="statText" ALIGN="left">
               <jsp:getProperty name="QueryList" property="Db"/>
             </td>
           </TR>
