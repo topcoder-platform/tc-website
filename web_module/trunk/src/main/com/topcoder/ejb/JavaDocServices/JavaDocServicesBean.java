@@ -137,11 +137,10 @@ public class JavaDocServicesBean extends BaseEJB {
             sql.append(    ",web_service ws ");
             sql.append("WHERE ws.web_service_id = wsjd.web_service_id ");
             sql.append(  "AND ws.web_service_name = ? ");
-            sql.append(  "AND wsjd.path IN (?, ?) ");
+            sql.append(  "AND wsjd.path LIKE ? ");
             ps = conn.prepareStatement(sql.toString());
             ps.setString(1, webServiceName);
-            ps.setString(2, path);
-            ps.setString(3, "/" + path);  //be forgiving, don't know if we should prepend the / or not, so try both
+            ps.setString(2, "%" + path);
             rs = ps.executeQuery();
             if(rs.next()) {
                 file = DBMS.getTextString(rs, 1);
