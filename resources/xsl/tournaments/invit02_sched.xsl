@@ -78,8 +78,8 @@
                     </TR>                    
                     <TR>
                       <TD ALIGN="right" VALIGN="middle" HEIGHT="13" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><B>Total Competitors</B></TD>
-                      <TD ALIGN="center" VALIGN="middle" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=schedule&amp;c=invit02_pt1" CLASS="statTextBig">Part 1 Seeding</A></TD>
-                      <TD ALIGN="center" VALIGN="middle" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=schedule&amp;c=invit02_pt2" CLASS="statTextBig">Part 2 Seeding</A></TD>
+                      <TD ALIGN="center" VALIGN="middle" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=tournaments&amp;c=invit02_pt1" CLASS="statTextBig">Part 1 Seeding</A></TD>
+                      <TD ALIGN="center" VALIGN="middle" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=tournaments&amp;c=invit02_pt2" CLASS="statTextBig">Part 2 Seeding</A></TD>
                     </TR>
                     <TR>
                       <TD ALIGN="right" HEIGHT="13" CLASS="statText">1,024</TD>
@@ -117,7 +117,7 @@
                       <TD HEIGHT="18" ALIGN="left" CLASS="statTextBig" BACKGROUND="/i/orangebv_bg.gif">
                         &#160;&#160;Online Round #2<BR/>
                       </TD>
-                      <TD COLSPAN="2" ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourney_advancers&amp;rds=4335" CLASS="statTextBig">Advancers</A> | <A HREF="/index?t=schedule&amp;c=invit02_breakdown" CLASS="statTextBig">qubits Breakdown</A></TD>
+                      <TD COLSPAN="2" ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourney_advancers&amp;rds=4335" CLASS="statTextBig">Advancers</A> | <A HREF="/index?t=tournaments&amp;c=invit02_breakdown" CLASS="statTextBig">qubits Breakdown</A></TD>
                     </TR>                    
                     <TR>
                       <TD COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
@@ -157,7 +157,7 @@
                       <TD HEIGHT="18" ALIGN="left" CLASS="statTextBig" BACKGROUND="/i/orangebv_bg.gif">
                         &#160;&#160;Online Round #3<BR/>
                       </TD>
-                      <TD COLSPAN="2" ALIGN="center" VALIGN="middle" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourney_advancers&amp;rds=4345" CLASS="statTextBig">Advancers</A> | <A HREF="/index?t=schedule&amp;c=invit02_breakdown_r3" CLASS="statTextBig">qubits Breakdown</A></TD>
+                      <TD COLSPAN="2" ALIGN="center" VALIGN="middle" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourney_advancers&amp;rds=4345" CLASS="statTextBig">Advancers</A> | <A HREF="/index?t=tournaments&amp;c=invit02_breakdown_r3" CLASS="statTextBig">qubits Breakdown</A></TD>
                     </TR>                    
                     <TR>
                       <TD COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
@@ -197,7 +197,7 @@
                       <TD HEIGHT="18" ALIGN="left" CLASS="statTextBig" BACKGROUND="/i/orangebv_bg.gif">
                         &#160;&#160;Online Round #4<BR/>
                       </TD>
-                      <TD COLSPAN="2" ALIGN="center" VALIGN="middle" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourney_advancers&amp;rds=4355" CLASS="statTextBig">Advancers</A> | <A HREF="/index?t=schedule&amp;c=invit02_breakdown_r4" CLASS="statTextBig">qubits Breakdown</A></TD>
+                      <TD COLSPAN="2" ALIGN="center" VALIGN="middle" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourney_advancers&amp;rds=4355" CLASS="statTextBig">Advancers</A> | <A HREF="/index?t=tournaments&amp;c=invit02_breakdown_r4" CLASS="statTextBig">qubits Breakdown</A></TD>
                     </TR>                    
                     <TR>
                       <TD COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
