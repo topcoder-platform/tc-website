@@ -51,7 +51,7 @@ public abstract class Base implements RequestProcessor {
 
         hsa = new HSAuthorization(user);
         if(!hsa.hasPermission(new SimpleResource(this.getClass().getName())))
-            throw new RuntimeException("@@@ use authexception");
+            throw new PermissionException("You must login to view this page.");
 
         buildSessionInfo();
     }

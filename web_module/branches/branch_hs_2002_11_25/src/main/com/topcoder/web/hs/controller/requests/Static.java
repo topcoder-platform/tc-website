@@ -27,7 +27,7 @@ public class Static extends Base {
 
         /* here we check whether the path is allowed for this type of user */
         if(!hsa.hasPermission(new SimpleResource(path)))
-            throw new RuntimeException("@@@ not authorized to view this page");
+            throw new PermissionException("You must login to view this page.");
 
         path += ".jsp";
 

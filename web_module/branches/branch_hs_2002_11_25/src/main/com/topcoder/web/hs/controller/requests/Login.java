@@ -16,12 +16,20 @@ public class Login extends Base {
         String username = (String)request.getParameter("username");
         String password = (String)request.getParameter("password");
 
-        auth.login(new SimpleUser(0, username, password));
+        try {
+            auth.login(new SimpleUser(0, username, password));
+        } catch(LoginException e) {
+            /* if the login failed, give them another try */
+            request.setAttribute("message", e.getMessage());
+            setNextPage("/login/login.jsp");
+            setNextPageInContext(true);
+        }
+
         /* no need to reset user or sessioninfo, since we immediately proceed to a new page */
 
         String dest = request.getParameter("nextpage");
         if(dest == null || dest.equals(""))
-            dest = "hs?module=Static&d1=home&d2=index_member";  //@@@ need getServletName/Path
+            dest = request.getContextPath()+request.getServletPath()+"?module=Static&d1=home&d2=index_member";
 
         setNextPage(dest);
         setIsNextPageInContext(false);

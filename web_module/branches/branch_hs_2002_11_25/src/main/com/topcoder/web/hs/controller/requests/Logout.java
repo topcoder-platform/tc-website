@@ -14,7 +14,8 @@ public class Logout extends Base {
     protected void businessProcessing() throws Exception {
         auth.logout();
 
-        setNextPage("hs");  //@@@ need getServletName/Path
+        /* back to the front page */
+        setNextPage(request.getContextPath()+request.getServletPath());
         setIsNextPageInContext(false);
     }
 }

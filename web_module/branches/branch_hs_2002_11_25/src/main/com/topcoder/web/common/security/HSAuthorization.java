@@ -17,8 +17,8 @@ import com.topcoder.shared.security.*;
  */
 public class HSAuthorization implements Authorization {
 
-    private TCSubject user;
-    private PolicyRemote policy;
+    private TCSubject user = null;
+    private PolicyRemote policy = null;
 
     /** Construct an instance which can be used to check access for the given user. */
     public HSAuthorization(TCSubject sub) throws Exception {
@@ -28,9 +28,14 @@ public class HSAuthorization implements Authorization {
 
     /** Constructor which takes a User object and fetches the TCSubject for that user. */
     public HSAuthorization(User user) throws Exception {
-        PrincipalMgrRemote pmgr = (PrincipalMgrRemote)Constants.createEJB(PrincipalMgrRemote.class);
-        this.user = pmgr.getUserSubject(user.getId());
-        policy = (PolicyRemote)Constants.createEJB(PolicyRemote.class);
+        try {
+            PrincipalMgrRemote pmgr = (PrincipalMgrRemote)Constants.createEJB(PrincipalMgrRemote.class);
+            this.user = pmgr.getUserSubject(user.getId());
+            policy = (PolicyRemote)Constants.createEJB(PolicyRemote.class);
+        } catch(Exception e) {
+            e.printStackTrace();
+            //@@@ leave things as null and check below
+        }
     }
 
     /** Query the security component to determine whether the user can access this resource. */

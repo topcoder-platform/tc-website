@@ -45,7 +45,18 @@ public final class Controller extends HttpServlet {
                 rp.setResponse(response);
                 rp.process();
 
-//@@@ need to catch some auth exceptions separately here
+            } catch(PermissionException e) {
+
+                /* forward to the login page, with a message and a way back */
+                request.setAttribute("message", e.getMessage());
+                String nextpage = request.getRequestURL();
+                if(request.getQueryString() != null)
+                    nextpage += "?"+request.getQueryString();
+                request.setAttribute("nextpage", nextpage);
+                rp = new com.topcoder.web.hs.controller.requests.Login();
+                rp.setRequest(request);
+                rp.setResponse(response);
+                rp.process();
 
             } catch(Exception e) {
 

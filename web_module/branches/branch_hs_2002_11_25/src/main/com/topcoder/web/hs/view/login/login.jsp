@@ -47,11 +47,16 @@ New to TopCoder?
 Click here to register now. After you complete the registration process, we will send your account activation code via email. 
 </P><BR>
 
+<jsp:useBean id="SessionInfo" class="com.topcoder.web.hs.model.SessionInfoBean" scope="request" />
 <%
 String nextpage = request.getAttribute("nextpage");
 if(nextpage==null) nextpage = "";
 String message = request.getAttribute("message");
 if(message==null) message = "";
+String username = request.getAttribute("username");
+if(username==null) username = SessionInfo.getHandle();
+if(username==null) username = "";
+
 
 <form name="loginform" action="" method="post">
 <input type="hidden" name="module" value="Login">
@@ -61,7 +66,7 @@ if(message==null) message = "";
    <TD CLASS="bodyText" COLOR="#FF2010"><%= message %></TD>
 </TR>
 <TR>
-    <TD CLASS="bodyText"><B>Handle</B><BR/><INPUT TYPE="text" NAME="username" SIZE="25"></TD>
+    <TD CLASS="bodyText"><B>Handle</B><BR/><INPUT TYPE="text" NAME="username" VALUE="<%= username %>" SIZE="25"></TD>
 </TR>
 <TR>
     <TD CLASS="bodyText"><B>Password</B><BR/><INPUT TYPE="text" NAME="password" SIZE="25"><BR/><B><A HREF="javascript:document.loginform.submit()" CLASS="statTextBig">Login>></A></B></TD>
