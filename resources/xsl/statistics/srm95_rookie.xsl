@@ -101,8 +101,7 @@ to be rather small also. Coding phase ended with five scores above 1000.
  took the lead with 1306.38 points, followed by 
  <A HREF="/stat?c=member_profile&amp;cr=287805" CLASS="bodyGeneric">good</A>
  with 1263.67
-points, <A HREF="/stat?c=member_profile&amp;cr=287982" CLASS="bodyGeneric">jello</A>
- with 1245.64 points, <A HREF="/stat?c=member_profile&amp;cr=269495" CLASS="bodyGeneric">Ricin</A>
+points, <A HREF="/stat?c=member_profile&amp;cr=269495" CLASS="bodyGeneric">Ricin</A>
  with 1130.37 points, and <A HREF="/stat?c=member_profile&amp;cr=273421" CLASS="bodyGeneric">Poobslag</A>
 with 1123.37 points.
 </P>
@@ -118,26 +117,23 @@ Three as well.
 </P>
 
 <P>
-As for the other coders, good was the only other one to lose points, making
+As for the other coders, <B>good</B> was the only other one to lose points, making
 a pair of unsuccessful challenges. <B>Poobslag</B>, in the same room, got two
-successful challenge to push his score sixty points ahead of good, then lost
-a challenge to drop down to ten points above. <B>jello</B> picked up three
-successful challenges in a row, racing up to 1395.64 points, passing the
-score of <B>jms137</B>.
+successful challenge to push his score sixty points ahead of <B>good</B>, then lost
+a challenge to drop down to ten points above.
 </P>
 
 <P>
 System test yielded even fewer changes. Only eight solutions failed over the
-entire Rookie Rooms. One of these was good's, but the simultaneous failure
-of the third-place competitor in that room kept good in second place.
+entire Rookie Rooms. One of these was <B>good</B>'s, but the simultaneous failure
+of the third-place competitor in that room kept <B>good</B> in second place.
 </P>
 
 <P>
-<B>Ricin</B> kept lead in Room 68, finishing with 541.18 points. jms137 kept
+<B>Ricin</B> kept lead in Room 68, finishing with 541.18 points. <B>jms137</B> kept
 1306.38 points straight from coding phase, leading room 67. <B>Poobslag</B> took
 first in Room 65 with 1123.37 points from coding phase and 50 challenge
-points. <B>jello</B>, however, won the match with a grand total of 1395.64 points,
-including three successful challenges, and, with <B>jms137</B>, becoming one of
+points. <B>jms137</B>, became one of
 only two coders to go yellow straight from the Rookie Rooms after this
 match.
 </P>
@@ -151,11 +147,11 @@ Room 66. <A HREF="/stat?c=member_profile&amp;cr=287944" CLASS="bodyGeneric">omar
  both finished with 535 points and change.
 </P>
 
-<P>
+<!-- <P>
 At the time of this writing, it was not known to ZorbaTHut that jello (the
 rookie winner) was disqualified from the match and future competitions for
 cheating. Jello's results will not be found in the match results.
-</P>
+</P> -->
 
 <IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
 By&#160;ZorbaTHut<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
