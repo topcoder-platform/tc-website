@@ -90,8 +90,45 @@ The problems for this round of the Invitational were relatively easy, compared t
 <font size="+2"><b>Lexer</b>
 </font>
 <BR/> 
-<P>Used as: Level 1<BR/>
-<B>Implementation</B><BR/>
+Used as: Level 1<BR/>
+<blockquote>
+    <table cellspacing="2">
+	<tr>
+        <td style="background: #eee;" class="bodyText" colspan="2">
+          <b>Div-I stats</b>
+        </td>
+      </tr>
+      <tr>
+        <td style="background: #eee;" class="bodyText">
+          <b>Value</b>
+        </td>
+        <td style="background: #eee;" class="bodyText">300 points</td>
+      </tr>
+      <tr>
+        <td style="background: #eee;" class="bodyText">
+          <b>Submission Rate</b>
+        </td>
+        <td style="background: #eee;" class="bodyText">294/310 (94.84%) 
+</td>
+      </tr>
+      <tr>
+        <td style="background: #eee;" class="bodyText">
+          <b>Success Rate</b>
+        </td>
+        <td style="background: #eee;" class="bodyText">264/294 (89.80%) 
+</td>
+      </tr>
+      <tr>
+        <td style="background: #eee;" class="bodyText">
+          <b>High Score</b>
+        </td>
+        <td style="background: #eee;" class="bodyText">
+          <b>radeye</b> for 293.51  points
+                </td>
+      </tr>
+    </table>
+    </blockquote>
+</P><B>Implementation</B><BR/>
 This is a straight-forward problem to solve, simply following the directions given. Java and C# users can use the startsWith method of their string class to see if the remaining letters correspond to a particular token. C++ users can use strncmp or the substr method to do the same. It's then a matter of picking the longest token that matches (if any) and adding it to a list. For Java and C# users, the toArray method of ArrayList is quite useful. </P>
 
 <P>Mistakes seemed primarily to result from not following directions. </P>
@@ -102,8 +139,45 @@ This is a straight-forward problem to solve, simply following the directions giv
 </font>
 <BR/> 
 Used as: Level 2<BR/>
-<B>Implementation</B><BR/>
-<P>On the surface, this appears to be one of those difficult number theory problems. But in fact a naive solution using obvious methods is sufficient. 
+ <blockquote>
+	 <table cellspacing="2">
+	<tr>
+        <td style="background: #eee;" class="bodyText" colspan="2">
+          <b>Div-I</b>
+        </td>
+      </tr>
+      <tr>
+        <td style="background: #eee;" class="bodyText">
+          <b>Value</b>
+        </td>
+        <td style="background: #eee;" class="bodyText">450 points</td>
+      </tr>
+      <tr>
+        <td style="background: #eee;" class="bodyText">
+          <b>Submission Rate</b>
+        </td>
+        <td style="background: #eee;" class="bodyText">249/310 (80.33%)
+</td>
+      </tr>
+      <tr>
+        <td style="background: #eee;" class="bodyText">
+          <b>Success Rate</b>
+        </td>
+        <td style="background: #eee;" class="bodyText">195/249 (78.31%) 
+</td>
+      </tr>
+      <tr>
+        <td style="background: #eee;" class="bodyText">
+          <b>High Score</b>
+        </td>
+        <td style="background: #eee;" class="bodyText">
+          <b>reid</b> for 443.58   points
+                </td>
+      </tr>
+    </table>
+  </blockquote>
+<P><B>Implementation</B><BR/>
+On the surface, this appears to be one of those difficult number theory problems. But in fact a naive solution using obvious methods is sufficient. 
 </P>
 <P>The first task is being able to find all relatively prime integers that are between 0 and N exclusive. Relatively prime can be alternatively defined as two numbers that have a greatest common divisor of 1. Thus one can use the well-known Euclidean algorithm to filter out the numbers that are relatively prime to N. </P>
 
@@ -117,90 +191,51 @@ Used as: Level 2<BR/>
 <font size="+2"><b>Wireless</b>
 </font>
 <BR/>  
-Used as: Level 3<BR/> 
-<B>Implementation</B><BR/>
-<P>The method of solving this problem is to iterate through all possible "interesting" values of t >= 0 (representing time). One could implement a fancy method of determining that both roaming nodes are moving away from all static nodes, thus concluding that distances will always increase from that time on, but that's unnecessary work and requires dealing with a bunch of special cases. It's easier to simply iterate through time up to some point where the two roaming nodes will necessarily have to be moving out of range of all static nodes. Since the nodes are required to move along an axis, we know that at most 20000 + range seconds need to pass before both nodes will have left the system. It is very reasonable to compute minimal distances between the two roaming nodes for 50000 different times. 
+Used as: Level 3<BR/>
+ <blockquote>
+	 <table cellspacing="2">
+	<tr>
+        <td style="background: #eee;" class="bodyText" colspan="2">
+          <b>Div-I</b>
+        </td>
+      </tr>
+      <tr>
+        <td style="background: #eee;" class="bodyText">
+          <b>Value</b>
+        </td>
+        <td style="background: #eee;" class="bodyText">900 points</td>
+      </tr>
+      <tr>
+        <td style="background: #eee;" class="bodyText">
+          <b>Submission Rate</b>
+        </td>
+        <td style="background: #eee;" class="bodyText">52/310 (16.78%)
+</td>
+      </tr>
+      <tr>
+        <td style="background: #eee;" class="bodyText">
+          <b>Success Rate</b>
+        </td>
+        <td style="background: #eee;" class="bodyText">13/52 (25.00%) 
+</td>
+      </tr>
+      <tr>
+        <td style="background: #eee;" class="bodyText">
+          <b>High Score</b>
+        </td>
+        <td style="background: #eee;" class="bodyText">
+          <b>John Dethridge</b> for 449.65  points
+                </td>
+      </tr>
+    </table>
+  </blockquote> 
+<P><B>Implementation</B><BR/>
+The method of solving this problem is to iterate through all possible "interesting" values of t >= 0 (representing time). One could implement a fancy method of determining that both roaming nodes are moving away from all static nodes, thus concluding that distances will always increase from that time on, but that's unnecessary work and requires dealing with a bunch of special cases. It's easier to simply iterate through time up to some point where the two roaming nodes will necessarily have to be moving out of range of all static nodes. Since the nodes are required to move along an axis, we know that at most 20000 + range seconds need to pass before both nodes will have left the system. It is very reasonable to compute minimal distances between the two roaming nodes for 50000 different times. 
 </P>
 <P>So now all that is left is computing the minimal distance for two roaming nodes at a particular point in time. To do this, we iterate through all the possible combinations of endpoints that are in range of the two roaming nodes. We then just need to compute the minimal distance between those two endpoints in the static network. 
 </P>
 <P>Since this is a static network, we can precompute these distances before iterating over time. This is a simple application of an all-pairs-shortest-paths algorithm, such as Floyd's algorithm. The static nodes represent a graph, where there are edges between any pair of nodes that are within range of each other, with weight corresponding to Euclidean distance. 
-</P>
-  <blockquote>
-    <table cellspacing="2">
-	<tr>
-        <td style="background: #eee;" class="bodyText" colspan="2">
-          <b>Div-II stats</b>
-        </td>
-      </tr>
-      <tr>
-        <td style="background: #eee;" class="bodyText">
-          <b>Value</b>
-        </td>
-        <td style="background: #eee;" class="bodyText">500 points</td>
-      </tr>
-      <tr>
-        <td style="background: #eee;" class="bodyText">
-          <b>Submission Rate</b>
-        </td>
-        <td style="background: #eee;" class="bodyText">142/247 (57%) 
-</td>
-      </tr>
-      <tr>
-        <td style="background: #eee;" class="bodyText">
-          <b>Success Rate</b>
-        </td>
-        <td style="background: #eee;" class="bodyText">76/142 (54%) 
-</td>
-      </tr>
-      <tr>
-        <td style="background: #eee;" class="bodyText">
-          <b>High Score</b>
-        </td>
-        <td style="background: #eee;" class="bodyText">
-          <b>UFP2161</b> for 395.88  points
-                </td>
-      </tr>
-    </table>
-	<BR/>
-	 <table cellspacing="2">
-	<tr>
-        <td style="background: #eee;" class="bodyText" colspan="2">
-          <b>Div-I stats</b>
-        </td>
-      </tr>
-      <tr>
-        <td style="background: #eee;" class="bodyText">
-          <b>Value</b>
-        </td>
-        <td style="background: #eee;" class="bodyText">250 points</td>
-      </tr>
-      <tr>
-        <td style="background: #eee;" class="bodyText">
-          <b>Submission Rate</b>
-        </td>
-        <td style="background: #eee;" class="bodyText">128/134 (96%)
-</td>
-      </tr>
-      <tr>
-        <td style="background: #eee;" class="bodyText">
-          <b>Success Rate</b>
-        </td>
-        <td style="background: #eee;" class="bodyText">89/128 (70%) 
-</td>
-      </tr>
-      <tr>
-        <td style="background: #eee;" class="bodyText">
-          <b>High Score</b>
-        </td>
-        <td style="background: #eee;" class="bodyText">
-          <b>ZorbaTHut</b> for 233.09   points
-                </td>
-      </tr>
-    </table>
-  </blockquote>
-
-
-
+</P><BR/>
   
 <IMG SRC="/i/m/Logan_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
 By&#160;Logan<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=112902" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
