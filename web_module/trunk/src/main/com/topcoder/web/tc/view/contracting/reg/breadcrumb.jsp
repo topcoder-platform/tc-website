@@ -41,15 +41,15 @@
 	</tr>
 	<tr>
 	<% if (phase.equals("languages")) {%><td class=vbcON>Languages 2</td>
-	<% } else { %><td class=vbcOFF><A href="javascript:goToPage('ContractingLanguages');" class=vbcLINK>Languages 2</A></td><% } %>
+	<% } else { %><td class=vbcOFF><%if(showLink("languages")) {%><A href="javascript:goToPage('ContractingLanguages');" class=vbcLINK><%}%>Languages 2<%if(showLink("preferences")) {%></A><%}%></td><% } %>
 	</tr>
 	<tr>
 	<% if (phase.equals("technologies")) {%><td class=vbcON>Technologies 3</td>
-	<% } else { %><td class=vbcOFF><A href="javascript:goToPage('ContractingTechnologies');" class=vbcLINK>Technologies 3</A></td><% } %>
+	<% } else { %><td class=vbcOFF><%if(showLink("technologies")) {%><A href="javascript:goToPage('ContractingTechnologies');" class=vbcLINK><%}%>Technologies 3<%if(showLink("technologies")) {%></A><%}%></td><% } %>
 	</tr>
 	<tr>
 	<% if (phase.equals("os")) {%><td class=vbcON>Operating Systems 4</td>
-	<% } else { %><td class=vbcOFF><A href="javascript:goToPage('ContractingOS');" class=vbcLINK>Operating Systems 4</A></td><% } %>
+	<% } else { %><td class=vbcOFF><%if(showLink("os")) {%><A href="javascript:goToPage('ContractingOS');" class=vbcLINK><%}%>Operating Systems 4<%if(showLink("os")) {%></A><%}%></td><% } %>
 	</tr>
 	<tr>
 	<% if (phase.equals("databases")) {%><td class=vbcON>Databases 5</td>
@@ -57,11 +57,11 @@
 	</tr>
 	<tr>
 	<% if (phase.equals("industries")) {%><td class=vbcON>Industries 6</td>
-	<% } else { %><td class=vbcOFF><A href="javascript:goToPage('ContractingIndustries');" class=vbcLINK>Industries 6</A></td><% } %>
+	<% } else { %><td class=vbcOFF><%if(showLink("industries")) {%><A href="javascript:goToPage('ContractingIndustries');" class=vbcLINK><%}%>Industries 6<%if(showLink("industries")) {%></A><%}%></td><% } %>
 	</tr>
 	<tr>
 	<% if (phase.equals("confirm")) {%><td class=vbcON>Confirm 7</td>
-	<% } else { %><td class=vbcOFF><A href="javascript:goToPage('ContractingConfirm');" class=vbcLINK>Confirmation 7</A></td><% } %>
+	<% } else { %><td class=vbcOFF><%if(showLink("confirm")) {%><A href="javascript:goToPage('ContractingConfirm');" class=vbcLINK><%}%>Confirmation 7<%if(showLink("confirm")) {%></A><%}%></td><% } %>
 	</tr>
 	<tr>
 	<% if (phase.equals("success")) {%><td class=vbcON>Done 8</td>
