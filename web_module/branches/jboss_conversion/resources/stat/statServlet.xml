@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
 <!DOCTYPE StatServlet [
   <!ELEMENT StatServlet	(RankList?, QuickStatList?, ContentList*)>
 
   <!ELEMENT RankList (RankItem+) >
-  <!ELEMENT RankItem (CDATA)>
+  <!ELEMENT RankItem (PCDATA)>
   <!ATTLIST RankItem minVal CDATA #REQUIRED>
   <!ATTLIST RankItem maxVal CDATA #IMPLIED>
 
@@ -21,6 +22,7 @@
   <!ELEMENT GlobalError (CDATA)>
   <!ATTLIST GlobalError nextPage CDATA #REQUIRED>
 ]>
+-->
 <StatServlet>
     <RankList>
         <RankItem minVal="0" maxVal="0">coderTextWhite</RankItem>
