@@ -98,14 +98,7 @@ public abstract class BaseProcessor implements RequestProcessor {
             log.debug("calling businessProcessing");
             businessProcessing();
         } finally {
-            try {
-                if (ctx != null) {
-                    ctx.close();
-                }
-            } catch (Exception e) {
-                log.error("Couldn't close context");
-                e.printStackTrace();
-            }
+            close(ctx);
         }
     }
 
