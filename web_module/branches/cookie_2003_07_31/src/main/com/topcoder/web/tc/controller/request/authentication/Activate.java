@@ -46,11 +46,11 @@ public class Activate extends Base {
                 //activate account
                 User user = (User) createEJB(ctx, User.class);
                 char status = user.getStatus(userId, DBMS.OLTP_DATASOURCE_NAME);
-                if (Arrays.binarySearch(UNACTIVE_STATI, status)<0) {
+                if (Arrays.binarySearch(UNACTIVE_STATI, status)>0) {
                     user.setStatus(userId, ACTIVE_STATI[1], DBMS.OLTP_DATASOURCE_NAME); //want to get 'A'
                     setNextPage(Constants.ACTIVATE);
                     setIsNextPageInContext(true);
-                } else if (Arrays.binarySearch(ACTIVE_STATI, status)<0) {
+                } else if (Arrays.binarySearch(ACTIVE_STATI, status)>0) {
                     throw new NavigationException("Account has already been activated.");
                 } else {
                     throw new NavigationException("Your account can not be activated.");

@@ -45,7 +45,7 @@ public class Login extends Base {
                         getAuthentication().login(new SimpleUser(0, username, password));
 
                         char status = getStatus(getAuthentication().getUser().getId());
-                        if (Arrays.binarySearch(Activate.ACTIVE_STATI, status)<0) {
+                        if (Arrays.binarySearch(Activate.ACTIVE_STATI, status)>0) {
                             String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
                             setNextPage(dest);
                             setIsNextPageInContext(false);
@@ -53,10 +53,10 @@ public class Login extends Base {
                             return;
                         } else {
                             getAuthentication().logout();
-                            if (Arrays.binarySearch(Activate.INACTIVE_STATI, status)<0) {
+                            if (Arrays.binarySearch(Activate.INACTIVE_STATI, status)>0) {
                                 throw new LoginException("Sorry, your account is not active.  " +
                                         "If you believe this is an error, please contact TopCoder.");
-                            } else if (Arrays.binarySearch(Activate.UNACTIVE_STATI, status)<0) {
+                            } else if (Arrays.binarySearch(Activate.UNACTIVE_STATI, status)>0) {
                                 setNextPage(Constants.UNACTIVE);
                                 setIsNextPageInContext(true);
                             } else {
