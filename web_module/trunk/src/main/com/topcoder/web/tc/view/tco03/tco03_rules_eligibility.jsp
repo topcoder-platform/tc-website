@@ -61,18 +61,47 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 <!-- Tab bar sublinks-->
 <jsp:include page="tco03Sublinks.jsp" >
    <jsp:param name="selectedList" value="coding_rules"/>
-   <jsp:param name="selectedTab" value="overview"/>
+   <jsp:param name="selectedTab" value="eligibility"/>
 </jsp:include>
 
-            <h2>Official Rules and Regulations</h2>
-            
-            <h3><font color="#CC0000">No purchase necessary to enter or win</font></h3>
+            <h2>Eligibility</h2> 
 
-            <p>The 2003 TopCoder Open sponsored by Intel&#174; (Coding Tournament) will take place between October 7th and December 5th, 2003.  It will consist of two (2) online
-            qualification rounds, four (4) online elimination rounds and two (2) onsite final rounds, being the Semifinal and Championship rounds.  
-            The prize purse for this tournament is $100,000 in cash.  Up to 500 competitors will receive a prize just for competing in Online 
-            Round #1, and up to 200 eligible competitors will receive cash prizes.  The top 16 finishers in the online rounds will advance to 
-            the onsite Semifinal and Championship rounds, being held at the Mohegan Sun Casino in Uncasville, CT from December 4th and 5th.</p>
+            <p>
+            All TopCoder members who are 18 years of age or older may attempt to
+            qualify for the TCO.  500 members will qualify either through
+            Qualification Rounds or by receiving an automatic berth.
+            </p>
+
+            <p><span class="bodySubtitle">Qualification Rounds</span><br />
+            All members who have not already qualified for the Coding Tournament can compete in
+            the Qualifying Rounds.  The top 200 scorers from each of the two
+            Qualification Rounds will be eligible to compete in Online Round 1.
+            The Qualification Rounds will be held on Tuesday, October 7th
+            and Thursday, October 9th. </p>
+
+            <p><span class="bodySubtitle">Automatic Berths</span><br />
+            The 100 highest rated TopCoder members as of October 7th who have
+            participated in at least three (3) TopCoder rated events (i.e., Single
+            Round Matches and previous tournaments) prior to October 7th, with at
+            least one (1) of those events being between July 7th and October 7th,
+            will receive an automatic berth into Online Round 1. 
+            <br/><br/>
+            Please note that the top 100 rated members with automatic berths will not be permitted 
+            to compete in the Qualification Rounds.  In addition, the members qualifying for the tournament 
+            in Qualification Round #1 will not be permitted to compete in Qualification Round #2.
+            </p>
+            
+
+            <p><span class="bodySubtitle">Eligibility</span><br />
+            TopCoder members who are 18 years of age or older are eligible to win cash prizes, unless otherwise prohibited.  The TopCoder Open is 
+            void in the Quebec province of Canada, and elsewhere where prohibited by applicable law.  Cash prizes will not be paid to residents 
+            of Cuba, Iran, Iraq, Libya, North Korea, Sudan, or Syria.</p>
+
+            <p>Employees of TopCoder, Inc. and those involved in the production (including prize suppliers), implementation
+            and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers,
+            agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament
+            and members of the immediate families and/or persons living in the same household as such persons, are ineligible
+            to enter the tournament.</p>
 
          <p><br/></p>
          </td>
