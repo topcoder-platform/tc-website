@@ -48,15 +48,18 @@
 				<xsl:with-param name="title">&#160;Overview</xsl:with-param>
 			</xsl:call-template>
 
-			<table border="0" cellspacing="0" cellpadding="0" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
+			<table border="0" cellspacing="0" cellpadding="0" background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="100%">
 				<tr valign="top">
+					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="1" height="30" border="0" /></td>
 					<td class="statText" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
 						<img src="/i/clear.gif" alt="" width="240" height="1" border="0" /><br />
-						<p><strong>&#160;&#160;Your inquiry has been sent. Thank You!</strong></p>
-						<p>A TopCoder Project Manager will contact you over the next couple of days with information 
-						about what happens next.</p>
+						<p><strong>Your inquiry has been sent. Thank You!</strong></p>
+						
+						<p>Make sure you are also <a class="statText" href="http://www.topcodersoftware.com/pages/c_registration.jsp">registered</a> at TopCoderSoftware.com so you can download the documentation and participate in the online forums for this component. Once you are registered at TopCoderSoftware.com, a TopCoder Project Manager will contact you over the next couple of days with information about what to do next.</p>
+						
+						<p><br /></p>
 					</td>
-					<td background="" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="1" height="30" border="0" /></td>
+					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="1" height="30" border="0" /></td>
 				</tr>
 			</table>
 		</td>

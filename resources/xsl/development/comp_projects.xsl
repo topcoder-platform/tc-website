@@ -77,8 +77,14 @@
 						Submission Deadline: 12.11.2002<br/>
 						</p>   
 
-						<p>
+						<!-- <p>
 						Project: <a class="statText" href="/index?t=development&amp;c=encrypt-design">Encryption:&#160;Design</a><br/>
+						Posted: 11.26.2002<br/>
+						Submission Deadline: 12.11.2002<br/>
+						</p>   -->
+
+						<p>
+						Project: <a class="statText" href="/index?t=development&amp;c=http_tunnel-design">HTTP Tunneling:&#160;Design</a><br/>
 						Posted: 11.26.2002<br/>
 						Submission Deadline: 12.11.2002<br/>
 						</p>   
@@ -97,12 +103,6 @@
 					</td>
 
 					<td class="statText" width="50%">
-						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=http_tunnel-design">HTTP Tunneling:&#160;Design</a><br/>
-						Posted: 11.26.2002<br/>
-						Submission Deadline: 12.11.2002<br/>
-						</p>   
-
 						<p>
 						Project: <a class="statText" href="/index?t=development&amp;c=object_selector-design">Object Selector:&#160;Design</a><br/>
 						Posted: 11.26.2002<br/>
