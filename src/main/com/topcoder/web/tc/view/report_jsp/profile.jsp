@@ -19,6 +19,7 @@
   ResultSetContainer notifyList = null;
   ResultSetContainer handleList = null;
   ResultSetContainer addressList = null;
+  ResultSetContainer violationList = null;
   ResultSetContainer.ResultSetRow p = null;
   ArrayList detailList = null;
   String className = null;
@@ -77,6 +78,7 @@
       notifyList = (ResultSetContainer)((Map)detailList.get(k)).get("notify");
       handleList = (ResultSetContainer)((Map)detailList.get(k)).get("handle_history");
       addressList = (ResultSetContainer)((Map)detailList.get(k)).get("address_history");
+      violationList = (ResultSetContainer)((Map)detailList.get(k)).get("violations");
 
       int rating = ((Integer)p.getItem("rating").getResultData()).intValue();
 
@@ -292,6 +294,25 @@
     </rsc:iterator>
   </table>
 <%
+        }
+        if (!violationList.isEmpty()) { %>
+  <br/><br/>
+  <table cellpadding="5" cellspacing="0">
+    <tr><td colspan="3"><b>Violations</b></td></tr>
+
+    <tr>
+      <td><b>Date</b></td>
+      <td><b>Violation</b></td>
+      </tr>
+       <rsc:iterator list="<%=addressList%>" id="resultRow">
+    <tr>
+      <td><rsc:item name="date" row="<%=resultRow%>" format="MM/dd/yyyy"/></td>
+      <td><rsc:item name="description" row="<%=resultRow%>"/></td>
+      </tr>
+    </rsc:iterator>
+  </table>
+
+            <%
         }
 %>
   <br/>

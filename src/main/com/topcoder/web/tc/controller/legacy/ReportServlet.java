@@ -6,7 +6,6 @@ import com.topcoder.common.web.util.Conversion;
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.HttpObjectFactory;
@@ -26,7 +25,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpUtils;
-import javax.naming.InitialContext;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -296,7 +294,6 @@ public final class ReportServlet extends HttpServlet {
         if (!email.equals(""))
             mainRequest.setProperty(Constants.REPORT_EMAIL_KEY, email);
 
-        InitialContext context = new InitialContext();
         DataAccessInt dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
         Map mainMap = dai.getData(mainRequest);
         ResultSetContainer profileList = (ResultSetContainer)mainMap.get("main_profile_info");
@@ -1212,6 +1209,7 @@ public final class ReportServlet extends HttpServlet {
             " ORDER BY 1 DESC, link ASC, refer ASC";
 
 
+/*
     private static final int[] PROFILE_LIST_TYPES = {ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING};
     private static final String PROFILE_LIST =
             " SELECT u.handle, c.first_name, c.last_name, u.email" +
@@ -1224,6 +1222,7 @@ public final class ReportServlet extends HttpServlet {
             " AND u.user_id = c.coder_id" +
             " ORDER BY u.handle ASC";
 
+*/
 
     private static final Integer PRO_REG_INFO_ID = new Integer(16);
     private static final String PRO_REG_INFO_TITLE = "Professional Registration Information";
@@ -1338,6 +1337,7 @@ public final class ReportServlet extends HttpServlet {
             " )) y";
 
 
+/*
     private static final Integer TCS_MEMBER_COUNT_ID = new Integer(18);
     private static final String TCS_MEMBER_COUNT_TITLE = "Invitational Registration Information";
     private static final int[] TCS_MEMBER_COUNT_TYPES = {ResultItem.INT, ResultItem.INT};
@@ -1352,6 +1352,7 @@ public final class ReportServlet extends HttpServlet {
             "AND uc.email_address not like '%topcoder.com'" +
             "AND lower(last_name) not in ('tanacea', 'corsello')";
 
+*/
 
     private static final String STATE_QUERY =
             "SELECT state_code" +
