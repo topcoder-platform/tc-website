@@ -104,7 +104,7 @@
     <FORM name="questForm" method="POST" action="/">
         <INPUT TYPE="hidden" NAME="t" VALUE="affidavit"/>
         <INPUT TYPE="hidden" NAME="c" VALUE="2004_collegiate_submit_info"/>
-            <TR><TD COLSPAN="3"><U><B>COMPETITOR INFORMATION:</B></U><BR/></TD></TR>
+            <TR><TD COLSPAN="2"><U><B>COMPETITOR INFORMATION:</B></U><BR/></TD></TR>
 
             <TR>
                 <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="First Name"/>First Name: </TD>
@@ -223,9 +223,12 @@
             </TR>
 
             <TR>
+              <table><tr>
               <TD align="right"><INPUT TYPE="hidden" NAME="q29" VALUE="April 17, 2004 - preferred departure time:"/>April 17, 2004 - preferred departure time:</TD>
               <TD align="left"><SELECT name="a29"><OPTION value="AM">AM</OPTION><OPTION value="PM">PM</OPTION></SELECT></TD>
                 <td>Please note: You <u>must</u> depart on Saturday April 17, 2004.</td>
+                  </tr>
+                </table>
             </TR>
 
             <BR/>
