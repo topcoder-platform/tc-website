@@ -140,7 +140,7 @@ Believe it or not, in the real world, you can be paid to code on a regular basis
 </li>
 <li>
 <p><span class="bodySubtitle">Don't judge someone by their "color"</span><br/>
-TopCoder can teach us a life lesson.  Just because a coder is a "gray" doesn't mean they don't have something to contribute.  Conversely, just because a coder is red doesn't mean they have the answer to everything.   In a recent <A href="http://www.topcoder.com/rtables/viewThread.jsp?forum=64101&amp;thread=238721&amp;mc=105">round table discussion</A>, a "blue" coder came up with a solution to a research question before a "red" coder did.
+TopCoder can teach us a life lesson.  Just because a coder is a "gray" doesn't mean they don't have something to contribute.  Conversely, just because a coder is red doesn't mean they have the answer to everything.   In a recent <A href="http://www.topcoder.com/rtables/viewThread.jsp?forum=7167&amp;thread=238721">round table discussion</A>, a "blue" coder came up with a solution to a research question before a "red" coder did.
 <br/><br/>
 Professionally, everyone's ideas are important and should be given a chance, from the newbie HTML coder, to the hot-shot Java guru.  You never know from whose brain the "next big thing" will come from.  By mentoring and listening to junior developers, you can foster team morale and improve everyone's performance.   The hoary software architect can learn new things as they teach, and vice versa.
 </p>
