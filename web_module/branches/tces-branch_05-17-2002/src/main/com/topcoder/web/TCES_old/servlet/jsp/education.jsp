@@ -58,8 +58,8 @@ cities.addPair("1", "Los Angeles");
 
 
 Lookup schools = new Lookup();
-cities.addPair("0", "Harvard");
-cities.addPair("1", "Stanford");
+schools.addPair("0", "Harvard");
+schools.addPair("1", "Stanford");
 
 
 Lookup degreeTypes = new Lookup();
@@ -99,12 +99,12 @@ String selectedGradYear = "";
 
 %>
 
-  <table width="100%" border="0" cellspacing="0" cellpadding="1" align="center">
+<table width="100%" border="0" cellspacing="0" cellpadding="1" align="center">
 
 <tr>
-<td class="statTextBig" width="150" align="right" valign="middle"><img src="/i/clear.gif" width="150" height="2" border="0"></td>
-<td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-<td colspan="3" class="statTextBig" align="left" valign="middle">Required fields are in <b>bold</b></td>
+<td class="statTextBig" width="40%" align="right" valign="middle"><img src="/i/clear.gif" width="150" height="2" border="0"></td>
+<td width="5%"><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+<td width="55%" colspan="3" class="statTextBig" align="left" valign="middle">Required fields are in <b>bold</b></td>
 </tr>
   
 <tr valign="middle">
@@ -126,13 +126,13 @@ String selectedGradYear = "";
 </tr>
     
 <tr>
-<td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif"><b>Step 1: Select State/Area<br>
+<td class="statTextBig" align="left" valign="middle" background="/i/steel_gray_bg.gif"><b>Step 1: Select State/Area<br>
 <%= cities.getSelectBox("", "", "", "") %>
 </b>&nbsp;</td>
 <td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-<td align="center" valign="middle"><input type="button" value="&lt;&lt;"></td>
-<td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-<td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif"><b>Step 2: Select School<br>
+<td width="10%" align="center" valign="middle"><input type="button" value="&gt;&gt;"></td>
+<td align="center" width="5%"><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+<td width="35%" class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif"><b>Step 2: Select School<br>
 <%= schools.getSelectBox("", "", "", "") %>
 </b>&nbsp;</td>
 </tr>
@@ -142,6 +142,27 @@ String selectedGradYear = "";
 <td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
 <td colspan="3" class="errorText" align="left" valign="middle"></td>
 </tr>
+
+<tr valign="middle">
+<td colspan="5" class="statTextBig" valign="middle"><img src="/i/clear.gif" width="1" height="18" border="0"></td>
+</tr>
+
+<tr>
+<td class="statTextBig" align="left" valign="middle" background="/i/steel_gray_bg.gif"><b>Step 3: Select Degree Type<br>
+<%= degreeTypes.getSelectBox("", "", "", "") %>
+</b>&nbsp;</td>
+<td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+<td width="10%" align="center" valign="middle"><input type="button" value="&gt;&gt;"></td>
+<td align="center" width="5%"><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+<td width="35%" class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif"><b>Step 4: Select Major<br>
+<%= majors.getSelectBox("", "", "", "") %>
+</b>&nbsp;</td>
+</tr>
+
+<tr valign="middle">
+<td colspan="5" class="statTextBig" valign="middle" background="/i/steel_bluebv_bg.gif" height="16">&nbsp;</td>
+</tr>
+
 </table>
 
 
