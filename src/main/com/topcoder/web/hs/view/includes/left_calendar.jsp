@@ -77,7 +77,7 @@
                                 <td id="calendarBlankMini">&#160;</td>
                             </tr>-->
                             
-                            <tr><td colspan="7" class="statText" nowrap="nowrap" align="right"><a href="?module=Static&d1=schedule&d2=sched_may_2003" class="statText">View all schedules&#160;</a></td></tr>
+                            <tr><td colspan="7" class="statText" nowrap="nowrap"><div align="right"><a href="?module=Static&d1=schedule&d2=sched_may_2003" class="statText">View all schedules&#160;</a></div></td></tr>
                         </table>
 
 <!-- Regular season is over
