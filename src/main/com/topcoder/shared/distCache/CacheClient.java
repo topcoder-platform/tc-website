@@ -130,4 +130,7 @@ public interface CacheClient
      */
     public int size()
             throws RemoteException;
+
+    public boolean containsKey(String key)
+            throws RemoteException;
 }
