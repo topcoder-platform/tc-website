@@ -8,6 +8,9 @@
 <%
   String message = (String)request.getAttribute("message");
   if(message==null) message = "";
+  String username = request.getParameter(Constants.HANDLE_PARAM);
+  if(username==null) username = "";
+
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
@@ -41,7 +44,7 @@
                   </tr>
                   <tr>
                     <td height="25" valign="TOP">
-                      <INPUT MAXLENGTH="15" SIZE="15" NAME="<%=Constants.HANDLE_PARAM%>" TYPE="TEXT" VALUE="<jsp:getProperty name="Login" property="HandleInput" />">
+                      <INPUT MAXLENGTH="15" SIZE="15" NAME="<%=Constants.HANDLE_PARAM%>" TYPE="TEXT" VALUE="<%=username%>">
                     </td>
                   </tr>
                   <tr>
