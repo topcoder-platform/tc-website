@@ -11,6 +11,7 @@ import com.topcoder.shared.security.User;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Iterator;
+import java.util.ArrayList;
 import java.io.PrintWriter;
 import java.io.IOException;
 
@@ -71,7 +72,7 @@ public abstract class Base extends BaseProcessor {
         if (m!=null) {
             for (Iterator it = m.entrySet().iterator();it.hasNext();) {
                 me = (Map.Entry)it.next();
-                addError((String)me.getKey(), me.getValue());
+                errors.put(me.getKey(), me.getValue());
             }
         }
         clearSessionErrors(messageId);
