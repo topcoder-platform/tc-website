@@ -131,6 +131,7 @@ public class CurrentSchoolBean extends BaseEJB {
         PreparedStatement ps = null;
         InitialContext ctx = null;
         ResultSet rs = null;
+        boolean ret = false;
 
         try {
             StringBuffer query = new StringBuffer(1024);
@@ -145,7 +146,7 @@ public class CurrentSchoolBean extends BaseEJB {
             ps.setLong(1, coderId);
 
             rs = ps.executeQuery();
-            return rs.next();
+            ret = rs.next();
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
             throw(new EJBException(sqle.getMessage()));
@@ -157,6 +158,7 @@ public class CurrentSchoolBean extends BaseEJB {
             close(conn);
             close(ctx);
         }
+        return ret;
 
     }
 
