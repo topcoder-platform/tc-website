@@ -171,6 +171,54 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
     }
 
     /**
+     * Start and end row control.  The row number arguments to this
+     * constructor are 1-based for convenience.  If later on it
+     * is desired to have finer-grained control over which rows
+     * are added into the result, another constructor could be added
+     * to take in a tester object.  This object would have a function
+     * specifying whether or not to include a row in the container.
+     * The constructor would then call this function on each row of
+     * data. <p>
+     *
+     * If start > end, an IllegalArgumentException is thrown.
+     *
+     * @param   rs  A ResultSet containing data to be added to the container
+     * @param   start The 1-based row number at which to start adding data.
+     *                Thus, a start number of 1 begins adding with the first row.
+     * @param   end   The 1-based row number which indicates the final row of
+     *                data to be added.  Thus, an end number of 5 will stop adding
+     *                at the fifth row.
+     * @param   replaceNulls A boolean parameter specifying whether or not to
+     * replace nulls with default values
+     * @throws  Exception If there is some problem retrieving the data
+     */
+    public ResultSetContainer(ResultSet rs, int start, int end, boolean replaceNulls) throws Exception {
+        this();
+        log.debug("ResultSetContainer(ResultSet, int, int) called...");
+        if (start > end)
+            throw new IllegalArgumentException("Start row cannot exceed end row");
+        initializeMetaData(rs);
+        int row = 0;
+        while (rs.next()) {
+            row++;
+            if (row < start) {
+                dataBefore = true;
+                continue;
+            }
+            if (row > end) {
+                dataAfter = true;
+                break;
+            }
+            if (replaceNulls) {
+                addRow(rs);
+            } else {
+                addRowWithNulls(rs);
+            }
+        }
+    }
+
+
+    /**
      * This constructor version, in addition to offering start and end
      * row control as above, also enables the construction of a ranklist.
      * The extra ranklist column created by this function will assign
@@ -235,6 +283,76 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
             addRanklistRow(rs, rank);
         }
     }
+
+    /**
+     * This constructor version, in addition to offering start and end
+     * row control as above, also enables the construction of a ranklist.
+     * The extra ranklist column created by this function will assign
+     * numerical ranks, assigning equal rank to any ties.  <p>
+     *
+     * @param   rs  A ResultSet containing data to be added to the container
+     * @param   start The 1-based row number at which to start adding data.
+     *                Thus, a start number of 1 begins adding with the first row.
+     * @param   end   The 1-based row number which indicates the final row of
+     *                data to be added.  Thus, an end number of 5 will stop adding
+     *                at the fifth row.
+     * @param   ranklistCol The 1-based index of the column to assign ranks by.  It is
+     *                      assumed this column is already sorted from a
+     *                      suitable ORDER BY clause.
+     * @param   replaceNulls A boolean parameter specifying whether or not to
+     * replace nulls with default values*
+     * @throws  Exception If there is some problem retrieving the data
+     */
+    public ResultSetContainer(ResultSet rs, int start, int end,
+                              int ranklistCol, boolean replaceNulls) throws Exception {
+        this();
+        log.debug("ResultSetContainer(ResultSet, int, int, int) called...");
+        if (start > end)
+            throw new IllegalArgumentException("Start row cannot exceed end row");
+        initializeMetaData(rs);
+        ranklistCol--;
+        if (!isValidColumn(ranklistCol))
+            throw new IllegalArgumentException("Ranklist column index " + ranklistCol + " out of range");
+
+        // Build the extra ranklist column
+        ResultColumn tempColumns[] = new ResultColumn[columns.length + 1];
+        System.arraycopy(columns, 0, tempColumns, 0, columns.length);
+        tempColumns[columns.length] = new ResultColumn(Types.INTEGER, "rank", 9, 0, "");
+        columnNameMap.put("rank", new Integer(columns.length));
+        columns = tempColumns;
+
+        if (start > end)
+            return;
+
+        int row = 0, rank = 1;
+        TCResultItem lastItem = null;
+        while (rs.next()) {
+            row++;
+            if (row == 1) {
+                lastItem = getItem(rs, ranklistCol);
+            } else {
+                TCResultItem thisItem = getItem(rs, ranklistCol);
+                if (lastItem.compareTo(thisItem) != 0) {
+                    lastItem = thisItem;
+                    rank = row;
+                }
+            }
+            if (row < start) {
+                dataBefore = true;
+                continue;
+            }
+            if (row > end) {
+                dataAfter = true;
+                break;
+            }
+            if (replaceNulls) {
+                addRanklistRow(rs, rank);
+            } else {
+                addRanklistRowWithNulls(rs, rank);
+            }
+        }
+    }
+
 
     // Data item retrieval
     private TCResultItem getItem(ResultSet rs, int i) throws Exception {
@@ -530,6 +648,15 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
         TCResultItem ri[] = new TCResultItem[columns.length];
         for (int i = 0; i < columns.length - 1; i++)
             ri[i] = getItem(rs, i);
+        ri[columns.length - 1] = new TCIntResult(rank);
+        data.add(new ResultSetRow(ri));
+    }
+
+    // Data addition routine, called from constructor only.
+    private void addRanklistRowWithNulls(ResultSet rs, int rank) throws Exception {
+        TCResultItem ri[] = new TCResultItem[columns.length];
+        for (int i = 0; i < columns.length - 1; i++)
+            ri[i] = getItemWithNulls(rs, i);
         ri[columns.length - 1] = new TCIntResult(rank);
         data.add(new ResultSetRow(ri));
     }
