@@ -160,6 +160,7 @@ To make this vision a reality, Google is looking for exceptional people who like
           deploying Google's technology for searching private content.</li></p>
 </ul>
 <p><b>Practical application of machine-learning techniques</b></p> <ul>
+<!--
 <li>We apply machine-learning techniques to learn relationships and associations 
           within the data that we have. Our spelling correction system is a good 
           example (<a href="http://google.com/search?q=spehl+korector" class="bodyText">spehl 
@@ -167,6 +168,7 @@ To make this vision a reality, Google is looking for exceptional people who like
           spewling</a>? who needs a <a href="http://google.com/search?q=dictniary" class="bodyText">dictniary</a>?). 
           People searching for <a href="britney.html" class="bodyText">Britney Spears</a> have 
           clearly found it useful on many occasions. </li>
+-->
 <p><li> In the future, we'd like to improve our search quality by applying 
           machine-learning, artificial intelligence and information retrieval 
           techniques to problems such as: 
