@@ -205,6 +205,8 @@ public class Submit  extends ContractingBase {
             long emailId = emailbean.getPrimaryEmailId(info.getUserID(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
             email = emailbean.getAddress(emailId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
             
+            log.debug("Emailing: " + email);
+            
             TCSEmailMessage mail = new TCSEmailMessage();
             mail.setSubject("TopCoder Placement Registration");
             StringBuffer msgText = new StringBuffer(3000);
