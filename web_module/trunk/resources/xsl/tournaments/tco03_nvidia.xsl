@@ -71,9 +71,9 @@
                       <td class="promoText" align="left" width="255">
                         <p>We invite you to explore the opportunities available at NVIDIA. Click on the link to see what your future may hold.</p>
                         <p><ul>
-                        <li>Experienced professionals </li>
-                        <li>New &#38; Recent College Graduates </li>
-                        <li>Interns &#38; Co-ops</li></ul></p>
+                        <li><A href="?&#38;t=tces&#38;c=nvidia_openings&#38;a=secure">Experienced professionals </A></li>
+                        <li><A href="?&#38;t=tces&#38;c=nvidia_openings_intern&#38;a=secure">New &#38; Recent College Graduates </A></li>
+                        <li><A href="?&#38;t=tces&#38;c=nvidia_openings_intern&#38;a=secure">Interns &#38; Co-ops</A></li></ul></p>
                        <p><strong>We love what we do because we do what we love. Join us.</strong></p>
                       </td>
                   </tr>
