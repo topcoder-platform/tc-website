@@ -6,42 +6,6 @@
  */
 package com.topcoder.dde.notification;
 
-/*
-import com.topcoder.apps.review.ConcurrentModificationException;
-import com.topcoder.apps.review.GeneralSecurityException;
-import com.topcoder.apps.review.document.DocumentManagerLocal;
-import com.topcoder.apps.review.document.DocumentManagerLocalHome;
-import com.topcoder.apps.review.document.InvalidEditException;
-import com.topcoder.apps.review.document.ReviewScorecard;
-import com.topcoder.apps.review.document.ScreeningScorecard;
-import com.topcoder.apps.review.security.AdminPermission;
-import com.topcoder.apps.review.security.AggregationPermission;
-import com.topcoder.apps.review.security.FinalReviewPermission;
-import com.topcoder.apps.review.security.ReviewPermission;
-import com.topcoder.apps.review.security.ScreenPermission;
-import com.topcoder.apps.review.security.SubmitFinalFixPermission;
-import com.topcoder.apps.review.security.SubmitPermission;
-import com.topcoder.apps.review.security.ViewProjectPermission;
-
-import com.topcoder.security.NoSuchUserException;
-import com.topcoder.security.RolePrincipal;
-import com.topcoder.security.TCSubject;
-import com.topcoder.security.UserPrincipal;
-import com.topcoder.security.admin.PolicyMgrRemote;
-import com.topcoder.security.admin.PolicyMgrRemoteHome;
-import com.topcoder.security.admin.PrincipalMgrRemote;
-import com.topcoder.security.admin.PrincipalMgrRemoteHome;
-import com.topcoder.security.policy.PermissionCollection;
-import com.topcoder.security.policy.PolicyRemote;
-import com.topcoder.security.policy.PolicyRemoteHome;
-
-
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-*/
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -96,7 +60,7 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 /**
- * This is the concrete implementation of the ProjectTracker interface.
+ * This is the concrete implementation of the Notification interface.
  *
  * @author TCSDeveloper
  */
@@ -142,7 +106,8 @@ public class NotificationBean implements SessionBean {
                                        "(notification_event_id, event, notification_mail_type_id) " +
                                        "VALUES (?,?,?)");
 
-            id = idGen.nextId();
+            id = idGen.nextId("NOTIFICATION_EVENT_SEQ");
+            info("using id=" id);
             ps.setLong(1, id);
             ps.setString(2, event);
             ps.setLong(3,typeId);
@@ -153,11 +118,13 @@ public class NotificationBean implements SessionBean {
                 error(errorMsg);
                 ejbContext.setRollbackOnly();
 //qq ver                throw new InvalidEditException(errorMsg);
+                throw new Exception(errorMsg);
             }
             Common.close(ps);
         } catch (SQLException e) {
             ejbContext.setRollbackOnly();
 // qq ver            throw new InvalidEditException("SQL Exception: " + e.getMessage());
+
         } catch (Exception e) {
             info("error in createEvent: " + e.toString());
             id = -1;
@@ -225,7 +192,7 @@ public class NotificationBean implements SessionBean {
                 ps.executeUpdate();
             }
         } catch (Exception e) {
-            info("error in createEvent: " + e.toString());
+            info("error in createNotification: " + e.toString());
         } finally {
             Common.close(conn, ps, rs);
         }

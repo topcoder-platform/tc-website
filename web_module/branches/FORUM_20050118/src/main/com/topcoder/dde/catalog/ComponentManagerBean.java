@@ -915,9 +915,11 @@ log.debug("qq6");
                         if (winner == null) {
                             log.debug("Can't get winner for project, no notification added.");
                         } else {
+            log.debug("qq6.1");
                             notification.createNotification("forum post " + project.getForumId(),
                                     winner.getId(),
                                     notification.FORUM_POST_TYPE_ID);
+               log.debug("qq6.2");
                         }
                     }
 
