@@ -67,9 +67,9 @@
             <TR>
               <TD VALIGN="top" CLASS="bodyText">
 <IMG SRC="/i/pdf_iconw.gif" ALT="" WIDTH="31" HEIGHT="31" BORDER="0"/><BR/>
-Level One (250) - <A HREF="/i/2002tccc/Betting.pdf" CLASS="bodyText">Betting</A> by chogyonim<BR/>
-Level Two (500) - <A HREF="/i/2002tccc/Roadmap.pdf" CLASS="bodyText">Roadmap</A> by chogyonim<BR/>
-Level Three (1000) - <A HREF="/i/2002tccc/Omaha.pdf" CLASS="bodyText">Omaha</A> by chogyonim<BR/><BR/>
+Level One (250) - <A HREF="/i/2002tccc/Betting.pdf" CLASS="bodyText">Betting</A> | <A HREF="/i/2002tccc/Betting_Anly.pdf" CLASS="bodyText">Betting Analysis</A> by chogyonim<BR/>
+Level Two (500) - <A HREF="/i/2002tccc/Roadmap.pdf" CLASS="bodyText">Roadmap</A> | <A HREF="/i/2002tccc/Roadmap_Anly.pdf" CLASS="bodyText">Roadmap Analysis</A> by chogyonim<BR/>
+Level Three (1000) - <A HREF="/i/2002tccc/Omaha.pdf" CLASS="bodyText">Omaha</A> | <A HREF="/i/2002tccc/Omaha_Anly.pdf" CLASS="bodyText">Omaha Analysis</A> by chogyonim<BR/><BR/>
 
           </TD>
             </TR>
