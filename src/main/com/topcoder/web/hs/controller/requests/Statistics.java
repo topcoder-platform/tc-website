@@ -1,9 +1,7 @@
 package com.topcoder.web.hs.controller.requests;
 
 import java.util.*;
-import javax.servlet.*;
 import javax.servlet.http.*;
-import com.topcoder.web.hs.model.*;
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.util.*;
 import com.topcoder.common.web.util.Data;

@@ -5,7 +5,6 @@ import com.topcoder.web.hs.common.*;
 import com.topcoder.web.hs.model.*;
 
 import java.util.*;
-import javax.servlet.*;
 
 /**
  * A RequestProcessor which handles the registration of new students.  It
@@ -13,7 +12,6 @@ import javax.servlet.*;
  * creating new entries in the database via EJBs.
  *
  * @author Nathan Egge
- * @date 2003/1/2
  */
 public class StudentRegistration extends Base {
 

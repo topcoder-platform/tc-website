@@ -5,7 +5,6 @@ import com.topcoder.web.hs.common.*;
 import com.topcoder.web.hs.model.*;
 
 import java.util.*;
-import javax.servlet.*;
 
 /**
  * A RequestProcessor which handles the registration of new coaches.  It
@@ -13,26 +12,16 @@ import javax.servlet.*;
  * creating new entries in the database via EJBs.
  *
  * @author Nathan Egge
- * @date 2003/1/2
  */
 public class CoachRegistration extends Base {
 
-    private final static String COACH_GROUP_NAME = "Coach";
-
     private final static String REGISTRATION_BASE = "/registration/";
-
     private final static String REGISTRATION_PAGE = "registration_coach.jsp";
-
     private final static String CONFIRM_PAGE = "confirm_coach.jsp";
-
     private final static String THANK_YOU_PAGE = "thankyou_coach.jsp";
-
     private final static String REGISTER_CMD = "register";
-
     private final static String CONFIRM_CMD = "confirm";
-
-    private final static String INVALID_COMMAND = "Invalid command passed to " +
-            "registration module: ";
+    private final static String INVALID_COMMAND = "Invalid command passed to registration module: ";
 
     private final static Logger log = Logger.getLogger(CoachRegistration.class);
 
