@@ -88,7 +88,7 @@ else
                                 <%
                                 }
                                 %>
-                                <A href="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=rscUser.getRow(0)%>" />" class=usdcTitle><rsc:item name="handle" row="<%=rscUser.getRow(0)%>" /></A>
+                                <A href="/stat?c=member_profile&cr=<rsc:item name="coder_id" row="<%=rscUser.getRow(0)%>" />" class=usdcTitle><rsc:item name="handle" row="<%=rscUser.getRow(0)%>" /></A>
                                 </td>
                             </tr>
                         </table>
