@@ -85,8 +85,8 @@ function submitEnter(e) {
                             </tr>
                             <tr valign="middle">
                                 <td nowrap class="bodyText" align="right">Email:</td>
-                                <td nowrap class="bodyText"><input type="text" name="<%=Constants.EMAIL%>" value="<%= username %>" maxlength="100" size="12" onkeypress="submitEnter(event)"></td>
-                                <td nowrap class="bodyText">&#160;&#160;<a href="JavaScript:document.frmLogin.submit()" class="bodyText">Login&#160;&gt;</a></td>
+                                <td nowrap class="bodyText"><input type="text" name="<%=Constants.EMAIL%>" value="" maxlength="100" size="12" onkeypress="submitEnter(event)"></td>
+                                <td nowrap class="bodyText">&#160;&#160;<a href="JavaScript:document.emailForm.submit()" class="bodyText">Login&#160;&gt;</a></td>
                             </tr>
 
 
