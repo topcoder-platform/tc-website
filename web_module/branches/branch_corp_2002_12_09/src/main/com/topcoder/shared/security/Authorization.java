@@ -5,8 +5,7 @@ package com.topcoder.shared.security;
  * access to a particular resource this could range from simple if "logged in
  * then yes otherwise no" systems to full security systems with permissions,
  * roles groups etc.
-
-
+ * 
  * 
  * @author Greg Paul
  * @author djFD molc@mail.ru
@@ -19,16 +18,4 @@ public interface Authorization {
      * @return boolean
      */
     boolean hasPermission(Resource r);
-    
-//    /**
-//     * 
-//     * @param u
-//     */
-//    void setUser(User u);
-//    
-//    /**
-//     * 
-//     * @param r
-//     */
-//    void setResource(Resource r);
 }

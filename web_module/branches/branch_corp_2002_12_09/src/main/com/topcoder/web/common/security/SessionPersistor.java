@@ -22,7 +22,7 @@ public class SessionPersistor implements Persistor {
     private static final String KEY_PERSISTOR    = "persistor-object";
     private static final String KEY_PREVPAGE     = "last-accessed-page";
     
-        private Hashtable items = null;
+    private Hashtable items = null;
 
     private SessionPersistor() {
         items = new Hashtable();

@@ -104,6 +104,7 @@ public class Login extends BaseProcessor {
 
         // if destination is null then controller will fetch recently viewed page
         nextPage = destination;
+        
         pageInContext = false; // ensures all request parameters are dropped off
         return;
     }

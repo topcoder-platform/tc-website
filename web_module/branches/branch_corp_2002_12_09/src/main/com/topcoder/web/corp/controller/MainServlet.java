@@ -68,7 +68,6 @@ public class MainServlet extends HttpServlet {
         log.debug("URI: "+
             request.getRequestURI()+"["+request.getQueryString()+"]" 
         );
-
         String dest = servletConfig.getInitParameter(PFX_PAGE+KEY_MAINPAGE);
         String processorName = request.getParameter(KEY_MODULE);
 

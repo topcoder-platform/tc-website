@@ -47,6 +47,17 @@
         </init-param>
         <!--
         |
+        |       T E S T I N G   T I M E   P R O C E S S O R S
+        |
+        -->
+        <init-param>
+            <param-name>processor-TryAuthorization</param-name>
+            <param-value>com.topcoder.web.corp.request.TryAuthorization</param-value>
+            <description>logs on console list of permissions for connected user</description>
+        </init-param>
+
+        <!--
+        |
         |
         |
         -->

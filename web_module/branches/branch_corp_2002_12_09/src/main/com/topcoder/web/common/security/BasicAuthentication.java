@@ -18,6 +18,7 @@ import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.corp.Constants;
+import com.topcoder.web.corp.Util;
 
 /**
  * This implementation will use the TCS security component to attempt a login.
@@ -163,19 +164,19 @@ public class BasicAuthentication implements WebAuthentication {
         return getUser();
     }
 
-    /**
-     * 
-     * @param ic
-     */    
-    private void closeIC(InitialContext ic) {
-        if( ic == null ) return;
-        try {
-            ic.close();
-        }
-        catch(Exception e) {
-            log.error("Can't close initial context "+ic);
-        }
-    }
+//    /**
+//     * 
+//     * @param ic
+//     */    
+//    private void closeIC(InitialContext ic) {
+//        if( ic == null ) return;
+//        try {
+//            ic.close();
+//        }
+//        catch(Exception e) {
+//            log.error("Can't close initial context "+ic);
+//        }
+//    }
     
     /**
      * Get current user logged out and also clears pre-identification cookies in
@@ -249,7 +250,7 @@ public class BasicAuthentication implements WebAuthentication {
             );
         }
         finally {
-            closeIC(ic);
+            Util.closeIC(ic);
         }
     }
 }
