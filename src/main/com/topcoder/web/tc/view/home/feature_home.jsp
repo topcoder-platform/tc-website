@@ -9,8 +9,8 @@
                 <tr>
                     <td width="85" class="bodyText"  valign="top">
                         <!--<a href="/?&amp;t=features&amp;c=feat_topics"><img src="/i/writers_wanted.gif" alt="" width="55" height="61" border="0" vspace="5" /></a>-->
-                        <img src="/i/m/dplass_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=251184"><strong>dplass</strong></a><br/>
+                        <img src="/i/m/dimkadimon_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
+                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=276230"><strong>dimkadimon</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
                     </td>
@@ -18,15 +18,13 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td  width="99%" class="bodyText"  valign="top">
-                        <p><a href="/?&amp;t=features&amp;c=feat_060204" class="bodyText"><font size="4"><strong>Java for C++ coders, and vice versa</strong></font></a><br />
-                        Wednesday, June 2, 2004</p>
+                        <p><a href="/?&amp;t=features&amp;c=feat_070704" class="bodyText"><font size="4"><strong>Healthy Computing</strong></font></a><br />
+                        Wednesday, July 7, 2004</p>
 
                         <p>
-Three out of the four languages used in TopCoder competitions derive from a common language, C.  
-But there are still differences (and similarities) between C++, Java, and C#.  In this feature, I will point 
-out the more significant, and interesting, features that distinguish these three languages.
+Any type of work can lead to injuries and other health issues. Computer work is no exception to this rule. When programming, we often have to spend many hours sitting in the same position and staring in one direction. Even if we cannot control the amount of time that we spend at the computer, we can at least control how we spend it.
 
-                        <a href="/?&amp;t=features&amp;c=feat_060204" class="bodyText"><strong>full&#160;story</strong></a></p>
+                        <a href="/?&amp;t=features&amp;c=feat_070704" class="bodyText"><strong>full&#160;story</strong></a></p>
                     </td>
                 </tr>
             </table>
