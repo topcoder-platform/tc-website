@@ -716,6 +716,91 @@
             <description></description>
         </init-param>
 
+        <!-- Since Screening Tool 1.1 -->
+        <init-param>
+            <param-name>preference_level</param-name>
+            <param-value>preferenceLevel</param-value>
+            <description>the url parameter that contains the new preference level value for candidate</description>
+        </init-param>
+
+        <init-param>
+            <param-name>company_usage_type_query_key</param-name>
+            <param-value>usage_type</param-value>
+            <description>the name of a query to get the application usage type set for company associated with the user</description>
+        </init-param>
+
+        <init-param>
+            <param-name>candidate_profile_page</param-name>
+            <param-value>/testing/candidate/profile.jsp</param-value>
+            <description>the name of a JSP page to display the details of candidate's profile to the user</description>
+        </init-param>
+
+        <init-param>
+            <param-name>candidate_profile_info</param-name>
+            <param-value>candidateProfileInfo</param-value>
+            <description>the name of a command to be used to get the candidate's profile data</description>
+        </init-param>
+        
+        <init-param>
+            <param-name>candidate_address_info</param-name>
+            <param-value>candidateAddressInfo</param-value>
+            <description>the name of a query to be used to get the candidate's address</description>
+        </init-param>
+
+        <init-param>
+            <param-name>candidate_demographic_info</param-name>
+            <param-value>candidateDemographicInfo</param-value>
+            <description>the name of a query to be used to get the candidate's demographic info</description>
+        </init-param>
+
+        <init-param>
+            <param-name>candidate_personal_info</param-name>
+            <param-value>candidatePersonalInfo</param-value>
+            <description>the name of a query to be used to get the candidate's personal info</description>
+        </init-param>
+
+        <init-param>
+            <param-name>candidate_problems_info</param-name>
+            <param-value>candidateProblemsInfo</param-value>
+            <description>the name of a query to be used to get the details for candidate's solutions for testing problems</description>
+        </init-param>
+
+        <init-param>
+            <param-name>candidate_notes</param-name>
+            <param-value>noteList</param-value>
+            <description>the name of a query to be used to get the candidate's notes</description>
+        </init-param>
+
+        <init-param>
+            <param-name>company_info</param-name>
+            <param-value>companyInfo</param-value>
+            <description>the name of a query to be used to get the company details</description>
+        </init-param>
+
+        <init-param>
+            <param-name>company_campaigns_list</param-name>
+            <param-value>companyCampaignList</param-value>
+            <description>the name of a query to be used to get the company campaigns details</description>
+        </init-param>
+
+        <init-param>
+            <param-name>company_campaigns_page</param-name>
+            <param-value>/testing/results/campaignList.jsp</param-value>
+            <description>the URL for the JSP page to be used to display the company campaigns list</description>
+        </init-param>
+
+        <init-param>
+            <param-name>position_list_page</param-name>
+            <param-value>/testing/results/positionList.jsp</param-value>
+            <description>the URL for the JSP page to be used to display the company campaign's position list</description>
+        </init-param>
+
+        <init-param>
+            <param-name>campaign_id</param-name>
+            <param-value>campaignId</param-value>
+            <description>the url parameter that contains the ID of a requested campaign</description>
+        </init-param>
+
         <!-- Parameters used by Candidate -->
         <init-param>
             <param-name>candidate_info</param-name>
