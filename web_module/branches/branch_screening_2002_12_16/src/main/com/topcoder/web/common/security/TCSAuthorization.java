@@ -2,6 +2,7 @@ package com.topcoder.web.common.security;
 
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.security.Authorization;
+import com.topcoder.shared.security.AuthorizationException;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.policy.GenericPermission;
@@ -17,7 +18,7 @@ import javax.ejb.CreateException;
 /**
  *
  * @author Fred Wang (silentmobius)
- * @version $Revision$ 
+ * @version $Revision$
  * Jan 14, 2003 2:05:41 AM
  */
 
@@ -37,7 +38,7 @@ public class TCSAuthorization implements Authorization {
      *
      * @param r (Resource object to give permission for)
      * @return permission boolean
-     * @throws AuthorizationException
+     * @throws com.topcoder.shared.security.AuthorizationException
      */
     public boolean hasPermission(Resource r)
         throws AuthorizationException
