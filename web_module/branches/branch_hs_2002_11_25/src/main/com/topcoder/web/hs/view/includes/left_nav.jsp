@@ -90,7 +90,7 @@ sub = NavZone.getLevel1();
         <%=subsep%>
         <%=subitem("?module=Statistics&c=round_stats", "Round Stats", "round_stats")%>
         <%=subsep%>
-        <%=subitem("?module=Statistics&c=room_stats", "Room Stats", "room_stats")%>
+        <%=subitem("?module=Statistics&c=coder_room_stats&cr="+SessionInfo.getUserId(), "Room Stats", "room_stats")%>
         <%=subsep%>
         <%=subitem("?module=Statistics&c=member_profile&cr="+SessionInfo.getUserId(), "Member Profile", "member_profile")%>
     <% } %>
