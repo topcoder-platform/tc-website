@@ -79,7 +79,7 @@
                             <li>Held biannually</li>
                             <li>Title, Premier and Corporate sponsorships available</li>
                             <li>Online and onsite over a 10 - 12 week period</li>
-                            <li>Sponsors promoted on TopCoder website, arena applet, opt-in email and onsite</li>
+                            <li>Sponsors promoted on TopCoder website, competition arena, opt-in email and onsite</li>
                             <li>Extensive PR</li>
                         </ul>
  
