@@ -7,7 +7,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder Contracting</title>
+<title>TopCoder Placement Registration</title>
 
 <jsp:include page="../../../script.jsp" />
 
@@ -77,7 +77,7 @@ return false;
 		<FORM ACTION="/tc" METHOD=POST onSubmit="" name="frmLang">
 		<input type="hidden" name="module" value="ContractingLanguages"/>
 		<input type="hidden" name="previouspage" value="skills" />
-		
+
         <table border=0 cellpadding=0 cellspacing=0 width="100%" class=bodyText>
 			<tr>
 				<td class=oppDesc width="100%" valign=top>

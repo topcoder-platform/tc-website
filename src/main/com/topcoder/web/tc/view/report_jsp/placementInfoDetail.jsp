@@ -39,6 +39,10 @@ List industryList = (List)request.getAttribute("industrySkills");
 				<td align=center><p><a href="/stat?c=member_profile&cr=<jsp:getProperty name="contractingInfo" property="userId" />">View Member Profile</a></p></td>
 
             </tr>
+            <tr>
+				<td align=center><p><a href="/report?t=profile&ha=<%=request.getAttribute(Constants.HANDLE)%>">View Report Profile</a></p></td>
+
+            </tr>
         </table>
 
         <table border=0 cellpadding=0 cellspacing=0 width="100%">

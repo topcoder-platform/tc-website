@@ -7,7 +7,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder Contract</title>
+<title>TopCoder Placement Registration</title>
 
 <jsp:include page="../../../script.jsp" />
 
@@ -75,7 +75,7 @@ return false;
 		<FORM ACTION="/tc" METHOD=POST onSubmit="" enctype="multipart/form-data" name="frmPref">
 		<input type="hidden" name="module" value="ContractingLanguages"/>
 		<input type="hidden" name="previouspage" value="preferences" />
-		
+
         <table border=0 cellpadding=0 cellspacing=0 width="100%" class=bodyText>
 			<tr>
 				<td class=oppDesc width="100%" valign=top>
@@ -89,8 +89,8 @@ return false;
 				</td>
 			</tr>
 		</table>
-		
-		
+
+
 		<tc:preferenceGroupIterator id="prefGroup" list="<%=prefList%>">
                     <span class=bodySubtitle><%=prefGroup.getName()%></span>
                     <br/>
@@ -120,12 +120,12 @@ return false;
 			</tr>
                         </tc:preferenceIterator>
                     </table>
-                    
+
                     <br/><br/>
 
 		</tc:preferenceGroupIterator>
 		<p align=center class=bodyText><b>Please check to make sure that your contact information is up-to-date in your profile.</b></p>
-		
+
         <table border=0 cellpadding=3 cellspacing=0 width="100%" class=bodyText>
 			<tr>
 				<td class=bodyText>Attach your <b>resume</b> here and we'll include it in your profile</td>
@@ -138,7 +138,7 @@ return false;
 			<tr>
 				<td width=100%><input type=file name="Resume"></td>
 			</tr>
-		</table> 
+		</table>
 
 		<div width="100%" align=center><br/><br/><a href="javascript:goToPage('ContractingLanguages');"><img src="/i/submit.jpg" border=0/></a>
 		<%if(isEdit) {%><a href="javascript:goToPage('ContractingConfirm');"><img src="/i/jumpToEnd.jpg" border=0/></a><%}%></div>
