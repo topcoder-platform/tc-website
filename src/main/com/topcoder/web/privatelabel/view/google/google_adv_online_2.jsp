@@ -53,14 +53,6 @@ body,td,font,p,a
 
 <jsp:include page="../script.jsp" />
 
-<script>
-function openWin(url, name, w, h) {
-    win = window.open(url, 'biowin', "scrollbars=no,toolbar=no,resizable=no,menubar=no,width="+w+",height="+h);
-    win.location.href = url;
-    win.focus();
-}
-</script>
-
 </head>
 
     <body class=corporate bgcolor="#ffffff" text="#000000" link="#0000CC" vlink="#800080" alink="#ff0000" topmargin=2>
@@ -93,27 +85,41 @@ function openWin(url, name, w, h) {
 
                         <p><font size="-1">
 
-                      <table class=googleFrame bgcolor="#ffffff" cellpadding=5 cellspacing=2 border=0 width="350">
+
+                      <table class=googleFrame bgcolor="#ffffff" cellpadding=5 cellspacing=2 border=0 width="400">
                         <tr>
-                           <td class="advancersTitle">Round</td>
-                           <td class="advancersTitle" align="right" width="100%">Advancers</td>
+                           <td class="advancersTitle" align="left" colspan="2">Online Round 1</td>
                         </tr>
-                        <tr valign="top">
-                           <td class="google_round_id"><a href="/pl/?&module=Static&d1=google&d2=google_adv_qual" class="topLink">Qualification Round</a></td>
-                           <td class="sidebarText" align="right"><a href="/pl/?&module=Static&d1=google&d2=google_adv_qual">500</a></td>
+                        <tr>
+                           <td class="google_round_id" width="30%">Handle</td>
+                           <td class="google_round_id" width="30%" align="right">Score</td>
                         </tr>
-                        <tr valign="top">
-                           <td class="google_round_id" >Online Round 1</td>
-                           <td class="sidebarText" align="right"><a href="/pl/?&module=Static&d1=google&d2=google_adv_online_1">250</a></td>
-                        </tr>
-                        <tr valign="top">
-                           <td class="google_round_id" >Online Round 2</td>
-                           <td class="sidebarText" align="right"><a href="/pl/?&module=Static&d1=google&d2=google_adv_online_2">25</a></td>
-                        </tr>
-                        <tr valign="top">
-                           <td class="google_round_id" >Onsite Championship Round</td>
-                           <td class="sidebarText" align="right">n/a</td>
-                        </tr>
+
+<tr><td class="sidebarText" align="left" >ZorbaTHut</td><td class="sidebarText" align="right">1261.21</td></tr> 
+<tr><td class="sidebarText" align="left" >ChristopherH</td><td class="sidebarText" align="right">1161.37</td></tr> 
+<tr><td class="sidebarText" align="left" >Yarin</td><td class="sidebarText" align="right">1047.23</td></tr> 
+<tr><td class="sidebarText" align="left" >DjinnKahn</td><td class="sidebarText" align="right">1041.41</td></tr> 
+<tr><td class="sidebarText" align="left" >lars</td><td class="sidebarText" align="right">994.69</td></tr> 
+<tr><td class="sidebarText" align="left" >bstanescu</td><td class="sidebarText" align="right">969.08</td></tr> 
+<tr><td class="sidebarText" align="left" >SnapDragon</td><td class="sidebarText" align="right">713.71</td></tr> 
+<tr><td class="sidebarText" align="left" >dgarthur</td><td class="sidebarText" align="right">704.54</td></tr> 
+<tr><td class="sidebarText" align="left" >mathijs</td><td class="sidebarText" align="right">686.32</td></tr> 
+<tr><td class="sidebarText" align="left" >ssancho2</td><td class="sidebarText" align="right">671.01</td></tr> 
+<tr><td class="sidebarText" align="left" >snewman</td><td class="sidebarText" align="right">659.51</td></tr> 
+<tr><td class="sidebarText" align="left" >Ruberik</td><td class="sidebarText" align="right">659.23</td></tr> 
+<tr><td class="sidebarText" align="left" >venco</td><td class="sidebarText" align="right">657.47</td></tr> 
+<tr><td class="sidebarText" align="left" >Wasteland</td><td class="sidebarText" align="right">655.75</td></tr> 
+<tr><td class="sidebarText" align="left" >po</td><td class="sidebarText" align="right">654.34</td></tr> 
+<tr><td class="sidebarText" align="left" >bladerunner</td><td class="sidebarText" align="right">644.39</td></tr> 
+<tr><td class="sidebarText" align="left" >doeth</td><td class="sidebarText" align="right">635.04</td></tr> 
+<tr><td class="sidebarText" align="left" >antimatter</td><td class="sidebarText" align="right">634.45</td></tr> 
+<tr><td class="sidebarText" align="left" >gepa</td><td class="sidebarText" align="right">632.61</td></tr> 
+<tr><td class="sidebarText" align="left" >radeye</td><td class="sidebarText" align="right">630.92</td></tr> 
+<tr><td class="sidebarText" align="left" >tomek</td><td class="sidebarText" align="right">626.29</td></tr> 
+<tr><td class="sidebarText" align="left" >jcd1</td><td class="sidebarText" align="right">624.15</td></tr> 
+<tr><td class="sidebarText" align="left" >AdrianKuegel</td><td class="sidebarText" align="right">623.41</td></tr> 
+<tr><td class="sidebarText" align="left" >ValD</td><td class="sidebarText" align="right">620.40</td></tr> 
+<tr><td class="sidebarText" align="left" >dvickrey</td><td class="sidebarText" align="right">620.08</td></tr>
 
                      </table>
 
