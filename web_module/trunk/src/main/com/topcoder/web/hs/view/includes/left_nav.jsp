@@ -75,7 +75,7 @@ sub = NavZone.getLevel1();
     <%=rootitem("?module=Static&d1=home&d2=how_hs_compete", "How Schools Compete", "how_hs_compete", false)%>
     
     <%=rootitem("?module=Static&d1=schedule&d2=schedule", "Schedule", "schedule", false)%>
-
+<%--
     <%=rootitem("?module=Statistics&c=round_overview", "Statistics", "stats", true)%>
     <% if(subopen("stats")) { %>
         <%=subitem("?module=Statistics&c=coder_ratings", "Coder Rankings", "coder_ratings")%>
@@ -89,7 +89,7 @@ sub = NavZone.getLevel1();
         <%=subitem("?module=Statistics&c=member_profile&cr="+SessionInfo.getUserId(), "Member Profile", "member_profile")%>
         <%=subitem("?module=Search", "Member Search", "advanced_search")%>
     <% } %>
-
+--%>
     <%=rootitem("?module=Static&d1=tournaments&d2=tournaments", "Tournaments", "tournaments", false)%>
 
     <%=rootitem("?module=Static&d1=faq&d2=faq", "Support/FAQs", "faq", true)%>
