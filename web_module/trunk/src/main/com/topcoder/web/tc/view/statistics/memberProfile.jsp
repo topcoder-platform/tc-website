@@ -133,14 +133,16 @@ if (!rsc.isEmpty()) {
 
                             <% if (rsr.getStringItem("school_name")!=null) { %>
                             <TR>
-                                <TD CLASS="statText">&#160;School: <br/>
-                                &#160;<strong><rsc:item name="school_name" row="<%=rsr%>"/></strong></TD>
+                                <TD></TD>
+                                <TD CLASS="statText">School: <br/>
+                                <strong><rsc:item name="school_name" row="<%=rsr%>"/></strong></TD>
                             </TR>
                             <% } %>
 
                             <TR>
-                                <TD CLASS="statText">&#160;Country: <br/>
-                                &#160;<strong><rsc:item name="country_name" row="<%=rsr%>"/></strong></TD>
+                                <TD></TD>
+                                <TD CLASS="statText">Country: <br/>
+                                <strong><rsc:item name="country_name" row="<%=rsr%>"/></strong></TD>
                             </TR>
 
                             <TR>
@@ -148,8 +150,9 @@ if (!rsc.isEmpty()) {
                             </TR>
 
                             <TR>
-                                <TD CLASS="statText">&#160;Member Since: <br/>
-                                &#160;<strong><bean:write format="MM.dd.yy" name="resultRow" property='<%= "item[" + 6 /*"start_date"*/ + "].resultData" %>'/></strong></TD>
+                                <TD></TD>
+                                <TD CLASS="statText">Member Since: <br/>
+                                <strong><bean:write format="MM.dd.yy" name="resultRow" property='<%= "item[" + 6 /*"start_date"*/ + "].resultData" %>'/></strong></TD>
                             </TR>
 
                         </TABLE>
