@@ -1,6 +1,6 @@
 package com.topcoder.web.privatelabel.model;
 
-public class DemographicAnswer implements Comparable {
+public class DemographicAnswer extends Base implements Comparable {
     private long demographicQuestionId;
     private long demographicAnswerId;
     private String demographicAnswerText;

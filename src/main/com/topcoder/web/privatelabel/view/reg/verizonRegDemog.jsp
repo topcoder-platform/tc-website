@@ -74,8 +74,9 @@
                 </td>
                 <td align="left">
                     <pl:questionIterator id="question" list="<%=questionList%>">
+                        <% System.out.println(question.toString());%>
                         <pl:answerIterator id="answer" list="<%=question.getDemographicAnswers()%>">
-                            <% System.out.println(question.toString() + " \n " + answer.toString());%>
+                            <% System.out.println(answer.toString());%>
                         </pl:answerIterator>
                     </pl:questionIterator>
 
