@@ -68,6 +68,7 @@ public final class TaskAffidavit {
                     Enumeration parameterNames = request.getParameterNames();
                     while (parameterNames.hasMoreElements()) {
                         String parameterName = parameterNames.nextElement().toString();
+                        log.debug("parameter: " + parameterName);
                         String parameterValue = request.getParameter(parameterName);
                         if (parameterName.startsWith(QUESTION_PREFIX)) {
                             int index = Integer.parseInt(parameterName.substring(QUESTION_PREFIX.length()));
