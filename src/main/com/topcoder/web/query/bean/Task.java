@@ -64,4 +64,7 @@ public interface Task {
     void clearErrors();
 
     boolean hasErrors();
+
+    List getNavLinks();
+
 }

@@ -1,11 +1,15 @@
 package com.topcoder.web.query.bean;
 
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.query.common.Constants;
+import com.topcoder.web.query.common.Link;
 
 import javax.naming.InitialContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  * @author Greg Paul
@@ -28,12 +32,33 @@ public abstract class BaseTask implements Task {
 
     private HashMap errors;
 
+    private List navLinks;
+
     /* Makes a new BaseTask */
     public BaseTask() {
         setInitialContext(null);
         setNextPage(null);
         setServletPath(null);
         errors = new HashMap();
+        navLinks = new ArrayList();
+
+        String begin = getServletPath()+"?"+Constants.TASK_PARAM;
+        StringBuffer buf = new StringBuffer();
+        buf.append(begin);
+        buf.append(Constants.DB_SELECTION_TASK);
+        navLinks.add(new Link(buf.toString(), Constants.DB_SELECTION_NAME));
+        buf.setLength(0);
+        buf.append(begin);
+        buf.append(Constants.MODIFY_COMMAND_TASK);
+        navLinks.add(new Link(buf.toString(), "New Command"));
+        buf.setLength(0);
+        buf.append(begin);
+        buf.append(Constants.MODIFY_QUERY_TASK);
+        navLinks.add(new Link(buf.toString(), "New Query"));
+        buf.setLength(0);
+        buf.append(begin);
+        buf.append(Constants.MODIFY_INPUT_TASK);
+        navLinks.add(new Link(buf.toString(), "New Input"));
     }
 
     public abstract void process(String step) throws Exception;
@@ -104,8 +129,13 @@ public abstract class BaseTask implements Task {
         return errors.isEmpty();
     }
 
+    public List getNavLinks() {
+        return navLinks;
+    }
+
     boolean isEmpty(String s) {
         return s != null && s.trim().length() > 0;
     }
+
 }
 

@@ -1,4 +1,4 @@
-package com.topcoder.web.query.bean;
+package com.topcoder.web.query.common;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.ApplicationServer;
@@ -42,7 +42,7 @@ public class Authentication implements Serializable {
      * @param ctx The InitialContext of the originating request
      * @param session The HttpSession of the originating request
      * @param requestedURL The URL being requested
-     * @throws AuthenticationException if the login information is incorrect
+     * @throws com.topcoder.web.query.common.AuthenticationException if the login information is incorrect
      * or there is a problem with the ejb
      */
     public static void attemptLogin(String handle, String password, InitialContext ctx,
