@@ -118,7 +118,12 @@ public class SimpleSearch extends Base {
             queryBottom.append(" , OUTER round ro");
         }
         queryBottom.append(" , country co");
-        queryBottom.append(" , outer (school s, current_school cs)");
+        if (m.getSchoolName()!=null) {
+            queryBottom.append(" , school s");
+            queryBottom.append(" , current_school cs)");
+        } else {
+            queryBottom.append(" , outer (school s, current_school cs)");
+        }
         queryBottom.append(" WHERE c.coder_id = r.coder_id");
         queryBottom.append(" AND c.status = 'A'");
         if (m.getStateCode() != null)
