@@ -36,7 +36,7 @@ public class TCO04ContestDetailsOverall extends StatBase {
     void statProcessing()  {
         Map result2 =  (Map)getRequest().getAttribute("resultMap");
 
-        ResultSetContainer rsc = (ResultSetContainer)result2.get("contest_results_only_winners");
+        ResultSetContainer rsc = (ResultSetContainer)result2.get("tco04_contest_results_overall");
         
         ArrayList arr = new ArrayList();
         
