@@ -94,6 +94,12 @@
     </tr>
 
 <logic:iterate id="phaseInstance" indexId="pIdx" name="projectForm" property="timeline">
+        <logic:equal name="projectForm" property='<%="phaseValid["+pIdx+"]"%>' value="false">
+                <tr>
+                    <td colspan="5" width="100%" class="errorText">
+                        <html:errors property='<%="phase["+pIdx+"]"%>' /></td>
+                </tr>
+        </logic:equal>
                            
                 <tr valign="top">
                     <td class="forumTitleCenter">
@@ -125,9 +131,7 @@
 
 		    </td>
                     <td class="forumTextCenterOdd">
-                          <html:text property='<%="phaseHours["+pIdx+"]"%>' size="2" />
-                          :
-                          <html:text property='<%="phaseMinutes["+pIdx+"]"%>' size="2" />
+                          <html:text property='<%="phaseLength["+pIdx+"]"%>' size="2" />
                     </td>
                         
                 </tr>
