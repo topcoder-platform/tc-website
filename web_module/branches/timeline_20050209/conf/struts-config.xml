@@ -340,6 +340,19 @@
             <forward name="terminate" path="/terminateProject.jsp"/>
             <forward name="success" path="/editProject.jsp"/>
         </action>
+
+        <!-- Edit Timeline-->
+        <action 
+                path="/editTimeline"
+                type="com.topcoder.apps.review.EditProjectAction"
+                name="projectForm"
+                validate="false"
+                scope="session">
+            <forward name="success" path="/editTimeline.jsp"/>
+            <forward name="refresh" path="/editTimeline.jsp"/>
+            <forward name="store" path="/editProject.jsp"/>
+        </action>
+
         
         <!-- Save Project -->
         <action 

@@ -67,7 +67,77 @@
 <!-- Start Text -->
             
 <bean:define id="theProject" name="projectForm" property="project" type="com.topcoder.apps.review.projecttracker.Project" />
+
+
+
+
+
+
+
+
+
+
+
+<!-- Time Line -->
+                
+            <table border="0" cellpadding="0" cellspacing="1" class="forumBkgd" width="100%">
+                <tr>
+                    <td colspan="<%=theProject.getTimeline().length+1%>" class="timelineSubtitle"><strong><bean:message key="prompt.timeline" /></strong>                   
+<a href="javascript:document.forms[0].action='/editTimeline'; javascript:document.forms[0].action.value='load_timeline'; document.forms[0].submit()" >Edit Timeline</a>
+                    
+                    </td>
+                </tr>
+                <tr>
+                    <td class="timelineTitleCenter" width="1"><img src="images/clear.gif" alt="" width="1" height="1" border="0"></td>
+                    <logic:iterate id="phaseInstance" name="project" property="timeline">
+                        <td class="timelineTitleCenter" width="12%">
+                            <bean:define id="phaseName" name="phaseInstance" property="phase.name" />
+			    <html:radio property="currentPhase" value="<%=phaseName.toString()%>" />
+			       <br/>
+			   <bean:write name="phaseName" />
+			 </td>                  
+                    </logic:iterate>
+                </tr>
+                <tr>
+                    <td class="timelineTitleCenter"><strong><bean:message key="prompt.timelineStart" /></strong></td>
+                    <bean:define id="currentPhase" name="project" property="currentPhase" />
+                    
+
+
+                    
+                    <logic:iterate id="phaseInstance" name="project" property="timeline">
+                        <logic:equal name="phaseInstance" property="phase.name" value="<%=currentPhase.toString()%>">
+                            <td class="timelineHiliteCenter">
+                                <strong><review:showDate name="phaseInstance" property="startDate" /></strong></td>
+                        </logic:equal>            
+                        <logic:notEqual name="phaseInstance" property="phase.name" value="<%=currentPhase.toString()%>">
+                            <td class="timelineCenter">
+                                <review:showDate name="phaseInstance" property="startDate" /></td>
+                        </logic:notEqual>            
+                    </logic:iterate>
+                </tr>
+                <tr>
+                    <td class="timelineTitleCenter"><strong><bean:message key="prompt.timelineEnd" /></strong></td>
+                    <logic:iterate id="phaseInstance" name="project" property="timeline">
+                        <logic:equal name="phaseInstance" property="phase.name" value="<%=currentPhase.toString()%>">
+                            <td class="timelineHiliteCenter">
+                                <strong><review:showDate name="phaseInstance" property="endDate" /></strong></td>
+                        </logic:equal>            
+                        <logic:notEqual name="phaseInstance" property="phase.name" value="<%=currentPhase.toString()%>">
+                            <td class="timelineCenter">
+                                <review:showDate name="phaseInstance" property="endDate" /></td>
+                        </logic:notEqual>            
+                    </logic:iterate>
+                </tr>
+            </table>
+
+
+
+
+
+<!-- EDITING TIMELINE. Not used now!
             <table border="0" cellpadding="0" cellspacing="1" width="100%">
+
 <logic:equal name="projectForm" property="timelineValid" value="false">
                 <tr>
                     <td colspan="<%=theProject.getTimeline().length+1%>" width="100%" class="errorText">
@@ -138,6 +208,10 @@
                     <td class="whiteBkgnd" colspan="3"><img src="images/clear.gif" alt="" width="1" height="1" border="0"></td>
                 </tr>
             </table>
+            
+End EDITING TIMELINE. -->            
+            
+            
 <logic:equal name="projectForm" property="templatesValid" value="false">
             <table border="0" cellpadding="0" cellspacing="0">
                <tr>

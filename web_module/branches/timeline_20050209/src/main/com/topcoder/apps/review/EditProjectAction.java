@@ -62,6 +62,32 @@ public final class EditProjectAction extends ReviewAction {
         BusinessDelegate businessDelegate = new BusinessDelegate();
         ResultData result = businessDelegate.projectDetail(orpd);
 
+log(Level.INFO, "action="+action);
+
+if (action.equals("load_timeline")) {
+    log(Level.INFO, "load_timeline");
+    request.getSession().setAttribute(mapping.getAttribute(), form);
+    return result;
+}
+
+if (action.equals("store_timeline")) {
+    log(Level.INFO, "store_timeline");
+    request.getSession().setAttribute(mapping.getAttribute(), form);
+    forwards.removeForward(mapping.findForward(Constants.SUCCESS_KEY));
+    forwards.addForward(mapping.findForward("store"));
+
+    return result;
+}
+if (action.equals("refresh_timeline")) {
+    log(Level.INFO, "refresh_timeline");
+    request.getSession().setAttribute(mapping.getAttribute(), form);
+    forwards.removeForward(mapping.findForward(Constants.SUCCESS_KEY));
+    forwards.addForward(mapping.findForward("refresh"));
+
+    return result;
+}
+
+
         if (result instanceof SuccessResult) {
             ProjectRetrieval pr = (ProjectRetrieval) result;
             // Populate the form
