@@ -28,7 +28,7 @@
 %>
   <FORM ACTION="/tc?module=ProfileSearch" METHOD="POST">
     <table cellpadding="0" cellspacing="0" border="0">
-      <TR><TD><A HREF="<%=Constants.SERVLET_ADDR%>"><< back to main menu</A></TD></TR>
+      <TR><TD><A HREF="<%=Constants.SERVLET_ADDR%>">&lt;&lt; back to main menu</A></TD></TR>
       <tr><td>Handle: <input type="text" name="handle" size="15"></td></tr>
       <tr><td>E-Mail: <input type="text" name="email" size="15"></td></tr>
       <tr><td>First Name: <input type="text" name="firstname" size="15"></td></tr>
@@ -43,7 +43,12 @@
         </select>
       </td></tr>
       <tr><td><select name="countries" multiple size=5>
+        <option value="840">United States</option>
         <rsc:iterator list="<%=countries%>" id="resultRow">
+          <% 
+            int countryCode = resultRow.getIntItem("country_code");
+            if(countryCode==840||countryCode<=0)continue;//put the US first for convenience 
+            %>
           <option value="<rsc:item name="country_code" row="<%=resultRow%>"/>"><rsc:item name="country_name" row="<%=resultRow%>"/></option>
         </rsc:iterator>
         </select>
