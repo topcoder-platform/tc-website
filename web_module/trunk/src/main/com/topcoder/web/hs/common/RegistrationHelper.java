@@ -9,9 +9,10 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.user.*;
 import com.topcoder.web.ejb.email.*;
 import com.topcoder.web.ejb.termsofuse.*;
-import com.topcoder.web.ejb.coder.*;
 import com.topcoder.web.ejb.rating.*;
+import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.hs.model.*;
+import com.topcoder.web.common.BaseProcessor;
 
 import java.rmi.*;
 import java.util.*;
@@ -376,7 +377,7 @@ public class RegistrationHelper {
                 }
             }
 
-            Context ctx = TCContext.getInitial();
+            InitialContext ctx = new InitialContext();
 
             utx = (UserTransaction) ctx.lookup("javax.transaction.UserTransaction");
             utx.begin();
@@ -401,8 +402,7 @@ public class RegistrationHelper {
             email.setAddress(email_id, srb.getEmail());
             email.setEmailTypeId(email_id, EMAIL_TYPE_ID_DEFAULT);
 
-            CoderHome ch = (CoderHome) ctx.lookup(CoderHome.EJB_REF_NAME);
-            Coder coder = ch.create();
+            Coder coder = (Coder)BaseProcessor.createEJB(ctx, Coder.class);
             coder.createCoder(user_id, DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
             coder.setMemberSince(user_id, new java.sql.Date(new Date().getTime()), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
             coder.setEditorId(user_id, srb.getEditorId().intValue(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
@@ -448,8 +448,6 @@ public class RegistrationHelper {
             /*utx=EJBContext.getUserTransaction();
             utx.begin();*/
 
-            Context ctx;
-
             if (srb.getChangePassword()) {
                 secCtx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY,
                         ApplicationServer.SECURITY_PROVIDER_URL);
@@ -463,7 +461,7 @@ public class RegistrationHelper {
                 pmr.editPassword(existingUser, srb.getPassword(), createUser);
             }
 
-            ctx = TCContext.getInitial();
+            InitialContext ctx = new InitialContext();
 
             utx = (UserTransaction) ctx.lookup("javax.transaction.UserTransaction");
             utx.begin();
@@ -491,8 +489,7 @@ public class RegistrationHelper {
             email.setAddress(emailId, srb.getEmail());
             email.setEmailTypeId(emailId, EMAIL_TYPE_ID_DEFAULT);
 
-            CoderHome ch = (CoderHome) ctx.lookup(CoderHome.EJB_REF_NAME);
-            Coder coder = ch.create();
+            Coder coder = (Coder)BaseProcessor.createEJB(ctx, Coder.class);
             coder.setEditorId(userId, srb.getEditorId().intValue(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
             coder.setLanguageId(userId, srb.getLanguageId().intValue(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
 
@@ -704,7 +701,7 @@ public class RegistrationHelper {
         UserTransaction utx_tchs = null;
 
         Context secCtx = null;
-        Context ctx = null;
+        InitialContext ctx = null;
         PrincipalMgrRemote pmr = null;
         UserPrincipal newUser = null;
         TCSubject createUser = new TCSubject(0);
@@ -740,7 +737,7 @@ public class RegistrationHelper {
                 }
             }
 
-            ctx = TCContext.getInitial();
+            ctx = new InitialContext();
 
             utx_tchs = (UserTransaction) ctx.lookup("javax.transaction.UserTransaction");
             utx_tchs.begin();
@@ -765,8 +762,7 @@ public class RegistrationHelper {
             email.setAddress(email_id, crb.getEmail());
             email.setEmailTypeId(email_id, EMAIL_TYPE_ID_DEFAULT);
 
-            CoderHome ch = (CoderHome) ctx.lookup(CoderHome.EJB_REF_NAME);
-            Coder coder = ch.create();
+            Coder coder = (Coder)BaseProcessor.createEJB(ctx, Coder.class);
             coder.createCoder(user_id, DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
             coder.setMemberSince(user_id, new java.sql.Date(new Date().getTime()), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
             coder.setEditorId(user_id, crb.getEditorId().intValue(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
@@ -814,7 +810,7 @@ public class RegistrationHelper {
             /*utx=EJBContext.getUserTransaction();
             utx.begin();*/
 
-            Context ctx;
+            InitialContext ctx;
 
             if (crb.getChangePassword()) {
                 secCtx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY,
@@ -829,7 +825,7 @@ public class RegistrationHelper {
                 pmr.editPassword(existingUser, crb.getPassword(), createUser);
             }
 
-            ctx = TCContext.getInitial();
+            ctx = new InitialContext();
 
             utx = (UserTransaction) ctx.lookup("javax.transaction.UserTransaction");
             utx.begin();
@@ -858,8 +854,7 @@ public class RegistrationHelper {
             email.setAddress(emailId, crb.getEmail());
             email.setEmailTypeId(emailId, EMAIL_TYPE_ID_DEFAULT);
 
-            CoderHome ch = (CoderHome) ctx.lookup(CoderHome.EJB_REF_NAME);
-            Coder coder = ch.create();
+            Coder coder = (Coder)BaseProcessor.createEJB(ctx, Coder.class);
             coder.setEditorId(userId, crb.getEditorId().intValue(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
             coder.setLanguageId(userId, crb.getLanguageId().intValue(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
 
