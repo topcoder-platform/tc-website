@@ -400,7 +400,7 @@ public final class TaskDevelopment {
                     if (!isProjectLockedOut(componentId, version, phase)) {
                         long userId;
                         devTag.addTag(new ValueTag("Project", project));
-                        devTag.addTag(new ValueTag("MaxRegistrants", Constants.MAX_INQUIRIES));
+                        devTag.addTag(new ValueTag("MaxInquiries", Constants.MAX_INQUIRIES));
 
                         //String handle = nav.getUser().getHandle();
                         String handle = nav.getSessionInfo().getHandle();
