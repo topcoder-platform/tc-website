@@ -37,7 +37,7 @@ public class GenerateRoundPayments {
             if (makeChanges)
                 System.out.print("; database not updated");
             System.out.println(".  Cause:");
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 
