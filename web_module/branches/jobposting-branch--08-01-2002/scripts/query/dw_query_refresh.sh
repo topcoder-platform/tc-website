@@ -1090,7 +1090,7 @@ java com.topcoder.utilities.QueryLoader "DW" 1003 "TCES_Problem_Submissions" 0 0
 SELECT cal.date
      , (CASE WHEN r.round_type_id = 2
              THEN c.name || ' ' || r.name
-             ELSE c.name) AS name
+             ELSE c.name END) AS name
      , cp.level_desc
      , dlu.division_desc
      , cp.final_points
@@ -1118,7 +1118,7 @@ java com.topcoder.utilities.QueryLoader "DW" 1004 "TCES_Competition_History" 0 0
 SELECT cal.date
      , (CASE WHEN r.round_type_id = 2
              THEN contest.name || ' ' || r.name
-             ELSE contest.name) AS name
+             ELSE contest.name END) AS name
      , dlu.division_desc
      , rr.final_points
      , rd.average_points
@@ -1144,7 +1144,7 @@ SELECT cal.date
 java com.topcoder.utilities.QueryLoader "DW" 1005 "TCES_Coder_Comp_Stats" 0 0 "
 SELECT (CASE WHEN round.round_type_id = 2
              THEN contest.name || ' ' || round.name
-             ELSE contest.name) AS contest_name
+             ELSE contest.name END) AS contest_name
      , dlu.division_desc
      , (SELECT COUNT(*)
           FROM room_result rr2
