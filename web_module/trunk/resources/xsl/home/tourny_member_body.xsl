@@ -105,7 +105,7 @@
         <xsl:when test="/TC/HOME/InvitationalInfo/Invitational_Eligibility/Info/is_eligible='false'">
           <xsl:choose>
           <xsl:when test="/TC/HOME/InvitationalInfo/Invitational_Eligibility/Info/in_eligible_country='false'">
-            Unfortunately you are not eligible to participate in the 2002 TopCoder Invitational Tournament because are you are from an eligible country.
+            Unfortunately you are not eligible to participate in the 2002 TopCoder Invitational Tournament because are you are not from an eligible country.
           </xsl:when>
           <xsl:otherwise>
             <xsl:choose>
@@ -126,8 +126,8 @@
           </xsl:choose>
         </xsl:when>
         <xsl:otherwise>
-Based on your profile information and your rated event participation, you are eligible to register for the 2002 TopCoder Invitational tournament.  Even if your rating is below the current cut-off, registering for the event now will ensure that you are on the stand-by list in the event that not all of the invited members accept their invitations.<BR/><BR/>
-          <A HREF="/TourneyReg?&amp;cd=4320&amp;rd=4320" CLASS="bodyText">Click here to register for the 2002 TopCoder Invitational</A>
+Based on your profile information and your rated event participation, you are eligible to sign up for the 2002 TopCoder Invitational tournament.  Even if your rating is below the current cut-off, signing up for the event now will ensure that you are on the stand-by list in the event that not all of the invited members accept their invitations.<BR/><BR/>
+          <A HREF="/TourneyReg?&amp;cd=4320&amp;rd=4320" CLASS="bodyText">Click here to sign up for the 2002 TopCoder Invitational</A>
         </xsl:otherwise>
         </xsl:choose>
       </xsl:when>
