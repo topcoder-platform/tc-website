@@ -686,6 +686,8 @@
                 <include name="query-taglib.tld"/>
             </webinf>
         </war>
+        <unwar src="${war.dir}/query.war" dest="${public_html}/query/" overwrite="yes"/>
+        <delete dir="${public_html}/query/META-INF"/>
     </target>
 
     <target name="deploy-query" depends="compile">
@@ -710,6 +712,8 @@
                 <include name="**/*.jpg"/>
             </zipfileset>
         </war>
+        <unwar src="${war.dir}/email.war" dest="${public_html}/email/" overwrite="yes"/>
+        <delete dir="${public_html}/email/META-INF"/>
     </target>
 
     <target name="deploy-email" depends="compile">
@@ -753,6 +757,8 @@
                 <include name="*.jar"/>
             </lib>
         </war>
+        <unwar src="${war.dir}/hs.war" dest="${public_html}/hs/" overwrite="yes"/>
+        <delete dir="${public_html}/hs/META-INF"/>
     </target>
 
 
