@@ -743,6 +743,7 @@
                 <include name="tces-taglib.tld"/>
                 <include name="tc-taglib.tld"/>
                 <include name="rsc-taglib.tld"/>
+                <include name="privatelabel.tld"/>
             </webinf>
 
             <fileset dir="${java}/com/topcoder/web/jsp">
