@@ -94,35 +94,15 @@ Any and all applicable taxes on a prize are the sole responsibility of the prize
             TopCoder members must register for the online tournament. 
               Registration is from
 
-
-              <xsl:value-of select="format-number(/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/StartHour,'##')"/>:<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/StartMinute"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/StartAMPM"/>
+              <xsl:value-of select="/TC/SCHEDULE/Round/Details/reg_begin"/>
               to
-<xsl:value-of select="format-number(/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndHour,'##')"/>:<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndMinute"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndAMPM"/>
-              &#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndTimeZoneShort"/>.<br/>
-              Competition at
-              <xsl:value-of select="format-number(/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartHour,'##')"/>:<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartMinute"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartAMPM"/>
-              &#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartTimeZoneShort"/> on
-
-              <xsl:variable name="startMonth">
-                <xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartMonthNum"/>
-              </xsl:variable>
-              <xsl:choose>
-                <xsl:when test="$startMonth='01'">January</xsl:when>
-                <xsl:when test="$startMonth='02'">February</xsl:when>
-                <xsl:when test="$startMonth='03'">March</xsl:when>
-                <xsl:when test="$startMonth='04'">April</xsl:when>
-                <xsl:when test="$startMonth='05'">May</xsl:when>
-                <xsl:when test="$startMonth='06'">June</xsl:when>
-                <xsl:when test="$startMonth='07'">July</xsl:when>
-                <xsl:when test="$startMonth='08'">August</xsl:when>
-                <xsl:when test="$startMonth='09'">September</xsl:when>
-                <xsl:when test="$startMonth='10'">October</xsl:when>
-                <xsl:when test="$startMonth='11'">November</xsl:when>
-                <xsl:when test="$startMonth='12'">December</xsl:when>
-              </xsl:choose>&#160;<xsl:value-of select="format-number(/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartDay,'##')"/>, <xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartYear"/>.  To register, login to the Tournament Arena applet, click on the 'Main' menu, and 
+              <xsl:value-of select="/TC/SCHEDULE/Round/Details/reg_end"/>, Eastern Time.
+              Competition is at
+              <xsl:value-of select="/TC/SCHEDULE/Round/Details/coding_begin"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Round/Details/date"/> Eastern Time.
+              To register, login to the Tournament Arena applet, click on the 'Main' menu, and 
               choose the option for 'Event Registration'.
               TopCoder members from all over the country will be participating
-              in this event, but <b><i>all start times will be communicated as <xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartTimeZoneLong"/>, so contestants in different time zones must adjust accordingly.</i></b>  
+              in this event, but <b><i>all start times will be communicated as Eastern Time, so contestants in different time zones must adjust accordingly.</i></b>  
               All competitors who have registered for the online tournament 
               round will be assigned to a specific tournament room.  
               TopCoder will perform the room assignments prior to the start of 
@@ -130,8 +110,7 @@ Any and all applicable taxes on a prize are the sole responsibility of the prize
               division are placed in a room and the average competitor 
               rating for each room is similar.  
               The Online Round will begin at 
-              <xsl:value-of select="format-number(/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartHour,'##')"/>:<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartMinute"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartAMPM"/>
-              &#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartTimeZoneShort"/>.
+              <xsl:value-of select="/TC/SCHEDULE/Round/Details/coding_begin"/> Eastern Time.
             <br />
           </li>
           <br />
@@ -236,23 +215,7 @@ However, prizes will only be paid to members who are at least 18 years of age, m
         and must have agreed to the rules on this page by the 
 
 
-              <xsl:variable name="startMonth">
-                <xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndMonthNum"/>
-              </xsl:variable>
-              <xsl:choose>
-                <xsl:when test="$startMonth='01'">January</xsl:when>
-                <xsl:when test="$startMonth='02'">February</xsl:when>
-                <xsl:when test="$startMonth='03'">March</xsl:when>
-                <xsl:when test="$startMonth='04'">April</xsl:when>
-                <xsl:when test="$startMonth='05'">May</xsl:when>
-                <xsl:when test="$startMonth='06'">June</xsl:when>
-                <xsl:when test="$startMonth='07'">July</xsl:when>
-                <xsl:when test="$startMonth='08'">August</xsl:when>
-                <xsl:when test="$startMonth='09'">September</xsl:when>
-                <xsl:when test="$startMonth='10'">October</xsl:when>
-                <xsl:when test="$startMonth='11'">November</xsl:when>
-                <xsl:when test="$startMonth='12'">December</xsl:when>
-              </xsl:choose>&#160;<xsl:value-of select="format-number(/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndDay,'##')"/>, <xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndYear"/>&#160;<xsl:value-of select="format-number(/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndHour,'##')"/>:<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndMinute"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndAMPM"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndTimeZoneShort"/> registration deadline.<br/><br/>
+              <xsl:value-of select="/TC/SCHEDULE/Round/Details/reg_date"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Round/Details/reg_end"/> Eastern Time registration deadline.<br/><br/>
 
 Employees of TopCoder and those involved in the development, production (including prize suppliers and sponsors), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament.
 <br /><br />
@@ -281,36 +244,15 @@ Each competition room will have a maximum of 20 coders. There will be 2 division
             <b>When to start the Online Tournament Rounds</b><br/>
             TopCoder members must register for the online tournament. 
               Registration is from
-
-
-              <xsl:value-of select="format-number(/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/StartHour,'##')"/>:<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/StartMinute"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/StartAMPM"/>
+              <xsl:value-of select="/TC/SCHEDULE/Round/Details/reg_begin"/>
               to
-<xsl:value-of select="format-number(/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndHour,'##')"/>:<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndMinute"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndAMPM"/>
-              &#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndTimeZoneShort"/>.<br/>
-              Competition at
-              <xsl:value-of select="format-number(/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartHour,'##')"/>:<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartMinute"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartAMPM"/>
-              &#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartTimeZoneShort"/> on
-
-              <xsl:variable name="startMonth">
-                <xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartMonthNum"/>
-              </xsl:variable>
-              <xsl:choose>
-                <xsl:when test="$startMonth='01'">January</xsl:when>
-                <xsl:when test="$startMonth='02'">February</xsl:when>
-                <xsl:when test="$startMonth='03'">March</xsl:when>
-                <xsl:when test="$startMonth='04'">April</xsl:when>
-                <xsl:when test="$startMonth='05'">May</xsl:when>
-                <xsl:when test="$startMonth='06'">June</xsl:when>
-                <xsl:when test="$startMonth='07'">July</xsl:when>
-                <xsl:when test="$startMonth='08'">August</xsl:when>
-                <xsl:when test="$startMonth='09'">September</xsl:when>
-                <xsl:when test="$startMonth='10'">October</xsl:when>
-                <xsl:when test="$startMonth='11'">November</xsl:when>
-                <xsl:when test="$startMonth='12'">December</xsl:when>
-              </xsl:choose>&#160;<xsl:value-of select="format-number(/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartDay,'##')"/>, <xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartYear"/>.  To register, login to the Tournament Arena applet, click on the 'Main' menu, and 
+              <xsl:value-of select="/TC/SCHEDULE/Round/Details/reg_end"/>, Eastern Time.
+              Competition is at
+              <xsl:value-of select="/TC/SCHEDULE/Round/Details/coding_begin"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Round/Details/date"/> Eastern Time.
+              To register, login to the Tournament Arena applet, click on the 'Main' menu, and 
               choose the option for 'Event Registration'.
               TopCoder members from all over the country will be participating
-              in this event, but <b><i>all start times will be communicated as <xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartTimeZoneLong"/>, so contestants in different time zones must adjust accordingly.</i></b>  
+              in this event, but <b><i>all start times will be communicated as Eastern Time, so contestants in different time zones must adjust accordingly.</i></b>  
               All competitors who have registered for the online tournament 
               round will be assigned to a specific tournament room.  
               TopCoder will perform the room assignments prior to the start of 
@@ -318,8 +260,7 @@ Each competition room will have a maximum of 20 coders. There will be 2 division
               division are placed in a room and the average competitor 
               rating for each room is similar.  
               The Online Round will begin at 
-              <xsl:value-of select="format-number(/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartHour,'##')"/>:<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartMinute"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartAMPM"/>
-              &#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartTimeZoneShort"/>.
+              <xsl:value-of select="/TC/SCHEDULE/Round/Details/coding_begin"/> Eastern Time.
             <br />
           </li>
           <br />
@@ -394,24 +335,7 @@ The match is open to all members who are at least 13 years of age.<br/>
         All competitors must be registered members of TopCoder,
         and must have agreed to the rules on this page by the 
 
-
-              <xsl:variable name="startMonth">
-                <xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndMonthNum"/>
-              </xsl:variable>
-              <xsl:choose>
-                <xsl:when test="$startMonth='01'">January</xsl:when>
-                <xsl:when test="$startMonth='02'">February</xsl:when>
-                <xsl:when test="$startMonth='03'">March</xsl:when>
-                <xsl:when test="$startMonth='04'">April</xsl:when>
-                <xsl:when test="$startMonth='05'">May</xsl:when>
-                <xsl:when test="$startMonth='06'">June</xsl:when>
-                <xsl:when test="$startMonth='07'">July</xsl:when>
-                <xsl:when test="$startMonth='08'">August</xsl:when>
-                <xsl:when test="$startMonth='09'">September</xsl:when>
-                <xsl:when test="$startMonth='10'">October</xsl:when>
-                <xsl:when test="$startMonth='11'">November</xsl:when>
-                <xsl:when test="$startMonth='12'">December</xsl:when>
-              </xsl:choose>&#160;<xsl:value-of select="format-number(/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndDay,'##')"/>, <xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndYear"/>&#160;<xsl:value-of select="format-number(/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndHour,'##')"/>:<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndMinute"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndAMPM"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndTimeZoneShort"/> registration deadline.<br/><br/>
+              <xsl:value-of select="/TC/SCHEDULE/Round/Details/reg_date"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Round/Details/reg_end"/> Eastern Time registration deadline.<br/><br/>
 
 Employees of TopCoder and those involved in the development, production (including prize suppliers and sponsors), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament.
 <br /><br />

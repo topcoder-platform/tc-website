@@ -162,7 +162,7 @@
                       <LI>All non-immigrants** currently residing in the US with a valid Visa</LI></UL>
                       *(including the US Territories of Guam, Puerto Rico and the US Virgin Islands)<BR/>
                       ** Non-immigrants refer to people who come to the US, but not permanently (i.e., they are not permanent residents)<BR/><BR/>
-                      <A CLASS="bodyText"><xsl:attribute name="HREF">/?t=schedule&amp;c=srm_rules&amp;ContestId=<xsl:value-of select="$roundId"/></xsl:attribute><B>Click here for complete rules &amp; regulations</B></A>
+                      <A CLASS="bodyText"><xsl:attribute name="HREF">/?t=schedule&amp;c=srm_rules&amp;RoundId=<xsl:value-of select="$roundId"/></xsl:attribute><B>Click here for complete rules &amp; regulations</B></A>
                       </TD></TR>
                 </xsl:when>
                 <xsl:otherwise>
@@ -184,7 +184,7 @@
                       <LI>Rating changes go into effect in next participated match</LI></UL>
                       <B>Eligibility:</B><BR/><BR/>
                       Anyone who is at least 13 years of age may compete in any Single Round Match.<BR/><BR/>
-                      <A CLASS="bodyText"><xsl:attribute name="HREF">/?t=schedule&amp;c=srm_rules&amp;ContestId=<xsl:value-of select="$roundId"/></xsl:attribute><B>Click here for complete rules &amp; regulations</B></A>
+                      <A CLASS="bodyText"><xsl:attribute name="HREF">/?t=schedule&amp;c=srm_rules&amp;RoundId=<xsl:value-of select="$roundId"/></xsl:attribute><B>Click here for complete rules &amp; regulations</B></A>
                       </TD></TR>
 
 
