@@ -99,7 +99,7 @@ All individuals who are 18 years of age or older are eligible to register and co
 <li>	United Kingdom 
 <li>	United States (including the U.S. territories of Guam, Puerto Rico and the U.S. Virgin Islands) 
 </ul>
-Participants who do not meet the citizenship requirements to win prize money are still eligible to compete. However these individuals will be required to donate any cash prizes to charity. Participants will choose a charity to receive their winnings from the TopCoder approved list of charities. A prize-winning participant may request a new charity be added to the list, however it shall remain in Google's sole discretion to add that charity after reviewing the proposed charity's credentials.
+Google and TopCoder have not yet confirmed that issuing cash prizes is legal in countries other than those listed above.  Therefore, while participants who do not meet the citizenship requirements to win prize money are still eligible to compete, these individuals may be required to donate any cash prizes to charity. Participants will choose a charity to receive their winnings from the TopCoder approved list of charities. A prize-winning participant may request a new charity be added to the list, however it shall remain in Google's sole discretion to add that charity after reviewing the proposed charity's credentials.
 <br><br>
 Employees of Google and TopCoder, and those involved in the development, production, implementation and distribution of this tournament and their advertising or promotional agencies, parent companies, agents, directors, subsidiaries or affiliates, or any other persons living in the same household as such persons, are ineligible to enter the tournament.
 <br><br>
