@@ -38,7 +38,7 @@ public class ProfileList extends BaseProcessor {
             String profile;
             int start=0;
             /*
-             * this requires that all the sessions for a particular profile be "next"
+             * this requires profiles be "next"
              * to each other in the ResultSetContainer, so be sure to sort by that first
              */
             while(start < result.size()){
