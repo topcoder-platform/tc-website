@@ -67,9 +67,9 @@
             <TR>
               <TD VALIGN="top" CLASS="bodyText">
 <IMG SRC="/i/pdf_iconw.gif" ALT="" WIDTH="31" HEIGHT="31" BORDER="0"/><BR/>
-Level 1 - <A HREF="/i/2002tccc/QuickBrownFox_250.pdf" CLASS="bodyText">QuickBrownFox</A> (250)<BR/>
-Level 2 - <A HREF="/i/2002tccc/HiddenSeq_500.pdf" CLASS="bodyText">HiddenSeq</A> (500)<BR/>
-Level 3 - <A HREF="/i/2002tccc/Cubes_1000.pdf" CLASS="bodyText">Cubes</A> (1000)<BR/><BR/>
+Level One (250) - <A HREF="/i/2002tccc/QuickBrownFox_250.pdf" CLASS="bodyText">QuickBrownFox</A> by kyky<BR/>
+Level Two (500) - <A HREF="/i/2002tccc/HiddenSeq_500.pdf" CLASS="bodyText">HiddenSeq</A> by wyzmo<BR/>
+Level Three (1000) - <A HREF="/i/2002tccc/Cubes_1000.pdf" CLASS="bodyText">Cubes</A> by qubits<BR/><BR/>
 
           </TD>
             </TR>

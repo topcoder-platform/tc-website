@@ -67,9 +67,9 @@
             <TR>
               <TD VALIGN="top" CLASS="bodyText">
 <IMG SRC="/i/pdf_iconw.gif" ALT="" WIDTH="31" HEIGHT="31" BORDER="0"/><BR/>
-Level 1 - <A HREF="/i/2002tccc/MuseumGuard_250.pdf" CLASS="bodyText">MuseumGuard</A> (250)<BR/>
-Level 2 - <A HREF="/i/2002tccc/NumList_500.pdf" CLASS="bodyText">NumList</A> (500)<BR/>
-Level 3 - <A HREF="/i/2002tccc/PlanetX_1000.pdf" CLASS="bodyText">PlanetX</A> (1000)<BR/><BR/>
+Level One (250) - <A HREF="/i/2002tccc/MuseumGuard_250.pdf" CLASS="bodyText">MuseumGuard</A> by jay_peg<BR/>
+Level Two (500) - <A HREF="/i/2002tccc/NumList_500.pdf" CLASS="bodyText">NumList</A> by alexcchan<BR/>
+Level Three (1000) - <A HREF="/i/2002tccc/PlanetX_1000.pdf" CLASS="bodyText">PlanetX</A> by NDBronson<BR/><BR/>
 
           </TD>
             </TR>

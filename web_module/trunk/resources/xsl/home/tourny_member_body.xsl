@@ -380,18 +380,57 @@
 </TABLE> 
 
     <!-- My Stats Ends --> 
-<!-- TC top special promo --> 
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">          
+<!-- Feature -->
+<IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/><BR/>
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">   
+  <TR>
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
+    <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText">
+<P><IMG SRC="/i/2002tccc/tourney_thumb_photo.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/>
+<FONT SIZE="5" COLOR="#000000" FACE="tahoma, verdana"><B>A Matter of Time</B></FONT><BR/>
+<I>dmwright Began Journey To Title At Age Six</I><BR/><BR/>
+Wednesday, April 24, 2002<BR/>
+By&#160;Adam Loss,<I>TopCoder Staff Writer</I><BR/>
+</P>
+<!-- <A HREF="/index?t=statistics&amp;c=2002tccc_cind#" CLASS="bodyGeneric"></A>
+<A HREF="/index?t=statistics&amp;c=2002tccc_favs#" CLASS="bodyGeneric"></A>
+<A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#" CLASS="bodyGeneric"></A>
+<IMG SRC="/i/2002tccc/tourney_photo2.jpg" ALT="" WIDTH="200" HEIGHT="450" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/>
+<IMG SRC="/i/2002tccc/coder_quote2.gif" ALT="" WIDTH="140" HEIGHT="140" ALIGN="right" HSPACE="10" VSPACE="3" BORDER="0"/>
+<A HREF="/index?t=statistics&amp;c=2002tccc_cind#<A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A>" CLASS="bodyGeneric"><A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A></A>
+<A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#<A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A>" CLASS="bodyGeneric"><A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A></A>
+<A HREF="/index?t=statistics&amp;c=2002tccc_favs#<A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A>" CLASS="bodyGeneric"><A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A></A>
+<A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#malpt" CLASS="bodyGeneric">malpt</A>
+ -->
+
+<P>
+A pump of his fists, a loud hand clap, and exclamation of "Yes!" was the reaction of <A HREF="/stat?c=member_profile&amp;cr=153902" CLASS="bodyGeneric">evd</A> when it was 
+announced that fellow Stanford University student <A HREF="/index?t=statistics&amp;c=2002tccc_feature" CLASS="bodyGeneric">dmwright</A> had won the 2002 Sun Microsystems and TopCoder 
+Collegiate Challenge on Saturday April 20, at the University Park Hotel @ MIT in Cambridge, MA...<A HREF="/index?t=statistics&amp;c=2002tccc_feature" CLASS="bodyGeneric">full&#160;story</A>
+</P>
+
+    </TD>
+    <TD VALIGN="top" WIDTH="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+  </TR>
+
   <TR>  
-    <TD VALIGN="top" COLSPAN="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"/></TD>   
+    <TD VALIGN="top" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>    
+  </TR>  
+</TABLE>  
+
+
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
+  <TR>  
+    <TD VALIGN="top" COLSPAN="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>    
   </TR>  
   <TR>  
-    <!-- <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD> -->
-    <TD VALIGN="middle" COLSPAN="11" WIDTH="100%" ALIGN="center" BGCOLOR="#CCCCCC" HEIGHT="50" CLASS="bodyText">
-    <FONT SIZE="5" COLOR="#000000" FACE="tahoma,verdana,arial"><B>The&#160;Sun/TopCoder&#160;Collegiate&#160;Challenge</B></FONT><BR/>
-    Stanford Junior Daniel Wright wins in 3rd tournament appearance</TD>   
-    <!-- <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD> -->
-  </TR>  
+    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" COLSPAN="9" WIDTH="100%" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>    
+    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
+  </TR> 
+  <TR>  
+    <TD VALIGN="top" COLSPAN="11" ALIGN="center"><IMG SRC="/i/sun_banner_white.gif" ALT="" WIDTH="428" HEIGHT="84" VSPACE="5" BORDER="0"/></TD>    
+  </TR>       
   <TR>
     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>  
     <TD VALIGN="top" WIDTH="30%" ALIGN="left" CLASS="bodyText">
@@ -409,7 +448,7 @@
     <TD VALIGN="top" WIDTH="35%" ALIGN="left" CLASS="bodyText">
 <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>Saturday, April 20th:</B></FONT><BR/>
 - <A HREF="/index?t=statistics&amp;c=2002tccc_champ" CLASS="bodyGeneric">Championship</A><BR/>
-<!-- - <A HREF="/index?t=statistics&amp;c=2002tccc_sunnotes" CLASS="bodyGeneric"></A>Sun Presentation Notes<BR/> -->  
+<!-- - <A HREF="/index?t=statistics&amp;c=2002tccc_sunnotes" CLASS="bodyGeneric"></A>Sun Presentation Notes<BR/> --> 
 - <A HREF="/index?t=statistics&amp;c=2002tccc_breakdown" CLASS="bodyGeneric">Bracket Update</A><BR/> 
 - <A HREF="/index?t=statistics&amp;c=2002tccc_champ#photo" CLASS="bodyGeneric">Photos</A><BR/>
     </TD>
@@ -427,60 +466,11 @@
     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
   </TR>
 
-  <!-- <TR>  
-    <TD VALIGN="top" COLSPAN="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>    
-  </TR>  
-  <TR>  
-    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="top" COLSPAN="3" WIDTH="100%" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>    
-    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
-  </TR> -->
   <TR>  
     <TD VALIGN="top" COLSPAN="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"/></TD>   
   </TR>   
 </TABLE>       
-<!-- TC top special promo --> 
-<!-- <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">     
-  <TR>  
-    <TD VALIGN="top" COLSPAN="7" ALIGN="center"><IMG SRC="/i/sun_banner_white.gif" ALT="Sun Microsystems" WIDTH="428" HEIGHT="84" BORDER="0"/></TD>    
-  </TR>     
-  <TR>
-    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
-    <TD VALIGN="top" WIDTH="50%" ALIGN="left" CLASS="bodyText">
-<FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>Tournament Links:</B></FONT><BR/>
-- Editorials: <A HREF="/index?t=statistics&amp;c=2002tccc_favs" CLASS="bodyGeneric">Favorites</A>, <A HREF="/index?t=statistics&amp;c=2002tccc_cind" CLASS="bodyGeneric">Cinderellas</A>, <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon" CLASS="bodyGeneric">Keep your eye on...</A><BR/> 
-- <A HREF="http://www.hotelatmit.com/ancill/directions.html" CLASS="bodyGeneric" Target="_blank">Directions to University Park Hotel @ MIT</A><BR/> 
-- Sun Microsystems Technical Presentation<BR/> 
-Presenting on J2ME, Java and XML, Java and Logo, and the STAR program.
-<A HREF="mailto:tccc_sun@topcoder.com" CLASS="bodyGeneric">Limited seating - sign up today!</A><BR/>
-    </TD>
-    <TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="1"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
-    <TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>    
-    <TD VALIGN="top" WIDTH="50%" ALIGN="left" CLASS="bodyText">
-<FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>Friday, April 19th</B></FONT><BR/>
-- Semifinals Room 1-4<BR/>
-<A HREF="/index?t=statistics&amp;c=2002tccc_breakdown" CLASS="bodyGeneric">Room Assignments / Schedule</A><BR/><BR/>
-
-<FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>Saturday, April 20th</B></FONT><BR/>
-- CHAMPIONSHIP ROUND<BR/>
-Check back April 19th for room assignments/schedule<BR/><BR/>
-    </TD>
-    <TD VALIGN="top" WIDTH="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-  </TR>
-
-  <TR>  
-    <TD VALIGN="top" COLSPAN="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>    
-  </TR>  
-  <TR>  
-    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="top" COLSPAN="3" WIDTH="100%" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>    
-    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
-  </TR>
-  <TR>  
-    <TD VALIGN="top" COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"/></TD>   
-  </TR>   
-</TABLE> -->     
+     
     <!-- Last SRM Begins --> 
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
   <TR>

@@ -67,9 +67,9 @@
             <TR>
               <TD VALIGN="top" CLASS="bodyText">
 <IMG SRC="/i/pdf_iconw.gif" ALT="" WIDTH="31" HEIGHT="31" BORDER="0"/><BR/>
-Level 1 - <A HREF="/i/2002tccc/MaxDensity_250.pdf" CLASS="bodyText">MaxDensity</A> (250)<BR/>
-Level 2 - <A HREF="/i/2002tccc/Gin_500.pdf" CLASS="bodyText">Gin</A> (500)<BR/>
-Level 3 - <A HREF="/i/2002tccc/Nested_1000.pdf" CLASS="bodyText">Nested</A> (1000)<BR/><BR/>
+Level One (250) - <A HREF="/i/2002tccc/MaxDensity_250.pdf" CLASS="bodyText">MaxDensity</A> by kyky<BR/>
+Level Two (500) - <A HREF="/i/2002tccc/Gin_500.pdf" CLASS="bodyText">Gin</A> by jay_peg<BR/>
+Level Three (1000) - <A HREF="/i/2002tccc/Nested_1000.pdf" CLASS="bodyText">Nested</A> by qubits<BR/><BR/>
 
           </TD>
             </TR>
