@@ -202,7 +202,7 @@
             <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
 	        <TR>
        	        <% if( request.getAttribute(Constants.USAGE_TYPE) != null &&  ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
-		       <TD COLSPAN="8" VALIGN="top" CLASS="testTableTitle">Test Set B Results:</TD>
+		       <TD COLSPAN="5" VALIGN="top" CLASS="testTableTitle">Test Set B Results:</TD>
 		<% } else { %>
                        <TD COLSPAN="7" VALIGN="top" CLASS="testTableTitle">Test Set B Results:</TD>
 		<% } %>
@@ -212,9 +212,11 @@
 		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Problem</B></TD>
 		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Language</B></TD>
 		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Status</B></TD>
+		       <%if( request.getAttribute(Constants.USAGE_TYPE) == null || ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_TESTING) { %>
 		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Test Passed</B></TD>
 		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Test Failed</B></TD>
 		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>% Test Passed</B></TD>
+		       <% } %>
 		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Time</B></TD>
 		       <% if( request.getAttribute(Constants.USAGE_TYPE) != null &&  ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
 		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Percentile</B></TD>
@@ -226,9 +228,11 @@
 		       <TD CLASS="<%=even?"testTableEven":"testTableOdd"%>">&#160;<screen:resultSetItem row="<%=row%>" name="problem_name" /></TD>
 		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="language_name" /></TD>
 		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="status_desc" /></TD>
+		       <%if( request.getAttribute(Constants.USAGE_TYPE) == null || ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_TESTING) { %>
 		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="num_succeeded" /></TD>
 		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="num_failed" /></TD>
 		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="pct_passed" />%</TD>
+		       <% } %>
 		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="elapsed" /></TD>
 		       <% if( request.getAttribute(Constants.USAGE_TYPE) != null &&  ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
 		       <td align="center" class="<%=even?"testTableEven":"testTableOdd"%>"><%= testResultsInfo.getProblemSetBPrecentiles().get( String.valueOf( row.getLongItem("problem_id") ) ) %>%</td>
