@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
     <xsl:import href="../top.xsl"/>
     <xsl:import href="../script.xsl"/>
@@ -181,7 +181,7 @@ tware.com">submissions@topcodersoftware.com</a>
 -->
                                 <a class="statText" target="_new">
                                     <xsl:attribute name="href"> 
-                                        <xsl:value-of select="concat('http://software.topcoder.com/pages/s_upload_submission.jsp?version=', $version, '&amp;phase=' , $phase, '&amp;compvers=', /TC/DEVELOPMENT/compvers, '&amp;comp_id=', $componentId, '&amp;Project=', $formattedName)"/>
+                                        <xsl:value-of select="concat('http://software.topcoder.com/catalog/s_upload_submission.jsp?version=', $version, '&amp;phase=' , $phase, '&amp;compvers=', /TC/DEVELOPMENT/compvers, '&amp;comp_id=', $componentId, '&amp;Project=', $formattedName)"/>
                                     </xsl:attribute>
                                     Upload your submission! &gt;&gt;
                                 </a>
