@@ -5,9 +5,10 @@
           com.topcoder.ejb.DataCache.*,
           com.topcoder.common.web.util.*,
           java.text.DecimalFormat,
-          com.topcoder.common.web.data.Navigation" %>
+          com.topcoder.common.web.data.Navigation,
+          java.util.HashMap" %>
 <%
-   String color = "#cccccc";
+   String styleClass = "coderTextWhite";
    DataCache dcHome = com.topcoder.common.web.util.Cache.get();
    Navigation nav = (Navigation) session.getAttribute ( "navigation" );
    if ( nav == null ) nav = new Navigation();
@@ -20,15 +21,17 @@
      {
        rating = ((CoderRegistration)h.get("Coder")).getRating().getRating();
        if ( rating > 2199 ) {
-         color = "#ff0000";
+         styleClass = "coderTextRed";
        } else if ( rating > 1499 && rating < 2200 ) {
-         color = "#ffff00";
+         styleClass = "coderTextYellow";
        } else if ( rating > 1199 && rating < 1500 ) {
-         color = "#66cccc";
+         styleClass = "coderTextBlue";
        } else if ( rating > 899 && rating < 1200 ) {
-         color = "#ccff99";
-       } else {
-         color = "#cccccc";
+         styleClass = "coderTextGreen";
+       } else if (rating > 0 && rating < 900) {
+         styleClass = "coderTextGray";
+       } else if (rating < 0) {
+         styleClass = "coderTextOrange";
        }
      }
    }
@@ -43,7 +46,7 @@
 
 <% if ( nav.getLoggedIn() ) { %>
             <strong>Hello, </strong>
-            <a href="/index?t=statistics&amp;c=member_profile&amp;Coder_Id=<%=nav.getUser().getUserId()%>" class="statText" target="_parent"><font color="<%=color%>"><b><%=nav.getUser().getHandle()%></b></font></a>
+            <a href="/stat?c=member_profile&amp;cr=<%=nav.getUser().getUserId()%>" class="<%=styleClass%>" target="_parent"><%=nav.getUser().getHandle()%></a>
             &#160;&#160;|&#160;&#160;<a href="/?t=authentication&amp;c=submit_logout" class="loginLinks" target="_parent">Logout</a>
             &#160;&#160;|&#160;&#160;<a href="/reg/index.jsp" class="loginLinks" target="_parent">Update Profile</a>
 <% } else { %>
