@@ -1,8 +1,6 @@
 package com.topcoder.web.privatelabel.controller.request;
 
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.privatelabel.Constants;
-import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 /**
  *
@@ -20,10 +18,11 @@ abstract class FullReg extends FullRegBase {
         }
     }
 
-    protected SimpleRegInfo makeRegInfo() throws Exception {
-        SimpleRegInfo ret = super.makeRegInfo();
-        return ret;
-    }
+    //probably don't need to implement this, the parents is probably sufficient
+//    protected SimpleRegInfo makeRegInfo() throws Exception {
+//        SimpleRegInfo ret = super.makeRegInfo();
+//        return ret;
+//    }
 
 
 }
