@@ -35,9 +35,9 @@
     <!-- Gutter Ends -->
   </tr>
 
-  <tr>
+  <tr valign="top">
 <!-- Left Column Begins -->
-    <td width="170" bgcolor="#000000" valign="top"><!-- <IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0" VSPACE="5"><br /> -->
+    <td width="170" bgcolor="#000000"><!-- <IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0" VSPACE="5"><br /> -->
       <xsl:call-template name="global_left"/>
       <img src="/i/logo_ghosted_bracket.gif" width="160" height="77" border="0" alt="[ TopCoder ]" vspace="5" /><br />
 <!-- Do Not Delete This Line --><font size="1" color="#000000" face="tahoma">HiddenWord</font>
@@ -45,33 +45,39 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-    <td width="1" bgcolor="#FFFFFF" valign="top"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
+    <td width="1" bgcolor="#FFFFFF"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-    <td width="100%" valign="top" align="center" bgcolor="#FFFFFF">
-      <table border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#FFFFFF">
-        <tr>
-          <td valign="top" width="1"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
-          <td valign="top" width="1" bgcolor="#000000"><a href="/?&amp;t=tournaments&amp;c=tccc03_sched"><img src="/i/tournament/tccc03/tccc03_home.gif" alt="" width="138" height="90" border="0"/></a></td>
-          <td valign="top" bgcolor="#000000" class="statText"><br />
-            <b>When:</b> Feb. 18th - April 5th, 2003<br />
-            <b>Where:</b> the University Park Hotel @ MIT in Cambridge, MA<br />
-            <b>Total Purse:</b> $100,000<br /><br />
-                     <B>Eligibility Information for the 2003 TopCoder Collegiate Challenge</B><BR/>
-                     <xsl:for-each select="/TC/HOME/CollegiateInfo/reasons/reason">
-                     <xsl:value-of select="reason_text"/><BR/>
-                     </xsl:for-each>
-                     <xsl:if test="/TC/HOME/CollegiateInfo/showLink='true'"><BR/>
-                     Click <A HREF="/TourneyReg?&amp;rd=4462&amp;cd=4462" class="statText">here</A> to sign up.<BR/>
-                     </xsl:if><BR/>
-            <font color="#CC0000"><b>200 TopCoder Members will win money!</b></font><br />
-            <a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tccc03_sched</xsl:attribute>Click here</a>
-            for more information.<br /><br />
-          </td>
-          <td valign="top" width="1"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>
-        </tr>
-      </table>
+            <td width="100%" align="center" bgcolor="#FFFFFF"><img src="/i/clear.gif" alt="" width="1" height="4" border="0" /><br />
+                <table border="0" cellspacing="0" cellpadding="0" width="100%" id="tccc_banner">
+                    <tr valign="top">
+                        <td width="5" bgcolor="#FFFFFF"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+                        <td width="1"><a href="/?&amp;t=tournaments&amp;c=tccc03_sched"><img src="/i/tournament/tccc03/tccc03_home.gif" alt="" width="138" height="90" border="0" /></a></td>
+                        <td valign="middle" class="statText" width="99%">
+                            <p><img src="/i/clear.gif" alt="" width="1" height="3" border="0" /><br />
+                            <strong>When:</strong> Feb. 18th - April 5th, 2003<br />
+                            <strong>Where:</strong> the University Park Hotel @ MIT in Cambridge, MA<br />
+                            <strong>Total Purse:</strong> $100,000</p>
+
+                            <p><strong>Eligibility Information for the 2003 TopCoder Collegiate Challenge</strong><br />
+                            
+                            <xsl:for-each select="/TC/HOME/CollegiateInfo/reasons/reason">
+                                <xsl:value-of select="reason_text"/><br />
+                                </xsl:for-each>
+                                <xsl:if test="/TC/HOME/CollegiateInfo/showLink='true'"><br />
+                                <a href="/TourneyReg?&amp;rd=4462&amp;cd=4462" class="statText">Sign up now</a>
+                            </xsl:if>
+                            
+                            </p>
+                            
+                            <p><font color="#CC0000"><strong>200 TopCoder Members will win money!</strong></font><br />
+                            <a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tccc03_sched</xsl:attribute>Get more information</a><br />
+                            <img src="/i/clear.gif" alt="" width="1" height="3" border="0" /></p>
+                        </td>
+                        <td width="5" bgcolor="#FFFFFF"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+                    </tr>
+                </table>
 
 <!-- My Stats Begins -->
       <table border="0" cellspacing="0" cellpadding="0" width="100%">
