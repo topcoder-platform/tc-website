@@ -11,6 +11,7 @@
 <title>Open Component Projects Available for Review</title>
 
 <jsp:include page="../script.jsp" />
+<link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>
 
 </head>
 
@@ -55,7 +56,7 @@
 
             <table border="0" cellspacing="0" width="100%" class="formFrame">
                 <tr>
-                    <td class="projectTitles" colspan="8">Open Tournament Components</td>
+                    <td class="tccc04SubNav" colspan="8">Open 2004 TopCoder Collegiate Challenge Components</td>
                 </tr>
                 <tr>
                     <td class="projectHeaders" align="center">Catalog</td>
