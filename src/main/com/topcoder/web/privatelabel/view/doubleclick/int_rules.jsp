@@ -66,7 +66,7 @@
 			<li>The <b>System Testing Phase</b> is a series of automated tests applied to all submitted code that has not already been successfully challenged. If the TopCoder System Test finds code that is flawed, the author of that code submission will lose all of the points that were originally earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code submission to be correct. If the output from a participant's submission does not match the expected output, the submission is considered flawed. All successful challenges from the Challenge Phase will be added to the global set of test cases that are used in the System Testing Phase to test all submitted code.</li>
 			</ul>
 
-			<p><span class="dc_subTitle">final round</span><br/>
+			<p><span class="dc_subTitle">Final Round</span><br/>
 			The 10 advancers from the main competition round will compete in the final round of the tournament being held online on Friday, February 27, 2004 at 1:00PM ET.  Each finalist must confirm his/her attendance in the final round by 5:00PM ET on Tuesday, February 24, 2004.  If a participant does not confirm his/her attendance in the final round by that time, he/she will forfeit eligibility to receive a prize, and his/her spot in the final round will be given to the next highest scorer from the main competition round.</p>
 
 			<p>The final round will be a single virtual room of 10 participants, all 10 of whom will win a prize, depending on how each places in the round.  The participant with the highest point value in the final round will be declared the first place winner.  In the event of a tie in the final round, the tie will be resolved in the following manner (in order):</p>
