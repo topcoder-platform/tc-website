@@ -39,7 +39,7 @@
            <jsp:param name="title" value="Competition Manual"/>  
         </jsp:include>
 
-        <h2>Competition Manual</h2>
+        <h2>Algorithm Competition Guide</h2>
 
         <p><span class="bodySubtitle">General TopCoder Arena Usage / Getting Started</span><br/>
             <span class="outline1">1 <a href="/tc?module=Static&d1=help&d2=getStarted#becomemember">Become a TopCoder Member</a></span><br/>
@@ -64,6 +64,15 @@
                 <span class="outline2">7.3 <a href="/tc?module=Static&d1=help&d2=getStarted#seemembers">Seeing Who's in the Arena</a></span><br/>
             <span class="outline1">8 <a href="/tc?module=Static&d1=help&d2=getStarted#movingaround">Moving Around</a></span><br/>
             <span class="outline1">9 <a href="/tc?module=Static&d1=help&d2=getStarted#leaderboard">The Leader Board</a></span><br/>
+
+        <p><span class="bodySubtitle">Practicing / Training in the TopCoder Arena</a></span><br/>
+            <span class="outline1">1 <a href="/">The Practice Rooms</a></span><br/>
+                <span class="outline2">1.1 <a href="/">Timing in the Practice Room</a></span><br/>
+                <span class="outline2">1.2 <a href="/">Selecting a Problem</a></span><br/>
+                <span class="outline2">1.3 <a href="/">System Testing</a></span><br/>
+                <span class="outline2">1.4 <a href="/">The Room Summary</a></span><br/>
+                <span class="outline2">1.5 <a href="/">Challenging</a></span><br/>
+                <span class="outline2">1.6 <a href="/">Clearing Problems</a></span><br/>
 
         <p><span class="bodySubtitle">Practicing / Training in the TopCoder Arena</a></span><br/>
             <span class="outline1">1. <a href="/">The Practice Rooms</a></span><br/>
