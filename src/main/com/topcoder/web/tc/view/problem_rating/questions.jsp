@@ -30,7 +30,7 @@
                 <jsp:getProperty name="quest" property="question"/>
             </td>
             <td>
-                        <input type="radio" name="<jsp:getProperty name="quest" property="questionID"/>" value="<%= counter %>">
+                        <input type="radio" name="<jsp:getProperty name="quest" property="ID"/>" value="<%= counter %>">
             </td>
             </tc:problemRatingInput>
         </tr>
