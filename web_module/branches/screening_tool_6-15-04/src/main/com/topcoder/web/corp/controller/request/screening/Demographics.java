@@ -35,6 +35,8 @@ public class Demographics extends BaseScreeningProcessor {
                 log.error("Campaign ID is not specified.");
                 throw new ScreeningException("No campaign ID had been specified.");
             }
+            
+            log.info("CAMPAIGN ID:" + campaignId);
 
             Request dataRequest = new Request();
             ResultSetContainer rsc = null;
