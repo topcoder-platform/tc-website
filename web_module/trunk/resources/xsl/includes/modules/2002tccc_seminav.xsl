@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:template name="2002tccc_seminav">
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="1" VALIGN="top" WIDTH="300" ALIGN="right">
+<IMG SRC="/i/02tccc_logow_sm.gif" ALT="" WIDTH="96" HEIGHT="74" ALIGN="left" HSPACE="40" VSPACE="15" BORDER="0"/>
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="1" VALIGN="top" WIDTH="350" ALIGN="right">
  	<TR>
         <TD ROWSPAN="5" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
         <TD COLSPAN="2" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
@@ -15,19 +16,26 @@
     	<TD COLSPAN="4" VALIGN="top" BGCOLOR="#999999">
 		<TABLE BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#CCCCCC">
 		<TR>
+			<TD VALIGN="top" CLASS="bodyText">&#160;&#160;<B>Summary:</B><BR/>
+			- <A HREF="/index?t=statistics&amp;c=2002tccc_semiroom1" CLASS="bodyText">Round 1</A><BR/>
+			- <A HREF="/index?t=statistics&amp;c=2002tccc_semiroom2" CLASS="bodyText"></A>Round 2<BR/>
+			- <A HREF="/index?t=statistics&amp;c=2002tccc_semiroom3" CLASS="bodyText"></A>Round 3<BR/>
+			- <A HREF="/index?t=statistics&amp;c=2002tccc_semiroom4" CLASS="bodyText"></A>Round 4<BR/>
+			- <A HREF="/index?t=statistics&amp;c=2002tccc_semichamp" CLASS="bodyText"></A>Championship<BR/>
+			</TD>		
 			<TD VALIGN="top" CLASS="bodyText">&#160;&#160;<B>Problems:</B><BR/>
 			- <A HREF="/index?t=statistics&amp;c=2002tccc_semiprob1" CLASS="bodyText">Round 1</A><BR/>
 			- <A HREF="/index?t=statistics&amp;c=2002tccc_semiprob2" CLASS="bodyText"></A>Round 2<BR/>
 			- <A HREF="/index?t=statistics&amp;c=2002tccc_semiprob3" CLASS="bodyText"></A>Round 3<BR/>
 			- <A HREF="/index?t=statistics&amp;c=2002tccc_semiprob4" CLASS="bodyText"></A>Round 4<BR/>
-			- <A HREF="/index?t=statistics&amp;c=2002tccc_semichamp" CLASS="bodyText"></A>Championship<BR/>
+			- <A HREF="/index?t=statistics&amp;c=2002tccc_semiprobchamp" CLASS="bodyText"></A>Championship<BR/>
 			</TD>
 			<TD VALIGN="top" CLASS="bodyText">&#160;&#160;<B>Chrono Log:</B><BR/>
 			- <A HREF="/index?t=statistics&amp;c=2002tccc_semilog1" CLASS="bodyText">Round 1</A><BR/>
 			- <A HREF="/index?t=statistics&amp;c=2002tccc_semilog2" CLASS="bodyText"></A>Round 2<BR/>
 			- <A HREF="/index?t=statistics&amp;c=2002tccc_semilog3" CLASS="bodyText"></A>Round 3<BR/>
 			- <A HREF="/index?t=statistics&amp;c=2002tccc_semilog4" CLASS="bodyText"></A>Round 4<BR/>
-			- <A HREF="/index?t=statistics&amp;c=2002tccc_semichamp" CLASS="bodyText"></A>Championship<BR/>			
+			- <A HREF="/index?t=statistics&amp;c=2002tccc_semilogchamp" CLASS="bodyText"></A>Championship<BR/>			
 			</TD>
 			<TD VALIGN="top" CLASS="bodyText">&#160;&#160;<B>Photos:</B><BR/>
 			- <A HREF="/index?t=statistics&amp;c=2002tccc_semiroom1#photo" CLASS="bodyText">Round 1</A><BR/>
