@@ -11,7 +11,6 @@ import com.topcoder.web.common.security.*;
 
 import org.faceless.graph.*;
 import org.faceless.graph.formatter.DateFormatter;
-import org.faceless.graph.formatter.NullFormatter;
 import org.faceless.graph.math.DataCurve;
 import org.faceless.graph.output.PNGOutput;
 
@@ -72,11 +71,12 @@ public class GraphServlet extends HttpServlet {
             throws ServletException, IOException {
 
         try {
-            Persistor persistor = new SessionPersistor(((HttpServletRequest)request).getSession());
+            Persistor persistor = new SessionPersistor((request).getSession());
             Authentication auth = new BasicAuthentication(persistor, request, response);
             Authorization hsa = new HSAuthorization(auth.getUser());
-            if(!hsa.hasPermission(new ClassResource(this.getClass())))
-                throw new PermissionException("you can't view that kind of graph");
+            Resource r = new ClassResource(this.getClass());
+            if(!hsa.hasPermission(r))
+                throw new PermissionException(auth.getUser(), r);
         } catch(Exception e) {
             log.fatal("permission check failed, giving up", e);
             return;  // just give them a red x
@@ -194,8 +194,8 @@ public class GraphServlet extends HttpServlet {
             while (it.hasNext()) {
                 rsr = (ResultSetContainer.ResultSetRow) it.next();
 
-                coderRatingCurve.set(DateFormatter.toDouble((java.sql.Timestamp) ((TCTimestampResult) rsr.getItem("date")).getResultData()),
-                        ((Integer) ((TCIntResult) rsr.getItem("rating")).getResultData()).doubleValue());
+                coderRatingCurve.set(DateFormatter.toDouble((java.sql.Timestamp) (rsr.getItem("date")).getResultData()),
+                        ((Integer) (rsr.getItem("rating")).getResultData()).doubleValue());
             }
 
             g = new LineGraph();
@@ -233,7 +233,6 @@ public class GraphServlet extends HttpServlet {
 
         BarGraph g = null;
         ByteArrayOutputStream baos = null;
-        DataCurve coderRatingCurve = null;
         Iterator it = null;
         Map resultMap = null;
         DataAccessInt dai = null;
@@ -263,7 +262,7 @@ public class GraphServlet extends HttpServlet {
                 rsr = (ResultSetContainer.ResultSetRow) it.next();
                 for (int i = 0; i < rsc.getColumnCount(); i++) {
                     g.set(rating_segments[i],
-                            ((java.math.BigInteger) ((TCBigIntegerResult) rsr.getItem(i)).getResultData()).doubleValue());
+                            ((java.math.BigInteger) (rsr.getItem(i)).getResultData()).doubleValue());
                     if (i < 9)
                         g.setColor(rating_segments[i], GRAY);
                     else if (i >= 9 && i < 12)
@@ -295,7 +294,6 @@ public class GraphServlet extends HttpServlet {
 
         BarGraph g = null;
         ByteArrayOutputStream baos = null;
-        DataCurve coderRatingCurve = null;
         Iterator it = null;
         Map resultMap = null;
         DataAccessInt dai = null;
@@ -325,7 +323,7 @@ public class GraphServlet extends HttpServlet {
                 rsr = (ResultSetContainer.ResultSetRow) it.next();
                 for (int i = 0; i < rsc.getColumnCount(); i++) {
                     g.set(rating_segments[i],
-                            ((java.math.BigInteger) ((TCBigIntegerResult) rsr.getItem(i)).getResultData()).doubleValue());
+                            ((java.math.BigInteger) (rsr.getItem(i)).getResultData()).doubleValue());
                     if (i < 9)
                         g.setColor(rating_segments[i], GRAY);
                     else if (i >= 9 && i < 12)
@@ -357,7 +355,6 @@ public class GraphServlet extends HttpServlet {
 
         BarGraph g = null;
         ByteArrayOutputStream baos = null;
-        DataCurve coderRatingCurve = null;
         Iterator it = null;
         Map resultMap = null;
         DataAccessInt dai = null;
@@ -396,7 +393,7 @@ public class GraphServlet extends HttpServlet {
                 for (int i = 0; i < columns; i++) {
                     String columnName = df.format(start+pointsPerBucket*i) + " - " + df.format(start+pointsPerBucket*(i+1));
                     g.set(columnName,
-                            ((java.math.BigInteger) ((TCBigIntegerResult) rsr.getItem(i)).getResultData()).doubleValue());
+                            ((java.math.BigInteger) (rsr.getItem(i)).getResultData()).doubleValue());
                     g.setColor(columnName, MAROON);
                 }
             }
