@@ -92,7 +92,7 @@
         <BR/>
             Depending upon your arrival time, TopCoder will arrange with the hotel for a van to pick
             you up in a group.  If your arrival time is considerably earlier or later than the group
-            departure, you can take the “Super Shuttle Service”.  The cost for this service is between
+            departure, you can take the "Super Shuttle Service".  The cost for this service is between
             $17 and $20 which TopCoder will reimburse.  <strong><u>Please plan for your arrival at the hotel no later than 4:00pm
             on November 24th.</u></strong><BR/>
         <BR/>
@@ -110,7 +110,7 @@
             Tuesday, November 25, 2005<BR/>
             The Marriott Marquis<BR/>
             Suite 4544<BR/>
-            9:00 AM – 11:30 AM<BR/>
+            9:00 AM - 11:30 AM<BR/>
 
             <BR/>
         <BR/>
