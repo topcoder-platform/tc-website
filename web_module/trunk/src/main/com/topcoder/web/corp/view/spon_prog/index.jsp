@@ -7,7 +7,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder | Corporate Services</title>
+<title>TopCoder Sponsorship provides companies with an opportunity to educate, interact and brand themselves to the membership</title>
 
 <jsp:include page="../includes/css.jsp" />
 
@@ -18,7 +18,7 @@
 <body>
 
 <!-- Top begins -->
-<jsp:include page="includes/top.jsp" >
+<jsp:include page="../includes/top.jsp" >
   <jsp:param name="isSponsorPage" value="true"/>
 </jsp:include>
 <!-- Top ends -->
@@ -37,6 +37,7 @@
 
 <!-- Gutter Begins -->
         <td valign="top"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+        <td valign="top" width="7"><img src="/i/title_brackets.gif" width="7" height="47" alt="[ ]" border="0"></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column begins -->
@@ -93,17 +94,11 @@
                         <p>In all facets of the sponsorship program, companies are exclusively promoted to eliminate the noise 
                         and clutter of competing messages.</p>
                         
+                        <p><br></p>
                     </td>
-                </tr>
-            </table>
-
-            <p><br></p>
-
-        </td>
-<!-- Center Column ends -->
 
 <!-- Gutter -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+                    <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column begins -->
@@ -112,6 +107,12 @@
                         <jsp:param name="level2" value="srm_index"/> 
                     </jsp:include>
 <!-- Right Column ends -->
+
+                </tr>
+            </table>
+        </td>
+<!-- Center Column ends -->
+
     </tr>
 </table>
 

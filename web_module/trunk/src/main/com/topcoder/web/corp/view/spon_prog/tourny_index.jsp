@@ -18,7 +18,7 @@
 <body>
 
 <!-- Top begins -->
-<jsp:include page="includes/top.jsp" >
+<jsp:include page="../includes/top.jsp" >
   <jsp:param name="isSponsorPage" value="true"/>
 </jsp:include>
 <!-- Top ends -->
@@ -58,12 +58,12 @@
                             <tr valign="top">
                                 <td class="sidebarText">
                                     <strong>Tournament Overview</strong><br />
-                                    <a href="<?module=Static&d1=corp&d2=spon_prog&d3=tourny_web">Web site coverage</a><br />
-                                    <a href="<?module=Static&d1=corp&d2=spon_prog&d3=tourny_applet">Applet coverage</a><br />
-                                    <a href="<?module=Static&d1=corp&d2=spon_prog&d3=tourny_email">Email distribution</a><br />
-                                    <a href="<?module=Static&d1=corp&d2=spon_prog&d3=tourny_media">Media Coverage</a><br />
-                                    <a href="<?module=Static&d1=corp&d2=spon_prog&d3=tourny_on-site">On-site arena</a><br />
-                                    <a href="<?module=Static&d1=corp&d2=spon_prog&d3=tourny_pr">Public relations</a><br />
+                                    <a href="/?module=Static&d1=corp&d2=spon_prog&d3=tourny_web">Web site coverage</a><br />
+                                    <a href="/?module=Static&d1=corp&d2=spon_prog&d3=tourny_applet">Applet coverage</a><br />
+                                    <a href="/?module=Static&d1=corp&d2=spon_prog&d3=tourny_email">Email distribution</a><br />
+                                    <a href="/?module=Static&d1=corp&d2=spon_prog&d3=tourny_media">Media Coverage</a><br />
+                                    <a href="/?module=Static&d1=corp&d2=spon_prog&d3=tourny_onsite">On-site arena</a><br />
+                                    <a href="/?module=Static&d1=corp&d2=spon_prog&d3=tourny_pr">Public relations</a><br />
                                     <a href="/i/srm_3pgr.pdf">Download Overview (PDF)</a><br />
                                 </td>
                             </tr>
