@@ -5,7 +5,14 @@
               <TR> 
                 	<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
                 	<TD COLSPAN="4" CLASS="bodyText" VALIGN="middle"><FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>[TC] Updates</B></FONT></TD>
-              	</TR>              	 
+              	</TR>
+              				<TR>
+              				    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+                				<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">05.28.02</TD>
+                				<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+								<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="bottom"><A HREF="/index?t=news_events&amp;c=pr_05_28_02" CLASS="bodyGeneric">TopCoder Adds China, New Zealand and Ireland To Its Developer Community</A></TD>
+              				    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+              				</TR>              	              	 
               				<TR>
               				    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
                 				<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">05.06.02</TD>
