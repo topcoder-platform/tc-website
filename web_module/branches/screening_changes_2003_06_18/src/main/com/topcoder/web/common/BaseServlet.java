@@ -23,12 +23,12 @@ import java.util.Set;
  * @author Greg Paul
  */
 public abstract class BaseServlet extends HttpServlet {
-    private static String ERROR_PAGE = null;
-    private static String MODULE = null;
-    private static String PATH = null;
-    private static String DEFAULT_PROCESSOR = null;
-    private static String LOGIN_PROCESSOR = null;
-    private static String LOGIN_SERVLET = null;
+    private String ERROR_PAGE = null;
+    private String MODULE = null;
+    private String PATH = null;
+    private String DEFAULT_PROCESSOR = null;
+    private String LOGIN_PROCESSOR = null;
+    private String LOGIN_SERVLET = null;
     public static final String MESSAGE_KEY = "message";
     public static final String NEXT_PAGE_KEY = "nextpage";
 
@@ -73,12 +73,12 @@ public abstract class BaseServlet extends HttpServlet {
         log.info(buf);
     }
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         doPost(request, response);
     }
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         RequestProcessor rp = null;
