@@ -39,7 +39,7 @@ public class Static extends BaseProcessor {
             path.append("/").append(p);
         }
         if(path.equals(""))
-            path.append(Constants.WELCOME_PAGE):;
+            path.append(Constants.WELCOME_PAGE);
         path.append(".jsp");
 
         log.debug("next page: " + path.toString());
