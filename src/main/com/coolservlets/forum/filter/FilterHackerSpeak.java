@@ -61,6 +61,7 @@ import java.io.*;
 
 import com.coolservlets.forum.*;
 import com.coolservlets.codeviewer.*;
+import com.coolservlets.util.StringUtils;
 
 /**
  * A ForumMessageFilter that Translates normal text into 'Hacker Speak'.
@@ -201,7 +202,7 @@ public class FilterHackerSpeak extends ForumMessageFilter implements Serializabl
      * escaped.
      */
     public String getSubject() {
-        return makeHacker(message.getSubject());
+        return StringUtils.escapeHTMLTags(makeHacker(message.getSubject()));
     }
 
     /**
