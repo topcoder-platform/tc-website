@@ -189,8 +189,8 @@ function goTo(selection){
                             
                             <bean:define id="nameColor" name="CODER_COLORS" scope="application" toScope="page"/>
 
-                            <% //this part creates the top scorers for the round in each division
-                            <% String sLink = "/stat?c=member_profile&cr=";%>
+                            <% //this part creates the top scorers for the round in each division 
+                            String sLink = "/stat?c=member_profile&cr=";%>
                             for(int i = 0; i<topN;i++){%>
                             <TR>
                                 <%for(int j = 0; j<divisions;j++){
