@@ -6,7 +6,33 @@
 <META http-equiv=Pragma content=no-cache>
 <META http-equiv=Expires content=-1>
 <link type="text/css" rel="stylesheet" href="http://software.topcoder.com/includes/tcs_style.css"/>
-<META content="MSHTML 6.00.2800.1400" name=GENERATOR></HEAD>
+<jsp:include page="../script.jsp" />
+<META content="MSHTML 6.00.2800.1400" name=GENERATOR>
+<style><!--
+.whiteBkgnd 
+{
+	font-size: 12px;
+	font-weight: bold;
+	font-style: normal;
+	color: #000;
+	font-variant: normal;
+	background-color: #FFF;
+	padding: 5px;
+}
+.blackBkgnd
+{
+	font-size: 12px;
+	font-weight: bold;
+	font-style: normal;
+	color: #FFF;
+	font-variant: normal;
+	background-color: #000;
+	padding: 5px;
+}
+//-->
+</style>
+
+</HEAD>
 <body class="body" marginheight="0" marginwidth="0">
 
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
@@ -156,11 +182,11 @@ service to the customer without those requirements).
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
-				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',0,0)" class="submitButton" type="submit"></td>
+				        		    <input name="submit" value="Delete" onclick="" class="submitButton" type="submit"></td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 							        		
 				        		    
-				        		    <input name="submit" value="Add" onclick="set(this.form,'add',0,0)" class="submitButton" type="submit">
+				        		    <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
 							        		        
 				        		        </td>
 				        	</tr>
@@ -226,11 +252,11 @@ contains no errors and can be understood from a single reading.</p></td>
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
-				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',1,0)" class="submitButton" type="submit"></td>
+				        		    <input name="submit" value="Delete" onclick="" class="submitButton" type="submit"></td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 							        		
 				        		    
-				        		    <input name="submit" value="Add" onclick="set(this.form,'add',1,0)" class="submitButton" type="submit">
+				        		    <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
 							        		        
 				        		        </td>
 				        	</tr>
@@ -289,11 +315,11 @@ inherited/associations/extend/include semantics.
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
-				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',2,0)" class="submitButton" type="submit"></td>
+				        		    <input name="submit" value="Delete" onclick="" class="submitButton" type="submit"></td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 							        		
 				        		    
-				        		    <input name="submit" value="Add" onclick="set(this.form,'add',2,0)" class="submitButton" type="submit">
+				        		    <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
 							        		        
 				        		        </td>
 				        	</tr>
@@ -347,11 +373,11 @@ between use cases and sequence diagrams.
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
-				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',3,0)" class="submitButton" type="submit"></td>
+				        		    <input name="submit" value="Delete" onclick="" class="submitButton" type="submit"></td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 							        		
 				        		    
-				        		    <input name="submit" value="Add" onclick="set(this.form,'add',3,0)" class="submitButton" type="submit">
+				        		    <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
 							        		        
 				        		        </td>
 				        	</tr>
@@ -449,8 +475,11 @@ does not need any patterns/methodologies.</p></td>
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
-				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',4,0)" class="submitButton" type="submit"></td>
+				        		    <input name="submit" value="Delete" onclick="" class="submitButton" type="submit"></td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
+							        		
+				        		    
+				        		    <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
 							        		        
 				        		        </td>
 				        	</tr>
@@ -472,11 +501,11 @@ does not need any patterns/methodologies.</p></td>
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
-				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',4,1)" class="submitButton" type="submit"></td>
+				        		    <input name="submit" value="Delete" onclick="" class="submitButton" type="submit"></td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 							        		
 				        		    
-				        		    <input name="submit" value="Add" onclick="set(this.form,'add',4,1)" class="submitButton" type="submit">
+				        		    <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
 							        		        
 				        		        </td>
 				        	</tr>
@@ -537,11 +566,11 @@ enhancements.
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
-				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',5,0)" class="submitButton" type="submit"></td>
+				        		    <input name="submit" value="Delete" onclick="" class="submitButton" type="submit"></td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 							        		
 				        		    
-				        		    <input name="submit" value="Add" onclick="set(this.form,'add',5,0)" class="submitButton" type="submit">
+				        		    <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
 							        		        
 				        		        </td>
 				        	</tr>
@@ -609,11 +638,11 @@ rating if components were appropriately not used.</p></td>
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
-				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',6,0)" class="submitButton" type="submit"></td>
+				        		    <input name="submit" value="Delete" onclick="" class="submitButton" type="submit"></td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 							        		
 				        		    
-				        		    <input name="submit" value="Add" onclick="set(this.form,'add',6,0)" class="submitButton" type="submit">
+				        		    <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
 							        		        
 				        		        </td>
 				        	</tr>
@@ -674,11 +703,11 @@ powerful/flexible, API would also fall into this category.</p></td>
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
-				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',7,0)" class="submitButton" type="submit"></td>
+				        		    <input name="submit" value="Delete" onclick="" class="submitButton" type="submit"></td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 							        		
 				        		    
-				        		    <input name="submit" value="Add" onclick="set(this.form,'add',7,0)" class="submitButton" type="submit">
+				        		    <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
 							        		        
 				        		        </td>
 				        	</tr>
@@ -735,11 +764,11 @@ any reasons why the component is not thread safe.
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
-				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',8,0)" class="submitButton" type="submit"></td>
+				        		    <input name="submit" value="Delete" onclick="" class="submitButton" type="submit"></td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 							        		
 				        		    
-				        		    <input name="submit" value="Add" onclick="set(this.form,'add',8,0)" class="submitButton" type="submit">
+				        		    <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
 							        		        
 				        		        </td>
 				        	</tr>
@@ -794,11 +823,11 @@ name is too generic or too high-level).
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
-				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',9,0)" class="submitButton" type="submit"></td>
+				        		    <input name="submit" value="Delete" onclick="" class="submitButton" type="submit"></td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 							        		
 				        		    
-				        		    <input name="submit" value="Add" onclick="set(this.form,'add',9,0)" class="submitButton" type="submit">
+				        		    <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
 							        		        
 				        		        </td>
 				        	</tr>
@@ -887,11 +916,11 @@ an additional sub-package (however this can not be justified).
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
-				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',10,0)" class="submitButton" type="submit"></td>
+				        		    <input name="submit" value="Delete" onclick="" class="submitButton" type="submit"></td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 							        		
 				        		    
-				        		    <input name="submit" value="Add" onclick="set(this.form,'add',10,0)" class="submitButton" type="submit">
+				        		    <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
 							        		        
 				        		        </td>
 				        	</tr>
@@ -956,11 +985,11 @@ or by making something private that should be public.
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
-				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',11,0)" class="submitButton" type="submit"></td>
+				        		    <input name="submit" value="Delete" onclick="" class="submitButton" type="submit"></td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 							        		
 				        		    
-				        		    <input name="submit" value="Add" onclick="set(this.form,'add',11,0)" class="submitButton" type="submit">
+				        		    <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
 							        		        
 				        		        </td>
 				        	</tr>
@@ -1030,11 +1059,11 @@ alone. Custom exceptions were not appropriate for this design.</p></td>
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
-				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',12,0)" class="submitButton" type="submit"></td>
+				        		    <input name="submit" value="Delete" onclick="" class="submitButton" type="submit"></td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 							        		
 				        		    
-				        		    <input name="submit" value="Add" onclick="set(this.form,'add',12,0)" class="submitButton" type="submit">
+				        		    <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
 							        		        
 				        		        </td>
 				        	</tr>
@@ -1097,11 +1126,11 @@ are used when justified).</p></td>
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
-				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',13,0)" class="submitButton" type="submit"></td>
+				        		    <input name="submit" value="Delete" onclick="" class="submitButton" type="submit"></td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 							        		
 				        		    
-				        		    <input name="submit" value="Add" onclick="set(this.form,'add',13,0)" class="submitButton" type="submit">
+				        		    <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
 							        		        
 				        		        </td>
 				        	</tr>
@@ -1168,11 +1197,11 @@ correct.</p></td>
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
-				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',14,0)" class="submitButton" type="submit"></td>
+				        		    <input name="submit" value="Delete" onclick="" class="submitButton" type="submit"></td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 							        		
 				        		    
-				        		    <input name="submit" value="Add" onclick="set(this.form,'add',14,0)" class="submitButton" type="submit">
+				        		    <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
 							        		        
 				        		        </td>
 				        	</tr>
@@ -1241,11 +1270,11 @@ for this rating.
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
-				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',15,0)" class="submitButton" type="submit"></td>
+				        		    <input name="submit" value="Delete" onclick="" class="submitButton" type="submit"></td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 							        		
 				        		    
-				        		    <input name="submit" value="Add" onclick="set(this.form,'add',15,0)" class="submitButton" type="submit">
+				        		    <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
 							        		        
 				        		        </td>
 				        	</tr>
@@ -1297,11 +1326,11 @@ appropriately?
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
-				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',16,0)" class="submitButton" type="submit"></td>
+				        		    <input name="submit" value="Delete" onclick="" class="submitButton" type="submit"></td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 							        		
 				        		    
-				        		    <input name="submit" value="Add" onclick="set(this.form,'add',16,0)" class="submitButton" type="submit">
+				        		    <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
 							        		        
 				        		        </td>
 				        	</tr>
@@ -1391,11 +1420,11 @@ not require any additional information from the designer).</p></td>
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
-				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',17,0)" class="submitButton" type="submit"></td>
+				        		    <input name="submit" value="Delete" onclick="" class="submitButton" type="submit"></td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 							        		
 				        		    
-				        		    <input name="submit" value="Add" onclick="set(this.form,'add',17,0)" class="submitButton" type="submit">
+				        		    <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
 							        		        
 				        		        </td>
 				        	</tr>
@@ -1469,11 +1498,11 @@ not require any additional information from the designer).</p></td>
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
-				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',18,0)" class="submitButton" type="submit"></td>
+				        		    <input name="submit" value="Delete" onclick="" class="submitButton" type="submit"></td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 							        		
 				        		    
-				        		    <input name="submit" value="Add" onclick="set(this.form,'add',18,0)" class="submitButton" type="submit">
+				        		    <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
 							        		        
 				        		        </td>
 				        	</tr>
@@ -1541,11 +1570,11 @@ not require any additional information from the designer).</p></td>
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
-				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',19,0)" class="submitButton" type="submit"></td>
+				        		    <input name="submit" value="Delete" onclick="" class="submitButton" type="submit"></td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 							        		
 				        		    
-				        		    <input name="submit" value="Add" onclick="set(this.form,'add',19,0)" class="submitButton" type="submit">
+				        		    <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
 							        		        
 				        		        </td>
 				        	</tr>
@@ -1599,11 +1628,11 @@ visually in the diagram.</p></td>
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
-				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',20,0)" class="submitButton" type="submit"></td>
+				        		    <input name="submit" value="Delete" onclick="" class="submitButton" type="submit"></td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 							        		
 				        		    
-				        		    <input name="submit" value="Add" onclick="set(this.form,'add',20,0)" class="submitButton" type="submit">
+				        		    <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
 							        		        
 				        		        </td>
 				        	</tr>
@@ -1664,11 +1693,11 @@ extra functionality or flexibility.</p></td>
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
-				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',21,0)" class="submitButton" type="submit"></td>
+				        		    <input name="submit" value="Delete" onclick="" class="submitButton" type="submit"></td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 							        		
 				        		    
-				        		    <input name="submit" value="Add" onclick="set(this.form,'add',21,0)" class="submitButton" type="submit">
+				        		    <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
 							        		        
 				        		        </td>
 				        	</tr>
@@ -1740,11 +1769,11 @@ implement the component. </p></td>
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
-				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',22,0)" class="submitButton" type="submit"></td>
+				        		    <input name="submit" value="Delete" onclick="" class="submitButton" type="submit"></td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 							        		
 				        		    
-				        		    <input name="submit" value="Add" onclick="set(this.form,'add',22,0)" class="submitButton" type="submit">
+				        		    <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
 							        		        
 				        		        </td>
 				        	</tr>
@@ -1805,11 +1834,11 @@ actively confuses the reviewer in trying to understand the design.
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
-				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',23,0)" class="submitButton" type="submit"></td>
+				        		    <input name="submit" value="Delete" onclick="" class="submitButton" type="submit"></td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 							        		
 				        		    
-				        		    <input name="submit" value="Add" onclick="set(this.form,'add',23,0)" class="submitButton" type="submit">
+				        		    <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
 							        		        
 				        		        </td>
 				        	</tr>
@@ -1879,11 +1908,11 @@ actively confuses the reviewer in trying to understand the design.
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
-				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',24,0)" class="submitButton" type="submit"></td>
+				        		    <input name="submit" value="Delete" onclick="" class="submitButton" type="submit"></td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 							        		
 				        		    
-				        		    <input name="submit" value="Add" onclick="set(this.form,'add',24,0)" class="submitButton" type="submit">
+				        		    <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
 							        		        
 				        		        </td>
 				        	</tr>

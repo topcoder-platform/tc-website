@@ -162,7 +162,7 @@
                             <tr valign="top">
                                 <td class="bodyText">06.30.2004</td>
                                 <td class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
-                                <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/Sample_Design_Screening_Scorecard.pdf" class="bodyText">Sample Design Screening Scorecard.pdf</a></td>
+                                <td class="bodyText"><a target="tcsdocs" href="/tc?module=Static&amp;d1=dev&amp;d2=desScreeningSample" class="bodyText">Sample Design Screening Scorecard</a></td>
                             </tr>
                             <tr valign="top">
                                 <td class="bodyText">06.30.2004</td>
