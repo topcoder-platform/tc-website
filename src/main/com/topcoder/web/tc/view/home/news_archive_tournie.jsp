@@ -35,6 +35,7 @@
         </jsp:include>
 
 <table border=0 cellpadding=2 cellspacing=0 width="100%">
+<tr class="bodyText"><td nowrap="nowrap">03.21.05 5:20 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=supernova">"My TCCC05 Experience" by supernova</A></td></tr>0
 <tr class="bodyText"><td nowrap="nowrap">03.11.05 8:15 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_finals_analysis">mathijs wins the TCCC05 Algorithm Competition!</A></td></tr>0
 <tr class="bodyText"><td nowrap="nowrap">03.11.05 8:15 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_des_summary">adic wins the TCCC05 Design Competition!</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.11.05 8:15 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_dev_summary">gladius wins the TCCC05 Development Competition!</A></td></tr>
