@@ -141,7 +141,7 @@ public class Cyberline
                   <td><a href="/mockup/codingRoom.jsp"><img src="/i/corp/screening/buttonCompile.gif" alt="" /></a></td>
                   <td><a href="/mockup/codingRoom.jsp"><img src="/i/corp/screening/buttonTest.gif" alt="" /></a></td>
                   <td><a href="/mockup/codingRoom.jsp"><img src="/i/corp/screening/buttonClear.gif" alt="" /></a></td>
-                  <td><a href="/mockup/codingRoom.jsp"><img src="/i/corp/screening/buttonSubmit.gif" alt="" /></a></td>
+                  <td><a href="/mockup/processing.jsp"><img src="/i/corp/screening/buttonSubmit.gif" alt="" /></a></td>
                </tr>
             </table>
 
