@@ -72,8 +72,8 @@ public class GraphServlet extends HttpServlet {
 
         try {
             Persistor persistor = new SessionPersistor((request).getSession());
-            Authentication auth = new BasicAuthentication(persistor, request, response);
-            Authorization hsa = new HSAuthorization(auth.getUser());
+            WebAuthentication auth = new BasicAuthentication(persistor, request, response);
+            Authorization hsa = new HSAuthorization(auth.getActiveUser());
             Resource r = new ClassResource(this.getClass());
             if(!hsa.hasPermission(r))
                 throw new PermissionException(auth.getUser(), r);
