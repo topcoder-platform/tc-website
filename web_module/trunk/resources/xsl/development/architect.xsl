@@ -80,53 +80,50 @@ The intention of this posting is to amass a group of members interested in the a
 <P>
 <B>Job Description:</B>
 <UL>
-	<LI>Analyze and interpret functional software requirements, resolving any outstanding issues with the 
-	product manager.</LI>
-	<LI>Design the technical architecture for software components and software applications.</LI>
-	<LI>The design must adhere to Object Oriented design principles.</LI>
-	<LI>The design must maintain TopCoder Software’s reusable component focus.</LI>
-	<LI>Designs must be provided in industry standard formats, such as UML.</LI>
-	<LI>Communicate architecture design and vision with the product manager and project team.</LI>
-	<LI>Manage the project team to ensure the on-time development of a quality component.</LI>
-	<LI>Perform code reviews to ensure the developed component properly implements the component design.</LI>
-	<LI>Work closely with the product manager to ensure that software quality and functionality meet the 
-	stringent TopCoder Software Quality Assurance acceptance standards.</LI>
+  <LI>Analyze and interpret functional software requirements, resolving any outstanding issues with the 
+  product manager.</LI>
+  <LI>Design the technical architecture for software components and software applications.</LI>
+  <LI>The design must adhere to Object Oriented design principles.</LI>
+  <LI>The design must maintain TopCoder Software’s reusable component focus.</LI>
+  <LI>Designs must be provided in industry standard formats, such as UML.</LI>
+  <LI>Communicate architecture design and vision with the product manager and project team.</LI>
+  <LI>Manage the project team to ensure the on-time development of a quality component.</LI>
+  <LI>Perform code reviews to ensure the developed component properly implements the component design.</LI>
+  <LI>Work closely with the product manager to ensure that software quality and functionality meet the 
+  stringent TopCoder Software Quality Assurance acceptance standards.</LI>
 </UL>
 </P>
 
 <P>
 <B>Additional Responsibilities:</B>
 <UL>
-	<LI>Mentor team members in proper software development methodologies.
-	<LI>Provide technical assistance to team members.
-	<LI>Act as a component evangelist to the developer community.
-	<LI>Understand and learn various subject areas so as to provide meaningful recommendations to enhance functional software requirements.
+  <LI>Mentor team members in proper software development methodologies.</LI>
+  <LI>Provide technical assistance to team members.</LI>
+  <LI>Act as a component evangelist to the developer community.</LI>
+  <LI>Understand and learn various subject areas so as to provide meaningful recommendations to enhance functional software requirements.</LI>
 </UL>
 </P>
 
 <P>
 <B>Technical Skills:</B>
 <UL>
-	<LI>Strong grasp of Object Oriented design principles with a focus on component-based software development.</LI>
-	<LI>Demonstrated experience in software application design.</LI>
-	<LI>Technical experience in relevant project technologies.  For example, a given project 
-	may require familiarity with the following technologies:</LI>
+  <LI>Strong grasp of Object Oriented design principles with a focus on component-based software development.</LI>
+  <LI>Demonstrated experience in software application design.</LI>
+  <LI>Technical experience in relevant project technologies.  For example, a given project 
+  may require familiarity with the following technologies:</LI>
 <UL>
-	<LI>Java 1.3 (JSP, Servlets, JDBC),</LI>	
-	<LI>Relational database design (Microsoft SQL Server or Oracle).</LI>
+  <LI>Java 1.3 (JSP, Servlets, JDBC),</LI>  
+  <LI>Relational database design (Microsoft SQL Server or Oracle).</LI>
 </UL>
-</P>
-
-<P>
 </UL>
 </P>
 
 <P>
 <B>Professional Skills:</B>
 <UL>
-	<LI>Effective written and verbal communication skills.</LI>
-	<LI>Proven leadership and management experience.</LI>
-	<LI>Team player.</LI>
+  <LI>Effective written and verbal communication skills.</LI>
+  <LI>Proven leadership and management experience.</LI>
+  <LI>Team player.</LI>
 </UL>
 </P>
 
@@ -145,10 +142,9 @@ TopCoder will compensate all team members for their work on a project.  Compensa
 <P>
 You must be a rated TopCoder member, at least 18 years of age, meeting all of the membership requirements and fit into one of the following categories:
 <UL>
-	<LI>A US Citizen</LI>
-	<LI>A Lawful Permanent Resident of the US (i.e., a Green Card holder)</LI> 
-	<LI>Currently lawfully residing in the US with valid employment authorization to act as an 
-	independent contractor.</LI>
+  <LI>A US Citizen</LI>
+  <LI>A Lawful Permanent Resident of the US (i.e., a Green Card holder)</LI> 
+  <LI>Currently lawfully residing in the US with valid employment authorization to act as an independent contractor.</LI>
 </UL>
 </P>
 
