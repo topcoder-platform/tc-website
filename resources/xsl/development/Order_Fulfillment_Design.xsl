@@ -100,7 +100,7 @@
                                                         will increase the speed and scalability of the application.
                                                         <br/>
                                                         <br/>
-                                                        <ul class="noSpList">
+                                                        <ul class="noSpListTitle">
                                                            <strong>Objectives</strong>
                                                             <li>Provide an extensible platform designed to handle the functional requirements identified by the client.2</li>
                                                             <li>Deliver the ability to scale through the addition of hardware, not requiring changes to the underlying software.</li>
