@@ -98,7 +98,7 @@
 <TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">17</TD>
 <TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">18</TD>
 <TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">19</TD>
-<TD CLASS="smallText" VALIGN="top" ALIGN="left"><FONT COLOR="#FF0000"><B>20</B></FONT><BR><SPAN CLASS="bodyTextBold"><B>Scrimage</B></SPAN><BR>Register: 2:00&nbsp;PM<BR>Compete: 3:00&nbsp;PM<BR><IMG BORDER="0" HEIGHT="1" WIDTH="50" SRC="/i/hs/clear.gif"><BR></TD>
+<TD CLASS="smallText" VALIGN="top" ALIGN="left"><FONT COLOR="#FF0000"><B>20</B></FONT><BR><SPAN CLASS="bodyTextBold"><B>Scrimmage</B></SPAN><BR>Register: 2:00&nbsp;PM<BR>Compete: 3:00&nbsp;PM<BR><IMG BORDER="0" HEIGHT="1" WIDTH="50" SRC="/i/hs/clear.gif"><BR></TD>
 <TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">21</TD>
 <TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">22</TD>
 </TR>
@@ -107,7 +107,7 @@
 <TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">24</TD>
 <TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">25</TD>
 <TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">26</TD>
-<TD CLASS="smallText" VALIGN="top" ALIGN="left"><FONT COLOR="#FF0000"><B>27</B></FONT><BR><SPAN CLASS="bodyTextBold"><B>Scrimage</B></SPAN><BR>Register: 2:00&nbsp;PM<BR>Compete: 3:00&nbsp;PM<BR><IMG BORDER="0" HEIGHT="1" WIDTH="50" SRC="/i/hs/clear.gif"><BR></TD>
+<TD CLASS="smallText" VALIGN="top" ALIGN="left"><FONT COLOR="#FF0000"><B>27</B></FONT><BR><SPAN CLASS="bodyTextBold"><B>Scrimmage</B></SPAN><BR>Register: 2:00&nbsp;PM<BR>Compete: 3:00&nbsp;PM<BR><IMG BORDER="0" HEIGHT="1" WIDTH="50" SRC="/i/hs/clear.gif"><BR></TD>
 <TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">28</TD>
 <TD BGCOLOR="#CCCCCC" CLASS="smallText" VALIGN="top" ALIGN="left">&nbsp;</TD>
 </TR>
