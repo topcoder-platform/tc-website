@@ -66,7 +66,7 @@ public class DemographicInput extends BaseTag {
             s.append(" class=\"" + cssclass + "\"");
         }
         s.append(" value=\"");
-        s.append(getDefaultValue());
+        s.append(getDefaultValue()==null?"":getDefaultValue());
         s.append("\"");
         s.append("/>");
         return s.toString();
@@ -95,7 +95,7 @@ public class DemographicInput extends BaseTag {
                 s.append("<option value=\"");
                 s.append(answer.getDemographicAnswerId());
                 s.append("\"");
-                if (getDefaultValue().equals(String.valueOf(answer.getDemographicAnswerId()))) {
+                if (getDefaultValue()!=null && getDefaultValue().equals(String.valueOf(answer.getDemographicAnswerId()))) {
                     s.append(" selected");
                 }
                 s.append(">");
