@@ -45,15 +45,15 @@
 <%-- Title --%>
             <table cellspacing="0" class="formFrame" align="center" width="530">
                 <tr>
-                    <td class="projectTitles">Design Project</td>
+                    <td class="projectTitles" nowrap="nowrap">Design Component Project - <rsc:item set="<%=projectDetail%>" name="component_name"/></td>
                 </tr>
                 <tr>
-                    <td class="projectHeaders" align="left">Project name: <rsc:item set="<%=projectDetail%>" name="component_name"/></td>
+                    <td class="projectHeaders" align="left">Overview</td>
                 </tr>
             </table>
             
                         <% if (projectDetail.getIntItem(0, "status_id")==303) {%>
-                            <img src="/i/development/tccc04_comp_badge.gif" alt="TCCC Qualifying Project" width="145" height="46" border="0" align="right"/>
+                            <img src="/i/development/tccc04_comp_badge.gif" alt="TCCC Qualifying Project" width="145" height="46" border="0" align="left"/>
                         <% } %>
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
@@ -63,13 +63,13 @@
                     <td class="bodyText">
 
 <%-- Overview --%>
-                        <p><strong>Overview</strong><br />
+                        <p>
                         <rsc:item set="<%=projectDetail%>" name="description"/>
                         </p>
 
 <%-- Technologies --%>
-                        <p class="noSpaceList"><strong>Technologies</strong></p>
-                        <ul class="noSpaceList">
+                        <p class="noSpListTitle"><strong>Technologies</strong></p>
+                        <ul class="noSpList">
                             <rsc:iterator list="<%=technologies%>" id="item">
                                 <li><rsc:item row="<%=item%>" name="technology_name"/></li>
                             </rsc:iterator>
@@ -99,10 +99,15 @@
 
                         <p>Members will also collect royalties on the revenue generated from the sale of the component. The total royalty per component will be equal to 10%* of the component's revenue, with 25%* of the royalty being paid to the designer, 25% to the developer(s), 25% to the Architecture Board member(s) and 25% to the Development Board member(s).  Royalties may be diluted if additional work is done to the component, as the total work effort for the component will increase.</p>
 
-                        <p><strong>Winning Designer</strong><br />
-                        Royalty Percentage - 25%</p>
+                        <p class="noSpListTitle"><strong>Winning Designer</strong></p>
 
                         <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
+                            <tr>
+                                <td class="bodyText" nowrap="nowrap">Royalty Percentage -</td><td class="bodyText" align="right">25%</td>
+                            </tr>
+                            <tr>
+                                <td class="bodyText" nowrap="nowrap" colspan="2">&#160;</td>
+                            </tr>
                             <tr>
                                 <td class="bodyText" nowrap="nowrap">Total Payment -</td><td class="bodyText" align="right">$<rsc:item set="<%=projectDetail%>" name="total_payment" format="0.00"/></td>
                             </tr>
@@ -118,15 +123,14 @@
                            Total Payment - $<rsc:item set="<%=projectDetail%>" name="second_place_payment" format="0.00"/><br/>
                         </p>
 <%-- Definition of Completion --%>
-                        <p class="noSpaceList"><strong>Project Completion</strong><br />
+                        <p class="noSpListTitle"><strong>Project Completion</strong><br />
                         *Completion of the project is defined as follows:</p>
 
-                        <ul class="noSpaceList">
+                        <ul class="noSpList">
                             <li>The Initial Submission has been delivered by the Initial Submission Due Date.</li>
                             <li>The Submission has been selected by the board as the winning submission.</li>
                             <li>Final payment is conditional on acceptance of the fully functional component by the Development Review Board.</li>
                         </ul>
-                        <br/>
 
 <%-- Eligibility Requirements --%>
             <table cellspacing="0" class="formFrame" align="center" width="530">
@@ -134,45 +138,50 @@
                     <td class="projectHeaders" align="left">Eligibility</td>
                 </tr>
             </table>
-            <br/>
-                        <p class="noSpaceList">
+                        <p class="noSpListTitle">
                         You must be a TopCoder member, at least 18 years of age, meeting all of the membership requirements and fit into one of the following categories:</p>
 
-                        <ul class="noSpaceList">
+                        <ul class="noSpList">
                             <li>A US Citizen </li>
                             <li>A Lawful Permanent Resident of the US</li>
                             <li>A temporary resident, asylee, refugee, or have a lawfully issued work authorization card permitting unrestricted employment.</li>
                             <li>A Non-US Citizen working in your country of residence.</li>
                         </ul>
 
-<%-- Time Line --%>
-            <br/>
+<%-- Timeline --%>
             <table cellspacing="0" class="formFrame" align="center" width="530">
                 <tr>
-                    <td class="projectHeaders" align="left">Time Line</td>
+                    <td class="projectHeaders" align="left">Timeline</td>
                 </tr>
             </table>
                         <p>
                         All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.</p>
 
-                        <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="300">
+                        <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="250">
                             <tr>
-                                <td class="bodyText">Posting Date:</td><td class="bodyText"><rsc:item set="<%=projectDetail%>" name="posting_date" format="MM.dd.yyyy"/></td>
+                                <td class="bodyText">Posting Date:</td><td class="bodyText" align="right"><rsc:item set="<%=projectDetail%>" name="posting_date" format="MM.dd.yyyy"/></td>
                             </tr>
                             <tr>
-                                <td class="bodyText">Initial Submission Due Date:</td><td class="bodyText"><rsc:item set="<%=projectDetail%>" name="initial_submission_date" format="MM.dd.yyyy"/></td>
+                                <td class="bodyText">Initial Submission Due Date:</td><td class="bodyText" align="right"><rsc:item set="<%=projectDetail%>" name="initial_submission_date" format="MM.dd.yyyy"/></td>
                             </tr>
                             <tr>
-                                <td class="bodyText">Winner Announced:</td><td class="bodyText"><rsc:item set="<%=projectDetail%>" name="winner_announced_date" format="MM.dd.yyyy"/></td>
+                                <td class="bodyText">Winner Announced:</td><td class="bodyText" align="right"><rsc:item set="<%=projectDetail%>" name="winner_announced_date" format="MM.dd.yyyy"/></td>
                             </tr>
                             <tr>
-                                <td class="bodyText">Final Submission Due Date:</td><td class="bodyText"><rsc:item set="<%=projectDetail%>" name="final_submission_date" format="MM.dd.yyyy"/></td>
+                                <td class="bodyText">Final Submission Due Date:</td><td class="bodyText" align="right"><rsc:item set="<%=projectDetail%>" name="final_submission_date" format="MM.dd.yyyy"/></td>
                             </tr>
                         </table>
+                        
+                        <br/>
 
 <%-- Register at TCS --%>
+            <table cellspacing="0" class="formFrame" align="center" width="530">
+                <tr>
+                    <td class="projectHeaders" align="left">Registration</td>
+                </tr>
+            </table>
 
-                            <p><strong>Registration</strong><br/>
+                            <p>
                            <% if (projectDetail.getStringItem(0, "project_status").equals("closed")) { %>
                                Registration is closed.
                            <% } else { %>
@@ -190,7 +199,12 @@
 
                             </p>
 
-                            <p><strong>Upload Your Submission</strong><br/>
+            <table cellspacing="0" class="formFrame" align="center" width="530">
+                <tr>
+                    <td class="projectHeaders" align="left">Upload Your Submission</td>
+                </tr>
+            </table>
+                            <p>
                             Managing your projects is now easier than ever with the Project Submit &amp; Review application. After you've inquired about a project,
                             use Project Submit &amp; Review to check timelines, submit solutions and final fixes, and review your scorecards.</p>
                             <%-- Learn more about Project Submit & Review (link to future How-to guide --%>
