@@ -36,7 +36,7 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="4"><img src="/i/clear.gif" width="4" height="5" alt="" border="0" /></td>
+        <td width="6"><img src="/i/clear.gif" width="6" height="5" alt="" border="0" /></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
@@ -326,8 +326,6 @@
                         
                         <p>What is the screening process? Read our <a class="statText" href="index?t=development&amp;c=comp_meth">methodology</a> to find out.</p>
                         
-                        <p>&#160;</p>
-                        
                         <hr width="100%" noshade="noshade" color="#666666" />
                         
                         <p><strong>Design and Development Terms</strong><br />
@@ -356,24 +354,14 @@
                 
             <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
                 <tr valign="top">
-                    <td bgcolor="#FFFFFF" width="10" align="right"><img src="/i/clear.gif" alt="" width="10" height="8" border="0" /></td>
-                    <td width="14"><img src="/i/table_mid_left2x.gif" alt="" width="14" height="8" border="0" /></td>
-                    <td width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
-                    <td bgcolor="#FFFFFF" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>    
-    
-                <tr valign="top">
-                    <td background="" bgcolor="#FFFFFF" width="10" align="right"><img src="/i/clear.gif" alt="" width="10" height="8" border="0" /></td>
-                    <td background="" bgcolor="#FFFFFF" width="14"><img src="/i/table_btm_left2.gif" alt="" width="14" height="8" border="0" /></td>
-                    <td background="" bgcolor="#FFFFFF" width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
-                    <td background="" bgcolor="#FFFFFF" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td height="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0" /></td>
                 </tr>
             </table>
         </td>
 <!-- Center Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="1"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td>
+        <td width="6"><img src="/i/clear.gif" width="6" height="1" alt="" border="0" /></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
