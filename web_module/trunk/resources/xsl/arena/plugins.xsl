@@ -21,7 +21,7 @@
 <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++" />
 </head>
 
-<body bgcolor="#CCCCCC" topmargin="0" marginheight="0" leftmargin="0" marginwidth="0">
+<body>
 
 <!-- Top begins -->
 <xsl:call-template name="Top" />
