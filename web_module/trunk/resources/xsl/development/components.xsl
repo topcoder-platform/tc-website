@@ -349,7 +349,7 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=7361823" class="statText" target="parent">Type Safe Enum</a></td>
                     <td class="statText" height="15" align="center">2</td>
-                    <td class="statText" height="15"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=152342"><strong>srowen</strong></a></td>
+                    <td class="statText" height="15"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296145"><strong>srowen</strong></a></td>
                     <td class="statText" height="15" align="center">88.80</td>
                     <td class="statText" height="15" align="right">$4,601.60&#160;&#160;</td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
