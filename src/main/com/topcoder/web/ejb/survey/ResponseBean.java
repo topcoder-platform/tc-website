@@ -12,6 +12,7 @@ import javax.ejb.EJBException;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.sql.ResultSet;
 
 public class ResponseBean extends BaseEJB {
 
@@ -119,6 +120,41 @@ public class ResponseBean extends BaseEJB {
 
             if (rows != 1)
                 throw new EJBException("Wrong number of rows in insert: " + rows);
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
+            throw new EJBException("SQLException creating user_id="+userId+" questionId="+questionId);
+        } catch (NamingException e) {
+            throw new EJBException("NamingException creating user_id="+userId+" questionId="+questionId);
+        } catch (Exception e) {
+            throw new EJBException("Exception creating user_id="+userId+" questionId="+questionId+":\n" + e.getMessage());
+        } finally {
+            close(ps);
+            close(conn);
+            close(ctx);
+        }
+    }
+
+
+    public boolean exists(long userId, long questionId) {
+        log.debug("exists called... user_id="+userId+" questionId="+questionId);
+
+        Context ctx = null;
+        PreparedStatement ps = null;
+        Connection conn = null;
+        DataSource ds = null;
+
+        try {
+            ctx = new InitialContext();
+
+            ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            conn = ds.getConnection();
+
+            ps = conn.prepareStatement("SELECT '1' FROM response WHERE user_id = ? AND question_id = ?");
+            ps.setLong(1, userId);
+            ps.setLong(2, questionId);
+
+            ResultSet rs = ps.executeQuery();
+            return rs.next();
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException creating user_id="+userId+" questionId="+questionId);

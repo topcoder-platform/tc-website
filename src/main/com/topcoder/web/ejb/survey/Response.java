@@ -11,4 +11,6 @@ public interface Response extends EJBObject{
     public void createResponse(long userId, long questionId, long answerId) throws RemoteException, EJBException;
 
     public void setResponseText(long userId, long questionId, String text) throws RemoteException, EJBException;
+
+    public boolean exists(long userId, long questionId) throws RemoteException, EJBException;
 }
