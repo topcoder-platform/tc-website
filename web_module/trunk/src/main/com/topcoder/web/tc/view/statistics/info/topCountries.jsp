@@ -79,7 +79,7 @@
          </td>
       </tr>
       <br/>
-      <tr><td align="right"><font size="-1">formula courtesy of ChristopherH</font></td></tr>
+      <tr><td align="right" class="bodyText">formula courtesy of ChristopherH</td></tr>
       <tr>
          <td align="center">
            <p><br /></p>
