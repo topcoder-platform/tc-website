@@ -8,7 +8,7 @@
 
 </head>
 
-<body bgcolor="#000000" marginwidth="0" marginheight="0" topmargin="0" leftmargin="0">
+<body bgcolor="#FFFFFF" marginwidth="0" marginheight="0" topmargin="0" leftmargin="0">
 
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr>
