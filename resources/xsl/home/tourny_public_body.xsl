@@ -175,8 +175,8 @@ low-level gray-name...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<
   <TR> 
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" COLSPAN="4" CLASS="bodyText"><A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><B>Single Round Match 107</B></A><BR/>
-Wednesday, August 7, 2002<BR/><BR/> 
+        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><B>Single Round Match 108</B></A><BR/>
+Wednesday, August 12, 2002<BR/><BR/> 
     </TD>    
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
   </TR> 
@@ -218,28 +218,28 @@ Wednesday, August 7, 2002<BR/><BR/>
           <TR>
              <TD VALIGN="middle" ROWSPAN="2" WIDTH="20%" ALIGN="center" CLASS="bodyText" BGCOLOR="#FFFF66" NOWRAP="0"><B>Div-I</B></TD>
              <TD VALIGN="middle" HEIGHT="16" WIDTH="10%" CLASS="bodyText">&#160;&#160;Best:</TD> 
-             <TD VALIGN="middle" WIDTH="35%" CLASS="bodyText" NOWRAP="0">&#160;&#160;HadesDev</TD>
-             <TD VALIGN="middle" WIDTH="15%" CLASS="bodyText" ALIGN="center">189</TD>
+             <TD VALIGN="middle" WIDTH="35%" CLASS="bodyText" NOWRAP="0">&#160;&#160;bstanescu</TD>
+             <TD VALIGN="middle" WIDTH="15%" CLASS="bodyText" ALIGN="center">183</TD>
              <TD VALIGN="middle" WIDTH="20%" CLASS="bodyText" NOWRAP="0">&#160;Room 4</TD>
           </TR>
           <TR>
              <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">&#160;&#160;Worst:</TD> 
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;jayberkenbilt</TD>
-             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">-265</TD>
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 4&#160;</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;biomass</TD>
+             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">-264</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 5&#160;</TD>
           </TR>
           <TR><TD COLSPAN="5" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>          
           <TR>
              <TD VALIGN="middle" ROWSPAN="2" ALIGN="center" CLASS="bodyText" BGCOLOR="#FFFF66" NOWRAP="0">&#160;<B>Div-II</B></TD>
              <TD VALIGN="middle" HEIGHT="16" CLASS="bodyText">&#160;&#160;Best:</TD> 
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;solaris_always</TD>
-             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">171</TD>
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 9</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;UFP2161</TD>
+             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">223</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 10</TD>
           </TR>
           <TR>
              <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">&#160;&#160;Worst:</TD> 
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;Epitel0920</TD>
-             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">-407</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;snapper</TD>
+             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">-230</TD>
              <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 10</TD>
           </TR>
           <!-- <TR><TD VALIGN="middle" HEIGHT="15" COLSPAN="5" BGCOLOR="#FFFFFF" CLASS="smallText">&#160;Login is required to view room details.</TD></TR>   -->                                
@@ -257,10 +257,10 @@ Wednesday, August 7, 2002<BR/><BR/>
   </TR>  
   <TR>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
-    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> By&#160;ZorbaTHut<BR/><I>[TC]&#160;Member</I><BR/></TD>
+    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/Logan_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> By&#160;Logan<BR/><I>[TC]&#160;Member</I><BR/></TD>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText" COLSPAN="2">
-    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>SRM 107</B></FONT>
+    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>SRM 108</B></FONT>
     </TD>
   </TR>      
   <TR>    
@@ -277,26 +277,22 @@ Wednesday, August 7, 2002<BR/><BR/>
     <TD VALIGN="top"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD> -->
     <TD VALIGN="top" CLASS="bodyText" WIDTH="100%">
       <A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm107_prob</xsl:attribute>
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm108_prob</xsl:attribute>
         <B>Problem Set Analysis &amp; Opinion</B>
       </A><BR/>
+<P>This set of problems was unusually easy, and correct solutions mostly came 
+about from an ability to follow directions. Surprisingly, considering the low 
+level of difficulty of the problems, only one person (out of 167) successfully 
+solved the Division-II Level 3 problem. The remaining problems generally showed 
+high success rates. </P>
+<P>Despite the easiness of the problems, only four coders solved all three of 
+their problems (all in Division-I): <B>bstanescu</B>, with a final score of 
+1421.7; <B>Yarin</B> with 1347.74; <B>ZorbaTHut</B> with 1302.99; and 
+<B>ShakeSpace</B> with 1077.79. In Division-II the competition was much more 
+intense, with most room leaders scoring in the 600s. </P>
 <P>
-Today provided some tougher problems than usual for the ranks in Division-I,
-with the curious side-effect of resubmissions by the three top scorers.
-<B>ZorbaTHut</B>, <B>radeye</B>, and <B>DjinnKahn</B> each had to resubmit a problem.
-Unfortunately, <B>radeye</B>'s resubmission failed anyway. I don't know about
-<B>DjinnKahn</B>, but I tested my bug in the practice rooms, and it passed systest
-fine, which is slightly frustrating, but that's how the game goes. In the
-end <B>Yarin</B> benefited from my uncertainty, taking first place in Div-I with
-1129.59 points.
-</P>
-
-<P>
-Today also provided one of the simplest problems I've ever seen, if you knew
-how to code it - the Division-II 450pt could be (and was) coded in five
-lines of Java. And continuing with the line of unexpected solutions, the
-Division-I 800pt problem was, in the end, simply brute-force...<A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm107_prob</xsl:attribute>get&#160;analysis
+<A CLASS="bodyGeneric">
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm108_prob</xsl:attribute>get&#160;analysis
       </A></P>
     </TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>     
