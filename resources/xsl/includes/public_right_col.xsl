@@ -56,9 +56,9 @@ function find(n) {
             <A href="/?t=about_tc&amp;c=jobs"><img src="/i/es/proj_manager_promo.gif" alt="" width="170" height="106" border="0" /></A><br />
 
             <img alt="" width="1" height="10" src="/i/clear.gif" border="0"/><br />
--->
                 </xsl:otherwise>
             </xsl:choose>
+-->
 
             <xsl:call-template name="calendar"/>
 
