@@ -132,10 +132,10 @@ public class DBMS {
      * @throws SQLException
      */
     public static final java.sql.Connection getTransConnection() throws SQLException {
-//        return getConnection(JTS_OLTP_DATASOURCE_NAME);
-        java.sql.Connection result = null;
-        result = DriverManager.getConnection(DBMS.JMA_INFORMIX_POOL_JTS);
-        return result;
+        return getConnection(JTS_OLTP_DATASOURCE_NAME);
+//        java.sql.Connection result = null;
+//        result = DriverManager.getConnection(DBMS.JMA_INFORMIX_POOL_JTS);
+//        return result;
     }
 
     /**
