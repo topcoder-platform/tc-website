@@ -118,7 +118,7 @@ public class UpdateCandidate extends BaseProcessor {
 
                     UserHome uHome = (UserHome)
                             PortableRemoteObject.narrow(
-                                    context.lookup(UserHome.class.getName()), UserHome.class);
+                                    getInitialContext().lookup(UserHome.class.getName()), UserHome.class);
                     User user = uHome.create();
 
                     if (!user.userExists(userId, DBMS.SCREENING_JTS_OLTP_DATASOURCE_NAME)) {
@@ -126,7 +126,7 @@ public class UpdateCandidate extends BaseProcessor {
 
                         CoderHome cHome = (CoderHome)
                                 PortableRemoteObject.narrow(
-                                        context.lookup(CoderHome.class.getName()), CoderHome.class);
+                                        getInitialContext().lookup(CoderHome.class.getName()), CoderHome.class);
                         Coder coder = cHome.create();
                         coder.createCoder(userId, createCoderStatusId);
 
@@ -154,7 +154,7 @@ public class UpdateCandidate extends BaseProcessor {
 
                     CompanyCandidateHome ccHome = (CompanyCandidateHome)
                             PortableRemoteObject.narrow(
-                                    context.lookup(CompanyCandidateHome.class.getName()),
+                                    getInitialContext().lookup(CompanyCandidateHome.class.getName()),
                                     CompanyCandidateHome.class);
                     CompanyCandidate candidate = ccHome.create();
                     candidate.createCompanyCandidate(companyId, userId);

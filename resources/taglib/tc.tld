@@ -134,5 +134,22 @@
         </attribute>
     </tag>
 
+    <tag>
+        <name>problemRatingDistributionIterator</name>
+        <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
+        <teiclass>com.topcoder.web.tc.view.tag.ProblemRatingDistributionInfo</teiclass>
+        <bodycontent>JSP</bodycontent>
+        <info></info>
+        <attribute>
+            <name>id</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>list</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
 
 </taglib>
