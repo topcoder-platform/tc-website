@@ -74,7 +74,7 @@ function openWin(url, name, w, h) {
                   <table border=0 cellspacing=0 width="100%">
                      <tr>
                         <td valign="top"><p><font size="-1"><br/>Registration will open on Wednesday, October 1 at 8:00AM EDT and will close on Wednesday, October 15 at 5:00PM EDT.  Registration is unlimited.</font></p></td>
-                        <td align="right" valign="top"><img hspace="10" vspace="5" src="http://www.google.com/codejam/codejam_info.gif" width="150" height="390" border="0"></td>
+                        <td align="right" valign="top"><img hspace="10" vspace="5" src="/i/events/google2003/codejam_info.gif" width="150" height="390" border="0"></td>
                      </tr>
                   </table
                   <p><br /></p>

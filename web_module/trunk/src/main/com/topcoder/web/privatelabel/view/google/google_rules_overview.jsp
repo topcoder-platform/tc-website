@@ -51,7 +51,7 @@ function openWin(url, name, w, h) {
 	
 	<div align="center">
 <%-- Google Header--%>
-<img width="276" height="110" src="http://www.google.com/codejam/codejam_logo.gif" alt="Google Code Jam logo">
+<img width="276" height="110" src="/i/events/google2003/codejam_info.gif" alt="Google Code Jam logo">
 
 <table border=0 cellspacing=5 width="740">
    <tr> 

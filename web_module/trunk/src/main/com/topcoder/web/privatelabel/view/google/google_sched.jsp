@@ -70,7 +70,7 @@ function openWin(url, name, w, h) {
                      </font>
                   </div><br><br>
                   <b><font size="+1">Schedule</font></b>
-                  <img align="right" hspace="10" vspace="5" src="http://www.google.com/codejam/codejam_info.gif" width="150" height="390" border="0">
+                  <img align="right" hspace="10" vspace="5" src="/i/events/google2003/codejam_info.gif" width="150" height="390" border="0">
             
 <!-- Qualification Rounds begins -->
                   <p><font color="006633" size="3"><b>Qualification Rounds</b></font></p>

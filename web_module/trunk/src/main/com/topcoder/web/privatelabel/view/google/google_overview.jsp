@@ -70,7 +70,7 @@ function openWin(url, name, w, h) {
                   </font>
                   </div><br><br>
                   <b><font size="+1">Tough problems. Intense competition. No pressure.</font></b>
-                  <img align="right" hspace="10" vspace="5" src="http://www.google.com/codejam/codejam_info.gif" width="150" height="390" border="0">
+                  <img align="right" hspace="10" vspace="5" src="/i/events/google2003/codejam_info.gif" width="150" height="390" border="0">
                   <p><font size="-1">Do you have exceptional programming skills? Can you make computers perform like silicon puppets with just a few well-expressed commands? Are you at ease when faced with a  hard stop and a group of peers evaluating every line of your code? Here’s your opportunity to display the grace of the true professional in a reward-rich environment.
 		    <br><br>
 Google is looking for engineers with the programming skill to rewrite the world’s information infrastructure. The Google Code Jam 2003 is one way we hope to find them. Your participation in this contest gives us a chance to observe how you operate in conditions similar to the all-out environment within the Googleplex. Think of it as a job interview with a large potential cash bonus just for showing up. 
