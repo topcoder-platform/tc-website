@@ -63,6 +63,23 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<!-- Computer World  -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="http://www.computerworld.com/developmenttopics/development/story/0,10801,89274,00.html?SKC=development-89274" target="_blank"><img src="/i/pressroom/computerworld.gif" alt="Digital Journal" width="135" height="35" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://www.computerworld.com/developmenttopics/development/story/0,10801,89274,00.html?SKC=development-89274" target="_blank">Standards penetrate telecom industry</A></strong></font><br />
+                        Transferring phone numbers between telecommunications service providers seems like a logical 
+                        feature that should have always existed. However, it took an act of Congress to enable the Federal 
+                        Communications Commission to announce that cell phone numbers could be transferred between carriers 
+                        beginning last fall. (As if it were so simple that an act of Congress could make it work.).<span class="prHead"> [January 9]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+ 
 <!-- Digital Journal.com -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
@@ -72,7 +89,7 @@
                         <p><font size="3"><strong><A href="http://www.digitaljournal.com/news/?articleID=3913" target="_blank">World's Top Coder Takes Home $50,000 in Computing Contest</A></strong></font><br />
                         Czajka began the tournament as the #2 seed, rated second among more than 34,000 developers in the TopCoder online community. 
                         After "out-coding" Jimmy Mardell of Stockholm, Sweden, Bogdan Stanescu of Fairfax, VA, and Jiqing Tang of Hong Kong in the 
-                        Championship round, Czajka earned his spot as the highest-rated TopCoder member.<span class="prHead"> [January 9]</span></p>
+                        Championship round, Czajka earned his spot as the highest-rated TopCoder member.<span class="prHead"> [January 26]</span></p>
                     </td>
                 </tr>
             </table>
@@ -93,8 +110,6 @@
                 </tr>
             </table>
 
-            <hr width="100%" size="1" noshade="noshade" />
-            
 <!-- 2003 -->
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
                 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2003</font></td></tr>
