@@ -104,7 +104,7 @@ public final class TaskDevelopment {
             devTag.addTag(new ValueTag("date", date));
             String xsldocURLString = null;
             String project = Conversion.checkNull(request.getParameter("Project"));
-            if(payment.equals(""))
+            if(!payment.equals(""))
             {
                 NumberFormat format = NumberFormat.getCurrencyInstance();
                 
