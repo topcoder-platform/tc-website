@@ -52,28 +52,34 @@
         |
         -->
         <init-param>
+            <param-name>jsp_root</param-name>
+            <param-value>/corp/</param-value>
+            <description>all unresolved requests will go here</description>
+        </init-param>
+
+        <init-param>
             <param-name>page-welcome</param-name>
-            <param-value>/corp/index.jsp</param-value>
+            <param-value>index.jsp</param-value>
             <description>all unresolved requests will go here</description>
         </init-param>
         <init-param>
             <param-name>page-login</param-name>
-            <param-value>/corp/LoginPage.jsp</param-value>
+            <param-value>LoginPage.jsp</param-value>
             <description>unauthorized anonymous users will go here</description>
         </init-param>
         <init-param>
             <param-name>page-error-navigation</param-name>
-            <param-value>/corp/exc/NavigationError.jsp</param-value>
+            <param-value>exc/NavigationError.jsp</param-value>
             <description>navigation errors like rc404, file not found, etc. will go here</description>
         </init-param>
         <init-param>
             <param-name>page-error-security</param-name>
-            <param-value>/corp/exc/SecurityError.jsp</param-value>
+            <param-value>exc/SecurityError.jsp</param-value>
             <description>security exceptions (authentification, authorization) will fetch this page</description>
         </init-param>
         <init-param>
             <param-name>page-error-internal</param-name>
-            <param-value>/corp/exc/InternalError.jsp</param-value>
+            <param-value>exc/InternalError.jsp</param-value>
             <description>unexpected (null pointer and similar) exceptions will fed this page</description>
         </init-param>
 
@@ -86,12 +92,12 @@
         -->
         <init-param>
             <param-name>page-Registration-success</param-name>
-            <param-value>/corp/reg/RegSuccess.jsp</param-value>
+            <param-value>reg/RegSuccess.jsp</param-value>
             <description></description>
         </init-param>
         <init-param>
             <param-name>page-Registration-retry</param-name>
-            <param-value>/corp/reg/Registration.jsp</param-value>
+            <param-value>reg/Registration.jsp</param-value>
             <description></description>
         </init-param>
         <init-param>
@@ -101,7 +107,7 @@
         </init-param>
         <init-param>
             <param-name>page-UserEdit-retry</param-name>
-            <param-value>/corp/acc_admin/AddUser.jsp</param-value>
+            <param-value>acc_admin/AddUser.jsp</param-value>
             <description></description>
         </init-param>
 
@@ -112,7 +118,7 @@
         -->
         <init-param>
             <param-name>page-UserList</param-name>
-            <param-value>/corp/acc_admin/UserListView.jsp</param-value>
+            <param-value>acc_admin/UserListView.jsp</param-value>
             <description></description>
         </init-param>
 
