@@ -109,7 +109,7 @@
                         <TR><TD><A HREF="#java4" CLASS="bodyText">What options are set when starting up the VM?</A></TD></TR>                                                
                         
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>
-                        <TR><TD HEIGHT="5" VALIGN="top" CLASS="bodyText"><B>C#</B></TD></TR>                        
+                        <TR><TD HEIGHT="5" VALIGN="top" CLASS="bodyText"><B>Microsoft® Visual C#® .NET or Microsoft® Visual Basic® .NET</B></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
                         <TR><TD><A HREF="#c1" CLASS="bodyText">How is my submission judged?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
@@ -296,12 +296,12 @@ cost-effectively.</TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR> 
                         
                         <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                                                
-                        <TR><TD HEIGHT="5" VALIGN="top" CLASS="bodyText"><B>C#</B></TD></TR>
+                        <TR><TD HEIGHT="5" VALIGN="top" CLASS="bodyText"><B>Microsoft® Visual C#® .NET or Microsoft® Visual Basic® .NET</B></TD></TR>
                         <TR><TD HEIGHT="10" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>                                                
                         <TR><TD CLASS="bodyText"><A NAME="c1"><B>How is my submission judged?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">
 <P>TopCoder submissions typically consist of a single class definition. For each test, one instance of the class is constructed; then the method described in the problem is called with the test arguments. Therefore, your method must be public, and your class must be instantiable: public default constructor, no abstract methods, etc. </P>
-<P>Each C# test is performed in a separate thread. The process is forcibly terminated after consuming 8 seconds of System time.</P>
+<P>Each Microsoft® Visual C#® .NET or Microsoft® Visual Basic® .NET test is performed in a separate thread. The process is forcibly terminated after consuming 8 seconds of System time.</P>
 <P>If your method does return a value, that is the only basis for judging correctness.</P>
                         </TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
