@@ -85,7 +85,9 @@ pageContext.setAttribute("resultRow", rsr);
                    <TD COLSPAN="4" CLASS="statText" VALIGN="middle" HEIGHT="16">
                      <A HREF="/stat?c=member_profile&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Profile</A>
                      |   
-                     <A HREF="/stat?c=component_history&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Component History</A>
+                     <A HREF="/stat?c=component_history&pi=112&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Design History</A>
+                     |   
+                     <A HREF="/stat?c=component_history&pi=113&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Development History</A>
                      |   
 <% 
    if(srb.getProperty("pi").equals("113"))
