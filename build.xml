@@ -53,6 +53,7 @@
       <mkdir dir="${servlets}/${statservlets}" />
       <mkdir dir="${servlets}/${webservlets}" />
       <mkdir dir="${servlets}/${pactsservlets}" />
+      <mkdir dir="${public_html}/WEB-INF/lib">
    </target>
 
     <target name="check_java_version">
