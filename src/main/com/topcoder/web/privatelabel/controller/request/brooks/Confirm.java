@@ -92,6 +92,20 @@ public class Confirm extends FullRegConfirm {
             {
                 addError(Constants.DEMOG_PREFIX + Constants.BROOKS_REFERRAL_QUESTION_ID, "Please choose a maximum of three answers.");
             }
+            
+            try {
+                if(hasErrors()) {
+                    //lookup if email is an existing one
+                    if(emailExists(info.getEmail())) {
+                        getRequest().setAttribute("extraquestion", "true");
+                    } else {
+                        getRequest().setAttribute("extraquestion", "false");
+                        removeError("demog_61");
+                    }
+                }
+            } catch (Exception e) {
+                throw new TCWebException(e);
+            }
         
         }
         catch(Exception e)
