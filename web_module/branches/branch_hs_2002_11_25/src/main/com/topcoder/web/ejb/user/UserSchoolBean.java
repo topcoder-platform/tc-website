@@ -282,6 +282,7 @@ public class UserSchoolBean implements SessionBean {
         }
       }
     }
+    return(school_id);
   }
 
   public boolean isCurrentUserSchoolId(long _user_id,long _school_id)
