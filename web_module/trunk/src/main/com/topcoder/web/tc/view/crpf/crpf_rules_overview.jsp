@@ -46,13 +46,13 @@
                
 <!-- Tab bar links-->
 <jsp:include page="crpfLinks.jsp" >
-   <jsp:param name="selectedTab" value="overview"/>
+   <jsp:param name="selectedTab" value="rules"/>
 </jsp:include>
 
 <!-- Tab bar sublinks-->
 <jsp:include page="crpfSublinks.jsp" >
-   <jsp:param name="selectedList" value=""/>
-   <jsp:param name="selectedTab" value=""/>
+   <jsp:param name="selectedList" value="rules"/>
+   <jsp:param name="selectedTab" value="overview"/>
 </jsp:include>
 
                
