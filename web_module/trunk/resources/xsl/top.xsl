@@ -10,121 +10,117 @@
   </xsl:template>
   <xsl:template name="Top">
 
-<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#000000">    
-    <TR>
-        <TD VALIGN="middle" BGCOLOR="#333333" CLASS="time" NOWRAP="0"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0" HSPACE="5"/></TD>
-        <TD VALIGN="middle" BGCOLOR="#333333" NOWRAP="0" CLASS="registerToday"><SPAN CLASS="time">&#160;&#160;&#160;&#160;Current Member Count</SPAN>&#160;:&#160; <xsl:value-of select="format-number(/TC/MemberCount,'#,##0')"/> - <span class="time"><xsl:call-template name="DateTime"/></span><a href="Javascript:tcTime()" class="statText">[Get Time]</a></TD>
-        <TD VALIGN="middle" BGCOLOR="#333333" WIDTH="100%" ALIGN="right" CLASS="globalNavSmall" NOWRAP="0">
-                <xsl:choose>
-                  <xsl:when test="/TC/LoggedIn='true'">
-                    <A TARGET="_parent" CLASS="globalNavSmall">
-                      <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=authentication&amp;c=submit_logout</xsl:attribute>
-                      Logout
-                    </A>
-                  </xsl:when>
-                  <xsl:otherwise>
-                    <A TARGET="_parent" CLASS="globalNavSmall">
-                      <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=authentication&amp;c=login</xsl:attribute>
-                      Login
-                    </A>
-                  </xsl:otherwise>
-                </xsl:choose>&#160;&#160;&#160;|&#160;&#160;&#160;
-                <A TARGET="_parent" CLASS="globalNavSmall">
-                  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/></xsl:attribute>
-                  Home
-                </A>
-              </TD>
-              <TD WIDTH="15" BGCOLOR="#333333"><IMG SRC="/i/clear.gif" WIDTH="15" HEIGHT="1" BORDER="0" VSPACE="8"/></TD>
-            </TR>
-            <TR>
-              <TD BGCOLOR="#000000" COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-            </TR>                
-    </TABLE> 
+<table width="100%" border="0" cellpadding="3" cellspacing="0" class="search">    
+    <tr valign="middle">
+        <td><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
+        <td nowrap="0" class="registerToday"><span class="time">Current Member Count</span>&#160;:&#160; <xsl:value-of select="format-number(/TC/MemberCount,'#,##0')"/> - <span class="time"><xsl:call-template name="DateTime"/></span><a href="Javascript:tcTime()" class="statText">[Get Time]</a></td>
+        <td width="99%" align="right" class="login" nowrap="0">
+
+            <xsl:choose>
+                <xsl:when test="/TC/LoggedIn='true'">
+                    <A class="loginLinks" target="_parent"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=authentication&amp;c=submit_logout</xsl:attribute>Logout</A>
+                    &#160;&#160;|&#160;&#160;<A class="loginLinks" target="_parent"><xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>Update Profile</A>
+                </xsl:when>
+                <xsl:otherwise>
+                    <A class="loginLinks" target="_parent"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=authentication&amp;c=login</xsl:attribute>Login</A>
+                    &#160;&#160;|&#160;&#160;<A class="loginLinks" target="_parent"><xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>Register</A>
+                </xsl:otherwise>
+            </xsl:choose>
+            
+            &#160;&#160;|&#160;&#160;<A target="_parent" class="loginLinks"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/></xsl:attribute>Home</A>
+        </td>
+        <td><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
+    </tr>
+</table> 
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">    
+    <tr><td width="100%"><img src="/i/clear.gif" width="1" height="1" border="0"/></td></tr>                
+</table> 
 
 <!-- Logo Bar Include Begins -->       
-<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#000000">            
-    <TR valign="middle">
-        <TD WIDTH="15" BGCOLOR="#000000"><A NAME="top"></A><IMG SRC="/i/clear.gif" WIDTH="15" HEIGHT="1" BORDER="0"/></TD>
-        <TD WIDTH="206" BGCOLOR="#000000">
-          <A TARGET="_parent">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">            
+    <tr valign="middle">
+        <td width="15" bgcolor="#000000"><a name="top"></a><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
+        <td width="206" bgcolor="#000000">
+          <a target="_parent">
             <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=home&amp;c=public_home</xsl:attribute>
-            <IMG SRC="/i/logo.gif" WIDTH="206" HEIGHT="49" BORDER="0" VSPACE="5"/>
-          </A>
-        </TD>
-        <TD WIDTH="20" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0" HSPACE="15"/></TD>
-        <TD CLASS="time" VALIGN="bottom" NOWRAP="" ALIGN="right">
+            <img src="/i/logo.gif" width="206" height="49" border="0" vspace="5"/>
+          </a>
+        </td>
+        <td width="20" bgcolor="#000000"><img src="/i/clear.gif" width="1" height="1" border="0" hspace="15"/></td>
+        <td class="time" valign="bottom" nowrap="" align="right">
 
 <xsl:choose>
     <xsl:when test="/TC/LoggedIn='true'">
-            <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">            
-                <TR>
-                    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="75" BORDER="0"/></TD>
-                    <TD WIDTH="100%" BGCOLOR="#333333">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">            
+                <tr>
+                    <td><img src="/i/clear.gif" width="1" height="75" border="0"/></td>
+                    <td width="100%" bgcolor="#333333">
                         <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
                         <xsl:when test="number(/TC/Rating)&lt;1200">top_div2_badge</xsl:when>
                         <xsl:otherwise>top_div1_badge</xsl:otherwise></xsl:choose>.jpg</xsl:attribute>                   
-                        <IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="75" BORDER="0"/>
-                    </TD>
+                        <img src="/i/clear.gif" width="1" height="75" border="0"/>
+                    </td>
                     
-                    <TD CLASS="time" ALIGN="right" VALIGN="middle" WIDTH="150" BGCOLOR="#333333"><IMG SRC="/i/clear.gif" WIDTH="150" HEIGHT="1" BORDER="0"/><BR/>
-                        <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">            
-                                <TR>
-                                   <TD class="time" HEIGHT="18" VALIGN="middle" ALIGN="center" BGCOLOR="#000000">                                                                           
-                                        <A>
+                    <td class="time" align="right" valign="middle" width="150" bgcolor="#333333"><img src="/i/clear.gif" width="150" height="1" border="0"/><br/>
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0">            
+                                <tr>
+                                   <td class="time" height="18" valign="middle" align="center" bgcolor="#000000">                                                                           
+                                        <a>
                                         <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=member_profile&amp;Coder_Id=<xsl:value-of select="/TC/UserId"/></xsl:attribute>
                                         <xsl:attribute name="class">
                                             <xsl:call-template name="GetRatingClass"><xsl:with-param name="rating"><xsl:value-of select="/TC/Rating"/></xsl:with-param></xsl:call-template>
                                         </xsl:attribute>
-                                        <B><xsl:value-of select="/TC/Handle"/></B>
-                                        </A>
-                                </TD>
-                            </TR>
+                                        <b><xsl:value-of select="/TC/Handle"/></b>
+                                        </a>
+                                </td>
+                            </tr>
                          
-                            <TR><form name="selectform">
-                                <TD class="time" HEIGHT="18" VALIGN="middle" ALIGN="center">                                                                         
+                            <tr><form name="selectform">
+                                <td class="time" height="18" valign="middle" align="center">                                                                         
                                     <select name="quickstat" size="1" class="dropdown" onchange="window.location=this.options[this.selectedIndex].value">      
-                                        <OPTION value="SELECTED"> Select a Feature: </OPTION>
-                                        <OPTION><xsl:attribute name="value">/stat?c=member_profile&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>Profile</OPTION>
-                                        <OPTION><xsl:attribute name="value">/stat?c=ratings_history&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>Rating History</OPTION>
-                                        <OPTION><xsl:attribute name="value">/stat?c=earnings_history&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>Earnings History</OPTION>
-                                        <OPTION><xsl:attribute name="value">/stat?c=coder_room_stats&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>Room Statistics</OPTION> 
-                                        <OPTION><xsl:attribute name="value">/stat?c=round_stats</xsl:attribute>Round Statistics</OPTION>
-                                        <OPTION><xsl:attribute name="value">/index?t=search</xsl:attribute>Advanced Member Search</OPTION> 
-                                        <OPTION><xsl:attribute name="value">/PactsMemberServlet</xsl:attribute>Affidavits</OPTION> 
-                                        <OPTION><xsl:attribute name="value">/index?t=search&amp;c=refer</xsl:attribute>My Referrals</OPTION>
-                                        <OPTION><xsl:attribute name="value">/index?t=development&amp;c=index</xsl:attribute>Development</OPTION>
-                                        <OPTION><xsl:attribute name="value">/index?t=tces&amp;c=index</xsl:attribute>TCES (jobs)</OPTION> 
+                                        <option value="SELECTED"> Select a Feature: </option>
+                                        <option><xsl:attribute name="value">/stat?c=member_profile&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>Profile</option>
+                                        <option><xsl:attribute name="value">/stat?c=ratings_history&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>Rating History</option>
+                                        <option><xsl:attribute name="value">/stat?c=earnings_history&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>Earnings History</option>
+                                        <option><xsl:attribute name="value">/stat?c=coder_room_stats&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>Room Statistics</option> 
+                                        <option><xsl:attribute name="value">/stat?c=round_stats</xsl:attribute>Round Statistics</option>
+                                        <option><xsl:attribute name="value">/index?t=search</xsl:attribute>Advanced Member Search</option> 
+                                        <option><xsl:attribute name="value">/PactsMemberServlet</xsl:attribute>Affidavits</option> 
+                                        <option><xsl:attribute name="value">/index?t=search&amp;c=refer</xsl:attribute>My Referrals</option>
+                                        <option><xsl:attribute name="value">/index?t=development&amp;c=index</xsl:attribute>Development</option>
+                                        <option><xsl:attribute name="value">/index?t=tces&amp;c=index</xsl:attribute>TCES (jobs)</option> 
                                     </select>
-                                </TD></form>
-                            </TR>                                 
-                        </TABLE>
-                    </TD>
-                    <TD WIDTH="10" BGCOLOR="#333333"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-                </TR>             
-                </TABLE>
+                                </td></form>
+                            </tr>                                 
+                        </table>
+                    </td>
+                    <td width="10" bgcolor="#333333"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+                </tr>             
+                </table>
             </xsl:when>             
             
             <xsl:otherwise>
-                <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">            
-                    <TR>
-                        <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-                        <TD WIDTH="99%"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-                        <TD WIDTH="190"><IMG SRC="/i/clear.gif" WIDTH="190" HEIGHT="1" BORDER="0"/></TD>
-                        <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-                    </TR> 
+                <table width="100%" border="0" cellpadding="0" cellspacing="0">            
+                    <tr>
+                        <td><img src="/i/clear.gif" width="1" height="1" border="0"/></td>
+                        <td width="99%"><img src="/i/clear.gif" width="1" height="1" border="0"/></td>
+                        <td width="190"><img src="/i/clear.gif" width="190" height="1" border="0"/></td>
+                        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+                    </tr> 
                     
-                    <TR>
-                        <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-                        <TD WIDTH="99%"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-                        <TD WIDTH="190"><IMG SRC="/i/clear.gif" WIDTH="190" HEIGHT="74" BORDER="0"/></TD>
-                        <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-                    </TR>           
-                </TABLE>                    
+                    <tr>
+                        <td><img src="/i/clear.gif" width="1" height="1" border="0"/></td>
+                        <td width="99%"><img src="/i/clear.gif" width="1" height="1" border="0"/></td>
+                        <td width="190"><img src="/i/clear.gif" width="190" height="74" border="0"/></td>
+                        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+                    </tr>           
+                </table>                    
     </xsl:otherwise>
 </xsl:choose>                
-            </TD>        
-        </TR>             
-</TABLE>
+            </td>        
+        </tr>             
+</table>
 
     <xsl:call-template name="TopMenu"/>
   </xsl:template>
