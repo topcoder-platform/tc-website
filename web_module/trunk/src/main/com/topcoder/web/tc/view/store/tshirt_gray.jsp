@@ -10,7 +10,7 @@
     function doSubmit(selection) {
       sel = selection.options[selection.selectedIndex].value;
       if (sel == "#") {
-        alert("Please choose an item from the list.");
+        alert("Please choose a size from the menu.");
         selection.focus();
       } else {
         window.open(sel, 'buyWindow');
@@ -75,7 +75,6 @@
                                           </select>
                                           </td>
                                           <td valign="middle" class="bodyText" width="100%">
-
                                           <input type="button" onClick="doSubmit(document.sizeSelect.menu);" value="Buy Now" class="bodyText">
                                           </td>
                                         </form>
