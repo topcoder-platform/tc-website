@@ -105,9 +105,6 @@ public class Cache {
             if ( inArray(args,"data") ) {
               cacheIp = cache.resetAll();
             }
-            if ( inArray(args,"xsl") ) {
-              cacheIp = cache.resetXSL();
-            }
             for ( int j = 0; j < host.length; j++ ) {
               if ( byteArraysEqual(cacheIp,host[j].getAddress()) ) {
                 found[j]=true;

@@ -640,47 +640,6 @@ public class UtilBean extends BaseEJB {
     return result;
   }
 
-/**
- *****************************************************************
- * The logMail method creates a log of all out goimg
- * mail messages being sent from the TC Web.  Mail that 
- * is sent directly to the Exchange Server will be handled 
- * directly (no record of these are stored in the mail_log.
- *****************************************************************
- */
-  public int logMail(EMailMessage mail) throws RemoteException  {
-    Connection conn = null;
-    PreparedStatement ps = null;
-    int RetVal = 0;
-    javax.naming.Context ctx = null;
-    try {
-      ctx = new javax.naming.InitialContext();
-      javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
-      conn = ds.getConnection();
-      ps = conn.prepareStatement("INSERT INTO mail_log (coder_id, reason, timestamp) VALUES (?,?,?)");
-      // coder_mail
-      ps.setInt(1, mail.getCoderId());
-      ps.setString(2, mail.getReason());
-      ps.setTimestamp(3, DateTime.getCurrentTimestamp(conn));
-      RetVal = ps.executeUpdate();			
-    // Close the try
-    } catch (SQLException sqe) {
-      sqe.printStackTrace();
-      throw new RemoteException (sqe.getMessage());
-    } catch (Exception e) {
-      e.printStackTrace();
-      throw new RemoteException (e.getMessage());
-    } finally {
-      try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
-      try { if (conn   != null) conn.close();  } catch (Exception ignore) {log.debug ( "conn   close problem");}
-      if (ctx != null)  { try { ctx.close(); } catch (Exception ignore) {} }
-      ps = null;
-      conn = null;
-    }
-    return RetVal;
-  }
-
-
   ////////////////////////////////////////////////////////////
   public void incrementSponsorHitCount ( String link, String refer )
     throws RemoteException {

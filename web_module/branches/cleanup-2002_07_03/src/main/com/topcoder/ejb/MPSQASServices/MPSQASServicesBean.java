@@ -1,8 +1,7 @@
 package com.topcoder.ejb.MPSQASServices;
 
 import java.net.*;
-import com.topcoder.common.web.util.Mail;
-import com.topcoder.common.web.data.EMailMessage;
+import com.topcoder.shared.util.*;
 import com.topcoder.mpsqas.tester.TesterWaiter;
 import com.topcoder.mpsqas.compiler.CompilerWaiter;
 import javax.ejb.*;
@@ -209,7 +208,7 @@ public class MPSQASServicesBean extends BaseEJB {
         ps.setInt(2,userId);
         rs=ps.executeQuery();
 
-        EMailMessage email=new EMailMessage();
+        TCSEmailMessage email=new TCSEmailMessage();
         StringBuffer emailBody=new StringBuffer(256);
         while(rs.next())
         {
@@ -227,13 +226,11 @@ public class MPSQASServicesBean extends BaseEJB {
           emailBody.append("\nLog into the applet to work on the problem further.\n\n");
           emailBody.append("-mpsqas\n\n");
           emailBody.append("This is an automated message from MPSQAS.\n");
-          email.setMailSubject("New Correspondence For "+className);
-          email.setMailSentDate(new java.sql.Date(System.currentTimeMillis()));
-          email.setMailText(emailBody.toString());
-          email.setMailFromAddress(ApplicationConstants.FROM_EMAIL_ADDRESS);
-          email.setMode("S");
-          email.setMailToAddress(rs.getString(2));
-          Mail.sendMail(email);
+          email.setSubject("New Correspondence For "+className);
+          email.setBody(emailBody.toString());
+          email.setFromAddress(ApplicationConstants.FROM_EMAIL_ADDRESS);
+          email.addToAddress(rs.getString(2), TCSEmailMessage.TO);
+          EmailEngine.send(email);
         }
       }
       catch(Exception e)
@@ -1407,7 +1404,7 @@ public class MPSQASServicesBean extends BaseEJB {
           try
           {
             //send an email to the user
-            EMailMessage email=new EMailMessage();
+            TCSEmailMessage email=new TCSEmailMessage();
             String type = (status == MessageTypes.PROPOSAL_PENDING_APPROVAL)
                           ? "Proposal" 
                           : "Submission";
@@ -1440,13 +1437,11 @@ public class MPSQASServicesBean extends BaseEJB {
             emailBody.append("further.\n\n");
             emailBody.append("-mpsqas\n\n");
             emailBody.append("This is an automated message from MPSQAS.\n");
-            email.setMailSubject("TopCoder Problem "+type+" "+statusS);
-            email.setMailSentDate(new java.sql.Date(System.currentTimeMillis()));
-            email.setMailText(emailBody.toString());
-            email.setMailFromAddress(ApplicationConstants.FROM_EMAIL_ADDRESS);
-            email.setMode("S");
-            email.setMailToAddress(emailAddy);
-            Mail.sendMail(email);
+            email.setSubject("TopCoder Problem "+type+" "+statusS);
+            email.setBody(emailBody.toString());
+            email.setFromAddress(ApplicationConstants.FROM_EMAIL_ADDRESS);
+            email.addToAddress(emailAddy, TCSEmailMessage.TO);
+            EmailEngine.send(email);
           }
           catch(Exception e)
           {
@@ -2398,7 +2393,7 @@ public class MPSQASServicesBean extends BaseEJB {
         sqlStr.append("WHERE user_id = ? ");
         ps = conn.prepareStatement(sqlStr.toString());
 
-        EMailMessage email;
+        TCSEmailMessage email;
         StringBuffer emailBody = new StringBuffer(256);
 
         //compose email to writers
@@ -2432,15 +2427,13 @@ public class MPSQASServicesBean extends BaseEJB {
           emailBody.append("now and the contest to help polish the problems.");
           emailBody.append("\n\n-mpsqas\n\n");
           emailBody.append("This is an automated message from MPSQAS.\n");
-          email = new EMailMessage();
-          email.setMailSubject("Using your problems in "
+          email = new TCSEmailMessage();
+          email.setSubject("Using your problems in "
                                + contestName + ", " + contestTime);
-          email.setMailSentDate(new java.sql.Date(System.currentTimeMillis()));
-          email.setMailText(emailBody.toString());
-          email.setMailFromAddress(ApplicationConstants.FROM_EMAIL_ADDRESS);
-          email.setMode("S");
-          email.setMailToAddress(rs.getString(2));
-          Mail.sendMail(email);
+          email.setBody(emailBody.toString());
+          email.setFromAddress(ApplicationConstants.FROM_EMAIL_ADDRESS);
+          email.addToAddress(rs.getString(2), TCSEmailMessage.TO);
+          EmailEngine.send(email);
         }
 
         for(i = 0; i < testerIds.size(); i++)
@@ -2472,15 +2465,13 @@ public class MPSQASServicesBean extends BaseEJB {
           emailBody.append("now and the contest to help polish the problems.");
           emailBody.append("\n\n-mpsqas\n\n");
           emailBody.append("This is an automated message from MPSQAS.\n");
-          email = new EMailMessage();
-          email.setMailSubject("You are problem testing "
+          email = new TCSEmailMessage();
+          email.setSubject("You are problem testing "
                                + contestName + ", " + contestTime);
-          email.setMailSentDate(new java.sql.Date(System.currentTimeMillis()));
-          email.setMailText(emailBody.toString());
-          email.setMailFromAddress(ApplicationConstants.FROM_EMAIL_ADDRESS);
-          email.setMode("S");
-          email.setMailToAddress(rs.getString(2));
-          Mail.sendMail(email);
+          email.setBody(emailBody.toString());
+          email.setFromAddress(ApplicationConstants.FROM_EMAIL_ADDRESS);
+          email.addToAddress(rs.getString(2), TCSEmailMessage.TO);
+          EmailEngine.send(email);
         }
       }
       catch(Exception e)
@@ -3053,7 +3044,7 @@ public class MPSQASServicesBean extends BaseEJB {
         String accOrRej=accepted?"Accepted":"Rejected";
         String appType=appUserType==ApplicationConstants.PROBLEM_WRITER?"Problem Writer":"Problem Tester";
 
-        EMailMessage email=new EMailMessage();
+        TCSEmailMessage email=new TCSEmailMessage();
         StringBuffer emailBody=new StringBuffer(256);
 
         emailBody.replace(0,emailBody.length(),"Hi "+appHandle+",\n\n");
@@ -3079,13 +3070,11 @@ public class MPSQASServicesBean extends BaseEJB {
         emailBody.append("\n-mpsqas\n");
         emailBody.append("\nThis is an automated email generated by MPSQAS.");
 
-        email.setMailSubject(appType+" Application "+accOrRej);
-        email.setMailSentDate(new java.sql.Date(System.currentTimeMillis()));
-        email.setMailText(emailBody.toString());
-        email.setMailFromAddress(ApplicationConstants.FROM_EMAIL_ADDRESS);
-        email.setMode("S");
-        email.setMailToAddress(emailAddy);
-        Mail.sendMail(email);
+        email.setSubject(appType+" Application "+accOrRej);
+        email.setBody(emailBody.toString());
+        email.setFromAddress(ApplicationConstants.FROM_EMAIL_ADDRESS);
+        email.addToAddress(emailAddy, TCSEmailMessage.TO);
+        EmailEngine.send(email);
       }
       catch(Exception e)
       {

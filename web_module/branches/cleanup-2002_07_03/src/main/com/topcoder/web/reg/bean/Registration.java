@@ -1871,7 +1871,29 @@ public class Registration
         {
             try
             {
-                Mail.sendActivationMail ( user.getUserId(), email, activationCode, ACTIVATION_URL );
+                TCSEmailMessage mail = new TCSEmailMessage();
+                mail.setSubject("TopCoder Activation");
+                StringBuffer msgText = new StringBuffer(1000);
+                msgText.append("Your TopCoder activation code is ");
+                msgText.append(activationCode);
+                msgText.append("\n\n");
+                msgText.append("To activate your account:\n\n");
+                msgText.append("1) Navigate to the following WWW URL:\n");
+                msgText.append(ACTIVATION_URL);
+                msgText.append(activationCode);
+                msgText.append("\n");
+                msgText.append("If you can not click on the web address above, please copy the address ");
+                msgText.append("into your web browser to continue.  If the address spans two lines, ");
+                msgText.append("please make sure you copy and paste both sections without any spaces between ");
+                msgText.append("them.\n\n");
+                msgText.append("2) Login to TopCoder with your handle and password.\n");
+                msgText.append("\n\nThank You for registering with TopCoder!\n");
+                msgText.append("\n\nThis is an automated message.  ");
+                msgText.append("Please do not reply to this email.");
+                mail.setBody(msgText.toString());
+                mail.addToAddress(email,TCSEmailMessage.TO);
+                mail.setFromAddress("service@topcoder.com");
+                EmailEngine.send(mail);
             }
             catch (Exception e)
             {

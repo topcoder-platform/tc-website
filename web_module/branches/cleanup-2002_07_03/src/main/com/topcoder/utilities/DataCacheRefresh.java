@@ -21,7 +21,7 @@ public class DataCacheRefresh {
   private static Logger log = Logger.getLogger(DataCacheRefresh.class);
 
   /////////////////////////////////////////////////////////////////////////
-  private static final String[] validArg = { "xsl", "data" };
+  private static final String[] validArg = { "data" };
   /////////////////////////////////////////////////////////////////////////
 
 
@@ -108,9 +108,6 @@ public class DataCacheRefresh {
             byte[] cacheIp = null;
             if ( inArray(args,"data") ) {
               cacheIp = cache.resetAll();
-            }
-            if ( inArray(args,"xsl") ) {
-              cacheIp = cache.resetXSL();
             }
             for ( int j = 0; j < host.length; j++ ) {
               if ( byteArraysEqual(cacheIp,host[j].getAddress()) ) {
