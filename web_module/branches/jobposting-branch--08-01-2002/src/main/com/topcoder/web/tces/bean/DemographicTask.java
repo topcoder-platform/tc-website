@@ -141,7 +141,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
         DataAccessInt dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
         Map resultMap = dai.getData(dataRequest);
 
-        ResultSetConatiner rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_Info");
+        ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_Info");
         ResultSetContainer.ResultSetRow cpgnInfRow = rsc.getRow(0);
         setCampaignName( cpgnInfRow.getItem("campaign_name").toString() );
 
@@ -164,18 +164,18 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
             int types[] = { TCESConstants.PRO_CODER_TYPE,
                             TCESConstants.STUDENT_CODER_TYPE };
 
-            for (int typeI=0;typeI<types.length();typeI++) {
+            for (int typeI=0;typeI<types.length;typeI++) {
                 dataRequest.setProperty("uid", Integer.toString(uid) );
                 dataRequest.setProperty("cid", Integer.toString(getCampaignID()) );
-                dataRequest.setProperty("ct", types[typeI] );
+                dataRequest.setProperty("ct", new Integer(types[typeI]) );
                 dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
-                Map resultMap = dai.getData(dataRequest);
+                resultMap = dai.getData(dataRequest);
 
                 rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_Coders_By_Type");
                 ResultSetContainer.ResultSetRow coderCountRow = rsc.getRow(0);
-                if (types[typeI]==STUDENT_CODER_TYPE)
+                if (types[typeI]==TCESConstants.STUDENT_CODER_TYPE)
                     setStudentCoderCount( ((Integer)coderCountRow.getItem("coder_type_count").getResultData()).intValue() );
-                else if (types[typeI]==PRO_CODER_TYPE)
+                else if (types[typeI]==TCESConstants.PRO_CODER_TYPE)
                     setProCoderCount( ((Integer)coderCountRow.getItem("coder_type_count").getResultData()).intValue() );
 
                 HashMap demoInfoMap = new HashMap();
@@ -243,9 +243,9 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
                 }
                 demoInfoMap.put( TCESConstants.DEMOGRAPHIC_INFO_KEY , referralMapList );
 
-                if (types[typeI]==STUDENT_CODER_TYPE)
+                if (types[typeI]==TCESConstants.STUDENT_CODER_TYPE)
                     setStudentDemoInfo(demoInfoMap);
-                else if (types[typeI]==PRO_CODER_TYPE)
+                else if (types[typeI]==TCESConstants.PRO_CODER_TYPE)
                     setProDemoInfo(demoInfoMap);
             }
 

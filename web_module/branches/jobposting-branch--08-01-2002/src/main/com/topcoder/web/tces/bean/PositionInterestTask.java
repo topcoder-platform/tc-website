@@ -154,7 +154,7 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Job_Access");
         if (rsc.getRowCount() == 0) {
-            throw new Exception ("jid="+Integer.toString(getJobId())+
+            throw new Exception ("jid="+Integer.toString(getJobID())+
                                  " cid="+Integer.toString(getCampaignID())+
                                  "does not belong to uid="+Integer.toString(uid) );
         }
