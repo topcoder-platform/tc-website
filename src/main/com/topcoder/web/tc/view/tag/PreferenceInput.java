@@ -69,8 +69,10 @@ public class PreferenceInput extends BaseTag {
         if (cssclass != null) {
             s.append(" class=\"" + cssclass + "\"");
         }
-        s.append(" value=\"1\" ");
-        if(getDefaultValue() != null) {
+        s.append(" value=\"");
+        s.append(getTrueValue());
+        s.append("\" ");
+        if(getDefaultValue() != null && getDefaultValue().equals(getTrueValue())) {
             s.append("checked ");
         }
         
@@ -78,6 +80,18 @@ public class PreferenceInput extends BaseTag {
         return s.toString();
     }
 
+    private String getTrueValue() {
+        List answers = preference.getPrefValues();
+        if (answers != null) {
+            PreferenceValue answer = null;
+            for (int i = 0; i < answers.size(); i++) {
+                answer = (PreferenceValue)answers.get(i);
+                if(answer.getText().equals("true"))
+                    return String.valueOf(answer.getID());
+            }
+        }
+        return "";
+    }
 
     private String buildSelect() {
         StringBuffer s = new StringBuffer(2000);
