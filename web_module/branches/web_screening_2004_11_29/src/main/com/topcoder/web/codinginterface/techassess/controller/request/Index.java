@@ -41,8 +41,10 @@ public class Index extends Base {
             ScreeningProblemSet[] serverSets = response.getProblemSets();
             ArrayList a = new ArrayList(serverSets.length);
             for (int i=0; i<serverSets.length; i++) {
+                long timeRemaining = (System.currentTimeMillis()+serverSets[i].getCompletionTime().intValue())
+                        - serverSets[i].getStartTime();
                 a.add(new ProblemSetInfo(serverSets[i].getProblemSetDesc(), serverSets[i].getProblemSetName(),
-                        new Date(666), serverSets[i].getStatus(), serverSets[i].getType().intValue(),
+                        timeRemaining, serverSets[i].getStatus(), serverSets[i].getType().intValue(),
                         serverSets[i].getProblemLabels()));
             }
             //log.debug("there are " + serverSets.length + " problem sets");

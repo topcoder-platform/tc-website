@@ -3,7 +3,6 @@ package com.topcoder.web.codinginterface.techassess.model;
 import com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemLabel;
 import com.topcoder.shared.netCommon.screening.ScreeningConstants;
 
-import java.util.Date;
 import java.io.Serializable;
 
 /**
@@ -16,14 +15,14 @@ public class ProblemSetInfo implements Serializable {
     private String description = null;
     private int typeId = 0;
     private String name = null;
-    private Date timeRemaining = null;
+    private long timeRemaining = 0;
     private String status = null;
     private ScreeningProblemLabel[] problems = null;
 
     public ProblemSetInfo() {
     }
 
-    public ProblemSetInfo(String description, String name, Date timeRemaining,
+    public ProblemSetInfo(String description, String name, long timeRemaining,
                           String status, int typeId, ScreeningProblemLabel[] problems) {
         this.description = description;
         this.name = name;
@@ -76,11 +75,11 @@ public class ProblemSetInfo implements Serializable {
         this.name = name;
     }
 
-    public Date getTimeRemaining() {
+    public long getTimeRemaining() {
         return timeRemaining;
     }
 
-    public void setTimeRemaining(Date timeRemaining) {
+    public void setTimeRemaining(long timeRemaining) {
         this.timeRemaining = timeRemaining;
     }
 
@@ -99,6 +98,7 @@ public class ProblemSetInfo implements Serializable {
     public void setTypeId(int typeId) {
         this.typeId = typeId;
     }
+
 }
 
 
