@@ -8,6 +8,6 @@
     <caching-descriptor>
       <max-beans-in-free-pool>20</max-beans-in-free-pool>
     </caching-descriptor>
-    <jndi-name>com.topcoder.web.ejb.email.EmailHome</jndi-name>
+    <jndi-name>corp:com.topcoder.web.ejb.email.EmailHome</jndi-name>
   </weblogic-enterprise-bean>
 </weblogic-ejb-jar>
