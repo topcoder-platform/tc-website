@@ -53,7 +53,7 @@ public class DOCConversionProcessing extends BaseProcessor {
                     file.getInputStream().close();
                     
                     byte[] result = filebean.convertDoc(b);
-                                      
+                    getResponse().setContentType("application/pdf");
                     ServletOutputStream sos = getResponse().getOutputStream();
                     sos.write(result);
                     sos.flush();
