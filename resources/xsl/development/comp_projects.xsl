@@ -187,6 +187,8 @@
 
 <!-- Open Component Development Projects begins -->
 
+            <p><b>NOTE:</b> The following development projects are all eligible for the 2005 TopCoder Collegiate Challenge Component Development Competition.</p>
+
             <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
                 <tr>
                     <td class="projectTitles" colspan="9">Component Development Projects</td>
