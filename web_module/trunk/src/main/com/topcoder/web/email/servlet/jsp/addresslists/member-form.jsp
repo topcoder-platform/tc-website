@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.web.email.servlet.*" %>
 <jsp:useBean id="MemberData" scope="session" class="com.topcoder.web.email.bean.MemberData" />
 
 	<jsp:useBean id="Error" scope="request" class="java.util.ArrayList" />

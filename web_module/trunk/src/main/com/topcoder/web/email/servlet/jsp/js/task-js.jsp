@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.web.email.servlet.*" %>
 <SCRIPT Language="javascript"> <!--
 	function taskSubmit(task, step, id) {
 		document.forms.frmTask.<%=EmailConstants.TASK%>.value = "" + task;
