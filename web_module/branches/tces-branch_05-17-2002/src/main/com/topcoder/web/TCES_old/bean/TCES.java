@@ -71,7 +71,7 @@ public class TCES extends Task implements Serializable {
                 private UserObject userObject = new UserObject();
                 public void setUserObject(UserObject o) { userObject = o; }
                 public UserObject getUserObject() {return userObject;}
-                private ProfileExperienceObject = new ProfileExperienceObject();
+                private ProfileExperienceObject profileExperienceObject = new ProfileExperienceObject();
                 public void setProfileExperienceObject(ProfileExperienceObject o) {profileExperienceObject = o;}
                 public ProfileExperienceObject getProfileExperienceObject() {return profileExperienceObject;}
 
@@ -134,6 +134,8 @@ public class TCES extends Task implements Serializable {
                                         parameterValues = (String[])htParams.get("address2");
                                         if (this.isValid(parameterValues)) {
                                                 coderObject.address2 = parameterValues[0];
+                                        } else {
+                                                coderObject.address2 = "";
                                         }
 
                                         parameterValues = (String[])htParams.get("city");
@@ -155,8 +157,10 @@ public class TCES extends Task implements Serializable {
                                         parameterValues = (String[])htParams.get("zip");
                                         if (this.isValid(parameterValues)) {
 
+                                            
+                                            boolean zipOK = true;
                                             /*
-                                             boolean zipOK = true;
+                                             
                                              if (parameterValues[0].length < 5) {
                                                  zipOK = false;
                                              }
@@ -248,7 +252,7 @@ public class TCES extends Task implements Serializable {
 
                                         parameterValues = (String[])htParams.get("language");
                                         if (this.isValid(parameterValues)) {
-                                            coderObject.language = parameterValues[0];
+                                            coderObject.language_id = parameterValues[0];
                                         } else {
                                             //xxx todo - add error redirect
                                             isTaskValidated = false;
@@ -256,7 +260,7 @@ public class TCES extends Task implements Serializable {
 
                                         parameterValues = (String[])htParams.get("editor");
                                         if (this.isValid(parameterValues)) {
-                                            coderObject.editor = parameterValues[0];
+                                            coderObject.editor_id = parameterValues[0];
                                         } else {
                                             //xxx todo - add error redirect
                                             isTaskValidated = false;
