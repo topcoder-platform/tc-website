@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 	<xsl:import href="../modules/calendar.xsl"/>
-	<xsl:template name="public_dev_left">
+	<xsl:template name="dev_comp_left">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr valign="top"><td colspan="3" width="170" bgcolor="#CCCCCC"><img src="/i/sub_navbox_top_left.gif" width="25" height="1" alt="" border="0" /><img src="/i/clear.gif" width="145" height="1" alt="" border="0"/></td></tr>
 				<tr valign="top">
@@ -9,7 +9,7 @@
 					<td width="100%" bgcolor="#333333">
 						<table width="100%" border="0" cellspacing="0" cellpadding="0">
 							<tr valign="top"><td colspan="3" width="140" height="1"><img src="/i/clear.gif" width="140" height="1" alt="" border="0"/></td></tr>
-							<tr valign="top"><td class="statTextBig" width="5">::&#160;&#160;</td><td class="statTextBig">Development</td><td width="5"><img src="/i/clear.gif" width="5" alt="" border="0"/></td></tr>
+							<tr valign="top"><td class="statTextBig" width="5">::&#160;&#160;</td><td class="statTextBig">Component Development</td><td width="5"><img src="/i/clear.gif" width="5" alt="" border="0"/></td></tr>
 							<tr valign="top"><td colspan="3" width="140" height="3"><img src="/i/clear.gif" width="140" height="3" alt="" border="0"/></td></tr>
 						</table>
 					</td>
@@ -20,19 +20,19 @@
 			<table width="100%" border="0" cellspacing="0" cellpadding="0" background="/i/steel_gray_bg2.gif" bgcolor="#43515E"> 
 				<tr><td colspan="2" background="" height="5"><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td><td width="1" background=""><img src="/i/clear.gif" width="1" height="1" alt="" border="0"/></td></tr>
 
-				<tr valign="top"><td class="subNav" background="" align="right">&#160;&#160;::&#160;&#160;</td><td height="15" class="subNav" background="" width="100%"><a href="/?t=development&amp;c=index" class="subNav">Overview</a></td><td width="1"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
+				<tr valign="top"><td class="subNav" background="" align="right">&#160;&#160;::&#160;&#160;</td><td height="15" class="subNav" background="" width="100%"><a href="/index?t=development&amp;c=index" class="subNav">This Week's Component Project Winners</a></td><td width="1"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
 
 				<tr><td colspan="3" background="" height="3"><img src="/i/clear.gif" height="3" alt="" border="0" /></td></tr>
 
-				<tr valign="top"><td class="subNav" background="" align="right">&#160;&#160;::&#160;&#160;</td><td height="15" class="subNav" background="" width="100%"><a href="/?&t=about_tc&c=membr_whyjoin" class="subNav">Coding Competitions</a></td><td width="1"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
+<!--			<tr valign="top"><td class="subNav" background="" align="right">&#160;&#160;::&#160;&#160;</td><td height="15" class="subNav" background="" width="100%"><a href="/index?t=development&amp;c=open_comp_design" class="subNav">All Open Component Design Projects</a></td><td width="1"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
 
 				<tr><td colspan="3" background="" height="3"><img src="/i/clear.gif" height="3" alt="" border="0" /></td></tr>
 
-				<tr valign="top"><td class="subNav" background="" align="right">&#160;&#160;::&#160;&#160;</td><td height="15" class="subNav" background="" width="100%"><a href="/?t=development&amp;c=components" class="subNav">Component Developement</a></td><td width="1"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
+				<tr valign="top"><td class="subNav" background="" align="right">&#160;&#160;::&#160;&#160;</td><td height="15" class="subNav" background="" width="100%"><a href="/index?t=development&amp;c=open_comp_dev" class="subNav">All Open Component Development Projects</a></td><td width="1"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
 
-				<tr><td colspan="3" background="" height="3"><img src="/i/clear.gif" height="3" alt="" border="0" /></td></tr>
+				<tr><td colspan="3" background="" height="3"><img src="/i/clear.gif" height="3" alt="" border="0" /></td></tr> -->
 
-				<tr valign="top"><td class="subNav" background="" align="right">&#160;&#160;::&#160;&#160;</td><td height="15" class="subNav" background="" width="100%"><a href="/?t=development&amp;c=appl_meth" class="subNav">Application Development</a></td><td width="1"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
+				<tr valign="top"><td class="subNav" background="" align="right">&#160;&#160;::&#160;&#160;</td><td height="15" class="subNav" background="" width="100%"><a href="/index?t=development&amp;c=comp_meth" class="subNav">Component Project Methodology</a></td><td width="1"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
 
 				<tr><td colspan="2" background="" height="5"><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td><td width="1" background=""><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
 
