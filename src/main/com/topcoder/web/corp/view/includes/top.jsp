@@ -52,7 +52,7 @@
                 </tr>
 
                 <tr valign="middle">
-                    <td nowrap="nowrap" class="loginTextBig" align="right">Password:&#160;&#160;</td>
+                    <td nowrap="nowrap" class="loginText" align="right">Password:&#160;&#160;</td>
                     <td align="left"><input maxlength="15" size="12" name="<%=Login.KEY_USER_PASS%>" type="Password" onkeypress="submitEnter(event, document.frmMiniLogin)" /></td>
                     <td nowrap="nowrap" class="loginText">&#160;&#160;<a href="javascript:document.frmMiniLogin.submit();" class="loginText">Login&#160;&gt;</a>
                         <input name="<%=Login.KEY_LOGINMODE%>" type="hidden" value="1" /></td></form>
