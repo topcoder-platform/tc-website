@@ -95,7 +95,7 @@
                                     chance to showcase their skills, earn recognition as the top developers in Chennai and win cash and other prizes.<br/><br/>
 
                                     If you want to raise your profile by besting your peers, then this is the event for you. Verizon has teamed with TopCoder, 
-                                    the leader in online and offline programming competitions and skills assessment, to execute this exciting event. Verizon may 
+                                    the leader in online and onsite programming competitions and skills assessment, to execute this exciting event. Verizon may 
                                     use the results of this event for the purpose of finding new employees for their Chennai Center.</p>
                                 </td>
                             </tr>
@@ -120,7 +120,7 @@
                             in the shortest amount of time, competitors try to out-think and out-code their opponents. The Leader Board tells the tale as competitors vie for the highest point total.</li>
 
                             <li><strong>Challenge Phase</strong><br />
-                            During the Challenge Phase, competitors view each other's code and try to "break'" that code by passing test cases through submitted code, with the hope that the results are not satisfied by the
+                            During the Challenge Phase, competitors view each other's code and try to "break" that code by passing test cases through submitted code, with the hope that the results are not satisfied by the
                             software written. Breaking another developer's code is the most direct form of engaging competition for a programmer. In this phase, precious points
                             are awarded or taken away based on successful challenges. A penalty exists for an unsuccessful challenge.</li>
 
@@ -141,8 +141,8 @@
                         <table border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align="center">
                             <tr>
                                 <td class="sidebarTitle">Date</td>
-                                <td class="sidebarTitle">Time</td>
-                                <td class="sidebarTitle">Status</td>
+                                <td class="sidebarTitle">Time - IST</td>
+                                <td class="sidebarTitle">Event</td>
                             </tr>
                             
                             <tr valign="top">
@@ -182,10 +182,10 @@
                         the top 25 finishers with a Certificate of Merit for outstanding performance in the tournament. The top four scorers
                         will receive the following cash prizes:</p>
 
-                        <p>1st Place - Rs. 50,000<br />
-                        2nd Place - Rs. 30,000<br/>
-                        3rd Place - Rs. 20,000<br/>
-                        4th Place - Rs. 10,000</p>
+                        <p>1st Place - 50,000 INR<br />
+                        2nd Place - 30,000 INR<br/>
+                        3rd Place - 20,000 INR<br/>
+                        4th Place - 10,000 INR</p>
 
                         <p>To find out more detailed information about the Verizon Coding Challenge, including a list of the prizes, please read
                         the <a href="/pl/?&module=Static&d1=verizon&d2=vcc03_rules">Official Rules and Regulations</a>.</p>
