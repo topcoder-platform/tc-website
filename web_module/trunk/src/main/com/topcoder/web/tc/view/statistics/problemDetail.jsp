@@ -89,7 +89,7 @@
                Competitors
              </td>
              <rsc:iterator list="<%=divisionInfo%>" id="resultRow">
-               <td class="statText"><rsc:item name="competitors" row="<%=resultRow%>"/></TD>
+               <td class="statText"><rsc:item name="competitors" row="<%=resultRow%>" ifNull="0"/></TD>
              </rsc:iterator>
            </tr>
            <tr>
@@ -97,7 +97,7 @@
                Opens
              </td>
              <rsc:iterator list="<%=divisionInfo%>" id="resultRow">
-               <td class="statText"><rsc:item name="problems_opened" row="<%=resultRow%>"/></TD>
+               <td class="statText"><rsc:item name="problems_opened" row="<%=resultRow%>" ifNull="0"/></TD>
              </rsc:iterator>
            </tr>
            <tr>
@@ -105,7 +105,7 @@
                Percent Open
              </td>
              <rsc:iterator list="<%=divisionInfo%>" id="resultRow">
-               <td class="statText"><rsc:item name="open_percentage" row="<%=resultRow%>"/></TD>
+               <td class="statText"><rsc:item name="open_percentage" row="<%=resultRow%>" ifNull="0.00%" format="0.00%"/></TD>
              </rsc:iterator>
            </tr>
          <table>
