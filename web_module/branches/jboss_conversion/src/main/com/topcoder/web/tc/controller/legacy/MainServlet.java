@@ -271,6 +271,7 @@ public final class MainServlet extends BaseServlet {
                         && encode.indexOf("gzip") != -1
                 ) {
                     log.debug("zip it and rip it");
+                    response.setContentType("text/html");
                     outputStream = response.getOutputStream();
                     gzipStream = new GZIPOutputStream(outputStream);
                     response.setHeader("Content-Encoding", "gzip");
