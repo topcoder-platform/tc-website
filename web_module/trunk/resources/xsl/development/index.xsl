@@ -73,6 +73,14 @@ Inquiry Deadline: TBD<BR/>
 </P>
 
 <P>
+Project: <A HREF="/index?t=development&amp;c=grant_process2" CLASS="statTextBig">Grant Processing Application</A><BR/>
+Start Date: July 11, 2002<BR/>
+End Date: September 13, 2002<BR/>
+Member Selection: <B>Open</B><BR/>
+Inquiry Deadline: July 10, 2002<BR/>
+</P>
+
+<P>
 Project: <A HREF="/index?t=development&amp;c=dde2" CLASS="statText">Distributed Development Environment</A><BR/>
 Start Date: June 26, 2002<BR/>
 End Date: August 23, 2002<BR/>
