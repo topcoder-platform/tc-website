@@ -35,7 +35,7 @@ function submitEnter(e) {
 			<table border=0 width=100% cellpadding=0 cellspacing=0>
 				<tr>
 					<td width="49%"></td>
-					<td valign=bottom align=center><img border=0 src="http://www.google.com/codejam/codejam_logo.gif" alt="Google Code Jam logo"></td>
+					<td valign=bottom align=center><img border=0 src="/i/events/google2004/codejamLogo.gif" alt="Google Code Jam logo"></td>
 					<td width="49%" valign=bottom align=right><a href="/"><img align="right" src="/i/events/google2003/google_pbtc.gif" border="0"></a></td>
 				</tr>
 			</table>
@@ -53,27 +53,23 @@ function submitEnter(e) {
 			<jsp:param name="selectedTab" value="registration"/>
 			</jsp:include>
 			</div>
-                          
-                  <b><font size="+1">Activation Successful!</font></b><br>
 
 
 			<br/><br/>
-			
+			<span class=bigTitle>Activation Successful!</span>
+			<br/><br/>
+                        
+			You may practice for the contest by clicking the Competition Arena tab above.
+			<br/><br/>
+			If you encounter any problems, please contact us at <A href="mailto:googlecodejam@topcoder.com">googlecodejam@topcoder.com</A>.
+
+			<br/><br/>
+			To find out more detailed information about the Google Code Jam 2004, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=google04&d2=rules">Terms and Conditions</a>.
+			</div>
 		</td>
 		<td width="49%">&#160;</td>
 	<tr>
 </table>
-
-<p>
-<div class=footerHolder> 
-<small> &copy;2004 Google - 
-<a href="http://www.google.com/">Home</a> - 
-<a href="http://www.google.com/about.html">All About Google</a> - 
-<a href="/?t=about_tc&c=index">About TopCoder</a> -
-<a href="http://www.google.com/jobs/">We're Hiring</a> 
-</small>
-</div>
-</p>
-
+<jsp:include page="foot.jsp" />
 </body>
 </html>
