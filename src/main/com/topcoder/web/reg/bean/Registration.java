@@ -12,8 +12,12 @@ import com.topcoder.web.reg.servlet.jsp.tag.Demographic;
 import com.topcoder.web.reg.servlet.jsp.tag.Notification;
 import com.topcoder.web.resume.ejb.ResumeServices.ResumeServicesHome;
 import com.topcoder.web.resume.ejb.ResumeServices.ResumeServices;
+import com.topcoder.security.admin.PrincipalMgrRemoteHome;
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.NoSuchUserException;
 
 import javax.naming.Context;
+import javax.naming.InitialContext;
 import javax.transaction.Status;
 import javax.transaction.UserTransaction;
 import java.io.Serializable;
@@ -1276,11 +1280,28 @@ public class Registration
             throws TaskException {
         Context context = null;
         boolean exists = false;
+        boolean commonExists = false;
         try {
             context = TCContext.getInitial();
             AuthenticationServicesHome authenticationServicesHome = (AuthenticationServicesHome) context.lookup(ApplicationServer.AUTHENTICATION_SERVICES);
             AuthenticationServices authenticationServices = authenticationServicesHome.create();
+
             exists = !authenticationServices.validHandle(handle);
+
+            if (!exists) {  //if they don't exist in regular database, check the common one too
+                Hashtable env = new Hashtable();
+                env.put(Context.INITIAL_CONTEXT_FACTORY, ApplicationServer.SECURITY_CONTEXT_FACTORY);
+                env.put(Context.PROVIDER_URL, ApplicationServer.SECURITY_PROVIDER_URL);
+                InitialContext ctx = new InitialContext(env);
+                PrincipalMgrRemoteHome principalMgrHome = (PrincipalMgrRemoteHome)
+                    ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+                PrincipalMgrRemote principalMgr = principalMgrHome.create();
+                try {
+                    principalMgr.getUser(handle);
+                    commonExists = true;
+                } catch (NoSuchUserException ignore) { }
+            }
+
             log.debug("Registration.handleExists(\"" + handle + "\"): " + exists);
         } catch (Exception e) {
             log.error(e.toString());
@@ -1295,7 +1316,7 @@ public class Registration
             }
         }
 
-        return exists;
+        return exists || commonExists;
     }
 
     protected User getUser(String handle)
@@ -1817,7 +1838,7 @@ public class Registration
         try {
             context = TCContext.getInitial();
             AuthenticationServicesHome authenticationServicesHome = (AuthenticationServicesHome) context.lookup(ApplicationServer.AUTHENTICATION_SERVICES);
-            AuthenticationServices authenticationServices = (AuthenticationServices) authenticationServicesHome.create();
+            AuthenticationServices authenticationServices = authenticationServicesHome.create();
             Authentication authentication = authenticationServices.getActivation(coderId);
             if (authentication.getUserId().intValue() == coderId && authentication.getActivationCode().equalsIgnoreCase(this.code)) {
                 if (authentication.getStatus().equals("U")) {
