@@ -43,8 +43,6 @@ public class TCESConstants {
     public static void init(ServletConfig servletConfig) throws ServletException {
         JSP_ROOT = servletConfig.getInitParameter("jsp_root");
         ERROR_PAGE = servletConfig.getInitParameter("error_page");
-        LOGIN_PAGE = servletConfig.getInitParameter("login_page");
-        MAIN_PAGE = servletConfig.getInitParameter("main_page");
 
         STEP_PARAM = servletConfig.getInitParameter("step_param");
         JOB_ID_PARAM = servletConfig.getInitParameter("job_id_param");
