@@ -57,7 +57,7 @@
                             
                             
                             <tr>
-                            	<td valign="top" width="200" >
+                            	<td valign="top" width="300" >
                             		<table>
                             			<tr align="left" >
                             				
