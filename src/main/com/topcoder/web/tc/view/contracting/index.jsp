@@ -62,6 +62,8 @@ return false;
                <hr noshade="noshade" size="1" />
                <A href="/tc?module=Static&d1=contracting&d2=oreilly"><img src="/i/contracting/oreilly_logo.gif" border=0/></A>
                <hr noshade="noshade" size="1" />
+               <A href="/tc?module=ContractingPreferences"><img src="/i/contracting/register.gif" border=0/></A>
+               <hr noshade="noshade" size="1" />
                </td>
             </tr>
          </table>
