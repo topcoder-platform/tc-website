@@ -125,10 +125,11 @@ public final class TaskStatic {
                 log.error("failed to get next match from DB");
                 e.printStackTrace();
             }
-        } else if (requestTask.equals("tournaments")) {
+        } else if (requestTask.startsWith("tournaments")) {
             RecordTag tournamentTag = new RecordTag("TOURNAMENTS");
 
             String roundids = Conversion.checkNull(request.getParameter("rds"));
+            String region = Conversion.checkNull(request.getParameter("rc"));
             String sortCol = request.getParameter("sc");
             String sortDir = request.getParameter("sdir");
 
@@ -137,10 +138,11 @@ public final class TaskStatic {
                     ctx = TCContext.getInitial();
                     dai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
                     dataRequest = new Request();
-                    dataRequest.setContentHandle("tourney_advancers");
+                    dataRequest.setContentHandle("regional_tourney_advancers");
                     dataRequest.setProperty("rds", roundids.trim());
+                    dataRequest.setProperty("rc", region);
                     resultMap = dai.getData(dataRequest);
-                    rsc = (ResultSetContainer) resultMap.get("Tourney_Advancers");
+                    rsc = (ResultSetContainer) resultMap.get("Regional_Tourney_Advancers");
                     if (sortCol != null && sortDir != null)
                         rsc.sortByColumn(sortCol, sortDir.trim().toLowerCase().equals("asc"));
                     tournamentTag.addTag(rsc.getTag("Advancers", "Advancer"));
@@ -172,7 +174,7 @@ public final class TaskStatic {
             e.printStackTrace();
         }
 
-        log.debug(document.getXML(2));
+//        log.debug(document.getXML(2));
         try {
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (Exception e) {
