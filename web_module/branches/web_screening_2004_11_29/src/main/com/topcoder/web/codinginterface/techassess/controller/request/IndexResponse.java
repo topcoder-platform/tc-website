@@ -19,20 +19,11 @@ public class IndexResponse extends Base {
                     new String[]{Constants.COMPANY_ID}, new String[]{String.valueOf(getCompanyId())}));
             setIsNextPageInContext(false);
         } else {
-
-            /* we'll use this as our default.
-             * most likely this means they hit refresh, or they got here via some magic force
-             * in either case, lets try sending them back to the index
+            /* we'll just send it right off to the index page.  It has frames that
+             * make servlet requests and those processors will take care of business logic
              */
-            setNextPage(buildProcessorRequestString(Constants.RP_INDEX, null, null));
-            setIsNextPageInContext(false);
-
-            if (hasParameter(Constants.MESSAGE_ID)) {
-                if (hasDefault(Constants.PROBLEM_SETS) && hasDefault(Constants.LANGUAGES)) {
-                    setNextPage(Constants.PAGE_INDEX);
-                    setIsNextPageInContext(true);
-                }
-            }
+            setNextPage(Constants.PAGE_INDEX);
+            setIsNextPageInContext(true);
         }
     }
 
