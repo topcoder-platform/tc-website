@@ -1,6 +1,7 @@
 <%@  page
   language="java"
   errorPage="/errorPage.jsp" %>
+<%@ page session="true" %>
      <TABLE WIDTH="160" BGCOLOR="#000000" CELLSPACING="0" CELLPADDING="0" BORDER="0">
       <TR> 
         <TD VALIGN="top" BGCOLOR="#333333"><IMG ALT="" WIDTH="6" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
