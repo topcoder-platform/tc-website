@@ -26,6 +26,7 @@ public class Submit extends View {
             String paramName = null;
             List responses = new ArrayList(10);
             //we need the full list in this case, include free for questions
+            //todo check if they already answered the survey, if so, don't allow them to do it again
             for (Enumeration params = getRequest().getParameterNames(); params.hasMoreElements();) {
                 paramName = (String) params.nextElement();
                 log.debug("param: " + paramName);
@@ -146,17 +147,22 @@ public class Submit extends View {
                     SurveyResponse response = new SurveyResponse();
                     response.setQuestionId(question.getId());
                     response.setUserId(getUser().getId());
-                    if (isFreeForm(question.getStyleId())) {
-                        response.setText(StringUtils.checkNull(values[i]));
-                        response.setFreeForm(true);
+                    if (isFreeForm(question)) {
+                        String text = StringUtils.checkNull(values[i]).trim();
+                        if (text.length()!=0) {
+                            response.setText(StringUtils.checkNull(values[i]));
+                            response.setFreeForm(true);
+                            ret.add(response);
+                        }
                     } else {
                         response.setAnswerId(answerId);
                         response.setFreeForm(false);
+                        ret.add(response);
                     }
-                    ret.add(response);
                 }
             }
         }
+        log.debug("q: " + question.getId() + "required: " + question.isRequired() + " ret: " + ret.size());
         if (question.isRequired() && ret.isEmpty()) {
             addError(paramName, "Please respond to this question.");
         }
