@@ -34,7 +34,7 @@
     } %>
  function changeState() {
   var idx=document.regForm.state.selectedIndex
-  assert(idx);
+  alert(idx);
   if (idx==-1) {
    document.regForm.school.disabled=true
    document.regForm.school.selectedIndex=0
