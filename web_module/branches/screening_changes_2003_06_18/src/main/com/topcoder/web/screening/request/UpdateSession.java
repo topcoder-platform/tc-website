@@ -87,19 +87,17 @@ public class UpdateSession extends BaseSessionProcessor {
 
         ResultSetContainer rsc = (ResultSetContainer)
             map.get(Constants.SESSION_SEGMENT_TEST_SET_A_QUERY_KEY);
-        if(rsc.size() == 0) {
-            throw new ScreeningException(
-              "Problem with session segment test set a for new session " + sessionId);
+        ResultSetContainer.ResultSetRow row = null;
+        if(rsc.size() != 0) {
+            row = (ResultSetContainer.ResultSetRow) rsc.get(0);
+
+            //somehow get dates out and subtract them
+            Timestamp start = (Timestamp)row.getItem("start_time").getResultData();
+            Timestamp end = (Timestamp)row.getItem("end_time").getResultData();
+            long testSetASegment = end.getTime() - start.getTime();
+
+            segment.createSessionSegment(sessionId, Long.parseLong(Constants.SESSION_SEGMENT_TEST_SET_A_ID), testSetASegment);
         }
-        ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow)
-            rsc.get(0);
-
-        //somehow get dates out and subtract them
-        Timestamp start = (Timestamp)row.getItem("start_time").getResultData();
-        Timestamp end = (Timestamp)row.getItem("end_time").getResultData();
-        long testSetASegment = end.getTime() - start.getTime();
-
-        segment.createSessionSegment(sessionId, Long.parseLong(Constants.SESSION_SEGMENT_TEST_SET_A_ID), testSetASegment);
 
         rsc = (ResultSetContainer)
             map.get(Constants.SESSION_SEGMENT_TEST_SET_B_QUERY_KEY);
