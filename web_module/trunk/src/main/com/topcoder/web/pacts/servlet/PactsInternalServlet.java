@@ -40,7 +40,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 	private static final int NULL_FLOAT_TYPE = FLOAT_TYPE * NULL_MULT;
 	private static final int NULL_DOUBLE_TYPE = DOUBLE_TYPE * NULL_MULT;
 
-	private static Category log = PactsLog.getInstance(PactsInternalServlet.class.getName());
+	private static Category log = Category.getInstance(PactsInternalServlet.class.getName());
 
 
 	// Encapsulated boolean Class which describes
