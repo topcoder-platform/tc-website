@@ -34,7 +34,7 @@ public class DBMS {
     public final static String COMMON_JTS_OLTP_DATASOURCE_NAME = getProperty("CORP_JTS_OLTP_DATASOURCE_NAME", "JTS_DS");
     public final static String COMMON_OLTP_DATASOURCE_NAME = getProperty("COMMON_OLTP_DATASOURCE_NAME", "DS");
     public final static String SCREENING_JTS_OLTP_DATASOURCE_NAME = getProperty("SCREENING_JTS_OLTP_DATASOURCE_NAME", "JTS_SCREENING_OLTP");
-    public final static String SCREENING_OLTP_DATASOURCE_NAME = getProperty("SCREENING_JTS_OLTP_DATASOURCE_NAME", "SCREENING_OLTP");
+    public final static String SCREENING_OLTP_DATASOURCE_NAME = getProperty("SCREENING_OLTP_DATASOURCE_NAME", "SCREENING_OLTP");
     public final static String HS_DW_DATASOURCE_NAME = getProperty("HS_DW_DATASOURCE_NAME", "HS_DW");
     public final static String HS_OLTP_DATASOURCE_NAME = getProperty("HS_OLTP_DATASOURCE_NAME", "HS_OLTP");
     public final static String HS_JTS_OLTP_DATASOURCE_NAME = getProperty("HS_JTS_OLTP_DATASOURCE_NAME", "JTS_HS_OLTP");
