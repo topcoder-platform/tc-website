@@ -132,7 +132,7 @@
                                         </p>
                                         <p>TopCoder will compensate the member with the winning solution as well as the second place developer.
                                             In order to be paid, both the winning submission and the second place developer must pass screening
-                                            and receive a review score above the minimum score.</p>
+                                            and receive a review score above the minimum score of 50.</p>
                                         Compensation for the winning solution is distributed in two installments.
                                         <br/>
                                         First Payment: When the winning solution is submitted and review board suggestions are integrated.
