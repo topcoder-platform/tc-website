@@ -14,7 +14,8 @@
   <xsl:import href="../includes/modules/arena2.xsl"/>  
   <xsl:import href="../includes/modules/calendar.xsl"/>
   <!-- <xsl:import href="../includes/modules/editorials.xsl"/> -->
-  <xsl:import href="../includes/modules/top_room_wins.xsl"/>
+  <!-- <xsl:import href="../includes/modules/top_room_wins.xsl"/> -->
+  <xsl:import href="../includes/modules/top_scorers.xsl"/>
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template name="MemberBody">
 
@@ -718,10 +719,10 @@ in order to participate in the SunNetwork<sup>sm</sup> Coding Challenge.</TD>
 <IMG SRC="/i/clear.gif" ALT="" WIDTH="244" HEIGHT="1" BORDER="0"/>
      <xsl:choose>
      <xsl:when test="number(/TC/Rating)&lt;1200"> 
-       <xsl:call-template name="top_room_wins"><xsl:with-param name="division">2</xsl:with-param></xsl:call-template>
+       <xsl:call-template name="top_scorers"><xsl:with-param name="division">2</xsl:with-param></xsl:call-template>
      </xsl:when>
      <xsl:otherwise>
-       <xsl:call-template name="top_room_wins"><xsl:with-param name="division">1</xsl:with-param></xsl:call-template>
+       <xsl:call-template name="top_scorers"><xsl:with-param name="division">1</xsl:with-param></xsl:call-template>
      </xsl:otherwise>
      </xsl:choose>
 
