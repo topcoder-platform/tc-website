@@ -121,7 +121,7 @@
                                     <strong>Match 170</strong><br />
                                     Register: 9:00&#160;AM<br />
                                     Compete: 12:00&#160;PM<br />
-                                    <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    Sponsor: <A href="/?t=tournaments&amp;c=tco03_northface">Northface</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4655&amp;t=schedule&amp;c=srm">Details</A></td>
                             </tr>
@@ -142,7 +142,7 @@
                                     <strong>Match 171</strong><br />
                                     Register: 6:00&#160;PM<br />
                                     Compete: 9:00&#160;PM<br />
-                                    <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    Sponsor: <A href="/?t=tournaments&amp;c=tco03_intel">Intel</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4660&amp;t=schedule&amp;c=srm">Details</A></td>
                                 <td id="calendarCRPF">
@@ -180,7 +180,7 @@
                                     <strong>Match 172</strong><br />
                                     Register: 5:00&#160;PM<br />
                                     Compete: 8:00&#160;PM<br />
-                                    <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    Sponsor: NVIDIA & Google<br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4665&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">21</td>
