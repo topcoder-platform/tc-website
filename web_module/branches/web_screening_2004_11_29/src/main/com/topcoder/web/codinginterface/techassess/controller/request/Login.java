@@ -72,6 +72,7 @@ public class Login extends Base {
                     for (int i=0; i<problemSets.length; i++) {
                         sets.add(problemSets[i]);
                     }
+                    log.debug("there are " + sets.size() + " problem sets");
 
                     getRequest().getSession().setAttribute(Constants.PROBLEM_SETS, sets);
                     getRequest().getSession().setAttribute(Constants.LANGUAGES, getLanguages(response));
