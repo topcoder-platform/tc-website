@@ -217,14 +217,7 @@
   </TR>
   <TR>
     <TD COLSPAN="6" ALIGN="center" CLASS="statText">
-<FORM name="coderRankForm" action="/stat" method="get" onSubmit="
-    if (isNaN(parseInt(frm.er.value))){
-      alert('That is not a valid integer');
-      return false;
-    }
-    frm.er.value = parseInt(frm.er.value);
-    return true;
-">
+<FORM name="coderRankForm" action="/stat" method="get" onSubmit="    if (isNaN(parseInt(frm.er.value))){      alert('That is not a valid integer');      return false;    }    frm.er.value = parseInt(frm.er.value);    return true;">
 <%if(!lastMatch){%>
 <INPUT TYPE="HIDDEN" NAME="rd" VALUE="<%=roundID%>">
 <%}%>
