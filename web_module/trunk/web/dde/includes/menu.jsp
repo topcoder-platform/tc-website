@@ -10,7 +10,6 @@
 <!-- Member sites -->
         <td class="topNav" nowrap><a href="http://www.topcoder.com" class="topLink">Competition</a></td>
         <td class="topNav" nowrap><a href="http://www.topcoder.com/?t=development&c=index" class="topLink">Development</a></td>
-        <td class="topNav" nowrap><a href="http://www.topcoder.com/?t=tces&c=index" class="topLink">Job Listing</a></td>
 
 <!-- Corporate sites -->
 <% if (isSoftwarePage) { %>
@@ -20,7 +19,7 @@
 <%  } %>
 
         <td class="topNav" nowrap><a href="http://corporate.topcoder.com/?module=Static&d1=corp&d2=tces_home" class="topLink">Employment Services</a></td>
-        <td class="topNav" nowrap><a href="http://corporate.topcoder.com/?module=Static&d1=corp&d2=spon_prog&d3=index" class="topLink">Sponsorship</a></td>
+        <td class="topNav" nowrap><a href="http://corporate.topcoder.com/?module=Static&d1=corp&d2=spon_prog&d3=index" class="topLink">Marketing Services</a></td>
         <td class="topNav" width="49%">&#160;</td> 
     </tr>
 </table>
