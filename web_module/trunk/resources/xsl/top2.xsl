@@ -61,7 +61,7 @@
                   </xsl:otherwise>
                 </xsl:choose>
                 <BR/>
-<a href="Javascript:tcTime()" class="statTextBig">Current time at TopCoder</a>
+<a href="Javascript:tcTime()" class="statText">Current time at TopCoder</a>
                 <BR/>
                 
               </TD>
