@@ -173,7 +173,7 @@
                 </tr>
 
                 <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
+<!--
                 <xsl:for-each select="/TC/DEVELOPMENT/projects/project">
                     <xsl:if test="./phase_id=$dev-phase">
                         <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -198,7 +198,7 @@
                         </tr>
                     </xsl:if>
                 </xsl:for-each>
-
+-->
                 <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=spell_check-development&amp;payment=168&amp;date=2&#47;20&#47;2003">Spell Check</a></td>
