@@ -24,6 +24,7 @@ public class Constants {
     /* pages */
     public static String SURVEY_RESULTS;
     public static String SURVEY_VIEW;
+    public static String SURVEY_LIST;
 
     private Constants() {
     }
