@@ -493,7 +493,7 @@
                 </tr>
                 <tr>
                     <td id="leftNavOn">
-                        <A class="leftOn"><xsl:attribute name="HREF">/tc/?&amp;module=Static&amp;</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Charity</A>
+                        <A class="leftOn"><xsl:attribute name="HREF">/tc/?&amp;module=Static&amp;d1=crpf&amp;d2=crpf_overview</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Charity</A>
                     </td>
                 </tr>
 
