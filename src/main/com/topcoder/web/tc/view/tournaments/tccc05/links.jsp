@@ -98,9 +98,9 @@
 				<% } %>
 <%--
 				<% if (tabLev2.equals("summary")) {%>
-					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_sum_onlinerounds"><img src="/i/tournament/tccc05/tabs/L2_summaryOn.gif" alt="" border=0 /></A></td>
+					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_room1_analysis"><img src="/i/tournament/tccc05/tabs/L2_summaryOn.gif" alt="" border=0 /></A></td>
 				<% } else { %>
-					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_sum_onlinerounds"><img src="/i/tournament/tccc05/tabs/L2_summaryOff.gif" alt="" border=0 /></A></td>
+					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_room1_analysis"><img src="/i/tournament/tccc05/tabs/L2_summaryOff.gif" alt="" border=0 /></A></td>
 				<% } %>
 --%>
 				<% } else if (tabLev1.equals("component")) { %>
@@ -144,8 +144,8 @@
 						<td class=subnav><a href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=ss_description"><% if (tabLev3.equals("description")) {%><img src="/i/tournament/tccc05/tabs/L3_descriptionOn.gif" border=0 /><% } else { %><img src="/i/tournament/tccc05/tabs/L3_descriptionOff.gif" border=0 /><% } %></a></td>
 					<% } else if (tabLev2.equals("onsite_events")) {%>
 						<td class=subnav><a href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=photos"><% if (tabLev3.equals("photos")) {%><img src="/i/tournament/tccc05/tabs/L3_photosOn.gif" border=0 /><% } else { %><img src="/i/tournament/tccc05/tabs/L3_photosOff.gif" border=0 /><% } %></a></td>
-<%--
 						<td class=subnav><a href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=movies"><% if (tabLev3.equals("movies")) {%><img src="/i/tournament/tccc05/tabs/L3_moviesOn.gif" border=0 /><% } else { %><img src="/i/tournament/tccc05/tabs/L3_moviesOff.gif" border=0 /><% } %></a></td>
+<%--
 --%>
 					<% } else if (tabLev2.equals("sponsors")) {%>
 						<td class=subnav><a href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=yahoo"><% if (tabLev3.equals("yahoo")) {%><img src="/i/tournament/tccc05/tabs/L3_yahooOn.gif" border=0 /><% } else { %><img src="/i/tournament/tccc05/tabs/L3_yahooOff.gif" border=0 /><% } %></a></td>
