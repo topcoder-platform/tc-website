@@ -28,9 +28,13 @@
                 <%
                     int qid = result.getIntItem("question_id");
                     for(int i = 1; i<=10; i++){
+                        String sel = "";
+                        if(String.valueOf(i).equals(request.getParaeter("q"+qid))){
+                            sel = " selected";
+                        {
                 %>
             <td>
-                        <input type="radio" name="q<%= qid %>" value="<%= i %>" <%= String.valueOf(i).equals(request.getParaeter("q"+qid))?"SELECTED":"" %>>
+                        <input type="radio" name="q<%= qid %>" value="<%= i %>" <%= sel %>>
             </td>
                 <%  } %>
         </tr>
