@@ -32,13 +32,13 @@
   </init-param>
 
   <init-param>
-    <param-name>processor-user-list</param-name>
+    <param-name>processor-UserList</param-name>
     <param-value>com.topcoder.web.corp.request.UserList</param-value>
     <description>handles user list page</description>
   </init-param>
 
   <init-param>
-    <param-name>processor-create-edit</param-name>
+    <param-name>processor-CreateEdit</param-name>
     <param-value>com.topcoder.web.corp.request.UserEdit</param-value>
     <description>creates/edit user/permissions</description>
   </init-param>

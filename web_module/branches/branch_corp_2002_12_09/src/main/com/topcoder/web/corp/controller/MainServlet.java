@@ -191,7 +191,8 @@ public class MainServlet extends HttpServlet {
     {
         // error page is regular page too with the only difference - it
         // has an error attribute set in request, so..
-        String errorPage = servletConfig.getInitParameter(PFX_PAGE+KEY_ERRORPAGE);
+        String errorPage;
+        errorPage = servletConfig.getInitParameter(PFX_PAGE+KEY_ERRORPAGE);
         if( exc != null ) {
             req.setAttribute(KEY_EXCEPTION, exc);
         }

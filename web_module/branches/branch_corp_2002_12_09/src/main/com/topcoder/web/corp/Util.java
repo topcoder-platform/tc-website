@@ -20,10 +20,11 @@ public class Util {
     private static final Logger log = Logger.getLogger(Util.class);
     
     /**
-     * Begins new Transaction. To give EJB to work in the managed transactional
-     * environment they must have &lt;transaction-type&gt; Container&lt;
-     * /transaction-type&gt; in deployment descriptor (DD) and, (optionally)
-     * have per-method transactions modes set in assembly descriptor of DD.
+     * Begins new Transaction. To allow an EJB to work in the managed
+     * transactional environment they must have &lt;transaction-type&gt;
+     * Container&lt; /transaction-type&gt; in deployment descriptor (DD) and,
+     * (optionally) have per-method transactions modes set in assembly
+     * descriptor of DD.
      * 
      * @return Transaction newly started transaction
      * 

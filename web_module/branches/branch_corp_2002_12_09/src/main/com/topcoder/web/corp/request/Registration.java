@@ -59,8 +59,8 @@ public class Registration extends BaseProcessor {
 
 	public Registration() {
         pageInContext = true;
-        // For this processor next page is always in the context. It is either same
-        // form page (if any errors were encountered) or next workflow page
+        // For this processor next page is always in the context. It is either
+        // same form page (if any errors were encountered) or next workflow page
         // (something like to thank u very much for registration)
 	}
     
@@ -116,39 +116,59 @@ public class Registration extends BaseProcessor {
         boolean ret = true;
         
         ret &=	// first name validity check 
-        checkItemValidity(KEY_FIRSTNAME, firstName, StringUtils.ALPHABET_ALPHA_EN, true, 1);
+        checkItemValidity(KEY_FIRSTNAME, firstName, 
+            StringUtils.ALPHABET_ALPHA_EN, true, 1
+        );
 
         ret &= // last name validity check 
-        checkItemValidity(KEY_LASTNAME, lastName, StringUtils.ALPHABET_ALPHA_EN, true, 1);
+        checkItemValidity(KEY_LASTNAME, lastName, 
+            StringUtils.ALPHABET_ALPHA_EN, true, 1
+        );
 
         ret &= // title name validity 
-        checkItemValidity(KEY_TITLE, title, StringUtils.ALPHABET_ALPHA_PUNCT_EN, true, 5);
+        checkItemValidity(KEY_TITLE, title, 
+            StringUtils.ALPHABET_ALPHA_PUNCT_EN, true, 5
+        );
 
         ret &= // addr line 1 validity (optional)
-        checkItemValidity(KEY_ADDRLINE1, compAddress1, StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, false, 7);
+        checkItemValidity(KEY_ADDRLINE1, compAddress1, 
+            StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, false, 7
+        );
 
         ret &= // addr line 2 validity (optional)
-    	checkItemValidity(KEY_ADDRLINE2, compAddress2, StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, false, 7);
+    	checkItemValidity(KEY_ADDRLINE2, compAddress2, 
+            StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, false, 7
+        );
 
         ret &= // city validity (optional) 
-    	checkItemValidity(KEY_CITY, city, StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, false, 3);
+    	checkItemValidity(KEY_CITY, city, 
+            StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, false, 3
+        );
     	
         ret &= // state validity (optional) 
-    	checkItemValidity(KEY_STATE, state, StringUtils.ALPHABET_ALPHA_EN, false, 2);
+    	checkItemValidity(KEY_STATE, state, 
+            StringUtils.ALPHABET_ALPHA_EN, false, 2
+        );
 
     	ret &= // zip validity (optional)
-    	checkItemValidity(KEY_ZIP, zip, StringUtils.ALPHABET_DIGITS_EN, false, 1);
+    	checkItemValidity(KEY_ZIP, zip, StringUtils.ALPHABET_DIGITS_EN, 
+            false, 1
+        );
         
         // insert country validity check here
         
         ret &= // phone validity
-        checkItemValidity(KEY_PHONE, phone, StringUtils.ALPHABET_NUM_PUNCT_EN, true, 1);
+        checkItemValidity(KEY_PHONE, phone, StringUtils.ALPHABET_NUM_PUNCT_EN, 
+            true, 1
+        );
 
         ret &= // username validity
         checkUsernameValidity();
 
         ret &= // password validity
-        checkItemValidity(KEY_PASSWORD1, password, StringUtils.ALPHABET_ALPHA_NUM_EN, true, 1);
+        checkItemValidity(KEY_PASSWORD1, password, 
+            StringUtils.ALPHABET_ALPHA_NUM_EN, true, 1
+        );
 
         // password2 validity
         if( password2 == null ) password2 = "";
@@ -159,7 +179,9 @@ public class Registration extends BaseProcessor {
         }
     	
         ret &= // email validity
-        checkItemValidity(KEY_EMAIL1, email, StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, true, 1);
+        checkItemValidity(KEY_EMAIL1, email, 
+            StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, true, 1
+        );
 
     	// email2 validity
     	if( email2 == null ) email2 = "";
@@ -172,9 +194,14 @@ public class Registration extends BaseProcessor {
     }
     
     
-    private boolean checkItemValidity(String itemKey, String itemValue, String alphabet, 
-    									boolean required, int maxWords
-    ) {
+    private boolean checkItemValidity(
+        String itemKey, 
+        String itemValue, 
+        String alphabet, 
+        boolean required,
+        int maxWords
+    )
+    {
     	boolean ret = true;
     	boolean chkMore = true;
     	
@@ -263,7 +290,9 @@ public class Registration extends BaseProcessor {
     private boolean checkUsernameValidity() {
         boolean ret = true;
         //as usually check against char set 
-        ret &= checkItemValidity(KEY_LOGIN, userName, StringUtils.ALPHABET_ALPHA_EN, true, 1);
+        ret &= checkItemValidity(KEY_LOGIN, userName, 
+            StringUtils.ALPHABET_ALPHA_EN, true, 1
+        );
 
         // and additionally against DB - not implemented for now
         // ret &= chkAgainstDB();       
