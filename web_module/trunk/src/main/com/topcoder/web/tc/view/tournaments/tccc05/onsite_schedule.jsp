@@ -49,7 +49,7 @@
 			<tr><td class="formTextEven">10:00am - 12:00pm</td><td class="formTextEven">Algorithm Wildcard Round</td></tr>
 			<tr><td class="formTextOdd">12:00pm - 1:00pm</td><td class="formTextOdd">Lunch</td></tr>
 			<tr><td class="formTextEven">12:00pm - 3:00pm</td><td class="formTextEven">Spectator Showdown</td></tr>
-			<tr><td class="formTextOdd">1:00pm - 2:00pm</td><td class="formTextOdd">Presentation by Steven Skiena, PhD</td></tr>
+			<tr><td class="formTextOdd">1:00pm - 2:00pm</td><td class="formTextOdd">Presentation by <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=skiena">Steven Skiena, PhD</A></td></tr>
 			<tr><td class="formTextEven">2:30pm - 4:30pm</td><td class="formTextEven">Algorithm Championship Round</td></tr>
 			<tr><td class="formTextOdd">4:30pm - 5:00pm</td><td class="formTextOdd">All Champion Announcements</td></tr>
 			<tr><td class="formTextEven">5:00pm - 6:00pm</td><td class="formTextEven">Media Hour / Press Conference</td></tr>
