@@ -100,7 +100,7 @@
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
     <TD VALIGN="top" WIDTH="50%" ALIGN="left" CLASS="bodyText">
 <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>Tournament Links:</B></FONT><BR/>
-- <A HREF="/index?t=statistics&amp;c=2002tccc_breakdown" CLASS="bodyGeneric">Editorials (Favorites, Cinderellas,...)</A><BR/> 
+- Editorials: <A HREF="/index?t=statistics&amp;c=2002tccc_favs" CLASS="bodyGeneric">Favorites</A>, <A HREF="/index?t=statistics&amp;c=2002tccc_cind" CLASS="bodyGeneric">Cinderellas</A>, <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon" CLASS="bodyGeneric">Keep your eye on...</A><BR/> 
 - <A HREF="http://www.hotelatmit.com/ancill/directions.html" CLASS="bodyGeneric" Target="_blank">Directions to University Park Hotel @ MIT</A><BR/> 
 - Sun Microsystems Technical Presentation<BR/> 
 Presenting on J2ME, Java and XML, Java and Logo, and the STAR program.
