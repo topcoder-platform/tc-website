@@ -411,7 +411,7 @@
                         <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
                         <xsl:when test="/TC/Command='comp_archive'">graybv_lite_bg</xsl:when>
                         <xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
-                        &#160;&#160;&#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=comp_archive</xsl:attribute>Review Status</a>
+                        &#160;&#160;&#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=comp_archive</xsl:attribute>Project Status</a>
                     </td>
                 </tr>
 
