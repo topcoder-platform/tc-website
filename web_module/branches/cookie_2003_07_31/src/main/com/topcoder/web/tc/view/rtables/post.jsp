@@ -43,14 +43,9 @@
           errorURL = new StringBuffer("/rtables/post.jsp?"+request.getQueryString());
       }
       request.setAttribute("errorURL", errorURL.toString());
-      request.setAttribute("t", "authentication");
-      request.setAttribute("c", "login");
-      if (n==null) {
-        request.setAttribute("errorMsg", "You do not have an active session, please log in.");
-      } else {
-          request.setAttribute("errorMsg", "You must log in to post a round table message.");
-      }
-      getServletConfig().getServletContext().getContext("/").getRequestDispatcher(response.encodeURL("/index")).forward(request, response);
+      request.setAttribute("module", "Login");
+      request.setAttribute("message", "You must log in to post a round table message.");
+      getServletConfig().getServletContext().getContext("/").getRequestDispatcher(response.encodeURL("/tc")).forward(request, response);
       return;
     }
     // get the authToken as a way to get userID's below
