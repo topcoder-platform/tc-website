@@ -57,7 +57,7 @@ public class SchoolBean implements SessionBean {
 
       if (!IdGenerator.isInitialized()) {
         IdGenerator.init(new InformixDB(),ds,"sequence_object","name",
-                         "current_value",9999999999L,10,true);
+                         "current_value",9999999999L,1,true);
       }
 
       school_id=IdGenerator.nextId("SCHOOL_SEQ");

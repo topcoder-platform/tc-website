@@ -57,7 +57,7 @@ public class EmailBean implements SessionBean {
 
       if (!IdGenerator.isInitialized()) {
         IdGenerator.init(new InformixDB(),ds,"sequence_object","name",
-                         "current_value",9999999999L,10,true);
+                         "current_value",9999999999L,1,true);
       }
 
       email_id=IdGenerator.nextId("EMAIL_SEQ");
