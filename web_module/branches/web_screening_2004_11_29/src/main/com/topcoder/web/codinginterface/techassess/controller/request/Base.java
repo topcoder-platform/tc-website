@@ -2,7 +2,10 @@ package com.topcoder.web.codinginterface.techassess.controller.request;
 
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.codinginterface.techassess.model.WebQueueResponseManager;
+import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.shared.messaging.QueueMessageSender;
 import com.topcoder.shared.messaging.TimeOutException;
 import com.topcoder.shared.netCommon.messages.Message;
@@ -88,6 +91,21 @@ public abstract class Base extends BaseProcessor {
                 setDefault((String)me.getKey(), me.getValue());
             }
         }
+    }
+
+    protected String buildProcessorReqestString(String processor, String[] keys, String[] values) {
+        if (keys.length!=values.length)
+            throw new IllegalArgumentException("the number of parameter keys must be the same as the number of values");
+
+        SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
+        StringBuffer ret = new StringBuffer(100);
+        //doing this to get rid of https in the case of the login request it would be there
+        ret.append(info.getAbsoluteServletPath());
+        ret.append("?").append(Constants.MODULE).append("=").append(processor);
+        for (int i=0; i<keys.length; i++) {
+            ret.append("&").append(keys[i]).append("=").append(values[i]);
+        }
+        return ret.toString();
     }
 
 
