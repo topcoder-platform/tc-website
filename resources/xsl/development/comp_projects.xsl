@@ -80,9 +80,9 @@
                 <tr>
                     <xsl:variable name="priceFormat" select="'$###,###.00'" />
                     <td class="bodyText" colspan="6">
-                        <p><strong>Only the projects below designated as TCO Component Projects qualify for the 2003 TCO Component Competition.</strong>
-                        You must submit at least two projects, with at least one being a Level 2 project, to qualify. <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_overview">Click here</A>
-                        for more information about the 2003 TCO Component Competition. At the <A href="#comp_des">bottom</A> of this page are regular component projects that do not qualify for the TCO.</p>
+                        <p><strong>Only the projects below are designated as TCCC projects.
+                        <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_comp_description">Click here</A>
+                        for the rules and more information about the 2004 TCCC Component Competition. At the <A href="#comp_des">bottom</A> of this page are regular component projects that do not qualify for the TCCC.</strong></p>
                     </td>
                 </tr>
 
@@ -100,7 +100,7 @@
                 </tr>
 <!-- TCO Design Begins -->
                 <tr>
-                    <td colspan="6" class="tcoHeader"><a name="design"></a>2003 TopCoder Open Component Design Projects</td>
+                    <td colspan="6" class="tcoHeader"><a name="design"></a>2004 TopCoder Collegiate Challenge Component Design Projects</td>
                 </tr>
 
                 <tr valign="middle">
@@ -136,7 +136,7 @@
                             <td class="formTextOdd">
                                 <a>
                                     <xsl:attribute name="href">
-                                        <xsl:value-of select="concat('/index?tco=t&amp;t=development&amp;c=tcs_inquire-design&amp;comp=', ./component_id, '&amp;phase=', ./phase_id, '&amp;docId=', ./document_id, '&amp;version=', ./version, '&amp;payment=', ./price, '&amp;compvers=', ./comp_vers_id, '&amp;date=', $initial_submission, '&amp;final_submission=', $final_submission, '&amp;winner_announced=', $winner_announced, '&amp;posting_date=', $posting_date, '&amp;estimated_dev=', $estimated_dev)"/>
+                                        <xsl:value-of select="concat('/index?tccc=t&amp;t=development&amp;c=tcs_inquire-design&amp;comp=', ./component_id, '&amp;phase=', ./phase_id, '&amp;docId=', ./document_id, '&amp;version=', ./version, '&amp;payment=', ./price, '&amp;compvers=', ./comp_vers_id, '&amp;date=', $initial_submission, '&amp;final_submission=', $final_submission, '&amp;winner_announced=', $winner_announced, '&amp;posting_date=', $posting_date, '&amp;estimated_dev=', $estimated_dev)"/>
                                     </xsl:attribute><xsl:value-of select="./component_name"/>
                                     <xsl:if test="number(./version) &gt;  number('1')">
                                         Version&#160;<xsl:value-of select="./version"/>
@@ -155,13 +155,14 @@
                                                     and status_id=303]"/>
                 <xsl:if test="not($designtco)">
                         <tr valign="top">
-                            <td class="formTextOdd" colspan="6"><strong>The final round of the 2003 TCO Component Design Competition begins on 11/11/2003</strong></td>
+                            <td class="formTextOdd" colspan="6"><strong>The first round of the 2004 TCCC Component Design Competition begins on 1/27/2004</strong></td>
                         </tr>
                 </xsl:if>
-
+<!--
                 <tr>
                     <td class="bodyText" colspan="6"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_bracket_interact#bracket">Eligible Competitors</a> </td>
                 </tr>
+-->
                 <tr>
                     <td class="bodyText" colspan="6">*Total Payment (before royalties) </td>
                 </tr>
@@ -171,7 +172,7 @@
 
 <!-- TCO Development Begins -->
                 <tr>
-                    <td class="tcoHeader" colspan="6">2003 TopCoder Open Component Development Projects</td>
+                    <td class="tcoHeader" colspan="6">2004 TopCoder Collegiate Challenge Component Development Projects</td>
                 </tr>
 
                 <tr valign="middle">
@@ -202,7 +203,7 @@
                             <td class="formTextOdd">
                                 <a>
                                     <xsl:attribute name="href">
-                                        <xsl:value-of select="concat('/index?tco=t&amp;t=development&amp;c=tcs_inquire-dev&amp;comp=', ./component_id, '&amp;docId=', ./document_id, '&amp;version=', ./version, '&amp;phase=', ./phase_id, '&amp;payment=', ./price, '&amp;compvers=', ./comp_vers_id, '&amp;date=', $initial_submission, '&amp;final_submission=', $final_submission, '&amp;winner_announced=', $winner_announced, '&amp;posting_date=', $posting_date)"/>
+                                        <xsl:value-of select="concat('/index?tccc=t&amp;t=development&amp;c=tcs_inquire-dev&amp;comp=', ./component_id, '&amp;docId=', ./document_id, '&amp;version=', ./version, '&amp;phase=', ./phase_id, '&amp;payment=', ./price, '&amp;compvers=', ./comp_vers_id, '&amp;date=', $initial_submission, '&amp;final_submission=', $final_submission, '&amp;winner_announced=', $winner_announced, '&amp;posting_date=', $posting_date)"/>
                                     </xsl:attribute><xsl:value-of select="./component_name"/>
                                     <xsl:if test="number(./version) &gt;  number('1')">
                                         Version&#160;<xsl:value-of select="./version"/>
@@ -222,12 +223,14 @@
                                                     and status_id=303]"/>
                 <xsl:if test="not($devtco)">
                         <tr valign="top">
-                            <td class="formTextOdd" colspan="6"><strong>The final round 3 of the 2003 TCO Component Development Competition begins on 11/11/2003</strong></td>
+                            <td class="formTextOdd" colspan="6"><strong>The first round of the 2004 TCCC Component Development Competition begins on 2/17/2004</strong></td>
                         </tr>
                 </xsl:if>
+<!--
                 <tr>
                     <td class="bodyText" colspan="6"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_bracket_interact#bracket">Eligible Competitors</a> </td>
                 </tr>
+-->
                 <tr>
                     <td class="bodyText" colspan="6">*Total Payment (before royalties) </td>
                 </tr>
