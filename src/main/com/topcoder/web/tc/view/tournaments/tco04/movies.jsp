@@ -25,8 +25,10 @@
 
 		<table cellspacing=0 cellpadding=5 class=bodyText width="100%">
 			<tr>
-				<td class=bodyText align=center><A href="/i/tournament/tco04/onsite_movies/room1_results.MPG"><img src="/i/clear.gif" width=160 height=120 border=1/></A>
-				<br/><A href="/i/tournament/tco04/onsite_movies/room1_results.MPG">Room 1 results (20 MB)</A><br/></td>
+				<td class=bodyText align=center valign=top><A href="/i/tournament/tco04/onsite_movies/rm1_1.AVI"><img src="/i/tournament/tco04/onsite_movies/rm1_1.jpg" border=0/></A>
+				<br/><A href="/i/tournament/tco04/onsite_movies/rm1_1.AVI">RalphFurmaniak enters<br/>the battle (761 KB)</A><br/></td>
+				<td class=bodyText align=center valign=top><A href="/i/tournament/tco04/onsite_movies/rm1_2.MPG"><img src="/i/tournament/tco04/onsite_movies/rm1_2.jpg" border=0/></A>
+				<br/><A href="/i/tournament/tco04/onsite_movies/rm1_2.MPG">tomek interview (6 MB)</A><br/></td>
             </tr>
 		</table>
 
