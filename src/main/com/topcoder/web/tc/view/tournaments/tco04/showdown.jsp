@@ -174,7 +174,7 @@ ResultSetContainer rscRecentB = (ResultSetContainer)dataMap.get("showdown_recent
                                 <td class="leaderTitle" colspan="2" nowrap=nowrap>Current Leaders</td>
                             </tr>
                             <tr>
-                                <td class="leaderHeader">Name</td>
+                                <td class="leaderHeader">Handle</td>
                                 <td class="leaderHeader" align="right">Score</td>
                             </tr>
                             <% int i=1;%>
@@ -196,7 +196,7 @@ ResultSetContainer rscRecentB = (ResultSetContainer)dataMap.get("showdown_recent
                                 <td class="leaderTitle" colspan="2" nowrap=nowrap>Recent Submissions</td>
                             </tr>
                             <tr>
-                                <td class="leaderHeader">Name</td>
+                                <td class="leaderHeader">Handle</td>
                                 <td class="leaderHeader" align="right">Status</td>
                             </tr>
                              <rsc:iterator list="<%=rscRecentA%>" id="Row" > 
@@ -216,7 +216,7 @@ ResultSetContainer rscRecentB = (ResultSetContainer)dataMap.get("showdown_recent
                                 <td class="leaderTitle" colspan="2" nowrap=nowrap>Current Leaders</td>
                             </tr>
                             <tr>
-                                <td class="leaderHeader">Name</td>
+                                <td class="leaderHeader">Handle</td>
                                 <td class="leaderHeader" align="right">Score</td>
                             </tr>
                             <% int j=1;%>
@@ -238,7 +238,7 @@ ResultSetContainer rscRecentB = (ResultSetContainer)dataMap.get("showdown_recent
                                 <td class="leaderTitle" colspan="2" nowrap=nowrap>Recent Submissions</td>
                             </tr>
                             <tr>
-                                <td class="leaderHeader">Name</td>
+                                <td class="leaderHeader">Handle</td>
                                 <td class="leaderHeader" align="right">Status</td>
                             </tr>
                             <rsc:iterator list="<%=rscRecentB%>" id="Row" >
