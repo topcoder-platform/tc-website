@@ -84,20 +84,7 @@ function openWin(url, name, w, h) {
 <h2>Match summary</h2> 
 
 <p> 
-Tensions and caffeine levels were high as the coding phase of Round 2 of the TopCoder Open started.  With competitors 
-whose average rating was 1968, it was a surprise to no one that most coders flew through a simple easy problem that 
-required little more than algebra.  However, as coders began to work on the medium problem, it became clear that, 
-while the easy problem was no challenge, this was Round 2, and the problems were getting harder.  At the half hour 
-mark, only a handful of coders had finished two problems, with tomek in the lead (out of coders who didn't skip the 
-medium).  After about a half hour, the 500 submissions were flowing in pretty well, but a dismal success rate destined 
-most of them to failure.  At the end of the coding phase, it was tomek in the lead, closely followed by SnapDragon.  
-During the challenge phase, SnapDragon was able to gain another 50 points, pushing him into the lead over tomek.  In 
-room 6, Yarin managed to find two challenges and the 100 points propelled him into third place.  System tests turned 
-out to be brutal for the medium problem, and almost 80% of the submissions failed, though the top 3 competitors emerged 
-unscathed.  The next round, with an average competitor rating of 2207 promises to be at least as exciting, so tune in 
-next time when we find out if SnapDragon really has a 100% chance of advancing to round 4, whether or not snewman 
-can continue his streak in the face of ever increasing difficulty, and whether dplass, having learned about dynamic 
-programming in the round tables, can beat the odds yet again and advance.
+Tensions and caffeine levels were high as the coding phase of Round 2 of the TopCoder Open started.  With competitors whose average rating was 1968, it was a surprise to no one that most coders flew through a simple easy problem that required little more than algebra.  However, as coders began to work on the medium problem, it became clear that, while the easy problem was no challenge, this was Round 2, and the problems were getting harder.  At the half hour mark, only a handful of coders had finished two problems, with tomek in the lead (out of coders who didn't skip the medium).  After about a half hour, the 500 submissions were flowing in pretty well, but a dismal success rate destined most of them to failure.  At the end of the coding phase, it was tomek in the lead, closely followed by SnapDragon.  During the challenge phase, SnapDragon was able to gain another 50 points, pushing him into the lead over tomek.  In room 6, Yarin managed to find two challenges and the 100 points propelled him into third place.  System tests turned out to be brutal for the medium problem, and almost 80% of the submissions failed, though the top 3 competitors emerged unscathed.  The next round, with an average competitor rating of 2207 promises to be at least as exciting, so tune in next time when we find out if SnapDragon really has a 100% chance of advancing to round 4, whether or not snewman can continue his streak in the face of ever increasing difficulty, and whether dplass, having learned about dynamic programming in the round tables, can beat the odds yet again and advance.
 </p> 
   
 <p>
@@ -374,7 +361,7 @@ The next step is to deal with the different operators, and the parentheses.  Sin
 <pre>
     int evaluate(string expression){
         int parens = 0;
-        for(int i = expression.size()-1; i&gt;=0; i--){
+        for(int i = expression.size()-1; i>=0; i--){
             if(expression[i] == ')'){
                 parens++;
             }else if(expression[i] == '('){
@@ -388,7 +375,7 @@ The next step is to deal with the different operators, and the parentheses.  Sin
         ...
     }
 </pre>
-If we don't find any '+'s or '-'s outside of parentheses to split on, then we do pretty much the same thing with '*' and '/'.  If there aren't any of those operators either, then we move on to exponentiation, which also works pretty much the same way.  However, taking powers can be a little bit tricky, and you may not want to trust the library pow function since it works with doubles and we are working with ints.  Writing your own pow function is pretty simple, but you have to make sure you handle 3 special cases properly: -1, 0 and 1.  0^x is always 0 (in this problem), 1^x is always 1, and -1^x is either -1 or +1, depending on whether x is odd or even.  A few coders missed these cases and because they only had a loop to calculate powers, and they timed out on inputs like 1^999999999.  Anyhow, after we do exponentiation, we are done with all of the operators that aren't nested within parentheses.  If we get to this point, there are only two cases: the expression is either a single number or variables, or else the first character is a '(' and the last character is a ')'.  Both cases are easy to handle.  In the first, we just parse the number or look up the variable and return that.  For the second, we simply call our recursive function with the first and last characters removed, and return the result.  If you want to see a full implementation of this, I recommend you look at SnapDragon's code, which implements the evaluate method I've described in only 40 lines.
+If we don't find any '+'s or '-'s outside of parentheses to split on, then we do pretty much the same thing with '*' and '/'.  If there aren't any of those operators either, then we move on to exponentiation, which also works pretty much the same way.  However, taking powers can be a little bit tricky, and you may not want to trust the library pow function since it works with doubles (though it does work in this case) and we are working with ints.  Writing your own pow function is pretty simple, but you have to make sure you handle 3 special cases properly: -1, 0 and 1.  0^x is always 0 (in this problem), 1^x is always 1, and -1^x is either -1 or +1, depending on whether x is odd or even.  A few coders missed these cases and because they only had a loop to calculate powers, and they timed out on inputs like 1^999999999.  Anyhow, after we do exponentiation, we are done with all of the operators that aren't nested within parentheses.  If we get to this point, there are only two cases: the expression is either a single number or a variable, or else the first character is a '(' and the last character is a ')'.  Both cases are easy to handle.  In the first, we just parse the number or look up the variable and return that.  For the second, we simply call our recursive function with the first and last characters removed, and return the result.  If you want to see a full implementation of this, I recommend you look at SnapDragon's code, which implements the evaluate method I've described in only 40 lines.
 </p> 
 
 
