@@ -57,7 +57,7 @@ if(emailInfo.getSessionInfo() != null) {%>
     if(emailInfo.getSessionInfo().useCandidateEmail() || emailInfo.getSessionInfo().useRepEmail()) {%>
               <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
 <strong>Subject:</strong> <jsp:getProperty name="emailInfo" property="subject" />
-<jsp:getProperty name="emailInfo" property="msgText" />
+<jsp:getProperty name="emailInfo" property="HTMLMsgText" />
 </TD>
     <%}
     else {%>
