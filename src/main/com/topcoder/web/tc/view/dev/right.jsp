@@ -23,7 +23,7 @@
                 </tr>
 
                 <rsc:iterator list="<%=openProjects%>" id="resultRow">
-                    <% if (resultRow.getIntResult("phase_id")==112&&resultRow.getIntResult("status_id")==301) { %>
+                    <% if (resultRow.getIntItem("phase_id")==112&&resultRow.getIntItem("status_id")==301) { %>
 
                 <tr>
                     <td class="devProjectText">
