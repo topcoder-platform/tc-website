@@ -18,7 +18,7 @@
         <!--MM&#47;DD&#47;YYYY-->
 		<xsl:param name="DATE"/>
 		<xsl:if test='boolean($DATE)'>
-			<xsl:value-of select="substring($DATE, 6,2)"/>#47;<xsl:value-of select="substring($DATE, 9,2)"/>#47;<xsl:value-of select="substring($DATE, 1,4)"/>
+			<xsl:value-of select="substring($DATE, 6,2)"/>.<xsl:value-of select="substring($DATE, 9,2)"/>.<xsl:value-of select="substring($DATE, 1,4)"/>
 		</xsl:if>
     </xsl:template>
 
