@@ -37,6 +37,7 @@ public class ResumeUploadTask extends ResumeTask{
                 }
             }
         } catch(Exception e){
+            e.printStackTrace();
             throw new ResumeTaskException(e);
         }
     }
