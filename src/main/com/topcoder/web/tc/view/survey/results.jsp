@@ -74,7 +74,7 @@
 
 <body>
 <jsp:include page="../top.jsp" >
-    <jsp:param name="level1" value="review_board"/>
+    <jsp:param name="level1" value=""/>
 </jsp:include>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -83,8 +83,8 @@
 <!-- Left Column Begins -->
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="review_board"/>
-                <jsp:param name="level2" value="competition"/>
+                <jsp:param name="level1" value=""/>
+                <jsp:param name="level2" value=""/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -94,31 +94,41 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-         <td width="100%" class="bodyText">
-            <img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
-            <img src="/i/header_questions.gif" width="210" height="26" border="0"><br/>
-            <p><img src="/i/clear.gif" width="240" height="1" border="0"><br>
-               <tc:questionIterator list="<%=questionInfo%>" id="question">
-                  <table width="100%" border="0" cellpadding="0" cellspacing="0" class="bodyText">
+         <td width="100%" class="bodyText" valign="top">
+                  <table width="100%" border="0" cellpadding="10" cellspacing="0" class="bodyText">
                      <tr>
-                        <td colspan="3">
-                           <jsp:getProperty name="question" property="text"/>
-                           <p><br /></p>
+                        <td class ="bodyText" width="100%"><img src="/i/header_questions.gif" width="210" height="26" border="0"></td>
+                        <td class ="bodyText" align="right"><a href="/tc?&module=SurveyList">Archive</a></td>
+                     </tr>
+                  </table>
+
+               <tc:questionIterator list="<%=questionInfo%>" id="question">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="0" class="bodyText">
+                     <tr>
+                        <td colspan="4" class="bodySubtitle">
+                           <jsp:getProperty name="question" property="text"/><br/>
+                           <hr width="100%" size="1" noshade/>
                         </td>
+                     </tr>
+                     <tr>
+                        <td class="bodyText">Answer</td>
+                        <td class="bodyText">Responses</td>
+                        <td class="bodyText">Percentage</td>
+                        <td class="bodyText"></td>
                      </tr>
                      <% boolean even = false; %>
                         <rsc:iterator list="<%=question.getAnswerInfo()%>" id="answer">
                      <tr class="<%=even?"formTextOdd":"formTextEven"%>">
-                        <td>
+                        <td width="100%">
                            <rsc:item row="<%=answer%>" name="answer_text"/>
                         </td>
-                        <td>
+                        <td align="right">
                           <rsc:item row="<%=answer%>" name="count"/>
                         </td>
-                        <td>
+                        <td align="right">
                            <rsc:item row="<%=answer%>" name="percentage" format="#.##"/>%
                         </td>
-                        <td>
+                        <td bgcolor="#FFFFFF" width="200">
                             <p align="center">
 
                             <SCRIPT LANGUAGE="JavaScript">
@@ -143,7 +153,6 @@
                   </rsc:iterator>
                   </table>
              </tc:questionIterator>
-            </p>
          </td>
 <!-- Center Column Ends -->
 
@@ -171,23 +180,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
