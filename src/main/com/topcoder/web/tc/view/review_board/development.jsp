@@ -74,7 +74,7 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=278342"><img src="/i/m/adic_mug.gif" alt="adic" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=278342"><img src="/i/m/adic_mug.gif" alt="adic" width="63" height="70" border="0" class="myStatsPhoto"/></a></td>
                     <td width="99%" class="bodyText">
                         <p>
                         <a class="bodyText" href="/stat?c=member_profile&amp;cr=278342"><strong>adic</strong></a> has been a valued member on twenty different review board projects.  When he is not reviewing components, Adic has also won several design and development competitions.
@@ -86,8 +86,21 @@
             <hr width="100%" size="1" noshade="noshade" />
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr valign="top"><br>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=277356"><img src="/i/m/aksonov_mug.gif" alt="aksonov" width="63" height="70" border="0" class="myStatsPhoto"/></a></td>
+                    <td width="99%" class="bodyText">
+                        <p>                        
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=277356"><strong>aksonov</strong></a> graduated from the Nikolaev Informatical and Mathematical Lyceum.  He was a jury member of the Ukranian Olympiads in informatics and won the ACM Regional Programming Contest award.  Aksonov also serves on our Architecture review board and reviews both .NET and Java components.
+                        </p>
+                     </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=154579"><img src="/i/m/Altrag_mug.gif" alt="Altrag" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=154579"><img src="/i/m/Altrag_mug.gif" alt="Altrag" width="63" height="70" border="0" class="myStatsPhoto"/></a></td>
                     <td width="99%" class="bodyText">
                         <p>
                         <a class="bodyText" href="/stat?c=member_profile&amp;cr=154579"><strong>Altrag</strong></a> graduated from the University of Calgary and also placed 27th in the 2002 ACM ICPC world finals.
@@ -100,7 +113,7 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=260911"><img src="/i/m/amitc_mug.gif" alt="amitc" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=260911"><img src="/i/m/amitc_mug.gif" alt="amitc" width="63" height="70" border="0" class="myStatsPhoto"/></a></td>
                     <td width="99%" class="bodyText">
                         <p>
                         <a class="bodyText" href="/stat?c=member_profile&amp;cr=260911"><strong>amitc</strong></a> is currently pursuing his undergraduate degree in Computer Science from SVCE. He has won many regional programming contests and enjoys finding bugs in software. He enjoys being part of the review board as it presents him an opportunity to examine some of the finest solutions from all over the world. 
@@ -113,7 +126,7 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=287614"><img src="/i/m/argolite_mug.gif" alt="argolite" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=287614"><img src="/i/m/argolite_mug.gif" alt="argolite" width="63" height="70" border="0" class="myStatsPhoto"/></a></td>
                     <td width="99%" class="bodyText">
                         <p>
                         <a class="bodyText" href="/stat?c=member_profile&amp;cr=287614"><strong>argolite</strong></a> graduated from the University of British Columbia.  He believes that being a part of the review board allows him to see solutions to problems from angles he might not have seen on his own.
@@ -126,7 +139,7 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=111202"><img src="/i/m/ColinMacLeod_mug.gif" alt="ColinMacLeod" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=111202"><img src="/i/m/ColinMacLeod_mug.gif" alt="ColinMacLeod" width="63" height="70" border="0" class="myStatsPhoto"/></a></td>
                     <td width="99%" class="bodyText">
                         <p>
                         <a class="bodyText" href="/stat?c=member_profile&amp;cr=111202"><strong>ColinMacLeod</strong></a> has been reviewing components for TopCoder software for over 5 months and has worked on the Jar Compressor, Random String Generator, Class Discovery and other components.
@@ -139,7 +152,7 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=152605"><img src="/i/m/georgepf_mug.gif" alt="georgepf" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=152605"><img src="/i/m/georgepf_mug.gif" alt="georgepf" width="63" height="70" border="0" class="myStatsPhoto"/></a></td>
                     <td width="99%" class="bodyText">
                         <p>
                         <a class="bodyText" href="/stat?c=member_profile&amp;cr=152605"><strong>georgepf</strong></a> graduated from MIT and has served as an accuracy tester for several components.
@@ -152,7 +165,7 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=279471"><img src="/i/m/haha_mug.gif" alt="haha" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=279471"><img src="/i/m/haha_mug.gif" alt="haha" width="63" height="70" border="0" class="myStatsPhoto"/></a></td>
                     <td width="99%" class="bodyText">
                         <p>
                         <a class="bodyText" href="/stat?c=member_profile&amp;cr=279471"><strong>haha</strong></a> graduated from Tsinghua University in Beijing, China.  He has also had training to attend ACM/ICPC 2000 and 2001.  As a member of the review board, haha feels he learns alot from reviewing the submitter's excellent ideas and submissions.
@@ -165,7 +178,7 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=152342"><img src="/i/m/kyky_mug.gif" alt="kyky" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=152342"><img src="/i/m/kyky_mug.gif" alt="kyky" width="63" height="70" border="0" class="myStatsPhoto"/></a></td>
                     <td width="99%" class="bodyText">
                         <p>
                         <a class="bodyText" href="/stat?c=member_profile&amp;cr=152342"><strong>kyky</strong></a> graduated from the Moscow Institute of Electronic Technology with a BS in Computer Engineering and also earned an MS in Computer Science from the New Jersey Institute of Technology.  kyky enjoys being part of the review board because he feels looking at other people's designs gives him the chance to learn from the thinking that went into the design and that's in addition to the aesthetic pleasure of looking at good designs.
@@ -178,7 +191,7 @@
             
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=280367"><img src="/i/m/lkw_mug.gif" alt="lkw" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=280367"><img src="/i/m/lkw_mug.gif" alt="lkw" width="63" height="70" border="0" class="myStatsPhoto"/></a></td>
                     <td width="99%" class="bodyText">
                         <p>
                         <a class="bodyText" href="/stat?c=member_profile&amp;cr=280367"><strong>lkw</strong></a>  graduated from Queens College and is a Sun Certified Programmer for Java2 Platform.   Joining the review board has given lkw greater exposure to the software design process in a group setting
@@ -191,7 +204,7 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=108262"><img src="/i/m/mathgodleo_mug.gif" alt="mathgodleo" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=108262"><img src="/i/m/mathgodleo_mug.gif" alt="mathgodleo" width="63" height="70" border="0" class="myStatsPhoto"/></a></td>
                     <td width="99%" class="bodyText">
                         <p>
                         <a class="bodyText" href="/stat?c=member_profile&amp;cr=108262"><strong>mathgodleo</strong></a> graduated from Caltech and enjoys seeing the different ways that different people can implement the same design by being on the review board.
@@ -204,7 +217,7 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=299904"><img src="/i/m/mishagam_mug.gif" alt="mishagam" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=299904"><img src="/i/m/mishagam_mug.gif" alt="mishagam" width="63" height="70" border="0" class="myStatsPhoto"/></a></td>
                     <td width="99%" class="bodyText">
                         <p>
                         <a class="bodyText" href="/stat?c=member_profile&amp;cr=299904"><strong>mishagam</strong></a> reviews both .NET and Java solutions as a member of the review board.  He is also the winning developer of the .NET Math Expression Evaluator component.   
@@ -217,7 +230,7 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=289824"><img src="/i/m/MPhk_mug.gif" alt="MPhk" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=289824"><img src="/i/m/MPhk_mug.gif" alt="MPhk" width="63" height="70" border="0" class="myStatsPhoto"/></a></td>
                     <td width="99%" class="bodyText">
                         <p>
                         <a class="bodyText" href="/stat?c=member_profile&amp;cr=289824"><strong>MPhk</strong></a> has won over $400 dollars as a designer for TopCoder Software components.  One of his winning designs is the SVG 2DGraphics component.
@@ -230,7 +243,7 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=296745"><img src="/i/m/pzhao_mug.gif" alt="pzhao" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=296745"><img src="/i/m/pzhao_mug.gif" alt="pzhao" width="63" height="70" border="0" class="myStatsPhoto"/></a></td>
                     <td width="99%" class="bodyText">
                         <p>
                         <a class="bodyText" href="/stat?c=member_profile&amp;cr=296745"><strong>pzhao</strong></a> graduated with a BS from Tsinghua University in Beijing, China.  He competed in ACM 1998 and his team finished in 7th place in the final round.  Pzhao enjoys being a member of the review board because he believes testing is a crucial to guaranteeing high quality software.
@@ -243,7 +256,7 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=268546"><img src="/i/m/tangentz_mug.gif" alt="TangentZ" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=268546"><img src="/i/m/tangentz_mug.gif" alt="TangentZ" width="63" height="70" border="0" class="myStatsPhoto"/></a></td>
                     <td width="99%" class="bodyText">
                         <p>
                         <a class="bodyText" href="/stat?c=member_profile&amp;cr=268546"><strong>TangentZ</strong></a> received a Master of Computer Science degree from Dalhousie University.  While in school, he spent time researching artificial intelligence with a focus on neural networks. 
@@ -256,7 +269,7 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=299761"><img src="/i/m/techie1_mug.gif" alt="techie1" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=299761"><img src="/i/m/techie1_mug.gif" alt="techie1" width="63" height="70" border="0" class="myStatsPhoto"/></a></td>
                     <td width="99%" class="bodyText">
                         <p>
                         <a class="bodyText" href="/stat?c=member_profile&amp;cr=299761"><strong>techie1</strong></a> graduated from the Stevens Institute of Technology.  He is also a developer for Java, MCSD, and MCSD.NET.
@@ -269,7 +282,7 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=297731"><img src="/i/m/TheCois_mug.gif" alt="TheCois" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=297731"><img src="/i/m/TheCois_mug.gif" alt="TheCois" width="63" height="70" border="0" class="myStatsPhoto"/></a></td>
                     <td width="99%" class="bodyText">
                         <p>
                         <a class="bodyText" href="/stat?c=member_profile&amp;cr=297731"><strong>TheCois</strong></a> has recently joined the development review board.  TheCois has proven to be a successful designer and developer by winning competitions in both categories.
@@ -282,7 +295,7 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=302018"><img src="/i/m/Tomson_mug.gif" alt="Tomson" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=302018"><img src="/i/m/Tomson_mug.gif" alt="Tomson" width="63" height="70" border="0" class="myStatsPhoto"/></a></td>
                     <td width="99%" class="bodyText">
                         <p>
                         <a class="bodyText" href="/stat?c=member_profile&amp;cr=302018"><strong>Tomson</strong></a> attends the Shanghai Jiaotong University.  In high school, he was the runner-up in the National Olympic of Information and won the first-class prize in the National Physics Olympics.
@@ -295,7 +308,7 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=158447"><img src="/i/m/vald_mug.gif" alt="vald" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=158447"><img src="/i/m/vald_mug.gif" alt="vald" width="63" height="70" border="0" class="myStatsPhoto"/></a></td>
                     <td width="99%" class="bodyText">
                         <p>
                         <a class="bodyText" href="/stat?c=member_profile&amp;cr=158447"><strong>ValD </strong></a> currently studies at the University of Albany and plans to graduate with honors.  In his spare time, he studies optimization problems and evolution strategies.  In fact, ValD believes he may be making progress towards a new evolution model. ValD says he has joined the review board because it provides deep insight into how teams of developers function.  The board has great flexibility with work distribution and treats everyone like an independent contractor.  This is a great plus for anyone with business goals.
@@ -308,7 +321,7 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=286907"><img src="/i/m/WishingBone_mug.gif" alt="WishingBone" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=286907"><img src="/i/m/WishingBone_mug.gif" alt="WishingBone" width="63" height="70" border="0" class="myStatsPhoto"/></a></td>
                     <td width="99%" class="bodyText">
                         <p>
                         <a class="bodyText" href="/stat?c=member_profile&amp;cr=286907"><strong>WishingBone</strong></a> graduated from Zhejiang University and enjoys meeting outstanding programmers world-wide through his participation in the review boards
@@ -329,19 +342,6 @@
                      </td>
                 </tr>
             </table>            
-
-            <hr width="100%" size="1" noshade="noshade" />
-
-            <table width="100%" border="0" cellpadding="5" cellspacing="0">
-                <tr valign="top"><br>
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=277356"><img src="/i/clear.gif" alt="aksonov" width="63" height="70" border="0" /></a></td>
-                    <td width="99%" class="bodyText">
-                        <p>                        
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=277356"><strong>aksonov</strong></a> graduated from the Nikolaev Informatical and Mathematical Lyceum.  He was a jury member of the Ukranian Olympiads in informatics and won the ACM Regional Programming Contest award.  Aksonov also serves on our Architecture review board and reviews both .NET and Java components.
-                        </p>
-                     </td>
-                </tr>
-            </table>
 
             <hr width="100%" size="1" noshade="noshade" />
 
