@@ -38,7 +38,7 @@ public class View extends SurveyData {
     }
 
     protected List makeAnswerInfo(long questionId) throws Exception {
-        log.debug("makeAnswerInfo called");
+        log.debug("makeAnswerInfo called: " + questionId);
         Request req = new Request();
         DataAccessInt dataAccess = getDataAccess(true);
         req.setContentHandle("answers");

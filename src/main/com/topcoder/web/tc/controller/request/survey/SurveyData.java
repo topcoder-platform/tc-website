@@ -53,6 +53,7 @@ public abstract class SurveyData extends Base {
     }
 
     protected List getQuestionInfo(long surveyId) throws Exception {
+        log.debug("getQuestionInfo: " + surveyId);
         Request r = new Request();
         r.setContentHandle("survey_questions");
         r.setProperty("sid", String.valueOf(surveyId));
