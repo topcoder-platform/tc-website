@@ -72,7 +72,7 @@
 
                 <tr>
                     <td width="30%" class="sidebarText">3rd Runner Up (3)*</td>
-                    <td width="70%" class="sidebarText">$125 gift certificate to redeem in the JavaOne Conference</td>
+                    <td width="70%" class="sidebarText">$125 gift certificate to redeem in the JavaOne Conference Retail Store</td>
                 </tr>
 
                 <tr>
