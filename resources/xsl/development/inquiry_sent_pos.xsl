@@ -6,7 +6,7 @@
 	<xsl:import href="../foot.xsl" />
 	<xsl:import href="../includes/modules/stats_intro.xsl" />  
 	<xsl:import href="../includes/global_left.xsl"/> 
-	<xsl:import href="../includes/dev/public_dev_right.xsl" />     
+	<xsl:import href="../includes/dev/public_dev_right.xsl"/> 
 	<xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN" />
 	<xsl:template match="/">
 
@@ -102,7 +102,7 @@
 
 <!-- Right Column Begins -->
 		<td width="170" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="170" height="1" alt="" border="0" /><br />
-			<xsl:call-template name="public_right_col" />        
+			<xsl:call-template name="public_dev_right" />        
 		</td>
 <!-- Right Column Ends -->
 
