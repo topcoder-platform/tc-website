@@ -30,7 +30,7 @@
 
                 <tr valign="top">
                     <td class="statText" align="right"><strong>Name:</strong></td>
-                    <td class="statText"><jsp:getProperty name="Registration" property="firstName" /> <jsp:getProperty name="Registration" property="LastName" /></td>
+                    <td class="statText"><jsp:getProperty name="Registration" property="firstName" /> <jsp:getProperty name="Registration" property="lastName" /></td>
                     <td></td>
                 </tr>
 
