@@ -94,6 +94,8 @@ public class Submit extends FullRegSubmit {
             mail.addToAddress(info.getEmail(), TCSEmailMessage.TO);
             mail.setFromAddress("service@topcoder.com");
             log.info("sent registration email to " + info.getEmail());
+            
+            EmailEngine.send(mail);
         } catch (Exception e) {
             throw new TCWebException(e);
         }
