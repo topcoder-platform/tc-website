@@ -37,7 +37,6 @@ public class Controller extends BaseServlet {
     protected void process(HttpServletRequest request, HttpServletResponse response )
             throws IOException  {
 
-        RequestProcessor rp = null;
         WebAuthentication authentication = null;
         SessionInfo info = null;
 
@@ -106,10 +105,20 @@ public class Controller extends BaseServlet {
                 } else {
                     throw new Exception("missing " + Constants.TASK_PARAM + " parameter in request");
                 }
+            } catch (PermissionException pe) {
+                log.debug("caught PermissionException");
+                if (authentication.getUser().isAnonymous()) {
+                    handleLogin(request, response, info);
+                    return;
+                } else {
+                    log.debug("already logged in, rethrowing");
+                    throw pe;
+                }
             } catch (Exception ex) {
                 handleException(request, response, ex);
                 return;
             }
+
         } catch (Exception e) {
             log.fatal("forwarding to error page failed", e);
             e.printStackTrace();
