@@ -687,6 +687,12 @@
     <description></description>
   </init-param>
 
+  <init-param>
+    <param-name>debug_flag</param-name>
+    <param-value>true</param-value>
+    <description></description>
+  </init-param>
+
   <load-on-startup>2</load-on-startup>
 
 </servlet>

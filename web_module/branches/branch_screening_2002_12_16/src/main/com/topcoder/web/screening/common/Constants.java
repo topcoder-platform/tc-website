@@ -137,6 +137,7 @@ public class Constants
     public static String DW_DATA_SOURCE;
     public static String CONTACT_INFO_QUERY_KEY;
     public static String ERRORS;
+    public static String DEBUG;
 
     public static void initialize(ServletConfig config) {
         //Controller Servlet Constants
@@ -320,6 +321,7 @@ public class Constants
         CONTACT_INFO_QUERY_KEY = 
             config.getInitParameter("contact_info_query_key");
         ERRORS = config.getInitParameter("errors_attribute");
+        DEBUG = config.getInitParameter("debug_flag");
 
         isInitialized = true;
     }
