@@ -1,3 +1,35 @@
+PROVISIONS APPLICABLE TO CHINESE CITIZENS AND EXPATRIATES RESIDING IN CHINA
+TopCoder hereby incorporates into these Terms of Use and Privacy Policy the provisions of China's Decision on Safeguarding the Security of the Internet.  
+
+
+According to Section 1 of Decision on Safeguarding the Security of the Internet, "to ensure operational security of the Internet, the person or organization perpetrating any of the following acts in violation of the criminal law shall be penalized according to the criminal code:
+
+	(1) Unauthorized penetration into the computer and information system of the state affair, national defense or high-tech departments of the state;
+	(2) Intentional composition or dissemination of computer virus or other destructive programs, or attacking the computer system or telecommunication network and resulting in damage or destruction of such computer systems or telecommunication network;
+	(3) Unauthorized disruption of operation of the computer network or telecommunication service and resulting in malfunction of such network or telecommunication systems in violation of the laws or regulations of the state."  
+
+According to Section 2 of Decision on Safeguarding the Security of the Internet (the "Decision"), "to protect national security and social stability, the person or organization perpetrating any of the following acts in violation of the criminal law shall be penalized according to the criminal code:
+
+	(1) Disseminating rumor or slander on the Internet, or publishing or diffusing maleficent information to instigate subversion of the state power or socialist system, advocate abruption of the country or harm unity of the country;
+	(2) Stealing or disclosing the national or military secrets on the Internet;
+	(3) Instigating inter-ethnic enmity or prejudice, or disrupting ethnic unity on the Internet; and
+	(4) Establishing or organizing heresies on the Internet and impeding the implementation of laws and regulations of the state."
+
+Section 3 of the Decision also stipulates that "to safeguard the order of the socialist market economy and social stability, the person or organization perpetrating any of the following acts in violation of the criminal law shall be penalized according to the criminal code:
+
+	(1) Selling fake or shoddy goods on the Internet or making false or misleading propaganda of commodities on the Internet;
+	(2) Hurting others' commercial fame or reputation of products on the Internet;
+	(3) Infringing upon others' intellectual property rights on the Internet;
+	(4) Compiling and distributing false information on the Internet to affect securities or futures transactions or disrupt order of the financial markets; and
+	(5) Establishing pornographic web sites or web pages, providing links to pornographic web sites, or disseminating pornographic magazines, films, audio and videos materials or graphics on the Internet."
+
+Section 4 of the Decision stipulates that "to protect the legal rights of personal safety and property of individuals, legal persons and other organizations, the person or organization perpetrating any of the following acts in violation of the criminal law shall be penalized according to the criminal code:
+
+	(1) Insulting others or drawing up slanders against others on the Internet;
+	(2) Illegally intercepting, modifying or deleting others' emails or other database materials and infringing rights of the citizen of freedom and secrets in communicating and letter transmitting; and 
+	(3) Perpetrating theft, fraud, or blackmailing on the Internet."
+
+
 COPYRIGHT, TRADEMARK AND OTHER INTELLECTUAL PROPERTY
 
 Protection
@@ -25,7 +57,7 @@ By accessing our Web site, you agree to indemnify us and any parent, subsidiary 
 
 DISCLAIMER
 
-THE MATERIALS AND SERVICES ON OUR WEB SITE ARE PROVIDED "AS IS" AND WITHOUT WARRANTIES OF ANY KIND EITHER EXPRESS OR IMPLIED.  TO THE FULLEST EXTENT PERMISSIBLE PURSUANT TO APPLICABLE LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.  WE DO NOT WARRANT THAT THE FUNCTIONS CONTAINED IN THE MATERIALS WILL BE UNINTERRUPTED OR ERROR-FREE, THAT DEFECTS WILL BE CORRECTED, OR THAT THIS WEB SITE OR THE SERVER(S) THAT MAKES OUR WEB SITE AVAILABLE OR ANY ADVERTISED OR HYPERLINKED SITE ARE FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS OR THAT OUR SITE, SERVER(S), ADVERTISED OR HYPERLINKED SITES WILL BE ACCESSIBLE AT ALL TIMES.  WE DO NOT WARRANT THAT SUCH ERRORS, DEFECTS OR INTERRUPTIONS IN SERVICE WILL NOT EFFECT THE RESULTS OF OUR COMPETITIONS, AND WE DISCLAIM ANY RESPONSIBILITY FOR REDUCED PERFORMANCE IN COMPETITIONS DUE TO SUCH PROBLEMS.  WE DO NOT WARRANT OR MAKE ANY REPRESENTATIONS REGARDING THE USE OR THE RESULTS OF OUR WEB SITE WITH RESPECT TO CORRECTNESS, ACCURACY, RELIABILITY OR OTHERWISE.  YOU ASSUME THE ENTIRE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.  TO THE EXTENT THAT APPLICABLE LAW MAY NOT ALLOW THE EXCLUSION OF IMPLIED WARRANTIES, THE ABOVE EXCLUSIONS MAY NOT APPLY TO YOU.  
+THE MATERIALS AND SERVICES ON OUR WEB SITE ARE PROVIDED "AS IS" AND WITHOUT WARRANTIES OF ANY KIND EITHER EXPRESS OR IMPLIED.  TO THE FULLEST EXTENT PERMISSIBLE PURSUANT TO APPLICABLE LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.  WE DO NOT WARRANT THAT THE FUNCTIONS CONTAINED IN THE MATERIALS WILL BE UNINTERRUPTED OR ERROR-FREE, THAT DEFECTS WILL BE CORRECTED, OR THAT THIS WEB SITE OR THE SERVER(S) THAT MAKES OUR WEB SITE AVAILABLE OR ANY ADVERTISED OR HYPERLINKED SITE ARE FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS OR THAT OUR SITE, SERVER(S), ADVERTISED OR HYPERLINKED SITES WILL BE ACCESSIBLE AT ALL TIMES.  WE DO NOT WARRANT THAT SUCH ERRORS, DEFECTS OR INTERRUPTIONS IN SERVICE WILL NOT AFFECT THE RESULTS OF OUR COMPETITIONS, AND WE DISCLAIM ANY RESPONSIBILITY FOR REDUCED PERFORMANCE IN COMPETITIONS DUE TO SUCH PROBLEMS.  WE DO NOT WARRANT OR MAKE ANY REPRESENTATIONS REGARDING THE USE OR THE RESULTS OF OUR WEB SITE WITH RESPECT TO CORRECTNESS, ACCURACY, RELIABILITY OR OTHERWISE.  YOU ASSUME THE ENTIRE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.  TO THE EXTENT THAT APPLICABLE LAW MAY NOT ALLOW THE EXCLUSION OF IMPLIED WARRANTIES, THE ABOVE EXCLUSIONS MAY NOT APPLY TO YOU.  
 
 Documents, graphics and other materials appearing at our Web site may include technical inaccuracies, typographical errors, and out-of-date information and use of such documents, graphics or other materials is at your own risk.
 
@@ -49,33 +81,36 @@ You are allowed to register only once and you must provide true and accurate reg
 
 You are also prohibited from posting or otherwise uploading to our Web site:  any material that infringes on any copyright, trademark or other proprietary rights of another (including publicity and privacy rights); material that is obscene, offensive, libelous, pornographic, threatening, abusive, contains illegal content, or is otherwise objectionable, that would constitute or encourage a criminal offense, or that would otherwise give rise to liability or violates any law.  You also represent that you have all necessary rights to use any material that you post or otherwise upload to our Web site.
 
-You are further forbidden from distributing or otherwise publishing any material on our Web site that contains any solicitation of funds, promotion, advertising, or solicitation for goods or services; sending unsolicited commercial e-mail and other advertising, promotional materials or other forms of solicitation to other users of this site; harvesting names and e-mail addresses from other users of this site without their permission; soliciting passwords from other users; impersonating other users; or sending viruses or other destructive or expropriating content.
+You are further forbidden from distributing or otherwise publishing any material on our Web site that contains any solicitation of funds, promotion, employment, advertising, or solicitation for goods or services; sending unsolicited commercial e-mail and other advertising, promotional materials or other forms of solicitation to other users of this site; harvesting names and e-mail addresses from other users of this site without their permission; soliciting passwords from other users; impersonating other users; or sending viruses or other destructive or expropriating content.
 
-While we do not routinely review the contents of material posted or uploaded to our Web site, we nevertheless reserve the right to remove any postings or other uploaded materials in response to complaints of infringement, obscenity or defamation or to otherwise review or edit such materials as appropriate, in our sole discretion and without notice.  
+While we do not routinely review the contents of material posted or uploaded to our Web site, we nevertheless reserve the right to remove any postings or other uploaded materials in response to complaints of infringement, obscenity or defamation or to otherwise review or edit such materials as appropriate, in our sole discretion and without notice.
 
 
 OTHER RESTRICTIONS ON CONDUCT
 
-You agree not to disrupt, modify or interfere with the functioning of our Web site or any services provided on or through our Web site or with any associated software, hardware or servers in any way and you agree not to impede or interfere with others' use of our Web site.  This includes your agreement that you will not cheat; that the idea for the code and/or challenge submitted by you is yours alone.  This also includes your agreement that you will not provide your TopCoder information to any third party for the purpose of displaying TopCoder handles, ratings or contact information.  You also agree not to alter or tamper with any information or materials on, or associated with our Web site or services provided on or through our Web site.
+You agree not to disrupt, modify or interfere with the functioning of our Web site or any services provided on or through our Web site or with any associated software, hardware or servers in any way and you agree not to impede or interfere with others' use of our Web site. This includes your agreement that you will not cheat; that the idea for the code and/or challenge(s) submitted by you is yours alone.  This also includes your agreement that you will not provide your TopCoder information including, but not limited to, your TopCoder handle and rating, to any third party for the purpose of pursuing employment opportunities without the written consent of TopCoder. If you are contacted by a third-party regarding employment opportunities and/or media interest as a result in your participation in TopCoder competitions (including, but not limited to, Single Round Matches and tournaments), you agree to promptly notify TopCoder of such contact. You also agree not to alter or tamper with any information or materials on, or associated with our Web site or services provided on or through our Web site.
 
-We do not necessarily endorse, support, sanction, encourage, verify or agree with the comments, opinions, or other statements make public at our Web site by users through  our competition or Round Tables or other interactive services available at our Web site.  Any information or material sent by users to such forums, including advice and opinions, represents the views and is the responsibility of those users and does not necessarily represent our views.  
+We do not necessarily endorse, support, sanction, encourage, verify or agree with the comments, opinions, or other statements made public at our Web site by users through  our competition or Round Tables or other interactive services available at our Web site.  Any information or material sent by users to such forums, including advice and opinions, represents the views and is the responsibility of those users and does not necessarily represent our views.
 
 You agree that no impediment exists to you joining the TopCoder website, and your participation in TopCoder's website and the competitions it offers will not interfere with your performance of any other agreement or obligation which has been or will be made with any third party.
 
+
 CHOICE OF LAW AND FORUM
+
 This agreement is governed by the laws of the Commonwealth of Massachusetts.  You hereby agree to submit to the exclusive jurisdiction of the courts of the Commonwealth of Massachusetts.  To the extent that applicable laws have mandatory application to this agreement or give you the right to bring action in any other courts, the above limitations may not apply to you.  Use of this Web site is unauthorized in any jurisdiction that does not give full effect to all provisions of these Terms.
 
 
 SEVERABILITY AND ENFORCEABILITY
+
 If any provision or portion of these Terms is held illegal, invalid, or unenforceable, in whole or in part, it shall be modified to the minimum extent necessary to correct any deficiencies or replaced with a provision which is as close as is legally permissible to the provision found invalid or unenforceable and shall not affect the legality, validity or enforceability of any other provisions or portions of these Terms.
 
 
 TERMINATION/EXCLUSION
 
-We reserve the right, in our sole discretion, to revoke any and all privileges associated with accessing and/or competing on our web site, and to take any other action we deem appropriate including but not limited to terminating or suspending your use of TopCoder.com, for no reason or any reason whatsoever, including improper use of this site or failure to comply with these Terms.
-
+We reserve the right, in our sole discretion, to revoke any and all privileges associated with accessing and/or competing on our web site, and to take any other action we deem appropriate including but not limited to terminating or suspending your use of www.topcoder.com, for no reason or any reason whatsoever, including improper use of this site or failure to comply with these Terms.
 
 GENERAL
+
 We may assign, novate or subcontract any or all of our rights and obligations under these terms and conditions at any time.
 
 If you have any questions regarding these Terms, contact us at service@topcoder.com.
