@@ -14,6 +14,7 @@
             <div class="smallFoot">
             <A href="/?t=home&c=public_home" class="smallFoot">Home</A>&#160;&#160;|&#160;&#160;
             <A href="/?t=about_tc&c=index" class="smallFoot">About TopCoder</A>&#160;&#160;|&#160;&#160;
+            <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc/?d1=review_board&d2=competition" class="smallFoot">Review Boards</A>&#160;&#160;|&#160;&#160;
             <A href="/?t=news_events&c=index" class="smallFoot">Press Room</A>&#160;&#160;|&#160;&#160;
             <A href="/?t=contacts&c=index" class="smallFoot">Contact Us</A>&#160;&#160;|&#160;&#160;
             <A href="/?c=privacy" class="smallFoot">Privacy</A>&#160;&#160;|&#160;&#160;
