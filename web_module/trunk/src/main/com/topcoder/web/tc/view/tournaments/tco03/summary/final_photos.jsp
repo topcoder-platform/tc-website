@@ -57,7 +57,7 @@
                 <a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=final">Play-by-Play</a>&nbsp;&nbsp;|&nbsp;&nbsp;Photos&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=final_analysis">Problem Analysis</a>
             </p>
             
-            <h2>Opening Night Photos</h2>
+            <h2>Final Photos</h2>
 
             <p>by Kathryn DeStefano, <em>TopCoder Staff</em><br />
             Friday, December 5, 2003</p>
