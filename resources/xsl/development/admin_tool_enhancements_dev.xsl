@@ -84,7 +84,7 @@
                                         <p>
                                             The Admin Tool Enhancement project has completed the Design Phase and will now enter
                                             the Development Phase.  The functional requirements for the Admin Tool project have
-                                            been seperated into three groups.  Two members will be selected per functional
+                                            been separated into three groups.  Two members will be selected per functional
                                             group in order to compete for the winning submission.  The TopCoder Project Manager will
                                             provide all of the design documents to the selected members once the inquiry phase has
                                             completed.  In order to inquire for this project please click on the appropriate link at
