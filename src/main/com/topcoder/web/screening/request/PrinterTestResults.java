@@ -21,19 +21,11 @@ public class PrinterTestResults extends TestResults {
 
         long sessionId = Long.parseLong(getRequest().getParameter(Constants.SESSION_ID));
 
-        //get the problem statements
-        List problemList = new ArrayList();
-        problemList.addAll(problemSetAList);
-        problemList.addAll(problemSetBList);
-        getRequest().setAttribute("problemStatementList", problemList);
-
         //get the problem solutions
-        List submissionList = new ArrayList();
-        submissionList.addAll(getSubmissions(problemSetAList, sessionId,
+        getRequest().setAttribute("problemSolutionAList", getSubmissions(problemSetAList, sessionId,
                 Constants.PROBLEM_TYPE_TEST_SET_A_ID));
-        submissionList.addAll(getSubmissions(problemSetBList, sessionId,
+        getRequest().setAttribute("problemSolutionBList", getSubmissions(problemSetBList, sessionId,
                 Constants.PROBLEM_TYPE_TEST_SET_B_ID));
-        getRequest().setAttribute("problemSolutionList", submissionList);
 
         //get notes
         Request dr = new Request();
