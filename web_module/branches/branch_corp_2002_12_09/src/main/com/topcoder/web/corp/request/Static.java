@@ -8,37 +8,40 @@ package com.topcoder.web.corp.request;
 /**
 * <p>Title: Static </p>
 * <p> Description: Handles "static" pages.  Serve up jsp's in essentially 
-* any directory (below the root), but we need some level of security.  
-* So the current plan is to create a constant STATIC_PREFIX, for this 
-* example we'll assume STATIC_PREFIX="d_".  A request might be: 
-* http://www.topcoder.com/corp/hs?d_1=statistics&d_2=tourney_overview&p=myPage
+* any directory (below the root), constant STATIC_PREFIX="d".  A request 
+* might look like: 
+* http://www.topcoder.com/corp/hs?d1=statistics&d2=tourney_overview&d3=myPage
 * The request processor gets the list of parameters out of the request, 
 * validates them, and then begin to process them.  In the above example, 
 * that would mean the static processor should serve up
 * <document_root>/statistics/tourney_overview/myPage.jsp
-* @version   1.0
+* @version   1.1
 * @author    Daniel Cohn
 */
 
-public class Static extends AbstractRequestProcessor { 
+public class Static extends BaseProcessor { 
     
-    /* Static_Prefix currently "d_" for this working example */
-    private final String STATIC_PREFIX = "d_";
+    private String url;  // Next page to go to
 
+    private final String STATIC_PREFIX = "d";  // Prefix for parameters
+
+    /* Return the next page once process() has been called.  */
     public String getNextPage() {
-        try { 
-            return requestProcessor(); 
+        return url; 
+    }
+
+    /* process() method in BaseProcessor calls method 
+     * businessProcessing()                                         */
+    void businessProcessing() throws Exception {
+        try {
+            url = requestProcessor();
         }
         catch (Exception e) {
             /* TEMPORARY CODE: not sure yet how to handle illegal page 
              * requests.  Send to error page for now.
              */
-            return ("/errorPage.jsp?message=" + e); 
+            url = ("/errorPage.jsp?message=" + e);
         }
-    }
-
-    void businessProcessing() throws Exception {
-        setContentTag(getNextPage());
     }
 
     public boolean isNextPageInContext() {
@@ -65,9 +68,9 @@ public class Static extends AbstractRequestProcessor {
         StringBuffer paramNums = new StringBuffer(STATIC_PREFIX + 
                                                   levelsDeep + "=");
         for (int i=levelsDeep-1; i>0; i--) { 
-            String lookFor = STATIC_PREFIX + i + "=";
+            String lookFor = STATIC_PREFIX + i;
             String requestDirectory = request.getParameter(lookFor);
-            if (requestDirectory == "" || requestDirectory == null) {
+            if (requestDirectory.equals("") || requestDirectory == null) {
                 throw new IllegalArgumentException (
                        "parameter(s) \"" + paramNums + 
                        "\" found, but paramater \"" + lookFor + 
@@ -77,14 +80,14 @@ public class Static extends AbstractRequestProcessor {
             paramNums.append(", " + lookFor);
         }
 
-        String page = request.getParameter("p");
+        String page = request.getParameter(STATIC_PREFIX+levelsDeep);
         if (page == null) {
             throw new IllegalArgumentException ("no page specified in request.");
         }
 
         /* start generating the return string containing the URL.    */
         StringBuffer ret = new StringBuffer("/");
-        for (int i=1; i<=levelsDeep; i++) {
+        for (int i=1; i<levelsDeep; i++) {
             String cur = request.getParameter(STATIC_PREFIX+i);
             int check = validParameter(cur);  // returns -1 if parameter IS valid.
             if (check == -1) { 
@@ -101,20 +104,6 @@ public class Static extends AbstractRequestProcessor {
         return ret.toString();
     }
 
-    /* return the 1-based depth parameter in request                 */
-    private String getParameter(String request, String prefix) {
-        String find = prefix + "=";
-        int startIndex = request.indexOf(find) + find.length();
-        int endIndex;
-        if (prefix == "p") { 
-            endIndex = request.length(); 
-        }
-        else { 
-            endIndex = request.indexOf("&", startIndex); 
-        }
-        return request.substring(startIndex, endIndex);
-    }
-
 
    /* returns -1 if parameter is valid, otherwise returns the index 
     *  of the invalid character in the request.                      */
@@ -128,9 +117,9 @@ public class Static extends AbstractRequestProcessor {
     }
 
 
-    /* Determine how many directory levels the static address has, 
-     *  ie: /statistics/tourney_overview/myPage.jsp page is 2 
-     *  directory levels deep.                                       */
+    /* Determine how many STATIC_PREFIX levels the static address has, 
+     *  ie: /statistics/tourney_overview/myPage.jsp page is 3 
+     *  static levels deep.                                       */
     private int levelsDeep(String request) {
         int lastIndex = request.lastIndexOf(STATIC_PREFIX) 
                         + STATIC_PREFIX.length();
