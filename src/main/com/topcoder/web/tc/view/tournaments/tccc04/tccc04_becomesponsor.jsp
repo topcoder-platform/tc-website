@@ -98,7 +98,7 @@
 
                         <p><strong>How do I become a sponsor?</strong></p>
                                     
-                                        <p><a href="PMoriarty@topcoder.com?subject=TCCC04 Sponsorship">Contact us</a>  if you're interested in learning more about sponsorship for the 2004 TopCoder Collegiate Challenge.<br/>
+                                        <p><a href="mailto:PMoriarty@topcoder.com?subject=TCCC04 Sponsorship">Contact us</a>  if you're interested in learning more about sponsorship for the 2004 TopCoder Collegiate Challenge.<br/>
                                         Contact: Paul Moriarty<br/>
                                         TopCoder, Inc. <br/>
                                         703 Hebron Avenue<br/>
