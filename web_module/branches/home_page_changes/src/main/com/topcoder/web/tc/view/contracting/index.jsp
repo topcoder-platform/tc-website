@@ -58,13 +58,11 @@ return false;
 			</tr>
 		</table>
 		<p>
-		TopCoder attracts the best software developers to our international programming tournaments. Programmers, team leaders, and software architects join TopCoder to demonstrate their prowess in software development. Only through competition can the most talented developers be found. TopCoder provides placement services for those companies looking to hire fulltime employees. TopCoder works with companies to define a position description including geographic location, skill sets desired, special requirements, salary, etc. TopCoder will then contact members directly about the position and determine the most appropriate candidates based on the position description and feedback from the hiring company. To learn more about our placement services, contact us at <A href="mailto:tces@topcoder.com">tces@topcoder.com</A>.
+		Welcome to TopCoder Employment Opportunities, your source for full time and contract programming work. In today's world, all major artists and professional athletes are represented by agents who find them the best opportunities.  Finally, the time has come for top programmers of the world reap the same benefits.  
 		<br/><br/>
-		TopCoder also provides contract programming services utilizing our member base to handle client needs. Through our competition platform, we measure the relevant skills of developers including problem solving skills, programming ability, and quality assurance. TopCoder works with companies to define the requirements for the contract position and then search our member base for the most appropriate candidates. To learn more about our placement services, contact us at <A href="mailto:tces@topcoder.com">tces@topcoder.com</A>.
+		We are aggressively seeking out companies that have a strong need for the level of talent that only TopCoder members can provide.  TopCoder does all of the leg work for you - we find the companies, look for the right positions and when we find a match, we present you with the opportunity. Only after you confirm your interest in a particular position will TopCoder pass on your information to the appropriate hiring manager.  Before you even talk to the company's representative, TopCoder will make sure your salary requirements, job requirements, and relocation requests are met.  Best of all, TopCoder provides this service for full time and contract work, at no cost to you.
 		<br/><br/>
-		Registering <a href="/tc?module=ContractingPreferences">here</a> is the first step.  You can give us your availability and rate your experience with a variety of programming languages or database platforms.
-		<br/><br/>
-		<center><a href="/tc?module=ContractingPreferences">Sign up today</a></center>
+		Registering <a href="/tc?module=ContractingPreferences">here</a> is the first step. Give us your salary and travel requirements and rate your experience with a variety of programming languages, database platforms and relevant Industry experience.  Then, let TopCoder work for you!
 		</p>
         </div>
         <p><br/></p>
