@@ -110,7 +110,7 @@ public class MainTask extends BaseTask implements Task, Serializable {
 
         setCampaignInfoList( campaignInfoList );
 
-        setNextPage( TCESConstants.JSP_ROOT + TCESConstants.MAIN_PAGE );
+        setNextPage( TCESConstants.MAIN_PAGE );
     }
 
     public void setAttributes(String paramName, String paramValues[]) {

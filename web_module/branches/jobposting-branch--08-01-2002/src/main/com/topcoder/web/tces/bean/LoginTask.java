@@ -33,7 +33,7 @@ public class LoginTask extends BaseTask implements Task, Serializable {
 
     public LoginTask() {
         super();
-        setNextPage(TCESConstants.JSP_ROOT + TCESConstants.LOGIN_PAGE);
+        setNextPage(TCESConstants.LOGIN_PAGE);
         setUserIdAuthenticated(-1);
     }
 
@@ -120,7 +120,7 @@ log.debug("verify - "+((Integer)session.getAttribute("user_id")).toString() );
 
             setUserIdAuthenticated(-1);
 
-            setNextPage(TCESConstants.JSP_ROOT + TCESConstants.LOGIN_PAGE);
+            setNextPage(TCESConstants.LOGIN_PAGE);
 
             return;
         }
@@ -141,7 +141,7 @@ log.debug("ROW = "+rRow.toString());
 
             setUserIdAuthenticated(-1);
 
-            setNextPage(TCESConstants.JSP_ROOT + TCESConstants.LOGIN_PAGE);
+            setNextPage(TCESConstants.LOGIN_PAGE);
 
             return;
         }
@@ -158,7 +158,7 @@ log.debug("USER ID AUTH = "+Integer.toString(getUserIdAuthenticated()) );
 
     private void viewLogin() throws Exception
     {
-        setNextPage(TCESConstants.JSP_ROOT + TCESConstants.LOGIN_PAGE);
+        setNextPage(TCESConstants.LOGIN_PAGE);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {

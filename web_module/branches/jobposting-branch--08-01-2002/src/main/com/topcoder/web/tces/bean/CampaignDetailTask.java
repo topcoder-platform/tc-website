@@ -164,7 +164,7 @@ public class CampaignDetailTask extends BaseTask implements Task, Serializable {
         }
         setPositionList( positionList );
 
-        setNextPage( TCESConstants.JSP_ROOT + TCESConstants.CAMPAIGN_DETAIL_PAGE );
+        setNextPage( TCESConstants.CAMPAIGN_DETAIL_PAGE );
     }
 
     public void setAttributes(String paramName, String paramValues[]) {

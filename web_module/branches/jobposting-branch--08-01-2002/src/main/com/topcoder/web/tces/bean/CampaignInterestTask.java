@@ -147,7 +147,7 @@ public class CampaignInterestTask extends BaseTask implements Task, Serializable
         }
         setHitList( hitList );
 
-        setNextPage( TCESConstants.JSP_ROOT + TCESConstants.CAMPAIGN_DETAIL_PAGE );
+        setNextPage( TCESConstants.CAMPAIGN_INTEREST_PAGE );
     }
 
     public void setAttributes(String paramName, String paramValues[]) {
