@@ -67,11 +67,11 @@ an opportunity to showcase their competition achievements and be able to upload 
 </P>
 
 <P>
-The ability to apply for a job at TopCoder is restricted to rated members. In line with TopCoder's overall philosophy, this policy allows companies to differentiate coders who otherwise look the same on paper. Non-rated members wishing to obtain a rating should review the competition calendar for the next Single Round Match. 
-</P>
-<P>
-<A HREF="/?&amp;t=schedule&amp;c=index" CLASS="bodyText">Click here</A> for a complete list of upcoming Single Round Matches.<BR/>
-Or <A CLASS="bodyText"><xsl:attribute name="HREF">/?&amp;t=schedule&amp;c=srm&amp;RoundId=<xsl:value-of select="/TC/TCES/NextSRM/Info/round_id"/></xsl:attribute>click here</A> for details on the next Single Round Match.
+The ability to apply for a job at TopCoder is restricted to rated members. In line with TopCoder's 
+overall philosophy, this policy allows companies to differentiate coders who otherwise look the 
+same on paper. Non-rated members wishing to obtain a rating should review the competition calendar 
+for the <A CLASS="bodyText"><xsl:attribute name="HREF">/?&amp;t=schedule&amp;c=srm&amp;RoundId=<xsl:value-of select="/TC/TCES/NextSRM/Info/round_id"/></xsl:attribute>next Single Round Match</A> or
+<A HREF="/?&amp;t=schedule&amp;c=index" CLASS="bodyText">click here</A> for a complete list of upcoming Single Round Matches. 
 </P>
 <BR/>
 
