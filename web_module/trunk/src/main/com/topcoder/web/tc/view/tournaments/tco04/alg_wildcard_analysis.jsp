@@ -20,7 +20,7 @@
 	<tr valign=top>
 		<td valign=top align=center>
 		<div class=bodySpacer>
-            
+
         <p class=pageTitle>snewman is back in the battle</p>
 
 		<img src="/i/clear.gif" width="1" height="10" border="0"/><br/>
@@ -37,7 +37,7 @@
 		<br/><br/>
 		</p>
 <p>
-As in the TCCC, the wildcard round was extremely close.  John Dethridge, antimatter and snewman start off extremely close after each submitting the easy problem within a minute of each other.  The remaining three coders weren't too far behind, with the sixth submission coming in after 13 minutes.  The medium problem proved to be quite difficult for everyone though, and only antimatter, monsson, and snewman were able to submit it in time.  bstanescu skipped the medium problem after solving the easy, and went straight to the hard problem.  John Dethridge also moved on the hard problem without solving the medium, but then went back to the medium.  With about 15 minutes remaining in the coding phase, bstanescu submitted the hard problem and maintained his lead till the end of the coding phase.
+As in the TCCC, the wildcard round was extremely close.  John Dethridge, antimatter and snewman start off extremely close after each submitting the easy problem within a minute of each other.  The remaining three coders weren't too far behind, with the sixth submission coming in after 13 minutes.  The medium problem proved to be quite difficult for everyone though, and only antimatter, monsoon, and snewman were able to submit it in time.  bstanescu skipped the medium problem after solving the easy, and went straight to the hard problem.  John Dethridge also moved on the hard problem without solving the medium, but then went back to the medium.  With about 15 minutes remaining in the coding phase, bstanescu submitted the hard problem and maintained his lead till the end of the coding phase.
 <br/><br/>
 However, his solution used randomness and hill climbing, so there were no guarantees it would pass, even if everything else was correct.  During the challenge phase, no one was able to wade through the longish medium and hard submissions, and going into systests, the top four were bstanescu, antimatter, snewman, and monsoon.  As the results came up, it was revealed that snewman was the only coder to solve two problems, and hence he will join tomek, SnapDragon and reid in the finals - meaning that the top four seeds have all advanced.
 <br/><br/>
@@ -138,9 +138,9 @@ The algorithm is farily straightforward:
 <pre>
     Find any valid matching
     while(true){
-        search for a sequence of edges 
+        search for a sequence of edges
             (u<sub>0</sub>,v<sub>0</sub>), ..., (u<sub>k</sub>,v<sub>k</sub>)
-            such that replacing this sequence with 
+            such that replacing this sequence with
             (u<sub>0</sub>,v<sub>1</sub>), ..., (u<sub>k-1</sub>,v<sub>k</sub>), (u<sub>k</sub>,v<sub>0</sub>)
             reduces the total cost.
         if(no such sequence exists)break
@@ -160,23 +160,23 @@ location of a factory, and to only move the factory a distance of 1 each time
 (either by spiraling, or with an S shaped curve).  This way, you never have to
 do very much work to adjust your matching to make it minimum weight.
 <p>
-          
+
         </div>
 		</td>
-        
-         
+
+
 <!-- Right Column-->
         <td width=170 align=right>
             <jsp:include page="../../public_right.jsp">
             <jsp:param name="level1" value="tco04"/>
             </jsp:include>
          </td>
-		
+
 	</tr>
-	
+
 </table>
-	
-	
+
+
 
 
 <jsp:include page="../../foot.jsp" />
