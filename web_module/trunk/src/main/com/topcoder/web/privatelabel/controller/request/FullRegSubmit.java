@@ -80,7 +80,7 @@ public class FullRegSubmit extends SimpleRegSubmit {
         //get all reg info from the session, no changes should have been made at this point
         FullRegInfo info = (FullRegInfo)getRegInfoFromPersistor();
         if (info==null) {
-            throw new NavigationException("Sorry, your session has expired, you'll have to begin again.");
+            throw new NavigationException("Sorry, your session has expired.");
         }
 
         return info;

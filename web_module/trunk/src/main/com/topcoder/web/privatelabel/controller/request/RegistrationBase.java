@@ -50,6 +50,8 @@ abstract class RegistrationBase extends BaseProcessor {
             regInfo = makeRegInfo();
             p.setObject(Constants.REGISTRATION_INFO, regInfo);
             registrationProcessing();
+        } catch (TCWebException e) {
+            throw e;
         } catch (Exception e) {
             throw new TCWebException(e);
         }
