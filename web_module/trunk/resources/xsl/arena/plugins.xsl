@@ -100,10 +100,10 @@ ClassPath: CodeProcessor.jar<BR/>
 Plugin Name: PopsEdit<BR/>
 Description: Feature rich editor that has all the features Pops needs<BR/>
 Author: Pops<BR/>
-Date: 6/4/2002<BR/>
+Date: 9/6/2002<BR/>
 Instructions: <A HREF="/contest/classes/PopsEdit.htm" CLASS="statText">Documentation >></A><BR/>
 Upgrade Release Notes: <A HREF="/contest/classes/PopsEdit_Upgrade_2_71.htm" CLASS="statText">Release Notes >></A><BR/>
-Version: 2.7<BR/>
+Version: 2.71<BR/>
 EntryPoint: popsedit.EntryPoint (case sensitive)<BR/>
 ClassPath: PopsEdit.jar<BR/>
 <A HREF="/contest/classes/PopsEdit.jar" CLASS="statText">PopsEdit.jar Applet Plugin >></A><BR/>
