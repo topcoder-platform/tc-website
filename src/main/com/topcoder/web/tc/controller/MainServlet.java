@@ -24,10 +24,6 @@ import java.util.Set;
 public class MainServlet extends BaseServlet {
     private final static Logger log = Logger.getLogger(MainServlet.class);
 
-    public void init(ServletConfig config) throws ServletException {
-        super.init(config);
-    }
-
     protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
         return true;
     }
