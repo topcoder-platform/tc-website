@@ -52,6 +52,7 @@ public class TestResults extends BaseProcessor {
         ProfileInfo pinfo = new ProfileInfo();
         pinfo.setHasTestSetA(result.getItem(0,"session_round_id").getResultData()!=null);
         problemSetAList = new ArrayList();
+        pinfo.setTestSetAList(problemSetAList);
         if (pinfo.hasTestSetA()) {
             String roundId = result.getItem(0,"contest_round_id").toString();
             String divisionId = result.getItem(0,"contest_division_id").toString();
@@ -75,7 +76,6 @@ public class TestResults extends BaseProcessor {
                         Long.parseLong(dwResult.getItem(i,"session_round_id").toString()),
                         Long.parseLong(dwResult.getItem(i,"problem_id").toString())));
             }
-            pinfo.setTestSetAList(problemSetAList);
         }
 
         TestSessionInfo sessionInfo = new TestSessionInfo();
