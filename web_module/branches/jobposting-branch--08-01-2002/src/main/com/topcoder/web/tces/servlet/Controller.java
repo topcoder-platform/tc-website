@@ -99,7 +99,7 @@ public class Controller extends HttpServlet {
         }
     }
 
-    private void forwardToErrorPage(HttpServletRequest request, HttpServletResponse response,
+    private void forwardToLoginPage(HttpServletRequest request, HttpServletResponse response,
                                     Throwable exception) throws ServletException, IOException {
         getServletContext().getContext("/").getRequestDispatcher(
                 response.encodeURL(TCESConstants.LOGIN_PAGE)).forward(request, response);
