@@ -58,7 +58,7 @@
                
 
                <blockquote>
-               <table class="bodyText">
+               <table class="bodyText"> 
                <tr>
                <td>
                </td>
