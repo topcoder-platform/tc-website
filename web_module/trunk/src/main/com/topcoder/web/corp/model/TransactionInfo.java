@@ -48,7 +48,6 @@ public class TransactionInfo {
     private int qtty = 0;
     private double cost = 0;
 
-    private String rcVeriSign = null;
     private Exception tcExc = null;
     private String terms = null;
     private long termsId = 0;
@@ -266,14 +265,6 @@ public class TransactionInfo {
             Util.closeIC(icEJB);
         }
         return ret;
-    }
-
-    public String getRcVeriSign() {
-        return rcVeriSign;
-    }
-
-    public void setRcVeriSign(String rcVeriSign) {
-        this.rcVeriSign = rcVeriSign;
     }
 
     public Exception getTcExc() {
