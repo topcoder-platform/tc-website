@@ -117,47 +117,46 @@ public class Controller extends HttpServlet {
                 info.setAll(authToken.getActiveUser(), groups);
 
                 Resource taskResource = new SimpleResource(taskClassName);
-                if (!authorize.hasPermission(taskResource)) {
-                    if (authToken.getActiveUser().isAnonymous()) {
-                        throw new TCESAuthenticationException(
-                                "Anonymous user does not have permision");
-                    }
-                    throw new NotAuthorizedException(
-                            "User " + tcUser.getUserId() + " not Authorized for access to resource: "
-                            + taskName);
-                }
-
-                // process a task
                 Task task = null;
-                Class taskClass = null;
-                taskClass = Class.forName(taskClassName);
-                task = (Task) taskClass.newInstance();
-                task.setInitialContext(ctx);
-                task.setSessionInfo(info);
-
-                Enumeration parameterNames = request.getParameterNames();
-                while (parameterNames.hasMoreElements()) {
-                    String parameterName =
-                            parameterNames.nextElement().toString();
-                    String[] parameterValues =
-                            request.getParameterValues(parameterName);
-                    if (parameterValues != null) {
-                        task.setAttributes(parameterName, parameterValues);
-                    }
-                }
-
-                task.setServletPath(request.getContextPath()
-                        + request.getServletPath());
-
-                task.setAuthToken(authToken);
-
-                task.servletPreAction(request, response);
-
                 try {
+                    if (!authorize.hasPermission(taskResource)) {
+                        if (authToken.getActiveUser().isAnonymous()) {
+                            throw new TCESAuthenticationException(
+                                    "Anonymous user does not have permision");
+                        }
+                        throw new NotAuthorizedException(
+                                "User " + tcUser.getUserId() + " not Authorized for access to resource: "
+                                + taskName);
+                    }
+
+                    // process a task
+                    Class taskClass = null;
+                    taskClass = Class.forName(taskClassName);
+                    task = (Task) taskClass.newInstance();
+                    task.setInitialContext(ctx);
+                    task.setSessionInfo(info);
+
+                    Enumeration parameterNames = request.getParameterNames();
+                    while (parameterNames.hasMoreElements()) {
+                        String parameterName =
+                                parameterNames.nextElement().toString();
+                        String[] parameterValues =
+                                request.getParameterValues(parameterName);
+                        if (parameterValues != null) {
+                            task.setAttributes(parameterName, parameterValues);
+                        }
+                    }
+
+                    task.setServletPath(request.getContextPath()
+                            + request.getServletPath());
+
+                    task.setAuthToken(authToken);
+
+                    task.servletPreAction(request, response);
+
                     task.processStep(taskStepName);
                 } catch (TCESAuthenticationException authex) {
-                    log.error("User authenticated error in TCES resource."
-                            + authex.getMessage());
+                    log.error("User authenticated error in TCES resource." + authex.getMessage());
                     request.setAttribute("message", "You must login to view this page.");
                     log.debug("login nextpage will be: " + HttpUtils.getRequestURL(request) + "?" + request.getQueryString());
                     request.setAttribute("nextpage", HttpUtils.getRequestURL(request) + "?" + request.getQueryString());
