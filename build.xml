@@ -1167,5 +1167,20 @@
         </java>
     </target>
 
+    <target name="run-ServerMonitorBot" depends="compile">
+        <java classname="com.topcoder.utilities.ServerMonitorBot" fork="true">
+            <jvmarg value="-Dsun.java2d.noddraw=true"/>
+            <classpath>
+                <pathelement location="${classes}"/>
+                <pathelement location="${jars.dir}/sharedForApp.jar" />
+                <pathelement location="${jars.dir}/log4j-1.2.7.jar" />
+                <pathelement location="${resources}" />
+                <pathelement location="${jars.dir}/mail.jar" />
+                <pathelement location="${jars.dir}/activation.jar" />
+            </classpath>
+        </java>
+    </target>
+
+
 </project>
 
