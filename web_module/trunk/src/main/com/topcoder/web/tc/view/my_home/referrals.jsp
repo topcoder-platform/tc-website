@@ -33,14 +33,14 @@
 
          <div class="myTCBody">
         <jsp:include page="../page_title.jsp" >
-            <jsp:param name="image" value="referrals"/>  
-            <jsp:param name="title" value=""/>  
+            <jsp:param name="image" value="referrals"/>
+            <jsp:param name="title" value=""/>
         </jsp:include>
 
         <p>
         The following is a list of members who have listed you as a reference when they registered to become a TopCoder member. Should they earn any money as a competitor, the referring member (you) will receive a referral commission equal to 10% of any amounts earned or won by the referred member during the 12 months following registration!  To find out more about the TopCoder Referral Program, click <A href="/?&t=support&c=referral">here</a>.
         </p>
-        
+
         <br/>
         <table width="300" border="0" cellpadding="5" cellspacing="0" align=center>
             <tr>
@@ -51,14 +51,21 @@
                     Member Since
                 </td>
             </tr>
+            <% if (referralList.isEmpty()) { %>
+              <tr>
+                <td class="formHandleOdd">You have no referrals.</td>
+              </tr>
+            <% } %>
+            <% boolean even = true;%>
             <rsc:iterator list="<%=referralList%>" id="info">
             <tr>
-                <td class="formHandleOdd">
+                <td class="<%=even?"formHandleEvent":"formHandleOdd"%>">
                     <a href="/stat?c=member_profile&cr=<rsc:item row="<%=info%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=info.getIntItem("rating")%>'/>"><rsc:item row="<%=info%>" name="handle"/></a>
                 </td>
-                <td class="formHandleOdd" align="right">
+                <td class="<%=even?"formHandleEvent":"formHandleOdd"%>" align="right">
                     <rsc:item row="<%=info%>" name="member_since" format="MM.dd.yyyy"/>
                 </td>
+                <% even = !even;%>
             </tr>
             </rsc:iterator>
         </table>
