@@ -38,7 +38,7 @@ public class AuthenticationException extends Exception {
      * @see java.lang.Throwable#Throwable(Throwable)
      */
     public AuthenticationException(Throwable t) {
-        super(t); //.getMessage());
+        super(t.getMessage());
     }
 
     /**
