@@ -119,7 +119,6 @@
                                             <li>Java 1.4</li>
                                             <li>JDBC</li>
                                             <li>JSP</li>
-                                            <li>Oracle 11.x</li>
                                         </ul>
 
                                         <!-- Payment -->
@@ -149,7 +148,7 @@
                                             <br/>
                                             Total Payment - $810.00
                                             <br/>
-                                            First Payment - $2,607.50
+                                            First Payment - $607.50
                                             <br/>
                                             Second Payment - $202.50
                                         </p>
@@ -195,8 +194,8 @@
                                         </p>
 
                                         <ol>
-                                            <li>A US Citizen </li>
-                                            <li>A Lawful Permanent Resident of the US</li>
+                                            <li>A US Citizen. </li>
+                                            <li>A Lawful Permanent Resident of the US.</li>
                                             <li>A temporary resident, asylee, refugee, or have a lawfully issued work authorization card permitting unrestricted employment.</li>
                                             <li>A Non-US Citizen working in your country of residence.</li>
                                         </ol>
