@@ -39,14 +39,14 @@
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">13</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">14</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/stat?c=round_stats&amp;rd=4330" CLASS="smallText">15</A></TD>
-                        <TD BGCOLOR="#990000" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/?t=schedule&amp;c=invit02_sched" CLASS="smallFoot">16</A></TD>
+                        <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/?t=schedule&amp;c=invit02_sched" CLASS="smallText">16</A></TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">17</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">18</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">19</TD>
                       </TR>
                       <TR> 
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">20</TD>
-                        <TD BGCOLOR="#CCCCCC" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/?ContestId=4340&amp;t=schedule&amp;c=srm" CLASS="smallText">21</A></TD>
+                        <TD BGCOLOR="#666666" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/?ContestId=4340&amp;t=schedule&amp;c=srm" CLASS="smallFoot">21</A></TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">22</TD>
                         <TD BGCOLOR="#990000" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/?t=schedule&amp;c=invit02_sched" CLASS="smallFoot">23</A></TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">24</TD>
