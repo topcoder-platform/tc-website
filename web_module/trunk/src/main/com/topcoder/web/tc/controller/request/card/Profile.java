@@ -17,8 +17,12 @@ public class Profile extends BaseProcessor {
             throw new TCWebException("Coder id parameter not included in request");
         }
 
-        setNextPage("/corp/?module=ViewCard&cr="+coderId);
-        setIsNextPageInContext(false);
+        //pretty much just pass it along.  the data retriever will check
+        //to be sure it should be serving up the data
+        getRequest().setAttribute("cr", coderId);
+        setNextPage("/card/landing_page.jsp");
+        setIsNextPageInContext(true);
+
     }
 
 }
