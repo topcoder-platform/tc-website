@@ -7,7 +7,6 @@
 
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
-<%@ taglib uri="/WEB-INF/stat-taglib.tld" prefix="stat" %>
 
 <% //common code that pulls out the request bean.
 Request srb = (Request) request.getAttribute("REQUEST_BEAN");
@@ -113,7 +112,7 @@ function goTo(selection){
         <TD CLASS="statText" ALIGN="center"><bean:write name="resultRow" property='<%= "item[" + 2 /*"events"*/ + "]" %>'/></TD>
                 <TD CLASS="statText" ALIGN="center"><bean:write name="resultRow" property='<%= "item[" + 4 /*"submitted"*/ + "]" %>'/></TD>
                 <TD CLASS="statText" ALIGN="center"><bean:write name="resultRow" property='<%= "item[" + 5 /*"correct"*/ + "]" %>'/></TD>
-                <TD CLASS="statText" ALIGN="center"><stat:write format="0.00%" name="resultRow" property='<%= "item[" + 6 /*"accuracy pct"*/ + "].resultData" %>'/></TD>        
+                <TD CLASS="statText" ALIGN="center"><bean:write format="0.00%" name="resultRow" property='<%= "item[" + 6 /*"accuracy pct"*/ + "].resultData" %>'/></TD>        
     </tr>
     </logic:iterate>
   </logic:present>
