@@ -57,7 +57,7 @@
 
                         <p><%= message %></p>
                         <% if (!SessionInfo.isGuest()) { %>
-                          <p>If you are not <%=SessionInfo.getHandle()%>, click <a href="/?module=Logout&<%=Login.KEY_DESTINATION_PAGE%>=/?<%=request.getQueryString()%>">here</a>.
+                          <p>If you are not <%=SessionInfo.getHandle()%>, click <a href="/?module=Logout&<%=Login.KEY_DESTINATION_PAGE%>=/<%=request.getQueryString()==null?"":"?"+request.getQueryString()%>">here</a>.
                         <% } else { %>
                             <p>New to TopCoder? Click <a href="/?module=Registration"><b>here</b></a> to register now.</p>
                         <% } %>
