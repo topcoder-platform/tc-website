@@ -67,7 +67,7 @@ function submitConfirm() {
             <h1 class="testHead">Create a New Session - <FONT COLOR="#000000">Set up a New Test Profile</FONT></h1>
             <P>To set up a new Test Profile, follow these steps:</P>
             <ol>
-                <li>Choose an appropriate name for the Test Set.</li>
+                <li>Choose an appropriate name for the Test Profile.</li>
                 <li>Assign a Problem Set to Test Set A.  Further information on each Problem Set can be found by clicking "Problem Sets" at the top 
                 of the page.  Once a Problem Set is selected, the Test Set A table will be automatically populated.</li>
                 <li>Assign a Problem or Problems to Test Set B by choosing a Problem from the list and clicking "Add".  Clicking on the Problem 
