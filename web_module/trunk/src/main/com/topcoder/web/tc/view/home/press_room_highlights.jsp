@@ -12,7 +12,7 @@
 
                 <tr><td class="prHead"><A href="/?&t=news_events&c=art_08_00_04">Wanted: La Creme de la Creme</A> [Software Development]</td></tr>  
 
-                <tr><td class="prHead"><A href="/?&t=news_events&c=pr_08_10_04">TopCoder Software Wins Three New Customer Contracts</A> [August 10]</td></tr>  
+                <tr><td class="prHead"><A href="/?&t=news_events&c=pr_08_10_04">TopCoder Software Wins New Customer Contracts</A> [August 10]</td></tr>  
 
                 <tr><td class="prHead"><A href="/?&t=news_events&c=pr_08_04_04">NVIDIA Named Premier Level Sponsor of 2004 TopCoder Open Tournament</A> [August 4]</td></tr>  
 
