@@ -78,7 +78,9 @@
                 </tr>
 
                 <% int i=0; %>
-                <%--not indenting to save some space on the download cuz this can be a big loop and the spaces don't help --%>
+                <%--not indenting to save some space on the download cuz this can be a big loop
+                    and the spaces significantly impact the size of the html source
+                --%>
                 <tces:rowIterator id="hit" rowList="<%=PositionInterestTask.getHitList()%>"><% i++; %><tr>
  <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
   <a href="<jsp:getProperty name="PositionInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.MEMBER_PROFILE_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=PositionInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=PositionInterestTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=hit.getItem("coder_id").toString()%>" class="bodyText"><%= hit.getItem("handle").toString() %></a></td>
