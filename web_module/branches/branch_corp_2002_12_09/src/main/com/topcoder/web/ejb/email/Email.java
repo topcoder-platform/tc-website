@@ -23,15 +23,6 @@ public interface Email extends EJBObject {
     /**
      *
      *
-     * @see com.topcoder.web.ejb.email.EmailBean#getEmailId
-     * @deprecated
-     */
-    long getEmailId(long userId) throws RemoteException, EJBException;
-
-
-    /**
-     *
-     *
      * @see com.topcoder.web.ejb.email.EmailBean#getEmailTypeId
      */
     long getEmailTypeId(long emailId)
