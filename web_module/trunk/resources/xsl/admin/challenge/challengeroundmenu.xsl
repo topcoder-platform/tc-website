@@ -48,10 +48,13 @@
   <tr>
     <td valign="center" align="center">
       <br/><br/>
-      <table width="619" cellspacing="0" cellpadding="0" border="5">
+      <table width="819" cellspacing="0" cellpadding="0" border="5">
         <tr>
           <td>
-            <xsl:text>Challenges by Round</xsl:text>
+            <xsl:text>Round Id</xsl:text>
+          </td>
+          <td>
+            <xsl:text>Challenges by Room</xsl:text>
           </td>
           <td>
             <xsl:text>Challenges by Problem</xsl:text>
@@ -66,10 +69,13 @@
          <xsl:for-each select="/TC/CHALLENGE/Round">
             <tr>
                 <td>
+                      <xsl:value-of select="RoundId"/>
+                </td>
+                <td>
                     <A>
                       <xsl:attribute name="HREF">JavaScript:doRound('<xsl:value-of select="RoundId"/>')
                       </xsl:attribute>
-                      <xsl:value-of select="RoundId"/>
+                      click
                     </A>
                 </td>
                 <td>
@@ -98,6 +104,12 @@
 
 <FORM NAME="frmResults" METHOD="POST">
 <xsl:attribute name="ACTION">http<xsl:value-of select="/TC/AdminURL"/></xsl:attribute>
+<input type="hidden" name="constraintid" value="">
+    <xsl:attribute name="value">
+        <xsl:value-of select="/TC/CONSTRAINTID"/> 
+    </xsl:attribute>
+</input>
+
 <INPUT TYPE="HIDDEN" NAME="Task" VALUE=""/>
 <INPUT TYPE="HIDDEN" NAME="Command" VALUE=""/>
 <INPUT TYPE="HIDDEN" NAME="roundid" VALUE=""/>

@@ -64,6 +64,11 @@
 <FORM NAME="frmResults" METHOD="POST">
 <xsl:attribute name="ACTION">http<xsl:value-of select="/TC/AdminURL"/></xsl:attribute>
 <INPUT TYPE="HIDDEN" NAME="Task" VALUE=""/>
+<input type="hidden" name="constraintid" value="">
+    <xsl:attribute name="value">
+        <xsl:value-of select="/TC/CONSTRAINTID"/> 
+    </xsl:attribute>
+</input>
 <INPUT TYPE="HIDDEN" NAME="Command" VALUE=""/>
 <INPUT TYPE="HIDDEN" NAME="roomid" VALUE=""/>
 <INPUT TYPE="HIDDEN" NAME="roundid"> 

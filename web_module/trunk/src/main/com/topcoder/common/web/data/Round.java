@@ -11,8 +11,7 @@ public final class Round implements Serializable, Base {
 
   private int roundId;
   private int contestId;
-  private String roundName;
-  private String contestName;
+  private String name;
   private String status;
   private int ranRatings; 
   private int paidMoney; 
@@ -41,8 +40,7 @@ public final class Round implements Serializable, Base {
     this.problems = new ArrayList();
     this.rooms = new ArrayList();
     this.roundSegments = new ArrayList();
-    this.roundName = "";
-    this.contestName = "";
+    this.name = "";
     this.status = null;
     this.ranRatings = 0;
     this.paidMoney = 0;
@@ -75,13 +73,10 @@ public final class Round implements Serializable, Base {
     this.roundSegments = roundSegments;
   }
   
-  public void setRoundName(String roundName) {
-    this.roundName = roundName;
+  public void setName(String name) {
+    this.name = name;
   }
   
-  public void setContestName(String contestName) {
-    this.contestName = contestName;
-  }
   public void setStatus(String status) {
     this.status = status;
   }
@@ -144,12 +139,8 @@ public final class Round implements Serializable, Base {
     return this.roundSegments;
   }
 
-  public String getRoundName() {
-    return this.roundName;
-  }
-
-  public String getContestName() {
-    return this.contestName;
+  public String getName() {
+    return this.name;
   }
 
   public String getStatus() {
@@ -186,8 +177,7 @@ public final class Round implements Serializable, Base {
       result = new RecordTag("Round");
       result.addTag( new ValueTag("ContestId", contestId) );
       result.addTag( new ValueTag("RoundId", roundId) );
-      result.addTag( new ValueTag("RoundName", roundName) );
-      result.addTag( new ValueTag("ContestName", contestName) );
+      result.addTag( new ValueTag("Name", name) );
       result.addTag( new ValueTag("Status", status) );
       result.addTag( new ValueTag("RanRatings", ranRatings) );
       result.addTag( new ValueTag("PaidMoney", paidMoney) );

@@ -15,11 +15,12 @@
       <xsl:call-template name="Menu"/>
 
 
+
 <SCRIPT TYPE="text/Javascript"><![CDATA[
- function doSubmit(roundId) {
+ function doSubmit(problemid) {
     document.frmResults.Task.value    = 'challenge';
-    document.frmResults.Command.value = 'getRoomList';
-    document.frmResults.results.value = roundId;
+    document.frmResults.Command.value = 'getProblemChallengeList';
+    document.frmResults.problemid.value = problemid;
     document.frmResults.filter.value = 90;
     document.frmResults.submit();
   }
@@ -30,7 +31,7 @@
   <tr>
     <td valign="center" align="center">
       <br/><br/>
-      <table width="319" cellspacing="0" cellpadding="0" border="5">
+      <table width="619" cellspacing="0" cellpadding="0" border="5">
         <tr>
           <td>
             <xsl:text>Problem Id</xsl:text>
@@ -61,11 +62,8 @@
                       <xsl:value-of select="MethodName"/>
                  </td>
                  <td>
-                      <xsl:value-of select="DifficultyDesc"/>
+                      <xsl:value-of select="Difficulty"/>
                  </td>
-                <td>
-                    <xsl:value-of select="Pr"/> / <xsl:value-of select="RoundName"/>
-                </td>
             </tr>
          </xsl:for-each>
       </table>
@@ -79,6 +77,19 @@
 <INPUT TYPE="HIDDEN" NAME="Command" VALUE=""/>
 <INPUT TYPE="HIDDEN" NAME="results" VALUE=""/>
 <INPUT TYPE="HIDDEN" NAME="filter" VALUE=""/>
+<input type="hidden" name="constraintid" value="">
+    <xsl:attribute name="value">
+        <xsl:value-of select="/CONSTRAINTID"/> 
+    </xsl:attribute>
+</input>
+
+<input type="hidden" name="roundid" value="">
+    <xsl:attribute name="value">
+        <xsl:value-of select="/TC/CHALLENGE/Challenge/RoundId"/>
+    </xsl:attribute>
+</input>
+
+<INPUT TYPE="HIDDEN" NAME="problemid" VALUE=""/>
 </FORM>
 
  

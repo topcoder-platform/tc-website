@@ -113,7 +113,7 @@ public final class TC extends HttpServlet {
       }
       //************************ problems ************************
       else if ( requestTask.equals("problems") ) {
-        html = admin.task.util.PProblem.process ( request, response, renderer, nav, document );
+        //html = admin.task.util.PProblem.process ( request, response, renderer, nav, document );
       }
 
       //************************ cache ************************
