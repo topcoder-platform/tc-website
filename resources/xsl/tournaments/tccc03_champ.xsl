@@ -76,7 +76,7 @@
                     <td width="99%" class="bodyText">
                         <table border="0" cellspacing="5" cellpadding="0" align="right" width="200">
                             <tr valign="top"><td align="left"><img src="/i/tournament/tccc03/champ_main.jpg" alt="" width="200" height="350" class="photoFrameBig" /></td></tr>
-                            <tr valign="top"><td align="left" class="smallText">dgarthur contemplates a question during the Semi-final Round.</td></tr>
+                            <tr valign="top"><td align="left" class="smallText">dgarthur poses in front of the scoreboard after winning the Final Round.</td></tr>
                         </table>
                                 
                         <h2>dgarthur takes home the crown</h2>
