@@ -177,7 +177,7 @@
                             case ',':
                                 if (buf.length > 0 || (i == 0) || (i > 0 && val.charAt(i - 1) == ',')) {
 
-                                    if (buf.length() > 50) {
+                                    if (buf.length > 50) {
                                         ignored = true;
                                         continue;
                                     }
@@ -305,6 +305,7 @@
                 }
 
                 updateCountSpan();
+                document.frmArray.inputText.focus();
             }
 
             function clearList() {
