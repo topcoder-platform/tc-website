@@ -117,17 +117,17 @@ public class SoftwareComponent {
 
     private float getScreeningPrimaryDevReviewCost() {
         float screeningCost = (1f / 3f) * (float)submissionCount * DEV_REVIEW_RATE;  //20 minutes per submission
-        return screeningCost;
+        return Math.round(screeningCost);
     }
 
     private float getAggregationPrimaryDevReviewCost() {
         float aggregationCost = (1f / 3f) * DEV_REVIEW_RATE;  //20 minutes to aggregate
-        return aggregationCost;
+        return Math.round(aggregationCost);
     }
 
     private float getFinalPrimaryDevReviewCost() {
         float finalReviewCost = (3f / 4f) * DEV_REVIEW_RATE;  //45 minutes to do final review
-        return finalReviewCost;
+        return Math.round(finalReviewCost);
     }
 
     /**
@@ -183,17 +183,17 @@ public class SoftwareComponent {
 
     private float getScreeningPrimaryDesignReviewCost() {
         float screeningCost = (1f / 3f) * (float)submissionCount * DESIGN_REVIEW_RATE;  //40 minutes per submission
-        return screeningCost;
+        return Math.round(screeningCost);
     }
 
     private float getAggregationPrimaryDesignReviewCost() {
         float aggregationCost = (1f / 3f) * DESIGN_REVIEW_RATE;  //20 minutes to aggregate
-        return aggregationCost;
+        return Math.round(aggregationCost);
     }
 
     private float getFinalPrimaryDesignReviewCost() {
         float finalReviewCost = (1f / 2f) * DESIGN_REVIEW_RATE;  //30 minutes to do final review
-        return finalReviewCost;
+        return Math.round(finalReviewCost);
     }
 
 
