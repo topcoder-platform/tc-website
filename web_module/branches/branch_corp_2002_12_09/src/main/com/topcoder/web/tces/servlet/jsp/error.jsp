@@ -10,7 +10,7 @@
   <BODY BGCOLOR="#43515E" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
   <jsp:include page="top.jsp" />             
   
-<TABLE WIDTH="100%" HEIGHT="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+<TABLE WIDTH="100%" HEIGHT="50%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
    <TR>
     <!-- Left Column Begins -->
       <TD WIDTH="170" bgcolor="#001935" VALIGN="top">
@@ -42,9 +42,10 @@
               <P><BR></P>
 		</TABLE>
         </TD>
-	</TR>
+	</TABLE>
+	<BR>
+<TABLE>
 	<TR>
-
    <TD valign="top" bgcolor="#CCCCCC" width="100%" class="bodyText">
    <IMG BORDER="0" VSPACE="5" HEIGHT="1" width="400" src="/i/clear.gif"><BR>
    <DIV CLASS="header">
