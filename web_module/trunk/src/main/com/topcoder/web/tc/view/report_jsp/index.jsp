@@ -59,7 +59,7 @@
   ReportNode reportList = null;
   Boolean processed = (Boolean)request.getAttribute(Constants.PROCESSED_KEY);
   if (processed==null || !processed.booleanValue()) {
-    String dest = Constants.SERVLET_ADDR + "?" + Constants.TASK_NAME_KEY + "=" + Constants.REPORT_LIST_KEY;
+    String dest = Constants.SERVLET_ADDR + "&" + Constants.TASK_NAME_KEY + "=" + Constants.REPORT_LIST_KEY;
 %>
     <jsp:forward page="<%=dest%>"/>
 <%
