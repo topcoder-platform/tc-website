@@ -11,6 +11,7 @@ import com.topcoder.shared.util.TCSEmailMessage;
 
 import java.io.InputStream;
 import java.io.File;
+import java.util.*;
 
 /**
  *
@@ -52,11 +53,11 @@ public class ServerPauseBot {
                 p.destroy();
 
                 if (ret.indexOf("failed") != -1) {
-                    System.out.println("FAILED," + time);
+                    System.out.println(new Date().toString() + " FAILED," + time);
                 } else if (ret.indexOf("200 OK") == -1) {
-                    System.out.println("FAILED," + time);
+                    System.out.println(new Date().toString() + " FAILED," + time);
                 } else {
-                    System.out.println("SUCCEEDED," + time);
+                    System.out.println(new Date().toString() + " SUCCEEDED," + time);
                 }
                 
                 //delete file
