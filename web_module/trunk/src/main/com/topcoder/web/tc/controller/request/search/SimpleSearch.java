@@ -124,6 +124,8 @@ public class SimpleSearch extends Base {
         } else {
             queryBottom.append(" , outer (school s, current_school cs)");
         }
+        queryBottom.append(", outer (tcs_dw:user_rating desr)");
+        queryBottom.append(", outer (tcs_dw:user_rating devr)");
         queryBottom.append(" WHERE c.coder_id = r.coder_id");
         queryBottom.append(" AND c.status = 'A'");
         if (m.getStateCode() != null)
@@ -153,6 +155,11 @@ public class SimpleSearch extends Base {
             queryBottom.append(" AND lower(s.name) like lower('").append(m.getSchoolName()).append("')");
             queryBottom.append(" AND c.coder_type_id = 1");
         }
+        queryBottom.append(" AND c.coder_id = desr.user_id");
+        queryBottom.append(" AND desr.phase_id = 112");
+        queryBottom.append(" AND c.coder_id = devr.user_id");
+        queryBottom.append(" AND devr.phase_id = 113");
+
         StringBuffer searchQuery = new StringBuffer(400);
         searchQuery.append(" SELECT c.coder_id AS user_id");
         searchQuery.append(" , c.handle");
@@ -164,6 +171,8 @@ public class SimpleSearch extends Base {
         searchQuery.append(" , CASE WHEN r.rating > 0 THEN 1 ELSE 2 END AS rating_order");
         searchQuery.append(" , co.country_name");
         searchQuery.append(" , s.name as school_name ");
+        searchQuery.append(" , desr.rating as design_rating");
+        searchQuery.append(" , devr.rating as dev_rating ");
         searchQuery.append(queryBottom.toString());
         searchQuery.append(" ORDER BY rating_order, lower_handle");
 
