@@ -72,12 +72,12 @@
 
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
 
-                <tr><td colspan="5"><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></td></tr>
+                <tr><td colspan="7"><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></td></tr>
 
                 <tr>
                     <td width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <xsl:variable name="priceFormat" select="'$###,###.00'" />
-                    <td class="statText" colspan="3">
+                    <td class="statText" colspan="5">
 			<p><b>Beginning May 1, 2003 TopCoder will pay first, second and third place for EACH component design and development project that receives a passing review score greater than 75.  Triple your earning potential!!!!!</b></p>
                         <p>Currently open projects total <span id="totalMoney"><xsl:value-of select="format-number(sum(/TC/DEVELOPMENT/projects/project/price) * 1.75, $priceFormat)"/></span> in payments to the winning designers and developers. Send us
                         your solutions today so you can start collecting your share.</p>
@@ -86,15 +86,15 @@
                         <td width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
 
-                <tr><td colspan="5"><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr>
+                <tr><td colspan="7"><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr>
 
                 <tr>
                     <td width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" colspan="3"><a name="design"></a><h1 class="devSubhead">Open Component Design Projects</h1></td>
+                    <td class="statText" colspan="5"><a name="design"></a><h1 class="devSubhead">Open Component Design Projects</h1></td>
                     <td width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
 
-                <tr><td colspan="5"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
+                <tr><td colspan="7"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
 
 <!--                <tr valign="top">
                     <td class="statText">
@@ -104,11 +104,11 @@
 
                 <tr valign="middle">
                     <td background="/i/steel_bluebv_bg.gif" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="18" border="0" /></td>
-                    <td background="/i/steel_bluebv_bg.gif" width="50%" class="statText">Design Projects</td>
-                    <td background="/i/steel_bluebv_bg.gif" width="23%" class="statText" align="center"># of Inquiries</td>
-                    <td background="/i/steel_bluebv_bg.gif" width="23%" class="statText" align="center">Payment*</td>
-                    <td background="/i/steel_bluebv_bg.gif" width="23%" class="statText" align="center">Level</td>
-                    <td background="/i/steel_bluebv_bg.gif" width="23%" class="statText" align="center">Submit by</td>
+                    <td background="/i/steel_bluebv_bg.gif" width="30%" class="statText">Design Projects</td>
+                    <td background="/i/steel_bluebv_bg.gif" width="15%" class="statText" align="center"># of Inquiries</td>
+                    <td background="/i/steel_bluebv_bg.gif" width="15%" class="statText" align="center">Payment*</td>
+                    <td background="/i/steel_bluebv_bg.gif" width="15%" class="statText" align="center">Complexity</td>
+                    <td background="/i/steel_bluebv_bg.gif" width="15%" class="statText" align="center">Submit by</td>
                     <td background="/i/steel_bluebv_bg.gif" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="18" border="0" /></td>
                 </tr>
 
@@ -155,12 +155,12 @@
                     </xsl:if>
                 </xsl:for-each>
 
-                <tr><td colspan="5"><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
+                <tr><td colspan="7"><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
 
 
                 <tr>
                     <td width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" colspan="3">*Total Payment (before royalties) </td>
+                    <td class="statText" colspan="5">*Total Payment (before royalties) </td>
                     <td width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
 
@@ -176,24 +176,24 @@
 
                 <tr>
                     <td width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" colspan="3"><a name="design"></a><h1 class="devSubhead">Open Component Development Projects</h1></td>
+                    <td class="statText" colspan="5"><a name="design"></a><h1 class="devSubhead">Open Component Development Projects</h1></td>
                     <td width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
 
-                <tr><td colspan="5"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
+                <tr><td colspan="7"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
 
                 <tr valign="middle">
                     <td background="/i/steel_bluebv_bg.gif" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="18" border="0" /></td>
 
                     <td background="/i/steel_bluebv_bg.gif" class="statText">Development Projects</td>
-                    <td background="/i/steel_bluebv_bg.gif" width="23%" class="statText" align="center"># of Inquiries</td>
+                    <td background="/i/steel_bluebv_bg.gif" class="statText" align="center"># of Inquiries</td>
                     <td background="/i/steel_bluebv_bg.gif" class="statText" align="center">Payment*</td>
-                    <td background="/i/steel_bluebv_bg.gif" class="statText" align="center">Level</td>
+                    <td background="/i/steel_bluebv_bg.gif" class="statText" align="center">Complexity</td>
                     <td background="/i/steel_bluebv_bg.gif" class="statText" align="center">Submit by</td>
                     <td background="/i/steel_bluebv_bg.gif" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="18" border="0" /></td>
                 </tr>
 
-                <tr><td colspan="5"><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+                <tr><td colspan="7"><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
                 <xsl:for-each select="/TC/DEVELOPMENT/projects/project">
                     <xsl:if test="./phase_id=$dev-phase">
@@ -211,7 +211,7 @@
                             <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="final_submission_date"/></xsl:call-template>
                         </xsl:variable>
 
-                        <tr><td colspan="5"><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+                        <tr><td colspan="7"><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
                         <tr valign="top">
                             <td width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                             <td class="statText">
@@ -234,15 +234,15 @@
                 </xsl:for-each>
 
 
-                <tr><td colspan="5"><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+                <tr><td colspan="7"><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
                 <tr>
                     <td width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" colspan="3">*Total Payment (before royalties)</td>
+                    <td class="statText" colspan="5">*Total Payment (before royalties)</td>
                     <td width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
 
-                <tr><td colspan="5"><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></td></tr>
+                <tr><td colspan="7"><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></td></tr>
             </table>
 <!-- Open Component Development Projects ends -->
         </td>
