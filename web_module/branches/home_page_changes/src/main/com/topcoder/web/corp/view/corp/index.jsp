@@ -1,5 +1,4 @@
-<%@ page contentType="text/html; charset=ISO-8859-1"
-         import="com.topcoder.web.corp.Constants" %>
+<%@ page contentType="text/html; charset=ISO-8859-1" import="com.topcoder.web.corp.Constants, com.topcoder.shared.util.ApplicationServer"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -29,7 +28,7 @@
 				  <jsp:param name="level1" value="index"/>
 				</jsp:include>
 				</td>
-		        <td class=homeBigPromo><img src="/i/corp/bigPromo.jpg" border=0 /></td>
+		        <td class=homeBigPromo><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>"><img src="/i/corp/bigPromo.jpg" border=0 /></A></td>
 				<td class=homeRightPromos width="50%">
 				<table width="170" border=0 cellpadding=0 cellspacing=0 align=right>
 					<tr><td><img src="/i/corp/featClientsHead.gif" border=0 /></td></tr>

@@ -41,44 +41,20 @@
     </tr>
 </table>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">
-    <tr><td width="100%"><img src="/i/clear.gif" width="1" height="1" border="0"/></td></tr>
-</table>
-
-<!-- Logo Bar Include Begins -->
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">
-    <tr valign="middle">
-        <td width="15"><a name="top"></a><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
-        <td width="206">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td class="homeLogo">
           <A>
             <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/</xsl:attribute>
                         <xsl:choose>
                             <xsl:when test="$level1='development'">
-                                <img src="/i/logo.gif" width="206" height="49" border="0" vspace="5"/>
+			<a href="/"><img src="/i/logo.gif" border="0"/></a>
                             </xsl:when>
                             <xsl:otherwise>
-                                <img src="/i/logo_r.gif" width="206" height="49" border="0" vspace="5"/>
+			<a href="/"><img src="/i/logo_r.gif" border="0"/></a>
                             </xsl:otherwise>
-                        </xsl:choose>
+			</xsl:choose>
           </A>
-        </td>
-        <td width="99%">
-
-            <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                <tr>
-                    <td align="right" width="99%">
-                        <xsl:choose>
-                            <xsl:when test="$sectionName='home'">
-                                <A class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/SoftwareHost"/>/components/free_components.jsp</xsl:attribute><IMG src="/i/promos/free_comps_promo_head.gif" width="178" height="61" border="0" alt="FREE COMPONENTS" vspace="7" hspace="10" /></A>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <img src="/i/clear.gif" alt="" width="10" height="75" border="0" /><br />
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </td>
-                    <td width="1"><img src="/i/clear.gif" width="1" height="75" border="0"/></td>
-                </tr>
-            </table>
         </td>
     </tr>
 </table>
