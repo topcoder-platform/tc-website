@@ -1,6 +1,4 @@
-<%@ page contentType="text/html; charset=ISO-8859-1" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-            <table width="530" border="0" cellspacing="0" cellpadding="3">                     
+            <table width="530" border="0" cellspacing="0" cellpadding="3">
                 <tr valign="middle">
                     <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Press Room Highlights</font></td>
                     <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/?t=news_events&amp;c=index" class="bodyText"><strong>View All</strong></a></td>

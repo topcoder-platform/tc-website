@@ -1,5 +1,3 @@
-<%@ page contentType="text/html; charset=ISO-8859-1" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
             <table border="0" cellspacing="0" cellpadding="0">
                 <tr>
                     <td height="150" align="center"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=summary&amp;d4=slide_show"  target="_top"><img src="/i/promos/tco_slide_show_third.jpg" alt="Hundreds of new 2003 TCO Photos" width="170" height="150" border="0" /></A></td>
