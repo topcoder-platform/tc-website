@@ -245,7 +245,7 @@
 
     <servlet-mapping>
         <servlet-name>jobposting</servlet-name>
-        <url-pattern>/jp</url-pattern>
+        <url-pattern>/jobposting</url-pattern>
     </servlet-mapping>
 
 </web-app>

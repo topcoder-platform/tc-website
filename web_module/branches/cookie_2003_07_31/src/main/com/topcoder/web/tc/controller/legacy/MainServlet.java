@@ -392,7 +392,7 @@ public final class MainServlet extends HttpServlet {
             // forwarded pages *must not* contain servlet context path
             if (startsWithContextPath) {
                 dest = dest.substring(contextPrefix.length());
-
+            }
             if (!dest.startsWith("/")) {
                 dest = "/" + dest;
             }
