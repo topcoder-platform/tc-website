@@ -505,8 +505,8 @@ in order to participate in the SunNetwork<sup>sm</sup> Coding Challenge.</TD>
   </TD>
   </TR>               
 </TABLE><BR/>
-<!-- <A HREF="/stat?c=member_profile&amp;cr=108262">
-<IMG SRC="/i/codermonth_aug.gif" ALT="Coder of the Month" WIDTH="244" HEIGHT="156" VSPACE="10" BORDER="0"/></A> -->
+<A HREF="/stat?c=member_profile&amp;cr=296745">
+<IMG SRC="/i/codermonth_sept.gif" ALT="Coder of the Month" WIDTH="244" HEIGHT="156" VSPACE="10" BORDER="0"/></A>
 </TD>
 <!-- <TD WIDTH="10" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD> -->
 <!-- Body Area Ends -->
