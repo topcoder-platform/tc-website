@@ -16,21 +16,15 @@
 <jsp:include page="../script.jsp"/>
 
 <script language="JavaScript"><!--
-                        var search=document.searchForm;
                         function submitEnter(e) {
                             var keycode;
                             if (window.event) keycode = window.event.keyCode;
                             else if (e) keycode = e.which;
                             else return true;
                             if (keycode == 13) {
-                                submitSearch();
+                                document.searchForm.submit();
                                 return false;
                             } else return true;
-                        }
-                        function submitSearch() {
-                            if (checkInput()) {
-                                search.submit();
-                            }
                         }
 //--></script>
 
@@ -189,7 +183,7 @@
 
                     <tr>
                         <td colspan="2" class="statText" align="center">
-                            <A href="javascript:submitSearch()" class="statText">[ Submit ]</A><br /><br />
+                            <A href="javascript:document.searchForm.submit()" class="statText">[ Submit ]</A><br /><br />
                         </td>
                     </tr>
                 </form>
