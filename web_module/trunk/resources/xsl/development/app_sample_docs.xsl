@@ -70,10 +70,7 @@
 
                 <tr valign="middle">
                     <td class="bodyText" valign="top"><strong>Design Deliverables</strong><br />
-                        This document provides an overview of the design process including the deliverables required of a complete 
-                        submission and the responsibilities    of a winning designer.    Submissions which do not meet the criteria set 
-                        forth in this document will not pass screening and therefore will not be reviewed by the Application Design 
-                        Review Board</td>
+                        This document provides an overview of the design process including the deliverables required of a complete submission and the responsibilities of a winning designer.  The Application Design Review Board will not review submissions that do not meet the screening requirements.</td>
                     <td></td>
                     <td class="bodyText" valign="top"><br />
                         <table border="0" cellspacing="0" cellpadding="0">
@@ -83,9 +80,9 @@
                                 <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/Application_Design_Deliverables.pdf" class="bodyText">Application Design Deliverables.pdf</a></td>
                             </tr>
                             <tr valign="top">
-                                <td class="bodyText">07.15.2003</td>
+                                <td class="bodyText">11.10.2003</td>
                                 <td class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
-                                <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/Application_Design_Specification.pdf" class="bodyText">Application Design Specification.pdf</a></td>
+                                <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/Application_Design_Specification.rtf" class="bodyText">Application Design Specification.rtf</a></td>
                             </tr>
                         </table>
                     </td>
@@ -96,7 +93,7 @@
                 <tr valign="middle">
                      <td class="bodyText" height="15" valign="top"><strong>Screening and Review Scorecards</strong><br />
                         The screening and review scorecards are completed by the Application Design Review Boards to score 
-                        application submissions.  All members who submit a design or development solution will recieve the 
+                        application submissions.  All members who submit a design or development solution will receive the 
                         populated scorecards from the review boards.</td>
                     <td></td>
                     <td class="bodyText" valign="top"><br />
@@ -125,8 +122,7 @@
                 <tr valign="middle">
                     <td class="bodyText" height="15" valign="top"><strong>Development Deliverables</strong><br />
                         This document provides an overview of the development process including the deliverables required for
-                        submission. Submissions which do not meet the screening requirements will not be reviewed by the
-                        Development Review Board.</td>
+                        submission. The Application Development Review Board will not review submissions that do not meet the screening requirements.</td>
                     <td></td>
                     <td class="bodyText" valign="top"><br />
                         <table border="0" cellspacing="0" cellpadding="0">
