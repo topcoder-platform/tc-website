@@ -130,7 +130,6 @@ public class UpdateSession extends BaseSessionProcessor {
             }
             clearSessionInfo();
 
-            setNextPage("/");
             setNextPage(Constants.CONTROLLER_URL + "?" +
                     Constants.MODULE_KEY + "=Default");
             setIsNextPageInContext(false);
