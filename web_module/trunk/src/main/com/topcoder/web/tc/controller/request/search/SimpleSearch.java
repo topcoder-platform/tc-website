@@ -145,6 +145,14 @@ public class SimpleSearch extends Base {
         queryBottom.append(m.getMinRating() == null ? "0" : m.getMinRating().toString());
         queryBottom.append(" AND ");
         queryBottom.append(m.getMaxRating() == null ? String.valueOf(Integer.MAX_VALUE) : m.getMaxRating().toString());
+        queryBottom.append(" AND desr.rating BETWEEN ");
+        queryBottom.append(m.getMinDesignRating() == null ? "0" : m.getMinDesignRating().toString());
+        queryBottom.append(" AND ");
+        queryBottom.append(m.getMaxDesignRating() == null ? String.valueOf(Integer.MAX_VALUE) : m.getMaxDesignRating().toString());
+        queryBottom.append(" AND devr.rating BETWEEN ");
+        queryBottom.append(m.getMinDevRating() == null ? "0" : m.getMinDevRating().toString());
+        queryBottom.append(" AND ");
+        queryBottom.append(m.getMaxDevRating() == null ? String.valueOf(Integer.MAX_VALUE) : m.getMaxDevRating().toString());
         queryBottom.append(" AND r.num_ratings BETWEEN ");
         queryBottom.append(m.getMinNumRatings() == null ? "0" : m.getMinNumRatings().toString());
         queryBottom.append(" AND ");
