@@ -986,6 +986,7 @@ logger.debug("got ds");
     }
 
 
+/*
     public long getRatingForInquiry(long userId, long version, long componentId)
         throws RemoteException, DDEException, NoSuchUserException,
                 EJBException {
@@ -1030,6 +1031,7 @@ logger.debug("got ds");
         }
         return rating;
     }
+*/
 
 
     public boolean sampleInquiry(String firstName, String lastName,
