@@ -78,7 +78,8 @@ public final class TaskAuthentication {
                 } else {
                     login = (Authentication) sessionObjects.get("login");
                 }
-                String command = Conversion.checkNull(request.getParameter("c"));
+                String command = request.getParameter("c");
+                if (command==null) command = Conversion.checkNull((String)request.getAttribute("c"));
                 if (command.equals("login")) {
                     result = displayLogin(request, HTMLmaker, document);
                 } else if (command.equals("manual_activate")) {
@@ -115,12 +116,10 @@ public final class TaskAuthentication {
         String result = null;
         try {
             String url = request.getParameter("errorURL");
-            if (url==null) url = (String) request.getAttribute("errorURL");
-            if (url==null) url = "";
+            if (url==null) url = Conversion.checkNull((String) request.getAttribute("errorURL"));
 
             String msg = request.getParameter("errorMsg");
-            if (msg==null) msg = (String) request.getAttribute("errorMsg");
-            if (msg==null) msg = "";
+            if (msg==null) msg = Conversion.checkNull((String) request.getAttribute("errorMsg"));
 
             document.addTag(new ValueTag("ErrorURL", url));
             document.addTag(new ValueTag("ErrorMsg", msg));
