@@ -175,7 +175,7 @@ abstract class SimpleRegBase extends RegistrationBase {
             addError(Constants.CITY, "Please enter your city.");
         }
         //zip
-        if (info.getZip().length()<5) {
+        if (info.getZip().length() != 0 && info.getZip().length() < 4) {
             addError(Constants.ZIP, "Please enter your zip code.");
         }
     }
