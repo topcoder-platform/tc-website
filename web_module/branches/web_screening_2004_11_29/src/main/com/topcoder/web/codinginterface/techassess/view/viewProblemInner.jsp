@@ -12,6 +12,9 @@
       document.problemForm.<%=Constants.MODULE%>.value=module;
       document.problemForm.submit();
     }
+    function clear(inputItem) {
+      inputItem.value='';
+    }
 </SCRIPT>
 
 </head>
@@ -86,7 +89,7 @@
                           <td><a href="JavaScript:doSubmit('<%=Constants.RP_SAVE%>')"><img src="/i/corp/screening/buttonSave.gif" alt="" /></a></td>
                           <td><a href="JavaScript:doSubmit('<%=Constants.RP_COMPILE%>')"><img src="/i/corp/screening/buttonCompile.gif" alt="" /></a></td>
                           <td><a href="/mockup/codingRoom.jsp" target="_top"><img src="/i/corp/screening/buttonTest.gif" alt="" /></a></td>
-                          <td><a href="/mockup/codingRoom.jsp" target="_top"><img src="/i/corp/screening/buttonClear.gif" alt="" /></a></td>
+                          <td><a href="JavaScript:clear(document.problemForm.<%=Constants.CODE%>)"><img src="/i/corp/screening/buttonClear.gif" alt="" /></a></td>
                           <td><a href="/mockup/exampleDirections.jsp" target="_top"><img src="/i/corp/screening/buttonClose.gif" alt="" /></a></td>
                           <td><a href="JavaScript:doSubmit('<%=Constants.RP_SUBMIT%>')"><img src="/i/corp/screening/buttonSubmit.gif" alt="" /></a></td>
                        </tr>

@@ -53,7 +53,6 @@ public class Submit extends Base {
                         new String[] {Constants.PROBLEM_TYPE_ID},
                         new String[] {String.valueOf(problemTypeId)}));
             } else if (response.getStatus()==ScreeningSubmitResponse.ERROR) {
-                //todo you gotta make this work with the processing page complexity.
                 addError(Constants.CODE, response.getMessage());
                 closeProcessingPage(buildProcessorRequestString(Constants.RP_VIEW_PROBLEM,
                         new String[] {Constants.PROBLEM_TYPE_ID, Constants.COMPONENT_ID},
