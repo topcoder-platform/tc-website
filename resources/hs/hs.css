@@ -1,223 +1,1357 @@
-.subNav { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#FFCC33; font-size:10px; font-weight:bold; text-decoration:none }
-A.subNav:link { font-family:tahoma, arial, verdana, sans-serif; color:#FFCC33; font-size:10px; font-weight:bold; text-decoration:none }
-A.subNav:visited { font-family:tahoma, arial, verdana, sans-serif; color:#FFCC33; font-size:10px; font-weight:bold; text-decoration:none }
-A.subNav:hover { font-family:tahoma, arial, verdana, sans-serif; color:#FFFFFF; font-size:10px; font-weight:bold; text-decoration:none }
-A.subNav:active { font-family:tahoma, arial, verdana, sans-serif; color:#FFFFFF; font-size:10px; font-weight:bold; text-decoration:none }
+/* Body Styles ----------  */
+html, body
+{
+	background-color: #FFF;
+	padding: 0px;
+	margin: 0px;
+}
 
-.subNav_on { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#000000; font-size:10px; font-weight:normal; text-decoration:none }
-A.subNav_on:link { font-family:tahoma, arial, verdana, sans-serif; color:#000000; font-size:10px; font-weight:normal; text-decoration:none }
-A.subNav_on:visited { font-family:tahoma, arial, verdana, sans-serif; color:#000000; font-size:10px; font-weight:normal; text-decoration:none }
-A.subNav_on:hover { font-family:tahoma, arial, verdana, sans-serif; color:#666666; font-size:10px; font-weight:normal; text-decoration:none }
-A.subNav_on:active { font-family:tahoma, arial, verdana, sans-serif; color:#000000; font-size:10px; font-weight:normal; text-decoration:none }
+/* Major Tag Styles ----------  */
+A:link
+{
+	color: #00F;
+	text-decoration: none;
+}
 
-.registerNav { font-family:tahoma, arial, helvetica, sans-serif; color:#FFFFFF; font-size:10px; font-weight:bold; text-decoration:none }
-A.registerNav:link { font-family:tahoma, arial, helvetica, sans-serif; color:#FFFFFF; font-size:10px; font-weight:bold; text-decoration:none }
-A.registerNav:visited { font-family:tahoma, arial, helvetica, sans-serif; color:#999999; font-size:10px; font-weight:bold; text-decoration:none }
-A.registerNav:hover { font-family:tahoma, arial, helvetica, sans-serif; color:#999999; font-size:10px; font-weight:bold; text-decoration:none }
-A.registerNav:active { font-family:tahoma, arial, helvetica, sans-serif; color:#FFFFFF; font-size:10px; font-weight:bold; text-decoration:none }
+A:visited
+{
+	color: #9D11B3;
+	text-decoration: none;
+}
 
-.registerNav_on { font-family:tahoma, arial, sans-serif; color:#000000; font-size:10px; font-weight:bold; text-decoration:none }
-A.registerNav_on:link { font-family:tahoma, arial, sans-serif; color:#000000; font-size:10px; font-weight:bold; text-decoration:none }
-A.registerNav_on:visited { font-family:tahoma, arial, sans-serif; color:#000000; font-size:10px; font-weight:bold; text-decoration:none }
-A.registerNav_on:hover { font-family:tahoma, arial, sans-serif; color:#000000; font-size:10px; font-weight:bold; text-decoration:none }
-A.registerNav_on:active { font-family:tahoma, arial, sans-serif; color:#000000; font-size:10px; font-weight:bold; text-decoration:none }
+A:hover
+{
+	color: #F00;
+	text-decoration: underline;
+}
 
-.registerToday { font-family:tahoma, arial, sans-serif; color:#FFFFFF; font-size:10px; font-weight:bold; text-decoration:none }
-A.registerToday:link { font-family:tahoma, arial, sans-serif; color:#FFFFFF; font-size:10px; font-weight:bold; text-decoration:none }
-A.registerToday:visited { font-family:tahoma, arial, sans-serif; color:#FFFFFF; font-size:10px; font-weight:bold; text-decoration:none }
-A.registerToday:hover { font-family:tahoma, arial, sans-serif; color:#999999; font-size:10px; font-weight:bold; text-decoration:none }
-A.registerToday:active { font-family:tahoma, arial, sans-serif; color:#999999; font-size:10px; font-weight:bold; text-decoration:none }
+A:active
+{
+	color: #F00;
+	text-decoration: underline;
+}
 
-.memberhandle { font-family:verdana, arial, helvetica, sans-serif; font-size:10px; font-weight:bold; color:#FFFFFF } 
+td, th
+{
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+	font-size: 11px;
+	color: #000;
+	text-decoration: none;
+}
 
-.dropdown { font-family:arial, verdana, helvetica, sans-serif; font-size:10px; color:#666666; background-color:#FFFFFF }
+/* Subclass Styles ----------  */
+.bodySubhead
+{
+	color: #666666;
+	font-size: 12px;
+	font-weight: bold;
+}
 
-.sectionTitle { font-family:arial, verdana, helvetica, sans-serif; color:#000000; font-size:18px; font-weight:bold; text-decoration:none }
-.sectionTitleBrackets { font-family:verdana, arial, helvetica, sans-serif; color:#CC0000; font-size:17px; font-weight:bold; text-decoration:none }
-.smallBrackets { font-family:verdana, arial, helvetica, sans-serif; color:#CC0000; font-size:9px; font-weight:bold; text-decoration:none }
+.bodyTextTitle
+{
+	color: #333333;
+	font-size: 11px;
+	font-weight: bold;
+}
 
-.bodySubhead { font-family:verdana, arial, helvetica, sans-serif; color:#666666; font-size:12px; font-weight:bold; text-decoration:none }
+.bodyTextItal
+{
+	color: #000000;
+	font-size: 11px;
+	font-weight: normal;
+	font-style: italic;
+}
 
-.bodyTextTitle { font-family:arial, verdana, helvetica, sans-serif; color:#333333; font-size:11px; font-weight:bold; text-decoration:none }
+.bodyTextBold
+{
+	color: #000000;
+	font-size: 11px;
+	font-weight: bold;
+	font-style: normal;
+}
 
-.bodyTextItal { font-family:verdana, arial, helvetica, sans-serif; color:#000000; font-size:11px; font-weight:normal; font-style:italic; text-decoration:none }
+.bodyText
+{
+	color: #000000;
+	font-size: 11px;
+	font-weight: normal;
+	font-style: normal;
+}
 
-.bodyTextBold { font-family:verdana, tahoma, arial, helvetica, sans-serif; color:#000000; font-size:10px; font-weight:bold; text-decoration:none }
+A.bodyText:link
+{
+	color: #CC0000;
+	text-decoration: none;
+}
 
-.bodyText { font-family:verdana, tahoma, arial, helvetica, sans-serif; color:#000000; font-size:10px; font-weight:normal; text-decoration:none }
+A.bodyText:visited
+{
+	color: #990000;
+	text-decoration: none;
+}
 
-A.bodyText:link { font-family:verdana, tahoma, arial, helvetica, sans-serif; color:#CC0000; font-size:10px; font-weight:normal; text-decoration:none }
-A.bodyText:visited { font-family:verdana, tahoma, arial, helvetica, sans-serif; color:#990000; font-size:10px; font-weight:normal; text-decoration:none }
-A.bodyText:hover { font-family:verdana, tahoma, arial, helvetica, sans-serif; color:#999999; font-size:10px; font-weight:normal; text-decoration:none }
-A.bodyText:active { font-family:verdana, tahoma, arial, helvetica, sans-serif; color:#999999; font-size:10px; font-weight:normal; text-decoration:none }
+A.bodyText:hover
+{
+	color: #999999;
+	text-decoration: underline;
+}
 
-.errorText { font-family:verdana, tahoma, arial, helvetica, sans-serif; color:#CC0000; font-size:11px; font-weight:normal; font-style:italic; text-decoration:none }
+A.bodyText:active
+{
+	color: #999999;
+	text-decoration: underline;
+}
 
-.moduleTitle { font-family:verdana, arial, sans-serif; color:#CCCCCC; font-size:9px; font-weight:bold; text-decoration:none }
+.bolddate
+{
+	font-size: 10px;
+	font-weight: bold;
+	color: #CC0000;
+}
 
-.moduleSubhead { font-family:tahoma, arial, helvetica, sans-serif; color:#CC0000; font-size:10px; font-weight:bold; text-decoration:none }
-A.moduleSubhead:link { font-family:tahoma, arial, helvetica, helvetica, sans-serif; color:#CC0000; font-size:10px; font-weight:bold; text-decoration:none }
-A.moduleSubhead:visited { font-family:tahoma, arial, helvetica, helvetica, sans-serif; color:#990000; font-size:10px; font-weight:bold; text-decoration:none }
-A.moduleSubhead:hover { font-family:tahoma, arial, helvetica, helvetica, sans-serif; color:#999999; font-size:10px; font-weight:bold; text-decoration:none }
-A.moduleSubhead:active { font-family:tahoma, arial, helvetica, helvetica, sans-serif; color:#999999; font-size:10px; font-weight:bold; text-decoration:none }
+A.bolddate:link
+{
+	color: #CC0000;
+	text-decoration: none;
+}
 
-.moduleText { font-family:tahoma, arial, helvetica, sans-serif; font-size:10px; font-weight:normal; color:#000000; text-decoration:none }
-A.moduleText:link { font-family:tahoma, arial, helvetica, sans-serif; font-size:10px; font-weight:normal; color:#CC0000; text-decoration:none }
-A.moduleText:visited { font-family:tahoma, arial, helvetica, sans-serif; font-size:10px; font-weight:normal; color:#990000; text-decoration:none }
-A.moduleText:hover { font-family:tahoma, arial, helvetica, sans-serif; font-size:10px; font-weight:normal; color:#999999; text-decoration:none }
-A.moduleText:active { font-family:tahoma, arial, helvetica, sans-serif; font-size:10px; font-weight:normal; color:#CC0000; text-decoration:none }
+A.bolddate:visited
+{
+	color: #CC0000;
+	text-decoration: none;
+}
 
-A.smallText:link { font-family:tahoma, arial,sans-serif; color:#CC0000; font-size:10px; font-weight:normal; text-decoration:none }
-A.smallText:visited { font-family:tahoma, arial,sans-serif; color:#990000; font-size:10px; font-weight:normal; text-decoration:none }
-A.smallText:hover { font-family:tahoma, arial,sans-serif; color:#999999; font-size:10px; font-weight:normal; text-decoration:none }
-A.smallText:active { font-family:tahoma, arial,sans-serif; color:#999999; font-size:10px; font-weight:normal; text-decoration:none }
-.smallText { font-family:tahoma, arial,sans-serif; color:#000000; font-size:10px; font-weight:normal; text-decoration:none }
+A.bolddate:hover
+{
+	color: #666666;
+	text-decoration: none;
+}
 
-A.smallFoot:link { font-family:tahoma, arial,sans-serif; color:#CCCCCC; font-size:10px; font-weight:normal; text-decoration:none }
-A.smallFoot:visited { font-family:tahoma, arial,sans-serif; color:#CCCCCC; font-size:10px; font-weight:normal; text-decoration:none }
-A.smallFoot:hover { font-family:tahoma, arial,sans-serif; color:#FFFFFF; font-size:10px; font-weight:normal; text-decoration:none }
-A.smallFoot:active { font-family:tahoma, arial,sans-serif; color:#FFFFFF; font-size:10px; font-weight:normal; text-decoration:none }
-.smallFoot { font-family:tahoma, arial,sans-serif; color:#FFFFFF; font-size:10px; font-weight:normal; text-decoration:none }
+A.bolddate:active
+{
+	color: #CC0000;
+	text-decoration: none;
+}
 
-.grayLine { font-family:arial, verdana, helvetica, sans-serif; color:#CCCCCC; font-size:9px }
+.bolddateoff
+{
+	font-size: 10px;
+	font-weight: bold;
+	color: #000000;
+}
 
-.coderTextRed { font-family:arial, verdana, helvetica, sans-serif; color:#FF0000; font-size:10px }
-A.coderTextRed:link { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#FF0000; font-size:10px; font-weight:normal; text-decoration:none }
-A.coderTextRed:visited { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#FF0000; font-size:10px; font-weight:normal; text-decoration:none }
-A.coderTextRed:hover { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#FF0000; font-size:10px; font-weight:normal; text-decoration:none }
-A.coderTextRed:active { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#FF0000; font-size:10px; font-weight:normal; text-decoration:none }
+.brackets
+{
+	color: #000000;
+	font-size: 22px;
+	font-weight: bold;
+}
 
-.coderTextOrange { font-family:arial, verdana, helvetica, sans-serif; color:#FF9900; font-size:10px }
-A.coderTextOrange:link { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#FF9900; font-size:10px; font-weight:normal; text-decoration:none }
-A.coderTextOrange:visited { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#FF9900; font-size:10px; font-weight:normal; text-decoration:none }
-A.coderTextOrange:hover { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#CC9900; font-size:10px; font-weight:normal; text-decoration:none }
-A.coderTextOrange:active { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#CC9900; font-size:10px; font-weight:normal; text-decoration:none }
+#calendar
+{
+	color: #000000;
+	font-size: 11px;
+	font-weight: normal;
+	text-align: left;
+	vertical-align: top;
+	background-color: #EEE;
+	background-image: url(/i/calendar_bg.gif);
+}
 
-.coderTextBlue { font-family:arial, verdana, helvetica, sans-serif; color:#66CCCC; font-size:10px }
-A.coderTextBlue:link { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#66CCCC; font-size:10px; font-weight:normal; text-decoration:none }
-A.coderTextBlue:visited { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#66CCCC; font-size:10px; font-weight:normal; text-decoration:none }
-A.coderTextBlue:hover { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#66CCCC; font-size:10px; font-weight:normal; text-decoration:none }
-A.coderTextBlue:active { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#66CCCC; font-size:10px; font-weight:normal; text-decoration:none }
+#calendarMini
+{
+	color: #000000;
+	font-size: 11px;
+	font-weight: normal;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #EEE;
+}
 
-.coderTextGreen { font-family:arial, verdana, helvetica, sans-serif; color:#99FF33; font-size:10px }  
-A.coderTextGreen:link { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#99FF33; font-size:10px; font-weight:normal; text-decoration:none }
-A.coderTextGreen:visited { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#99FF33; font-size:10px; font-weight:normal; text-decoration:none }
-A.coderTextGreen:hover { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#99FF33; font-size:10px; font-weight:normal; text-decoration:none }
-A.coderTextGreen:active { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#99FF33; font-size:10px; font-weight:normal; text-decoration:none }
+#calendarBlank
+{
+	font-size: 11px;
+	font-weight: normal;
+	background-color: #CCC;
+}
 
-.coderTextBlack { font-family:arial, verdana, helvetica, sans-serif; color:#000000; font-size:10px }
-A.coderTextBlack:link { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#000000; font-size:10px; font-weight:normal; text-decoration:none }
-A.coderTextBlack:visited { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#000000; font-size:10px; font-weight:normal; text-decoration:none }
-A.coderTextBlack:hover { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#333333; font-size:10px; font-weight:normal; text-decoration:none }
-A.coderTextBlack:active { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#333333; font-size:10px; font-weight:normal; text-decoration:none }
+#calendarBlankMini
+{
+	font-size: 11px;
+	font-weight: normal;
+	background-color: #CCC;
+}
 
-.coderTextYellow { font-family:arial, sans-serif; color:#FFFF00; font-size:10px }
-A.coderTextYellow:link { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#FFFF00; font-size:10px; font-weight:normal; text-decoration:none }
-A.coderTextYellow:visited { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#FFFF00; font-size:10px; font-weight:normal; text-decoration:none }
-A.coderTextYellow:hover { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#FFFF00; font-size:10px; font-weight:normal; text-decoration:none }
-A.coderTextYellow:active { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#FFFF00; font-size:10px; font-weight:normal; text-decoration:none }
+#calendarFrame
+{
+	border: 1px solid #43515E;
+	background-color: #43515E;
+}
 
-.coderTextGray { font-family:arial, sans-serif; color:#CCCCCC; font-size:10px }
-A.coderTextGray:link { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#CCCCCC; font-size:10px; font-weight:normal; text-decoration:none }
-A.coderTextGray:visited { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#CCCCCC; font-size:10px; font-weight:normal; text-decoration:none }
-A.coderTextGray:hover { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#CCCCCC; font-size:10px; font-weight:normal; text-decoration:none }
-A.coderTextGray:active { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#CCCCCC; font-size:10px; font-weight:normal; text-decoration:none }
+#calendarDays
+{
+	color: #FFF;
+	font-size: 11px;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #D84000;
+	background-image: url(/i/s_calendar_bg.gif);
+}
 
-.coderBrackets { font-family:arial, sans-serif; color:#FFCC33; font-size:10px }
+#calendarSRM
+{
+	color: #000;
+	font-size: 11px;
+	font-weight: normal;
+	text-align: left;
+	vertical-align: top;
+	background-color: #FFF;
+}
 
-A:link { font-family:verdana, arial, helvetica, sans-serif; color:#CC0000; font-size:10px; font-weight:normal; text-decoration:none }
-A:visited { font-family:verdana, arial, helvetica, sans-serif; color:#990000; font-size:10px; font-weight:normal; text-decoration:none }
-A:hover { font-family:verdana, arial, helvetica, sans-serif; color:#000000; font-size:10px; font-weight:normal; text-decoration:none }
-A:active { font-family:verdana, arial, helvetica, sans-serif; color:#000000; font-size:10px; font-weight:normal; text-decoration:none }
+#calendarSRMMini
+{
+	color: #000;
+	font-size: 11px;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: top;
+	background-color: #FFF;
+}
 
-.bolddate { font-family:arial, verdana, helvetica, sans-serif; font-size:9px; font-weight: bold; color:#CC0000; text-decoration:none }
-.bolddateoff { font-family:arial, verdana, helvetica, sans-serif; font-size:9px; font-weight: bold; color:#000000; text-decoration:none }
-A.bolddate:link { font-family:arial, verdana, helvetica, sans-serif; font-size:9px; font-weight: bold; color:#CC0000; text-decoration:none }
-A.bolddate:visited { font-family:arial, verdana, helvetica, sans-serif; font-size:9px; font-weight: bold; color:#CC0000; text-decoration:none }
-A.bolddate:hover { font-family:arial, verdana, helvetica, sans-serif; font-size:9px; font-weight: bold; color:#666666; text-decoration:none }
-A.bolddate:active { font-family:arial, verdana, helvetica, sans-serif; font-size:9px; font-weight: bold; color:#CC0000; text-decoration:none }
+a.calendarSRMMini:link
+{
+	color: #CC0000;
+	text-decoration: none;
+}
 
-.ongray { font-family:verdana,arial,helvetica,sans-serif; color:#000000; font-size:10px; font-weight:bold; text-decoration:none }
-A.ongray:link { font-family:verdana,arial,helvetica,sans-serif; color:#000000; font-size:10px; font-weight:bold; text-decoration:none }
-A.ongray:visited { font-family:verdana,arial,helvetica,sans-serif; color:#000000; font-size:10px; font-weight:bold; text-decoration:none }
-A.ongray:hover { font-family:verdana,arial,helvetica,sans-serif; color:#000000; font-size:10px; font-weight:bold; text-decoration:underline }
-A.ongray:active { font-family:verdana,arial,helvetica,sans-serif; color:#000000; font-size:10px; font-weight:bold; text-decoration:underline }
+a.calendarSRMMini:visited
+{
+	color: #CC0000;
+	text-decoration: none;
+}
 
-.headerWhite { font-family:arial, verdana, helvetica ,sans-serif; font-weight:bold; color:#FFFFFF; font-size: 18px }
-.header { font-family:arial, verdana, helvetica ,sans-serif; font-weight:bold; color:#000000; font-size: 18px }
-.brackets { font-family: verdana; font-weight: bold; color:#000000; font-size: 22px }
+a.calendarSRMMini:hover
+{
+	color: #666666;
+	text-decoration: underline;
+}
 
-.messageSmall { font-family:verdana, arial, helvetica, sans-serif; color:#FFFFFF; font-size:9px; font-weight:normal; text-decoration:none }
-A.messageSmall:link { font-family:verdana, arial, helvetica, sans-serif; color:#FFCC33; font-size:9px; font-weight:normal; text-decoration:none }
-A.messageSmall:visited { font-family:verdana, arial, helvetica, sans-serif; color:#FFCC33; font-size:9px; font-weight:normal; text-decoration:none }
-A.messageSmall:hover { font-family:verdana, arial, helvetica, sans-serif; color:#666666; font-size:9px; font-weight:normal; text-decoration:none }
-A.messageSmall:active { font-family:verdana, arial, helvetica, sans-serif; color:#666666; font-size:9px; font-weight:normal; text-decoration:none }
+a.calendarSRMMini:active
+{
+	color: #666666;
+	text-decoration: underline;
+}
 
-.openProjects { font-family:verdana, arial, helvetica, sans-serif; color:#CC0000; font-size:9px; font-weight:bold; text-decoration:none }
-A.openProjects:link { font-family:verdana, arial, helvetica, sans-serif; color:#CC0000; font-size:9px; font-weight:bold; text-decoration:none }
-A.openProjects:visited { font-family:verdana, arial, helvetica, sans-serif; color:#CC0000; font-size:9px; font-weight:bold; text-decoration:none }
-A.openProjects:hover { font-family:verdana, arial, helvetica, sans-serif; color:#666666; font-size:9px; font-weight:bold; text-decoration:none }
-A.openProjects:active { font-family:verdana, arial, helvetica, sans-serif; color:#666666; font-size:9px; font-weight:bold; text-decoration:none }
+#calendarSRMDate
+{
+	color: #F00;
+	font-weight: bold;
+}
 
-.statTextSmall { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#FFFFFF; font-size:10px; font-weight:normal; text-decoration:none }
-A.statTextSmall:link { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#FFCC33; font-size:10px; font-weight:normal; text-decoration:none }
-A.statTextSmall:visited { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#FFCC33; font-size:10px; font-weight:normal; text-decoration:none }
-A.statTextSmall:hover { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#666666; font-size:10px; font-weight:normal; text-decoration:none }
-A.statTextSmall:active { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#666666; font-size:10px; font-weight:normal; text-decoration:none }
+#calendarTourney
+{
+	color: #FFF;
+	font-size: 11px;
+	font-weight: normal;
+	text-align: left;
+	vertical-align: top;
+	background-image: url(/i/tournament/tccc03/tccc03_bkgd.gif);
+	background-color: #444;
+}
 
-.devSubhead { font-family:verdana, arial, helvetica, sans-serif; color:#FFFFFF; font-size:16px; font-weight:bold; text-decoration:none }
+#calendarTourneyMini
+{
+	color: #FFF;
+	font-size: 11px;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #444;
+}
 
+.coderBrackets
+{
+	color: #FFCC33;
+	font-size: 11px;
+}
 
-.globalNav { font-family:tahoma, arial, verdana, sans-serif; color:#FFFFFF; font-size:10px; font-weight:normal; text-decoration:none }
-A.globalNav:link { font-family:tahoma, arial, verdana, sans-serif; color:#FFFFFF; font-size:10px; font-weight:normal; text-decoration:none }
-A.globalNav:visited { font-family:tahoma, arial, verdana, sans-serif; color:#FFFFFF; font-size:10px; font-weight:normal; text-decoration:none }
-A.globalNav:hover { font-family:tahoma, arial, verdana, sans-serif; color:#000000; font-size:10px; font-weight:normal; text-decoration:none }
-A.globalNav:active { font-family:tahoma, arial, verdana, sans-serif; color:#FFFFFF; font-size:10px; font-weight:normal; text-decoration:none }
-.globalNavDots { font-family:tahoma, arial, verdana, sans-serif; color:#FFFFFF; font-size:10px; font-weight:normal; text-decoration:none }
+.coderTextBlack { color: #000000; }
 
-.globalNav_on { font-family:tahoma, arial, verdana, sans-serif; color:#000000; font-size:10px; font-weight:normal; text-decoration:none }
-A.globalNav_on:link { font-family:tahoma, arial, verdana, sans-serif; color:#000000; font-size:10px; font-weight:normal; text-decoration:none }
-A.globalNav_on:visited { font-family:tahoma, arial, verdana, sans-serif; color:#000000; font-size:10px; font-weight:normal; text-decoration:none }
-A.globalNav_on:hover { font-family:tahoma, arial, verdana, sans-serif; color:#999999; font-size:10px; font-weight:normal; text-decoration:none }
-A.globalNav_on:active { font-family:tahoma, arial, verdana, sans-serif; color:#000000; font-size:10px; font-weight:normal; text-decoration:none }
+A.coderTextBlack:link
+{
+	color: #000000;
+	text-decoration: none;
+}
 
-.globalNavSmall { font-family:arial, verdana, sans-serif; color:#CCCCCC; font-size:9px; font-weight:normal; text-decoration:none }
-A.globalNavSmall:link { font-family:arial, verdana, sans-serif; color:#CCCCCC; font-size:9px; font-weight:normal; text-decoration:none }
-A.globalNavSmall:visited { font-family:arial, verdana, sans-serif; color:#CCCCCC; font-size:9px; font-weight:normal; text-decoration:none }
-A.globalNavSmall:hover { font-family:arial, verdana, sans-serif; color:#FFFFFF; font-size:9px; font-weight:normal; text-decoration:none }
-A.globalNavWhite:active { font-family:arial, verdana, sans-serif; color:#FFFFFF; font-size:9px; font-weight:normal; text-decoration:none }
+A.coderTextBlack:visited
+{
+	color: #000000;
+	text-decoration: none;
+}
 
-.globalNavSmall_on { font-family:arial, verdana, sans-serif; color:#FFFFFF; font-size:9px; font-weight:normal; text-decoration:none }
-A.globalNavSmall_on:link { font-family:arial, verdana, sans-serif; color:#FFFFFF; font-size:9px; font-weight:normal; text-decoration:none }
-A.globalNavSmall_on:visited { font-family:arial, verdana, sans-serif; color:#FFFFFF; font-size:9px; font-weight:normal; text-decoration:none }
-A.globalNavSmall_on:hover { font-family:arial, verdana, sans-serif; color:#FFFFFF; font-size:9px; font-weight:normal; text-decoration:none }
-A.globalNavWhite_on:active { font-family:arial, verdana, sans-serif; color:#FFFFFF; font-size:9px; font-weight:normal; text-decoration:none }
+A.coderTextBlack:hover
+{
+	color: #333333;
+	text-decoration: underline;
+}
 
-.titlesidenav { font-family:arial, verdana, helvetica, sans-serif; font-size:11.5px; font-weight: bold; color:#ffffff; text-decoration:none }
+A.coderTextBlack:active
+{
+	color: #333333;
+	text-decoration: underline;
+}
 
-.statText { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#FFFFFF; font-size:10px; font-weight:normal; text-decoration:none }
-A.statText:link { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#FF9900; font-size:10px; font-weight:normal; text-decoration:none }
-A.statText:visited { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#FF9900; font-size:10px; font-weight:normal; text-decoration:none }
-A.statText:hover { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#CCCCCC; font-size:10px; font-weight:normal; text-decoration:none }
-A.statText:active { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#CCCCCC; font-size:10px; font-weight:normal; text-decoration:none }
+.coderTextBlue { color: #66CCCC; }
 
-.sidenav { font-family:arial, verdana, helvetica, sans-serif; font-size:10.5px; font-weight: bold; color:#ffffff; text-decoration:none }
-.sidenavoff { font-family:arial, verdana, helvetica, sans-serif; font-size:10.5px; font-weight: bold; color:#FFFFff; text-decoration:none }
-A.sidenav:link { font-family:arial, verdana, helvetica, sans-serif; font-size:10.5px; font-weight: bold; color:#FFFFff; text-decoration:none }
-A.sidenav:visited { font-family:arial, verdana, helvetica, sans-serif; font-size:10.5px; font-weight: bold; color:#ffffff; text-decoration:none }
-A.sidenav:hover { font-family:arial, verdana, helvetica, sans-serif; font-size:10.5px; font-weight: bold; color:#9999CC; text-decoration:none }
-A.sidenav:active { font-family:arial, verdana, helvetica, sans-serif; font-size:10.5px; font-weight: bold; color:#9999CC; text-decoration:none }
+A.coderTextBlue:link
+{
+	color: #66CCCC;
+	text-decoration: none;
+}
 
-.rednav { font-family:arial, verdana, helvetica, sans-serif; font-size:12px; font-weight: bold; color:#ffffff; text-decoration:none }
-.rednavoff { font-family:arial, verdana, helvetica, sans-serif; font-size:12px; font-weight: bold; color:#FFFFff; text-decoration:none }
-A.rednav:link { font-family:arial, verdana, helvetica, sans-serif; font-size:12px; font-weight: bold; color:#FFFFff; text-decoration:none }
-A.rednav:visited { font-family:arial, verdana, helvetica, sans-serif; font-size:12px; font-weight: bold; color:#ffffff; text-decoration:none }
-A.rednav:hover { font-family:arial, verdana, helvetica, sans-serif; font-size:12px; font-weight: bold; color:#9999CC; text-decoration:none }
-A.rednav:active { font-family:arial, verdana, helvetica, sans-serif; font-size:12px; font-weight: bold; color:#FFFFff; text-decoration:none }
+A.coderTextBlue:visited
+{
+	color: #66CCCC;
+	text-decoration: none;
+}
 
-.resoursesnav { font-family:arial, verdana, helvetica, sans-serif; font-size:10px; font-weight: bold; color:#FFDE00; text-decoration:none }
-.resoursesnavoff { font-family:arial, verdana, helvetica, sans-serif; font-size:10px; font-weight: bold; color:#FFDE00; text-decoration:none }
-A.resoursesnav:link { font-family:arial, verdana, helvetica, sans-serif; font-size:10px; font-weight: bold; color:#FFDE00; text-decoration:none }
-A.resoursesnav:visited { font-family:arial, verdana, helvetica, sans-serif; font-size:10px; font-weight: bold; color:#FFDE00; text-decoration:none }
-A.resoursesnav:hover { font-family:arial, verdana, helvetica, sans-serif; font-size:10px; font-weight: bold; color:#001934; text-decoration:none }
-A.resoursesnav:active { font-family:arial, verdana, helvetica, sans-serif; font-size:10px; font-weight: bold; color:#FFDE00; text-decoration:none }
+A.coderTextBlue:hover
+{
+	color: #66CCCC;
+	text-decoration: underline;
+}
+
+A.coderTextBlue:active
+{
+	color: #66CCCC;
+	text-decoration: underline;
+}
+
+.coderTextGray { color: #CCCCCC; }
+
+A.coderTextGray:link
+{
+	color: #CCCCCC;
+	text-decoration: none;
+}
+
+A.coderTextGray:visited
+{
+	color: #CCCCCC;
+	text-decoration: none;
+}
+
+A.coderTextGray:hover
+{
+	color: #CCCCCC;
+	text-decoration: underline;
+}
+
+A.coderTextGray:active
+{
+	color: #CCCCCC;
+	text-decoration: underline;
+}
+
+.coderTextGreen { color: #99FF33; }
+
+A.coderTextGreen:link
+{
+	color: #99FF33;
+	text-decoration: none;
+}
+
+A.coderTextGreen:visited
+{
+	color: #99FF33;
+	text-decoration: none;
+}
+
+A.coderTextGreen:hover
+{
+	color: #99FF33;
+	text-decoration: underline;
+}
+
+A.coderTextGreen:active
+{
+	color: #99FF33;
+	text-decoration: underline;
+}
+
+.coderTextOrange { color: #FF9900; }
+
+A.coderTextOrange:link
+{
+	color: #FF9900;
+	text-decoration: none;
+}
+
+A.coderTextOrange:visited
+{
+	color: #FF9900;
+	text-decoration: none;
+}
+
+A.coderTextOrange:hover
+{
+	color: #CC9900;
+	text-decoration: underline;
+}
+
+A.coderTextOrange:active
+{
+	color: #CC9900;
+	text-decoration: underline;
+}
+
+.coderTextRed { color: #FF0000; }
+
+A.coderTextRed:link
+{
+	color: #FF0000;
+	text-decoration: none;
+}
+
+A.coderTextRed:visited
+{
+	color: #FF0000;
+	text-decoration: none;
+}
+
+A.coderTextRed:hover
+{
+	color: #FF0000;
+	text-decoration: underline;
+}
+
+A.coderTextRed:active
+{
+	color: #FF0000;
+	text-decoration: underline;
+}
+
+.coderTextYellow { color: #FFFF00; }
+
+A.coderTextYellow:link
+{
+	color: #FFFF00;
+	text-decoration: none;
+}
+
+A.coderTextYellow:visited
+{
+	color: #FFFF00;
+	text-decoration: none;
+}
+
+A.coderTextYellow:hover
+{
+	color: #FFFF00;
+	text-decoration: underline;
+}
+
+A.coderTextYellow:active
+{
+	color: #FFFF00;
+	text-decoration: underline;
+}
+
+.devSubhead
+{
+	color: #FFFFFF;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.dropdown
+{
+	font-size: 11px;
+	color: #666666;
+	background-color: #FFFFFF;
+}
+
+.errorText
+{
+	color: #CC0000;
+	font-size: 11px;
+	font-weight: normal;
+	font-style: italic;
+}
+
+#formFrame
+{
+	border: 1px solid #001934;
+	background-color: #FFF;
+}
+
+.formTitle
+{
+	color: #FFFFFF;
+	font-size: 11px;
+	font-weight: bold;
+	background-color: #001934;
+	background-image: url(/i/blue_heading_bg.gif);
+}
+
+.globalNav
+{
+	color: #FFFFFF;
+	font-size: 11px;
+	font-weight: normal;
+	white-space: nowrap;
+}
+
+A.globalNav:link
+{
+	color: #FFFFFF;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+A.globalNav:visited
+{
+	color: #FFFFFF;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+A.globalNav:hover
+{
+	color: #000000;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+A.globalNav:active
+{
+	color: #FFFFFF;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+.globalNavDots
+{
+	color: #FFFFFF;
+	font-size: 11px;
+	font-weight: normal;
+}
+
+.globalNav_on
+{
+	color: #000000;
+	font-size: 11px;
+	font-weight: normal;
+	white-space: nowrap;
+}
+
+A.globalNav_on:link
+{
+	color: #000000;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+A.globalNav_on:visited
+{
+	color: #000000;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+A.globalNav_on:hover
+{
+	color: #999999;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+A.globalNav_on:active
+{
+	color: #000000;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+.globalNavSmall
+{
+	color: #CCCCCC;
+	font-size: 10px;
+	font-weight: normal;
+	background-color: #001934;
+}
+
+A.globalNavSmall:link
+{
+	color: #CCCCCC;
+	text-decoration: none;
+}
+
+A.globalNavSmall:visited
+{
+	color: #CCCCCC;
+	text-decoration: none;
+}
+
+A.globalNavSmall:hover
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+A.globalNavSmall:active
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+.globalNavSmall_on
+{
+	color: #FFFFFF;
+	font-size: 10px;
+	font-weight: normal;
+}
+
+A.globalNavSmall_on:link
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+A.globalNavSmall_on:visited
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+A.globalNavSmall_on:hover
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+A.globalNavSmall_on:active
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+.grayLine
+{
+	color: #CCCCCC;
+	font-size: 11px;
+}
+
+.header
+{
+	color: #000000;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.headerWhite
+{
+	color: #FFFFFF;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.memberhandle
+{
+	font-size: 11px;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+
+.messageSmall
+{
+	color: #FFFFFF;
+	font-size: 10px;
+	font-weight: normal;
+}
+
+A.messageSmall:link
+{
+	color: #FFCC33;
+	text-decoration: none;
+}
+
+A.messageSmall:visited
+{
+	color: #FFCC33;
+	text-decoration: none;
+}
+
+A.messageSmall:hover
+{
+	color: #666666;
+	text-decoration: none;
+}
+
+A.messageSmall:active
+{
+	color: #666666;
+	text-decoration: none;
+}
+
+.moduleTitle
+{
+	color: #CCCCCC;
+	font-size: 10px;
+	font-weight: bold;
+}
+
+.moduleSubhead
+{
+	color: #CC0000;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+A.moduleSubhead:link
+{
+	color: #CC0000;
+	text-decoration: none;
+}
+
+A.moduleSubhead:visited
+{
+	color: #990000;
+	text-decoration: none;
+}
+
+A.moduleSubhead:hover
+{
+	color: #999999;
+	text-decoration: underline;
+}
+
+A.moduleSubhead:active
+{
+	color: #999999;
+	text-decoration: underline;
+}
+
+.moduleText
+{
+	font-size: 10px;
+	font-weight: normal;
+	color: #000000;
+}
+
+A.moduleText:link
+{
+	color: #CC0000;
+	text-decoration: none;
+}
+
+A.moduleText:visited
+{
+	color: #990000;
+	text-decoration: none;
+}
+
+A.moduleText:hover
+{
+	color: #999999;
+	text-decoration: underline;
+}
+
+A.moduleText:active
+{
+	color: #CC0000;
+	text-decoration: underline;
+}
+
+.ongray
+{
+	color: #000000;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+A.ongray:link
+{
+	color: #000000;
+	text-decoration: none;
+}
+
+A.ongray:visited
+{
+	color: #000000;
+	text-decoration: none;
+}
+
+A.ongray:hover
+{
+	color: #000000;
+	text-decoration: underline;
+}
+
+A.ongray:active
+{
+	color: #000000;
+	text-decoration: underline;
+}
+
+.openProjects
+{
+	color: #CC0000;
+	font-size: 10px;
+	font-weight: bold;
+}
+
+A.openProjects:link
+{
+	color: #CC0000;
+	text-decoration: none;
+}
+
+A.openProjects:visited
+{
+	color: #CC0000;
+	text-decoration: none;
+}
+
+A.openProjects:hover
+{
+	color: #666666;
+	text-decoration: none;
+}
+
+A.openProjects:active
+{
+	color: #666666;
+	text-decoration: none;
+}
+
+.rednavBar
+{
+	background-color: #900;
+	background-image: url(/i/top_rednav_bg.gif);
+}
+
+.rednav
+{
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFF;
+	white-space: nowrap;
+}
+
+A.rednav:link
+{
+	color: #FFF;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+A.rednav:visited
+{
+	color: #FFF;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+A.rednav:hover
+{
+	color: #99C;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+A.rednav:active
+{
+	color: #99C;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+A.rednavLaunch:link
+{
+	color: #FFCC33;
+	font-style: italic;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+A.rednavLaunch:visited
+{
+	color: #FFCC33;
+	font-style: italic;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+A.rednavLaunch:hover
+{
+	color: #99C;
+	font-style: italic;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+A.rednavLaunch:active
+{
+	color: #99C;
+	font-style: italic;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+.rednavoff
+{
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFF;
+	white-space: nowrap;
+}
+
+.registerNav
+{
+	color: #FFFFFF;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+A.registerNav:link
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+A.registerNav:visited
+{
+	color: #999999;
+	text-decoration: none;
+}
+
+A.registerNav:hover
+{
+	color: #999999;
+	text-decoration: underline;
+}
+
+A.registerNav:active
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+.registerNav_on
+{
+	color: #000000;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+A.registerNav_on:link
+{
+	color: #000000;
+	text-decoration: none;
+}
+
+A.registerNav_on:visited
+{
+	color: #000000;
+	text-decoration: none;
+}
+
+A.registerNav_on:hover
+{
+	color: #000000;
+	text-decoration: underline;
+}
+
+A.registerNav_on:active
+{
+	color: #000000;
+	text-decoration: underline;
+}
+
+.registerToday
+{
+	color: #FFFFFF;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+A.registerToday:link
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+A.registerToday:visited
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+A.registerToday:hover
+{
+	color: #999999;
+	text-decoration: underline;
+}
+
+A.registerToday:active
+{
+	color: #999999;
+	text-decoration: underline;
+}
+
+.resoursesnav
+{
+	font-size: 11px;
+	font-weight: bold;
+	color: #FFDE00;
+}
+
+.resoursesnavoff
+{
+	font-size: 11px;
+	font-weight: bold;
+	color: #FFDE00;
+}
+
+A.resoursesnav:link
+{
+	color: #FFDE00;
+	text-decoration: none;
+}
+
+A.resoursesnav:visited
+{
+	color: #FFDE00;
+	text-decoration: none;
+}
+
+A.resoursesnav:hover
+{
+	color: #001934;
+	text-decoration: underline;
+}
+
+A.resoursesnav:active
+{
+	color: #FFDE00;
+	text-decoration: underline;
+}
+
+.sectionTitle
+{
+	color: #000000;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.sectionTitleBrackets
+{
+	color: #CC0000;
+	font-size: 17px;
+	font-weight: bold;
+}
+
+.sidenav
+{
+	color: #FFF;
+	font-size: 11px;
+	font-weight: bold;
+	vertical-align: top;
+	padding-left: 5px;
+	padding-top: 2px;
+	padding-right: 5px;
+	padding-bottom: 2px;
+	border-style: solid;
+	border-left-width: 0px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 1px;
+	border-color: #1B2E5D;
+}
+
+.titlesidenav
+{
+	color: #FFF;
+	font-size: 12px;
+	font-weight: bold;
+	background-color: #1B2E5D;
+	vertical-align: top;
+	text-align: left;
+	padding-left: 5px;
+	padding-top: 2px;
+	padding-right: 5px;
+	padding-bottom: 2px;
+	border-style: solid;
+	border-left-width: 0px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 1px;
+	border-color: #1B2E5D;
+}
+
+/* Left Navigation */
+A.leftnav:link
+{
+	color: #FC3;
+	text-decoration: none;
+}
+
+A.leftnav:visited
+{
+	color: #FC3;
+	text-decoration: none;
+}
+
+A.leftnav:hover
+{
+	color: #999;
+	text-decoration: none;
+}
+
+A.leftnav:active
+{
+	color: #999;
+	text-decoration: none;
+}
+
+.sidenavoff
+{
+	font-size: 11px;
+	font-weight: bold;
+	color: #FFF;
+}
+
+.smallBrackets
+{
+	color: #CC0000;
+	font-size: 10px;
+	font-weight: bold;
+}
+
+.smallFoot
+{
+	color: #FFFFFF;
+	font-size: 11px;
+	font-weight: normal;
+}
+
+A.smallFoot:link
+{
+	color: #CCCCCC;
+	text-decoration: none;
+}
+
+A.smallFoot:visited
+{
+	color: #CCCCCC;
+	text-decoration: none;
+}
+
+A.smallFoot:hover
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+A.smallFoot:active
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+.smallText
+{
+	color: #000000;
+	font-size: 11px;
+	font-weight: normal;
+}
+
+A.smallText:link
+{
+	color: #CC0000;
+	text-decoration: none;
+}
+
+A.smallText:visited
+{
+	color: #990000;
+	text-decoration: none;
+}
+
+A.smallText:hover
+{
+	color: #999999;
+	text-decoration: underline;
+}
+
+A.smallText:active
+{
+	color: #999999;
+	text-decoration: underline;
+}
+
+.statText
+{
+	color: #FFFFFF;
+	font-size: 11px;
+	text-decoration: none;
+}
+
+A.statText:link
+{
+	color: #FFCC33;
+	text-decoration: none;
+}
+
+A.statText:visited
+{
+	color: #FFCC33;
+	text-decoration: none;
+}
+
+A.statText:hover
+{
+	color: #666666;
+	text-decoration: underline;
+}
+
+A.statText:active
+{
+	color: #666666;
+	text-decoration: underline;
+}
+
+.statTextBig
+{
+	color: #FFFFFF;
+	font-size: 11px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+A.statTextBig:link
+{
+	color: #FFCC33;
+	text-decoration: none;
+}
+
+A.statTextBig:visited
+{
+	color: #FFCC33;
+	text-decoration: none;
+}
+
+A.statTextBig:hover
+{
+	color: #999999;
+	text-decoration: underline;
+}
+
+A.statTextBig:active
+{
+	color: #999999;
+	text-decoration: underline;
+}
+
+.statTextLarge
+{
+	color: #FFFFFF;
+	font-size: 11px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.statTextSmall
+{
+	color: #FFFFFF;
+	font-size: 11px;
+	font-weight: normal;
+}
+
+A.statTextSmall:link
+{
+	color: #FFCC33;
+	text-decoration: none;
+}
+
+A.statTextSmall:visited
+{
+	color: #FFCC33;
+	text-decoration: none;
+}
+
+A.statTextSmall:hover
+{
+	color: #666666;
+	text-decoration: none;
+}
+
+A.statTextSmall:active
+{
+	color: #666666;
+	text-decoration: none;
+}
+
+.subNav
+{
+	color: #FFCC33;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+A.subNav:link
+{
+	color: #FFCC33;
+	text-decoration: none;
+}
+
+A.subNav:visited
+{
+	color: #FFCC33;
+	text-decoration: none;
+}
+
+A.subNav:hover
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+A.subNav:active
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+.subNav_on
+{
+	color: #000000;
+	font-size: 11px;
+	font-weight: normal;
+}
+
+A.subNav_on:link
+{
+	color: #000000;
+	text-decoration: none;
+}
+
+A.subNav_on:visited
+{
+	color: #000000;
+	text-decoration: none;
+}
+
+A.subNav_on:hover
+{
+	color: #666666;
+	text-decoration: underline;
+}
+
+A.subNav_on:active
+{
+	color: #000000;
+	text-decoration: underline;
+}
