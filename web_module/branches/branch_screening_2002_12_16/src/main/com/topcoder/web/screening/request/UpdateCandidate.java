@@ -65,6 +65,8 @@ public class UpdateCandidate extends BaseProcessor
      * @throws Exception Thrown if there is input error.
      */
     public void process() throws Exception {
+        requireLogin();
+        
         request = getRequest();
         CandidateInfo info = new CandidateInfo();
         if(!buildInfo(request, info)) {

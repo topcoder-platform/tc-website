@@ -27,6 +27,8 @@ import com.topcoder.web.screening.model.SessionInfo;
 
 public class UpdateSession extends BaseSessionProcessor {
     public void process() throws Exception {
+        requireLogin();
+        
         SessionInfo info = getSessionInfo();
         InitialContext context = new InitialContext();
         SessionHome sHome = (SessionHome)
