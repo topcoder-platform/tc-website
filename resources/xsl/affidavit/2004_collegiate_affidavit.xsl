@@ -34,8 +34,7 @@
   </xsl:if>
   <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/zip"/>&#160;
   <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/country_name"/>
-  &#160;
-  hereby state:  I am at least 18 years of age.  I am matriculated full-time at <xsl:value-of select="/TC/AFFIDAVIT/Member/Profile/school_name"/>, which is an accredited
+  &#160;hereby state:  I am at least 18 years of age.  I am matriculated full-time at <xsl:value-of select="/TC/AFFIDAVIT/Member/Profile/school_name"/>, which is an accredited
       college or university.  My date of birth is _________________________.
       <BR/><BR/>
     I am submitting this affidavit with the understanding that it will be relied upon to determine my eligibility to
