@@ -1609,7 +1609,7 @@ public class TCLoadRound extends TCLoad {
             query.append("       ,defense_points ");                  // 27
             query.append("       ,overall_rank ");                    // 28
             query.append("       ,division_placed ");                 // 29
-            query.append("       ,division_seed ");                   // 30
+            query.append("       ,division_seed) ");                  // 30
             query.append("VALUES (?,?,?,?,?,?,?,?,?,?,");  // 10 values
             query.append("        ?,?,?,?,?,?,?,?,?,?,");  // 20 values
             query.append("        ?,?,?,?,?,?,?,?,?)");  // 29 total values
