@@ -1,6 +1,6 @@
 <%@ page errorPage="../home/error.jsp" %>
 <%@ taglib uri="/registration-taglib.tld" prefix="reg" %>
-<bean:define name="STUDENT" id="student" type="com.topcoder.web.hs.model.StudentRegistrationBean" scope="request"/>
+<jsp:useBean id="student" type="com.topcoder.web.hs.model.StudentRegistrationBean" scope="request"/>
 <%@ include file="head.inc" %>
 <P><B>Registration for Students</B></P>
 <P>Welcome to TopCoder HighSchool. Before you register, there are a few things we think you should know: First, and most importantly, TopCoder is a commercial site. We charge sponsors for the right to advertise on our site. This money pays for the operation of the site and the prizes awarded in competitions.</P>
