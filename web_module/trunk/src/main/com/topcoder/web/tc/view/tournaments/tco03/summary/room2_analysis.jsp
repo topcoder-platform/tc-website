@@ -166,11 +166,11 @@ return text
             Furthermore, by the rules of insertion, the alternating X's and Y's must end with an element from the left subtree. Altogether, there are 
             four possibilities:</p>
 
-<pre>1) L...L M RL...RL</pre>
-<pre>2) R...R M L RL...RL</pre>
+<pre>1) L...L M RL...RL
+2) R...R M L RL...RL</pre>
 
-<pre>3) R...R M RL...RL</pre>
-<pre>4) L...L M L RL...RL</pre>
+<pre>3) R...R M RL...RL
+4) L...L M L RL...RL</pre>
 
             <p>where L's are the elements from the left subtree and R's are the elements from the right subtree. In fact, however, cases 3 and 4 are 
             impossible, because the first element inserted after M will go on the opposite side of the tree from all the elements inserted before M.</p>
@@ -180,12 +180,12 @@ return text
             we have a choice if the left and right subtrees are the same size, or if the left subtree is one bigger. If the subtrees are the same size, then 
             we could fall under either case 1 or case 2:</p>
 
-<pre>1) M RL...RL</pre>
-<pre>2) R M L RL...RL</pre>
+<pre>1) M RL...RL
+2) R M L RL...RL</pre>
 
 Because M is the overall minimum element, case 1 is lexicographically smaller, so we choose that case. Similarly, if the left subtree is one element bigger than the right subtree, then we could fall under either case 1 or case 2:
-<pre>1) L M RL...RL</pre>
-<pre>2) M L RL...RL</pre>
+<pre>1) L M RL...RL
+2) M L RL...RL</pre>
 
             <p>This time case 2 is lexicographically smaller, so we choose that case.</p>
 
