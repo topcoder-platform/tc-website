@@ -86,8 +86,7 @@
 
 <!-- Documentation -->
 						<p><strong>Documentation</strong><br />
-						All <a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=600038">documentation</a> for this project is available on the TopCoder Software web site.</ul>
-
+						All <a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=600038">documentation</a> for this project is available on the TopCoder Software web site.</p>
 <!-- Payment -->
 							<p><strong>Payment</strong><br />
 							TopCoder will compensate the member with the winning solution. Compensation will consist of both initial payments and royalties on the sale of the component. The initial payment will be distributed in two installments.<br/>
