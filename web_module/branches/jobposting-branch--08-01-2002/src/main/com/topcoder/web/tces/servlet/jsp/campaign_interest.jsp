@@ -55,9 +55,9 @@
               <P><B>Position Interest</B></P>
               
               <P>
-              <B><jsp:getProperty name="CampaignDetailTask" property="CampaignName"/></B><BR>
+              <B><jsp:getProperty name="CampaignInterestTask" property="CampaignName"/></B><BR>
               Status: <B>Active</B><BR>
-              <a href="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.DEMOGRAPHIC_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignDetailTask" property="CampaignID"/>" class="statText">View collective demographic info</A><BR>
+              <a href="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.DEMOGRAPHIC_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>" class="statText">View collective demographic info</A><BR>
               </P>
               <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">               
                 <TR>
