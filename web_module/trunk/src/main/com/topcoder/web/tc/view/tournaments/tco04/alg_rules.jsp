@@ -120,8 +120,8 @@
             <p><span class="bodySubtitle">Online Elimination Rounds</span><br/>
             Everyone who competes in an online round must login to the TopCoder Competition Arena no later than 
             ten (10) minutes prior to the start of the online round. (See the schedule for competition dates and times.) 
-            <strong><i>TopCoder members from around the world may be participating in these online rounds, but all start times will be 
-            communicated as Eastern Time, so contestants in different time zones must adjust accordingly. </i></strong>If a coder does 
+            <strong>TopCoder members from around the world may be participating in these online rounds, but all start times will be 
+            communicated as Eastern Time, so contestants in different time zones must adjust accordingly. </strong>If a coder does 
             not participate, for any reason, in an online round he/she has advanced to, it will be treated as an automatic 
             loss in that round of competition. </p>
             
@@ -424,12 +424,12 @@
 
             <p>A list of tournament winners by coder handles will be available on the web site at <a href="http://www.topcoder.com/">http://www.topcoder.com/</a>, and will be
             displayed for at least 3 months after the end of the tournament.</p>
-
-            <p>The results of the online rounds of competition will be considered by TopCoder to be final at 11:00 AM  on the day following 
-            the round of competition.  Any appeals regarding the validity of these results must be received by TopCoder at the 
-            <A href="mailto:service@topcoder.com" class="bodyText">service@topcoder.com</A> email address no later than 11:00 AM  
-            on the second day following the date on which the round of competition was held.  For the onsite rounds of competition, competitors 
-            may appeal the results within five (5) minutes following the announcement of the results.</p>
+            
+            <p>Any appeals regarding the validity of the results of the online rounds of competition must be received by TopCoder 
+            at the <A href="mailto:service@topcoder.com" class="bodyText">service@topcoder.com</A> email address no later than 11:00AM ET on the day following the date on which the round of 
+            competition was held. The results of the online rounds of competition will be considered by TopCoder to be final at 
+            11:00AM ET on the second day following the round of competition. For the onsite rounds of competition, competitors may 
+            appeal the results within five (5) minutes following the announcements of the results.</p>
 
             <p>This tournament is brought to you by TopCoder, Inc. (<a href="http://www.topcoder.com/">http://www.topcoder.com/</a>) 703 Hebron Avenue, Glastonbury, CT 06033.</p>
 

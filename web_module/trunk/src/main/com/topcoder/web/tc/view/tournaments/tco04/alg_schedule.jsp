@@ -33,8 +33,8 @@
                 <tr valign="top">
                     <td class="sidebarText" width="25%">Registration</td>
                     <td class="sidebarText" width="75%">
-                        OPENS: Monday, August 16 at 9:00 AM<br /><br/>
-                        CLOSES: Tuesday, September 7 at 9:00 AM
+                        OPENS: Monday, August 16 at 9:00 AM ET<br /><br/>
+                        CLOSES: Tuesday, September 7 at 9:00 AM ET
                     </td>
                 </tr>
             </table>
@@ -55,7 +55,7 @@
                     <td class="sidebarText">Qualification Round</td>
                     <td class="sidebarText">
                         START: Tuesday, September 7<br />
-                        12:00 PM (noon)<br /><br/>
+                        12:00 PM ET (noon)<br /><br/>
                         END: Wednesday, September 8<br />
                         12:00 PM (noon)
                     </td>
@@ -79,8 +79,8 @@
                     <td class="sidebarText">Online Round #1</td>
                     <td class="sidebarText">
                         Saturday, September 11th<br />
-                        Registration:  9:00 AM - 11:55 AM<br />
-                        Compete: 12:00 PM (noon)<br />
+                        Registration:  9:00 AM - 11:55 AM ET<br />
+                        Compete: 12:00 PM ET (noon)<br />
                     <td class="sidebarText">500</td>
                     <td class="sidebarText">200</td>
                     </td>
@@ -90,8 +90,8 @@
                     <td class="sidebarText">Online Round #2</td>
                     <td class="sidebarText">
                         Tuesday, September 14th<br />
-                        Login by:  9:20 PM <br />
-                        Compete: 9:30 PM <br />
+                        Login by:  9:20 PM ET<br />
+                        Compete: 9:30 PM ET<br />
                     </td>
                     <td class="sidebarText">200</td>
                     <td class="sidebarText">100</td>
@@ -101,8 +101,8 @@
                     <td class="sidebarText">Online Round #3</td>
                     <td class="sidebarText">
                         Wednesday, September 22nd<br />
-                        Login by:  9:20 PM <br />
-                        Compete: 9:30 PM <br />
+                        Login by:  9:20 PM ET<br />
+                        Compete: 9:30 PM ET<br />
                     </td>
                     <td class="sidebarText">100</td>
                     <td class="sidebarText">50</td>
@@ -112,8 +112,8 @@
                     <td class="sidebarText">Online Round #4</td>
                     <td class="sidebarText">
                         Wednesday, September 29th<br />
-                        Login by:  9:20 PM<br />
-                        Compete: 9:30 PM<br />
+                        Login by:  9:20 PM ET<br />
+                        Compete: 9:30 PM ET<br />
                     </td>
                     <td class="sidebarText">50</td>
                     <td class="sidebarText">24</td>
