@@ -24,11 +24,11 @@
                   <td class="searchHeaders" valign="middle" align="right" width="15%">Algorithm<br /> Rating</td>
                   <td class="searchHeaders" valign="middle" align="center" width="12%">Design<br />Rating</td>
                   <td class="searchHeaders" valign="middle" align="center" width="12%">Development<br />Rating</td>
+                  <td class="searchHeaders" valign="middle" align="center" width="12%">School</td>
                   <td class="searchHeaders" valign="middle" align="center" width="15%">State</td>
                   <td class="searchHeaders" valign="middle" align="left" width="25%">Country</td>
                   <td class="searchHeaders" valign="middle" align="center" width="12%">Rated<br />Events</td>
                   <td class="searchHeaders" valign="middle" align="center" width="12%">Last<br />Event</td>
-                  <%--<td class="searchHeaders" valign="middle" align="center" width="12%">School</td>--%>
               </tr>
 
               <%boolean even = false;%>
@@ -40,11 +40,11 @@
                   <td class="formHandleEven" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="rating"/>&#160;&#160;</td>
                   <td class="formHandleEven" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="design_rating" format="#" ifNull="Unrated"/>&#160;&#160;</td>
                   <td class="formHandleEven" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="dev_rating" format="#" ifNull="Unrated"/>&#160;&#160;</td>
+                  <td class="formHandleEven" valign="middle" align="center"><rsc:item row="<%=resultRow%>" name="school_name" ifNull="N/A"/></td>
                   <td class="formHandleEven" valign="middle" align="center"><rsc:item row="<%=resultRow%>" name="state_code"/></td>
                   <td class="formHandleEven" valign="middle" align="left" nowrap><rsc:item row="<%=resultRow%>" name="country_name"/></td>
                   <td class="formHandleEven" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="num_ratings"/>&#160;&#160;&#160;&#160;&#160;&#160;</td>
                   <td class="formHandleEven" valign="middle" align="center"><rsc:item row="<%=resultRow%>" name="last_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
-                  <%--<td class="formHandleEven" valign="middle" align="center"><rsc:item row="<%=resultRow%>" name="school_name" ifNull="N/A"/></td>--%>
               </tr>
               <%even=!even;%>
               </rsc:iterator>
