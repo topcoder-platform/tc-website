@@ -61,14 +61,13 @@
 							<h1 class="devSubhead"><strong>Heartbeat: Design</strong></h1>
                                     
 							<p>
-							<a href="2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
-    						<a class="statText">
-    						    <xsl:attribute name="href">
-    						        <xsl:value-of select="concat('/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Heartbeat:%20Design&amp;comp=4201389&amp;date=', $month, '&#47;', $day, '&#47;', $year)"/>
-                                </xsl:attribute>
-                                Developer Forum
-    						</a>.  
-
+        						<a class="statText">
+        						    <xsl:attribute name="href">
+        						        <xsl:value-of select="concat('/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Heartbeat:%20Design&amp;comp=4201389&amp;date=', $month, '&#47;', $day, '&#47;', $year)"/>
+                                    </xsl:attribute>
+                                    <strong>Inquire about this project &gt;&gt;</strong>
+        						</a>
+                            </p>
 <!-- Overview -->
                         <INPUT TYPE="hidden" NAME="DesWinner">
                             <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/DesWinner"/></xsl:attribute>
