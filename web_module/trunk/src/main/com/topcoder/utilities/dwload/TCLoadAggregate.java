@@ -1790,6 +1790,7 @@ public class TCLoadAggregate extends TCLoad {
             query.append(" and p.division_id = cp.division_id");
             query.append(" and c.defendant_id = cp.coder_id");
             query.append(" and c.round_id = cp.round_id");
+            query.append(" and cp.round_id = p.round_id");
             query.append(" AND cp.language_id = problem_language.language_id");
             query.append(" AND p.division_id = problem_language.division_id");
             query.append(" AND p.problem_id = problem_language.problem_id");
@@ -1804,6 +1805,7 @@ public class TCLoadAggregate extends TCLoad {
             query.append(" and p.division_id = cp.division_id");
             query.append(" and c.defendant_id = cp.coder_id");
             query.append(" AND c.round_id = cp.round_id");
+            query.append(" and cp.round_id = p.round_id");
             query.append(" AND cp.language_id = problem_language.language_id");
             query.append(" AND p.division_id = problem_language.division_id");
             query.append(" AND p.problem_id = problem_language.problem_id");
