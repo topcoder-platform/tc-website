@@ -323,6 +323,9 @@ if (!rsc.isEmpty()) {
                                 <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                                 <TD CLASS="statText" ALIGN="left"><A HREF="/stat?pi=113&c=component_history&pi=113&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /*"id"*/ + "]" %>'/>" CLASS="statText">[ history ]</A></TD>
                             </TR>
+                            <TR>
+                                <TD COLSPAN="4" HEIGHT="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
+                            </TR>
 <%-- Development Statistics ends --%>
                             <TR>
                                 <TD BACKGROUND="/i/steel_gray_bg3.gif" COLSPAN="4" CLASS="registerNav" HEIGHT="18">&#160;&#160;Software Royalties</TD>
