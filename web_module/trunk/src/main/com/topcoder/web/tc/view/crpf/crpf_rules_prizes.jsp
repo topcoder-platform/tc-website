@@ -88,7 +88,7 @@
                unable to attend <i>A Magical Evening</i>, he/she will forfeit his/her eligibility to receive a prize, and his/her prize will be given to the next eligible 
                member (i.e. next highest scorer if a high-scorer can not attend, the next highest fund-raiser if a top fund-raiser can not attend, etc.). </p>
 
-               <p>TopCoder will provide travel arrangements for each winner, up to a cost of $1,000 per person.  (That is, if a contestant’s 
+               <p>TopCoder will provide travel arrangements for each winner, up to a cost of $1,000 per person.  (That is, if a contestant's 
                airfare is greater than $1,000, the contestant will be responsible for the difference between the cost of the airfare and $1,000.)  
                In addition, TopCoder will provide overnight accommodations and travel arrangements to and from the airport to your hotel.  All 
                other expenses are the responsibility of the member.</p>
