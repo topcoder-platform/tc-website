@@ -125,19 +125,19 @@
                                     <td class="projectHeaders" align="right" nowrap="nowrap" width="25%">Inquire By</td>
                                 </tr>
                                 <tr valign="top">
-                                    <td class="projectCells" colspan="4">
+                                    <td class="projectCells">
                                         <a href="?t=development&amp;c=Health_Care_Order_Processing_Front_End">Health Care Order Processing: Front End</a>
                                     </td>
-                                    <td class="projectCells" align="right">$1250</td>
-                                    <td class="projectCells" align="right">$437.50</td>
+                                    <td class="projectCells" align="right">$1250.00 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$437.50 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">04/16/2004 9:00 PM ET</td>
                                 </tr>
                                 <tr valign="top">
-                                    <td class="projectCells" colspan="4">
+                                    <td class="projectCells">
                                         <a href="?t=development&amp;c=Health_Care_Order_Processing_Back_End">Health Care Order Processing: Back End</a>
                                     </td>
-                                    <td class="projectCells" align="right">$1125</td>
-                                    <td class="projectCells" align="right">$500</td>
+                                    <td class="projectCells" align="right">$1125.00 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$500.00 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">04/16/2004 9:00 PM ET</td>
                                 </tr>
 
