@@ -20,7 +20,7 @@ function showEmail() {
     var name="previewEmail";
     var cid = document.sessionSetupForm.cid.options[document.sessionSetupForm.cid.selectedIndex].value;
     var cEmail = "NO";
-    if(document.sessionSetupForm.candidateEmail.checked) {
+    if(document.sessionSetupForm.candidateEmailInfo.checked) {
         cEmail = "YES";
     }
     var rEmail = "NO";
