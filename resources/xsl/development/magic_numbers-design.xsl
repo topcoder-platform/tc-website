@@ -56,17 +56,19 @@
 						<td bgcolor="#000033" background="/i/steel_darkblue_bg.gif" valign="top" width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
 						<td class="statText" colspan="2" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
 							
-							<h1 class="devSubhead"><strong>Generic Mapping: Design</strong></h1>
+							<h1 class="devSubhead"><strong>File Type: Design</strong></h1>
                                     
-							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Generic Mapping: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=File Type: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 							<p><strong>Overview</strong><br />
-							The Generic Mapping component facilitates the dynamic mapping of resources based on an incoming request. This component is directly applicable to web-based applications that use the Model-View-Controller pattern by providing a configurable source that enables on-the-fly manipulation of destinations based on an incoming request. In addition, this component can be applied to any "controller" pattern, whether it is web-based or not. An example is a generic request processor that instantiates specific Java objects and executes specific methods based upon the contents of the request.
+                            The File Type component is the java equivalent of the unix magic numbers functionality. The premise behind magic numbers is that a file's type can be determined by specific bits within that file. This is different to the non-unix approach of obtaining the file extension portion of the file name to determine the file type.
+                            </p><p>
+                            Being able to obtain a file's type is a valuable tool. For example, this would enable web-based applications that support file uploads to accurately determine the type of file being uploaded. This provides an added layer of security by only accepting permitted file types to be uploaded as some file types may be considered dangerous or undesirable.
 
 							</p>
 
 							<p><strong>Project Type</strong><br />
-							Component Design Project: Provide a complete design for the Generic Mapping component.<br />
+							Component Design Project: Provide a complete design for the File Type component.<br />
 							Please review the TopCoder Software <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_meth" class="statText">Component Development Methodology</a> before you submit a solution. 
 							If you're not sure what to submit, go to <a href="/?&amp;t=development&amp;c=tcs_sample_docs" class="statText">Documentation and Sample Submissions</a> for more information.
                             </p>
@@ -87,9 +89,9 @@
 							<p><strong>Designer</strong><br />
 							Royalty Percentage - 25%</p>
 							
-							<p>Total Payment - $245.00<br/>
-							First Deliverable - $183.75<br/>
-							Project Completion - $61.25</p>
+							<p>Total Payment - $210.00<br/>
+							First Deliverable - $157.50<br/>
+							Project Completion - $52.50</p>
 
 							<p><sup>*</sup>Completion of the project is defined as follows:</p>
 
@@ -111,16 +113,16 @@
 
 							<p><strong>Time Line</strong><br/>
 							All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.</p>
-							
-							<p>Component Posting: 12.12.2002<br/>
-							Initial Submission Due Date: 12.27.2002<br/>
-							Winner Announced: 01.07.2003<br/>
-							Final Submission Due Date: 01.10.2003<br/>
-							Estimated Development End Date: 02.17.2003</p>
 
+							<p>Component Posting: 12.19.2002<br/>
+							Initial Submission Due Date: 01.03.2003<br/>
+							Winner Announced: 01.14.2003<br/>
+							Final Submission Due Date: 01.17.2003<br/>
+                            Estimated Development End Date: 02.24.2003</p>
+                            
 							<p>After inquiring for this project please make sure you are registered at www.topcodersoftware.com.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Generic Mapping: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=File Type: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>
 					</td>
 

@@ -56,21 +56,20 @@
 						<td bgcolor="#000033" background="/i/steel_darkblue_bg.gif" valign="top" width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
 						<td class="statText" colspan="2" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
 							
-							<h1 class="devSubhead"><strong>Generic Mapping: Design</strong></h1>
+							<h1 class="devSubhead"><strong><<<COMPONENT_NAME>>>: Development</strong></h1>
                                     
-							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Generic Mapping: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=<<<COMPONENT_NAME>>>: Development" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 							<p><strong>Overview</strong><br />
-							The Generic Mapping component facilitates the dynamic mapping of resources based on an incoming request. This component is directly applicable to web-based applications that use the Model-View-Controller pattern by providing a configurable source that enables on-the-fly manipulation of destinations based on an incoming request. In addition, this component can be applied to any "controller" pattern, whether it is web-based or not. An example is a generic request processor that instantiates specific Java objects and executes specific methods based upon the contents of the request.
-
+							<<<OVERVIEW>>>
 							</p>
 
 							<p><strong>Project Type</strong><br />
-							Component Design Project: Provide a complete design for the Generic Mapping component.<br />
+							Component Development Project: Provide a complete development solution for the <<<COMPONENT_NAME>>> component.<br />
 							Please review the TopCoder Software <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_meth" class="statText">Component Development Methodology</a> before you submit a solution. 
 							If you're not sure what to submit, go to <a href="/?&amp;t=development&amp;c=tcs_sample_docs" class="statText">Documentation and Sample Submissions</a> for more information.
                             </p>
-                            
+
 							<p><strong>Technologies</strong></p>
 
 							<ul>
@@ -78,18 +77,13 @@
 							</ul>
 
 							<p><strong>Payment</strong><br />
-							TopCoder will compensate the member with the winning solution. Compensation will consist of both initial payments and royalties on the sale of the component. The initial payment will be distributed in two installments.<br/>
-							First Milestone: When the winning solution is submitted and review board suggestions are integrated.<br/>
-							Second Milestone: Is marked by the completion of the development project*.</p>
-
+							TopCoder will compensate the member with the winning solution. Compensation will consist of both initial payments and royalties on the sale of the component. The initial payment will be distributed at the completion of the project*.</p>
 							<p>Members will also collect royalties on the revenue generated from the sale of the component. The total royalty per component will be equal to 10%* of the component's revenue, with 25%* of the royalty being paid to the designer, 25% to the developer(s), 25% to the Architecture Board member(s) and 25% to the Development Board member(s).  Royalties may be diluted if additional work is done to the component, as the total work effort for the component will increase.</p>
 							
-							<p><strong>Designer</strong><br />
+							<p><strong>Developer</strong><br />
 							Royalty Percentage - 25%</p>
 							
-							<p>Total Payment - $245.00<br/>
-							First Deliverable - $183.75<br/>
-							Project Completion - $61.25</p>
+							<p>Total Payment - $<<<TOTAL_PAYMENT>>><br/>
 
 							<p><sup>*</sup>Completion of the project is defined as follows:</p>
 
@@ -112,15 +106,14 @@
 							<p><strong>Time Line</strong><br/>
 							All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.</p>
 							
-							<p>Component Posting: 12.12.2002<br/>
-							Initial Submission Due Date: 12.27.2002<br/>
-							Winner Announced: 01.07.2003<br/>
-							Final Submission Due Date: 01.10.2003<br/>
-							Estimated Development End Date: 02.17.2003</p>
+							<p>Component Posting: <<<POSTING_DATE>>><br/>
+							Initial Submission Due Date: <<<INITIAL_DUE_DATE>>><br/>
+							Winner Announced: <<<WINNER_DATE>>><br/>
+							Final Submission Due Date: <<<FINAL_SUBMISSION_DATE>>></p>
 
 							<p>After inquiring for this project please make sure you are registered at www.topcodersoftware.com.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Generic Mapping: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=<<<COMPONENT_NAME>>>: Development" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>
 					</td>
 
