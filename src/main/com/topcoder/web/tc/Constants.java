@@ -177,6 +177,7 @@ public class Constants {
     public static String NOTE_DATABASES;
     public static String NOTE_INDUSTRIES;
 
+    public static String TCCC05_STUDENT_REPS;
 
     static {
         initialize();
