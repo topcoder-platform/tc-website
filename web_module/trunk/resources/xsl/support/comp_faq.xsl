@@ -241,6 +241,14 @@
 
                             </TD>
                         </TR>
+                        <TR>
+                            <TD VALIGN="top" HEIGHT="5"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
+                        </TR>
+                        <TR>
+                            <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
+                                    <A HREF="#19" CLASS="bodyText">My submission failed because it ran out of memory, what's wrong?</A>
+                            </TD>
+                        </TR>
 
                         <TR>
                             <TD VALIGN="top" HEIGHT="5"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
@@ -517,6 +525,30 @@ where your result must be correct only to a certain degree of precision.  To det
                                     <A HREF="#top" CLASS="bodyText">[back to top]</A>
                                     <BR/>
                                     <BR/>
+
+                                        <A NAME="19" CLASS="bodyText"><B>
+            My submission failed because it ran out of memory, what's wrong?
+          </B></A>
+
+                                    <BR/>
+
+Using any form of output to the console (cout in C++, System.println in Java, 
+Console.WriteLine in C# / VB) will add to your memory use.  The system has to 
+redirect the standard out to memory so that it can trap the results.  This 
+means that if you have a lot of output in your code, it will likely fail 
+testing.
+
+<br/><br/>
+
+We recommend that you remove all output statements before submitting your code 
+to avoid this situation.
+
+      <BR/>
+                                    <A HREF="#top" CLASS="bodyText">[back to top]</A>
+                                    <BR/>
+                                    <BR/>
+
+
 
                             </TD>
                         </TR>
