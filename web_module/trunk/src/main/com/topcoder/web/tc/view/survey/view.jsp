@@ -15,7 +15,7 @@
                     <jsp:getProperty name="question" property="text"/>
                 </td>
             </tr>
-            <tc:answerIterator list="<%=question.getAnswerInfo()%>" id="question">
+            <tc:answerIterator list="<%=question.getAnswerInfo()%>" id="answer">
             <tr>
                 <td>
                     <tc:answerInput question="<%=question%>" answer="<%=answer%>"/>
