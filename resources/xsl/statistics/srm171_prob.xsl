@@ -1,4 +1,4 @@
-<xml version="1.0">
+<?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
     <xsl:import href="../top.xsl"/>
     <xsl:import href="../script.xsl"/>
@@ -72,12 +72,12 @@ function openWin(url, name, w, h) {
                         <table width="100%" border="0" cellspacing="0" cellpadding="3">
                             <tr valign="middle">
                                 <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 171</font></td>
-                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/indext=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
+                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
                             </tr>
 
                             <tr valign="middle">
                                 <td class="bodyText">Wednesday, November 12, 2003</td>
-                                <td class="bodyText" align="right"><a href="mailto:editorial@topcoder.com">Comments / Ideas</a></td>
+                                <td class="bodyText" align="right"><a href="mailto:editorial@topcoder.com">Comments / Ideas?</a></td>
                             </tr>
                         </table>
 <!--end contextual links-->
@@ -265,7 +265,7 @@ struct  team {
 	char name;
 };
 
-bool operator &lt; (const team & lhs, const team & rhs) {
+bool operator &lt; (const team &amp; lhs, const team &amp; rhs) {
 	if (lhs.score!=rhs.score) return lhs.score&lt; rhs.score;
 	if (lhs.sixth!=rhs.sixth) return lhs.sixth&lt; rhs.sixth;
 	return lhs.name&lt; rhs.name;
@@ -284,7 +284,7 @@ for (int i=0;i&lt; numTeams;i++) {
 	t.name='A'+i;
 	for (int j=0;j&lt; finishOrder.size();j++) {
 		if (finishOrder[j]==('A'+i)) {
-			if (numFinished<&lt;  5) {
+			if (numFinished&lt;  5) {
 				numFinished++;
 				t.score+=j;
 			} else if (numFinished==5) {
@@ -371,7 +371,7 @@ vector&lt; string &gt; v;
 string temp;
 int back=-1;
 while (ss &gt;&gt; temp) {
-	if (v.size()&gt; 0 &amp&amp v[back].size()+1+temp.size() &lt; =width) v[back]+=" "+temp;
+	if (v.size()&gt; 0 &amp;&amp; v[back].size()+1+temp.size() &lt; =width) v[back]+=" "+temp;
 	else {
 		v.push_back(temp);
 		back++;
@@ -384,7 +384,7 @@ Now we have to reorder the text.  If you are careful about how many lines there 
 minimal coding.  The thing to note is that with an even number of lines, there will be an equal number of lines per column, 
 but with an odd number there will be one more line in the first column.
 <pre>
-	vector<string> ret(v.size());
+	vector&lt;string&gt; ret(v.size());
 	int offset=v.size()%2;
 	for (int i=0;i&lt; v.size();i++)
 	if (i%2==0) {
@@ -453,7 +453,7 @@ that of the one resistor itself.  For a Java implementation of this, see <b>writ
 some incomplete C++ code that gives the general idea:
 <pre>
 set &lt; double &gt; getAllCombos(vector &lt; double &gt; vr) {
-	if (vr.size()&lt;=1) return set<double>(vr.begin(),vr.end());
+	if (vr.size()&lt;=1) return set&lt;double&gt;(vr.begin(),vr.end());
 	vector &lt; double &gt; A,B;
 	set &lt; double &gt; comboA,comboB;
 	set &lt; double &gt; ret;
@@ -545,7 +545,7 @@ bool canBeSealed(vector &lt; vector &lt; int &gt; &gt; adj,vector &lt; int &gt; 
 		adj[i][j] &lt; =adj[i][k]+adj[k][j];
 	}
 	for (int i=0;i &lt; unsealed.size();i++)
-		if (unsealed[i] &amp&amp adj[0][i]==1000000) return false;
+		if (unsealed[i] &amp;&amp; adj[0][i]==1000000) return false;
 	return true;
 }
 </pre>
@@ -580,7 +580,7 @@ I chose Floyd-Warshall because it is easier and faster to code, and less error p
 
                         <p>
                         <img src="/i/m/Running_Wild_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" /><br />
-                        By&#160;<a class="bodyText" href="/statc=member_profile&amp;cr=274760"><strong>Running Wild</strong></a><br />
+                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=274760"><strong>Running Wild</strong></a><br />
                         <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
                         </p>
                     </td>
