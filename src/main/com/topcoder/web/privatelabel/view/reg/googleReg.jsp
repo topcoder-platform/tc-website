@@ -86,7 +86,7 @@ function openWin(url, name, w, h) {
                     Handle
                 </td>
                 <td align="left" width="50%">
-                    <tc-webtag:textInput name="<%=Constants.HANDLE%>"  size="15" maxlength="<%=Constants.MAX_HANDLE_LENGTH%>"/>
+                    <tc-webtag:textInput name="<%=Constants.HANDLE%>"  size="15" maxlength="<%=Constants.MAX_HANDLE_LENGTH%>" editable="<%=regInfo.isNew()%>"/>
                 </td>
             </tr>
 
