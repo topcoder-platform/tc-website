@@ -109,7 +109,7 @@ public class SchoolBean implements SessionBean {
 
       Connection con=ds.getConnection();
       PreparedStatement ps=con.prepareStatement(query.toString());
-      ps.setLong(1,_school_division_code);
+      ps.setString(1,_school_division_code);
       ps.setLong(2,_school_id);
 
       int rc=ps.executeUpdate();
@@ -276,7 +276,7 @@ public class SchoolBean implements SessionBean {
 
   public String getShortName(long _school_id) throws RemoteException {
 
-    String last_name=null;
+    String short_name=null;
 
     try {
 
