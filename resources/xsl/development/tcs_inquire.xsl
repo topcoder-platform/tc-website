@@ -100,8 +100,9 @@ By indicating your interest in designing or developing a software component and/
 3.    You are either (i) a U.S. citizen, (ii) a lawful permanent resident of the U.S., (iii) a temporary resident, asylee, refugee of the U.S., or have a lawfully issued work authorization card permitting unrestricted employment in the U.S., or (iv) a non-U.S. resident authorized to perform services as an independent contractor.
 4.    You will abide by the Terms of Use of both TopCoder's and TopCoder Software's websites at www.topcoder.com and www.topcodersoftware.com, respectively.
 5.    You acknowledge that you have read and agree to the TopCoder Software Application Development Methodology posted at www.topcoder.com/?&amp;t=development&amp;c=app_meth .
-6.    No impediment exists to you participating in design and/or development projects posted on TopCoder's website(s), and your participation in such projects will not interfere with your performance of, or breach, any other agreement or obligation which has been or will be made with any third party, including but not limited to your employer (if applicable).
-7.    You agree to use your own independently developed code, and shall not copy or include code from any other party, including publicly available "open source" code that is or may be subject to licensing restrictions.
+6.    You hereby agree to design and/or develop the software component and/or application in accordance with the Requirement Specification document posted with each component/application on TopCoder's website(s).
+7.    No impediment exists to you participating in design and/or development projects posted on TopCoder's website(s), and your participation in such projects will not interfere with your performance of, or breach, any other agreement or obligation which has been or will be made with any third party, including but not limited to your employer (if applicable).
+8.    You agree to use your own independently developed code, and shall not copy or include code from any other party, including publicly available "open source" code that is or may be subject to licensing restrictions.
 
 OWNERSHIP AND RIGHTS
 You hereby acknowledge and agree that TopCoder owns, solely and exclusively, all right, title and interest, including all intellectual property rights, in and to the information posted on TopCoder's website(s).  If TopCoder compensates you for your design or development solution, then you agree to irrevocably and unconditionally transfer and assign to TopCoder all right, title and interest you have, may have or acquire in, such design or development solution, and you agree to execute and deliver such documents, certificates, assignments and other writings, and take such other actions as may be necessary or desirable to vest in TopCoder the ownership rights granted to TopCoder hereunder.  If TopCoder does not compensate you for your design or development solution, then you retain any and all rights to ownership of such material submitted to TopCoder.  TopCoder will not gain ownership of this material.  However, by submitting any design documents, source code or any other material to TopCoder, you hereby grant us a perpetual, royalty-free, irrevocable, non-exclusive right and license to use, reproduce and publish such documents, materials or source code for commercial and/or non-commercial use.  
@@ -138,6 +139,7 @@ GENERAL
 TopCoder may assign, novate or subcontract any or all of its rights and obligations under these Terms at any time. 
 
 If you have any questions regarding these Terms, contact us at service@topcodersoftware.com.
+
 </textarea>
 
                 <p>Agree to Terms <input type="checkbox" name="terms"/></p>
