@@ -153,6 +153,10 @@ public class StringUtilities {
                     buf.append(", ");
             }
             buf.append("]");
+        } else if (result instanceof String) {
+            buf.append("\"");
+            buf.append(result.toString());
+            buf.append("\"");
         } else
             buf.append(result.toString());
 
