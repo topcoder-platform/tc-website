@@ -14,7 +14,7 @@
 <html>
 <head>
         <xsl:call-template name="Preload"/>      
-        <title>TopCoder :: Contacts</title>
+        <title>Contact information for TopCoder</title>
         <xsl:call-template name="CSS"/>      
         <!--<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
         <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>-->
