@@ -52,6 +52,11 @@ public abstract class FullRegBase extends SimpleRegBase {
         DemographicQuestion question = null;
         for (Iterator it = responses.iterator(); it.hasNext();) {
             response = (DemographicResponse) it.next();
+            if(questions == null)
+            {
+                log.info("GETTING QUESTIONS");
+                getQuestions(transDb, ((FullRegInfo) info).getCoderType());
+            }
             question = findQuestion(response.getQuestionId(), questions);
             if (question.getAnswerType() == DemographicQuestion.SINGLE_SELECT) {
                 setDefault(Constants.DEMOG_PREFIX + response.getQuestionId(), String.valueOf(response.getAnswerId()));

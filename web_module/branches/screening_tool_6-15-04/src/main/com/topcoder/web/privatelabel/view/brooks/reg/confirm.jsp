@@ -40,7 +40,7 @@
                         <tr>
                             <td class="brRegTableQuestion"><b>Personal</b></td>
                             <td class="brRegTableAnswer">
-                                <a class="brRegTableAnswer" href="/">edit<a/>
+                                <a class="brRegTableAnswer" href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.BROOKS_REG_MAIN%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="CompanyId"/>">edit<a/>
                             </td>
                         </tr>
                         <tr>
@@ -120,13 +120,19 @@
                         <tr>
                             <td class="brRegTableQuestion"><b>Demographics</b></td>
                             <td class="brRegTableAnswer">
-                                <a class="brRegTableAnswer" href="/">edit<a/>
+                                <a class="brRegTableAnswer" href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.BROOKS_REG_DEMOG%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="CompanyId"/>">edit<a/>
                             </td>
                         </tr>
-                        <tr>
-                            <td class="brRegTableQuestion">Question</td>
-                            <td class="brRegTableAnswer">Answer</td>
-                        </tr>
+                        <pl:responseIterator id="resp" list="<%=responseList%>">
+                            <tr>
+                                <td class="brReggTableQuestion">
+                                    <pl:demographicQuestionText questions="<%=questionMap%>" response="<%=resp%>"/>
+                                </td>
+                                <td class="brReggTableAnswer">
+                                    <pl:demographicAnswerText questions="<%=questionMap%>" response="<%=resp%>"/>
+                                </td>
+                            </tr>
+                        </pl:responseIterator>
                         <tr>
                             <td class="brRegTableQuestion"></td>
                             <td class="brRegTableAnswer"><br/>
