@@ -66,7 +66,7 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
             }
         }
 
-        info.setTestSetAList(getTestSetAList(info.getTestSetA().longValue(), user));
+        getRequest().setAttribute("AllTestSetAList", getTestSetAList(info.getTestSetA().longValue(), user));
 
         String[] testSetBArr = info.getTestSetB();
         ArrayList list = new ArrayList();

@@ -89,7 +89,8 @@ function submitConfirm() {
             </table>
 
             <jsp:useBean id="profile" class="com.topcoder.web.screening.model.ProfileInfo" scope="request" />
-            
+            <jsp:useBean id="AllTestSetAList" class="com.topcoder.shared.dataAccess.ResultSetContainer" scope="request" />
+
             <screen:form name="profileSetupForm" method="GET" action="<%=Constants.CONTROLLER_URL%>">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="" >
             <% if(!profile.isNew()) { %>
@@ -109,7 +110,7 @@ function submitConfirm() {
                     <td class="testTableSubtitleEven">Problem Set</td>
                     <td class="testTableEven">
                         <select name="<%=Constants.TEST_SET_A%>" onChange="submitReload()">
-                            <screen:resultSetRowIterator id="row" list="<%=profile.getProblemSetList()%>"><%
+                            <screen:resultSetRowIterator id="row" list="<%=AllTestSetAList%>"><%
                             if(profile.isSelectedTestSetA(row.getItem("round_id").toString())) {
                                 %><option value="<screen:resultSetItem row="<%=row%>" name="round_id" />" SELECTED><screen:resultSetItem row="<%=row%>" name="name" /></option><%
                             } else {
@@ -124,7 +125,7 @@ function submitConfirm() {
 
              <table border="0" cellspacing="0" cellpadding="0" width="70%">
                 <tr><td width="100%"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
-            </table>
+                </table>
 
             <table cellspacing="0" cellpadding="3" width="70%" class="testFrame">
               <% if (profile.hasTestSetA()) { %>
