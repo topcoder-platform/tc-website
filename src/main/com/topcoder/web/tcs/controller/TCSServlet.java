@@ -1,11 +1,14 @@
 package com.topcoder.web.tcs.controller;
 
 import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.security.Resource;
 
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletRequest;
 import java.util.MissingResourceException;
 
 /**
@@ -35,5 +38,17 @@ public class TCSServlet extends BaseServlet {
         }
         return ret;
     }
+
+
+    protected void handleLogin(HttpServletRequest request, HttpServletResponse response, SessionInfo info) throws Exception {
+
+        request.getSession().setAttribute("nav_redirect", info.getRequestString());
+        request.getSession().setAttribute("nav_redirect_msg", "In order to continue, you must provide your user name " +
+                "and password.");
+
+        fetchRegularPage(request, response, LOGIN_SERVLET == null ? info.getServletPath() : LOGIN_SERVLET, false);
+    }
+
+
 
 }
