@@ -300,6 +300,12 @@
     <description></description>
   </init-param>
 
+  <init-param>
+    <param-name>dw_data_source_name</param-name>
+    <param-value>DW</param-value>
+    <description></description>
+  </init-param>
+
 </servlet>
 
 <servlet-mapping>

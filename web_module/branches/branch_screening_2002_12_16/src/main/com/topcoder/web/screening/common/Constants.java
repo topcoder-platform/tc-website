@@ -65,6 +65,7 @@ public class Constants
     //Common Constants
     public static String DATA_SOURCE;
     public static String TX_DATA_SOURCE;
+    public static String DW_DATA_SOURCE;
 
     public static void initialize(ServletConfig config) {
         //Controller Servlet Constants
@@ -141,6 +142,7 @@ public class Constants
         //Common Constants
         DATA_SOURCE = config.getInitParameter("data_source_name");
         TX_DATA_SOURCE = config.getInitParameter("tx_data_source_name");
+        DW_DATA_SOURCE = config.getInitParameter("dw_data_source_name");
 
         isInitialized = true;
     }
