@@ -73,6 +73,14 @@
                                     <td class="projectHeaders" align="right" nowrap="nowrap" width="25%">Register By</td>
                                 </tr>
 
+                                <tr valign="top">
+                                    <td class="projectCells">
+                                        <a href="?t=development&amp;c=GeneChip_Data_Interface">GeneChip Data Interface</a>
+                                    </td>
+                                    <td class="projectCells" align="right">$1800 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$600 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">06/28/2004 9:00 AM ET</td>
+                                </tr>
 
 
                                 <tr valign="top">
@@ -123,14 +131,6 @@
                                     <td class="projectCells" align="right">$700 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">Closed</td>
                                 </tr>
-                                <tr valign="top">
-                                    <td class="projectCells">
-                                        <a href="?t=development&amp;c=GeneChip_Data_Interface">GeneChip Data Interface</a>
-                                    </td>
-                                    <td class="projectCells" align="right">$1800 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$600 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">06/28/2004 9:00 AM ET</td>
-                                </tr>
 
                             </table>
 
@@ -149,14 +149,6 @@
                                 </tr>
                                 <tr valign="top">
                                     <td class="projectCells">
-                                        <a href="?t=development&amp;c=Testing_Tool_App">Screening Tool</a>
-                                    </td>
-                                    <td class="projectCells" align="right">$1,200 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">n/a &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">Closed</td>
-                                </tr>
-                                <tr valign="top">
-                                    <td class="projectCells">
                                         <a href="?t=development&amp;c=Content_Syndication_ASP_Dev">Content Syndication: ASP</a>
                                     </td>
                                     <td class="projectCells" align="right">$1,200 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
@@ -170,6 +162,14 @@
                                     <td class="projectCells" align="right">$1,200 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$250 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">6/25/2004 9:00 AM</td>
+                                </tr>
+                                <tr valign="top">
+                                    <td class="projectCells">
+                                        <a href="?t=development&amp;c=Testing_Tool_App">Screening Tool</a>
+                                    </td>
+                                    <td class="projectCells" align="right">$1,200 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">n/a &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">Closed</td>
                                 </tr>
 
                                 <tr valign="top">
