@@ -5,7 +5,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="/rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="/tc.tld" prefix="tc" %>
-<jsp:useBean id="donationInfo" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" />
+<%--<jsp:useBean id="donationInfo" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" />--%>
 <jsp:useBean id="donationTotal" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" />
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <html>
@@ -94,15 +94,11 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                 <td width="30%" align="left">
                     <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=CRPFReport"%><tc:sort column="4"/>"><img src="/i/tournament/crpf03/handle.gif" width="55" height="26" border="0"></a>
                 </td>
-<!--
-                <td width="25%" align="center">
-                    <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=CRPFReport"%><tc:sort column="2"/>"><img src="/i/tournament/crpf03/rating.gif" width="55" height="26" border="0"></a>
-                </td>
--->
                 <td width="50%" align="right">
                     <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=CRPFReport"%><tc:sort column="1"/>"><img src="/i/tournament/crpf03/total_donation.gif" width="115" height="26" border="0"></a>
                 </td>
             </tr>
+            <%--
             <rsc:iterator list="<%=donationInfo%>" id="info">
                 <tr>
                     <td class="tourney_subnav" align="left">
@@ -111,18 +107,12 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                     <td class="tourney_subnav" >
                         <a href="/stat?c=member_profile&cr=<rsc:item row="<%=info%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=info.getIntItem("rating")%>'/>"><rsc:item row="<%=info%>" name="handle"/></a>
                     </td>
-<!--
-                    <td class="tourney_subnav"  align="center">
-                        <rsc:item row="<%=info%>" name="rating"/>
-                    </td>
--->
                     <td class="tourney_subnav" align="right">
                         $<rsc:item row="<%=info%>" name="amount" format="0.00"/>
                     </td>
                 </tr>
-
             </rsc:iterator>
-
+            --%>
         </table>
         <table>
                   <tr>
