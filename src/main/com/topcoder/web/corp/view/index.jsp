@@ -11,7 +11,7 @@
 
 <title>TopCoder Corporate Services</title>
 
-<link rel="stylesheet" type="text/css" href="/css/corpStyle.css" />
+<link rel="stylesheet" type="text/css" href="/css_corp/style.css" />
 
 <script language="JavaScript" type="text/javascript" src="/js/script.js"></script>
 
