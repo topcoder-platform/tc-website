@@ -46,6 +46,7 @@ public class CommandDetailTask extends BaseTask implements Task, Serializable {
 
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response) throws Exception {
         String begin = getServletPath()+"?"+Constants.TASK_PARAM+"=";
+        String end = "&"+Constants.DB_PARAM+"="+getDb();
         StringBuffer buf = new StringBuffer();
         buf.append(begin);
         buf.append(Constants.DB_SELECTION_TASK);
@@ -53,22 +54,22 @@ public class CommandDetailTask extends BaseTask implements Task, Serializable {
         buf.setLength(0);
         buf.append(begin);
         buf.append(Constants.COMMAND_LIST_TASK);
-        buf.append("&");
-        buf.append(Constants.DB_PARAM);
-        buf.append("=");
-        buf.append(getDb());
+        buf.append(end);
         super.getNavLinks().add(new LinkBean(buf.toString(), Constants.COMMAND_LIST_NAME));
         buf.setLength(0);
         buf.append(begin);
         buf.append(Constants.MODIFY_COMMAND_TASK);
+        buf.append(end);
         super.getNavLinks().add(new LinkBean(buf.toString(), "New Command"));
         buf.setLength(0);
         buf.append(begin);
         buf.append(Constants.MODIFY_QUERY_TASK);
+        buf.append(end);
         super.getNavLinks().add(new LinkBean(buf.toString(), "New Query"));
         buf.setLength(0);
         buf.append(begin);
         buf.append(Constants.MODIFY_INPUT_TASK);
+        buf.append(end);
         super.getNavLinks().add(new LinkBean(buf.toString(), "New Input"));
 
     }

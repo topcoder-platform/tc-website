@@ -5,9 +5,7 @@ import com.topcoder.shared.util.logging.Logger;
 
 import com.topcoder.web.query.common.Constants;
 import com.topcoder.web.query.common.AuthenticationException;
-import com.topcoder.web.query.common.Authentication;
 import com.topcoder.web.query.bean.Task;
-//import com.topcoder.ejb.AuthenticationServices.Authentication;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -61,7 +59,7 @@ public class Controller extends HttpServlet {
         try {
             ctx = (InitialContext) TCContext.getInitial();
             if (taskName != null && taskName.trim().length() > 0) {
-                log.info("[**** query **** " + taskName + " **** " + request.getRemoteHost() + " ****]");
+                log.info("[**** query **** " + taskName + " **** " + stepName==null?"":stepName + " **** " + request.getRemoteHost() + " ****]");
 
                 // process a task
                 Task task = null;
