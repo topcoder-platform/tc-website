@@ -23,8 +23,6 @@ import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.PathResource;
 
 import com.topcoder.dde.catalog.*;
-import com.topcoder.dde.user.UserManagerRemoteHome;
-import com.topcoder.dde.user.UserManagerRemote;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.tc.controller.request.development.Base;
@@ -334,7 +332,7 @@ public final class TaskDevelopment {
                                                 xsldocURLString = XSL_DIR + "reg_full_rated.xsl";
                                             } else {
 
-                                                register(nav.getSessionInfo().getUserId(), componentId, projectId, rating, comment, agreedToTerms, phase, version);
+                                                register(nav.getSessionInfo().getUserId(), componentId, projectId);
                                                 String activeForumId = String.valueOf(getActiveForumId(componentId));
                                                 devTag.addTag(new ValueTag("forumId", activeForumId));
 
@@ -767,7 +765,7 @@ public final class TaskDevelopment {
     }
 
 
-    static void register(long userId, long componentId, long projectId, int rating, String comment, boolean agreedToTerms, int phase, int version) throws Exception {
+    static void register(long userId, long componentId, long projectId) throws Exception {
         Context ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
 
         //get principal manager
@@ -776,9 +774,6 @@ public final class TaskDevelopment {
         PrincipalMgrRemote principalMgr = principalManagerHome.create();
 
         log.debug("creating user");
-        Object objUserManager = ctx.lookup("dde/UserManager");
-        UserManagerRemoteHome userManagerHome = (UserManagerRemoteHome) PortableRemoteObject.narrow(objUserManager, UserManagerRemoteHome.class);
-        UserManagerRemote USER_MANAGER = userManagerHome.create();
         UserPrincipal up = principalMgr.getUser(userId);
 
         Context homeBindings = new InitialContext();
