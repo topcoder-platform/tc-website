@@ -141,15 +141,18 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
 
 
     public void setAttributes(String paramName, String[] paramValues) {
+        log.debug("setAttributes called...");
+        log.debug("paramName: " + paramName);
         String value = paramValues[0];
         value = (value == null?"":value.trim());
 
-        if (paramName.equalsIgnoreCase(Constants.JOB_HIT_TYPE_PARAM))
+        if (paramName.equalsIgnoreCase(Constants.JOB_HIT_TYPE_PARAM)) {
             setHitType(Integer.parseInt(value));
-        else if (paramName.equalsIgnoreCase(Constants.JOB_ID_PARAM))
+        } else if (paramName.equalsIgnoreCase(Constants.JOB_ID_PARAM)) {
             setJobId(Integer.parseInt(value));
-        else if (paramName.startsWith(Constants.JOB_HIT_PREFIX))
+        } else if (paramName.startsWith(Constants.JOB_HIT_PREFIX)) {
             jobHits.add(new Integer(paramName.substring(Constants.JOB_HIT_PREFIX.length())));
+        }
     }
 
     private void loadUserInfo(com.topcoder.ejb.AuthenticationServices.User user) throws Exception {
