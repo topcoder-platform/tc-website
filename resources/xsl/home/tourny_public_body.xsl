@@ -1,57 +1,47 @@
 <?xml version="1.0"?>
+
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:import href="../includes/modules/srm_dates.xsl"/>
-  <xsl:import href="../includes/modules/common_questions.xsl"/>
-  <xsl:import href="../includes/modules/tc_updates.xsl"/>
-  <xsl:import href="../includes/modules/last_srm.xsl"/>
+  <xsl:import href="../includes/modules/tc_updates2.xsl"/>
+  <xsl:import href="../includes/modules/white_last_srm.xsl"/>
   <xsl:import href="../includes/modules/quick_stats_pulldown.xsl"/>
   <xsl:import href="../includes/modules/quick_stats_tidbit.xsl"/>
-  <xsl:import href="../includes/modules/countries.xsl"/>    
-  <xsl:import href="../includes/modules/coder_week.xsl"/>
-  <xsl:import href="../includes/modules/top_10_coders.xsl"/>
+  <xsl:import href="../includes/modules/countries.xsl"/>
+  <xsl:import href="../includes/modules/intro.xsl"/>      
+  <xsl:import href="../includes/modules/coder_week2.xsl"/>
+  <xsl:import href="../includes/modules/top_10_coders2.xsl"/>
   <xsl:import href="../includes/modules/round_table.xsl"/>
   <xsl:import href="../includes/modules/practice_room.xsl"/>
   <xsl:import href="../includes/modules/module_login.xsl"/>
-  <xsl:import href="../includes/modules/arena.xsl"/>  
-  <xsl:import href="../includes/modules/calendar.xsl"/>  
+  <xsl:import href="../includes/modules/arena2.xsl"/>  
+  <xsl:import href="../includes/modules/calendar.xsl"/>
+  <xsl:import href="../includes/modules/editorials.xsl"/>    
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template name="PublicBody">
+
 <!-- Body Begins -->
 
-  <!-- SRM Promo Begins -->
-      <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC" WIDTH="100%">
-        <TR>    
-          <TD COLSPAN="4" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-        </TR>        
-        <TR>
-          <TD WIDTH="828" VALIGN="top" BGCOLOR="#43515E"><IMG SRC="/i/tourny_image.gif" ALT="" WIDTH="801" HEIGHT="161" BORDER="0"/></TD>
-          <TD WIDTH="100%" BACKGROUND="/i/sun_promo_bg.gif" BGCOLOR="#43515E" VALIGN="top"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-          <TD WIDTH="20" BACKGROUND="/i/sun_promo_bg.gif" BGCOLOR="#43515E" VALIGN="top" ALIGN="right"><IMG SRC="/i/sun_promo_top_rt.gif" ALT="" WIDTH="23" HEIGHT="22" BORDER="0"/></TD>          
-  <!-- Gutter -->
-    <TD WIDTH="25" ROWSPAN="2" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->
-        </TR>
-      </TABLE>
-     <!-- SRM Promo Ends -->
-     
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
   <TR>
-    <TD VALIGN="top" COLSPAN="3" BGCOLOR="#FFFFFF"><IMG SRC="/i/white.gif" WIDTH="170" HEIGHT="3" BORDER="0"/><BR/>
+    <TD VALIGN="top" COLSPAN="3"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/><BR/>
       <!-- SRM Promo Begins -->
+
       <!-- SRM Promo Ends -->    
     </TD>
     <!-- Right Column Include Begins -->
+
     <!-- Gutter -->
-    <TD WIDTH="3" ROWSPAN="2" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/white.gif" WIDTH="3" HEIGHT="29" BORDER="0"/></TD>
+    <!-- <TD WIDTH="3" ROWSPAN="2" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="3" HEIGHT="1" BORDER="0"/></TD> -->
     <!-- Gutter Ends -->
   <!-- Right Column Begins -->
-    <TD WIDTH="170" ROWSPAN="2" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/white.gif" WIDTH="172" HEIGHT="29" BORDER="0"/><BR/> 
-<IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/>
-<xsl:call-template name="calendar"/>
+    <!-- <TD WIDTH="170" ROWSPAN="2" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/> 
+
+
 <IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/>
 <xsl:call-template name="module_login"/> 
 <xsl:call-template name="top_10_coders"/>
 <xsl:call-template name="arena"/>
+    </TD> -->
 <!-- <xsl:call-template name="round_table"/>
                 <xsl:choose>
                   <xsl:when test="/TC/LoggedIn='true'">
@@ -60,297 +50,430 @@
                      <xsl:call-template name="practice_room"/>
                   </xsl:otherwise>
                 </xsl:choose> -->
-    </TD>
+
+
   <!-- Right Column Ends -->
-    
+
   <!-- Gutter -->
-    <TD WIDTH="25" ROWSPAN="2" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->       
+
+    <TD WIDTH="1" ROWSPAN="2" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+    <!-- Gutter Ends -->        
   </TR>    
    <TR>
+
 <!-- Left Column Include Begins -->   
+
   <!-- Gutter Begins -->
     <!-- <TD WIDTH="1" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD> -->
      <!-- Gutter Ends -->
+
     <!-- Left Column Begins -->
+
     <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><!-- <IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0" VSPACE="5"><BR/> -->
-<IMG SRC="/i/white.gif" WIDTH="170" HEIGHT="5" BORDER="0"/><BR/>
+<xsl:call-template name="module_login"/>
+<xsl:call-template name="intro"/>
 <xsl:call-template name="srm_dates"/>
 <IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/>
-<xsl:call-template name="common_questions"/>
-<xsl:call-template name="tc_updates"/>
-<xsl:call-template name="countries"/>
+<xsl:call-template name="calendar"/>
+<!-- <xsl:call-template name="countries"/> -->
 <IMG SRC="/i/logo_ghosted_bracket.gif" WIDTH="160" HEIGHT="77" BORDER="0" ALT="[ TopCoder ]" VSPACE="5"/>
       </TD>    
+
   <!-- Left Column Ends -->
   <!-- Gutter Begins -->
-    <TD WIDTH="3" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/white.gif" WIDTH="3" HEIGHT="5" BORDER="0"/><BR/></TD>
+    <TD WIDTH="1" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
     <!-- Gutter Ends -->
 <!-- Left Column Include Ends -->
 
 <!-- Body Area -->
+
   <!-- Center Column Begins -->  
-    <TD WIDTH="100%" VALIGN="top" ALIGN="center">  
-    <!-- Favs, Cinder, Who to Watch --> 
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BACKGROUND="/i/steel_darkblue_bg.gif">
-  <TR>
-    <TD VALIGN="top" WIDTH="100%" COLSPAN="7" ALIGN="left" BGCOLOR="#FFFFFF"><IMG SRC="/i/steelblue_top_left2.gif" ALT="" WIDTH="75" HEIGHT="26" BORDER="0"/><IMG SRC="/i/label_tourney_breakdown.gif" ALT="" WIDTH="220" HEIGHT="26" BORDER="0"/></TD>
-    <!-- <TD VALIGN="top" WIDTH="33%" COLSPAN="2" ALIGN="left" BGCOLOR="#FFFFFF"><IMG SRC="/i/steelblue_top_left2.gif" ALT="" WIDTH="75" HEIGHT="26" BORDER="0"/></TD>
-    <TD VALIGN="top" WIDTH="33%" COLSPAN="3" ALIGN="left" BGCOLOR="#FFFFFF"><IMG SRC="/i/steelblue_top_left2.gif" ALT="" WIDTH="75" HEIGHT="26" BORDER="0"/></TD> -->
-  </TR>
-  <TR>
-    <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="26" BORDER="0"/></TD>  
-    <TD VALIGN="top" ALIGN="left" CLASS="statText"><DIV CLASS="statTextBig">The Favorites</DIV><IMG SRC="/i/m/dmwright_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="5" VSPACE="1" ALIGN="left"/>
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=114853" CLASS="coderTextRed">dmwright</A><BR/>
-The big cheese.  The head honcho.  The top gun.  The dictionary defines a favorite as "a competitor judged most likely to win".  And win is exactly what the favorites have done so far in their TopCoder careers, as all of the favorites are among the top-25 in all-time room wins.  Let's take a deeper look at the four coders who have earned the distinction as favorites...<A HREF="/?t=statistics&amp;c=2002tccc_favs" CLASS="statText">click here</A><BR/><BR/>
-</TD>
-    <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>    
-    <TD VALIGN="top" ALIGN="left" CLASS="statText"><DIV CLASS="statTextBig">The Cinderella's</DIV><IMG SRC="/i/m/coder_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="5" VSPACE="1" ALIGN="left"/>
-<BR/>
-Every competition has them.  The 1980 "Miracle on Ice" US Mens Ice Hockey Team, Buster Douglas, Rocky Balboa, the New England Patriots, and most recently Sarah Hughes.  They're what makes tournaments fun, interesting, compelling, and they provide a ton of emotional drama.  It's the American way; everyone loves the underdog...<A HREF="/?t=statistics&amp;c=2002tccc_cind" CLASS="statText">click here</A><BR/><BR/>
-</TD>
-    <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>    
-    <TD VALIGN="top" ALIGN="left" CLASS="statText"><DIV CLASS="statTextBig">Keep Your Eye On...</DIV>
-    <IMG SRC="/i/m/milhouse_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="5" VSPACE="1" ALIGN="left"/>
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=154089" CLASS="coderTextRed">milhouse</A><BR/>    
-These are the coders that the top-seeds fear the most.  They are either TopCoder veterans, TopCoder tournament tested, those who had outstanding performances with top scores in the Regional Quarterfinals and/or Regional Semifinals, or all of the above...<A HREF="/?t=statistics&amp;c=2002tccc_eyeon" CLASS="statText">click here</A><BR/><BR/></TD>
-    <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>    
+    <TD WIDTH="100%" VALIGN="top" ALIGN="center" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/> 
+
+<!-- TC top special promo --> 
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">          
+  <TR>  
+    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="middle" COLSPAN="9" WIDTH="100%" ALIGN="center" BGCOLOR="#CCCCCC" HEIGHT="40" CLASS="bodyText"><FONT SIZE="5" COLOR="#000000" FACE="tahoma,verdana,arial"><B>The&#160;Sun/TopCoder Collegiate&#160;Challenge&#160;is&#160;Underway!</B></FONT><BR/>
+    Semifinal Rounds begin today April 19th. A new TCCC Champion will be named tomorrow.</TD>    
+    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
   </TR>  
+  <TR>
+    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>  
+    <TD VALIGN="top" WIDTH="35%" ALIGN="left" CLASS="bodyText">
+<FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>Friday, April 19th:</B></FONT><BR/>
+- <A HREF="/index?t=statistics&amp;c=2002tccc_semiroom1" CLASS="bodyGeneric">Semifinal Room 1</A><BR/>
+- <A HREF="/index?t=statistics&amp;c=2002tccc_semiroom2" CLASS="bodyGeneric"></A>Semifinal Room 2<BR/>
+- <A HREF="/index?t=statistics&amp;c=2002tccc_semiroom3" CLASS="bodyGeneric"></A>Semifinal Room 3<BR/>
+- <A HREF="/index?t=statistics&amp;c=2002tccc_semiroom4" CLASS="bodyGeneric"></A>Semifinal Room 4<BR/> 
+- <A HREF="/index?t=statistics&amp;c=2002tccc_breakdown" CLASS="bodyGeneric">Bracket Update</A><BR/> 
+- <A HREF="/index?t=statistics&amp;c=2002tccc_photos" CLASS="bodyGeneric">Photos</A><BR/>
+    </TD>
+    <TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="1"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
+    <TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>    
+    <TD VALIGN="top" WIDTH="35%" ALIGN="left" CLASS="bodyText">
+<FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>Saturday, April 20th:</B></FONT><BR/>
+- <A HREF="/index?t=statistics&amp;c=2002tccc_champ" CLASS="bodyGeneric"></A>Champion<BR/>
+- <A HREF="/index?t=statistics&amp;c=2002tccc_sunnotes" CLASS="bodyGeneric"></A>Sun Presentation Notes<BR/> 
+- <A HREF="/index?t=statistics&amp;c=2002tccc_breakdown" CLASS="bodyGeneric"></A>Bracket Update<BR/> 
+- <A HREF="/index?t=statistics&amp;c=2002tccc_photos" CLASS="bodyGeneric">Photos</A><BR/>
+    </TD>
+    <TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="1"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
+    <TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>    
+    <TD VALIGN="top" WIDTH="30%" ALIGN="left" CLASS="bodyText">
+<FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>Overall:</B></FONT><BR/>
+- <A HREF="/index?t=statistics&amp;c=2002tccc_favs" CLASS="bodyGeneric">Favorites</A><BR/> 
+- <A HREF="/index?t=statistics&amp;c=2002tccc_cind" CLASS="bodyGeneric">Cinderellas</A><BR/>
+- <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon" CLASS="bodyGeneric">Keep your eye on...</A><BR/> 
+- <A HREF="/index?t=statistics&amp;c=coderprofile_sun" CLASS="bodyGeneric">Java.Sun.Com Coder Profile</A><BR/>
+    </TD>
+    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+  </TR>
+
+  <!-- <TR>  
+    <TD VALIGN="top" COLSPAN="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>    
+  </TR>  
+  <TR>  
+    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" COLSPAN="3" WIDTH="100%" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>    
+    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
+  </TR> -->
+  <TR>  
+    <TD VALIGN="top" COLSPAN="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"/></TD>   
+  </TR>   
 </TABLE>
 
-    <!-- Last SRM Begins --> 
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-  <TR>
-    <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="right"><IMG SRC="/i/steelblue_top_left1.gif" ALT="" WIDTH="11" HEIGHT="26" BORDER="0"/></TD>
-    <TD VALIGN="top" WIDTH="75" ALIGN="left" BGCOLOR="#FFFFFF"><IMG SRC="/i/steelblue_top_left2.gif" ALT="" WIDTH="75" HEIGHT="26" BORDER="0"/></TD>
-    <TD CLASS="header" VALIGN="middle" BGCOLOR="#FFFFFF" WIDTH="184"><A HREF="/index?t=statistics&amp;c=match_summary"><IMG SRC="/i/label_srm_summary.gif" ALT="Last Match Summary" WIDTH="184" HEIGHT="26" BORDER="0"/></A></TD>
-    <TD CLASS="header" VALIGN="middle" BGCOLOR="#FFFFFF" WIDTH="100%" ALIGN="right"><A HREF="/index?t=statistics&amp;c=round_stats&amp;Last_Match=true"><IMG SRC="/i/label_view_results.gif" ALT="View Results" WIDTH="194" HEIGHT="26" BORDER="0"/></A></TD>
-    <!-- <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"/></TD> -->
+<!-- Tourney editorial --> 
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">     
+  <!-- <TR>  
+    <TD VALIGN="top" COLSPAN="7" ALIGN="center"><IMG SRC="/i/sun_banner_white.gif" ALT="Sun Microsystems" WIDTH="428" HEIGHT="84" BORDER="0"/></TD>    
   </TR>
-</TABLE>  
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">  
+  <TR>  
+    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="middle" WIDTH="100%" ALIGN="center" BGCOLOR="#CCCCCC" HEIGHT="40" CLASS="bodyText"><FONT SIZE="5" COLOR="#000000" FACE="tahoma,verdana,arial"><B>The Sun/TopCoder Collegiate Challenge is Underway!</B></FONT><BR/>
+    Semifinal Rounds begin today April 19th. A new TCCC Champion will be named tomorrow.</TD>    
+    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
+  </TR>
+  <TR>  
+    <TD VALIGN="top" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>    
+  </TR> -->   
+  <TR>  
+    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" WIDTH="100%" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>    
+    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
+  </TR>
+  <TR>  
+    <TD VALIGN="top" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"/></TD>   
+  </TR>         
   <TR>
-    <TD VALIGN="top" WIDTH="11" BACKGROUND="/i/steel_darkblue_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-    <TD COLSPAN="2" VALIGN="top" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
+    <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText">
+
+<P><IMG SRC="/i/tourney_photo_comp.jpg" ALT="" WIDTH="200" HEIGHT="435" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/>
+<FONT SIZE="4" COLOR="#000000" FACE="tahoma, verdana"><B>Round One - NDBronson Looks Strong</B></FONT><BR/>
+Friday, April 19, 2002<BR/>
+By&#160;Adam Loss,<I>TopCoder Staff Writer</I><BR/>
+</P>
+
+
+<P>
+In the first round of the afternoon, <A HREF="#" CLASS="bodyGeneric">NDBronson</A> put on an impressive display as the only member in his
+ round to complete all three problems in the "Coding Phase".  He earned 187.51 points on the Level One
+<IMG SRC="/i/coder_quote.gif" ALT="" WIDTH="140" HEIGHT="140" HSPACE="8" VSPACE="0" ALIGN="right" BORDER="0"/>
+Problem, 460.18 on the Level Two problem, and 497.10 on the Level Three problem for a total of 1144.79 points.  
+</P>
+
+<P>
+"I was really happy with my performance in the Coding Phase," said <A HREF="#" CLASS="bodyGeneric">NDBronson</A>.  "I took my time and analyzed 
+the problem statement, but still had enough time to submit my code for a good number of points for 
+each problem."  
+</P>
+
+<P>
+<A HREF="#" CLASS="bodyGeneric">Logan</A>, 605.28 points, and malpt, 588.88, submitted code for two of the problems, and found themselves 
+in second and third place, respectively after the coding phase.  <A HREF="#" CLASS="bodyGeneric">ColinMacLeod</A> submitted code for only 
+the Level One problem, and earned 155.41 points.  "I noticed the point total of <A HREF="#" CLASS="bodyGeneric">NDBronson</A> after the 
+Coding Phase, and knew it was going to be tough to catch him," said <A HREF="#" CLASS="bodyGeneric">Logan</A>.  
+</P>
+
+<P>
+<A HREF="#" CLASS="bodyGeneric">NDBronson</A> was 1-for-2 in the "Challenge Phase", successfully challenging the Level Two submission of malpt, but failing in his attempt to challenge the Level Two submission of <A HREF="#" CLASS="bodyGeneric">Logan</A>.  <A HREF="#" CLASS="bodyGeneric">Logan</A> and <A HREF="#" CLASS="bodyGeneric">ColinMacLeod</A> didn't attempt any challenges, and so their point totals remained the same through the Challenge Phase, but besides losing the 398.91 points gained when <A HREF="#" CLASS="bodyGeneric">NDBronson</A> challenged his Level Two submission, malpt lost 100 additional points on two unsuccessful challenges - the Level Two submission of <A HREF="#" CLASS="bodyGeneric">Logan</A> and the Level One submission of <A HREF="#" CLASS="bodyGeneric">ColinMacLeod</A>.  
+</P>
+
+<P>
+<A HREF="#" CLASS="bodyGeneric">NDBronson</A> watched all three of his codes pass the system test to win the round and advance to the finals.  Only the Level One submission of <A HREF="#" CLASS="bodyGeneric">ColinMacLeod</A> failed the system test, leaving him with zero points.  <A HREF="#" CLASS="bodyGeneric">Logan</A> finished second in the round, as both of his submissions passed the system test, while malpt and <A HREF="#" CLASS="bodyGeneric">ColinMacLeod</A> finished third and fourth, respectively.  
+</P>
+
+<P>
+"I'm really excited to be heading to the finals," added <A HREF="#" CLASS="bodyGeneric">NDBronson</A>.  "I know that <A HREF="#" CLASS="bodyGeneric">dmwright</A> and <A HREF="#" CLASS="bodyGeneric">jonmac</A> have already advanced, so I'm looking forward to a very tough battle.  Having the three top-rated members in the finals is what championship competitions are all about!"
+</P>
+
+
+
+    </TD>
+    <TD VALIGN="top" WIDTH="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+  </TR>
+
+  <TR>  
+    <TD VALIGN="top" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>    
+  </TR>  
+  <!-- <TR>  
+    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" WIDTH="100%" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>    
+    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
+  </TR>
+  <TR>  
+    <TD VALIGN="top" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"/></TD>   
+  </TR> -->   
+</TABLE> 
+    
+
+<!-- TC top special promo --> 
+<!-- <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">     
+  <TR>  
+    <TD VALIGN="top" COLSPAN="11" ALIGN="center"><IMG SRC="/i/sun_banner_white.gif" ALT="Sun Microsystems" WIDTH="428" HEIGHT="84" BORDER="0"/></TD>    
+  </TR>     
+  <TR>
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
+    <TD VALIGN="top" WIDTH="35%" ALIGN="left" CLASS="bodyText">
+<FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>Friday, April 19th:</B></FONT><BR/>
+- <A HREF="/index?t=statistics&amp;c=2002tccc_semiroom1" CLASS="bodyGeneric">Semifinal Room 1</A><BR/>
+- <A HREF="/index?t=statistics&amp;c=2002tccc_semiroom2" CLASS="bodyGeneric">Semifinal Room 2</A><BR/>
+- <A HREF="/index?t=statistics&amp;c=2002tccc_semiroom3" CLASS="bodyGeneric">Semifinal Room 3</A><BR/>
+- <A HREF="/index?t=statistics&amp;c=2002tccc_semiroom4" CLASS="bodyGeneric">Semifinal Room 4</A><BR/> 
+- <A HREF="/index?t=statistics&amp;c=2002tccc_breakdown" CLASS="bodyGeneric">Bracket Update</A><BR/> 
+- <A HREF="/index?t=statistics&amp;c=2002tccc_photos" CLASS="bodyGeneric">Photos</A><BR/>
+    </TD>
+    <TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="1"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
+    <TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>    
+    <TD VALIGN="top" WIDTH="35%" ALIGN="left" CLASS="bodyText">
+<FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>Saturday, April 20th:</B></FONT><BR/>
+- <A HREF="/index?t=statistics&amp;c=2002tccc_champ" CLASS="bodyGeneric">Champion</A><BR/>
+- <A HREF="/index?t=statistics&amp;c=2002tccc_sunnotes" CLASS="bodyGeneric">Sun Presentation Notes</A><BR/> 
+- <A HREF="/index?t=statistics&amp;c=2002tccc_breakdown" CLASS="bodyGeneric">Bracket Update</A><BR/> 
+- <A HREF="/index?t=statistics&amp;c=2002tccc_photos" CLASS="bodyGeneric">Photos</A><BR/>
+    </TD>
+    <TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="1"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
+    <TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>    
+    <TD VALIGN="top" WIDTH="30%" ALIGN="left" CLASS="bodyText">
+<FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>Overall:</B></FONT><BR/>
+- <A HREF="/index?t=statistics&amp;c=2002tccc_favs" CLASS="bodyGeneric">Favorites</A><BR/> 
+- <A HREF="/index?t=statistics&amp;c=2002tccc_cind" CLASS="bodyGeneric">Cinderellas</A><BR/>
+- <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon" CLASS="bodyGeneric">Keep your eye on...</A><BR/> 
+- <A HREF="/index?t=statistics&amp;c=coderprofile_sun" CLASS="bodyGeneric">Java.Sun.Com Coder Profile</A><BR/>
+    </TD>
+    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+  </TR>
+
+  <TR>  
+    <TD VALIGN="top" COLSPAN="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>    
+  </TR>  
+  <TR>  
+    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" COLSPAN="3" WIDTH="100%" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>    
+    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
+  </TR>
+  <TR>  
+    <TD VALIGN="top" COLSPAN="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"/></TD>   
+  </TR>   
+</TABLE> -->
+
+    <!-- Last SRM Begins -->    
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
+  <TR>
+    <TD VALIGN="middle" BGCOLOR="#FFFFFF" WIDTH="184"><A HREF="/index?t=statistics&amp;c=match_summary"><IMG SRC="/i/label_srm_summary.gif" ALT="Last Match Summary" WIDTH="184" HEIGHT="26" HSPACE="5" BORDER="0" ALIGN="left"/></A></TD>
+    <TD WIDTH="100%" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="194" ALIGN="right"><A HREF="/stat?c=last_match" CLASS="bodyGeneric"><IMG SRC="/i/label_view_results.gif" ALT="Last Match Results" WIDTH="194" HEIGHT="26" BORDER="0" ALIGN="right"/></A></TD>
+  </TR>
+</TABLE>   
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">  
+  <TR>  
+    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" WIDTH="100%" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>    
+    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+  </TR>
+  <TR>  
+    <TD VALIGN="top" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"/></TD>    
+  </TR>  
+</TABLE>  
+
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">  
+  <TR>
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+    <TD COLSPAN="2" VALIGN="top" WIDTH="100%">
 <xsl:call-template name="last_srm"/>
     </TD>
-    <TD VALIGN="top" WIDTH="10" BACKGROUND="/i/steel_darkblue_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
   </TR>
   <TR>
-    <TD COLSPAN="4" VALIGN="top" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
+    <TD COLSPAN="4" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
   </TR>     
   <TR>
-    <TD VALIGN="top" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-    <TD VALIGN="top" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="14"><IMG SRC="/i/clear.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-    <TD VALIGN="top" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="top" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" WIDTH="8" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="8" BORDER="0"/></TD>
+    <TD VALIGN="top" WIDTH="14"><IMG SRC="/i/clear.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
+    <TD VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
   </TR>  
 </TABLE>
-    <!-- Last SRM Ends -->                     
-  <!-- Division I Begins -->
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" WIDTH="100%">
+                         
+<!-- Editorials --> 
+<!-- <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">  
+  <TR>  
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" WIDTH="100%" COLSPAN="2" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+  </TR>
+  <TR>  
+    <TD VALIGN="top" COLSPAN="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"/></TD>    
+  </TR>     
   <TR>
-    <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="right"><IMG SRC="/i/steelblue_top_left1.gif" ALT="" WIDTH="11" HEIGHT="26" BORDER="0"/></TD>
-    <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="75" ALIGN="left"><IMG SRC="/i/steelblue_top_left2.gif" ALT="" WIDTH="75" HEIGHT="26" BORDER="0"/></TD>
-    <TD CLASS="bodySubHead" VALIGN="middle" BGCOLOR="#FFFFFF" WIDTH="60%"><A HREF="/index?t=statistics&amp;c=srm_wins_div1"><IMG SRC="/i/label_div_1.gif" ALT="Division I" WIDTH="116" HEIGHT="26" BORDER="0" ALIGN="left"/></A></TD>
-    <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"/></TD>
-    <TD ROWSPAN="8" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="2" HEIGHT="1" BORDER="0"/></TD>
-    <TD ROWSPAN="8" VALIGN="top" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="40%">
-  <!-- Featured Stats Begins -->  
-      <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF">
-        <TR>
-          <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="right" BACKGROUND=""><IMG SRC="/i/steelblue_top_left1.gif" ALT="" WIDTH="11" HEIGHT="26" BORDER="0"/></TD>
-          <TD VALIGN="top" WIDTH="75" ALIGN="left" BGCOLOR="#FFFFFF" BACKGROUND=""><IMG SRC="/i/steelblue_top_left2.gif" ALT="" WIDTH="75" HEIGHT="26" BORDER="0"/></TD>
-          <TD CLASS="bodySubHead" VALIGN="middle" BGCOLOR="#FFFFFF" BACKGROUND="" WIDTH="100%"><IMG SRC="/i/label_quick_stats_sm.gif" ALT="Quick Stats" WIDTH="104" HEIGHT="26" BORDER="0"/></TD>
-          <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10" ALIGN="right" BACKGROUND=""><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"/></TD>
-        </TR>
-  <!-- <TR>
-    <TD COLSPAN="4" VALIGN="top" BGCOLOR="#999999" WIDTH="50%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"/></TD>
-  </TR> --> 
-        <TR>
-          <TD VALIGN="top" WIDTH="11" BACKGROUND="/i/steel_darkblue_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-          <TD COLSPAN="2" VALIGN="top" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="105" HEIGHT="1" BORDER="0"/><BR/>
-            <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="2" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
+  	<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD> 
+    <TD VALIGN="top" COLSPAN="3" WIDTH="100%" ALIGN="left" BGCOLOR="#FFFFFF"><FONT SIZE="3" COLOR="#000000" FACE="tahoma"><B>Coder's Point of View</B></FONT></TD>
+  </TR>
+  <TR>  
+    <TD VALIGN="top" COLSPAN="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="8" BORDER="0"/></TD>    
+  </TR>     
+  <TR>
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="26" BORDER="0"/></TD>  
+    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText">
+    <IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/>    
+    </TD>
+    <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText">
+<FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>Single Round Match 80</B></FONT><BR/>
+Monday, April 15, 2002<BR/>
+By&#160;lbackstrom,<I>TopCoder Member</I><BR/>
+<A HREF="/?t=statistics&amp;c=srm80_room1" CLASS="bodyGeneric">Room One Review</A> | 
+<A HREF="/?t=statistics&amp;c=srm80_rookie" CLASS="bodyGeneric">Rookie Review</A> | 
+<A HREF="/?t=statistics&amp;c=srm80_prob" CLASS="bodyGeneric">Problem Set Analysis &amp; Opinion</A><BR/>
+    </TD>
+     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>   
+  </TR>
+
+  <TR>  
+    <TD VALIGN="top" COLSPAN="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>    
+  </TR>  
+  <TR>  
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" WIDTH="100%" COLSPAN="2" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>    
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+  </TR> 
+  <TR>  
+    <TD VALIGN="top" COLSPAN="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"/></TD>    
+  </TR>   
+</TABLE> -->
+ <!-- Coder of the Week Begins -->
+   <xsl:call-template name="coder_week"/>
+<!-- Coder of the Week Ends -->
+
+<xsl:call-template name="tc_updates"/>
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
+  <TR>  
+    <TD VALIGN="top" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"/></TD>    
+  </TR>  
+  <TR>  
+    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" WIDTH="100%" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>    
+    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
+  </TR> 
+  <TR>  
+    <TD VALIGN="top" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"/></TD>    
+  </TR>   
+</TABLE>
+<xsl:call-template name="arena"/> 
+
+<!-- TC special promo --> 
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">  
+  <TR>  
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" COLSPAN="3" WIDTH="100%" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>    
+    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
+  </TR>    
+  <TR>  
+    <TD VALIGN="top" COLSPAN="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"/></TD>    
+  </TR>     
+  <TR>
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="26" BORDER="0"/></TD>  
+    <TD VALIGN="top" WIDTH="50%" ALIGN="left" CLASS="bodyText">
+<FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>[TC] Sponsorships</B></FONT><BR/>
+TopCoder offers sponsorship programs for the weekly <A HREF="/index?t=about_tc&amp;c=spons_srm" CLASS="bodyGeneric">Single Round Matches</A> as well as for 
+<A HREF="/index?t=about_tc&amp;c=spons_tourny" CLASS="bodyGeneric">Tournaments</A>. Read more about our 
+<A HREF="/index?t=about_tc&amp;c=spons_target" CLASS="bodyGeneric">sponsorship programs</A>.<BR/>
+    </TD>
+    <TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" WIDTH="50%" ALIGN="left" CLASS="bodyText">
+<FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>[TC] Employment Services</B></FONT><BR/>
+TopCoder works with companies to connect them with top-rated developers. Read more about our 
+<A HREF="/index?t=about_tc&amp;c=empl_tces" CLASS="bodyGeneric">employment services</A>.<BR/>
+    </TD>
+    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+  </TR>
+
+  <TR>  
+    <TD VALIGN="top" COLSPAN="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>    
+  </TR>  
+  <!-- <TR>  
+    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" COLSPAN="3" WIDTH="100%" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>    
+    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
+  </TR>
+  <TR>  
+    <TD VALIGN="top" COLSPAN="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"/></TD>   
+  </TR>  -->   
+</TABLE> 
+
+    </TD>
+  <!-- Center Column Ends -->    
+    <TD BGCOLOR="#001935" VALIGN="top" CLASS="bodyText" WIDTH="244"><IMG SRC="/i/clear.gif" ALT="" WIDTH="244" HEIGHT="1" BORDER="0"/><BR/>
+<A HREF="/i/sun_redir.html" target="_blank"><IMG SRC="/i/sun_promo2.gif" ALT="" WIDTH="244" HEIGHT="161" BORDER="0"/></A><BR/><BR/>
+<xsl:call-template name="top_10_coders"/>
+<!-- <A TARGET="_parent" HREF="/?t=about_tc&amp;c=membr_teams"><IMG SRC="/i/teams_banner.gif" WIDTH="170" HEIGHT="46" BORDER="0" HSPACE="5" VSPACE="5"/></A><BR/>
+<A TARGET="_parent" HREF="/?t=jobs&amp;c=index"><IMG SRC="/i/jobs_banner2.gif" WIDTH="170" HEIGHT="46" BORDER="0" HSPACE="5" VSPACE="5"/></A> -->
+
+ 
+
+            <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
+                 <TR> 
+                  <TD COLSPAN="3" BGCOLOR="#001935"><IMG SRC="/i/label_quick_stats_home.gif" ALT="Quick Stats" WIDTH="166" HEIGHT="17" BORDER="0"/></TD>
+                </TR>
+                 <TR> 
+                  <TD BGCOLOR="#FFFFFF" COLSPAN="3"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+                </TR>                
               <TR>
-                <TD CLASS="statText" VALIGN="top" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
+                <TD ROWSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>                
+                <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
+                <TD ROWSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>             
               </TR>              
               <TR>
-                <TD CLASS="statText" VALIGN="top" COLSPAN="3">Select a Quick Stat from the menu below.</TD>
+                <TD CLASS="statText" VALIGN="top">Select a Quick Stat from the menu below.</TD>
               </TR>
               <TR>
-                <TD CLASS="statText" VALIGN="top" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
+                <TD CLASS="statText" VALIGN="top"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
               </TR>                              
                <TR>
-                <TD CLASS="quickstatText" VALIGN="top" COLSPAN="3">
+                <TD CLASS="quickstatText" VALIGN="top">
     <!-- Quick Stat Pulldown Begins --> 
+    
 <xsl:call-template name="quick_stats_pulldown"/>
+
     <!-- Quick Stat Pulldown Ends -->
-                </TD>
-              </TR>                 
-            </TABLE> 
     <!-- Quick Stat Pulldown Begins --> 
+    
 <xsl:call-template name="quick_stats_tidbit"/>
-    <!-- Quick Stat Pulldown Ends -->              
-          </TD>
-          <TD VALIGN="top" WIDTH="10" BACKGROUND="/i/steel_darkblue_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-        </TR>
-  <!-- <TR>
-    <TD COLSPAN="4" VALIGN="top" BGCOLOR="#999999" WIDTH="40%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"/></TD>
-  </TR>     
-  <TR>
-    <TD VALIGN="top" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-    <TD VALIGN="top" WIDTH="75"><IMG SRC="/i/clear.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-    <TD VALIGN="top" BGCOLOR="#999999" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="top" BGCOLOR="#999999" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-  </TR>  
-  <TR>
-    <TD VALIGN="top" BGCOLOR="#999999" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-    <TD VALIGN="top" BGCOLOR="#999999" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-    <TD VALIGN="top" BGCOLOR="#999999" WIDTH="40%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="top" BGCOLOR="#999999" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-  </TR> -->
-      </TABLE>
-  <!-- Featured Stats Ends -->
+
+    <!-- Quick Stat Pulldown Ends -->    
+    
+                </TD>
+              </TR>               
+            </TABLE>    
     </TD>
-  </TR>
-  <TR>
-    <TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-    <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="2" VALIGN="top" BGCOLOR="#000033" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="105" HEIGHT="1" BORDER="0"/><BR/>
-      <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
-        <TR>
-          <TD COLSPAN="4" WIDTH="1"><IMG HEIGHT="3" WIDTH="1" SRC="/i/clear.gif"/></TD>
-        </TR>
-        <TR>
-          <TD BACKGROUND="/i/steel_gray_bg3.gif" CLASS="registerNav" COLSPAN="4" VALIGN="middle" HEIGHT="14">&#160;&#160;Top-3 room winners from the last match.<!-- Top-3 winners from match 67 --></TD>
-        </TR>        
-        <TR>
-          <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
-        </TR>                
-        <TR>
-          <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="smallFoot" VALIGN="middle" ALIGN="center" WIDTH="10" HEIGHT="13">&#160;&#160;Place&#160;&#160;&#160;</TD>  
-          <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="smallFoot" VALIGN="middle" WIDTH="32%">Handle</TD>
-          <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="smallFoot" VALIGN="middle" ALIGN="center" WIDTH="32%">Room#</TD>
-          <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="smallFoot" VALIGN="middle" ALIGN="center" WIDTH="32%">Points</TD>  
-        </TR>
-        <TR>
-          <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="4" CLASS="smallFoot"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
-        </TR> 
-        <!-- <TR>
-          <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="4" CLASS="statTextBig">There were no Division-I coders in this round.<BR/><BR/></TD>    
-        </TR> -->                
-        <TR>
-          <TD CLASS="statText" ALIGN="right" VALIGN="middle" HEIGHT="12">&#160;&#160;&#160;1st.&#160;&#160;&#160;</TD>
-          <TD CLASS="statText" VALIGN="middle"><A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=262936" CLASS="coderTextRed">dgarthur</A></TD>
-          <TD CLASS="statText" VALIGN="middle" ALIGN="center">1</TD>
-          <TD CLASS="statText" VALIGN="middle" ALIGN="center">1236.98</TD>  
-        </TR>    
-        <TR>
-          <TD CLASS="statText" VALIGN="middle" ALIGN="right" HEIGHT="12">2nd.&#160;&#160;&#160;</TD>
-          <TD CLASS="statText" VALIGN="middle"><A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=156592" CLASS="coderTextRed">benetin</A></TD>
-          <TD CLASS="statText" VALIGN="middle" ALIGN="center">2</TD>
-          <TD CLASS="statText" VALIGN="middle" ALIGN="center">999.68</TD>
-        </TR>
-        <TR>
-          <TD CLASS="statText" ALIGN="right" VALIGN="middle" HEIGHT="12">3rd.&#160;&#160;&#160;</TD>
-          <TD CLASS="statText" VALIGN="middle"><A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=251335" CLASS="coderTextYellow">Echo</A></TD>
-          <TD CLASS="statText" VALIGN="middle" ALIGN="center">6</TD>
-          <TD CLASS="statText" VALIGN="middle" ALIGN="center">956.80</TD>
-        </TR>
-        <TR>
-          <TD  COLSPAN="4" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="smallText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
-        </TR>
-        <TR>
-          <TD  COLSPAN="4" BGCOLOR="#000033" BACKGROUND="/i/steel_blue_bg.gif" CLASS="smallText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
-        </TR>
-        <TR>
-          <TD  COLSPAN="4" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="smallText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
-        </TR>                          
-      </TABLE>  
-    </TD>
-    <TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-  </TR>
-  <!-- <TR>
-    <TD COLSPAN="4" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_blue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-  </TR> -->  
-  <!-- Division I Ends -->
-  <!-- Division II Begins -->
-  <TR>
-    <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="right"><IMG SRC="/i/steelblue_top_left1.gif" ALT="" WIDTH="11" HEIGHT="26" BORDER="0"/></TD>
-    <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="75" ALIGN="left"><IMG SRC="/i/steelblue_top_left2.gif" ALT="" WIDTH="75" HEIGHT="26" BORDER="0"/></TD>
-    <TD CLASS="bodySubHead" VALIGN="middle" BGCOLOR="#FFFFFF" WIDTH="100%"><A HREF="/index?t=statistics&amp;c=srm_wins_div2"><IMG SRC="/i/label_div_2.gif" ALT="Division II" WIDTH="116" HEIGHT="26" BORDER="0" ALIGN="left"/></A></TD>
-    <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"/></TD>
-  </TR>
-  <TR>
-    <TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-    <TD COLSPAN="2" VALIGN="top" BGCOLOR="#000033" WIDTH="100%" BACKGROUND="/i/steel_darkblue_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="105" HEIGHT="1" BORDER="0"/><BR/>
-      <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
-        <TR>
-          <TD COLSPAN="4" WIDTH="1"><IMG HEIGHT="3" WIDTH="1" SRC="/i/clear.gif"/></TD>
-        </TR>
-        <TR>
-          <TD BACKGROUND="/i/steel_gray_bg3.gif" CLASS="registerNav" COLSPAN="4" VALIGN="middle" HEIGHT="14">&#160;&#160;Top-3 room winners from the last match.<!-- Top-3 winners from match 68 --></TD>
-        </TR>        
-        <TR>
-          <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
-        </TR>      
-        <TR>
-          <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="smallFoot" VALIGN="middle" ALIGN="center" WIDTH="10" HEIGHT="13">&#160;&#160;Place&#160;&#160;&#160;</TD>  
-          <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="smallFoot" VALIGN="middle" WIDTH="32%">Handle</TD>
-          <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="smallFoot" VALIGN="middle" ALIGN="center" WIDTH="32%">Room#</TD>
-          <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="smallFoot" VALIGN="middle" ALIGN="center" WIDTH="32%">Points</TD>  
-        </TR>
-        <TR>
-          <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="4" CLASS="smallFoot" WIDTH="1"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
-        </TR>        
-        <TR>
-          <TD CLASS="statText" ALIGN="right" VALIGN="middle" HEIGHT="12">&#160;&#160;&#160;1st.&#160;&#160;&#160;</TD>
-          <TD CLASS="statText" VALIGN="middle"><A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=261776" CLASS="coderTextBlue">DmdsNPrls99</A></TD>
-          <TD CLASS="statText" VALIGN="middle" ALIGN="center">27</TD>
-          <TD CLASS="statText" VALIGN="middle" ALIGN="center">1234.47</TD>  
-        </TR>    
-        <TR>
-          <TD CLASS="statText" VALIGN="middle" ALIGN="right" HEIGHT="12">2nd.&#160;&#160;&#160;</TD>
-          <TD CLASS="statText" VALIGN="middle"><A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=158447" CLASS="coderTextBlue">ValD</A></TD>
-          <TD CLASS="statText" VALIGN="middle" ALIGN="center">34</TD>
-          <TD CLASS="statText" VALIGN="middle" ALIGN="center">1191.94</TD>
-        </TR>
-        <TR>
-          <TD CLASS="statText" ALIGN="right" VALIGN="middle" HEIGHT="12">3rd.&#160;&#160;&#160;</TD>
-          <TD CLASS="statText" VALIGN="middle"><A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=251145" CLASS="coderTextBlue">ck</A></TD>
-          <TD CLASS="statText" VALIGN="middle" ALIGN="center">26</TD>
-          <TD CLASS="statText" VALIGN="middle" ALIGN="center">1189.90</TD>
-        </TR>
-        <TR>
-          <TD  COLSPAN="4" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="smallText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
-        </TR>
-        <TR>
-          <TD  COLSPAN="4" BGCOLOR="#000033" BACKGROUND="/i/steel_blue_bg.gif" CLASS="smallText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
-        </TR>
-        <TR>
-          <TD  COLSPAN="4" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="smallText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
-        </TR>          
-      </TABLE>  
-    </TD>
-    <TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-  </TR>
-  <!-- <TR>
-    <TD COLSPAN="4" VALIGN="top" BGCOLOR="#000033" WIDTH="100%" BACKGROUND="/i/steel_blue_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
-  </TR> -->    
-  <TR>
-    <TD VALIGN="top" WIDTH="11" ALIGN="right" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-    <TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" BGCOLOR="#000033" WIDTH="14"><IMG SRC="/i/table_mid_left_blue_home.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-    <TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" BGCOLOR="#000033" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-  </TR>  
-</TABLE>
-  <!-- Division II Ends -->
- <!-- Coder of the Week Begins -->
-<xsl:call-template name="coder_week"/>
-<!-- Coder of the Week Ends -->       
-    </TD>
-  <!-- Center Column Ends -->
+    <TD WIDTH="10" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 <!-- Body Area Ends -->
   </TR>   
 </TABLE>
   </xsl:template>
 </xsl:stylesheet>
+

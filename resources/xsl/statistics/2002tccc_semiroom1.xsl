@@ -45,14 +45,13 @@
 <xsl:call-template name="BodyTop">
   <xsl:with-param name="image1">white</xsl:with-param>
   <xsl:with-param name="image">statisticsw</xsl:with-param>
-  <xsl:with-param name="title">&#160;2002 TCCC Semifinal Room 1</xsl:with-param>
+  <xsl:with-param name="title">&#160;2002&#160;TCCC&#160;Semifinal&#160;Room&#160;1</xsl:with-param>
 </xsl:call-template>
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
   <TR>
     <TD BGCOLOR="#FFFFFF" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
     <TD CLASS="statTextBig" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
 
-<IMG SRC="/i/02tccc_logow_sm.gif" ALT="" WIDTH="96" HEIGHT="74" ALIGN="left" HSPACE="60" VSPACE="15" BORDER="0"/>
     <!-- Global Seconday Nav Begins -->        
         <xsl:call-template name="2002tccc_seminav"/>
   <!-- Global Seconday Nav Ends --> 
