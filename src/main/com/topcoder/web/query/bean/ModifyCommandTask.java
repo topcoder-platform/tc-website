@@ -65,6 +65,11 @@ public class ModifyCommandTask extends BaseTask implements Task, Serializable {
         super.getNavLinks().add(new LinkBean(buf.toString(), "New Command"));
         buf.setLength(0);
         buf.append(begin);
+        buf.append(Constants.MODIFY_GROUP_TASK);
+        buf.append(end);
+        super.getNavLinks().add(new LinkBean(buf.toString(), "New Command Group"));
+        buf.setLength(0);
+        buf.append(begin);
         buf.append(Constants.MODIFY_QUERY_TASK);
         buf.append(end);
         super.getNavLinks().add(new LinkBean(buf.toString(), "New Query"));
