@@ -193,9 +193,24 @@ public final class StringUtils {
 
 
     public static void main(String[] args) {
-        String blabla = "bla bla";
-        System.out.println(containsOnly(blabla, ALPHABET_ALPHA_EN, true));
-        System.out.println(hasNotMoreWords(blabla, 1));
+//        String blabla = "bla bla";
+//        System.out.println(containsOnly(blabla, ALPHABET_ALPHA_EN, true));
+//        System.out.println(hasNotMoreWords(blabla, 1));
+        System.out.println(replace("heleel", "e", "ee"));
+        System.out.println(replace("hell", "e", "ee"));
+        System.out.println(replace("helle", "e", "ee"));
+        System.out.println(replace("ehell", "e", "ee"));
+        System.out.println(replace("heell", "e", "ee"));
+        System.out.println("");
+        System.out.println(replace("heeleeeel", "ee", "e"));
+        System.out.println(replace("heell", "ee", "e"));
+        System.out.println(replace("heellee", "ee", "e"));
+        System.out.println(replace("eeheell", "ee", "e"));
+        System.out.println(replace("heeeell", "ee", "e"));
+        System.out.println(replace("hadkhekadk", "adk", "33"));
+        System.out.println(replace("hadkhekadk", "adk", "33333"));
+        System.out.println(replace("hadkhekadk", "adk", ""));
+
     }
 
     /** Replaces null strings with "", others are returned untouched. */
@@ -206,4 +221,38 @@ public final class StringUtils {
     public static boolean contains(String s, char c) {
         return s.indexOf(c)>-1;
     }
+
+    public static String replace(String original, String changeFrom, String changeTo) {
+        if (original==null) {
+            throw new IllegalArgumentException("the original string was null");
+        } else if (changeFrom==null) {
+            throw new IllegalArgumentException("the changeFrom string was null");
+        } else if (changeTo==null) {
+            throw new IllegalArgumentException("the changeTo string was null");
+        } else if (changeFrom.length()==0) {
+            throw new IllegalArgumentException("the changeFrom string was empty");
+        }
+
+        int dif = changeTo.length()-changeFrom.length();
+        StringBuffer ret = new StringBuffer(original.length()+(dif>0?dif*5:0));
+        for (int i=0; i<original.length(); i++) {
+            if (i<=original.length()-changeFrom.length()) {
+                if (original.substring(i, i+changeFrom.length()).equals(changeFrom)) {
+//                    System.out.println("if1: " + i);
+                    ret.append(changeTo);
+                    i+=(changeFrom.length()-1);
+                } else {
+//                    System.out.println("else1: " + i);
+                    ret.append(original.charAt(i));
+                }
+            } else {
+//                System.out.println("else2: " + i);
+                ret.append(original.charAt(i));
+            }
+        }
+
+        return ret.toString();
+    }
+
+
 }
