@@ -16,12 +16,15 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.User;
 
+import com.topcoder.shared.util.logging.Logger;
 
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.common.PermissionDeniedException;
 import com.topcoder.web.screening.common.ScreeningException;
 
 public class ProblemInfo extends BaseModel {
+    private static Logger log = Logger.getLogger(ProblemInfo.class);
+
     private static DataAccess nonCached;
     private static CachedDataAccess cached;
     private static DataAccess dwAccess;
@@ -282,6 +285,8 @@ public class ProblemInfo extends BaseModel {
                                                 long roundId, 
                                                 long problemId) 
         throws Exception {
+            
+        log.debug("Getting problem info for round " + roundId + ", problem " + problemId);
 
         if(nonCached == null) {
             InitialContext context = new InitialContext();
