@@ -283,7 +283,7 @@ public class ProfileSearch extends Base {
                 query.append("    AND ");
                 query.append(value[i]);
                 query.append(x);
-                if(i < 4){
+                if(i < 3){
                     query.append(" 00:00:00.0'\n");
                 }else{
                     query.append('\n');

@@ -31,17 +31,17 @@
         padding-right:1px;
     }
     A:link {
-	    FONT-WEIGHT: bold; COLOR: #7777FF; TEXT-DECORATION: none
+            COLOR: #4444bb; TEXT-DECORATION: none
     }
     A:visited {
-	    FONT-WEIGHT: bold; COLOR: #7777FF; TEXT-DECORATION: none
+            COLOR: #4444bb; TEXT-DECORATION: none
     }
     A:active {
-	    FONT-WEIGHT: bold; COLOR: #eebb66; TEXT-DECORATION: none
-    }
+            COLOR: #7777FF; TEXT-DECORATION: none
+    }   
     A:hover {
-	    FONT-WEIGHT: bold; COLOR: #eebb66; TEXT-DECORATION: none
-    }
+            COLOR: #7777FF; TEXT-DECORATION: none
+    }       
 
 </style>
 <script language="javascript">
