@@ -16,7 +16,7 @@ public class TCCC05ProjectDetail implements Serializable {
     private String handle;
     private int points;
     private String placed;
-    private double score;
+    private String score;
     private int userID;
     private String payment;
     private String submitTimestamp;
@@ -32,7 +32,7 @@ public class TCCC05ProjectDetail implements Serializable {
         submitTimestamp = "";
     }
     
-    public TCCC05ProjectDetail(String h, int pts, String pl, double sc, int u, String pay, String sub) {
+    public TCCC05ProjectDetail(String h, int pts, String pl, String sc, int u, String pay, String sub) {
         handle = h;
         points = pts;
         placed = pl;
@@ -82,11 +82,11 @@ public class TCCC05ProjectDetail implements Serializable {
         points = p;
     }
     
-    public double getScore() {
+    public String getScore() {
         return score;
     }
     
-    public void setScore(double c) {
+    public void setScore(String c) {
         score = c;
     }
     
