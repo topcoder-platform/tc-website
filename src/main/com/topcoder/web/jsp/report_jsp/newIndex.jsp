@@ -27,7 +27,7 @@
       <br/>
       <br/>
       <UL>
-        <LI><A HREF="<%=Constants.SERVLET_ADDR+"?"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=user_list&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">User List</A></LI>
+        <LI><A HREF="<%=Constants.SERVLET_ADDR+"?"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=user_list&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">TCS User List</A></LI>
       </UL>
 
 
