@@ -73,8 +73,8 @@
               <xsl:value-of select="ContestName"/>
               &#160;
               <xsl:choose>
-                <xsl:when test="ContestId='4130'">04/22/2002<br/></xsl:when>
                 <xsl:when test="ContestId='4135'">04/24/2002<br/></xsl:when>
+                <xsl:when test="ContestId='4136'">04/27/2002<br/></xsl:when>
                 <xsl:when test="ContestId='4165'">05/18/2002<br/></xsl:when>
                 <xsl:otherwise>
                   <xsl:value-of select="substring(ContestStartTimestamp,0,11)"/><br/>
@@ -106,15 +106,15 @@ Any and all applicable taxes on a prize are the sole responsibility of the prize
               Registration is from
 
                           <xsl:choose>
-                            <xsl:when test="$contestId='4130'">
-                              6:30 PM to 7:55 PM <xsl:value-of select="ShortDaylight"/>.<br/>
-                              Competition at
-                              8:00 PM <xsl:value-of select="ShortDaylight"/> on
-                            </xsl:when>
                             <xsl:when test="$contestId='4135'">
                               7:30 PM to 8:55 PM <xsl:value-of select="ShortDaylight"/>.<br/>
                               Competition at
                               9:00 PM <xsl:value-of select="ShortDaylight"/> on
+                            </xsl:when>
+                            <xsl:when test="$contestId='4136'">
+                              12:30 PM to 1:55 PM <xsl:value-of select="ShortDaylight"/>.<br/>
+                              Competition at
+                              2:00 PM <xsl:value-of select="ShortDaylight"/> on
                             </xsl:when>
                             <xsl:when test="$contestId='4165'">
                               11:30 AM to 12:55 PM <xsl:value-of select="ShortDaylight"/>.<br/>
@@ -152,8 +152,8 @@ Any and all applicable taxes on a prize are the sole responsibility of the prize
               </xsl:choose>
               &#160;
               <xsl:choose>
-                <xsl:when test="ContestId='4130'">22, </xsl:when>
                 <xsl:when test="ContestId='4135'">24, </xsl:when>
+                <xsl:when test="ContestId='4136'">27, </xsl:when>
                 <xsl:when test="ContestId='4165'">18, </xsl:when>
                 <xsl:otherwise>
                   <xsl:value-of select="format-number(substring(ContestStartTimestamp,4,2),'##')"/>,
@@ -174,8 +174,8 @@ Any and all applicable taxes on a prize are the sole responsibility of the prize
               rating for each room is similar.  
               The Online Round will begin at 
               <xsl:choose>
-                <xsl:when test="$contestId='4130'">8:00 PM</xsl:when>
                 <xsl:when test="$contestId='4135'">9:00 PM</xsl:when>
+                <xsl:when test="$contestId='4136'">2:00 PM</xsl:when>
                 <xsl:when test="$contestId='4165'">1:00 PM</xsl:when>
                 <xsl:otherwise>
                   <xsl:value-of select="number($start_hr)+2"/>:<xsl:value-of select="format-number(number($start_min)-30,'00')"/>&#160;<xsl:value-of select="$am_pm"/>
@@ -301,8 +301,8 @@ However, prizes will only be paid to members who are at least 18 years of age, m
           </xsl:choose>
           &#160;
           <xsl:choose>
-            <xsl:when test="ContestId='4130'">22, </xsl:when>
             <xsl:when test="ContestId='4135'">24, </xsl:when>
+            <xsl:when test="ContestId='4136'">27, </xsl:when>
             <xsl:when test="ContestId='4165'">18, </xsl:when>
             <xsl:otherwise>
               <xsl:value-of select="format-number(substring(ContestStartTimestamp,4,2),'##')"/>,
@@ -310,8 +310,8 @@ However, prizes will only be paid to members who are at least 18 years of age, m
           </xsl:choose>
           <xsl:value-of select="substring(ContestStartTimestamp,7,4)"/>&#160;
           <xsl:choose>
-            <xsl:when test="$contestId='4130'">7:55 PM</xsl:when>
             <xsl:when test="$contestId='4135'">8:55 PM</xsl:when>
+            <xsl:when test="$contestId='4136'">1:55 PM</xsl:when>
             <xsl:when test="$contestId='4165'">12:55 PM</xsl:when>
             <xsl:otherwise>
               <xsl:value-of select="number($start_hr)+1"/>:<xsl:value-of select="format-number(number($start_min)+25,'00')"/>&#160;<xsl:value-of select="$am_pm"/>

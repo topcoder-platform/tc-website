@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:template name="dates">
-    <xsl:for-each select="/TC/HOME/Contests/Contest[ContestId!='1000' and ContestId!='1080' and ContestId!='65' and ContestId!='66' and ContestId!='67' and position()=1]">
+    <xsl:for-each select="/TC/HOME/Contests/Contest[ContestId!='1000' and ContestId!='1080' and position()=1]">
       <xsl:sort data-type="number" select="substring(ContestStartTimestamp,7,4)"/>
       <xsl:sort data-type="number" select="substring(ContestStartTimestamp,1,2)"/>
       <xsl:sort data-type="number" select="substring(ContestStartTimestamp,4,2)"/>
@@ -32,23 +32,15 @@
               </xsl:otherwise>
             </xsl:choose>
             <xsl:choose>
-              <xsl:when test="ContestId='64'">
-                <b>Sun Microsystems TopCoder Collegiate Challenge Semifinals</b><br/>
-                <b>04/19/2002</b><br/>
-              </xsl:when>
-              <xsl:when test="ContestId='68'">
-                <b>Sun Microsystems TopCoder Collegiate Challenge Championship</b><br/>
-                <b>04/20/2002</b><br/>
-              </xsl:when>
-              <xsl:when test="ContestId='4130'">
-                <b>04/22/2002</b><br/>
-                Register: 6:30 PM<br/>
-                Compete: 8:00 PM<br/>
-              </xsl:when>
               <xsl:when test="ContestId='4135'">
                 <b>04/24/2002</b><br/>
                 Register: 7:30 PM<br/>
                 Compete: 9:00 PM<br/>
+              </xsl:when>
+              <xsl:when test="ContestId='4136'">
+                <b>04/27/2002</b><br/>
+                Register: 12:30 PM<br/>
+                Compete: 2:00 PM<br/>
               </xsl:when>
               <xsl:when test="ContestId='4165'">
                 <b>05/18/2002</b><br/>
