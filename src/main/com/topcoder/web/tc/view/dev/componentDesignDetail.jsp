@@ -40,14 +40,15 @@
 <%-- Center Column Begins --%>
         <td width="100%" align="center">
 
-            <img src="/i/clear.gif" alt="" width="240" height="20" border="0"/><br/>
+            <img src="/i/clear.gif" alt="" width="240" height="10" border="0"/><br/>
 
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr valign="middle">
                     <td class="bodyText">
 
 <%-- Title --%>
-                        <h2 class="devSubhead"><strong><rsc:item set="<%=projectDetail%>" name="component_name"/>: Design</strong></h2>
+                        <h2 class="devSubhead"><strong>Design Project</strong></h2>
+                        <h2 class="devSubhead"><strong><rsc:item set="<%=projectDetail%>" name="component_name"/></strong></h2>
                     </td>
                     <td align="right">
                         <% if (projectDetail.getIntItem(0, "status_id")==303) {%>
@@ -65,13 +66,6 @@
                         <p><strong>Overview</strong><br />
                         <rsc:item set="<%=projectDetail%>" name="description"/>
                         </p>
-
-<%-- Project Type --%>
-                        <p><strong>Project Type</strong><br />
-                        Component Design Project: Provide a complete design for the <rsc:item set="<%=projectDetail%>" name="component_name"/> component.</p>
-
-                        <p>Please review the TopCoder Software <a href="http://www.topcoder.com/?t=development&amp;c=comp_meth" class="bodyText">Component Development Methodology</a> before you submit a solution.
-                        If you're not sure what to submit, go to <a href="/?t=development&amp;c=tcs_sample_docs" class="bodyText">Documentation and Sample Submissions</a> for more information.</p>
 
 <%-- Technologies --%>
                         <p><strong>Technologies</strong></p>
@@ -123,25 +117,31 @@
                         <p><strong>Eligibility</strong><br />
                         You must be a TopCoder member, at least 18 years of age, meeting all of the membership requirements and fit into one of the following categories:</p>
 
-                        <ol>
+                        <ul>
                             <li>A US Citizen </li>
                             <li>A Lawful Permanent Resident of the US</li>
                             <li>A temporary resident, asylee, refugee, or have a lawfully issued work authorization card permitting unrestricted employment.</li>
                             <li>A Non-US Citizen working in your country of residence.</li>
-                        </ol>
+                        </ul>
 
 <%-- Time Line --%>
                         <p><strong>Time Line</strong><br/>
                         All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.</p>
 
-                        <p><br/>
-                        Posting Date: <rsc:item set="<%=projectDetail%>" name="posting_date" format="MM.dd.yyyy"/><br/>
-                        Initial Submission Due Date: <rsc:item set="<%=projectDetail%>" name="initial_submission_date" format="MM.dd.yyyy"/><br/>
-                        Winner Announced: <rsc:item set="<%=projectDetail%>" name="winner_announced_date" format="MM.dd.yyyy"/><br/>
-                        Final Submission Due Date: <rsc:item set="<%=projectDetail%>" name="final_submission_date" format="MM.dd.yyyy"/><br/>
-                        </p>
-
-                        <p><br /></p>
+                        <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="300">
+                            <tr>
+                                <td class="bodyText">Posting Date:</td><td class="bodyText"><rsc:item set="<%=projectDetail%>" name="posting_date" format="MM.dd.yyyy"/></td>
+                            </tr>
+                            <tr>
+                                <td class="bodyText">Initial Submission Due Date:</td><td class="bodyText"><rsc:item set="<%=projectDetail%>" name="initial_submission_date" format="MM.dd.yyyy"/></td>
+                            </tr>
+                            <tr>
+                                <td class="bodyText">Winner Announced:</td><td class="bodyText"><rsc:item set="<%=projectDetail%>" name="winner_announced_date" format="MM.dd.yyyy"/></td>
+                            </tr>
+                            <tr>
+                                <td class="bodyText">Final Submission Due Date:</td><td class="bodyText"><rsc:item set="<%=projectDetail%>" name="final_submission_date" format="MM.dd.yyyy"/></td>
+                            </tr>
+                        </table>
 
 <%-- Register at TCS --%>
 
@@ -162,19 +162,18 @@
                            <% } %>
 
                             </p>
-                            <p><br /></p>
 
                             <p><strong>Upload Your Submission</strong><br/>
                             Managing your projects is now easier than ever with the Project Submit &amp; Review application. After you've inquired about a project,
                             use Project Submit &amp; Review to check timelines, submit solutions and final fixes, and review your scorecards.</p>
                             <%-- Learn more about Project Submit & Review (link to future How-to guide --%>
 
-                           <p align="center"><strong><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">Project Submit &amp; Review</A> &gt;</strong></p>
+                           <p align="left"><strong><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">Project Submit &amp; Review</A></strong></p>
                     </td>
                 </tr>
             </table>
 
-            <p><br /><br /></p>
+            <p><br/></p>
 
 
 
