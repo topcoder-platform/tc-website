@@ -37,6 +37,7 @@ public class Data extends Base {
             hd.startElement("","","memberStats",atts);
 
             addElement(hd, "handle", "schveiguy", atts);
+            addElement(hd, "photo", "http://www.topcoder.com/i/m/schveiguy_big.jpg", atts);
             addElement(hd, "algorithmRating", "2344", atts);
             addElement(hd, "algorithmRatingMax", "3605", atts);
             addElement(hd, "rank", "50", atts);
@@ -49,17 +50,14 @@ public class Data extends Base {
             addElement(hd, "designRating", "1559", atts);
             addElement(hd, "developmentRating", "0", atts);
 
-
-/*
-            for (int i=0;i<id.length;i++) {
-              atts.clear();
-              atts.addAttribute("","","ID","CDATA",id[i]);
-              atts.addAttribute("","","TYPE","CDATA",type[i]);
-              hd.startElement("","","USER",atts);
-              hd.characters(desc[i].toCharArray(),0,desc[i].length());
-              hd.endElement("","","USER");
+            hd.startElement("","", "algorithmRatingDistribution", atts);
+            for (int i=0; i<20; i++) {
+                atts = new AttributesImpl();
+                atts.addAttribute("", "", "name", "CDATA", String.valueOf(i*100));
+                addElement(hd, "bucket", String.valueOf(1000), atts);
             }
-*/
+            hd.endElement("", "", "algorithmRatingDistribution");
+
             hd.endElement("","","memberStats");
             hd.endDocument();
         } catch (TCWebException e) {
