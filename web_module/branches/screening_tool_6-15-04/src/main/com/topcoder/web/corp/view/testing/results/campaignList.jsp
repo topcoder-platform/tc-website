@@ -45,6 +45,7 @@
                     <td class="screeningHeader" width="33%" align=center>Most Recent Activity</td>
                     <td class="screeningHeader" width="33%" align=right>Candidates</td>
                     <td class="screeningHeader" width="33%" align=right>Positions</td>
+                    <td class="screeningHeader" width="33%" align=right>Collective Demographics</td>
                 </tr>
 
                 <%
@@ -65,8 +66,11 @@
                     <td class="<%=cssClasses[counter % 2]%>" align="right">
                         <screen:resultSetItem row="<%=row%>" name="candidates_num" />
                     </td>
-                    <td class="<%=cssClasses[counter++ % 2]%>" nowrap="center">
+                    <td class="<%=cssClasses[counter % 2]%>" nowrap="center">
                         <A href='?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_LIST_PROCESSOR%>&<%=Constants.CAMPAIGN_ID%>=<screen:resultSetItem row="<%=row%>" name="campaign_id" />'>view</A>
+                    </td>
+                    <td class="<%=cssClasses[counter++ % 2]%>" nowrap="center">
+                        <A href='?<%=Constants.MODULE_KEY%>=Demographics&<%=Constants.CAMPAIGN_ID%>=<screen:resultSetItem row="<%=row%>" name="campaign_id" />'>view</A>
                     </td>
                 </tr>
                 </screen:resultSetRowIterator>
