@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Verizon Coding Contest Powered by TopCoder - Registration</title>
+<title>Verizon Coding Challenge Powered by TopCoder - Registration</title>
 
 <jsp:include page="../nocache.jsp"/>
 <jsp:include page="../script.jsp" />
