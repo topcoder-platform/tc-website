@@ -204,7 +204,7 @@ public class UserBean extends BaseEJB {
             throws EJBException {
 
         log.debug("setActivationCode called. user_id=" + userId + " " +
-                "code=" + code);
+                "code=" + code + " db=" + dataSource);
 
         Connection conn = null;
         PreparedStatement ps = null;
