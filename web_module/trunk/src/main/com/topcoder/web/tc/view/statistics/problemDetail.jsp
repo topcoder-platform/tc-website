@@ -55,63 +55,67 @@
                    </rsc:iterator>
                  </TR>
                  <TR>
-                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10">Problems Submitted</TD>
+                   <TD VALIGN="middle" WIDTH="10">Problems Submitted</TD>
                    <rsc:iterator list="<%=div1Lang%>" id="resultRow">
-                     <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10"><rsc:item name="problems_submitted" row="<%=resultRow%>" ifNull="0"/></TD>
+                     <TD VALIGN="middle" WIDTH="10"><rsc:item name="problems_submitted" row="<%=resultRow%>" ifNull="0"/></TD>
                    </rsc:iterator>
                  </TR>
                  <TR>
-                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10">Submission Percentage</TD>
+                   <TD VALIGN="middle" WIDTH="10">Submission Percentage</TD>
                    <rsc:iterator list="<%=div1Lang%>" id="resultRow">
-                     <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10"><rsc:item name="submission_percentage" row="<%=resultRow%>" ifNull="0.00%" format="0.00#"/></TD>
+                     <TD VALIGN="middle" WIDTH="10"><rsc:item name="submission_percentage" row="<%=resultRow%>" ifNull="0.00%" format="0.00#"/></TD>
                    </rsc:iterator>
                  </TR>
                  <TR>
-                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10">Problems Correct</TD>
+                   <TD VALIGN="middle" WIDTH="10">Problems Correct</TD>
                    <rsc:iterator list="<%=div1Lang%>" id="resultRow">
-                     <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10"><rsc:item name="problems_correct" row="<%=resultRow%>" ifNull="0"/></TD>
+                     <TD VALIGN="middle" WIDTH="10"><rsc:item name="problems_correct" row="<%=resultRow%>" ifNull="0"/></TD>
                    </rsc:iterator>
                  </TR>
                  <TR>
-                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10">Submission Accuracy</TD>
+                   <TD VALIGN="middle" WIDTH="10">Submission Accuracy</TD>
                    <rsc:iterator list="<%=div1Lang%>" id="resultRow">
-                     <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10"><rsc:item name="submission_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00"/></TD>
+                     <TD VALIGN="middle" WIDTH="10"><rsc:item name="submission_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00"/></TD>
                    </rsc:iterator>
                  </TR>
                  <TR>
-                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10">Problems Failed by Challenge</TD>
+                   <TD VALIGN="middle" WIDTH="10">Problems Failed by Challenge</TD>
                    <rsc:iterator list="<%=div1Lang%>" id="resultRow">
-                     <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10"><rsc:item name="problems_failed_by_challenge" row="<%=resultRow%>" ifNull="0"/></TD>
+                     <TD VALIGN="middle" WIDTH="10"><rsc:item name="problems_failed_by_challenge" row="<%=resultRow%>" ifNull="0"/></TD>
                    </rsc:iterator>
                  </TR>
                  <TR>
-                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10">Problems Failed by System Test</TD>
+                   <TD VALIGN="middle" WIDTH="10">Problems Failed by System Test</TD>
                    <rsc:iterator list="<%=div1Lang%>" id="resultRow">
-                     <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10"><rsc:item name="problems_failed_by_system_test" row="<%=resultRow%>" ifNull="0"/></TD>
+                     <TD VALIGN="middle" WIDTH="10"><rsc:item name="problems_failed_by_system_test" row="<%=resultRow%>" ifNull="0"/></TD>
                    </rsc:iterator>
                  </TR>
                  <TR>
-                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10">Challenge Attempts Made</TD>
+                   <TD VALIGN="middle" WIDTH="10">Challenge Attempts Made</TD>
                    <rsc:iterator list="<%=div1Lang%>" id="resultRow">
-                     <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10"><rsc:item name="challenge_attempts_made" row="<%=resultRow%>" ifNull="0"/></TD>
+                     <TD VALIGN="middle" WIDTH="10"><rsc:item name="challenge_attempts_made" row="<%=resultRow%>" ifNull="0"/></TD>
                    </rsc:iterator>
                  </TR>
                  <TR>
-                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10">Challenge Accuracy</TD>
+                   <TD WIDTH="10">Challenge Accuracy</TD>
                    <rsc:iterator list="<%=div1Lang%>" id="resultRow">
-                     <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10"><rsc:item name="challenge_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00"/></TD>
+                     <TD VALIGN="middle" WIDTH="10"><rsc:item name="challenge_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00"/></TD>
                    </rsc:iterator>
                  </TR>
                  <TR>
-                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10">Best Time</TD>
+                   <TD VALIGN="middle" WIDTH="10">Best Time</TD>
                    <rsc:iterator list="<%=div1Lang%>" id="resultRow">
-                     <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10"><rsc:item name="best_time" row="<%=resultRow%>" ifNull="" format="H:mm:ss.S"/></TD>
+                     <TD VALIGN="middle" WIDTH="10"><rsc:item name="best_time" row="<%=resultRow%>" ifNull="" format="H:mm:ss.S"/></TD>
                    </rsc:iterator>
                  </TR>
                  <TR>
-                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10">High Scorer</TD>
+                   <TD VALIGN="middle" WIDTH="10">High Scorer</TD>
                    <rsc:iterator list="<%=div1Lang%>" id="resultRow">
-                     <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10"><a href="/stat?c=member_profile&cr=<rsc:item row="<%=resultRow%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item row="<%=resultRow%>" name="handle"/></a></TD>
+                     <TD VALIGN="middle" WIDTH="10">
+                     <% if (resultRow.getItem("coder_id").getResultData()!=null) { %>
+                         <a href="/stat?c=member_profile&cr=<rsc:item row="<%=resultRow%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item row="<%=resultRow%>" name="handle"/></a>
+                     <% } %>
+                     </TD>
                    </rsc:iterator>
                  </TR>
                  <TR>
