@@ -32,7 +32,7 @@ public class BuildCandidateList extends BaseScreeningProcessor {
             DataAccessInt dAccess = Util.getDataAccess();
             dataRequest.setProperty("uid", String.valueOf(user.getId()));
             
-            int startVal = 0;
+            int startVal = 0; 
             int endVal = 0;
             String start = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
             if (start.equals(""))
@@ -58,7 +58,7 @@ public class BuildCandidateList extends BaseScreeningProcessor {
             {
                 sortCol = "6";
             }
-            dataRequest.setProperty(DataAccessConstants.SORT_COLUMN, sortCol);
+            dataRequest.setProperty(DataAccessConstants.SORT_COLUMN, sortCol); 
             
             Map map = dAccess.getData(dataRequest);
 
