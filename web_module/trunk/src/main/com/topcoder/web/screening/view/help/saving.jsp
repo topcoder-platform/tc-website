@@ -71,11 +71,13 @@
 
             <table border="0" cellpadding="0" cellspacing="10" width="75%">
                 <tr>
-                    <td>
-                        <h1 id="bodyTitle">Help Guide</h1>
+                    <td class="bodyText">
+                        <h1 class="bodyTitle">Saving</h1>
                         
-                        <p>Welcome to the help guide for the Testing Application powered by TopCoder. Please read through this document in its entirety to 
-                        familiarize yourself with the Testing Application process and features.</p>
+                        <p>At any time while coding, you may save your code.  Clicking the <strong>Save</strong> button will place the current version of your code 
+                        on the TopCoder server.  It is good to save every-so-often to ensure that a recent version of your code will be available in the 
+                        event that something happens to your Testing Application session (i.e., you lose your Internet connection).  Compiling your 
+                        code also has the effect of saving it.</p>
 
                     </td>
                 </tr>
