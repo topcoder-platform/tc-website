@@ -19,7 +19,7 @@ public class USDCContestDetails extends StatBase {
     }
     
     String getDataSourceName() {
-        return DBMS.TCS_OLTP_DATASOURCE_NAME;
+        return DBMS.DW_DATASOURCE_NAME;
     }
     
     String getPageName() {
