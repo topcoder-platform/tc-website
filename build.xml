@@ -838,7 +838,7 @@
 
     <!-- begin corp targets -->
 
-    <target name="war_tces" depends="compile">
+      <target name="war_tces" depends="compile">
         <war warfile="${war.dir}/${tces.war.name}.war" webxml="${resources}/tces/web.xml">
             <fileset dir="${java}/com/topcoder/web/tces/servlet/jsp">
                 <include name="**/*.jsp"/>
@@ -851,8 +851,6 @@
             </webinf>
         </war>
     </target>
-
-
 
     <target name="war_corp" depends="compile,corp-ejb-all">
         <war warfile="${war.dir}/${corp.war.name}.war" webxml="${resources}/corp/web.xml">
@@ -980,13 +978,6 @@
 
 
 
-
-
-
-
-
-
-
     <target name="compile_tests" depends="compile">
         <javac srcdir="${testjava}" destdir="${testclasses}"
                classpathref="class.path"
@@ -996,7 +987,7 @@
     </target>
 
     <target name="run_tests" depends="compile_tests" description="run junit tests">
-        <junit printsummary="${junitsummary}" fork="yes">
+            <junit printsummary="${junitsummary}" fork="yes">
             <classpath refid="class.path" />
             <formatter type="xml" />
             <batchtest todir="${testclasses}">
@@ -1013,151 +1004,6 @@
             <report format="frames" todir="${testclasses}/html"/>
         </junitreport>
     </target>
-
-    <!-- begin corp targets -->
-
-    <target name="war_tces" depends="compile">
-        <war warfile="${war.dir}/${tces.war.name}.war" webxml="${resources}/tces/web.xml">
-            <fileset dir="${java}/com/topcoder/web/tces/servlet/jsp">
-                <include name="**/*.jsp"/>
-            </fileset>
-            <classes dir="${classes}">
-                <include name="com/topcoder/web/tces/**"/>
-            </classes>
-            <webinf dir="${resources}/tces">
-                <include name="tces-taglib.tld"/>
-            </webinf>
-        </war>
-    </target>
-
-
-
-    <target name="war_corp" depends="compile,corp-ejb-all">
-        <war warfile="${war.dir}/${corp.war.name}.war" webxml="${resources}/corp/web.xml">
-            <classes dir="${classes}">
-                <include name="com/topcoder/web/corp/**"/>
-                <include name="com/topcoder/web/common/**"/>
-                <include name="com/topcoder/web/ejb/**"/>
-                <include name="com/topcoder/shared/**"/>
-                <exclude name="**/*Bean.class"/>
-                <exclude name="**/*Impl.class"/>
-            </classes>
-
-            <webinf dir="${resources}/${corp.war.name}">
-                <include name="tc-webtags.tld"/>
-            </webinf>
-
-            <zipfileset dir="${java}/com/topcoder/web/corp/view/" includes="*, **/*" prefix=""/>
-            <zipfileset dir="${ejb_jars}" includes="*.jar" prefix="WEB-INF/ejb"/>
-        </war>
-    </target>
-
-    <target name="deploy-corp" depends="war_corp,war_query,war_tces">
-        <unwar src="${war.dir}/${corp.war.name}.war" dest="${public_html}/${corp.war.name}/" overwrite="yes"/>
-        <delete dir="${public_html}/${corp.war.name}/META-INF"/>
-
-        <unwar src="${war.dir}/${query.war.name}.war" dest="${public_html}/${query.war.name}/" overwrite="yes"/>
-        <delete dir="${public_html}/${query.war.name}/META-INF"/>
-
-        <unwar src="${war.dir}/${tces.war.name}.war" dest="${public_html}/${tces.war.name}/" overwrite="yes"/>
-        <delete dir="${public_html}/${tces.war.name}/META-INF"/>
-    </target>
-
-    <target name="corp-ejb-all" depends="compile">
-        <!-- Resume ejb -->
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="QueryServices"/>
-            <param name="unit-class-path" value="com/topcoder/web/query/ejb/QueryServices"/>
-        </antcall>
-
-        <!-- Resume ejb -->
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="DataCache"/>
-            <param name="unit-class-path" value="com/topcoder/ejb/DataCache"/>
-        </antcall>
-
-        <!-- Resume ejb -->
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="ResumeServices"/>
-            <param name="unit-class-path" value="com/topcoder/web/resume/ejb/ResumeServices"/>
-        </antcall>
-
-        <!-- Address ejb -->
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="address"/>
-            <param name="unit-class-path" value="com/topcoder/web/ejb/address"/>
-        </antcall>
-
-        <!-- Company ejb -->
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="company"/>
-            <param name="unit-class-path" value="com/topcoder/web/ejb/company"/>
-        </antcall>
-
-        <!-- Email ejb -->
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="email"/>
-            <param name="unit-class-path" value="com/topcoder/web/ejb/email"/>
-        </antcall>
-
-        <!-- Phone ejb -->
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="phone"/>
-            <param name="unit-class-path" value="com/topcoder/web/ejb/phone"/>
-        </antcall>
-
-        <!-- Product ejb -->
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="product"/>
-            <param name="unit-class-path" value="com/topcoder/web/ejb/product"/>
-        </antcall>
-
-        <!-- TermsOfUse ejb -->
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="termsofuse"/>
-            <param name="unit-class-path" value="com/topcoder/web/ejb/termsofuse"/>
-        </antcall>
-
-        <!-- User ejb -->
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="user"/>
-            <param name="unit-class-path" value="com/topcoder/web/ejb/user"/>
-        </antcall>
-
-    </target>
-
-    <target name="build-ejb-unit" depends="compile">
-        <!-- check if rebuild required -->
-        <uptodate property="remake-ejb-unit" targetfile="${ejb_jars}/${unit-jar-name}.jar" >
-            <srcfiles dir="${classes}" includes="${unit-class-path}/**/*.class"/>
-            <srcfiles dir="${java}/${unit-class-path}" includes="*.xml"/>
-        </uptodate>
-        <antcall target="conditional-build-ejb-unit"/>
-    </target>
-
-    <target name="conditional-build-ejb-unit" unless="remake-ejb-unit">
-        <!-- recreate -->
-        <property name="tmp-dir" value="${classes}/ejb-stuff"/>
-        <delete dir="${tmp-dir}" />
-        <mkdir dir="${tmp-dir}"/>
-        <!-- zip 'sources' -->
-        <jar jarfile="${tmp-dir}/${unit-jar-name}.jar">
-            <zipfileset dir="${classes}" includes="${unit-class-path}/**/*.class"/>
-            <zipfileset dir="${java}/${unit-class-path}" includes="*.xml" prefix="META-INF"/>
-        </jar>
-        <!-- rmi-iiop for weblogic -->
-        <java classname="weblogic.ejbc" fork="yes" classpathref="class.path" failonerror="true">
-            <sysproperty value="-compiler" key="javac"/>
-            <sysproperty value="-classpath" key="${class.path}"/>
-            <arg line="${tmp-dir}/${unit-jar-name}.jar ${ejb_jars}/${unit-jar-name}.jar"/>
-        </java>
-        <echo message="${unit-jar-name}.jar done"/>
-    </target>
-
-    <!-- end corp targets -->
-
-
-
 
 
 
@@ -1176,9 +1022,9 @@
         <antcall target="package-EJB-QueryServicesBean"/>
     </target>
 
-    <target name="package-EJB-Coder" depends="compile,init-CoderBean-properties,package-EJB-GenericBean"/>
+    <target name="package-EJB-Coder" depends="compile,init-ScreeningCoderBean-properties,package-EJB-GenericBean"/>
 
-    <target name="init-CoderBean-properties" >
+    <target name="init-ScreeningCoderBean-properties" >
         <property name="bean.dir"          value="coder" />
         <property name="bean.jar.name"     value="coder.jar" />
         <property name="bean.pkg.dir"      value="com/topcoder/web/screening/ejb/${bean.dir}" />
@@ -1188,15 +1034,6 @@
     </target>
 
     <target name="package-EJB-Email" depends="compile,init-EmailBean-properties,package-EJB-GenericBean"/>
-
-    <target name="init-EmailBean-properties" >
-        <property name="bean.dir"          value="email" />
-        <property name="bean.jar.name"     value="email.jar" />
-        <property name="bean.pkg.dir"      value="com/topcoder/web/ejb/${bean.dir}" />
-        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
-        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
-        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
-    </target>
 
     <target name="package-EJB-Note" depends="compile,init-NoteBean-properties,package-EJB-GenericBean"/>
 
@@ -1232,15 +1069,6 @@
     </target>
 
     <target name="package-EJB-User" depends="compile,init-UserBean-properties,package-EJB-GenericBean"/>
-
-    <target name="init-UserBean-properties" >
-        <property name="bean.dir"          value="user" />
-        <property name="bean.jar.name"     value="user.jar" />
-        <property name="bean.pkg.dir"      value="com/topcoder/web/ejb/${bean.dir}" />
-        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
-        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
-        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
-    </target>
 
     <target name="deploy-screening" depends="compile">
         <war warfile="${war.dir}/${screening.war.name}.war" webxml="${resources}/screening/web.xml">
