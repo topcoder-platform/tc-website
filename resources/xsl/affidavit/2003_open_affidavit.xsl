@@ -213,7 +213,7 @@
             2003 TopCoder Open<BR/>
             Coding Tournament<BR/>
             I, _______________ [insert full name], aged ___ [insert age],
-            son/daughter of ___________ [insert father’s name], residing
+            son/daughter of ___________ [insert father's name], residing
             at _____________ [insert address] do hereby solemnly affirm and state
             as follows:
         </center>
