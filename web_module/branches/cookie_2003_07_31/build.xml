@@ -191,7 +191,7 @@
     <target name="package-EJB-PactsServicesBean" depends="compile">
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="PactsServices"/>
-            <param name="unit-class-path" value="com/topcoder/web/pacts/ejb/PactsServices"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/pacts"/>
         </antcall>
     </target>
 
