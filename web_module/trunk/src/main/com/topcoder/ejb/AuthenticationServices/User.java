@@ -6,9 +6,7 @@ package com.topcoder.ejb.AuthenticationServices;
  *
  * @version  $Revision$
  */
-public class User
-        extends SecureObject
-        implements java.io.Serializable, PermissionAssignee, Cloneable {
+public class User extends SecureObject implements java.io.Serializable, PermissionAssignee, Cloneable {
 
 
     private String Handle;
@@ -43,10 +41,7 @@ public class User
         User result = null;
         try {
             result = new User();
-            result.setSId(getSId());
-            result.setSIdType(getSIdType());
             result.setModified(getModified());
-            result.setPermissions((java.util.ArrayList) getPermissions().clone());
             result.setHandle(getHandle());
             result.setPassword(getPassword());
             result.setConfirmPassword(getConfirmPassword());

@@ -6,6 +6,7 @@ import com.topcoder.ejb.AuthenticationServices.User;
 import com.topcoder.shared.docGen.xml.RecordTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.ejb.user.UserAddress;
@@ -16,6 +17,9 @@ import com.topcoder.web.ejb.phone.PhoneHome;
 import com.topcoder.web.ejb.phone.Phone;
 
 import javax.naming.InitialContext;
+import javax.naming.Context;
+import javax.sql.DataSource;
+import javax.rmi.PortableRemoteObject;
 import java.sql.*;
 import java.util.*;
 
@@ -24,6 +28,7 @@ final class UserDbCoder {
     private static Logger log = Logger.getLogger(UserDbCoder.class);
     private static final int ADDRESS_TYPE_ID = 2; //home
     private static final int DEFAULT_PHONE_TYPE_ID = 2;
+    private static final int CODER_RATING_RANK_TYPE_ID = 1;
 
 //                                 INSERT
 
@@ -34,12 +39,7 @@ final class UserDbCoder {
         log.debug("ejb.User.UserDbCoder:insertCoder() called ...");
         boolean demogError = false;
         PreparedStatement ps = null;
-        //ArrayList schools     = null;
-        //ArrayList educations  = null;
-        //ArrayList skills      = null;
-        //ArrayList experiences = null;
-        //ArrayList texts       = null;
-        //ArrayList jobPrefs    = null;
+
         ArrayList demographicResponses = null;
         ArrayList coderConfirmations = null;
         StringBuffer query = new StringBuffer(500);
@@ -105,32 +105,7 @@ final class UserDbCoder {
             }
             coder.getRating().setCoderId(coder.getCoderId());
             insertRating(conn, coder.getRating());
-/*
-      schools = coder.getSchools();
-      for (int i = 0; i < schools.size(); i++)  {
-        School school = (School) schools.get(i);
-        school.setUserId ( coder.getCoderId() );
-        insertCoderSchool( conn, school );
-      }
-      educations = coder.getEducations();
-      for (int i = 0; i < educations.size(); i++)  {
-        Education education = (Education) educations.get(i);
-        education.setCoderId ( coder.getCoderId() );
-        insertCoderEducation ( conn, education );
-      }
-      skills = coder.getSkills();
-      for (int i = 0; i < skills.size(); i++)  {
-        CoderSkill skill = (CoderSkill) skills.get(i);
-        skill.setCoderId ( coder.getCoderId() );
-        insertCoderSkill( conn, skill );
-      }
-      experiences = coder.getExperiences();
-      for (int i = 0; i < experiences.size(); i++)  {
-        Experience experience = (Experience) experiences.get(i);
-        experience.setCoderId ( coder.getCoderId() );
-        insertExperience( conn, experience );
-      }
-*/
+
             ArrayList notifications = coder.getNotifications();
             if (notifications.size() == 0) {
                 insertCoderNotify(conn, coder.getCoderId(), 0);
@@ -145,7 +120,7 @@ final class UserDbCoder {
             coder.getCurrentSchool().setUserId(coder.getCoderId());
             insertCurrentSchool(conn, coder.getCurrentSchool());
             demographicResponses = coder.getDemographicResponses();
-            coderConfirmations = coder.getCoderConfirmations();
+//            coderConfirmations = coder.getCoderConfirmations();
             HashSet qIdsForCoderType = getDemographicQuestionIds(conn, coder.getCoderType().getCoderTypeId());
             demogError = true;
             //int inserted = 0;
@@ -594,7 +569,7 @@ final class UserDbCoder {
                 updateCurrentSchool(conn, coder.getCurrentSchool());
                 ArrayList demographicResponses = coder.getDemographicResponses();
                 updateDemographicResponses(conn, coder.getCoderType().getCoderTypeId(), demographicResponses);
-                updateCoderConfirmations(conn, coder.getCoderConfirmations());
+//                updateCoderConfirmations(conn, coder.getCoderConfirmations());
 
                 InitialContext ctx = new InitialContext();
                 Address addressEJB = ((AddressHome) ctx.lookup(AddressHome.EJB_REF_NAME)).create();
@@ -924,6 +899,7 @@ final class UserDbCoder {
     /**
      * Update coder_confirmation table for this user.
      */
+/*
     private static void updateCoderConfirmations(Connection conn, ArrayList coderConfirmations)
             throws TCException {
         log.debug("ejb.User.UserDbCoder:updateCoderConfirmations():called.");
@@ -966,7 +942,7 @@ final class UserDbCoder {
             }
         }
     }
-
+ */
 
 
 
@@ -1109,10 +1085,10 @@ final class UserDbCoder {
                 //loadExperience               ( conn, coder      );
                 loadCoderNotify(conn, coder);
                 loadRating(conn, coder);
-                loadRanking(conn, coder);
+                loadRanking(coder);
                 loadDemographicResponses(conn, coder);
                 loadCurrentSchool(conn, coder);
-                loadCoderConfirmations(conn, coder);
+//                loadCoderConfirmations(conn, coder);
             }
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
@@ -1377,41 +1353,32 @@ final class UserDbCoder {
      * Gets a particular coder's ranking
      *********************************************************************************************
      */
-    private static void loadRanking(Connection conn, CoderRegistration coder) throws TCException {
+    private static void loadRanking(CoderRegistration coder) throws TCException {
         log.debug("ejb:User:loadRanking called...");
         PreparedStatement ps = null;
         ResultSet rs = null;
         StringBuffer query = null;
+        Connection conn = null;
+        Context ctx = null;
 
         try {
             query = new StringBuffer(300);
-            query.append(" SELECT u.user_id, r.rating");
-            query.append(" FROM rating r,");
-            query.append(" user u");
-            query.append(" WHERE r.coder_id = u.user_id");
-            query.append(" AND r.num_ratings > 0");
-            query.append(" AND u.status = 'A'");
-            query.append(" ORDER by r.rating DESC");
+            query.append( " SELECT rank");
+            query.append(   " FROM coder_rank");
+            query.append(  " WHERE coder_id = ?");
+            query.append(    " AND coder_rank_type_id = ?");
+            ctx = TCContext.getInitial();
+            DataSource ds = (DataSource) PortableRemoteObject.narrow(
+                    ctx.lookup(DBMS.DW_DATASOURCE_NAME),DataSource.class);
+            conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
+            ps.setInt(1, coder.getCoderId());
+            ps.setInt(2, CODER_RATING_RANK_TYPE_ID);
             rs = ps.executeQuery();
-            int i = 0;
-            int prevRating = 0;
-            int prevRanking = 0;
-            int currRanking = 0;
-            while (rs.next()) {
-                i++;
-                if (prevRating == rs.getInt(2))
-                    currRanking = prevRanking;
-                else
-                    currRanking = i;
-
-                if (rs.getInt(1) == coder.getCoderId()) {
-                    coder.setRanking(currRanking);
-                    return;
-                }
-                prevRating = rs.getInt(2);
-                prevRanking = currRanking;
-            }
+            int rank = 0;
+            if (rs.next())
+                rank = rs.getInt(1);
+            coder.setRanking(rank);
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new TCException(sqe.getMessage());
@@ -1419,18 +1386,37 @@ final class UserDbCoder {
             e.printStackTrace();
             throw new TCException(e.getMessage());
         } finally {
-            try {
-                if (rs != null) rs.close();
-            } catch (Exception ignore) {
-                log.error("rs   close problem");
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("rs close problem");
+                }
             }
-            try {
-                if (ps != null) ps.close();
-            } catch (Exception ignore) {
-                log.error("ps   close problem");
+
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("ps close problem");
+                }
             }
-            rs = null;
-            ps = null;
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("conn close problem");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in getAddressTypeId");
+                }
+            }
         }
     }
 
@@ -1482,6 +1468,7 @@ final class UserDbCoder {
     /**
      * Load up information from coder_confirmation for this coder.
      */
+    /*
     private static void loadCoderConfirmations(Connection conn, CoderRegistration coder)
             throws TCException {
         log.debug("ejb.User.UserDbCoder:loadCoderConfirmations():called.");
@@ -1530,4 +1517,5 @@ final class UserDbCoder {
             }
         }
     }
+    */
 }

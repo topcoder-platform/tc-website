@@ -14,7 +14,6 @@ public class Group
 
     private java.util.ArrayList groups;
     private String groupDesc;
-    private String modified;
 
 
     public Group() {
