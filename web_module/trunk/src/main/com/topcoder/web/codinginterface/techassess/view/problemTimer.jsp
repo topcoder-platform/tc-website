@@ -25,7 +25,7 @@ if (o!=null) {
                 var ids = new Array(<%=problems.size()%>);
                 var types = new Array(<%=problems.size()%>);
                 var startTimes = new Array(<%=problems.size()%>);
-                var statuses = new Array(<%=problems.size()%>);
+                var submitTimes = new Array(<%=problems.size()%>);
 
         <%
                 for (int i=0; i<problems.size(); i++) {
@@ -34,7 +34,7 @@ if (o!=null) {
                     %> ids[<%=i%>] = 'problemTimer<%=((ProblemInfo)problems.get(i)).getComponentId()%>'; <%
                     %> types[<%=i%>] = <%=((ProblemInfo)problems.get(i)).getProblemTypeId()%>; <%
                     %> startTimes[<%=i%>] = <%=((ProblemInfo)problems.get(i)).getStartTime()%>; <%
-                    %> statuses[<%=i%>] = '<%=((ProblemInfo)problems.get(i)).getStatusDesc()%>'; <%
+                    %> submitTimes[<%=i%>] = <%=((ProblemInfo)problems.get(i)).getSubmitTime()%>; <%
                 }
         %>
         var EXAMPLE_SET = <%=Constants.EXAMPLE_ID%>;
@@ -73,11 +73,11 @@ if (o!=null) {
                         myTime = endTimes[i] - correctedLocalTime.getTime();
                         if (myTime < 0) myTime = 0;
                       } else {
-                        if (statuses[i]=="Complete") {
-                          myTime = endTimes[i];
+                        if (submitTimes[i]>0) {
+                          myTime = submitTimes[i]-startTimes[i];
                         } else {
                           myTime = correctedLocalTime.getTime()-startTimes[i];
-                          if (myTime>times[i]) myTime = times[i];
+                          if (myTime>times[i]&&types[i]!=EXAMPLE_SET) myTime = times[i];
                         }
                       }
                     }

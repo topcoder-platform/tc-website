@@ -24,6 +24,7 @@ public class ProblemInfo implements Serializable {
     private String statusDesc = null;
     private String className = null;
     private long time = 0;
+    private long submitTime = 0;
 
     public ProblemInfo() {
 
@@ -135,6 +136,14 @@ public class ProblemInfo implements Serializable {
 
     public String getMethodName() {
         return problem.getComponent(0).getMethodName();
+    }
+
+    public long getSubmitTime() {
+        return submitTime;
+    }
+
+    public void setSubmitTime(long submitTime) {
+        this.submitTime = submitTime;
     }
 
     public String getArguments() {
