@@ -73,7 +73,7 @@ if (o!=null) {
                         myTime = endTimes[i] - correctedLocalTime.getTime();
                         if (myTime < 0) myTime = 0;
                       } else {
-                        if (statuses[i]=="Completed") {
+                        if (statuses[i]=="Complete") {
                           myTime = endTimes[i];
                         } else {
                           myTime = correctedLocalTime.getTime()-startTimes[i];
