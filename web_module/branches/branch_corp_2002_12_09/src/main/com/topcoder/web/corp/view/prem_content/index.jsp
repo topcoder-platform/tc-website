@@ -26,7 +26,8 @@
       <TD VALIGN="top"><IMG SRC="/i/p/clear.gif" WIDTH="10" HEIGHT="1"></TD>
         <!-- Gutter Ends -->
         <!-- Body Area -->
-      <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/p/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
+      <TD width="100%" valign="top"><img src="/i/p/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
+<table border="0" width="100%"><tr><td CLASS="bodyText" width="100%">
 <FONT SIZE="3" COLOR="#666666"><B>Premium Content</B></FONT><BR/>
 <P>
                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
@@ -54,6 +55,17 @@ Oem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh eu
                        tuer adipiscing elit, sedsed dagna aliquam erat volu adminim veniam, qveniam.
 </P>
 <P><BR/></P>    
+</td></tr>
+<tr><td>
+     <form method="POST" action="<%=request.getContextPath()%>/Tx/?op=begin">
+       <input type="hidden" name="back-to" value="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>"/>
+       <input type="hidden" name="prod-id" value="1"/> <!-- product id -->
+       <input type="hidden" name="utype-id" value="2"/> <!-- unit type id -->
+       <table>
+         <tr><td width="100%" align ="center"><input type="submit" value=" buy it "/></td></tr>
+       </table>
+     </form>
+</td></tr>
      </TD>
 <!-- Body Area Ends -->
       <!-- Gutter -->
