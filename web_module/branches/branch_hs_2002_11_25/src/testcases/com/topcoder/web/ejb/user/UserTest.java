@@ -12,7 +12,7 @@ import com.topcoder.web.ejb.EJBTestCase;
 public class UserTest extends EJBTestCase {
 
 
-    private static final String USER_HOME=UserHome.class.toString();
+    private static final String USER_HOME=UserHome.class.getName();
 
 
     ////////////////////////////////////////////////////////////////////////////
