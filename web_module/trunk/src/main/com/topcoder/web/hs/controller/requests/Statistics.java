@@ -36,7 +36,7 @@ public class Statistics extends Base {
             Request dataRequest = new Request(HttpUtils.parseQueryString(getRequest().getQueryString()));
             getRequest().setAttribute("REQUEST_BEAN", dataRequest);
 
-            DataAccessInt dai = new CachedDataAccess((javax.sql.DataSource) TCContext.getInitial().lookup(DBMS.HS_DW_DATASOURCE_NAME));
+            DataAccessInt dai = new CachedDataAccess(DBMS.HS_DW_DATASOURCE_NAME);
             Map dataMap = dai.getData(dataRequest);
             getRequest().setAttribute("QUERY_RESPONSE", dataMap);
 

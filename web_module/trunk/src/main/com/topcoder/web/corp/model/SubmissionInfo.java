@@ -56,23 +56,11 @@ public class SubmissionInfo implements java.io.Serializable {
         log.debug("getting sumbmission info for session: " + sessionId + " round: " + sessionRoundId +
                 " problem: " + problemId + " probletype: " + problemTypeId);
         if(cached == null) {
-            InitialContext context = new InitialContext();
-            DataSource ds = (DataSource)
-                PortableRemoteObject.narrow(
-                        context.lookup(Constants.DATA_SOURCE),
-                                            DataSource.class);
-
-            cached = new CachedDataAccess(ds);
+            cached = new CachedDataAccess(Constants.DATA_SOURCE);
         }
 
         if(dwAccess == null) {
-            InitialContext context = new InitialContext();
-            DataSource ds = (DataSource)
-                PortableRemoteObject.narrow(
-                        context.lookup(Constants.DW_DATA_SOURCE),
-                                       DataSource.class);
-
-            dwAccess = new CachedDataAccess(ds);
+            dwAccess = new CachedDataAccess(Constants.DW_DATA_SOURCE);
         }
 
 

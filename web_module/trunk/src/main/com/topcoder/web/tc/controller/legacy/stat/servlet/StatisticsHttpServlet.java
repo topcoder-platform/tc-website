@@ -155,8 +155,7 @@ public class StatisticsHttpServlet extends HttpServlet {
                             request.getServerName() + "/stat?" + replace(sQueryString));
                 }
                 request.setAttribute("REQUEST_BEAN", dataRequest);
-                DataAccessInt dai = new CachedDataAccess((javax.sql.DataSource)
-                    TCContext.getInitial().lookup(DBMS.DW_DATASOURCE_NAME));
+                DataAccessInt dai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
                 Map dataMap = dai.getData(dataRequest);
                 request.setAttribute("QUERY_RESPONSE", dataMap);
                 Map mpage = (Map) sctx.getAttribute("PAGECTRL");

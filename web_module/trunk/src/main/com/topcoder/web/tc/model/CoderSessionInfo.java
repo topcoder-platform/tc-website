@@ -71,17 +71,7 @@ public class CoderSessionInfo extends SessionInfo {
     }
 
     private ResultSetContainer getInfo(long userId) throws Exception {
-        InitialContext context = null;
-        DataSource ds = null;
-        try {
-            context = new InitialContext();
-            ds = (DataSource)
-                    PortableRemoteObject.narrow(context.lookup(DBMS.OLTP_DATASOURCE_NAME),
-                            DataSource.class);
-        } finally {
-            BaseProcessor.close(context);
-        }
-        DataAccessInt dAccess = new CachedDataAccess(ds);
+        DataAccessInt dAccess = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
 
         Request r = new Request();
         r.setContentHandle("session_info");
@@ -91,17 +81,7 @@ public class CoderSessionInfo extends SessionInfo {
     }
 
     private ResultSetContainer getDwInfo(long userId) throws Exception {
-        InitialContext context = null;
-        DataSource ds = null;
-        try {
-            context = new InitialContext();
-            ds = (DataSource)
-                    PortableRemoteObject.narrow(context.lookup(DBMS.DW_DATASOURCE_NAME),
-                            DataSource.class);
-        } finally {
-            BaseProcessor.close(context);
-        }
-        DataAccessInt dAccess = new CachedDataAccess(ds);
+        DataAccessInt dAccess = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
 
         Request r = new Request();
         r.setContentHandle("dw_session_info");
