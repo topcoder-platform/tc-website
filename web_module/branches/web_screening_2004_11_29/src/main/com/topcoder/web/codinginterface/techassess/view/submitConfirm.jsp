@@ -6,6 +6,13 @@
 <title>Technical Assessment</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 <link type="text/css" rel="stylesheet" href="/css/screening.css" >
+<SCRIPT type="text/javascript">
+    function doSubmit(module) {
+      document.submitForm.<%=Constants.MODULE%>.value=module;
+      document.submitForm.submit();
+    }
+</SCRIPT>
+
 </head>
 <body>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
@@ -49,7 +56,7 @@
                         <tc-webtag:errorIterator id="err" name="<%=Constants.CODE%>"><%=err%><br/></tc-webtag:errorIterator>
 
 
-                        <a href="xxx">Yes</a> <a href="xxx">No</a>
+                        <a href="JavaScript:doSubmit('<%=Constants.RP_SUBMIT%>')">Yes</a> <a href="JavaScript:doSubmit('<%=Constants.RP_VIEW_PROBLEM%>')">No</a>
                         </p>
 
                     </td>
