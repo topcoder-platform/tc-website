@@ -8,10 +8,12 @@ PROCESSOR=DefaultProcessor
 CMD=usage
 LOGFILE=cache-`date +%Y-%m-%d-%H-%M-%S`.log
 
-CP=$BASE/build/classes
+CP=$BASE/lib/bin/shared.jar
 CP=$CP:$BASE/resources
 CP=$CP:$BASE/lib/jars/nbio.jar
+CP=$CP:$BASE/lib/jars/log4j-1.2.7.jar
 CP=$CP:$CLASSPATH
+
 
 OPTS="-cp $CP -XX:MaxTenuringThreshold=0 -XX:SurvivorRatio=128 -Xms$MAXMEM -Xmx$MAXMEM -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:+PrintGCTimeStamps -XX:CMSInitiatingOccupancyFraction=10 -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.dgc.server.gcInterval=3600000"
 
