@@ -98,8 +98,6 @@ public final class TaskHome {
                     dataRequest = new Request();
                     dataRequest.setContentHandle("most_recent_coder_comps");
                     dataRequest.setProperty("cr", String.valueOf(nav.getUserId()));
-                    dataRequest.setProperty("start", "1");
-                    dataRequest.setProperty("end", "3");
                     resultMap = dai.getData(dataRequest);
                     rsc = (ResultSetContainer) resultMap.get("Most_Recent_Code_Comps");
                     homeTag.addTag(rsc.getTag("Last3Comps", "RoomResult"));
