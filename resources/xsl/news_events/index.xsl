@@ -63,6 +63,21 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
             
+<!-- Wired Article -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="http://www.wired.com/news/medtech/0,1286,66458,00.html?tw=wn_tophead_1" target="_blank"><img src="/i/pressroom/wired_logo.gif" alt="Wired" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://www.wired.com/news/medtech/0,1286,66458,00.html?tw=wn_tophead_1" target="_blank">Software Taming Gene Data Pool</A></strong></font><br />
+						Software engineers are finally getting together with biologists to translate the pile of letters and numbers into scientific discoveries. <span class="prHead">[February 2 - Wired]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+            
 <!-- ADT -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
