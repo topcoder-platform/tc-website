@@ -29,8 +29,8 @@
       <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/ev/clear.gif" width="400" height="1" vspace="5" border="0" /><BR>
 <FONT SIZE="3" COLOR="#666666"><B>Candidate List</B></FONT><BR/>                 
 <P>
-		       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-		       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
+               Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
+               ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
 </P><BR>       
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">                   
            <TR>
@@ -41,30 +41,30 @@
            </TR>
            <TR>
               <TD COLSPAN="7"><img src="/i/ev/clear.gif" width="1" height="10" border="0" /></TD>
-           </TR>           	        
-	        <TR>
-		       <TD VALIGN="middle" COLSPAN="2" ALIGN="center" HEIGHT="15" CLASS="statText" BGCOLOR="#999999"><B>&#160;Handle</B></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="statText" BGCOLOR="#999999"><B>&#160;Profile</B></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="statText" BGCOLOR="#999999"><B>&#160;Begin</B></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="statText" BGCOLOR="#999999"><B>&#160;End</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="statText" BGCOLOR="#999999"><B>&#160;Status</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="statText" BGCOLOR="#999999"><B>&#160;Notes</B></TD>		       		       	        
-	        </TR>
+           </TR>                       
+            <TR>
+               <TD VALIGN="middle" COLSPAN="2" ALIGN="center" HEIGHT="15" CLASS="statText" BGCOLOR="#999999"><B>&#160;Handle</B></TD>               
+               <TD VALIGN="middle" ALIGN="center" CLASS="statText" BGCOLOR="#999999"><B>&#160;Profile</B></TD>               
+               <TD VALIGN="middle" ALIGN="center" CLASS="statText" BGCOLOR="#999999"><B>&#160;Begin</B></TD>               
+               <TD VALIGN="middle" ALIGN="center" CLASS="statText" BGCOLOR="#999999"><B>&#160;End</B></TD>
+               <TD VALIGN="middle" ALIGN="center" CLASS="statText" BGCOLOR="#999999"><B>&#160;Status</B></TD>
+               <TD VALIGN="middle" ALIGN="center" CLASS="statText" BGCOLOR="#999999"><B>&#160;Notes</B></TD>                                          
+            </TR>
            <TR>
               <TD COLSPAN="8"><img src="/i/ev/clear.gif" width="1" height="1" border="0" /></TD>
-           </TR>	        
+           </TR>            
             <jsp:useBean id="candidateList" type="java.util.List" scope="request" />
             <screen:resultSetRowIterator id="row" list="<%=candidateList%>">
             <% String params = Constants.CANDIDATE_ID + "=" + row.getItem("user_id") + "&referrer=BuildCandidateList";%>
-	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;</TD>
-		       <TD VALIGN="middle" CLASS="bodyText">&#160;<screen:servletLink processor="PopulateCandidate" param="<%=params%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="handle" /></screen:servletLink></TD>		       
-		       <TD VALIGN="middle" CLASS="bodyText">&#160;<screen:servletLink processor="TestResults" param="<%=params%>" styleClass="bodyText">See Results</screen:servletLink></TD>       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="begin_time" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="end_time" /></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="status" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:servletLink processor="NoteList" param="<%=params%>" styleClass="bodyText">View</screen:servletLink></TD>		       		       	        
-	        </TR>
+            <TR>
+               <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;</TD>
+               <TD VALIGN="middle" CLASS="bodyText">&#160;<screen:servletLink processor="PopulateCandidate" param="<%=params%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="handle" /></screen:servletLink></TD>               
+               <TD VALIGN="middle" CLASS="bodyText">&#160;<screen:servletLink processor="TestResults" param="<%=params%>" styleClass="bodyText">See Results</screen:servletLink></TD>       
+               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="begin_time" /></TD>
+               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="end_time" /></TD>               
+               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="status" /></TD>
+               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:servletLink processor="NoteList" param="<%=params%>" styleClass="bodyText">View</screen:servletLink></TD>                                          
+            </TR>
             </screen:resultSetRowIterator>
            <TR>
               <TD COLSPAN="7"><img src="/i/ev/clear.gif" width="1" height="10" border="0" /></TD>

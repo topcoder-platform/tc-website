@@ -42,8 +42,8 @@ document.sessionConfirmForm.submit();
 <BR><BR>
 <FONT SIZE="3" COLOR="#000000"><B>Set-Up Session Confirmation</B></FONT>
 <P>
-		       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-		       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
+               Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
+               ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
 </P><BR>
 <jsp:useBean id="sessionInfo" type="com.topcoder.web.screening.model.SessionInfo" scope="session" />
 <screen:form name="sessionConfirmForm" action="<%=Constants.CONTROLLER_URL%>" method="POST">
@@ -100,21 +100,21 @@ document.sessionConfirmForm.submit();
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="90%">                   
            <TR>
               <TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-           </TR>	        
-	        <TR>
+           </TR>            
+            <TR>
               <input type="HIDDEN" name="candidateEmail" value="<jsp:getProperty name="sessionInfo" property="candidateEmail" />" >
-		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">Send candidate email reminder&#160;- <B><jsp:getProperty name="sessionInfo" property="candidateEmail" /></B></TD>	       
-	        </TR>
-	        <TR>
+               <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">Send candidate email reminder&#160;- <B><jsp:getProperty name="sessionInfo" property="candidateEmail" /></B></TD>           
+            </TR>
+            <TR>
               <input type="HIDDEN" name="repEmail" value="<jsp:getProperty name="sessionInfo" property="repEmail" />" >
-		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">Send me email reminder&#160;- <B><jsp:getProperty name="sessionInfo" property="repEmail" /></B></TD>	       
-	        </TR>	        	        
+               <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">Send me email reminder&#160;- <B><jsp:getProperty name="sessionInfo" property="repEmail" /></B></TD>           
+            </TR>                        
            <TR>
               <TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
            </TR>
            <TR>
               <TD ALIGN="center"><A HREF="#" CLASS="bodyText">Cancel</A> | <A HREF="JavaScript:submitEdit()" CLASS="bodyText">Edit</A> | <A HREF="JavaScript:submitUpdate()" CLASS="bodyText">Submit</A></TD>
-           </TR>            	        	        	        
+           </TR>                                                
          </TABLE>                
 </screen:form>         
 <P><BR/></P>    

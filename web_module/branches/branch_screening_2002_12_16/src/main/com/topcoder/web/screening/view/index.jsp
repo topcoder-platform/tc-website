@@ -28,41 +28,41 @@
       <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/p/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
 <FONT SIZE="3" COLOR="#666666"><B>Welcome!</B></FONT><BR/>
 <P>
-		       <B>Introduction goes here</B><BR/>
-		       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-		       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
+               <B>Introduction goes here</B><BR/>
+               Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
+               ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
 </P><BR>                 
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="95%">
-	        <TR>
-		       <TD COLSPAN="3" VALIGN="top"><FONT SIZE="3" COLOR="#666666"><B>Create a New Session:</B></FONT></TD>
-	        </TR>
-	        <TR>
-		       <TD COLSPAN="3"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10"></TD>
-	        </TR>	        
-	        <TR>
-		       <TD VALIGN="top" CLASS="bodyTextBold" NOWRAP=""><B>Step 1:</B></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="5" HEIGHT="1"></TD>
-		       <TD VALIGN="top" CLASS="bodyText"><B>Create a Test Profile</B><BR>
-		       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-		       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci.</TD>		       
-	        </TR>
-	        <TR>
-		       <TD COLSPAN="3"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10"></TD>
-	        </TR>	        
-	        <TR>
-		       <TD VALIGN="top" CLASS="bodyTextBold"><B>Step 2:</B></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="5" HEIGHT="1"></TD>
-		       <TD VALIGN="top" CLASS="bodyText"><B>Set-Up or Add a Candidate</B><BR>
-		       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-		       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci.</TD>		       
-	        </TR>
-	        <TR>
-		       <TD COLSPAN="3"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10"></TD>
-	        </TR>
-	        <TR>
-		       <TD COLSPAN="3"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10"></TD>
-	        </TR>
-	        <TR>
-		       <TD COLSPAN="3" CLASS="bodyText" ALIGN="center"><screen:servletLink processor="PopulateSession" styleClass="bodyText">Create a New Session</screen:servletLink></TD>
-	        </TR>	        	               	        	        
+            <TR>
+               <TD COLSPAN="3" VALIGN="top"><FONT SIZE="3" COLOR="#666666"><B>Create a New Session:</B></FONT></TD>
+            </TR>
+            <TR>
+               <TD COLSPAN="3"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10"></TD>
+            </TR>            
+            <TR>
+               <TD VALIGN="top" CLASS="bodyTextBold" NOWRAP=""><B>Step 1:</B></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="5" HEIGHT="1"></TD>
+               <TD VALIGN="top" CLASS="bodyText"><B>Create a Test Profile</B><BR>
+               Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
+               ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci.</TD>               
+            </TR>
+            <TR>
+               <TD COLSPAN="3"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10"></TD>
+            </TR>            
+            <TR>
+               <TD VALIGN="top" CLASS="bodyTextBold"><B>Step 2:</B></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="5" HEIGHT="1"></TD>
+               <TD VALIGN="top" CLASS="bodyText"><B>Set-Up or Add a Candidate</B><BR>
+               Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
+               ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci.</TD>               
+            </TR>
+            <TR>
+               <TD COLSPAN="3"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10"></TD>
+            </TR>
+            <TR>
+               <TD COLSPAN="3"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10"></TD>
+            </TR>
+            <TR>
+               <TD COLSPAN="3" CLASS="bodyText" ALIGN="center"><screen:servletLink processor="PopulateSession" styleClass="bodyText">Create a New Session</screen:servletLink></TD>
+            </TR>                                                       
          </TABLE>
 <P><BR/></P>    
      </TD>

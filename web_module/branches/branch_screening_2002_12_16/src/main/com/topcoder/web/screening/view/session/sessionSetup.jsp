@@ -58,8 +58,8 @@ function submitSession() {
       <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/ev/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
 <FONT SIZE="3" COLOR="#666666"><B>Create a New Session</B></FONT>
 <P>
-		       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
-		       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci.
+           Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+           ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci.
 </P><BR>
 <jsp:useBean id="sessionInfo" type="com.topcoder.web.screening.model.SessionInfo" scope="session" />
 <screen:form name="sessionSetupForm" action="<%=Constants.CONTROLLER_URL%>" method="POST">
@@ -72,9 +72,9 @@ function submitSession() {
               <select name ="profileId">
                 <screen:resultSetRowIterator id="row" list="<%=sessionInfo.getProfileList()%>">
                 <% if(sessionInfo.isSelectedProfile(row.getItem("session_profile_id").toString())) { %>
-              	<option value="<screen:resultSetItem row="<%=row%>" name="session_profile_id" />" SELECTED><screen:resultSetItem row="<%=row%>" name="name" /></option>
+                <option value="<screen:resultSetItem row="<%=row%>" name="session_profile_id" />" SELECTED><screen:resultSetItem row="<%=row%>" name="name" /></option>
                 <% } else { %>
-              	<option value="<screen:resultSetItem row="<%=row%>" name="session_profile_id" />"><screen:resultSetItem row="<%=row%>" name="name" /></option>
+                <option value="<screen:resultSetItem row="<%=row%>" name="session_profile_id" />"><screen:resultSetItem row="<%=row%>" name="name" /></option>
                 <% } %>
                 </screen:resultSetRowIterator>
               </select>
@@ -87,9 +87,9 @@ function submitSession() {
               <select name="cid">
                 <screen:resultSetRowIterator id="row" list="<%=sessionInfo.getCandidateList()%>">
                 <% if(sessionInfo.isSelectedCandidate(row.getItem("candidate_id").toString())) { %>
-              	<option value="<screen:resultSetItem row="<%=row%>" name="candidate_id" />" SELECTED><screen:resultSetItem row="<%=row%>" name="handle" /></option>
+                <option value="<screen:resultSetItem row="<%=row%>" name="candidate_id" />" SELECTED><screen:resultSetItem row="<%=row%>" name="handle" /></option>
                 <% } else { %>
-              	<option value="<screen:resultSetItem row="<%=row%>" name="candidate_id" />"><screen:resultSetItem row="<%=row%>" name="handle" /></option>
+                <option value="<screen:resultSetItem row="<%=row%>" name="candidate_id" />"><screen:resultSetItem row="<%=row%>" name="handle" /></option>
                 <% } %>
                 </screen:resultSetRowIterator>
               </select>
@@ -106,18 +106,18 @@ function submitSession() {
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Month&#160;</TD>
               <TD CLASS="bodyText" ALIGN="left" VALIGN="middle" COLSPAN="2">
               <select name="beginMonth">
-              	<option value="1">January</option>
-              	<option value="2">February</option>
-              	<option value="3">March</option>
-              	<option value="4">April</option>
-              	<option value="5">May</option>
-              	<option value="6">June</option>
-              	<option value="7">July</option>
-              	<option value="8">August</option>
-              	<option value="9">September</option>
-              	<option value="10">October</option>
-              	<option value="11">November</option>
-              	<option value="12">December</option>
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
               </select>
               </TD>
            </TR>
@@ -163,13 +163,13 @@ function submitSession() {
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Year&#160;</TD>
               <TD CLASS="bodyText" ALIGN="left" VALIGN="middle" COLSPAN="2">
               <select name="beginYear">
-              	<option>2003</option>
-              	<option>2004</option>
-              	<option>2005</option>
-              	<option>2006</option>
-              	<option>2007</option>
-              	<option>2008</option>
-              	<option>2009</option>
+                <option>2003</option>
+                <option>2004</option>
+                <option>2005</option>
+                <option>2006</option>
+                <option>2007</option>
+                <option>2008</option>
+                <option>2009</option>
               </select>
               </TD>
            </TR>
@@ -177,30 +177,30 @@ function submitSession() {
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Hour&#160;</TD>
               <TD CLASS="bodyText" ALIGN="left" VALIGN="middle" COLSPAN="2">
               <select name="beginHour">
-              	<option value="0">12AM</option>
-              	<option value="1">1AM</option>
+                <option value="0">12AM</option>
+                <option value="1">1AM</option>
                 <option value="2">2AM</option>
-              	<option value="3">3AM</option>
+                <option value="3">3AM</option>
                 <option value="4">4AM</option>
                 <option value="5">5AM</option>
-              	<option value="6">6AM</option>
+                <option value="6">6AM</option>
                 <option value="7">7AM</option>
                 <option value="8">8AM</option>
-              	<option value="9">9AM</option>
+                <option value="9">9AM</option>
                 <option value="10">10AM</option>
-              	<option value="11">11AM</option>
+                <option value="11">11AM</option>
                 <option value="12">12PM</option>
-              	<option value="13">1PM</option>
+                <option value="13">1PM</option>
                 <option value="14">2PM</option>
-              	<option value="15">3PM</option>
+                <option value="15">3PM</option>
                 <option value="16">4PM</option>
                 <option value="17">5PM</option>
-              	<option value="18">6PM</option>
+                <option value="18">6PM</option>
                 <option value="19">7PM</option>
                 <option value="20">8PM</option>
-              	<option value="21">9PM</option>
+                <option value="21">9PM</option>
                 <option value="22">10PM</option>
-              	<option value="23">11PM</option>
+                <option value="23">11PM</option>
               </select>
               </TD>
            </TR>
@@ -214,18 +214,18 @@ function submitSession() {
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Month&#160;</TD>
               <TD CLASS="bodyText" ALIGN="left" VALIGN="middle" COLSPAN="2">
               <select name="endMonth">
-              	<option value="1">January</option>
-              	<option value="2">February</option>
-              	<option value="3">March</option>
-              	<option value="4">April</option>
-              	<option value="5">May</option>
-              	<option value="6">June</option>
-              	<option value="7">July</option>
-              	<option value="8">August</option>
-              	<option value="9">September</option>
-              	<option value="10">October</option>
-              	<option value="11">November</option>
-              	<option value="12">December</option>
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
               </select>
               </TD>
            </TR>
@@ -271,13 +271,13 @@ function submitSession() {
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Year&#160;</TD>
               <TD CLASS="bodyText" ALIGN="left" VALIGN="middle" COLSPAN="2">
               <select name ="endYear">
-              	<option>2003</option>
-              	<option>2004</option>
-              	<option>2005</option>
-              	<option>2006</option>
-              	<option>2007</option>
-              	<option>2008</option>
-              	<option>2009</option>
+                <option>2003</option>
+                <option>2004</option>
+                <option>2005</option>
+                <option>2006</option>
+                <option>2007</option>
+                <option>2008</option>
+                <option>2009</option>
               </select>
               </TD>
            </TR>
@@ -285,30 +285,30 @@ function submitSession() {
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Hour&#160;</TD>
               <TD CLASS="bodyText" ALIGN="left" VALIGN="middle" COLSPAN="2">
               <select name="endHour">
-              	<option value="0">12AM</option>
-              	<option value="1">1AM</option>
+                <option value="0">12AM</option>
+                <option value="1">1AM</option>
                 <option value="2">2AM</option>
-              	<option value="3">3AM</option>
+                <option value="3">3AM</option>
                 <option value="4">4AM</option>
                 <option value="5">5AM</option>
-              	<option value="6">6AM</option>
+                <option value="6">6AM</option>
                 <option value="7">7AM</option>
                 <option value="8">8AM</option>
-              	<option value="9">9AM</option>
+                <option value="9">9AM</option>
                 <option value="10">10AM</option>
-              	<option value="11">11AM</option>
+                <option value="11">11AM</option>
                 <option value="12">12PM</option>
-              	<option value="13">1PM</option>
+                <option value="13">1PM</option>
                 <option value="14">2PM</option>
-              	<option value="15">3PM</option>
+                <option value="15">3PM</option>
                 <option value="16">4PM</option>
                 <option value="17">5PM</option>
-              	<option value="18">6PM</option>
+                <option value="18">6PM</option>
                 <option value="19">7PM</option>
                 <option value="20">8PM</option>
-              	<option value="21">9PM</option>
+                <option value="21">9PM</option>
                 <option value="22">10PM</option>
-              	<option value="23">11PM</option>
+                <option value="23">11PM</option>
               </select>
               </TD>
            </TR>
@@ -321,15 +321,15 @@ function submitSession() {
            <TR>
               <TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
            </TR>
-	        <TR>
-		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">Send candidate email reminder&#160;<input type="checkbox" name="candidateEmail" value="YES">&#160;</TD>
-	        </TR>
-	        <TR>
-		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">Send me email reminder&#160;<input type="checkbox" name="repEmail" value="YES">&#160;</TD>
-	        </TR>
-	        <TR>
-		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">To preview the email template <A HREF="JavaScript:showEmail()" CLASS="bodyText">click here</A>.</TD>
-	        </TR>
+          <TR>
+           <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">Send candidate email reminder&#160;<input type="checkbox" name="candidateEmail" value="YES">&#160;</TD>
+          </TR>
+          <TR>
+           <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">Send me email reminder&#160;<input type="checkbox" name="repEmail" value="YES">&#160;</TD>
+          </TR>
+          <TR>
+           <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">To preview the email template <A HREF="JavaScript:showEmail()" CLASS="bodyText">click here</A>.</TD>
+          </TR>
            <TR>
               <TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
            </TR>

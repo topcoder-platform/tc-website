@@ -47,9 +47,9 @@ function getProblemDetail(id) {
 
         <% if(!first){ %>
           <%-- End previous table --%>
-	        <TR>
-		       <TD COLSPAN="6"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10"><P><HR></P><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10"></TD>
-	        </TR>         
+            <TR>
+               <TD COLSPAN="6"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10"><P><HR></P><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10"></TD>
+            </TR>         
           </TABLE>                
         <% } %>
 
@@ -60,52 +60,52 @@ function getProblemDetail(id) {
             first = false;
         %>
         <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%"> 
-	        <TR>
-		       <TD COLSPAN="3" VALIGN="middle" HEIGHT="15" CLASS="bodyText">&#160;<FONT SIZE="3" COLOR="#000000"><B><screen:resultSetItem row="<%=row%>" name="session_profile_desc" /></B></FONT></TD>		       	       		       
-	        </TR>	        
-	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="statText" BGCOLOR="#666666">&#160;</TD>		       
-		       <TD COLSPAN="2" VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="statText" BGCOLOR="#666666"><B>Candidates</B></TD>	       		       
-	        </TR>             	        
-	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" WIDTH="10%" CLASS="bodyTextBold" BGCOLOR="#999999"><B>Problem Set</B></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" WIDTH="10%" CLASS="bodyTextBold" BGCOLOR="#999999"><B>Total</B></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" WIDTH="10%" CLASS="bodyTextBold" BGCOLOR="#999999"><B>Complete</B></TD>		       		       
-	        </TR>
-	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" BGCOLOR="#CCCCCC"><screen:resultSetItem row="<%=row%>" name="round_name" /></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" BGCOLOR="#CCCCCC"><screen:resultSetItem row="<%=row%>" name="num_sessions" /></TD>	
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" BGCOLOR="#CCCCCC"><screen:resultSetItem row="<%=row%>" name="num_complete" /></TD>			       	       		       
-	        </TR>	        	        	        
+            <TR>
+               <TD COLSPAN="3" VALIGN="middle" HEIGHT="15" CLASS="bodyText">&#160;<FONT SIZE="3" COLOR="#000000"><B><screen:resultSetItem row="<%=row%>" name="session_profile_desc" /></B></FONT></TD>                                         
+            </TR>            
+            <TR>
+               <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="statText" BGCOLOR="#666666">&#160;</TD>               
+               <TD COLSPAN="2" VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="statText" BGCOLOR="#666666"><B>Candidates</B></TD>                          
+            </TR>                         
+            <TR>
+               <TD VALIGN="middle" ALIGN="center" HEIGHT="15" WIDTH="10%" CLASS="bodyTextBold" BGCOLOR="#999999"><B>Problem Set</B></TD>               
+               <TD VALIGN="middle" ALIGN="center" HEIGHT="15" WIDTH="10%" CLASS="bodyTextBold" BGCOLOR="#999999"><B>Total</B></TD>               
+               <TD VALIGN="middle" ALIGN="center" HEIGHT="15" WIDTH="10%" CLASS="bodyTextBold" BGCOLOR="#999999"><B>Complete</B></TD>                              
+            </TR>
+            <TR>
+               <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" BGCOLOR="#CCCCCC"><screen:resultSetItem row="<%=row%>" name="round_name" /></TD>               
+               <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" BGCOLOR="#CCCCCC"><screen:resultSetItem row="<%=row%>" name="num_sessions" /></TD>    
+               <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" BGCOLOR="#CCCCCC"><screen:resultSetItem row="<%=row%>" name="num_complete" /></TD>                                             
+            </TR>                                    
         </TABLE>         
         <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">       
-	        <TR>
-		       <TD COLSPAN="6"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="4"></TD>
-	        </TR>	        
-	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyTextBold"><B>&#160;</B></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold"><B>&#160;</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" COLSPAN="3"><B>PROBLEMS</B></TD>		       	       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold"><B>&#160;</B></TD>		       
-	        </TR>
-	        	        	        
-	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" WIDTH="15%" CLASS="bodyTextBold"><B>Candidate</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" WIDTH="15%" CLASS="bodyTextBold"><B>Status</B></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" WIDTH="15%" CLASS="statText" BGCOLOR="#999999"><B>Presented</B></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" WIDTH="15%" CLASS="statText" BGCOLOR="#999999"><B>Submitted</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" WIDTH="15%" CLASS="statText" BGCOLOR="#999999"><B>Passed</B></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" WIDTH="15%" CLASS="bodyTextBold"><B>&#160;</B></TD>		       
-	        </TR>
+            <TR>
+               <TD COLSPAN="6"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="4"></TD>
+            </TR>            
+            <TR>
+               <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyTextBold"><B>&#160;</B></TD>               
+               <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold"><B>&#160;</B></TD>
+               <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" COLSPAN="3"><B>PROBLEMS</B></TD>                          
+               <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold"><B>&#160;</B></TD>               
+            </TR>
+                                    
+            <TR>
+               <TD VALIGN="middle" ALIGN="center" HEIGHT="15" WIDTH="15%" CLASS="bodyTextBold"><B>Candidate</B></TD>
+               <TD VALIGN="middle" ALIGN="center" WIDTH="15%" CLASS="bodyTextBold"><B>Status</B></TD>               
+               <TD VALIGN="middle" ALIGN="center" WIDTH="15%" CLASS="statText" BGCOLOR="#999999"><B>Presented</B></TD>               
+               <TD VALIGN="middle" ALIGN="center" WIDTH="15%" CLASS="statText" BGCOLOR="#999999"><B>Submitted</B></TD>
+               <TD VALIGN="middle" ALIGN="center" WIDTH="15%" CLASS="statText" BGCOLOR="#999999"><B>Passed</B></TD>               
+               <TD VALIGN="middle" ALIGN="center" WIDTH="15%" CLASS="bodyTextBold"><B>&#160;</B></TD>               
+            </TR>
       <% } %>
 
       <%-- Do a main body row --%>
       <% if(row.getItem("num_sessions").toString().equals("0")){ %>
-	        <TR>
-		       <TD COLSPAN="6" VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC">
+            <TR>
+               <TD COLSPAN="6" VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC">
                             No sessions scheduled for this profile.
-                       </TD>		       
-	        </TR>
+                       </TD>               
+            </TR>
       <% }else{ %>
           <%
               String cparam = Constants.CANDIDATE_ID + '=' + row.getItem("user_id");
@@ -113,23 +113,23 @@ function getProblemDetail(id) {
 
               String color = (even) ? "BGCOLOR='#CCCCCC'" : "";
           %>
-	        <TR>
-		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText" <%=color%>>&#160;<screen:servletLink processor="PopulateCandidate" param="<%=cparam%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="user_name" /></screen:servletLink></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%=color%>><screen:resultSetItem row="<%=row%>" name="status" /></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%=color%>><screen:resultSetItem row="<%=row%>" name="presented" /></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%=color%>><screen:resultSetItem row="<%=row%>" name="submitted" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%=color%>><screen:resultSetItem row="<%=row%>" name="passed" /></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%=color%>><screen:servletLink processor="TestResults" param="<%=sparam%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="results_label" /></screen:servletLink></TD>		       
-	        </TR>
+            <TR>
+               <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText" <%=color%>>&#160;<screen:servletLink processor="PopulateCandidate" param="<%=cparam%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="user_name" /></screen:servletLink></TD>
+               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%=color%>><screen:resultSetItem row="<%=row%>" name="status" /></TD>               
+               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%=color%>><screen:resultSetItem row="<%=row%>" name="presented" /></TD>               
+               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%=color%>><screen:resultSetItem row="<%=row%>" name="submitted" /></TD>
+               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%=color%>><screen:resultSetItem row="<%=row%>" name="passed" /></TD>               
+               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%=color%>><screen:servletLink processor="TestResults" param="<%=sparam%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="results_label" /></screen:servletLink></TD>               
+            </TR>
       <% } %>
       <% even = !even; %>
     </screen:resultSetRowIterator>
 
     <% if(!first){ %>
          <%-- End the final table --%>
-	        <TR>
-		       <TD COLSPAN="6"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10"><P><HR></P><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10"></TD>
-	        </TR>         
+            <TR>
+               <TD COLSPAN="6"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10"><P><HR></P><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10"></TD>
+            </TR>         
          </TABLE>                
     <% }else{ %>
          <%-- No tables means no profiles --%>

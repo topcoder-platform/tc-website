@@ -11,7 +11,7 @@ import java.util.Collection;
 /**
  * Custom tag that iterates through a collection of Objects
  *
- * @author	James Lee (jameslee@cs.stanford.edu)
+ * @author  James Lee (jameslee@cs.stanford.edu)
  */
 public class IteratorTag extends BodyTagSupport {
 
@@ -30,9 +30,10 @@ public class IteratorTag extends BodyTagSupport {
      * those keys map to.  Return null when there is no such
      * element.
      *
-     * @param index		the index of the desired element
+     * @param index    the index of the desired element
      *
-     * @return Object	the Object at that index - or null if there is no such Object.
+     * @return Object    the Object at that index - or null if there is no 
+     *                   such Object.
      */
 
     Object getElementAt(int index) {

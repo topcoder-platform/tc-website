@@ -334,11 +334,15 @@ public class SessionInfo extends BaseModel {
     }
 
     private Date formDate(String year, String month, String day, String hour) {
-         Calendar c = Calendar.getInstance();
-         c.set(Integer.parseInt(year), 
-                months[Integer.parseInt(month)],
-                Integer.parseInt(day),
-                Integer.parseInt(hour), 0);
-         return c.getTime();
-     }
+        //if we don't have all the values then just exit
+        if(year == null || month == null || day == null || hour == null) {
+            return null;
+        }
+        Calendar c = Calendar.getInstance();
+        c.set(Integer.parseInt(year), 
+               months[Integer.parseInt(month)],
+               Integer.parseInt(day),
+               Integer.parseInt(hour), 0);
+        return c.getTime();
+    }
 }

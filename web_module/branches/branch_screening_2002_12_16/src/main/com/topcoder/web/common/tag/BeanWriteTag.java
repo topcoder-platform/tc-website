@@ -51,7 +51,7 @@ public class BeanWriteTag extends TagSupport {
      * quietly
      * 
      * @return The JSP Tag specific return specifying the next action
-     *          (Should always throw EVAL_BODY_INCLUDE)
+     *          (Should always return SKIP_BODY)
      * @throws JspException Thrown if name and property are not set or if
      *                  there is IO trouble writing out the tag.
      */
