@@ -13,7 +13,7 @@
 <html>
 <head>
 <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/google04.css"/>
-<title>Google Code Jam 2004</title>
+<title>Google Code Jam 2004, Powered by TopCoder</title>
 <jsp:include page="../script.jsp" />
 </head>
 <body>
