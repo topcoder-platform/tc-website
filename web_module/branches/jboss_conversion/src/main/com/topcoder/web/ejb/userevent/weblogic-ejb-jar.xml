@@ -4,7 +4,7 @@
 
 <weblogic-ejb-jar>
     <weblogic-enterprise-bean>
-        <ejb-name>UserEvent</ejb-name>
+        <ejb-name>UserEvents</ejb-name>
         <caching-descriptor>
             <max-beans-in-free-pool>20</max-beans-in-free-pool>
         </caching-descriptor>

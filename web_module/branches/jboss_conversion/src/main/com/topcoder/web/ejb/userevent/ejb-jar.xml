@@ -5,7 +5,7 @@
 <ejb-jar>
     <enterprise-beans>
         <session>
-            <ejb-name>UserEvent</ejb-name>
+            <ejb-name>UserEvents</ejb-name>
             <home>com.topcoder.web.ejb.userevent.UserEventHome</home>
             <remote>com.topcoder.web.ejb.userevent.UserEvent</remote>
             <ejb-class>com.topcoder.web.ejb.userevent.UserEventBean</ejb-class>
@@ -16,7 +16,7 @@
     <assembly-descriptor>
         <container-transaction>
             <method>
-                <ejb-name>UserEvent</ejb-name>
+                <ejb-name>UserEvents</ejb-name>
                 <method-intf>Remote</method-intf>
                 <method-name>*</method-name>
             </method>
