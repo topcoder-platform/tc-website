@@ -1,0 +1,24 @@
+#!/bin/ksh
+
+if [ $# != 2 ]
+then
+  echo 'SYNTAX: starttester numTesters withQueue'
+  exit
+fi
+
+numtesters=$1
+withqueue=$2
+
+if [ $withqueue=true ]
+then
+  nohup java mpsqas.tester.TesterQueue >testerqueue.log 2>&1 &
+fi
+
+i=1
+while ((i <= $numtesters))
+do
+  log="tester${i}.log"
+  nohup ./testrunner.sh >$log 2>&1 &
+  let i=$i+1
+done
+
