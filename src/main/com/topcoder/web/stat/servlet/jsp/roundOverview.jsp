@@ -143,13 +143,13 @@ pageContext.setAttribute("resultSetDates", rsc);
 <!--   <A class="statTextBig" href="/stat?c=<%= ("round_stats&amp;rd="+roundID) %>"><B><%= contestName %></B></A><BR/>-->
 <!--DATE <BR/>-->
     <SPAN CLASS="statTextBig"><B>Please select a round:</B><BR/></SPAN>
-    <SELECT NAME="Contest" onchange="goTo(this)">
+    <SELECT CLASS="statText" NAME="Contest" onchange="goTo(this)">
         <OPTION value="#">Select a Round:</OPTION>
         <logic:iterate name="resultSetDates" id="resultRow" type="ResultSetContainer.ResultSetRow">
          <% if (resultRow.getItem(0).toString().equals(currRound)) { %>
-           <OPTION value="/stat?c=round_stats&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>" selected><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></OPTION>
+           <OPTION value="/stat?c=round_overview&er=<%= topN %>&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>" selected><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></OPTION>
                <% } else { %>
-           <OPTION value="/stat?c=round_stats&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></OPTION>
+           <OPTION value="/stat?c=round_overview&er=<%= topN %>&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></OPTION>
         <% } %>
         </logic:iterate>
     </SELECT>
