@@ -59,6 +59,7 @@ package com.coolservlets.util;
 import java.util.*;
 //JDK1.1// import com.sun.java.util.collections.*;
 import java.io.*;
+import java.rmi.RemoteException;
 
 /**
  * Simple cache code. Note, this code has not been fully tested and optimized.
@@ -68,7 +69,7 @@ class CachedObject implements java.io.Serializable {
 	Object object;
 	Date timeStamp;
 	int size;
-		
+
 	CachedObject(Object object, Date timeStamp, int size) {
 		this.object = object;
 		this.timeStamp = timeStamp;
@@ -102,115 +103,79 @@ class CachedObject implements java.io.Serializable {
  
  
 public class Cache {
-	
-	private Map cachedObjects;
-	private int currentSize;
-	private int MAX_SIZE = 32*1024*1024;
 
-   	public Cache() {
-		cachedObjects = Collections.synchronizedMap(new HashMap());
-		//cachedObjects = new HashMap();
-   	}
+    private com.topcoder.shared.distCache.CacheClient cache;
+    private static final int MAX_SIZE = 2048;
+    private static final int TIME_OUT = 24*60*60*1000;
 
-   	public Cache(int maxSize) {
-		cachedObjects = new HashMap();
-		this.MAX_SIZE = maxSize;
-   	}
-   
-	public void setMaxSize(int maxSize) {
-		MAX_SIZE = maxSize;
-	}
-    
+    public Cache() {
+        try {
+            cache = new com.topcoder.shared.distCache.SimpleCacheClientImpl(MAX_SIZE);
+        } catch (RemoteException e) {
+            e.printStackTrace();  //To change body of catch statement use Options | File Templates.
+        }
+    }
+
+    public Cache(int maxSize) {
+        try {
+            cache = new com.topcoder.shared.distCache.SimpleCacheClientImpl(maxSize);
+        } catch (RemoteException e) {
+            e.printStackTrace();  //To change body of catch statement use Options | File Templates.
+        }
+    }
+
     public Object get(int uniqueID) {
-        Integer id = new Integer(uniqueID);
-        CachedObject co = (CachedObject)cachedObjects.get(id);
+        CachedObject co = null;
+        try {
+            co = (CachedObject)cache.get(String.valueOf(uniqueID));
+        } catch (RemoteException e) {
+            e.printStackTrace();  //To change body of catch statement use Options | File Templates.
+        }
         co.getTimeStamp().setTime(System.currentTimeMillis());
         return co.getObject();
     }
 
 	public void add(int uniqueID, Object object) {
 		Date date = new Date();
-		Integer id = new Integer( uniqueID );
-		
+
 		int objectSize = 0;
 		CachedObject cachedObject = new CachedObject(object, date, objectSize);
 		objectSize = getSize(cachedObject);
 		cachedObject.setSize(objectSize);
 
-		int tempSize = currentSize + objectSize;
-		if (tempSize >= MAX_SIZE) 
-			clearOld();
-		
-		cachedObjects.put(id, cachedObject);
-		currentSize += objectSize;
-	}
+        try {
+            cache.set(String.valueOf(uniqueID), cachedObject, TIME_OUT);
+        } catch (RemoteException e) {
+            e.printStackTrace();  //To change body of catch statement use Options | File Templates.
+        }
+    }
 
     public boolean containsKey(int key) {
-        Integer id = new Integer( key );
-        return cachedObjects.containsKey(id);
-    }
-	
-	void clearOld() {
-		System.out.println(currentSize);
-		System.out.println(cachedObjects.size());
-		//get the oldest and newest timestamp
-		Date oldest = null;
-		Date newest = null;
-		
-		Collection c = cachedObjects.values();
-		Iterator iterator = c.iterator();
-		
-		CachedObject co = null;
-		if (iterator.hasNext()) {
-			co = (CachedObject)iterator.next();
-			oldest = co.getTimeStamp();
-			newest = co.getTimeStamp();
-		}
-		
-		while (iterator.hasNext()) {
-			co = (CachedObject)iterator.next();
-			if (co.getTimeStamp().before(oldest))
-				oldest = co.getTimeStamp();
-				
-			if (co.getTimeStamp().after(newest))
-				newest = co.getTimeStamp();
-		}
-		
-		//get the time stamp threshod value
-		long timeValue = (newest.getTime() + oldest.getTime())/2;
-		Date threshod = new Date(timeValue);
-					
-		//if the time is small than threshod time, delete it
-		Set keySet = cachedObjects.keySet();
-		iterator = keySet.iterator();
-		
-		while (iterator.hasNext()) {
-			Object key = iterator.next();
-        	co =(CachedObject)cachedObjects.get(key);
-        	if (co.getTimeStamp().before(threshod)) {
-        		currentSize -= co.getSize();
-        		iterator.remove();
-	       	}	
-		}
-		System.out.println(currentSize);
-		System.out.println(cachedObjects.size());
-	}
-	
-	public void remove(int uniqueID) {
-		Integer id = new Integer(uniqueID);
-		CachedObject co = (CachedObject)(cachedObjects.get(id));
-        if (co != null) {
-            currentSize -= co.getSize();
-		    cachedObjects.remove(id);
+        boolean ret = false;
+        try {
+            ret = cache.get(String.valueOf(key))!=null;
+        } catch (RemoteException e) {
+            e.printStackTrace();  //To change body of catch statement use Options | File Templates.
         }
-	}
+        return ret;
+    }
+
+	public void remove(int uniqueID) {
+        try {
+            cache.remove(String.valueOf(uniqueID));
+        } catch (RemoteException e) {
+            e.printStackTrace();  //To change body of catch statement use Options | File Templates.
+        }
+    }
 
     public void clear() {
-        currentSize = 0;
-        cachedObjects.clear();
+        try {
+            cache.clearCache();
+        } catch (RemoteException e) {
+            e.printStackTrace();  //To change body of catch statement use Options | File Templates.
+        }
     }
 
-    
 	private static int getSize(Object o) {
 		try {
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -221,7 +186,7 @@ public class Cache {
 			oos.close();
 			return size;
 		} catch (IOException e) {
-						
+
 		}
 		return -1;
 	}
