@@ -1,6 +1,6 @@
 package com.topcoder.web.hs.controller.requests;
 
-import com.topcoder.web.hs.model.*;
+//import com.topcoder.web.hs.model.*;
 
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.util.DBMS;
@@ -9,7 +9,7 @@ import com.topcoder.common.web.util.Data;
 //import com.topcoder.common.web.data.Navigation;
 import com.topcoder.shared.util.ApplicationServer;
 //import com.topcoder.shared.util.logging.Logger;
-//import com.topcoder.web.stat.bean.CoderRatingStyleBean;
+import com.topcoder.web.stat.bean.CoderRatingStyleBean;
 //import com.topcoder.web.stat.bean.QuickStatListBean;
 import com.topcoder.web.stat.common.StatXMLParser;
 
