@@ -84,7 +84,7 @@
                                 <li>
                                 <p>
                                     <strong>QUESTIONNAIRE</strong> - Form must be completed and submitted by 9:00 PM ET on Wednesday, September 29.
-                                    View the <a href="/tc?&amp;module=ViewSurvey&amp;sid=203">2004 TopCoder Open Questionnaire</a>.
+                                    View the <a href="/tc?&amp;module=ViewSurvey&amp;sid=205">2004 TopCoder Open Questionnaire</a>.
                                     NOTE: All questions are mandatory.  The answers to the free form questions may be included in the 2004 TCO
                                     Program, at TopCoder's discretion.  Answers to the multiple choice questions will be provided to Microsoft.
                                 </p>
