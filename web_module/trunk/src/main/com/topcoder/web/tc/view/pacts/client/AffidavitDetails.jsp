@@ -84,7 +84,7 @@ The <B>W-8BEN form</B> should be filled out by all non-U.S. Citizens.<BR><A clas
 <% }
 	if(!a.canAffirmOnline()) { %>
         <b><p>
-          You cannot affirm the this affidavit online for the following reason(s):
+          You cannot affirm this affidavit online for the following reason(s):
           <ul>
       <% if (!a.hasNotarizedAffidavit()) { %>
         <li>You do not have a notarized affidavit on file.</li>
