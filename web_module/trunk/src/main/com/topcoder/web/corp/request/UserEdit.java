@@ -140,7 +140,7 @@ public class UserEdit extends BaseProcessor {
      * @throws Exception
      */
     protected boolean loadUserData() throws Exception {
-       return false;
+       return secTok.createNew;
     }
 
     /**
