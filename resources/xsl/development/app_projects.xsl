@@ -81,7 +81,7 @@
                 <tr valign="top">
                     <td width="3"><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
                     <td width="1" ><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td>
-                    <td class="statText"><a class="statText" href="/index?t=development&amp;c=online_review&amp;t=app">No Projects Available</a></td>
+                    <td class="statText">No Projects Available</td>
                     <td class="statText" align="center"></td>
                     <td class="statText" align="center"></td>
                     <td class="statText" align="center"></td>
