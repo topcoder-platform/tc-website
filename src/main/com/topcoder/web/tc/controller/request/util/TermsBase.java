@@ -1,6 +1,7 @@
 package com.topcoder.web.tc.controller.request.util;
 
 import com.topcoder.web.tc.controller.request.Base;
+import com.topcoder.web.tc.Constants;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.NavigationException;
@@ -35,6 +36,7 @@ abstract class TermsBase extends Base {
                         if (isEligible()) {
                             TermsOfUse terms = (TermsOfUse)createEJB(getInitialContext(), TermsOfUse.class);
                             getRequest().setAttribute("terms", terms.getText(getTermsId(), DBMS.OLTP_DATASOURCE_NAME));
+                            getRequest().setAttribute(Constants.TERMS_OF_USE_ID, new Integer(getTermsId()));
                             setSuccessPage();
                         } else {
                             throw new NavigationException("You are not eligible to register for the " + getEventName());
