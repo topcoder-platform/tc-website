@@ -8,7 +8,7 @@
     Calendar end = Calendar.getInstance();
     end.set(2004, 1, 23, 9, 0);
     Calendar beginning = Calendar.getInstance();
-    beginning.set(2004, 0, 1, 9, 0);
+    beginning.set(2004, 1, 1, 9, 0);
 %>
 
 
@@ -25,7 +25,7 @@
                 <% } else if (isRegistered) { %>
                         <img src="/i/tournament/tccc04/messageReg.gif" width="178" height="69" border="0"/>
                 <% } else { %>
-                        <a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=terms"><img src="/i/tournament/tccc04/messageNotReg.gif" width="178" height="69" border="0"/></a>
+                        <a href="/tc?module=TCCC04Terms"><img src="/i/tournament/tccc04/messageNotReg.gif" width="178" height="69" border="0"/></a>
                 <% } %>
             </td>
         </tr>

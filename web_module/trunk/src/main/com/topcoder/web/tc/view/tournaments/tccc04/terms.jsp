@@ -35,11 +35,18 @@
          <td class="bodyText" width="100%">
          
 			<jsp:include page="tccc04Head.jsp" />
+			
+			<table width="500" align="center" class="bodyText">
+				<tr>
+					<td>
+						<p align="left">To complete your registration for the 2004 TopCoder Collegiate Challenge you must <b>read and agree to</b> the terms listed below.</p>
          
-         <p align="center"><textarea name="terms" rows="20" cols="80" readonly class="bodyText"><%=request.getAttribute("terms")%></textarea></p>
+         			<p align="center"><textarea name="terms" rows="20" cols="80" readonly class="bodyText"><%=request.getAttribute("terms")%></textarea></p>
 
-         <p align="center"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=TCCC04TermsAgree">I agree</a> to these terms and wish to participate in the 2004 TopCoder Collegiate Challenge.
-
+         			<p align="center"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=TCCC04TermsAgree">I agree</a> to these terms and wish to participate in the 2004 TopCoder Collegiate Challenge.
+         		</td>
+         	</tr>
+         </table>
 
          <p><br/></p>
          </td>
