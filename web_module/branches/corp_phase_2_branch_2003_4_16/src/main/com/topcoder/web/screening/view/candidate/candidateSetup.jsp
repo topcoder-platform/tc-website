@@ -1,6 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ page errorPage="../errorPage.jsp" %>
-<%@ page import="com.topcoder.web.screening.common.Constants" %>
+<%@ page import="com.topcoder.web.screening.common.Constants,
+                 com.topcoder.web.common.StringUtils" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <HTML>
 <HEAD>
@@ -80,23 +81,44 @@ function back() {
             </table>
                     
             <table border="0" cellspacing="10" cellpadding="0" width="50%">
-                <%
-                     if(!candidateInfo.isNew())
-                    { 
-                        String params = Constants.CANDIDATE_ID + "=" + candidateInfo.getUserId(); 
-                %>
-                 <tr><td class="bodyText" align="center"><screen:servletLink processor="NoteList" param="<%=params%>">Add a note</screen:servletLink> for this candidate</p></td></tr>
-                <% }  %>
 
                 <% if (candidateInfo.isNew()) { %>
                  <tr><td><div align="center"><p class="button"><a href="JavaScript:document.candidateSetupForm.submit()" class="button">Save</a></p></div></td></tr>
-                    <% } else { %>
-                 <tr><td><div align="center"><p class="button"><a href="JavaScript:back()" class="button">Go Back</a></p></div></td></tr>
                     <% } %>
             </table>
                             
             </screen:form>
+
+            <table cellspacing="0" cellpadding="3" width="70%" class="testFrame">
+                <tr>
+                    <td width="70%" class="testTableTitleSmall">Notes</td>
+                    <td width="15%" align="center" class="testTableTitleSmall">Author</td>
+                    <td width="15%" align="center" class="testTableTitleSmall">Date Created</td>
+                </tr>
+
+                <% { boolean even = true; %>
+                <screen:resultSetRowIterator id="row" list="<%=candidateInfo.getNoteList()%>">
+                <tr>
+                    <td <% if(even){ %>class="testTableEven"<% } else { %>class="testTableOdd"<% } %>><%=StringUtils.htmlEncode((String)row.getItem("text").getResultData())%></td>
+                    <td align="center" <% if(even){ %>class="testTableEven"<% } else { %>class="testTableOdd"<% } %>><screen:resultSetItem row="<%=row%>" name="created_by" /></td>
+                    <td align="center" <% if(even){ %>class="testTableEven"<% } else { %>class="testTableOdd"<% } %>><strong><screen:resultSetItem row="<%=row%>" name="create_date" /></strong></td>
+                </tr>
+                <% even = !even; %>
+                </screen:resultSetRowIterator>
+                <% } %>
+            </table>
+
+            <table border="0" cellspacing="10" cellpadding="0" width="70%">
+                 <tr>
+                    <td><div align="center"><p class="button"><screen:servletLink processor="NoteCreate" param="<%=Constants.CANDIDATE_ID+'='+candidateInfo.getUserId()%>" styleClass="button">Add</screen:servletLink></p></div></td>
+                </form></tr>
+            </table>
+
             <p><br></p>
+
+
+
+
         </td>
 <!-- Middle Column ends -->
 
