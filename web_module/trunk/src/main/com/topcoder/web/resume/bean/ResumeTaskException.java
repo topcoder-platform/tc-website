@@ -14,7 +14,7 @@ public class ResumeTaskException extends Exception {
         super();
         ex=this;
     }
-    public Exception getCause() {
+    public Throwable getCause() {
         return ex;
     }
     public void printStackTrace(){
