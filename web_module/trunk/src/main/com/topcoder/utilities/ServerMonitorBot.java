@@ -150,6 +150,7 @@ public class ServerMonitorBot {
                 em.addToAddress("gpaul@topcoder.com", TCSEmailMessage.TO);
                 em.addToAddress("8604656205@mobile.mycingular.com", TCSEmailMessage.TO);
                 em.addToAddress("8602686127@messaging.sprintpcs.com", TCSEmailMessage.TO);
+                em.addToAddress("8606144043@vtext.com", TCSEmailMessage.TO);
                 
                 em.setSubject("Server Error");
                 em.setBody(errorText);
