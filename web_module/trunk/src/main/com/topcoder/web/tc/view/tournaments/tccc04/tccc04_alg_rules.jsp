@@ -67,7 +67,7 @@
             
 <!-- eligibility -->
             <a name="eligibility"></a>
-            <h2><a href="#top"><img src="/i/events/verizon2003/button_backtotop.gif" alt="back to top" width="83" height="23" border="0" align="right">
+            <h2><a href="#top"><img src="/i/tournament/tccc04/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right">
             </a>Eligibility</h2>
 
             <p>
@@ -100,7 +100,7 @@
 
 <!-- structure -->
             <a name="structure"></a>
-            <h2><a href="#top"><img src="/i/events/verizon2003/button_backtotop.gif" alt="back to top" width="83" height="23" border="0" align="right">
+            <h2><a href="#top"><img src="/i/tournament/tccc04/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right">
             </a>Competition Structure</h2>
          
             <p><span class="bodySubtitle">Online Elimination Rounds</span><br/>
@@ -161,7 +161,7 @@
                      
 <!-- prizes -->
               <a name="prizes"></a>
-            <h2><a href="#top"><img src="/i/events/verizon2003/button_backtotop.gif" alt="back to top" width="83" height="23" border="0" align="right">
+            <h2><a href="#top"><img src="/i/tournament/tccc04/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right">
             </a>About the Prizes</h2>
             
 
@@ -207,7 +207,7 @@
 
 <!-- Conditions of Participation -->
             <a name="conditions"></a>
-            <h2><a href="#top"><img src="/i/events/verizon2003/button_backtotop.gif" alt="back to top" width="83" height="23" border="0" align="right">
+            <h2><a href="#top"><img src="/i/tournament/tccc04/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right">
             </a>Conditions of Participation</h2>
          
          <p>By participating in the tournament, you agree to be bound by these rules and to all decisions of TopCoder, which 
