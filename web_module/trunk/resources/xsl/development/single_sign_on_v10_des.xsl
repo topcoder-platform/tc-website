@@ -124,6 +124,7 @@
                                             <li>SAML</li>
                                             <li>J2EE</li>
                                             <li>JDBC</li>
+                                            <li>JSP</li>
                                         </ul>
 
                                         <!-- Payment -->
@@ -132,7 +133,7 @@
                                                 <a name="payment">Payment</a>
                                             </strong>
                                             <br/>
-                                             For each design project, TopCoder will compensate the member with the winning solution as well as the second place designer. In order to be paid, both the winning submission and the second place designer must pass screening and receive a review score above the minimum score or 50.
+                                             For each design project, TopCoder will compensate the member with the winning solution as well as the second place designer. In order to be paid, both the winning submission and the second place designer must pass screening and receive a review score above the minimum score of 50.
                                              <br/><br/>
                                              Compensation for the winning solution is distributed in two installments.
                                              <br/><br/>
@@ -140,7 +141,7 @@
                                             <br/>
                                              When the winning solution is submitted and review board suggestions are integrated. 
                                              <br/><br/>
-                                            <strong>First Payment:</strong>
+                                            <strong>Second Payment:</strong>
                                             <br/>
                                              At the completion of the development project*. 
                                              <br/><br/>
@@ -177,7 +178,7 @@
                                         </p>
 
                                         <p>
-                                            <strong>SSO Application Authentication Project<br/>
+                                            <strong>SSO Application Authentication<br/>
                                             Winning Designer</strong>
                                             <br/>
                                             Total Payment - $2,826.00
@@ -211,12 +212,12 @@
                                         <!-- Definition of Completion -->
 
                                         <p>
-                                            <sup>*</sup>Completion of the integration project is defined as follows:
+                                            <sup>*</sup>Completion of the project is defined as follows:
                                         </p>
 
                                         <ul>
                                             <li>The Submission has been selected by the board as the winning submission.</li>
-                                            <li>Acceptance of the fully integrated functional application by the Development Review Board.</li>
+                                            <li>Acceptance of the application design by the Design Review Board.</li>
                                             <li>Application launch into production environment.</li>
                                         </ul>
 
@@ -243,11 +244,10 @@
                                                 <a name="timeline">Timeline</a>
                                             </strong>
                                             <br/>
-                                            The Development Submission must be submitted on time. All questions submitted
+                                            The Design Submission must be submitted on time. All questions submitted
                                             prior to 6PM EDT on the Submission Due Dates will be answered. Following review
                                             from the board the winning member is given until the Updated Submission Due Date
-                                            to modify their submission.  The TopCoder Software Project Manager will assign
-                                            the development tasks for each phase at the start of the development phase.
+                                            to modify their submission.
                                         </p>
 
                                         <table border="0" cellspacing="2" cellpadding="3" class="sidebarBox">
