@@ -823,5 +823,27 @@
         </war>
     </target>
 
+  <target name="compile_tests" depends="init">
+    <javac
+      srcdir="${testjava}"
+      destdir="${testclasses}"
+      classpathref="class.path"
+      deprecation="${deprecation}"
+      debug="${debug}">
+    </javac>
+  </target>
+
+  <target name="test" depends="init,compile_tests">
+    <junit fork="yes" haltonerror="true">
+      <classpath refid="class.path"/>
+      <batchtest>
+        <formatter type="plain" usefile="false"/>
+        <fileset dir="${testclasses}">
+          <include name="**/AllTests*"/>
+        </fileset>
+      </batchtest>
+    </junit>
+  </target>
+
 </project>
 
