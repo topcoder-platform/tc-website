@@ -4,7 +4,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="privatelabel.tld" prefix="pl" %>
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.FullRegInfo" scope="session" />
+<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.ResumeRegInfo" scope="session" />
 <jsp:usebean id="responseList" class="java.util.List" scope="request" />
 <jsp:usebean id="questionMap" class="java.util.Map" scope="request" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -136,8 +136,12 @@
                         <tr>
                             <td class="brRegTableQuestion"></td>
                             <td class="brRegTableAnswer"><br/>
-                            <a class="brRegTableAnswer" href="/pl/?&module=Static&d1=brooks&d2=reg&d3=success">Submit</a>
+                            <a class="brRegTableAnswer" href="javascript: document.regForm.submit();">Submit</a>
                             </td>
+                        </tr>
+                        <tr>
+                            <td class="brRegTableQuestion">Resume</td>
+                            <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="UploadStatus"/></td>
                         </tr>
                         </table>
 

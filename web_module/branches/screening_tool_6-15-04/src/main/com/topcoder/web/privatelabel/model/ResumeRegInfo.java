@@ -28,6 +28,14 @@ public class ResumeRegInfo extends FullRegInfo {
     {
         this.file = u;
     }
+    
+    public String getUploadStatus()
+    {
+        if(file == null)
+            return "Not Supplied";
+        else
+            return "Attached (" + file.getRemoteFileName() + ")";
+    }
 
     public boolean hasResume()
     {
