@@ -41,7 +41,7 @@
                            </tr>
                         <tr>
                             <td class="brBody" colspan="2" align=center>
-                            If you encounter any technical problems while using the <br/>Technical Assessment Tool, please contact us at <A href="mailto:brooks@topcoder.com">brooks@topcoder.com</A><br/>.
+                            If you encounter any technical problems while using the <br/>Technical Assessment Tool, please contact us at <A href="mailto:brooks@topcoder.com?subject=Question regarding the Brooks Automation Technical Assessment Tool">brooks@topcoder.com</A><br/>.
                             </td>
                         </tr>
                         <tr>

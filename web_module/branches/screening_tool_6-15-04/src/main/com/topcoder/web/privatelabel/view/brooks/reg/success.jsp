@@ -38,7 +38,7 @@
                                 <br/><br/>
                                 You will receive an email at the address with which you registered that outlines the specifics of the Technical Assessment Tool.  Please read it carefully and in its entirety before beginning.
                                 <br/><br/>
-                                If you have any questions while using the Technical Assessment Tool, please email them to <a href="mailto:brooks@topcoder.com">brooks@topcoder.com</a>.
+                                If you have any questions while using the Technical Assessment Tool, please email them to <a href="mailto:brooks@topcoder.com?subject=Question regarding the Brooks Automation Technical Assessment Tool">brooks@topcoder.com</a>.
                                 </p>
                                 </td>
                             </tr>
