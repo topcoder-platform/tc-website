@@ -20,7 +20,6 @@
     <jsp:param name="level1" value="employment_services"/>
 </jsp:include>
 
-</jsp:include>
 <!-- Top ends -->
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
