@@ -51,7 +51,7 @@
                <%-- formatting this crappy to save space in the download to the client --%>
                 <%boolean even = false;%>
                 <rsc:iterator list="<%=rsc%>" id="resultRow">
-<td align="center" class="<%=even?"formHandleEven":"formHandleOdd"%>" ><rsc:item name="seed" row="<%=resultRow%>"/></td>
+<tr><td align="center" class="<%=even?"formHandleEven":"formHandleOdd"%>" ><rsc:item name="seed" row="<%=resultRow%>"/></td>
 <td class="<%=even?"formHandleEven":"formHandleOdd"%>" ><A HREF="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>" CLASS="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item name="handle" row="<%=resultRow%>"/></A></td>
 <td align="right" class="<%=even?"formHandleEven":"formHandleOdd"%>" ><rsc:item name="rating" row="<%=resultRow%>"/>&#160;&#160;</td>
 <% if (StringUtils.checkNull(resultRow.getStringItem("round1")).equals("Eliminated")) { %>
