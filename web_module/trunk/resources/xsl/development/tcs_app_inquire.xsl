@@ -12,7 +12,7 @@
     <html>
       <head>
         <xsl:call-template name="Preload"/>      
-        <title>TopCoder | Development</title>
+        <title>Application Development Projects at TopCoder</title>
         <xsl:call-template name="CSS"/>      
         <!--<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
         <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>-->
@@ -28,9 +28,13 @@
     <tr valign="top">
 
 <!-- Left Column Begins -->
-    <td width="180">
-        <xsl:call-template name="global_left"/>
-        </td>
+        <td width="180">
+            <xsl:call-template name="global_left">
+                <xsl:with-param name="level1">development</xsl:with-param>
+                <xsl:with-param name="level2">components</xsl:with-param>
+                <xsl:with-param name="level3">app_projects</xsl:with-param>
+            </xsl:call-template>
+          </td>
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
