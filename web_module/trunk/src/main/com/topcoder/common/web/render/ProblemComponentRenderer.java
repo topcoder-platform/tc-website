@@ -35,7 +35,7 @@ public class ProblemComponentRenderer implements ElementRenderer {
             buf.append("</tr>");
         }
         
-        buf.append(  "<tr><td colspan=\"2\">&#160;</td></tr>");
+        buf.append(  "<tr><td colspan=\"2\"><BR/></td></tr>");
 
         /* Signature */
         buf.append("<tr>");
@@ -89,6 +89,8 @@ public class ProblemComponentRenderer implements ElementRenderer {
         buf.append(  "</td>");
         buf.append("</tr>");
 
+        buf.append(  "<tr><td colspan=\"2\"><BR/></td></tr>");
+
         /* Spec */
         if(problemComponent.getSpec() != null) {
             buf.append("<tr>");
@@ -123,6 +125,8 @@ public class ProblemComponentRenderer implements ElementRenderer {
             }
         }
 
+        buf.append(  "<tr><td colspan=\"2\"><BR/></td></tr>");
+
         /* Constraints */
         Element[] constraints = problemComponent.getConstraints();
         if(constraints != null && constraints.length > 0) {
@@ -142,6 +146,8 @@ public class ProblemComponentRenderer implements ElementRenderer {
                 buf.append("</tr>");
             }
         }
+
+        buf.append(  "<tr><td colspan=\"2\"><BR/></td></tr>");
 
         /* Examples */
         TestCase[] testCases = problemComponent.getTestCases();
