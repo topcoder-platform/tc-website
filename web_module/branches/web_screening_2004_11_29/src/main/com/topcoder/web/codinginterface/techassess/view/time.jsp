@@ -12,7 +12,7 @@
       <%} else if (probTimer.equals("remaining")) { %>
       <td class=timeCellRight>Time Remaining<br />
         <tc-webtag:useBean id="problemInfo" name="<%=Constants.PROBLEM%>" type="com.topcoder.web.codinginterface.techassess.model.ProblemInfo" toScope="page" />
-        <span id="problemTimer<jsp:getProperty name="problemInfo" property="componentId"/>">Initializing</span></td>
+        <span id="problemTimer<%=problemInfo.getComponentId()%>">Initializing</span></td>
       <% } %>
    </tr>
 </table>
