@@ -64,7 +64,7 @@ public class DemographicQuestion extends Base {
             log.debug(demographicAnswers.size() + " answers found");
             list = new ArrayList(demographicAnswers.size());
             for (int i=0; i<demographicAnswers.size(); i++) {
-                list.set(i, ((DemographicAnswer)demographicAnswers.get(i)).clone());
+                list.add(((DemographicAnswer)demographicAnswers.get(i)).clone());
             }
             log.debug(list.size() + " answers generated");
         }
