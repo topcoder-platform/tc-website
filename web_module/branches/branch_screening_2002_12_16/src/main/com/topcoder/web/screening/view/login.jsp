@@ -1,4 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ taglib uri="screening.tld" prefix="screen" %>
 <HTML>
 <HEAD>
 <TITLE>TopCoder - Candidate Evaluation</TITLE>
@@ -43,7 +44,7 @@
                                  <%= request.getAttribute("msg").toString() %>
                               </p>
                            <% } %>
-                           <FORM NAME="login" METHOD="POST" ACTION="<%= request.getServletPath() %>">
+                           <screen:form NAME="login" METHOD="POST" ACTION="<%= request.getServletPath() %>">
                               <INPUT type="hidden" name='rp' value='Login'/>
                               <% if((String)request.getAttribute("redir") != null){ %>
                                  <INPUT type="hidden" name='redir' value='<%= request.getAttribute("redir").toString() %>'/>
@@ -59,7 +60,7 @@
                                     <TD CLASS="statTextBig" VALIGN="top" NOWRAP="">&#160;<A HREF="Javascript:login.submit()" CLASS="statTextBig"><FONT COLOR="#CCCCCC">Login &gt;</FONT></A>&#160;&#160;</TD>                    
                                  </TR>
                               </TABLE>
-                           </FORM>
+                           </screen:form>
                         <P><BR/></P>
                         </TD>
                      </TR>           
