@@ -11,7 +11,7 @@
 <body>
 
 <%@ page import="com.topcoder.web.pacts.common.*" %>
-<%@ page import="com.topcoder.web.common.*" %>
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.*" %>
 <%
 	String contract_id_string = request.getParameter(PactsConstants.CONTRACT_ID);
 	boolean payment_is_for_contract = true;
