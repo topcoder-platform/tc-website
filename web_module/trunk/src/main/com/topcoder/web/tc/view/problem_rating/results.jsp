@@ -4,7 +4,7 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <jsp:useBean id="problemRatingResults" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" />
-<jsp:useBean id="overallDistribution" scope="request" class="java.util.List" /> 
+<jsp:useBean id="overallDistribution" scope="request" class="java.util.List" />
 <jsp:useBean id="competitorDistribution" scope="request" class="java.util.List" />
 <%
     int count = 0;
@@ -83,12 +83,12 @@
         <td width="10"><img src="/i/clear.gif" width="10" height="1"></td>
 <!-- Gutter Ends -->
 
-<!-- Center Column Begins --> 
+<!-- Center Column Begins -->
 <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
         <jsp:include page="../body_top.jsp" >
-           <jsp:param name="image" value="problem_rating"/>  
-           <jsp:param name="image1" value="white"/>  
-           <jsp:param name="title" value="Results"/>  
+           <jsp:param name="image" value="problem_rating"/>
+           <jsp:param name="image1" value="white"/>
+           <jsp:param name="title" value="Results"/>
         </jsp:include>
 
 <p class="header">Problem:&nbsp;<%= request.getAttribute("problemName") %></p>
@@ -98,10 +98,11 @@
            <td class="bodyTextBig" align="right" valign="bottom" nowrap>Overall Average Rating</td>
            <td class="bodyTextBig" align="right" valign="bottom" nowrap>Average Rating for Competitors</td>
         </tr>
-        <rsc:iterator list="<%=problemRatingResults%>" id="result">
-        <% count = result.getIntItem("count");
-           compCount = result.getIntItem("comp_count");
+        <%  if (!problemRatingResults.isEmpty())
+            count = problemRatingResults.getIntItem(0,"count");
+            compCount = problemRatingResults.getIntItem(0,"comp_count");
         %>
+        <rsc:iterator list="<%=problemRatingResults%>" id="result">
         <tr>
             <td class="bodyText">
                 <rsc:item row="<%=result%>" name="question"/> :
