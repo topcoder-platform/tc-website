@@ -11,21 +11,9 @@
 
 <jsp:include page="../script.jsp" />
 
-<script language = "JavaScript">
-<!--
-  function runFlash(){
-<tc:questionIterator list="<%=questionInfo%>" id="question">
-    <rsc:iterator list="<%=question.getAnswerInfo()%>" id="answer">
-    window.document.myFlash<%=question.getId()%>_<rsc:item row="<%=answer%>" name="answer_id"/>.SetVariable("percentage", <rsc:item row="<%=answer%>" name="percentage" format="#.##"/>);
-    </rsc:iterator>
-</tc:questionIterator>
-  }
-//-->
-</script>
-
 </head>
 
-<body onLoad="runFlash()">
+<body>
 
 <jsp:include page="../top.jsp" >
     <jsp:param name="level1" value="review_board"/>
@@ -79,13 +67,14 @@
                                   data="/i/barGraph.swf"
                             classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
                             codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"
-                            width=200
-                            height=15
+                            width="200"
+                            height="15"
                             border="0"
                             id="myFlash<%=question.getId()%>_<rsc:item row="<%=answer%>" name="answer_id"/>" >
-                            <PARAM  NAME=movie  VALUE="/i/barGraph.swf">
-                            <PARAM NAME=quality VALUE="high">
-                            <PARAM NAME=bgcolor VALUE="#FFFFFF">
+                            <param name="movie"  value="/i/barGraph.swf"/>
+                            <param name="quality" value="high"/>
+                            <param name="bgcolor" value="#FFFFFF"/>
+                            <param name="sw1" value="<rsc:item row="<%=answer%>" name="percentage" format="#.##"/>"/>
                             <embed
                             src="/i/barGraph.swf"
                             quality=high
@@ -95,7 +84,8 @@
                             type="application/x-shockwave-flash"
                             pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"
                             name="myFlash"
-                            swLiveConnect="true" >
+                            swLiveConnect="true"
+                            sw1="<rsc:item row="<%=answer%>" name="percentage" format="#.##"/>" >
                             </embed>
                             </object>
                             </p>
