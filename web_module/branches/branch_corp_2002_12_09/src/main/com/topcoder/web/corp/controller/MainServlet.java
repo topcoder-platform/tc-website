@@ -119,43 +119,62 @@ public class MainServlet extends HttpServlet {
     	String moduleName = request.getParameter("module");
         ServletConfig srvCfg = getServletConfig();
         Enumeration initNames = srvCfg.getInitParameterNames();
-        String initParam, initValue;
+        String initParam, initValue, nextPage;
         Class opClass;
         RequestProcessor req = null;
         boolean found = false;
         
-        while( initNames.hasMoreElements() ) {
-            initParam = initNames.nextElement().toString();
-            initValue = srvCfg.getInitParameter( initParam );
-            log.debug( "doGet: initParam = " + initParam + ", initValue = " + initValue );
-            if( initParam.equals( moduleName ) ) {
-                try {
-                    /* 12/19/2002 - NeoTuri
-                     * I'm considering using the prefix Constants.QUERY_PACKAGE for all
-                     * servlets hiding behind this controller.  The associated items in
-                     * web.xml will be modified to reflect this change.
-                     */
-                    opClass = Class.forName( initValue );
-                    req = (RequestProcessor) opClass.newInstance();
-                    req.setRequest( request );
-                    req.process();
-                    found = true;
+        if( moduleName != null ) {
+            while( initNames.hasMoreElements() ) {
+                initParam = initNames.nextElement().toString();
+                if( initParam == null ) continue;
+                initValue = srvCfg.getInitParameter( initParam );
+                if( initValue == null ) continue;
+                log.debug( "doGet: initParam = " + initParam + ", initValue = " + initValue );
+                if( initParam.equals( moduleName ) ) {
+                    try {
+                        /* 12/19/2002 - NeoTuri
+                         * I'm considering using the prefix Constants.QUERY_PACKAGE for all
+                         * servlets hiding behind this controller.  The associated items in
+                         * web.xml will be modified to reflect this change.
+                         */
+                        opClass = Class.forName( initValue );
+                        req = (RequestProcessor) opClass.newInstance();
+                    }
+                    catch( Exception e ) {
+                        log.debug( "doGet: bad module" );
+                        break;
+                    }
+                    try {
+                        req.setRequest( request );
+                        req.process();
+                        found = true;
+                    }
+                    catch( Exception e ) {
+                        try {
+                            sendToPage( request, response, req.getNextPage(), req.isNextPageInContext() );                            
+                        }
+                        catch( Exception e ) {
+                            /* Could not process module */
+                            log.debug( "doGet: unable to properly forward " );
+                            //sendToErrorPage( request, response, e );
+                        }
+                    }
+                    break;
                 }
-                catch( Exception e ) {
-                    /* Could not process module */
-                    log.debug( "doGet: bad module" );
-                    //sendToErrorPage( request, response, e );
-                }
-                break;
             }
         }
         
-        if( found && req != null ) {
-            log.debug( "doGet: module found" );
-            sendToPage( request, response, req.getNextPage(), req.isNextPageInContext() );
-        }
-        else {
+        if( !found ) {
             log.debug( "doGet: module not found" );
+            String entireUri = request.getRequestURI();
+            if( null != request.getQueryString() ) {
+                    entireUri += "?"+request.getQueryString();
+            }
+            //possible situations when dispatcher for the given URI is absent,
+            // and then dispatcher will be null  
+            getServletContext().getRequestDispatcher(entireUri).forward(request, response);
+            
             //sendToErrorPage( request, response, new Exception("404?") );
         }
         /*
@@ -265,9 +284,9 @@ public class MainServlet extends HttpServlet {
             throws ServletException, IOException {
         log.debug((forward?"forwarding ":"redirecting ") + "to " + page);
         if (forward) {
-            getServletContext().getRequestDispatcher(response.encodeURL("/"+page)).forward(request, response);
+            getServletContext().getRequestDispatcher(page).forward(request, response);
         } else {
-            response.sendRedirect(response.encodeRedirectURL(page));
+            response.sendRedirect(page);
         }
     }
 
