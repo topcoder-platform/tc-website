@@ -250,10 +250,10 @@ public class TCLoadRequests extends TCLoad {
         //log.debug("called getUrlId " + url.getUrl());
         long ret = -1;
         if (urlMap.containsKey(url.getUrl())) {
-            log.debug("url " + url + " found");
+            //log.debug("url " + url + " found");
             ret = ((Long) urlMap.get(url.getUrl())).longValue();
         } else {
-            log.debug("url " + url + " not found");
+            //log.debug("url " + url + " not found");
             PreparedStatement psSel = null;
             ResultSet rs = null;
 
@@ -296,10 +296,10 @@ public class TCLoadRequests extends TCLoad {
                             cal.get(Calendar.DAY_OF_MONTH);
 
         if (calendarMap.containsKey(dateString)) {
-            log.debug("date " + time + " found");
+            //log.debug("date " + time + " found");
             ret = ((Long)calendarMap.get(dateString)).longValue();
         } else {
-            log.debug("date " + time + " not found");
+            //log.debug("date " + time + " not found");
             ret = lookupCalendarId(time, TARGET_DB);
             calendarMap.put(dateString, new Long(ret));
         }
