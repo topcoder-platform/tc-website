@@ -18,7 +18,7 @@ import java.io.IOException;
 
 public class ResumeUploadTask extends ResumeTask{
     private byte file[] = null;
-    private String contentType = null;
+    private int fileType = null;
     private String fileName = null;
     private static final String SUCCESS = "/";
     public ResumeUploadTask(FileUpload fu) throws ResumeTaskException{
@@ -35,7 +35,8 @@ public class ResumeUploadTask extends ResumeTask{
                 } else {
                     fileBytes = new byte[(int)uf.getSize()];
                     uf.getInputStream().read(fileBytes);
-                    contentType = uf.getContentType();
+
+                    fileType = Integer.parseInt(fu.getParameter("fileType"));
                     fileName = uf.getRemoteFileName();
                     file = fileBytes;
                 }
@@ -51,7 +52,7 @@ public class ResumeUploadTask extends ResumeTask{
             context = TCContext.getInitial();
             ResumeServicesHome resumeServicesHome = (ResumeServicesHome) context.lookup(ApplicationServer.RESUME_SERVICES);
             ResumeServices resumeServices = resumeServicesHome.create();
-            resumeServices.putResume(user.getUserId(),contentType, fileName, file);
+            resumeServices.putResume(user.getUserId(),fileType, fileName, file);
         }catch(Exception e){
             throw new ResumeTaskException(e);
         }

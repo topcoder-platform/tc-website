@@ -31,7 +31,7 @@ public class ResumeServicesBean extends BaseEJB {
             "SELECT " +
             "   r.file AS file, " +
             "   r.file_name AS file_name, " +
-            "   ftl.file_type_desc AS file_type " +
+            "   ftl.mime_type AS mime_type " +
             "FROM " +
             "   resume r " +
             "JOIN " +
@@ -54,7 +54,7 @@ public class ResumeServicesBean extends BaseEJB {
             if(!rs.next())throw new SQLException(userID+" does not hava a submitted resume.");
             byte[] file = rs.getBytes("file");
             String name = rs.getString("file_name");
-            String type = rs.getString("file_type");
+            String type = rs.getString("mime_type");
             ret = new Resume(name,type,file);
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
@@ -85,35 +85,26 @@ public class ResumeServicesBean extends BaseEJB {
             "INSERT INTO resume "+
             "(resume_id, coder_id, file_name, file_type_id, timestamp, file) "+
             "VALUES (?, ?, ?, ?, current, ?)";
-    private static final String GET_FILE_TYPE_ID_QUERY =
-            "SELECT file_type_id as file_type_id "+
-            "FROM file_type_lu " +
-            "WHERE file_type_desc = ?";
     private static final String DELETE_FILE_QUERY =
             "DELETE FROM resume " +
             "WHERE coder_id = ?";
-    public void putResume(int userID,String fileType, String fileName, byte[] file)
+    public void putResume(int userID,int fileType, String fileName, byte[] file)
             throws RemoteException{
         log.debug("ejb:ResumeServices:putResume("+userID+","+fileType+","+fileName+","+file.length+") called...");
         Connection conn = null;
         PreparedStatement ps = null;
-        ResultSet rs = null;
         try{
             conn = DBMS.getTransConnection();
             ps = conn.prepareStatement(DELETE_FILE_QUERY);
             ps.setInt(1,userID);
             int numDeleted = ps.executeUpdate();
             if(numDeleted!=1&&numDeleted!=0)throw new Exception(numDeleted + " columns where deleted, when 0 or 1 were expected.");
-            ps = conn.prepareStatement(GET_FILE_TYPE_ID_QUERY);
-            ps.setString(1,fileType);
-            rs = ps.executeQuery();
-            if(!rs.next())throw new Exception("Unsupported file type: "+fileType);
             ps.close();
             ps = conn.prepareStatement(PUT_RESUME_QUERY);
             ps.setInt(1,DBMS.getTransSeqId(conn,DBMS.RESUME_SEQ));
             ps.setInt(2,userID);
             ps.setString(3,fileName);
-            ps.setInt(4,rs.getInt("file_type_id"));
+            ps.setInt(4,fileType);
             ps.setBytes(5,file);
             int numUpdated = ps.executeUpdate();
             if(numUpdated!=1)throw new Exception(numUpdated + " columns where inserted, when 1 was expected.");
@@ -124,11 +115,6 @@ public class ResumeServicesBean extends BaseEJB {
             e.printStackTrace();
             throw new RemoteException(e.getMessage());
         } finally {
-            try {
-                if (rs != null) rs.close();
-            } catch (Exception ignore) {
-                log.error("rs   close problem");
-            }
             try {
                 if (ps != null) ps.close();
             } catch (Exception ignore) {
