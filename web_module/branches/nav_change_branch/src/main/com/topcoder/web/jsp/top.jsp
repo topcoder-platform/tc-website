@@ -92,18 +92,18 @@
                                 <TR>
                                    <TD class="time" HEIGHT="18" VALIGN="middle" ALIGN="center">                                                                         
     <form name="selectform">
-      <select name="myfeatures" size="1" class="dropdown" onchange="goTo(this)">
+<select name="quickstat" size="1" class="dropdown" onchange="window.location=this.options[this.selectedIndex].value">      
         <OPTION value="SELECTED"> Select a Feature: </OPTION>
-        <OPTION value="alltimewin">&#160;Profile</OPTION>
-        <OPTION value="winningdebuts">&#160;Ratings History</OPTION>
-        <OPTION value="impressivedebuts">&#160;Earnings History</OPTION>
-        <OPTION value="hightesttotal">&#160;Room Statistics</OPTION>
-        <OPTION value="ratingpointgain">&#160;Round Statistics</OPTION>	
-        <OPTION value="consecwins">&#160;Advanced Member Search</OPTION>
-        <OPTION value="submissionaccuracy">&#160;Affidavits</OPTION>
-        <OPTION value="challengesuccess">&#160;My Referrals</OPTION>
-        <OPTION value="challengesuccess">&#160;Development</OPTION>
-        <OPTION value="challengesuccess">&#160;TCES (jobs)</OPTION>
+        <OPTION value="/stat?c=member_profile&amp;cr=<%=nav.getUser().getUserId()%>">Profile</OPTION>
+        <OPTION value="/stat?c=ratings_history&amp;cr=<%=nav.getUser().getUserId()%>">Rating History</OPTION>
+        <OPTION value="/stat?c=earnings_history&amp;cr=<%=nav.getUser().getUserId()%>">Earnings History</OPTION>
+        <OPTION value="/stat?c=coder_room_stats&amp;cr=<%=nav.getUser().getUserId()%>">Room Statistics</OPTION> 
+        <OPTION value="/stat?c=round_stats">Round Statistics</OPTION>
+        <OPTION value="/index?t=search">Advanced Member Search</OPTION> 
+        <OPTION value="/PactsMemberServlet">Affidavits</OPTION> 
+        <OPTION value="/index?t=search&amp;c=refer">My Referrals</OPTION>
+        <OPTION value="/index?t=development&amp;c=index">Development</OPTION>
+        <OPTION value="/index?t=tces&amp;c=index">TCES (jobs)</OPTION> 
       </select>
     </form>
                                    </TD>                                   

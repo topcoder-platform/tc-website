@@ -72,10 +72,10 @@
 
     <!-- Left Column Begins -->
 
-    <TD WIDTH="170" BGCOLOR="#666666" VALIGN="top"><!-- <IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0" VSPACE="5"><BR/> -->
+    <TD WIDTH="170" BGCOLOR="#000000" VALIGN="top"><!-- <IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0" VSPACE="5"><BR/> -->
 <xsl:call-template name="global_left"/>
 <IMG SRC="/i/logo_ghosted_bracket.gif" WIDTH="160" HEIGHT="77" BORDER="0" ALT="[ TopCoder ]" VSPACE="5"/><BR/>
-<!-- Do Not Delete This Line --><FONT SIZE="1" COLOR="#CCCCCC" FACE="tahoma">HiddenWord</FONT>      
+<!-- Do Not Delete This Line --><FONT SIZE="1" COLOR="#000000" FACE="tahoma">HiddenWord</FONT>      
       </TD>    
 
   <!-- Left Column Ends -->
@@ -383,6 +383,104 @@
 </TABLE> 
 
     <!-- My Stats Ends --> 
+<!-- Invitational block -->    
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%"> 
+  <TR>
+    <TD COLSPAN="3" CLASS="bodyText" VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" HEIGHT="50"><FONT SIZE="3" FACE="verdana, arial, tahoma"><B>The 2002 TopCoder Invitational Champion is...</B></FONT></TD>
+  </TR>
+  <TR>
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+    <TD CLASS="bodyText" VALIGN="top" ><A HREF="/index?t=schedule&amp;c=invit02_sched"><IMG SRC="/i/invit02_logow.gif" ALT="" WIDTH="155" HEIGHT="105" HSPACE="6" ALIGN="left" BORDER="0"/></A> <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournaments&amp;c=invit02_champ</xsl:attribute><IMG SRC="/i/tournament/invit02/home_invt02champ.jpg" BORDER="0" WIDTH="250" HEIGHT="122" ALT=""/></A><BR/>
+<P><A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournaments&amp;c=invit02_champ</xsl:attribute><B>The Land Down Under comes out On Top!</B></A><BR/>
+by MaryBeth Biondi, <I>TopCoder Staff</I><BR/>
+Saturday, November 23, 2002</P>
+
+Due to an inaccuracy in one of the problem specifications, the four finalists were asked to 
+compete twice today as we sought to crown the 2002 TopCoder Invitational champion.  <B>John Dethridge</B> 
+became TopCoder's new highest rated member, defeating <B>SnapDragon</B>, <B>dgarthur</B>, and <B>moira</B> 
+in the Championship round...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournaments&amp;c=invit02_champ</xsl:attribute>read&#160;more</A><BR/><BR/>
+
+<B>Championship updates: </B> <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=tourney_semi</xsl:attribute>Advancer Stats</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournaments&amp;c=invit02_brackets</xsl:attribute>Brackets</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournaments&amp;c=invit02_champ</xsl:attribute>Summary</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournaments&amp;c=invit02_champ#photo</xsl:attribute>Photos</A>
+<BR/><BR/>
+<!--<B>When:</B> November 22nd and 23rd<BR/>
+<B>Where:</B> Mohegan Sun Casino in Uncasville, CT<BR/>
+<B>Total Prize:</B> $150,000<BR/>
+<A HREF="http://www.mohegansun.com/directions/index.jsp" TARGET="_blank">
+<IMG SRC="/i/spectator.gif" ALT="Invitational" WIDTH="200" HEIGHT="57" VSPACE="3" BORDER="0"/></A>
+
+<A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=authentication&amp;c=login</xsl:attribute>Login</A> to sign up!<BR/>
+<A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=invit02_sched</xsl:attribute>Get more details!</A><BR/>-->
+    </TD>
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+  </TR>
+  <TR>  
+    <TD COLSPAN="3" CLASS="bodyText" VALIGN="top" WIDTH="100%">
+<!-- tourney links -->    
+	<!-- <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="1">
+      <TR>
+        <TD COLSPAN="3" ALIGN="center" VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif">&#160;&#160;INVITATIONAL FEATURES</TD>
+      </TR>                    						
+	  <TR>
+		<TD WIDTH="33%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
+			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='invit02_pt1'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_pt2'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rnd2'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rnd3'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rnd4'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_semi'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_champ'">orangebv_bg</xsl:when>
+			<xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>		
+		<A HREF="/index?t=schedule&amp;c=tourney_semi" CLASS="statTextBig">Round Updates</A></TD>
+		<TD WIDTH="33%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
+			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='invit02_sched'">orangebv_bg</xsl:when><xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>		
+		<A HREF="/index?t=schedule&amp;c=invit02_sched" CLASS="statTextBig">Schedule</A></TD>
+		<TD WIDTH="33%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig">
+			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='tourny_rules_overview'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rules_overview'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rules_scoring'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rules_conditions'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rules_prizes'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rules_onsite'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rules_structure'">orangebv_bg</xsl:when>
+			<xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>	
+		<A HREF="/index?t=schedule&amp;c=invit02_rules_overview" CLASS="statTextBig">Rules</A></TD>
+	  </TR>
+    </TABLE> -->
+<!-- tourney links end -->     
+<!-- <B>Update:</B><BR/>
+The assignments for the first round of the tournament are now available.  Each part lists the assigned members alphabetically by handle.<BR/><BR/> -->
+
+
+    </TD>    
+  </TR>
+  <!-- <TR> 
+    <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
+    <TD VALIGN="top" CLASS="bodyText"><BR/>
+<FONT SIZE="3" FACE="verdana, arial, tahoma"><B>The Reception: A View from the Inside</B></FONT><BR/>
+In a scene reminiscent of Survivor, 16 finalists have gathered onsite to outwit, out-type and 
+out-code each other and, in the process, walk away with $50,000.  With the Melbourne University vs. 
+University of Waterloo rivalry alive on the international scene, and the question of whether Stanford 
+University will continue its dominance on the minds of the Americans, the 2002 TopCoder Invitational 
+is slated to be the most exciting onsite event yet.  Join me as the scene unfolds over the next two days...
+<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournaments&amp;c=invit02_reception</xsl:attribute>read&#160;more</A>
+
+<BR/><BR/>
+<B>Room 1</B>: 8AM (EST)(<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=invit02_sched</xsl:attribute>Get details</A>). Logon to view round activity.
+<BR/><BR/>
+    </TD>    
+    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
+  </TR> -->      
+  <TR>
+    <TD VALIGN="top" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
+  </TR>  
+  <TR>  
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" WIDTH="100%" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+  </TR> 
+</TABLE>
+
+<IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/>
 
 <!-- Summary/Best/Worst Begins -->         
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
@@ -392,14 +490,16 @@
   </TR>
 </TABLE>
 <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
-  <TR> 
+<TR> 
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" COLSPAN="3" CLASS="bodyText"><A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><B>Single Round Match 115</B></A><BR/>
-Monday, September 30, 2002<BR/><BR/> 
+        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><B>Single Round Match 121</B></A><BR/>
+Tuesday, November 26, 2002<BR/><BR/>
+
+
     </TD>    
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
-  </TR> 
+  </TR>
   <TR> 
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="33%" NOWRAP="0" HEIGHT="15">
@@ -456,10 +556,28 @@ Monday, September 30, 2002<BR/><BR/>
           <TR><TD COLSPAN="5" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"/></TD></TR>
        </TABLE>
     </TD>
-    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
   </TR>
-  <TR><TD COLSPAN="3" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"/></TD></TR>
+  
+<!-- Uncomment for invit02
+ 
+  <TR> 
+    <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
+    <TD VALIGN="top" COLSPAN="3" CLASS="bodyText"><BR/>
+<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=invit02_champ</xsl:attribute><B>G'day Mate!</B></A><BR/>
+by MaryBeth Biondi, <I>TopCoder Staff</I><BR/>
+
+<P>
+...
+<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournaments&amp;c=invit02_champ</xsl:attribute>read&#160;more</A>
+</P>
+    </TD>    
+    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
+  </TR> --> 
+  
+  <TR><TD COLSPAN="3" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"/></TD></TR>  
 </TABLE>
+
 <!-- Summary/Best/Worst Ends -->
 
 <!-- Coder Point of View Begins -->
@@ -470,45 +588,27 @@ Monday, September 30, 2002<BR/><BR/>
   </TR>  
   <TR>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
-    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> By&#160;ZorbaTHut<BR/><I>[TC]&#160;Member</I><BR/></TD>
+    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> 
+    By&#160;ZorbaTHut<BR/><I>[TC]&#160;Member</I><BR/></TD>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText" COLSPAN="2">
-    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>SRM 115</B></FONT>
+    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>SRM 121</B></FONT>
     </TD>
   </TR>      
   <TR>
     <TD VALIGN="top" CLASS="bodyText" WIDTH="100%">
 	<A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm115_prob</xsl:attribute>
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm121_prob</xsl:attribute>
         <B>Problem Set Analysis &amp; Opinion</B>
-      </A><BR/>
+      </A><BR/>	  
 <P>
-Last match before the invitational! Curiously enough, the match wasn't
-bigger than usual - if anything, it was smaller. I'm guessing a lot of
-people were holding on to their ratings, worried that they'd drop too far.
-Well, by now you've heard the news, whether it's good or bad for you, so
-I'll stop speculating and get down to the problems.
+Back to the old grind, and you know, after the invitational, all these
+problems seem curiously easy. But that's how it goes. Today provided one of
+the most quickly solvable problems I've ever seen, easily completable in two
+small lines of code, as well as a hard nasty one with only one functioning
+solution. It's also the first round I've seen with only four unique
+problems, as two of the problems were shared across divisions...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm121_prob</xsl:attribute>Get the analysis</A>
 </P>
-
-<P>
-SRM 115 had a nice selection of problems, none spectacularly hard or
-spectacularly easy. The Division-I Level Two problem proved extremely quick
-for many people if they knew the solution from past Topcoder rounds. The
-Level Three problems in both divisions were extremely difficult, with a
-total of nine people from both divisions getting their Level Three.
-</P>
-
-	  <P>
-The only oddity problem-wise was a surprisingly low success rate on the
-Division-II Level One problem, due to some tricky calculations and rather
-odd rules. As for solutions, I find it worth pointing out that despite the
-fastest successful submissions on the Level One and Level Two problems, I
-still ended up in third place due to some ghastly bugs on my Level Three
-problem, <B>Yarin</B> and <B>NDBronson</B> both beating me - though in <B>NDBronson</B>'s case,
-this was augmented by a successful challenge.... 
-	  <A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm115_prob</xsl:attribute>get&#160;analysis
-      </A></P>
     </TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>     
   </TR>
@@ -526,20 +626,30 @@ this was augmented by a successful challenge....
 <P><BR/></P>
      </TD>
   <!-- Center Column Ends -->    
-    <TD BGCOLOR="#001935" VALIGN="top" CLASS="statText" WIDTH="244"><IMG SRC="/i/clear.gif" ALT="" WIDTH="244" HEIGHT="1" BORDER="0"/><BR/>
-<A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
-<IMG SRC="/i/tces_promo.gif" alt="" width="244" height="77" border="0"/></A><BR/>
+    <TD BGCOLOR="#001935" VALIGN="top" CLASS="statText" WIDTH="244"><IMG SRC="/i/clear.gif" ALT="" WIDTH="244" HEIGHT="1" BORDER="0"/><BR/> 
+<!--SRM Sponsor Starts-->
 
-<!--
-<A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=apex</xsl:attribute></A>  
-<IMG USEMAP="#apex_home" SRC="/i/es/apex/apex_home.gif" alt="" width="244" height="160" border="0"/>  
+<IMG SRC="/i/srm_home.gif" WIDTH="244" HEIGHT="250" ALT="" BORDER="0" USEMAP="#srm_home"/><MAP NAME="srm_home">
+<AREA ALT="" COORDS="124,28,228,90" HREF="/?&amp;t=tces&amp;c=fbi"/>
+<AREA ALT="" COORDS="141,160,224,187" HREF="/?&amp;t=schedule&amp;c=srm_spon_artifact"/>
+<AREA ALT="" SHAPE="POLY" COORDS="23,193,112,193,121,201,234,201,234,240,38,240,12,216,12,193" HREF="/?RoundId=4400&amp;t=schedule&amp;c=srm"/>
+</MAP>
+
+<!--<IMG USEMAP="#cryptic_home" SRC="/i/es/cryptic/cryptic_home.gif" alt="" width="244" height="160" border="0"/>  
   <BR/>
-<map name="apex_home">
-<area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?&amp;c=last_match"/>
-<area alt="" shape="poly" coords="225,88,124,89,106,77,8,77,9,31,230,30" href="/?&amp;t=tces&amp;c=apex"/>
-</map> 
--->
-  
+<MAP NAME="cryptic_home">
+<AREA ALT="Cryptic Studios" SHAPE="poly" COORDS="17,33,17,60,141,60,141,92,228,92,228,25,17,25" HREF="/?&amp;t=tces&amp;c=cryptic"/>
+<AREA ALT="" SHAPE="poly" COORDS="229,104,120,105,105,94,11,95,10,120,36,146,229,148" HREF="/?RoundId=4380&amp;t=schedule&amp;c=srm"/> 
+<AREA ALT="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?&amp;c=last_match"/>
+</MAP>-->
+<!--SRM Sponsor Ends-->
+<!-- <A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
+<IMG SRC="/i/tces_promo.gif" alt="" width="244" height="77" border="0"/></A> -->
+<A HREF="/?&amp;t=development&amp;c=components">
+<IMG SRC="/i/tcs_board.gif" ALT="TCS" WIDTH="244" HEIGHT="156" VSPACE="1" BORDER="0"/></A>
+<!-- <A HREF="/?&amp;t=news_events&amp;c=pr_10_22_02">
+<IMG SRC="/i/tces_quote.gif" ALT="TCES" WIDTH="244" HEIGHT="156" BORDER="0"/></A> -->
+ 
 <IMG SRC="/i/clear.gif" ALT="" WIDTH="244" HEIGHT="1" BORDER="0"/>
      <xsl:choose>
      <xsl:when test="number(/TC/Rating)&lt;1200"> 
@@ -577,15 +687,13 @@ this was augmented by a successful challenge....
                 </TD>
               </TR>               
             </TABLE><BR/>
-<A HREF="/?&amp;t=schedule&amp;c=2002sun_sched">
-<IMG SRC="/i/2002sn_winner.gif" ALT="SunNetwork Coding Challenge" WIDTH="244" HEIGHT="156" VSPACE="5" BORDER="0"/></A>            
-<A HREF="/stat?c=member_profile&amp;cr=296745" CLASS="coderTextRed">
-<IMG SRC="/i/codermonth_sept.gif" ALT="Coder of the Month" WIDTH="244" HEIGHT="156" VSPACE="0" BORDER="0"/></A>
+<!-- <A HREF="/?&amp;t=schedule&amp;c=2002sun_sched">
+<IMG SRC="/i/2002sn_winner.gif" ALT="SunNetwork Coding Challenge" WIDTH="244" HEIGHT="156" VSPACE="5" BORDER="0"/></A> -->           
+<A HREF="/stat?c=member_profile&amp;cr=302185">
+<IMG SRC="/i/codermonth_nov.gif" ALT="Coder of the Month" WIDTH="244" HEIGHT="156" VSPACE="10" BORDER="0"/></A>
     </TD>
 <!-- Body Area Ends -->
   </TR>   
 </TABLE>
   </xsl:template>
 </xsl:stylesheet>
-
-

@@ -75,7 +75,11 @@
                     <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">            
                        <TR>
                           <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="75" BORDER="0"/></TD>
-                          <TD BACKGROUND="/i/top_div1_badge.jpg" WIDTH="100%" BGCOLOR="#333333"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="75" BORDER="0"/></TD>
+                          <TD WIDTH="100%" BGCOLOR="#333333">
+            <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
+			<xsl:when test="number(/TC/Rating)&lt;1200">top_div2_badge</xsl:when>
+			<xsl:otherwise>top_div1_badge</xsl:otherwise></xsl:choose>.jpg</xsl:attribute>                   
+                          <IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="75" BORDER="0"/></TD>
                           <TD CLASS="time" ALIGN="right" VALIGN="middle" WIDTH="150" BGCOLOR="#333333"><IMG SRC="/i/clear.gif" WIDTH="150" HEIGHT="1" BORDER="0"/><BR/>
                              <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">            
                                 <TR>

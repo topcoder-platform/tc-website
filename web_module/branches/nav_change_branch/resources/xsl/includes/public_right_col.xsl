@@ -5,6 +5,7 @@
   <xsl:import href="modules/my_stats.xsl"/>
   <!-- <xsl:import href="../includes/modules/module_login.xsl"/> -->   
   <xsl:template name="public_right_col">
+  <IMG ALT="" WIDTH="1" HEIGHT="3" SRC="/i/clear.gif" BORDER="0"/><BR/>
   <xsl:call-template name="calendar"/>  
                 <!-- <xsl:choose>
                   <xsl:when test="/TC/LoggedIn='true'">

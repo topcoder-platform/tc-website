@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-  <xsl:import href="../includes/stats/public_stats_left.xsl"/> 
+  <xsl:import href="../includes/global_left.xsl"/> 
   <xsl:import href="../script.xsl"/>
   <xsl:template match="/">
     <HTML>
@@ -13,7 +13,7 @@
         <META NAME="keywords" CONTENT="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
       </HEAD> 
       <BODY BGCOLOR="#CCCCCC" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">      	
-  <xsl:call-template name="public_stats_left"/>
+  <xsl:call-template name="global_left"/>
       </BODY>
     </HTML>
   </xsl:template>

@@ -10,7 +10,7 @@
   <xsl:import href="../includes/modules/coder_week.xsl"/>
   <xsl:import href="../includes/modules/practice_room.xsl"/>
   <xsl:import href="../includes/modules/calendar.xsl"/>
-  <xsl:import href="../includes/stats/public_stats_left.xsl"/> 
+  <xsl:import href="../includes/global_left.xsl"/> 
   <xsl:import href="../includes/public_right_col.xsl"/>     
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
@@ -27,10 +27,10 @@
         <TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
           <TR>
             <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
-              <xsl:call-template name="public_stats_left"/>
+              <xsl:call-template name="global_left"/>
             </TD>
-            <TD WIDTH="4" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8" BORDER="0"/></TD>
-            <TD class="bodyText" width="100%" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="240" height="1" VSPACE="5" BORDER="0"/><BR/>
+            <TD WIDTH="4" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/table_top_fill.gif" WIDTH="4" HEIGHT="26" BORDER="0"/></TD>
+            <TD CLASS="bodyText" WIDTH="100%" bgcolor="#FFFFFF" valign="top">
               <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1">steelblue</xsl:with-param>
                 <xsl:with-param name="image">statistics</xsl:with-param>

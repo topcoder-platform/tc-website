@@ -6,4 +6,4 @@
 
 
 
-<jsp:include page="../my_features.jsp"/>
+

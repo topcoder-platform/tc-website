@@ -75,7 +75,11 @@
                     <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">            
                        <TR>
                           <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="75" BORDER="0"/></TD>
-                          <TD BACKGROUND="/i/top_div1_badge.jpg" WIDTH="100%" BGCOLOR="#333333"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="75" BORDER="0"/></TD>
+                          <TD WIDTH="100%" BGCOLOR="#333333">
+            <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
+			<xsl:when test="number(/TC/Rating)&lt;1200">top_div2_badge</xsl:when>
+			<xsl:otherwise>top_div1_badge</xsl:otherwise></xsl:choose>.jpg</xsl:attribute>                   
+                          <IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="75" BORDER="0"/></TD>
                           <TD CLASS="time" ALIGN="right" VALIGN="middle" WIDTH="150" BGCOLOR="#333333"><IMG SRC="/i/clear.gif" WIDTH="150" HEIGHT="1" BORDER="0"/><BR/>
                              <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">            
                                 <TR>
@@ -96,18 +100,19 @@
                                 <TR>
                                    <TD class="time" HEIGHT="18" VALIGN="middle" ALIGN="center">                                                                         
     <form name="selectform">
-      <select name="myfeatures" size="1" class="dropdown" onchange="goTo(this)">
+      <!-- <select name="myfeatures" size="1" class="dropdown" onchange="goTo(this)"> -->
+<select name="quickstat" size="1" class="dropdown" onchange="window.location=this.options[this.selectedIndex].value">      
         <OPTION value="SELECTED"> Select a Feature: </OPTION>
-        <OPTION value="alltimewin">&#160;Profile</OPTION>
-        <OPTION value="winningdebuts">&#160;Ratings History</OPTION>
-        <OPTION value="impressivedebuts">&#160;Earnings History</OPTION>
-        <OPTION value="hightesttotal">&#160;Room Statistics</OPTION>
-        <OPTION value="ratingpointgain">&#160;Round Statistics</OPTION>	
-        <OPTION value="consecwins">&#160;Advanced Member Search</OPTION>
-        <OPTION value="submissionaccuracy">&#160;Affidavits</OPTION>
-        <OPTION value="challengesuccess">&#160;My Referrals</OPTION>
-        <OPTION value="challengesuccess">&#160;Development</OPTION>
-        <OPTION value="challengesuccess">&#160;TCES (jobs)</OPTION>
+        <OPTION><xsl:attribute name="value">/stat?c=member_profile&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>Profile</OPTION>
+        <OPTION><xsl:attribute name="value">/stat?c=ratings_history&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>Rating History</OPTION>
+        <OPTION><xsl:attribute name="value">/stat?c=earnings_history&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>Earnings History</OPTION>
+        <OPTION><xsl:attribute name="value">/stat?c=coder_room_stats&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>Room Statistics</OPTION> 
+        <OPTION><xsl:attribute name="value">/stat?c=round_stats</xsl:attribute>Round Statistics</OPTION>
+        <OPTION><xsl:attribute name="value">/index?t=search</xsl:attribute>Advanced Member Search</OPTION> 
+        <OPTION><xsl:attribute name="value">/PactsMemberServlet</xsl:attribute>Affidavits</OPTION> 
+        <OPTION><xsl:attribute name="value">/index?t=search&amp;c=refer</xsl:attribute>My Referrals</OPTION>
+        <OPTION><xsl:attribute name="value">/index?t=development&amp;c=index</xsl:attribute>Development</OPTION>
+        <OPTION><xsl:attribute name="value">/index?t=tces&amp;c=index</xsl:attribute>TCES (jobs)</OPTION> 
       </select>
     </form>
                                    </TD>                                   

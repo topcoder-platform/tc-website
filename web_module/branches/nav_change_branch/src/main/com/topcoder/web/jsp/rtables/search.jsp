@@ -43,7 +43,7 @@
         <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
           <!-- Left Column Include Begins -->
           <!-- Global Seconday Nav Begins -->
-          <%@ include file="left.jsp" %>
+         <%@ include file="../includes/global_left.jsp" %>
           <!-- Global Seconday Nav Ends -->
           <!-- Left Column Include Ends -->
         </TD>
