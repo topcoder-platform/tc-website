@@ -68,7 +68,7 @@ abstract class FullRegConfirm extends FullRegBase {
         try {
             for (Iterator it = ((FullRegInfo) info).getResponses().iterator(); it.hasNext();) {
                 r = (DemographicResponse) it.next();
-                q = findQuestion(r.getQuestionId());
+                q = findQuestion(r.getQuestionId(), questions);
                 if (q.getAnswerType() == DemographicQuestion.SINGLE_SELECT ||
                         q.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
                     if (!validResponse(r)) {
