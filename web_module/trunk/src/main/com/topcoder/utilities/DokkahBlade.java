@@ -11,17 +11,17 @@ public class DokkahBlade {
   private static java.sql.Connection conn = null;
 
   public static void main(String[] args) {
-
-    if (args.length != 1) {
+//  7-26-2002 changed to allow multiple search terms- Lars
+/*    if (args.length != 1) {
       System.out.println("use: java DokkahBlade <SearchTerm>");
       System.exit(1);
-    }   
+    }*/
     try {
       Class.forName(_informixDriver);
       conn = DriverManager.getConnection(_connectString);
 
       DokkahBlade db = new DokkahBlade();
-      ArrayList a = db.find(conn, args[0]);
+      ArrayList a = db.find(conn, args);
       for (int i=0; i<a.size(); i++) {
         System.out.println(a.get(i));
       } 
@@ -33,7 +33,7 @@ public class DokkahBlade {
 
   }
  
-  private ArrayList find(java.sql.Connection conn, String term) {
+  private ArrayList find(java.sql.Connection conn, String[] terms) {
     PreparedStatement ps = null;
     ResultSet rs = null;
     StringBuffer query = null;
@@ -41,6 +41,8 @@ public class DokkahBlade {
     Problem p = null;
   
     try {
+      for(int i = 0; i<terms.length;i++)
+        terms[i] = terms[i].toLowerCase();
       query = new StringBuffer(100);
       query.append( " SELECT problem_id");
       query.append(        " ,class_name");
@@ -53,7 +55,7 @@ public class DokkahBlade {
    
       ret = new ArrayList();
       while(rs.next()) {
-        if (found(rs.getString("problem_text"), term)) {
+        if (found(rs.getString("problem_text"), terms)) {
           p = new Problem(rs.getInt("problem_id"), 
                           rs.getString("class_name"),
                           rs.getString("method_name"),
@@ -71,9 +73,13 @@ public class DokkahBlade {
     return ret;
 
   }
-  private boolean found(String text, String term) {
-    if (text!=null && text.toLowerCase().indexOf(term.toLowerCase())>-1) return true;
-    else return false;
+  private boolean found(String text, String[] terms) {
+//  7-26-2002 changed to allow multiple search terms- Lars
+    if(text==null)return false;
+    text = text.toLowerCase();
+    for(int i = 0; i<terms.length;i++)
+      if(text.indexOf(terms[i])==-1) return false;
+    return true;
   }
 
   private void printSqlException(boolean verbose, SQLException sqle) {
