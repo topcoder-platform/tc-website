@@ -52,9 +52,9 @@
                 <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="post" name="problemForm" target="_top">
                     <tc-webtag:hiddenInput name="<%=Constants.COMPANY_ID%>"/>
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE%>"/>
-                    <tc-webtag:hiddenInput name="<%=Constants.COMPONENT_ID%>" value="<%=problemInfo.getComponentId()%>"/>
-                    <tc-webtag:hiddenInput name="<%=Constants.PROBLEM_TYPE_ID%>" value="<%=problemInfo.getProblemTypeId()%>"/>
-                    <tc-webtag:hiddenInput name="<%=Constants.LANGUAGE_ID%>" value="<%=language.getId()%>"/>
+                    <tc-webtag:hiddenInput name="<%=Constants.COMPONENT_ID%>" value="<%=String.valueOf(problemInfo.getComponentId())%>"/>
+                    <tc-webtag:hiddenInput name="<%=Constants.PROBLEM_TYPE_ID%>" value="<%=String.valueOf(problemInfo.getProblemTypeId())%>"/>
+                    <tc-webtag:hiddenInput name="<%=Constants.LANGUAGE_ID%>" value="<%=String.valueOf(language.getId())%>"/>
 
                     <table cellspacing=0 cellpadding=0 border=0 width="100%">
                        <tr>

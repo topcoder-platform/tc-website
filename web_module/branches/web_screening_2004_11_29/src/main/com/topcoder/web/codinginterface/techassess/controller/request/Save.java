@@ -26,7 +26,7 @@ public class Save extends Base {
             long componentId = 0;
             int problemTypeId = 0;
             int languageId = 0;
-            String code = null;
+            String code = "";
 
             if (hasParameter(Constants.COMPONENT_ID)) {
                 componentId = Long.parseLong(getRequest().getParameter(Constants.COMPONENT_ID).trim());
@@ -41,16 +41,13 @@ public class Save extends Base {
             }
 
             if (hasParameter(Constants.LANGUAGE_ID)) {
-                problemTypeId = Integer.parseInt(getRequest().getParameter(Constants.LANGUAGE_ID).trim());
+                languageId = Integer.parseInt(getRequest().getParameter(Constants.LANGUAGE_ID).trim());
             } else {
                 throw new NavigationException("Invalid Request, missing parameter");
             }
 
-            if (hasParameter(Constants.CODE)) {
-                problemTypeId = Integer.parseInt(getRequest().getParameter(Constants.CODE).trim());
-            } else {
-                throw new NavigationException("Invalid Request, missing parameter");
-            }
+            if (hasParameter(Constants.CODE))
+                code = getRequest().getParameter(Constants.CODE);
 
 
             ScreeningSaveRequest request = new ScreeningSaveRequest(componentId, problemTypeId, languageId, code);
