@@ -7,7 +7,7 @@
         com.topcoder.web.common.security.SessionPersistor,
         com.topcoder.web.common.security.BasicAuthentication,
         com.topcoder.web.corp.model.SessionInfo,
-        com.topcoder.shared.util.ApplicationServer" 
+        com.topcoder.shared.util.ApplicationServer"
     %>
 <%
     String isHomePage = request.getParameter("isHomePage")==null?"":request.getParameter("isHomePage");
@@ -23,9 +23,8 @@
     <tr>
         <td class=homeTopBar>
 		<span class="time">Current Member Count</span>
-		&#160;:&#160; <%=new DecimalFormat("#,##0").format(dcHome.getMemberCount())%> - 
+		&#160;:&#160; <%=new DecimalFormat("#,##0").format(dcHome.getMemberCount())%> -
 		<span class="time"><jsp:include page="../../date_time.jsp" /></span>
-		<a href="Javascript:tcTime()" class="statText">&#160;<strong>[Get Time]</strong></a>
 		</td>
         <td class=homeTopBar width="100%" align=right>
 <% if (sessionInfo.isAnonymous()) {  // no logged user %>

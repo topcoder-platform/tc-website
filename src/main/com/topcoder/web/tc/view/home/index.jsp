@@ -27,7 +27,7 @@
 			<tr>
                 <td class=homeTopBar align=left>
                     <span class=time>Current Member Count</span>&#160;:&#160; <%=new DecimalFormat("#,##0").format(sessionInfo.getMemberCount())%> -
-                    <tc:format object="<%=sessionInfo.getDate()%>" format="MMMM d, yyyy"/><a href="Javascript:w=window.open('/contest/time.html','Time','top=2,left=2,width=250,height=50,status=1');return;" class="statText">&#160;<strong>[Get Time]</strong></a>
+                    <tc:format object="<%=sessionInfo.getDate()%>" format="MMMM d, yyyy"/>
                 </td>
 				<td class=homeTopBar align=right><A href="/?t=about_tc&c=index" class="loginLinks">About TopCoder</A></td>
 			</tr>
