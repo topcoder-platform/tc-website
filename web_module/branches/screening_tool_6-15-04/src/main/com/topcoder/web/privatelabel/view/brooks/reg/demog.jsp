@@ -50,21 +50,19 @@
                                     <pl:demographicInput question="<%=question%>"/>
                                 </td>
                            </tr>
+                           <tr>
+                                <td class="brRegTableQuestion">
+                                    <span class="brErrorText"><b>OPTIONAL:</b></span> Resume
+                                </td>
+                                <td class="brRegTableAnswer">
+                                    <input type=file name="Resume">
+                                </td>
+                           </tr>
                         </pl:questionIterator>
-                        <tr>
-                            <td class="brErrorText" colspan="2"></td>
-                        </tr>
-                        <tr>
-                            <td class="brRegTableQuestion">Question</td>
-                            <td class="brRegTableAnswer">Answer</td>
-                        </tr>
                         <tr>
                             <td class="brRegTableQuestion"></td>
                             <td class="brRegTableAnswer" nowrap=nowrap>
-                            <br/><a class="brRegTableAnswer" href="/pl/?&module=Static&d1=brooks&d2=reg&d3=confirm">Submit</a>
-                            <br/><br/>
-
-                            <span class="brErrorText"><b>OPTIONAL:</b></span> If you would like to upload a resume, click <a class="brRegTableAnswer" href="/">here</a></p>
+                            <br/><a class="brRegTableAnswer" href="javascript: document.regForm.submit();">Submit</a>
                             </td>
                         </tr>
                         </table>
