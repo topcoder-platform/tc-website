@@ -61,7 +61,7 @@
             </xsl:call-template>
         
 <!-- TCO Header -->
-            <div align="center"><img src="/i/tournament/tco03/header_tco_main.gif" alt="2003 TopCoder Open" width="494" height="119" border="0" vspace="15" /></div>
+            <div align="center"><img src="/i/tournament/tco03/tco_promo_big2.gif" alt="2003 TopCoder Open" width="550" height="240" border="0" vspace="15" /></div>
 
 <!-- Tab bar suplinks-->
             <xsl:call-template name="tco03_suplinks">
