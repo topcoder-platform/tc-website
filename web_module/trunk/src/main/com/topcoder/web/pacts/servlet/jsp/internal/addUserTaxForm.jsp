@@ -24,12 +24,18 @@
 	if (message == null) {
 		message = "";
 	}
+	String DateFiled = request.getParameter("date_filed");
+	if (DateFiled == null) DateFiled = "";
+	long tf = -1;
+	try { tf = Long.parseLong(request.getParameter("tax_form_id")); } catch (Exception e) {}
+	int status = -1;
+	try { status = Integer.parseInt(request.getParameter("status_id")); } catch (Exception e) {}
 %>
 
 <h1>PACTS</h1>
 <h2>Add User Tax Form</h2>
 
-<%		out.print("<text color=\"red\">" + message + "</text>");
+<%		out.print("<font color=\"#FF0000\">" + message + "</font>");
 		out.print("<form action=\"" + PactsConstants.INTERNAL_SERVLET_URL);
 		out.print("\" method=\"post\"><input type=\"hidden\" name=\"");
 		out.print(PactsConstants.USER_ID+"\" value=\""+user._id+"\">");
@@ -57,17 +63,19 @@
 		<select name="status_id">
 <%		int rowCount;
 		String s;
+		long s_id;
 		ResultSetContainer.ResultSetRow rsr;
 		if (stati != null) {
 			rowCount = stati.getRowCount();
 			for (int n = 0; n < rowCount; n++) {
 				rsr = stati.getRow(n);
 				out.print("<option value=");
-				out.print("" + TCData.getTCInt(rsr,"status_id",0,true));
+				s_id = TCData.getTCInt(rsr,"status_id",0,true);
+				out.print(s_id);
 				s = TCData.getTCString(rsr,"status_desc","default status",true);
-				if (s.equals(PactsConstants.DEFAULT_USER_TAX_FORM_STATUS)) {
+				if (status < 0 && s.equals(PactsConstants.DEFAULT_USER_TAX_FORM_STATUS)) {
 					out.print(" selected");
-				}
+				} else if (status == s_id) out.print(" selected");
 				out.print(">" + s + "</option>\n");
 			}
 		}
@@ -83,9 +91,9 @@
 				out.print("<option value=");
 				out.print("" + taxforms[n]._id);
 				s = taxforms[n]._name;
-				if (s.equals(PactsConstants.DEFAULT_USER_TAX_FORM)) {
+				if (tf < 0 && s.equals(PactsConstants.DEFAULT_USER_TAX_FORM)) {
 					out.print(" selected");
-				}
+				} else if (tf == taxforms[n]._id) out.print(" selected");
 				out.print(">" + s + "</option>\n");
 			}
 %>
@@ -94,14 +102,13 @@
 		</tr>
 		<tr>
 		<td><b>Date Filed:</b></td>
-		<td><input type="text" name="date_filed"></td>
+<%		out.print("<td><input type=\"text\" name=\"date_filed\" value=\""+DateFiled+"\"></td>"); %>
 		</tr>
 	</table>
 
 <input type=submit>
 </form>
-<jsp:include page="/InternalFooter.jsp" flush="true" />
-
+<jsp:include page="/pacts/internal/InternalFooter.jsp" flush="true" />
 </body>
 
 </html>

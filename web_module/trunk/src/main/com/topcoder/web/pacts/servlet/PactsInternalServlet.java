@@ -2879,7 +2879,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 		}
 
 		// check for birthday parameter, if it is not there get it from the affidavit
-		if(birthday == null) {
+		if(birthday == null || birthday.equals("")) {
 		    log.debug("did not get the birthday in affidavit affirmation");
 		    birthday  = a.affidavit._birthday;
 		}

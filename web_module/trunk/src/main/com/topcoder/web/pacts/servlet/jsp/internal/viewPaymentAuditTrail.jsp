@@ -28,7 +28,9 @@
 <%		if (payments.length != 0) {
 %>
 		<table border="0" cellpadding="5" cellspacing="5">
-		<tr>
+		<tr><td><b>ID:</b></td><td>
+<%		out.print(payments[0]._header._id);	%>	
+		</td></tr><tr>
 		<td><b>User:</b></td>
 <% 			out.print("<td><a href=\"");
 			out.print(PactsConstants.INTERNAL_SERVLET_URL);
@@ -84,7 +86,7 @@
 				out.println(payments[n]._address1);
 				out.println(payments[n]._address2);
 				out.print(payments[n]._city+", "+payments[n]._state+" (");
-				out.print(payments[n]._stateCode+") "+payments[n]._zip+", ");
+				out.println(payments[n]._stateCode+") "+payments[n]._zip);
 				out.print(payments[n]._country+" ("+payments[n]._countryCode+")");
 				out.print("</pre></td>\n");
 			}
@@ -148,7 +150,7 @@
    }
 %>
 
-<jsp:include page="/InternalFooter.jsp" flush="true" />
+<jsp:include page="/pacts/internal/InternalFooter.jsp" flush="true" />
 
 </body>
 

@@ -30,7 +30,7 @@ function goTo(selection){
    <TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
      <TR>
        <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
-         <%@ include file="/pacts/client/Pacts_left.jsp" %>
+         <%@ include file="/Pacts_left.jsp" %>
        </TD>
        <TD WIDTH="4" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8" BORDER="0"></TD>
        <TD CLASS="statText" WIDTH="100%" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="1" VSPACE="5" BORDER="0"><BR/>
@@ -71,7 +71,7 @@ function goTo(selection){
 	    	href = PactsHtmlHelpers.createPactsHtmlHref(
 	            PactsConstants.MEMBER_SERVLET_URL,
 	            vec, PactsConstants.AFFIDAVIT_TASK, 
-	            PactsConstants.AFFIDAVIT_HISTORY_CMD, str, "statText");
+	            PactsConstants.AFFIDAVIT_HISTORY_CMD, str);
 		out.print(href);
 	}
 	out.print("</p>");
@@ -109,7 +109,7 @@ function goTo(selection){
 	    href = PactsHtmlHelpers.createPactsHtmlHref(
 	            PactsConstants.MEMBER_SERVLET_URL,
 	            vec, PactsConstants.AFFIDAVIT_TASK, 
-	            PactsConstants.AFFIDAVIT_DETAILS_CMD, str, "statText");
+	            PactsConstants.AFFIDAVIT_DETAILS_CMD, str);
 	    tableData.setElement(i,1,href);
 	    
 	    // payment

@@ -70,6 +70,9 @@ public interface PactsConstants {
     // Status of active coder in the user table
     public static final String ACTIVE_CODER_STATUS = "A";
 
+    // How long database queries wait for a table lock to clear, in seconds
+    public static final int LOCK_TIMEOUT_VALUE = 10;
+    
     // Account names
     public static final String CONTEST_ACCOUNT = "Prize Money";
     public static final String CONTRACTOR_ACCOUNT = "IT:IT Salaries:Independent contractor work";
@@ -88,14 +91,6 @@ public interface PactsConstants {
     // Tax form names of interest
     public static final String W9_TAX_FORM = "W-9";
     public static final String W8BEN_TAX_FORM = "W-8BEN";
-
-    // "File" locations.  These point to Strings with the relevant information.
-    /*
-    public static final String JNDI_PAYMENT_FILE_NAME =
-        "com.topcoder.web.pacts.ejb.PactsServices.PaymentFile";
-    public static final String JNDI_VENDOR_FILE_NAME =
-        "com.topcoder.web.pacts.ejb.PactsServices.VendorFile";
-    */
 
     // Date format string - the database routines will expect date strings
     // in this format.  Matt and Sam - feel free to change this if you want

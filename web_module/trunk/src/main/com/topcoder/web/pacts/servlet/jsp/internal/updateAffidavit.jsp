@@ -25,6 +25,19 @@
 		request.getAttribute("message");
 	if (message == null) {
 		message = "";
+	} else if (affidavit != null) {
+		String param;
+		param = request.getParameter(PactsConstants.IS_NOTARIZED);
+		if (param != null && param.equals("true")) affidavit._header._notarized = true;
+		if (param != null && param.equals("false")) affidavit._header._notarized = false;
+		param = request.getParameter("affidavit_status_id");
+		try { if (param != null) affidavit._header._statusID = Integer.parseInt(param); } catch (Exception e) {}
+		param = request.getParameter("affidavit_type_id");
+		try { if (param != null) affidavit._header._typeID = Integer.parseInt(param); } catch (Exception e) {}
+		param = request.getParameter("round_id");
+		try { if (param != null) affidavit._roundID = new Long(Long.parseLong(param)); } catch (Exception e) {}
+		param = request.getParameter("affidavit_desc");
+		if (param != null) affidavit._description = param;	
 	}
 	if (affidavit == null) {
 		out.println("no affidavit!!!<br>");
@@ -35,7 +48,7 @@
 <h1>PACTS</h1>
 <h2>Update Affidavit</h2>
 
-<%		out.print("<text color=\"red\">" + message + "</text>");
+<%		out.print("<font color=\"#FF0000\">" + message + "</font>");
 		out.print("<form action=\"" + PactsConstants.INTERNAL_SERVLET_URL);
 		out.print("\" method=\"post\">");
 
@@ -141,8 +154,7 @@
 
 <input type=submit>
 </form>
-<jsp:include page="/InternalFooter.jsp" flush="true" />
-
+<jsp:include page="/pacts/internal/InternalFooter.jsp" flush="true" />
 </body>
 
 </html>

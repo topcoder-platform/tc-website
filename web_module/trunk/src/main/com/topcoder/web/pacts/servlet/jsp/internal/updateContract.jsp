@@ -25,6 +25,22 @@
 		request.getAttribute("message");
 	if (message == null) {
 		message = "";
+	} else if (contract != null) {
+		String param;
+		param = request.getParameter("name");
+		if (param != null) contract._header._name = param;
+		param = request.getParameter("contract_desc");
+		if (param != null) contract._description = param;
+		param = request.getParameter("start_date");
+		if (param != null) contract._startDate = param;
+		param = request.getParameter("end_date");
+		if (param != null) contract._endDate = param;
+		param = request.getParameter("text");
+		if (param != null) text = param;
+		param = request.getParameter("status_id");
+		try { if (param != null) contract._header._statusId = Integer.parseInt(param); } catch (Exception e) {}
+		param = request.getParameter("contract_type_id");
+		try { if (param != null) contract._header._typeID = Integer.parseInt(param); } catch (Exception e) {}
 	}
 	if (contract == null) {
 		out.println("no contract!!!<br>");
@@ -35,7 +51,7 @@
 <h1>PACTS</h1>
 <h2>Update Contract</h2>
 
-<%		out.print("<text color=\"red\">" + message + "</text>");
+<%		out.print("<font color=\"#FF0000\">" + message + "</font>");
 		out.print("<form action=\"" + PactsConstants.INTERNAL_SERVLET_URL);
 		out.print("\" method=\"post\">");
 
@@ -126,8 +142,7 @@
 
 <input type=submit>
 </form>
-<jsp:include page="/InternalFooter.jsp" flush="true" />
-
+<jsp:include page="/pacts/internal/InternalFooter.jsp" flush="true" />
 </body>
 
 </html>

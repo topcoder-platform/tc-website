@@ -23,13 +23,34 @@
 		request.getAttribute("message");
 	if (message == null) {
 		message = "";
+	} else if (taxForm != null) {
+		String param;
+		param = request.getParameter("name");
+		if (param != null) taxForm._header._name = param;
+		param = request.getParameter("tax_form_desc");
+		if (param != null) taxForm._description = param;
+		param = request.getParameter("default_withholding_amount");
+		try { if (param != null) taxForm._defaultWithholdingAmount = Double.parseDouble(param); } catch (Exception e) {}
+		param = request.getParameter("default_withholding_percentage");
+		try { if (param != null) taxForm._defaultWithholdingPercentage = Float.parseFloat(param); } catch (Exception e) {}
+		param = request.getParameter("status_id");
+		try { if (param != null) taxForm._genericFormStatusID = Integer.parseInt(param); } catch (Exception e) {}
+		param = request.getParameter("text");
+		if (param != null) text = param;
+		param = request.getParameter("default_use_percentage");
+		if (param != null && param.equals("true")) taxForm._defaultUsePercentage = true;
+		if (param != null && param.equals("false")) taxForm._defaultUsePercentage = false;
+	}
+	if (taxForm == null) {
+		out.println("No Tax Form!!!<br>");
+		taxForm = new TaxForm();
 	}
 %>
 
 <h1>PACTS</h1>
 <h2>Update General Tax Form</h2>
 
-<%		out.print("<text color=\"red\">" + message + "</text>");
+<%		out.print("<font color=\"#FF0000\">" + message + "</font>");
 		out.print("<form action=\"" + PactsConstants.INTERNAL_SERVLET_URL);
 		out.print("\" method=\"post\">");
 
@@ -95,8 +116,7 @@
 
 <input type=submit>
 </form>
-<jsp:include page="/InternalFooter.jsp" flush="true" />
-
+<jsp:include page="/pacts/internal/InternalFooter.jsp" flush="true" />
 </body>
 
 </html>

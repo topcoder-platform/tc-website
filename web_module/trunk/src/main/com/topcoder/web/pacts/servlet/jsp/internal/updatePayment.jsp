@@ -25,11 +25,39 @@
 		request.getAttribute("message");
 	if (message == null) {
 		message = "";
+	} else if (payment != null) {
+		String param;
+		param = request.getParameter("status_id");
+		try { if (param != null) payment._header._recentStatusID = Integer.parseInt(param); } catch (Exception e) {}
+		param = request.getParameter("payment_desc");
+		if (param != null) payment._header._description = param;
+		param = request.getParameter("date_printed");
+		if (param != null) payment._printDate = param;
+		param = request.getParameter("date_paid");
+		if (param != null) payment._payDate = param;
+		param = request.getParameter("date_due");
+		if (param != null) payment._dueDate = param;
+		param = request.getParameter("payment_type_id");
+		try { if (param != null) payment._header._typeID = Integer.parseInt(param); } catch (Exception e) {}
+		param = request.getParameter("net_amount");
+		try { if (param != null) payment._netAmount = Double.parseDouble(param); } catch (Exception e) {}
+		param = request.getParameter("gross_amount");
+		try { if (param != null) payment._grossAmount = Double.parseDouble(param); } catch (Exception e) {}
 	}
+	if (payment == null) {
+		out.print("No Payment!!!<br>");
+		payment = new Payment();
+	}
+	int my_rationale = -1;
+	try { my_rationale = Integer.parseInt(request.getParameter("modification_rationale_id")); } catch (Exception e) {}
 %>
 
 <h1>PACTS</h1>
 <h2>Update Payment</h2>
+
+<font color="#FF0000">
+<% out.print(message); %>
+</font>
 
 <% out.print("<form action=\""+PactsConstants.INTERNAL_SERVLET_URL+"\" method=\"post\">");
    out.print("<input type=\"hidden\" name=\""+PactsConstants.TASK_STRING+"\" value=\"");
@@ -39,7 +67,9 @@
    out.print("<input type=\"hidden\" name=\""+PactsConstants.PAYMENT_ID+"\" value=\""+payment._header._id+"\">");
 %>
 		<table border="0" cellpadding="5" cellspacing="5">
-		<tr>
+		<tr><td><b>ID:</b></td><td>
+<%		out.print(payment._header._id);	%>	
+		</td></tr><tr>
 		<td>
 <%		out.print("<b>User:</b></td>");
  		out.print("<td><a href=\"");
@@ -135,9 +165,9 @@
 				code = TCData.getTCInt(rsr,"modification_rationale_id",0,true);
 				out.print("" + code);
 				s = TCData.getTCString(rsr,"modification_rationale_desc","default rationale",true);
-				if (s.equals(PactsConstants.DEFAULT_MODIFICATION_RATIONALE)) {
+				if (my_rationale < 0 && s.equals(PactsConstants.DEFAULT_MODIFICATION_RATIONALE)) {
 					out.print(" selected");
-				}
+				} else if (my_rationale == code) out.print(" selected");
 				out.print(">" + s + "</option>\n");
 			}
 		}
@@ -148,8 +178,7 @@
 
 <input type=submit>
 </form>
-<jsp:include page="/InternalFooter.jsp" flush="true" />
-
+<jsp:include page="/pacts/internal/InternalFooter.jsp" flush="true" />
 </body>
 
 </html>

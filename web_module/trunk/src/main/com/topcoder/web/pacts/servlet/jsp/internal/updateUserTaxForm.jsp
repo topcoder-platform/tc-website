@@ -22,12 +22,33 @@
 	if (message == null) {
 		message = "";
 	}
+	else if (taxForm != null) {
+		String param;
+		int i;
+		float f;
+		double d;
+		param = request.getParameter("status_id");
+		try { taxForm._header._statusID = Integer.parseInt(param); } catch (Exception e) {}
+		param = request.getParameter("date_filed");
+		taxForm._header._dateFiled = param;
+		param = request.getParameter("withholding_amount");
+		try { taxForm._withholdingAmount = Double.parseDouble(param); } catch (Exception e) {}
+		param = request.getParameter("withholding_percentage");
+		try { taxForm._withholdingPercentage = Float.parseFloat(param); } catch (Exception e) {}
+		param = request.getParameter("use_percentage");
+		if (param != null && param.equals("true")) taxForm._usePercentage = true;
+		if (param != null && param.equals("false")) taxForm._usePercentage = false;
+	}
+	if (taxForm == null) {
+		out.print("No User Tax Form!!!<br>");
+		taxForm = new TaxForm();
+	}
 %>
 
 <h1>PACTS</h1>
 <h2>Update User Tax Form</h2>
 
-<%		out.print("<text color=\"red\">" + message + "</text>");
+<%		out.print("<font color=\"#FF0000\">" + message + "</font>");
 		out.print("<form action=\"" + PactsConstants.INTERNAL_SERVLET_URL);
 		out.print("\" method=\"post\">");
 
@@ -102,7 +123,7 @@
 
 <input type=submit>
 </form>
-<jsp:include page="/InternalFooter.jsp" flush="true" />
+<jsp:include page="/pacts/internal/InternalFooter.jsp" flush="true" />
 
 </body>
 

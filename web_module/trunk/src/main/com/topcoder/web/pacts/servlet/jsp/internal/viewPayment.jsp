@@ -29,7 +29,9 @@
 <h2>View Payment</h2>
 
 		<table border="0" cellpadding="5" cellspacing="5">
-		<tr>
+		<tr><td><b>ID:</b></td><td>
+<%		out.print(payment._header._id);	%>	
+		</td></tr><tr>
 		<td><b>User:</b></td>
 <% 			out.print("<td><a href=\"");
 			out.print(PactsConstants.INTERNAL_SERVLET_URL);
@@ -160,7 +162,7 @@
    }
 %>
 
-<jsp:include page="/InternalFooter.jsp" flush="true" />
+<jsp:include page="/pacts/internal/InternalFooter.jsp" flush="true" />
 
 </body>
 
