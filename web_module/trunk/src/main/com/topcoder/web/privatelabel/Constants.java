@@ -17,12 +17,14 @@ import java.lang.reflect.Field;
 public class Constants {
 
     private static Logger log = Logger.getLogger(Constants.class);
+    private static TCResourceBundle bundle = new TCResourceBundle("PrivateLabel");
+    private static final String INT_NOT_FOUND = "******NOT FOUND******";
     private static boolean isInitialized = false;
 
     /**
      *  variables that shouldn't be initialized
      */
-    private static String[] ignoreList = {"log", "isInitialized", "ignoreList"};
+    private static String[] ignoreList = {"log", "isInitialized", "ignoreList", "bundle", "INT_NOT_FOUND"};
 
     //pages
     public static String SIMPLE_REG_PAGE;
@@ -68,6 +70,7 @@ public class Constants {
     public static String COMPANY_ID;
     public static String EVENT_ID;
     public static String REGISTRATION_INFO;
+    public static String USER_ID;
 
 
     //rules
@@ -104,13 +107,11 @@ public class Constants {
     public static int SCHOOL_QUESTION;
     public static int NO_DEGREE_ANSWER;
 
-    private static TCResourceBundle bundle = new TCResourceBundle("PrivateLabel");
-    private static final String INT_NOT_FOUND = "******NOT FOUND******";
 
     private Constants() {
     }
 
-    public static void initialize(ServletConfig config) {
+    public static void initialize() {
 
         Field[] f = Constants.class.getFields();
         String value;
