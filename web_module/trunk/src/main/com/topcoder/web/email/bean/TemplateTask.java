@@ -95,7 +95,7 @@ public class TemplateTask
             throws ServletException {
         // create a new template form bean
         EmailTemplateForm template = new EmailTemplateForm();
-        request.getSession().setAttribute("EmailTemplate", template);
+        request.setAttribute("EmailTemplate", template);
 
         // clear error list
         request.setAttribute("Error", null);
@@ -175,7 +175,7 @@ public class TemplateTask
 
         // retrieve template information
         EmailTemplateForm template = retrieveTemplate(templateId);
-        request.getSession().setAttribute("EmailTemplate", template);
+        request.setAttribute("EmailTemplate", template);
 
         // clear error list
         request.setAttribute("Error", null);

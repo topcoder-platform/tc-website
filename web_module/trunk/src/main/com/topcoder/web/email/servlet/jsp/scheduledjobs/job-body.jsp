@@ -1,5 +1,5 @@
 <%@ taglib uri="/email-taglib.tld" prefix="email"%>
-<jsp:useBean id="ScheduledJob" scope="session" class="com.topcoder.web.email.bean.ScheduledJobForm" />
+<jsp:useBean id="ScheduledJob" scope="request" class="com.topcoder.web.email.bean.ScheduledJobForm" />
 <jsp:include page="../js/validate-js.jsp" />
 <%@ page import="java.util.*" %>
 
