@@ -124,6 +124,7 @@
       <tr><td>Max days since last rating: <input type="textbox" size="5" name="maxdayssincerating"></td></tr>
       <tr><td>Min events: <input type="textbox" size="5" name="minevents"></td></tr>
       <tr><td>Days since registration: <input type="textbox" size="5" name="mindays"> to <input type="textbox" size="5" name="maxdays"></td></tr>
+      <tr><td>Rating range: <input type="textbox" size="5" name="minrating"> to <input type="textbox" size="5" name="maxrating"></td></tr>
       <tr><td><hr/><center><h2>Demographics</h2></center></td></tr>
       <rsc:iterator list="<%=demographic_questions%>" id="resultRow">
         <tr><td>
@@ -147,10 +148,16 @@
       </rsc:iterator>
       <%idx=0;%>
       <tr><td><hr/><center><h2>Placement Information</h2></center></td></tr>
-      <tr><td>Placement Indicator: <INPUT type="checkbox" name="placement"/></td></tr>
+      <tr><td>Placement Indicator: <select name="placement">
+      <option name="contract">Contract</option>
+      <option name="full">Full time</option>
+      <option name="either" selected>Either</option>
+      <option name="none">No preference</option>
+      </select>
+      </td></tr>
       <tr><td>Resume: <INPUT type="checkbox" name="resume"/></td></tr>
       <tr><td>Willing to travel/relocate: <INPUT type="checkbox" name="travel"/></td></tr>
-      <tr><td>US Authorization: <INPUT type="checkbox" name="travel"/></td></tr>
+      <tr><td>US Authorization: <INPUT type="checkbox" name="auth"/></td></tr>
       <tr><td><hr/><center><h2>Skills</h2></center></td></tr>
 
 
