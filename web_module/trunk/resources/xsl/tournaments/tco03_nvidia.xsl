@@ -53,10 +53,10 @@
                 <tr valign="top">
                     <td class="promoText" width="99%">
                     
-                        <p>VISUALIZE YOUR FUTURE...WE DO</p>
+                        <p>Visualize Your Future&#133;We Do</p>
                     
                         <p>At NVIDIA we're continually looking for the elite few who will shape the future of the software 
-                        industry...those who play hard, work smart, and always strive to win.  The visual computing industry is ultra-competitive and the stakes are high...
+                        industry&#133;those who play hard, work smart, and always strive to win.  The visual computing industry is ultra-competitive and the stakes are high&#133;
                         to remain a market leader we hire only the brightest and most innovative engineering talent.  As a TopCoder member you've distinguished yourself 
                         as a skilled coder who seeks a challenge, and as a competitor in the TopCoder Open you've told us that nothing can stop you from competing against 
                         the best of the best.</p>
@@ -64,16 +64,17 @@
                         <p><A href="http://firingsquad.gamers.com/hardware/nvidia_geforce_fx_5900_ultra/page19.asp">
                         <img src="/i/tournament/tco03/sponsors/nvidia_quote.gif" alt="geforce" width="300" height="100" border="0" align="left" /></A>
                         NVIDIA's culture promotes and inspires our team of world-class engineers and developers to be at the top of their game.  We are creative, passionate, 
-                        and we are shaping the world of tomorrow...today.  We invite you to explore the opportunities available at NVIDIA - just click on the link to see 
+                        and we are shaping the world of tomorrow&#133;today.  We invite you to explore the opportunities available at NVIDIA - just click on the link to see 
                         what your future may hold.</p>
                         
                         
                         <p>Experienced professionals <br/>
                         New &#38; Recent College Graduates <br/>
                         Interns &#38; Co-ops<br/>
-                        <strong>We love what we do because we do what we love.  Join us.</strong><br/></p>
+                        <strong>We love what we do because we do what we love.  Join us.</strong>
+                        </p>
                         
-                        <p>NVIDIA AND TOPCODER Ð PARTNERING FOR SUCCESS</p>
+                        <p>NVIDIA and TopCoder - Partnering for Success</p>
                         
                         
                         <p><A href="http://www.nvidia.edu" target="_blank"><img src="/i/tournament/tco03/sponsors/nvidia_geforcefx.gif" alt="geforce" width="160" height="160" border="0" align="right" /></A>
