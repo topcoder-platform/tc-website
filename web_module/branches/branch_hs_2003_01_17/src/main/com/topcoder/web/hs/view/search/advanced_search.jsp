@@ -105,7 +105,7 @@
      </TR>
      <TR>
       <TD COLSPAN="5" ALIGN="center">
-       <%=(search.getHasPrev()?"<A HREF="">&lt;&lt; prev</A>":"&lt;&lt; prev")%> | <%=(search.getHasNext()?"<A HREF="">next &gt;&gt;</A>":"&gt;&gt; next")%>
+       <%=(search.getHasPrev()?"<A HREF=\"\">&lt;&lt; prev</A>":"&lt;&lt; prev")%> | <%=(search.getHasNext()?"<A HREF=\"\">next &gt;&gt;</A>":"&gt;&gt; next")%>
       </TD>
      </TR>
      <TR>
@@ -128,6 +128,7 @@
     <% } %>
     </TABLE>
   </TR>
+  <% } %>
  </TABLE>
  <SCRIPT type="text/javascript">
   function changeState() {
