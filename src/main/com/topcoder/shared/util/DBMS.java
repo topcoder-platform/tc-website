@@ -22,6 +22,7 @@ public class DBMS {
 
     public final static String DW_DATASOURCE_NAME = getProperty("DW_DATASOURCE_NAME", "DW");
     public final static String OLTP_DATASOURCE_NAME = getProperty("OLTP_DATASOURCE_NAME", "OLTP");
+    public final static String CONTEST_ADMIN_DATASOURCE = getProperty("CONTEST_ADMIN_DATASOURCE", "ORACLE");
     public final static String JDBC_DRIVER = getProperty("JDBC_DRIVER", "weblogic.jdbc.jts.Driver");
     public final static String POOL_DRIVER = getProperty("POOL_DRIVER", "weblogic.jdbc.pool.Driver");
     public final static String INFORMIX_DRIVER = getProperty("INFORMIX_DRIVER", "com.informix.jdbc.IfxDriver");
