@@ -160,8 +160,9 @@ distribution.  A positive value would then indicate a win and a negative
 value would indicate a loss.  The percentage chance that a player wins, 
 therefore, uses the standard normal cumulative disribution as follows:
     <BR />
- &#160;&#160;        WinProbability( SkillA, DeviationA, SkillB, DeviationB)
- &#160;&#160;        Return snorm( (SkillB-SkillA) / Math.sqrt(DeviationA^2 + DeviationB^2) )
+ &#160;&#160;&#160;&#160;        WinProbability( SkillA, DeviationA, SkillB, DeviationB)
+    <BR/>
+ &#160;&#160;&#160;&#160;        Return snorm( (SkillB-SkillA) / Math.sqrt(DeviationA^2 + DeviationB^2) )
 
 <BR/>Using this model, a coder's
 performance can be turned into a percentage using the normal distribution, so that 50% represents expected
