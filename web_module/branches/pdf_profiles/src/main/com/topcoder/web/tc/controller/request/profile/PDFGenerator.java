@@ -232,7 +232,7 @@ public class PDFGenerator extends BaseProcessor {
             Phrase hp = new Phrase("-", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL, Color.black));
             
             HeaderFooter header = new HeaderFooter(new Phrase("  "), false);
-            header.setBackgroundColor(new Color(204,0,0)); //#cc0000
+            header.setBackgroundColor(new Color(0,51,102)); //#cc0000
             header.setBorder(Rectangle.NO_BORDER);
             
             HeaderFooter footer = new HeaderFooter(new Phrase("  "), false);
