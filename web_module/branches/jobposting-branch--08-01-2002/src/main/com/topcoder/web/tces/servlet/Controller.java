@@ -86,7 +86,7 @@ public class Controller extends HttpServlet {
 
             }
             else {
-                forwardToErrorPage(request, response,
+                forwardToLoginPage(request, response,
                         new Exception("missing " + TCESConstants.TASK_PARAM + " parameter in request"));
             }
         } catch (TCESAuthenticationException authex) {
