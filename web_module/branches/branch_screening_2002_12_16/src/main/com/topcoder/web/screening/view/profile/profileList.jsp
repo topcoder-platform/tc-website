@@ -108,13 +108,19 @@ function getProblemDetail(url,wd,ht) {
                        </TD>		       
 	        </TR>
       <% }else{ %>
+          <%
+              String cparam = Constants.CANDIDATE_ID + '=' + row.getItem("user_id");
+              String sparam = Constants.SESSION_ID + '=' + row.getItem("session_id");
+
+              String color = (even) ? "BGCOLOR='#CCCCCC'" : "";
+          %>
 	        <TR>
-		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>>&#160;<screen:servletLink processor="PopulateCandidate" param="<%=Constants.CANDIDATE_ID+'='+row.getItem("user_id")%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="user_name" /></screen:servletLink></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>><screen:resultSetItem row="<%=row%>" name="status" /></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>><screen:resultSetItem row="<%=row%>" name="presented" /></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>><screen:resultSetItem row="<%=row%>" name="submitted" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>><screen:resultSetItem row="<%=row%>" name="passed" /></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>><screen:servletLink processor="TestResults" param="<%=Constants.SESSION_ID+'='+row.getItem("session_id")%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="results_label" /></screen:servletLink></TD>		       
+		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText" <%=color%>>&#160;<screen:servletLink processor="PopulateCandidate" param="<%=cparam%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="user_name" /></screen:servletLink></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%=color%>><screen:resultSetItem row="<%=row%>" name="status" /></TD>		       
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%=color%>><screen:resultSetItem row="<%=row%>" name="presented" /></TD>		       
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%=color%>><screen:resultSetItem row="<%=row%>" name="submitted" /></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%=color%>><screen:resultSetItem row="<%=row%>" name="passed" /></TD>		       
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%=color%>><screen:servletLink processor="TestResults" param="<%=sparam%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="results_label" /></screen:servletLink></TD>		       
 	        </TR>
       <% } %>
       <% even = !even; %>
