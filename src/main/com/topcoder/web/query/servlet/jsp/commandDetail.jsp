@@ -6,7 +6,7 @@
            com.topcoder.web.common.SessionInfo"
 %>
 <%@ taglib uri="/query-taglib.tld" prefix="query"%>
-<jsp:useBean id="CommandDetailTask" scope="request" class="com.topcoder.web.query.request.CommandDetailTask" />
+<jsp:useBean id="CommandDetail" scope="request" class="com.topcoder.web.query.request.CommandDetail" />
 <jsp:useBean id="SessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
@@ -22,7 +22,7 @@
     <TR>
       <TD WIDTH="170" bgcolor="#000000" VALIGN="top">
         <jsp:include page="left.jsp" flush="true">
-          <jsp:param name="<%=Constants.DB_PARAM%>" value="<%=CommandDetailTask.getDb()%>"/>
+          <jsp:param name="<%=Constants.DB_PARAM%>" value="<%=CommandDetail.getDb()%>"/>
           <jsp:param name="<%=Constants.SERVLET_PATH_PARAM%>" value="<%=SessionInfo.getServletPath()%>"/>
         </jsp:include>      </TD>
       <TD WIDTH="4" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
@@ -33,26 +33,26 @@
           <TR>
             <TD CLASS="statText" ALIGN="right">DB:&#160;</TD>
             <TD CLASS="statText" ALIGN="left">
-              <jsp:getProperty name="CommandDetailTask" property="Db"/>
+              <jsp:getProperty name="CommandDetail" property="Db"/>
             </TD>
           </TR>
           <TR><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
-          <TR><TD CLASS="statText" COLSPAN="2" ALIGN="center">Command: <jsp:getProperty name="CommandDetailTask" property="CommandDesc"/></TD></TR>
+          <TR><TD CLASS="statText" COLSPAN="2" ALIGN="center">Command: <jsp:getProperty name="CommandDetail" property="CommandDesc"/></TD></TR>
           <TR><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
             <TR><TD CLASS="statText" COLSPAN="2" ALIGN="center">
-              <A HREF="<jsp:getProperty name="SessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_COMMAND_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandDetailTask" property="Db"/>&<%=Constants.COMMAND_ID_PARAM%>=<jsp:getProperty name="CommandDetailTask" property="CommandId"/>" class="statText">
+              <A HREF="<jsp:getProperty name="SessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_COMMAND_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandDetail" property="Db"/>&<%=Constants.COMMAND_ID_PARAM%>=<jsp:getProperty name="CommandDetail" property="CommandId"/>" class="statText">
                 [edit command]
               </A>
-              <A HREF="<jsp:getProperty name="SessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_COMMAND_QUERY_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandDetailTask" property="Db"/>&<%=Constants.COMMAND_ID_PARAM%>=<jsp:getProperty name="CommandDetailTask" property="CommandId"/>" class="statText">
+              <A HREF="<jsp:getProperty name="SessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_COMMAND_QUERY_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandDetail" property="Db"/>&<%=Constants.COMMAND_ID_PARAM%>=<jsp:getProperty name="CommandDetail" property="CommandId"/>" class="statText">
                 [edit command query]
               </A>
             </TD></TR>
           <TR><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
           <TR><TD CLASS="statText" COLSPAN="2" ALIGN="center">
-            <A HREF="<jsp:getProperty name="SessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_GROUP_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandDetailTask" property="Db"/>&<%=Constants.GROUP_ID_PARAM%>=<jsp:getProperty name="CommandDetailTask" property="GroupId"/>" class="statText">
+            <A HREF="<jsp:getProperty name="SessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_GROUP_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandDetail" property="Db"/>&<%=Constants.GROUP_ID_PARAM%>=<jsp:getProperty name="CommandDetail" property="GroupId"/>" class="statText">
               [edit]
             </A>
-            Group: <jsp:getProperty name="CommandDetailTask" property="GroupDesc"/>
+            Group: <jsp:getProperty name="CommandDetail" property="GroupDesc"/>
           </TD></TR>
           <TR><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
           <TR>
@@ -63,16 +63,16 @@
                   <TD CLASS="statTextBig" ALIGN="left">Query Name</TD>
                 </TR>
                 <TR><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
-                <query:resultSetRowIterator id="query" list="<%=CommandDetailTask.getQueryList()%>">
+                <query:resultSetRowIterator id="query" list="<%=CommandDetail.getQueryList()%>">
                   <TR>
                     <TD CLASS="statText" ALIGN="right">
-                      <A HREF="<jsp:getProperty name="SessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_QUERY_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandDetailTask" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<query:resultSetItem row="<%=query%>" name="query_id"/>" class="statText">
+                      <A HREF="<jsp:getProperty name="SessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_QUERY_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandDetail" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<query:resultSetItem row="<%=query%>" name="query_id"/>" class="statText">
                         [edit]
                       </A>
                       &#160;&#160;
                     </TD>
                     <TD CLASS="statText" ALIGN="left">
-                      <A HREF="<jsp:getProperty name="SessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.QUERY_DETAIL_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandDetailTask" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<query:resultSetItem row="<%=query%>" name="query_id"/>" class="statText">
+                      <A HREF="<jsp:getProperty name="SessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.QUERY_DETAIL_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandDetail" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<query:resultSetItem row="<%=query%>" name="query_id"/>" class="statText">
                         <query:resultSetItem row="<%=query%>" name="name"/>
                       </A>
                     </TD>
@@ -89,10 +89,10 @@
                   <TD CLASS="statTextBig" ALIGN="left">Input Description</TD>
                 </TR>
                 <TR><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
-                <query:resultSetRowIterator id="input" list="<%=CommandDetailTask.getInputList()%>">
+                <query:resultSetRowIterator id="input" list="<%=CommandDetail.getInputList()%>">
                   <TR>
                     <TD CLASS="statText" ALIGN="right">
-                      <A HREF="<jsp:getProperty name="SessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_INPUT_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandDetailTask" property="Db"/>&<%=Constants.INPUT_ID_PARAM%>=<query:resultSetItem row="<%=input%>" name="input_id"/>" class="statText">
+                      <A HREF="<jsp:getProperty name="SessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_INPUT_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandDetail" property="Db"/>&<%=Constants.INPUT_ID_PARAM%>=<query:resultSetItem row="<%=input%>" name="input_id"/>" class="statText">
                         [edit]
                       </A>
                       &#160;&#160;

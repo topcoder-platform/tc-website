@@ -5,7 +5,7 @@
            com.topcoder.web.query.request.*"
 %>
 <%@ taglib uri="/query-taglib.tld" prefix="query"%>
-<jsp:useBean id="QueryDetailTask" scope="request" class="com.topcoder.web.query.request.QueryDetailTask" />
+<jsp:useBean id="QueryDetail" scope="request" class="com.topcoder.web.query.request.QueryDetail" />
 <jsp:useBean id="SessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
@@ -22,7 +22,7 @@
      <TR>
       <TD WIDTH="170" bgcolor="#000000" VALIGN="top">
         <jsp:include page="left.jsp" flush="true">
-          <jsp:param name="<%=Constants.DB_PARAM%>" value="<%=QueryDetailTask.getDb()%>"/>
+          <jsp:param name="<%=Constants.DB_PARAM%>" value="<%=QueryDetail.getDb()%>"/>
           <jsp:param name="<%=Constants.SERVLET_PATH_PARAM%>" value="<%=SessionInfo.getServletPath()%>"/>
         </jsp:include>      </TD>
       <TD WIDTH="4" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
@@ -33,19 +33,19 @@
           <TR>
             <TD CLASS="statText" ALIGN="right" WIDTH="50%">DB:&#160;</TD>
             <TD CLASS="statText" ALIGN="left" WIDTH="50%">
-              <jsp:getProperty name="QueryDetailTask" property="Db"/>
+              <jsp:getProperty name="QueryDetail" property="Db"/>
             </TD>
           </TR>
           <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
           <TR><TD CLASS="statText" COLSPAN="2" ALIGN="center">
-            Query: <jsp:getProperty name="QueryDetailTask" property="QueryName"/>
+            Query: <jsp:getProperty name="QueryDetail" property="QueryName"/>
           </TD></TR>
           <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
           <TR><TD CLASS="statText" COLSPAN="2" ALIGN="center">
-            <A HREF="<jsp:getProperty name="SessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_QUERY_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="QueryDetailTask" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="QueryDetailTask" property="QueryId"/>" class="statText">
+            <A HREF="<jsp:getProperty name="SessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_QUERY_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="QueryDetail" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="QueryDetail" property="QueryId"/>" class="statText">
               [edit query]
             </A>
-            <A HREF="<jsp:getProperty name="SessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_QUERY_INPUT_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="QueryDetailTask" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="QueryDetailTask" property="QueryId"/>" class="statText">
+            <A HREF="<jsp:getProperty name="SessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_QUERY_INPUT_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="QueryDetail" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="QueryDetail" property="QueryId"/>" class="statText">
               [edit query input]
             </A>
           </TD></TR>
@@ -56,7 +56,7 @@
           <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
           <TR>
             <TD VALIGN="top" WIDTH="100%" CLASS="statText" COLSPAN="2">
-              <pre><jsp:getProperty name="QueryDetailTask" property="QueryText"/></pre>
+              <pre><jsp:getProperty name="QueryDetail" property="QueryText"/></pre>
             </TD>
           </TR>
           <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
@@ -69,10 +69,10 @@
                   <TD CLASS="statTextBig" ALIGN="left">Input Description</TD>
                 </TR>
                 <TR><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
-                <query:resultSetRowIterator id="input" list="<%=QueryDetailTask.getInputList()%>">
+                <query:resultSetRowIterator id="input" list="<%=QueryDetail.getInputList()%>">
                   <TR>
                     <TD CLASS="statText" ALIGN="right">
-                      <A HREF="<jsp:getProperty name="SessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_INPUT_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="QueryDetailTask" property="Db"/>&<%=Constants.INPUT_ID_PARAM%>=<query:resultSetItem row="<%=input%>" name="input_id"/>" class="statText">
+                      <A HREF="<jsp:getProperty name="SessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_INPUT_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="QueryDetail" property="Db"/>&<%=Constants.INPUT_ID_PARAM%>=<query:resultSetItem row="<%=input%>" name="input_id"/>" class="statText">
                         [edit]
                       </A>
                       &#160;&#160;

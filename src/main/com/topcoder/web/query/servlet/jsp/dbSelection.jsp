@@ -5,7 +5,7 @@
            com.topcoder.web.query.request.*"
 %>
 <%@ taglib uri="/query-taglib.tld" prefix="query"%>
-<jsp:useBean id="DBSelectionTask" scope="request" class="com.topcoder.web.query.request.DBSelectionTask" />
+<jsp:useBean id="DBSelection" scope="request" class="com.topcoder.web.query.request.DBSelection" />
 <jsp:useBean id="SessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>

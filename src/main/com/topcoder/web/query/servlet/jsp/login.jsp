@@ -4,7 +4,7 @@
   import="java.util.*,
           com.topcoder.web.query.common.*,
           com.topcoder.web.query.request.*" %>
-<jsp:useBean id="LoginTask" scope="request" class="com.topcoder.web.query.request.LoginTask" />
+<jsp:useBean id="Login" scope="request" class="com.topcoder.web.query.request.Login" />
 <jsp:useBean id="SessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
@@ -27,7 +27,7 @@
             <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
             <TD CLASS="statText" COLSPAN="2" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
               <p CLASS="statText">
-                <jsp:getProperty name="LoginTask" property="ErrorMessage" />
+                <jsp:getProperty name="Login" property="ErrorMessage" />
               </p>
               <FORM NAME="login" METHOD="POST" ACTION="<jsp:getProperty name="SessionInfo" property="ServletPath"/>">
                 <INPUT TYPE="HIDDEN" NAME="<%= Constants.TASK_PARAM %>" VALUE="<%=Constants.LOGIN_TASK %>"/>
@@ -38,7 +38,7 @@
                   </TR>
                   <TR>
                     <TD HEIGHT="25" VALIGN="TOP">
-                      <INPUT MAXLENGTH="15" SIZE="15" NAME="<%=Constants.HANDLE_PARAM%>" TYPE="TEXT" VALUE="<jsp:getProperty name="LoginTask" property="HandleInput" />">
+                      <INPUT MAXLENGTH="15" SIZE="15" NAME="<%=Constants.HANDLE_PARAM%>" TYPE="TEXT" VALUE="<jsp:getProperty name="Login" property="HandleInput" />">
                     </TD>
                   </TR>
                   <TR>
