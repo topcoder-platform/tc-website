@@ -127,29 +127,29 @@
 
                             <xsl:choose>
                             <xsl:when test="$roundId=5849">
-                                August 10:&#160;&#160;&#160;&#160;Register - 10:00AM ET Compete - 1:00PM ET
-                                September 14:&#160;Register - 6:00AM ET Compete - 9:00AM ET
-                                October 4:&#160;&#160;&#160;&#160;Register - 10:00AM ET Compete - 1:00PM ET
-                                November 4:&#160;&#160;&#160;Register - 6:00AM ET Compete - 9:00AM ET
-                                December 6:&#160;&#160;&#160;Register - 10:00AM ET Compete - 1:00PM ET
+                                August 10:&#160;&#160;&#160;&#160;Register - 10:00AM ET Compete - 1:00PM ET<br/>
+                                September 14:&#160;Register - 6:00AM ET Compete - 9:00AM ET<br/>
+                                October 4:&#160;&#160;&#160;&#160;Register - 10:00AM ET Compete - 1:00PM ET<br/>
+                                November 4:&#160;&#160;&#160;Register - 6:00AM ET Compete - 9:00AM ET<br/>
+                                December 6:&#160;&#160;&#160;Register - 10:00AM ET Compete - 1:00PM ET<br/><br/>
                             </xsl:when>
                             <xsl:when test="$roundId=5853">
-                                September 14:&#160;Register - 6:00AM ET Compete - 9:00AM ET
-                                October 4:&#160;&#160;&#160;&#160;Register - 10:00AM ET Compete - 1:00PM ET
-                                November 4:&#160;&#160;&#160;Register - 6:00AM ET Compete - 9:00AM ET
-                                December 6:&#160;&#160;&#160;Register - 10:00AM ET Compete - 1:00PM ET
+                                September 14:&#160;Register - 6:00AM ET Compete - 9:00AM ET<br/>
+                                October 4:&#160;&#160;&#160;&#160;Register - 10:00AM ET Compete - 1:00PM ET<br/>
+                                November 4:&#160;&#160;&#160;Register - 6:00AM ET Compete - 9:00AM ET<br/>
+                                December 6:&#160;&#160;&#160;Register - 10:00AM ET Compete - 1:00PM ET<br/><br/>
                             </xsl:when>
                             <xsl:when test="$roundId=5857">
-                                October 4:&#160;&#160;&#160;&#160;Register - 10:00AM ET Compete - 1:00PM ET
-                                November 4:&#160;&#160;&#160;Register - 6:00AM ET Compete - 9:00AM ET
-                                December 6:&#160;&#160;&#160;Register - 10:00AM ET Compete - 1:00PM ET
+                                October 4:&#160;&#160;&#160;&#160;Register - 10:00AM ET Compete - 1:00PM ET<br/>
+                                November 4:&#160;&#160;&#160;Register - 6:00AM ET Compete - 9:00AM ET<br/>
+                                December 6:&#160;&#160;&#160;Register - 10:00AM ET Compete - 1:00PM ET<br/><br/>
                             </xsl:when>
                             <xsl:when test="$roundId=5860">
-                                November 4:&#160;&#160;&#160;Register - 6:00AM ET Compete - 9:00AM ET
-                                December 6:&#160;&#160;&#160;Register - 10:00AM ET Compete - 1:00PM ET
+                                November 4:&#160;&#160;&#160;Register - 6:00AM ET Compete - 9:00AM ET<br/>
+                                December 6:&#160;&#160;&#160;Register - 10:00AM ET Compete - 1:00PM ET<br/><br/>
                             </xsl:when>
                             <xsl:when test="$roundId=5864">
-                                December 6:&#160;&#160;&#160;Register - 10:00AM ET Compete - 1:00PM ET
+                                December 6:&#160;&#160;&#160;Register - 10:00AM ET Compete - 1:00PM ET<br/><br/>
                             </xsl:when>
                             </xsl:choose>
 
