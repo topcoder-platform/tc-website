@@ -56,7 +56,7 @@ return false;
         <table border=0 cellpadding=0 cellspacing=0 width="100%" class=bodyText>
 			<tr>
 				<td class=oppDesc width="100%" valign=top>
-				<span class=bodySubtitle>Preferences</span>
+				<span class=bodySubtitle>Operating Systems</span>
 				<br/><br/>
 				This is a description paragraph with some instructions and some details about the questions asked.
 				</td>
@@ -71,7 +71,7 @@ return false;
 		<FORM ACTION="" METHOD=POST onSubmit="">
         <table border=0 cellpadding=3 cellspacing=0 width="100%" class=bodyText>
 			<tr><td class=bodyText>&#160;</td><td class=bodyText colspan=5><span class=bodySubtitle>No experience</span></td><td class=bodyText colspan=6 align=right><span class=bodySubtitle>Expert</span></td>
-        	<tr><td class=bodyText valign=top width="100%"><span class=bodySubtitle>Operating System</span></td>
+        	<tr><td class=bodyText valign=top width="100%">&#160;</td>
             <% for(int i = 0; i<=10; i++){ %>
                 <td class=bodyText align=center valign=top>
                     <span class=bodySubtitle><%=i%></span>

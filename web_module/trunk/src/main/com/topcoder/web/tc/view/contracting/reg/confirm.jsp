@@ -26,13 +26,31 @@
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
-         <td class="cardCell" width="100%" align="center">
-
+        <td width="100%" align="center">
         <div class="myTCBody">
+
         <jsp:include page="../../page_title.jsp" >
             <jsp:param name="image" value="contract"/>
             <jsp:param name="title" value="Registration"/>
         </jsp:include>
+
+<!-- Breadcrumb-->
+        <table border=0 cellpadding=0 cellspacing=0 width="100%" class=bodyText>
+			<tr>
+				<td class=oppDesc width="100%" valign=top>
+				<span class=bodySubtitle>Confirm selections</span>
+				<br/><br/>
+				Please confirm that the information below is correct, then click SUBMIT.
+				<br/><br/>
+				<span class=bigRed>NOTE: You are not registered yet.  You MUST click SUBMIT at the bottom of this page to complete the registration.</span>
+				</td>
+				<td valign=top>
+				<jsp:include page="breadcrumb.jsp" >
+				<jsp:param name="phase" value="confirm"/>
+				</jsp:include>
+				</td>
+			</tr>
+		</table>
 
 		<table width="100%" cellpadding="0" cellspacing="5" class="bodyText" align="center" >
             <tr>
@@ -213,6 +231,7 @@
 				<td align="right">X Window/Motif:</td>
 				<td>7</td>
             </tr>
+			<tr><td colspan=12 align=center><br/><br/><a href="/tc?module=Static&d1=contracting&d2=reg&d3=success"><img src="/i/submit.jpg" border=0/></a></td></tr>
 		</table>
         </div>
         <p><br/></p>

@@ -68,6 +68,9 @@ return false;
 			</tr>
 		</table>
 
+		<span class=bodySubtitle>Contract Work</span>
+		<br/>
+
 		<FORM ACTION="" METHOD=POST onSubmit="">
 		<input type="checkbox" name="contract" value="" checked>I am interested in being hired for temporary contract work.
         <table border=0 cellpadding=3 cellspacing=0 width="100%" class=bodyText>
@@ -121,6 +124,9 @@ return false;
 		</table>
 		
 		<br/><br/>
+
+		<span class=bodySubtitle>Permanent Position</span>		
+		<br/>		
 
 		<input type="checkbox" name="contract" value="" checked>I am interested in being hired for permanent positions.<br/>
         <table border=0 cellpadding=3 cellspacing=0 width="100%" class=bodyText>
