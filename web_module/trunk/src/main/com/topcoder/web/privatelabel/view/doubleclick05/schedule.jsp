@@ -32,7 +32,7 @@
                         </tr>
                         <tr valign="top">
                            <td class="sidebarText">Registration and practice</td>
-                           <td class="sidebarText">Starts: Monday, February 21, 2005 at 9:00 AM<br>Ends:  Tuesday, March 1, 2005 at 6:00 PM</td>
+                           <td class="sidebarText">Starts: Tuesday, February 22, 2005 at 9:00 AM<br>Ends:  Tuesday, March 1, 2005 at 6:00 PM</td>
                         </tr>
                         <tr valign="top">
                            <td class="sidebarText">Competition Round</td>
