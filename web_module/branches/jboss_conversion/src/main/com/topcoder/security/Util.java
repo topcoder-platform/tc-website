@@ -3,12 +3,6 @@ package com.topcoder.security;
 import com.topcoder.util.config.ConfigManager;
 import com.topcoder.util.config.ConfigManagerException;
 import com.topcoder.util.config.ConfigManagerInterface;
-import com.topcoder.security.admin.PrincipalMgrRemote;
-import com.topcoder.security.admin.PrincipalMgrRemoteHome;
-import com.topcoder.shared.distCache.CacheClient;
-import com.topcoder.shared.distCache.CacheClientFactory;
-import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.util.ApplicationServer;
 import org.apache.log4j.Logger;
 
 import javax.crypto.Cipher;
@@ -16,7 +10,6 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.spec.SecretKeySpec;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.naming.Context;
 import javax.rmi.PortableRemoteObject;
 import javax.sql.DataSource;
 import java.io.File;
@@ -31,7 +24,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Enumeration;
 import java.util.Vector;
-import java.lang.reflect.Method;
 
 /**
  * A bunch of static methods used in various com.topcoder.security (and subpackage)
@@ -402,55 +394,6 @@ public class Util implements ConfigManagerInterface {
         ps.execute();
         ps.close();
         return conn;
-    }
-
-    public static final TCSubject getUserSubject(long l, boolean forceLoadFromDb)
-            throws Exception, NoSuchUserException, NamingException {
-        TCSubject ret = null;
-
-        String key = "user_subject:" + new Long(l);
-        Context ctx = null;
-        try {
-            boolean hasCacheConnection = true;
-            CacheClient cc = null;
-            try {
-                cc = CacheClientFactory.createCacheClient();
-                if (!forceLoadFromDb)
-                    ret = (TCSubject) (cc.get(key));
-            } catch (Exception e) {
-                logger.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: " + e.getMessage());
-                hasCacheConnection = false;
-            }
-            if (ret == null) {
-                ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY,
-                        ApplicationServer.SECURITY_PROVIDER_URL);
-                PrincipalMgrRemoteHome pmgrHome = (PrincipalMgrRemoteHome) PortableRemoteObject.narrow(ctx.lookup(
-                        PrincipalMgrRemoteHome.EJB_REF_NAME),
-                        PrincipalMgrRemoteHome.class);
-                PrincipalMgrRemote pmgr = pmgrHome.create();
-                ret = pmgr.getUserSubject(l);
-                if (hasCacheConnection) {
-                    try {
-                        cc.set(key, ret, 1000 * 60 * 30);
-                    } catch (Exception e) {
-                        logger.error("UNABLE TO INSERT INTO CACHE: " + e.getMessage());
-                    }
-                }
-            }
-            return ret;
-        } catch (Exception e) {
-            throw e;
-        } finally {
-            try {
-                if (ctx != null) ctx.close();
-            } catch (Exception e) {
-            }
-        }
-    }
-
-    public static final TCSubject getUserSubject(long l)
-            throws Exception, NoSuchUserException, NamingException {
-        return getUserSubject(l, false);
     }
 
 
