@@ -8,7 +8,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.security.*;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.security.*;
-import com.topcoder.common.web.error.NavigationException;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.common.web.constant.TCServlet;
 import com.fx4m.plot13.HistoryPlot;
 
