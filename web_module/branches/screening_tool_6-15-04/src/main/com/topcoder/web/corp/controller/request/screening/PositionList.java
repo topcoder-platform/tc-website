@@ -7,7 +7,6 @@
  */
 package com.topcoder.web.corp.controller.request.screening;
 
-import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.corp.common.Constants;
@@ -15,6 +14,7 @@ import com.topcoder.web.corp.common.Util;
 import com.topcoder.web.corp.common.ScreeningException;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.util.Map;
 
@@ -30,7 +30,12 @@ import java.util.Map;
  * @version 1.0 07/14/2004
  * @since   Screening Tool 1.1
  */
-public class PositionList extends BaseProcessor {
+public class PositionList extends BaseScreeningProcessor {
+
+    /**
+     * A <code>Logger</code> to log the <code>PositionList</code> processor activities.
+     */
+    private final static Logger log = Logger.getLogger(PositionList.class);
 
     /**
      * A main method of <code>PositionList</code> processor. The method gets the user's company info issuing the <code>
@@ -42,7 +47,7 @@ public class PositionList extends BaseProcessor {
      *
      * @throws TCWebException if any error prevents the normal process flow.
      */
-    protected void businessProcessing() throws TCWebException {
+    protected void screeningProcessing() throws TCWebException {
 
         TCRequest request = getRequest();
 
@@ -50,8 +55,12 @@ public class PositionList extends BaseProcessor {
         String campaignId = (String) request.getAttribute(Constants.CAMPAIGN_ID);
         if (campaignId == null) {
             // notify the user about the error
-            throw new TCWebException("No campaign ID had been specified.");
+            log.error("Campaign ID is not specified.");
+            throw new ScreeningException("No campaign ID had been specified.");
         }
+
+        log.info("Got the request to display the positions for campaign : "
+                + request.getAttribute(Constants.CAMPAIGN_ID));
 
         // Construct a request for company details
         Request dr = new Request();
@@ -60,10 +69,12 @@ public class PositionList extends BaseProcessor {
 
         try {
             // Execute the request for company details
+            log.info("Getting the company details for user : " + getUser().getId());
             Map map = Util.getDataAccess(true).getData(dr);
 
             // Notify the user if something went wrong
             if (map == null || map.size() != 1) {
+                log.error("Got the error while getting the company details.");
                 throw new ScreeningException("Company info data retrieval error.");
             }
 
@@ -79,12 +90,15 @@ public class PositionList extends BaseProcessor {
             dr = new Request();
             dr.setContentHandle(Constants.CAMPAIGN_INFO);
             dr.setProperty("cgn", campaignId);
+            dr.setProperty("cm", companyId);
 
             // Execute the request for campaign details
+            log.info("Getting the details for campaign : " + campaignId + " and company : " + companyId);
             map = Util.getDataAccess(true).getData(dr);
 
             // Notify the user if something went wrong
-            if (map == null) {
+            if (map == null || map.size() != 1) {
+                log.error("The request for campaign details failed.");
                 throw new ScreeningException("Company campaign details retrieval error.");
             }
 
@@ -100,17 +114,21 @@ public class PositionList extends BaseProcessor {
             dr.setProperty("cm", companyId);
 
             // Execute the request for campaign positions list
+            log.info("Getting the positions for campaign : " + campaignId + " and company : " + companyId);
             map = Util.getDataAccess(true).getData(dr);
 
             // Check if there is a single position for the campaign
             if (result.size() == 1) {
-                // if so redirect the user to campaign position list
+                // if so redirect the user to position results list
                 row = (ResultSetContainer.ResultSetRow) result.get(0);
+                log.info("There is a single position for campaign. Redirecting the request to "
+                        + buildProcessorURL(Constants.POSITION_RESULTS_PROCESSOR, null));
                 request.setAttribute(Constants.JOB_POSITION_ID, row.getStringItem("job_id"));
-                setNextPage(Constants.JOB_POSITION_RESULTS_PAGE);
+                setNextPage(buildProcessorURL(Constants.POSITION_RESULTS_PROCESSOR, null));
                 setIsNextPageInContext(false);
             } else {
                 // Otherwise redirect the user to campaign positions list
+                log.info("Forwarding the request to " + Constants.CAMPAIGN_POSITIONS_PAGE);
                 request.setAttribute(Constants.CAMPAIGN_POSITIONS_LIST, result);
                 setNextPage(Constants.CAMPAIGN_POSITIONS_PAGE);
                 setIsNextPageInContext(true);
@@ -118,7 +136,7 @@ public class PositionList extends BaseProcessor {
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
-            throw(new TCWebException(e));
+            throw(new ScreeningException(e));
         }
     }
 }
