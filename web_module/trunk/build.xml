@@ -5,7 +5,7 @@
    <property name="build"         value="build" />
    <property name="war.dir"       value="${build}/wars" />
    <property name="email.war.name"      value="email.war"/>
-   <property name="stats.war.name"      value="stats.war"/>
+   <property name="jobPosting.war.name" value="jobPosting.war"/>
    <property name="ejb_jars"      value="${build}/ejb_jars" />
    <property name="classes"       value="${build}/classes" />
    <property name="testclasses"   value="${build}/testcases" />
@@ -421,6 +421,7 @@
         <delete dir="${war.dir}"/>
         <mkdir  dir="${war.dir}"/>
         <antcall target="war.email"/>
+        <antcall target="war.jobPosting"/>
     </target>
 
     <target name="war.email" depends="compile">
@@ -437,6 +438,14 @@
             <zipfileset dir="${java}/com/topcoder/web/email/servlet/jsp">
                 <include name="**/*.jpg"/>
             </zipfileset>
+        </war>
+    </target>
+    <target name="war.jobPosting" depends="compile">
+        <war warfile="${war.dir}/${jobPosting.war.name}" webxml="${resources}/jobPosting/web.xml">
+            <classes dir="${classes}">
+                <include name="com/topcoder/web/jobPosting/common/*"/>
+                <include name="com/topcoder/web/jobPosting/servlet/*"/>
+            </classes>
         </war>
     </target>
 
