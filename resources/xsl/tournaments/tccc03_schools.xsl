@@ -73,7 +73,7 @@
                 <tr valign="top">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
                     <td width="100%"><img src="/i/clear.gif" alt="" width="240" height="10" border="0"/><br/>
-                        <table width="100%" border="0" cellpadding="0" cellspacing="1">
+                        <table width="100%" border="0" cellpadding="3" cellspacing="1">
                             <tr><td colspan="4" class="statText"><strong>Schools Represented</strong><br /><br /></td></tr>
 
                         <tr>
@@ -83,34 +83,186 @@
                             <td width="25%" align="center" class="tourney_subhead1"><a href="/index?t=tournaments&amp;c=tourny_regions_mw" class="statTextBig"></a>Midwest</td>
                         </tr>
 
-                        <tr>
-                            <td width="25%" align="left" valign="top" class="statText">
-                            MIT&#160;&#40;210&#41;<br/>
-                            VA Tech&#160;&#40;140&#41;<br/>
-                            Carnegie Mellon&#160;&#40;139&#41;<br/>
-                            Binghamton&#160;&#40;133&#41;<br/>
-                            RIT&#160;&#40;116&#41;<br/>
+                        <tr valign="top">
+                            <td width="25%" align="left" class="statText">
+                            Massachusetts Institute of Technology (25)<br />
+                            Cornell University (10)<br />
+                            Carnegie Mellon University (9)<br />
+                            Virginia Polytechnic Institute State University (9)<br />
+                            Binghamton University SUNY (8)<br />
+                            Rochester Institute of Technology (8)<br />
+                            Princeton University (6)<br />
+                            University of Maryland College Park (6)<br />
+                            University of Virginia (6)<br />
+                            George Mason University (5)<br />
+                            Old Dominion University (5)<br />
+                            Stony Brook SUNY (5)<br />
+                            University of Massachusetts Amherst (5)<br />
+                            Rutgers University (4)<br />
+                            Stevens Institute of Technology (4)<br />
+                            None Specified (3)<br />
+                            Ohio State University (3)<br />
+                            Syracuse University (3)<br />
+                            Boston University (2)<br />
+                            Columbia University (2)<br />
+                            Lafayette College (2)<br />
+                            Messiah College (2)<br />
+                            Northeastern University (2)<br />
+                            Oberlin College (2)<br />
+                            Pennsylvania State University (2)<br />
+                            Rensselaer Polytechnic Institute (2)<br />
+                            The College of New Jersey (2)<br />
+                            University at Albany SUNY (2)<br />
+                            University of Connecticut (2)<br />
+                            University of Massachusetts Dartmouth (2)<br />
+                            University of Pennsylvania (2)<br />
+                            Worcester Polytechnic Institute (2)<br />
+                            Amherst College (1)<br />
+                            Case Western Reserve University (1)<br />
+                            Cedarville College (1)<br />
+                            City College (1)<br />
+                            Cleveland State University (1)<br />
+                            Dartmouth College (1)<br />
+                            Denison University (1)<br />
+                            Drexel University (1)<br />
+                            Geneseo SUNY (1)<br />
+                            George Washington University (1)<br />
+                            Hobart and William Smith Colleges (1)<br />
+                            Kings College (1)<br />
+                            Liberty University (1)<br />
+                            Pace University (1)<br />
+                            Queens College (1)<br />
+                            Springfield Technical Community College (1)<br />
+                            United States Military Academy (1)<br />
+                            University at Buffalo SUNY (1)<br />
+                            University of Akron (1)<br />
+                            University of Cincinnati (1)<br />
+                            University of Massachusetts Boston (1)<br />
+                            University of Pittsburgh (1)<br />
+                            University of Rochester (1)<br />
+                            Yale University (1)<br />
+                            Yeshiva University (1)<br />
                             </td>
-                            <td width="25%" align="left" valign="top" class="statText">
-                            GA Tech.&#160;&#40;188&#41;<br/>
-                            NC State U.&#160;&#40;88&#41;<br/>
-                            Florida&#160;&#40;73&#41;<br/>
-                            Clemson U.&#160;&#40;69&#41;<br/>
-                            U. Central FL&#160;&#40;65&#41;<br/>
+
+                            <td width="25%" align="left" class="statText">
+                            Georgia Institute of Technology (13)<br />
+                            Duke University (9)<br />
+                            University of Florida (7)<br />
+                            Florida Institute of Technology (6)<br />
+                            University of Central Florida (5)<br />
+                            University of Kentucky (5)<br />
+                            Armstrong Atlantic State University (3)<br />
+                            Florida State University (3)<br />
+                            Clemson University (2)<br />
+                            Middle Tennessee State University (2)<br />
+                            None Specified (2)<br />
+                            Western Kentucky University (2)<br />
+                            College of Charleston (1)<br />
+                            Embry-Riddle Aeronautical University (1)<br />
+                            Florida International University (1)<br />
+                            Francis Marion University (1)<br />
+                            Georgia State University (1)<br />
+                            Jacksonville State University (1)<br />
+                            Johnson &amp; Wales University-Charleston (1)<br />
+                            University of North Carolina Chapel Hill (1)<br />
+                            University of North Carolina Charlotte (1)<br />
+                            University of South Carolina Columbia (1)<br />
+                            University of South Florida (1)<br />
+                            University of Tennessee Knoxville (1)<br />
+                            University of West Florida (1)<br />
+                            Valdosta State University (1)<br />
+                            Vanderbilt University (1)<br />
                             </td>
-                            <td width="25%" align="left" valign="top" class="statText">
-                            Texas&#160;&#40;176&#41;<br/>
-                            Stanford&#160;&#40;125&#41;<br/>
-                            UCLA&#160;&#40;112&#41;<br/>
-                            Berkeley&#160;&#40;103&#41;<br/>
-                            UC Irvine&#160;&#40;70&#41;<br/>
+                            
+                            <td width="25%" align="left" class="statText">
+                            University of Texas Austin (13)<br />
+                            Stanford University (12)<br />
+                            None Specified (11)<br />
+                            California Institute of Technology (9)<br />
+                            University of California Berkeley (8)<br />
+                            University of California Los Angeles (8)<br />
+                            University of Utah (7)<br />
+                            University of California Irvine (5)<br />
+                            De Anza College (3)<br />
+                            Eastern Washington University (3)<br />
+                            University of California Davis (3)<br />
+                            University of California San Diego (3)<br />
+                            Arizona State University (2)<br />
+                            Brigham Young University (2)<br />
+                            Oregon State University (2)<br />
+                            San Jose State University (2)<br />
+                            Texas A&amp;M University College Station (2)<br />
+                            Texas Tech University (2)<br />
+                            University of California Santa Barbara (2)<br />
+                            University of Colorado Boulder (2)<br />
+                            University of Houston Main Campus (2)<br />
+                            University of North Texas (2)<br />
+                            Utah State University (2)<br />
+                            Baylor College of Medicine (1)<br />
+                            Brigham Young University Hawaii (1)<br />
+                            California State Polytechnic San Luis Obispo (1)<br />
+                            California State Polytechnic University, Pomona (1)<br />
+                            California State University Chico (1)<br />
+                            California State University Long Beach (1)<br />
+                            California State University Sacramento (1)<br />
+                            Harvey Mudd College (1)<br />
+                            Kansas State University (1)<br />
+                            Oklahoma Christian University of Science &amp; Arts (1)<br />
+                            Oklahoma State University (1)<br />
+                            Rice University (1)<br />
+                            University of California Santa Cruz (1)<br />
+                            University of Idaho (1)<br />
+                            University of Texas Arlington (1)<br />
+                            University of Texas Dallas (1)<br />
+                            Wichita State University (1)<br />
                             </td>
-                            <td width="25%" align="left" valign="top" class="statText">
-                            U.&#160;Mich.&#160;Ann&#160;Arbor&#160;&#40;215&#41;<br/>
-                            Purdue&#160;&#40;104&#41;<br/>
-                            U. IL Urb.-Champ.&#160;&#40;91&#41;<br/>
-                            Wisconsin&#160;&#40;67&#41;<br/>
-                            Iowa State U.&#160;&#40;66&#41;<br/>
+                            
+                            <td width="25%" align="left" class="statText">
+                            University of Michigan Ann Arbor (16)<br />
+                            Purdue University System (6)<br />
+                            University of Illinois Urbana-Champaign (6)<br />
+                            University of Wisconsin Madison (6)<br />
+                            None Specified (5)<br />
+                            University of Minnesota Twin Cities (5)<br />
+                            University of Nebraska Lincoln (4)<br />
+                            Illinois Institute of Technology (3)<br />
+                            University of Arkansas Fayetteville (3)<br />
+                            University of Wisconsin Milwaukee (3)<br />
+                            Western Illinois University (3)<br />
+                            Indiana University (2)<br />
+                            Iowa State University (2)<br />
+                            Michigan State University (2)<br />
+                            Milwaukee School of Engineering (2)<br />
+                            Saginaw Valley State University (2)<br />
+                            University of Illinois Chicago (2)<br />
+                            University of Missouri Columbia (2)<br />
+                            Western Michigan University (2)<br />
+                            Arkansas Tech University (1)<br />
+                            DePaul University (1)<br />
+                            DePauw University (1)<br />
+                            Grinnell College (1)<br />
+                            Harding University (1)<br />
+                            Knox College (1)<br />
+                            Lake Forest College (1)<br />
+                            Louisiana Tech University (1)<br />
+                            Loyola University Chicago (1)<br />
+                            Luther College (1)<br />
+                            Michigan Technological University (1)<br />
+                            Missouri Western State College (1)<br />
+                            Northern Michigan University (1)<br />
+                            Northwestern University (1)<br />
+                            Ouachita Baptist University (1)<br />
+                            Rose-Hulman Institute of Technology (1)<br />
+                            Trinity Christian College (1)<br />
+                            University of Arkansas Little Rock (1)<br />
+                            University of Chicago (1)<br />
+                            University of Louisiana Lafayette (1)<br />
+                            University of Michigan Dearborn (1)<br />
+                            University of Minnesota Duluth (1)<br />
+                            University of Missouri Rolla (1)<br />
+                            University of Missouri Saint Louis (1)<br />
+                            University of Wisconsin Eau Claire (1)<br />
+                            University of Wisconsin Parkside (1)<br />
                             </td>
                         </tr>
 
