@@ -113,6 +113,11 @@ public class Constants {
     public static String VERIZON_REG_SUBMIT;
     public static String VERIZON_ACTIVATION;
     public static String STATIC;
+    public static String DC_REG_MAIN;
+    public static String DC_REG_DEMOG;
+    public static String DC_REG_CONFIRM;
+    public static String DC_REG_SUBMIT;
+    public static String DC_ACTIVATION;
 
     //various constants
     public static int STUDENT;
