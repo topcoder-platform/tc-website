@@ -92,6 +92,12 @@
             <param-value>/problem_rating/results.jsp</param-value>
             <description></description>
         </init-param>
+        <init-param>
+            <param-name>highest_rating</param-name>
+            <param-value>/statistics/highestRating.jsp</param-value>
+            <description></description>
+        </init-param>
+
 
         <!-- processor mappings -->
         <init-param>
@@ -141,6 +147,13 @@
             <param-value>crpf.Report</param-value>
             <description></description>
         </init-param>
+
+        <init-param>
+            <param-name>HighestRating</param-name>
+            <param-value>statistics.HighestRating</param-value>
+            <description></description>
+        </init-param>
+
 
         <!-- request parameters -->
         <init-param>
