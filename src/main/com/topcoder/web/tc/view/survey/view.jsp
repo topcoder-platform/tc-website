@@ -21,17 +21,17 @@
 <body>
 
 <jsp:include page="../top.jsp" >
-    <jsp:param name="level1" value="review_board"/>
+    <jsp:param name="level1" value=""/>
 </jsp:include>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<table width="100%" border="1" cellpadding="0" cellspacing="0">
     <tr valign="top">
 
 <!-- Left Column Begins -->
         <td width="180">
             <jsp:include page="../../includes/global_left.jsp">
-                <jsp:param name="level1" value="review_board"/>
-                <jsp:param name="level2" value="competition"/> 
+                <jsp:param name="level1" value=""/>
+                <jsp:param name="level2" value=""/> 
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -49,7 +49,7 @@
                   <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="SubmitSurvey"/>
                   <input type="hidden" name="<%=Constants.SURVEY_ID%>" value="<%=surveyInfo.getId()%>"/>
                   <tc:questionIterator list="<%=questionInfo%>" id="question">
-                     <table width="100%" border="0" cellpadding="3" cellspacing="0" class="formFrame">
+                     <table width="100%" border="1" cellpadding="3" cellspacing="0" class="formFrame">
                         <tr>
                            <td colspan="2">
                               <jsp:getProperty name="question" property="text"/>
