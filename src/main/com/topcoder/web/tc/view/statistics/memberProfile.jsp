@@ -43,7 +43,7 @@
        <TD WIDTH="15"><IMG SRC="/i/clear.gif" WIDTH="15" HEIGHT="1" BORDER="0"></TD>
 <!-- Gutter ends -->
 
-        <TD CLASS="bodyText" WIDTH="100%" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="5" BORDER="0"><BR/>
+        <TD CLASS="bodyText" WIDTH="100%" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="15" BORDER="0"><BR/>
 
 <!-- Center column begins -->
             <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
