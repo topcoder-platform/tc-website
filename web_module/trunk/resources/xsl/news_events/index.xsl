@@ -56,6 +56,28 @@
                 <tr><td class="bodyText"><div align="right"><strong>Current News</strong>&#160;&#160;|&#160;&#160;<A href="/?t=news_events&amp;c=press_release_archive">Press Releases Archive</A>&#160;&#160;|&#160;&#160;<A href="/?t=news_events&amp;c=article_archive">Articles Archive</A></div></td></tr>
             </table>
             
+<!-- 2005 -->
+            <table width="100%" border="0" cellpadding="4" cellspacing="0">
+                <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2005</font></td></tr>
+            </table>
+            
+            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+            
+<!-- ComputerWorld Article -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="http://www.computerworld.com/industrytopics/financial/story/0,10801,98834,00.html" target="_blank"><img src="/i/pressroom/compworld_logo.gif" alt="ComputerWorld" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://www.computerworld.com/industrytopics/financial/story/0,10801,98834,00.html" target="_blank">Code Reuse Pays Off for ING </A></strong></font><br />
+						ING Americas last month finished work on a quality-management application built using an innovative development process that the company estimated saved it $300,000 and 1,200 man-hours. <span class="prHead">[January 10]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+            
 <!-- 2004 -->
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
                 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2004</font></td></tr>
