@@ -292,11 +292,11 @@ be a user interface that has never been seen before...<a class="bodyGeneric"><xs
 <!--SRM Sponsor Ends-->
 
 <!-- TCES Quote Begins -->
-			<a href=><img src="/i/tces_quote.gif" alt="Only rated members can apply for TCES jobs" width="244" height="138" border="0" /></a>
-			<map name="srmanimation_home">
-				<area alt="TCES" shape="poly" coords="17,33,17,60,141,60,141,92,228,92,228,25,17,25" href="/?&amp;t=tces&amp;c=index"/>
-				<area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/?&amp;t=schedule&amp;c=index"/>
+			<map name="tcesMap">
+			<area shape="rect" alt="" coords="33,89,159,104" href="/?&amp;t=schedule&amp;c=index">
+			<area shape="rect" alt="" coords="3,3,239,23" href="/?&amp;t=tces&amp;c=index">
 			</map>
+			<img src="/i/tces_only_members_apply.gif" width="244" height="138" alt="Only rated members can apply for TCES jobs" border="0" alt="" usemap="#tcesMap" />
 <!-- TCES Quote Ends -->
 
 <!-- Software Promo Begins -->
