@@ -1,5 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%@          import="com.topcoder.web.screening.common.Constants,
+<%@ page import="com.topcoder.web.screening.common.Constants,
                  com.topcoder.web.screening.model.ProblemInfo" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <HTML>
