@@ -2,15 +2,15 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:output indent="no" method="html"/>
   <xsl:template match="/">
-    <xsl:call-template name="Foot"/>
+    <xsl:call-template name="FootHome"/>
   </xsl:template>
-  <xsl:template name="Foot">
+  <xsl:template name="FootHome">
 
 <!-- Footer Include Begins -->
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr>
         <td bgcolor="#666666" width="160"><img src="/i/clear.gif" width="160" height="1" border="0"/></td>
-        <td bgcolor="#CCCCCC" width="10"><img src="/i/footer_top_angle.gif" width="10" height="10" border="0"/></td>
+        <td bgcolor="#000000" width="10"><img src="/i/footer_top_angle.gif" width="10" height="10" border="0"/></td>
         <td width="100%"><img src="/i/clear.gif" width="1" height="1" border="0"/></td>
     </tr>
 </table>
