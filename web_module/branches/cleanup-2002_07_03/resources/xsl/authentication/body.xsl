@@ -8,6 +8,7 @@
 
 <xsl:template name="Body">
 
+  <xsl:param name="activate"></xsl:param>
   <!-- Body Begins -->
   <TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
     <TR>
