@@ -193,11 +193,11 @@
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Development Reviewer -</td>
-                                                            <td class="bodyText" align="right">380.00</td>
+                                                            <td class="bodyText" align="right">$380.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Development Reviewer - </td>
-                                                            <td class="bodyText" align="right">380.00</td>
+                                                            <td class="bodyText" align="right">$380.00</td>
                                                         </tr>
                                                     </table>
 
