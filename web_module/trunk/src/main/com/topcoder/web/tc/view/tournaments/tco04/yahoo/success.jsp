@@ -22,15 +22,10 @@
 			<table width="510" border=0 cellpadding=20 cellspacing=0>
 				<tr>
 					<td class="bodyText">
-                    <a href="" target="_blank"><img src="/i/tournament/tco04/yahoo_header.gif" width="510" height="75" border="0" alt="Yahoo!" /></a>
-                    <p class=pageTitle>Yahoo! Positions Available</p>
-					<ul>
-						<li><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=yahoo&d4=ty_sde">Technical Yahoo! - Software Development Engineers</a></li>
-						<li><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=yahoo&d4=ty_mea">Technical Yahoo! - Mail Engineers & Architects & SW Mgrs & QA</a></li>
-						<li><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=yahoo&d4=ty_saqe">Technical Yahoo! - Search, Architect, QA Engineers</a></li>
-						<li><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=yahoo&d4=y_lo">Yahoo! Inc. - Launch & Overture</a></li>
-						<li><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=yahoo&d4=y_ye">Yahoo! Inc. - positions available throughout Yahoo! Engineering</a></li>
-					</ul>
+                    <img src="/i/tournament/tco04/yahoo_header.gif" width="510" height="75" border="0" alt="Yahoo!" />
+                    <p><span class="bodySubtitle">Thank you for applying to Yahoo!</span></p>
+					<p>Click <a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=nvidia&d4=joblisting">here</a> to view more jobs at Yahoo!</p>
+					
 				   </td>
    				</tr>
    			</table>
@@ -42,7 +37,7 @@
 <!-- Right Column-->
         <td width=170 align=right>       	
             <jsp:include page="../../../public_right.jsp">
-            <jsp:param name="level1" value="tco04"/>
+            <jsp:param name="level1" value="nvidia"/>
             </jsp:include>
          </td>
 		

@@ -23,14 +23,28 @@
 				<tr>
 					<td class="bodyText">
                     <a href="" target="_blank"><img src="/i/tournament/tco04/yahoo_header.gif" width="510" height="75" border="0" alt="Yahoo!" /></a>
-                    <p class=pageTitle>Yahoo! Positions Available</p>
+                    <p class=pageTitle>Technical Yahoo! - Mail Engineers & Architects & SW Mgrs & QA</p>
+					<p>	Yahoo! Inc.<br/>
+						Location: Sunnyvale, California</p>
+
+					<p>Yahoo has been offering its Yahoo! Mail product to users ever since the company first went in to business. 
+					This team is experiencing significant growth and is looking for top talent in the following categories</p>
 					<ul>
-						<li><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=yahoo&d4=ty_sde">Technical Yahoo! - Software Development Engineers</a></li>
-						<li><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=yahoo&d4=ty_mea">Technical Yahoo! - Mail Engineers & Architects & SW Mgrs & QA</a></li>
-						<li><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=yahoo&d4=ty_saqe">Technical Yahoo! - Search, Architect, QA Engineers</a></li>
-						<li><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=yahoo&d4=y_lo">Yahoo! Inc. - Launch & Overture</a></li>
-						<li><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=yahoo&d4=y_ye">Yahoo! Inc. - positions available throughout Yahoo! Engineering</a></li>
+						<li>SW Engineering Mgmt</li>          
+						<li>Anti-Spam</li>                     
+						<li>Mail Search</li>                  
+						<li>Mail - Access</li>      
+						<li>Quality Assurance</li>      
+						<li>Mail - International</li>      
 					</ul>
+
+					<p>Most of the openings listed above require a degree in Computer Science or Engineering, plus 4 or more years of hands on 
+					engineering experience. The Mail Engineering Organization team is looking for engineer expertise in the following areas:  
+					OOD, C/C++, Perl, Unix, PhP, i18n, L10n, SOAP, WSDL, XMLRPC, STL, front-end and back-end development, web project development, 
+					PIM and doublebyte QA expertise.</p>
+					
+					<p><span class="bodySubtitle"><a href="">Apply Now!</a></span></p>
+
 				   </td>
    				</tr>
    			</table>
