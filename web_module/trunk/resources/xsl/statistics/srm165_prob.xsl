@@ -495,9 +495,9 @@ which is easily done by a loop:
   root--;
 </pre>
 <tt>root</tt> becomes the first element of the answer.  The remainder is
-the fraction <tt>(sqrt(n)-root*root)/1</tt>.  We next begin a loop in
+the fraction <tt>(sqrt(n)-root)/1</tt>.  We next begin a loop in
 which we process remainders of the form <tt>(sqrt(n)-d)/m</tt> until
-we get back to <tt>(sqrt(n)-root*root)/1</tt>.
+we get back to <tt>(sqrt(n)-root)/1</tt>.
 </p>
 
 <p>
@@ -550,7 +550,7 @@ Altogether, then, our main loop looks like
       add q to output list
       d = d'
       m = m'
-  until d == root*root and m == 1
+  until d == root and m == 1
 </pre>
 </p>
 
