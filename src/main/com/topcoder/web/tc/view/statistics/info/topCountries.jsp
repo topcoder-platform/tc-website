@@ -24,7 +24,8 @@
       <tr>
          <td>
             <p class="bodyText">
-                This list represents those countries with the highest average rated coders that have competed within the last 6 months.
+                This list represents those countries with the highest average rated coders that have
+                competed within the last 6 months.  The average must include at least 5 coders to be included.
             </p>
          </td>
       </tr>
