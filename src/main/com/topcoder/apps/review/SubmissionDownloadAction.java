@@ -78,6 +78,7 @@ public class SubmissionDownloadAction extends ReviewAction {
                                    ActionErrors errors,
                                    ActionForwards forwards,
                                    OnlineReviewProjectData orpd) {
+        init();
         log(Level.INFO, "SubmissionDownloadAction: User '"
                         + orpd.getUser().getHandle() + "' in session "
                         + request.getSession().getId());
