@@ -91,44 +91,39 @@
                     <td class="formHandleOdd" align="right">pending</td>
                 </tr>
                 <tr valign="middle">
-                    <td class="formHandleEven" align="left"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=8349097">hauser</a></td>
+                    <td class="formHandleEven" align="left"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=7436876">mastergaurav</a></td>
                     <td class="formHandleEven" align="left"></td>
-                    <td class="formHandleEven" align="right">pending</td>
+                    <td class="formHandleEven" align="right">56.06</td>
                 </tr>
                 <tr valign="middle">
-                    <td class="formHandleOdd" align="left"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=7436876">mastergaurav</a></td>
+                    <td class="formHandleOdd" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=289824">MPhk</a></td>
                     <td class="formHandleOdd" align="left"></td>
-                    <td class="formHandleOdd" align="right">56.06</td>
+                    <td class="formHandleOdd" align="right">80.86</td>
                 </tr>
                 <tr valign="middle">
-                    <td class="formHandleEven" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=289824">MPhk</a></td>
+                    <td class="formHandleEven" align="left"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=289251">ragnabot</a></td>
                     <td class="formHandleEven" align="left"></td>
-                    <td class="formHandleEven" align="right">80.86</td>
+                    <td class="formHandleEven" align="right">66.69</td>
                 </tr>
                 <tr valign="middle">
-                    <td class="formHandleOdd" align="left"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=289251">ragnabot</a></td>
+                    <td class="formHandleOdd" align="left"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=7463987">ShindouHikaru</a></td>
                     <td class="formHandleOdd" align="left"></td>
-                    <td class="formHandleOdd" align="right">66.69</td>
+                    <td class="formHandleOdd" align="right">59.40</td>
                 </tr>
                 <tr valign="middle">
-                    <td class="formHandleEven" align="left"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=7463987">ShindouHikaru</a></td>
-                    <td class="formHandleEven" align="left"></td>
-                    <td class="formHandleEven" align="right">59.40</td>
+                    <td class="formHandleEven" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=302018">Tomson</a></td>
+                    <td class="formHandleEven" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=119676">Pops</a></td>
+                    <td class="formHandleEven" align="right">84.74</td>
                 </tr>
                 <tr valign="middle">
-                    <td class="formHandleOdd" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=302018">Tomson</a></td>
-                    <td class="formHandleOdd" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=119676">Pops</a></td>
-                    <td class="formHandleOdd" align="right">84.74</td>
-                </tr>
-                <tr valign="middle">
-                    <td class="formHandleEven" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=286907">WishingBone</a></td>
-                    <td class="formHandleEven" align="left"></td>
-                    <td class="formHandleEven" align="right">pending</td>
-                </tr>
-                <tr valign="middle">
-                    <td class="formHandleOdd" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=309786">Yi_Zhang</a></td>
+                    <td class="formHandleOdd" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=286907">WishingBone</a></td>
                     <td class="formHandleOdd" align="left"></td>
                     <td class="formHandleOdd" align="right">pending</td>
+                </tr>
+                <tr valign="middle">
+                    <td class="formHandleEven" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=309786">Yi_Zhang</a></td>
+                    <td class="formHandleEven" align="left"></td>
+                    <td class="formHandleEven" align="right">pending</td>
                 </tr>
 
 <%--
