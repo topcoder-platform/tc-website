@@ -61,7 +61,7 @@ public class UserBean implements SessionBean {
      *
      * @param userId user ID to insert into table
      */
-    public void createUser(long userId) {
+    public void createUser(long userId, String handle) {
         log.debug("createUser called...userId: " + userId);
 
         Context ctx = null;
@@ -76,9 +76,10 @@ public class UserBean implements SessionBean {
                 "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
-            ps = conn.prepareStatement("INSERT INTO user (user_id) " +
-                                       "VALUES (?)");
+            ps = conn.prepareStatement("INSERT INTO user (user_id, handle) " +
+                                       "VALUES (?,?)");
             ps.setLong(1, userId);
+            ps.setString(2, handle);
 
             int rows = ps.executeUpdate();
 

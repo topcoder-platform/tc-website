@@ -352,7 +352,7 @@ public class Registration extends BaseProcessor {
             User userTable = (
                 (UserHome)icEJB.lookup(UserHome.EJB_REF_NAME)
             ).create();
-            userTable.createUser(userID);
+            userTable.createUser(userID, userName);
             userTable.setFirstName(userID, firstName);
             userTable.setLastName(userID, lastName);
             
