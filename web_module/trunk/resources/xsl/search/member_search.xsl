@@ -2,20 +2,20 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:import href="../top.xsl"/>
   <xsl:import href="../script.xsl"/>
-  <xsl:import href="../includes/body_top.xsl"/>  
+  <xsl:import href="../includes/body_top.xsl"/>
   <xsl:import href="../foot.xsl"/>
   <xsl:import href="../includes/modules/scroll.xsl"/>
-  <xsl:import href="../includes/modules/rating.xsl"/>  
-  <xsl:import href="../includes/modules/stats_intro.xsl"/>  
-  <xsl:import href="../includes/global_left.xsl"/> 
-  <xsl:import href="../includes/public_right_col.xsl"/>     
+  <xsl:import href="../includes/modules/rating.xsl"/>
+  <xsl:import href="../includes/modules/stats_intro.xsl"/>
+  <xsl:import href="../includes/global_left.xsl"/>
+  <xsl:import href="../includes/public_right_col.xsl"/>
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
     <HTML>
       <HEAD>
-        <xsl:call-template name="Preload"/>      
+        <xsl:call-template name="Preload"/>
         <TITLE>TopCoder :: Statistics</TITLE>
-        <xsl:call-template name="CSS"/>      
+        <xsl:call-template name="CSS"/>
         <!--<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
         <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>-->
         <META NAME="description" CONTENT="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
@@ -41,7 +41,7 @@
     <!-- Gutter Ends -->
 
 <!-- Body Area -->
-	<!-- Center Column Begins -->	
+	<!-- Center Column Begins -->
 		<TD CLASS="bodyText" WIDTH="100%" bgcolor="#CCCCCC" valign="top">
 <xsl:call-template name="BodyTop">
   <xsl:with-param name="image1">steelblue</xsl:with-param>
@@ -55,7 +55,6 @@
       <P CLASS="statText">
          Enter search criteria below then click the go button. Search results matching the criteria selections will be returned. Click on a Handle to view information about the Coder.
       </P>
-      <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
         <FORM name="searchForm" METHOD="get">
           <INPUT TYPE="hidden" NAME="t" VALUE="search"/>
           <INPUT TYPE="hidden" NAME="c" VALUE="member_search"/>
@@ -135,6 +134,7 @@
               return true;
             }
           ]]></SCRIPT>
+        <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
           <TR>
             <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"/></TD>
           </TR>
@@ -152,139 +152,138 @@
           <TR>
             <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="4" CLASS="statText" WIDTH="1"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
           </TR>
+        </TABLE>
+        <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
+          <TR><TD CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>
           <TR>
-            <TD CLASS="statText" VALIGN="middle" HEIGHT="15">&#160;</TD>
-            <TD CLASS="statTextBig" VALIGN="middle" ALIGN="center" COLSPAN="2" HEIGHT="13">Rating</TD>
-            <TD CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-          </TR>
-          <TR>
-            <TD CLASS="statText" VALIGN="middle" HEIGHT="15" WIDTH="50%">&#160;Handle&#160;
-              <INPUT TYPE="text" NAME="SearchHandle" SIZE="15" MAXLENGTH="20" onKeyPress="submitEnter(event)">
-                <xsl:choose>
-                  <xsl:when test="/TC/MEMBER_SEARCH/MemberSearch/Handle!='%'">
-                    <xsl:attribute name="value">
-                      <xsl:value-of select="/TC/MEMBER_SEARCH/MemberSearch/Handle"/>
-                    </xsl:attribute>
-                  </xsl:when>
-                </xsl:choose>
-              </INPUT>
+            <TD>
+              <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
+               <TR><TD CLASS="statText" VALIGN="middle" HEIGHT="15" WIDTH="50%">Handle</TD></TR>
+                <TR>
+                  <TD CLASS="statText" VALIGN="middle" HEIGHT="15" WIDTH="50%">
+                    <INPUT TYPE="text" NAME="SearchHandle" SIZE="15" MAXLENGTH="20" onKeyPress="submitEnter(event)">
+                      <xsl:choose>
+                        <xsl:when test="/TC/MEMBER_SEARCH/MemberSearch/Handle!='%'">
+                          <xsl:attribute name="value">
+                            <xsl:value-of select="/TC/MEMBER_SEARCH/MemberSearch/Handle"/>
+                          </xsl:attribute>
+                        </xsl:when>
+                      </xsl:choose>
+                    </INPUT>
+                  </TD>
+                </TR>
+                <TR><TD CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>
+                <TR><TD CLASS="statText" VALIGN="middle" HEIGHT="15" WIDTH="50%">State</TD></TR>
+                <TR>
+                  <TD CLASS="statText" VALIGN="middle" HEIGHT="15">
+                    <SELECT NAME="State" SIZE="1">
+                      <OPTION VALUE="">All</OPTION>
+                        <xsl:for-each select="/TC/MEMBER_SEARCH/States/State">
+                              <OPTION>
+                                <xsl:attribute name="VALUE"><xsl:value-of select="StateCode"/></xsl:attribute>
+                                <xsl:if test="/TC/MEMBER_SEARCH/MemberSearch/State=StateCode">
+                                  <xsl:attribute name="SELECTED">TRUE</xsl:attribute>
+                                </xsl:if>
+                                <xsl:value-of select="StateCode"/>
+                              </OPTION>
+                        </xsl:for-each>
+                      </SELECT>
+                  </TD>
+                </TR>
+                  <TR><TD CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>
+                <TR><TD CLASS="statText" VALIGN="middle" HEIGHT="15" WIDTH="50%">Max Time Since Last Competition</TD></TR>
+                <TR>
+                    <TD CLASS="statText" VALIGN="middle" COLSPAN="4">
+                        <SELECT NAME="MonthsSinceLastComp" SIZE="1">
+                            <OPTION VALUE="">None Specified</OPTION>
+                            <OPTION VALUE="1">
+                                <xsl:if test="/TC/MEMBER_SEARCH/MemberSearch/MonthsSinceLastComp='1'">
+                                    <xsl:attribute name="SELECTED">TRUE</xsl:attribute>
+                                </xsl:if>
+                                1 Month
+                            </OPTION>
+                            <OPTION VALUE="3">
+                                <xsl:if test="/TC/MEMBER_SEARCH/MemberSearch/MonthsSinceLastComp='3'">
+                                    <xsl:attribute name="SELECTED">TRUE</xsl:attribute>
+                                </xsl:if>
+                                3 Months
+                            </OPTION>
+                            <OPTION VALUE="6">
+                                <xsl:if test="/TC/MEMBER_SEARCH/MemberSearch/MonthsSinceLastComp='6'">
+                                    <xsl:attribute name="SELECTED">TRUE</xsl:attribute>
+                                </xsl:if>
+                                6 Months
+                            </OPTION>
+                        </SELECT>
+                    </TD>
+                </TR>
+              </TABLE>
             </TD>
-            <TD CLASS="statText" VALIGN="middle" WIDTH="25%">Min&#160;
-              <INPUT TYPE="text" NAME="MinRating" SIZE="6" MAXLENGTH="6" onKeyPress="submitEnter(event)">
-                <xsl:choose>
-                  <xsl:when test="/TC/MEMBER_SEARCH/MemberSearch/MinRating!='-1'">
-                    <xsl:attribute name="value">
-                      <xsl:value-of select="/TC/MEMBER_SEARCH/MemberSearch/MinRating"/>
-                    </xsl:attribute>
-                  </xsl:when>
-                </xsl:choose>
-              </INPUT>
+            <TD>
+              <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
+                <TR><TD CLASS="statTextBig" VALIGN="middle" ALIGN="center" COLSPAN="2" HEIGHT="13">Rating</TD></TR>
+                <TR>
+                <TD CLASS="statText" VALIGN="middle" WIDTH="25%">&#160;Min&#160;
+                  <INPUT TYPE="text" NAME="MinRating" SIZE="6" MAXLENGTH="6" onKeyPress="submitEnter(event)">
+                    <xsl:choose>
+                      <xsl:when test="/TC/MEMBER_SEARCH/MemberSearch/MinRating!='-1'">
+                        <xsl:attribute name="value">
+                          <xsl:value-of select="/TC/MEMBER_SEARCH/MemberSearch/MinRating"/>
+                        </xsl:attribute>
+                      </xsl:when>
+                    </xsl:choose>
+                  </INPUT>
+                </TD>
+                <TD CLASS="statText" VALIGN="middle" WIDTH="25%">&#160;Max&#160;
+                  <INPUT TYPE="text" NAME="MaxRating" SIZE="6" MAXLENGTH="6" onKeyPress="submitEnter(event)">
+                    <xsl:choose>
+                      <xsl:when test="/TC/MEMBER_SEARCH/MemberSearch/MaxRating!='-1'">
+                        <xsl:attribute name="value">
+                          <xsl:value-of select="/TC/MEMBER_SEARCH/MemberSearch/MaxRating"/>
+                        </xsl:attribute>
+                      </xsl:when>
+                    </xsl:choose>
+                  </INPUT>
+                </TD>
+                </TR>
+                  <TR>
+                    <TR><TD CLASS="statTextBig" VALIGN="middle" ALIGN="center" COLSPAN="2" HEIGHT="13"># of Rated Events</TD></TR>
+                  </TR>
+                  <TR>
+                    <TD CLASS="statText" VALIGN="middle">Min&#160;
+                      <INPUT TYPE="text" NAME="MinNumRatings" SIZE="6" MAXLENGTH="6" onKeyPress="submitEnter(event)">
+                        <xsl:choose>
+                          <xsl:when test="/TC/MEMBER_SEARCH/MemberSearch/MinNumRatings!='-1'">
+                            <xsl:attribute name="value">
+                              <xsl:value-of select="/TC/MEMBER_SEARCH/MemberSearch/MinNumRatings"/>
+                            </xsl:attribute>
+                          </xsl:when>
+                        </xsl:choose>
+                      </INPUT>
+                    </TD>
+                    <TD CLASS="statText" VALIGN="middle">Max&#160;
+                      <INPUT TYPE="text" NAME="MaxNumRatings" SIZE="6" MAXLENGTH="6" onKeyPress="submitEnter(event)">
+                        <xsl:choose>
+                          <xsl:when test="/TC/MEMBER_SEARCH/MemberSearch/MaxNumRatings!='-1'">
+                            <xsl:attribute name="value">
+                              <xsl:value-of select="/TC/MEMBER_SEARCH/MemberSearch/MaxNumRatings"/>
+                            </xsl:attribute>
+                          </xsl:when>
+                        </xsl:choose>
+                      </INPUT>
+                    </TD>
+                    <TD CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
+                  </TR>
+              </TABLE>
             </TD>
-            <TD CLASS="statText" VALIGN="middle" WIDTH="25%">Max&#160;
-              <INPUT TYPE="text" NAME="MaxRating" SIZE="6" MAXLENGTH="6" onKeyPress="submitEnter(event)">
-                <xsl:choose>
-                  <xsl:when test="/TC/MEMBER_SEARCH/MemberSearch/MaxRating!='-1'">
-                    <xsl:attribute name="value">
-                      <xsl:value-of select="/TC/MEMBER_SEARCH/MemberSearch/MaxRating"/>
-                    </xsl:attribute>
-                  </xsl:when>
-                </xsl:choose>
-              </INPUT>
-            </TD>
-            <TD CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
           </TR>
           <TR>
-            <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"/></TD>
-          </TR>
-          <TR>
-            <TD CLASS="statText" VALIGN="middle" HEIGHT="15">&#160;</TD>
-            <TD CLASS="statTextBig" VALIGN="middle" ALIGN="center" COLSPAN="2" HEIGHT="13"># of Rated Events</TD>
-            <TD CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-          </TR>
-          <TR>
-            <TD CLASS="statText" VALIGN="middle" HEIGHT="15">&#160;State&#160;
-              <SELECT NAME="State" SIZE="1">
-                <OPTION VALUE="">All</OPTION>
-                  <xsl:for-each select="/TC/MEMBER_SEARCH/States/State">
-                        <OPTION>
-                          <xsl:attribute name="VALUE"><xsl:value-of select="StateCode"/></xsl:attribute>
-                          <xsl:if test="/TC/MEMBER_SEARCH/MemberSearch/State=StateCode">
-                            <xsl:attribute name="SELECTED">TRUE</xsl:attribute>
-                          </xsl:if>
-                          <xsl:value-of select="StateCode"/>
-                        </OPTION>
-                  </xsl:for-each>
-                </SELECT>
-            </TD>
-            <TD CLASS="statText" VALIGN="middle">Min&#160;
-              <INPUT TYPE="text" NAME="MinNumRatings" SIZE="6" MAXLENGTH="6" onKeyPress="submitEnter(event)">
-                <xsl:choose>
-                  <xsl:when test="/TC/MEMBER_SEARCH/MemberSearch/MinNumRatings!='-1'">
-                    <xsl:attribute name="value">
-                      <xsl:value-of select="/TC/MEMBER_SEARCH/MemberSearch/MinNumRatings"/>
-                    </xsl:attribute>
-                  </xsl:when>
-                </xsl:choose>
-              </INPUT>
-            </TD>
-            <TD CLASS="statText" VALIGN="middle">Max&#160;
-              <INPUT TYPE="text" NAME="MaxNumRatings" SIZE="6" MAXLENGTH="6" onKeyPress="submitEnter(event)">
-                <xsl:choose>
-                  <xsl:when test="/TC/MEMBER_SEARCH/MemberSearch/MaxNumRatings!='-1'">
-                    <xsl:attribute name="value">
-                      <xsl:value-of select="/TC/MEMBER_SEARCH/MemberSearch/MaxNumRatings"/>
-                    </xsl:attribute>
-                  </xsl:when>
-                </xsl:choose>
-              </INPUT>
-            </TD>
-            <TD CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-          </TR>
-          <TR>
-            <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-          </TR>
-          <TR>
-            <TD CLASS="statText" ALIGN="center" VALIGN="middle" COLSPAN="4">Max Time Since Last Competition&#160;
-                <SELECT NAME="MonthsSinceLastComp" SIZE="1">
-                    <OPTION VALUE="">None Specified</OPTION>
-                    <OPTION VALUE="1">
-                        <xsl:if test="/TC/MEMBER_SEARCH/MemberSearch/MonthsSinceLastComp='1'">
-                            <xsl:attribute name="SELECTED">TRUE</xsl:attribute>
-                        </xsl:if>
-                        1 Month
-                    </OPTION>
-                    <OPTION VALUE="3">
-                        <xsl:if test="/TC/MEMBER_SEARCH/MemberSearch/MonthsSinceLastComp='3'">
-                            <xsl:attribute name="SELECTED">TRUE</xsl:attribute>
-                        </xsl:if>
-                        3 Months
-                    </OPTION>
-                    <OPTION VALUE="6">
-                        <xsl:if test="/TC/MEMBER_SEARCH/MemberSearch/MonthsSinceLastComp='6'">
-                            <xsl:attribute name="SELECTED">TRUE</xsl:attribute>
-                        </xsl:if>
-                        6 Months
-                    </OPTION>
-                </SELECT>
-            </TD>
-            <TD CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-          </TR>
-          <TR>
-            <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"/></TD>
-          </TR>
-          <TR>
-            <TD COLSPAN="4" CLASS="statText" ALIGN="center" VALIGN="middle" HEIGHT="18">  
+            <TD COLSPAN="4" CLASS="statText" ALIGN="center" VALIGN="middle" HEIGHT="18">
               <A HREF="javascript:submitSearch()"><xsl:attribute name="CLASS">statText</xsl:attribute>&#160;[ submit ]</A>
             </TD>
           </TR>
-          <TR>
-            <TD BACKGROUND="/i/steel_blue_bg.gif" COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
-          </TR>
-          <TR>
-            <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="12" BORDER="0"/></TD>
-          </TR>
+        </TABLE>
         </FORM>
-      </TABLE>
       <xsl:if test="/TC/MEMBER_SEARCH/MemberSearch/IsResult='true'">
         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
           <xsl:variable name="row">
@@ -333,7 +332,7 @@
             </TD>
           </TR>
           <TR>
-            <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
+            <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
           </TR>
           <TR>
             <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" HEIGHT="18" WIDTH="20%">&#160;Handle</TD>
@@ -345,7 +344,7 @@
             <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
           </TR>
           <TR>
-            <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>    
+            <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
           </TR>
           <xsl:for-each select="/TC/MEMBER_SEARCH/MemberSearch/CoderList/SearchResult">
             <TR>
@@ -367,10 +366,10 @@
               <TD CLASS="statText" VALIGN="middle" ALIGN="right"><xsl:value-of select="NumRatings"/></TD>
               <TD CLASS="statText" VALIGN="middle" ALIGN="right"><xsl:value-of select="LastCompDate"/></TD>
               <TD CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-            </TR>       
+            </TR>
           </xsl:for-each>
           <TR>
-            <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>    
+            <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
           </TR>
           <TR>
           <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" HEIGHT="16" COLSPAN="7" ALIGN="center">
@@ -383,24 +382,24 @@
               </xsl:call-template>
             </xsl:if>
           </TD>
-        </TR>    
+        </TR>
         <TR>
           <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="16" BORDER="0"/></TD>
-        </TR>    
-      </TABLE>  
+        </TR>
+      </TABLE>
     </xsl:if>
 </TD>
 <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 </TR>
 <TR>
 <TD COLSPAN="4" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-</TR>   
+</TR>
 	<TR>
 		<TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
 		<TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" BGCOLOR="#000033" WIDTH="14"><IMG SRC="/i/table_mid_left2x.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
 		<TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" BGCOLOR="#000033" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
 		<TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-	</TR>	
+	</TR>
 	<TR>
 		<TD VALIGN="top" BACKGROUND="" WIDTH="11" ALIGN="right" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
 		<TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
@@ -417,9 +416,9 @@
     <!-- Gutter Ends -->
 <!-- Right Column Begins -->
 <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
-<!-- Right Column Include Begins -->        
-        <xsl:call-template name="public_right_col"/>        
-<!-- Right Column Include Ends -->        
+<!-- Right Column Include Begins -->
+        <xsl:call-template name="public_right_col"/>
+<!-- Right Column Include Ends -->
         </TD>
 <!-- Right Column Ends -->
 	<!-- Gutter -->
