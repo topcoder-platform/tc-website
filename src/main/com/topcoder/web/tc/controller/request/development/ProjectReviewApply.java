@@ -14,7 +14,6 @@ import com.topcoder.web.tc.Constants;
 
 import java.rmi.RemoteException;
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.Map;
 
 /**
@@ -25,7 +24,7 @@ public class ProjectReviewApply extends Base {
     // Minimum time that must elapse between applications by the same
     // reviewer (in milliseconds).
     protected static final long APPLICATION_DELAY = 6 * 60 * 60 * 1000;
-    
+
     protected long projectId = 0;
     protected int phaseId = 0;
 
@@ -65,22 +64,13 @@ public class ProjectReviewApply extends Base {
                 } else if (rba.exists(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId, phaseId)) {
                     throw new NavigationException("You have already applied to review this project.");
                 } else {
-                    Timestamp ts = null;
-                    try {
-                        ts = rba.getLatestReviewApplicationTimestamp(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId());
-                    } catch (RemoteException e) {
-                        if (e.detail instanceof RowNotFoundException) {
-                            // No previous review application found, we don't need to do anything here.
-                        } else {
-                            throw e;
-                        }
-                    }
+                    Timestamp ts = rba.getLatestReviewApplicationTimestamp(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId());
                     if (ts != null && System.currentTimeMillis() < ts.getTime() + APPLICATION_DELAY) {
                         throw new NavigationException("Sorry, you can not apply for a new review yet.  "
                                 + "You will need to wait until "
                                 + DateTime.timeStampToString(new Timestamp(ts.getTime() + APPLICATION_DELAY)));
                     }
-                    
+
                     try {
                         if (catalog == Constants.JAVA_CATALOG_ID || catalog == Constants.CUSTOM_JAVA_CATALOG_ID) {
                             if (rbu.canReviewJava(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId(), phaseId)) {

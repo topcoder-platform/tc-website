@@ -4,13 +4,11 @@ import com.topcoder.common.web.util.DateTime;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.common.RowNotFoundException;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.rboard.RBoardApplication;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.development.ProjectReviewApply;
 
-import java.rmi.RemoteException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -46,16 +44,7 @@ public class ViewReviewProjects extends ReviewProjectDetail {
             getRequest().setAttribute("prices", prices);
 
             RBoardApplication rba = (RBoardApplication) createEJB(getInitialContext(), RBoardApplication.class);
-            Timestamp ts = null;
-            try {
-                ts = rba.getLatestReviewApplicationTimestamp(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId());
-            } catch (RemoteException e) {
-                if (e.detail instanceof RowNotFoundException) {
-                    // No previous review application found, we don't need to do anything here.
-                } else {
-                    throw e;
-                }
-            }
+            Timestamp ts = rba.getLatestReviewApplicationTimestamp(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId());
             if (ts != null && System.currentTimeMillis() < ts.getTime() + ProjectReviewApply.APPLICATION_DELAY) {
                 getRequest().setAttribute("waitingToReview", Boolean.TRUE);
                 getRequest().setAttribute("waitingUntil",
@@ -64,7 +53,7 @@ public class ViewReviewProjects extends ReviewProjectDetail {
                 getRequest().setAttribute("waitingToReview", Boolean.FALSE);
                 getRequest().setAttribute("waitingUntil", new String(""));
             }
-            
+
             //getRequest().setAttribute("tournamentProjectList", getDataAccess().getData(r).get("tournament_review_projects"));
         } catch (TCWebException e) {
             throw e;
