@@ -6,12 +6,13 @@
   <xsl:import href="../foot.xsl"/>
   <xsl:import href="../includes/modules/practice_room.xsl"/>
   <xsl:import href="../includes/modules/calendar.xsl"/>
-  <xsl:import href="../includes/contacts/public_contacts_left.xsl"/> 
+  <xsl:import href="../includes/global_left.xsl"/> 
   <xsl:import href="../includes/public_right_col.xsl"/>     
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
-    <html>
-      <head>
+
+<html>
+<head>
         <xsl:call-template name="Preload"/>      
         <title>TopCoder :: Contacts</title>
         <xsl:call-template name="CSS"/>      
@@ -22,21 +23,21 @@
       </head>
       <body bgcolor="#FFFFFF" topmargin="0" marginheight="0" leftmargin="0" marginwidth="0">
         <xsl:call-template name="Top"/>
-<!-- Body Begins -->
-<table width="100%" height="69%" border="0" cellpadding="0" cellspacing="0" bgcolor="#CCCCCC">
+
+<table width="100%" height="69%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
 	<tr>
 <!-- Left Column Begins -->
-		<td width="170" bgcolor="#CCCCCC" valign="top">
-			<xsl:call-template name="public_contacts_left"/>
+		<td width="170" bgcolor="#FFFFFF" valign="top">
+			<xsl:call-template name="global_left"/>
 		</td>
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-		<td width="4" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="4" height="8" border="0"/></td>
+		<td width="4" bgcolor="#FFFFFF" valign="top"><img src="/i/table_top_fill.gif" width="4" height="26" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->	
-		<td class="bodyText" width="100%" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="240" height="1" vspace="5" border="0"/><br/>
+		<td class="bodyText" width="100%" bgcolor="#FFFFFF" valign="top">
 			<xsl:call-template name="BodyTop">
 				<xsl:with-param name="image1">white</xsl:with-param>
 				<xsl:with-param name="image">contacts</xsl:with-param>
@@ -63,9 +64,9 @@
 									Phone: 860.633.5540<br/>Fax: 860.657.4276<br/>
 									Email:<a href="mailto:service@topcoder.com" class="bodyText">TopCoder General Inbox</a></p>
 									
-									<p><strong><a href="mailto:mlydon@topcoder.com" class="bodyText">NEED TECH SUPPORT?</a></strong></p>
+									<p><a href="mailto:mlydon@topcoder.com" class="bodyText"><strong>NEED TECH SUPPORT?</strong></a></p>
 							
-									<p><strong>Questions regarding sponsorships, membership, employment services and technology</strong></p></td>
+									<p><strong>Questions regarding sponsorships, membership, employment services and technology</strong><br />&#160;</p></td>
 							</tr>
 							
 							<tr valign="top">
@@ -76,7 +77,7 @@
 									703 Hebron Avenue<br/>
 									Glastonbury, CT 06033<br/>
 									ph: 860.633.5540<br/>
-									fx: 860.657.4276</td>
+									fx: 860.657.4276<br />&#160;</td>
 									
 								<td width="50%" align="left" class="bodyText">
 									<a href="mailto:mlydon@topcoder.com" class="bodyText">Competition Applet/Website</a><br/>
@@ -85,7 +86,7 @@
 									703 Hebron Avenue<br/>
 									Glastonbury, CT 06033<br/>
 									ph: 860.633.5540<br/>
-									fx: 860.657.4276</td>
+									fx: 860.657.4276<br />&#160;</td>
 							</tr>
 
 							<tr valign="top">
@@ -96,7 +97,7 @@
 									703 Hebron Avenue<br/>
 									Glastonbury, CT 06033<br/>
 									ph: 860.633.5540<br/>
-									fx: 860.657.4276</td>
+									fx: 860.657.4276<br />&#160;</td>
 									
 								<td width="50%" align="left" class="bodyText">
 									<a href="mailto:tces@topcoder.com" class="bodyText">Employment Services</a><br/>
@@ -105,7 +106,7 @@
 									703 Hebron Avenue<br/>
 									Glastonbury, CT 06033<br/>
 									ph: 860.633.5540<br/>
-									fx: 860.657.4276</td>
+									fx: 860.657.4276<br />&#160;</td>
 							</tr>
 						</table>
 					</div>
@@ -117,34 +118,34 @@
 				<tr><td colspan="4" valign="top" bgcolor="#FFFFFF" width="100%"><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>   	
 			
 				<tr>
-					<td valign="top" bgcolor="#CCCCCC" width="11" align="right"><img src="/i/clear.gif" alt="" width="11" height="8" border="0"/></td>
+					<td valign="top" bgcolor="#FFFFFF" width="11" align="right"><img src="/i/clear.gif" alt="" width="11" height="8" border="0"/></td>
 					<td valign="top" width="75"><img src="/i/table_mid_left2.gif" alt="" width="14" height="8" border="0"/></td>
 					<td valign="top" bgcolor="#FFFFFF" width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>
-					<td valign="top" bgcolor="#CCCCCC" width="10"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>
+					<td valign="top" bgcolor="#FFFFFF" width="10"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>
 				</tr>	
 
 				<tr>
-					<td valign="top" width="11" align="right" bgcolor="#CCCCCC"><img src="/i/clear.gif" alt="" width="11" height="8" border="0"/></td>
-					<td valign="top" bgcolor="#CCCCCC" width="14"><img src="/i/table_btm_left2.gif" alt="" width="14" height="8" border="0"/></td>
-					<td valign="top" bgcolor="#CCCCCC" width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>
-					<td valign="top" bgcolor="#CCCCCC" width="10"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>
+					<td valign="top" width="11" align="right" bgcolor="#FFFFFF"><img src="/i/clear.gif" alt="" width="11" height="8" border="0"/></td>
+					<td valign="top" bgcolor="#FFFFFF" width="14"><img src="/i/table_btm_left2.gif" alt="" width="14" height="8" border="0"/></td>
+					<td valign="top" bgcolor="#FFFFFF" width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>
+					<td valign="top" bgcolor="#FFFFFF" width="10"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>
 				</tr>
 			</table>
 		</td>
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
-		<td width="4" bgcolor="#CCCCCC"><img src="/i/clear.gif" width="4" height="1" border="0"/></td>
+		<td width="4" bgcolor="#FFFFFF"><img src="/i/clear.gif" width="4" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-		<td width="170" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="170" height="1" border="0"/><br/>
+		<td width="170" bgcolor="#FFFFFF" valign="top"><img src="/i/clear.gif" width="170" height="1" border="0"/><br/>
 			<xsl:call-template name="public_right_col"/>       
         </td>
 <!-- Right Column Ends -->
 
 <!-- Gutter -->
-		<td width="25" bgcolor="#CCCCCC"><img src="/i/clear.gif" width="25" height="1" border="0"/></td>
+		<td width="25" bgcolor="#FFFFFF"><img src="/i/clear.gif" width="25" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 	</tr>
 </table>
