@@ -65,12 +65,12 @@ public class Submit extends FullRegSubmit {
         }
     }
 
-    protected long store(SimpleRegInfo regInfo, UserPrincipal newUser) throws Exception {
+    protected long store(SimpleRegInfo regInfo) throws Exception {
         long ret = super.storeWithoutCoder(regInfo);
 
         //need to add coder record to avoid breaking a bunch of foreign keys
         Coder coder = (Coder)createEJB(getInitialContext(),Coder.class);
-        coder.createCoder(newUser.getId(), 1);
+        coder.createCoder(ret, 1);
 
         super.setCoderType(ret, ((FullRegInfo) regInfo).getCoderType());
         super.storeQuestions(regInfo, ret);
