@@ -86,11 +86,18 @@
                 <li><strong>Online Round 1</strong><br />
                 All eligible rated members may compete in Round 1 and a total of ten (10) will advance.  For the design contest, two of the 10
                 advancing positions will be awarded to the winners of the two previous component design bonus contests (Pops and TangentZ).  If
-                fewer than 10 people (8 people for the design contest) qualify for the remaining advancing positions, only those members who
-                meet the advancement criteria will advance to Online Round 2.</li>
+                fewer than 10 people (6 people for the design contest) qualify for the remaining advancing positions, there will be a Wild 
+                Card Pool created from the designers and developers who submitted for projects, passed screening, but were not eligible to 
+                advance to Online Round 2.</li>
 
                 <li><strong>Online Round 2</strong><br />
-               Up to ten (10) coders will compete and two (2) will advance.  </li>
+               Up to ten (10) coders eligible from Online Round 1 will compete along with up to twenty (20) members in the Wild Card Pool
+               and two (2) will advance.  Following the completion of Round 2 Reviews, the final two designers and developers, able to travel 
+               onsite, will be identified from the eligible Round 1 advancers competing in Round 2.  Finalists will be chosen based on their 
+               Round 2 score.  The round score will be calculated by averaging the top two component scores for each round, with at least 
+               one being a level 2 component.  If there are less than two eligible designers or developers able to travel to the Final Onsite 
+               Round, then members in the Wild Card Pool will be eligible to advance to the Finals. Wild Card members will be chosen based 
+               on their Round 2 score.</li>
 
                 <li><strong>Onsite Championship Round 3</strong><br />
                 Two (2) members will compete.  The member with the highest score of the final submission will be declared the winner.</li>
