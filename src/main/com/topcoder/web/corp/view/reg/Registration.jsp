@@ -262,7 +262,7 @@
     <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle" background="/i/p/graybv_lite_bg.gif" HEIGHT="16">&#160;<FONT COLOR="#FFFFFF"><B>Terms of Use</B></FONT></TD>
   </TR>
   <TR align="right" valign="middle">
-    <TD COLSPAN="4" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textArea name="<%=Registration.KEY_TERMS%>" rows="10" cols="80" readOnly="true" class="bodyText"/></TD>
+    <TD COLSPAN="4" CLASS="bodyText" ALIGN="center" VALIGN="middle"><tc-webtag:textArea name="<%=Registration.KEY_TERMS%>" rows="10" cols="80" readOnly="true" class="bodyText"/></TD>
   </TR>
 
     <TR>
