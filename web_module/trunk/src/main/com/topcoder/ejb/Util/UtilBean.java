@@ -29,7 +29,6 @@ public class UtilBean extends BaseEJB {
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        javax.naming.Context ctx = null;
 
         query = new StringBuffer();
         query.append(" SELECT 'foo'");
@@ -110,7 +109,6 @@ public class UtilBean extends BaseEJB {
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        javax.naming.Context ctx = null;
 
         query = new StringBuffer();
         query.append(" SELECT *");
@@ -165,7 +163,6 @@ public class UtilBean extends BaseEJB {
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        javax.naming.Context ctx = null;
         try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement("SELECT CURRENT FROM dual");
@@ -193,12 +190,6 @@ public class UtilBean extends BaseEJB {
                 } catch (Exception ignore) {
                 }
             }
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                }
-            }
         }
         return result;
     }
@@ -209,7 +200,6 @@ public class UtilBean extends BaseEJB {
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        javax.naming.Context ctx = null;
         try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement("SELECT CURRENT FROM dual");
@@ -237,12 +227,6 @@ public class UtilBean extends BaseEJB {
                 } catch (Exception ignore) {
                 }
             }
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                }
-            }
         }
         return result;
     }
@@ -253,7 +237,6 @@ public class UtilBean extends BaseEJB {
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        javax.naming.Context ctx = null;
         try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement("SELECT CURRENT FROM dual");
@@ -281,12 +264,6 @@ public class UtilBean extends BaseEJB {
                 } catch (Exception ignore) {
                 }
             }
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                }
-            }
         }
         return result;
     }
@@ -299,7 +276,6 @@ public class UtilBean extends BaseEJB {
         /*********************************************************/
         PreparedStatement ps = null;
         java.sql.Connection conn = null;
-        javax.naming.Context ctx = null;
         try {
             conn = DBMS.getConnection();
             conn.setAutoCommit(true);
@@ -327,12 +303,6 @@ public class UtilBean extends BaseEJB {
                 } catch (Exception ignore) {
                 }
             }
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                }
-            }
             query = null;
         }
     }
@@ -343,7 +313,6 @@ public class UtilBean extends BaseEJB {
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        javax.naming.Context ctx = null;
         try {
             conn = DBMS.getConnection();
             StringBuffer query = new StringBuffer(150);
@@ -414,12 +383,6 @@ public class UtilBean extends BaseEJB {
                 } catch (Exception ignore) {
                 }
             }
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                }
-            }
         }
     }
 
@@ -429,7 +392,6 @@ public class UtilBean extends BaseEJB {
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        javax.naming.Context ctx = null;
         try {
             conn = DBMS.getConnection();
             StringBuffer query = new StringBuffer(175);
@@ -503,12 +465,6 @@ public class UtilBean extends BaseEJB {
                 } catch (Exception ignore) {
                 }
             }
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                }
-            }
         }
     }
 
@@ -518,7 +474,6 @@ public class UtilBean extends BaseEJB {
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        javax.naming.Context ctx = null;
         try {
             conn = DBMS.getConnection();
             StringBuffer query = new StringBuffer(150);
@@ -567,12 +522,6 @@ public class UtilBean extends BaseEJB {
                 } catch (Exception ignore) {
                 }
             }
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                }
-            }
         }
     }
 
@@ -582,7 +531,6 @@ public class UtilBean extends BaseEJB {
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        javax.naming.Context ctx = null;
         try {
             conn = DBMS.getConnection();
             StringBuffer query = new StringBuffer(150);
@@ -630,12 +578,6 @@ public class UtilBean extends BaseEJB {
                 } catch (Exception ignore) {
                 }
             }
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                }
-            }
         }
     }
 
@@ -645,7 +587,6 @@ public class UtilBean extends BaseEJB {
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        javax.naming.Context ctx = null;
         try {
             conn = DBMS.getConnection();
             StringBuffer query = new StringBuffer(150);
@@ -688,12 +629,6 @@ public class UtilBean extends BaseEJB {
                 } catch (Exception ignore) {
                 }
             }
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                }
-            }
         }
     }
 
@@ -703,7 +638,6 @@ public class UtilBean extends BaseEJB {
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        javax.naming.Context ctx = null;
         try {
             conn = DBMS.getConnection();
             StringBuffer query = new StringBuffer(150);
@@ -781,12 +715,6 @@ public class UtilBean extends BaseEJB {
                 } catch (Exception ignore) {
                 }
             }
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                }
-            }
         }
     }
 
@@ -797,7 +725,6 @@ public class UtilBean extends BaseEJB {
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        javax.naming.Context ctx = null;
         try {
             conn = DBMS.getConnection();
             /*********************************************************/
@@ -834,12 +761,6 @@ public class UtilBean extends BaseEJB {
             if (conn != null) {
                 try {
                     conn.close();
-                } catch (Exception ignore) {
-                }
-            }
-            if (ctx != null) {
-                try {
-                    ctx.close();
                 } catch (Exception ignore) {
                 }
             }
@@ -903,7 +824,6 @@ public class UtilBean extends BaseEJB {
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        javax.naming.Context ctx = null;
         try {
             conn = DBMS.getConnection();
             /*********************************************************/
@@ -951,12 +871,6 @@ public class UtilBean extends BaseEJB {
             if (conn != null) {
                 try {
                     conn.close();
-                } catch (Exception ignore) {
-                }
-            }
-            if (ctx != null) {
-                try {
-                    ctx.close();
                 } catch (Exception ignore) {
                 }
             }
