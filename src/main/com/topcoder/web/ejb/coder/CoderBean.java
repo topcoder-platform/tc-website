@@ -3,6 +3,7 @@ package com.topcoder.web.ejb.coder;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.ejb.BaseEJB;
+import com.topcoder.web.common.RowNotFoundException;
 
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
@@ -284,7 +285,7 @@ public class CoderBean extends BaseEJB {
             if (rs.next()) {
                 memberSince = rs.getDate(1);
             } else {
-                throw new EJBException("EJBException in getMemberSince"
+                throw new RowNotFoundException("EJBException in getMemberSince"
                         + " empty result set for query: " + query.toString());
             }
 
@@ -329,7 +330,7 @@ public class CoderBean extends BaseEJB {
             if (rs.next()) {
                 quote = rs.getString(1);
             } else {
-                throw new EJBException("EJBException in getQuote"
+                throw new RowNotFoundException("EJBException in getQuote"
                         + " empty result set for query: " + query.toString());
             }
 
@@ -374,7 +375,7 @@ public class CoderBean extends BaseEJB {
             if (rs.next()) {
                 editorId = rs.getInt(1);
             } else {
-                throw new EJBException("EJBException in getEditorId"
+                throw new RowNotFoundException("EJBException in getEditorId"
                         + " empty result set for query: " + query.toString());
             }
 
@@ -420,7 +421,7 @@ public class CoderBean extends BaseEJB {
             if (rs.next()) {
                 languageId= rs.getInt(1);
             } else {
-                throw new EJBException("EJBException in getLanguageId"
+                throw new RowNotFoundException("EJBException in getLanguageId"
                         + " empty result set for query: " + query.toString());
             }
 
@@ -465,7 +466,7 @@ public class CoderBean extends BaseEJB {
             if (rs.next()) {
                 languageId= rs.getInt(1);
             } else {
-                throw new EJBException("EJBException in getCoderTypeId"
+                throw new RowNotFoundException("EJBException in getCoderTypeId"
                         + " empty result set for query: " + query.toString());
             }
 
@@ -510,7 +511,7 @@ public class CoderBean extends BaseEJB {
             if (rs.next()) {
                 activationCode = rs.getString("activation_code");
             } else {
-                throw new EJBException("EJBException in getActivationCode"
+                throw new RowNotFoundException("EJBException in getActivationCode"
                         + " empty result set for query: " + query.toString());
             }
 
