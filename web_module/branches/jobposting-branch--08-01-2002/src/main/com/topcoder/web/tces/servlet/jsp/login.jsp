@@ -51,7 +51,7 @@
 class="com.topcoder.web.tces.servlet.LoginCommand" />
 
 <p class='notice'>
-<jsp:getProperty name="LoginCommand" property="message" />
+<jsp:getProperty name="LoginCommand" property="Message" />
 </p>
 
 <FORM NAME="login" METHOD="POST" ACTION="/tces/tces" onSubmit="">

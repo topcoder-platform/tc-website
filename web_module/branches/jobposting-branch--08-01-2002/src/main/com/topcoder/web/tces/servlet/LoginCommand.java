@@ -94,6 +94,8 @@ log.debug("lc:v");
 	private void goLoginPage(HttpServletRequest request, HttpServletResponse response,
 					 	  	   ServletContext servCtx) throws Exception
 	{
+		request.setAttribute("LoginCommand",this);
+
 		servCtx.getContext("/").getRequestDispatcher(
 			response.encodeURL("/es/login.jsp")).forward(request, response);
 	}
