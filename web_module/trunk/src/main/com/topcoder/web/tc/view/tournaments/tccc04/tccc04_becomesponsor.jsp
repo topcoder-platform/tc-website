@@ -2,7 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>2004 TopCoder Collegiate Challenge  - Computer Programming Tournament - Overview</title>
+<title>2004 TopCoder Collegiate Challenge  - Sponsorship Opportunities</title>
 
 <jsp:include page="../../script.jsp" />
 
@@ -30,11 +30,11 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-         <td class="bodyText" width="100%">
+         <td class="bodyText" width="100%" align="center">
          
     <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr><td height="15"><img src="/i/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
-                <tr><td align="center"><img src="/i/about/student_rep_header.gif" alt="Represent TopCoder on your College Campus." width="545" height="53" border="0" /></td></tr>
+                <tr><td align="center"><img src="/i/tournament/tccc04/become_sponsor.gif" alt="Become a sponsor at the TCCC04" width="545" height="53" border="0" /></td></tr>
     </table>
 
     <table width="545" border="0" cellpadding="0" cellspacing="0">
@@ -52,11 +52,38 @@
                 <tr valign="top">
                     <td width="545" class="bodyText">
                     <img src="/i/clear.gif" alt="" width="10" height="10" border="0" />
-                        <p><strong>What do I get for being a sponsor at the 2004 TopCoder Collegiate Challenge?</strong></p>
+                        <p><A href="/i/downloads/tccc04_binder.pdf"><img src="/i/tournament/tccc04/download_sponsor_pdf.gif" alt="View the poster" width="170" height="147" border="0" align="left" style="padding-left: 0px; padding-top: 0px; padding-right: 10px; padding-bottom: 0px;"/></A><strong>What do I get for being a sponsor at the 2004 TopCoder Collegiate Challenge?</strong></p>
 
-                        <p><A href="Javascript:openWin('/tc?module=Static&d1=about&d2=student_rep_poster','comp',310,425);"><img src="/i/about/student_rep_poster_sm.gif" alt="View the poster" width="109" height="77" border="0" align="right" /></A>TopCoder provides a comprehensive program for 
-                        organizations to align themselves with the TopCoder community. Through a complete array of client-specific (i.e., branded) vehicles, TopCoder is able to bring companies in direct contact with a developer community that is interested in the sponsor's 
-                        involvement. That interest is sparked by the direct relationship between sponsor and member formed during a TopCoder Competition.</p>
+                        <p>There are no other venues that provide the Integrated Marketing package that a TopCoder sponsorship will. From customized emails to a targeted demographic, to a micro-site developed by TopCoder to further promote your 
+                        company's offering, we offer the most comprehensive way to align your company with the developer community.</p>
+                        
+                        <ul>
+                        
+                        <li><strong>TopCoder.com</strong> - Online branding on our home page as well as the TCCC mini-site.
+                        </li>
+                        
+                        <li><strong>Arena Applet</strong> - Online branding within the competition arena. 
+                        </li>
+                        
+                        <li><strong>Component Competition</strong> - Branding throughout the Component Competiton, as well as working software delivered.
+                        </li>
+                        
+                        <li><strong>Interactive</strong> - Survey questions, and hosted chat sessions.
+                        </li>
+                        
+                        <li><strong>Opt-in Emails</strong> - Customized email announcements sent to over 20,000 of our members.
+                        </li>
+                        
+                        <li><strong>Onsite Branding</strong> - Custom, graphic presence during the onsite competition, as well as speaking opportunities and video promotions.
+                        </li>
+                        
+                        <li><strong>Onsite Finals</strong> - Video news releases, press releases and news articles.
+                        </li>
+                        
+                        <li><strong>Post-Tournament Review</strong> - Complete overview of the tournament, demographics and overview of TopCoder's process. 
+                        </li>
+                        
+                        </ul>
                         
                         <p><strong>What are the different levels of sponsorship?</strong></p>
                         
@@ -98,8 +125,11 @@
 
                         <p><strong>How do I become a sponsor?</strong></p>
                                     
-                                        <p><a href="mailto:PMoriarty@topcoder.com?subject=TCCC04 Sponsorship">Contact us</a>  if you're interested in learning more about sponsorship for the 2004 TopCoder Collegiate Challenge.<br/>
-                                        Contact: Paul Moriarty<br/>
+                                        <p><a href="mailto:PMoriarty@topcoder.com?subject=TCCC04 Sponsorship">Contact us</a>  if you're interested in learning more about sponsorship<br/>
+                                         for the 2004 TopCoder Collegiate Challenge.<br/></p>
+                                        
+                                        
+                                        <p>Contact: Paul Moriarty<br/>
                                         TopCoder, Inc. <br/>
                                         703 Hebron Avenue<br/>
                                         Glastonbury, CT 06033 U.S.A.<br/>
@@ -126,7 +156,7 @@
 <!-- Right Column Begins -->
          <td width="170">
             <jsp:include page="../../public_right.jsp">
-               <jsp:param name="level1" value="privatelabel"/>
+               <jsp:param name="level1" value="about"/>
             </jsp:include>
          </td>
 <!-- Right Column Ends -->
