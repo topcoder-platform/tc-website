@@ -17,7 +17,7 @@ import java.util.Map;
  * @version  $Revision$ $Date$
  * Create Date: Jan 31, 2005
  */
-abstract class BaseCredentialReminder extends RegistrationBase {
+public abstract class BaseCredentialReminder extends RegistrationBase {
 
     protected void registrationProcessing() throws TCWebException {
         String email = StringUtils.checkNull(getRequest().getParameter(Constants.EMAIL));
