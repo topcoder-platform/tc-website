@@ -198,7 +198,7 @@ public abstract class Base extends BaseProcessor {
     protected void loadUserMessageIntoRequest(String messageId) {
         log.debug("load message into request");
         //we're overwritting the request user message here, so you better hope that
-        //there is nothing of use in it.
+        //there is no use in it.
         getRequest().setAttribute(Constants.MESSAGE,
                 getRequest().getSession().getAttribute(Constants.MESSAGE + messageId));
         getRequest().getSession().removeAttribute(Constants.MESSAGE + messageId);
@@ -348,10 +348,6 @@ public abstract class Base extends BaseProcessor {
         //log.debug("setting up session defaults");
         getRequest().getSession().setAttribute(DEFAULTS_KEY + messageId, defaults);
         getRequest().removeAttribute(DEFAULTS_KEY);
-        getRequest().getSession().setAttribute(Constants.MESSAGE + messageId,
-                getRequest().getAttribute(Constants.MESSAGE));
-        getRequest().removeAttribute(Constants.MESSAGE);
-
 /*
         log.debug("defaults: " + getRequest().getSession().getAttribute(DEFAULTS_KEY + messageId));
         log.debug("errors: " + getRequest().getSession().getAttribute(ERRORS_KEY + messageId));
@@ -359,9 +355,9 @@ public abstract class Base extends BaseProcessor {
 
         ScreeningBaseResponse m = (ScreeningBaseResponse) receiver.receive(waitTime, messageId, getResponse());
 
-        log.debug("response: " + m.getClass().getName());
+        //log.debug("response: " + m.getClass().getName());
         if (m.isSynchronous()) {
-            log.debug("unlock it and send response");
+            //log.debug("unlock it and send response");
             unlock();
         }
 
@@ -378,7 +374,7 @@ public abstract class Base extends BaseProcessor {
     }
 
     protected void setUserMessage(String message) {
-        getRequest().setAttribute(Constants.MESSAGE, message);
+        getRequest().getSession().setAttribute(Constants.MESSAGE+this.messageId, message);
     }
 
 
