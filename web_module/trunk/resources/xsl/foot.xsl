@@ -15,7 +15,7 @@
     <tr valign="top">
         <td width="100%" align="center" bgcolor="#43515E"><img src="/i/clear.gif" width="1" height="5" border="0"/><br/>
             <div class="smallFoot">
-            <A class="smallFoot"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=home&amp;c=public_home</xsl:attribute>Home</A>&#160;&#160;|&#160;&#160;
+            <A class="smallFoot"><xsl:attribute name="HREF">/</xsl:attribute>Home</A>&#160;&#160;|&#160;&#160;
             <A class="smallFoot"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=index</xsl:attribute>About TopCoder</A>&#160;&#160;|&#160;&#160;
             <A class="smallFoot"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc/?d1=review_board&amp;d2=competition</xsl:attribute>Review Boards</A>&#160;&#160;|&#160;&#160;
             <A class="smallFoot"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=index</xsl:attribute>Press Room</A>&#160;&#160;|&#160;&#160;
@@ -23,7 +23,7 @@
             <A class="smallFoot"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=privacy</xsl:attribute>Privacy</A>&#160;&#160;|&#160;&#160;
             <A class="smallFoot"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=terms</xsl:attribute>Terms</A><br /><br />
 
-            <A class="smallFoot"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=home&amp;c=public_home</xsl:attribute>Competition</A>&#160;&#160;|&#160;&#160;
+            <A class="smallFoot"><xsl:attribute name="HREF">/</xsl:attribute>Competition</A>&#160;&#160;|&#160;&#160;
             <A class="smallFoot"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=index</xsl:attribute>Development</A>&#160;&#160;|&#160;&#160;
             <A class="smallFoot"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=tces&amp;c=index</xsl:attribute>Job Listings</A>&#160;&#160;|&#160;&#160;
             <A class="smallFoot"><xsl:attribute name="href">http://<xsl:value-of select="/TC/SoftwareHost"/></xsl:attribute>Software</A>&#160;&#160;|&#160;&#160;
