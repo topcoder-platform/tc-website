@@ -34,28 +34,19 @@ public class CoderSessionInfo extends SessionInfo {
 
     public CoderSessionInfo(HttpServletRequest request, WebAuthentication authentication, Set groups) throws Exception {
         super(request, authentication, groups);
-        log.debug("in codersessioninfo constructor");
         rating = 0;
         rank = 0;
         if (!authentication.getActiveUser().isAnonymous()) {
-            log.debug("1");
             ResultSetContainer info = getInfo(authentication.getActiveUser().getId());
-            log.debug("2");
             if (!info.isEmpty()) {
-                log.debug("3a1");
                 rating = info.getIntItem(0, "rating");
-                log.debug("3a2");
                 hasImage = info.getIntItem(0, "has_image")>0;
-                log.debug("3a3");
                 activationCode = info.getStringItem(0, "activation_code");
-                log.debug("3a4");
             } else {
                 log.warn("couldn't find session info for: " + authentication.getActiveUser().getId());
             }
-            log.debug("4");
             ResultSetContainer rsc = getDwInfo(authentication.getActiveUser().getId());
             if (!rsc.isEmpty()) {
-                log.debug("5");
                 rank = rsc.getIntItem(0, "rank");
             } else {
                 log.debug("couldn't find rank info for: " + authentication.getActiveUser().getId());

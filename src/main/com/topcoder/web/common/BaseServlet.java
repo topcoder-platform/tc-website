@@ -96,15 +96,10 @@ public abstract class BaseServlet extends HttpServlet {
 
         try {
             //set up security objects and session info
-            log.debug("start");
             authentication = createAuthentication(request, response);
-            log.debug("got auth");
             TCSubject user = getUser(authentication.getActiveUser().getId());
-            log.debug("got user");
             info = createSessionInfo(request, authentication, user.getPrincipals());
-            log.debug("got info");
             request.setAttribute(SESSION_INFO_KEY, info);
-            log.debug("end");
 
             StringBuffer loginfo = new StringBuffer(100);
             loginfo.append("[**** ");
