@@ -31,7 +31,6 @@ public class Static extends BaseProcessor {
     protected void businessProcessing() throws Exception {
 
         StringBuffer path = new StringBuffer(100);
-        path.append(Constants.JSP_ROOT.substring(0, Constants.JSP_ROOT.length()-1));
         for(int i=1; ; i++) {
             String p = request.getParameter(STATIC_PREFIX+i);
             if(p==null) break;
