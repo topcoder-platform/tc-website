@@ -81,7 +81,7 @@ public class ModifyCommandQueryTask extends BaseTask implements Task, Serializab
     public void setAttributes(String paramName, String paramValues[]) {
         String value = paramValues[0];
         value = (value == null?"":value.trim());
-
+        log.debug("setAttributes called...param: " + paramName + " value: " + value);
         if (paramName.equalsIgnoreCase(Constants.DB_PARAM)) {
             setDb(value);
         } else if (paramName.equalsIgnoreCase(Constants.COMMAND_ID_PARAM)) {
