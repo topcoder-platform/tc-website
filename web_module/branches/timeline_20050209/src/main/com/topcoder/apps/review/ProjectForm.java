@@ -1271,6 +1271,38 @@ public void timeLineFromProject(Project project)
 
 
         Date startDate = projectPhases.getStartDate();
+        TCPhase[] phases = new TCPhase[n];
+
+        for (int i = 0; i < n; i++) {
+
+            if (!adjustStartDates[i]) {
+                Date newStartDate = parseDate(forcedStartDates[i]);
+
+                // Just change the date if it is after the last phase start.  If not, it would give an error.
+                // If the date for the phase is earlier than the date for a previous phase, it is not taken into account.
+                if (newStartDate.after(startDate) || (i == 0)) {
+                    startDate = newStartDate;
+                } else {
+                    adjustStartDates[i] = true;
+                    forcedStartDates[i] = "";
+                }
+            }
+
+            log (Level.INFO, "StartDate [" + i + "]=" + startDate);
+            log (Level.INFO, "PhaseLength[" + i + "]=" + phaseMinutes[i]);
+
+            phases[i] = new TCPhase(projectPhases, startDate, phaseMinutes[i]);
+
+            if (i > 0) {
+                phases [i].addDependency(phases[i - 1]);
+            }
+
+            startDates[i] = dateFormatter.format(phases[i].getStartDate());
+            endDates[i] = dateFormatter.format(phases[i].calcEndDate());
+            startDate = phases[i].calcEndDate();
+        }
+/*
+        Date startDate = projectPhases.getStartDate();
         Iterator it = projectPhases.getPhases(new PhaseDateComparator()).iterator();
         int i = 0;
         while (it.hasNext()) {
@@ -1298,7 +1330,7 @@ log (Level.INFO, "StartDate [" + i + "]=" + startDate);
             startDate = phase.calcEndDate();
             i++;
         }
-
+*/
         return new SuccessResult();
     }
 

@@ -51,12 +51,18 @@ public final class EditProjectAction extends ReviewAction {
                 + orpd.getUser().getHandle() + "' in session "
                 + request.getSession().getId());
 
+
         String action = null;
         if (request.getParameter(Constants.ACTION_KEY) != null) {
             action = request.getParameter(Constants.ACTION_KEY).toString();
         } else if (form != null) {
             action = ((ProjectForm) form).getAction();
         }
+
+// qq coment
+if (Constants.ACTION_STORE.equals(action) || Constants.ACTION_CANCEL.equals(action)) {
+    return new SuccessResult();
+}
 
         // Call the business layer
         BusinessDelegate businessDelegate = new BusinessDelegate();
