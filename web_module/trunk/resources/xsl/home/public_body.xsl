@@ -225,7 +225,7 @@
 <!-- TC special promo -->
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr valign="top">
-                    <td width="50%" align="left" class="bodyText"><font size="2" color="#000000" face="tahoma, verdana"><strong>Sponsorships</strong></font><br />TopCoder offers sponsorship programs for the weekly
+                    <td width="50%" align="left" class="bodyText"><font size="2" color="#000000" face="Arial, Helvetica, Sans-serif"><strong>Sponsorships</strong></font><br />TopCoder offers sponsorship programs for the weekly
                         <a class="bodyGeneric">
                         <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=spons_srm</xsl:attribute>Single Round Matches</a> as well as for
                         <a class="bodyGeneric">
@@ -233,7 +233,7 @@
                         <a class="bodyGeneric">
                         <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=spons_target</xsl:attribute>sponsorship programs</a>.<br /></td>
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-                    <td width="50%" align="left" class="bodyText"><font size="2" color="#000000" face="tahoma, verdana"><strong>Employment Services</strong></font><br />TopCoder works with companies to connect them with top-rated developers. Read more about our
+                    <td width="50%" align="left" class="bodyText"><font size="2" color="#000000" face="Arial, Helvetica, Sans-serif"><strong>Employment Services</strong></font><br />TopCoder works with companies to connect them with top-rated developers. Read more about our
                         <a class="bodyGeneric">
                         <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>employment services</a>.<br /></td>
                 </tr>
