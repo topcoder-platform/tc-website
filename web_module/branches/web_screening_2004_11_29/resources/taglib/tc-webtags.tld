@@ -278,6 +278,33 @@
         </attribute>
     </tag>
 
+    <tag>
+        <name>useBean</name>
+        <tagclass>com.topcoder.web.common.tag.UseBeanTag</tagclass>
+<!--        <teiclass>com.topcoder.web.common.tag.ListIteratorTagInfo</teiclass>-->
+        <bodycontent>JSP</bodycontent>
+        <info>
+            Tag to iterate through a List
+        </info>
+        <attribute>
+            <name>id</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>scope</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
+    </tag>
+
+
 
 
 </taglib>
