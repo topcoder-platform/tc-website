@@ -89,7 +89,7 @@ public class Registration extends BaseProcessor {
         	log.debug("data entered seem to be valid");
 
         	makePersistent();
-            nextPage = "/greetings.jsp";
+            nextPage = "/reg/success.jsp";
         }
         else {
         	log.debug("invalid data entered");
