@@ -9,6 +9,7 @@
 		<%@ taglib uri="tc-taglib.tld" prefix="tc" %>
 		<%@ page import="com.topcoder.web.tces.servlet.*" %>
 		<%@ page import="com.topcoder.web.tces.common.*" %>
+		<%@ page import="com.topcoder.web.tces.bean.*" %>
 
 		<%@ page import="com.topcoder.web.TCES.ejb.*" %>
     <TITLE>TCES</TITLE>
