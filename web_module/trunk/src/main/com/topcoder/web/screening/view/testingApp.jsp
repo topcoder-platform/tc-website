@@ -1,48 +1,64 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
  <%@ page errorPage="/errorPage.jsp" %>
-<html>
-  <head>
-    <title>Competition Arena</title>
-        <!--<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-        <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>-->
-  </head>
-  <body bgcolor="#CCCCCC" marginwidth="0" marginheight="0" topmargin="0" leftmargin="0" onLoad="focus()">
-    <table border="0" cellpadding="0" cellspacing="0" width="290" align="center">
+
+<html id="testApplet">
+
+<head>
+
+<title>Testing Environment</title>
+
+<link rel="stylesheet" type="text/css" href="/css/corpStyle.css">
+
+</head>
+
+<body id="testApplet" onLoad="focus()">
+
+<div align="center">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
+    <tr>
+        <td rowspan="2"><img border="0" height="54" width="10" src="/i/testHeadTopLeft.gif" alt=""></td>
+        <td align="left"><img alt="0" border="0" height="36" width="114" src="/images/clear.gif"></td>
+        <td width="100%"><img alt="0" border="0" height="36" width="10" src="/images/clear.gif"></td>
+        <td align="right"><img border="0" height="36" width="171" src="/i/testHeadTCLogo.gif" alt="TopCoder"></td>
+        <td rowspan="2"><img alt="0" border="0" height="54" width="10" src="/i/testHeadTopRight.gif" alt=""></td>
+      </tr>
+
+    <tr>
+        <td align="left"><img border="0" height="18" width="114" src="/i/testHeadTabLeft.gif" alt=""></td>
+        <td width="100%"><img border="alt="0" 0" height="18" width="10" src="/images/clear.gif"></td>
+        <td align="right"><img border="0" height="18" width="171" src="/images/clear.gif"></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" align="center" id="testBody">
+    <tr>
+        <td><img src="/i/testBodyTopLeft.gif" alt="" width="10" height="10" alt="0" border="0"></td>
+        <td width="100%"><img src="/i/testBodyTop.gif" alt="" width="10" height="10" alt="0" border="0"></td>
+        <td><img src="/i/testBodyTopRight.gif" alt="" width="10" height="10" alt="0" border="0"></td>
       <tr>
-        <td>
-          <img border="0" height="8" width="1" src="/images/spacer.gif"/>
+      
+    <tr>
+        <td><img src="/i/testBodyLeft.gif" alt="" width="10" height="10" border="0"></td>
+        <td width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" width="50%" align="center">
+                <tr>
+                    <td>
+                        <h1 id="testHead">Testing Environment</h1>
+                        
+                        <p>This page should present you with a button to start the competition arena applet.</p>
+                        
+                        <p>NOTE: If a red button to "Load Competition Arena" does <strong>not</strong> appear below, you may not have the 
+                        appropriate Plug-in software installed.</p>
+                        
+                        <p>
+                        <script type="text/javascript">
+                            function getReq(){u='/?t=support&amp;c=software_req';window.open(u);close();}
+                        </script>
+                        <a href="Javascript:getReq()">Get more information</a>
+                    </td>
+                </tr>
+            </table>
         </td>
-      </tr>
-      <tr>
-        <td class="bodyText">
-          <font size="3">
-            <b>Competition Arena</b>
-          </font>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <img border="0" height="12" width="1" src="/images/spacer.gif"/>
-        </td>
-      </tr>
-      <tr>
-        <td class="bodyText">
-              This page should present you with a button to start the competition arena applet.<br/><br/>
-              NOTE: If a red button to "Load Competition Arena" does <b>not</b> appear below,
-              you may not have the appropriate Plug-in software installed.
-              <SCRIPT type="text/javascript">
-                function getReq(){u='/?t=support&amp;c=software_req';window.open(u);close();}
-              </SCRIPT><BR/>
-              <a href="Javascript:getReq()">
-                Click here for more information &gt;&gt;
-              </a>
-        </td>
-      </tr>
-      <tr>
-        <td valign="top"><img height="20" width="1" src="/images/spacer.gif"/></td>
-      </tr>
-      <tr>
-        <td align="center" class="bodyText">
 
         <%
             String host = request.getParameter("host");
@@ -89,11 +105,24 @@
            pluginspage="http://java.sun.com/j2se/1.3/jre/index.html">
 <NOEMBED>
 </NOEMBED>
-</OBJECT>
-         <b>You may minimize this browser window, but do not close it.</b>
+</OBJECT><br>
+         <strong>You may minimize this browser window, but do not close it.</strong>
           Doing so will close the applet.
         </td>
-      </tr>
-    </table>
-  </body>
+    </tr>
+    
+            </table>
+        <td><img src="/i/testBodyRight.gif" alt="" width="10" height="10" border="0"></td>
+      <tr>
+      
+    <tr>
+        <td><img src="/i/testBodyBottomLeft.gif" alt="" width="10" height="10" border="0"></td>
+        <td width="100%"><img src="/i/testBodyBottom.gif" alt="" width="10" height="10" border="0"></td>
+        <td><img src="/i/testBodyBottomRight.gif" alt="" width="10" height="10" border="0"></td>
+    <tr>
+</table>
+      
+</div>
+
+</body>
 </html>
