@@ -27,7 +27,7 @@
 
             <img src="/i/clear.gif" width="1" height="10" alt="" border="0" /><br />
 
-<!-- Application Projects begins -->
+<!-- <script> Application Projects begins 
             <A href="/?t=development&amp;c=app_projects"><img src="/i/development/head_app_projects.gif" alt="Application Projects" width="180" height="20" border="0" /></A>
             <table width="180" border="0" cellspacing="1" cellpadding="2" bgcolor="#838383">
                 <tr valign="top">
@@ -103,11 +103,10 @@
                     <td class="statText" width="99%" height="20" bgcolor="#838383" align="right"><A href="/?t=development&amp;c=app_projects"><strong>View all projects</strong></A>&#160;</td>
                 </tr>
             </table>
-<!-- Application Projects ends -->
 
             <img src="/i/clear.gif" width="1" height="5" alt="" border="0" /><br />
 
-<!-- Read Me's begins -->
+  
             <table width="100%" border="0" cellspacing="0" cellpadding="5">
                 <tr valign="top">
                     <td width="100%" class="smallText">
@@ -116,10 +115,10 @@
                     </td>
                 </tr>
             </table>
-<!-- Read Me's ends -->
 
             <img src="/i/clear.gif" width="1" height="5" alt="" border="0" /><br />
-
+  </script> -->
+  
 <!-- Component Design Projects begins -->
             <A href="/?t=development&amp;c=comp_projects#comp_des"><img src="/i/development/head_comp_des_projects.gif" alt="Component Design Projects" width="180" height="20" border="0" /></A>
             <table width="180" border="0" cellspacing="1" cellpadding="2" bgcolor="#838383">
