@@ -270,6 +270,7 @@ public class QueryBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting name for query: " + queryId);
         } catch (Exception e) {
+            e.printStackTrace();
             throw new EJBException("Exception getting name for query: " + queryId + "\n " + e.getMessage());
         } finally {
             if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet");}}

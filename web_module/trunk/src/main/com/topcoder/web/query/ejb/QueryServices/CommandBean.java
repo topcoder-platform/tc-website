@@ -163,6 +163,7 @@ public class CommandBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting command desc: " + commandId);
         } catch (Exception e) {
+            e.printStackTrace();
             throw new EJBException("Exception getting command desc: " + commandId + "\n " + e.getMessage());
         } finally {
             if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet");}}
