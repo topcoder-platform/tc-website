@@ -96,7 +96,7 @@ public final class TaskAffidavit {
                     else mail.setSubject("Component Travel Info Response - " + nav.getUser().getHandle());
 
                     mail.setBody(buf.toString());
-                    mail.addToAddress("tlongo@topcoder.com", TCSEmailMessage.TO);
+                    mail.addToAddress("mluce@topcoder.com", TCSEmailMessage.TO);
                     mail.setFromAddress(nav.getUser().getEmail());
                     EmailEngine.send(mail);
 

@@ -69,7 +69,7 @@
                             You are eligible for a cash award of at least $25, however we must receive the documents
                             below for you to collect your prize. IF WE DO NOT RECEIVE ALL OF THE
                             APPROPRIATE ITEMS BELOW BY MIDNIGHT, EASTERN TIME, WEDNESDAY, NOVEMBER 12th, YOU
-                            WILL FORFEIT YOUR PRIZE.  If you have questions, please contact <a href="mailto:tlongo@topcoder.com" >Tom Longo</a>.
+                            WILL FORFEIT YOUR PRIZE.  If you have questions, please contact <a href="mailto:mluce@topcoder.com" >MaryBeth Luce</a>.
                         </p>
 
                         <p><strong>A.  To be completed by everyone:</strong></p>
@@ -156,7 +156,7 @@
                         <p><strong>Reminder, you will not receive any prize money unless all necessary items above are completed by Midnight, Eastern Time, Wednesday, November 12th.  Any
                         items that need to be mailed via the postal service must be postmarked by this date.</strong></p>
 
-                        <p>If you have questions, please contact <a href="mailto:tlongo@topcoder.com" >Tom Longo</a>.</p>
+                        <p>If you have questions, please contact <a href="mailto:mluce@topcoder.com" >MaryBeth Luce</a>.</p>
                         <p><br/></p>
                     </td>
                     <td valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>

@@ -78,7 +78,7 @@
                             ensure we have enough time to make all travel arrangements, reserve hotel rooms, and confirm
                             your attendance at "A Magical Evening."  If you do not complete the following items by
                             12:00 PM (noon) EST on Tuesday, November 18th, then you will forfeit your prize.  If
-                            you have any questions please contact <a href="mailto:tlongo@topcoder.com" >Tom Longo</a>.
+                            you have any questions please contact <a href="mailto:mluce@topcoder.com" >MaryBeth Luce</a>.
                         </p>
 
                             <ol>
@@ -142,7 +142,7 @@
                         <p><strong>Reminder, you will forfeit your grand prize if all necessary items above are not completed by 12:00 PM (noon) EST, Tuesday, November 18th.  Any
                         items that need to be mailed via the postal service must be postmarked by this date.</strong></p>
 
-                        <p>If you have questions, please contact <a href="mailto:tlongo@topcoder.com" >Tom Longo</a>.</p>
+                        <p>If you have questions, please contact <a href="mailto:mluce@topcoder.com" >MaryBeth Luce</a>.</p>
                         <p><br/></p>
                     </td>
                     <td valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>

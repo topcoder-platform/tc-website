@@ -71,7 +71,7 @@
                             APPROPRIATE items below by Midnight, Eastern Time, Monday, April 14th: IF WE DO NOT RECEIVE ALL OF THE APPROPRIATE ITEMS
                             BY 12:00 PM EST ON FRIDAY, MARCH 28th, 2003, YOU WILL FORFEIT YOUR PRIZE.  If you are one of the final 16 and have
                             been invited to the on site semifinals in Cambridge, MA, then you must complete item #4, the Travel Info Page, before
-                            Midnight, Eastern Time, Monday, April 14th.  If you have questions, please contact <a href="mailto:tlongo@topcoder.com" >Tom Longo</a>.
+                            Midnight, Eastern Time, Monday, April 14th.  If you have questions, please contact <a href="mailto:mluce@topcoder.com" >MaryBeth Luce</a>.
                         </p>
 
                         <ol>
@@ -151,7 +151,7 @@
                         <p><strong>Reminder, you will not receive any prize money unless all necessary items above are completed by Midnight, Eastern Time, Monday, April 14th.  Any
                         items that need to be mailed via the postal service must be postmarked by this date.</strong></p>
 
-                        <p>If you have questions, please contact <a href="mailto:tlongo@topcoder.com" >Tom Longo</a>.</p>
+                        <p>If you have questions, please contact <a href="mailto:mluce@topcoder.com" >MaryBeth Luce</a>.</p>
 <!--
           <TABLE WIDTH="100%" BORDER="0" CELLPADDING="2" CELLSPACING="0" BGCOLOR="#FFFFFF">
             <TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>
