@@ -162,6 +162,10 @@
                                             <strong>Second Place Designer</strong>
                                             <br/>
                                             Total Payment - $1,005.00
+                                        </p>
+
+                                        <p>
+                                            <strong>Reviewers</strong>
                                             <br/>
                                             Primary Design Reviewer - $723.00
                                             <br/>
@@ -187,6 +191,11 @@
                                             <strong>Second Place Designer</strong>
                                             <br/>
                                             Total Payment - $855.00
+                                            <br/>
+                                        </p>
+
+                                        <p>
+                                            <strong>Reviewers</strong>
                                             <br/>
                                             Primary Design Reviewer - $633.00
                                             <br/>
