@@ -4,7 +4,7 @@
 <!-- Footer Include Begins -->
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
   <TR>
-    <TD VALIGN="top"><IMG SRC="/i/p/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/></TD>
     <TD WIDTH="100%" VALIGN="top" ALIGN="center"><BR>
     <A HREF="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Registration" CLASS="bodyText">Register</A> | 
     <A HREF="#" CLASS="bodyText">Candidate Screening App.</A><BR>
