@@ -849,15 +849,10 @@
              </webinf>
 -->
 
-<!--
-             <fileset dir="${java}/com/topcoder/web/jsp">
-                 <include name="errorPage.jsp"/>
-                 <include name="date_time.jsp"/>
-                 <include name="script.jsp"/>
-                 <include name="menu.jsp"/>
-                 <include name="corpMenu.jsp"/>
+
+             <fileset dir="${java}/com/topcoder/web/codinginterface/techassess/view">
+                 <include name="**/*.jsp"/>
              </fileset>
--->
 
          </war>
      </target>
