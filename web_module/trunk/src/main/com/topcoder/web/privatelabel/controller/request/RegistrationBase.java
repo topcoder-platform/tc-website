@@ -46,9 +46,6 @@ abstract class RegistrationBase extends BaseProcessor {
             log.debug("database set to: " + db);
 
             regInfo = makeRegInfo();
-            if (regInfo instanceof FullRegInfo) {
-                log.debug("responses: " + ((FullRegInfo)regInfo).getResponses());
-            }
             p.setObject(Constants.REGISTRATION_INFO, regInfo);
             registrationProcessing();
         } catch (Exception e) {

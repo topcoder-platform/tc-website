@@ -45,9 +45,6 @@ abstract class SimpleRegBase extends RegistrationBase {
             info = new SimpleRegInfo();
         } else {
             log.debug("found info in persistor, proceding with that");
-            if (info instanceof FullRegInfo) {
-                log.debug("responses: " + ((FullRegInfo)info).getResponses());
-            }
         }
         if (hasRequestParameter(Constants.HANDLE))
             info.setHandle(StringUtils.checkNull(getRequestParameter(Constants.HANDLE)));
