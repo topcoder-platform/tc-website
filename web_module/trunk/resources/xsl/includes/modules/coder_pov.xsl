@@ -12,8 +12,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/brett1479_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=251317"><strong>brett1479</strong></a><br/>
+<!--                        <img src="/i/m/brett1479_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />-->
+                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=299177"><strong>vorthys</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" /> 
 
@@ -22,15 +22,18 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                     
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=tco03_online_rd_3">TCO - Online Round 3 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Tuesday, October 28, 2003</p>
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=tco03_online_rd_4">TCO - Online Round 4 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Wednesday, November 5, 2003</p>
 
 <p> 
-The best-of-the-best battled for the 50 round 4 slots.  Unlike previous rounds, slow-yet-cautious coding 
-practices prevailed, with many submissions falling to challenges and systests.  Most quickly submitted the 
-easy problem, but had troubles with the medium.  Valiant coders who submitted the medium had even greater 
-woes ahead.
-                       <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=statistics&amp;c=tco03_online_rd_3</xsl:attribute><strong>full&#160;story</strong></a>
+Call it nerves.  Call it writers pulling out all the stops.
+Call it Round 4 of the TopCoder Open!  Faced with an Easy problem
+that would have been a Medium on any other night, and a Medium
+problem that would have been a Hard on any other night, 
+50 of TopCoder's top coders managed 37 correct
+submissions. That's 37 total. On all three problems combined.
+
+                       <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=statistics&amp;c=tco03_online_rd_4</xsl:attribute><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
