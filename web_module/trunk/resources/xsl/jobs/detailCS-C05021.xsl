@@ -93,7 +93,7 @@ You will be working with a tight team of programmers going into the final stages
 For this particular position, the client is ideally looking for someone who has at least 2-3 years experience in the games industry.  However, if you're extremely talented and hardcore about game programming, the client might be willing to make an exception.
 </P>
 
-		  <P><A HREF="/?t=jobs&amp;c=inquire&amp;Job=CS-C05021&amp;JobDesc=C&#43;&#43;%20Interactive%20Entertainment%20Sr%20Programmer&amp;To=tcesr@topcoder.com" CLASS="bodyText">Feel qualified and are interested?</A></P>
+		  <P><A HREF="/?t=jobs&amp;c=inquire&amp;Job=CS-C05021&amp;JobDesc=C%2B%2B%20Interactive%20Entertainment%20Sr%20Programmer&amp;To=tcesr@topcoder.com" CLASS="bodyText">Feel qualified and are interested?</A></P>
           <P><BR/></P>
           </TD>
           <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

@@ -199,7 +199,7 @@
             </TD>
           </TR>
 		  <TR>
-			<TD WIDTH="48%" ALIGN="left" VALIGN="top" CLASS="bodyText"><A HREF="/?t=jobs&amp;c=detailCS-C05021" CLASS="bodyText">More details</A><BR/><A HREF="/?t=jobs&amp;c=inquire&amp;Job=CS-C05021&amp;JobDesc=C&#43;&#43;%20Interactive%20Entertainment%20Sr%20Programmer&amp;To=tcesr@topcoder.com" CLASS="bodyText">Feel qualified and are interested?</A></TD>
+			<TD WIDTH="48%" ALIGN="left" VALIGN="top" CLASS="bodyText"><A HREF="/?t=jobs&amp;c=detailCS-C05021" CLASS="bodyText">More details</A><BR/><A HREF="/?t=jobs&amp;c=inquire&amp;Job=CS-C05021&amp;JobDesc=C%2B%2B%20Interactive%20Entertainment%20Sr%20Programmer&amp;To=tcesr@topcoder.com" CLASS="bodyText">Feel qualified and are interested?</A></TD>
             <TD WIDTH="2%">&#160;</TD>
 			<TD WIDTH="48%" ALIGN="left" VALIGN="top" CLASS="bodyText">&#160;</TD>
 		  </TR>          
