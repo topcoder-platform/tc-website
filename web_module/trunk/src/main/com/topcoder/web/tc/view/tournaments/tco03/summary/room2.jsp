@@ -51,71 +51,14 @@
             </p>
             
             <div class="leadPhoto">
-            <img src="/i/clear.gif" alt="" width="200" height="350" class="photoFrameBig" /><br/>
-            <span class="leadPhotoCaption">Photo caption.<br/><br/></span>
+            <img src="/i/tournament/tco03/room1/summary.jpg" alt="" width="200" height="350" class="photoFrameBig" /><br/>
+            <span class="leadPhotoCaption">bstanescu enjoying the moment<br/><br/></span>
             </div>
             
-            <h2>Room 2</h2>
+            <h2>bstansescu outcodes number one seed to take Room 1</h2>
 
             <p>by Matt Murphy, <em>TopCoder Staff</em><br />
-            
             Thursday, December 4, 2003</p>
-
-            <p>Text <strong>handle</strong> text, text, text.</p>
-
-            <p>Text <strong>handle</strong> text, text, text.</p>
-
-            <div align="center">
-            <table border="0" cellspacing="2" cellpadding="0" class="pointsTable">
-                <tr>
-                    <td  class="pointsName">handle</td>
-                    <td class="pointsScore">xxx.xx</td>
-                </tr>
-                               			
-                <tr>
-                    <td  class="pointsName">handle</td>
-                    <td class="pointsScore">xxx.xx</td>
-                </tr>
-                               			
-                <tr>
-                    <td  class="pointsName">handle</td>
-                    <td class="pointsScore">xxx.xx</td>
-                </tr>
-                               			
-                <tr>
-                    <td  class="pointsName">handle</td>
-                    <td class="pointsScore">xxx.xx</td>
-                </tr>
-            </table>
-            </div>	
-
-            <p>Text <strong>handle</strong> text, text, text.</p>
-
-            <div align="center">
-            <table border="0" cellspacing="2" cellpadding="0" class="pointsTable">
-                <tr>
-                    <td  class="pointsName">handle</td>
-                    <td class="pointsScore">xxx.xx</td>
-                </tr>
-                               			
-                <tr>
-                    <td  class="pointsName">handle</td>
-                    <td class="pointsScore">xxx.xx</td>
-                </tr>
-                               			
-                <tr>
-                    <td  class="pointsName">handle</td>
-                    <td class="pointsScore">xxx.xx</td>
-                </tr>
-                               			
-                <tr>
-                    <td  class="pointsName">handle</td>
-                    <td class="pointsScore">xxx.xx</td>
-                </tr>
-            </table>
-            </div>	
-
-            <p>Text <strong>handle</strong> text, text, text.</p>
 
             <p><br/></p>
         </td>
