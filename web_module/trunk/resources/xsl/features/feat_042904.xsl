@@ -113,7 +113,7 @@ When you're writing code, sometimes the only person reading it is you.  The occa
 </li>
 <li>
 <p><span class="bodySubtitle">Speed matters</span><br/>
-All of the above doesn't matter if you don't have the speed!  In TopCoder competitions, whether they are on-line or in-person, you have to be fast.  This might be obvious, but the faster you are, the more points you get.  Also, the faster you complete one problem, the more time you have to solve the other problems.  Since there is a limited amount of tie for SRMs, if you take 1 hour and 16 minutes to come up with a perfect solution, it won't be worth anything.
+All of the above doesn't matter if you don't have the speed!  In TopCoder competitions, whether they are on-line or in-person, you have to be fast.  This might be obvious, but the faster you are, the more points you get.  Also, the faster you complete one problem, the more time you have to solve the other problems.  Since there is a limited amount of time for SRMs, if you take 1 hour and 16 minutes to come up with a perfect solution, it won't be worth anything.
 <br/><br/>
 In software development, the same holds true at two scales:
 <ul>
