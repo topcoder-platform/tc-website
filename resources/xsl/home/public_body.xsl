@@ -241,7 +241,7 @@ score was seen: <b>1601.35</b> by first timer <b>Yi Zhang</b>. The runner ups in
   <tr>
     <td valign="middle" bgcolor="#CCCCCC" align="center" height="15">
       <a class="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=features</xsl:attribute>
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=index</xsl:attribute>
         Upcoming/Past Features
       </a>
     </td>
