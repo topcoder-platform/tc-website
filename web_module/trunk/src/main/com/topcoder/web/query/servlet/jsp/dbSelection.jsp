@@ -22,16 +22,14 @@
       </TD>
       <TD WIDTH="4" BGCOLOR="#001935" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
       <TD class="statText" width="100%" bgcolor="#001935" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-        <TABLE WIDTH="100%" HEIGHT="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-          <TR><TD>DB Selection</TD></TR>
-          <TR><TD>Select a Database</TD></TR>
-<%System.out.println("list: " + DBSelectionTask.getDbList());%>
+        <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+          <TR><TD class="statText">DB Selection</TD></TR>
+          <TR><TD class="statText">Select a Database</TD></TR>
           <query:listIterator id="db" list="<%=DBSelectionTask.getDbList()%>">
             <TR><TD>
-<%--              <A HREF="<jsp:getProperty name="DBSelectionTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.COMMAND_LIST_TASK%>&<%=Constants.DB_PARAM%>=<%=db%>" class="statText">
+             <A HREF="<jsp:getProperty name="DBSelectionTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.COMMAND_LIST_TASK%>&<%=Constants.DB_PARAM%>=<%=db%>" class="statText">
                 <%=db%>
               </A>
---%>
             </TD></TR>
           </query:listIterator>
         </TABLE>
