@@ -33,26 +33,36 @@ public final class Controller extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        /* once for things we can handle, and once for things we can't */
+
+        /* for exceptions we surely cannot correct */
         try {
             RequestProcessor rp;
+
+            System.out.println();
+            System.out.println("    "+request.getMethod()+" from "+request.getRemoteHost());
+            System.out.println("--- "+HttpUtils.getRequestURL(request));
+
+            String canonpath = request.getContextPath() + request.getServletPath();
+            String query = request.getQueryString();
+            String qtail = (query==null) ? ("") : ("?"+query);
+
+            /* and those we perhaps can */
             try {
 
-System.out.println("getRemoteHost() = "+request.getRemoteHost());
-System.out.println("getMethod() = "+request.getMethod());
-System.out.println("getProtocol() = "+request.getProtocol());
+                /* if im not being called by my right name, correct the client asap! */
+                if(!canonpath.equals(request.getRequestURI())) {
 
-System.out.println("getRequestURI() = "+request.getRequestURI());
-System.out.println("getRequestURL() = "+HttpUtils.getRequestURL(request));
+                    String ref = request.getHeader("Referer");
+                    if(ref!=null) System.out.println("mangled request linked from "+ref);  //@@@ definitely make this a log
 
-System.out.println("getContextPath() = "+request.getContextPath());
-System.out.println("getServletPath() = "+request.getServletPath());
-System.out.println("getPathInfo() = "+request.getPathInfo());
-System.out.println("getPathTranslated() = "+request.getPathTranslated());
-System.out.println("getQueryString() = "+request.getQueryString());
-
-                String query = request.getQueryString();
-                System.out.println("query \"" + query + "\" from host " + request.getRemoteHost());
+                    /* trying to redirect a post will probably not improve the situation
+                     * if we got this far, though, so only take evasive action on gets.
+                     */
+                    if(request.getMethod().equals("GET")) {
+                        response.sendRedirect(response.encodeRedirectURL(canonpath+qtail));
+                        return;
+                    }
+                }
 
                 String cmd = Constants.checkNull(request.getParameter("module"));
                 if(cmd.equals("")) cmd = "Home";
@@ -68,10 +78,7 @@ System.out.println("getQueryString() = "+request.getQueryString());
 
                 /* forward to the login page, with a message and a way back */
                 request.setAttribute("message", e.getMessage());
-                String nextpage = request.getContextPath()+request.getServletPath();
-                if(request.getQueryString() != null)
-                    nextpage += "?"+request.getQueryString();
-                request.setAttribute("nextpage", nextpage);
+                request.setAttribute("nextpage", canonpath + qtail);
                 rp = new com.topcoder.web.hs.controller.requests.Login();
                 rp.setRequest(request);
                 rp.setResponse(response);
