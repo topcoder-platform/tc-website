@@ -121,6 +121,12 @@ String sSortUrl = "?module=Statistics&c=ratings_history&cr="+srb.getProperty("cr
                    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>        
                  </TR>
 				 </logic:iterate>  
+                 <TR>
+                   <TD COLSPAN="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>    
+                 </TR>
+                 <TR>
+                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif"  COLSPAN="6" HEIGHT="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>    
+                 </TR>
 		 <% } else { %>
 		        <TR>
                   <TD COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>    
@@ -129,12 +135,6 @@ String sSortUrl = "?module=Statistics&c=ratings_history&cr="+srb.getProperty("cr
                   <TD COLSPAN="7" CLASS="statText">This member has no ratings history.</TD>
                 </TR>				
          <% } %>
-                 <TR>
-                   <TD COLSPAN="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>    
-                 </TR>
-                 <TR>
-                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif"  COLSPAN="6" HEIGHT="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>    
-                 </TR>
                </TABLE>
              </TD>
              <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
