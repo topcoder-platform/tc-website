@@ -153,6 +153,9 @@ function goTo(selection){
 </script>
 <!--   <A class="statTextBig" href="/stat?c=<%= ("round_stats&amp;rd="+roundID) %>"><B><%= contestName %></B></A><BR/>-->
 <!--DATE <BR/>-->
+<TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif">
+  <TR>
+    <TD>
     <SPAN CLASS="statTextBig"><B>Please select a round:</B><BR/></SPAN>
     <SELECT CLASS="dropdown" NAME="Contest" onchange="goTo(this)">
         <OPTION value="#">Select a Round:</OPTION>
@@ -165,9 +168,8 @@ function goTo(selection){
         </logic:iterate>
     </SELECT>
     <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/><BR/><A NAME="leaders"></A>
-
-<TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif">
-
+    </TD>
+  <TR>
   <TR>
   <%for(int i = 0; i<divisionNames.size();i++){%>
     <TD VALIGN="middle" COLSPAN="2" BGCOLOR="#CCCCCC" WIDTH="40%" NOWRAP="0" HEIGHT="16" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="registerNav">&#160;&#160;<B><%= divisionNames.get(i).toString() %> Leaders</B></TD>
