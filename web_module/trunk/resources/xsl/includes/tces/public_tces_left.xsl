@@ -22,7 +22,7 @@
 					<TD WIDTH="100%" VALIGN="top" CLASS="moduleTitle" BGCOLOR="#999999">
 			            <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" VALIGN="top">			
                             <TR><TD COLSPAN="2" WIDTH="140" VALIGN="top" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="140" HEIGHT="1" BORDER="0"/></TD></TR>                                
-                            <TR><TD WIDTH="100%" VALIGN="middle" CLASS="statTextBig" BGCOLOR="#333333">&#160;TCES Employers</TD><TD WIDTH="5" BGCOLOR="#333333" ALIGN="right"><IMG SRC="/i/sub_nav_title_right.gif" WIDTH="5" HEIGHT="21" BORDER="0"/></TD></TR>
+                            <TR><TD WIDTH="100%" VALIGN="middle" CLASS="statTextBig" BGCOLOR="#333333">&#160;TC Employment Services</TD><TD WIDTH="5" BGCOLOR="#333333" ALIGN="right"><IMG SRC="/i/sub_nav_title_right.gif" WIDTH="5" HEIGHT="21" BORDER="0"/></TD></TR>
                         </TABLE>                    
                     </TD>
                 </TR>
@@ -30,6 +30,13 @@
  			<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" VALIGN="top" BACKGROUND="/i/steel_gray_bg2.gif" BGCOLOR="#43515E"> 
 				<TR><TD BACKGROUND=""><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0" VSPACE="2"/></TD><TD BACKGROUND=""><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0" VSPACE="2"/></TD><TD WIDTH="1" BACKGROUND=""><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
       <TR>       
+        <TD VALIGN="top" CLASS="statText">&#160;</TD>
+        <TD VALIGN="middle" HEIGHT="15" CLASS="statText"><A HREF="/?&amp;t=tces&amp;c=index" CLASS="subNav"><B>Jobs for Members</B></A></TD>
+        <TD VALIGN="top" CLASS="statText">&#160;</TD>
+      </TR>      
+      <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>            
+      
+      <!-- <TR>       
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
         <TD VALIGN="middle" HEIGHT="15" CLASS="statText"><A HREF="/?&amp;t=tces&amp;c=google" CLASS="subNav"><B>Google</B></A></TD>
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
@@ -44,15 +51,18 @@
         <TD VALIGN="middle" HEIGHT="15" CLASS="statText"><A HREF="/?&amp;t=tces&amp;c=apex" CLASS="subNav"><B>Apex</B></A></TD>
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
       </TR>
-      <!-- <TR><TD COLSPAN="3"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0" VSPACE="5"/></TD></TR>			
+      <TR><TD COLSPAN="3"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0" VSPACE="5"/></TD></TR>			
 				<TR><TD COLSPAN="3" VALIGN="middle" ALIGN="center" HEIGHT="18" BGCOLOR="#000000" CLASS="statTextBig" WIDTH="100%"><B>About TCES</B></TD></TR>      			
 				<TR><TD BACKGROUND=""><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="2" BORDER="0"/></TD></TR>
 				<TR><TD VALIGN="top" BACKGROUND="" CLASS="subNav" ALIGN="right">&#160;</TD><TD VALIGN="top" HEIGHT="15" BACKGROUND="" CLASS="statText" WIDTH="100%"><A HREF="/?&amp;t=tces&amp;c=about_tces" CLASS="subNav">Click Here</A> to learn more about the TCES program.<BR/></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR> -->  
 
-      <TR><TD COLSPAN="3"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0" VSPACE="5"/></TD></TR>			
-				<TR><TD COLSPAN="3" VALIGN="middle" ALIGN="center" HEIGHT="18" BGCOLOR="#000000" CLASS="statTextBig" WIDTH="100%"><B>Hiring?</B></TD></TR>      			
-				<TR><TD BACKGROUND=""><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="2" BORDER="0"/></TD></TR>
-				<TR><TD VALIGN="top" BACKGROUND="" CLASS="subNav" ALIGN="right">&#160;</TD><TD VALIGN="top" HEIGHT="15" BACKGROUND="" CLASS="statText" WIDTH="100%">Interested In Hiring TopCoder Members? <A HREF="/?&amp;t=tces&amp;c=hiring" CLASS="subNav">Click Here</A><BR/></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>
+      <TR>       
+        <TD VALIGN="top" CLASS="statText">&#160;</TD>
+        <TD VALIGN="middle" HEIGHT="15" CLASS="statText"><A HREF="/?&amp;t=tces&amp;c=hiring" CLASS="subNav"><B>Hiring for Employers</B></A></TD>
+        <TD VALIGN="top" CLASS="statText">&#160;</TD>
+      </TR>      
+      <!-- <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>                 
+				<TR><TD VALIGN="top" BACKGROUND="" CLASS="subNav" ALIGN="right">&#160;</TD><TD VALIGN="top" HEIGHT="15" BACKGROUND="" CLASS="statText" WIDTH="100%">Interested In Hiring TopCoder Members? <A HREF="/?&amp;t=tces&amp;c=hiring" CLASS="subNav">Click Here</A><BR/></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR> -->
 
       <TR><TD COLSPAN="3"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0" VSPACE="5"/></TD></TR>			
 				<TR><TD COLSPAN="3" VALIGN="middle" ALIGN="center" HEIGHT="18" BGCOLOR="#000000" CLASS="statTextBig" WIDTH="100%"><B>TCES Reporting</B></TD></TR>      			
