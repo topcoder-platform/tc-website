@@ -4576,8 +4576,8 @@ public class DocumentManagerBean implements SessionBean {
             ps = conn.prepareStatement(
                     "SELECT st.template_id " +
                     "FROM scorecard_template st " +
-                    "WHERE st.default_ind = 1 AND" +
-                    "st.scorecard_type = ? AND" +
+                    "WHERE st.default_ind = 1 AND " +
+                    "st.scorecard_type = ? AND " +
                     "st.project_type = ? ");
             ps.setLong(1, scorecardTypeId);
             ps.setLong(2, projectTypeId);

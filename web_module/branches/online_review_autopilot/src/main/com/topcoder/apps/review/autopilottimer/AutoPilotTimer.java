@@ -98,10 +98,12 @@ public class AutoPilotTimer
                             //move to screening
                             OnlineReviewProjectData orpd = new OnlineReviewProjectData(user, projs[i]);
                             ProjectForm form = new ProjectForm();
-                            form.setScorecardTemplates(docManager.getScorecardTemplates());
                             
                             Project p = projectTracker.getProject(projs[i], user.getTCSubject());
                             form.fromProject(p);
+                            
+                            form.setScorecardTemplates(docManager.getScorecardTemplates());
+                            
                             form.setCurrentPhase("Screening");
                             
                             form.setReason("auto pilot advancing to screening");
