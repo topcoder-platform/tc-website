@@ -82,7 +82,7 @@ public abstract class Select extends TagSupport {
         sb.append(">"+text+"</OPTION>\n");
       }
     }
-    sb.append("</SELECT>\n");
+    sb.append("</SELECT>");
     return(sb.toString());
   }
 
