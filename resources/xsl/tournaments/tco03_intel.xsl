@@ -70,7 +70,7 @@
                             			<td valign="top" ><img src="/i/sponsor/intel_ids/bttn.gif" height="13" width="13" alt="*" border="0" /></td>
                             			<td class="bodyText" rowspan="2"> <p>Register for Intel Developer Services and compete in the TopCoder Open to be entered for a chance to win an Intel Centrino 
                             			mobile-technology-based notebook! <a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>View Specs</strong> </a>.
-                            			<br/><br/><body text="#0033FF">Register Now! Use promotion code TCO2003. </body text> </p></td>
+                            			<br/><br/>Register Now! Use promotion code TCO2003. </p></td>
                             		</tr>
                             		<tr><td></td></tr>
                             	</table>
