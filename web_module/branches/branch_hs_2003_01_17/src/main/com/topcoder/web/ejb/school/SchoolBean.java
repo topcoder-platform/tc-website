@@ -14,6 +14,8 @@ public class SchoolBean implements SessionBean {
 
   private final static String DATA_SOURCE="java:comp/env/datasource_name";
 
+  private final static String JTS_DATA_SOURCE="java:comp/env/jts_datasource_name";
+
   private transient InitialContext init_ctx=null;
 
   private SessionContext ctx;
@@ -61,6 +63,9 @@ public class SchoolBean implements SessionBean {
       }
 
       school_id=IdGenerator.nextId("SCHOOL_SEQ");
+
+      ds_name=(String)init_ctx.lookup(JTS_DATA_SOURCE);
+      ds=(DataSource)init_ctx.lookup(ds_name);
     
       StringBuffer query=new StringBuffer(1024);
       query.append("INSERT ");
@@ -116,7 +121,7 @@ public class SchoolBean implements SessionBean {
 
     try {
 
-      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      String ds_name=(String)init_ctx.lookup(JTS_DATA_SOURCE);
       DataSource ds=(DataSource)init_ctx.lookup(ds_name);
 
       StringBuffer query=new StringBuffer(1024);
@@ -171,7 +176,7 @@ public class SchoolBean implements SessionBean {
 
     try {
 
-      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      String ds_name=(String)init_ctx.lookup(JTS_DATA_SOURCE);
       DataSource ds=(DataSource)init_ctx.lookup(ds_name);
 
       StringBuffer query=new StringBuffer(1024);
@@ -226,7 +231,7 @@ public class SchoolBean implements SessionBean {
 
     try {
 
-      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      String ds_name=(String)init_ctx.lookup(JTS_DATA_SOURCE);
       DataSource ds=(DataSource)init_ctx.lookup(ds_name);
 
       StringBuffer query=new StringBuffer(1024);
@@ -283,7 +288,7 @@ public class SchoolBean implements SessionBean {
 
     try {
 
-      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      String ds_name=(String)init_ctx.lookup(JTS_DATA_SOURCE);
       DataSource ds=(DataSource)init_ctx.lookup(ds_name);
 
       StringBuffer query=new StringBuffer(1024);
@@ -343,7 +348,7 @@ public class SchoolBean implements SessionBean {
 
     try {
 
-      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      String ds_name=(String)init_ctx.lookup(JTS_DATA_SOURCE);
       DataSource ds=(DataSource)init_ctx.lookup(ds_name);
 
       StringBuffer query=new StringBuffer(1024);
@@ -403,7 +408,7 @@ public class SchoolBean implements SessionBean {
 
     try {
 
-      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      String ds_name=(String)init_ctx.lookup(JTS_DATA_SOURCE);
       DataSource ds=(DataSource)init_ctx.lookup(ds_name);
 
       StringBuffer query=new StringBuffer(1024);
