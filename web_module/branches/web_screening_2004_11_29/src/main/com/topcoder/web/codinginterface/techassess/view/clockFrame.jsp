@@ -25,7 +25,7 @@
             offset = offset / 60;
             offset = offset * -1
             
-            var leadingIdent = d.getHours() > 12 ? "PM" : "AM" ;
+            var leadingIdent = d.getHours() >= 12 ? "PM" : "AM" ;
             
             var text = padWithZeroes(d.getHours() % 12) + ":" + padWithZeroes(d.getMinutes()) + ":" + padWithZeroes(d.getSeconds()) + " " + leadingIdent + " GMT" + offset;
             
@@ -55,6 +55,8 @@
         }
         
         function padWithZeroes(val) {
+            if(val == 0)
+                val = 12;
             var newVal = "00" + val;
             newVal = newVal.substring(newVal.length - 2, newVal.length);
             return newVal;
