@@ -45,10 +45,10 @@
      <TR>
          <TD CLASS="sidenav">
          <IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="/?module=Statistics&c=coder_ratings" CLASS="sidenav">Coder Rankings</A> <BR/>
- 		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="/?module=Static&d1=stats&d2=school_round_rank" CLASS="sidenav">High School Rankings</A><BR/>
+ 		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="/?module=Statistics&c=school_round_rank" CLASS="sidenav">High School Rankings</A><BR/>
  		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="/?module=Statistics&c=ratings_history&cr=<jsp:getProperty name="SessionInfo" property="UserId" />" CLASS="sidenav">Rating History</A><BR/>
  		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="/?module=Static&d1=stats&d2=m_edi" CLASS="sidenav">Match Editorials</A><BR/>
- 		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="/?module=Static&d1=stats&d2=school_round_stats" CLASS="sidenav">High School Round Stats</A><BR/>
+ 		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="/?module=Statistics&c=school_round_stats" CLASS="sidenav">High School Round Stats</A><BR/>
  		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="/?module=Statistics&c=round_overview" CLASS="sidenav">Round Overview</A><BR/>
  		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="/?module=Statistics&c=round_stats" CLASS="sidenav">Round Stats</A><BR/>
  		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="/?module=Statistics&c=room_stats" CLASS="sidenav">Room Stats</A><BR/>
