@@ -720,12 +720,23 @@
                  <include name="fileconvert.jar"/>
                  <include name="httpunit.jar"/>
                  <include name="itext-1.1.jar"/>
+                <!-- these are just so we can deploy the tcs ejbs on our side.  we can wack when we don't anymore-->
+                 <include name="render.jar"/>
+                 <include name="searchengine.jar"/>
              </fileset>
          </copy>
+
          <copy todir="${jboss_lib}">
              <fileset dir="${jars.dir}/tcs">
                  <include name="catalog.jar"/>
                  <include name="user.jar"/>
+                 <!-- these are just so we can deploy the tcs ejbs on our side.  we can wack when we don't anymore-->
+                 <include name="forum.jar"/>
+                 <include name="logging_wrapper.jar"/>
+                 <include name="simple_cache.jar"/>
+                 <include name="refreshable_cache.jar"/>
+                 <include name="email_engine.jar"/>
+                 <include name="base_exception.jar"/>
              </fileset>
          </copy>
          <copy todir="${jboss_lib}">
