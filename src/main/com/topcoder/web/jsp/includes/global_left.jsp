@@ -234,10 +234,10 @@
             <img alt="" width="5" height="5" src="/i/clear.gif" border="0"/><br />
 
     <% if (level1.equals("home")) { %>
- <%--     		<table border="0" cellspacing="0" cellpadding="0" width="100%">
+			<table border="0" cellspacing="0" cellpadding="0" width="100%">
     			<tr><td><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/index.jsp" target="_top"><img src="/i/promos/featured_clients.gif" width="180" height="167" border="0"></A></td></tr>
 				<tr><td><img src="/i/clear.gif" width="180" height="5" border="0"></td></tr>
-			</table>--%>
+			</table>
             <jsp:include page="../../home/coder_of_month.jsp" />
     <% } %>
 
