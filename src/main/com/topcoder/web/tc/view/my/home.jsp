@@ -19,8 +19,8 @@
 <!-- Left Column Begins-->
         <td width="180">
             <jsp:include page="../../includes/global_left.jsp">
-                <jsp:param name="level1" value="my_topcoder"/>
-                <jsp:param name="level2" value=""/>
+                <jsp:param name="level1" value="my_home"/>
+                <jsp:param name="level2" value="home"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -31,7 +31,7 @@
          <div class="myTCBody">
         <jsp:include page="../page_title.jsp" >
             <jsp:param name="image" value="my_tc"/>  
-            <jsp:param name="title" value="Home"/>  
+            <jsp:param name="title" value=""/>  
         </jsp:include>
 
             <table border=0 cellpadding=5 cellspacing=0 width="100%">
