@@ -569,21 +569,7 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
                     <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
                 </tr>
                 
-                
                 <tr valign="top">
-                    <td colspan="5" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr valign="top">
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-                    <td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=261822">bodrius</a></td>
-                    <td class="statText" align="center">3</td>
-                    <td class="statText" align="right">88.59</td>
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-                </tr>
-                
-                
-                 <tr valign="top">
                     <td colspan="5" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
                 </tr>
 
@@ -595,16 +581,28 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
                     <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
                 </tr>
                 
-
+                
                 <tr valign="top">
                     <td colspan="5" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
                 </tr>
                 
                 <tr valign="top">
                     <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-                     <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=150498">ThinMan</a></td>
+                    <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=150498">ThinMan</a></td>
+                    <td class="statText" align="center">5</td>
+                    <td class="statText" align="right">87.90</td>
+                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+                </tr>
+                
+                <tr valign="top">
+                    <td colspan="5" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr valign="top">
+                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+                    <td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=261822">bodrius</a></td>
                     <td class="statText" align="center">4</td>
-                   <td class="statText" align="right">87.62</td>
+                    <td class="statText" align="right">87.77</td>
                     <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
                 </tr>
                 
