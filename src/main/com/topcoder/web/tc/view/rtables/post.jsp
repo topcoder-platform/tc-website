@@ -223,11 +223,6 @@
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
     <jsp:include page="../script.jsp" />
     <%@ include file="rating.jsp" %>
-    <style type="text/css">
-
-PRE  { white-space: normal; }
-
-</style>
   </HEAD>
   <BODY>
     <jsp:include page="../top.jsp" />
