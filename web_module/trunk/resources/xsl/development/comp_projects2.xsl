@@ -111,11 +111,12 @@
 
                  
                 <xsl:variable name="priceFormat" select="'$###,###.00'" />
+                <xsl:variable name="design-phase" select="'112'" />
+                <xsl:variable name="dev-phase" select="'113'" />
+                <xsl:variable name="priceFormat" select="'$###,###.00'" />
                 <xsl:for-each select="/TC/DEVELOPMENT/projects/project">
-                    <xsl:if test="./phase_id='112'">
+                    <xsl:if test="./phase_id=$design-phase">
                         <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
-                        <xsl:variable name="price" select="./price"/>
-                        <xsl:variable name="comp" select="./component_id"/>
                         <xsl:variable name="initial_submission_date">
                             <xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template>
                         </xsl:variable>
@@ -124,13 +125,13 @@
                             <td background="" class="statText">
                                 <a class="statText">
                                     <xsl:attribute name="href"> <!--2&#47;19&#47;2003-->
-                                        <xsl:value-of select="concat('/index?t=development&amp;c=tcs_inquire-design&amp;comp=', $comp, '&amp;payment=', $price, '&amp;date=2&#47;19&#47;2003')"/>
+                                        <xsl:value-of select="concat('/index?t=development&amp;c=tcs_inquire-design&amp;comp=', ./component_id, '&amp;payment=', ./price, '&amp;date=2&#47;19&#47;2003')"/>
                                     </xsl:attribute><xsl:value-of select="./component_name"/>
                                 </a>
                             </td>
                             <td background="" class="statText" align="center"><xsl:value-of select="./total_inquiries"/></td>
                             <td background="" class="statText" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
-                            <td background="" class="statText" align="center"><xsl:value-of select="$initial_submission_date"/></td>
+                            <td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
                             <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                         </tr>
                     </xsl:if>
@@ -173,74 +174,34 @@
 
                 <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=file_conversion_-_web_services_interface-development&amp;payment=120&amp;date=2&#47;26&#47;2003">File Conversion - Web Services Interface</a></td>
-                    <td background="" class="statText" align="center">$120.00</td>
-                    <td background="" class="statText" align="center">2.26.2003</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-                
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=global_distance_calculator-development&amp;payment=120&amp;date=2&#47;20&#47;2003">Global Distance Calculator</a></td>
-                    <td background="" class="statText" align="center">$120.00</td>
-                    <td background="" class="statText" align="center">2.20.2003</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-                
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=html_document_parser-development&amp;payment=144&amp;date=2&#47;26&#47;2003">HTML Document Parser</a></td>
-                    <td background="" class="statText" align="center">$144.00</td>
-                    <td background="" class="statText" align="center">2.26.2003</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-                
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=serial_number_generator-development&amp;payment=144&amp;date=2&#47;20&#47;2003">Serial Number Generator</a></td>
-                    <td background="" class="statText" align="center">$144.00</td>
-                    <td background="" class="statText" align="center">2.20.2003</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-                
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=service_manager-development&amp;payment=168&amp;date=2&#47;20&#47;2003">Service Manager</a></td>
-                    <td background="" class="statText" align="center">$168.00</td>
-                    <td background="" class="statText" align="center">2.20.2003</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-                
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=socket_server_manager-development&amp;payment=192&amp;date=2&#47;20&#47;2003">Socket Server Manager</a></td>
-                    <td background="" class="statText" align="center">$192.00</td>
-                    <td background="" class="statText" align="center">2.20.2003</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+                <xsl:for-each select="/TC/DEVELOPMENT/projects/project">
+                    <xsl:if test="./phase_id=$dev-phase">
+                        <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                        <xsl:variable name="price" select="./price"/>
+                        <xsl:variable name="comp" select="./component_id"/>
+                        <xsl:variable name="initial_submission_date">
+                            <xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template>
+                        </xsl:variable>
+                        <tr valign="top">
+                            <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                            <td background="" class="statText">
+                                <a class="statText">
+                                    <xsl:attribute name="href"> <!--2&#47;19&#47;2003-->
+                                        <xsl:value-of select="concat('/index?t=development&amp;c=tcs_inquire-dev&amp;comp=', $comp, '&amp;payment=', $price, '&amp;date=2&#47;19&#47;2003')"/>
+                                    </xsl:attribute><xsl:value-of select="./component_name"/>
+                                </a>
+                            </td>
+                            <td background="" class="statText" align="center"><xsl:value-of select="./total_inquiries"/></td>
+                            <td background="" class="statText" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
+                            <td background="" class="statText" align="center"><xsl:value-of select="$initial_submission_date"/></td>
+                            <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                        </tr>
+                    </xsl:if>
+                </xsl:for-each>
 
                 <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=spell_check-development&amp;payment=168&amp;date=2&#47;20&#47;2003">Spell Check</a></td>
-                    <td background="" class="statText" align="center">$168.00</td>
-                    <td background="" class="statText" align="center">2.20.2003</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
 
                 <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
