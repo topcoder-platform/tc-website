@@ -603,7 +603,7 @@ else if (command.equals("send")) {
                         msgText.append("\n\nDev Rating:\n");
                         msgText.append(appRsc.getItem(0, "development_rating").getResultData()==null?"0":String.valueOf(appRsc.getIntItem(0, "development_rating")));
                         msgText.append("\n\nDesign Rating:\n");
-                        msgText.append(appRsc.getItem(0, "design_rating").getResultData()==null?"0":String.valueOf(appRsc.getIntItem(0, "design_rating"));
+                        msgText.append(appRsc.getItem(0, "design_rating").getResultData()==null?"0":String.valueOf(appRsc.getIntItem(0, "design_rating")));
                         msgText.append("\n\n").append("http://");
                         msgText.append(ApplicationServer.SERVER_NAME);
                         msgText.append("/stat?c=member_profile&cr=");
