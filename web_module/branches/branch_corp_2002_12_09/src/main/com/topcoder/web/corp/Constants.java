@@ -1,7 +1,7 @@
 package com.topcoder.web.corp;
 
 import java.util.Hashtable;
-
+import javax.servlet.ServletConfig;
 import com.topcoder.shared.util.TCResourceBundle;
 
 /**
@@ -12,82 +12,26 @@ import com.topcoder.shared.util.TCResourceBundle;
  *
  */
 public class Constants {
-    // keys
-    private static final String KEY_SECURITY_CONTEXT_FACTORY = "security-context-factory";
-    private static final String KEY_SECURITY_PROVIDER_URL    = "security-provider-url";
-    
-    private static final String KEY_JTA_CONTEXT_FACTORY = "jta-context-factory";
-    private static final String KEY_JTA_PROVIDER_URL    = "jta-provider-url";
-    private static final String KEY_JTA_TX_MANAGER      = "jta-transaction-manager";
-    private static final String KEY_JTA_DATA_SOURCE     = "jta-data-source";
-    
-    private static final String KEY_NDS_CONTEXT_FACTORY = "nds-context-factory";
-    private static final String KEY_NDS_PROVIDER_URL    = "nds-provider-url";
-    private static final String KEY_NDS_DATA_SOURCE     = "nds-data-source";
-
-    private static final String KEY_EJB_CONTEXT_FACTORY = "ejb-context-factory";
-    private static final String KEY_EJB_PROVIDER_URL    = "ejb-provider-url";
-
-    private static final String KEY_CORP_PRINCIPAL      = "corp-web-app-principal";
-
-    public  static final String KEY_CCTX_LOGIN          = "cctx-login";
-    public  static final String KEY_CCTX_PARTNER        = "cctx-partner";
-    public  static final String KEY_CCTX_CONFIRM        = "cctx-showconfirm";
-    public  static final String KEY_CCTX_URL            = "cctx-payflow-url";
-    public  static final String KEY_CCTX_TYPE           = "cctx-type";
-    public  static final String KEY_CCTX_SUM            = "cctx-sum";
-    
-    public static final String KEY_LINK_PREFIX          = "url-prefix";
-
-    // and their defaults
-    private static final String DEF_SECURITY_CONTEXT_FACTORY =
-        "org.jnp.interfaces.NamingContextFactory";
-
-    private static final String DEF_SECURITY_PROVIDER_URL =
-        "jnp://127.0.0.1:1099";
-
-    private static final String DEF_JTA_CONTEXT_FACTORY =
-        "weblogic.jndi.WLInitialContextFactory";
-
-    private static final String DEF_JTA_PROVIDER_URL = "t3://127.0.0.1:8040";
-        
-    private static final String DEF_JTA_TX_MANAGER =
-        "weblogic/transaction/TransactionManager";
-
-    private static final String DEF_JTA_DATA_SOURCE  =  "JTS_CORP_OLTP";
-
-    private static final String DEF_NDS_CONTEXT_FACTORY =
-        DEF_JTA_CONTEXT_FACTORY;
-    private static final String DEF_NDS_PROVIDER_URL = DEF_JTA_PROVIDER_URL;
-    private static final String DEF_NDS_DATA_SOURCE  = "CORP_OLTP";
-
-    private static final String DEF_EJB_CONTEXT_FACTORY =
-        DEF_JTA_CONTEXT_FACTORY;
-
-    private static final String DEF_EJB_PROVIDER_URL =
-        DEF_JTA_PROVIDER_URL;
-
-    private static final String DEF_CORP_PRINCIPAL      = "corp_user";
-
     private static final TCResourceBundle store;
+
+    // keys
+    public  static final String KEY_CCTX_SUM            = "cctx-sum";
+    public static final String KEY_LINK_PREFIX          = "url-prefix";
     
     /**
      * Environment to produce security InitialContext from.
      */
-    public static final Hashtable SECURITY_CONTEXT_ENVIRONMENT = 
-        new Hashtable();
+    public static final Hashtable SECURITY_CONTEXT_ENVIRONMENT = new Hashtable();
 
     /**
      * Environment to produce JTA InitialContext from.
      */
-    public static final Hashtable JTA_CONTEXT_ENVIRONMENT =
-        new Hashtable();
+    public static final Hashtable JTA_CONTEXT_ENVIRONMENT = new Hashtable();
 
     /**
      * Environment to produce JTA InitialContext from.
      */
-    public static final Hashtable NDS_CONTEXT_ENVIRONMENT =
-        new Hashtable();
+    public static final Hashtable NDS_CONTEXT_ENVIRONMENT = new Hashtable();
 
     /**
      * jndi name of transaction manager
@@ -97,8 +41,7 @@ public class Constants {
     /**
      * Environment to produce InitialContext for our EJB.
      */
-    public static final Hashtable EJB_CONTEXT_ENVIRONMENT =
-        new Hashtable();
+    public static final Hashtable EJB_CONTEXT_ENVIRONMENT = new Hashtable();
         
     /**
      * Name of transactional DataSourse to be used
@@ -109,101 +52,107 @@ public class Constants {
      * Name of non-transactional DataSourse to be used
      */
     public static String NDS_DATA_SOURCE = null;
-
     public static String CORP_PRINCIPAL = null;
-    
     public static String CCTX_LOGIN   = null;
     public static String CCTX_PARTNER = null;
     public static String CCTX_CONFIRM = null;
     public static String CCTX_URL     = null;
+    public static String CCTX_TYPE    = null;
+
+    public static String REGISTRATION_PAGE_SUCCESS = null;
+    public static String REGISTRATION_PAGE_RETRY   = null;
+    public static String USEREDIT_PAGE_SUCCESS = null;
+    public static String USEREDIT_PAGE_RETRY   = null;
+    
+    public static String CORP_ADMIN_ROLE = null;
+    public static String CORP_GROUP = null;
+    public static String CORP_ANONYMOUS_GROUP = null;
+    
+    public static void init(ServletConfig cfg) {
+        REGISTRATION_PAGE_SUCCESS = cfg.getInitParameter("page-Registration-success");
+        REGISTRATION_PAGE_RETRY   = cfg.getInitParameter("page-Registration-retry");
+        USEREDIT_PAGE_SUCCESS     = cfg.getInitParameter("page-UserEdit-success");
+        USEREDIT_PAGE_RETRY       = cfg.getInitParameter("page-UserEdit-retry");
+    }
 
     static {
+        
         store = new TCResourceBundle("CorpConstants");
-        
-        CORP_PRINCIPAL = store.getProperty(KEY_CORP_PRINCIPAL,
-                                           DEF_CORP_PRINCIPAL
-        );
-
-        JTA_TX_MANAGER = store.getProperty(KEY_JTA_TX_MANAGER,
-                                           DEF_JTA_TX_MANAGER
+        CORP_PRINCIPAL = store.getProperty("security-corp-principal", "corp_user");
+        JTA_TX_MANAGER = store.getProperty(
+            "jta-transaction-manager",
+            "weblogic/transaction/TransactionManager"
         );
         
-        JTA_DATA_SOURCE = store.getProperty(KEY_JTA_DATA_SOURCE,
-                                            DEF_JTA_DATA_SOURCE
-        );
-
-        NDS_DATA_SOURCE = store.getProperty(KEY_NDS_DATA_SOURCE,
-                                            DEF_NDS_DATA_SOURCE
-        );
+        JTA_DATA_SOURCE = store.getProperty("jta-data-source", "JTS_CORP_OLTP");
+        NDS_DATA_SOURCE = store.getProperty("nds-data-source", "CORP_OLTP");
 
         String value;
         // jta environment
-        value = store.getProperty(KEY_JTA_CONTEXT_FACTORY,
-                                  DEF_JTA_CONTEXT_FACTORY
-        );
+        value = store.getProperty("jta-context-factory", "weblogic.jndi.WLInitialContextFactory");
         JTA_CONTEXT_ENVIRONMENT.put(
             javax.naming.Context.INITIAL_CONTEXT_FACTORY,
             value
         );
-        value = store.getProperty(KEY_JTA_PROVIDER_URL,
-                                  DEF_JTA_PROVIDER_URL
-        );
+        value = store.getProperty("jta-provider-url", "t3://127.0.0.1:8040");
         JTA_CONTEXT_ENVIRONMENT.put(
             javax.naming.Context.PROVIDER_URL,
             value
         );
 
         // nds environment
-        value = store.getProperty(KEY_NDS_CONTEXT_FACTORY,
-                                  DEF_NDS_CONTEXT_FACTORY
+        value = store.getProperty(
+            "nds-context-factory",
+            "weblogic.jndi.WLInitialContextFactory"
         );
         NDS_CONTEXT_ENVIRONMENT.put(
             javax.naming.Context.INITIAL_CONTEXT_FACTORY,
             value
         );
-        value = store.getProperty(KEY_NDS_PROVIDER_URL,
-                                  DEF_NDS_PROVIDER_URL
-        );
+        value = store.getProperty("nds-provider-url", "t3://127.0.0.1:8040");
         NDS_CONTEXT_ENVIRONMENT.put(
             javax.naming.Context.PROVIDER_URL,
             value
         );
 
         // security environment
-        value = store.getProperty(KEY_SECURITY_CONTEXT_FACTORY,
-                                  DEF_SECURITY_CONTEXT_FACTORY
+        value = store.getProperty(
+            "security-context-factory",
+            "org.jnp.interfaces.NamingContextFactory"
         );
         SECURITY_CONTEXT_ENVIRONMENT.put(
             javax.naming.Context.INITIAL_CONTEXT_FACTORY,
             value
         );
-        value = store.getProperty(KEY_SECURITY_PROVIDER_URL,
-                                  DEF_SECURITY_PROVIDER_URL
-        );
+        value = store.getProperty("security-provider-url", "jnp://127.0.0.1:1099");
         SECURITY_CONTEXT_ENVIRONMENT.put(
             javax.naming.Context.PROVIDER_URL,
             value
         );
         
         // app ejb environment
-        value = store.getProperty(KEY_EJB_CONTEXT_FACTORY,
-                                  DEF_EJB_CONTEXT_FACTORY
+        value = store.getProperty(
+            "ejb-context-factory",
+            "weblogic.jndi.WLInitialContextFactory"
         );
         EJB_CONTEXT_ENVIRONMENT.put(
             javax.naming.Context.INITIAL_CONTEXT_FACTORY,
             value
         );
-        value = store.getProperty(KEY_EJB_PROVIDER_URL,
-                                  DEF_EJB_PROVIDER_URL
-        );
+        value = store.getProperty("ejb-provider-url", "t3://127.0.0.1:8040");
         EJB_CONTEXT_ENVIRONMENT.put(
             javax.naming.Context.PROVIDER_URL,
             value
         );
         
-        CCTX_LOGIN   = store.getProperty(KEY_CCTX_LOGIN, null);
-        CCTX_PARTNER = store.getProperty(KEY_CCTX_PARTNER, null);
-        CCTX_CONFIRM = store.getProperty(KEY_CCTX_CONFIRM, null);
-        CCTX_URL     = store.getProperty(KEY_CCTX_URL, null);
+        CCTX_LOGIN   = store.getProperty("cctx-login", null);
+        CCTX_PARTNER = store.getProperty("cctx-partner", null);
+        CCTX_CONFIRM = store.getProperty("cctx-showconfirm", null);
+        CCTX_URL     = store.getProperty("cctx-payflow-url", null);
+        CCTX_TYPE    = store.getProperty("cctx-type", null);
+        
+        CORP_ADMIN_ROLE = store.getProperty("security-corp-admin-role", "Account Administrator");
+        CORP_GROUP      = store.getProperty("security-corp-group", "Corp User");
+        CORP_ANONYMOUS_GROUP = store.getProperty("security-anonymous-group","Anonymous");
     }
 }

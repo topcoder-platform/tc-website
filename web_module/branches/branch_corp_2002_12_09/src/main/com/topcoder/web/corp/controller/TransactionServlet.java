@@ -78,7 +78,7 @@ public class TransactionServlet extends HttpServlet {
     
     private static final String RETKEY_IRESULT  = "RESULT";
     private static final String RETKEY_SRESULT  = "RESPMSG";
-    private static final String CCTX_TYPE       = "S"; // payment/sale
+//    private static final String CCTX_TYPE       = "S"; // payment/sale
     
     private static final int    RCINT_APPROVED  = 0;
     
@@ -257,12 +257,12 @@ public class TransactionServlet extends HttpServlet {
     throws Exception
     {
         transaction_info txInfo = buildTransactionInfo(req, resp);
-        req.setAttribute(Constants.KEY_CCTX_LOGIN, Constants.CCTX_LOGIN);
-        req.setAttribute(Constants.KEY_CCTX_PARTNER, Constants.CCTX_PARTNER);
-        req.setAttribute(Constants.KEY_CCTX_CONFIRM, Constants.CCTX_CONFIRM);
-        req.setAttribute(Constants.KEY_CCTX_URL, Constants.CCTX_URL);
-        req.setAttribute(Constants.KEY_CCTX_TYPE, CCTX_TYPE);
         req.setAttribute(Constants.KEY_CCTX_SUM, ""+(txInfo.cost*txInfo.qtty));
+//        req.setAttribute(Constants.KEY_CCTX_LOGIN, Constants.CCTX_LOGIN);
+//        req.setAttribute(Constants.KEY_CCTX_PARTNER, Constants.CCTX_PARTNER);
+//        req.setAttribute(Constants.KEY_CCTX_CONFIRM, Constants.CCTX_CONFIRM);
+//        req.setAttribute(Constants.KEY_CCTX_URL, Constants.CCTX_URL);
+//        req.setAttribute(Constants.KEY_CCTX_TYPE, Constants.CCTX_TYPE);
         return;
     }
 

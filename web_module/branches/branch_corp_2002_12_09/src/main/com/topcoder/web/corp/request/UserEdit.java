@@ -15,7 +15,6 @@ import com.topcoder.security.RolePrincipal;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.admin.PrincipalMgrRemote;
-import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.corp.Constants;
 import com.topcoder.web.corp.Util;
 import com.topcoder.web.ejb.email.Email;
@@ -35,16 +34,6 @@ import com.topcoder.web.ejb.user.UserHome;
  * @version 1.02
  */
 public class UserEdit extends BaseRegistration {
-    private static final String formPage    = "/acc_admin/AddUser.jsp";
-    
-    public static final String KEY_FIRSTNAME      = "first-name";
-    public static final String KEY_LASTNAME       = "last-name";
-    public static final String KEY_PHONE          = "phone";
-    public static final String KEY_LOGIN          = "username";
-    public static final String KEY_PASSWORD       = "password";
-    public static final String KEY_PASSWORD2      = "password-once-more";
-    public static final String KEY_EMAIL          = "email";
-    
     
     public UserEdit() {
         pageInContext = true;
@@ -60,14 +49,18 @@ public class UserEdit extends BaseRegistration {
                 request.getParameter(KEY_TARGET_USER_ID)
             );
         }
-        catch(Exception ignore) { }
-        
+        catch(Exception ignore) {}
+
+        if( targetUserID == -1 && ! authToken.getActiveUser().isAnonymous() ) {
+            targetUserID = authToken.getActiveUser().getId();
+        }
+        log.debug("target user id ["+targetUserID+"]");
         if( ! "POST".equalsIgnoreCase(request.getMethod()) ) {
             if( targetUserID >= 0 ) {
                 // populate form with user data
                 retrieveFromDB(targetUserID);
             }
-            nextPage = formPage;
+            nextPage = Constants.USEREDIT_PAGE_RETRY;
             return;
         }
             
@@ -86,83 +79,22 @@ public class UserEdit extends BaseRegistration {
         else {
             userName   = (String) request.getParameter(KEY_LOGIN);
         }
-        boolean formDataValid = isValid(forUpdate);
+        boolean formDataValid = genericValidityCheck(forUpdate);
         if( formDataValid ) {
             log.debug("data entered seem to be valid");
             targetUserID = makePersistent(targetUserID);
+            nextPage = Constants.USEREDIT_PAGE_SUCCESS;
         }
         else {
             log.debug("invalid data entered");
+            nextPage = Constants.USEREDIT_PAGE_RETRY;
         }
         setFormFieldDefault(KEY_LOGIN, userName);
         if( targetUserID != -1 ) {
             request.setAttribute(KEY_TARGET_USER_ID, ""+targetUserID);
         }
-        nextPage = formPage;
     }
     
-    /**
-     * performs validity checks of data entered by user
-     * @return boolean true if all seems to be valid
-     */
-    private boolean isValid(boolean forUpdate) {
-        log.debug("forUpdate="+forUpdate);
-        boolean ret = true;
-
-        setFormFieldDefault(KEY_FIRSTNAME, firstName);
-        ret &=  // first name validity check
-        simpleValidityCheck(KEY_FIRSTNAME, firstName, 1, 50,
-            "Please enter a first name."
-        );
-
-        setFormFieldDefault(KEY_LASTNAME, lastName);
-        ret &= // last name validity check
-        simpleValidityCheck(KEY_LASTNAME, lastName, 1, 50,
-            "Please enter a last name."
-        );
-
-        ret &= // phone validity
-        simpleValidityCheck(KEY_PHONE, phone, 1, 30,
-            "Please enter a phone number"
-        );
-        ret &=
-        checkItemValidity(KEY_PHONE, phone, StringUtils.ALPHABET_PHONE_NUMBER,
-            true, 1, "Please enter a valid phone number"
-        );
-
-        if( !forUpdate ) {
-            ret &= // username validity
-            checkUsernameValidity(KEY_LOGIN);
-        }
-
-        setFormFieldDefault(KEY_PASSWORD, password);
-        ret &= // password validity
-        simpleValidityCheck(KEY_PASSWORD, password, 7, 15,
-            "Please enter a password between 7 and 15 characters in length."
-        );
-        // password2 validity
-        if( password2 == null ) password2 = "";
-        setFormFieldDefault(KEY_PASSWORD2, password2);
-        if( ! password2.equals(password) ) {
-            markFormFieldAsInvalid(
-                KEY_PASSWORD2,
-                "Passwords entered must be same in the both fields"
-            );
-            ret = false;
-        }
-
-        ret &= // email validity
-        simpleValidityCheck(KEY_EMAIL, email, 1, 50,
-            "Please enter an email address."
-        );
-        ret &=
-        checkItemValidity(KEY_EMAIL, email,
-            StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, true, 1,
-            "Please enter a valid email address."
-        );
-        return ret;
-    }
-
     /**
      * Makes user data persistent.
      * 
@@ -198,19 +130,41 @@ public class UserEdit extends BaseRegistration {
                 Iterator groups = mgr.getGroups(primaryContact).iterator();
                 while(groups.hasNext()) {
                     group = (GroupPrincipal)groups.next();
-                    if( group.getName().equalsIgnoreCase("Corp User")) {
+                    if( group.getName().equalsIgnoreCase(Constants.CORP_GROUP)) {
                         break;
                     }
                 }
                 if( group != null ) {
-                    log.debug("including to the 'Corp User' group");
+                    log.debug("including to the corporate group");
                     mgr.addUserToGroup(group, securityUser, primaryContact);
                 }
+                else {
+                    log.error("Can't find corporate group '"+Constants.CORP_GROUP+"'");
+                }
+
+                // as requested add user to the anonymous group
+                groups = mgr.getGroups(primaryContact).iterator();
+                group = null;
+                while(groups.hasNext()) {
+                    group = (GroupPrincipal)groups.next();
+                    if( group.getName().equalsIgnoreCase(Constants.CORP_ANONYMOUS_GROUP)) {
+                        break;
+                    }
+                }
+                if( group != null ) {
+                    log.debug("including to the anonymous group");
+                    mgr.addUserToGroup(group, securityUser, primaryContact);
+                }
+                else {
+                    log.error("Can't find anonymous group '"+Constants.CORP_ANONYMOUS_GROUP+"'");
+                }
+                
+                
+                
                 userID = securityUser.getId();
             }
             else { // modification of existent user
                 securityUser = mgr.getUser(userID);
-//                log.debug("edit password");
                 mgr.editPassword(securityUser, password, primaryContact);
             }
 

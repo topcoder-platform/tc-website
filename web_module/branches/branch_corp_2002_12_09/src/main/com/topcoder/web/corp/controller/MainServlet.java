@@ -64,7 +64,7 @@ public class MainServlet extends HttpServlet {
      * */
     public void init() throws ServletException {
         servletConfig = getServletConfig();
-        //com.topcoder.web.query.common.Constants.init(getServletConfig());
+        Constants.init(servletConfig);
     }
 
     /**

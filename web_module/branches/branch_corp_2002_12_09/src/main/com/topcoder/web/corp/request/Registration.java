@@ -49,8 +49,6 @@ import com.topcoder.web.ejb.user.UserHome;
 public class Registration extends BaseRegistration {
     private final static Logger log = Logger.getLogger(Registration.class);
    
-    public static final String KEY_FIRSTNAME    = "prim-first-name";
-    public static final String KEY_LASTNAME     = "prim-last-name";
     public static final String KEY_TITLE        = "prim-title";
     public static final String KEY_COMPANY      = "prim-company-name";
     public static final String KEY_ADDRLINE1    = "prim-company-address-1";
@@ -59,12 +57,6 @@ public class Registration extends BaseRegistration {
     public static final String KEY_STATE        = "prim-company-state";
     public static final String KEY_ZIP          = "prim-company-zip";
     public static final String KEY_COUNTRY      = "prim-company-country";
-    public static final String KEY_PHONE        = "prim-phone";
-    public static final String KEY_LOGIN        = "prim-username";
-    public static final String KEY_PASSWORD     = "prim-password";
-    public static final String KEY_PASSWORD2    = "prim-password-once-more";
-    public static final String KEY_EMAIL        = "prim-email";
-    public static final String KEY_EMAIL2       = "prim-email-once-more";
 
     private String title;
     private String company;
@@ -75,7 +67,6 @@ public class Registration extends BaseRegistration {
     private String zip;
     private String country;
 
-    private String email2;
     
     private boolean stateFieldEmpty = false;
     private boolean countryFieldEmpty = false;
@@ -94,8 +85,14 @@ public class Registration extends BaseRegistration {
         // for all methods except POST
         //just return form to the user
         if( ! "POST".equals(request.getMethod()) ) {
-                nextPage = "/reg/Registration.jsp";
-                return;
+            // if it ts primary contact, then send user to the UserEdit module
+            if( ! isPrimaryContact() ) {
+                nextPage = Constants.USEREDIT_PAGE_RETRY;
+            }
+            else {
+                nextPage = Constants.REGISTRATION_PAGE_RETRY;
+            }
+            return;
         }
         
         //log.debug("business processing ("+request.getMethod()+")");
@@ -134,11 +131,11 @@ public class Registration extends BaseRegistration {
             log.debug("data entered seem to be valid");
 
             makePersistent();
-            nextPage = "/reg/RegSuccess.jsp";
+            nextPage = Constants.REGISTRATION_PAGE_SUCCESS;
         }
         else {
             log.debug("invalid data entered");
-            nextPage = "/reg/Registration.jsp";
+            nextPage = Constants.REGISTRATION_PAGE_RETRY;
         }
     }
     
@@ -147,35 +144,22 @@ public class Registration extends BaseRegistration {
      * @return boolean true if all seems to be valid
      */
     private boolean isValid() {
-        boolean ret = true;
-        
-        ret &=  // first name validity check 
-        checkItemValidity(KEY_FIRSTNAME, firstName, 
-            StringUtils.ALPHABET_ALPHA_EN, true, 1,
-            "Ensure first name is not empty, consists of letters and has not spaces inside"
-        );
-
-        ret &= // last name validity check 
-        checkItemValidity(KEY_LASTNAME, lastName, 
-            StringUtils.ALPHABET_ALPHA_EN, true, 1,
-            "Ensure last name is not empty, consists of letters and has not spaces inside"
-        );
-
+        boolean ret = genericValidityCheck(false); // checks common fields
         ret &= // title name validity 
         checkItemValidity(KEY_TITLE, title, 
             StringUtils.ALPHABET_ALPHA_PUNCT_EN, true, 5,
             "Ensure title is not empty, consists of letters and punctuation signs only"
         );
 
-        ret &= // company name validity (optional)
+        ret &= // company name validity (required)
         checkItemValidity(KEY_COMPANY, company,
-            StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, false, 7,
+            StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, true, 7,
             "Ensure company name consists of letters, digits and punctuation signs only (no more than 7 words)"
         );
 
-        ret &= // addr line 1 validity (optional)
+        ret &= // addr line 1 validity (required)
         checkItemValidity(KEY_ADDRLINE1, compAddress1, 
-            StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, false, 7,
+            StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, true, 7,
             "Ensure address line 1 is not empty, consists of letters, digits and punctuation signs only (no more than 7 words)"
         );
 
@@ -185,124 +169,32 @@ public class Registration extends BaseRegistration {
             "Ensure address line 2 is not empty, consists of letters, digits and punctuation signs only (no more than 7 words)"
         );
 
-        ret &= // city validity (optional) 
+        ret &= // city validity (required) 
         checkItemValidity(KEY_CITY, city, 
-            StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, false, 3,
+            StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, true, 3,
             "Ensure city is not empty, consists of letters, digits and punctuation signs only (no more than 3 words)"
         );
 
-        if( !stateFieldEmpty ) {        
-            ret &= // state validity (optional)
-            checkAgainstDB(
-                KEY_STATE, 
-                state,
-                "Please choose state from the list carefully"
-            );
-        }
+        ret &= // state validity (required)
+        checkAgainstDB(
+            KEY_STATE, 
+            state,
+            "Please choose state from the list carefully"
+        );
 
-        if( !countryFieldEmpty ) {
-            ret &= // country validity (optional)
-            checkAgainstDB(
-                KEY_COUNTRY,
-                country,
-                "Please choose country from the list carefully"
-            );
-        }
+        ret &= // country validity (required)
+        checkAgainstDB(
+            KEY_COUNTRY,
+            country,
+            "Please choose country from the list carefully"
+        );
 
-        ret &= // zip validity (optional)
+        ret &= // zip validity (required)
         checkItemValidity(KEY_ZIP, zip, StringUtils.ALPHABET_DIGITS_EN, 
-            false, 1, "Ensure ZIP code is not empty and, consists of digits only"
+            true, 1, "Ensure ZIP code is not empty and, consists of digits only"
         );
-        
-        ret &= // phone validity
-        checkItemValidity(KEY_PHONE, phone, StringUtils.ALPHABET_NUM_PUNCT_EN, 
-            true, 1, 
-            "Ensure phone is not empty and, consists of digits only (minus sign is allowed too)"
-        );
-
-        ret &= // username validity
-        checkUsernameValidity(KEY_LOGIN); 
-
-        ret &= // password validity
-        checkItemValidity(KEY_PASSWORD, password, 
-            StringUtils.ALPHABET_ALPHA_NUM_EN, true, 1,
-            "Ensure password is not empty and, consists of letters and digits only"
-        );
-
-        // password2 validity
-        if( password2 == null ) password2 = "";
-        setFormFieldDefault(KEY_PASSWORD2, password2);
-        if( ! password2.equals(password) ) {
-            markFormFieldAsInvalid(
-                KEY_PASSWORD2, 
-                "Passwords entered must be same in the both fields"
-            );
-            ret = false;
-        }
-        
-        ret &= // email validity
-        checkItemValidity(KEY_EMAIL, email, 
-            StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, true, 1,
-            "Ensure email address is not empty and, has written correct"
-        );
-
-        // email2 validity
-        if( email2 == null ) email2 = "";
-        setFormFieldDefault(KEY_EMAIL2, email2);
-        if( ! email2.equals(email) ) {
-            markFormFieldAsInvalid(
-                KEY_EMAIL2,
-                "e-mail addresses entered must be same in the both fields"
-            );
-            ret = false;
-            }
         return ret;
     }
-    
-    
-//    private boolean checkItemValidity(
-//        String itemKey, 
-//        String itemValue, 
-//        String alphabet, 
-//        boolean required,
-//        int maxWords,
-//        String errMsg
-//    )
-//    {
-//        boolean ret = true;
-//        boolean chkMore = true;
-//        
-//        setFormFieldDefault(itemKey, itemValue == null ? "" : itemValue);
-//        
-//        if( !required ) {
-//            if( itemValue == null || itemValue.length() == 0 ) {
-//                chkMore = false;
-//            }
-//        }
-//        if( ! chkMore ) return ret;
-//        
-//        // either this field is required or (optional and not empty)
-//        if( itemValue == null || itemValue.length() == 0 ) {
-//            ret = false;
-//            markFormFieldAsInvalid(itemKey, errMsg);
-//        }
-//        else {
-//            //  alphabet check
-//            if( (! StringUtils.consistsOf(itemValue, alphabet, true )) )  {
-//                ret = false;
-//                markFormFieldAsInvalid(itemKey, errMsg);
-//            }
-//            else {
-//                if( maxWords <= 1 ) maxWords = 1;
-//                
-//                if( ! StringUtils.hasNotMoreWords(itemValue, maxWords) ) {
-//                    ret = false;
-//                    markFormFieldAsInvalid(itemKey, errMsg);
-//                }
-//            }
-//        }
-//        return ret;
-//    }
     
     /**
      * Makes user data persistent. Not implemented yet (until ejbs will be
@@ -339,28 +231,53 @@ public class Registration extends BaseRegistration {
             GroupPrincipal group = null;
             while(groups.hasNext()) {
                 group = (GroupPrincipal)groups.next();
-                if( group.getName().equalsIgnoreCase("Corp User")) {
+                if( group.getName().equalsIgnoreCase(Constants.CORP_GROUP)) {
                     break;
                 }
             }
             if( group != null ) {
-                log.debug("including to the 'Corp User' group");
+                log.debug("including to the corporate group");
                 mgr.addUserToGroup(group, newSecurityUser, corpAppSubject);
             }
+            else {
+                log.error("Can't find corporate group '"+Constants.CORP_GROUP+"'");
+            }
+            
+            // as requested add user to the anonymous group
+            groups = mgr.getGroups(corpAppSubject).iterator();
+            group = null;
+            while(groups.hasNext()) {
+                group = (GroupPrincipal)groups.next();
+                if( group.getName().equalsIgnoreCase(Constants.CORP_ANONYMOUS_GROUP)) {
+                    break;
+                }
+            }
+            if( group != null ) {
+                log.debug("including to the anonymous group");
+                mgr.addUserToGroup(group, newSecurityUser, corpAppSubject);
+            }
+            else {
+                log.error("Can't find anonymous group '"+Constants.CORP_ANONYMOUS_GROUP+"'");
+            }
+            
+            
             // becase user is company primary person,
             // grant 'Corp Company Admin' role to he
             Iterator roles = mgr.getRoles(corpAppSubject).iterator();
         	RolePrincipal role = null;
         	while(roles.hasNext()) {
         		role = (RolePrincipal)roles.next();
-        		if( role.getName().equalsIgnoreCase("Corp Company Admin")) {
+        		if( role.getName().equalsIgnoreCase(Constants.CORP_ADMIN_ROLE)) {
         			break;
         		}
         	}
         	if( role != null ) {
-                log.debug("assigning 'Company Admin' role");
+                log.debug("assigning of corp admin role");
         		mgr.assignRole(newSecurityUser, role, corpAppSubject);
         	}
+            else {
+                log.error("Can't find corp admins role '"+Constants.CORP_ADMIN_ROLE+"'");
+            }
             
             
             icEJB = new InitialContext(Constants.EJB_CONTEXT_ENVIRONMENT);
@@ -444,111 +361,6 @@ public class Registration extends BaseRegistration {
         }
     }
 
-//    /**
-//     * Performs transaction rollback
-//     * 
-//     * @param tx
-//     * @param user
-//     * @param mgr
-//     * @param corpAppSubject
-//     */    
-//    private void rollbackRoutine(
-//        Transaction tx,
-//        UserPrincipal user,
-//        PrincipalMgrRemote mgr,
-//        TCSubject corpAppSubject
-//    )
-//    {
-//        if( tx != null ) {
-//            log.error("rolling transaction back "+tx);
-//            try {
-//                tx.rollback();
-//            }
-//            catch(Exception ignore) {
-//                ignore.printStackTrace();
-//                log.error("tx.roolback(): op has failed");
-//            }
-//        }
-//        if( user != null ) {
-//            // security user creation is performed by the remote component
-//            // (thus, outside of transaction scope) so we have remove it
-//            // by hands
-//            try {
-//                mgr.removeUser(user, corpAppSubject);
-//            }
-//            catch(Exception ignore) {
-//                ignore.printStackTrace();
-//                log.error("tx.roolback(): removing of security user has failed");
-//            }
-//        }
-//    }
-    
-//    /**
-//     * Checks if login consists of valid symbols and will it be allowed by DB
-//     * rules (uniquiness)
-//     * @return boolean true if allowed
-//     */
-//    private boolean checkUsernameValidity() {
-//        boolean success;
-//        //as usually check against alphabet 
-//        success = checkItemValidity(KEY_LOGIN, userName, 
-//            StringUtils.ALPHABET_ALPHA_EN, true, 1,
-//            "Handle entered must consist of alpha numeric symbols"
-//        );
-//        if( !success ) {
-//            return false;
-//        }
-//        // and additionally check against DB - not implemented for now
-//        boolean techProblems = false;
-//        try {
-//            PrincipalMgrRemote mgr = Util.getPrincipalManager();
-//            
-//            try {
-//                success = false;
-//                UserPrincipal user = mgr.getUser(userName);
-//                markFormFieldAsInvalid(
-//                    KEY_LOGIN,
-//                    "There is the user with given handle at the database"
-//                );
-//            }
-//            catch(NoSuchUserException nsue) {
-//                // it is fine - handle seem to be free yet
-//                success = true;
-//            }
-//        }
-//        catch(RemoteException re) {
-//            techProblems = true;
-//            log.error("RemoteException - primary registration process");
-//            re.printStackTrace();
-//        }
-//        catch(CreateException ce) {
-//            techProblems = true;
-//            log.error("CreateException - primary registration process");
-//            ce.printStackTrace();
-//        }
-//        catch(NamingException ne) {
-//            techProblems = true;
-//            log.error("NamingException - primary registration process");
-//            ne.printStackTrace();
-//        }
-//        catch(GeneralSecurityException gse) {
-//            techProblems = true;
-//            log.error("GeneralSecurityException - primary registration process");
-//            gse.printStackTrace();
-//        }
-//        finally {
-////            Util.closeIC(ic);
-//            if( techProblems ) {
-//                markFormFieldAsInvalid(
-//                    KEY_LOGIN,
-//                    "Some technical problems prevent further processing. Try again later"
-//                );
-//                return false;
-//            }
-//        }
-//        return success;
-//    }
-
     /**
      * 
      * @param key
@@ -614,4 +426,36 @@ public class Registration extends BaseRegistration {
         }
         return success;
     }
+
+    /**
+     * 
+     * @return boolean
+     */    
+    private boolean isPrimaryContact() throws Exception {
+        if( authToken.getActiveUser().isAnonymous() ) {
+            return false;
+        }
+
+        long userID = authToken.getActiveUser().getId();
+        InitialContext icEJB = null;
+        try {
+            icEJB = new InitialContext(Constants.EJB_CONTEXT_ENVIRONMENT);
+            Contact contactTable = (
+                (ContactHome)icEJB.lookup(ContactHome.EJB_REF_NAME)
+            ).create();
+            long companyID = contactTable.getCompanyId(userID);
+            Company companyTable = (
+                (CompanyHome)icEJB.lookup(CompanyHome.EJB_REF_NAME)
+            ).create();
+            long primaryContactID = companyTable.getPrimaryContactId(companyID);
+            return primaryContactID == userID; 
+        }
+        catch(Exception ex) {
+            throw new Exception("Error accessing DB company tables");
+        }
+        finally {
+            Util.closeIC(icEJB);
+        }
+    }
+    
 }

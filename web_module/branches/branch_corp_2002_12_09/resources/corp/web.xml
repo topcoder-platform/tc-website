@@ -9,7 +9,7 @@
         <servlet-class>com.topcoder.web.corp.controller.MainServlet</servlet-class>
         <!--
         |
-        | Reqests' processors descriptors
+        | Requests' processors descriptors
         | Name must be <prefix><name> where prefix == 'processor-'
         | and name it that will be specified in target url as 'module=<name>' parameter.
         | Value is class name for RequestProcessor implementor
@@ -58,7 +58,7 @@
 
         <!--
         |
-        |
+        |  Controller's pages set
         |
         -->
         <init-param>
@@ -76,6 +76,34 @@
             <param-value>/LoginPage.jsp</param-value>
             <description>unauthorized anonymous users will go here</description>
         </init-param>
+
+        <!--
+        |
+        |  Registration/UserEdit processors' pages set
+        |
+        -->
+        <init-param>
+            <param-name>page-Registration-success</param-name>
+            <param-value>/reg/RegSuccess.jsp</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>page-Registration-retry</param-name>
+            <param-value>/reg/Registration.jsp</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>page-UserEdit-success</param-name>
+            <param-value>/bfix/?module=UserList</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>page-UserEdit-retry</param-name>
+            <param-value>/acc_admin/AddUser.jsp</param-value>
+            <description></description>
+        </init-param>
+
+
     </servlet>
 
     <servlet>
@@ -105,7 +133,7 @@
 
     <servlet-mapping>
         <servlet-name>MainServlet</servlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>/bfix/</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
