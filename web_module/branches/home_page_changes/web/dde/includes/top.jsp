@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.dde.util.ApplicationServer" %>
 
 <!--Header begins-->
 <%
