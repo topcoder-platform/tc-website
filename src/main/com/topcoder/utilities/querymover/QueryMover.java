@@ -60,14 +60,11 @@ public class QueryMover {
 
     public static void main(String args[]) {
         QueryMover q = new QueryMover();
-
         UserTransaction utx = null;
-
-        q.initSource();
-        q.initTarget();
-
         Context ctx = null;
         try {
+            q.initSource();
+            q.initTarget();
             ctx = TCContext.getContext(targetContextFactory, targetContextURL);
             utx = (UserTransaction) ctx.lookup("javax.transaction.UserTransaction");
             utx.begin();
@@ -129,6 +126,8 @@ public class QueryMover {
         } catch (HeuristicMixedException e) {
             e.printStackTrace();
         } catch (HeuristicRollbackException e) {
+            e.printStackTrace();
+        } catch (CreateException e) {
             e.printStackTrace();
         }
     }
