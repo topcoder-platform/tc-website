@@ -95,7 +95,7 @@ Windows Hardware Quality Labs (WHQL).  Examine Microsoft's WHQL site <A HREF="ht
 <LI>Power-User level experience with the Windows Family of Operating Systems.  Including Windows XP, Windows Me, Windows 2000, Windows 98 SE, and Windows NT4.  Including how they interact with Applications and hardware.</LI>
 <LI>Understanding of QA theory, bug tracking to resolution, and software development support.</LI>
 <LI>The ability to research and comprehend technically complex specifications concerning the development of PC architecture and sub-systems.</LI>
-<LI>Knowledgeable of current industry standards such as DirectX, OpenGL, EDID & DDC, DVD, ACPI, and PC Design Guides.</LI>
+<LI>Knowledgeable of current industry standards such as DirectX, OpenGL, EDID &#38; DDC, DVD, ACPI, and PC Design Guides.</LI>
 </UL>
 EOE
 
