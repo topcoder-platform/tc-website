@@ -29,7 +29,7 @@ public abstract class BaseServlet extends HttpServlet {
     private String PATH = null;
     private String DEFAULT_PROCESSOR = null;
     private String LOGIN_PROCESSOR = null;
-    private String LOGIN_SERVLET = null;
+    protected String LOGIN_SERVLET = null;
     public static final String MESSAGE_KEY = "message";
     public static final String NEXT_PAGE_KEY = "nextpage";
     public static final String SESSION_INFO_KEY = "sessionInfo";
