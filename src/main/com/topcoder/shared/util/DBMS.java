@@ -44,6 +44,10 @@ public class DBMS {
     public final static String TOPIC = getProperty("TOPIC", "contestTopic");
     public final static String PACTS_QUEUE = getProperty("PACTS_QUEUE", "pactsQueue");
 
+    //formats used by informix for converting string to date(time)
+    public final static String INFORMIX_DATE_FORMAT = bundle.getProperty("INFORMIX_DATE_FORMAT", "MM/dd/yy");
+    public final static String INFORMIX_DATETIME_FORMAT = bundle.getProperty("INFORMIX_DATETIME_FORMAT", "yyyy-MM-dd HH:mm:ss.SSS");
+
     // Sequence Ids
     public static final int JMA_SEQ = getIntProperty("JMA_SEQ", 1);
     public static final int CORPORATE_SEQ = getIntProperty("CORPORATE_SEQ", 2);

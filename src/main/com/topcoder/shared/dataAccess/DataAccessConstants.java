@@ -25,5 +25,6 @@ public class DataAccessConstants {
     public static int STRING_INPUT = bundle.getIntProperty("STRING_INPUT", 1005);
     public static String INPUT_DELIMITER = bundle.getProperty("INPUT_DELIMITER", "@");
     public static String SPECIAL_DEFAULT_MARKER = bundle.getProperty("SPECIAL_DEFAULT_MARKER", "$");
+    public static String DATE_FORMAT = bundle.getProperty("DATE_FORMAT", "yyyy-MM-dd");
 
 }
