@@ -3,6 +3,8 @@ package com.topcoder.web.common.tag;
 import javax.servlet.jsp.tagext.BodyTagSupport;
 import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.JspException;
+import java.lang.reflect.Method;
+import java.lang.reflect.InvocationTargetException;
 
 /**
  * User: dok
@@ -17,11 +19,15 @@ public class UseBeanTag extends BodyTagSupport {
     private int scope = DEFAULT_SCOPE;
     private String id = null;
     private String name = null;
+    private String property = null;
 
     public void setType(String type) {
         this.type= type;
     }
 
+    public void setProperty(String property) {
+        this.property = property;
+    }
 
     public void setScope(String scope) {
         if (scope.equalsIgnoreCase("REQUEST")) {
@@ -44,14 +50,58 @@ public class UseBeanTag extends BodyTagSupport {
     }
 
     public int doEndTag() throws JspException {
-        pageContext.setAttribute(id, pageContext.findAttribute(name), scope);
+        Object propertyObject = null;
+        Object o = pageContext.findAttribute(name);
+        if (o==null) {
+            throw new JspException("attribute " + name + " not found");
+        } else if (property!=null) {
+            Method getMethod = null;
+            Method[] methods = null;
+
+            try {
+                getMethod = o.getClass().getMethod("get" + capitalize(property), null);
+            } catch (NoSuchMethodException nsme) {
+            }
+
+            if (getMethod == null) {
+                methods = o.getClass().getMethods();
+                for (int i = 0; i < methods.length; i++) {
+                    if (methods[i].getName().equalsIgnoreCase("get" + property) &&
+                            methods[i].getParameterTypes().length == 0) {
+                        getMethod = methods[i];
+                        break;
+                    }
+                }
+            }
+
+            if (getMethod != null) {
+                try {
+                    propertyObject = getMethod.invoke(o, null);
+                } catch (IllegalAccessException iae) {
+                    propertyObject = null;
+                } catch (InvocationTargetException ite) {
+                    propertyObject = null;
+                }
+            } else {
+                throw new JspException("unknown property " + property);
+            }
+
+        }
+        pageContext.setAttribute(id, propertyObject==null?o:propertyObject, scope);
 
         this.type= DEFAULT_TYPE;
         this.scope = DEFAULT_SCOPE;
         this.name = null;
         this.id = null;
+        this.property = null;
         return super.doEndTag();
     }
 
+
+    private String capitalize(String in) {
+        if (in == null) return null;
+        if (in.length() <= 1) return in.toUpperCase();
+        return in.substring(0, 1).toUpperCase() + in.substring(1);
+    }
 
 }
