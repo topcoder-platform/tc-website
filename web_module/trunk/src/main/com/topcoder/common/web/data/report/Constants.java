@@ -8,6 +8,8 @@ package com.topcoder.common.web.data.report;
 public class Constants {
 
     public static String REPORT_HOME_ADDR = "/index.jsp";
+    public static String NEW_REPORT_HOME_ADDR = "/newIndex.jsp";
+    public static String NEW_RESULT_ADDR = "/newResult.jsp";
     public static String REPORT_RESULT_ADDR = "/result.jsp";
     public static String REPORT_PARAM_ADDR = "/param.jsp";
     public static String REPORT_PROFILE_DETAIL_ADDR = "/profile_detail.jsp";
@@ -17,7 +19,9 @@ public class Constants {
     public static String JSP_ADDR = "/report_jsp";
 
     public static String REPORT_LIST_KEY = "report_list";
-    public static String TASK_NAME_KEY = "c";
+    public static String NEW_REPORT_KEY = "new_report";
+    public static String TASK_NAME_KEY = "t";
+    public static String DB_KEY = "db";
     public static String RESPONSE_ADDR_KEY = "response_address";
     public static String REPORT_RESULT_KEY = "report_result";
     public static String REPORT_ID_KEY = "report_id";
