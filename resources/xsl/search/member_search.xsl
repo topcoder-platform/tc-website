@@ -241,10 +241,10 @@
             <TD CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
           </TR>
           <TR>
-            <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"/></TD>
+            <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
           </TR>
           <TR>
-            <TD CLASS="statText" ALIGN="center" VALIGN="middle" COLSPAN="4">Time Since Last Competition&#160;
+            <TD CLASS="statText" ALIGN="center" VALIGN="middle" COLSPAN="4">Max Time Since Last Competition&#160;
                 <SELECT NAME="MonthsSinceLastComp" SIZE="1">
                     <OPTION VALUE="">None Specified</OPTION>
                     <OPTION VALUE="1">
@@ -269,7 +269,9 @@
             </TD>
             <TD CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
           </TR>
-
+          <TR>
+            <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"/></TD>
+          </TR>
           <TR>
             <TD COLSPAN="4" CLASS="statText" ALIGN="center" VALIGN="middle" HEIGHT="18">  
               <A HREF="javascript:submitSearch()"><xsl:attribute name="CLASS">statText</xsl:attribute>&#160;[ submit ]</A>
