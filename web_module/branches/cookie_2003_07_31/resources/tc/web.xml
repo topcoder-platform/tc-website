@@ -293,6 +293,30 @@
         <servlet-class>com.topcoder.web.tc.controller.legacy.ReportServlet</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>PactsMemberServlet</servlet-name>
+        <display-name>PactsMemberServlet</display-name>
+        <description>The PactsMemberServlet controller servlet</description>
+        <servlet-class>com.topcoder.web.tc.controller.legacy.pacts.servlet.PactsMemberServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>PactsInternalServlet</servlet-name>
+        <display-name>PactsInternalServlet</display-name>
+        <description>The PactsInternalServlet controller servlet</description>
+        <servlet-class>com.topcoder.web.tc.controller.legacy.pacts.servlet.PactsInternalServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+      <servlet-name>PactsInternalServlet</servlet-name>
+      <url-pattern>/PactsInternalServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>PactsMemberServlet</servlet-name>
+      <url-pattern>/PactsMemberServlet</url-pattern>
+    </servlet-mapping>
+
     <servlet-mapping>
       <servlet-name>report</servlet-name>
       <url-pattern>/report</url-pattern>
