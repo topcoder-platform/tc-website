@@ -233,7 +233,7 @@ public class SoftwareComponent {
     }
 
     private void debug(String s) {
-        //System.out.println(s);
+        System.out.println(s);
     }
 
 }
