@@ -61,6 +61,8 @@
 <!-- 2003 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2004</font></td></tr>
 
+                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_05_03_04">JavaOne Coding Challenge Powered by TopCoder</A> [May 03]<br/></td></tr>
+
                             <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_04_19b_04">Champions Announced In 2004 TCCC Sponsored by Yahoo!&#174;</A> [April 19]<br/></td></tr>
 
                             <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_04_19_04">Custom Web Application Enables Online Gift Card Service</A> [April 19]<br/></td></tr>
