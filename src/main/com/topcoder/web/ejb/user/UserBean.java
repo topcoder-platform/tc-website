@@ -603,5 +603,31 @@ public class UserBean extends BaseEJB {
     }
 
 
+    public void setPassword(long userId, String password, String dataSource) throws EJBException {
+        int ret = update("user",
+                new String[] {"password"},
+                new String[] {password},
+                new String[] {"user_id"},
+                new String[] {String.valueOf(userId)},
+                dataSource);
+        if (ret != 1) {
+            throw(new EJBException("Wrong number of rows updated in " +
+                    "'user'. Updated " + ret + ", " +
+                    "should have updated 1."));
+        }
+
+
+    }
+
+    public String getPassword(long userId, String passwrd, String dataSource) throws EJBException {
+        return selectString("user",
+                "password",
+                new String[] {"user_id"},
+                new String[] {String.valueOf(userId)},
+                dataSource);
+    }
+
+
+
 }
 
