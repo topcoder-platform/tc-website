@@ -87,7 +87,7 @@
           <LI>Exposure and recognition as a talented developer</LI>
           <LI>Strong differentiator on your resume</LI>
           <LI>Enormous earning potential</LI></UL>
-          <A HREF="/index?t=schedule&amp;c=tourny_overview" CLASS="bodyText">Take a look at the current tournament</A></P>
+          <A HREF="/index?t=schedule&amp;c=tourney_overview" CLASS="bodyText">Take a look at the current tournament</A></P>
           <P>The following table outlines the structure for a tournament competition.</P>
           <DIV ALIGN="center"><TABLE WIDTH="416" BORDER="0" CELLPADDING="4" CELLSPACING="0" BACKGROUND="/i/steel_darkblue_bg.gif">
           <TR><TD COLSPAN="5" HEIGHT="24" ALIGN="left" CLASS="statTextBig" BACKGROUND="/i/steel_blue_bg.gif">&#32;&#32;>>&#32;Regional Quarter-Finals</TD></TR>
