@@ -211,6 +211,10 @@ public abstract class BaseProcessor implements RequestProcessor {
         return request;
     }
 
+    protected TCResponse getResponse() {
+        return response;
+    }
+
 
     /**
      * Get a remote instance of the specified EJB.
