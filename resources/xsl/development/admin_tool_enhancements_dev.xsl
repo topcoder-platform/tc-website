@@ -70,7 +70,7 @@
                                         </p>
                                         <!-- Overview -->
                                         <p>
-                                            <strong>Overview</strong>
+                                            <strong><a href="#Overview">Overview</a></strong>
                                             <br/>
                                             The Admin Tool Enhancements project has one major goal in mind; allow users to
                                             administer TopCoder competitions over the Internet without requiring any access
