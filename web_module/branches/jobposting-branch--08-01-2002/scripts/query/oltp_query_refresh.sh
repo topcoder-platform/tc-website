@@ -443,6 +443,7 @@ SELECT COUNT(*) AS total_hits,
   FROM job_hit jh,
        campaign_job_xref cjx
  WHERE cjx.campaign_id = @cid@
+   AND cjx.status_id = 1
    AND jh.job_id = cjx.job_id
 "
 
@@ -455,6 +456,7 @@ SELECT j.job_id,
        job_hit jh,
        campaign_job_xref cjx
  WHERE cjx.campaign_id = @cid@
+   AND cjx.status_id = 1
    AND j.job_id = cjx.job_id
    AND jh.job_id = j.job_id
  GROUP BY j.job_id, j.job_desc
@@ -483,6 +485,7 @@ SELECT c.coder_id,
        coder c,
        OUTER current_school cs
  WHERE cjx.campaign_id = @cid@
+   AND cjx.status_id = 1
    AND j.job_id = cjx.job_id
    AND jh.job_id = cjx.job_id
    AND u.user_id = jh.user_id
@@ -535,6 +538,7 @@ SELECT COUNT(DISTINCT coder.coder_id) AS coder_type_count
      , coder
  WHERE cjx.job_id = jh.job_id
    AND jh.user_id = coder.coder_id
+   AND cjx.status_id = 1
    AND (cjx.campaign_id = @cid@)
    AND (coder.coder_type_id = @ct@)
 "
@@ -552,6 +556,7 @@ SELECT r.referral_desc AS response
    AND jh.user_id = coder_referral.coder_id
    AND r.referral_id = coder_referral.referral_id
    AND coder.coder_id = jh.user_id
+   AND cjx.status_id = 1
    AND (cjx.campaign_id = @cid@)
    AND (coder.coder_type_id = @ct@)
  GROUP BY r.referral_desc
@@ -568,6 +573,7 @@ SELECT (CASE WHEN coder.notify = 'Y' THEN 'Yes' ELSE 'No' END) AS response
      , coder
  WHERE cjx.job_id = jh.job_id
    AND jh.user_id = coder.coder_id
+   AND cjx.status_id = 1
    AND (cjx.campaign_id = @cid@)
    AND (coder.coder_type_id = @ct@)
  GROUP BY 1
@@ -593,6 +599,7 @@ SELECT dq.demographic_question_id
    AND dr.demographic_question_id = dq.demographic_question_id
    AND da.demographic_question_id = dq.demographic_question_id
    AND dr.demographic_question_id = da.demographic_question_id
+   AND cjx.status_id = 1
    AND (cjx.campaign_id = @cid@)
    AND (coder.coder_type_id = @ct@)
  GROUP BY dr.demographic_answer_id
@@ -772,6 +779,7 @@ SELECT jh.job_id
      , job_hit jh
      , campaign_job_xref cjx
  WHERE cjx.campaign_id = @cid@
+   AND cjx.status_id = 1
    AND j.job_id = cjx.job_id
    AND jh.job_id = cjx.job_id
    AND jh.user_id = @mid@
@@ -791,6 +799,7 @@ SELECT jh.user_id
    AND con.company_id = c.company_id
    AND c.campaign_id = @cid@
    AND cjx.campaign_id = c.campaign_id
+   AND cjx.status_id = 1
    AND cjx.job_id = @jid@
    AND jh.job_id = cjx.job_id
    AND jh.user_id = @mid@
@@ -807,6 +816,7 @@ SELECT cjx.job_id
    AND con.company_id = c.company_id
    AND c.campaign_id = @cid@
    AND cjx.campaign_id = c.campaign_id
+   AND cjx.status_id = 1
    AND cjx.job_id = @jid@
 "
 
