@@ -92,12 +92,12 @@ public class UserEdit extends BaseProcessor {
                     userName = secTok.targetUser.getName();
                     icEJB = new InitialContext(Constants.EJB_CONTEXT_ENVIRONMENT);
                     retrieveUserDataFromDB(icEJB);
-                    setFormFieldsDefaults();
                 }
                 finally {
                     Util.closeIC(icEJB);
                 }
             }
+            setFormFieldsDefaults();
             nextPage = formPage;
             return;
         }
