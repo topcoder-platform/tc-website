@@ -30,7 +30,6 @@
               </p>
               <FORM NAME="login" METHOD="POST" ACTION="<jsp:getProperty name="LoginTask" property="ServletPath"/>">
                 <INPUT TYPE="HIDDEN" NAME="<%= Constants.TASK_PARAM %>" VALUE="<%=Constants.LOGIN_TASK %>"/>
-                <INPUT TYPE="HIDDEN" NAME="<%= Constants.REDIRECT_PAGE_PARAM%>" VALUE="<%=Authentication.getRequestedURL()%>"/>
                 <INPUT TYPE="HIDDEN" NAME="<%= Constants.STEP_PARAM%>" VALUE="<%=Constants.NEW_STEP%>"/>
                 <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="132" ALIGN="center">
                   <TR>
