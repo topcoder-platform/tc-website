@@ -81,7 +81,11 @@ Thursday August 1, 2002
 <P><B>Problem Set Analysis &amp; Opinion</B></P>
 
 <P>
-<B>Division-II, Level 1: Insomnia</B> (250pt)
+<B>Division-II, Level 1: Insomnia</B> (250pt)<BR/>
+Submission rate - 91% (169/186)<BR/>
+Success rate - 93% (158/169)<BR/>
+Avg. Score - 216.78pt<BR/>
+Best Score - <B>dre2xl</B>, 248.09pt<BR/>
 </P>
 
 <P>
@@ -99,6 +103,22 @@ from +15 to -10 and vice-versa every 60 minutes.
 
 <P>
 <B>Division-II, Level 2 &amp; Division-I, Level 1: Auction</B>
+</P>
+
+<P>
+Div-II (500pt)<BR/>
+Submission rate - 75% (140/186)<BR/>
+Success rate - 59% (83/140)<BR/>
+Avg. Score - 313pt<BR/>
+Best Score - <B>leibniz</B>, 440.19pt<BR/>
+</P>
+
+<P>
+Div-I (250pt)<BR/>
+Submission rate - 99% (106/107)<BR/>
+Success rate - 79% (84/106)<BR/>
+Avg. Score - 196.67pt<BR/>
+Best Score - <B>b0b0b0b</B>, 241.02pt<BR/>
 </P>
 
 <P>
@@ -121,7 +141,11 @@ output by finding all of the indices with bids greater than the maximum non-winn
 
 
 <P>
-<B>Division-II, Level 3: Handles</B> (1000pt)
+<B>Division-II, Level 3: Handles</B> (1000pt)<BR/>
+Submission rate - 35% (66/186)<BR/>
+Success rate - 23% (15/66)<BR/>
+Avg. Score - 481.4pt<BR/>
+Best Score - Gojira, 578.12pt<BR/>
 </P>
 
 <P>
@@ -133,9 +157,12 @@ routines in the language of your choice would be a definite asset for solving th
 </P>
 
 
-
 <P>
-<B>Division-I, Level 2: Dance</B> (500pt)
+<B>Division-I, Level 2: Dance</B> (500pt)<BR/>
+Submission rate - 49% (52/107)<BR/>
+Success rate - 63% (33/52)<BR/>
+Avg. Score - 283.76pt<BR/>
+Best Score - leibniz, 440.19pt<BR/>
 </P>
 
 <P>
@@ -162,7 +189,12 @@ will just be the number of elements in the list.
 </P>
 
 
-<P><B>Division-I, Level 3: FakeCoin</B> (900pt)</P>
+<P><B>Division-I, Level 3: FakeCoin</B> (900pt)<BR/>
+Submission rate - 23% (25/107)<BR/>
+Success rate - 52% (13/25)<BR/>
+Avg. Score - 515pt<BR/>
+Best Score - SnapDragon, 679.06pt<BR/>
+</P>
 
 <P>
 Given that one coin out of twelve is known to be a fake, how do you figure out from 
