@@ -38,10 +38,7 @@
         <!-- Body Area -->
       <TD CLASS="bodyText" WIDTH="100%" valign="top"><IMG SRC="/i/clear.gif" WIDTH="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
 <FONT SIZE="3" COLOR="#666666"><B>Registration</B></FONT><BR>
-<P>
-                       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-                       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
-</P><BR>
+<BR>
 <FORM action="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>" method="POST" name="frmPrimReg">
 <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
 <!-- FIRST NAME -->
@@ -102,7 +99,7 @@
     </TR>
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Work Address</b>&#160;</TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-company-address-1" editable='<%=""+extFieldsEditable%>' size="30" maxlength="50"/></TD>
+    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-company-address-1" size="30" maxlength="50"/></TD>
   </TR>
 
 <!-- ADDR LINE2 -->
@@ -114,7 +111,7 @@
     </TR>
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">&#160;</TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-company-address-2" editable='<%=""+extFieldsEditable%>' size="30" maxlength="50"/></TD>
+    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-company-address-2" size="30" maxlength="50"/></TD>
   </TR>
 
 <!-- CITY -->
@@ -126,7 +123,7 @@
     </TR>
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>City</b>&#160;</TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-company-city" editable='<%=""+extFieldsEditable%>' size="30" maxlength="30"/></TD>
+    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-company-city" size="30" maxlength="30"/></TD>
   </TR>
 
 <!-- STATE/PROVINCE -->
@@ -140,7 +137,7 @@
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>State</b>&#160;</TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
     <TD COLSPAN="2" ALIGN="left" VALIGN="middle" CLASS="bodyText">
       <% ResultSetContainer rsc = (ResultSetContainer)request.getAttribute("rsc-states-list"); %>
-      <tc-webtag:rscSelect name="prim-company-state" list="<%=rsc%>" selectedOnly='<%=""+!extFieldsEditable%>' fieldText="state_name" fieldValue="state_code"/>
+      <tc-webtag:rscSelect name="prim-company-state" list="<%=rsc%>" fieldText="state_name" fieldValue="state_code"/>
     </TD>
   </TR>
 
@@ -153,7 +150,7 @@
   </TR>
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Zip</b>&#160;</TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-company-zip"  editable='<%=""+extFieldsEditable%>' size="10" maxlength="10"/></TD>
+    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-company-zip"  size="10" maxlength="10"/></TD>
   </TR>
 
 <!-- COUNTRY -->
@@ -168,7 +165,7 @@
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Country</b>&#160;</TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
     <TD COLSPAN="2" ALIGN="left" VALIGN="middle" CLASS="bodyText">
       <% rsc = (ResultSetContainer)request.getAttribute("rsc-countries-list"); %>
-      <tc-webtag:rscSelect name="prim-company-country" list="<%=rsc%>" selectedOnly='<%=""+!extFieldsEditable%>' fieldText="country_name" fieldValue="country_code"/>
+      <tc-webtag:rscSelect name="prim-company-country" list="<%=rsc%>" fieldText="country_name" fieldValue="country_code"/>
     </TD>
   </TR>
 
