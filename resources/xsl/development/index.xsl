@@ -67,6 +67,12 @@ Keep in mind, TopCoder is paying significant money for these projects, and we ex
 </P>
 
 <P>
+Project: <A HREF="/index?t=development&amp;c=calendar_comp" CLASS="statTextBig">Calendar Component</A><BR/>
+Member Selection: <b>Open</b><BR/>
+Inquiry Deadline: TBD<BR/>
+</P>
+
+<P>
 Project: <A HREF="/index?t=development&amp;c=architect" CLASS="statTextBig">Architect</A><BR/>
 Member Selection: <b>Open</b><BR/>
 Inquiry Deadline: TBD<BR/>
