@@ -15,6 +15,7 @@ public class Logout extends Base{
     protected void businessProcessing() throws TCWebException {
 
         getAuthentication().logout();
+        getRequest().getSession().invalidate();
         try {
             doLegacyCrap(getRequest());
         } catch (Exception e) {
