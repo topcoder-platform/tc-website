@@ -6,24 +6,22 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:usebean id="memberSearch" class="com.topcoder.web.tc.model.MemberSearch" scope="request" />
 
-                <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
+                <table border="0" cellspacing="0" cellpadding="0" bgcolor="#333333" width="100%">
                     <input type="hidden" name="module" value="AdvancedSearch"/>
                     <input type="hidden" name="<%=DataAccessConstants.START_RANK%>" value=""/>
                     <input type="hidden" name="<%=DataAccessConstants.END_RANK%>" value=""/>
 
                     <tr valign="top">
-                        <td colspan="2"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
-
-                            <p class="statText">
+                        <td colspan="2" bgcolor="#555555"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
+                            <table border="0" cellspacing="0" cellpadding="5" width="100%">
+                                <tr><td class="statTextBig">
                                 Enter search criteria below then click the go button. Search results matching the criteria
                                 selections will be returned. Click on a Handle to view information about the Coder.
-                            </p>
-
-                            <table border="0" cellspacing="0" cellpadding="3" width="100%">
-                                <tr><td background="/i/steel_gray_bg.gif" class="statTextBig">Member Search: Search by handle, rating or state.</td></tr>
+                                </td></tr>
+                                <tr><td class="statTextBig">Member Search: Search by handle, rating or state.</td></tr>
 
                                 <tr>
-                                    <td background="/i/steel_bluebv_bg.gif" class="statText">
+                                    <td background="/i/graybv_lite_bg.gif" class="statText">
                                         An underscore ( _ ) = one character space<br/>
                                         A percent sign ( % ) = any number of character spaces
                                     </td>
