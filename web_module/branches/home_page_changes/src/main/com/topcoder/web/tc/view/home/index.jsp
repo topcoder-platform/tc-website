@@ -24,6 +24,7 @@
 		</table>
 		</td>
 	</tr>
+
 <%-- Banners --%>
 	<tr>
 		<td width="50%" rowspan=2>&#160;</td>
