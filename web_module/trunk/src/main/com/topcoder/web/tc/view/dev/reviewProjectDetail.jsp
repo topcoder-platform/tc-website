@@ -148,15 +148,20 @@
                             <% } %>
                         </td>
                         <td class="projectCells" align="right">
-                            $<tc:beanWrite name="reviewer" property="reviewPrice" format="#,###.00"/>
+                            $<tc:beanWrite name="reviewer" property="reviewPrice" format="#,###.00"/>*
                         </td>
                     </tr>
                 </tc:listIterator>
             </table>
-            
+
             <br/>
-            
+
             <table cellspacing="0" cellpadding="0" width="530" class="bodyText">
+                <tr>
+                    <td class="bodyText">
+                    <p align="left">*This number assumes that all submissions pass screening, the actual payment may differ.</p>
+                    </td>
+                </tr>
                 <tr>
                     <td class="bodyText">
                     <p align="left">**By applying to review the component you are committing to the presented timeline.  Failure to meet the provided timeline may result in a suspension from the TopCoder Review Board.</p>
