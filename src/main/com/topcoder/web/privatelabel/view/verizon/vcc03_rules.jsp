@@ -22,7 +22,7 @@
    <tr>
 
  <!-- Verizon logo-->
-        <td width="147" valign="top"><a href="http://www.verizon.com/"><A href="http://www.verizon.com"><img src="/i/events/verizon2003/logo_black_147x41.gif" width="147" height="37" alt="Verizon" border="0"></A></a></td>
+        <td width="147" valign="top"><A href="http://www.verizon.com"><img src="/i/events/verizon2003/logo_black_147x41.gif" width="147" height="37" alt="Verizon" border="0"></A></td>
         <td class="red"><a name="top"><img alt="" src="/images/spacer.gif" width="1" height="37"></a></td>
         <td valign="top" class="black" width="440"><img src="/i/events/verizon2003/vcc03_logo_secondary.gif" width="440" height="37" alt="Verizon Coding Challenge" border="0"></td>
         <td class="red"><img alt="" src="/images/spacer.gif" width="1" height="37"></td>
@@ -106,7 +106,7 @@
                             <tr>
                                 <td width="50%" class="sidebarText">Round #1</td>
                                 <td width="50%" class="sidebarText" align="right">Friday, October 31, 2003 at 7:00PM<br/>
-                                                                Register: 5:30PM - 6:55PM</td>
+                                                                Register: 5:00PM - 6:55PM</td>
                             </tr>
 
                             <tr>
