@@ -39,7 +39,6 @@
 <tr><td class="sidebarText" width="40%">liquidicecube</td><td class="sidebarText" width="30%" nowrap>Qualification Problem 4</td><td class="sidebarText" width="30%">114.60</td></tr>
 <tr><td class="sidebarText" width="40%">schillerville</td><td class="sidebarText" width="30%" nowrap>Qualification Problem 4</td><td class="sidebarText" width="30%">130.73</td></tr>
 <tr><td class="sidebarText" width="40%">spincyc</td><td class="sidebarText" width="30%" nowrap>Qualification Problem 4</td><td class="sidebarText" width="30%">128.70</td></tr>
-                        <tr><td class="sidebarText"></td><td class="sidebarText"></td><td class="sidebarText"></td></tr>
                      </table>
 
 		</td>
