@@ -17,7 +17,7 @@
 
 <xsl:call-template name="Preload"/>      
 
-<title>Yahoo! Signs On as Premier Sponsor of 2004 TCO</title>
+<title>Michael Morris to Speak at 2004 SDBP Conference</title>
 
 <xsl:call-template name="CSS"/>      
 
