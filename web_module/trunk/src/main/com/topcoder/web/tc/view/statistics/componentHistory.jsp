@@ -116,7 +116,7 @@ if (srb.getProperty("sq")!=null){
 	sortString+="&sc=" + srb.getProperty("sc");
 	sortString+="&sd=" + srb.getProperty("sd", "desc");	
 }
-String sSortUrl = "/stat?c=component_history&cr="+srb.getProperty("cr")+"&sq=component_history";
+String sSortUrl = "/stat?c=component_history&pi="+srb.getProperty("pi")+ "&cr="+srb.getProperty("cr")+"&sq=component_history";
 %>
                         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
 		  		<% if (!bEmpty) { %>	
