@@ -95,6 +95,7 @@
                             <li>Illustrator</li>
                             <li>QuarkXpress</li>
                             <li>Advanced HTML layout using CSS</li>
+                            <li>Mac and Windows platforms</li>
                         </ul>
                         Additional Skills: 
                         <ul>
