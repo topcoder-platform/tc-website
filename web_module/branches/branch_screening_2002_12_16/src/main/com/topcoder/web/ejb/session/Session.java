@@ -1,6 +1,6 @@
 package com.topcoder.web.ejb.session;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
 
@@ -25,8 +25,8 @@ public interface Session extends EJBObject {
      */
     public long createSession(long sessionProfileId,
                               long userId,
-                              Date beginTime,
-                              Date endTime,
+                              Timestamp beginTime,
+                              Timestamp endTime,
                               boolean sendRepEmail,
                               boolean sendCandidateEmail,
                               long createUserId)
@@ -53,7 +53,7 @@ public interface Session extends EJBObject {
      * @param sessionId
      * @param beginTime
      */
-    public void setBeginTime(long sessionId, Date beginTime)
+    public void setBeginTime(long sessionId, Timestamp beginTime)
             throws RemoteException;
 
     /**
@@ -61,7 +61,7 @@ public interface Session extends EJBObject {
      * @param sessionId
      * @param endTime
      */
-    public void setEndTime(long sessionId, Date endTime)
+    public void setEndTime(long sessionId, Timestamp endTime)
             throws RemoteException;
 
     /**
@@ -77,7 +77,8 @@ public interface Session extends EJBObject {
      * @param sessionId
      * @param sendCandidateEmail
      */
-    public void setSendCandidateEmail(long sessionId, boolean sendCandidateEmail)
+    public void setSendCandidateEmail(long sessionId,
+                                      boolean sendCandidateEmail)
             throws RemoteException;
 
     /**
@@ -109,7 +110,7 @@ public interface Session extends EJBObject {
      * @param sessionId
      * @return Date of beginning session time
      */
-    public Date getBeginTime(long sessionId)
+    public Timestamp getBeginTime(long sessionId)
             throws RemoteException;
 
     /**
@@ -117,7 +118,7 @@ public interface Session extends EJBObject {
      * @param sessionId
      * @return Date of ending session time
      */
-    public Date getEndTime(long sessionId)
+    public Timestamp getEndTime(long sessionId)
             throws RemoteException;
 
     /**

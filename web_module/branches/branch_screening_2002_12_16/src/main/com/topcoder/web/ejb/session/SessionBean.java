@@ -36,8 +36,8 @@ public class SessionBean extends BaseEJB {
      */
     public long createSession(long sessionProfileId,
                               long userId,
-                              Date beginTime,
-                              Date endTime,
+                              Timestamp beginTime,
+                              Timestamp endTime,
                               boolean sendRepEmail,
                               boolean sendCandidateEmail,
                               long createUserId)
@@ -91,8 +91,8 @@ public class SessionBean extends BaseEJB {
             pstmt.setLong(1,sessionId);
             pstmt.setLong(2,sessionProfileId);
             pstmt.setLong(3,userId);
-            pstmt.setDate(4,beginTime);
-            pstmt.setDate(5,endTime);
+            pstmt.setTimestamp(4,beginTime);
+            pstmt.setTimestamp(5,endTime);
             pstmt.setBoolean(6,sendRepEmail);
             pstmt.setBoolean(7,sendCandidateEmail);
             pstmt.setLong(10,createUserId);
@@ -255,7 +255,7 @@ public class SessionBean extends BaseEJB {
      * @param sessionId
      * @param beginTime
      */
-    public void setBeginTime(long sessionId, Date beginTime)
+    public void setBeginTime(long sessionId, Timestamp beginTime)
             throws RemoteException {
 
         // constructing debugging information
@@ -287,7 +287,7 @@ public class SessionBean extends BaseEJB {
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(query.toString());
 
-            pstmt.setDate(1, beginTime);
+            pstmt.setTimestamp(1, beginTime);
             pstmt.setLong(2, sessionId);
 
             pstmt.executeUpdate();
@@ -319,7 +319,7 @@ public class SessionBean extends BaseEJB {
      * @param sessionId
      * @param endTime
      */
-    public void setEndTime(long sessionId, Date endTime)
+    public void setEndTime(long sessionId, Timestamp endTime)
             throws RemoteException {
         // constructing debugging information
         StringBuffer debugBuf = new StringBuffer(500);
@@ -350,7 +350,7 @@ public class SessionBean extends BaseEJB {
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(query.toString());
 
-            pstmt.setDate(1, endTime);
+            pstmt.setTimestamp(1, endTime);
             pstmt.setLong(2, sessionId);
 
             pstmt.executeUpdate();
@@ -445,7 +445,8 @@ public class SessionBean extends BaseEJB {
      * @param sessionId
      * @param sendCandidateEmail
      */
-    public void setSendCandidateEmail(long sessionId, boolean sendCandidateEmail)
+    public void setSendCandidateEmail(long sessionId,
+                                      boolean sendCandidateEmail)
             throws RemoteException {
         // constructing debugging information
         StringBuffer debugBuf = new StringBuffer(500);
@@ -704,9 +705,9 @@ public class SessionBean extends BaseEJB {
     /**
      *
      * @param sessionId
-     * @return Date of beginning session time
+     * @return Timestamp of beginning session time
      */
-    public Date getBeginTime(long sessionId)
+    public Timestamp getBeginTime(long sessionId)
             throws RemoteException {
         // constructing debugging information
         StringBuffer debugBuf = new StringBuffer(500);
@@ -725,7 +726,7 @@ public class SessionBean extends BaseEJB {
         ResultSet rs = null;
         Connection conn = null;
         DataSource ds = null;
-        Date beginTime = null;
+        Timestamp beginTime = null;
 
         try {
             StringBuffer query = new StringBuffer(100);
@@ -740,7 +741,7 @@ public class SessionBean extends BaseEJB {
 
             rs = pstmt.executeQuery();
             if ( rs.next() ) {
-                beginTime = rs.getDate(1);
+                beginTime = rs.getTimestamp(1);
             }
 
         } catch (SQLException sqe) {
@@ -771,9 +772,9 @@ public class SessionBean extends BaseEJB {
     /**
      *
      * @param sessionId
-     * @return Date of ending session time
+     * @return Timestamp of ending session time
      */
-    public Date getEndTime(long sessionId)
+    public Timestamp getEndTime(long sessionId)
             throws RemoteException {
         // constructing debugging information
         StringBuffer debugBuf = new StringBuffer(500);
@@ -792,7 +793,7 @@ public class SessionBean extends BaseEJB {
         ResultSet rs = null;
         Connection conn = null;
         DataSource ds = null;
-        Date endTime = null;
+        Timestamp endTime = null;
 
         try {
             StringBuffer query = new StringBuffer(100);
@@ -807,7 +808,7 @@ public class SessionBean extends BaseEJB {
 
             rs = pstmt.executeQuery();
             if ( rs.next() ) {
-                endTime = rs.getDate(1);
+                endTime = rs.getTimestamp(1);
             }
 
         } catch (SQLException sqe) {
