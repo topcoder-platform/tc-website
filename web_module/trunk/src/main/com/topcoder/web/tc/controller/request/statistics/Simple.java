@@ -3,6 +3,7 @@ package com.topcoder.web.tc.controller.request.statistics;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.request.Static;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.dataAccess.Request;
@@ -13,7 +14,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import javax.servlet.http.HttpUtils;
 import java.util.Map;
 
-public class Simple extends Base {
+public class Simple extends Static {
 
     private static TCResourceBundle bundle = new TCResourceBundle("TC");
 
@@ -41,11 +42,11 @@ public class Simple extends Base {
 
             String nextPage = bundle.getProperty(dataRequest.getContentHandle());
             if (nextPage==null) {
-                setNextPage(Constants.STATISTICS_PATH+dataRequest.getContentHandle()+".jsp");
+                super.businessProcessing();
             } else {
                 setNextPage(nextPage);
+                setIsNextPageInContext(true);
             }
-            setIsNextPageInContext(true);
 
         } catch (TCWebException e) {
             throw new TCWebException(e);
