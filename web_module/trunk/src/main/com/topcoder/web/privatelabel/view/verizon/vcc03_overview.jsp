@@ -106,13 +106,13 @@
                         advantage given to any one language.</p>
 
                         <p><span class="bodySubtitle">How It Works</span><br />
-                        The tournament is a timed Challenge allowing all participants to compete online to solve the same problems under the same time constraints. The Challenges are challenging and exciting for participants and
+                        The tournament is a timed contest allowing all participants to compete online to solve the same problems under the same time constraints. The tournaments are challenging and exciting for participants and
                         spectators. The format is simple:</p>
 
                         <ul>
                             <li><strong>Download the Arena</strong><br />
-                            TopCoder's Competition Arena (a Java Applet) provides the interface to the competition. Here Challengeants will read the problem statements, code
-                            solutions, compile and test those solutions and submit their code for points. Prior to the match, you can practice on many sample problems by downloading the arena ahead of time.</li>
+                            TopCoder's Competition Arena (a Java Applet) provides the interface to the competition. Here participants will read the problem statements, code
+                            solutions, compile and test those solutions and submit their code for points. Prior to the match, you can practice on sample problems by downloading the arena ahead of time.</li>
 
                             <li><strong>Coding Phase</strong><br />
                             At the designated date and time, competitors will enter the Arena just prior to "kick off". Competitors are placed in virtual rooms of 10 developers
@@ -130,12 +130,12 @@
                             captivating.</li>
                         </ul>
 
-                        <p><span class="bodySubtitle">Can Your Skills Carry You to August 29th?</span><br />
-                        Registration for the Verizon Coding Challenge opens on August 4th and closes on August 15th, 2003.  Be sure to register early, as only the first 500 eligible individuals to
-                        register will be invited to compete in Round #1 which will be held at XXX on August 20th.</p>
+                        <p><span class="bodySubtitle">Can Your Skills Carry You to November 7th?</span><br />
+                        Registration for the Verizon Coding Challenge opens on October 15th and closes on October 22nd, 2003.  Be sure to register early, as only the first 500 eligible individuals to
+                        register will be invited to compete in Round #1 which will be held at 8:00 pm IST (GMT + 5:30) on October 31st.</p>
 
-                        <p>The competitors with the top 250 scores from the first round will advance to the second round on August 25th. The top 25 performers in the second round will be invited to
-                        compete for the large cash prizes onsite at VDSI Chennai on August 29th.</p>
+                        <p>The competitors with the top 250 scores from the first round will advance to the second round on November 3rd. The top 25 performers in the second round will be invited to
+                        compete for the large cash prizes onsite at VDSI Chennai on November 7th.</p>
 
                         <a name="sched"></a>
                         <table border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align="center">
@@ -146,32 +146,32 @@
                             </tr>
                             
                             <tr valign="top">
-                                <td class="sidebarText">Monday, August 4</td>
-                                <td class="sidebarText">XXX</td>
+                                <td class="sidebarText">Wednesday, October 22</td>
+                                <td class="sidebarText">6:00 am</td>
                                 <td class="sidebarText">Registration Opens</td>
                             </tr>
 
                             <tr valign="top">
-                                <td class="sidebarText">Friday, August 15</td>
-                                <td class="sidebarText">XXX</td>
+                                <td class="sidebarText">Thursday, October 30</td>
+                                <td class="sidebarText">10:00 pm</td>
                                 <td class="sidebarText">Registration Closes</td>
                             </tr>
 
                             <tr valign="top">
-                                <td class="sidebarText">Wednesday, August 20</td>
-                                <td class="sidebarText">XXX</td>
+                                <td class="sidebarText">Friday, October 31</td>
+                                <td class="sidebarText">8:00 pm</td>
                                 <td class="sidebarText">Round 1 - 500 participants</td>
                             </tr>
 
                             <tr valign="top">
-                                <td class="sidebarText">Monday, August 25</td>
-                                <td class="sidebarText">XXX</td>
+                                <td class="sidebarText">Monday, November 3</td>
+                                <td class="sidebarText">8:00 pm</td>
                                 <td class="sidebarText">Round 2 - 250 participants</td>
                             </tr>
 
                             <tr valign="top">
-                                <td class="sidebarText">Friday, August 29</td>
-                                <td class="sidebarText">XXX</td>
+                                <td class="sidebarText">Friday, November 7</td>
+                                <td class="sidebarText">7:00 pm</td>
                                 <td class="sidebarText">Championship - 25 participants</td>
                             </tr>
                         </table>
@@ -182,10 +182,10 @@
                         the top 25 finishers with a Certificate of Merit for outstanding performance in the tournament. The top four scorers
                         will receive the following cash prizes:</p>
 
-                        <p>1st Place - $1,000 USD<br />
-                        2nd Place - $500 USD<br/>
-                        3rd Place - $300 USD<br/>
-                        4th Place - $100 USD</p>
+                        <p>1st Place - Rs. 50,000<br />
+                        2nd Place - Rs. 30,000<br/>
+                        3rd Place - Rs. 20,000<br/>
+                        4th Place - Rs. 10,000</p>
 
                         <p>To find out more detailed information about the Verizon Coding Challenge, including a list of the prizes, please read
                         the <a href="/pl/?&module=Static&d1=verizon&d2=vcc03_rules_conditions">Terms and Conditions</a>.</p>
