@@ -14,48 +14,7 @@
     <xsl:param name="level2"></xsl:param>
     <xsl:param name="level3"></xsl:param>
 
-<!-- Home page begins -->
     <xsl:choose>
-        <xsl:when test="/TC/Task='public_home'">
-            <xsl:call-template name="left_nav_top_row" />
-            <table width="180" cellspacing="0" cellpadding="0" border="0">
-                <xsl:call-template name="competition_row"/>
-                <xsl:call-template name="applet_row"/>
-                <xsl:call-template name="sched_row"/>
-                <xsl:call-template name="stats_row"/>
-                <xsl:call-template name="feat_row"/>
-                <xsl:call-template name="events_row"/>
-                <xsl:call-template name="rtables_row"/>
-                <xsl:call-template name="rules_row"/>
-            </table>
-
-            <xsl:call-template name="srm_dates"/>
-            <xsl:call-template name="calendar"/>
-            <xsl:call-template name="simple_search"/>
-            <xsl:call-template name="left_nav_btm_row" />
-
-        </xsl:when>
-
-        <xsl:when test="/TC/Task='home'">
-            <xsl:call-template name="left_nav_top_row" />
-            <table width="180" cellspacing="0" cellpadding="0" border="0">
-                <xsl:call-template name="competition_row"/>
-                <xsl:call-template name="applet_row"/>
-                <xsl:call-template name="sched_row"/>
-                <xsl:call-template name="stats_row"/>
-                <xsl:call-template name="feat_row"/>
-                <xsl:call-template name="events_row"/>
-                <xsl:call-template name="rtables_row"/>
-                <xsl:call-template name="rules_row"/>
-            </table>
-
-            <xsl:call-template name="srm_dates"/>
-            <xsl:call-template name="calendar"/>
-            <xsl:call-template name="simple_search"/>
-            <xsl:call-template name="left_nav_btm_row" />
-        </xsl:when>
-<!-- Home page ends -->
-
 <!-- Schedule begins -->
         <xsl:when test="/TC/Task='schedule'">
             <xsl:call-template name="left_nav_top_row" />
@@ -79,6 +38,7 @@
                 <xsl:call-template name="feat_row"/>
                 <xsl:call-template name="events_row"/>
                 <xsl:call-template name="rtables_row"/>
+                <xsl:call-template name="tc_gear_row"/>
                 <xsl:call-template name="rules_row"/>
             </table>
 
@@ -163,6 +123,7 @@
                 <xsl:call-template name="feat_row"/>
                 <xsl:call-template name="events_row"/>
                 <xsl:call-template name="rtables_row"/>
+                <xsl:call-template name="tc_gear_row"/>
                 <xsl:call-template name="rules_row"/>
             </table>
 
@@ -212,6 +173,7 @@
 
                 <xsl:call-template name="events_row"/>
                 <xsl:call-template name="rtables_row"/>
+                <xsl:call-template name="tc_gear_row"/>
                 <xsl:call-template name="rules_row"/>
             </table>
 
@@ -339,6 +301,7 @@
                 </tr>
 
                 <xsl:call-template name="rtables_row"/>
+                <xsl:call-template name="tc_gear_row"/>
                 <xsl:call-template name="rules_row"/>
             </table>
 
@@ -358,6 +321,7 @@
                 <xsl:call-template name="feat_row"/>
                 <xsl:call-template name="events_row"/>
                 <xsl:call-template name="rtables_row"/>
+                <xsl:call-template name="tc_gear_row"/>
 
                 <tr><td id="leftNavOn"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=support&amp;c=index</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Support/FAQs</A></td></tr>
 
@@ -732,6 +696,7 @@
                 <xsl:call-template name="feat_row"/>
                 <xsl:call-template name="events_row"/>
                 <xsl:call-template name="rtables_row"/>
+                <xsl:call-template name="tc_gear_row"/>
                 <xsl:call-template name="rules_row"/>
             </table>
 
@@ -762,6 +727,7 @@
                 <xsl:call-template name="feat_row"/>
                 <xsl:call-template name="events_row"/>
                 <xsl:call-template name="rtables_row"/>
+                <xsl:call-template name="tc_gear_row"/>
                 <xsl:call-template name="rules_row"/>
             </table>
 
@@ -855,6 +821,11 @@
 <xsl:template name="rtables_row">
                 <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/rtables/index.jsp</xsl:attribute>Round Tables</A></td></tr>
 </xsl:template>
+
+<xsl:template name="tc_gear_rowtc_gear_row">
+                <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=store&amp;d2=store_home</xsl:attribute>TopCoder Gear</A></td></tr>
+</xsl:template>
+
 
 <xsl:template name="listings_row">
                 <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=tces&amp;c=index</xsl:attribute>Job Listing</A></td></tr>
