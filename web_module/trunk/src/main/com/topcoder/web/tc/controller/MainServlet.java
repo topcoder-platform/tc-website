@@ -19,7 +19,7 @@ public class MainServlet extends BaseServlet {
 
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
-        Constants.initialize(config);
+        Constants.initialize();
 
         if (!Constants.isInitialized())
             throw new ServletException("Constants did not initialize properly");

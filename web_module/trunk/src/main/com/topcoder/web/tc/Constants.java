@@ -4,6 +4,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.TCResourceBundle;
 
 import java.lang.reflect.Field;
+import java.util.MissingResourceException;
 
 public class Constants {
 
@@ -70,17 +71,21 @@ public class Constants {
     public static void initialize() {
 
         Field[] f = Constants.class.getFields();
-        String value;
+        String value = null;
         for (int i = 0; i < f.length; i++) {
             try {
                 if (!ignore(f[i].getName())) {
                     if (f[i].getType().getName().equals("int")) {
-                        value = bundle.getProperty(f[i].getName().toLowerCase(), INT_NOT_FOUND);
+                        try {
+                            value = bundle.getProperty(f[i].getName().toLowerCase(), INT_NOT_FOUND);
+                        } catch (MissingResourceException ignore) { }
                         if (!value.equals(INT_NOT_FOUND)) {
                             f[i].setInt(null, Integer.parseInt(value));
                         }
                     } else if (f[i].getType().getName().equals("java.lang.String")) {
-                        f[i].set(null, bundle.getProperty(f[i].getName().toLowerCase(), null));
+                        try {
+                            f[i].set(null, bundle.getProperty(f[i].getName().toLowerCase(), null));
+                        } catch (MissingResourceException ignore) { }
                     } else {
                         throw new Exception("Unrecognized type: " + f[i].getType().getName());
                     }
@@ -88,6 +93,7 @@ public class Constants {
                 if (f[i].get(null)==null)
                     log.error("**DID NOT LOAD** " + f[i].getName() + " constant");
                 else log.debug(f[i].getName() + " <== " + f[i].get(null));
+
             } catch (Exception e) {
                 /* probably harmless, could just be a type or modifier mismatch */
                 e.printStackTrace();
