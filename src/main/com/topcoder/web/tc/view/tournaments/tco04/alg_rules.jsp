@@ -139,28 +139,28 @@
                 <tr>
                     <td width="50%" class="sidebarText">Online Round #1</td>
                     <td width="50%" class="sidebarText">Saturday, September 11th<br/> 
-														Register: 9:00 - 11:55 AM<br/> 
+														Registration: 9:00 AM - 11:55 AM ET<br/> 
 														START: 12:00 PM (Noon)</td>
                 </tr>
 
                 <tr>
                     <td width="50%" class="sidebarText">Online Round #2</td>
                     <td width="50%" class="sidebarText">Tuesday, September 14th<br/> 
-														Login by: 9:20 PM<br/> 
+														Registration: 6:30 PM - 9:25 PM ET<br/> 
 														START: 9:30 PM</td>
                 </tr>
 
                 <tr>
                     <td width="50%" class="sidebarText">Online Round #3</td>
                     <td width="50%" class="sidebarText">Wednesday, September 22nd<br/> 
-														Login by: 9:20 PM<br/> 
+														Registration: 6:30 PM - 9:25 PM ET<br/> 
 														START: 9:30 PM</td>
                 </tr>
 
                 <tr>
                     <td width="50%" class="sidebarText">Online Round #4</td>
                     <td width="50%" class="sidebarText">Wednesday, September 29th<br/> 
-														Login by: 9:20 PM<br/> 
+														Registration: 6:30 PM - 9:25 PM ET<br/> 
 														START: 9:30 PM</td>
                 </tr>
 
