@@ -69,7 +69,7 @@ do not activate your account.
 
 <br/><br/>
 
-Spend time in the Practice Rooms prior to the Qualification Round by clicking the Practice Arena tab above.<br/><br/>
+Be sure to spend time in the Practice Room by clicking the Practice Arena link on the left.<br/><br/>
 
 Good luck to you in the Arena!
 </font></p>
