@@ -1,5 +1,3 @@
-<%@ page contentType="text/html; charset=ISO-8859-1" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
             <div align="center">
                 <img src="/i/clear.gif" alt="" width="10" height="15" border="0" /><br/>
                 <img src="/i/tournament/tccc04/promo_component_start.gif" alt="" width="540" height="43" border="0" /><br/>
