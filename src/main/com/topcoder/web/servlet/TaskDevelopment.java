@@ -110,10 +110,10 @@ public final class TaskDevelopment {
                 
                 devTag.addTag(new ValueTag("date", date));
                 double paymentAmt = Double.parseDouble(payment);
-                devTag.addTag(new ValueTag("payment", format.parse(paymentAmt)));
+                devTag.addTag(new ValueTag("payment", format.format(paymentAmt)));
                 
-                devTag.addTag(new ValueTag("first_payment", format.parse(paymentAmt*.75)));
-                devTag.addTag(new ValueTag("second_payment", format.parse(paymentAmt*.25)));
+                devTag.addTag(new ValueTag("first_payment", format.format(paymentAmt*.75)));
+                devTag.addTag(new ValueTag("second_payment", format.format(paymentAmt*.25)));
             }
             if (command.equals("inquire")) {
                 if (nav.getLoggedIn()) {
