@@ -1797,7 +1797,7 @@ public class Registration
                 msgText.append("* Up to 500 competitors will receive a prize just for competing in Online Round #1\n");
                 msgText.append("* Up to 200 eligible competitors will receive cash prizes\n");
                 msgText.append("Check here for additional information:\n");
-                msgText.append("http://www.topcoder.com/?t=tournaments&c=tco03_overview");
+                msgText.append("http://www.topcoder.com/?t=tournaments&c=tco03_overview\n");
                 msgText.append("****************************************************\n\n");
 
                 msgText.append("TOPCODER ACCOUNT ACTIVATION INFORMATION\n\n");
