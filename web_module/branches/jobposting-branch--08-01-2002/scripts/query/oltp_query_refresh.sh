@@ -597,6 +597,7 @@ SELECT dq.demographic_question_id
    AND cjx.status_id = 1
    AND (cjx.campaign_id = @cid@)
    AND (coder.coder_type_id = @ct@)
+   AND dq.demographic_question_id NOT IN (1,2,12)
  GROUP BY dr.demographic_answer_id
      , dq.demographic_question_text
      , da.sort
