@@ -403,6 +403,29 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
         endRow = data.size();
     }
 
+    public ResultSetContainer(ResultSetContainer rs, int start, int end) throws Exception {
+        this();
+        log.debug("ResultSetContainer(ResultSetContainer, int, int) called...");
+        if (start > end)
+            throw new IllegalArgumentException("Start row cannot exceed end row");
+        initializeMetaData(rs);
+        int row = 0;
+        ResultSetRow rsr = null;
+        for (Iterator it = rs.iterator(); it.hasNext(); row++) {
+            rsr = (ResultSetRow)it.next();
+            if (row < start) {
+                dataBefore = true;
+                continue;
+            }
+            if (row > end) {
+                dataAfter = true;
+                break;
+            }
+            addRow(rsr);
+        }
+        startRow = start;
+        endRow = end;
+    }
 
 
     // Data item retrieval
