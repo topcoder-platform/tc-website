@@ -32,7 +32,7 @@
 <!-- Header Begins -->
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
-    <tr>
+    <tr valign="top">
 <!-- Left Column Begins -->
         <td width="170" bgcolor="#CCCCCC" valign="top">
             <xsl:call-template name="global_left"/>
