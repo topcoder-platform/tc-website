@@ -22,13 +22,20 @@ public class ProfileSearch extends Base {
             if (((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin()) {
                 String response_addr = Constants.REPORT_PROFILE_SEARCH_RESULTS_ADDR;
                 ArrayList headers = new ArrayList();
+                long time = System.currentTimeMillis();
                 String query = buildQuery(getRequest(), headers);
+                time = System.currentTimeMillis() - time;
+                log.debug("query constructed in "+time);
+                getRequest().setAttribute("QUERY",query);
+                time = System.currentTimeMillis();
                 QueryDataAccess qda = new QueryDataAccess(DBMS.OLTP_DATASOURCE_NAME);
                 QueryRequest qr = new QueryRequest();
                 qr.addQuery("results",query);
                 Map m = qda.getData(qr);
+                time = System.currentTimeMillis() - time;
+                log.debug("data got in "+time);
 
-                getRequest().setAttribute("QUERY",query);
+
                 getRequest().setAttribute("column_headers",headers);
                 getRequest().setAttribute(Constants.REPORT_PROFILE_SEARCH_RESULTS_KEY,m);
                 setNextPage(Constants.JSP_ADDR + response_addr);
