@@ -66,8 +66,8 @@
 
 
 <P><B>SYSTEMS SOFTWARE ENGINEER INTERN/CO-OP</B></P>
-<P><B>Role/Responsibilities:</B>
-System Software Engineers support NVIDIA's new high performance chipset business. They are
+<P><B>Role/Responsibilities:</B></P>
+<P>System Software Engineers support NVIDIA's new high performance chipset business. They are
 	generalists, with a  deep understanding of the today's PC architecture, including bus protocols such
 	as PCI, AGP, USB and 1394, and CPU booting, arbitration, and cache management protocols.
 	System engineers program down to the metal, and are comfortable around hardware specs. They
@@ -79,12 +79,6 @@ System Software Engineers support NVIDIA's new high performance chipset business
 <LI>Strong C programming skills with assembly experience.  Will have shown initiative in pursuing independent coding projects. </LI>
 <LI>Having experience writing code to directly control hardware is a plus.</LI>
 </UL>
-<P>
-NVIDIA's Intern &amp; Co-op Program is a year-round program offering work terms ranging from 3 to 6 months. 
-In addition to a competitive salary, we provide relocation assistance and housing assistance for 
-those that do not reside or attend a university in the Bay Area. For more information, 
-check out <A HREF="http://www.nvidia.com" CLASS="bodyText" TARGET="_blank">www.nvidia.com</A>.
-</P>
 
 <P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=112&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_openings_intern&amp;a=secure" CLASS="bodyText">more Intern/Co-op Positions</A></P>
 

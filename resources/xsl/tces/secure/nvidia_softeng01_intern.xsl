@@ -66,17 +66,12 @@
 
 
 <P><B>SOFTWARE ENGINEER INTERN/CO-OP</B></P>
-<P><B>Role/Responsibilities:</B><BR/>
-Software Engineers at NVIDIA design, implement and optimize all of the multimedia drivers for NVIDIA's processors. We work on creating the features that are used in all of the latest games and multimedia applications, and we work closely with many of those app developers as they create their applications. Specific areas include kernel drivers, 2D graphics, video, OpenGL, Direct 3D, and control panel/GUI on Windows, Macintosh and Linux.  Our code is cross-platform and highly efficient, and we've shipped our software to more than 100 million users around the world!  We are looking for people who are passionate about creating leading edge multimedia and operating system software.</P>
+<P><B>Role/Responsibilities:</B></P>
+<P>Software Engineers at NVIDIA design, implement and optimize all of the multimedia drivers for NVIDIA's processors. We work on creating the features that are used in all of the latest games and multimedia applications, and we work closely with many of those app developers as they create their applications. Specific areas include kernel drivers, 2D graphics, video, OpenGL, Direct 3D, and control panel/GUI on Windows, Macintosh and Linux.  Our code is cross-platform and highly efficient, and we've shipped our software to more than 100 million users around the world!  We are looking for people who are passionate about creating leading edge multimedia and operating system software.</P>
 
 <P><B>Qualifications:  GPA 3.5</B></P>
 <P>Candidates should have or be working toward a degree in Computer Science or Electrical Engineering, and be fluent programming in C; for some positions C++ and/or assembly language is required.</P>
-<P>
-NVIDIA's Intern &amp; Co-op Program is a year-round program offering work terms ranging from 3 to 6 months. 
-In addition to a competitive salary, we provide relocation assistance and housing assistance for 
-those that do not reside or attend a university in the Bay Area. For more information, 
-check out <A HREF="http://www.nvidia.com" CLASS="bodyText" TARGET="_blank">www.nvidia.com</A>.
-</P>
+
 <P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=111&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_openings_intern&amp;a=secure" CLASS="bodyText">more Intern/Co-op Positions</A></P>
 
 <!--end contextual links-->
