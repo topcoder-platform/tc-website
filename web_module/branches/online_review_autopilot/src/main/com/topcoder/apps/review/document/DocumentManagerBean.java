@@ -3551,7 +3551,7 @@ public class DocumentManagerBean implements SessionBean {
                     dontCreate = true;
                 }
                 if (scorecardType == ReviewScorecard.SCORECARD_TYPE &&
-                        (subArr[i].isPassedScreening() == false || subArr[i].isAdvancedToReview() == false)) {
+                        (subArr[i].isAdvancedToReview() == false)) {
                     dontCreate = true;
                 }
                 if (dontCreate == false) {

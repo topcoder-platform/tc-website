@@ -389,7 +389,7 @@ public class ProjectAdministration implements Model {
 
                 for (int i = 0; i < submissions.length; i++) {
                     //added advanced to review - rfairfax 10-26
-                    if (!submissions[i].isRemoved() && submissions[i].isPassedScreening() && submissions[i].isAdvancedToReview()) {
+                    if (!submissions[i].isRemoved() && submissions[i].isAdvancedToReview()) {
                         // compute the average of the scorecards for the current submission
                         double sum = 0.0;
                         int count = 0;
