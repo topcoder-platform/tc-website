@@ -77,6 +77,20 @@
 
             <hr width="100%" size="1" noshade="noshade" />
 
+<!--  SoftDevMag -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=art_08_00_04"><img src="/i/pressroom/softdevmag_logo.gif" alt="" width="135" height="60" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=art_08_00_04">Wanted: La Creme de la Creme</A></strong></font><br />
+                         Beyond the fun and competition, top coders can make serious money. TopCoder Tomasz Czajka from Poland (who goes by the codename tomek) has earned $75,000 from two contests that took a total of less than 10 hours. Thirteenth-ranked U.S. TopCoder dmwright, whose real name is unlisted, has earned $151,000 to date.<span class="prHead"> [Software Development]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <!-- TCS -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
