@@ -8,8 +8,8 @@
 
 
 <servlet>
-  <servlet-name>MainServlet</servlet-name>
-  <display-name>MainServlet</display-name>
+  <servlet-name>screening</servlet-name>
+  <display-name>screening</display-name>
   <description>The main controller servlet</description>
   <servlet-class>com.topcoder.web.screening.controller.MainServlet</servlet-class>
 
@@ -402,8 +402,8 @@
 
 
 <servlet-mapping>
-  <servlet-name>MainServlet</servlet-name>
-  <url-pattern>/MainServlet</url-pattern>
+  <servlet-name>screening</servlet-name>
+  <url-pattern>screening</url-pattern>
 </servlet-mapping>
 
 </web-app>
