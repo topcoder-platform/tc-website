@@ -109,7 +109,7 @@ public class UserEdit extends BaseProcessor {
 
             secCtx = (InitialContext) TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY,
                     ApplicationServer.SECURITY_PROVIDER_URL);
-            TransactionManager transMan = (TransactionManager) secCtx.lookup("java:/TransactionManager");
+            TransactionManager transMan = (TransactionManager) secCtx.lookup("TransactionManager");
             transMan.begin();
             secTx = transMan.getTransaction();
             if (secTok.createNew) {
