@@ -218,6 +218,12 @@
     <description></description>
   </init-param>
 
+  <init-param>
+    <param-name>servlet_path_param</param-name>
+    <param-value>ServletPath</param-value>
+    <description></description>
+  </init-param>
+
 
   <init-param>
     <param-name>login_task</param-name>

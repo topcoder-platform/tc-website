@@ -18,21 +18,21 @@
 
   <TABLE WIDTH="100%" HEIGHT="50%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
     <TR>
-      <TD WIDTH="170" bgcolor="#001935" VALIGN="top">
+      <TD WIDTH="170" BGCOLOR="#001935" VALIGN="top">
       </TD>
       <TD WIDTH="4" BGCOLOR="#001935" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
-      <TD class="statText" width="100%" bgcolor="#001935" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-        <TABLE WIDTH="100%" HEIGHT="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-          <TR><TD class="statText" COLSPAN="2">Command List</TD></TR>
-          <TD class="statTextBig">Group Name</TD>
-          <TD class="statTextBig">Command Name</TD>
+      <TD CLASS="statText" WIDTH="100%" BGCOLOR="#001935" VALIGN="top"><ING SRC="/i/clear.gif" WIDTH="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
+        <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+          <TR><TD CLASS="statText" COLSPAN="2">Command List</TD></TR>
+          <TD CLASS="statTextBig">Group Name</TD>
+          <TD CLASS="statTextBig">Command Name</TD>
           <query:resultSetRowIterator id="command" rowList="<%=CommandListTask.getCommandList()%>">
             <TR>
-              <TD class="statText">
+              <TD CLASS="statText">
                 <query:resultSetItem row="<%=command%>" name="command_group_name"/>
               </TD>
-              <TD class="statText">
-                <A HREF="<jsp:getProperty name="CommandListTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.COMMAND_DETAIL_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandListTask" property="Db"/>&<%=Constants.COMMAND_ID_PARAM%>=<query:resultSetItem row="<%=command%>" name="command_id"/>" class="statText">
+              <TD CLASS="statText">
+                <A HREF="<jsp:getProperty name="CommandListTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.COMMAND_DETAIL_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandListTask" property="Db"/>&<%=Constants.COMMAND_ID_PARAM%>=<query:resultSetItem row="<%=command%>" name="command_id"/>" CLASS="statText">
                   <query:resultSetItem row="<%=command%>" name="command_desc"/>
                 </A>
               </TD>
@@ -40,10 +40,10 @@
           </query:resultSetRowIterator>
         </TABLE>
       </TD>
-      <TD WIDTH="4" bgcolor="#001935"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"></TD>
-      <TD WIDTH="10" bgcolor="#001935" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"><BR>
+      <TD WIDTH="4" BGCOLOR="#001935"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"></TD>
+      <TD WIDTH="10" BGCOLOR="#001935" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"><BR>
       </TD>
-      <TD WIDTH="25" bgcolor="#001935"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"></TD>
+      <TD WIDTH="25" BGCOLOR="#001935"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"></TD>
     </TR>
   </TABLE>
   </BODY>
