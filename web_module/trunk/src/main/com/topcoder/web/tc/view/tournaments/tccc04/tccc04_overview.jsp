@@ -6,7 +6,7 @@
 
 <jsp:include page="../../script.jsp" />
 
-<link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>');
+<link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>
     
 </head>
 
@@ -43,7 +43,7 @@
 
 <!-- Tab bar sublinks-->
 <jsp:include page="tccc04Sublinks.jsp" >
-   <jsp:param name="selectedList" value="overview"/>
+   <jsp:param name="selectedList" value=""/>
 </jsp:include>
 
             <p class="terciary">

@@ -3,7 +3,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <%
-    String tab = request.getParameter("selectedTab")==null?"":request.getParameter("selectedTab");
     String list = request.getParameter("selectedList")==null?"":request.getParameter("selectedList");
 %>
 
