@@ -86,6 +86,10 @@ public final class SavePMReviewAction extends ReviewAction {
                 DocumentManagerLocal documentManager;
                 
                 log(Level.ERROR, "HERE");
+                //struts checkbox doesn't record unchecked state properly, need to reset if not in request
+                if(request.getParameter("advanced") == null) {
+                    ((SubmissionForm) form).setAdvanced(false);
+                }
                 
                 try {
                     documentManager = EJBHelper.getDocumentManager();
