@@ -47,7 +47,7 @@
            <% { boolean even = true; %>
               <screen:resultSetRowIterator id="row" list="<%=candidateInfo.getNoteList()%>">
                  <TR>
-                    <TD CLASS="bodyText" VALIGN="top" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>><%=StringUtils.htmlEncode(row.getText())%></TD>
+                    <TD CLASS="bodyText" VALIGN="top" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>><%=StringUtils.htmlEncode((String)row.getItem("text").getResultData())%></TD>
                     <TD ALIGN="center" VALIGN="top" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %> HEIGHT="15">&#160;<screen:resultSetItem row="<%=row%>" name="created_by" />&#160;&#160;</TD>
                     <TD ALIGN="center" VALIGN="top" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %> HEIGHT="15">&#160;<B><screen:resultSetItem row="<%=row%>" name="create_date" /></B>&#160;&#160;</TD>
                  </TR>
