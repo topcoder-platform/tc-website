@@ -58,12 +58,12 @@
             <img src="/i/clear.gif" alt="" width="240" height="20" border="0"/><br />
 
             <table border="0" cellspacing="0" cellpadding="3" width="100%">
-                <tr valign="middle"><td bgcolor="#999999" class="registerNav" colspan="3"><font size="3">Component Documentation</font></td></tr>
+                <tr valign="middle"><td class="projectTitles" colspan="3">Component Documentation</td></tr>
 
                 <tr valign="middle">
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="49%" height="18">Description</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="5" height="18"><img src="/i/clear.gif" alt="" height="1" width="5" border="0" /></td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="59%" height="18">Modified&#160;&#160;&#160;&#160;&#160; Download File</td>
+                    <td class="projectHeaders" width="49%" height="18">Description</td>
+                    <td class="projectHeaders" width="5" height="18"><img src="/i/clear.gif" alt="" height="1" width="5" border="0" /></td>
+                    <td class="projectHeaders" width="59%" height="18">Modified&#160;&#160;&#160;&#160;&#160; Download File</td>
                 </tr>
 
                 <tr><td colspan="3"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
