@@ -117,9 +117,9 @@
                         <p><strong>Winning Developer</strong><br />
                         Royalty Percentage - 25%</p>
 
-            <xsl:variable name="numericPayment" select="substring(/TC/DEVELOPMENT/payment, '8')" />  
-            <xsl:variable name="numericFirstPayment" select="substring(/TC/DEVELOPMENT/first_payment, '8')" />  
-            <xsl:variable name="numericSecondPayment" select="substring(/TC/DEVELOPMENT/second_payment, '8')" />  
+            <xsl:variable name="numericPayment" select="/TC/DEVELOPMENT/payment" />  
+            <xsl:variable name="numericFirstPayment" select="/TC/DEVELOPMENT/first_payment" />  
+            <xsl:variable name="numericSecondPayment" select="/TC/DEVELOPMENT/second_payment" />  
 
                         <xsl:variable name="dollarFormat" select="'$###,###.00'" />
                             
