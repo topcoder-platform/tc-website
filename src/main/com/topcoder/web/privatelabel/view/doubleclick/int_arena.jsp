@@ -24,7 +24,7 @@
 	      <img src="/i/events/doubleclick/image2.gif" border="0" width="163" height="180"/>
 	  	</td>
 		<td class="dc_bodyText">
-         <p class="pageTitle">Practice Arena</p>
+         <p class="pageTitle">Competition Arena</p>
 
                         <p>
                         Click <a class="bodyText_link" href="Javascript:openWin('?module=Static&d1=doubleclick&d2=dc_quick_launch','comp',300,275);">here</a> to run the Competition Arena as a Java Applet.
