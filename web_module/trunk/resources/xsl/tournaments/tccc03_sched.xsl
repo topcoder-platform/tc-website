@@ -281,12 +281,9 @@
                       <td align="center" class="statText">4</td>
                     </tr>
                     
-                    <tr valign="middle">
+       				<tr valign="middle">
                       <td align="right" class="tourney_subhead2">Finalists</td>
-                      <td align="center" class="tourney_subhead2"><a class="statText" href="/stat?c=round_stats&amp;rd=4491">View</a></td>
-                      <td align="center" class="tourney_subhead2"><a class="statText" href="/stat?c=round_stats&amp;rd=4492">View</a></td>
-                      <td align="center" class="tourney_subhead2"><a class="statText" href="/stat?c=round_stats&amp;rd=4493">View</a></td>
-                      <td align="center" class="tourney_subhead2"><a class="statText" href="/stat?c=round_stats&amp;rd=4494">View</a></td>
+                      <td align="center" class="tourney_subhead2" colspan="4"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_semifour">View</a></td>
                     </tr>
                     
                     <tr valign="middle">
@@ -321,7 +318,9 @@
                     
                     <tr valign="middle">
                       <td align="right" class="tourney_subhead2">Champion</td>
-                      <td align="center" colspan="4" class="tourney_subhead2"><!--<a class="coderTextRed" href="/stat?c=member_profile&amp;cr=262936">dgarthur</a>--><a class="statText" href="/stat?c=round_stats&amp;rd=4497">View</a></td>
+                      <td align="center" colspan="2" class="tourney_subhead2"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=262936">dgarthur</a></td>
+                      <td align="center" class="tourney_subhead2">Points: 1447.71</td>
+                      <td align="center" class="tourney_subhead2">Seed:1</td>
                     </tr>
                     
                     <tr valign="middle">
