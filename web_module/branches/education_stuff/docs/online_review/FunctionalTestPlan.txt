@@ -1,0 +1,372 @@
+Functional Test Plan
+
+This document shall serve as a guide for end-to-end functional testing of
+this application.  Herein described are the tests which should be
+authored/performed once a suitable testing framework is determined.
+
+Setup:
+To support testing, the system will have to be initialised with data to
+support the following (all of which must be cleaned up after execution):
+One component project in "Accept Submissions" phase
+	["project1"]
+One user with Reviewer privileges assigned as Reviewer, Aggregator, Final
+	Reviewer, Failure Tester and Screener for "project1"
+	["reviewer1"]
+Two users with Reviewer privileges assigned as Reviewer for "project1"
+	["reviewer2" and "reviewer3"]
+One user with Admin privileges assigned as Product Manager of "project1"
+	["admin"]
+One user with Designer/Developer privileges assigned to for "project1"
+	["designer" with USER_ROLE_ID=1000]
+Screening Scorecard Template with one yes/no question and one
+	rating/response question
+Review Scorecard Template with one rating/response question
+
+Insert Statements to construct each document within the system separately
+	This includes (for submission 1000):
+	screening scorecard not marked as completed adding up to a score of 80
+	a review scorecard for "reviewer1", "reviewer2" and "reviewer3" with
+	scores of 70, 80 and 90 respectively, not marked as completed
+	a test case review
+	an aggregation worksheet (drawing on the above reviews) not marked
+	as completed
+	aggregation reviews from "reviewer2" and "reviewer3"
+	a final review scorecard (drawing on the above aggregation
+	worksheet) not marked as completed
+	a submission entry
+	a final fix entry
+	a final review entry
+
+One solution file
+	["solution.jar"]
+
+Functional Tests:
+1. Login/View Open Projects - 
+	Login as "admin"
+
+	Login as "reviewer1"
+
+	Login as "designer"
+
+2. View Project Detail -
+	Login as "admin" and view details of both "project1"
+
+	Login as "reviewer1"; view details of "project1"
+
+	Login as "designer"; view details of "project1"
+
+3. Submit Solution
+	Login as "designer"; view details of "project1"; upload
+	"solution.jar"
+
+	Execute submission creation SQL; Login as "designer"; view details
+	of "project1"; upload "solution.jar"
+
+	Login as "admin"; select "project1"; select "Remove" for
+	"Submitter(reviewer1)"; "Submit"
+
+4. Screen Solution
+	Setup: execute submission creation SQL
+	Set "project1" phase to "Screening"
+
+	Login as "reviewer1"; view details of "project1"; select "Design
+	Screening Scorecards"; Download Submission
+
+	Login as "reviewer1"; view details of "project1"; select "Design
+	Screening Scorecards"; Select "Screen Scorecard 1000"; Answer "yes"
+	to yes/no question; "Save and Finish Later"
+
+	Login as "reviewer1"; view details of "project1"; select "Design
+	Screening Scorecards"; Select "Screen Scorecard 1000"; Rate
+	rating/response question second option; Provide one response as
+	"recommended"; "Save and Finish Later"
+
+	Login as "reviewer1"; view details of "project1"; select "Design
+	Screening Scorecards"; Select "Screen Scorecard 1000"; Rate
+	rating/response question second option; Provide one response as
+	"recommended"; Add one response; Provide response data and mark as
+	"recommended"; "Save and Finish Later"
+
+	Login as "reviewer1"; view details of "project1"; select "Design
+	Screening Scorecards"; Select "Screen Scorecard 1000"; Rate
+	rating/response question second option; Provide one response as
+	"recommended"; Answer "yes" to yes/no question; "Save and Finish
+	Later"
+
+	Execute screening scorecard creation SQL; Login as "reviewer1";
+	view details of "project1"; select "Design Screening Scorecards";
+	Select "Screen Scorecard 1000"; Rate rating/response question second
+	option; Answer "yes" to yes/no question; "Save and Finish Later"
+
+	Execute screening scorecard creation SQL; Login as "reviewer1";
+	view details of "project1"; select "Design Screening Scorecards";
+	Select "Screen Scorecard 1000"; Rate rating/response question second
+	option; Provide one response as "recommended"; "Save and Finish
+	Later"
+
+	Execute screening scorecard creation SQL; Login as "reviewer1";
+	view details of "project1"; select "Design Screening Scorecards";
+	Select "Screen Scorecard 1000"; Rate rating/response question second
+	option; Provide one response as "recommended"; Add one response;
+	Provide response data and mark as "recommended"; "Save and Finish
+	Later"
+
+	Execute screening scorecard creation SQL; Login as "reviewer1";
+	view details of "project1"; select "Design Screening Scorecards";
+	Select "Screen Scorecard 1000"; "Save and Mark as Complete"
+
+	PM Activities:
+	Execute screening scorecard creation SQL; Mark screening scorecard
+	as completed; Login as "admin"; view details of "project1"; select
+	"80" in the column "Screening"; Select "Screen Scorecard 1000"; Rate
+	rating/response question second option; Answer "yes" to yes/no
+	question; "Save and Finish Later"
+
+	Execute screening scorecard creation SQL; Mark screening scorecard
+	as completed; Login as "admin"; view details of "project1"; select
+	"80" in the column "Screening"; Rate rating/response question second
+	option; Provide one response as "recommended"; "Save and Finish Later"
+
+	Execute screening scorecard creation SQL; Mark screening scorecard
+	as completed; Login as "admin"; view details of "project1"; select
+	"80" in the column "Screening"; Rate rating/response question second
+	option; Provide one response as "recommended"; Add one response;
+	Provide response data and mark as "recommended"; "Save and Finish
+	Later"
+
+	Execute screening scorecard creation SQL; Mark screening scorecard
+	as completed; Login as "admin"; view details of "project1"; select
+	"80" in the column "Screening"; "Approve"
+
+	Execute screening scorecard creation SQL; Mark screening scorecard
+	as completed; Login as "admin"; view details of "project1"; select
+	"Incomplete"; enter message text "Blah, Blah"; "Submit"
+
+5. Review Solution
+	Setup: execute submission creation SQL
+	Execute screening scorecard creation SQL
+	Set Screening Scorecard as "completed" and "pm reviewed"
+	Set "project1" phase to "review"
+
+	Login as "reviewer1"; view details of "project1"; select "Design
+	Review Scorecards"; Download Submission
+
+	Login as "reviewer1"; view details of "project1"; select "Design
+	Review Scorecards"; Select "Review Scorecard 1000"; Answer "yes"
+	to yes/no question; "Save and Finish Later"
+
+	Login as "reviewer1"; view details of "project1"; select "Design
+	Review Scorecards"; Select "Review Scorecard 1000"; Rate
+	rating/response question second option; Provide one response as
+	"recommended"; "Save and Finish Later"
+
+	Login as "reviewer1"; view details of "project1"; select "Design
+	Review Scorecards"; Select "Review Scorecard 1000"; Rate
+	rating/response question second option; Provide one response as
+	"recommended"; Add one response; Provide response data and mark as
+	"recommended"; "Save and Finish Later"
+
+	Login as "reviewer1"; view details of "project1"; select "Design
+	Review Scorecards"; Select "Review Scorecard 1000"; Rate
+	rating/response question second option; Provide one response as
+	"recommended"; Answer "yes" to yes/no question; "Save and Finish
+	Later"
+
+	Execute review scorecard creation SQL; Login as "reviewer1";
+	view details of "project1"; select "Design Review Scorecards";
+	Select "Review Scorecard 1000"; Rate rating/response question second
+	option; Answer "yes" to yes/no question; "Save and Finish Later"
+
+	Execute review scorecard creation SQL; Login as "reviewer1";
+	view details of "project1"; select "Design Review Scorecards";
+	Select "Review Scorecard 1000"; Rate rating/response question second
+	option; Provide one response as "recommended"; "Save and Finish
+	Later"
+
+	Execute review scorecard creation SQL; Login as "reviewer1";
+	view details of "project1"; select "Design Review Scorecards";
+	Select "Review Scorecard 1000"; Rate rating/response question second
+	option; Provide one response as "recommended"; Add one response;
+	Provide response data and mark as "recommended"; "Save and Finish
+	Later"
+
+	Execute review scorecard creation SQL; Login as "reviewer1";
+	view details of "project1"; select "Design Review Scorecards";
+	Select "Review Scorecard 1000"; "Save and Mark as Complete"
+
+	PM Activities:
+	Execute review scorecard creation SQL scripts; Mark both review
+	scorecards as completed; Login as "admin"; view details of
+	"project1"; select "80" in the column "Score"; Select "Back"; 
+
+	Execute review scorecard creation SQL scripts; Mark review scorecard
+	as completed; Login as "admin"; view details of "project1"; select
+	"70" in the column "Reviewer 1"; Rate rating/response question second
+	option; Answer "yes" to yes/no question; "Save and Finish Later"
+
+	Execute review scorecard creation SQL scripts; Mark review scorecard
+	as completed; Login as "admin"; view details of "project1"; select
+	"70" in the column "Screening"; Rate rating/response question second
+	option; Provide one response as "recommended"; "Save and Finish Later"
+
+	Execute review scorecard creation SQL scripts; Mark review scorecard
+	as completed; Login as "admin"; view details of "project1"; select
+	"70" in the column "Screening"; Rate rating/response question second
+	option; Provide one response as "recommended"; Add one response;
+	Provide response data and mark as "recommended"; "Save and Finish
+	Later"
+
+	Execute review scorecard creation SQL scripts; Mark review scorecard
+	as completed; Login as "admin"; view details of "project1"; select
+	"70" in the column "Screening"; "Approve"
+
+	Execute review scorecard creation SQL scripts; Mark review
+	scorecards as completed; Login as "admin"; view details of
+	"project1"; select "Incomplete"; enter message text "Blah, Blah";
+	"Submit"
+	
+6. Test Case Review
+	Setup: execute submission creation SQL
+	Execute screening scorecard creation SQL
+	Set Screening Scorecard as "completed" and "pm reviewed"
+	Set "project1" phase to "review"
+
+	Login as "reviewer1"; view details of "project1"; select "Review
+	Test Cases"; Indicate "Approved" for "Failure Tests"; "Submit Test
+	Case Reviews"
+
+	Login as "reviewer1"; view details of "project1"; select "Review
+	Test Cases"; Indicate "Rejected" for "Failure Tests"; enter "blah"
+	as comment; "Submit Test Case Reviews"
+
+7. Aggregation
+	Setup: execute submission creation SQL
+	Execute screening scorecard creation SQL
+	Execute review scorecard creation SQL scripts
+	Set screening scorecard and review scorecards to "completed" and
+	"PM Reviewed."
+	Set "project1" phase to "aggregation"
+
+	Login as "reviewer1"; view details of "project1"; select "Perform
+	Aggregation"; indicate the first response from "reviewer2" is
+	"rejected"; "Save and Finish Later"
+
+	Login as "reviewer1"; view details of "project1"; select "Perform
+	Aggregation"; indicate the first response from "reviewer2" is
+	"comment"; "Save and Finish Later"
+
+	Login as "reviewer1"; view details of "project1"; select "Perform
+	Aggregation"; change the text of the first response from
+	"reviewer2" to "changed text"; "Save and Finish Later"
+
+	Execute Aggregation worksheet script; Login as "reviewer1"; view
+	details of "project1"; select "Perform Aggregation"; indicate the
+	first response from "reviewer2" is "rejected"; "Save and Finish Later"
+
+	Execute Aggregation worksheet script; Login as "reviewer1"; view
+	details of "project1"; select "Perform Aggregation"; indicate the
+	first response from "reviewer2" is "comment"; "Save and Finish Later"
+
+	Execute Aggregation worksheet script; Login as "reviewer1"; view
+	details of "project1"; select "Perform Aggregation"; change the text
+	of the first response from "reviewer2" to "changed text"; "Save and
+	Finish Later"
+
+	Execute Aggregation worksheet script; mark worksheet as
+	"completed"; Login as "reviewer2"; view details of "project1"; select
+	"Review Aggregation Summary"; enter "blah, blah, blah"; "Accept
+	Summary"
+
+	Execute Aggregation worksheet script; mark worksheet as
+	"completed"; Login as "reviewer2"; view details of "project1"; select
+	"Reject and Email Comments to Review Board"; enter "blah, blah, blah";
+	"Accept Summary"
+
+	PM Activities:
+	Execute Aggregation worksheet script; mark worksheet as
+	"completed"; Execute aggregation review scripts; Login as "admin";
+	view details of "project1"; select "Complete" under "Status"; enter
+	"blah, blah, blah" as text of the first response from "reviewer1";
+	"Approve"
+
+	Execute Aggregation worksheet script; mark worksheet as
+	"completed"; Execute aggregation review scripts; Login as "admin";
+	view details of "project1"; select "Complete" under "Status"; set
+	"Action" to "Comment"; "Approve"
+
+8. Submit Final Fixes
+	Setup: execute submission creation SQL
+	Execute screening scorecard creation SQL
+	Execute review scorecard creation SQL scripts
+	Execute Aggregation creation SQL
+	Execute Aggregation Review SQL
+	Set screening scorecard, review scorecards and Aggregation
+	Worksheet to "completed" and "PM Reviewed."
+	Set "project1" phase to "Final Fixes"
+	
+	Login as "designer"; view details of "project1"; upload
+	"solution.jar"
+
+	Execute submission creation SQL; Login as "designer"; view details
+	of "project1"; upload "solution.jar"
+
+9. Final Review
+	Setup: execute submission creation SQL
+	Execute screening scorecard creation SQL
+	Execute review scorecard creation SQL scripts
+	Execute Aggregation creation SQL
+	Execute Aggregation Review SQL
+	Execute Final Fixes SQL
+	Set screening scorecard, review scorecards and Aggregation
+	Worksheet to "completed" and "PM Reviewed."
+	Set "project1" phase to "Final Review"
+	
+	Login as "reviewer1"; select "project1"; select "Conduct Final
+	Review"; indicate "Not Completed" for the first action; "Save and
+	Finish Later"
+
+	Login as "reviewer1"; select "project1"; select "Conduct Final
+	Review"; indicate "Not Completed" for the first action; "Submit"
+
+	Execute Final Review SQL; login as "reviewer1"; select "project1";
+	select "Conduct Final Review"; indicate "Not Completed" for the
+	first action; "Submit"
+
+	Execute Final Review SQL; login as "reviewer1"; select "project1";
+	select "Conduct Final Review"; indicate "Not Completed" for the
+	first action; "Save and Finish Later"
+
+10. Project Administration
+	Login as "admin"; select "project1"; select "Edit this Project";
+	change phase to "Screening"; enter "normal flow" as reason; "Apply
+	Changes"
+
+	Login as "admin"; select "project1"; select "Edit this Project";
+	change "Submission""Start" to "01.01.2001"; enter "date change" as
+	reason; "Apply Changes"
+
+	Login as "admin"; select "project1"; select "Edit this Project";
+	change "Screener" to "reviewer2"; enter "vacation" as reason;
+	"Apply Changes"
+
+	Login as "admin"; select "project1"; select "Edit this Project";
+	change "Reviewer 1""Test Case" to "Failure Cases"; enter "newbie" as
+	reason; "Apply Changes"
+
+	Login as "admin"; select "project1"; select "Edit this Project";
+	change "Reviewer 1""Payment" to "$50"; enter "just cuz" as
+	reason; "Apply Changes"
+
+	Login as "admin"; select "project1"; select "Edit this Project";
+	change "Reviewer 1""Payment Sent" to "Yes"; enter "payment sent" as
+	reason; "Apply Changes"
+
+	Login as "admin"; select "project1"; select "Edit this Project";
+	change "Screener" to "reviewer2"; enter "vacation" as reason;
+	"Apply Changes"
+
+	Login as "admin"; select "project1"; select "Submission"; select
+	"Remove" for "Submitter(reviewer1)"; "Submit"
+
+	Login as "admin"; select "project1"; select "Terminate this Project";
+	enter "too cool"; "Submit"

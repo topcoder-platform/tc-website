@@ -1,0 +1,154 @@
+<html>
+<head>
+	<title>TopCoder Software</title>
+</head>
+<link rel="stylesheet" type="text/css" href="tcs_style.css">
+ 
+<script language="JavaScript" src="scripts/javascript.js">
+</script>
+
+<body class="body" marginheight="0" marginwidth="0">
+
+<!-- Header begins -->
+<!--#include virtual="includes/headerNotLogged.shtml" -->
+<!--#include virtual="includes/navHome.shtml" -->
+<!-- Header ends -->
+
+<!-- breadcrumb begins -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td valign="middle" width="1%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+		<td valign="middle" width="1%" class="breadcrumb" nowrap><strong></strong></td>
+		<td valign="middle" width="98%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+	</tr>
+</table>
+<!-- breadcrumb ends -->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="middle">
+	<tr valign="top">
+
+<!-- Left Column begins -->
+		<td width="165" class="leftColumn">
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
+
+<!-- Collaboration promo -->
+				<tr valign="top"><td><a href="collabEventEngine.shtml"><img src="images/promoCollaborate.gif" alt="Collaborate!" width="165" height="120" border="0"></a></td></tr>
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
+
+<!-- Viewpoint -->
+				<tr valign="top"><td><img src="images/promoViewGartner.gif" alt="Viewpoint" width="165" height="195" border="0" /></td></tr>
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
+
+<!-- Contact Us Promo -->
+				<tr valign="top"><td><a href="contactIndex.shtml"><img src="images/promoContactUs.gif" alt="Contact Us" width="165" height="65" border="0" /></a></td></tr>
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
+
+				<tr><td height="15"><img src="images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
+			</table>
+		</td>
+		<td width="5" class="leftColumn"><img src="images/clear.gif" alt="" width="5" height="10" border="0"></td>
+<!-- Left Column ends -->
+
+<!-- Gutter 1 begins -->
+		<td width="15"><img src="images/clear.gif" alt="" width="15" height="10" border="0"></td>
+<!-- Gutter 1 ends -->
+
+<!-- Middle Column begins -->
+		<td width="100%">
+			<table width="100%" border="0" cellpadding="0" cellspacing="0">
+				<tr><td height="71"><img src="images/homeBanner1.gif" alt="Experience the TopCoder Difference" width="545" height="71" border="0" />
+				<tr>
+					<td height="311">
+						<table border="0" cellpadding="0" cellspacing="0">
+							<tr>
+								<td><a href="aboutStandards.shtml"><img src="images/homePromoA.gif" alt="Plug In" width="136" height="311" border="0" /></a></td>
+								<td><a href="activeCollab.shtml"><img src="images/homePromoB.gif" alt="Speak Your Mind" width="136" height="311" border="0" /></a></td>
+								<td><a href="learnSubscriptions.shtml"><img src="images/homePromoC.gif" alt="Save Money" width="136" height="311" border="0" /></a></td>
+								<td><a href="aboutQuality.shtml"><img src="images/homePromoD.gif" alt="Rest Assured" width="136" height="311" border="0" /></a></td>
+							</tr>
+						</table></td>
+				</tr>
+				<tr><td height="15"><img src="images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
+				<tr valign="top"><td class="normal"><strong>Start experiencing the TopCoder Difference today!</strong> Visit our <a href="catalogIndex.shtml">Component Catalog</a> or participate in an online <a href="activCollab.shtml">Collaboration Forum</a> right now.</td></tr>
+				<tr><td height="40"><img src="images/clear.gif" alt="" width="10" height="40" border="0"/></td></tr>
+			</table>
+		</td>
+
+<!-- Middle Column ends -->
+
+<!-- Gutter 2 begins -->
+		<td width="15"><img src="images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+<!-- Gutter 2 ends -->
+
+<!-- Right Column begins -->
+		<td width="245">
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tr><td height="15"><img src="images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
+				
+<!-- Featured Components -->
+				<tr valign="middle">
+					<td class="rightColText">
+						<img src="images/headFeaturedComponents.gif" alt="Featured Components" width="245" height="18" border="0" /><br />
+						<hr width="100%" size="1" noshade />
+						<strong><a href="catalogEventEngine.shtml">:: Configuration Manager</a></strong><br />
+						<strong><a href="catalogEventEngine.shtml">:: Standard Editor</a></strong><br />
+						<strong><a href="catalogEventEngine.shtml">:: Calendar</a></strong><br />
+						<strong><a href="catalogEventEngine.shtml">:: Dependecy May</a></strong><br />
+						<strong><a href="catalogEventEngine.shtml">:: Event Engine</a></strong><br />
+						<hr width="100%" size="1" noshade />
+					</td>
+				</tr>
+				
+				<tr><td height="15"><img src="images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
+
+<!-- New Components -->
+				<tr valign="middle">
+					<td class="rightColText">
+						<img src="images/headNewComponents.gif" alt="New Components" width="245" height="18" border="0" /><br />
+						<hr width="100%" size="1" noshade />
+						<strong><a href="catalogEventEngine.shtml">:: Calendar</a></strong><br />
+						<strong><a href="catalogEventEngine.shtml">:: PDF Conversion</a></strong><br />
+						<strong><a href="catalogEventEngine.shtml">:: Notification Assembly</a></strong><br />
+						<strong><a href="catalogEventEngine.shtml">:: Rules Engine</a></strong><br />
+						<strong><a href="catalogEventEngine.shtml">:: Event Engine</a></strong><br />
+						<hr width="100%" size="1" noshade />
+					</td>
+				</tr>
+				
+				<tr><td height="15"><img src="images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
+
+<!-- Active Collaborations -->
+				<tr valign="middle">
+					<td class="rightColText">
+						<img src="images/headMostActiveCollab.gif" alt="Most Active Collaborations" width="245" height="18" border="0" /><br />
+						<hr width="100%" size="1" noshade />
+						<strong><a href="catalogEventEngine.shtml">:: Configuration Manager</a></strong><br />
+						<strong><a href="catalogEventEngine.shtml">:: Event Engine</a></strong><br />
+						<strong><a href="catalogEventEngine.shtml">:: PDF Conversion</a></strong><br />
+						<strong><a href="catalogEventEngine.shtml">:: Calendar</a></strong><br />
+						<strong><a href="catalogEventEngine.shtml">:: Notification Assembly</a></strong><br />
+						<hr width="100%" size="1" noshade />
+					</td>
+				</tr>
+				
+				<tr><td height="15"><img src="images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
+
+			</table>
+		</td>
+<!--Right Column ends -->
+
+<!-- Gutter 3 begins -->
+		<td width="10"><img src="images/clear.gif" alt="" width="10" height="10" border="0"></td>
+<!-- Gutter 3 ends -->
+
+	</tr>
+</table>
+	
+<!-- Footer begins -->
+<!--#include virtual="includes/footer.shtml" -->
+<!-- Footer ends -->
+
+</form>
+</body>
+</html>
