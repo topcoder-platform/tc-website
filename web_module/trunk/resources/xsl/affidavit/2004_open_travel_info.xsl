@@ -228,7 +228,7 @@
             </TR>
 
         <TR>
-          <TD align="center">*Departure time will be based on arrival by 4:00 PM, November 10, 2004 in San Jose, CA</TD>
+          <TD colspan="2">*Departure time will be based on arrival by 4:00 PM, November 10, 2004 in San Jose, CA</TD>
         </TR>
 
             <TR>
