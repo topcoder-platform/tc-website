@@ -39,7 +39,7 @@
                 </tr>
             </table>
 
-            <A href="/index?t=development&amp;c=comp_projects#tco_des"><img src="/i/development/tco_sidebar_round1_des.gif" alt="Elimination Round 2: Design" width="238" height="47" border="0" /></A>
+            <A href="/index?t=development&amp;c=comp_projects#tco_des"><img src="/i/development/tco_sidebar_round2_des.gif" alt="Round 2: Design" width="238" height="47" border="0" /></A>
 
             <table width="238" border="0" cellspacing="0" cellpadding="0" bgcolor="#999999">
                 <tr valign="middle">
@@ -137,7 +137,7 @@
             </table>
 <!-- Component Design Projects ends -->
 
-            <A href="/index?t=development&amp;c=comp_projects#tco_dev"><img src="/i/development/tco_sidebar_round1_dev.gif" alt="Elimination Round 2: Development" width="238" height="63" border="0" /></A>
+            <A href="/index?t=development&amp;c=comp_projects#tco_dev"><img src="/i/development/tco_sidebar_round2_dev.gif" alt="Round 2: Development" width="238" height="63" border="0" /></A>
 
 <!-- Component Development Projects begins -->
             <table width="238" border="0" cellspacing="0" cellpadding="0" bgcolor="#999999">
