@@ -89,6 +89,10 @@ public class StudentRegistration extends Base {
   private final static String EMAIL_NO_MATCH="The email field does not match "+
                                              "the re-typed email";
 
+  private final static String INVALID_EDITOR_ID="Please select an editor";
+
+  private final static String INVALID_LANGUAGE_ID="Please select a language";
+
   private final static String MUST_AGREE_TERMS="You must agree to the terms "+
                                                "and conditions to register";
 
@@ -371,6 +375,20 @@ public class StudentRegistration extends Base {
           is_valid=false;
         }
       }
+    }
+
+    /* Check for valid editor id
+     */
+    if (!isValidListValue(_srb.getEditorId(),_srb.getEditorList())) {
+      addErrorMessage(errors,"EditorId",INVALID_EDITOR_ID);
+      is_valid=false;
+    }
+
+    /* Check for valid language id
+     */
+    if (!isValidListValue(_srb.getLanguageId(),_srb.getLanguageList())) {
+      addErrorMessage(errors,"LanguageId",INVALID_LANGUAGE_ID);
+      is_valid=false;
     }
 
     /* Check to make sure they agreed to the terms and conditions
