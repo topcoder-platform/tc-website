@@ -14,6 +14,7 @@ public class TCESConstants {
     public static String TCES_PACKAGE = "com.topcoder.web.tces.bean";
             // com.topcoder.web.tces.bean
     public static String ERROR_PAGE = null;
+    public static String AUTH_FAILED_PAGE = "/tces?task=LoginTask";
     public static String LOGIN_PAGE = "/login.jsp";
     public static String LOGIN_OK_PAGE = "/tces?task=MainTask&st=v";
     public static String MAIN_PAGE = "/main.jsp";
