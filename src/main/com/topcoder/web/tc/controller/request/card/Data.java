@@ -83,6 +83,8 @@ public class Data extends Base {
 
             hd.endElement("","","memberStats");
             hd.endDocument();
+
+            getResponse().setContentType("text/xml");
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
