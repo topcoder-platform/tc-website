@@ -4,6 +4,8 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.util.idgenerator.IdGenerator;
+import com.topcoder.util.idgenerator.sql.InformixDB;
 
 import javax.ejb.EJBException;
 import javax.naming.Context;
@@ -276,6 +278,30 @@ public class CommandBean extends BaseEJB {
     private long getNextValue() {
         log.debug("getNextValue called...");
 
+        Context ctx = null;
+        long ret = 0;
+        try {
+            IdGenerator.init(new InformixDB(), (DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME),
+                    "sequence_object", "COMMAND_SEQ", "current", 9999999999L, 1, true);
+            ret = IdGenerator.nextId("sequence_object");
+
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
+            throw new EJBException("SQLException getting sequence\n" + sqe.getMessage());
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
+        } catch (Exception e) {
+            throw new EJBException("Exception getting sequence\n " + e.getMessage());
+        } finally {
+            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context");}}
+        }
+        return ret;
+    }
+
+/*
+    private long getNextValue() {
+        log.debug("getNextValue called...");
+
         ResultSet rs = null;
         PreparedStatement ps = null;
         Connection conn = null;
@@ -283,6 +309,7 @@ public class CommandBean extends BaseEJB {
         DataSource ds = null;
         long ret = 0;
         try {
+
             StringBuffer query = new StringBuffer();
             query.append("  EXECUTE PROCEDURE nextval(?)");
             ctx = new InitialContext();
@@ -309,6 +336,8 @@ public class CommandBean extends BaseEJB {
         }
         return ret;
     }
+*/
+
 
     public void setDataSource(String dataSourceName) throws RemoteException, EJBException {
         if (dataSourceName.trim().length()>0)
