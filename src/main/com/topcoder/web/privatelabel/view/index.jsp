@@ -41,7 +41,7 @@
 
 <!-- Upcoming Tournaments begins -->
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
-                <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">Upcoming Events</font></td></tr>
+                <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">Upcoming Private Label Events</font></td></tr>
             </table>
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
@@ -86,7 +86,7 @@
 
 <!-- Past Tournaments begins -->
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
-                <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">Past Events</font></td></tr>
+                <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">Past Private Label Events</font></td></tr>
             </table>
                
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
