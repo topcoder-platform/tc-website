@@ -56,15 +56,15 @@
 
             <table width="500" align="center" border="0" cellpadding="2" cellspacing="0" class="formFrame">
                 <tr>
-                    <td width = "10%" align = "center" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=alg_adv_overview&trans=true&sd=asc&sc=seed">Seed</a></td>
-                    <td width = "15%" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=alg_adv_overview&trans=true&sd=asc&sc=handle_sort">Handle</a></td>
-                    <td width = "5%" align = "right" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=alg_adv_overview&trans=true&sd=desc&sc=rating">Rating</a></td>
-                    <td width = "10%" align = "center" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=alg_adv_overview&trans=true&sd=asc&sc=round1_sort">Round 1</a></td>
-                    <td width = "10%" align = "center" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=alg_adv_overview&trans=true&sd=asc&sc=round2_sort">Round 2</a></td>
-                    <td width = "10%" align = "center" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=alg_adv_overview&trans=true&sd=asc&sc=round3_sort">Round 3</a></td>
-                    <td width = "10%" align = "center" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=alg_adv_overview&trans=true&sd=asc&sc=round4_sort">Round 4</a></td>
-                    <td width = "10%" align = "center" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=alg_adv_overview&trans=true&sd=asc&sc=semi_sort">Semi</a></td>
-                    <td width = "10%" align = "center" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=alg_adv_overview&trans=true&sd=asc&sc=finals_sort">Final</a></td>
+                    <td width = "10%" align = "center" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=tccc04_alg_adv_overview&trans=true&sd=asc&sc=seed">Seed</a></td>
+                    <td width = "15%" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=tccc04_alg_adv_overview&trans=true&sd=asc&sc=handle_sort">Handle</a></td>
+                    <td width = "5%" align = "right" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=tccc04_alg_adv_overview&trans=true&sd=desc&sc=rating">Rating</a></td>
+                    <td width = "10%" align = "center" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=tccc04_alg_adv_overview&trans=true&sd=asc&sc=round1_sort">Round 1</a></td>
+                    <td width = "10%" align = "center" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=tccc04_alg_adv_overview&trans=true&sd=asc&sc=round2_sort">Round 2</a></td>
+                    <td width = "10%" align = "center" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=tccc04_alg_adv_overview&trans=true&sd=asc&sc=round3_sort">Round 3</a></td>
+                    <td width = "10%" align = "center" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=tccc04_alg_adv_overview&trans=true&sd=asc&sc=round4_sort">Round 4</a></td>
+                    <td width = "10%" align = "center" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=tccc04_alg_adv_overview&trans=true&sd=asc&sc=semi_sort">Semi</a></td>
+                    <td width = "10%" align = "center" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=tccc04_alg_adv_overview&trans=true&sd=asc&sc=finals_sort">Final</a></td>
                 </tr>
 
                <%-- formatting this crappy to save space in the download to the client --%>
