@@ -57,18 +57,18 @@
 					<td class="statText" colspan="2" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
 							
 <!-- Title -->
-						<h1 class="devSubhead"><strong>Bulk Email: Design</strong></h1>
+						<h1 class="devSubhead"><strong>Parser Factory: Design</strong></h1>
                                     
-						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Bulk Email: Design&amp;comp=3312447&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Parser Factory: Design&amp;comp=5501523&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 <!-- Overview -->
 						<p><strong>Overview</strong><br />
-						The Bulk Email Component accepts an email request for multiple recipients and then sends the underlying email message to each identified recipient. The component employs a threaded model and enables multiple SMTP servers to be configured to increase system throughput during bulk email processing.
-                        </p>
+						<<<overview>>>
+						</p>
 
 <!-- Project Type -->
 						<p><strong>Project Type</strong><br />
-						Component Design Project: Provide a complete design for the Bulk Email component.<br />
+						Component Design Project: Provide a complete design for the Parser Factory component.<br />
 						Please review the TopCoder Software <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_meth" class="statText">Component Development Methodology</a> before you submit a solution. 
 						If you're not sure what to submit, go to <a href="/?&amp;t=development&amp;c=tcs_sample_docs" class="statText">Documentation and Sample Submissions</a> for more information.
                             </p>
@@ -81,7 +81,7 @@
 
 <!-- Documentation -->
 						<p><strong>Documentation</strong><br />
-						All <a class="statText" href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=3312447">documentation</a> for this project is available on the TopCoder Software web site.</p>
+						All <a class="statText" href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=5501523">documentation</a> for this project is available on the TopCoder Software web site.</p>
 
 <!-- Payment -->
 						<p><strong>Payment</strong><br />
@@ -94,9 +94,9 @@
 						<p><strong>Designer</strong><br />
 						Royalty Percentage - 25%</p>
 							
-						<p>Total Payment - $280.00<br/>
-						First Deliverable - $210.00<br/>
-						Project Completion - $70.00</p>
+						<p>Total Payment - $210<br/>
+						First Deliverable - $157.50<br/>
+						Project Completion - $52.50</p>
 
 <!-- Definition of Completion -->
 						<p><sup>*</sup>Completion of the project is defined as follows:</p>
@@ -129,9 +129,9 @@
 						Estimated Development End Date: 3.26.2003</p>
 
 <!-- Register at TCS -->
-						<p>After inquiring for this project please make sure you are registered at <a href="http://www.topcodersoftware.com" class="statText">TopCoder Software</a>.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
+    						<p>After inquiring for this project please make sure you are registered at <a href="http://www.topcodersoftware.com" class="statText">TopCoder Software</a>.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Bulk Email: Design&amp;comp=3312447&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Parser Factory: Design&amp;comp=5501523&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>
 					</td>
 
