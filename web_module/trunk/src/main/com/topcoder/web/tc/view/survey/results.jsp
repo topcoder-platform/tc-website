@@ -16,7 +16,7 @@
   function runFlash(){
 <tc:questionIterator list="<%=questionInfo%>" id="question">
     var test<%=question.getId()%> = "<rsc:iterator list="<%=question.getAnswerInfo()%>" id="answer"><rsc:item row="<%=answer%>" name="percentage" format="#.##"/>,</rsc:iterator>";
-    var ans<%=question.getId()%> = "<rsc:iterator list="<%=question.getAnswerInfo()%>" id="answer"><rsc:item row="<%=answer_text%>"/>|</rsc:iterator>";
+    var ans<%=question.getId()%> = "<rsc:iterator list="<%=question.getAnswerInfo()%>" id="answer"><rsc:item row="<%=answer%>" name="answer_text"/>|</rsc:iterator>";
     window.document.myFlash<%=question.getId()%>.SetVariable("answers", test<%=question.getId()%>.substring(0, test<%=question.getId()%>.length-2)); //wack that extra comma
     window.document.myFlash<%=question.getId()%>.SetVariable("answersText", ans<%=question.getId()%>);
 </tc:questionIterator>
