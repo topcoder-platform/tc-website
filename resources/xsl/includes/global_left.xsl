@@ -376,14 +376,20 @@
                     </td>
                 </tr>
 
-<!-- Components: -->
+<!-- Components -->
                 <xsl:call-template name="components">
                     <xsl:with-param name="level2"><xsl:value-of select="$level2"/></xsl:with-param>
                     <xsl:with-param name="level3"><xsl:value-of select="$level3"/></xsl:with-param>
                 </xsl:call-template>
 
-<!-- Applications: -->
+<!-- Applications -->
                 <xsl:call-template name="applications">
+                    <xsl:with-param name="level2"><xsl:value-of select="$level2"/></xsl:with-param>
+                    <xsl:with-param name="level3"><xsl:value-of select="$level3"/></xsl:with-param>
+                </xsl:call-template>
+
+<!-- Contests -->
+                <xsl:call-template name="contests">
                     <xsl:with-param name="level2"><xsl:value-of select="$level2"/></xsl:with-param>
                     <xsl:with-param name="level3"><xsl:value-of select="$level3"/></xsl:with-param>
                 </xsl:call-template>
@@ -900,25 +906,25 @@
 </xsl:template>
 
 <!-- Navigation Rows Below -->
-<xsl:template name="left_nav_top_row">
-                        <img alt="" width="180" height="5" src="/i/spacer.gif" border="0" /><br/>
-                        <img alt="" width="170" height="11" src="/i/left_nav_top.gif" border="0" /><br/>
-</xsl:template>
+    <xsl:template name="left_nav_top_row">
+        <img alt="" width="180" height="5" src="/i/spacer.gif" border="0" /><br/>
+        <img alt="" width="170" height="11" src="/i/left_nav_top.gif" border="0" /><br/>
+    </xsl:template>
 
-<xsl:template name="left_nav_btm_row">
-                        <img alt="" width="180" height="23" src="/i/left_nav_btm.gif" border="0"/><br /><br />
-                        <div align="center"><img src="/i/logo_ghosted_bracket.gif" width="160" height="77" alt="[ TopCoder ]" vspace="10" border="0"/></div><br /><br />
-</xsl:template>
+    <xsl:template name="left_nav_btm_row">
+        <img alt="" width="180" height="23" src="/i/left_nav_btm.gif" border="0"/><br /><br />
+        <div align="center"><img src="/i/logo_ghosted_bracket.gif" width="160" height="77" alt="[ TopCoder ]" vspace="10" border="0"/></div><br /><br />
+    </xsl:template>
 
-<xsl:template name="member_features">
-                <xsl:choose>
-                  <xsl:when test="/TC/LoggedIn='true'">
-                     <xsl:call-template name="my_stats"/>
-                  </xsl:when>
-                  <xsl:otherwise>
-                  </xsl:otherwise>
-                </xsl:choose>
-</xsl:template>
+    <xsl:template name="member_features">
+        <xsl:choose>
+            <xsl:when test="/TC/LoggedIn='true'">
+                <xsl:call-template name="my_stats"/>
+            </xsl:when>
+            <xsl:otherwise>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
 
 <xsl:template name="competition_row">
                 <tr><td id="leftNavTitle" >Competition:</td></tr>
@@ -1079,6 +1085,19 @@
                                 </td>
                             </tr>
 
+            <!-- Project Submit and Review -->
+                            <tr>
+                                <td id="leftSubnav">
+                                    <xsl:attribute name="id">
+                                    <xsl:choose>
+                                        <xsl:when test="$level3='comp_project_submit'">leftSubnavOn</xsl:when>
+                                        <xsl:otherwise>leftSubnav</xsl:otherwise>
+                                    </xsl:choose>
+                                    </xsl:attribute>
+                                    <A class="leftOn"><xsl:attribute name="HREF">http://172.16.20.222:8082/review</xsl:attribute>Project Submit &amp; Review</A>
+                                </td>
+                            </tr>
+
             <!-- Project Status -->
                             <tr>
                                 <td id="leftSubnav">
@@ -1088,7 +1107,7 @@
                                         <xsl:otherwise>leftSubnav</xsl:otherwise>
                                     </xsl:choose>
                                     </xsl:attribute>
-                                    <A class="leftOn"><xsl:attribute name="HREF">http://172.16.20.222:8082/review</xsl:attribute>Project Submit &amp; Review</A>
+                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=comp_archive</xsl:attribute>Project Status</A>
                                 </td>
                             </tr>
 
@@ -1117,38 +1136,8 @@
                                     <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=tcs_sample_docs</xsl:attribute>Documentation and Sample Submissions</A>
                                 </td>
                             </tr>
-
-            <!-- Component Design Bonus Contest 2 -->
-                            <tr>
-                                <td id="leftSubnav">
-                                    <xsl:attribute name="id">
-                                    <xsl:choose>
-                                        <xsl:when test="$level3='des_bonus_contest_2'">leftSubnavOn</xsl:when>
-                                        <xsl:otherwise>leftSubnav</xsl:otherwise>
-                                    </xsl:choose>
-                                    </xsl:attribute>
-                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=des_bonus_contest_2</xsl:attribute>Design Bonus Contest 2</A>
-                                </td>
-                            </tr>
-
-            <!-- Component Design Bonus Contest 1 -->
-                            <tr>
-                                <td id="leftSubnav">
-                                    <xsl:attribute name="id">
-                                    <xsl:choose>
-                                        <xsl:when test="$level3='bonus_contest_0303'">leftSubnavOn</xsl:when>
-                                        <xsl:otherwise>leftSubnav</xsl:otherwise>
-                                    </xsl:choose>
-                                    </xsl:attribute>
-                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=bonus_contest_0303</xsl:attribute>Design Bonus Contest 1</A>
-                                </td>
-                            </tr>
         </xsl:if>
-
-
-</xsl:template>
-
-
+    </xsl:template>
 
     <xsl:template name="applications">
         <xsl:param name="level2"></xsl:param>
@@ -1180,33 +1169,120 @@
             </img>Applications</A>
         </td>
     </tr>
-            <xsl:if test="$level2='applications'">
+    <xsl:if test="$level2='applications'">
 
-    <!-- Open Projects -->
-                    <tr>
-                        <td id="leftSubnav">
-                            <xsl:attribute name="id">
-                            <xsl:choose>
-                                <xsl:when test="$level3='app_projects'">leftSubnavOn</xsl:when>
-                                <xsl:otherwise>leftSubnav</xsl:otherwise>
-                            </xsl:choose>
-                            </xsl:attribute>
-                            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=app_projects</xsl:attribute>Open Projects</A>
-                        </td>
-                    </tr>
+<!-- Open Projects -->
+    <tr>
+        <td id="leftSubnav">
+            <xsl:attribute name="id">
+            <xsl:choose>
+                <xsl:when test="$level3='app_projects'">leftSubnavOn</xsl:when>
+                <xsl:otherwise>leftSubnav</xsl:otherwise>
+            </xsl:choose>
+            </xsl:attribute>
+            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=app_projects</xsl:attribute>Open Projects</A>
+        </td>
+    </tr>
 
-    <!-- Development Methodology -->
-                    <tr>
-                        <td id="leftSubnav">
-                            <xsl:attribute name="id">
-                            <xsl:choose>
-                                <xsl:when test="$level3='app_meth'">leftSubnavOn</xsl:when>
-                                <xsl:otherwise>leftSubnav</xsl:otherwise>
-                            </xsl:choose>
-                            </xsl:attribute>
-                            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=app_meth</xsl:attribute>Development Methodology</A>
-                        </td>
-                    </tr>
+<!-- Development Methodology -->
+    <tr>
+        <td id="leftSubnav">
+            <xsl:attribute name="id">
+            <xsl:choose>
+                <xsl:when test="$level3='app_meth'">leftSubnavOn</xsl:when>
+                <xsl:otherwise>leftSubnav</xsl:otherwise>
+            </xsl:choose>
+            </xsl:attribute>
+            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=app_meth</xsl:attribute>Development Methodology</A>
+        </td>
+    </tr>
+
+<!-- Documentation and Samples -->
+    <tr>
+        <td id="leftSubnav">
+            <xsl:attribute name="id">
+            <xsl:choose>
+                <xsl:when test="$level3='app_sample_docs'">leftSubnavOn</xsl:when>
+                <xsl:otherwise>leftSubnav</xsl:otherwise>
+            </xsl:choose>
+            </xsl:attribute>
+            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=app_sample_docs</xsl:attribute>Documentation</A>
+        </td>
+    </tr>
+        </xsl:if>
+  </xsl:template>
+
+<!-- Contests -->
+    <xsl:template name="contests">
+        <xsl:param name="level2"></xsl:param>
+        <xsl:param name="level3"></xsl:param>
+    <tr>
+        <td id="leftSubnav">
+            <xsl:attribute name="id">
+                <xsl:choose>
+                    <xsl:when test="$level2='contests'">leftNavOn</xsl:when>
+                    <xsl:otherwise>leftNav</xsl:otherwise>
+              </xsl:choose>
+            </xsl:attribute>
+            <A class="leftOn">
+                <xsl:attribute name="class">
+                    <xsl:choose>
+                        <xsl:when test="$level2='contests'">leftOn</xsl:when>
+                        <xsl:otherwise>left</xsl:otherwise>
+                    </xsl:choose>
+                </xsl:attribute>
+            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=des_bonus_contest_2</xsl:attribute>
+            <img width="10" height="10" alt="" border="0" src="/i/nav_arrow_bottom.gif">
+                 <xsl:attribute name="src">
+                    <xsl:choose>
+                        <xsl:when test="$level2='contests'">/i/nav_arrow_bottom.gif</xsl:when>
+                        <xsl:otherwise>/i/nav_arrow_right.gif</xsl:otherwise>
+                    </xsl:choose>
+                </xsl:attribute>
+            </img>Contests</A>
+        </td>
+    </tr>
+
+    <xsl:if test="$level2='contests'">
+
+<!-- Component Design Bonus Contest 2 -->
+    <tr>
+        <td id="leftSubnav">
+            <xsl:attribute name="id">
+            <xsl:choose>
+                <xsl:when test="$level3='tco_components'">leftSubnavOn</xsl:when>
+                <xsl:otherwise>leftSubnav</xsl:otherwise>
+            </xsl:choose>
+            </xsl:attribute>
+            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=tournaments&amp;c=tco03_comp_overview</xsl:attribute>TCO Component Contest</A>
+        </td>
+    </tr>
+
+<!-- Component Design Bonus Contest 2 -->
+    <tr>
+        <td id="leftSubnav">
+            <xsl:attribute name="id">
+            <xsl:choose>
+                <xsl:when test="$level3='des_bonus_contest_2'">leftSubnavOn</xsl:when>
+                <xsl:otherwise>leftSubnav</xsl:otherwise>
+            </xsl:choose>
+            </xsl:attribute>
+            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=des_bonus_contest_2</xsl:attribute>Design Bonus Contest 2</A>
+        </td>
+    </tr>
+
+<!-- Component Design Bonus Contest 1 -->
+    <tr>
+        <td id="leftSubnav">
+            <xsl:attribute name="id">
+            <xsl:choose>
+                <xsl:when test="$level3='bonus_contest_0303'">leftSubnavOn</xsl:when>
+                <xsl:otherwise>leftSubnav</xsl:otherwise>
+            </xsl:choose>
+            </xsl:attribute>
+            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=bonus_contest_0303</xsl:attribute>Design Bonus Contest 1</A>
+        </td>
+    </tr>
         </xsl:if>
   </xsl:template>
 
