@@ -90,7 +90,7 @@ Please review the <a href="http://www.topcoder.com/?&amp;t=development&amp;c=ind
 
 <!-- Documentation -->
 						<p><strong>Documentation</strong><br />
-						All <a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=600056">documentation</a> for this project is available on the TopCoder Software web site.</ul>
+						All <a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=600056">documentation</a> for this project is available on the TopCoder Software web site.</p>
 
 <!-- Payment -->
 <p>
