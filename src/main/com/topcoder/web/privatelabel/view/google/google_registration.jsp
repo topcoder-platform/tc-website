@@ -34,7 +34,7 @@
                <tr>
                   <td bgcolor="#AA1002">
                   <td class="bodyText" valign="top" align="center">
-                  <img src="/i/events/google2003/pbtc_white.gif" width="150" height="50" border="0"/>
+                  <a href="/"><img src="/i/events/google2003/pbtc_white.gif" width="150" height="50" border="0"/></a>
                   </td>
                   <td bgcolor="#AA1002">
                </tr>

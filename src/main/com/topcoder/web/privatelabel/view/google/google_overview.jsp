@@ -34,7 +34,7 @@
                <tr>
                   <td bgcolor="#AA1002">
                   <td class="bodyText" valign="top" align="center">
-                  <img src="/i/events/google2003/pbtc_white.gif" width="150" height="50" border="0"/>
+                  <a href="/"><img src="/i/events/google2003/pbtc_white.gif" width="150" height="50" border="0"/></a>
                   </td>
                   <td bgcolor="#AA1002">
                </tr>
@@ -111,9 +111,8 @@
                <td colspan=9 bgcolor=#3366cc><img width=1 height=1 alt=""></td>
             </tr>
          </table><br />
-            <h2>Overview</h2>
             
-            <p>At Google, being the best is just the starting point.</p>
+            <h2>At Google, being the best is just the starting point.</h2>
 
             <p>Are you exceptional at what you do?  Do you have word class programming skills?  Can you make computers do amazing things?  Show us!
             Google is looking for engineers with the programming skills to change the world.  The Google Extreme Coding Challenge is designed as a premiere online recruiting event for us. We will utilize the technology platform and expertise developed by TopCoder for the exclusive purpose of objectively assessing programming skills.  We’ll use the results of this competition as the basis for our hiring decisions.
@@ -196,6 +195,8 @@
 
             <p><span class="bodySubtitle">Prizes</span><br />
             The 500 participants in Round 1 will receive a "Google Extreme Coding Challenge" t-shirt.  The top four scorers in the Championship Round will receive the following cash prizes:<br />
+            </p>
+            <p>
             1st Place - $10,000<br />
             2nd Place - $5,000<br />
             3rd Place - $3,500<br />
