@@ -133,16 +133,20 @@ public class EmailInfo extends BaseModel {
         msgText.append(" has been scheduled to participate in the Testing ");
         msgText.append("Application powered by TopCoder during the following times:");
         msgText.append("\n");
+        msgText.append("\n");
         msgText.append("Begin: ");
         msgText.append(sdf.format(sessionInfo.getBeginDate()));
         msgText.append("\n");
         msgText.append("End: ");
         msgText.append(sdf.format(sessionInfo.getEndDate()));
         msgText.append("\n");
+        msgText.append("\n");
         msgText.append("Access their information by logging into the Testing Application ");
         msgText.append("Management Tool http://corporate.topcoder.com/testing and clicking on Candidates.");
         msgText.append("\n");
+        msgText.append("\n");
         msgText.append("Thank you,");
+        msgText.append("\n");
         msgText.append("The TopCoder Employment Services Team");
         return msgText.toString();
     }
