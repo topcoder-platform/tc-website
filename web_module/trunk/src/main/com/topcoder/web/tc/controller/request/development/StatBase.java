@@ -43,11 +43,11 @@ public abstract class StatBase extends Base {
             Map result = dai.getData(dataRequest);
 
             //probably need to change this to sort multiple datasets
-            ResultSetContainer rsc = (ResultSetContainer)result.get(dataRequest.getContentHandle());
+           /* ResultSetContainer rsc = (ResultSetContainer)result.get(dataRequest.getContentHandle());
             String sortCol = getRequest().getParameter(DataAccessConstants.SORT_COLUMN);
             String sortDir = getRequest().getParameter(DataAccessConstants.SORT_DIRECTION);
             if (sortCol != null && sortDir != null && rsc != null)
-                rsc.sortByColumn(sortCol, sortDir.trim().toLowerCase().equals("asc"));
+                rsc.sortByColumn(sortCol, sortDir.trim().toLowerCase().equals("asc")); */
 
             getRequest().setAttribute("resultMap", result);
 
