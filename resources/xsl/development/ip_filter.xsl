@@ -64,7 +64,6 @@
 <P>
 IP addresses against a list of authorized and unauthorized addresses.  This validation is intended to control initial application access based on the users IP Address.  This solution is more convenient than standard hardware or router based filtering in that it drives the administration of IP filtering away from system administrators toward application administrators.
 <BR/>
-For more details, check out the <A HREF="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2800280&amp;cat=11" CLASS="statText">IP Filter Component</A> at <A HREF="http://www.topcodersoftware.com" CLASS="statText">topcodersoftware.com</A>.
 </P>
 
 <P>

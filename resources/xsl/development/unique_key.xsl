@@ -64,7 +64,6 @@
 <P>
 The Unique Key Generator provides the ability to create pseudo-randomly generated, unique keys.  This component is used to generate keys as text, text/numeric, or a combination of any ASCI characters.  The main benefit behind the Unique Key Generator is in the ability to generate unique keys without relying on a persistent store or central, clustered solution.
 <BR/>
-For more details, check out the <A HREF="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2600131&amp;cat=14" CLASS="statText">Unique Key Generator Component</A> at <A HREF="http://www.topcodersoftware.com" CLASS="statText">topcodersoftware.com</A>.
 </P>
 
 <P>
