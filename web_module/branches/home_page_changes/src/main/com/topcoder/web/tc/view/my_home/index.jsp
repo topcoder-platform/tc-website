@@ -46,7 +46,7 @@
             <table border=0 cellpadding=5 cellspacing=0 width="100%">
                 <tr>
                     <td class="bodyText" valign=top width=150><A href="/tc?module=ViewReferrals"><img src="/i/my_home/referrals.gif" border=0/></A></td>
-                    <td class="bodyText" valign=top>The TopCoder Referral Program is designed to increase the number of  top-performing coders who participate in TopCoder competitions, and to reward those TopCoder members who spread the word. The referring member (you) will receive a referral commission equal to 10% of any amounts earned or won by the referred member during the 12 months following registration. Click <A href="/tc?module=ViewReferrals">here</A> to find out more.</td>
+                    <td class="bodyText" valign=top>The TopCoder Referral Program increases the number of skilled coders who participate in TopCoder competitions, and rewards those members who spread the word. The referring member (you) will receive a referral commission equal to 10% of any amounts earned or won by the referred member during the 12 months following registration. Click <A href="/tc?module=ViewReferrals">here</A> to find out more.</td>
                 </tr>
             </table>
 
@@ -63,8 +63,8 @@
 
             <table border=0 cellpadding=5 cellspacing=0 width="100%">
                 <tr>
-                    <td class="bodyText" valign=top width=150><A href="/tc?module=Static&d1=contracting&d2=index"><img src="/i/my_home/contracting.gif" border=0/></A></td>
-                    <td class="bodyText" valign=top><A href="/tc?module=Static&d1=contracting&d2=index">here</A></td>
+                    <td class="bodyText" valign=top width=150><A href="/tc?module=Static&d1=contracting&d2=index"><img src="/i/my_home/employmentOpps.gif" border=0/></A></td>
+                    <td class="bodyText" valign=top>Register <A href="/tc?module=Static&d1=contracting&d2=index">here</A> to enroll TopCoder Employment Opportunities.  Whether you're looking for just a couple days of work or a full-time permanent position, TopCoder can help set you up with work that matches both your skills and availability.</td>
                 </tr>
             </table>
 
