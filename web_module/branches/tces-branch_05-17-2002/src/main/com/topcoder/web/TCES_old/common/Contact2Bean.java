@@ -45,7 +45,7 @@ public class Contact2Bean implements javax.ejb.SessionBean {
 			  context.lookup( "OLTP" );
 			conn = ds.getConnection();
 		}
-		catch( NamingException e ) {
+		catch( Exception e ) {
 			throw new EJBException( e );
 		}
 	}
