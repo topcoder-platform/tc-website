@@ -83,8 +83,8 @@ if ( MM_FlashCanPlay ) {
        document.write('<OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"');
 	document.write('  codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" ');
 	document.write(' ID="bracket" WIDTH="510" HEIGHT="450" ALIGN="top">');
-	document.write(' <PARAM NAME=movie VALUE="/i/tournament/tco03/bracket_component.swf"> <PARAM NAME=menu VALUE=false> <PARAM NAME=quality VALUE=high> <PARAM NAME=salign VALUE=T> <PARAM NAME=bgcolor VALUE=#FFFFFF>  '); 
-	document.write(' <EMBED src="/i/tournament/tco03/bracket_component.swf" menu=false quality=high salign=T bgcolor=#FFFFFF  ');
+	document.write(' <PARAM NAME=movie VALUE="/i/tournament/tccc04/brackets/bracket_des.swf"> <PARAM NAME=menu VALUE=false> <PARAM NAME=quality VALUE=high> <PARAM NAME=salign VALUE=T> <PARAM NAME=bgcolor VALUE=#FFFFFF>  '); 
+	document.write(' <EMBED src="/i/tournament/tccc04/brackets/bracket_des.swf" menu=false quality=high salign=T bgcolor=#FFFFFF  ');
 	document.write(' swLiveConnect=FALSE WIDTH="510" HEIGHT="450" NAME="bracket" ALIGN="top"');
 	document.write(' TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer">');
 	document.write(' </EMBED>');
