@@ -9,8 +9,8 @@
                 <tr>
                     <td width="85" class="bodyText"  valign="top">
                         <!--<a href="/?&amp;t=features&amp;c=feat_topics"><img src="/i/writers_wanted.gif" alt="" width="55" height="61" border="0" vspace="5" /></a>-->
-                        <img src="/i/m/pmadden_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=290395"><strong>pmadden</strong></a><br/>
+                        <img src="/i/m/vorthys_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
+                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=299177"><strong>vorthys</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
                     </td>
@@ -18,17 +18,15 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td  width="99%" class="bodyText"  valign="top">
-                        <p><a href="/?&amp;t=features&amp;c=feat_030104" class="bodyText"><font size="4"><strong>The Educational Component of TopCoding</strong></font></a><br />
-                        Monday, March 1, 2003</p>
+                        <p><a href="/?&amp;t=features&amp;c=feat_040104" class="bodyText"><font size="4"><strong>Dynamic Programming</strong></font></a><br />
+                        Thursday, April 1, 2003</p>
 
                         <p>
- In the real world, I teach graduate and undergraduate algorithms at an
-upstate New York university; for the past year, I've been requiring my
-students to compete in SRMs (Single Round Matches).  While there's a wide range on how well
-the students do, and I've destroyed the university TopCoder rating,
-most are better off for the experience.
+If you were to survey the reds, you would probably find that 9 out of 10 of them recommend the 
+study of dynamic programming as one of the best ways to improve your rating...and the 10th doesn't 
+only because he makes it a policy never to help future competitors!
 
-                        <a href="/?&amp;t=features&amp;c=feat_030104" class="bodyText"><strong>full&#160;story</strong></a></p>
+                        <a href="/?&amp;t=features&amp;c=feat_040104" class="bodyText"><strong>full&#160;story</strong></a></p>
                     </td>
                 </tr>
             </table>
