@@ -41,11 +41,9 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins --> 
-         <td width="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
-            <jsp:include page="../body_top.jsp" >
-                 <jsp:param name="image" value="polls"/>  
-                 <jsp:param name="image1" value="white"/>  
-            </jsp:include>
+         <td width="100%" class="bodyText">
+            <img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
+            <img src="/i/header_questions.gif" width="210" height="26" border="0"><br/>
             <p><img src="/i/clear.gif" width="240" height="1" border="0"><br>   
                <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="surveyForm">
                   <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="SubmitSurvey"/>

@@ -35,18 +35,15 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins --> 
-         <td width="100%" class="bodyText"><img src="/i/clear.gif" width="400" height="10" border="0"><br>
-            <jsp:include page="../body_top.jsp" >
-                 <jsp:param name="image" value="questions"/>  
-                 <jsp:param name="image1" value="white"/>  
-            </jsp:include>
-
+         <td width="100%" class="bodyText">
+            <img src="/i/clear.gif" width="400" height="10" border="0"><br/>
+            <img src="/i/header_questions.gif" width="210" height="26" border="0"><br/>
             <p>Each week, we poll TopCoder competitors to find out answers to questions that are important to the coding community.  
             The following is a list of those questions.  Feel free to click "view results" next to any question to see how the TopCoder member 
             base responded:</p>
              
             <table border="0" cellpadding="5" cellspacing="0"width="100%">
-               <tr><td class="header">Question of the Week</td></tr>
+               <tr><td class="header">Archive</td></tr>
             </table>
             <img src="/i/clear.gif" width="400" height="10" border="0"><br>
 
