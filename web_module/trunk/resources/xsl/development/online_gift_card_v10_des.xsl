@@ -81,7 +81,7 @@
                                             <a href="#eligibility">Eligibility</a> |
                                             <a href="#timeline">Timeline</a> |
                                             <a target="_new" href="/i/development/downloads/GiftCardApplicationSpec_v10.pdf">Requirement Specification</a> |
-                                            <a href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Online%20Gift%20Card">Inquire</a>
+                                            Inquire
                                         </p>
 
                                         <!-- Overview -->
@@ -223,7 +223,7 @@
                                             </tr>
                                             <tr>
                                                 <td class="sidebarText">Inquire By:</td>
-                                                <td class="sidebarText" align="right">12.03.2003 6:00 PM ET</td>
+                                                <td class="sidebarText" align="right">closed</td>
                                             </tr>
 
                                             <tr>
@@ -271,9 +271,11 @@
                                         </p>
 
                                         <p>
-                                            <a name="inquire"></a>
                                             <strong>
+                                            Inquiry is closed.
+                                        <!--
                                                 <a href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Online%20Gift%20Card">Inquire for the Online Gift Card Sales Project</a> to get selected as a designer and to obtain the information necessary to submit a solution.
+                                        -->
                                             </strong>
                                         </p>
                                         <!--
