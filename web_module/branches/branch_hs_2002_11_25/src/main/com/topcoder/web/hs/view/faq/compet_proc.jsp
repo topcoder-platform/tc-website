@@ -63,7 +63,7 @@
 	be adjusted in favor of the challenger. For more information on point distribution, review our <A CLASS="bodyText" HREF="?module=Static&d1=faq&d2=ratings_ovrev">rating system</A>.<BR></LI><BR><LI><B>Phase III: System Testing</B><BR>
 	The final phase will run submitted solutions that have not been successfully challenged through 
 	a set of system test cases.  Results will then be posted in the status window, and also be 
-	available on the website.<BR></LI></UL><A CLASS="bodyText" HREF="@@@/index?t=support&c=process_details">More details</A></TD></TR></TABLE><P><BR></P>					<P><BR/></P>
+	available on the website.<BR></LI></UL><A CLASS="bodyText" HREF="?module=Static&d1=faq&d2=process_details">More details</A></TD></TR></TABLE><P><BR></P>					<P><BR/></P>
               <!--Body Ends Here-->
             </TD>
              <TD>
