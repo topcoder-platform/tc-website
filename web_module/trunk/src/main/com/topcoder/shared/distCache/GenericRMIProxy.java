@@ -74,6 +74,7 @@ public class GenericRMIProxy
                         return method.invoke(_targets[i], args);
                     } catch (Exception e) {
                         _targets[i] = null;
+                        e.printStackTrace();
                     }
                 }
             }
