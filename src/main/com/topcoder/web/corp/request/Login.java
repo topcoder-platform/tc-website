@@ -1,6 +1,7 @@
 package com.topcoder.web.corp.request;
 
 import com.topcoder.shared.security.*;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.corp.Constants;
 
@@ -14,6 +15,8 @@ public class Login extends BaseProcessor {
     public static final String KEY_DESTINATION_PAGE = "nextpage";
     public static final String KEY_USER_HANDLE = "handle";
     public static final String KEY_USER_PASS = "passw";
+
+    private final static Logger log = Logger.getLogger(Login.class);
 
     protected void businessProcessing() throws Exception {
 
@@ -36,6 +39,7 @@ public class Login extends BaseProcessor {
 
                     /* no need to reset user or sessioninfo, since we immediately proceed to a new page */
                     String dest = StringUtils.checkNull(request.getParameter(KEY_DESTINATION_PAGE));
+                    log.debug("on successfull login, going to " + dest);
                     setNextPage(dest);
                     setIsNextPageInContext(false);
                     return;
