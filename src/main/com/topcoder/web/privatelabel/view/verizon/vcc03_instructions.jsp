@@ -287,7 +287,7 @@ End Class </pre><br/><br/>
                     Arena to present your question to the competition administrators.  To do so, simply type the following in the white chat line at the bottom of the applet:<br/><br/>
                     <strong><i>admins: [YOUR QUESTION]</i></strong><br/><br/>
                     An administrator will respond to your question in the chat area.<br/><br/>
-                    If you have a problem logging into the Arena or cannot access the chat interface, you may send an email to <a href="mailto: vcc@topcoder.com">vcc@topcoder.com. </a>Please include a detailed 
+                    If you have a problem logging into the Arena or cannot access the chat interface, you may send an email to <a href="mailto: vcc@topcoder.com">vcc@topcoder.com</a>. Please include a detailed 
                     description of the problem that you are having.</p>
                
 
