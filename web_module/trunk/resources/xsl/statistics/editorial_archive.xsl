@@ -47,6 +47,7 @@
 
                             <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
                             <tr><td valign="middle" class="bodyText" colspan="2">&#160;<strong>May</strong></td></tr>
+                            <tr><td class="bodyText">&#160;05.27.04</td><td class="bodyText" nowrap="0">&#160;SRM 196- <a href="/index?t=statistics&amp;c=srm196_prob">Problem Set &amp; Analysis</a></td></tr>
                             <tr><td class="bodyText">&#160;05.18.04</td><td class="bodyText" nowrap="0">&#160;SRM 195- <a href="/index?t=statistics&amp;c=srm195_prob">Problem Set &amp; Analysis</a></td></tr>
                             <tr><td class="bodyText">&#160;05.15.04</td><td class="bodyText" nowrap="0">&#160;SRM 194- <a href="/index?t=statistics&amp;c=srm194_prob">Problem Set &amp; Analysis</a></td></tr>
                             <tr><td class="bodyText">&#160;05.05.04</td><td class="bodyText" nowrap="0">&#160;SRM 193- <a href="/index?t=statistics&amp;c=srm193_prob">Problem Set &amp; Analysis</a></td></tr>
