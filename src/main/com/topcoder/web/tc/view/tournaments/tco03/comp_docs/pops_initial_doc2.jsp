@@ -12,32 +12,38 @@
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tr valign="top">
-        <td width="190" rowspan="3">
+        <td width="190">
             <jsp:include page="pops_names.jsp">
                 <jsp:param name="time" value="initial" />
                 <jsp:param name="doc" value="doc2" />
             </jsp:include>
         </td>
 
-        <td colspan="2">
+        <td width="99%">
+            <table border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td colspan="2">
             <jsp:include page="times.jsp">
                 <jsp:param name="member" value="pops" />
                 <jsp:param name="time" value="initial" />
             </jsp:include>
-        </td>
-    </tr>
-    
-    <tr>
-        <td width="99%"><img src="/i/tournament/tco03/comp_docs/pops/initial/AddaMethodAspectwithmethodfiltertoanexistingobject.gif" alt="" width="2502" height="714" border="0" class="compDocs"></td>
-        <td width="20"><img src="/i/clear.gif" alt="" width="20" height="20" border="0"></td>
-    </tr>
+                    </td>
+                </tr>
 
-    <tr valign="top">
-        <td colspan="2">
+                <tr>
+                    <td width="99%"><img src="/i/tournament/tco03/comp_docs/pops/initial/AddaMethodAspectwithmethodfiltertoanexistingobject.gif" alt="" width="2502" height="714" border="0" class="compDocs"></td>
+                    <td width="20"><img src="/i/clear.gif" alt="" width="20" height="20" border="0"></td>
+                </tr>
+
+                <tr valign="top">
+                    <td colspan="2">
             <jsp:include page="times.jsp">
                 <jsp:param name="member" value="pops" />
                 <jsp:param name="time" value="initial" />
             </jsp:include>
+                    </td>
+                </tr>
+            </table>
         </td>
     </tr>
 </table>
