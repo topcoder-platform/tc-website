@@ -52,9 +52,9 @@
                 <tr><td id="<%=level1.equals("conference")?(level2.equals("index")?"leftNavSelect":"leftNavOn"):"leftNav"%>"><img src="/i/corp/nav_arrow_<%=level1.equals("conference")?"bottom":"right"%>.gif" width=10 height=10 border=0><a href="/corp/?module=Static&d1=corp&d2=spon_prog&d3=market_conference" target="_parent" class="<%=level1.equals("conference")?"leftOn":"left"%>">Conference Events</a></td></tr>
     <% } else if ((level1.equals("index"))) { %>
                 <tr><td id="leftNavTitle">Corporate Services:</td></tr>
-                <tr><td id="leftNav"><a href="" class="left">Software</a></td></tr>
-                <tr><td id="leftNav"><a href="" class="left">Employment Services</a></td></tr>
-                <tr><td id="leftNav"><a href="" class="left">Marketing Services</a></td></tr>
+                <tr><td id="leftNav"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>" class="left">Software</a></td></tr>
+                <tr><td id="leftNav"><a href="/corp/?module=Static&d1=corp&d2=tces_home" class="left">Employment Services</a></td></tr>
+                <tr><td id="leftNav"><a href="/corp/?module=Static&d1=corp&d2=spon_prog&d3=index" class="left">Marketing Services</a></td></tr>
                 <tr><td id="leftNav"><a href="" class="left">Client List</a></td></tr>
                 <tr><td id="leftNav"><a href="" class="left">Press Room</a></td></tr>
                 <tr><td id="leftNav"><a href="" class="left">Developer Center</a></td></tr>

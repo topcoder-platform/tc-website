@@ -24,7 +24,11 @@
 		<td>
 		<table border=0 cellpadding=0 cellspacing=0 align=center width="100%">
 			<tr>
-		        <td valign=top width="50%"><jsp:include page="includes/left.jsp" /></td>
+		        <td valign=top width="50%">
+				<jsp:include page="includes/left.jsp" >
+				  <jsp:param name="level1" value="index"/>
+				</jsp:include>
+				</td>
 		        <td class=homeBigPromo><img src="/i/corp/bigPromo.jpg" border=0 /></td>
 				<td class=homeRightPromos width="50%">
 				<table width="170" border=0 cellpadding=0 cellspacing=0 align=right>
