@@ -56,10 +56,24 @@ public final class TaskSchedule {
                 schedTag.addTag(rsc.getTag("Advancers", "Advancer"));
             }
 
+            String roundId = Conversion.checkNull(request.getParameter("RoundId"));
+            schedTag.addTag(new ValueTag("RoundId", roundId));
 
-            ArrayList rounds = dcHome.getRounds();
-            if (rounds != null && rounds.size() > 0) {
-                schedTag.addTag(RecordTag.getListXML("Rounds", rounds));
+            String command = Conversion.checkNull(request.getParameter("c"));
+            if (command.equals("srm")) {
+                ctx = TCContext.getInitial();
+                dai = new CachedDataAccess((javax.sql.DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
+                dataRequest = new Request();
+                dataRequest.setContentHandle("schedule_srms");
+                dataRequest.setProperty("rd", roundId.trim());
+                resultMap = dai.getData(dataRequest);
+                rsc = (ResultSetContainer) resultMap.get("Schedule_SRMS");
+                schedTag.addTag(rsc.getTag("Round", "Details"));
+            } else {
+              ArrayList rounds = dcHome.getRounds();
+              if (rounds != null && rounds.size() > 0) {
+                  schedTag.addTag(RecordTag.getListXML("Rounds", rounds));
+              }
             }
 
             ArrayList contests = dcHome.getAdContests();
@@ -67,13 +81,10 @@ public final class TaskSchedule {
                 schedTag.addTag(Data.getDynamicContestInfo(contests));
             }
 
-            String id = request.getParameter("ContestId");
 
-            if (id == null)
-                id = Conversion.checkNull(request.getParameter("RoundId"));
-
-            schedTag.addTag(new ValueTag("RoundId", id));
             document.addTag(schedTag);
+log.debug(document.getXML(2));
+
             result = TaskStatic.displayStatic(HTMLmaker, request, nav, document);
         } catch (NavigationException ne) {
             log.error("TaskSchedule:ERROR:\n" + ne);
