@@ -37,16 +37,6 @@ long total_coders = 0;
 double coder_percent = 0;
 String coder_percent_stg;
 %>
-<script language="JavaScript">
-<!--
-function goTo(selection){
-  sel = selection.options[selection.selectedIndex].value;
-  if (sel && sel != '#'){
-    window.location=sel;
-  }
-}
-// -->
-</script>
 
 <table width="100%" class="srmFrame">
 <tr><td colspan="3" class="srmQuestion">Total Participation Histogram</td></tr>
