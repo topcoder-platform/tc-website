@@ -24,7 +24,7 @@
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
-
+ 
 <!-- Center Column Begins -->
          <td class="cardCell" width="100%" align="center">
 
