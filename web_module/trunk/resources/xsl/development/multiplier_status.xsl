@@ -91,15 +91,25 @@
                         <tr>
                             <td class="projectCells" align="center">
                             <xsl:choose>
-                               <xsl:when test="./root_category_id = 5801776">
-                                  <img src="/i/development/smJava.gif"/>
-                               </xsl:when>
-                               <xsl:when test="./root_category_id = 8459260">
-                                    <img src="/i/development/flashSm.gif"/>
+                                <xsl:when test="./root_category_id = 5801776">
+                                   <img src="/i/development/smJava.gif"/>
                                 </xsl:when>
-                               <xsl:otherwise>
-                                  <img src="/i/development/netSm.gif"/>
-                               </xsl:otherwise>
+                                <xsl:when test="./root_category_id = 5801778">
+                                   <img src="/i/development/smJavaCustom.gif"/>
+                                </xsl:when>
+                                 <xsl:when test="./root_category_id = 5801777">
+                                    <img src="/i/development/netSm.gif"/>
+                                 </xsl:when>
+                                 <xsl:when test="./root_category_id = 5801779">
+                                    <img src="/i/development/smNetCustom.gif"/>
+                                 </xsl:when>
+                                 <xsl:when test="./root_category_id = 8459260">
+                                    <img src="/i/development/flashSm.gif"/>
+                                 </xsl:when>
+                                <xsl:otherwise>
+                                   <xsl:value-of select="./catalog_name"/>
+                                </xsl:otherwise>
+
                             </xsl:choose>
                             </td>
                             <td class="projectCells" >
