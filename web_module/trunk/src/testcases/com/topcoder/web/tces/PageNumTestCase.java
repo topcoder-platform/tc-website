@@ -1,3 +1,4 @@
+package com.topcoder.web.tces;
 import junit.framework.*;
 import com.meterware.httpunit.*;
 import org.xml.sax.SAXException;
