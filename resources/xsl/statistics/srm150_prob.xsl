@@ -228,7 +228,7 @@ this condition will happen if we haven't destroyed a brick in a sufficient long 
 directions for the ball, if after 1025 time steps no brick has been destroyed, we must (by the pigeon hole principle) be at a location and direction 
 we have been at before.</p>
 
-<p><IMG src="/i/srm150_brickgrid.jpg" align="right" />Now to the simulation. If we look at the diagram in the problem description, we see that 
+<p><img src="/i/srm/srm150_brickgrid.jpg" align="right" width="240" height="240" />Now to the simulation. If we look at the diagram in the problem description, we see that 
 the relevant position of the balls is at the grid lines, not the actual squares within the grid (even though that is where the bricks are). Thus we set 
 out coordinate system so that x=0 means the leftmost vertical grid line, x=2 the one after that etc while the odd x coordinates indicates that the ball 
 is a on horizontal grid line, see figure.</p>
@@ -378,7 +378,7 @@ travelling speeds depending on if it's the first (or last) move in a direction o
 <p>The first thing to do is to get rid of the annoying hexagonal coordinate system. Or rather, how to translate the 6 hexagonal directions into 
 equivalent directions in a grid world. The following picture shows how this can be done:</p>
 
-<img src="/i/srm150_hex.jpg" />
+<img src="/i/srm/srm150_hex.jpg" width="500" height="300" />
 
 <p>As can be seen, the 6 directions corresponds to movements in x &amp; y coordinates according to the picture to the right. Or, if translated to code, 
 the following constant arrays:</p>
