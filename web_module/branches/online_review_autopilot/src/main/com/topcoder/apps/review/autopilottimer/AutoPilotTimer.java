@@ -8,6 +8,7 @@ import org.jboss.system.ServiceMBeanSupport;
 
 import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
 import com.topcoder.security.TCSubject;
+import com.topcoder.security.RolePrincipal;
 
 import com.topcoder.apps.review.projecttracker.Project;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerLocal;
@@ -71,7 +72,8 @@ public class AutoPilotTimer
             
             try {
                 //setup user
-                TCSubject user = new TCSubject(155846);
+                TCSubject user = new TCSubject(100129);
+                user.addPrincipal(new RolePrincipal("Administrator", 1));
 
                 //get projects that are in submission phase and have submission end time > current
                 ProjectTrackerLocal projectTracker = EJBHelper.getProjectTracker(); 
