@@ -299,6 +299,39 @@ public class SchoolBean extends BaseEJB {
         }
         return (full_name);
     }
+    
+    public long getSchoolId(String name, String dataSource) throws EJBException {
+        long ret = 0;
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        InitialContext ctx = null;
+        try {
+
+            StringBuffer query = new StringBuffer(1024);
+            query.append("SELECT school_id ");
+            query.append("FROM school ");
+            query.append("WHERE name=?");
+
+            conn = DBMS.getConnection(dataSource);
+            ps = conn.prepareStatement(query.toString());
+            ps.setString(1, name);
+
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                ret = rs.getLong(1);
+            } 
+        } catch (SQLException _sqle) {
+            DBMS.printSqlException(true, _sqle);
+            throw(new EJBException(_sqle.getMessage()));
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
+        }
+        return ret;
+    }
 
     public String getShortName(long schoolId, String dataSource)
             throws EJBException {
