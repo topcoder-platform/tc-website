@@ -23,7 +23,7 @@ public class ViewComponentTerms extends BaseProcessor {
         if (getUser().isAnonymous()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         } else {
-            NamingEnumeration ne = getInitialContext().list(getInitialContext().getNameInNamespace());
+            NamingEnumeration ne = getInitialContext().list("local:");
             while(ne.hasMore()) {
                 log.debug(ne.next().toString());
             }
