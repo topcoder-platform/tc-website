@@ -42,10 +42,10 @@ abstract class FullRegBase extends SimpleRegBase {
         }
     }
 
-    protected void setDefaults(FullRegInfo info) throws Exception {
+    protected void setDefaults(SimpleRegInfo info) {
         super.setDefaults(info);
-        setDefault(Constants.CODER_TYPE, String.valueOf(info.getCoderType()));
-        List responses = info.getResponses();
+        setDefault(Constants.CODER_TYPE, String.valueOf(((FullRegInfo)info).getCoderType()));
+        List responses = ((FullRegInfo)info).getResponses();
         DemographicResponse response = null;
         DemographicQuestion question = null;
         for (Iterator it = responses.iterator(); it.hasNext();) {
