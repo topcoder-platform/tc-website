@@ -115,6 +115,7 @@ public final class Navigation
             info = new CoderSessionInfo(request, authentication, user.getPrincipals());
             init(request);
         } catch (Exception e) {
+            e.printStackTrace();
             throw new TCException();
         }
     }
