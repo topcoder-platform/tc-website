@@ -4,6 +4,7 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.shared.util.TCException;
 import com.topcoder.shared.netCommon.screening.request.ScreeningSubmitRequest;
+import com.topcoder.shared.netCommon.messages.Message;
 
 import javax.jms.ObjectMessage;
 
@@ -38,7 +39,7 @@ public class Submit extends Base {
 
         String messageId = send(request);
 
-        ObjectMessage response = receive(2000, messageId);
+        Message response = receive(2000, messageId);
 
 
 

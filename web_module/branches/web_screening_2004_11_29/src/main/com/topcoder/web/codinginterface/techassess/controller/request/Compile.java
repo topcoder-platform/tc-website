@@ -4,6 +4,7 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.shared.netCommon.screening.request.ScreeningCompileRequest;
+import com.topcoder.shared.netCommon.messages.Message;
 
 import javax.jms.ObjectMessage;
 
@@ -46,7 +47,7 @@ public class Compile extends Base {
 
         String messageId = send(request);
 
-        ObjectMessage response = receive(2000, messageId);
+        Message response = receive(2000, messageId);
 
 
 
