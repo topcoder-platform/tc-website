@@ -183,7 +183,7 @@
     <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText">&#160;<%=problemLevel%></TD>
     <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText">&#160;&#160;<%=problemName%></TD>
     <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText" ALIGN="right"><%=submissions%> &#160;&#160;</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText" ALIGN="right"><%=perCor%>% &#160;&#160;</TD>
+    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText" ALIGN="right"><%=perCor%> &#160;&#160;</TD>
     <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText" ALIGN="right"><%=avgPoints%></TD>
   </TR>
   <%
