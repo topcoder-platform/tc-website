@@ -59,7 +59,7 @@
                     <td width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
                     <td class="bodyText" width="100%">         
                         <p><font size="4"><strong>Healthy Computing</strong></font><br />
-                        Wednesday, Ju2, 2004</p>
+                        Wednesday, July 2, 2004</p>
 
                         <p>By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=276230"><strong>dimkadimon</strong></a><br />
                         <span class="smallText"><em>TopCoder Member</em></span></p>

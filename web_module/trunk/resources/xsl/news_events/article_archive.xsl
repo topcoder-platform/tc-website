@@ -61,6 +61,8 @@
 <!-- 2004 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2004</font></td></tr>
 
+                            <tr><td class="newsText"><A href="http://www.computerworld.com/managementtopics/outsourcing/story/0,10801,94452,00.html" target="_blank">BearingPoint Move Raises China's Profile</A> [July 12 - ComputerWorld]</td></tr>
+
                             <tr><td class="newsText"><A href="http://builder.com.com/5100-6370_14-5260946.html" target="_blank">CNET engineer wins JavaOne Coding Challenge</A> [July 9 - Builder.com]</td></tr>
 
                             <tr><td class="newsText"><A href="http://java.sun.com/javaone/top_coder.html" target="_blank">JavaOne Coding Challenge: Meet the Best</A> [July 1 - Sun]</td></tr>
