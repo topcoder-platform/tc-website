@@ -99,7 +99,7 @@
                                                         <strong>Objectives</strong>
                                                     </p>
                                                     <ul class="noSpList">
-                                                        <li>Import files into the system without manual intervention..</li>
+                                                        <li>Import files into the system without manual intervention.</li>
                                                     </ul>
                                                     <p>
                                                         <strong>Business Requirement Specification </strong>
