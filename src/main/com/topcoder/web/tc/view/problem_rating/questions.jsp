@@ -4,6 +4,7 @@
 <%@ taglib uri="/tc.tld" prefix="tc" %>
 <%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:useBean id="problemRatingQuestions" scope="request" class="java.util.List" />
+<jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <html>
 <head>
 <title>TopCoder Problem Rating Questions - <%= request.getAttribute("problemName") %></title>
@@ -12,7 +13,7 @@
 <body>
 <center><h3><font color="#FFFFFF"><%= request.getAttribute("problemName") %></font></h3></center>
 <tc-webtag:errorIterator id="err" name="problemRating"><%=err%><br/></tc-webtag:errorIterator>
-<form name="ratings" action="/tc/" method="GET">
+<form name="ratings" action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="GET">
 <input type="hidden" name="module" value="SubmitRatings">
 <input type="hidden" name="pid" value="<%= request.getParameter("pid") %>">
     <table BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%" BGCOLOR="#001B35">
