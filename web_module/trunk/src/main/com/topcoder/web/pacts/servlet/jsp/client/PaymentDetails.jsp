@@ -94,8 +94,9 @@ function goTo(selection){
 	table.setCellSpacing("0");
 	table.setCellPadding("2");
 	table.setBorder("0");
-	table.setColumnWidth(0, "50%");
-	table.setColumnWidth(1, "50%");				
+	table.setWidth("100%");	
+	table.setColumnWidth(0, "40%");
+	table.setColumnWidth(1, "60%");				
 	table.setRowColor(0,"\"#093158\"");	
 	table.setClassName("statText");
 	table.setRowBold(0,true);	
