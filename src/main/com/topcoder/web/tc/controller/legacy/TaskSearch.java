@@ -96,6 +96,7 @@ public final class TaskSearch {
         } catch (PermissionException ps) {
             throw ps;
         } catch (Exception e) {
+            e.printStackTrace();
             StringBuffer msg = new StringBuffer(150);
             msg.append("TaskSearch:process:");
             msg.append(":ERROR:\n");
