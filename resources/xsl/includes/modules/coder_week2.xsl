@@ -17,7 +17,7 @@
         		<TR> 
         		    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
           			<TD WIDTH="73" ROWSPAN="4" VALIGN="top"><IMG SRC="/i/m/eduar09_mug.gif" ALT="Coder of the Week" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="3"/></TD>
-          			<TD COLSPAN="3" WIDTH="100%" CLASS="bodyTextBold" HEIGHT="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+          			<TD WIDTH="100%" CLASS="bodyTextBold" HEIGHT="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
         		</TR>
         		<TR> 
         		    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>

@@ -10,6 +10,11 @@
             			<TABLE CELLSPACING="0" CELLPADDING="2" BORDER="0" WIDTH="168">
               				<TR> 
                 				<TD CLASS="moduleSubhead" BGCOLOR="#FFFFFF" VALIGN="top">&#160;&#160;::</TD>
+								<TD CLASS="smallText"  BGCOLOR="#FFFFFF" VALIGN="bottom"><A HREF="/index?t=news_events&amp;c=pr_03_05_02" CLASS="moduleSubhead"><B>TopCoder Reaches 10,000 Members Milestone</B></A><BR/>Host of Computer Programming Contests Sees Considerable Growth in the Last Six Months<BR/> ... //&#160;<A HREF="/index?t=news_events&amp;c=pr_03_05_02" CLASS="smallText">read&#160;more.</A></TD>
+              				</TR>
+							<TR><TD BGCOLOR="#FFFFFF" COLSPAN="2" CLASS="grayLine" ALIGN="center">-----------------</TD></TR>
+              				<TR> 
+                				<TD CLASS="moduleSubhead" BGCOLOR="#FFFFFF" VALIGN="top">&#160;&#160;::</TD>
 								<TD CLASS="smallText"  BGCOLOR="#FFFFFF" VALIGN="bottom"><A HREF="/index?t=jobs&amp;c=index" CLASS="moduleSubhead"><B>TopCoder Employment Services posts job opportunities to members</B></A><BR/> ... //&#160;<A HREF="/index?t=jobs&amp;c=index" CLASS="smallText">read&#160;more.</A></TD>
               				</TR>
 							<TR><TD BGCOLOR="#FFFFFF" COLSPAN="2" CLASS="grayLine" ALIGN="center">-----------------</TD></TR>

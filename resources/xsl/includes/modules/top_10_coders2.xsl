@@ -1,22 +1,28 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:template name="top_10_coders">
-      <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" VALIGN="top">
+      <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" VALIGN="top" BGCOLOR="#001935">
                  <TR> 
-                  <TD VALIGN="middle" BGCOLOR="#666666" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18" CLASS="moduleTitle"><IMG SRC="/i/module_labels_10_coders.gif" ALT="Top 10 Coders" WIDTH="166" HEIGHT="17" BORDER="0"/></TD>
+                  <TD VALIGN="middle" BGCOLOR="#001935" HEIGHT="18" CLASS="moduleTitle"><IMG SRC="/i/module_labels_10_coders.gif" ALT="Top 10 Coders" WIDTH="166" HEIGHT="17" BORDER="0"/></TD>
+                </TR>
+                 <TR> 
+                  <TD BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+                </TR>
+                 <TR> 
+                  <TD BGCOLOR="#001935"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
                 </TR>           
             <TR> 
                 <TD BACKGROUND="/i/steel_gray_bg.gif"> 
                   <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" BACKGROUND="/i/steel_darkblue_bg.gif" BGCOLOR="#001935">
                       <TR BGCOLOR="#000033">
                         <TD BACKGROUND="/i/steel_darkblue_bg.gif" ROWSPAN="16" WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-                        <TD BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="10%"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+                        <TD BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="1"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
                                 <TD BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="60%"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-                                <TD BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="30%"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+                                <TD BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="40%"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
                                 <TD BACKGROUND="/i/steel_darkblue_bg.gif" ROWSPAN="16" WIDTH="15"><IMG SRC="/i/clear.gif" WIDTH="15" HEIGHT="1" BORDER="0"/></TD>
               </TR> 
               <TR>
-                <TD CLASS="statTextBig" VALIGN="middle" COLSPAN="3" HEIGHT="13">&#160;Division-I</TD>                    
+                <TD CLASS="statTextBig" VALIGN="middle" ALIGN="center" COLSPAN="3" HEIGHT="16">&#160;Division-I</TD>                    
               </TR>                           
               <TR>
                 <TD CLASS="statTextBig" VALIGN="middle" HEIGHT="13" ALIGN="right">Rank&#160;&#160;</TD>  
@@ -59,7 +65,7 @@
                                 <TD BACKGROUND="/i/steel_darkblue_bg.gif" ROWSPAN="16" WIDTH="15"><IMG SRC="/i/clear.gif" WIDTH="15" HEIGHT="1" BORDER="0"/></TD>
               </TR> 
               <TR>
-                <TD CLASS="statTextBig" VALIGN="middle" COLSPAN="4" HEIGHT="13">&#160;Division-II</TD>                    
+                <TD CLASS="statTextBig" VALIGN="middle" ALIGN="center" COLSPAN="4" HEIGHT="16">&#160;Division-II</TD>                    
               </TR>                           
               <TR>
                 <TD CLASS="statTextBig" VALIGN="middle" HEIGHT="13" ALIGN="right">Rank&#160;&#160;</TD>  

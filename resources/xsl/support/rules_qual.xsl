@@ -202,8 +202,8 @@ TopCoder, in its sole discretion, reserves the right to disqualify any person ta
                                         <LI>All US* and Canadian Citizens, excluding Quebec.</LI>
                                         <LI>All Lawful Permanent Residents of the US (i.e., Green Card Holders).</LI>
                                         <LI>All Legal Permanent Residents of Canada, excluding Quebec.</LI>
-                                        <LI>All Legal Permanent Residents of India.</LI>
                                         <LI>All Legal Permanent Residents of Australia.</LI>
+                                        <LI>All Legal Permanent Residents of India.</LI>
                                         <LI>All Legal Permanent Residents of the United Kingdom.</LI>
                                         <LI>All Legal Permanent Residents of Ireland.</LI>
                                         <LI>All non-immigrants** currently residing in the US with a valid Visa.</LI>

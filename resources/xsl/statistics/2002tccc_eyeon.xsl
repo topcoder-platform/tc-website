@@ -75,7 +75,7 @@ These are the coders who the top-seeds fear the most.  They are either TopCoder 
             </TR> 
             <!-- begin fav -->            
             <TR>
-              <TD VALIGN="middle" COLSPAN="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD>
+              <TD VALIGN="middle" COLSPAN="4"><A NAME="milhouse"></A><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD>
             </TR>                                              
             <TR>
               <TD VALIGN="middle" COLSPAN="4" HEIGHT="15" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig">&#160;Northeast Region</TD>
@@ -161,7 +161,7 @@ Of the four MIT students to make the Regional Finals, only <A HREF="/?t=statisti
               
             <!-- begin fav -->            
             <TR>
-              <TD VALIGN="middle" COLSPAN="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD>
+              <TD VALIGN="middle" COLSPAN="4"><A NAME="Joe"></A><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD>
             </TR>                                              
             <TR>
               <TD VALIGN="middle" COLSPAN="4" HEIGHT="15" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig">&#160;Midwest Region</TD>
@@ -204,7 +204,7 @@ Of the four MIT students to make the Regional Finals, only <A HREF="/?t=statisti
   
              <!-- begin fav -->            
             <TR>
-              <TD VALIGN="middle" COLSPAN="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD>
+              <TD VALIGN="middle" COLSPAN="4"><A NAME="zoidal"></A><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD>
             </TR>                                              
             <TR>
               <TD VALIGN="middle" COLSPAN="4" HEIGHT="15" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig">&#160;Midwest Region</TD>
@@ -247,7 +247,7 @@ Of the four MIT students to make the Regional Finals, only <A HREF="/?t=statisti
                                   
             <!-- begin fav -->            
             <TR>
-              <TD VALIGN="middle" COLSPAN="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD>
+              <TD VALIGN="middle" COLSPAN="4"><A NAME="Wasteland"></A><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD>
             </TR>                                              
             <TR>
               <TD VALIGN="middle" COLSPAN="4" HEIGHT="15" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig">&#160;Midwest Region</TD>

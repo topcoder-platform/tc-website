@@ -58,7 +58,8 @@
 
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BACKGROUND="/i/steel_darkblue_bg.gif">   
   <TR>
-    <TD VALIGN="top" align="center"><DIV><IMG SRC="/i/semifinals_rooms.gif" ALT="" WIDTH="300" HEIGHT="36" BORDER="0"/></DIV><A HREF="/?t=schedule&amp;c=tourny_sched"><IMG SRC="/i/semi02_rooms.gif" ALT="" WIDTH="507" HEIGHT="312" BORDER="0" USEMAP="#semi02_rooms_Map" VSPACE="5"/></A></TD>
+    <TD VALIGN="top" align="center"><!-- <DIV><IMG SRC="/i/semifinals_rooms.gif" ALT="" WIDTH="300" HEIGHT="36" BORDER="0"/>
+    </DIV> --><A HREF="/?t=schedule&amp;c=tourny_sched"><IMG SRC="/i/semi02_rooms.gif" ALT="" WIDTH="507" HEIGHT="312" BORDER="0" USEMAP="#semi02_rooms_Map" VSPACE="5"/></A></TD>
     <!-- <TD VALIGN="top" COLSPAN="2" ALIGN="left" BGCOLOR="#FFFFFF"></TD> -->
   </TR> 
 </TABLE>

@@ -40,7 +40,6 @@
     </xsl:choose>
   </xsl:otherwise>
 </xsl:choose>
-
 	
 </BODY>
     </HTML>

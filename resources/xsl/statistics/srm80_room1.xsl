@@ -105,7 +105,7 @@ to look good, with second place at 1135.06.  His score
 also gave him enough of a boost to take second away
 from long time competitor, <A HREF="/stat?c=last_match" CLASS="bodyGeneric">jonmac</A>, who only solved the
 easy and medium problems and dropped down to 4th
-overall.  On the bottom side of things, <A HREF="/stat?c=last_match" CLASS="bodyGeneric">doeth</A> was
+overall.  On the bottom side of things, <A HREF="/stat?c=last_match" CLASS="bodyGeneric">doeth</A> only was
 only able to come up with a successful easy solution
 and <A HREF="/stat?c=last_match" CLASS="bodyGeneric">ambrose</A> seems to have not tried, dropping both of
 them well out of Room 1.

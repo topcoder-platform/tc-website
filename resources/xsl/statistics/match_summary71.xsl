@@ -69,18 +69,21 @@
               <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
             </TR>                        
             <TR>
-              <TD VALIGN="middle" HEIGHT="13" CLASS="statText"><A HREF="/?ContestId=4085&amp;t=schedule&amp;c=srm" CLASS="statText">Single Round Match 71<!-- 2002 TCCC Regional Semifinals (All Regions) --></A></TD>            
-              <TD VALIGN="middle" CLASS="statText">Monday, March 11</TD>
-              <TD VALIGN="middle" CLASS="statText">9:00pm EST</TD>
+              <TD VALIGN="middle" HEIGHT="13" CLASS="statText"><A HREF="/?t=schedule&amp;c=tourny_sched" CLASS="statText"><!-- Single Round Match 71 -->2002 TCCC Regional Championships</A></TD>            
+              <TD VALIGN="middle" CLASS="statText">Monday, March 13</TD>
+              <TD VALIGN="middle" CLASS="statText">8:00pm EST</TD>
             </TR>            
-            <TR>
+            <!-- <TR>
               <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="22" BORDER="0"/></TD>
-            </TR>
+            </TR> --> 
+                    <TR>
+                      <TD COLSPAN="3" ALIGN="center"><BR/><A HREF="/i/mot_redir.html" target="_blank"><IMG SRC="/i/moto_banner.gif" ALT="" WIDTH="428" HEIGHT="84" VSPACE="5" BORDER="0"/></A></TD>
+                    </TR>           
                     <!-- <TR>
                       <TD COLSPAN="3" ALIGN="center"><BR/><A HREF="/index?t=schedule&amp;c=tourny_spons"><IMG SRC="/i/tournament/sun_banner.gif" ALT="" WIDTH="428" HEIGHT="84" VSPACE="5" BORDER="0"/></A></TD>
                     </TR> -->           
             <TR>
-              <TD VALIGN="middle" COLSPAN="3" HEIGHT="18" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig">&#160;Last Match Summary: Single Round Match 70 - March 7, 2002<!-- 2002 TCCC Regional Semifinals - March 6 --></TD>
+              <TD VALIGN="middle" COLSPAN="3" HEIGHT="18" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig">&#160;Last Match Summary: Single Round Match 71 - March 11, 2002<!-- 2002 TCCC Regional Semifinals - March 6 --></TD>
             </TR>
             <TR>
               <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
@@ -103,20 +106,17 @@
 <A HREF="/index?t=statistics&amp;c=high_total_div2" CLASS="statText">View the list of Division-II Point Totals</A>
 -->
 <P>
-Three coders, <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=268947" CLASS="coderTextYellow">anr</A>, <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=269058" CLASS="coderTextYellow">jasonw</A> and <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=262951" CLASS="coderTextBlue">db</A>, had performances that earned them top-25 Rating Point Gain's in SRM 70.  
+<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=270505" CLASS="coderTextRed">John Dethridge</A> was the winner in Room 5, and gained 335 rating points, which is the highest rating point gain ever in Division-I (<A HREF="/index?t=statistics&amp;c=rate_gain_div1" CLASS="statText">View the list of Division-I Rating Point Gain</A>).  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=270505" CLASS="coderTextRed">John Dethridge</A> coded the Medium and Hard questions for 871.82 final points.
 </P>
 
 <P>
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=268947" CLASS="coderTextYellow">anr</A> was the winner in Room 5, and had a rating gain of 279, which ranks as the ninth highest ever (<A HREF="/index?t=statistics&amp;c=rate_gain_div1" CLASS="statText">View the list of Division-I Rating Point Gain</A>).  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=268947" CLASS="coderTextYellow">anr</A> earned 1200.73 final points by coding all three problems.  The final point total of <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=268947" CLASS="coderTextYellow">anr</A> was the fourth highest in Division I.
+Two coders, <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=156216" CLASS="coderTextRed">daveagp</A> and <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=112441" CLASS="coderTextYellow">seacow</A>, both won their rooms for the fourth time.  This ties the two of them with five others for 21st place (<A HREF="/index?t=statistics&amp;c=srm_wins_div1" CLASS="statText">View the list of Division-I Wins</A>).  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=156216" CLASS="coderTextRed">daveagp</A> was the winner in Room 3, coding the Easy and Medium questions for 541.61 final points.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=112441" CLASS="coderTextYellow">seacow</A> was the winner in Room 11.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=112441" CLASS="coderTextYellow">seacow</A> earned 436.51 points in the "Coding Phase" by coding the Easy and Medium questions, and then added 150 points to that total with three successful challenges in the "Challenge Phase".  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=112441" CLASS="coderTextYellow">seacow</A> finished with 586.51 final points.
 </P>
 
 <P>
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=269058" CLASS="coderTextYellow">jasonw</A> finished second to <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=268947" CLASS="coderTextYellow">anr</A> in Room 5, and had a rating point gain of 261, which is the 14th largest gain ever.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=269058" CLASS="coderTextYellow">jasonw</A> coded all three problems for 1171.12 final points, which was the fifth highest in Division I.
+<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=262936" CLASS="coderTextRed">dgarthur</A> won Room 1 with a Division-I-high 1236.98 final points.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=262936" CLASS="coderTextRed">dgarthur</A> coded all three problems in the "Coding Phase" for 1186.98 points, and added 50 points in the "Challenge Phase" with one successful challenge.
 </P>
 
-<P>
-The 20th largest gain ever was earned by <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=262951" CLASS="coderTextBlue">db</A>, whose rating increased by 234 points.  Like <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=268947" CLASS="coderTextYellow">anr</A> and <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=269058" CLASS="coderTextYellow">jasonw</A>, <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=262951" CLASS="coderTextBlue">db</A> coded all three problems.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=262951" CLASS="coderTextBlue">db</A> won Room 21 with 993.48 final points.
-</P>
 
 
                  </TD>
@@ -135,20 +135,25 @@ The 20th largest gain ever was earned by <A HREF="/?t=statistics&amp;c=member_pr
             </TR>            
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="statText">            
-
 <P>
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=270505" CLASS="coderTextYellow">John Dethridge</A> had an extremely impressive TopCoder debut.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=270505" CLASS="coderTextYellow">John Dethridge</A> coded all three problems for a Division II-high 1672.80 final points.  That point total helped <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=270505" CLASS="coderTextYellow">John Dethridge</A> win Room 54 (<A HREF="/index?t=statistics&amp;c=winning_debut" CLASS="statText">View the list of Winning Debuts</A>), and is the fourth highest ever in Division II (<A HREF="/index?t=statistics&amp;c=high_total_div2" CLASS="statText">View the list of Division-II Point Totals</A>).  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=270505" CLASS="coderTextYellow">John Dethridge</A> also had a 1908 Rating Point Debut, which is the sixth highest debut rating ever (<A HREF="/index?t=statistics&amp;c=rate_debut" CLASS="statText">View the list of Rating Point Debut</A>).
+Two coders, <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=154145" CLASS="coderTextGreen">dleung</A> and 
+<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=251591" CLASS="coderTextGreen">emmpee</A> won their rooms for the second consecutive time.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=154145" CLASS="coderTextGreen">dleung</A> coded all three problems and had one successful challenge to win Room 32 with 1062.97 final points, while 
+<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=251591" CLASS="coderTextGreen">emmpee</A> followed the same pattern and won Room 39 with 1082.90 final points.
 </P>
 
 <P>
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=263379" CLASS="coderTextBlue">pochmann</A> was also very successful in SRM 70, cracking two top-25 lists.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=263379" CLASS="coderTextBlue">pochmann</A> coded all three problems for 1614.45 final points, the ninth highest total, to win Room 33.  That performance caused the rating of <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=263379" CLASS="coderTextBlue">pochmann</A> to increase by 377 points, which is the 12th largest increase. 
+
+<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=158447" CLASS="coderTextBlue">ValD</A> won Room 34 with 1191.94 final points.  This marked the third time in four matches that 
+<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=158447" CLASS="coderTextBlue">ValD</A> was a room winner.  
+<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=158447" CLASS="coderTextBlue">ValD</A> won consecutive rooms in SRM's 68 and 69.  To win in SRM 71, 
+<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=158447" CLASS="coderTextBlue">ValD</A> coded all three problems and had one successful challenge.
 </P>
 
 <P>
-Two coders, 
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=261008" CLASS="coderTextGreen">mthed</A> and <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=262456" CLASS="coderTextGray">Shadowfax</A> won their rooms for the second consecutive time.  
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=261008" CLASS="coderTextGreen">mthed</A> coded all three problems and won Room 38, while <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=262456" CLASS="coderTextGray">Shadowfax</A> correctly coded the medium and hard problems to win Room 43.
+<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=261776" CLASS="coderTextBlue">DmdsNPrls99</A> was the winner of Room 27, and was the top point-getter in Division-II for SRM 71.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=261776" CLASS="coderTextBlue">DmdsNPrls99</A> coded all three problems for 1184.47 points in the "Coding Phase", and added one successful challenge in the "Challenge Phase" for a total of 1234.47 final points.
 </P>
+
+
 
 
 
