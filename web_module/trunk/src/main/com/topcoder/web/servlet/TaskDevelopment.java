@@ -220,6 +220,7 @@ public final class TaskDevelopment {
             /********************** tcs_send *******************/
             else if (command.equals("tcs_send")) {
                 if (nav.getLoggedIn()) {
+                    long userId;
                     devTag.addTag(new ValueTag("Project", project));
 
                     String handle = nav.getUser().getHandle();
@@ -236,10 +237,13 @@ public final class TaskDevelopment {
                     msgText.append(" inquiry for project:  ");
                     msgText.append(project);
                     msgText.append("\n\n");
+                    int agreedToTerms = 0;
                     if (request.getParameter("terms") == null) {
                         msgText.append("\n\nDid not agree to terms.\n");
+                        agreedToTerms = 0;
                     } else {
                         msgText.append("\n\nAgreed to terms.\n");
+                        agreedToTerms = 1;
                     }
                     msgText.append("\n\nComment:\n");
                     msgText.append(comment);
@@ -272,16 +276,18 @@ public final class TaskDevelopment {
                     int rating = coder.getRating().getRating();
                     
 
+                    log.debug("creating user");
+                    Object objUserManager = CONTEXT.lookup("dde/UserManager");        
+  	            UserManagerRemoteHome userManagerHome = (UserManagerRemoteHome)  PortableRemoteObject.narrow(objUserManager, UserManagerRemoteHome.class); 
+  	            UserManagerRemote USER_MANAGER = userManagerHome.create();
+
                     try {
                         selectedPrincipal = PRINCIPAL_MANAGER.getUser(handle);
+                        userId = selectedPrincipal.getId();
                         PricingTier pt = new PricingTier(1, 5.0);
                     }
                     catch (NoSuchUserException noSuchUserException)
 	            {
-                        log.debug("creating user");
-                        Object objUserManager = CONTEXT.lookup("dde/UserManager");        
-  	                    UserManagerRemoteHome userManagerHome = (UserManagerRemoteHome)  PortableRemoteObject.narrow(objUserManager, UserManagerRemoteHome.class); 
-  	                    UserManagerRemote USER_MANAGER = userManagerHome.create();
                         RegistrationInfo registration = new RegistrationInfo();                        
                          
                         registration.setUsername(handle);
@@ -349,6 +355,7 @@ public final class TaskDevelopment {
 
                         log.debug("Registering user");
                         com.topcoder.dde.user.User tcsUser = USER_MANAGER.register(registration, false);
+                        userId = tcsUser.getId();
                         log.debug("Registered user");
                         tcsUser.setStatus(com.topcoder.dde.user.UserStatus.ACTIVE); 
                         log.debug("Updating user");
@@ -362,11 +369,14 @@ public final class TaskDevelopment {
                         
                     }
 
+                    long componentId = Long.parseLong(request.getParameter("comp"));
+
                     //add the user to the appropriate role to view the specification
                     java.util.HashSet rolesSet = (java.util.HashSet)PRINCIPAL_MANAGER.getRoles(null);  
                     RolePrincipal[] roles = (RolePrincipal[])rolesSet.toArray(new RolePrincipal[0]);
                     //String formattedProject = project.substring(0, project.lastIndexOf(' ')-1);
 
+                    USER_MANAGER.registerInquiry(userId, componentId, rating, comment, agreedToTerms);
 
                     //log.debug("FormattedProject: " + formattedProject);
 
@@ -380,7 +390,6 @@ public final class TaskDevelopment {
                     Object objTechTypes = CONTEXT.lookup("ComponentManagerEJB");
                     ComponentManagerHome home = (ComponentManagerHome) PortableRemoteObject.narrow(objTechTypes, ComponentManagerHome.class);
                     
-                    long componentId = Long.parseLong(request.getParameter("comp"));
                     ComponentManager componentMgr = home.create(componentId);
                     com.topcoder.dde.catalog.Forum activeForum = componentMgr.getActiveForum(com.topcoder.dde.catalog.Forum.SPECIFICATION);
 
