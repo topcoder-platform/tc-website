@@ -230,12 +230,18 @@ public class Search extends Base {
   private boolean isValidSearch(Map _errors,SearchBean _sb) {
     boolean valid=true;
     valid&=checkValidHandle(_errors,_sb.getHandle());
+    log.debug("valid handle: "+valid);
     valid&=(checkValidState(_errors,_sb.getStateCode(),_sb.getStateList())&&
             checkValidSchool(_errors,_sb.getSchoolId(),_sb.getSchoolList()));
+    log.debug("valid state and school: "+valid);
     valid&=checkValidStateSchool(_errors,_sb.getStateCode(),_sb.getSchoolId());
+    log.debug("valid state/school: "+valid);
     valid&=checkValidMinRating(_errors,_sb.getMinRating());
+    log.debug("valid min rating: "+valid);
     valid&=checkValidMaxRating(_errors,_sb.getMaxRating());
+    log.debug("valid mxx rating: "+valid);
     valid&=checkValidMinMax(_errors,_sb.getMinRating(),_sb.getMaxRating());
+    log.debug("valid min/max rating: "+valid);
     return(valid);
   }
 
