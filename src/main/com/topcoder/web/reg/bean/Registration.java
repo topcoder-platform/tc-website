@@ -1701,7 +1701,7 @@ public class Registration
         c.setCode(getSunConfirm());
         c.setContestId(SUN_CONTEST_ID);
         try {
-          log.debug("sun confirm\n" + c.getXML());
+          log.debug("sun confirm\n" + c.getXML().getXML(2));
         } catch (Exception e) { e.printStackTrace();}
         a.add(c);
         coder.setCoderConfirmations(a);
