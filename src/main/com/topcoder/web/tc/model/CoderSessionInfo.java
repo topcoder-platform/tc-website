@@ -75,9 +75,11 @@ public class CoderSessionInfo extends SessionInfo {
         DataSource ds = null;
         try {
             context = new InitialContext();
+            log.debug("before lookup");
             ds = (DataSource)
                     PortableRemoteObject.narrow(context.lookup(DBMS.OLTP_DATASOURCE_NAME),
                             DataSource.class);
+            log.debug("after lookup");
         } finally {
             BaseProcessor.close(context);
         }
