@@ -18,18 +18,18 @@ function showEmail() {
   }
 
 function submitProfile() {
-    document.sessionSetupForm.rp.value=<%=Constants.CREATE_PROFILE_PROCESSOR%>
-    document.sessionSetupForm.submit()
+    document.sessionSetupForm.rp.value="<%=Constants.CREATE_PROFILE_PROCESSOR%>";
+    document.sessionSetupForm.submit();
 }
 
 function submitCandidate() {
-    document.sessionSetupForm.rp.value=<%=Constants.CREATE_CANDIDATE_PROCESSOR%>
-    document.sessionSetupForm.submit()
+    document.sessionSetupForm.rp.value="<%=Constants.CREATE_CANDIDATE_PROCESSOR%>";
+    document.sessionSetupForm.submit();
 }
 
 function submitSession() {
-    document.sessionSetupForm.rp.value=<%=Constants.UPDATE_SESSION_PROCESSOR%>
-    document.sessionSetupForm.submit()
+    document.sessionSetupForm.rp.value="<%=Constants.UPDATE_SESSION_PROCESSOR%>";
+    document.sessionSetupForm.submit();
 }
 //--></SCRIPT>
 </HEAD>
@@ -79,7 +79,7 @@ function submitSession() {
            <TR>
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Candidate</b>&#160;</TD>
               <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
-              <select name="userId">
+              <select name="cid">
                 <screen:resultSetRowIterator id="row" list="<%=sessionInfo.getCandidateList()%>">
                 <% if(sessionInfo.isSelectedCandidate(row.getItem("candidate_id").toString())) { %>
               	<option value="<screen:resultSetItem row="<%=row%>" name="candidate_id" />" SELECTED><screen:resultSetItem row="<%=row%>" name="handle" /></option>
