@@ -90,7 +90,8 @@ successfully, and for only 322 points, but it was still enough to give him the w
 medium problem that had a significantly lower submission accuracy than the hard problem.  <b>bl</b> came out on top in Division 2, with only a handful of
 coders within reach.
 </p>
-<p> 
+ 
+<p>
 <H1>
 The Problems
 </H1>
@@ -213,8 +214,9 @@ Used as: Division Two - Level Two: <blockquote><table cellspacing="2">
   </tr>
 </table></blockquote>
 <p>
-The immediate idea of trying all possible orderings of items quickly fails because there are just too many orderings (10!) to consider.
-The problem becomes simple, however, if you consider that some things must be restricted to certain positions.  Call the total number of 
+This problem could have been solved by trying every way of putting items into the bag, and seeing which ones worked, but there
+is another solution that requires a bit more insight.
+Call the total number of 
 items <i>n</i>, the number of items that will not obstruct the item in question <i>s</i>, and the number of items that will obstruct
 it <i>b</i>.  Clearly <i>b</i>+<i>s</i>+1=<i>n</i>.  Those <i>b</i> items can be ordered in <i>b</i>! different ways, and the item in question must be placed in the bag after those first
 <i>b</i> items.  So we know that when only considering these <i>b</i>+1 items that there are <i>b</i>! ways of ordering them in the bag such that
@@ -298,8 +300,10 @@ G[<i>u</i>][<i>v</i>]=0 otherwise.  The following algorithm, also known as Floyd
             if (paths[i][k]==1 &amp;&amp; paths[k][j]==1) paths[i][j]=1;
     };
 </pre>
-Now that we have this, any vertex that can reach all other vertices will cause there to be a row of '1's in the adjacency matrix of the transitive closure.
-Similarly, any vertex that can be reached by all other vertices will cause there to be a column of '1's in the adjacency matrix of the transitive closure.
+Now that we have this, any vertex that can reach all other vertices will cause there to be a row of '1's in the adjacency matrix of the transitive closure,
+except maybe the value on the diagonal (<i>G</i>[<i>u</i>][<i>u</i>]) is a '0'.
+Similarly, any vertex that can be reached by all other vertices will cause there to be a column of '1's in the adjacency matrix of the transitive closure, again,
+except for the value on the diagonal.
 It is now a simple matter to count these and return the values.
 </p>
 <font size="+2">
@@ -369,7 +373,7 @@ calculate the badness of each race, the following code demonstrates this:
         badness[k]=Math.max(err,badness[k]);
     }
 </pre>
-Now that we know the badness of each race, we just go through them all and return the index  of the race with the highest badness.
+Now that we know the badness of each race, we just go through them all and return the index  of the race with the lowest badness.
 <pre>
     int best=0;
     for (int i=0;i&lt;badness.length;i++)
@@ -440,7 +444,7 @@ calls itself when necessary to determine what the expected yields of smaller sub
 one or zero items, in which case the expected yield is the value of that item, or zero if the bag is empty.  To make this run quickly, of course, we 
 need to memoize.  That is, once we calculate the result
 for a certain set of items, we store that value so we never have to calculate it again.  Since there are <i>n</i> items, there are
-2^<i>n</i> subsets, so an array of size 2^<i>n</i> works fine since the input size, 10, is small.
+2^<i>n</i> subsets, so an array of size 2^<i>n</i> works fine since the input size, 15, is small.
 <pre>
     double yield(int mask) {
         //if we've gotten an answer for mask before, return it
@@ -531,7 +535,7 @@ the other cycle.  In this case all of the vertices have incoming and outgoing ed
 <br/><br/>
 For our directed graph, <i>G</i>, find a subset of the vertices , <i>source</i>, such that every vertex in <i>G</i> can be reached by at  least one vertex
 in <i>source</i>.  Also find a subset of the vertices, <i>sink</i>, such that every vertex in <i>G</i> can reach at least one vertex in <i>sink</i>.  Now for 
-each vertex in <i>sink</i>, if there are any vertices in <i>source</i> that it cannot reach, add an edge from the vertex in <i>sink</i> to one of those
+each vertex in <i>sink</i>, if there are any vertices in <i>source</i> that cannot reach it, add an edge from the vertex in <i>sink</i> to one of those
  vertices  in <i>source</i>.  Also, for every vertex in <i>source</i>, if there are any vertices in <i>sink</i> that it cannot reach, add an edge from one 
 of them to the vertex in <i>source</i>.  The most edges that can be added in this fashion is the maximum of the cardinalities of <i>source</i> and <i>sink</i>.
 After these edges have been added, every vertex will belong to some cycle.  Consider any vertex, from this vertex there is a path to some vertex in <i>sink</i>.
@@ -544,12 +548,17 @@ the one we started at.  When we add edges from <i>sink</i> to <i>source</i> when
 we are ensuring that a cycle will occur (not one cycle for every one of these such edges added, but at least one cycle will be added after all of these edges have been added).
 <br/><br/>
 Now, since we know that adding edges in this manner will cause all vertices to belong to a cycle, all we need to do is find the minimum possible cardinalities
-for <i>source</i> and <i>sink</i>.  Unfortunately the best way I know of doing this is also known as Minimum Set Cover, and is an NP-Complete problem.
+for <i>source</i> and <i>sink</i>.  In addition, when choosing <i>source</i> and <i>sink</i>, we don't require that a vertex that is already part of a cycle is able to
+reach any of the vertices in <i>sink</i>, and we also do not require that it can be reached from a vertex in <i>source</i>.
+Unfortunately the best way I know of doing this is also known as Minimum Set Cover, and is an NP-Complete problem.
 Basically all there is to do at this point is when calculating <i>sink</i>, try all 2^<i>n</i> combinations of vertices and take the smallest valid set.  Find 
-<i>source</i> in the same way.  Now the return value is what was stated before, the maximum of the cardinality of these two sets.  I'll admit my proof here
-isn't iron-clad, and I'm not sure that this problem is NP-Complete, but perhaps that is something we can figure out on the round tables.  For code
-that solves this problem in the way I have described here, look at <b>writer</b>'s solution in the practice room.
+<i>source</i> in the same way.  Now the return value is what was stated before, the maximum of the cardinality of these two sets.  It is less difficult to show that
+with the minimum <i>source</i> and <i>sink</i> sets that the maximum of the cardinalities of these two sets is not only sufficient, it is necessary.  I will leave that proof
+as an exercize for the reader.  I'll admit my proof here
+isn't iron-clad (and i am only mostly sure that it is correct), and I'm not sure that this problem is NP-Complete, but perhaps that is something we can figure out on the 
+round tables.  For code that solves this problem in the way I have described here, look at <b>writer</b>'s solution in the practice room.
 </p>
+
 
 
 
