@@ -72,8 +72,6 @@ public class TCLoadCoders extends TCLoad {
 
             loadSchool();
          
-            loadCurrentSchool();
-
             setLastUpdateTime();
 
             log.info("SUCCESS: Coders load ran successfully.");
@@ -944,86 +942,6 @@ public class TCLoadCoders extends TCLoad {
             close(psUpd);
         }
     }
-
-
-
-    private void loadCurrentSchool() throws Exception {
-        int count = 0;
-        int retVal = 0;
-        PreparedStatement psSel = null;
-        PreparedStatement psIns = null;
-        PreparedStatement psUpd = null;
-        ResultSet rs = null;
-        StringBuffer query = null;
-
-        try {
-            query = new StringBuffer(100);
-            query.append("SELECT cs.coder_id ");
-            query.append(      " ,cs.school_name ");    
-            query.append(      " ,cs.school_id ");
-            query.append(      " ,cs.degree_number ");
-            query.append( " FROM current_school cs ");
-            query.append(" WHERE cs.modify_date > ?");
-            psSel = prepareStatement(query.toString(), SOURCE_DB);
-            psSel.setTimestamp(1, fLastLogTime);
-
-            query = new StringBuffer(100);
-            query.append("INSERT INTO current_school ");
-            query.append(" (coder_id ");
-            query.append(" ,school_name ");       
-            query.append(" ,school_id ");      
-            query.append(" ,degree_number) ");
-            query.append("VALUES (");
-            query.append("?,?,?,?)"); 
-            psIns = prepareStatement(query.toString(), TARGET_DB);
-
-            query = new StringBuffer(100);
-            query.append(" UPDATE current_school SET school_name = ?, school_id = ?, degree_number = ? WHERE coder_id = ?");
-            psUpd = prepareStatement(query.toString(), TARGET_DB);
-
-            rs = executeQuery(psSel, "loadCurrentSchool");
-
-            while (rs.next()) {
-                int coder_id = rs.getInt("coder_id");
-
-                try {
-                    psIns.setInt(1, coder_id);
-                    psIns.setString(2, rs.getString("school_name"));
-                    psIns.setString(3, rs.getString("school_id"));
-                    psIns.setString(4, rs.getString("degree_number"));
-                    retVal = psIns.executeUpdate();
-                } catch (Exception e) {
-                    // the insert failed, so try an update
-                    psUpd.setString(1, rs.getString("school_name"));
-                    psUpd.setString(2, rs.getString("school_id"));
-                    psUpd.setString(3, rs.getString("degree_number"));
-                    psUpd.setInt(4, coder_id);
-                    retVal = psUpd.executeUpdate();
-                }
-
-
-                count = count + retVal;
-                if (retVal != 1) {
-                    throw new SQLException("TCLoadCoder: Load current school for coder " + coder_id +
-                            " modified " + retVal + " rows, not one.");
-                }
-
-                printLoadProgress(count, "current_school");
-            }
-
-            log.info("current_school records copied = " + count);
-        } catch (SQLException sqle) {
-            DBMS.printSqlException(true, sqle);
-            throw new Exception("Load of 'current_school' table failed.\n" +
-                    sqle.getMessage());
-        } finally {
-            close(rs);
-            close(psSel);
-            close(psIns);
-            close(psUpd);
-        }
-    }
-
 
 
     private void setLastUpdateTime() throws Exception {
