@@ -79,10 +79,10 @@
 <!-- Coding Advancers tab -->
             <xsl:choose>
                 <xsl:when test="$selectedTab='coding_advancers'">
-                    <td class="statTextBig" width="88"><A href="/index?t=tournaments&amp;c=tco03_advancers" class="statTextBig"><img src="/i/tournament/tco03/tab_advancers_on.gif" alt="Rules" width="88" height="22" border="0" /></A></td>
+                    <td class="statTextBig" width="88"><A href="/index?t=tournaments&amp;c=tco03_top100" class="statTextBig"><img src="/i/tournament/tco03/tab_advancers_on.gif" alt="Rules" width="88" height="22" border="0" /></A></td>
                 </xsl:when>
                 <xsl:otherwise>
-                    <td class="statTextBig" width="88"><A href="/index?t=tournaments&amp;c=tco03_advancers" class="statTextBig"><img src="/i/tournament/tco03/tab_advancers_off.gif" alt="Rules" width="88" height="22" border="0" /></A></td>
+                    <td class="statTextBig" width="88"><A href="/index?t=tournaments&amp;c=tco03_top100" class="statTextBig"><img src="/i/tournament/tco03/tab_advancers_off.gif" alt="Rules" width="88" height="22" border="0" /></A></td>
                 </xsl:otherwise>
             </xsl:choose>
 
@@ -122,6 +122,16 @@
                 </xsl:otherwise>
             </xsl:choose>
                                 
+<!-- Component Advancers tab -->
+            <xsl:choose>
+                <xsl:when test="$selectedTab='advancers'">
+                    <td class="statTextBig" width="88"><A href="/index?t=tournaments&amp;c=tco03_comp_des_rd1" class="statTextBig"><img src="/i/tournament/tco03/tab_advancers_on.gif" alt="Advancers" width="88" height="22" border="0" /></A></td>
+                </xsl:when>
+                <xsl:otherwise>
+                    <td class="statTextBig" width="88"><A href="/index?t=tournaments&amp;c=tco03_comp_des_rd1" class="statTextBig"><img src="/i/tournament/tco03/tab_advancers_off.gif" alt="Advancers" width="88" height="22" border="0" /></A></td>
+                </xsl:otherwise>
+            </xsl:choose>
+
    </xsl:when>
 </xsl:choose>
 

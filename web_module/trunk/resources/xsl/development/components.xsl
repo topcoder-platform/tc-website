@@ -52,9 +52,13 @@
             </xsl:call-template>
 
             <img src="/i/clear.gif" alt="" width="240" height="10" border="0" />
+            <table width="100%" border="0">
+               <tr>
+                  <td width="100%" align="center"><a href="/index?t=tournaments&amp;c=tco03_comp_des_rd1"><img src="/i/tournament/tco03/winners_page_ad.gif" alt="" width="510" height="200" border="0" align="center"/></a></td>
+               </tr>
+            </table>
             
-<!-- Featured Winner Begins -->
-
+<!--
             <div align="center">
             
             <img src="/i/development/title_thisweekswinners.gif" alt="This Week's Component Project Winners" width="510" height="55" border="0" />
@@ -73,7 +77,6 @@
                 <tr valign="top"><td class="bodyText" colspan="4"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td></tr>
 
                 <tr valign="top">
-<!--            <td class="bodyText" rowspan="7" width="55"><a href="/stat?c=member_profile&amp;cr=264803" class="coderTextRed"><img src="/i/m/mishagam_big.jpg" alt="None" width="62" height="70" border="0" hspace="5" vspace="5" /></a></td>-->
                     <td class="bodyText" rowspan="7" width="1"><img src="/i/clear.gif" alt="" width="5" height="61" border="0" vspace="5" /></td>
                     <td class="bodyText" width="50%">Developer Level:</td>
                     <td class="bodyText" align="right" width="40%"><strong>I</strong></td>
@@ -118,11 +121,9 @@
                 
                 <tr valign="top"><td class="bodyText" colspan="4"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td></tr>
             </table>
-    <!-- Featured Winner Ends -->
     
             <br/>
 
-    <!-- Design Winners Begins -->
             <table border="0" cellspacing="0" cellpadding="3" width="100%">
                 <tr valign="middle">
                     <td class="statTextLarge" bgcolor="#999999"><font size="3">Design Winners</font></td>
@@ -204,8 +205,7 @@
 
 
             </table>
-<!-- Development Winners Ends -->
-
+-->
         <p><br/></p>
 
         </td>
