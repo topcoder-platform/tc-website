@@ -25,6 +25,7 @@
 <html>
     <body>
         <table>
+            <tr><td><h2>Those that have completed the Questionaire</h2></td></tr>
             <rsc:iterator list="<%=rsc%>" id="info">
                 <% if (!curr.equals(info.getStringItem("handle"))) {%>
                     <tr>
