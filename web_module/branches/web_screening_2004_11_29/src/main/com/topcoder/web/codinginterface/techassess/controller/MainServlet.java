@@ -32,6 +32,7 @@ public class MainServlet extends BaseServlet {
         if (!Constants.isInitialized())
             throw new ServletException("Constants did not initialize properly");
 */
+        log.debug(System.getProperty("java.class.path","."));
     }
 
 
