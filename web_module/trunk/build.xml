@@ -601,6 +601,16 @@
         </jar>
     </target>
 
+    <target name="deploy">
+        <antcall target="deploy-tc"/>
+        <antcall target="deploy-admin"/>
+        <antcall target="deploy-query"/>
+        <antcall target="deploy-email"/>
+        <antcall target="deploy-corp"/>
+        <antcall target="deploy-hs"/>
+        <antcall target="deploy-privatelabel"/>
+    </target>
+
 
     <target name="war-query" depends="compile">
         <war warfile="${war.dir}/query.war" webxml="${resources}/query/web.xml">
@@ -652,8 +662,7 @@
     </target>
 
     <!-- hs -->
-    <target name="deploy_hs" depends="war_hs">
-        <antcall target="deploy-query"/>
+    <target name="deploy-hs" depends="war_hs">
         <antcall target="package-EJB-UserBean"/>
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="HSTermsOfUse"/>
@@ -676,18 +685,13 @@
         <antcall target="package-EJB-SchoolBean"/>
         <antcall target="package-EJB-RatingBean"/>
         <antcall target="package-EJB-CoderBean"/>
-        <antcall target="dev_war_hs"/>
-    </target>
-
-
-    <target name="dev_war_hs" depends="war_hs">
-        <copy todir="${public_html}" file="${war.dir}/hs.war"/>
-        <unwar src="${public_html}/hs.war" dest="${public_html}/hs/" overwrite="yes"/>
-        <delete file="${public_html}/hs.war"/>
+        <antcall target="war-hs"/>
+        <unwar src="${war.dir}/hs.war" dest="${public_html}/hs/" overwrite="yes"/>
         <delete dir="${public_html}/hs/META-INF"/>
     </target>
 
-    <target name="war_hs" depends="compile">
+
+    <target name="war-hs" depends="compile">
         <war warfile="${war.dir}/hs.war" webxml="${resources}/hs/web.xml">
             <fileset dir="${java}/com/topcoder/web/hs/view">
                 <include name="**/*.jsp"/>
@@ -712,7 +716,7 @@
 
     <!-- begin corp targets -->
 
-    <target name="war_corp" depends="compile,corp-ejb-all">
+    <target name="war-corp" depends="compile">
         <war warfile="${war.dir}/corp.war" webxml="${resources}/corp/web.xml">
             <classes dir="${classes}">
                 <include name="com/topcoder/web/corp/**"/>
@@ -741,16 +745,7 @@
         </war>
     </target>
 
-    <target name="deploy-corp" depends="war_corp">
-        <antcall target="deploy-query"/>
-        <unwar src="${war.dir}/corp.war" dest="${public_html}/corp/" overwrite="yes"/>
-        <delete dir="${public_html}/corp/META-INF"/>
-
-        <unwar src="${war.dir}/query.war" dest="${public_html}/query/" overwrite="yes"/>
-        <delete dir="${public_html}/query/META-INF"/>
-    </target>
-
-    <target name="corp-ejb-all" depends="compile">
+    <target name="deploy-corp" depends="war-corp">
         <antcall target="package-EJB-DataCacheBean"/>
         <antcall target="package-EJB-ResumeServicesBean"/>
         <antcall target="package-EJB-CorpAddressBean"/>
@@ -765,6 +760,11 @@
         <antcall target="package-EJB-NoteBean"/>
         <antcall target="package-EJB-SessionBean"/>
         <antcall target="package-EJB-SessionProfileBean"/>
+        <unwar src="${war.dir}/corp.war" dest="${public_html}/corp/" overwrite="yes"/>
+        <delete dir="${public_html}/corp/META-INF"/>
+
+        <unwar src="${war.dir}/query.war" dest="${public_html}/query/" overwrite="yes"/>
+        <delete dir="${public_html}/query/META-INF"/>
     </target>
 
     <target name="build-ejb-unit" depends="compile">
@@ -887,6 +887,13 @@
         <antcall target="package-EJB-SchoolBean"/>
         <antcall target="package-EJB-JobPostingServicesBean"/>
 
+        <antcall target="war-privatelabel"/>
+
+        <unwar src="${war.dir}/privatelabel.war" dest="${public_html}/privatelabel/" overwrite="yes"/>
+        <delete dir="${public_html}/privatelabel/META-INF"/>
+    </target>
+
+    <target name="war-privatelabel" depends="compile">
         <war warfile="${war.dir}/privatelabel.war" webxml="${resources}/privatelabel/web.xml">
             <fileset dir="${java}/com/topcoder/web/privatelabel/view">
                 <include name="**/*.jsp"/>
@@ -915,10 +922,7 @@
                 <include name="privatelabel.tld"/>
             </webinf>
         </war>
-        <unwar src="${war.dir}/privatelabel.war" dest="${public_html}/privatelabel/" overwrite="yes"/>
-        <delete dir="${public_html}/privatelabel/META-INF"/>
     </target>
-
 
 
 
@@ -966,9 +970,6 @@
 
 
     <target name="deploy-tc" depends="compile">
-        <antcall target="deploy-query"/>
-        <antcall target="deploy-email"/>
-        <antcall target="deploy-admin"/>
         <antcall target="package-EJB-PactsServicesBean"/>
         <antcall target="package-EJB-JavaDocServicesBean"/>
         <antcall target="package-EJB-UserServicesBean"/>
