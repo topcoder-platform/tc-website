@@ -46,7 +46,7 @@ function openWin(url, name, w, h) {
 <!-- Main Links begins -->
 <table cellspacing="0" cellpadding="3" width="100%" class="rednavBar" border="0">
     <tr valign="middle">
-        <td width="1%" class="rednav">
+        <td class="rednav" nowrap="nowrap">
 <% if(SessionInfo.isGuest()) { %>
         &nbsp;&nbsp;&nbsp;<a href="?module=Static&amp;d1=registration&amp;d2=registration" class="rednav">Register</a>
 <% } else if(SessionInfo.isStudent()) { %>
@@ -54,19 +54,19 @@ function openWin(url, name, w, h) {
 <% } else if(SessionInfo.isCoach()) { %>
         &nbsp;&nbsp;&nbsp;<a href="?module=UpdateCoach" class="rednav">Update Profile</a>
 <% } else { // assuming admin %>
-        &nbsp;&nbsp;&nbsp;<a class="rednav">Register</a>
+        &nbsp;&nbsp;&nbsp;<font color="#666666">Register</font>
 <% } %>
         </td>
 
-        <td width="1%" class="rednav">&nbsp;&nbsp;&nbsp;<a href="?module=Static&d1=arena&d2=arena_main" class="rednav">Competition Arena</a></td>
+        <td class="rednav" nowrap="nowrap">&nbsp;&nbsp;&nbsp;<a href="?module=Static&d1=arena&d2=arena_main" class="rednav">Competition Arena</a></td>
 
 <% if(SessionInfo.isLoggedIn()) { %>
-        <td width="1%" class="rednav">&nbsp;&nbsp;&nbsp;<a href="?module=Static&d1=tour&d2=mem_tour" class="rednav">Competition Guide</a></td>
+        <td class="rednav" nowrap="nowrap">&nbsp;&nbsp;&nbsp;<a href="?module=Static&d1=tour&d2=mem_tour" class="rednav">Competition Guide</a></td>
 <% } %>
 
-        <td width="1%" class="rednav">&nbsp;&nbsp;&nbsp;<a class="rednavLaunch" href="Javascript:openWin('?module=Static&d1=arena&d2=quick_launch','comp',300,225);">Quick Launch&#160;&gt;</a></td>
+        <td class="rednav" nowrap="nowrap">&nbsp;&nbsp;&nbsp;<a href="Javascript:openWin('?module=Static&d1=arena&d2=quick_launch','comp',300,225);" class="rednav">Quick Launch&#160;&gt;</a></td>
 
-        <td width="99%" class="rednav">&#160;</td>
+        <td width="99%" class="rednav" nowrap="nowrap">&#160;</td>
     </tr>
 </table>
 <!-- Main Links ends -->

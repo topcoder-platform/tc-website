@@ -2,7 +2,7 @@
 <html>
 <head>
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Competition Arena</title>
+<title>TCHS Competition Arena</title>
 <SCRIPT type="text/javascript">
 if ( window.navigator.appName.indexOf("Netscape")>-1 && window.navigator.appVersion.charAt(0)=='4') {
   document.write('<link type="text/css" rel="stylesheet" href="http://www.topcoder.com/css/style_linux.css"/>');
