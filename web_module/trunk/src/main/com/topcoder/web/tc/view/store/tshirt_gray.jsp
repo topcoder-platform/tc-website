@@ -63,7 +63,7 @@
                                     taped shoulder to shoulder. The TopCoder logo is silkscreened on the left chest and on the upper back. </td></tr>
                                     <tr>
                                         <form name="sizeSelect">
-                                        <td valign="middle" nowrap>$16.95 ($18.95 for XXL)</td>
+                                        <td valign="middle" nowrap><strike>$16.95 ($18.95 for XXL)</strike><br/><font color="#CC0000">$13.95 ($15.95 for XXL)</font></td>
                                         <td valign="middle" class="bodyText">
                                           <select name="menu" size="1" class="dropdown">
                                              <option SELECTED VALUE="#">Select a Size:</option>

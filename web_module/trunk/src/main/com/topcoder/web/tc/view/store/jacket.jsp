@@ -61,7 +61,7 @@
                                     <tr><td colspan="3" class="bodyText">The 100% Taslan 3/4-length jacket is red and black and features a hidden hood in the collar and a full zip front. The jacket is wind and water resistant. The TopCoder logo is embroidered on the left chest and on the upper back.</td></tr>
                                     <tr>
                                         <form name="sizeSelect">
-                                        <td valign="middle" nowrap>$64.95 ($66.95 for XXL)</td>
+                                        <td valign="middle" nowrap><strike>$64.95 ($66.95 for XXL)</strike><br/><font color="#CC0000">$53.95 ($55.95 for XXL)</font></td>
                                         <td valign="middle" class="bodyText">
                                           <select name="menu" size="1" class="dropdown">
                                              <option SELECTED VALUE="#">Select a Size:</option>
