@@ -16,7 +16,7 @@
                             
                             <tr><td class="subBodyCopy">Registraton Ends<br/><strong>October 30th</strong><br/><strong>10:00 PM - IST</strong></td></tr>
 
-                            <tr><td class="subBodyCopy">Round #1 - Online<br/><strong>October 31st</strong><br/><span class="smallText">REGISTER: 5:30 PM - 6:55 PM - IST</span><br/><strong>7:00 PM - IST</strong></td></tr>
+                            <tr><td class="subBodyCopy">Round #1 - Online<br/><strong>October 31st</strong><br/><span class="smallText">REGISTER: 5:00 PM - 6:55 PM - IST</span><br/><strong>7:00 PM - IST</strong></td></tr>
                             
                             <tr><td class="subBodyCopy">Round #2 - Online<br/><strong>November 3rd</strong><br/><strong>7:00 PM - IST</strong></td></tr>
 

@@ -23,7 +23,7 @@
    <tr>
 
  <!-- Verizon logo-->
-        <td width="147" valign="top"><a href="http://www.verizon.com/"><A href="http://www.verizon.com"><img src="/i/events/verizon2003/logo_black_147x41.gif" width="147" height="37" alt="Verizon" border="0"></A></a></td>
+        <td width="147" valign="top"><A href="http://www.verizon.com"><img src="/i/events/verizon2003/logo_black_147x41.gif" width="147" height="37" alt="Verizon" border="0"></A></td>
         <td class="red"><img alt="" src="/images/spacer.gif" width="1" height="37"></td>
         <td valign="top" class="black" width="440"><img src="/i/events/verizon2003/vcc03_logo_secondary.gif" width="440" height="37" alt="Verizon Coding Challenge" border="0"></td>
         <td class="red"><img alt="" src="/images/spacer.gif" width="1" height="37"></td>
@@ -81,7 +81,7 @@
                                 <td class="sidebarText">Round #1</td>
                                 <td class="sidebarText" nowrap="nowrap">
                                     Friday, October 31st<br />
-                                    REGISTER: 5:30 PM - 6:55 PM<br />
+                                    REGISTER: 5:00 PM - 6:55 PM<br />
                                     COMPETE: 7:00 PM<br />
                                 </td>
                                 <td class="sidebarText" align="center">500</td>
