@@ -246,6 +246,7 @@
 
             <tr>
                 <td colspan="2">
+                    <br/><br/>
             <font color="#ff0000">PLEASE NOTE:</font>
             Guests are invited to attend the TCCC04; however, all costs (hotel, travel, meals, etc.) are at their own
                 expense. TopCoder is offering a spectator package for members and guests to join us at this most exciting
