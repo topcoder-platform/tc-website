@@ -24,6 +24,6 @@ import java.util.Map;
 public class Default extends BaseProcessor {
     public void process() throws Exception {
         setNextPage(Constants.DEFAULT_PAGE);
-        setNextPageInContext(false);
+        setNextPageInContext(true);
     }
 }
