@@ -15,16 +15,14 @@ package com.topcoder.web.tc.controller.legacy.pacts.servlet;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.common.HttpObjectFactory;
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.*;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.AffidavitBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.*;
 import com.topcoder.web.tc.controller.legacy.pacts.common.*;
 import com.topcoder.web.tc.controller.legacy.pacts.messaging.request.QueueRequest;
+import com.topcoder.security.TCSubject;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletConfig;
@@ -77,6 +75,31 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         t.start();
     }
 
+    public void trace(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+        TCResponse tcResponse = HttpObjectFactory.createResponse(response);
+        //set up security objects and session info
+        WebAuthentication authentication = createAuthentication(tcRequest, tcResponse);
+        TCSubject user = getUser(authentication.getActiveUser().getId());
+        SessionInfo info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
+        tcRequest.setAttribute(SESSION_INFO_KEY, info);
+        //todo perhaps this should be configuraable...so implementing classes
+        //todo don't have to do it if they don't want to
+        RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
+
+        StringBuffer loginfo = new StringBuffer(100);
+        loginfo.append("[**** ");
+        loginfo.append(info.getHandle());
+        loginfo.append(" **** ");
+        loginfo.append(request.getRemoteAddr());
+        loginfo.append(" **** ");
+        loginfo.append(request.getMethod());
+        loginfo.append(" ");
+        loginfo.append(info.getRequestString());
+        loginfo.append(" ****]");
+        log.info(loginfo);
+
+    }
 
 
 
@@ -93,6 +116,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         //This is an encapluated boolean to store that information
         PassedParam pp = new PassedParam();
         try {
+            trace(request, response);
             if (!doAuthenticate(request, response)) return;
 
             //just jamming in the new way of doing things.  perhaps one day this whole system will leave the dark side
@@ -540,6 +564,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
 
         try {
+            trace(request, response);
             if (!doAuthenticate(request, response)) return;
 
             //just jamming in the new way of doing things.  perhaps one day this whole system will leave the dark side
