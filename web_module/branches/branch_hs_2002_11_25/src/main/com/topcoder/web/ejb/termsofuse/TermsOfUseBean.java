@@ -60,7 +60,7 @@ public class TermsOfUseBean implements SessionBean {
                          "current_value",9999999999L,10,true);
       }
 
-      terms_of_use_id=IdGenerator.nextId("TERMSOFUSE_SEQ");
+      terms_of_use_id=IdGenerator.nextId("TERMS_OF_USE_SEQ");
 
       StringBuffer query=new StringBuffer(1024);
       query.append("INSERT ");
