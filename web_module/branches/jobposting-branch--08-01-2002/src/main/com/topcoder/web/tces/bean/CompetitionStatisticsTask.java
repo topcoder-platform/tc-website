@@ -47,6 +47,14 @@ public class CompetitionStatisticsTask extends BaseTask implements Task, Seriali
     /** Holds value of property overallStatsByLevel. */
     private List overallStatsByLevel;
     
+    public String timeFormat(TCResultItem result){
+        double millisec = Double.parseDouble(result.toString());
+        int sec = millisec/1000;
+        int min = sec/60;
+        sec %= 60;
+        return min + "mins " + sec + "secs";
+    }
+    
     public String autoFormat(TCResultItem result){
         switch(result.getType()){
             case TCResultItem.DOUBLE:
