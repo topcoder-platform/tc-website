@@ -59,6 +59,19 @@
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
 
 <!-- 2002 -->
+                            <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2003</font></td></tr>
+                            
+                            <tr><td class="newsText"><A href="http://www.sdtimes.com/cols/industrywatch_078.htm" target="_blank">Battle royal for jobs</A> [May 15 - SD Times]</td></tr>
+
+                            <tr><td class="newsText"><A href="http://www.devx.com/Java/Article/12009" target="_blank">International Collegiate Programming Champion talks shop</A> [April 23 - DevX]</td></tr>
+
+                            <tr><td class="newsText"><A href="http://www.princeton.edu/~seasweb/eqnews/spring03/feature8.html" target="_blank">Newlyweds earn nest egg</A> [April 13 - Princeton EQuad News]</td></tr>
+
+                            <tr><td class="newsText"><A href="http://archives.seattletimes.nwsource.com/cgi-bin/texis.cgi/web/vortex/display?slug=smart010&amp;date=20030201&amp;query=PLU+Grad" target="_blank">Ex-slacker, PLU Grad is world's smartest guy </A> [February 2 - Seattle Times]</td></tr>
+
+                            <tr><td ><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
+        
+<!-- 2002 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2002</font></td></tr>
                             
                             <tr><td class="newsText"><A href="http://www.computerworld.com/careertopics/careers/story/0,10801,76488,00.html" target="_blank">Need Coders?</A> [December 9 - Computerworld]</td></tr>
