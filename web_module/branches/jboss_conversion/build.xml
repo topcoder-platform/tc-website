@@ -876,6 +876,7 @@
                  <include name="com/topcoder/security/**/*.class"/>
                  <include name="com/topcoder/common/web/util/Data.class"/>
                  <include name="com/topcoder/common/web/render/*.class"/>
+                 <include name="com/topcoder/web/privatelabel/model/Base.class"/>
                  <include name="com/topcoder/web/privatelabel/model/DemographicAnswer.class"/>
                  <include name="com/topcoder/web/privatelabel/model/DemographicQuestion.class"/>
                  <include name="com/topcoder/web/privatelabel/model/DemographicResponse.class"/>
