@@ -1,4 +1,4 @@
-package com.topcoder.web.reg.servlet.jsp.tag;
+package com.topcoder.web.tces.servlet.jsp.tag;
 
 import java.beans.*;
 
