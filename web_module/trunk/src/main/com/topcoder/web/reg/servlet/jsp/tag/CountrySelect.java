@@ -12,10 +12,7 @@ import com.topcoder.ejb.DataCache.*;
 public class CountrySelect
     extends Select  
 {
-    public Country US;
-    public Country AUSTRALIA;
-    public Country CANADA;
-    public Country SEPARATOR;
+    private ArrayList eligibleCountries;
     
     public CountrySelect()
     {
@@ -25,10 +22,15 @@ public class CountrySelect
     
     void init()
     {
-        US = getCountry("840","United States");
-        AUSTRALIA = getCountry("036","Australia");
-        CANADA = getCountry("124","Canada");
-        SEPARATOR = getCountry(" ","-----------------------");
+        eligibleCountries = new ArrayList();
+        eligibleCountries.add(getCountry("840","United States"));
+        eligibleCountries.add(getCountry("036","Australia"));
+        eligibleCountries.add(getCountry("124","Canada"));
+        eligibleCountries.add(getCountry("156","China"));
+        eligibleCountries.add(getCountry("554","New Zealand"));
+        eligibleCountries.add(getCountry("826","United Kingdom"));
+        eligibleCountries.add(getCountry("372","Ireland"));
+        eligibleCountries.add(getCountry(" ","-----------------------"));
     }
     
     Country getCountry(String code, String name)
@@ -53,10 +55,7 @@ public class CountrySelect
         throws JspException
     {
         ArrayList countries = new ArrayList();
-        countries.add(US);
-        countries.add(AUSTRALIA);
-        countries.add(CANADA);
-        countries.add(SEPARATOR);
+        countries.addAll(eligibleCountries);
         Context context = null;
         try
         {
@@ -67,11 +66,7 @@ public class CountrySelect
             ArrayList temp = new ArrayList ( cacheCountries );
             for ( int i = 0; i < temp.size(); i++ ) {
               Country country = (Country) temp.get(i);
-              if ( 
-                country.equals(US)
-                || country.equals(AUSTRALIA)
-                || country.equals(CANADA)
-              ) {
+              if (eligibleCountries.contains(country)) {
                 temp.remove(i);
               }
             }
