@@ -65,11 +65,11 @@
                                         <td valign="middle" class="bodyText">
                                           <select name="menu" size="1" class="dropdown">
                                              <option SELECTED VALUE="#">Select a Size:</option>
-                                             <option value="http://promo.askallied.com/topcoder/index.cfm?nav=proddet&CatID=69450&PID=309341&name=Go%20Shopping">Small</option>
-                                             <option value="http://promo.askallied.com/topcoder/index.cfm?nav=proddet&CatID=69450&PID=309342&name=Go%20Shopping">Medium</option>
-                                             <option value="http://promo.askallied.com/topcoder/index.cfm?nav=proddet&CatID=69450&PID=309343&name=Go%20Shopping">Large</option>
-                                             <option value="http://promo.askallied.com/topcoder/index.cfm?nav=proddet&CatID=69450&PID=309344&name=Go%20Shopping">X-Large</option>
-                                             <option value="http://promo.askallied.com/topcoder/index.cfm?nav=proddet&CatID=69450&PID=309345&name=Go%20Shopping">XX-Large</option>
+                                             <option value="http://promo.askallied.com/topcoder/index.cfm?nav=proddet&CatID=69450&PID=309341&name=TopCoder%20Gear">Small</option>
+                                             <option value="http://promo.askallied.com/topcoder/index.cfm?nav=proddet&CatID=69450&PID=309342&name=TopCoder%20Gear">Medium</option>
+                                             <option value="http://promo.askallied.com/topcoder/index.cfm?nav=proddet&CatID=69450&PID=309343&name=TopCoder%20Gear">Large</option>
+                                             <option value="http://promo.askallied.com/topcoder/index.cfm?nav=proddet&CatID=69450&PID=309344&name=TopCoder%20Gear">X-Large</option>
+                                             <option value="http://promo.askallied.com/topcoder/index.cfm?nav=proddet&CatID=69450&PID=309345&name=TopCoder%20Gear">XX-Large</option>
                                           </select>
                                           </td>
                                           <td valign="middle" class="bodyText" width="100%">

@@ -64,7 +64,7 @@
                                         <td valign="middle" nowrap>$34.95</td>
                                         <td valign="middle" class="bodyText">
                                           <select name="menu" size="1" class="dropdown">
-                                             <option SELECTED VALUE="http://promo.askallied.com/topcoder/index.cfm?nav=proddet&CatID=69450&PID=309541&name=Go%20Shopping">One size fits all</option>
+                                             <option SELECTED VALUE="http://promo.askallied.com/topcoder/index.cfm?nav=proddet&CatID=69450&PID=309541&name=TopCoder%20Gear">One size fits all</option>
                                           </select>
                                           </td>
                                           <td valign="middle" class="bodyText" width="100%">
