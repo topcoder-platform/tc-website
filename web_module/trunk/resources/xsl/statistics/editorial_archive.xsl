@@ -55,6 +55,7 @@
 		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="2" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;Match Editorial Archive - 2002</TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2">&#160;<B>October</B></TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;10.29.02</TD><TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;SRM 118 - <A HREF="/index?t=statistics&amp;c=srm118_prob" CLASS="bodyGeneric">Problem Set &amp; Analysis</A></TD></TR>		
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;10.23.02</TD><TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;2002 Invitational Round #3 - <A HREF="/index?t=statistics&amp;c=invit02_r3_prob" CLASS="bodyGeneric">Problem Set &amp; Analysis</A></TD></TR>		
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;10.21.02</TD><TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;SRM 117 - <A HREF="/index?t=statistics&amp;c=srm117_prob" CLASS="bodyGeneric">Problem Set &amp; Analysis</A></TD></TR>		
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;10.16.02</TD><TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;2002 Invitational Round #2 - <A HREF="/index?t=statistics&amp;c=invit02_r2_prob" CLASS="bodyGeneric">Problem Set &amp; Analysis</A></TD></TR>		
