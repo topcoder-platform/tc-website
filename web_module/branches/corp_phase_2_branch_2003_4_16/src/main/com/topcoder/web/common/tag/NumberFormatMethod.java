@@ -6,8 +6,6 @@ import java.text.NumberFormat;
 import java.text.DecimalFormat;
 
 public class NumberFormatMethod implements ObjectFormatMethod {
-    private String format; // the format string
-
     /* the SimpleDateFormat to use to format numbers */
     private NumberFormat nf;
 
@@ -31,7 +29,6 @@ public class NumberFormatMethod implements ObjectFormatMethod {
         if (!(obj instanceof Number)) {
             throw new IllegalArgumentException("expected Number");
         }
-
         return format((Number)obj);
     }
 }
