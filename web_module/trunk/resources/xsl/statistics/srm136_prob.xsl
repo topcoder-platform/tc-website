@@ -205,7 +205,7 @@ Used as: Division 1 - Level 2:
     approach would work here also.  We can keep a set of runs found so far, and if a run is super set of a run
     already found, remove the previous one, and if a run is a subset of a run already found, don't add it.  A
     number of other methods will also work, including recursion, or brute forcing over all possible runs that a
-    hand might have.  Flushes are pretty simple, as they always involve cards 1 through 4.  We just have to check if card 0 is also part of a flush, and add 1 if it is.  Last, and least, is his nobs.  Simply check all the cards to see if they are the same suit as the starter.
+    hand might have.  Flushes are pretty simple, as they always involve cards 1 through 4.  We just have to check if card 0 is also part of a flush, and add 1 if it is.  Last, and least, is his nobs.  Simply check all the cards but the starter to see if they are jacks of the same suit as the starter.
 </p><font size="+2"><b>PrefixSynchronization</b></font><BR/>
 Used as: Division 1 - Level 3:
 <blockquote>
@@ -247,6 +247,7 @@ Used as: Division 1 - Level 3:
 <pre>
 #include &lt;string&gt;
 #include &lt;vector&gt;
+#include &lt;iostream&gt;
 #include &lt;map&gt;
 using namespace std;
 class PrefixSynchronization {
@@ -260,12 +261,11 @@ string shortest(vector &lt;string&gt; codewords) {
 			pos[i] |= 1&lt;&lt;j;
 	}
 	vector&lt;vector&lt;int&gt; &gt;queue;
-	vector&lt;long long&gt; seq;
+	vector&lt;string&gt; seq;
 	vector&lt;int&gt; length;
 	map&lt;vector&lt;int&gt;,int&gt; cache;
 	queue.push_back(pos);
-	length.push_back(0);
-	seq.push_back(0);
+	seq.push_back("");
 	int h = 0;
 	while(queue.size()!=h){
 		vector&lt;int&gt; p = queue[h];
@@ -290,24 +290,17 @@ string shortest(vector &lt;string&gt; codewords) {
 			if(!cache[n]){
 				cache[n] = 1;
 				queue.push_back(n);
-				seq.push_back((seq[h] &lt;&lt; 1) + (ch-'0'));
-				length.push_back(length[h]+1);
+				seq.push_back(seq[h] + ch);
 				if(done){
 					int t = seq.size()-1;
-					return tos(seq[t],length[t]);
+					cout &lt;&lt; t &lt;&lt; endl;
+					return seq[t];
 				}
 			}
 		}
 		h++;
 	}
 	return "NONE";
-}
-string tos(long n, int len){
-	string ret = "";
-	for(int i = len-1; i&gt;=0; i--){
-		ret += (n &amp; (1L&lt;&lt;i))&gt;0?"1":"0";
-	}
-	return ret;
 }
 };
 </pre>
