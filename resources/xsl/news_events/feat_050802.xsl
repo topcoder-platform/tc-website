@@ -53,63 +53,289 @@
 					<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#FFFFFF">
 						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="21" BORDER="0"/></TD></TR>						
 						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2">
-<P><FONT SIZE="5" COLOR="#000000" FACE="tahoma, verdana"><B>The Women of TopCoder</B></FONT><BR/>
-<I>Few in Numbers, Not in Ability</I><BR/><BR/>
-Wednesday, May 1, 2002<BR/>
+<!-- <IMG SRC="/i/f/feat_050102_tn3.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="right" BORDER="0"/> -->
+
+<P><FONT SIZE="5" COLOR="#000000" FACE="tahoma, verdana"><B>Headline here</B></FONT><BR/>
+<I>Subhead here</I><BR/><BR/>
+Wednesday, May 8, 2002<BR/>
 By&#160;Adam Loss,<I>TopCoder Staff Writer</I><BR/></P>
-<P>I was walking around the mall recently and remembered that my young female cousin would be celebrating a birthday very soon.  So, I walked into a computer 
-games store and thought I'd buy her present there.  Receiving at least one instant message a day from her saying "Wazzupp!!!", I know she likes to spend 
-time on the computer, and buying her a game to keep her occupied, would save me from replying with a more colorful comment than my usual, "I'm working".  
-Looking at such titles as: Dungeon Siege, Resident Evil, and Bloody Roar 3, I noticed that most of the games involved blood and guts, not the most 
-attractive gift for a young girl.  This brought me to a stark realization, computers just aren't marketed and targeted toward girls when they are 
-youngsters, which consequently has produced a very small number of female programmers.</P>
-<P>"I think that a lot of women don't code because they didn't get into computers at an early age," said <B>try17</B>.  "In the past, there were not many computer 
-games that were geared toward little girls; whereas, boys had choices in action/adventure games."</P>
 
-<P><B>"Guys Don't Date Geeky Girls"</B></P>
 
-<P><IMG SRC="/i/f/feat_050102_tn3.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="right" BORDER="0"/>Even though many of us flip the television channels when a commercial appears, it's very easy to ascertain that certain items such as: make-up kits, stuffed animals and Barbie dolls are targeted toward little girls, while sports equipment, remote control cars and action/adventure and sports computer games have little boys written all over them.  Both <B>pearl</B> and <B>polgara</B>, two of TopCoder's top-rated female members mentioned society as the main reason computers and programming aren't more prevalent in the lives of girls.  "I think girls are pushed to go into other things by society and peers," mentioned <B>pearl</B>, while <B>polgara</B> added, "Society does not encourage women to be coders".</P>
-<P>"From an early age, women are discouraged from appearing to be too smart, and not encouraged to go into science, math or computing fields," continued <B>polgara</B>.  "I showed equal aptitude in arts and science areas, but was told by my high school guidance counselor to study English, because I had a better chance at getting a job, as a woman."</P>
-<P>"In general, women are not encouraged to consider engineering fields whereas men are," mentioned <B>jgrau</B>.  "You always hear about how men are so good at things like math and engineering, but people don't talk about it being for women."</P>
-<P>Camryn Manheim of the television show The Practice proudly exclaimed, "This is for all the fat people!" after winning the award for Best Supporting Actress in a Television Series (Drama) at the Golden Globes in 1999.  That remark sparked considerable conversation and made it very apparent that above being thin, sexy, and beautiful, talent is the key to becoming a success and being recognized and rewarded in your field.  Strangely, that same similarity seems to exist in the computer-programming world, where females were thought to be hiding behind their computers because they were assumed as ugly.  "Role models for women, shown by TV and media, are rarely ever programmers," adds <B>polgara</B>.  "Women don't see themselves as becoming programmers and still being able to retain their femininity and attractiveness.  At age 15, my friends told me that I should stop doing so well in math and science, because 'guys don't date geeky girls'.  It is difficult to ignore that message, when it is constantly reinforced - including by guys in general who don't date geeky or girls who are perceived to be more intelligent then themselves."</P>
+<IMG SRC="/i/clear.gif" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="right" BORDER="0"/>
 
-<P><B>Not Until You're Older!</B></P>
+<P>
+Everyone remembers the 1980's don't they?  The big hair, the Members Only jackets, 
+the leg warmers, carrying "Boom-boxes" on your shoulder, Molly Ringwald in every movie, and 
+those damn Rubik's Cubes.  The challenge was to try and return the six-sided cube to its original 
+form by having all of the like-colored squares on the same side.  These little cubes had the whole 
+world, from infants to grandparents, captivated.  While solving the Rubik's Cube provided one with 
+a God-like mystique, some who consistently failed grew frustrated and quit, while others just keep 
+trying for the fun of it.
+</P>
 
-<P>If you ask professional hockey players when they started playing, most would respond with either age three or four.  Friends of mine from Ontario and Alberta can remember learning to skate before they could walk, and playing in the so-called IHL (Infant Hockey League).  Developing your skills at a young age gives you a decided competitive advantage against your contemporaries who pick it up at an advanced age.  This is one of the predominant reasons that the majority of professional hockey players are Canadian.</P>
-<P>Naturally, being led to different activities as young children, many female coders were introduced to the computer and to programming at a much older age than their male counterparts.  Whereas top male members like <B>zoidal</B> and <B>milhouse</B> began coding as soon as they got out of their diapers at ages four and five, the majority of female members had their introduction to the world of programming during their teenage years, and some didn't start until their 20's.  "At a young age, females are more intended to do different things, like dancing and painting, instead of coding," mentioned <B>Arremoon</B>.</P>
-<P>"I was about 13 years old and it was in Basic," said <B>sosonel</B>.</P>
-<P>"It would've been freshman year in college, so I was 18," mentioned <B>dana</B>.  "It was probably PL/I."</P>
-<P>"I was 19," proclaimed <B>try17</B>.  "I wrote a 'Hello, World' program in C for class."</P>
-<P>Those quotes explain the fact why there are only 10 females among TopCoder's top-500 rated members.  An encouraging sign, however, is that the highest rated female member, <B>moira</B> (1790), is ranked 100th overall, with <B>dana</B>, <B>Arremoon</B>, and <B>cleverbb</B> not that far behind in the rankings ladder.</P>
-<P><B>jamieb100</B> is one of the exceptions to the female trend, as she began programming at age nine.  "In elementary school I found out that all Apple computers around had a programming environment built in if you press 'control-reset'.  The cursor would be at a little bracket (]) and you could just program in Basic.  I thought that was kind of neat."</P>
-<P>The common theme for how women got involved with programming was a love for, and aptitude in, math and problem solving.  "I always loved math and solving problems, said <B>pearl</B>, while <B>jamieb100</B> mentioned, "I've always liked math, because it was more like a puzzle than any other part of academics."  <B>jgrau</B> was persuaded by a friend of her older brother to take a programming course.  "I'd always been good at things like math and puzzle solving, so it was no surprise I got hooked on programming."</P>
+<P>
+That same pattern seems to happen in TopCoder's Single Round Matches.  Coders like 
+<A HREF="/stat?c=member_profile&amp;cr=152073" CLASS="bodyGeneric">NDBronson</A>, 
+<A HREF="/stat?c=member_profile&amp;cr=114853" CLASS="bodyGeneric">dmwright</A> and 
+<A HREF="/stat?c=member_profile&amp;cr=114443" CLASS="bodyGeneric">jonmac</A>
+ have achieved legendary status per their enormous success.  The three have 
+combined to win their respective rooms over 80 times, each has made an appearance in the finals 
+of one of TopCoder's three major tournaments, with <B>jonmac</B> and 
+<B>dmwright</B> winning one apiece, and there combined winnings are approaching $400,000.  Sure, the most obvious answer to why they do 
+so well is that they are very talented and brilliant coders.  However, they also put in their 
+time by practicing and perfecting their skills in the twice-weekly Single Round Matches.
+</P>
 
-<P><B>From You Can't Do That to R-E-S-P-E-C-T</B></P>
+<P>
+What about the majority of the coders, though?  The ones who put in just as much time 
+practicing and competing, but can't seem to win their rooms consistently to build their 
+ratings, and have been mired in Division-II for a considerable time.  Why do they continue
+ to compete?  Or simply:
+</P>
 
-<P><IMG SRC="/i/f/feat_050102_tn1.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/>Discrimination often plays a factor in any subject matter that involves gender.  When it comes to female programming, however, it is surprisingly a non-issue.  "I think many of the people I've been in the same room with didn't even realize I was a girl," said <B>sosonel</B>.</P>
-<P>"No" or "Absolutely not," was the reply I got when I asked <B>try17</B>, <B>dana</B>, and <B>jamieb100</B> about male-generated discrimination.  <B>jamieb100</B> added, "I think people gave me a lot of credit for being in a male dominated discipline.  In the work force, I've been told that it's harder for a female to push ahead in her career - you have to be REALLY good to get recognized comparatively.  I don't honestly think it's that big of a deal though.  I think like any discrimination, if you concentrate on it, it seems more prevalent, but if you just forget about it, it won't bother you."</P>
-<P>"I've never met a good female programmer" and "women should stay home and program their kids" were some of the foul comments directed towards <B>polgara</B> in her first job out of school.  "I complained to my manager, and the comments stopped," she said.  "But it was still uncomfortable, because I knew the guys still felt the same way, even if nothing was said aloud.  It was made bearable though, by the respect and camaraderie from most of the other coders."</P>
-<P><B>jgrau</B> happened to be a victim of same-sex discrimination.  "Strangely enough, the most degrading feeling I ever had came from a fellow female programmer who made the assumption that the assignments would be harder for me because I was female.  I, of course, proved otherwise."</P>
+<P>
+<B>What's their motivation?</B>
+</P>
 
-<P><B>Where Do They Find The Time?</B></P>
+<P>
+The commonalities to that query were the challenge, the pressure, and a love of coding. 
+ "I keep competing because I see myself getting better and learning how to use the more
+  advanced features, and on occasion show the skills I was taught and know I have,"
+   said <A HREF="/stat?c=member_profile&amp;cr=261283" CLASS="bodyGeneric">Fuzzyb18</A>,
+    who has competed in 26 matches and has a rating of 668.  "Anything 
+   that you can do to improve yourself should keep you motivated until you can do it right."
+</P>
 
-<P>"We do more before 9am than most people do all day" is the popular credo of the United States Army.  That statement might as well be applied to the American Woman as well.  Wake up. Shower. Get the kids up.  Get the kids dressed. Prepare breakfast. Clean-up breakfast.  Make the kid's lunch.  Drive the kids to school.  All of this usually happens before 9am, Monday through Friday, and doesn't even include: Clean the house.  Do the laundry.  Prepare dinner.  Help the kids with homework, etc...  Although there are many more Mr. Moms these days, the majority of the housework remains a responsibility of the woman.  Along with the many adjectives that can be used to describe the chore of housework, the one that sticks out is time-consuming.  Time-consuming is a common word when talking about computer-programming as well.  Just ask the TopCoder development staff, who can regularly watch CBS' The Late, Late Show and The Early Show right from the TopCoder office, or <B>dana</B>, who has been working "about 70 hours a week", or <B>pearl</B>, who besides her job, "cares for her two young sons, is a cub scout den leader, volunteers at their schools, and helps with the schools web site."  These life activities can lead to very few moments to relax and have time to yourself, let alone find the time to compete and build your rating in a TopCoder Single Round Match.</P>
-<P>"Women tend to have less free time (caring for house, kids, etc.) to participate in 'Fun' stuff," mentioned polgara.  "Men are less limited by this factor.  Perhaps the chance to win a babysitting service might be effective."</P>
-<P>"Once someone becomes a parent, their #1 priority becomes their children," said <B>pearl</B>.  "The reason I work only part-time is so that I can be there for my sons.  Most of the matches take place in the evenings, when I am busy helping the kids with homework, dinner, etc.  Luckily, they are great kids and are excited about me competing!  However, sometimes the scheduling will make it impossible for me to compete.  For instance, the night of Single Round Match 84 (Tuesday, April 30), my older son has an awards presentation at his school at 7.  If it runs late, I will miss the registration period and the match."</P>
+<P>
+"I just enjoy the stress of writing good code in short time," mentioned 
+<A HREF="/stat?c=member_profile&amp;cr=156742" CLASS="bodyGeneric">ahmedf</A>, who has a rating of 933 through 36 matches.
+</P>
 
-<P><B>The TopCoder Experience</B></P>
+<P>
+"It's not really for the rating, but rather its more for the experience," 
+added <A HREF="/stat?c=member_profile&amp;cr=265216" CLASS="bodyGeneric">darkphantom</A>
+ (870 rating in 20 matches).  "I mean I know it would be 
+nice to win some money every match, because every college kid needs money, 
+and bothering your parents is a hassle.  I'd rather tell them I won $46 last night."
+</P>
 
-<P>The reasons women get involved in TopCoder competitions?  Same as the guys.  It's fun, it's a learning experience, and it's enjoyable...oh yeah, the cash too.</P>
-<P>"The problems looked interesting," said <B>Arremoon</B>.  "And looking at other people's code, I realized that there are plenty of good coders here.  It's fun to compete with good ones and get myself improved.  Also, the cash prizes are a good incentive."</P>
-<P>"To try to learn more Java," proclaimed <B>try17</B>.</P>
-<P>"I thought it would be a good way to practice my coding, possibly win some money if I was lucky," mentioned <B>jamieb100</B>.</P>
-<P>"I would like to get more proficient in Java and C++," said <B>pearl</B>.</P>
+<P>
+So, having a low rating and scarce TopCoder bank account must be frustrating, right?
+</P>
 
-<P><B>More, More, More</B></P>
-<P>The TopCoder membership numbers continue to rise.  Professionals.  Collegians.  Citizens from the USA, Canada, India, Australia and around the world continue to join.  The thing is, most of TopCoder's new members are men.  So, how does TopCoder attract more female members?</P>
-<P>Besides comments from <B>try17</B> and <B>jamieb100</B> that thought this type of feature was a good idea, and others who had no idea on how to increase the membership numbers of women, <B>polgara</B> provided perhaps the most interesting and clever idea.</P>
-<P>"I enjoy shopping greatly.  Sometimes the notion of a shopping gift certificate, is more fun and a bigger incentive than money.  For those few occasions when I have won money at TopCoder, I've felt that it should be banked and something sensible done with it.  If you had given me a certificate for Zales jewelry, I could get something more frivolous.  Sometimes a nice pair of diamond earrings is more spurring (to me) than $500 - check out the success of Mary Kay.  Of course, if you do something like this, then you run the risk of being called sexist, but it would make me happy."</P>
-<P>Women.</P>
+<P>
+"Yeah, it is frustrating, but from the standpoint that I know I am better; 
+yet everyone else around me is just as good if not better, so you take your
+ wins with your losses and keep pushing on," continued <B>Fuzzyb18</B>, while <B>ahmedf</B>
+  added, "It is!  But then, it's lonely at the top, isn't it?  And then, there's
+   always this drive to go up in the rankings if you are low.  Hopefully I will make it some day!"
+</P>
+
+<P>
+<B>Glastonbury...We Have A Problem</B>
+</P>
+
+<P>
+The low-rated coders seem to be into TopCoder for all the right reasons, so what's the problem?
+</P>
+
+<P>
+Well, first off, some of TopCoder's members are distance runners, where 
+TopCoder competitions are more conducive to sprinters.
+</P>
+
+<P>
+"Twenty percent of the time I simply could not do the problem in time," said 
+<A HREF="/stat?c=member_profile&amp;cr=260502" CLASS="bodyGeneric">vigenere</A>, who has a 771 rating in 21 matches.
+</P>
+
+<P>
+<A HREF="/stat?c=member_profile&amp;cr=151719" CLASS="bodyGeneric">bitbucket43</A>,
+ a veteran of 48 matches with a 951 rating, and edragon 
+(23 matches, 714 rating) are more like painters than sketch artists.  
+"My TopCoder rating doesn't reflect my knowledge and experience," 
+stated <B>bitbucket43</B>.  "Trying to solve three problems in 75 minutes 
+doesn't correlate to what I do on a regular basis.  I'm more concerned 
+with end-conditions and ensuring the correctness of the solution.  
+That approach tends to work against me in competition."
+</P>
+
+<P>
+"I don't work as well in a quick paced environment," declared edragon.  
+"I would like to have the entire problem statement analyzed, documented
+ and completely understood before I go for it."
+</P>
+
+<P>
+More often, its just making those stupid little mistakes that you don't 
+realize until you've just submitted.  <B>Fuzzyb18</B> summed it up by admitting 
+what many mentioned, "A lot of my errors are caused by simple typos, or 
+forgetting to put lines of code inside brackets."
+</P>
+
+<P>
+<B>"Quitters Never Win, And Winners Never Quit"</B>
+</P>
+
+<P>
+Quit?  Anybody can do that.  Takes no talent.  Takes no guts.  
+It's exactly what your opponents hope you will do.
+</P>
+
+<P>
+After performing at a sub-par level for so long, it must have crossed 
+the minds of these coders.  "Quit, what's that?" asked <B>ahmedf</B>, while 
+<B>Fuzzyb18</B> added, "Never, why quit, there is no shame in not being the best," 
+and <B>vigenere</B> summed it up by declaring, "Quitters never win, and winners never quit."
+</P>
+
+<P>
+Others have though about it, however. 
+</P>
+
+<P>
+"Only once," answered <B>bitbucket43</B>.  "After a particularly exasperating 
+competition with many challenges to the problem wording and test cases. 
+ Since then I've kicked back and let things develop as they will.  Some 
+ nights you get burned, other times it works for you."
+</P>
+
+<P>
+When asked if he ever thought about quitting, <A HREF="/stat?c=member_profile&amp;cr=156420" CLASS="bodyGeneric">edragon</A>
+ admitted, "A few 
+times, but I generally see what I did wrong and I try the next time to do 
+it better."  He then jokingly added, "Most nights on TopCoder I seem to 
+feel like I should switch my career choice and go into farming."
+</P>
+
+<P>
+<B>Getting Better</B>
+</P>
+
+<P>
+There is an adjustment period with almost anything you do.  Some 
+people can pick up an activity without explanation and excel, while 
+many others just don't grasp concepts as quickly.  Just think about 
+all of those athletes who spend a few years in the minor leagues to 
+develop their skills for a few years before being called-up to the majors 
+and starring, or your first few months of high school or a new job.
+</P>
+
+<P>
+Who's to say that today's low-rated member might not be tomorrow's 
+ultimate "top-coder"?
+</P>
+
+<P>
+"I feel like competing in TopCoder has made me a better and more 
+efficient coder, in that when I code solutions to some of my problems
+ in class I'm more careful at catching mistakes before I send it to
+  compile, and I have also noticed that my code compiles with fewer errors nowadays," said <B>darkphantom</B>.
+</P>
+
+<P>
+"I see myself learning new tricks of the trade, new functions, and new 
+ways to approach problems," added <B>Fuzzyb18</B>, while <B>edragon</B> mentioned, 
+"Im a much faster coder I think and I've definitely learned a lot."
+</P>
+
+<P>
+<B>Help From Above</B>
+</P>
+
+<P>
+Coming to TopCoder, Inc. from a collegiate and professional sports 
+background was quite a culture shock for me.  I had never heard of 
+an algorithm, and to me, Java was coffee, not a programming language.  
+What I needed was an education in what a computer programming company 
+was all about, and I received that by conversing with my superiors and 
+our development team.
+</P>
+
+<P>
+The great thing about the hour and a half registration period before 
+TopCoder Single Round Matches, is that it brings over 600 programmers 
+together and gives them the ability to converse with each other, share 
+ideas, make recommendations, and most importantly ask for help.
+</P>
+
+<P>
+<B>darkphantom</B> took full advantage of this recently when he chatted 
+with <B>NDBronson</B>, TopCoder's only member to ever go over 3000 rating points.
+</P>
+
+<P>
+"I asked him how it is that he gets the solutions to all of 
+the problems correctly, while it takes me at least 10 to 15 minutes just 
+to figure out what the question in Division-I is asking.  He responded by
+saying that everybody's brain is wired differently for different reasons. 
+ He's right.  Everybody has his or her strengths and weaknesses.  I would
+  much rather actually be able to get a solution to the problems then none at all.
+</P>
+
+<P>
+"Almost every competition night I talk to other coders before or after the
+ contest, often people wondering how to improve," said <B>NDBronson</B>.  "I enjoy 
+ talking to them, but I'm don't have any magic techniques or silver bullets.  
+ I welcome anybody but with the disclaimer that I am not very good at multitasking,
+  so I find it difficult to carry on multiple chat conversations simultaneously."
+</P>
+
+<P>
+"I think that regardless of rating the epiphany of understanding that comes 
+with an elegant solution is still
+addictive.  Sometimes you get it by yourself and sometimes you get it by looking
+ at somebody else's code, but either way it is still a shiny intellectual toy."
+</P>
+
+<P>
+2002 Sun Microsystems and TopCoder Collegiate Challenge champion <B>dmwright</B> 
+admitted that members haven't come to him with questions in the past, but 
+he is willing to help out and answer questions.  Just be kind in the near 
+future, his thesis is due soon, and "it's getting scary."
+</P>
+
+<P>
+"I always go through their code to find better ways of doing things," said 
+<B>ahmedf</B>, about reviewing the code of Division-I members.  "Just a look at 
+their code and you know why they are there!"
+</P>
+
+<P>
+"I am learning problem processing, the ability to take a process and break 
+it down into various smaller pieces," mentioned <B>Fuzzyb18</B>.  "Some of the syntax 
+is confusing but the more that is observed, the better I will understand it."
+</P>
+
+<P>
+<B>"Keep Chugging Along"</B>
+</P>
+
+<P>
+Sure, maybe you don't want to listen to your parent's advice when it comes 
+to dating and they want you to take out the son or daughter of the family 
+friend, or clothing, when your mom tries to dress you like "Little Lord 
+Fauntleroy", or music, when they think Lawrence Welk is just the coolest,
+ but if you're a veteran coder with a low rating just like these members, 
+ you might just want to heed their advice.
+</P>
+
+<P>
+"I go to the Division-I practice rooms and try to work on those problems 
+rather than the Division-II problems because I know that if I can get the Division-I problems,
+ Division-II should be a breeze," mentioned <B>darkphantom</B>.
+</P>
+
+<P>
+"Look how the other guy did it, study it, understand it, and add it to your style of coding,"
+ recommends <B>vigenere</B>.  "Then it will become your style as well.  Integrate your mind."
+</P>
+
+<P>
+"Keep chugging along and take pride," proclaims <B>Fuzzyb18</B>.  "Study your own code and find what 
+went wrong."
+</P>
+
 <P><A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">Have an idea for the weekly feature?</A></P>
 
 						</TD></TR>                                                                 
