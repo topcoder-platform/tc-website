@@ -46,7 +46,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
         setIsNextPageInContext(true);
     }
 
-    private void commit(SimpleRegInfo regInfo) throws TCWebException {
+    protected void commit(SimpleRegInfo regInfo) throws TCWebException {
         UserTransaction tx = null;
 
         UserPrincipal newUser = null;
@@ -77,7 +77,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
         }
     }
 
-    private UserPrincipal store(SimpleRegInfo regInfo) throws Exception {
+    protected UserPrincipal store(SimpleRegInfo regInfo) throws Exception {
         InitialContext ctx = null;
         try {
             ctx = new InitialContext();
