@@ -68,7 +68,7 @@
 
             <p>ambrose was the only competitor to open the level three problem next.  After four minutes of viewing the problem statement, he opted for the 500-pointer instead.  A short 82 seconds later, tomek submitted his solution for the same problem.  At this point in the game, bladerunner and madking began to lag behind the leader.  bladerunner submitted his level two solution with half an hour left in the coding phase; madking 15 minutes after that.</p>
 
-            <p>With 8Pi minutes to spare, tomek made his final submission, sealing the win.  Lastly, with one minute left to code, ambrose submitted his level two solution.</p>
+            <p>With 8-1/2 minutes to spare, tomek made his final submission, sealing the win.  Lastly, with one minute left to code, ambrose submitted his level two solution.</p>
 
             <p>Once again, the quality of the semi-finalists' submissions was evidenced by the lack of activity during the challenge phase.  All solutions passed the system tests.</p>
 
