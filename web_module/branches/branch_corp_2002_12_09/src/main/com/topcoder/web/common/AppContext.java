@@ -9,7 +9,6 @@ import java.util.Properties;
 
 import javax.ejb.CreateException;
 import javax.naming.InitialContext;
-import javax.naming.NamingEnumeration;
 import javax.naming.NamingException;
 import javax.transaction.NotSupportedException;
 import javax.transaction.SystemException;
@@ -73,16 +72,8 @@ public class AppContext {
     throws NamingException, CreateException, RemoteException
     {
         InitialContext ic = getSecurityContext(); 
-        log.debug("initial security context: "+ic);
-
-        NamingEnumeration e = (NamingEnumeration)ic.list("");
-        while(e.hasMoreElements()) {
-            log.debug(e.nextElement());
-        }
-        
         Object  l = ic.lookup(LoginRemoteHome.EJB_REF_NAME);
-        log.debug("LoginRemoteHome: "+l);
-//        ic.close();
+        ic.close();
         return ((LoginRemoteHome) l).create();
     }
     
