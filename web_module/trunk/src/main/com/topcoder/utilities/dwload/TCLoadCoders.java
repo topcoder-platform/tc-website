@@ -1282,7 +1282,6 @@ public class TCLoadCoders extends TCLoad {
             query.append(      " ,s.short_name ");
             query.append( " FROM school s ");
             query.append(" WHERE s.modify_date > ?");
-            query.append(  " AND s.user_id = 0");
             psSel = prepareStatement(query.toString(), SOURCE_DB);
             psSel.setTimestamp(1, fLastLogTime);
 
