@@ -12,20 +12,7 @@
 
 <table width="100%" valign=top cellpadding=0 cellspacing=0 border=0 class=bodyFrame>
 	<tr>
-		<td colspan=4 align=center>
-			<img src="/i/screening/amazon/amazon_118w.gif" border=0 />
-			<b class="h3color">Your</b>: 
-			<a href="http://www.amazon.com/exec/obidos/tg/stores/your/store-home/-/0/ref=cs_top_nav_ys/104-0636853-4258328">Store</a>
-			&#124;
-			<a href="http://www.amazon.com/exec/obidos/account-access-login/ref=cs_top_nav_ya/104-0636853-4258328">Account</a>
-			&#124;
-			<a href="http://www.amazon.com/gp/registry/registry.html/ref=cs_top_nav_wl/104-0636853-4258328?type=wishlist">Wish List</a>
-			&#124;
-			<a href="http://www.amazon.com/gp/cart/view.html/ref=cs_top_nav_sc/104-0636853-4258328"><img src="http://g-images.amazon.com/images/G/01/x-locale/common/icons/topnav-cart.gif" width=19 height=16 alt=Cart border=0 align=absmiddle></A> <A href=http://www.amazon.com/gp/cart/view.html/ref=cs_top_nav_sc/104-0636853-4258328>Cart</a> &#124;
-			<a href="http://www.amazon.com/exec/obidos/tg/stores/static/-/goldbox/index/ref=cs_top_nav_gb/104-0636853-4258328"><img src="http://g-images.amazon.com/images/G/01/x-locale/common/icons/topnav-goldbox.gif" width=19 height=17 alt=Gold Box border=0 align=absmiddle></a>
-			&#124;
-			<a href="http://www.amazon.com/exec/obidos/tg/browse/-/508510/ref=cs_top_nav_hp/104-0636853-4258328">Help</a>
-		</td>
+		<td colspan=4 align=center valign=bottom><jsp:include page="head.jsp" /></td>
 	</tr>
 	<tr>
 		<td class=blueBar colspan=4><img src="/i/clear.gif" width=1 height=29 border=0/></td>
