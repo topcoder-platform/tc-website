@@ -14,7 +14,7 @@
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <% ResultSetContainer projectDetail = (ResultSetContainer) request.getAttribute("projectDetail"); %>
 <% List reviewerList = (List) request.getAttribute("reviewerList"); %>
-<% RBoardApplication rba = (RBoardApplication) BaseProcessor.createEJB(getInitialContext(), RBoardApplication.class); %>
+<% RBoardApplication rba = (RBoardApplication) BaseProcessor.createEJB(BaseProcessor.getInitialContext(), RBoardApplication.class); %>
 <head>
 <title>Open Component Projects Available for Review</title>
 
