@@ -47,7 +47,7 @@ public class CampaignDetailTask extends BaseTask implements Task, Serializable {
         this.campaignName = campaignName;
     }
 
-    public String getCampiagnName() {
+    public String getCampaignName() {
         return campaignName;
     }
 

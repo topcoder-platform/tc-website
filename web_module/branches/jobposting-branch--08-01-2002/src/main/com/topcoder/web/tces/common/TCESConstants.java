@@ -46,7 +46,7 @@ public class TCESConstants {
 
         STEP_PARAM = servletConfig.getInitParameter("step_param");
         JOB_ID_PARAM = servletConfig.getInitParameter("job_id_param");
-        USER_ID_PARAM = servletConfig.getInitParameter("job_id_param");
+        USER_ID_PARAM = servletConfig.getInitParameter("user_id_param");
         HANDLE_PARAM = servletConfig.getInitParameter("handle_param");
         PASSWORD_PARAM = servletConfig.getInitParameter("password_param");
 
