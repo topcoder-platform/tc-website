@@ -53,10 +53,10 @@
             <TD BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
             <TD class="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
               <P ALIGN="center">
-                <A HREF="<%="/tces/tces?"+TCESConstants.TASK_PARAM+"="+TCESConstants.MAIN_TASK+"&"+TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>" class="statText">Main</A>
-                &gt;
-                <A HREF="<%="/tces/tces?"+TCESConstants.TASK_PARAM+"="+TCESConstants.CAMPAIGN_DETAIL_TASK+"&"+TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>" class="statText">Main</A>
-              </P> 
+                <tces:trailIterator id="trailItem" trailList="<%=CampaignDetailTask.getTrail()%>">
+                  <A HREF="<jsp:getProperty name="trailItem" property="href"/>" class="statText"><jsp:getProperty name="trailItem" property="name"/></A>
+                </tces:trailIterator>
+              </P>
               <P><B>Campaign Interest</B></P>
               
               <P>
