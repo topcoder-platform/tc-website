@@ -103,7 +103,7 @@
 
                       <TR>
                         <TD COLSPAN="3" ALIGN="left" class="bodyText">
-                            <center><BR/>All times are Eastern Time unless otherwise noted, click <a><xsl:attribute name="HREF">http://www.timeanddate.com/worldclock/fixedtime.html?day=<xsl:value-of select="/TC/SCHEDULE/Round/Details/day"/>&amp;month=<xsl:value-of select="/TC/SCHEDULE/Round/Details/month"/>&amp;year=<xsl:value-of select="/TC/SCHEDULE/Round/Details/year"/>&amp;hour=<xsl:value-of select="/TC/SCHEDULE/Round/Details/hour"/>&amp;min=<xsl:value-of select="/TC/SCHEDULE/Round/Details/minute"/>&amp;p1=179</xsl:attribute>here</a>
+                            <center><BR/>All times are Eastern Time unless otherwise noted, click <a><xsl:attribute name="HREF">http://www.timeanddate.com/worldclock/fixedtime.html?day=<xsl:value-of select="/TC/SCHEDULE/Round/Details/day"/>&amp;month=<xsl:value-of select="/TC/SCHEDULE/Round/Details/month"/>&amp;year=<xsl:value-of select="/TC/SCHEDULE/Round/Details/year"/>&amp;hour=<xsl:value-of select="/TC/SCHEDULE/Round/Details/hour"/>&amp;min=<xsl:value-of select="/TC/SCHEDULE/Round/Details/minute"/>&amp;&amp;sec=0&amp;p1=179</xsl:attribute>here</a>
                             to see when coding begins in other time zones.<br/><br/></center>
 
                             <xsl:choose>
