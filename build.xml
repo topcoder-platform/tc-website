@@ -5,6 +5,7 @@
    <property name="build"         value="build" />
    <property name="war.dir"       value="${build}/wars" />
    <property name="email.war.name"      value="email.war"/>
+   <property name="resume.war.name"     value="resume.war"/>
    <property name="tces.war.name" value="tces.war"/>
    <property name="stat.war.name" value="stat.war"/>
    <property name="ejb_jars"      value="${build}/ejb_jars" />
@@ -25,7 +26,7 @@
    <property name="Jive.jar"      value="${bin}/Jive.jar"/>
    <property name="servlets"      value="${build}/servlets" />
    <property name="web"           value="src/main/com/topcoder/web" />
-   <property name="public_html"   value="/opt/home/weblog5/weblogic1/tc_cluster/public_html" />
+   <property name="public_html"   value="/export/home/weblog5/weblogic1/tc_cluster/public_html" />
    <property environment="env"/>
 
    <property name="deprecation"   value="false" />
@@ -49,6 +50,9 @@
       <property name="webservlets"   value="com/topcoder/web/servlet" />
       <property name="pactsservlets" value="com/topcoder/web/pacts/servlet" />
       <property name="regservlets" value="com/topcoder/web/reg/servlet" />
+      <property name="resumeservlets" value="com/topcoder/web/resume/servlet" />
+      <property name="jobpostingservlets" value="com/topcoder/web/jobposting/servlet" />
+      <property name="tcesservlets" value="com/topcoder/web/tces/servlet" />
       <mkdir dir="${classes}" />
       <mkdir dir="${testclasses}" />
       <mkdir dir="${bin}" />
@@ -58,7 +62,9 @@
       <mkdir dir="${servlets}/${webservlets}" />
       <mkdir dir="${servlets}/${pactsservlets}" />
       <mkdir dir="${servlets}/${regservlets}" />
-     
+      <mkdir dir="${servlets}/${resumeservlets}" />
+      <mkdir dir="${servlets}/${jobpostingservlets}" />
+      <mkdir dir="${servlets}/${tcesservlets}" />
    </target>
    <target name="create_public_html">
       <mkdir dir="${public_html}/WEB-INF/lib" />
@@ -88,7 +94,7 @@
    <target name="full_deploy" depends="build_ejbs,deploy">
    </target>
 
-   <target name="deploy" depends="build_wars,servlets,jsp,moveStruts,moveReg,moveStats">
+   <target name="deploy" depends="build_wars,servlets,jsp,moveStruts,moveReg,moveStats,moveTCES">
    </target>
 
    <target name="servlets" depends="compile">
@@ -112,6 +118,27 @@
           <include name="*.class"/>
         </fileset>
       </move>
+      <move todir="${servlets}/${regservlets}">
+         <fileset dir="${classes}/${regservlets}" >
+                 <include name="*.class" />
+         </fileset>
+      </move>
+      <move todir="${servlets}/${resumeservlets}">
+         <fileset dir="${classes}/${resumeservlets}" >
+                 <include name="*.class" />
+         </fileset>
+      </move>
+      <move todir="${servlets}/${jobpostingservlets}">
+         <fileset dir="${classes}/${jobpostingservlets}" >
+                 <include name="*.class" />
+         </fileset>
+      </move>
+      <move todir="${servlets}/${tcesservlets}">
+         <fileset dir="${classes}/${tcesservlets}" >
+                 <include name="*.class" />
+         </fileset>
+      </move>
+>>>>>>> 1.55.2.17
    </target>
 
    <target name="moveStruts" depends="check_java_version,create_public_html">
@@ -161,6 +188,14 @@
       </copy>
    </target>
 
+   <target name="moveTCES" depends="check_java_version">
+      <copy todir="${public_html}/WEB-INF">
+         <fileset dir="resources/tces" >
+                 <include name="**/*.tld" />
+         </fileset>
+      </copy>
+   </target>
+
    <target name="jsp" depends="check_java_version">
       <property name="stat.trgt"     value="${public_html}/stat_jsp" />
       <property name="stat.src"      value="${web}/stat/servlet/jsp" />
@@ -174,6 +209,12 @@
       <property name="reg.src"       value="${web}/reg/servlet/jsp" />
       <property name="render.trgt"   value="${public_html}/cm" />
       <property name="render.src"    value="${web}/render/servlet/jsp" />
+      <property name="resume.trgt"   value="${public_html}/resume" />
+      <property name="resume.src"    value="${web}/resume/servlet/jsp" />
+      <property name="jobposting.trgt"      value="${public_html}/jobposting_jsp" />
+      <property name="jobposting.src"       value="${web}/jobposting/servlet/jsp" />
+      <property name="tces.trgt"      value="${public_html}/tces_jsp" />
+      <property name="tces.src"       value="${web}/tces/servlet/jsp" />
 
       <mkdir dir="${stat.trgt}" /> 
       <mkdir dir="${root.trgt}" />
@@ -181,6 +222,8 @@
       <mkdir dir="${project.trgt}" />
       <mkdir dir="${reg.trgt}" />
       <mkdir dir="${render.trgt}" />
+      <mkdir dir="${resume.trgt}" />
+      <mkdir dir="${jobposting.trgt}" />
 
       <copy todir="${stat.trgt}">
          <fileset dir="${stat.src}" >
@@ -209,6 +252,21 @@
       </copy>
       <copy todir="${render.trgt}">
          <fileset dir="${render.src}" >
+                 <include name="**/*.jsp" />
+         </fileset>
+      </copy>
+      <copy todir="${resume.trgt}">
+         <fileset dir="${resume.src}" >
+                 <include name="**/*.jsp" />
+         </fileset>
+      </copy>
+      <copy todir="${jobposting.trgt}">
+         <fileset dir="${jobposting.src}" >
+                 <include name="**/*.jsp" />
+         </fileset>
+      </copy>
+      <copy todir="${tces.trgt}">
+         <fileset dir="${tces.src}" >
                  <include name="**/*.jsp" />
          </fileset>
       </copy>
@@ -270,15 +328,27 @@
         <antcall target="package-EJB-ReportingBean"/>
         <antcall target="package-EJB-ProjectServicesBean"/>
         <antcall target="package-EJB-MPSQASServicesBean"/>
-        <antcall target="package-EJB-TCESServicesBean"/>
+        <antcall target="package-EJB-JobPostingServicesBean"/>
+        <antcall target="package-EJB-ResumeServicesBean"/>
    </target>
 
-<target name="package-EJB-TCESServicesBean" depends="compile,init-TCESServicesBean-properties,package-EJB-GenericBean"/>
+<target name="package-EJB-JobPostingServicesBean" depends="compile,init-JobPostingServicesBean-properties,package-EJB-GenericBean"/>
 
-<target name="init-TCESServicesBean-properties" >
-       <property name="bean.dir"          value="TCESServices" />
-        <property name="bean.jar.name"     value="TCESServices.jar" />
-        <property name="bean.pkg.dir"      value="com/topcoder/web/tces/ejb/${bean.dir}" />
+<target name="init-JobPostingServicesBean-properties" >
+       <property name="bean.dir"          value="JobPostingServices" />
+        <property name="bean.jar.name"     value="JobPostingServices.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/web/jobposting/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+   </target>
+
+<target name="package-EJB-ResumeServicesBean" depends="compile,init-ResumeServicesBean-properties,package-EJB-GenericBean"/>
+
+<target name="init-ResumeServicesBean-properties" >
+       <property name="bean.dir"          value="ResumeServices" />
+        <property name="bean.jar.name"     value="ResumeServices.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/web/resume/ejb/${bean.dir}" />
         <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
         <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
         <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
@@ -479,8 +549,9 @@
         <delete dir="${war.dir}"/>
         <mkdir  dir="${war.dir}"/>
         <antcall target="war_email"/>
-        <antcall target="war_tces"/>
+<!--        <antcall target="war_tces"/> -->
 <!--        <antcall target="war_stat"/> -->
+<!--        <antcall target="war_resume"/> -->
     </target>
     
 <!-- 
@@ -529,12 +600,33 @@
     </target>
     <target name="war_tces" depends="compile">
         <war warfile="${war.dir}/${tces.war.name}" webxml="${resources}/tces/web.xml">
+            <fileset dir="${java}/com/topcoder/web/tces/servlet/jsp">
+              <include name="**/*.jsp"/>
+            </fileset>            
+            <webinf dir="${resources}/tces">
+                <include name="tces-taglib.tld"/>
+            </webinf>            
+            <fileset dir="${java}/com/topcoder/web/jsp">
+              <include name="**/*.jsp"/>
+            </fileset>        
             <classes dir="${classes}">
-                <include name="com/topcoder/web/tces/common/*"/>
-                <include name="com/topcoder/web/tces/servlet/*"/>
+                <include name="com/topcoder/web/tces/common/**"/>
+                <include name="com/topcoder/web/tces/servlet/**"/>
+                <include name="com/topcoder/web/tces/bean/**"/>
             </classes>
         </war>
     </target>
+    <target name="war_resume" depends="compile">
+        <war warfile="${war.dir}/${resume.war.name}" webxml="${resources}/resume/web.xml">
+            <fileset dir="${java}/com/topcoder/web/resume/servlet/jsp">
+                <include name="**/*.jsp"/>
+            </fileset>
+            <classes dir="${classes}">
+                <include name="com/topcoder/web/resume/**"/>
+            </classes>
+        </war>
+    </target>
+
 
 
 </project>
