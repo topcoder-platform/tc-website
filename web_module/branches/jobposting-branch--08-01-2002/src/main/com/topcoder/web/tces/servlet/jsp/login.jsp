@@ -46,8 +46,12 @@
           <TR>
             <TD BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
             <TD class="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
-<BR><BR>
-<FORM NAME="=" METHOD="" onSubmit="">
+
+<% String message = (String) request.getAttribute("message"); %>
+<%= (message == null) ? "" : ("<p class='notice'>" + message + "</p>") %>
+
+<FORM NAME="=" METHOD="POST" ACTION="/tces/tces" onSubmit="">
+<INPUT TYPE="HIDDEN" NANE="c" VALUE="login">
                 <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="132" ALIGN="center">
                   <TR>
                     <TD CLASS="statTextBig" VALIGN="top" HEIGHT="14">User:</TD>

@@ -53,9 +53,8 @@ public class Controller extends HttpServlet {
                     " in request"));
             return;
 		} else if (command.equals("login")) {
-            getServletContext().getRequestDispatcher(
-                response.encodeURL("/campaign_interest.jsp")).forward(request, response);
-//            handleLogin(request, response);
+            request.setAttribute("message",new String("foo"));
+            //handleLogin(request, response);
         } else if (command.equals("job_posting") || command.equals("click_thru")) {
             String tempJobId = request.getParameter(TCESConstants.JOB_ID_KEY);
             String tempUserId = request.getParameter(TCESConstants.USER_ID_KEY);
@@ -121,8 +120,6 @@ public class Controller extends HttpServlet {
 
     private void handleLogin(HttpServletRequest request,
                              HttpServletResponse response) throws ServletException, IOException {
-
-
 
     }
 
