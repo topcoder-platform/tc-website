@@ -17,16 +17,16 @@ import	java.util.Enumeration;
 import	javax.ejb.*;
 import	javax.naming.*;
 import	javax.sql.DataSource;
-import	com.topcoder.web.TCES.ejb.Contact;
+import	com.topcoder.web.TCES.ejb.Contact2;
 import	com.topcoder.web.TCES.common.*;
 
 /**
- * This is the implementation of the Contact class.
+ * This is the implementation of the Contact2 class.
  * @see com.topcoder.web.TCES.ejb.Contact
  * @author Phil Selby, June 12th, 2002
  */
 
-public class ContactBean implements javax.ejb.SessionBean {
+public class Contact2Bean implements javax.ejb.SessionBean {
 
 	public SessionContext	context = null;
 	Coder	coderBean = null;

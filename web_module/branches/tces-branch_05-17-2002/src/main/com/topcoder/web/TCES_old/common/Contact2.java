@@ -5,11 +5,11 @@ import	java.rmi.RemoteException;
 import	com.topcoder.web.TCES.common.*;
 
 /**
- * This is the remote interface for the Contact class.
+ * This is the remote interface for the Contact2 class.
  * @author Phil Selby, June 12th, 2002
  */
 
-public interface Contact extends javax.ejb.EJBObject {
+public interface Contact2 extends javax.ejb.EJBObject {
 	String getFirstName( Long profileId )
 	  throws RemoteException, SQLException;
 	String getLastName( Long profileId )
