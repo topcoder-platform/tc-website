@@ -28,7 +28,7 @@
   </head>
   <body>
   <table>
-  
+
   <tr valign="top">
   <td width="10%"><jsp:include page="srm_nav.jsp" /></td><td colspan="3"><jsp:include page="srm_survey.jsp" /></td>
   </tr>

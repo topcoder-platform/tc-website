@@ -11,15 +11,35 @@
 		  java.text.DecimalFormat,
 		  java.math.BigInteger
 
-		  "
+          ,
+          com.topcoder.web.common.TCRequest,
+          com.topcoder.web.common.TCRequestFactory,
+          com.topcoder.web.common.security.WebAuthentication,
+          com.topcoder.web.common.security.BasicAuthentication,
+          com.topcoder.web.common.security.SessionPersistor,
+          com.topcoder.security.admin.PrincipalMgrRemote,
+          com.topcoder.security.TCSubject,
+          com.topcoder.web.common.SessionInfo,
+          com.topcoder.shared.util.ApplicationServer"
 
 %>
 <%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
 <%
+
+    TCRequest tcRequest = TCRequestFactory.createRequest(request);
+    WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(tcRequest.getSession()), tcRequest, response, BasicAuthentication.MAIN_SITE);
+    PrincipalMgrRemote pmgr = (PrincipalMgrRemote) com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
+    TCSubject user = pmgr.getUserSubject(authentication.getActiveUser().getId());
+    SessionInfo info = new SessionInfo(tcRequest, authentication, user.getPrincipals());
+    if (!info.isAdmin()) {
+        %> you don't have permssion to view this page <%
+        return;
+    }
+
                 com.topcoder.shared.dataAccess.Request dataRequest = new com.topcoder.shared.dataAccess.Request();
 				dataRequest.setContentHandle("srm_drop_down");
 								
-				           DataAccessInt dai = new DataAccess(
+				           DataAccessInt dai = new CachedDataAccess(
                                     dataRequest.getProperty(Constants.DB_KEY, Query.TRANSACTIONAL));
                     Map dataMap = null;
                     dataMap = dai.getData(dataRequest);
