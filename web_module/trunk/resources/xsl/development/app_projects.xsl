@@ -106,8 +106,18 @@
                     <td width="15%" background="/i/steel_bluebv_bg.gif" class="statText" align="center" nowrap="nowrap">Inquire By</td>
                     <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
                 </tr>
-               
+
                 <tr valign="top">
+                    <td width="3"><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
+                    <td width="1" ><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td>
+                    <td class="statText">No New Projects Available</td>
+                    <td class="statText" align="center">&nbsp;</td>
+                    <td class="statText" align="center">&nbsp;</td>
+                    <td class="statText" align="center">&nbsp;</td>
+                    <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
+                </tr>
+               
+                <!--tr valign="top">
                     <td width="3"><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
                     <td width="1" ><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td>
                     <td class="statText"><a class="statText" href="?&amp;t=development&amp;c=online_review_dev-fe">Online Review Front End</a></td>
@@ -135,7 +145,7 @@
                     <td class="statText" align="center">$900</td>
                     <td class="statText" align="center">5.27.2003</td>
                     <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
-                </tr>
+                </tr-->
             </table>
                 
             <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
