@@ -15,7 +15,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import java.util.Iterator;
 import java.util.Map;
 
-public class VerizonActivate extends Activate {
+public class VerizonActivate extends BaseActivate {
     protected void setNextPage() {
         VerizonRegInfo info = (VerizonRegInfo)regInfo;
 
