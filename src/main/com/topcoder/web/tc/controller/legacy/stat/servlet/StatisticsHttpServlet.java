@@ -137,13 +137,12 @@ public class StatisticsHttpServlet extends HttpServlet {
                 if (nav == null) nav = new Navigation(request, response);
                 session.setAttribute("navigation", nav);;
 
-                if (nav.isIdentified())
-                    log.info("[**** stats **** " + dataRequest.getContentHandle() + " **** " + nav.getSessionInfo().getHandle() + " **** " + request.getRemoteHost() + " ****]");
-                else
-                    log.info("[**** stats **** " + dataRequest.getContentHandle() + " ****  **** " + request.getRemoteHost() + " ****]");
+                log.info("[**** stats **** " + dataRequest.getContentHandle() + " **** " +
+                        (nav.isIdentified()?nav.getSessionInfo().getHandle():" ") + " **** " +
+                        request.getRemoteHost() + " ****]");
 
                 //hoke so that we can reload the properties file on the fly
-                if (dataRequest.getContentHandle().equals("reload")) {
+                if (nav.getSessionInfo().isAdmin() && dataRequest.getContentHandle().equals("reload")) {
                     this.reload(sctx);
                     return;
                 }
