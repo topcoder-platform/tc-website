@@ -36,7 +36,7 @@ function getProblemDetail(id) {
 
         <table  border="0" cellspacing="0" cellpadding="5" width="600" align="center" class="bodyText">
               <tr valign="middle">
-                  <td colspan="6" class="bodyText" align=center>Search Results:##to##of <%= searchResults.getTotal()%>
+                  <td colspan="6" class="bodyText" align=center>Search Results:<%=results.getStartRow()%> to <%=results.getEndRow()%> of <%= searchResults.getTotal()%>
                   </td>
               </tr>
         </table>

@@ -65,6 +65,7 @@ public class SearchResults extends BaseScreeningProcessor {
         }
         
         StringBuffer query = new StringBuffer(1000);
+        StringBuffer countQuery = new StringBuffer(1000);
         //generate results
         query.append("select distinct u.first_name || ' ' || u.last_name as name, ");
 	query.append("e.address as email_address, ");
@@ -129,8 +130,13 @@ public class SearchResults extends BaseScreeningProcessor {
             query.append("and e.address like '" + ret.getEmailAddress() + "' ");
         }
         
+        countQuery.append("select count(*) as count from table(multiset( ");
+        countQuery.append(query.toString());
+        countQuery.append("))");
+        
         QueryRequest r = new QueryRequest();
         r.addQuery("search", query.toString());
+        r.addQuery("count", countQuery.toString());
         r.setProperty("search"+DataAccessConstants.START_RANK, String.valueOf(ret.getStart()));
         r.setProperty("search"+DataAccessConstants.END_RANK, String.valueOf(ret.getEnd()));
 
@@ -139,9 +145,10 @@ public class SearchResults extends BaseScreeningProcessor {
         cda.setExpireTime(15 * 60 * 1000); //cache for 15 minutes
         Map res = cda.getData(r);
         ResultSetContainer rsc = (ResultSetContainer) res.get("search");
+        ResultSetContainer rscCount = (ResultSetContainer) res.get("count");
         
         ret.setResults(rsc);
-        ret.setTotal(rsc.getRowCount());
+        ret.setTotal(rscCount.getIntItem(0, "count"));
         if (ret.getEnd() > ret.getTotal()) {
             ret.setEnd(ret.getTotal());
         }

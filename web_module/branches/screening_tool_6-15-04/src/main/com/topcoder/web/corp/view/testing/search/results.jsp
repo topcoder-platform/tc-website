@@ -1,4 +1,5 @@
-<%@ page import="com.topcoder.web.corp.common.Constants" %>
+<%@ page import="com.topcoder.web.corp.common.Constants,
+    com.topcoder.shared.dataAccess.DataAccessConstants" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
