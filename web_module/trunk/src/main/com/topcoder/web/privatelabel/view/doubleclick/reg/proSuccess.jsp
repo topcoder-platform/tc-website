@@ -26,7 +26,7 @@
 		<td class="dc_bodyText">
          <p class="pageTitle">Registration</p>
          <p>Registration Successful!</p>
-         <p>Be sure to spend time in the Practice Room by clicking the Practice Arena link on the left.<br/><br/>
+         <p>Be sure to spend time in the Practice Room by clicking the Practice Arena link above.<br/><br/>
 
             Good luck to you in the Arena!</p>
 
