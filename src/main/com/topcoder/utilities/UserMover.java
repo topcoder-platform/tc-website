@@ -122,7 +122,6 @@ public class UserMover {
         } catch (Exception e) {
             log.error(handle + " didn't move over right");
             log.error(user.toString());
-            e.printStackTrace();
             throw e;
         }
 
@@ -162,7 +161,6 @@ public class UserMover {
             return new ResultSetContainer(rs, false);
 
         } catch (SQLException e) {
-            e.printStackTrace();
             throw e;
         } finally {
             try {
