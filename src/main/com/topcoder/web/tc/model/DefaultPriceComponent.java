@@ -12,8 +12,8 @@ public class DefaultPriceComponent implements SoftwareComponent{
     private final static float[] DESIGN_PRICE_LOOKUP = {0f, 105f, 210f};
     private final static float[] DEV_PRICE_LOOKUP = {0f, 96f, 144f};
 
-    private final static float DEV_REVIEW_RATE = 20f;
-    private final static float DESIGN_REVIEW_RATE = 25f;
+    private final static float DEV_REVIEW_RATE = 25f;
+    private final static float DESIGN_REVIEW_RATE = 30f;
 
     protected int phaseId;
     protected int level;
@@ -108,7 +108,7 @@ public class DefaultPriceComponent implements SoftwareComponent{
     }
 
     private float getDevFinalReviewCost() {
-        float finalReviewCost = DEV_REVIEW_RATE;  //60 minutes to do final review
+        float finalReviewCost = 2f*DEV_REVIEW_RATE;  //120 minutes to do final review
         return finalReviewCost;
     }
 
