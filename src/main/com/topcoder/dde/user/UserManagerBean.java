@@ -9,10 +9,7 @@ import com.topcoder.file.render.ValueTag;
 import com.topcoder.file.render.XMLDocument;
 import com.topcoder.message.email.EmailEngine;
 import com.topcoder.message.email.TCSEmailMessage;
-import com.topcoder.security.GeneralSecurityException;
-import com.topcoder.security.GroupPrincipal;
-import com.topcoder.security.TCSubject;
-import com.topcoder.security.UserPrincipal;
+import com.topcoder.security.*;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.security.login.AuthenticationException;
@@ -1128,6 +1125,15 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
             ps1.setInt(2, Constants.COMPONENT_DOWNLOAD_TERMS_ID);
             rs = ps1.executeQuery();
             if (!rs.next()) {
+
+                PrincipalMgrRemoteHome principalMgrHome = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+                PrincipalMgrRemote principalMgr = principalMgrHome.create();
+                UserPrincipal user = principalMgr.getUser(userId);
+                TCSubject subject = principalMgr.getUserSubject(userId);
+                RolePrincipal role = new RolePrincipal("Component Subscription", 20);
+                if (!subject.getPrincipals().contains(role))
+                    principalMgr.assignRole(user, role, new TCSubject(0));
+
                 ps = conn.prepareStatement(sqlUpdate);
                 ps.setLong(1, userId);
                 ps.setInt(2, Constants.COMPONENT_DOWNLOAD_TERMS_ID);
@@ -1138,6 +1144,12 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
         } catch (NamingException e) {
             throw new EJBException(e);
         } catch (SQLException e) {
+            throw new EJBException(e);
+        } catch (RemoteException e) {
+            throw new EJBException(e);
+        } catch (CreateException e) {
+            throw new EJBException(e);
+        } catch (GeneralSecurityException e) {
             throw new EJBException(e);
         } finally {
             close(rs);
