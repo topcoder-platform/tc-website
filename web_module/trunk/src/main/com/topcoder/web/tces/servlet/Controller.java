@@ -6,6 +6,7 @@ import com.topcoder.web.tces.bean.Task;
 import com.topcoder.web.tces.bean.Authentication;
 import com.topcoder.web.tces.common.TCESConstants;
 import com.topcoder.web.tces.common.TCESAuthenticationException;
+import com.topcoder.common.web.util.Data;
 
 import javax.naming.InitialContext;
 import javax.servlet.ServletException;
@@ -29,6 +30,11 @@ public class Controller extends HttpServlet {
      */
     public void init() throws ServletException {
         TCESConstants.init(getServletConfig());
+        try {
+            Data.initializeDataTypes();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
