@@ -20,8 +20,6 @@
         <td width="180">
             <jsp:include page="../../includes/global_left.jsp">
                 <jsp:param name="level1" value="home"/>
-<%--                <jsp:param name="level1" value="about"/>
-                <jsp:param name="level2" value="student_rep"/> --%>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -74,7 +72,9 @@
                                         <li>Include how many posters you want - they come in packages of 10.</li>
                                         <li>Include the name of the college/university you will be representing.</li>
                                         <li>Include your TopCoder handle.</li>
-                                        </ol>
+Ê
+
+                                    </ol>
                        <p>There can only be one Rep at each school. Positions will be filled on a first come, first served basis, so act fast!</p>
                 
                         
