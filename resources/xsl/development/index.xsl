@@ -51,7 +51,7 @@
             <table border="0" cellpadding="10" cellspacing="0" width="534">
                 <tr>
                     <td align="center" class="bodyText">
-                    	<img src="/i/development/dev_header.gif" width="500" height="47" alt="" border="0"/>	
+                    	<img src="/i/development/dev_header.gif" width="500" height="47" alt="" border="0"/><br/>
                         <img src="/i/development/main_promo.jpg" width="500" height="148" alt="" border="0" usemap="#dev_promos"/>
                 
                         
