@@ -75,7 +75,7 @@ The big cheese.  The head honcho.  The top gun.  The dictionary defines a favori
             </TR> 
             <!-- begin fav -->            
             <TR>
-              <TD VALIGN="middle" COLSPAN="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD>
+              <TD VALIGN="middle" COLSPAN="4"><A NAME="ZorbaTHut"></A><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD>
             </TR>                                              
             <TR>
               <TD VALIGN="middle" COLSPAN="4" HEIGHT="15" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig">&#160;Northeast Region</TD>
@@ -161,7 +161,7 @@ With top-seeded pl31415 being eliminated in the Regional Finals, <A HREF="/?t=st
             
             <!-- begin fav -->            
             <TR>
-              <TD VALIGN="middle" COLSPAN="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD>
+              <TD VALIGN="middle" COLSPAN="4"><A NAME="DjinnKahn"></A><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD>
             </TR>                                              
             <TR>
               <TD VALIGN="middle" COLSPAN="4" HEIGHT="15" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig">&#160;Midwest Region</TD>
