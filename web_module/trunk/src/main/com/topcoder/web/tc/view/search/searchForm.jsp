@@ -20,7 +20,7 @@
 //--></script>
 
 <br/>
-                <table border="0" cellspacing="0" cellpadding="0" align="center" width="510">
+                <table border="0" cellspacing="0" cellpadding="0" align="center" width="100%">
                     <input type="hidden" name="module" value="AdvancedSearch"/>
                     <input type="hidden" name="<%=DataAccessConstants.START_RANK%>" value=""/>
                     <input type="hidden" name="<%=DataAccessConstants.END_RANK%>" value=""/>
@@ -39,7 +39,7 @@
                        </td>
                 </table>
 
-                <table border="0" cellspacing="0" cellpadding="0" align="center" width="510" class="formFrame">
+                <table border="0" cellspacing="0" cellpadding="0" align="center" width="100%" class="formFrame">
                     <tr valign="top">
                         <td colspan="2">
                             <table border="0" cellspacing="0" cellpadding="10" width="100%">
