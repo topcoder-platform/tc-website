@@ -203,7 +203,7 @@
 				<tr valign="middle">
 					<td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 					<td class="statText" height="15">&#160;&#160;<a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2100060" class="statText">Unit Test Generator</a></td>
-					<td class="statText" height="15" align="center">1</td>
+					<td class="statText" height="15" align="center">2</td>
 					<td class="statText" height="15"><a href="/stat?c=member_profile&amp;cr=154809" class="coderTextYellow"><strong>jackh</strong></a></td>
 					<td class="statText" height="15" align="center">93.33</td>
 					<td class="statText" height="15" align="right">$240.00&#160;&#160;&#160;&#160;</td>
