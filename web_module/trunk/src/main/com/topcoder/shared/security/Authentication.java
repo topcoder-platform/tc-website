@@ -4,7 +4,7 @@ package com.topcoder.shared.security;
  * Interface for classes that implement an authentication scheme, ie, a way to log in.
  *
  * @author Greg Paul
- */ 
+ */
 public interface Authentication {
 
     /** Attempt to log in with the given user. */

@@ -5,7 +5,7 @@ import com.topcoder.web.corp.Util;
 /**
  * class to process a log out request.  should simply be a call to an
  * authentication object logout().
- * 
+ *
  * @author Greg Paul
  * @author djFD molc@mail.ru
  * @version 1.02

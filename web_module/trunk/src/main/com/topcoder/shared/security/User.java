@@ -8,8 +8,10 @@ package com.topcoder.shared.security;
 public interface User {
 
     public long getId();
+
     public String getUserName();
-    public String getPassword(); 
+
+    public String getPassword();
 
     public boolean isAnonymous();
 }

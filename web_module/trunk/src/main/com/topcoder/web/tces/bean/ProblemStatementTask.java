@@ -6,28 +6,24 @@
 
 package com.topcoder.web.tces.bean;
 
-import com.topcoder.shared.dataAccess.*;
+import com.topcoder.common.web.render.ProblemRenderer;
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.dataAccess.resultSet.TCResultItem;
+import com.topcoder.shared.language.CStyleLanguage;
+import com.topcoder.shared.problem.Problem;
+import com.topcoder.shared.problem.ProblemComponent;
+import com.topcoder.shared.problemParser.ProblemComponentFactory;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.tces.common.TCESConstants;
-import com.topcoder.web.tces.common.JSPUtils;
 import com.topcoder.web.tces.common.TCESAuthenticationException;
-import com.topcoder.shared.problem.*;
-import com.topcoder.shared.problemParser.*;
-import com.topcoder.shared.language.CStyleLanguage;
-import com.topcoder.common.web.render.ProblemRenderer;
-import com.topcoder.shared.security.User;
-import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.web.tces.common.TCESConstants;
 
-import javax.servlet.http.*;
+import java.awt.*;
 import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.List;
-import java.util.Map;
 import java.io.StringReader;
-import java.awt.Color;
+import java.util.Map;
 
 /** Processes the problem statement task.
  * @author George Dean
@@ -60,7 +56,7 @@ public class ProblemStatementTask extends BaseTask implements Task, Serializable
      * @param request The servlet request object.
      * @param response The servlet response object.
      * @throws Exception
-     */    
+     */
 //    public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
 //        throws Exception
 //    {
@@ -72,7 +68,7 @@ public class ProblemStatementTask extends BaseTask implements Task, Serializable
     /** Processes the given step or phase of the task.
      * @param step The step to be processed.
      * @throws Exception
-     */    
+     */
     public void processStep(String step) throws Exception {
         viewProblemStatement();
     }
@@ -81,34 +77,34 @@ public class ProblemStatementTask extends BaseTask implements Task, Serializable
         Request dataRequest = new Request();
         dataRequest.setContentHandle("tces_problem_statement");
 
-        dataRequest.setProperty("uid", Long.toString(uid) );
-        dataRequest.setProperty("cid", Integer.toString(getCampaignID()) );
-        dataRequest.setProperty("jid", Integer.toString(getJobID()) );
-        dataRequest.setProperty("mid", Integer.toString(getMemberID()) );
-        dataRequest.setProperty("pm", Integer.toString(getProblemID()) );
+        dataRequest.setProperty("uid", Long.toString(uid));
+        dataRequest.setProperty("cid", Integer.toString(getCampaignID()));
+        dataRequest.setProperty("jid", Integer.toString(getJobID()));
+        dataRequest.setProperty("mid", Integer.toString(getMemberID()));
+        dataRequest.setProperty("pm", Integer.toString(getProblemID()));
 
-        DataAccessInt dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
+        DataAccessInt dai = new DataAccess((javax.sql.DataSource) getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
         Map resultMap = dai.getData(dataRequest);
 
         ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Member_Access");
         if (rsc.getRowCount() == 0) {
-            throw new TCESAuthenticationException ("mid="+Integer.toString(getMemberID())+
-                                 " jid="+Integer.toString(getJobID())+
-                                 " cid="+Integer.toString(getCampaignID())+
-                                 " does not belong to uid="+Long.toString(uid) );
+            throw new TCESAuthenticationException("mid=" + Integer.toString(getMemberID()) +
+                    " jid=" + Integer.toString(getJobID()) +
+                    " cid=" + Integer.toString(getCampaignID()) +
+                    " does not belong to uid=" + Long.toString(uid));
         }
 
-        dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.DW_DATASOURCE_NAME));
+        dai = new DataAccess((javax.sql.DataSource) getInitialContext().lookup(DBMS.DW_DATASOURCE_NAME));
         resultMap = dai.getData(dataRequest);
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Problem_Statement");
         if (rsc.getRowCount() == 0) {
-            throw new TCESAuthenticationException ("No problem data!");
+            throw new TCESAuthenticationException("No problem data!");
         }
         ResultSetContainer.ResultSetRow problemRow = rsc.getRow(0);
-        setContestName( problemRow.getItem("contest_name").toString() );
-        setDivisionName( problemRow.getItem("division_desc").toString() );
-        setProblemName( problemRow.getItem("class_name").toString() );
+        setContestName(problemRow.getItem("contest_name").toString());
+        setDivisionName(problemRow.getItem("division_desc").toString());
+        setProblemName(problemRow.getItem("class_name").toString());
 
         StringReader reader = new StringReader(problemRow.getItem("problem_text").toString());
         ProblemComponent arrProblemComponent[] = new ProblemComponent[1];
@@ -119,16 +115,16 @@ public class ProblemStatementTask extends BaseTask implements Task, Serializable
         pr.setForegroundColor(Color.white);
         setProblemText(pr.toHTML(new CStyleLanguage(Integer.parseInt(problemRow.getItem("language_id").toString()), "")));
 
-        setNextPage( TCESConstants.PROBLEM_STATEMENT_PAGE );
+        setNextPage(TCESConstants.PROBLEM_STATEMENT_PAGE);
     }
 
     /** Sets attributes for the task.
      * @param paramName The name of the attribute being set.
      * @param paramValues The values to be associated with the given attribute.
-     */    
+     */
     public void setAttributes(String paramName, String[] paramValues) {
         String value = paramValues[0];
-        value = (value == null?"":value.trim());
+        value = (value == null ? "" : value.trim());
 
         if (paramName.equalsIgnoreCase(TCESConstants.CAMPAIGN_ID_PARAM))
             setCampaignID(Integer.parseInt(value));
@@ -145,7 +141,7 @@ public class ProblemStatementTask extends BaseTask implements Task, Serializable
         super();
         setNextPage(TCESConstants.PROBLEM_STATEMENT_PAGE);
 
-        uid=-1;
+        uid = -1;
     }
 
     /** Getter for property campaignID.

@@ -4,7 +4,10 @@ import com.topcoder.shared.util.TCResourceBundle;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import java.text.*;
+import java.text.DateFormat;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 
 /////////////// jk: todo: place all string literal constants in web.xml
 ////////////////////// and update code to load them ...
@@ -117,7 +120,7 @@ public class TCESConstants {
                                                            "pct_overall",
                                                            "avg_ptspersub",
                                                            "avg_ptsoverall",
-                                                           "avg_timetosubmit" };
+                                                           "avg_timetosubmit"};
     public static String[] MEM_RATING_STATSBYLEVEL_TITLES = {"",
                                                              "Presented",
                                                              "Submitted",
@@ -127,21 +130,21 @@ public class TCESConstants {
                                                              "Overall Accuracy",
                                                              "Avg Points for Submissions",
                                                              "Avg Points Overall",
-                                                             "Avg Time to Submit" };
+                                                             "Avg Time to Submit"};
     public static String[] MEM_RATING_STATSBYLANG_KEYS = {"lang_desc",
                                                           "num_submitted",
                                                           "pct_submitted",
                                                           "num_correct",
                                                           "pct_accuracy",
                                                           "avg_ptspersub",
-                                                          "avg_timetosubmit" };
+                                                          "avg_timetosubmit"};
     public static String[] MEM_RATING_STATSBYLANG_TITLES = {"",
-                                                           "Submitted",
-                                                           "Submit %",
-                                                           "Correct",
-                                                           "Submission Accuracy",
-                                                           "Avg Points for Submissions",
-                                                           "Avg Time to Submit" };
+                                                            "Submitted",
+                                                            "Submit %",
+                                                            "Correct",
+                                                            "Submission Accuracy",
+                                                            "Avg Points for Submissions",
+                                                            "Avg Time to Submit"};
 
     public static int PRO_CODER_TYPE;
     public static int STUDENT_CODER_TYPE;
@@ -155,7 +158,7 @@ public class TCESConstants {
     private static TCResourceBundle bundle = null;
 
     public static void init(ServletConfig servletConfig) throws ServletException {
-        
+
         bundle = new TCResourceBundle("TCES");
 
         JSP_ROOT = bundle.getProperty("jsp_root", "");

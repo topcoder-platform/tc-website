@@ -1,16 +1,15 @@
 package com.topcoder.web.tces.bean;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.security.WebAuthentication;
 
 import javax.naming.InitialContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.StringTokenizer;
 import java.util.List;
-
-import com.topcoder.shared.security.User;
-import com.topcoder.web.common.security.WebAuthentication;
+import java.util.StringTokenizer;
 
 
 /**
@@ -47,10 +46,10 @@ public abstract class BaseTask implements Task {
         setServletPath(null);
     }
 
-    public abstract void processStep(String step)  throws Exception;
+    public abstract void processStep(String step) throws Exception;
 
     public void setInitialContext(InitialContext ctx) {
-        this.ctx=ctx;
+        this.ctx = ctx;
     }
 
     public InitialContext getInitialContext() {
@@ -58,7 +57,7 @@ public abstract class BaseTask implements Task {
     }
 
     public void setNextPage(String nextPage) {
-        this.nextPage=nextPage;
+        this.nextPage = nextPage;
     }
 
     public String getNextPage() {
@@ -81,19 +80,19 @@ public abstract class BaseTask implements Task {
         this.servletPath = servletPath;
     }
 
-    public void servletPreAction(HttpServletRequest request, 
-            HttpServletResponse response) throws Exception {
+    public void servletPreAction(HttpServletRequest request,
+                                 HttpServletResponse response) throws Exception {
 
         User curUser = getAuthenticityToken().getActiveUser();
         uid = curUser.getId();
 
-        log.debug("TCES Task = "+ this.getClass().getName() + 
-                  " called with user id = "+ uid);
+        log.debug("TCES Task = " + this.getClass().getName() +
+                " called with user id = " + uid);
 
     }
 
     public void servletPostAction(HttpServletRequest request,
-            HttpServletResponse response) throws Exception {
+                                  HttpServletResponse response) throws Exception {
 
     }
 
@@ -101,17 +100,17 @@ public abstract class BaseTask implements Task {
 
 
     /**
-     * For request being proccessed returns user's authenticity token. 
+     * For request being proccessed returns user's authenticity token.
      *
-     * @return WebAuthentication authentication token used in tasks for 
+     * @return WebAuthentication authentication token used in tasks for
      *         retrieving the current user's Id
      */
     protected WebAuthentication getAuthenticityToken() {
-        return authToken; 
+        return authToken;
     }
-    
+
     /**
-     * Just stores given authentification object for later use 
+     * Just stores given authentification object for later use
      * @param auth WebAuthentication to store in authToken
      */
     public void setAuthToken(WebAuthentication auth) {
@@ -124,7 +123,7 @@ public abstract class BaseTask implements Task {
      * @param key Key for the date item within row
      */
     public String getDate(ResultSetContainer.ResultSetRow row,
-                                     String key) {
+                          String key) {
         String defaultVal = "00/00/0000";
         try {
             StringTokenizer tok1 = new StringTokenizer(

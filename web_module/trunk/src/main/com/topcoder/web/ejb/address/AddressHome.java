@@ -12,6 +12,7 @@ import java.rmi.RemoteException;
  */
 public interface AddressHome extends javax.ejb.EJBHome {
     public static final String EJB_REF_NAME = AddressHome.class.getName();
+
     /**
      *
      * Creates the remote Address EJB object

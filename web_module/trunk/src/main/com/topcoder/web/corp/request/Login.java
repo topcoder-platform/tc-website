@@ -1,9 +1,9 @@
 package com.topcoder.web.corp.request;
 
 import com.topcoder.security.login.AuthenticationException;
+import com.topcoder.shared.security.LoginException;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.User;
-import com.topcoder.shared.security.LoginException;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.corp.Util;
 
@@ -15,8 +15,8 @@ import com.topcoder.web.corp.Util;
  * redirect page - a page to redirect to if it is a successful login.
  * message - a message to be displayed on the login screen if this is going to
  * be a redirect.
- * 
- * 
+ *
+ *
  * it will instantiate an Authentication object and a user object from the
  * parameters passed in the request. it will then attempt to log the user in.
  * if successfull, a cookie will be added to the response containing an
@@ -30,31 +30,31 @@ import com.topcoder.web.corp.Util;
  * login succeeds and there is no redirect page, redirect to the home page.
  * redirect vs. forward is important here and will be determined by how the
  * nextPageInContext flag is set.<br>
- * 
+ *
  * true  the controller should forward<br>
- * 
+ *
  * false, the controller should redirect.<br>
- * 
+ *
  * @author Greg Paul
  * @author djFD molc@mail.ru
  * @version 1.02
  *
  */
 public class Login extends BaseProcessor {
-    public static final String KEY_USER_HANDLE      = "handle";
-    public static final String KEY_USER_PASS        = "passw";
+    public static final String KEY_USER_HANDLE = "handle";
+    public static final String KEY_USER_PASS = "passw";
     public static final String KEY_DESTINATION_PAGE = "dest";
 
     private static final int MAX_LOGIN_ATTEMPTS = 3;
-    
+
     // modes either full (form to be filled returned to user)
-    // or mini (user fill out miniform at the top of screen)  
-    public static final String KEY_LOGINMODE   = "lm";
-    public static final String KEY_MESSAGE     = "msg";
-    
+    // or mini (user fill out miniform at the top of screen)
+    public static final String KEY_LOGINMODE = "lm";
+    public static final String KEY_MESSAGE = "msg";
+
     /**
      * Holds login attempts count and desired destination
-     * 
+     *
      * @author djFD molc@mail.ru
      * @version 1.02
      *
@@ -72,22 +72,22 @@ public class Login extends BaseProcessor {
         boolean miniLogin = false;
         try {
             miniLogin = Integer.parseInt(request.getParameter(KEY_LOGINMODE)) == 1;
+        } catch (Exception e) {
         }
-        catch(Exception e) {}
-        
+
         String destination = request.getParameter(KEY_DESTINATION_PAGE);
         SessionPersistor sp = new SessionPersistor(request.getSession(true));
-        
+
         // Even with muttiple login attempts, we must not forget
-        // desired destination 
-        login_attempt la = (login_attempt)sp.getObject(
-            login_attempt.class.getName()
+        // desired destination
+        login_attempt la = (login_attempt) sp.getObject(
+                login_attempt.class.getName()
         );
-        if( la == null ) {
+        if (la == null) {
             la = new login_attempt();
             sp.setObject(login_attempt.class.getName(), la);
         }
-        if( destination != null && destination.trim().length() != 0 ) {
+        if (destination != null && destination.trim().length() != 0) {
             la.destination = destination;
         }
 
@@ -96,47 +96,44 @@ public class Login extends BaseProcessor {
 
         String passw = request.getParameter(KEY_USER_PASS);
         setFormFieldDefault(KEY_USER_PASS, "");
-        if( handle == null || handle.trim().length() == 0 ) {
+        if (handle == null || handle.trim().length() == 0) {
             markFormFieldAsInvalid(KEY_USER_HANDLE, "Handle must not be empty");
         }
-        log.debug("login attempt[login/passw]: "+handle+"/"+passw);
+        log.debug("login attempt[login/passw]: " + handle + "/" + passw);
 
         User possibleUser = new SimpleUser(0, handle, passw);
 
         try {
             ++la.count;
             super.getAuthentication().login(possibleUser);
-            log.debug("user "+possibleUser.getUserName()+" has logged in");
+            log.debug("user " + possibleUser.getUserName() + " has logged in");
             destination = la.destination;
             sp.removeObject(login_attempt.class.getName());
-            
+
             // done. if there is destination page then go there
-            if( ! miniLogin ) {
+            if (!miniLogin) {
                 sp.popLastPage();
             }
 
             // if destination is null then go to the main page
-            if( destination == null ) {
+            if (destination == null) {
                 nextPage = Util.appRootPage(request);
-            }
-            else {
+            } else {
                 nextPage = destination;
             }
             pageInContext = false; // ensures all request parameters are dropped off
             return;
-        }
-        catch(LoginException ae) {
-            if( la.count >= MAX_LOGIN_ATTEMPTS ) {
+        } catch (LoginException ae) {
+            if (la.count >= MAX_LOGIN_ATTEMPTS) {
                 // cant' remember -> main page
                 nextPage = Util.appRootPage(request);
                 pageInContext = false;
                 sp.removeObject(login_attempt.class.getName());
                 return;
-            }
-            else {
+            } else {
                 markFormFieldAsInvalid(
-                    KEY_USER_PASS,
-                    "Combination of handle/password entered is invalid"
+                        KEY_USER_PASS,
+                        "Combination of handle/password entered is invalid"
                 );
                 nextPage = la.destination;
                 pageInContext = true;

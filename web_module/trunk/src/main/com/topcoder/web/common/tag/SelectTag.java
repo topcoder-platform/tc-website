@@ -104,8 +104,8 @@ public abstract class SelectTag extends BaseTag {
         }
         s.append(">\n");
         if (options != null) {
-            if( selectedValue == null ) {
-                selectedValue = (String)getDefaultValue();
+            if (selectedValue == null) {
+                selectedValue = (String) getDefaultValue();
             }
             s.append("<option value=\"\"></option>");
             Iterator it = options.iterator();
@@ -116,10 +116,9 @@ public abstract class SelectTag extends BaseTag {
                 s.append("<option value=\"");
                 s.append(optionValue);
                 s.append("\"");
-                if( selectedValue != null && selectedValue.equals(optionValue) ||
-                    selectedText != null && selectedText.equals(optionText)
-                )
-                {
+                if (selectedValue != null && selectedValue.equals(optionValue) ||
+                        selectedText != null && selectedText.equals(optionText)
+                ) {
                     s.append(" selected");
                 }
                 s.append(">");

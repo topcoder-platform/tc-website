@@ -1,20 +1,20 @@
 package com.topcoder.web.ejb.company;
 
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.idgenerator.IdGenerator;
 import com.topcoder.util.idgenerator.sql.SimpleDB;
-import com.topcoder.shared.util.DBMS;
+
+import javax.ejb.EJBException;
 import javax.ejb.SessionBean;
 import javax.ejb.SessionContext;
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import javax.ejb.EJBException;
-import javax.naming.NamingException;
-import java.rmi.RemoteException;
 import java.sql.SQLException;
 
 
@@ -29,12 +29,14 @@ public class CompanyBean implements SessionBean {
     private SessionContext ctx;
 
     //required ejb methods
-    public void ejbActivate() {}
+    public void ejbActivate() {
+    }
 
     /**
      *
      */
-    public void ejbPassivate() {}
+    public void ejbPassivate() {
+    }
 
     /**
      *
@@ -46,7 +48,8 @@ public class CompanyBean implements SessionBean {
     /**
      *
      */
-    public void ejbRemove() {}
+    public void ejbRemove() {
+    }
 
     /**
      *
@@ -75,55 +78,55 @@ public class CompanyBean implements SessionBean {
         try {
             ctx = new InitialContext();
             log.debug("user transaction " +
-                      ctx.lookup("javax/transaction/UserTransaction"));
+                    ctx.lookup("javax/transaction/UserTransaction"));
 
             if (!IdGenerator.isInitialized()) {
                 IdGenerator.init(
-                                 new SimpleDB(),
-                                 (DataSource)ctx.lookup((String)
-                                 ctx.lookup(
-                                    "java:comp/env/idgen_datasource_name")),
-                                    "sequence_object",
-                                    "name",
-                                    "current_value",
-                                    9999999999L,
-                                    1,
-                                    true
-                                );
+                        new SimpleDB(),
+                        (DataSource) ctx.lookup((String)
+                        ctx.lookup(
+                                "java:comp/env/idgen_datasource_name")),
+                        "sequence_object",
+                        "name",
+                        "current_value",
+                        9999999999L,
+                        1,
+                        true
+                );
             }
 
             ret = IdGenerator.nextId("COMPANY_SEQ");
 
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("INSERT INTO company (company_id) " +
-                                       "VALUES (?)");
+                    "VALUES (?)");
             ps.setLong(1, ret);
 
             int rows = ps.executeUpdate();
 
             if (rows != 1)
                 throw new EJBException("Wrong number of rows in insert: " +
-                                       rows);
+                        rows);
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException creating company");
         } catch (NamingException e) {
             throw new EJBException("NamingException creating company");
         } catch (Exception e) {
             throw new EJBException("Exception creating company:\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "createCompany");
+                            "createCompany");
                 }
             }
 
@@ -166,12 +169,12 @@ public class CompanyBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT company_name FROM company " +
-                                       "WHERE company_id = ?");
+                    "WHERE company_id = ?");
             ps.setLong(1, companyId);
 
             rs = ps.executeQuery();
@@ -180,16 +183,16 @@ public class CompanyBean implements SessionBean {
                 ret = rs.getString("company_name");
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException getting company_name for " +
-                                   "company_id: " + companyId);
+                    "company_id: " + companyId);
         } catch (NamingException e) {
             throw new EJBException("NamingException getting company name");
         } catch (Exception e) {
             throw new EJBException("Exception getting company_name for " +
-                                   "company_id: " + companyId + "\n" +
-                                   e.getMessage());
+                    "company_id: " + companyId + "\n" +
+                    e.getMessage());
         } finally {
             if (rs != null) {
                 try {
@@ -246,12 +249,12 @@ public class CompanyBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT primary_contact_id FROM " +
-                                       "company WHERE company_id = ?");
+                    "company WHERE company_id = ?");
             ps.setLong(1, companyId);
 
             rs = ps.executeQuery();
@@ -260,24 +263,24 @@ public class CompanyBean implements SessionBean {
                 ret = rs.getLong("primary_contact_id");
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException getting primary_contact_id " +
-                                   "for company_id: " + companyId);
+                    "for company_id: " + companyId);
         } catch (NamingException e) {
             throw new EJBException("NamingException getting primary contact " +
-                                   "id");
+                    "id");
         } catch (Exception e) {
             throw new EJBException("Exception getting primary_contact_id for" +
-                                   " company_id: " + companyId + "\n" +
-                                   e.getMessage());
+                    " company_id: " + companyId + "\n" +
+                    e.getMessage());
         } finally {
             if (rs != null) {
                 try {
                     rs.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close ResultSet in " +
-                              "getPrimaryContactId");
+                            "getPrimaryContactId");
                 }
             }
 
@@ -286,7 +289,7 @@ public class CompanyBean implements SessionBean {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "getPrimaryContactId");
+                            "getPrimaryContactId");
                 }
             }
 
@@ -295,7 +298,7 @@ public class CompanyBean implements SessionBean {
                     conn.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close Connection in " +
-                              "getPrimaryContactId");
+                            "getPrimaryContactId");
                 }
             }
 
@@ -304,7 +307,7 @@ public class CompanyBean implements SessionBean {
                     ctx.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close Context in " +
-                              "getPrimaryContactId");
+                            "getPrimaryContactId");
                 }
             }
         }
@@ -320,7 +323,7 @@ public class CompanyBean implements SessionBean {
      */
     public void setName(long companyId, String name) {
         log.debug("setName called...companyId: " + companyId + " name: " +
-                  name);
+                name);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -329,12 +332,12 @@ public class CompanyBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE company SET company_name = ? " +
-                                       "WHERE company_id = ?");
+                    "WHERE company_id = ?");
             ps.setString(1, name);
             ps.setLong(2, companyId);
 
@@ -342,20 +345,20 @@ public class CompanyBean implements SessionBean {
 
             if (rows != 1)
                 throw new EJBException("Wrong number of rows in update: " +
-                                       rows + " for company_id: " + companyId +
-                                       " company_name: " + name);
+                        rows + " for company_id: " + companyId +
+                        " company_name: " + name);
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException updating company_id: " +
-                                   companyId + " company_name: " + name);
+                    companyId + " company_name: " + name);
         } catch (NamingException e) {
             throw new EJBException("NamingException updating company name");
         } catch (Exception e) {
             throw new EJBException("Exception updating company_id: " +
-                                   companyId + " company_name: " + name +
-                                   "\n" + e.getMessage());
+                    companyId + " company_name: " + name +
+                    "\n" + e.getMessage());
         } finally {
             if (ps != null) {
                 try {
@@ -391,7 +394,7 @@ public class CompanyBean implements SessionBean {
      */
     public void setPrimaryContactId(long companyId, long primaryContactId) {
         log.debug("setPrimaryContactId called...companyId: " + companyId +
-                  " primaryContactId: " + primaryContactId);
+                " primaryContactId: " + primaryContactId);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -400,13 +403,13 @@ public class CompanyBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE company SET " +
-                                       "primary_contact_id = ? " +
-                                       "WHERE company_id = ?");
+                    "primary_contact_id = ? " +
+                    "WHERE company_id = ?");
             ps.setLong(1, primaryContactId);
             ps.setLong(2, companyId);
 
@@ -414,30 +417,30 @@ public class CompanyBean implements SessionBean {
 
             if (rows != 1)
                 throw new EJBException("Wrong number of rows in update: " +
-                                       rows + " for company_id: " + companyId +
-                                       " primary_contact_id: " +
-                                       primaryContactId);
+                        rows + " for company_id: " + companyId +
+                        " primary_contact_id: " +
+                        primaryContactId);
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException updating company_id: " +
-                                   companyId + " primary_contact_id: " +
-                                   primaryContactId);
+                    companyId + " primary_contact_id: " +
+                    primaryContactId);
         } catch (NamingException e) {
             throw new EJBException("NamingException updating company " +
-                                   "primaryContactId");
+                    "primaryContactId");
         } catch (Exception e) {
             throw new EJBException("Exception updating company_id: " +
-                                   companyId + " primary_contact_id: " +
-                                   primaryContactId + "\n" + e.getMessage());
+                    companyId + " primary_contact_id: " +
+                    primaryContactId + "\n" + e.getMessage());
         } finally {
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "setPrimaryContactId");
+                            "setPrimaryContactId");
                 }
             }
 
@@ -446,7 +449,7 @@ public class CompanyBean implements SessionBean {
                     conn.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close Connection in " +
-                              "setPrimaryContactId");
+                            "setPrimaryContactId");
                 }
             }
 
@@ -455,7 +458,7 @@ public class CompanyBean implements SessionBean {
                     ctx.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close Context in " +
-                              "setPrimaryContactId");
+                            "setPrimaryContactId");
                 }
             }
         }

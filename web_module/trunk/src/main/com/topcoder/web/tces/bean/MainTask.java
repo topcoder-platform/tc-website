@@ -1,18 +1,17 @@
 package com.topcoder.web.tces.bean;
 
-import com.topcoder.shared.dataAccess.*;
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tces.common.TCData;
 import com.topcoder.web.tces.common.TCESConstants;
-import com.topcoder.web.tces.common.TCESAuthenticationException;
-import com.topcoder.shared.security.User;
-import com.topcoder.shared.security.SimpleUser;
 
-import javax.servlet.http.*;
 import java.io.Serializable;
-import java.util.*;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Processes the main task
@@ -41,7 +40,7 @@ public class MainTask extends BaseTask implements Task, Serializable {
         super();
         setNextPage(TCESConstants.MAIN_PAGE);
 
-        uid=-1;
+        uid = -1;
     }
 
     /** Setter for property companyName.
@@ -61,14 +60,14 @@ public class MainTask extends BaseTask implements Task, Serializable {
     /** Setter for property campaignInfoList.
      * @param campaignInfoList New value of property campaignInfoList.
      */
-    public void setCampaignInfoList( List campaignInfoList ) {
+    public void setCampaignInfoList(List campaignInfoList) {
         this.campaignInfoList = campaignInfoList;
     }
 
     /** Getter for property campaignInfoList
      * @return Value of property campaignInfoList
      */
-    public List getCampaignInfoList( ) {
+    public List getCampaignInfoList() {
         return campaignInfoList;
     }
 
@@ -96,30 +95,28 @@ public class MainTask extends BaseTask implements Task, Serializable {
 //    }
 
     public void processStep(String step)
-        throws Exception
-    {
+            throws Exception {
         viewMain();
     }
 
-    private void viewMain() throws Exception
-    {
+    private void viewMain() throws Exception {
         Request dataRequest = new Request();
         dataRequest.setContentHandle("tces_main");
 
-        log.debug("Database Source: "+DBMS.OLTP_DATASOURCE_NAME+" User ID:"+uid);
+        log.debug("Database Source: " + DBMS.OLTP_DATASOURCE_NAME + " User ID:" + uid);
 
-        dataRequest.setProperty("uid", Long.toString(uid) );
-        DataAccessInt dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
+        dataRequest.setProperty("uid", Long.toString(uid));
+        DataAccessInt dai = new DataAccess((javax.sql.DataSource) getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
         Map resultMap = dai.getData(dataRequest);
         ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_Company_Name");
 
         if (rsc.getRowCount() == 0) {
-            throw new Exception ("No company name found for user id #" + uid);
+            throw new Exception("No company name found for user id #" + uid);
         }
 
         ResultSetContainer.ResultSetRow rRow = rsc.getRow(0);
 
-        setCompanyName( TCData.getTCString(rRow, "company_name") );
+        setCompanyName(TCData.getTCString(rRow, "company_name"));
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_List");
 
@@ -129,7 +126,7 @@ public class MainTask extends BaseTask implements Task, Serializable {
             firstCompany = Integer.parseInt(rsc.getItem(0, "company_id").toString());
             int companyId = -1;
             /* figure out if there are more than one companies in this compaign list */
-            for (int i=0; i<rsc.size()&&!hasManyCompanies(); i++) {
+            for (int i = 0; i < rsc.size() && !hasManyCompanies(); i++) {
                 companyId = Integer.parseInt(rsc.getItem(i, "company_id").toString());
                 if (companyId != firstCompany) {
                     setHasManyCompanies(true);
@@ -139,7 +136,7 @@ public class MainTask extends BaseTask implements Task, Serializable {
 
         setCampaignInfoList(rsc);
 
-        setNextPage( TCESConstants.MAIN_PAGE );
+        setNextPage(TCESConstants.MAIN_PAGE);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {

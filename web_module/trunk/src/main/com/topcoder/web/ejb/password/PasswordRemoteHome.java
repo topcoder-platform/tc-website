@@ -1,8 +1,8 @@
 package com.topcoder.web.ejb.password;
 
-import java.rmi.RemoteException;
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
+import java.rmi.RemoteException;
 
 public interface PasswordRemoteHome extends javax.ejb.EJBHome {
 

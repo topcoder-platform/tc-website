@@ -1,7 +1,8 @@
 package com.topcoder.web.common;
 
-import javax.servlet.*;
 import com.topcoder.web.common.security.WebAuthentication;
+
+import javax.servlet.ServletRequest;
 
 /**
  * Classes that implement RequestProcessor should contain the
@@ -17,6 +18,7 @@ import com.topcoder.web.common.security.WebAuthentication;
 public interface RequestProcessor {
 
     public void setRequest(ServletRequest sr);
+
     public void setAuthentication(WebAuthentication sr);
 
     /** entry point from the controller */

@@ -1,17 +1,20 @@
 package com.topcoder.web.tces.bean;
 
-import com.topcoder.shared.dataAccess.*;
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tces.common.TCESConstants;
-import com.topcoder.web.tces.common.TCESAuthenticationException;
-import com.topcoder.shared.security.User;
-import com.topcoder.shared.security.SimpleUser;
 
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.Serializable;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Processes the campaign detail task.
@@ -52,14 +55,14 @@ public class CampaignDetailTask extends BaseTask implements Task, Serializable {
         super();
         setNextPage(TCESConstants.CAMPAIGN_DETAIL_PAGE);
 
-        uid=-1;
+        uid = -1;
     }
 
 
     /** Setter for property campaignName.
      * @param campaignName New value of property campaignName.
      */
-    public void setCampaignName( String campaignName ) {
+    public void setCampaignName(String campaignName) {
         this.campaignName = campaignName;
     }
 
@@ -73,7 +76,7 @@ public class CampaignDetailTask extends BaseTask implements Task, Serializable {
     /** Setter for property campaignStatus.
      * @param campaignStatus New value of property campaignStatus.
      */
-    public void setCampaignStatus( String campaignStatus ) {
+    public void setCampaignStatus(String campaignStatus) {
         this.campaignStatus = campaignStatus;
     }
 
@@ -87,7 +90,7 @@ public class CampaignDetailTask extends BaseTask implements Task, Serializable {
     /** Setter for property campaignHits.
      * @param campaignHits New value of property campaignHits.
      */
-    public void setTotalHits( String campaignHits ) {
+    public void setTotalHits(String campaignHits) {
         this.campaignHits = campaignHits;
     }
 
@@ -101,22 +104,22 @@ public class CampaignDetailTask extends BaseTask implements Task, Serializable {
     /** Setter for property mostRecentHit.
      * @param mostRecentHit New value of property mostRecentHit.
      */
-    public void setMostRecentHit( String mostRecentHit ) {
+    public void setMostRecentHit(String mostRecentHit) {
         this.mostRecentHit = mostRecentHit;
     }
 
     /** Getter for property mostRecentHit
      * @return Value of property mostRecentHit
      */
-    public String getMostRecentHit( ) {
+    public String getMostRecentHit() {
         return mostRecentHit;
     }
 
     /** Setter for property positionList.
      * @param positionList New value of property positionList.
      */
-    public void setPositionList( ArrayList positionList ) {
-        this.positionList=positionList;
+    public void setPositionList(ArrayList positionList) {
+        this.positionList = positionList;
     }
 
     /** Getter for property positionList
@@ -165,89 +168,87 @@ public class CampaignDetailTask extends BaseTask implements Task, Serializable {
 
 
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
-        throws Exception {
+            throws Exception {
 
         ArrayList a = new ArrayList();
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() + 
-            "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MAIN_TASK + "&" + 
-            TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.MAIN_NAME));
+        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
+                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MAIN_TASK + "&" +
+                TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.MAIN_NAME));
         setTrail(a);
 
     }
 
     public void processStep(String step)
-        throws Exception
-    {
+            throws Exception {
         viewCampaignDetail();
     }
 
-    private void viewCampaignDetail() throws Exception
-    {
+    private void viewCampaignDetail() throws Exception {
         Request dataRequest = new Request();
         dataRequest.setContentHandle("tces_campaign_detail");
 
-        dataRequest.setProperty("uid", Long.toString(uid) );
-        log.debug("User id set in CampaignDetailTask= "+uid);
-        dataRequest.setProperty("cid", Integer.toString(getCampaignID()) );
-        DataAccessInt dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
+        dataRequest.setProperty("uid", Long.toString(uid));
+        log.debug("User id set in CampaignDetailTask= " + uid);
+        dataRequest.setProperty("cid", Integer.toString(getCampaignID()));
+        DataAccessInt dai = new DataAccess((javax.sql.DataSource) getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
         Map resultMap = dai.getData(dataRequest);
 
         ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_Company_Name");
         if (rsc.getRowCount() == 0) {
-            throw new Exception ("No company name!");
+            throw new Exception("No company name!");
         }
         ResultSetContainer.ResultSetRow cmpyNameRow = rsc.getRow(0);
-        setCompanyName( cmpyNameRow.getItem("company_name").toString() );
+        setCompanyName(cmpyNameRow.getItem("company_name").toString());
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_Info");
         if (rsc.getRowCount() == 0) {
-            throw new Exception ("Bad campaign ID or campaign does not belong to user.");
+            throw new Exception("Bad campaign ID or campaign does not belong to user.");
         }
         ResultSetContainer.ResultSetRow cpgnInfRow = rsc.getRow(0);
-        setCampaignName( cpgnInfRow.getItem("campaign_name").toString() );
+        setCampaignName(cpgnInfRow.getItem("campaign_name").toString());
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_Hit_Info");
         ResultSetContainer.ResultSetRow cpgnHitsRow = rsc.getRow(0);
-        Long hits = (Long)cpgnHitsRow.getItem("total_hits").getResultData();
-        setTotalHits( hits.toString() );
-        setMostRecentHit( (hits.longValue()==0)?"N/A":getDate(cpgnHitsRow,"most_recent") );
+        Long hits = (Long) cpgnHitsRow.getItem("total_hits").getResultData();
+        setTotalHits(hits.toString());
+        setMostRecentHit((hits.longValue() == 0) ? "N/A" : getDate(cpgnHitsRow, "most_recent"));
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Campaign_Access");
         if (rsc.getRowCount() == 0) {
-            throw new Exception (" cid="+Integer.toString(getCampaignID())+
-                                 "does not belong to uid="+Long.toString(uid) );
+            throw new Exception(" cid=" + Integer.toString(getCampaignID()) +
+                    "does not belong to uid=" + Long.toString(uid));
         }
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Position_List");
         ArrayList positionList = new ArrayList();
         ResultSetContainer.ResultSetRow posListRow = null;
-        for (int rowI=0;rowI<rsc.getRowCount();rowI++) {
+        for (int rowI = 0; rowI < rsc.getRowCount(); rowI++) {
             posListRow = rsc.getRow(rowI);
 
             HashMap position = new HashMap();
             position.put("job_desc",
-                         posListRow.getItem("job_desc").toString() );
+                    posListRow.getItem("job_desc").toString());
             position.put("hit_count",
-                         ((Long)posListRow.getItem("hit_count").getResultData()).toString() );
-            if(((Long)posListRow.getItem("hit_count").getResultData()).longValue()==0){
+                    ((Long) posListRow.getItem("hit_count").getResultData()).toString());
+            if (((Long) posListRow.getItem("hit_count").getResultData()).longValue() == 0) {
                 position.put("most_recent", "N/A");
-            }else{
-                position.put("most_recent", getDate( posListRow, "most_recent") );
+            } else {
+                position.put("most_recent", getDate(posListRow, "most_recent"));
             }
             position.put("job_id",
-                         ((Long)posListRow.getItem("job_id").getResultData()).toString() );
+                    ((Long) posListRow.getItem("job_id").getResultData()).toString());
 
             positionList.add(position);
         }
-        setPositionList( positionList );
+        setPositionList(positionList);
 
-        setNextPage( TCESConstants.CAMPAIGN_DETAIL_PAGE );
+        setNextPage(TCESConstants.CAMPAIGN_DETAIL_PAGE);
 
     }
 
     public void setAttributes(String paramName, String paramValues[]) {
         String value = paramValues[0];
-        value = (value == null?"":value.trim());
+        value = (value == null ? "" : value.trim());
 
         if (paramName.equalsIgnoreCase(TCESConstants.CAMPAIGN_ID_PARAM))
             setCampaignID(Integer.parseInt(value));

@@ -11,43 +11,41 @@ public class TextInputTag extends BaseTag {
 
     public int doStartTag() {
         StringBuffer ret = new StringBuffer();
-        
-        if( editable ) {
-            ret.append("<input type=\"").append(passw?"password":"text")
-            .append("\" name=\"").append(name).append("\" ");
-            if( size >= 0 ) {
+
+        if (editable) {
+            ret.append("<input type=\"").append(passw ? "password" : "text")
+                    .append("\" name=\"").append(name).append("\" ");
+            if (size >= 0) {
                 ret.append("size=\"").append(size).append("\" ");
             }
-            if( maxlength >= 0 ) {
+            if (maxlength >= 0) {
                 ret.append("maxlength=\"").append(maxlength).append("\" ");
             }
-            if(aclass != null) {
+            if (aclass != null) {
                 ret.append("class=\"").append(aclass).append("\" ");
             }
-            if(onKeyPress != null) {
+            if (onKeyPress != null) {
                 ret.append("onKeyPress=\"").append(onKeyPress).append("\" ");
             }
 
-            if(value == null) {
+            if (value == null) {
                 value = (String) getDefaultValue();
             }
-            if( value != null ) {
+            if (value != null) {
                 ret.append("value=\"").append(value).append("\" ");
             }
             ret.append("/>");
-        }
-        else {
-            if(value == null) {
+        } else {
+            if (value == null) {
                 value = (String) getDefaultValue();
             }
-            if( value != null ) {
+            if (value != null) {
                 ret.append(value);
             }
         }
         try {
             pageContext.getOut().print(ret.toString());
-        }
-        catch (java.io.IOException ioe) {
+        } catch (java.io.IOException ioe) {
         }
         return SKIP_BODY;
     }
@@ -83,6 +81,7 @@ public class TextInputTag extends BaseTag {
     public void setPassw(boolean passw) {
         this.passw = passw;
     }
+
     /**
      * Sets the aclass.
      * @param aclass The aclass to set
@@ -99,11 +98,11 @@ public class TextInputTag extends BaseTag {
         this.onKeyPress = onKeyPress;
     }
 
-	/**
-	 * Sets the editable.
-	 * @param editable The editable to set
-	 */
-	public void setEditable(String edit) {
+    /**
+     * Sets the editable.
+     * @param editable The editable to set
+     */
+    public void setEditable(String edit) {
         editable = edit.equalsIgnoreCase("true");
-	}
+    }
 }

@@ -8,7 +8,7 @@ import java.util.List;
  * @author  Greg Paul
  */
 public class ListIteratorTag extends IteratorTag {
-    
+
     List list;
 
     public void setList(List list) {
@@ -20,5 +20,5 @@ public class ListIteratorTag extends IteratorTag {
 
         return super.doStartTag();
     }
-    
+
 }

@@ -1,8 +1,8 @@
 package com.topcoder.web.ejb.address;
 
+import javax.ejb.EJBException;
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
-import javax.ejb.EJBException;
 
 
 /**
@@ -74,7 +74,7 @@ public interface Address extends EJBObject {
      * @see com.topcoder.web.ejb.address.AddressBean#setAddressTypeId
      */
     void setAddressTypeId(long addressId, long addressTypeId)
-                   throws RemoteException, EJBException;
+            throws RemoteException, EJBException;
 
     /**
      *
@@ -82,7 +82,7 @@ public interface Address extends EJBObject {
      * @see com.topcoder.web.ejb.address.AddressBean#setAddress1
      */
     void setAddress1(long addressId, String address1)
-              throws RemoteException, EJBException;
+            throws RemoteException, EJBException;
 
     /**
      *
@@ -90,7 +90,7 @@ public interface Address extends EJBObject {
      * @see com.topcoder.web.ejb.address.AddressBean#setAddress2
      */
     void setAddress2(long addressId, String address2)
-              throws RemoteException, EJBException;
+            throws RemoteException, EJBException;
 
     /**
      *
@@ -98,7 +98,7 @@ public interface Address extends EJBObject {
      * @see com.topcoder.web.ejb.address.AddressBean#setCity
      */
     void setCity(long addressId, String city)
-          throws RemoteException, EJBException;
+            throws RemoteException, EJBException;
 
     /**
      *
@@ -106,7 +106,7 @@ public interface Address extends EJBObject {
      * @see com.topcoder.web.ejb.address.AddressBean#setStateCode
      */
     void setStateCode(long addressId, String stateCode)
-               throws RemoteException, EJBException;
+            throws RemoteException, EJBException;
 
     /**
      *
@@ -114,7 +114,7 @@ public interface Address extends EJBObject {
      * @see com.topcoder.web.ejb.address.AddressBean#setZip
      */
     void setZip(long addressId, String zip)
-         throws RemoteException, EJBException;
+            throws RemoteException, EJBException;
 
     /**
      *
@@ -122,7 +122,7 @@ public interface Address extends EJBObject {
      * @see com.topcoder.web.ejb.address.AddressBean#setCountryCode
      */
     void setCountryCode(long addressId, String countryCode)
-                 throws RemoteException, EJBException;
+            throws RemoteException, EJBException;
 
     /**
      *
@@ -130,5 +130,5 @@ public interface Address extends EJBObject {
      * @see com.topcoder.web.ejb.address.AddressBean#getAddressTypeDesc
      */
     String getAddressTypeDesc(long addressId)
-                 throws RemoteException, EJBException;
+            throws RemoteException, EJBException;
 }

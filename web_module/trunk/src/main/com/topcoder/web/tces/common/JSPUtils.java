@@ -4,11 +4,7 @@ import com.topcoder.shared.dataAccess.resultSet.TCResultItem;
 import com.topcoder.shared.util.logging.Logger;
 
 import java.math.BigDecimal;
-import java.util.TreeMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.*;
 
 /**
  * <p>Title: JSPUtils </p>
@@ -80,11 +76,11 @@ public class JSPUtils {
      * milliseconds.
      * @param result The TCResultItem containing an elapsed time in milliseconds.
      * @return The time value expressed as minutes and seconds.
-     */    
+     */
     public static String timeFormat(TCResultItem result) {
         double millisec = Double.parseDouble(result.toString());
-        int sec = (int)(millisec / 1000);
-        int min = sec/60;
+        int sec = (int) (millisec / 1000);
+        int min = sec / 60;
         sec %= 60;
         return min + " mins " + sec + " secs";
     }
@@ -96,17 +92,17 @@ public class JSPUtils {
      * use their standard toString() methods.
      * @param result The TCResultItem to be formatted.
      * @return The formatted text string.
-     */    
+     */
     public static String autoFormat(TCResultItem result) {
-        switch(result.getType()){
+        switch (result.getType()) {
             case TCResultItem.DOUBLE:
-                return TCESConstants.NUMBER_FORMAT.format(((Double)result.getResultData()).doubleValue());
+                return TCESConstants.NUMBER_FORMAT.format(((Double) result.getResultData()).doubleValue());
             case TCResultItem.FLOAT:
-                return TCESConstants.NUMBER_FORMAT.format(((Float)result.getResultData()).floatValue());
+                return TCESConstants.NUMBER_FORMAT.format(((Float) result.getResultData()).floatValue());
             case TCResultItem.BIGDECIMAL:
-                return TCESConstants.NUMBER_FORMAT.format(((BigDecimal)result.getResultData()).doubleValue());
+                return TCESConstants.NUMBER_FORMAT.format(((BigDecimal) result.getResultData()).doubleValue());
             case TCResultItem.DATETIME:
-                return TCESConstants.DATE_FORMAT.format((java.sql.Timestamp)result.getResultData());
+                return TCESConstants.DATE_FORMAT.format((java.sql.Timestamp) result.getResultData());
             default:
                 return result.toString();
         }
@@ -122,46 +118,44 @@ public class JSPUtils {
      * @param ascending The sort direction, <CODE>true</CODE> = ascending,
      * <CODE>false</CODE> = descending.
      * @return The sorted list of Maps.
-     */    
+     */
     public static ArrayList sortMapList(List mapList, String fieldName, boolean ascending) {
         TreeMap mapsMap = new TreeMap();
         ArrayList sortedMapList = new ArrayList();
 
         Iterator maps = mapList.iterator();
         while (maps.hasNext()) {
-            Map curMap = (Map)maps.next();
+            Map curMap = (Map) maps.next();
 
-            if (curMap.get(fieldName)==null) {
+            if (curMap.get(fieldName) == null) {
                 System.out.println(curMap);
-                Iterator it=curMap.keySet().iterator();
+                Iterator it = curMap.keySet().iterator();
                 while (it.hasNext())
                     log.debug(it.next());
-            }
-            else {
+            } else {
 
-            ArrayList keyDupList = null;
-            if (!mapsMap.containsKey(curMap.get(fieldName))) {
-                keyDupList = new ArrayList();
-                mapsMap.put(curMap.get(fieldName), keyDupList);
-            }
-            else {
-                keyDupList = (ArrayList)mapsMap.get( curMap.get(fieldName));
-            }
+                ArrayList keyDupList = null;
+                if (!mapsMap.containsKey(curMap.get(fieldName))) {
+                    keyDupList = new ArrayList();
+                    mapsMap.put(curMap.get(fieldName), keyDupList);
+                } else {
+                    keyDupList = (ArrayList) mapsMap.get(curMap.get(fieldName));
+                }
 
-            keyDupList.add(curMap);
+                keyDupList.add(curMap);
 
             }
         }
 
-        while (mapsMap.size()>0) {
-            List keyDupList = (List)mapsMap.get(ascending?mapsMap.firstKey():mapsMap.lastKey() );
+        while (mapsMap.size() > 0) {
+            List keyDupList = (List) mapsMap.get(ascending ? mapsMap.firstKey() : mapsMap.lastKey());
 
             Iterator keyDups = keyDupList.iterator();
             while (keyDups.hasNext()) {
-                sortedMapList.add( keyDups.next() );
+                sortedMapList.add(keyDups.next());
             }
 
-            mapsMap.remove( ascending?mapsMap.firstKey():mapsMap.lastKey() );
+            mapsMap.remove(ascending ? mapsMap.firstKey() : mapsMap.lastKey());
         }
 
         return sortedMapList;

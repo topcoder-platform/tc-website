@@ -16,7 +16,7 @@ import java.util.List;
  * @author  George Dean
  */
 public class RowIteratorTag extends IteratorTag {
-    
+
     private static Logger log = Logger.getLogger(RowIteratorTag.class);
 
     List rowList;
@@ -31,5 +31,5 @@ public class RowIteratorTag extends IteratorTag {
 
         return super.doStartTag();
     }
-    
+
 }

@@ -7,8 +7,7 @@ package com.topcoder.web.tces.common;
  */
 
 public class TCESAuthenticationException
-        extends Exception
-{
+        extends Exception {
     public TCESAuthenticationException() {
         super();
     }

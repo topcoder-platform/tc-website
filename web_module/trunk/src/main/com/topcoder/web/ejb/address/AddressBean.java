@@ -1,20 +1,20 @@
 package com.topcoder.web.ejb.address;
 
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.idgenerator.IdGenerator;
 import com.topcoder.util.idgenerator.sql.SimpleDB;
-import com.topcoder.shared.util.DBMS;
+
+import javax.ejb.EJBException;
 import javax.ejb.SessionBean;
 import javax.ejb.SessionContext;
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import javax.ejb.EJBException;
-import javax.naming.NamingException;
-import java.rmi.RemoteException;
 import java.sql.SQLException;
 
 
@@ -29,12 +29,14 @@ public class AddressBean implements SessionBean {
     private SessionContext ctx;
 
     //required ejb methods
-    public void ejbActivate() {}
+    public void ejbActivate() {
+    }
 
     /**
      *
      */
-    public void ejbPassivate() {}
+    public void ejbPassivate() {
+    }
 
     /**
      *
@@ -46,7 +48,8 @@ public class AddressBean implements SessionBean {
     /**
      *
      */
-    public void ejbRemove() {}
+    public void ejbRemove() {
+    }
 
     /**
      *
@@ -76,54 +79,54 @@ public class AddressBean implements SessionBean {
         try {
             ctx = new InitialContext();
             log.debug("user transaction " +
-                      ctx.lookup("javax/transaction/UserTransaction"));
+                    ctx.lookup("javax/transaction/UserTransaction"));
 
             if (!IdGenerator.isInitialized()) {
                 IdGenerator.init(
-                                 new SimpleDB(),
-                                 (DataSource)ctx.lookup((String)
-                                 ctx.lookup(
-                                     "java:comp/env/idgen_datasource_name")),
-                                    "sequence_object",
-                                    "name",
-                                    "current_value",
-                                    9999999999L,
-                                    1,
-                                    true
-                                 );
+                        new SimpleDB(),
+                        (DataSource) ctx.lookup((String)
+                        ctx.lookup(
+                                "java:comp/env/idgen_datasource_name")),
+                        "sequence_object",
+                        "name",
+                        "current_value",
+                        9999999999L,
+                        1,
+                        true
+                );
             }
 
             ret = IdGenerator.nextId("ADDRESS_SEQ");
 
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("INSERT INTO address (address_id) " +
-                                       "VALUES (?)");
+                    "VALUES (?)");
             ps.setLong(1, ret);
             int rows = ps.executeUpdate();
 
             if (rows != 1)
                 throw new EJBException("Wrong number of rows in insert: " +
-                                       rows);
+                        rows);
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException creating address");
         } catch (NamingException e) {
             throw new EJBException("NamingException creating address");
         } catch (Exception e) {
             throw new EJBException("Exception creating address:\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "createAddress");
+                            "createAddress");
                 }
             }
 
@@ -168,12 +171,12 @@ public class AddressBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT address_type_id FROM address " +
-                                       "WHERE address_id = ?");
+                    "WHERE address_id = ?");
             ps.setLong(1, addressId);
 
             rs = ps.executeQuery();
@@ -182,14 +185,14 @@ public class AddressBean implements SessionBean {
                 ret = rs.getLong("address_type_id");
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException getting address_type_id");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting address type ID");
         } catch (Exception e) {
             throw new EJBException("Exception getting address_type_id\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (rs != null) {
                 try {
@@ -204,7 +207,7 @@ public class AddressBean implements SessionBean {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "getAddressTypeId");
+                            "getAddressTypeId");
                 }
             }
 
@@ -213,7 +216,7 @@ public class AddressBean implements SessionBean {
                     conn.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close Connection in " +
-                              "getAddressTypeId");
+                            "getAddressTypeId");
                 }
             }
 
@@ -250,12 +253,12 @@ public class AddressBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT address1 FROM address WHERE " +
-                                       "address_id = ?");
+                    "address_id = ?");
             ps.setLong(1, addressId);
 
             rs = ps.executeQuery();
@@ -264,14 +267,14 @@ public class AddressBean implements SessionBean {
                 ret = rs.getString("address1");
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException getting address1");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting address 1");
         } catch (Exception e) {
             throw new EJBException("Exception getting address1\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (rs != null) {
                 try {
@@ -286,7 +289,7 @@ public class AddressBean implements SessionBean {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "getAddress1");
+                            "getAddress1");
                 }
             }
 
@@ -331,12 +334,12 @@ public class AddressBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT address2 FROM address " +
-                                       "WHERE address_id = ?");
+                    "WHERE address_id = ?");
             ps.setLong(1, addressId);
 
             rs = ps.executeQuery();
@@ -345,14 +348,14 @@ public class AddressBean implements SessionBean {
                 ret = rs.getString("address2");
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException getting address2");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting address 2");
         } catch (Exception e) {
             throw new EJBException("Exception getting address2\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (rs != null) {
                 try {
@@ -367,7 +370,7 @@ public class AddressBean implements SessionBean {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "getAddress2");
+                            "getAddress2");
                 }
             }
 
@@ -412,12 +415,12 @@ public class AddressBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT city FROM address " +
-                                       "WHERE address_id = ?");
+                    "WHERE address_id = ?");
             ps.setLong(1, addressId);
 
             rs = ps.executeQuery();
@@ -426,14 +429,14 @@ public class AddressBean implements SessionBean {
                 ret = rs.getString("city");
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException getting city");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting city");
         } catch (Exception e) {
             throw new EJBException("Exception getting city\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (rs != null) {
                 try {
@@ -492,12 +495,12 @@ public class AddressBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT state_code FROM address " +
-                                       "WHERE address_id = ?");
+                    "WHERE address_id = ?");
             ps.setLong(1, addressId);
 
             rs = ps.executeQuery();
@@ -506,14 +509,14 @@ public class AddressBean implements SessionBean {
                 ret = rs.getString("state_code");
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException getting state_code");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting state code");
         } catch (Exception e) {
             throw new EJBException("Exception getting state_code\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (rs != null) {
                 try {
@@ -528,7 +531,7 @@ public class AddressBean implements SessionBean {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "getStateCode");
+                            "getStateCode");
                 }
             }
 
@@ -573,13 +576,13 @@ public class AddressBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT zip FROM address " +
-                                       "WHERE address_id = ?");
-            ps.setLong(1,addressId);
+                    "WHERE address_id = ?");
+            ps.setLong(1, addressId);
 
             rs = ps.executeQuery();
 
@@ -587,8 +590,8 @@ public class AddressBean implements SessionBean {
                 ret = rs.getString("zip");
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException getting zip");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting zip");
@@ -652,12 +655,12 @@ public class AddressBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT country_code FROM address " +
-                                       "WHERE address_id = ?");
+                    "WHERE address_id = ?");
             ps.setLong(1, addressId);
 
             rs = ps.executeQuery();
@@ -666,14 +669,14 @@ public class AddressBean implements SessionBean {
                 ret = rs.getString("country_code");
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException getting country code");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting country code");
         } catch (Exception e) {
             throw new EJBException("Exception getting country_code\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (rs != null) {
                 try {
@@ -688,7 +691,7 @@ public class AddressBean implements SessionBean {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "getCountryCode");
+                            "getCountryCode");
                 }
             }
 
@@ -722,7 +725,7 @@ public class AddressBean implements SessionBean {
      */
     public void setAddressTypeId(long addressId, long addressTypeId) {
         log.debug("setAddressTypeId called...addressId: " + addressId +
-                  " addressTypeId: " + addressTypeId);
+                " addressTypeId: " + addressTypeId);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -731,12 +734,12 @@ public class AddressBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE address SET address_type_id =" +
-                                       " ? WHERE address_id = ?");
+                    " ? WHERE address_id = ?");
             ps.setLong(1, addressTypeId);
             ps.setLong(2, addressId);
 
@@ -744,28 +747,28 @@ public class AddressBean implements SessionBean {
 
             if (rows != 1)
                 throw new EJBException("Wrong number of rows in update: " +
-                                       rows + " for address_id: " + addressId +
-                                       " address_type_id: " + addressTypeId);
+                        rows + " for address_id: " + addressId +
+                        " address_type_id: " + addressTypeId);
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException updating address_id: " +
-                                   addressId + " address_type_id: " +
-                                   addressTypeId);
+                    addressId + " address_type_id: " +
+                    addressTypeId);
         } catch (NamingException e) {
             throw new EJBException("NamingException updating address type ID");
         } catch (Exception e) {
             throw new EJBException("Exception updating address_id: " +
-                                   addressId + " address_type_id: " +
-                                   addressTypeId + "\n" + e.getMessage());
+                    addressId + " address_type_id: " +
+                    addressTypeId + "\n" + e.getMessage());
         } finally {
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "setAddressTypeId");
+                            "setAddressTypeId");
                 }
             }
 
@@ -774,7 +777,7 @@ public class AddressBean implements SessionBean {
                     conn.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close Connection in " +
-                              "setAddressTypeId");
+                            "setAddressTypeId");
                 }
             }
 
@@ -798,7 +801,7 @@ public class AddressBean implements SessionBean {
      */
     public void setAddress1(long addressId, String address1) {
         log.debug("setAddress1 called...addressId: " + addressId +
-                  " address1: " + address1);
+                " address1: " + address1);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -807,12 +810,12 @@ public class AddressBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE address SET address1 = ? " +
-                                       "WHERE address_id = ?");
+                    "WHERE address_id = ?");
             ps.setString(1, address1);
             ps.setLong(2, addressId);
 
@@ -820,27 +823,27 @@ public class AddressBean implements SessionBean {
 
             if (rows != 1)
                 throw new EJBException("Wrong number of rows in update: " +
-                                       rows + " for address_id: " + addressId +
-                                       " address1: " + address1);
+                        rows + " for address_id: " + addressId +
+                        " address1: " + address1);
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException updating address_id: " +
-                                   addressId + " address1: " + address1);
+                    addressId + " address1: " + address1);
         } catch (NamingException e) {
             throw new EJBException("NamingException updating address 1");
         } catch (Exception e) {
             throw new EJBException("Exception updating address_id: " +
-                                   addressId + " address1: " + address1 +
-                                   "\n" + e.getMessage());
+                    addressId + " address1: " + address1 +
+                    "\n" + e.getMessage());
         } finally {
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "setAddress1");
+                            "setAddress1");
                 }
             }
 
@@ -872,7 +875,7 @@ public class AddressBean implements SessionBean {
      */
     public void setAddress2(long addressId, String address2) {
         log.debug("setAddress2 called...addressId: " + addressId +
-                  " address2: " + address2);
+                " address2: " + address2);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -881,12 +884,12 @@ public class AddressBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE address SET address2 = ? " +
-                                       "WHERE address_id = ?");
+                    "WHERE address_id = ?");
             ps.setString(1, address2);
             ps.setLong(2, addressId);
 
@@ -894,27 +897,27 @@ public class AddressBean implements SessionBean {
 
             if (rows != 1)
                 throw new EJBException("Wrong number of rows in update: " +
-                                       rows + " for address_id: " + addressId +
-                                       " address2: " + address2);
+                        rows + " for address_id: " + addressId +
+                        " address2: " + address2);
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException updating address_id: " +
-                                   addressId + " address2: " + address2);
+                    addressId + " address2: " + address2);
         } catch (NamingException e) {
             throw new EJBException("NamingException updating address 2");
         } catch (Exception e) {
             throw new EJBException("Exception updating address_id: " +
-                                   addressId + " address2: " + address2 +
-                                   "\n" + e.getMessage());
+                    addressId + " address2: " + address2 +
+                    "\n" + e.getMessage());
         } finally {
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "setAddress2");
+                            "setAddress2");
                 }
             }
 
@@ -946,7 +949,7 @@ public class AddressBean implements SessionBean {
      */
     public void setCity(long addressId, String city) {
         log.debug("setCity called...addressId: " + addressId + " city: " +
-                  city);
+                city);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -955,12 +958,12 @@ public class AddressBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE address SET city = ? " +
-                                       "WHERE address_id = ?");
+                    "WHERE address_id = ?");
             ps.setString(1, city);
             ps.setLong(2, addressId);
 
@@ -968,20 +971,20 @@ public class AddressBean implements SessionBean {
 
             if (rows != 1)
                 throw new EJBException("Wrong number of rows in update: " +
-                                       rows + " for address_id: " + addressId +
-                                       " city: " + city);
+                        rows + " for address_id: " + addressId +
+                        " city: " + city);
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException updating address_id: " +
-                                   addressId + " city: " + city);
+                    addressId + " city: " + city);
         } catch (NamingException e) {
             throw new EJBException("NamingException updating city");
         } catch (Exception e) {
             throw new EJBException("Exception updating address_id: " +
-                                   addressId + " city: " + city + "\n" +
-                                   e.getMessage());
+                    addressId + " city: " + city + "\n" +
+                    e.getMessage());
         } finally {
             if (ps != null) {
                 try {
@@ -1019,7 +1022,7 @@ public class AddressBean implements SessionBean {
      */
     public void setStateCode(long addressId, String stateCode) {
         log.debug("setStateCode called...addressId: " + addressId +
-                  " stateCode: " + stateCode);
+                " stateCode: " + stateCode);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -1028,12 +1031,12 @@ public class AddressBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE address SET state_code = ? " +
-                                       "WHERE address_id = ?");
+                    "WHERE address_id = ?");
             ps.setString(1, stateCode);
             ps.setLong(2, addressId);
 
@@ -1041,27 +1044,27 @@ public class AddressBean implements SessionBean {
 
             if (rows != 1)
                 throw new EJBException("Wrong number of rows in update: " +
-                                       rows + " for address_id: " + addressId +
-                                       " state_code: " + stateCode);
+                        rows + " for address_id: " + addressId +
+                        " state_code: " + stateCode);
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException updating address_id: '" +
-                                   addressId + "' state_code: " + stateCode);
+                    addressId + "' state_code: " + stateCode);
         } catch (NamingException e) {
             throw new EJBException("NamingException updating state code");
         } catch (Exception e) {
             throw new EJBException("Exception updating address_id: " +
-                                   addressId + " state_code: " + stateCode +
-                                   "\n" + e.getMessage());
+                    addressId + " state_code: " + stateCode +
+                    "\n" + e.getMessage());
         } finally {
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "setStateCode");
+                            "setStateCode");
                 }
             }
 
@@ -1101,12 +1104,12 @@ public class AddressBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE address SET zip = ? " +
-                                       "WHERE address_id = ?");
+                    "WHERE address_id = ?");
             ps.setString(1, zip);
             ps.setLong(2, addressId);
 
@@ -1114,20 +1117,20 @@ public class AddressBean implements SessionBean {
 
             if (rows != 1)
                 throw new EJBException("Wrong number of rows in update: " +
-                                       rows + " for address_id: " + addressId +
-                                       " zip: " + zip);
+                        rows + " for address_id: " + addressId +
+                        " zip: " + zip);
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException updating address_id: " +
-                                   addressId + " zip: " + zip);
+                    addressId + " zip: " + zip);
         } catch (NamingException e) {
             throw new EJBException("NamingException updating zip");
         } catch (Exception e) {
             throw new EJBException("Exception updating address_id: " +
-                                   addressId + " zip: " + zip + "\n" +
-                                   e.getMessage());
+                    addressId + " zip: " + zip + "\n" +
+                    e.getMessage());
         } finally {
             if (ps != null) {
                 try {
@@ -1165,7 +1168,7 @@ public class AddressBean implements SessionBean {
      */
     public void setCountryCode(long addressId, String countryCode) {
         log.debug("setCountryCode called...addressId: " + addressId +
-                  " countryCode: " + countryCode);
+                " countryCode: " + countryCode);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -1174,12 +1177,12 @@ public class AddressBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE address SET country_code = ? " +
-                                       "WHERE address_id = ?");
+                    "WHERE address_id = ?");
             ps.setString(1, countryCode);
             ps.setLong(2, addressId);
 
@@ -1187,28 +1190,28 @@ public class AddressBean implements SessionBean {
 
             if (rows != 1)
                 throw new EJBException("Wrong number of rows in update: " +
-                                       rows + " for address_id: " + addressId +
-                                       " country_code: " + countryCode);
+                        rows + " for address_id: " + addressId +
+                        " country_code: " + countryCode);
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException updating address_id: " +
-                                   addressId + " country_code: " +
-                                   countryCode);
+                    addressId + " country_code: " +
+                    countryCode);
         } catch (NamingException e) {
             throw new EJBException("NamingException updating country code");
         } catch (Exception e) {
             throw new EJBException("Exception updating address_id: " +
-                                   addressId + " country_code: " +
-                                   countryCode + "\n" + e.getMessage());
+                    addressId + " country_code: " +
+                    countryCode + "\n" + e.getMessage());
         } finally {
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "setCountryCode");
+                            "setCountryCode");
                 }
             }
 
@@ -1252,13 +1255,13 @@ public class AddressBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT address_type_id " +
-                                       "FROM address " +
-                                       "WHERE address_id = ?");
+                    "FROM address " +
+                    "WHERE address_id = ?");
             ps.setLong(1, addressId);
 
             rs = ps.executeQuery();
@@ -1267,8 +1270,8 @@ public class AddressBean implements SessionBean {
                 addressTypeId = rs.getLong("address_type_id");
 
             ps = conn.prepareStatement("SELECT address_type_desc " +
-                                       "FROM address_type_lu " +
-                                       "WHERE address_type_id = ?");
+                    "FROM address_type_lu " +
+                    "WHERE address_type_id = ?");
             ps.setLong(1, addressTypeId);
 
             rs = ps.executeQuery();
@@ -1277,22 +1280,22 @@ public class AddressBean implements SessionBean {
                 ret = rs.getString("address_type_desc");
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException getting address_type_desc");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting address type " +
-                                   "description");
+                    "description");
         } catch (Exception e) {
             throw new EJBException("Exception getting address_type_desc\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (rs != null) {
                 try {
                     rs.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close ResultSet in " +
-                              "getAddressTypeDesc");
+                            "getAddressTypeDesc");
                 }
             }
 
@@ -1301,7 +1304,7 @@ public class AddressBean implements SessionBean {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "getAddressTypeDesc");
+                            "getAddressTypeDesc");
                 }
             }
 
@@ -1310,7 +1313,7 @@ public class AddressBean implements SessionBean {
                     conn.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close Connection in " +
-                              "getAddressTypeDesc");
+                            "getAddressTypeDesc");
                 }
             }
 

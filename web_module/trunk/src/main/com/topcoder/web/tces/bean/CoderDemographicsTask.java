@@ -6,21 +6,24 @@
 
 package com.topcoder.web.tces.bean;
 
-import com.topcoder.shared.dataAccess.*;
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.tces.common.TCESConstants;
-import com.topcoder.web.tces.common.TCESAuthenticationException;
-import com.topcoder.web.resume.ejb.ResumeServices.ResumeServicesHome;
 import com.topcoder.web.resume.ejb.ResumeServices.ResumeServices;
-import com.topcoder.shared.security.User;
-import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.web.resume.ejb.ResumeServices.ResumeServicesHome;
+import com.topcoder.web.tces.common.TCESConstants;
 
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.Serializable;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -53,7 +56,7 @@ public class CoderDemographicsTask extends BaseTask implements Task, Serializabl
         super();
         setNextPage(TCESConstants.CODER_DEMOGRAPHICS_PAGE);
 
-        uid=-1;
+        uid = -1;
     }
 
 //    public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
@@ -65,27 +68,27 @@ public class CoderDemographicsTask extends BaseTask implements Task, Serializabl
 //    }
 
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
-        throws Exception {
+            throws Exception {
 
         ArrayList a = new ArrayList();
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() + 
-            "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MAIN_TASK + "&" + 
-            TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.MAIN_NAME));
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() + 
-            "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_DETAIL_TASK + "&" + 
-            TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.CAMPAIGN_DETAIL_NAME));
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() + 
-            "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_INTEREST_TASK + "&" + 
-            TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.CAMPAIGN_INTEREST_NAME));
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() + 
-            "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.POSITION_INTEREST_TASK + "&" + 
-            TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID() + "&" +
-            TCESConstants.JOB_ID_PARAM + "=" + getJobID(), TCESConstants.POSITION_INTEREST_NAME));
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() + 
-            "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MEMBER_PROFILE_TASK + "&" + 
-            TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID() + "&" +
-            TCESConstants.JOB_ID_PARAM + "=" + getJobID() + "&" + TCESConstants.MEMBER_ID_PARAM + 
-            "=" + getMemberID(), TCESConstants.MEMBER_PROFILE_NAME));
+        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
+                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MAIN_TASK + "&" +
+                TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.MAIN_NAME));
+        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
+                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_DETAIL_TASK + "&" +
+                TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.CAMPAIGN_DETAIL_NAME));
+        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
+                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_INTEREST_TASK + "&" +
+                TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.CAMPAIGN_INTEREST_NAME));
+        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
+                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.POSITION_INTEREST_TASK + "&" +
+                TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID() + "&" +
+                TCESConstants.JOB_ID_PARAM + "=" + getJobID(), TCESConstants.POSITION_INTEREST_NAME));
+        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
+                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MEMBER_PROFILE_TASK + "&" +
+                TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID() + "&" +
+                TCESConstants.JOB_ID_PARAM + "=" + getJobID() + "&" + TCESConstants.MEMBER_ID_PARAM +
+                "=" + getMemberID(), TCESConstants.MEMBER_PROFILE_NAME));
         setTrail(a);
 
     }
@@ -111,11 +114,11 @@ public class CoderDemographicsTask extends BaseTask implements Task, Serializabl
          */
         Request dwDataRequest = new Request();
         dwDataRequest.setContentHandle("tces_member_profile");
-        dwDataRequest.setProperty("mid", Integer.toString(getMemberID()) );
-        DataAccessInt dw = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.DW_DATASOURCE_NAME));
+        dwDataRequest.setProperty("mid", Integer.toString(getMemberID()));
+        DataAccessInt dw = new DataAccess((javax.sql.DataSource) getInitialContext().lookup(DBMS.DW_DATASOURCE_NAME));
         Map dwResultMap = dw.getData(dwDataRequest);
         ResultSetContainer dwRSC = null;
-        dwRSC = (ResultSetContainer) dwResultMap.get("TCES_Coder_Stats"); 
+        dwRSC = (ResultSetContainer) dwResultMap.get("TCES_Coder_Stats");
         if (dwRSC.getRowCount() > 0) {
             setIsRanked(true);
         } else {
@@ -123,60 +126,59 @@ public class CoderDemographicsTask extends BaseTask implements Task, Serializabl
         }
 
 
-
         Request dataRequest = new Request();
         dataRequest.setContentHandle("tces_member_demographics");
 
-        dataRequest.setProperty("uid", Long.toString(uid) );
-        dataRequest.setProperty("cid", Integer.toString(getCampaignID()) );
-        dataRequest.setProperty("jid", Integer.toString(getJobID()) );
-        dataRequest.setProperty("mid", Integer.toString(getMemberID()) );
+        dataRequest.setProperty("uid", Long.toString(uid));
+        dataRequest.setProperty("cid", Integer.toString(getCampaignID()));
+        dataRequest.setProperty("jid", Integer.toString(getJobID()));
+        dataRequest.setProperty("mid", Integer.toString(getMemberID()));
 
-        DataAccessInt dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
+        DataAccessInt dai = new DataAccess((javax.sql.DataSource) getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
         Map resultMap = dai.getData(dataRequest);
 
         ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_Member_Handle");
         if (rsc.getRowCount() == 0) {
-            throw new Exception ("No member handle!");
+            throw new Exception("No member handle!");
         }
         ResultSetContainer.ResultSetRow handleRow = rsc.getRow(0);
-        setHandle( handleRow.getItem("handle").toString() );
+        setHandle(handleRow.getItem("handle").toString());
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Member_Access");
         if (rsc.getRowCount() == 0) {
-            throw new Exception ("mid="+Integer.toString(getMemberID())+
-                                 " jid="+Integer.toString(getJobID())+
-                                 " cid="+Integer.toString(getCampaignID())+
-                                 " does not belong to uid="+Long.toString(uid) );
+            throw new Exception("mid=" + Integer.toString(getMemberID()) +
+                    " jid=" + Integer.toString(getJobID()) +
+                    " cid=" + Integer.toString(getCampaignID()) +
+                    " does not belong to uid=" + Long.toString(uid));
         }
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Member_Demographics");
         ArrayList qrList = new ArrayList();
         ResultSetContainer.ResultSetRow qrListRow = null;
-        for (int rowI=0;rowI<rsc.getRowCount();rowI++) {
+        for (int rowI = 0; rowI < rsc.getRowCount(); rowI++) {
             qrListRow = rsc.getRow(rowI);
             HashMap qr = new HashMap();
 
             qr.put("question",
-                    qrListRow.getItem("demographic_question_text").toString() );
+                    qrListRow.getItem("demographic_question_text").toString());
             qr.put("response",
-                    qrListRow.getItem("demographic_answer_text").toString() );
+                    qrListRow.getItem("demographic_answer_text").toString());
 
             qrList.add(qr);
         }
 
-        setQuestionList( qrList );
+        setQuestionList(qrList);
 
         setMemberInfo((ResultSetContainer) resultMap.get("TCES_Member_Profile"));
         setJobName(((ResultSetContainer) resultMap.get("TCES_Position_Name")).
                 getItem(0, "job_desc").toString());
 
-        setNextPage( TCESConstants.CODER_DEMOGRAPHICS_PAGE );
+        setNextPage(TCESConstants.CODER_DEMOGRAPHICS_PAGE);
     }
 
     public void setAttributes(String paramName, String[] paramValues) {
         String value = paramValues[0];
-        value = (value == null?"":value.trim());
+        value = (value == null ? "" : value.trim());
 
         if (paramName.equalsIgnoreCase(TCESConstants.CAMPAIGN_ID_PARAM))
             setCampaignID(Integer.parseInt(value));
@@ -267,7 +269,7 @@ public class CoderDemographicsTask extends BaseTask implements Task, Serializabl
      * @param isRanked New value of property isRanked.
      */
     public void setIsRanked(boolean isRanked) {
-        this.isRanked=isRanked;
+        this.isRanked = isRanked;
     }
 
     public ResultSetContainer getMemberInfo() {

@@ -1,14 +1,13 @@
 package com.topcoder.web.common.tag;
 
-import java.util.List;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 import javax.servlet.jsp.JspException;
-
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import java.util.List;
 
 /**
  * Select tag for the ResultSetContainer
- * 
+ *
  * @author djFD molc@mail.ru
  * @version 1.02
  */
@@ -16,7 +15,7 @@ public class RSCSelectTag extends SelectTag {
     private String fieldValue = null;
     private String fieldText = null;
     private ResultSetContainer list = null;
-     
+
     /**
      * Sets the fieldText.
      * @param fieldText The fieldText to set
@@ -32,6 +31,7 @@ public class RSCSelectTag extends SelectTag {
     public void setFieldValue(String val) {
         fieldValue = val;
     }
+
     /**
      * Sets the list.
      * @param list The list to set
@@ -39,9 +39,9 @@ public class RSCSelectTag extends SelectTag {
     public void setList(ResultSetContainer rsc) {
         list = rsc;
     }
-    
+
     /**
-     * 
+     *
      * @see com.topcoder.web.common.tag.SelectTag#getOptionText(java.lang.Object)
      */
     String getOptionText(Object o) {
@@ -65,11 +65,12 @@ public class RSCSelectTag extends SelectTag {
     List getSelectOptions() throws JspException {
         return list;
     }
+
     /**
      * @see com.topcoder.web.common.tag.SelectTag#getSelected()
      */
     String getSelected() throws JspException {
-        setSelectedValue((String)getDefaultValue());
+        setSelectedValue((String) getDefaultValue());
         return super.getSelected();
     }
 

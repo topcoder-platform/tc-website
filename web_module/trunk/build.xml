@@ -6,6 +6,7 @@
    <property name="hs.war.name"      value="hs"/>
    <property name="email.war.name"      value="email"/>
    <property name="query.war.name"      value="query"/>
+   <property name="corp.war.name" value="corp"/>
    <property name="ejb_jars"      value="${build}/ejb_jars" />
    <property name="classes"       value="${build}/classes" />
    <property name="testclasses"   value="${build}/testcases" />
@@ -74,7 +75,7 @@
          </fileset>
       </copy>
    </target>
-      
+
 
    <target name="create_public_html">
       <mkdir dir="${public_html}/WEB-INF/lib" />
@@ -226,7 +227,7 @@
       <property name="tces.trgt"      value="${public_html}/tces_jsp" />
       <property name="tces.src"       value="${web}/tces/servlet/jsp" />
 
-      <mkdir dir="${stat.trgt}" /> 
+      <mkdir dir="${stat.trgt}" />
       <mkdir dir="${root.trgt}" />
       <mkdir dir="${pacts.trgt}" />
 <!--
@@ -607,7 +608,7 @@
         <antcall target="dev_war_query"/>
         <antcall target="dev_war_email"/>
     </target>
-         
+
     <target name="dev_war_query" depends="compile">
       <delete dir="${tc_cluster}/${query.war.name}"/>
       <mkdir dir="${tc_cluster}/${query.war.name}"/>
@@ -649,7 +650,7 @@
         </fileset>
       </copy>
     </target>
-    
+
     <target name="war_email" depends="compile">
         <war warfile="${war.dir}/${email.war.name}.war" webxml="${resources}/email/web.xml">
             <fileset dir="${java}/com/topcoder/web/email/servlet/jsp">
@@ -695,7 +696,7 @@
         <antcall target="package-EJB-CoderBean"/>
    </target>
 
-   
+
     <target name="package-EJB-UserBean" depends="compile,init-UserBean-properties,package-EJB-GenericBean"/>
 
     <target name="init-UserBean-properties" >
@@ -823,6 +824,159 @@
             </lib>
         </war>
     </target>
+
+
+
+
+    <!-- begin corp targets -->
+    <target name="war_corp" depends="compile,corp-ejb-all">
+        <war warfile="${war.dir}/${corp.war.name}.war" webxml="${resources}/corp/web.xml">
+            <classes dir="${classes}">
+                <include name="com/topcoder/web/corp/**"/>
+                <include name="com/topcoder/web/common/**"/>
+                <include name="com/topcoder/web/ejb/**"/>
+                <include name="com/topcoder/shared/**"/>
+                <exclude name="**/*Bean.class"/>
+                <exclude name="**/*Impl.class"/>
+            </classes>
+            <!-- libraries to be included in servlet classpath -->
+<!--
+            <lib dir="${jars.dir}">
+            </lib>
+-->
+            <webinf dir="${resources}/${corp.war.name}">
+                <include name="tc-webtags.tld"/>
+            </webinf>
+            <zipfileset dir="${java}/com/topcoder/web/corp/view/" includes="*, **/*" prefix=""/>
+            <zipfileset dir="${ejb_jars}" includes="*.jar" prefix="WEB-INF/ejb"/>
+        </war>
+    </target>
+
+    <target name="dev_war_corp" depends="compile">
+        <!--      <delete dir="${public_html}/${corp.war.name}"/>
+-->
+        <mkdir dir="${public_html}/${corp.war.name}"/>
+        <copy todir="${public_html}/${corp.war.name}">
+            <fileset dir="${java}/com/topcoder/web/corp/jsp">
+                <include name="**/*.jsp"/>
+            </fileset>
+        </copy>
+        <copy todir="${public_html}/${corp.war.name}/WEB-INF">
+            <fileset dir="${resources}/${corp.war.name}">
+                <include name="*.tld"/>
+                <include name="*.xml"/>
+            </fileset>
+        </copy>
+        <copy todir="${public_html}/${corp.war.name}/classes">
+            <fileset dir="${classes}">
+                <include name="com/topcoder/web/corp/**"/>
+                <include name="com/topcoder/web/common/**"/>
+                <include name="com/topcoder/shared/**"/>
+            </fileset>
+        </copy>
+    </target>
+
+
+    <target name="deploy-corp" depends="war_corp">
+        <copy todir="${public_html}" file="${war.dir}/${corp.war.name}.war"/>
+        <unwar src="${public_html}/${corp.war.name}.war" dest="${public_html}/${corp.war.name}/" overwrite="yes"/>
+        <delete file="${public_html}/${corp.war.name}.war"/>
+        <delete dir="${public_html}/${corp.war.name}/META-INF"/>
+        <!-- libraries to be included in weblogic classpath -->
+        <copy todir="${public_html}/../ext-lib">
+            <fileset dir="${jars.dir}">
+                <include name="idgenerator.jar"/>
+                <include name="security.jar"/>
+                <include name="jbossall-client.jar"/>
+                <include name="log4j-boot.jar"/>
+                <include name="jdom.jar"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="corp-ejb-all" depends="compile">
+        <!-- Address ejb -->
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="address"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/address"/>
+        </antcall>
+
+        <!-- Company ejb -->
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="company"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/company"/>
+        </antcall>
+
+        <!-- Email ejb -->
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="email"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/email"/>
+        </antcall>
+
+        <!-- Phone ejb -->
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="phone"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/phone"/>
+        </antcall>
+
+        <!-- Product ejb -->
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="product"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/product"/>
+        </antcall>
+
+        <!-- TermsOfUse ejb -->
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="termsofuse"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/termsofuse"/>
+        </antcall>
+
+        <!-- User ejb -->
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="user"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/user"/>
+        </antcall>
+
+    </target>
+
+    <target name="build-ejb-unit" depends="compile">
+        <!-- check if rebuild required -->
+        <uptodate property="remake-ejb-unit" targetfile="${ejb_jars}/${unit-jar-name}-ejb.jar" >
+            <srcfiles dir="${classes}" includes="${unit-class-path}/**/*.class"/>
+            <srcfiles dir="${java}/${unit-class-path}" includes="*.xml"/>
+        </uptodate>
+        <antcall target="conditional-build-ejb-unit"/>
+    </target>
+
+    <target name="conditional-build-ejb-unit" unless="remake-ejb-unit">
+        <!-- recreate -->
+        <property name="tmp-dir" value="${classes}/ejb-stuff"/>
+        <delete dir="${tmp-dir}" />
+        <mkdir dir="${tmp-dir}"/>
+        <!-- zip 'sources' -->
+        <jar jarfile="${tmp-dir}/${unit-jar-name}-ejb.jar">
+            <zipfileset dir="${classes}" includes="${unit-class-path}/**/*.class"/>
+            <zipfileset dir="${java}/${unit-class-path}" includes="*.xml" prefix="META-INF"/>
+        </jar>
+        <!-- rmi-iiop for weblogic -->
+        <java classname="weblogic.ejbc" fork="yes" classpathref="class.path" failonerror="true">
+            <sysproperty value="-compiler" key="javac"/>
+            <sysproperty value="-classpath" key="${class.path}"/>
+            <arg line="${tmp-dir}/${unit-jar-name}-ejb.jar ${ejb_jars}/${unit-jar-name}-ejb.jar"/>
+        </java>
+        <echo message="${unit-jar-name}-ejb.jar done"/>
+    </target>
+
+    <!-- end corp targets -->
+
+
+
+
+
+
+
+
+
 
 </project>
 

@@ -1,21 +1,24 @@
 package com.topcoder.web.tces.bean;
 
-import com.topcoder.shared.dataAccess.*;
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.tces.common.TCESConstants;
-import com.topcoder.web.tces.common.TCESAuthenticationException;
-import com.topcoder.web.tces.common.JSPUtils;
-import com.topcoder.web.resume.ejb.ResumeServices.ResumeServicesHome;
 import com.topcoder.web.resume.ejb.ResumeServices.ResumeServices;
-import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.shared.security.User;
-import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.web.resume.ejb.ResumeServices.ResumeServicesHome;
+import com.topcoder.web.tces.common.JSPUtils;
+import com.topcoder.web.tces.common.TCESAuthenticationException;
+import com.topcoder.web.tces.common.TCESConstants;
 
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.Serializable;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Processes the member profile task.
@@ -250,7 +253,6 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
     }
 
 
-
     /** Gets a statistic about the coder's Division I performance.
      * @param name The name of the statistic to be retrieved.
      * @return The value of the statistic, or an empty string if
@@ -390,7 +392,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         else
             setIsStudent(false);
 
-        setMemberStats((ResultSetContainer)dwResultMap.get("TCES_Coder_Stats"));
+        setMemberStats((ResultSetContainer) dwResultMap.get("TCES_Coder_Stats"));
         if (!getMemberStats().isEmpty()) {
             setIsRanked(true);
 
@@ -407,7 +409,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
                 if (!getDivIStatsByLevel().isEmpty() && !getDivIStatsByLang().isEmpty()) {
                     setHasDivisionI(true);
                 }
-                setHasMultipleDivILanguage(getDivIStatsByLang().size()>1);
+                setHasMultipleDivILanguage(getDivIStatsByLang().size() > 1);
             }
 
             setHasDivisionII(false);
@@ -423,7 +425,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
                 if (!getDivIIStatsByLevel().isEmpty() && !getDivIIStatsByLang().isEmpty()) {
                     setHasDivisionII(true);
                 }
-                setHasMultipleDivIILanguage(getDivIIStatsByLang().size()>1);
+                setHasMultipleDivIILanguage(getDivIIStatsByLang().size() > 1);
             }
         } else {
             setIsRanked(false);
@@ -438,7 +440,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
      */
     public void setAttributes(String paramName, String paramValues[]) {
         String value = paramValues[0];
-        value = (value == null?"":value.trim());
+        value = (value == null ? "" : value.trim());
 
         if (paramName.equalsIgnoreCase(TCESConstants.CAMPAIGN_ID_PARAM))
             setCampaignID(Integer.parseInt(value));

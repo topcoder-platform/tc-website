@@ -12,6 +12,7 @@ import java.rmi.RemoteException;
  */
 public interface PurchaseHome extends javax.ejb.EJBHome {
     public static final String EJB_REF_NAME = PurchaseHome.class.getName();
+
     /**
      * Creates the remote Purchase EJB object
      *

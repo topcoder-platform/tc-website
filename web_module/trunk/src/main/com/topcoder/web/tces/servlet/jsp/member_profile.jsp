@@ -67,15 +67,20 @@
             <TD WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
             <TD class="statText" ALIGN="left">
             
-              <B>Member Profile: <%= MemberInfo.getItem(0, "handle").toString()%> </B> <BR/>
-              <%= MemberInfo.getItem(0, "first_name").toString()%> <%= MemberInfo.getItem(0, "last_name").toString()%> <BR/>
+              <B>Member Profile: <%= MemberInfo.getItem(0, "handle").toString()%> </B>
+              <BR>
+              <%= MemberInfo.getItem(0, "first_name").toString()%> <%= MemberInfo.getItem(0, "last_name").toString()%> 
+              <BR>
               <%= MemberInfo.getItem(0, "address1").toString()%>
-              <%= MemberInfo.getItem(0, "address1").toString().equals("")?"":"<BR/>"+MemberInfo.getItem(0, "address2").toString()+"<BR/>"%>
+              <%= MemberInfo.getItem(0, "address1").toString().equals("")?"":"<BR>"+MemberInfo.getItem(0, "address2").toString()+"<BR>"%>
               <%= MemberInfo.getItem(0, "city").toString()%>,
               <%= MemberInfo.getItem(0, "state_code").toString()%>
-              <%= MemberInfo.getItem(0, "zip").toString()%> <BR/>
-              <A HREF="mailto:<%=MemberInfo.getItem(0, "email").toString() %>" CLASS="statText"><%= MemberInfo.getItem(0, "email").toString() %></A> | <%= MemberInfo.getItem(0, "home_phone").toString()%> <BR/>
-              <B>Interested in:</B> <jsp:getProperty name="MemberProfileTask" property="JobName"/><BR/>
+              <%= MemberInfo.getItem(0, "zip").toString()%>
+              <BR>
+              <A HREF="mailto:<%=MemberInfo.getItem(0, "email").toString() %>" CLASS="statText"><%= MemberInfo.getItem(0, "email").toString() %></A> | <%= MemberInfo.getItem(0, "home_phone").toString()%> 
+              <BR>
+              <B>Interested in:</B> <jsp:getProperty name="MemberProfileTask" property="JobName"/>
+              <BR>
               <% if (MemberProfileTask.hasResume()) { %>
                 <a href="/Resume?&t=CorporateDownloadTask&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="JobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="MemberID"/>" class="statText"><B>Resume</B></a>
               <% } %>
