@@ -177,10 +177,10 @@ public class Problem implements Element, Serializable, CustomSerializable
     return html.toString();
   }
 
-  public String toHTML(Language language, boolean includeHeader)
-  {
+  public String toHTML(Language language, boolean includeHeader) {
+    StringBuffer html = new StringBuffer();
     if(includeHeader) {
-      StringBuffer html = new StringBuffer("<html><body bgcolor='black' text='white'>");
+      html.append("<html><body bgcolor='black' text='white'>");
     }
     if(!problemText.equals("")) {
       html.append(ProblemComponent.encodeHTML(problemText));
