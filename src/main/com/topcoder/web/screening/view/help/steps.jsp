@@ -78,12 +78,12 @@
                         steps to guide you through the process.  Additional information about specific area in the Testing Application can be found later 
                         in the manual.</p>
 
-                        <p><strong>Step 1 – Loading the Application</strong></p>
+                        <p><strong>Step 1 - Loading the Application</strong></p>
                         <ul>
                             <li>Load the Testing Application by going to the URL provided in the email from the Employer.  For more information click here.</li>
                         </ul>
                         
-                        <p><strong>Step 2 – Launching the Application</strong></p>
+                        <p><strong>Step 2 - Launching the Application</strong></p>
                         <ul>
                             <li>Click on the Launch Testing Application button.
                                 <ul>
@@ -98,34 +98,34 @@
                             <li>Login using the login name and password provided to you in the email from the Employer.</li>
                         </ul>
                         
-                        <p><strong>Step 4 – Welcome Screen</strong></p>
+                        <p><strong>Step 4 - Welcome Screen</strong></p>
                         <ul>
                             <li>The Welcome Screen of the Testing Application contains explanatory information about each phase of the Application.  
                             Please read it thoroughly.</li>
                         </ul>
                         
-                        <p><strong>Step 5 – Example Problem Set</strong></p>
+                        <p><strong>Step 5 - Example Problem Set</strong></p>
                         <ul>
                             <li>Start with the Example Problem.</li>
-                            <li>Click on the button labeled “Enter” next to the Example Set in the lower part of your screen.</li>
+                            <li>Click on the button labeled <strong>Enter</strong> next to the Example Set in the lower part of your screen.</li>
                             <li>Read through the introductory text on the screen.</li>
-                            <li>Next, click the “Open” button next to the Problem Name.
+                            <li>Next, click the <strong>Open</strong> button next to the Problem Name.
                                 <ul>
-                                    <li>Once you click the “Open” button, a coding window will pop up on your screen.  For additional information on the coding 
+                                    <li>Once you click the <strong>Open</strong> button, a coding window will pop up on your screen.  For additional information on the coding 
                                     window, click here.</li>
                                     <li>Solving the example problem will provide you with an opportunity to acclimate yourself with how the Application works 
                                     and what you’ll be asked to do during the two testing phases.</li>
                                 </ul>
                             </li>
-                            <li>Once you are comfortable with the system functionality, click the “Continue” button at the bottom of the screen.
+                            <li>Once you are comfortable with the system functionality, click the <strong>Continue</strong> button at the bottom of the screen.
                                 <ul>
-                                    <li>Clicking “Continue” will be move you to the first portion of the test – Test Set A.  Clicking the “Main” button on the 
+                                    <li>Clicking <strong>Continue</strong> will be move you to the first portion of the test – Test Set A.  Clicking the <strong>Main</strong> button on the 
                                     menu, then Test Set A from the Main page will also bring you to Test Set A.</li>
                                 </ul>
                             </li>
                         </ul>
                         
-                        <p><strong>Step 6 – Test Set A</strong></p>
+                        <p><strong>Step 6 - Test Set A</strong></p>
                         <ul>
                             <li>Test Set A marks the start of your test.</li>
                             <li>The problems in this test will be similar in nature to the example problem.</li>
@@ -135,7 +135,7 @@
                                 </ul>
                             </li>
                             <li>Once you open one of the problems the Timer will start counting down.</li>
-                            <li>Proceed to Test Set B by clicking the “Continue” button when one of the following is true:
+                            <li>Proceed to Test Set B by clicking the <strong>Continue</strong> button when one of the following is true:
                                 <ul>
                                     <li>You have submitted solution to all 3 problems in Test Set A.</li>
                                     <li>You feel as though you have solved as many problems as possible.</li>
@@ -144,7 +144,7 @@
                             </li>
                         </ul>
                         
-                        <p><strong>Step 7 – Test Set B (if presented)</strong></p>
+                        <p><strong>Step 7 - Test Set B (if presented)</strong></p>
                         <ul>
                             <li>Test Set B is an optional Test that the Employer may or may not have assigned for you to take.  If you do not see Test Set B 
                             on the Main page, then proceed to Step 8.</li>
@@ -154,7 +154,7 @@
                                     <li>The object of this test is to submit accurate solutions while focusing on code readability and style.</li>
                                 </ul>
                             </li>
-                            <li>Click the “Continue” button when one of the following is true:
+                            <li>Click the <strong>Continue</strong> button when one of the following is true:
                                 <ul>
                                     <li>You have submitted all of the problems presented in Test Set B.</li>
                                     <li>You feel as though you have solved as many problems as possible.</li>
@@ -163,7 +163,7 @@
                             </li>
                         </ul>
                         
-                        <p><strong>Step 8 – Finishing Up</strong></p>
+                        <p><strong>Step 8 - Finishing Up</strong></p>
                         <ul>
                             <li>Congratulations!  You are done! Once you have completed all sections of the Application, you can logout.</li>
                         </ul>
