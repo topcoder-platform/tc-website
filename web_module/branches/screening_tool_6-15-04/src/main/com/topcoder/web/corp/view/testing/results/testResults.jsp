@@ -97,7 +97,6 @@ function getProblemDetail(id) {
 	        </tr>
             </table>
 
-        <p></p>
         <% boolean even = false; %>
         <% if (profileInfo.hasTestSetA()) { %>
             <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">

@@ -112,7 +112,6 @@ function getProblemDetail(id) {
 
             </table>
 
-            <p><br></p>
             <% if (!profile.getSessionList().isEmpty()) { %>
             <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
 
@@ -146,12 +145,12 @@ function getProblemDetail(id) {
                     String color = (even) ? "bgcolor='#EEEEEE'" : "";
                 %>
                 <tr>
-                    <td width="20%" class="screeningCellOdd" <%=color%>><screen:servletLink processor="PopulateCandidate" param="<%=cparam%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="user_name" /></screen:servletLink></td>
-                    <td width="16%" align="center" class="screeningCellOdd" <%=color%>><screen:sessionStatus row="<%=row%>" /></td>
-                    <td width="16%" align="center" class="screeningCellOdd" <%=color%>><%=String.valueOf(((Long)row.getItem("set_a_count").getResultData()).longValue()+((Long)row.getItem("set_b_count").getResultData()).longValue())%></td>
-                    <td width="16%" align="center" class="screeningCellOdd" <%=color%>><screen:resultSetItem row="<%=row%>" name="submitted" /></td>
-                    <td width="16%" align="center" class="screeningCellOdd" <%=color%>><screen:resultSetItem row="<%=row%>" name="passed" /></td>
-                    <td width="16%" align="center" class="screeningCellOdd" <%=color%>><screen:servletLink processor="TestResults" param="<%=sparam%>"><screen:sessionStatusLink row="<%=row%>" /></screen:servletLink></td>
+                    <td width="20%" CLASS="<%=even?"screeningCellOdd":"screeningCellEven"%>" <%=color%>><screen:servletLink processor="PopulateCandidate" param="<%=cparam%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="user_name" /></screen:servletLink></td>
+                    <td width="16%" align="center" CLASS="<%=even?"screeningCellOdd":"screeningCellEven"%>" <%=color%>><screen:sessionStatus row="<%=row%>" /></td>
+                    <td width="16%" align="center" CLASS="<%=even?"screeningCellOdd":"screeningCellEven"%>" <%=color%>><%=String.valueOf(((Long)row.getItem("set_a_count").getResultData()).longValue()+((Long)row.getItem("set_b_count").getResultData()).longValue())%></td>
+                    <td width="16%" align="center" CLASS="<%=even?"screeningCellOdd":"screeningCellEven"%>" <%=color%>><screen:resultSetItem row="<%=row%>" name="submitted" /></td>
+                    <td width="16%" align="center" CLASS="<%=even?"screeningCellOdd":"screeningCellEven"%>" <%=color%>><screen:resultSetItem row="<%=row%>" name="passed" /></td>
+                    <td width="16%" align="center" CLASS="<%=even?"screeningCellOdd":"screeningCellEven"%>" <%=color%>><screen:servletLink processor="TestResults" param="<%=sparam%>"><screen:sessionStatusLink row="<%=row%>" /></screen:servletLink></td>
                 </tr>
                 <% } %>
                 <% even = !even; %>
