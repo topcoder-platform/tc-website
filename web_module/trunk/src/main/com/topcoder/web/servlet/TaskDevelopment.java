@@ -480,7 +480,6 @@ public final class TaskDevelopment {
 
                     int i = 0;
                     boolean notFound = true;
-                    //for(int i=0;i<roles.length && rating > 0 ;i++)
                   if(rating >0 || rating == -1)
                   {
                     //get catalog object
