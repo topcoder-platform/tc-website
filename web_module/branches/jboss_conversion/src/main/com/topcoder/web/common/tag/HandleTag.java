@@ -14,7 +14,7 @@ public class HandleTag extends TagSupport {
     private static final Logger log = Logger.getLogger(HandleTag.class);
     private long coderId;
     private String link = "";
-    private String cssclass = "";
+    private String styleClass = "";
     private boolean darkBG = true;
     private boolean alogrithm = false;
     private boolean design = false;
@@ -53,8 +53,8 @@ public class HandleTag extends TagSupport {
         this.link = link;
     }
 
-    public void setClass(String cssclass) {
-        this.cssclass = cssclass;
+    public void setStyleClass(String cssclass) {
+        this.styleClass = cssclass;
     }
 
     public void setDarkBG(String s) {
@@ -85,7 +85,7 @@ public class HandleTag extends TagSupport {
 
             //check for css override
             boolean bCSSOverride = false;
-            if (cssclass != null && !cssclass.equals("")) {
+            if (styleClass != null && !styleClass.equals("")) {
                 bCSSOverride = true;
             }
 
@@ -99,7 +99,7 @@ public class HandleTag extends TagSupport {
             output.append("\" class=\"");
 
             if (bCSSOverride) {
-                output.append(cssclass);
+                output.append(styleClass);
             } else {
                 int rating = 0;
                 if (alogrithm)
@@ -157,7 +157,7 @@ public class HandleTag extends TagSupport {
     public int doEndTag() throws JspException {
         coderId=0;
         link = "";
-        cssclass = "";
+        styleClass = "";
         darkBG = true;
         alogrithm = false;
         design = false;

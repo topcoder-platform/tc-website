@@ -22,17 +22,17 @@ import java.io.IOException;
 public class SkillInput extends BaseTag {
     protected static Logger log = Logger.getLogger(SkillInput.class);
 
-    private String cssclass;
+    private String styleClass;
     private Skill skill;
 
     /** Creates a new instance of SkillInput */
     public SkillInput() {
         super();
-        cssclass = null;
+        styleClass = null;
     }
 
-    public void setClass(String cssclass) {
-        this.cssclass = cssclass;
+    public void setStyleClass(String cssclass) {
+        this.styleClass = cssclass;
     }
 
     public void setSkill(Skill skill) {
@@ -70,9 +70,9 @@ public class SkillInput extends BaseTag {
 
         for (int i = 0; i <= 5; i++) {
             s.append("<td valign=top align=center ");
-            if (cssclass != null) {
+            if (styleClass != null) {
                 s.append(" class=\"");
-                s.append(cssclass);
+                s.append(styleClass);
                 s.append("\"");
             }
             s.append(">\n");
@@ -93,7 +93,7 @@ public class SkillInput extends BaseTag {
     }
 
     protected void init() {
-        this.cssclass = null;
+        this.styleClass = null;
         this.skill = null;
 
     }

@@ -49,7 +49,7 @@ public class SponsorImage extends TagSupport {
         this.href = href;
     }
 
-    public void setClass(String styleClass) {
+    public void setStyleClass(String styleClass) {
         this.styleClass = styleClass;
     }
 

@@ -24,16 +24,16 @@ import java.util.List;
 public class PreferenceInput extends BaseTag {
     protected static Logger log = Logger.getLogger(PreferenceInput.class);
 
-    private String cssclass;
+    private String styleClass;
     private Preference preference;
 
     public PreferenceInput() {
         super();
-        cssclass = null;
+        styleClass = null;
     }
 
-    public void setClass(String cssclass) {
-        this.cssclass = cssclass;
+    public void setStyleClass(String cssclass) {
+        this.styleClass = cssclass;
     }
 
     public void setPreference(Preference preference) {
@@ -68,8 +68,8 @@ public class PreferenceInput extends BaseTag {
         s.append(" name=\"");
         s.append(name);
         s.append("\"");
-        if (cssclass != null) {
-            s.append(" class=\"" + cssclass + "\"");
+        if (styleClass != null) {
+            s.append(" class=\"" + styleClass + "\"");
         }
         s.append(" value=\"");
         if (getDefaultValue() != null) {
@@ -87,8 +87,8 @@ public class PreferenceInput extends BaseTag {
         s.append(" name=\"");
         s.append(name);
         s.append("\"");
-        if (cssclass != null) {
-            s.append(" class=\"" + cssclass + "\"");
+        if (styleClass != null) {
+            s.append(" class=\"" + styleClass + "\"");
         }
         s.append(" value=\"");
         s.append(getTrueValue());
@@ -120,9 +120,9 @@ public class PreferenceInput extends BaseTag {
         s.append(" name=\"");
         s.append(name);
         s.append("\"");
-        if (cssclass != null) {
+        if (styleClass != null) {
             s.append(" class=\"");
-            s.append(cssclass);
+            s.append(styleClass);
             s.append("\"");
         }
         s.append(">\n");
@@ -148,7 +148,7 @@ public class PreferenceInput extends BaseTag {
     }
 
     protected void init() {
-        this.cssclass = null;
+        this.styleClass = null;
         this.preference = null;
 
     }

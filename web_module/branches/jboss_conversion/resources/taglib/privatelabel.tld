@@ -68,7 +68,7 @@
         <name>demographicInput</name>
         <tagclass>com.topcoder.web.privatelabel.view.tag.DemographicInput</tagclass>
         <attribute>
-            <name>class</name>
+            <name>styleClass</name>
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
