@@ -382,6 +382,10 @@
         <antcall target="package-EJB-JobPostingServicesBean"/>
         <antcall target="package-EJB-ResumeServicesBean"/>
         <antcall target="package-EJB-QueryServicesBean"/>
+        <antcall target="package-EJB-UserBean"/>
+        <antcall target="package-EJB-TermsOfUseBean"/>
+        <antcall target="package-EJB-EmailBean"/>
+        <antcall target="package-EJB-SchoolBean"/>
    </target>
 
 <target name="package-EJB-QueryServicesBean" depends="compile,init-QueryServicesBean-properties,package-EJB-GenericBean"/>
@@ -551,7 +555,53 @@
         <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
    </target>
 
+   
+    <target name="package-EJB-UserBean" depends="compile,init-UserBean-properties,package-EJB-GenericBean"/>
 
+    <target name="init-UserBean-properties" >
+        <property name="bean.dir"          value="user" />
+        <property name="bean.jar.name"     value="User.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/web/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+    </target>
+
+
+    <target name="package-EJB-TermsOfUseBean" depends="compile,init-TermsOfUseBean-properties,package-EJB-GenericBean"/>
+
+    <target name="init-TermsOfUseBean-properties" >
+        <property name="bean.dir"          value="termsofuse" />
+        <property name="bean.jar.name"     value="TermsOfUse.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/web/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+    </target>
+
+
+    <target name="package-EJB-EmailBean" depends="compile,init-EmailBean-properties,package-EJB-GenericBean"/>
+
+    <target name="init-EmailBean-properties" >
+        <property name="bean.dir"          value="email" />
+        <property name="bean.jar.name"     value="Email.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/web/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+    </target>
+
+
+    <target name="package-EJB-SchoolBean" depends="compile,init-SchoolBean-properties,package-EJB-GenericBean"/>
+
+    <target name="init-SchoolBean-properties" >
+        <property name="bean.dir"          value="school" />
+        <property name="bean.jar.name"     value="School.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/web/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+   </target>
 
    <target name="initGenericBean" >
       <delete dir="${bean.build.dir}"/>
