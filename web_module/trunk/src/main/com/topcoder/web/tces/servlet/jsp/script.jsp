@@ -88,4 +88,4 @@ function sponsorLinkWindow(spons,nam,top,lef,wid,hei)
   w=window.open(spons,nam,"top="+top+",left="+lef+",width="+wid+",height="+hei+",resizable=no,toolbar=no,location=no,scrollbars=no,menubar=no,status=no");
   return;
 }
-</SCRIPT>
+</script>
