@@ -25,7 +25,7 @@
 
 
 <% ResultSetContainer rscContest = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("contest_details"); %>
-<% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("contest_result_by_coder"); %>
+<% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("tco04_contest_result_by_coder"); %>
 <% ResultSetContainer rscUser = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("user_details"); %>
 
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
