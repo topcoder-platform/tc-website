@@ -9,11 +9,11 @@ import javax.servlet.jsp.tagext.*;
 
 public class RegistrationValue extends TagSupport {
 
-  private String value=null;
+  private Object value=null;
 
   private List list=null;
 
-  public void setValue(String _value) {
+  public void setValue(Object _value) {
     value=_value;
   }
 
