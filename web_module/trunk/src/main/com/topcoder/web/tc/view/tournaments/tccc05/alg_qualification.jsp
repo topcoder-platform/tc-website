@@ -23,7 +23,7 @@
 		<div class=bodySpacer>
             
         <p class=bigTitle>Advancers</p>
-
+ 
             <table width="500" border="0" cellpadding="6" cellspacing="0" class="formFrame">
                 <tr>
                   <td class="advTitle" width="100%" colspan="5">Qualification Round</td>
