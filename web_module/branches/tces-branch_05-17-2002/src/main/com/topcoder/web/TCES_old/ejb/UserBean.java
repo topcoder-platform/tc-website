@@ -294,19 +294,19 @@ public class UserBean implements javax.ejb.SessionBean {
 		if( handle != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "HANDLE = '" + handle + "'" );
+			update.append( "HANDLE = ?" );
 			count++;
 		}
 		if( password != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "PASSWORD = '" + password + "'" );
+			update.append( "PASSWORD = ?" );
 			count++;
 		}
 		if( status != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "STATUS = '" + status + "'" );
+			update.append( "STATUS = ?" );
 			count++;
 		}
 		if( user_type_id != null ) {
@@ -318,25 +318,25 @@ public class UserBean implements javax.ejb.SessionBean {
 		if( email != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "EMAIL = '" + email + "'" );
+			update.append( "EMAIL = ?" );
 			count++;
 		}
 		if( logged_in != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "LOGGED_IN = '" + logged_in + "'" );
+			update.append( "LOGGED_IN = ?" );
 			count++;
 		}
 		if( terms != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "TERMS = '" + terms + "'" );
+			update.append( "TERMS = ?" );
 			count++;
 		}
 		if( last_login != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "LAST_LOGIN = '" + last_login + "'" );
+			update.append( "LAST_LOGIN = ?" );
 			count++;
 		}
 		update.append( " WHERE USER_ID = " + user_id );
@@ -347,6 +347,20 @@ public class UserBean implements javax.ejb.SessionBean {
 			conn = getConnection();
 			ps = conn.prepareStatement( update.toString() );
 			int	index = 1;
+			if( handle != null )
+				ps.setString( index++, handle );
+			if( password != null )
+				ps.setString( index++, password );
+			if( status != null )
+				ps.setString( index++, status );
+			if( email != null )
+				ps.setString( index++, email );
+			if( logged_in != null )
+				ps.setString( index++, logged_in );
+			if( terms != null )
+				ps.setString( index++, terms );
+			if( last_login != null )
+				ps.setDate( index++, last_login );
 			rc = ps.executeUpdate();
 		} catch( SQLException e ) {
 			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
@@ -399,7 +413,7 @@ public class UserBean implements javax.ejb.SessionBean {
 		try {
 			Context context = new InitialContext();
 			DataSource ds = (DataSource)
-			  context.lookup( "jdbc/TCES" );
+			  context.lookup( "OLTP" );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

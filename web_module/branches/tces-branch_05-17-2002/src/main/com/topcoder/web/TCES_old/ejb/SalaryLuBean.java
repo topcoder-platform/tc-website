@@ -174,7 +174,7 @@ public class SalaryLuBean implements javax.ejb.SessionBean {
 		if( salary_desc != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "SALARY_DESC = '" + salary_desc + "'" );
+			update.append( "SALARY_DESC = ?" );
 			count++;
 		}
 		update.append( " WHERE SALARY_ID = " + salary_id );
@@ -185,6 +185,8 @@ public class SalaryLuBean implements javax.ejb.SessionBean {
 			conn = getConnection();
 			ps = conn.prepareStatement( update.toString() );
 			int	index = 1;
+			if( salary_desc != null )
+				ps.setString( index++, salary_desc );
 			rc = ps.executeUpdate();
 		} catch( SQLException e ) {
 			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
@@ -260,7 +262,7 @@ public class SalaryLuBean implements javax.ejb.SessionBean {
 		try {
 			Context context = new InitialContext();
 			DataSource ds = (DataSource)
-			  context.lookup( "jdbc/TCES" );
+			  context.lookup( "OLTP" );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

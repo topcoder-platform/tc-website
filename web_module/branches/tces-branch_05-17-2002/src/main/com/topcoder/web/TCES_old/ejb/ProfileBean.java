@@ -243,7 +243,7 @@ public class ProfileBean implements javax.ejb.SessionBean {
 		if( date_available != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "DATE_AVAILABLE = '" + date_available + "'" );
+			update.append( "DATE_AVAILABLE = ?" );
 			count++;
 		}
 		if( profile_status_id != null ) {
@@ -278,6 +278,8 @@ public class ProfileBean implements javax.ejb.SessionBean {
 			conn = getConnection();
 			ps = conn.prepareStatement( update.toString() );
 			int	index = 1;
+			if( date_available != null )
+				ps.setDate( index++, date_available );
 			rc = ps.executeUpdate();
 		} catch( SQLException e ) {
 			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
@@ -330,7 +332,7 @@ public class ProfileBean implements javax.ejb.SessionBean {
 		try {
 			Context context = new InitialContext();
 			DataSource ds = (DataSource)
-			  context.lookup( "jdbc/TCES" );
+			  context.lookup( "OLTP" );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

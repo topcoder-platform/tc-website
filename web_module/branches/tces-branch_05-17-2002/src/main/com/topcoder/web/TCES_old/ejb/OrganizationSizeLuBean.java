@@ -174,7 +174,7 @@ public class OrganizationSizeLuBean implements javax.ejb.SessionBean {
 		if( organization_size_desc != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "ORGANIZATION_SIZE_DESC = '" + organization_size_desc + "'" );
+			update.append( "ORGANIZATION_SIZE_DESC = ?" );
 			count++;
 		}
 		update.append( " WHERE ORGANIZATION_SIZE_ID = " + organization_size_id );
@@ -185,6 +185,8 @@ public class OrganizationSizeLuBean implements javax.ejb.SessionBean {
 			conn = getConnection();
 			ps = conn.prepareStatement( update.toString() );
 			int	index = 1;
+			if( organization_size_desc != null )
+				ps.setString( index++, organization_size_desc );
 			rc = ps.executeUpdate();
 		} catch( SQLException e ) {
 			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
@@ -260,7 +262,7 @@ public class OrganizationSizeLuBean implements javax.ejb.SessionBean {
 		try {
 			Context context = new InitialContext();
 			DataSource ds = (DataSource)
-			  context.lookup( "jdbc/TCES" );
+			  context.lookup( "OLTP" );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

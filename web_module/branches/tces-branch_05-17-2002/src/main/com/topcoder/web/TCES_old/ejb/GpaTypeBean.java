@@ -191,7 +191,7 @@ public class GpaTypeBean implements javax.ejb.SessionBean {
 		if( gpa_type_desc != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "GPA_TYPE_DESC = '" + gpa_type_desc + "'" );
+			update.append( "GPA_TYPE_DESC = ?" );
 			count++;
 		}
 		if( gpa_type_value != null ) {
@@ -208,6 +208,8 @@ public class GpaTypeBean implements javax.ejb.SessionBean {
 			conn = getConnection();
 			ps = conn.prepareStatement( update.toString() );
 			int	index = 1;
+			if( gpa_type_desc != null )
+				ps.setString( index++, gpa_type_desc );
 			rc = ps.executeUpdate();
 		} catch( SQLException e ) {
 			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
@@ -260,7 +262,7 @@ public class GpaTypeBean implements javax.ejb.SessionBean {
 		try {
 			Context context = new InitialContext();
 			DataSource ds = (DataSource)
-			  context.lookup( "jdbc/TCES" );
+			  context.lookup( "OLTP" );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

@@ -209,19 +209,19 @@ public class LanguageBean implements javax.ejb.SessionBean {
 		if( language_name != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "LANGUAGE_NAME = '" + language_name + "'" );
+			update.append( "LANGUAGE_NAME = ?" );
 			count++;
 		}
 		if( status != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "STATUS = '" + status + "'" );
+			update.append( "STATUS = ?" );
 			count++;
 		}
 		if( language_desc != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "LANGUAGE_DESC = '" + language_desc + "'" );
+			update.append( "LANGUAGE_DESC = ?" );
 			count++;
 		}
 		update.append( " WHERE LANGUAGE_ID = " + language_id );
@@ -232,6 +232,12 @@ public class LanguageBean implements javax.ejb.SessionBean {
 			conn = getConnection();
 			ps = conn.prepareStatement( update.toString() );
 			int	index = 1;
+			if( language_name != null )
+				ps.setString( index++, language_name );
+			if( status != null )
+				ps.setString( index++, status );
+			if( language_desc != null )
+				ps.setString( index++, language_desc );
 			rc = ps.executeUpdate();
 		} catch( SQLException e ) {
 			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
@@ -315,7 +321,7 @@ public class LanguageBean implements javax.ejb.SessionBean {
 		try {
 			Context context = new InitialContext();
 			DataSource ds = (DataSource)
-			  context.lookup( "jdbc/TCES" );
+			  context.lookup( "OLTP" );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

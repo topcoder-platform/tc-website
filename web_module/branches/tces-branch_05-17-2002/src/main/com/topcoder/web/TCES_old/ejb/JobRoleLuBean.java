@@ -174,7 +174,7 @@ public class JobRoleLuBean implements javax.ejb.SessionBean {
 		if( job_role_desc != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "JOB_ROLE_DESC = '" + job_role_desc + "'" );
+			update.append( "JOB_ROLE_DESC = ?" );
 			count++;
 		}
 		update.append( " WHERE JOB_ROLE_ID = " + job_role_id );
@@ -185,6 +185,8 @@ public class JobRoleLuBean implements javax.ejb.SessionBean {
 			conn = getConnection();
 			ps = conn.prepareStatement( update.toString() );
 			int	index = 1;
+			if( job_role_desc != null )
+				ps.setString( index++, job_role_desc );
 			rc = ps.executeUpdate();
 		} catch( SQLException e ) {
 			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
@@ -260,7 +262,7 @@ public class JobRoleLuBean implements javax.ejb.SessionBean {
 		try {
 			Context context = new InitialContext();
 			DataSource ds = (DataSource)
-			  context.lookup( "jdbc/TCES" );
+			  context.lookup( "OLTP" );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

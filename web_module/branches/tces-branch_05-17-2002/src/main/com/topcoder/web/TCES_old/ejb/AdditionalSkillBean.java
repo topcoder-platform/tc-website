@@ -214,13 +214,13 @@ public class AdditionalSkillBean implements javax.ejb.SessionBean {
 		if( skill_type != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "SKILL_TYPE = '" + skill_type + "'" );
+			update.append( "SKILL_TYPE = ?" );
 			count++;
 		}
 		if( description != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "DESCRIPTION = '" + description + "'" );
+			update.append( "DESCRIPTION = ?" );
 			count++;
 		}
 		update.append( " WHERE ADDITIONAL_SKILL_ID = " + additional_skill_id );
@@ -231,6 +231,10 @@ public class AdditionalSkillBean implements javax.ejb.SessionBean {
 			conn = getConnection();
 			ps = conn.prepareStatement( update.toString() );
 			int	index = 1;
+			if( skill_type != null )
+				ps.setString( index++, skill_type );
+			if( description != null )
+				ps.setString( index++, description );
 			rc = ps.executeUpdate();
 		} catch( SQLException e ) {
 			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
@@ -283,7 +287,7 @@ public class AdditionalSkillBean implements javax.ejb.SessionBean {
 		try {
 			Context context = new InitialContext();
 			DataSource ds = (DataSource)
-			  context.lookup( "jdbc/TCES" );
+			  context.lookup( "OLTP" );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

@@ -602,109 +602,109 @@ public class CoderBean implements javax.ejb.SessionBean {
 		if( state_code != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "STATE_CODE = '" + state_code + "'" );
+			update.append( "STATE_CODE = ?" );
 			count++;
 		}
 		if( country_code != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "COUNTRY_CODE = '" + country_code + "'" );
+			update.append( "COUNTRY_CODE = ?" );
 			count++;
 		}
 		if( first_name != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "FIRST_NAME = '" + first_name + "'" );
+			update.append( "FIRST_NAME = ?" );
 			count++;
 		}
 		if( last_name != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "LAST_NAME = '" + last_name + "'" );
+			update.append( "LAST_NAME = ?" );
 			count++;
 		}
 		if( home_phone != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "HOME_PHONE = '" + home_phone + "'" );
+			update.append( "HOME_PHONE = ?" );
 			count++;
 		}
 		if( work_phone != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "WORK_PHONE = '" + work_phone + "'" );
+			update.append( "WORK_PHONE = ?" );
 			count++;
 		}
 		if( address1 != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "ADDRESS1 = '" + address1 + "'" );
+			update.append( "ADDRESS1 = ?" );
 			count++;
 		}
 		if( address2 != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "ADDRESS2 = '" + address2 + "'" );
+			update.append( "ADDRESS2 = ?" );
 			count++;
 		}
 		if( city != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "CITY = '" + city + "'" );
+			update.append( "CITY = ?" );
 			count++;
 		}
 		if( zip != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "ZIP = '" + zip + "'" );
+			update.append( "ZIP = ?" );
 			count++;
 		}
 		if( middle_name != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "MIDDLE_NAME = '" + middle_name + "'" );
+			update.append( "MIDDLE_NAME = ?" );
 			count++;
 		}
 		if( activation_code != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "ACTIVATION_CODE = '" + activation_code + "'" );
+			update.append( "ACTIVATION_CODE = ?" );
 			count++;
 		}
 		if( member_since != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "MEMBER_SINCE = '" + member_since + "'" );
+			update.append( "MEMBER_SINCE = ?" );
 			count++;
 		}
 		if( notify != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "NOTIFY = '" + notify + "'" );
+			update.append( "NOTIFY = ?" );
 			count++;
 		}
 		if( quote != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "QUOTE = '" + quote + "'" );
+			update.append( "QUOTE = ?" );
 			count++;
 		}
 		if( employer_search != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "EMPLOYER_SEARCH = '" + employer_search + "'" );
+			update.append( "EMPLOYER_SEARCH = ?" );
 			count++;
 		}
 		if( relocate != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "RELOCATE = '" + relocate + "'" );
+			update.append( "RELOCATE = ?" );
 			count++;
 		}
 		if( modify_date != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "MODIFY_DATE = '" + modify_date + "'" );
+			update.append( "MODIFY_DATE = ?" );
 			count++;
 		}
 		if( referral_id != null ) {
@@ -722,7 +722,7 @@ public class CoderBean implements javax.ejb.SessionBean {
 		if( notify_inquiry != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "NOTIFY_INQUIRY = '" + notify_inquiry + "'" );
+			update.append( "NOTIFY_INQUIRY = ?" );
 			count++;
 		}
 		if( referral_user_id != null ) {
@@ -752,7 +752,7 @@ public class CoderBean implements javax.ejb.SessionBean {
 		if( date_of_birth != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "DATE_OF_BIRTH = '" + date_of_birth + "'" );
+			update.append( "DATE_OF_BIRTH = ?" );
 			count++;
 		}
 		update.append( " WHERE CODER_ID = " + coder_id );
@@ -763,6 +763,46 @@ public class CoderBean implements javax.ejb.SessionBean {
 			conn = getConnection();
 			ps = conn.prepareStatement( update.toString() );
 			int	index = 1;
+			if( state_code != null )
+				ps.setString( index++, state_code );
+			if( country_code != null )
+				ps.setString( index++, country_code );
+			if( first_name != null )
+				ps.setString( index++, first_name );
+			if( last_name != null )
+				ps.setString( index++, last_name );
+			if( home_phone != null )
+				ps.setString( index++, home_phone );
+			if( work_phone != null )
+				ps.setString( index++, work_phone );
+			if( address1 != null )
+				ps.setString( index++, address1 );
+			if( address2 != null )
+				ps.setString( index++, address2 );
+			if( city != null )
+				ps.setString( index++, city );
+			if( zip != null )
+				ps.setString( index++, zip );
+			if( middle_name != null )
+				ps.setString( index++, middle_name );
+			if( activation_code != null )
+				ps.setString( index++, activation_code );
+			if( member_since != null )
+				ps.setDate( index++, member_since );
+			if( notify != null )
+				ps.setString( index++, notify );
+			if( quote != null )
+				ps.setString( index++, quote );
+			if( employer_search != null )
+				ps.setString( index++, employer_search );
+			if( relocate != null )
+				ps.setString( index++, relocate );
+			if( modify_date != null )
+				ps.setDate( index++, modify_date );
+			if( notify_inquiry != null )
+				ps.setString( index++, notify_inquiry );
+			if( date_of_birth != null )
+				ps.setDate( index++, date_of_birth );
 			rc = ps.executeUpdate();
 		} catch( SQLException e ) {
 			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
@@ -815,7 +855,7 @@ public class CoderBean implements javax.ejb.SessionBean {
 		try {
 			Context context = new InitialContext();
 			DataSource ds = (DataSource)
-			  context.lookup( "jdbc/TCES" );
+			  context.lookup( "OLTP" );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

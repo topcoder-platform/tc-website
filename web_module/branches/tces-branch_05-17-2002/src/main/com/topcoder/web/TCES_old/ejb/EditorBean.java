@@ -175,7 +175,7 @@ public class EditorBean implements javax.ejb.SessionBean {
 		if( editor_desc != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "EDITOR_DESC = '" + editor_desc + "'" );
+			update.append( "EDITOR_DESC = ?" );
 			count++;
 		}
 		update.append( " WHERE EDITOR_ID = " + editor_id );
@@ -186,6 +186,8 @@ public class EditorBean implements javax.ejb.SessionBean {
 			conn = getConnection();
 			ps = conn.prepareStatement( update.toString() );
 			int	index = 1;
+			if( editor_desc != null )
+				ps.setString( index++, editor_desc );
 			rc = ps.executeUpdate();
 		} catch( SQLException e ) {
 			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
@@ -292,7 +294,7 @@ public class EditorBean implements javax.ejb.SessionBean {
 		try {
 			Context context = new InitialContext();
 			DataSource ds = (DataSource)
-			  context.lookup( "jdbc/TCES" );
+			  context.lookup( "OLTP" );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

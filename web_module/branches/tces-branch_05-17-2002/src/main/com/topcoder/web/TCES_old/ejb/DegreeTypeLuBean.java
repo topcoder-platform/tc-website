@@ -174,7 +174,7 @@ public class DegreeTypeLuBean implements javax.ejb.SessionBean {
 		if( degree_type_desc != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "DEGREE_TYPE_DESC = '" + degree_type_desc + "'" );
+			update.append( "DEGREE_TYPE_DESC = ?" );
 			count++;
 		}
 		update.append( " WHERE DEGREE_TYPE_ID = " + degree_type_id );
@@ -185,6 +185,8 @@ public class DegreeTypeLuBean implements javax.ejb.SessionBean {
 			conn = getConnection();
 			ps = conn.prepareStatement( update.toString() );
 			int	index = 1;
+			if( degree_type_desc != null )
+				ps.setString( index++, degree_type_desc );
 			rc = ps.executeUpdate();
 		} catch( SQLException e ) {
 			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
@@ -260,7 +262,7 @@ public class DegreeTypeLuBean implements javax.ejb.SessionBean {
 		try {
 			Context context = new InitialContext();
 			DataSource ds = (DataSource)
-			  context.lookup( "jdbc/TCES" );
+			  context.lookup( "OLTP" );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

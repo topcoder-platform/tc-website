@@ -208,13 +208,13 @@ public class StateBean implements javax.ejb.SessionBean {
 		if( state_name != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "STATE_NAME = '" + state_name + "'" );
+			update.append( "STATE_NAME = ?" );
 			count++;
 		}
 		if( region_code != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "REGION_CODE = '" + region_code + "'" );
+			update.append( "REGION_CODE = ?" );
 			count++;
 		}
 		if( demographic_decline != null ) {
@@ -231,6 +231,10 @@ public class StateBean implements javax.ejb.SessionBean {
 			conn = getConnection();
 			ps = conn.prepareStatement( update.toString() );
 			int	index = 1;
+			if( state_name != null )
+				ps.setString( index++, state_name );
+			if( region_code != null )
+				ps.setString( index++, region_code );
 			rc = ps.executeUpdate();
 		} catch( SQLException e ) {
 			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
@@ -311,7 +315,7 @@ public class StateBean implements javax.ejb.SessionBean {
 		try {
 			Context context = new InitialContext();
 			DataSource ds = (DataSource)
-			  context.lookup( "jdbc/TCES" );
+			  context.lookup( "OLTP" );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

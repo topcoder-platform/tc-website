@@ -414,37 +414,37 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 		if( date_start != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "DATE_START = '" + date_start + "'" );
+			update.append( "DATE_START = ?" );
 			count++;
 		}
 		if( date_end != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "DATE_END = '" + date_end + "'" );
+			update.append( "DATE_END = ?" );
 			count++;
 		}
 		if( job_title != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "JOB_TITLE = '" + job_title + "'" );
+			update.append( "JOB_TITLE = ?" );
 			count++;
 		}
 		if( organization_name != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "ORGANIZATION_NAME = '" + organization_name + "'" );
+			update.append( "ORGANIZATION_NAME = ?" );
 			count++;
 		}
 		if( organization_url != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "ORGANIZATION_URL = '" + organization_url + "'" );
+			update.append( "ORGANIZATION_URL = ?" );
 			count++;
 		}
 		if( job_description != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "JOB_DESCRIPTION = '" + job_description + "'" );
+			update.append( "JOB_DESCRIPTION = ?" );
 			count++;
 		}
 		if( profile_id != null ) {
@@ -486,19 +486,19 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 		if( city != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "CITY = '" + city + "'" );
+			update.append( "CITY = ?" );
 			count++;
 		}
 		if( state_code != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "STATE_CODE = '" + state_code + "'" );
+			update.append( "STATE_CODE = ?" );
 			count++;
 		}
 		if( country_code != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "COUNTRY_CODE = '" + country_code + "'" );
+			update.append( "COUNTRY_CODE = ?" );
 			count++;
 		}
 		update.append( " WHERE EXPERIENCE_ID = " + experience_id );
@@ -509,6 +509,24 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 			conn = getConnection();
 			ps = conn.prepareStatement( update.toString() );
 			int	index = 1;
+			if( date_start != null )
+				ps.setDate( index++, date_start );
+			if( date_end != null )
+				ps.setDate( index++, date_end );
+			if( job_title != null )
+				ps.setString( index++, job_title );
+			if( organization_name != null )
+				ps.setString( index++, organization_name );
+			if( organization_url != null )
+				ps.setString( index++, organization_url );
+			if( job_description != null )
+				ps.setString( index++, job_description );
+			if( city != null )
+				ps.setString( index++, city );
+			if( state_code != null )
+				ps.setString( index++, state_code );
+			if( country_code != null )
+				ps.setString( index++, country_code );
 			rc = ps.executeUpdate();
 		} catch( SQLException e ) {
 			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
@@ -561,7 +579,7 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 		try {
 			Context context = new InitialContext();
 			DataSource ds = (DataSource)
-			  context.lookup( "jdbc/TCES" );
+			  context.lookup( "OLTP" );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

@@ -266,7 +266,7 @@ public class SkillBean implements javax.ejb.SessionBean {
 		if( skill_desc != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "SKILL_DESC = '" + skill_desc + "'" );
+			update.append( "SKILL_DESC = ?" );
 			count++;
 		}
 		if( skill_order != null ) {
@@ -278,13 +278,13 @@ public class SkillBean implements javax.ejb.SessionBean {
 		if( status != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "STATUS = '" + status + "'" );
+			update.append( "STATUS = ?" );
 			count++;
 		}
 		if( modify_date != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "MODIFY_DATE = '" + modify_date + "'" );
+			update.append( "MODIFY_DATE = ?" );
 			count++;
 		}
 		if( profile_id != null ) {
@@ -301,6 +301,12 @@ public class SkillBean implements javax.ejb.SessionBean {
 			conn = getConnection();
 			ps = conn.prepareStatement( update.toString() );
 			int	index = 1;
+			if( skill_desc != null )
+				ps.setString( index++, skill_desc );
+			if( status != null )
+				ps.setString( index++, status );
+			if( modify_date != null )
+				ps.setDate( index++, modify_date );
 			rc = ps.executeUpdate();
 		} catch( SQLException e ) {
 			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
@@ -385,7 +391,7 @@ public class SkillBean implements javax.ejb.SessionBean {
 		try {
 			Context context = new InitialContext();
 			DataSource ds = (DataSource)
-			  context.lookup( "jdbc/TCES" );
+			  context.lookup( "OLTP" );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

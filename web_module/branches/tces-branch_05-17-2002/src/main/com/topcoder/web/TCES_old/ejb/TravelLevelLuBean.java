@@ -174,7 +174,7 @@ public class TravelLevelLuBean implements javax.ejb.SessionBean {
 		if( travel_level_desc != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "TRAVEL_LEVEL_DESC = '" + travel_level_desc + "'" );
+			update.append( "TRAVEL_LEVEL_DESC = ?" );
 			count++;
 		}
 		update.append( " WHERE TRAVEL_LEVEL_ID = " + travel_level_id );
@@ -185,6 +185,8 @@ public class TravelLevelLuBean implements javax.ejb.SessionBean {
 			conn = getConnection();
 			ps = conn.prepareStatement( update.toString() );
 			int	index = 1;
+			if( travel_level_desc != null )
+				ps.setString( index++, travel_level_desc );
 			rc = ps.executeUpdate();
 		} catch( SQLException e ) {
 			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
@@ -260,7 +262,7 @@ public class TravelLevelLuBean implements javax.ejb.SessionBean {
 		try {
 			Context context = new InitialContext();
 			DataSource ds = (DataSource)
-			  context.lookup( "jdbc/TCES" );
+			  context.lookup( "OLTP" );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

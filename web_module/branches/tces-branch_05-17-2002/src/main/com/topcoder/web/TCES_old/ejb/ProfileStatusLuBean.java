@@ -174,7 +174,7 @@ public class ProfileStatusLuBean implements javax.ejb.SessionBean {
 		if( profile_status_desc != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "PROFILE_STATUS_DESC = '" + profile_status_desc + "'" );
+			update.append( "PROFILE_STATUS_DESC = ?" );
 			count++;
 		}
 		update.append( " WHERE PROFILE_STATUS_ID = " + profile_status_id );
@@ -185,6 +185,8 @@ public class ProfileStatusLuBean implements javax.ejb.SessionBean {
 			conn = getConnection();
 			ps = conn.prepareStatement( update.toString() );
 			int	index = 1;
+			if( profile_status_desc != null )
+				ps.setString( index++, profile_status_desc );
 			rc = ps.executeUpdate();
 		} catch( SQLException e ) {
 			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
@@ -260,7 +262,7 @@ public class ProfileStatusLuBean implements javax.ejb.SessionBean {
 		try {
 			Context context = new InitialContext();
 			DataSource ds = (DataSource)
-			  context.lookup( "jdbc/TCES" );
+			  context.lookup( "OLTP" );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

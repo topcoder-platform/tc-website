@@ -174,7 +174,7 @@ public class IndustryLuBean implements javax.ejb.SessionBean {
 		if( industry_desc != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "INDUSTRY_DESC = '" + industry_desc + "'" );
+			update.append( "INDUSTRY_DESC = ?" );
 			count++;
 		}
 		update.append( " WHERE INDUSTRY_ID = " + industry_id );
@@ -185,6 +185,8 @@ public class IndustryLuBean implements javax.ejb.SessionBean {
 			conn = getConnection();
 			ps = conn.prepareStatement( update.toString() );
 			int	index = 1;
+			if( industry_desc != null )
+				ps.setString( index++, industry_desc );
 			rc = ps.executeUpdate();
 		} catch( SQLException e ) {
 			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
@@ -260,7 +262,7 @@ public class IndustryLuBean implements javax.ejb.SessionBean {
 		try {
 			Context context = new InitialContext();
 			DataSource ds = (DataSource)
-			  context.lookup( "jdbc/TCES" );
+			  context.lookup( "OLTP" );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

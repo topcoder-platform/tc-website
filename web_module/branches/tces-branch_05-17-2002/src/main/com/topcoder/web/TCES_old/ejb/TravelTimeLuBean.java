@@ -174,7 +174,7 @@ public class TravelTimeLuBean implements javax.ejb.SessionBean {
 		if( travel_time_desc != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "TRAVEL_TIME_DESC = '" + travel_time_desc + "'" );
+			update.append( "TRAVEL_TIME_DESC = ?" );
 			count++;
 		}
 		update.append( " WHERE TRAVEL_TIME_ID = " + travel_time_id );
@@ -185,6 +185,8 @@ public class TravelTimeLuBean implements javax.ejb.SessionBean {
 			conn = getConnection();
 			ps = conn.prepareStatement( update.toString() );
 			int	index = 1;
+			if( travel_time_desc != null )
+				ps.setString( index++, travel_time_desc );
 			rc = ps.executeUpdate();
 		} catch( SQLException e ) {
 			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
@@ -260,7 +262,7 @@ public class TravelTimeLuBean implements javax.ejb.SessionBean {
 		try {
 			Context context = new InitialContext();
 			DataSource ds = (DataSource)
-			  context.lookup( "jdbc/TCES" );
+			  context.lookup( "OLTP" );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

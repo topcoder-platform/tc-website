@@ -174,7 +174,7 @@ public class SubjectLuBean implements javax.ejb.SessionBean {
 		if( subject_desc != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "SUBJECT_DESC = '" + subject_desc + "'" );
+			update.append( "SUBJECT_DESC = ?" );
 			count++;
 		}
 		update.append( " WHERE SUBJECT_ID = " + subject_id );
@@ -185,6 +185,8 @@ public class SubjectLuBean implements javax.ejb.SessionBean {
 			conn = getConnection();
 			ps = conn.prepareStatement( update.toString() );
 			int	index = 1;
+			if( subject_desc != null )
+				ps.setString( index++, subject_desc );
 			rc = ps.executeUpdate();
 		} catch( SQLException e ) {
 			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
@@ -260,7 +262,7 @@ public class SubjectLuBean implements javax.ejb.SessionBean {
 		try {
 			Context context = new InitialContext();
 			DataSource ds = (DataSource)
-			  context.lookup( "jdbc/TCES" );
+			  context.lookup( "OLTP" );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

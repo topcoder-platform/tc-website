@@ -208,7 +208,7 @@ public class CountryBean implements javax.ejb.SessionBean {
 		if( country_name != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "COUNTRY_NAME = '" + country_name + "'" );
+			update.append( "COUNTRY_NAME = ?" );
 			count++;
 		}
 		if( participating != null ) {
@@ -231,6 +231,8 @@ public class CountryBean implements javax.ejb.SessionBean {
 			conn = getConnection();
 			ps = conn.prepareStatement( update.toString() );
 			int	index = 1;
+			if( country_name != null )
+				ps.setString( index++, country_name );
 			rc = ps.executeUpdate();
 		} catch( SQLException e ) {
 			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
@@ -311,7 +313,7 @@ public class CountryBean implements javax.ejb.SessionBean {
 		try {
 			Context context = new InitialContext();
 			DataSource ds = (DataSource)
-			  context.lookup( "jdbc/TCES" );
+			  context.lookup( "OLTP" );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {
