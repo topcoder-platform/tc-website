@@ -75,6 +75,7 @@
 
 <!-- Tab bar sub links-->
             <xsl:call-template name="tco03_sublinks">
+                <xsl:with-param name="selectedList">component_rules</xsl:with-param>
                 <xsl:with-param name="selectedTab">overview</xsl:with-param>
             </xsl:call-template>
     
