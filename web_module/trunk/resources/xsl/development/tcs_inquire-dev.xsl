@@ -64,7 +64,7 @@
 					<td class="statText" colspan="2" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
 							
 <!-- Title -->
-						<h1 class="devSubhead"><strong><strong><xsl:value-of select="/TC/DEVELOPMENT/componentName"/>: Development</strong></h1>
+						<h1 class="devSubhead"><strong><xsl:value-of select="/TC/DEVELOPMENT/componentName"/>: Development</strong></h1>
                                     
 <!-- Overview -->
 						<p><strong>Overview</strong><br />
@@ -73,7 +73,7 @@
 
 <!-- Project Type -->
 						<p><strong>Project Type</strong><br />
-						Component Development Project: Provide a complete development solution for the <strong><xsl:value-of select="/TC/DEVELOPMENT/componentName"/> component.<br />
+						Component Development Project: Provide a complete development solution for the <strong><xsl:value-of select="/TC/DEVELOPMENT/componentName"/></strong> component.<br />
 						Please review the TopCoder Software <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_meth" class="statText">Component Development Methodology</a> before you submit a solution. 
 						If you're not sure what to submit, go to <a href="/?&amp;t=development&amp;c=tcs_sample_docs" class="statText">Documentation and Sample Submissions</a> for more information.
                             </p>
