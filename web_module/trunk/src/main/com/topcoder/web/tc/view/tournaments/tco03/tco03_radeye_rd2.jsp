@@ -11,7 +11,7 @@
 <body>
 <table cellpadding="4" cellspacing="2" align="center" border="0" class="bodyText" width="800">
 <tr>
-<td align="center"><A href="/index?t=tournaments&amp;c=tco03_overview" target="_top"><img src="/i/tournament/tco03/tco_home_banner.gif" alt="2003 TopCoder Open sponsord by Intel&#174;" width="540" height="125" border="0" /></A></td></tr>
+<td align="center"><A href="/index?t=tournaments&amp;c=tco03_overview" target="_top"><img src="/i/tournament/tco03/tco_home_banner.gif" alt="2003 TopCoder Open sponsord by Intel&#174;" width="540" height="61" border="0" /></A></td></tr>
 </table>
 <table cellpadding="4" cellspacing="2" align="center" border="0" class="bodyText" width="800">
 <tr>
