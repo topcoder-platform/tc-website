@@ -12,6 +12,7 @@ import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.Enumeration;
 import java.util.Iterator;
+import java.lang.reflect.InvocationTargetException;
 
 public class Controller
         extends HttpServlet {
@@ -29,15 +30,6 @@ public class Controller
     public void init(Servlet servletConfig)
             throws ServletException {
     }
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException {
-        service(request,response);
-    }
-    public void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException {
-        service(request,response);
-    }
-
     public void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
         HttpSession session = null;
@@ -75,6 +67,10 @@ public class Controller
                 log.debug(user+"");
                 task.setUser(user);
                 task.process();
+            } catch (InvocationTargetException e) {
+                e.printStackTrace();
+                forwardToError(request, response, e.getTargetException());
+                return;
             } catch (Exception e) {
                 e.printStackTrace();
                 forwardToError(request, response, e);
