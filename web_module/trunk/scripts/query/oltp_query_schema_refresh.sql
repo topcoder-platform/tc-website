@@ -61,6 +61,8 @@ INSERT INTO command VALUES(63,"Additional Invitational Sign Up List 0926",1);
 INSERT INTO command VALUES(64,"Final Invitational Sign Up List 1001",1);
 INSERT INTO command VALUES(65,"Invitational Invitations - 1008",1);
 INSERT INTO command VALUES(66,"Invitational Invitations - 1010",1);
+INSERT INTO command VALUES(67,"affidavit_info",10);
+INSERT INTO command VALUES(68,"tourney_advancers",10);
 
 INSERT INTO data_type VALUES (1001,'Integer Input');
 INSERT INTO data_type VALUES (1002,'Decimal Input');
@@ -175,6 +177,9 @@ INSERT INTO command_query_xref VALUES(63, 89, 1);
 INSERT INTO command_query_xref VALUES(64, 90, 1);
 INSERT INTO command_query_xref VALUES(65, 91, 1);
 INSERT INTO command_query_xref VALUES(66, 92, 1);
+INSERT INTO command_query_xref VALUES(67, 93, 1);
+INSERT INTO command_query_xref VALUES(67, 1052, 1);
+INSERT INTO command_query_xref VALUES(68, 94, 1);
 
 
 INSERT INTO input_lu (input_id, input_code, data_type_id, input_desc) VALUES(3,"cr",1001,"Coder ID");
@@ -212,6 +217,7 @@ INSERT INTO input_lu (input_id, input_code, data_type_id, input_desc) VALUES (10
 INSERT INTO input_lu (input_id, input_code, data_type_id, input_desc) VALUES (1003, "mid", 1001, "TCES Member ID");
 INSERT INTO input_lu (input_id, input_code, data_type_id, input_desc) VALUES (1100, "hn", 1005, "User Handle");
 INSERT INTO input_lu (input_id, input_code, data_type_id, input_desc) VALUES(43,"cd",1001,"Contest ID");
+INSERT INTO input_lu (input_id, input_code, data_type_id, input_desc) VALUES(44,"rds",1005,"round ids");
 
 
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES(50,"N",null,18,1);
@@ -289,3 +295,5 @@ INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (86, "N", null, 3, 1);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (86, "N", null, 23, 1);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (86, "N", null, 43, 1);
+INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (93, "N", null, 3, 1);
+INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (94, "N", null, 44, 1);
