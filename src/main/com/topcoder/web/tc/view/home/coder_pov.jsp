@@ -9,8 +9,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/brett1479_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
-                        By <a class="bodyText" href="/stat?c=member_profile&amp;cr=251317"><strong>brett1479</strong></a><br/>
+                        <img src="/i/m/Wernie_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
+                        By <a class="bodyText" href="/stat?c=member_profile&amp;cr=307638"><strong>Wernie</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -19,13 +19,13 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm208_prob">SRM 208 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Wednesday, August 18, 2004</p>
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm209_prob">SRM 209 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Saturday, August 28, 2004</p>
 
                         <p>
-						With the TopCoder Open only a few weeks off, familiar faces are beginning to resurface in order to regain their competition form.  snewman, who only started competing again recently,  doesn't seem to need much practice.  He placed second in a relatively tight race.
+						In division 1, many coders were quick to submit the first two problems, but took their time on the hard problem. System tests then saw 13 coders solve all three problems correctly, one of them being Vigothebest, who gains 275 rating points and no longer feels blue.
 
-                        <a href="/?t=statistics&amp;c=srm208_prob" class="bodyText"><strong>full&#160;story</strong></a>
+                        <a href="/?t=statistics&amp;c=srm209_prob" class="bodyText"><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
