@@ -8,6 +8,7 @@ import com.topcoder.common.web.xml.HTMLRenderer;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.docGen.xml.RecordTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
@@ -16,6 +17,7 @@ import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 
 import javax.naming.Context;
+import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
@@ -101,6 +103,30 @@ public final class TaskStatic {
         } else {
             xsldocURLString = TCServlet.XSL_ROOT + requestTask + requestOther + requestCommand + ".xsl";
         }
+log.debug("task: " + requestTask);
+        if (requestTask.startsWith("tces")) {
+            try {
+                ctx = TCContext.getInitial();
+                /* this could be cached, but given low volumen, we'll go for correctness */
+                dai = new DataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
+
+                RecordTag tcesTag = new RecordTag("TCES");
+                dataRequest = new Request();
+                dataRequest.setContentHandle("next_srm");
+                resultMap = dai.getData(dataRequest);
+                rsc = (ResultSetContainer) resultMap.get("Next_SRM");
+                tcesTag.addTag(rsc.getTag("NextSRM", "Info"));
+                document.addTag(tcesTag);
+            } catch (NamingException e) {
+                log.error("failed to get next match from DB");
+                e.printStackTrace();
+            } catch (Exception e) {
+                log.error("failed to get next match from DB");
+                e.printStackTrace();
+            }
+        }
+
+/*
         try {
             ctx = TCContext.getInitial();
             dai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.DW_DATASOURCE_NAME));
@@ -117,7 +143,8 @@ public final class TaskStatic {
             log.error("failed to get top school list from DB");
             e.printStackTrace();
         }
-
+*/
+        log.debug(document.getXML(2));
         try {
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (Exception e) {
