@@ -191,7 +191,7 @@
                             use Project Submit &amp; Review to check timelines, submit solutions and final fixes, and review your scorecards.</p>
                             <!-- Learn more about Project Submit & Review (link to future How-to guide -->
 
-                           <p align="center"><strong><A href="http://software.topcoder.com/review">Project Submit & Review</A> &gt;</strong></p>
+                           <p align="center"><strong><A href="http://software.topcoder.com/review">Project Submit &amp; Review</A> &gt;</strong></p>
                     </td>
                 </tr>
             </table>
