@@ -4,15 +4,17 @@
 String sDivision = srb.getProperty("dn","1");
 
 String sContentHandle = srb.getContentHandle();
+boolean bSchool = sContentHandle.startsWith("_school");
 boolean bSorted = sContentHandle.endsWith("_sorted");
 if (bSorted) 
   sContentHandle = sContentHandle.substring(0, sContentHandle.indexOf("_sorted"));
 
 boolean bRequireLogin = sContentHandle.startsWith("round_stats");
 
-ResultSetContainer rsc2 = (ResultSetContainer) queryEntries.get("Round_Statistics_Data");
+ResultSetContainer rsc2 = (ResultSetContainer) queryEntries.get(bSchool?"School_Round_Statistics_Data":"Round_Statistics_Data");
 pageContext.setAttribute("resultSet", rsc2);
 ResultSetContainer.ResultSetRow resultRow_0 = rsc2.isValidRow(0)? rsc2.getRow(0):null;
+
 
 
 //calculate scrolling information
