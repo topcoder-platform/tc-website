@@ -283,8 +283,8 @@ public class CommandBean extends BaseEJB {
         try {
             ctx = new InitialContext();
             IdGenerator.init(new InformixDB(), (DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME),
-                    "sequence_object", "COMMAND_SEQ", "current_value", 9999999999L, 1, true);
-            ret = IdGenerator.nextId("sequence_object");
+                    "sequence_object", "name", "current_value", 9999999999L, 1, true);
+            ret = IdGenerator.nextId("COMMAND_SEQ");
 
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
