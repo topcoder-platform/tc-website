@@ -31,7 +31,7 @@
 		
 		<ul><li>1-408-277-4759</li>
 			<li>Driving Directions: From Mineta San Jose International Airport. Take Highway 101 North 4 miles to Great America 
-			Parkway. Exit right to Mission College Boulevard. Hotel is on the Right </li>
+			Parkway. Exit right to Mission College Boulevard. Hotel is on the Right.</li>
 			<li>$15 USD Shuttle Service from Airport </li>
 			<li>$1.4 USD Bus from Airport to Hotel Fee (one-way) </li>
 			<li>$15 USD Estimated Taxi Fee (one-way) </li>
