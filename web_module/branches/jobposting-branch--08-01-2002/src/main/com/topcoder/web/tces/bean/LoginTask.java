@@ -92,6 +92,7 @@ public class LoginTask extends BaseTask implements Task, Serializable {
 log.debug(Authentication.getRequestedURL(request.getSession(true)));
             setNextPage(Authentication.getRequestedURL(request.getSession(true)).trim());
             customRedir=true;
+            Authentication.resetRequestedURL(request.getSession(true));
         }
 	}
 

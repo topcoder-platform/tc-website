@@ -141,6 +141,13 @@ public class Authentication implements Serializable {
             return (auth.requestedURL==null?"":auth.requestedURL);
     }
 
+    public static void resetRequestedURL(HttpSession session) {
+        Authentication auth = (Authentication)session.getAttribute("tces_auth");
+
+        if (auth!=null)
+            auth.requestedURL="";
+    }
+
     private void setUserId(int userId) {
         this.userId=userId;
     }
