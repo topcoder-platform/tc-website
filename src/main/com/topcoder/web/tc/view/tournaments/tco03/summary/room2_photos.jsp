@@ -64,7 +64,7 @@
 
             <table border="0" cellspacing="0" cellpadding="3" width="100%">            
                 <tr>
-                    <td class="bodyText" align="center">
+                    <td class="thumbnails" align="center">
                         <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/01.jpg');"><img src="/i/tournament/tco03/room2/01_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
                         <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/02.jpg');"><img src="/i/tournament/tco03/room2/02_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
                         <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/03.jpg');"><img src="/i/tournament/tco03/room2/03_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
@@ -74,7 +74,7 @@
                 </tr>
                 
                 <tr>
-                    <td class="bodyText" align="center">
+                    <td class="thumbnails" align="center">
                         <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/06.jpg');"><img src="/i/tournament/tco03/room2/06_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
                         <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/07.jpg');"><img src="/i/tournament/tco03/room2/07_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
                         <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/08.jpg');"><img src="/i/tournament/tco03/room2/08_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
@@ -88,7 +88,7 @@
                 </tr>            
                 
                 <tr>
-                    <td class="bodyText" align="center">
+                    <td class="thumbnails" align="center">
                         <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/11.jpg');"><img src="/i/tournament/tco03/room2/11_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
                         <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/12.jpg');"><img src="/i/tournament/tco03/room2/12_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
                         <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/13.jpg');"><img src="/i/tournament/tco03/room2/13_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
@@ -98,7 +98,7 @@
                 </tr>            
 
                 <tr>
-                    <td class="bodyText" align="center">
+                    <td class="thumbnails" align="center">
                         <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/16.jpg');"><img src="/i/tournament/tco03/room2/16_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
                         <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/17.jpg');"><img src="/i/tournament/tco03/room2/17_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
                         <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/18.jpg');"><img src="/i/tournament/tco03/room2/18_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
