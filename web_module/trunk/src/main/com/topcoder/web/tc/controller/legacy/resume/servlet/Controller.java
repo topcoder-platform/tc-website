@@ -28,7 +28,6 @@ public class Controller
         String taskName = null;
         String taskStepName = null;
         try {
-            log.info("[**** resume **** " + taskName + " **** " + request.getRemoteHost() + " ****]");    
             try {
                 fu = new FileUpload(request, false);
             } catch (InvalidContentTypeException ignore) {
@@ -41,6 +40,7 @@ public class Controller
                 taskName = fu.getParameter(Constants.TASK_KEY);
                 taskStepName = fu.getParameter(Constants.STEP_KEY);
             }
+            log.info("[**** resume **** " + taskName + " **** " + request.getRemoteHost() + " ****]");
             log.debug(taskName);
             if (taskName == null || !isWord(taskName)) {
                 log.debug(Constants.TASK_KEY + " not found in request. - "+taskName);
