@@ -8,9 +8,9 @@
     <enterprise-beans>
       <session>
   <ejb-name>MPSQASServices</ejb-name>
-  <home>ejb.MPSQASServices.MPSQASServicesHome</home>
-  <remote>ejb.MPSQASServices.MPSQASServices</remote>
-  <ejb-class>ejb.MPSQASServices.MPSQASServicesBean</ejb-class>
+  <home>com.topcoder.ejb.MPSQASServices.MPSQASServicesHome</home>
+  <remote>com.topcoder.ejb.MPSQASServices.MPSQASServices</remote>
+  <ejb-class>com.topcoder.ejb.MPSQASServices.MPSQASServicesBean</ejb-class>
   <session-type>Stateless</session-type>
   <transaction-type>Bean</transaction-type>
   <env-entry>
