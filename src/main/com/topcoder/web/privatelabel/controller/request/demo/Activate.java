@@ -1,4 +1,4 @@
-package com.topcoder.web.privatelabel.controller.request.brooks;
+package com.topcoder.web.privatelabel.controller.request.demo;
 
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.controller.request.BaseActivate;
@@ -9,7 +9,7 @@ import com.topcoder.web.privatelabel.controller.request.BaseActivate;
  */
 public class Activate extends BaseActivate {
     protected void setNextPage() {
-        setNextPage(Constants.DEMO_ACTIVATION_PAGE);
+        setNextPage(Constants.BROOKS_ACTIVATION_PAGE);
         setIsNextPageInContext(true);
     }
 }
