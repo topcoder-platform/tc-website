@@ -4,7 +4,7 @@
             <table width="100%" bgcolor="#4A4A4A" cellspacing="0" cellpadding="0" border="0">
                 <tr> 
                     <td valign="top">
-                        <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                        <table width="180" border="0" cellspacing="1" cellpadding="1">
                             <tr><td colspan="7" class="statTextBig" nowrap="nowrap" height="18">&#160;Match Dates: October</td></tr>
                             
                             <tr> 
@@ -30,7 +30,7 @@
                             <tr> 
                                 <td id="calendarMini">5</td>
                                 <td id="calendarMini">6</td>
-                                <td id="calendarTCO03Mini"><A id="miniSRMDate" href="/?t=tournaments&amp;c=tco03_comp_sched"><span id="calendarTCO03Date">7</span></A></td>
+                                <td id="calendarTCO03Mini"><A id="miniSRMDate" href="/?t=schedule&amp;c=index"><span id="calendarTCO03Date">7</span></A></td>
                                 <td id="calendarMini">8</td>
                                 <td id="calendarTCO03Mini"><A id="miniSRMDate" href="/?t=schedule&amp;c=index"><span id="calendarTCO03Date">9</span></A></td>
                                 <td id="calendarMini">10</td>
