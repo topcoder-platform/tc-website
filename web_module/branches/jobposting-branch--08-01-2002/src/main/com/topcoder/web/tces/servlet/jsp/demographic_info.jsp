@@ -71,7 +71,7 @@
               <B>Campaign: <jsp:getProperty name="DemographicTask" property="CampaignName"/></B><BR>
               
               <% if (DemographicTask.getJobID()>=0) { %>             
-              Position: <B><jsp:getProperty name="DemographicTask" property="PositionName"/></B><BR>
+              <B>Position:</B> <jsp:getProperty name="DemographicTask" property="PositionName"/><BR>
               <% } %>
               </P>
               
@@ -162,9 +162,21 @@
 
                       </TABLE>
                       
-                   <% 
-                     }
-                   %>
+                   <% }else{ %>
+                      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">               
+                        <TR>
+                          <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18" COLSPAN="3">&#160;<b>Student (0)</b></TD>
+                        </TR>
+
+                        <TR>
+                          <TD class="statText" HEIGHT="18" COLSPAN="3"><BR></TD>                  
+                        </TR>                
+
+                        <TR>
+                          <TD class="statText" HEIGHT="18" COLSPAN="3" align="center">No data available.</TD>                  
+                        </TR>                
+                      </TABLE>
+                   <% } %>
                    
                 </TD>
                     
@@ -261,6 +273,20 @@
 
                       </TABLE>                  
                   
+                   <% }else{ %>
+                      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">               
+                        <TR>
+                          <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18" COLSPAN="3">&#160;<b>Professional (0)</b></TD>
+                        </TR>
+
+                        <TR>
+                          <TD class="statText" HEIGHT="18" COLSPAN="3"><BR></TD>                  
+                        </TR>                
+
+                        <TR>
+                          <TD class="statText" HEIGHT="18" COLSPAN="3" align="center">No data available.</TD>                  
+                        </TR>                
+                      </TABLE>
                     <% } %>
                    
                 </TD>

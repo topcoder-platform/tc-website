@@ -87,6 +87,17 @@
 
                 </tces:mapIterator>
 
+                <% if(MainTask.getCampaignInfoList().isEmpty()){ %>
+                <TR>
+                  <TD class="statText" HEIGHT="18" COLSPAN="20"><BR></TD>                  
+                </TR>                
+                <TR>
+                  <TD class="statText" HEIGHT="18" align="center" colspan="20">
+                    No campaigns available.
+                  </TD>
+                </TR>
+                <% } %>
+
               </TABLE>
               <P><BR></P>
     </TD>

@@ -133,6 +133,17 @@
                 
                 </tces:mapIterator>
 
+                <% if(CampaignInterestTask.getHitList().isEmpty()){ %>
+                <TR>
+                  <TD class="statText" HEIGHT="18" COLSPAN="20"><BR></TD>                  
+                </TR>                
+                <TR>
+                  <TD class="statText" HEIGHT="18" align="center" colspan='20'>
+                    No hits available.
+                  </TD>
+                </TR>
+                <% } %>
+
 
               </TABLE>
               <P><BR></P>

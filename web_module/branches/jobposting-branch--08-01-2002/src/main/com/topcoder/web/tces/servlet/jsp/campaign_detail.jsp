@@ -99,6 +99,17 @@
                   </TR>
                 </tces:mapIterator>
 
+                <% if(CampaignDetailTask.getPositionList().isEmpty()){ %>
+                <TR>
+                  <TD class="statText" HEIGHT="18" COLSPAN="20"><BR></TD>                  
+                </TR>                
+                <TR>
+                  <TD class="statText" HEIGHT="18" align="center" colspan='20'>
+                    No positions available.
+                  </TD>
+                </TR>
+                <% } %>
+
               </TABLE>
               <P><BR></P>
     </TD>
