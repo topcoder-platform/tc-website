@@ -388,19 +388,6 @@
             <include name="com/topcoder/dde/util/ApplicationServer.java" />
             <include name="com/topcoder/dde/util/Cookies.java" />
         </javac>
-
-        <javac srcdir="${javamain}"
-            destdir="${build_classdir}"
-            classpathref="buildlibs"
-            debug="${debug}"
-            deprecation="true">
-            <include name="com/topcoder/util/**" />
-            <include name="com/topcoder/web/common/**" />
-            <exclude name="com/topcoder/web/common/render/**" />
-            <exclude name="com/topcoder/web/common/tag/**" />
-        </javac>
-
-
     </target>
 
 
