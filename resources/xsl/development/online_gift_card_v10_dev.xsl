@@ -99,8 +99,8 @@
                                                 <a target="_new" class="bodyText" href="/i/development/downloads/GiftCardApplicationSpec_v10.pdf">Business Requirement Specification</a> for this application project.  The following documentation will be available to the developers during the development phase:
                                                 
                                             </strong>
-                                        </p>
-                                        <ol>
+                                        <br/>
+                                        <ul>
                                             <li>Class Diagram.</li>
                                             <li>Use-Case Diagram.</li>
                                             <li>Sequence Diagrams.</li>
@@ -109,7 +109,7 @@
                                             <li>Mock-Ups of all site pages.</li>
                                             <li>Sample code for credit card authorization interface.</li>
                                             <li>File format and rules for creation of sales audit extract.</li>
-                                        </ol>                                        
+                                        </ul>                                        
                                         <p>
                                             <strong>Site Development</strong> - Must implement the following functionality according to the design:
                                             <br/>
