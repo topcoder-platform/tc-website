@@ -133,7 +133,7 @@ public abstract class BaseServlet extends HttpServlet {
                     try {
                         SimpleResource resource = new SimpleResource(processorName);
                         if (hasPermission(authentication, resource)) {
-                            rp = callProcess(processorName, tcRequest, authentication);
+                            rp = callProcess(processorName, tcRequest, tcResponse, authentication);
                         } else {
                             throw new PermissionException(authentication.getActiveUser(), resource);
                         }
@@ -191,12 +191,13 @@ public abstract class BaseServlet extends HttpServlet {
         }
     }
 
-    protected RequestProcessor callProcess(String processorName, TCRequest request,
+    protected RequestProcessor callProcess(String processorName, TCRequest request, TCResponse response,
                                            WebAuthentication authentication) throws Exception {
         RequestProcessor rp = null;
 
         rp = (RequestProcessor) Class.forName(processorName).newInstance();
         rp.setRequest(request);
+        rp.setResponse(response);
         rp.setAuthentication(authentication);
         rp.process();
         return rp;
