@@ -205,7 +205,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
         ResultColumn tempColumns[] = new ResultColumn[columns.length + 1];
         System.arraycopy(columns, 0, tempColumns, 0, columns.length);
         tempColumns[columns.length] = new ResultColumn(Types.INTEGER, "rank", 9, 0, "");
-        columnNameMap.put("rank".toUpperCase(), new Integer(columns.length));
+        columnNameMap.put("rank", new Integer(columns.length));
         columns = tempColumns;
 
         if (start > end)
@@ -540,8 +540,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
         columns = new ResultColumn[rsmd.getColumnCount()];
         for (int i = 1; i <= columns.length; i++) {
             int precision = 0, scale = 0, colType = rsmd.getColumnType(i);
-//            String colName = rsmd.getColumnName(i);
-            String colName = rsmd.getColumnLabel(i);
+            String colName = rsmd.getColumnName(i);
             String colSourceType = rsmd.getColumnTypeName(i);
 
             if (colType == Types.DECIMAL || colType == Types.NUMERIC) {
@@ -553,7 +552,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
 
             columns[i - 1] = new ResultColumn(colType, colName, precision, scale, colSourceType);
             // Unlike ResultSets, column indices are zero-based.
-            columnNameMap.put(colName.toUpperCase(), new Integer(i - 1));
+            columnNameMap.put(colName, new Integer(i - 1));
         }
     }
 
@@ -806,7 +805,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
          * ResultSetContainer.ResultSetRow implementation of toString.
          * This method will output all data, separated by \t
          *
-         * @return	The row data in string form.
+         * @return      The row data in string form.
          */
         public String toString() {
             return toString("\t");
@@ -816,7 +815,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
          * ResultSetContainer.ResultSetRow implementation of toString.
          * This method will output all data, separated by colDelim
          * @param colDelim
-         * @return	The row data in string form.
+         * @return      The row data in string form.
          */
         public String toString(String colDelim) {
             StringBuffer sbReturn = new StringBuffer();
@@ -908,7 +907,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      * @param index index of element to return.
      * @return the element at the specified position in this list.
      * @throws IndexOutOfBoundsException if the specified index is out of
-     *		  range (<tt>index &lt; 0 || index &gt; size()</tt>).
+     *            range (<tt>index &lt; 0 || index &gt; size()</tt>).
      */
     public Object get(int index) {
         return data.get(index);
@@ -920,7 +919,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      *
      * @param o    element to search for.
      * @return  The index in this list of the first occurence of the specified
-     * 	       element, or -1 if the list does not contain this element.
+     *         element, or -1 if the list does not contain this element.
      */
     public int indexOf(Object o) {
         return data.indexOf(o);
@@ -950,7 +949,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      *
      * @param o element to search for.
      * @return The index in this list of the last occurence of the specified
-     * 	       element, or -1 if the list does not contain this element.
+     *         element, or -1 if the list does not contain this element.
      */
     public int lastIndexOf(Object o) {
         return data.lastIndexOf(o);
@@ -970,11 +969,11 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      * sequence), starting at the specified position in the list.
      *
      * @param index index of the first element to be returned from the list
-     *		    iterator (by a call to the <tt>next</tt> method).
+     *              iterator (by a call to the <tt>next</tt> method).
      * @return a list iterator of the elements in this list (in proper
-     * 	       sequence), starting at the specified position in the list.
+     *         sequence), starting at the specified position in the list.
      * @throws IndexOutOfBoundsException if the specified index is out of
-     *		  range (<tt>index &lt; 0 || index &gt; size()</tt>).
+     *            range (<tt>index &lt; 0 || index &gt; size()</tt>).
      */
     public ListIterator listIterator(final int index) {
         return new ReadOnlyListIterator(index);
@@ -1133,7 +1132,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      * @return The corresponding column index
      */
     public int getColumnIndex(String name) {
-        Integer i = ((Integer) columnNameMap.get(name.toUpperCase()));
+        Integer i = ((Integer) columnNameMap.get(name));
         if (i == null)
             return -1;
         else
@@ -1215,7 +1214,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
     /**
      * This method performs a clone of the object.
      *
-     * @return	A cloned ResultSetContainer instance.
+     * @return  A cloned ResultSetContainer instance.
      */
     public Object clone() {
         ResultSetContainer rsc = new ResultSetContainer();
@@ -1247,7 +1246,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      * @return True iff the column name is valid.
      */
     public boolean isValidColumn(String name) {
-        return columnNameMap.containsKey(name.toUpperCase());
+        return columnNameMap.containsKey(name);
     }
 
     /**
@@ -1319,7 +1318,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
     /**
      * This method will output all columns and data, rows separated by \n, columns separated by \t
      *
-     * @return	The columns and data, in string form.
+     * @return  The columns and data, in string form.
      */
     public String toString() {
         return toString("\n", "\t");
@@ -1329,7 +1328,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      * This method will output all columns and data.
      * @param rowDelim
      * @param colDelim
-     * @return	The columns and data, in string form.
+     * @return  The columns and data, in string form.
      */
     public String toString(String rowDelim, String colDelim) {
 
