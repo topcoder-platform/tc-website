@@ -31,7 +31,7 @@ public class PrinterTestResults extends TestResults {
         //get the problem statements
         if (resultMap!=null) {
             ResultSetContainer problems = (ResultSetContainer)resultMap.get("sessionProblems");
-            getRequest().setAttribute("problemStatementList", problems);
+            getRequest().setAttribute("problemSolutionList", problems);
             ResultSetContainer.ResultSetRow row = null;
             List problemList = new ArrayList(problems.size());
             for (Iterator it = problems.iterator(); it.hasNext();) {
@@ -41,7 +41,9 @@ public class PrinterTestResults extends TestResults {
                 problemList.add(ProblemInfo.createProblemInfo(
                         getAuthentication().getActiveUser(),roundId,problemId));
             }
+            getRequest().setAttribute("problemStatementList", problemList);
         }
+
 
         //get notes
         Request dr = new Request();
