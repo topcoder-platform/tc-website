@@ -37,7 +37,7 @@
 <!-- Tab bar links-->
 <jsp:include page="../tco03Links.jsp" >
    <jsp:param name="selectedContest" value="coding"/>
-   <jsp:param name="selectedTab" value="coding_summary"/>
+   <jsp:param name="selectedTab" value="component_summary"/>
 </jsp:include>
 
 <!-- Tab bar sublinks-->
