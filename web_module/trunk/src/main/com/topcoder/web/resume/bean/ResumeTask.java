@@ -103,6 +103,7 @@ public abstract class ResumeTask {
         Request r = new Request();
         r.setContentHandle("company_datasource");
         r.setProperty("cm", String.valueOf(companyId));
+        r.setProperty("dstid", "2");  //non jts transactional datasource
         //not sure if this db is ok...we'll see
         Map m = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true).getData(r);
         ResultSetContainer rsc = (ResultSetContainer)m.get("company_datasource");
