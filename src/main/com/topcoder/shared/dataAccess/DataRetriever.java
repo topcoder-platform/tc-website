@@ -2,6 +2,7 @@ package com.topcoder.shared.dataAccess;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.*;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -124,6 +125,7 @@ import java.util.*;
  */
 
 public class DataRetriever implements DataRetrieverInt {
+    private static Logger log = Logger.getLogger(DataRetriever.class);
     private Connection conn;
     private PreparedStatement ps;
     private ResultSet rs;
@@ -150,8 +152,7 @@ public class DataRetriever implements DataRetrieverInt {
                 ((Connection) o).close();
         } catch (Exception e) {
             try {
-                System.out.println("Statistics EJB:  Error closing " + o.getClass());
-                System.out.println(e.getMessage());
+                log.error("Error closing " + o.getClass(), e);
             } catch (Exception ex) {
             }
         }
@@ -169,17 +170,17 @@ public class DataRetriever implements DataRetrieverInt {
 
     private void handleException(Exception e, String lastQuery, Map inputs) {
         try {
-            System.out.println("Statistics EJB: Exception caught: " + e.toString());
-            System.out.println("The last query run was: ");
-            System.out.println(lastQuery);
-            System.out.println("Function inputs were: ");
+            log.error("Exception caught: " + e.toString());
+            log.error("The last query run was: ");
+            log.error(lastQuery);
+            log.error("Function inputs were: ");
             Iterator i = inputs.keySet().iterator();
             while (i.hasNext()) {
                 String key = (String) i.next();
                 String value = (String) inputs.get(key);
-                System.out.println("Input code: " + key + " --- Input value: " + value);
+                log.error("Input code: " + key + " --- Input value: " + value);
             }
-            System.out.println("Exception details:");
+            log.error("Exception details:");
             if (e instanceof SQLException)
                 DBMS.printSqlException(true, (SQLException) e);
             else
@@ -546,6 +547,7 @@ public class DataRetriever implements DataRetrieverInt {
                     endRow = tempInt.intValue();
                 ps = conn.prepareStatement(queryText);
                 rs = ps.executeQuery();
+                log.debug("startrow: " + startRow + " endRow: " + endRow);
                 // Call different constructors depending on if we have to
                 // generate a ranklist column or not.
                 ResultSetContainer rsc;
