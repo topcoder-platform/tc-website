@@ -64,7 +64,7 @@
 
             <p class="bodyText"></p>
 
-            <table width="100%"><tr><td align="center"><img src="/i/rank_weight_equation.gif"/></td></tr></table>
+            <p><table width="100%"><tr><td align="center"><img src="/i/rank_weight_equation.gif"/></td></tr></table></p>
 
             <p class="bodyText"></p>
 
