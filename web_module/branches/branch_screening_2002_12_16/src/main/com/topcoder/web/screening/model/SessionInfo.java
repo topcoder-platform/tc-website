@@ -29,6 +29,12 @@ public class SessionInfo extends BaseModel {
     public SessionInfo() {
         candidateEmail="NO";
         repEmail="NO";
+
+        Calendar c = Calendar.getInstance();
+        beginMonth = endMonth = String.valueOf(c.get(Calendar.MONTH) + 1);
+        beginDay = endDay = String.valueOf(c.get(Calendar.DAY_OF_MONTH));
+        beginYear = endYear = String.valueOf(c.get(Calendar.YEAR));
+        beginHour = endHour = String.valueOf(c.get(Calendar.HOUR_OF_DAY));
     }
 
     /**

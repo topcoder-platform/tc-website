@@ -49,6 +49,12 @@
     <description></description>
   </init-param>
 
+  <init-param>
+    <param-name>request_info_attribute</param-name>
+    <param-value>requestInfo</param-value>
+    <description></description>
+  </init-param>
+
   <!-- URL Parameter constant names -->
   <init-param>
     <param-name>user_id_parameter</param-name>

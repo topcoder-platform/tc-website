@@ -9,11 +9,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.topcoder.common.web.util.Data;
+import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.*;
+
 import com.topcoder.web.common.RequestProcessor;
 import com.topcoder.web.common.security.*;
 import com.topcoder.web.screening.common.*;
-import com.topcoder.security.TCSubject;
+import com.topcoder.web.screening.model.RequestInfo;
 
 /**
  * This class handles all incoming requests.
@@ -82,6 +84,11 @@ public class MainServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
         try {
+            RequestInfo rInfo = new RequestInfo();
+            rInfo.setIsNew(false);
+            rInfo.setControllerUrl(request.getServletPath());
+            request.setAttribute(Constants.REQUEST_INFO, rInfo);
+
             String procParam = 
                 request.getParameter(Constants.REQUEST_PROCESSOR);
 
@@ -108,7 +115,9 @@ public class MainServlet extends HttpServlet {
             Persistor p = new SessionPersistor(request.getSession());
             WebAuthentication authen = new BasicAuthentication(p, request, response);
             
+            rInfo.setUser(authen.getActiveUser());
             long userId = authen.getActiveUser().getId();
+
             Resource r = new ClassResource(procClass);
             PrincipalMgr pm = new PrincipalMgr();
             
@@ -140,13 +149,18 @@ public class MainServlet extends HttpServlet {
             String wherenow = rp.getNextPage();
             boolean forward = rp.isNextPageInContext();
 
+            // do it again here if we get here just so that if we were just
+            // doing the login processor, we can get that info in there instead?
+            rInfo.setUser(authen.getActiveUser());
             sendToPage(request, response, wherenow, forward);
         } catch (AnonymousUserException e) {
             sendToPage(request, response, Constants.LOGIN_PAGE, true);
         } catch (PermissionDeniedException e) {
             sendToErrorPage(request, response, e);
         } catch (Exception e) {
-            e.printStackTrace(); //temporary for debugging
+            if("true".equalsIgnoreCase(Constants.DEBUG)) {
+                e.printStackTrace(); //temporary for debugging
+            }
             sendToErrorPage(request, response, e);
         }
     }

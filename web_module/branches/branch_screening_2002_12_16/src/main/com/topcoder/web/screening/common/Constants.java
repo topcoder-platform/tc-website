@@ -16,6 +16,7 @@ public class Constants
     public static String VALID_CHAR_LIST;    
     public static String CONTROLLER_URL;    
     public static String DEFAULT_PAGE;
+    public static String REQUEST_INFO;
 
     //URL Parameter constants
     public static String USER_ID;
@@ -148,6 +149,7 @@ public class Constants
         VALID_CHAR_LIST = config.getInitParameter("valid_char_list");
         CONTROLLER_URL = config.getInitParameter("controller_url");
         DEFAULT_PAGE = config.getInitParameter("default_page");
+        REQUEST_INFO = config.getInitParameter("request_info_attribute");
 
         //URL Parameter constants
         USER_ID = config.getInitParameter("user_id_parameter");
