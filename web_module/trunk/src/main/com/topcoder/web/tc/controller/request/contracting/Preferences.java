@@ -14,6 +14,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.*;
 
 import com.topcoder.web.tc.model.PreferenceGroup;
+import com.topcoder.web.tc.model.Preference;
 
 import java.util.*;
 /**
@@ -37,6 +38,21 @@ public class Preferences extends ContractingBase {
             grp.setSortOrder(rsc.getIntItem(i, "sort_order"));
             
             //load preferences here
+            Request rpref = new Request();
+            rpref.setContentHandle("preferences_by_group");
+            rpref.setProperty("prid", String.valueOf(rsc.getIntItem(i, "preference_group_id")));
+            
+            ResultSetContainer rscPref = (ResultSetContainer)getDataAccess().getData(rpref).get("preferences_by_group");
+            for(int j = 0; j < rscPref.size(); j++) {
+                Preference pref = new Preference();
+                
+                pref.setSortOrder(rscPref.getIntItem(j, "sort_order"));
+                pref.setText(rscPref.getStringItem(j, "preference_desc"));
+                pref.setType(rscPref.getIntItem(j, "preference_type_id"));
+                
+                grp.addPreference(pref);
+            }
+            
             
             groups.add(grp);
         }
