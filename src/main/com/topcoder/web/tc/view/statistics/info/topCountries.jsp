@@ -62,13 +62,13 @@
             <p class="bodyText">One may determine the weighting (<b><i>R</i></b>) using the
             following equation.</p>
 
-            <p class="bodyText"></p>
+            <p class="bodyText"><br/></p>
 
             <p><table width="100%"><tr><td align="center"><img src="/i/rank_weight_equation.gif"/></td></tr></table></p>
 
-            <p class="bodyText"></p>
+            <p class="bodyText"><br/></p>
 
-            <p class="bodyText">Where <b><i>X</i></b> is the fraction of a country�s rating
+            <p class="bodyText">Where <b><i>X</i></b> is the fraction of a country's rating
             that will be based on the top <b><i>K</i></b> coders within that country.</p>
 
             <p class="bodyText"></p>
