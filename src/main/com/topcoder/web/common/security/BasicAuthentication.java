@@ -74,12 +74,23 @@ public class BasicAuthentication implements WebAuthentication {
      * @throws LoginException
      */
     public void login(User u) throws LoginException {
+        login(u,true);
+    }
+
+    /**
+      * Use the security component to log the supplied user in.
+      * If login succeeds, set a cookie if rememberUser is true, and record status in the persistor.
+      * If login fails, throw a LoginException.
+     * @param u
+     * @throws LoginException
+     */
+    public void login(User u, boolean rememberUser) throws LoginException {
         log.info("attempting login as " + u.getUserName() + " path: " + defaultCookiePath.getName());
         try {
             LoginRemote login = (LoginRemote) Constants.createEJB(LoginRemote.class);
             TCSubject sub = login.login(u.getUserName(), u.getPassword());
             long uid = sub.getUserId();
-            setCookie(uid);
+            setCookie(uid, rememberUser);
             setUserInPersistor(makeUser(uid));
             log.info("login succeeded");
 
@@ -200,11 +211,11 @@ public class BasicAuthentication implements WebAuthentication {
      *
      * public so com.topcoder.web.hs.controller.requests.Base can reach it, a bit of a kludge
      */
-    public void setCookie(long uid) throws Exception {
+    public void setCookie(long uid, boolean rememberUser) throws Exception {
         String hash = hashForUser(uid);
         Cookie c = new Cookie(USER_COOKIE_NAME, ""+uid+"|"+hash);
         c.setPath(defaultCookiePath.getName());
-        c.setMaxAge(Integer.MAX_VALUE);  // this should fit comfortably, since the expiration date is a string on the wire
+        c.setMaxAge(rememberUser?Integer.MAX_VALUE:-1);  // this should fit comfortably, since the expiration date is a string on the wire
         response.addCookie(c);
     }
 
