@@ -14,8 +14,12 @@ function back() {
 }
 //--></SCRIPT>
 </HEAD>
-
-<body>
+<jsp:useBean id="candidateInfo" class="com.topcoder.web.screening.model.CandidateInfo" scope="request" />
+<% if (candidateInfo.isNew()) { %>
+  <body onLoad="document.candidateSetupForm.emailAddress.focus()">
+<% } else { %>
+  <body>
+<% } %>
 
 <!-- Header begins -->
 <jsp:include page="/includes/top.jsp" />
@@ -34,8 +38,7 @@ function back() {
                 <tr valign="top">
                     <td class="bodyText">
                     
-                        <jsp:useBean id="candidateInfo" class="com.topcoder.web.screening.model.CandidateInfo" scope="request" />
-                        
+
                         <% if("PopulateSession".equals(candidateInfo.getReferrer())) { %><h1 class="testHead">Create a New Session - <%} else if("BuildCandidateList".equals(candidateInfo.getReferrer())) {%><h1 class="testHead">Candidate List - <%}%><FONT COLOR="#000000"><%if(candidateInfo.isNew()) { %>Set up a Candidate<%} else {%>Candidate Info<%}%></h1>
                     
                     </td>

@@ -23,7 +23,7 @@
 
 </head>
 
-<body>
+<body onLoad="document.login.<%=Constants.HANDLE%>.focus()">
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">            
     <tr><td colspan="3" class="globalNavSmall"><img src="/i/clear.gif" width="1" height="15" border="0"/></td></tr>
