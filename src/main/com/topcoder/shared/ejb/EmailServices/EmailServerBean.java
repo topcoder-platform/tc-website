@@ -58,7 +58,7 @@ public class EmailServerBean extends BaseEJB {
         int rows;
         Set ret = new HashSet();
 
-        log.debug("getJobs based on status=" + status);
+        //log.debug("getJobs based on status=" + status);
 
         try {
             conn = DBMS.getConnection("TC_EMAIL");
@@ -553,7 +553,7 @@ public class EmailServerBean extends BaseEJB {
         java.sql.ResultSet rs = null;
         StringBuffer sqlStmt = new StringBuffer(500);
 
-        log.debug("getSchedulerId requested");
+        //log.debug("getSchedulerId requested");
 
         try {
             conn = DBMS.getConnection("TC_EMAIL");
