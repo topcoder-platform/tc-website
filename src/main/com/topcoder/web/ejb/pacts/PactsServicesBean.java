@@ -1176,8 +1176,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         HashMap hm = new HashMap();
         hm.put(USER_DEMOGRAPHICS, rsc);
 
-        sb.replace(0, sb.length(), "SELECT cs.school_id, cs.coder_id, cs.school_name from  ")
-                .append(" current_school cs where coder_id = " + userId);
+        sb.replace(0, sb.length(), "SELECT cs.school_id, cs.coder_id, s.ame as school_name from  ")
+                .append(" current_school cs, school s where cs.school_id = s.school_id and coder_id = " + userId);
 
         rsc = null;
         rsc = runSelectQuery(sb.toString(), true);
