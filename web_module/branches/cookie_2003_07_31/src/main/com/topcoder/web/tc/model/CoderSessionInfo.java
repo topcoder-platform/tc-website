@@ -97,7 +97,7 @@ public class CoderSessionInfo extends SessionInfo {
         DataAccessInt dAccess = new CachedDataAccess(ds);
 
         Request r = new Request();
-        r.setContentHandle("session_info");
+        r.setContentHandle("dw_session_info");
         r.setProperty("cr", String.valueOf(userId));
         Map m = dAccess.getData(r);
         return (ResultSetContainer)m.get("session_info");

@@ -141,7 +141,7 @@ public final class Navigation
     }
 
     public boolean isLoggedIn() {
-        return !info.isLoggedIn();
+        return info.isLoggedIn();
     }
 
     public User getUser() {

@@ -138,7 +138,7 @@ public class StatisticsHttpServlet extends HttpServlet {
                 session.setAttribute("navigation", nav);;
 
                 if (nav.isIdentified())
-                    log.info("[**** stats **** " + dataRequest.getContentHandle() + " **** " + nav.getAuthentication().getActiveUser().getUserName() + " **** " + request.getRemoteHost() + " ****]");
+                    log.info("[**** stats **** " + dataRequest.getContentHandle() + " **** " + nav.getSessionInfo().getHandle() + " **** " + request.getRemoteHost() + " ****]");
                 else
                     log.info("[**** stats **** " + dataRequest.getContentHandle() + " ****  **** " + request.getRemoteHost() + " ****]");
 
