@@ -69,7 +69,7 @@
               <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
             </TR>                        
             <TR>
-				<TD VALIGN="middle" HEIGHT="13" CLASS="statText"><A HREF="/?ContestId=4155&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">Single Round Match 86</A></TD>						
+				<TD VALIGN="middle" HEIGHT="13" CLASS="statText"><A HREF="/?ContestId=4155&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">Single Round Match 87</A></TD>						
 				<TD VALIGN="middle" CLASS="bodyGeneric"><A HREF="/?ContestId=4155&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">Thursday, May 9</A></TD>
 				<TD VALIGN="middle" CLASS="bodyGeneric"><A HREF="/?ContestId=4155&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">7:30pm EDT (registration)</A></TD>
             </TR>           
