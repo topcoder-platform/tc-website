@@ -171,6 +171,7 @@ public final class MainServlet extends HttpServlet {
                 // CLUSTER MUST HAVE CRAPPED OUT.
                 // IN THAT CASE RELOAD THE USER FROM
                 // THE USER ENTITY BEAN (DATABASE).
+                //todo perhaps we don't need to do this.  does anything other than reg need the user bean in the session?
                 if (user.getUserId() == 0) {
                     Context ctx = null;
                     try {
@@ -182,7 +183,7 @@ public final class MainServlet extends HttpServlet {
                         msg.append("MainServlet: Loading user attributes from user entity bean...");
                         log.debug(msg.toString());
                         ctx = TCContext.getInitial();
-                        UserServicesHome userHome = (UserServicesHome) ctx.lookup("UserServicesHome");
+                        UserServicesHome userHome = (UserServicesHome) ctx.lookup(ApplicationServer.USER_SERVICES);
                         UserServices userEJB = userHome.findByPrimaryKey(new Integer(nav.getUserId()));
                         user = userEJB.getUser();
                         nav.setUser(user);
