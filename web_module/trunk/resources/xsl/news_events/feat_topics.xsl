@@ -95,8 +95,8 @@ outcome?<BR/>
 
 <P>
 <B>TopCoder Talk</B><BR/>
-A discussion of a topic that is related directly to TopCoder
-competitions.  Some past topics have included TopCoder strategy, and the
+A discussion of a topic that is related directly to TopCoder:
+competitions, TopCoder Employment Services and/or TopCoder Software.  Some past topics have included TopCoder strategy, and the
 TopCoder problem creation process.<BR/>
 <A HREF="mailto:editorial@topcoder.com?subject=TopCoder Talk" CLASS="bodyGeneric">write this feature</A>
 </P>
@@ -128,7 +128,7 @@ TopCoder problem creation process.<BR/>
 To write a feature for TopCoder, you must be a rated TopCoder member, at
 least 18 years of age, and be either (i) a citizen or lawful permanent
 resident of the U.S. (including the U.S. territories of Guam, Puerto
-Rico, and the U.S. Virgin Islands; (ii) currently residing in the U.S.
+Rico, and the U.S. Virgin Islands); (ii) currently residing in the U.S.
 with valid employment authorization; or (iii) a non-U.S. citizen writing
 within your country of residence.
 </P>
