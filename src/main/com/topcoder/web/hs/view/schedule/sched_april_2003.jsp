@@ -76,7 +76,7 @@
                                 <td id="calendar">2</td>
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">3</span><br>
-                                    <strong>Match 5</strong><br>
+                                    <strong>Match 4</strong><br>
                                     Register: 2:00&nbsp;PM<br>
                                     Compete: 3:00&nbsp;PM<br>
                                     <img border="0" height="1" width="50" src="/i/clear.gif" alt=""></td>
@@ -91,7 +91,7 @@
                                 <td id="calendar">9</td>
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">10</span><br>
-                                    <strong>Match 6</strong><br>
+                                    <strong>Match 5</strong><br>
                                     Register: 2:00&nbsp;PM<br>
                                     Compete: 3:00&nbsp;PM<br>
                                     <img border="0" height="1" width="50" src="/i/clear.gif" alt=""></td>
@@ -119,7 +119,7 @@
                                 <td id="calendar">23</td>
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">24</span><br>
-                                    <strong>Match 7</strong><br>
+                                    <strong>Match 6</strong><br>
                                     Register: 2:00&nbsp;PM<br>
                                     Compete: 3:00&nbsp;PM<br>
                                     <img border="0" height="1" width="50" src="/i/clear.gif" alt=""></td>
