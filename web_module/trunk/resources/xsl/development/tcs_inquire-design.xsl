@@ -76,8 +76,8 @@
                         <h2 class="devSubhead"><strong><xsl:value-of select="/TC/DEVELOPMENT/componentName"/>: Design</strong></h2>
                     </td>
                     <td align="right">
-                        <xsl:if test="/TC/DEVELOPMENT/tco='t'">
-                            <img src="/i/development/tco_comp_badge.gif" alt="TCO Qualifying Project" width="145" height="46" border="0" />
+                        <xsl:if test="/TC/DEVELOPMENT/tccc='t'">
+                            <img src="/i/development/tccc04_comp_badge.gif" alt="TCO Qualifying Project" width="145" height="46" border="0" />
                         </xsl:if>
                     </td>
                 </tr>
@@ -183,7 +183,6 @@
                                         Requirement Specification</A> for this component project</strong>
                             </p>
 
-                        <xsl:if test="not(/TC/DEVELOPMENT/tco='t')">
 
                            <p><strong><A>
                                     <xsl:attribute name="href">
@@ -191,7 +190,6 @@
                                     </xsl:attribute>
                                     Register</A> for this Component Project to get information necessary to submit a solution</strong>
                             </p>
-                        </xsl:if>
                             <p><br /></p>
 
                             <p><strong>Upload Your Submission</strong><br/>
