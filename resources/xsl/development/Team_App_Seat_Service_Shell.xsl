@@ -248,7 +248,7 @@
                                                     <p>
                                                         <strong> Registration </strong>
                                                         <br/>
-                                                        Click <a href="/index?t=development&amp;c=tcs_team_app_inquire&amp;Project=Seat%20Service%20Shell">here</a> to obtain the information necessary to submit a solution.
+                                                        Closed.<!--Click <a href="/index?t=development&amp;c=tcs_team_app_inquire&amp;Project=Seat%20Service%20Shell">here</a> to obtain the information necessary to submit a solution.-->
                                                     </p>
                                                 </td>
                                             </tr>

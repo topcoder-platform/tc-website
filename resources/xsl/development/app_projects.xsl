@@ -72,14 +72,6 @@
                                     <td class="projectHeaders" align="center" nowrap="nowrap">Second Place Team</td>
                                     <td class="projectHeaders" align="right" nowrap="nowrap" width="25%">Register By</td>
                                 </tr>
-                                <tr valign="middle">
-                                    <td class="projectCells">
-                                        <a href="?t=development&amp;c=Team_App_Seat_Service_Shell">Seat Service Shell</a>
-                                    </td>
-                                    <td class="projectCells" align="right">$9,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$6,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">10.22.2004&#160;&#160;&#160;5:00 PM ET</td>
-                                </tr>
 
                             </table>
 
@@ -150,6 +142,13 @@
                                         <td class="projectHeaders" align="center" nowrap="nowrap">Winning Developer</td>
                                         <td class="projectHeaders" align="center" nowrap="nowrap">Second Place</td>
                                     </tr>
+                                </tr>
+                                <tr valign="middle">
+                                    <td class="projectCells">
+                                        <a href="?t=development&amp;c=Team_App_Seat_Service_Shell">Seat Service Shell</a>
+                                    </td>
+                                    <td class="projectCells" align="right">$9,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$6,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                 </tr>
                                 <tr valign="middle">
                                     <td class="projectCells">
