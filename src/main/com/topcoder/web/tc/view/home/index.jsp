@@ -156,12 +156,12 @@
          <tr>
             <td class=homeArrow>&#160;</td>
             <td class=homeText><br/>
+            TC Community Surpasses 50,000 Worldwide Nears 10,000 Rated Member Mark<A href="/?&t=news_events&c=pr_02_07_05"> ...more</A><br/>[February 7]<br/><br/>
             Software Taming Gene Data Pool<A href="http://www.wired.com/news/medtech/0,1286,66458,00.html?tw=wn_tophead_1" target="_blank"> ...more</A><br/>[February 2 - Wired]<br/><br/>
             DE-CODER: The kings of coding<A href="/?&t=news_events&c=art_02_01_05"> ...more</A><br/>[February 1 - ADT]<br/><br/>
             TCS Delivers for International Consortium of Spinal Cord Injury Researchers<A href="/?&t=news_events&c=pr_01_25_05"> ...more</A><br/>[January 25]<br/><br/>
             TopCoder&#174; Announces Motorola as Premier Sponsor of 2005 TopCoder Collegiate Challenge<A href="/?&t=news_events&c=pr_01_18_05"> ...more</A><br/>[January 18]<br/><br/>
             Code Reuse Pays Off for ING<A href="http://www.computerworld.com/industrytopics/financial/story/0,10801,98834,00.html" target="_blank"> ...more</A><br/>[January 10]<br/><br/>
-            TopCoder&#174; Announces Yahoo! as Title Sponsor for 2005 TCCC<A href="/?&t=news_events&c=pr_12_20_04"> ...more</A><br/>[December 20]<br/><br/>
             </td>
          </tr>
       </table>
