@@ -82,7 +82,7 @@
                   </tc:questionIterator>
                      <table class="bodyText" align="center">
                         <tr><td><a href="javascript: document.surveyForm.submit();"><img src="/i/submit.gif" width="101" height="20"/></a>
-                               <a href="http://wwwwwwwww.doksucks.tv"><img src="/i/view_results.gif" width="101" height="20"/></a>
+                               <a href="?<%=Constants.MODULE_KEY%>=<%=Constants.SURVEY_RESULTS%>&<%=Constants.SURVEY_ID%>=<%=surveyInfo.getId()%>"><img src="/i/view_results.gif" width="101" height="20"/></a>
                                </td>
                         </tr> 
                      </table>
