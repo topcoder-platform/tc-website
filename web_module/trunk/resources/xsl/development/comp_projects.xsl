@@ -89,32 +89,19 @@
             </p>
 -->
 
-            <br/>
-            
-            <table width="600" align="center" cellspacing="0">
-                <tr><td class="devInstructions" colspan="2"><i>Design / Development Instructions</i></td></tr>
+            <table class="devInstrTitle"  width="600" align="center" cellspacing="0">
+                <tr><td class="bodyText" colspan="3"><img src="/i/development/header_instr.gif" border="0"/></td></tr>
+                <tr><td class="bodyText" colspan="3">How to earn cash, royalties, and recognition through TopCoder Components quickly and easily</td></tr>
             </table>
-            <table width="600" align="center" class="devInstructionsTable" cellspacing="0">
-                <tr><td class="devInstructions">1.</td><td class="devInstructions">Choose a component: <span class="bodyText">Click through the component names listed below and find one that sounds right for you.</span></td></tr>
-                <tr><td class="devInstructions">2.</td><td class="devInstructions">Register: <span class="bodyText">On the component defintion page, click the link to "Register for this Component" and agree to the terms. You are now commited to that project!</span></td></tr>
-                <tr><td class="devInstructions">3.</td><td class="devInstructions">Check out the Developer Forum: <span class="bodyText">After registering, you will receive an email allowing you access to the forums for that project.</span></td></tr>
-                <tr><td class="devInstructions">4.</td><td class="devInstructions">Download the Development Distribution: <span class="bodyText">Download the Design Distribution. Read through the docs and get familiar with the requirements.</span></td></tr>
-                <tr><td class="devInstructions">5.</td><td class="devInstructions">Complete the project requirements and submit: <span class="bodyText">Login to <br/><A href="http://software.topcoder.com/review/login.jsp">Project Submit and Review</A> and submit your submission.</span></td></tr>
-                <tr><td class="bodyText" colspan="2"><p align="right"><A href="/?t=development&amp;c=getting_started">...more detailed competition instructions</A></p></td></tr>
+            <table width="600" align="center" class="devInstrTable" cellspacing="0" border="0">
+                <tr><td class="devInstrHeader">1.</td><td class="devInstrHeader" valign="top" width="30%">Choose a component: </td><td width="70%" class="devInstr">Click through the component names listed below and find one that sounds right for you.</td></tr>
+                <tr><td class="devInstrHeader">2.</td><td class="devInstrHeader">Register: </td><td class="devInstr">On the component defintion page, click the link to "Register for this Component" and agree to the terms. You are now commited to that project!</td></tr>
+                <tr><td class="devInstrHeader">3.</td><td class="devInstrHeader">Check out the Developer Forum: </td><td class="devInstr">After registering, you will receive an email allowing you access to the forums for that project.</td></tr>
+                <tr><td class="devInstrHeader">4.</td><td class="devInstrHeader">Download the Development Distribution: </td><td class="devInstr">Download the Design Distribution. Read through the docs and become familiar with the requirements.</td></tr>
+                <tr><td class="devInstrHeader">5.</td><td class="devInstrHeader">Complete the project requirements and submit: </td><td class="devInstr">Login to <A href="http://software.topcoder.com/review/login.jsp">Project Submit and Review</A> and submit your submission.</td></tr>
+                <tr><td class="bodyText" colspan="3"><p align="right"><A href="/?t=development&amp;c=getting_started">...more detailed competition instructions</A></p></td></tr>
             </table>
             
-
-<!--
-            <ol class="devInstructionsList">
-            <li>Choose a component: <span class="bodyText">Click through the component names listed below and find one that sounds right for you.</span><br/><br/></li>
-            <li>Register: <span class="bodyText">On the component defintion page, click the link to "Register for this Component" and agree to the terms. You are now commited to that project!</span><br/><br/></li>
-            <li>Check out the Developer Forum: <span class="bodyText">After registering, you will receive an email allowing you access to the forums for that project. Download the Design Distribution.</span><br/><br/></li>
-            <li>Download the Development Distribution: <span class="bodyText">Download the Design Distribution. Read through the docs and get familiar with the requirements.</span><br/><br/></li>
-            <li>Complete the project requirements and submit: <span class="bodyText">Login to <A href="http://software.topcoder.com/review/login.jsp">Project Submit and Review</A> and submit your submission.</span></li>
-            </ol>
-            <p align="right"><A href="/?t=development&amp;c=getting_started">...more detailed competition instructions</A></p>
--->
-
             <br/><br/>
             
 <!-- Open Component Design Projects begins -->
@@ -300,7 +287,7 @@
             </table>
 
             <p><span class="bigRed">NOTE: In order to participate in a component project, you MUST register for that project.</span></p>
-            <p><br/>*And that's before royalty payments. The more Component <A href="http://software.topcoder.com/components/subscriptions.jsp">Subscriptions</A> we sell, the more royalties we pay out to our winners!<br/>
+            <p>*And that's before royalty payments. The more Component <A href="http://software.topcoder.com/components/subscriptions.jsp">Subscriptions</A> we sell, the more royalties we pay out to our winners!<br/>
             **Only these projects are designated as TCCC projects. <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_comp_description">Click here</A> for the rules and more information about the 2004 TCCC Component Competition. At the <A href="#comp_des">bottom</A> of this page are regular component projects that do not qualify for the TCCC.</p>
 
             <p><br/></p>
