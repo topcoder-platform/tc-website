@@ -14,7 +14,7 @@
   ArrayList profiles = null;
   Profile p = null;
   ArrayList demographicList = null;
-  ArrayList jobList = null;
+  ArrayList notifyList = null;
   String className = null;
   Boolean processed = (Boolean)request.getAttribute(Constants.PROCESSED_KEY); 
   if (processed!=null && processed.booleanValue()) {
@@ -65,7 +65,7 @@
     for (int k=0; k<profiles.size(); k++) {
       p = (Profile)profiles.get(k);
       demographicList = p.getDemographicList();
-      jobList = p.getJobList();
+      notifyList = p.getNotifyList();
       
       int rating = Integer.parseInt(p.getRating()); 
 
@@ -108,11 +108,6 @@
       <td>Referral Type</td>
       <td>&#160;&#160;&#160;</td>
       <td><%=p.getReferralType() + (p.getReferralInfo().length()>0 ? ", "+p.getReferralInfo() : "")%></td>
-    </tr>
-    <tr>
-      <td>Competition Notification</td>
-      <td>&#160;&#160;&#160;</td>
-      <td><%=p.getNotify()%></td>
     </tr>
     <tr>
       <td>Status</td>
@@ -229,38 +224,31 @@
 
 
 <%
-    if (jobList!=null) {
+    if (notifyList!=null) {
 %>
   <br/><br/>
-  <table cellpadding="0" cellspacing="0"> 
-    <tr><td colspan="5"><b>Professional Work History</b></td></tr>
-  
+  <table cellpadding="0" cellspacing="0">
+    <tr><td colspan="5"><b>Notifications</b></td></tr>
+
 <%
-      for(int i=0; i<jobList.size(); i++) {
+      for(int i=0; i<notifyList.size(); i++) {
 %>
     <tr>
 <%
-        ResultItem[] items = (ResultItem[])jobList.get(i);
+        ResultItem[] items = (ResultItem[])notifyList.get(i);
 %>
       <td>
-<%
-      String endText = "";
-      if (items[5].toString().compareTo("0") == 0)
-        endText = "Present";
-      else
-        endText = items[4].toString()+"/"+items[5].toString();
-%>
 
-      <%=items[2].toString()%>/<%=items[3].toString()%> - <%=endText%>&#160;&#160;&#160;<%=items[0].toString()%> - <%=items[1].toString()%>
+      <%=items[0].toString()%>
 
-      </td> 
+      </td>
     </tr>
 <%
       }
     }
 %>
   </table>
-  
+
   <br/>
   <br/>
 
