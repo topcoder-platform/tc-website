@@ -64,7 +64,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td align="left" class="bodyText">Winning solutions are rewarded with cash payouts and royalites. Whether you're looking for a small project for yourself, or if you want to be part of a team, TopCoder Software Projects provide opportunities for you to put your skills to good use.
+                    <td align="left" class="bodyText">Winning solutions are rewarded with cash payouts and royalties. Whether you're looking for a small project for yourself, or if you want to be part of a team, TopCoder Software Projects provide opportunities for you to put your skills to good use.
                     </td>
                 </tr>
 
