@@ -449,7 +449,7 @@ else if (command.equals("send")) {
                     if (comp.length() > 0) {
                         long componentId = Long.parseLong(request.getParameter("comp"));
                         long version = Long.parseLong(request.getParameter("version"));
-                        long phase = Long.parseLong(request.getParameter("phase"));
+                        long ph = Long.parseLong(phase);
 
                         if (!isSuspended(nav.getSessionInfo().getUserId())) {
                             /*if (!isProjectLockedOut(componentId, version, phase, nav.getSessionInfo().getUserId()) ||
@@ -502,12 +502,12 @@ else if (command.equals("send")) {
                                             RolePrincipal[] roles = (RolePrincipal[]) rolesSet.toArray(new RolePrincipal[0]);
                                             //String formattedProject = project.substring(0, project.lastIndexOf(' ')-1);
 
-                                            log.debug("phase: " + phase);
+                                            log.debug("phase: " + ph);
                                             log.debug("version: " + version);
 
                                             long projectId = Long.parseLong(request.getParameter("projectId"));
 
-                                            USER_MANAGER.registerInquiry(userId, componentId, rating, (new Integer(nav.getUser().getUserId())).longValue(), comment, agreedToTerms, phase, version, projectId);
+                                            USER_MANAGER.registerInquiry(userId, componentId, rating, (new Integer(nav.getUser().getUserId())).longValue(), comment, agreedToTerms, ph, version, projectId);
 
 
 
@@ -571,7 +571,7 @@ else if (command.equals("send")) {
 
                                             xsldocURLString = XSL_DIR + "inquiry_sent_pos.xsl";
 
-                                            if (phase == ComponentVersionInfo.SPECIFICATION) {
+                                            if (ph == ComponentVersionInfo.SPECIFICATION) {
                                                 mail.setBody("Registration Complete. \r\n\r\n" +
                                                         "Thank you, " + handle + ", for your interest in the " + project + " component. You now have access to the Developer Forum ( http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/forum/c_forum.jsp?f=" + activeForumId + " ) which can be used to obtain design documentation (see the Design Phase Documents thread), as well as to ask questions regarding the component design. Please post your questions at any time and a product manager will respond within 24 hours. Any questions asked within 6 hours of the submission due date/time may not be answered in time, so get your questions in early!\r\n\r\n" +
                                                         "The deadline for submitting a solution is " + date + " at 9:00 AM ET. Please upload your design using the project page found here: http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/review.  If you encounter any problems, please contact us at service@topcodersoftware.com.  All late submissions will be ignored.\r\n\r\n" +
