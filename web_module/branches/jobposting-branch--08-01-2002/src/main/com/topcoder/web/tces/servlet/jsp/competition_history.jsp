@@ -1,14 +1,7 @@
 <%@  page 
   language="java"
+  errorPage="/errorPage.jsp"
   import="java.util.*,
-          java.io.*,
-          java.text.*,
-          javax.naming.*,
-          com.coolservlets.forum.*,
-          com.coolservlets.forum.util.*,
-          weblogic.common.T3Services,
-          com.topcoder.common.web.data.Navigation,
-          com.topcoder.common.*,
           com.topcoder.web.tces.common.*,
           com.topcoder.web.tces.bean.*" %>
 
@@ -53,6 +46,11 @@
         <b>
         Handle: <jsp:getProperty name="CompetitionHistoryTask" property="Handle"/>
         </b>
+        </p>
+
+        <p align="center">
+          <A HREF="JavaScript:getGraph('/graph?c=rating_history_graph&amp;cr=<jsp:getProperty name="CompetitionHistoryTask" property="MemberID"/>','600','400')" class="statText">Rating History Graph</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+          <A HREF="JavaScript:getGraph('/graph?c=rating_distribution_graph','600','400')" class="statText">Overall Rating Distribution Graph</a>
         </p>
         
         <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"><BR>

@@ -1,14 +1,7 @@
 <%@  page 
   language="java"
+  errorPage="/errorPage.jsp"
   import="java.util.*,
-          java.io.*,
-          java.text.*,
-          javax.naming.*,
-          com.coolservlets.forum.*,
-          com.coolservlets.forum.util.*,
-          weblogic.common.T3Services,
-          com.topcoder.common.web.data.Navigation,
-          com.topcoder.common.*,
           com.topcoder.web.tces.common.*, 
           com.topcoder.web.tces.servlet.*,
           com.topcoder.web.tces.bean.*" %>
