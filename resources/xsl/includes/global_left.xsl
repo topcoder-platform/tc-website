@@ -426,7 +426,7 @@
                 </tr>
                 <tr>
                     <td id="leftSubnav">
-                        <A class="leftOn" href="/tc?&amp;module=Static&amp;d1=crpf&amp;d2=index">Charity</A>
+                        <A class="leftOn" href="/tc?&amp;module=Static&amp;d1=crpf&amp;d2=crpf_overview">Charity</A>
                     </td>
                 </tr>
                 <tr>
