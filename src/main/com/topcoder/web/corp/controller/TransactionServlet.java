@@ -110,8 +110,6 @@ public class TransactionServlet extends HttpServlet {
         defaultPageTerms = cfg.getInitParameter("terms");
         errorPageSecurity = cfg.getInitParameter("page-error-security");
         loginApplicationPage = cfg.getInitParameter("page-login");
-
-
     }
 
     /**
@@ -128,58 +126,12 @@ public class TransactionServlet extends HttpServlet {
             throws ServletException, IOException {
         String op = req.getParameter(KEY_OPERATION);
         req.setAttribute(Constants.KEY_LINK_PREFIX, Util.appRootPage());
+        WebAuthentication auth = null;
         if (OP_TX_STATUS.equals(op)) {
             try {
                 // put prefix of the url into request
                 String retPage = txStatus(req, resp);
                 req.getRequestDispatcher(retPage).forward(req, resp);
-            } catch (Exception e) {
-                e.printStackTrace();
-                req.setAttribute(KEY_EXCEPTION, e);
-                req.getRequestDispatcher(defaultPageFailure).forward(req, resp);
-            }
-            return;
-        }
-        throw new ServletException("get-op " + op + " not supported");
-    }
-
-    /**
-     * This method is called when user wants to start transaction (a), by silent
-     * post procedure (b) and when returning back to shopping upon successful
-     * transaction completion (c).
-     *
-     * <br>
-     * (a) ?op=begin<br>
-     * There *must be* next fields on the user form: 'prod-id' for ID of product
-     * to be purchased, 'utype-id' standing for type of unit ID. There
-     * *might be* 'back-to' parameter pointing to the page to be fetched by
-     * the 'return to shopping' button when transaction has successfully
-     * completed<br><br>
-     *
-     * (b) ?op=commit<br>
-     * VeriSign provides a lot of transaction information when POSTing silent
-     * post. Upon receiving this request, servlet updates purchase DB and
-     * returns operation status depending on which VeriSign either completye
-     * transaction or rolls it back. 200 ok means that transaction was accepted
-     * by TC. Thus, VeriSign will complete it. Other return codes will roll
-     * it back.<br><br>
-     *
-     * (c) ?op=status<br>
-     * If there was 'back-to' parameter at the transaction begin, then this will
-     * fetch that page otherwise default transaction success page is used.
-     *
-     * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
-     */
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-        String op = req.getParameter(KEY_OPERATION);
-        req.setAttribute(Constants.KEY_LINK_PREFIX, Util.appRootPage());
-        WebAuthentication auth = null;
-        if (OP_TX_STATUS.equals(op)) {
-            try {
-                String retPage = txStatus(req, resp);
-//                req.getRequestDispatcher(retPage).forward(req, resp);
-                resp.sendRedirect(retPage);
             } catch (Exception e) {
                 e.printStackTrace();
                 req.setAttribute(KEY_EXCEPTION, e);
@@ -220,6 +172,53 @@ public class TransactionServlet extends HttpServlet {
                     //fetchAuthorizationFailedPage(request, response, nae);
                 }
             } catch (Exception e) { // possible parameters are wrong
+                e.printStackTrace();
+                req.setAttribute(KEY_EXCEPTION, e);
+                req.getRequestDispatcher(defaultPageFailure).forward(req, resp);
+            }
+        } else {
+            throw new ServletException("get-op " + op + " not supported");
+        }
+    }
+
+    /**
+     * This method is called when user wants to start transaction (a), by silent
+     * post procedure (b) and when returning back to shopping upon successful
+     * transaction completion (c).
+     *
+     * <br>
+     * (a) ?op=begin<br>
+     * There *must be* next fields on the user form: 'prod-id' for ID of product
+     * to be purchased, 'utype-id' standing for type of unit ID. There
+     * *might be* 'back-to' parameter pointing to the page to be fetched by
+     * the 'return to shopping' button when transaction has successfully
+     * completed<br><br>
+     *
+     * (b) ?op=commit<br>
+     * VeriSign provides a lot of transaction information when POSTing silent
+     * post. Upon receiving this request, servlet updates purchase DB and
+     * returns operation status depending on which VeriSign either completye
+     * transaction or rolls it back. 200 ok means that transaction was accepted
+     * by TC. Thus, VeriSign will complete it. Other return codes will roll
+     * it back.<br><br>
+     *
+     * (c) ?op=status<br>
+     * If there was 'back-to' parameter at the transaction begin, then this will
+     * fetch that page otherwise default transaction success page is used.
+     *
+     * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+     */
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+        String op = req.getParameter(KEY_OPERATION);
+        req.setAttribute(Constants.KEY_LINK_PREFIX, Util.appRootPage());
+        WebAuthentication auth = null;
+        if (OP_TX_STATUS.equals(op)) {
+            try {
+                String retPage = txStatus(req, resp);
+//                req.getRequestDispatcher(retPage).forward(req, resp);
+                resp.sendRedirect(retPage);
+            } catch (Exception e) {
                 e.printStackTrace();
                 req.setAttribute(KEY_EXCEPTION, e);
                 req.getRequestDispatcher(defaultPageFailure).forward(req, resp);

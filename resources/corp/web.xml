@@ -153,6 +153,19 @@
             <param-value>/Tx/product_terms.jsp</param-value>
             <description>user must agree to terms in order to make purchase</description>
         </init-param>
+
+        <init-param>
+            <param-name>page-login</param-name>
+            <param-value>/LoginPage.jsp</param-value>
+            <description>unauthorized anonymous users will go here</description>
+        </init-param>
+
+        <init-param>
+            <param-name>page-error-security</param-name>
+            <param-value>/exc/SecurityError.jsp</param-value>
+            <description>security exceptions (authentification, authorization) will fetch this page</description>
+        </init-param>
+
     </servlet>
 
     <servlet-mapping>
