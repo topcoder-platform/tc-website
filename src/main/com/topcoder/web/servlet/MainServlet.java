@@ -25,6 +25,7 @@ import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.TCResourceBundle;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 
 import javax.naming.Context;
@@ -511,6 +512,8 @@ public final class MainServlet extends HttpServlet {
         try {
             document.addTag(new ValueTag("CookiesEnabled", nav.cookiesEnabled(request, response)));
             document.addTag(new ValueTag("Host", request.getServerName()));
+            document.addTag(new ValueTag("CorpHost", ApplicationServer.CORP_SERVER_NAME));
+            document.addTag(new ValueTag("SoftwareHost", ApplicationServer.SOFTWARE_SERVER_NAME));
             document.addTag(new ValueTag("Task", Conversion.checkNull(request.getParameter("t"))));
             document.addTag(new ValueTag("Command", Conversion.checkNull(request.getParameter("c"))));
             document.addTag(new ValueTag("Today", DateTime.getCurrentDate().getTime()));
