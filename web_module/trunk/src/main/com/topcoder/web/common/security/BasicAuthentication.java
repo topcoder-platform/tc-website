@@ -140,7 +140,7 @@ public class BasicAuthentication implements WebAuthentication {
         DataAccessInt dai = new DataAccess((javax.sql.DataSource)TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
         Request dataRequest = new Request();
         dataRequest.setProperty(DataAccessConstants.COMMAND, "userid_to_password");
-        dataRequest.setProperty("ui", Long.toString(uid));
+        dataRequest.setProperty("uid", Long.toString(uid));
         Map dataMap = dai.getData(dataRequest);
         ResultSetContainer rsc = (ResultSetContainer)dataMap.get("userid_to_password");
         String password = rsc.getItem(0,0).toString();
