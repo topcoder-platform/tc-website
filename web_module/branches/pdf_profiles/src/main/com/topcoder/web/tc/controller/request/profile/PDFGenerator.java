@@ -242,7 +242,7 @@ public class PDFGenerator extends BaseProcessor {
             drawPageThree(doc, info);
             drawPageFour(doc, info);
             
-            drawResume(doc, info);
+            drawResume(doc, info, writer);
             
             doc.close();
             
