@@ -3,9 +3,9 @@
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="privatelabel.tld" prefix="pl" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.FullRegInfo" scope="session" />
-<jsp:usebean id="questionList" class="java.util.List" scope="request" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="regInfo" class="com.topcoder.web.privatelabel.model.FullRegInfo" scope="session" />
+<jsp:useBean id="questionList" class="java.util.List" scope="request" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
@@ -23,7 +23,7 @@
 
 <% if (regInfo.getCoderType()==Constants.STUDENT) {%>
     <jsp:include page="../links.jsp" >
-        <jsp:param name="tabLev1" value="collegiate"/> 
+        <jsp:param name="tabLev1" value="collegiate"/>
        <jsp:param name="tabLev2" value="registration"/>
     </jsp:include>
 <% } else { %>

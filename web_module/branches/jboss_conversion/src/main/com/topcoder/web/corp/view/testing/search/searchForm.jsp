@@ -4,7 +4,7 @@
 <%@ page language="java"  %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="privatelabel.tld" prefix="pl" %>
-<jsp:usebean id="searchResults" class="com.topcoder.web.corp.model.SearchModel" scope="request" />
+<jsp:useBean id="searchResults" class="com.topcoder.web.corp.model.SearchModel" scope="request" />
 <%List questionList = searchResults.getQuestions();%>
 <script language="JavaScript"><!--
                         function submitEnter(e) {
@@ -82,7 +82,7 @@
                                     int counter = 0;
                                 %>
                                 <pl:questionIterator id="question" list="<%=questionList%>">
-                                <%if(question.getId() == Constants.AREA_OF_INTEREST_ID || question.getId() == Constants.DEGREE_ID) { %> 
+                                <%if(question.getId() == Constants.AREA_OF_INTEREST_ID || question.getId() == Constants.DEGREE_ID) { %>
                                 <tr>
                                     <td class="<%=cssClasses[counter % 2]%>" align=right>
                                         <%=question.getText()%>

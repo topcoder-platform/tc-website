@@ -5,7 +5,7 @@
                  com.topcoder.web.common.security.SessionPersistor,
                  com.topcoder.web.common.security.BasicAuthentication"
          %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <%
    boolean isHomePage = "true".equals(request.getParameter("isHomePage"));
 %>

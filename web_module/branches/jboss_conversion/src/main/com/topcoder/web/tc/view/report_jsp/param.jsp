@@ -9,7 +9,7 @@
           com.topcoder.common.web.data.report.*"
 
 %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <%
   ReportNode reportList = null;

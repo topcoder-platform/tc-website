@@ -6,7 +6,7 @@
 <title>TopCoder Member Card</title>
 
 <jsp:include page="../../script.jsp" />
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 </head>
 
@@ -32,10 +32,10 @@
 
          <div class="cardBody">
         <jsp:include page="../page_title.jsp" >
-            <jsp:param name="image" value="cards"/>  
-            <jsp:param name="title" value="Downloads"/>  
+            <jsp:param name="image" value="cards"/>
+            <jsp:param name="title" value="Downloads"/>
         </jsp:include>
-            
+
          <p>You can download any of the badges listed below in various sizes.  Feel free to place them on your personal website or on your resume.</p>
 
         <table cellpadding="0" cellspacing="15" border="0" class="bodyText" align="center">

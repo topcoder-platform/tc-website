@@ -7,7 +7,7 @@
 <jsp:include page="../../script.jsp" />
 
 <% boolean cardUnlocked = ((Boolean)request.getAttribute("cardUnlocked")).booleanValue(); %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 </head>
 
@@ -32,8 +32,8 @@
          <td class="cardCell" WIDTH="100%">
 
         <jsp:include page="../page_title.jsp" >
-            <jsp:param name="image" value="cards"/>  
-            <jsp:param name="title" value="Instructions"/>  
+            <jsp:param name="image" value="cards"/>
+            <jsp:param name="title" value="Instructions"/>
         </jsp:include>
 
             <div class="bodyText">

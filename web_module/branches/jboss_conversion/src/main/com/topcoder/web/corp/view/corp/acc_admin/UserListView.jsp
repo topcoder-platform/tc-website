@@ -6,7 +6,7 @@
                  com.topcoder.web.corp.Constants"
          %>
 <%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <%
         ResultSetContainer rsc = (ResultSetContainer)request.getAttribute("companyUsers");
 %>

@@ -5,7 +5,7 @@
     String level2 = request.getParameter("level2")==null?"":request.getParameter("level2");
 %>
 
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" />
 
         	<table cellpadding=0 cellspacing=0 border=0 class=leftNavSpacer>
 				<tr><td><img src="/i/corp/left_nav_top.gif" border=0 /></td></tr>

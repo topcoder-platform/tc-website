@@ -4,7 +4,7 @@
                  java.util.List" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:usebean id="configInfo" class="com.topcoder.web.tc.model.PlacementConfigInfo" scope="request" />
+<jsp:useBean id="configInfo" class="com.topcoder.web.tc.model.PlacementConfigInfo" scope="request" />
 <html>
     <head><title>Placement Profile Config</title></head>
     <body>

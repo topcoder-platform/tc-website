@@ -22,8 +22,8 @@ List osList = (List)request.getAttribute("osSkills");
 List industryList = (List)request.getAttribute("industrySkills");
 %>
 
-<jsp:usebean id="contractingInfo" class="com.topcoder.web.tc.model.ContractingInfo" scope="request" />
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="contractingInfo" class="com.topcoder.web.tc.model.ContractingInfo" scope="request" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 </head>
 

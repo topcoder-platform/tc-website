@@ -5,7 +5,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 
-<jsp:usebean id="searchResults" class="com.topcoder.web.corp.model.SearchModel" scope="request" />
+<jsp:useBean id="searchResults" class="com.topcoder.web.corp.model.SearchModel" scope="request" />
 
 <SCRIPT TYPE="text/javascript">
 function getProblemDetail(id) {
@@ -15,7 +15,7 @@ function getProblemDetail(id) {
     var top = 0;
     var cmd = "toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes,top=" + top + ",left=" + left + ",width=" + width + ",height=" + height + ",status=0";
     var name="problemDetail";
-    
+
     window.open('/corp/testing/?module=PopulateProblemDetail&roundProblemId='+id,name,cmd);
     return;
   }
@@ -42,8 +42,8 @@ function getProblemDetail(id) {
         </table>
 
           <table  border="0" cellspacing="0" cellpadding="5" width="700" align="center" class="screeningFrame">
-          
-              
+
+
               <tr>
                   <td class="screeningHeader" valign="middle" width="50%">Name</td>
                   <td class="screeningHeader" valign="middle">Email</td>

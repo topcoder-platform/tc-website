@@ -3,10 +3,10 @@
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="privatelabel.tld" prefix="pl" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.FullRegInfo" scope="session" />
-<jsp:usebean id="responseList" class="java.util.List" scope="request" />
-<jsp:usebean id="questionMap" class="java.util.Map" scope="request" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="regInfo" class="com.topcoder.web.privatelabel.model.FullRegInfo" scope="session" />
+<jsp:useBean id="responseList" class="java.util.List" scope="request" />
+<jsp:useBean id="questionMap" class="java.util.Map" scope="request" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
@@ -124,10 +124,10 @@
                     <td class="dc_regTableAnswer"><jsp:getProperty name="regInfo" property="CountryName"/></td>
                 </tr>
              </table>
-             
+
              <p><br/></p>
 
-                
+
              <table width="100%" cellpadding="0" cellspacing="3">
                 <tr>
                     <td class="dc_regTableQuestion"><b>Demographics</b></td>

@@ -4,7 +4,7 @@
 <a name="top"></a>
 
 <!-- Logo Bar Include Begins -->
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" />
 <% boolean isHomePage = "true".equals(request.getParameter("isHomePage")); %>
 <table width="100%" border="0" cellpadding="3" cellspacing="0" class="search">
     <tr valign="middle">

@@ -7,7 +7,7 @@
 <jsp:include page="../../script.jsp" />
 
 <% boolean cardUnlocked = ((Boolean)request.getAttribute("cardUnlocked")).booleanValue(); %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <SCRIPT LANGUAGE="JavaScript">
 <!--
@@ -59,8 +59,8 @@ if ( plugin ) {
 
         <div class="cardBody">
         <jsp:include page="../page_title.jsp" >
-            <jsp:param name="image" value="cards"/>  
-            <jsp:param name="title" value="Preview"/>  
+            <jsp:param name="image" value="cards"/>
+            <jsp:param name="title" value="Preview"/>
         </jsp:include>
 
                     <p>This is a preview of what your card will look like. It will always accurately portray your algorithm, design, and development statistics. Before you can post your TopCoder Member Card to your site you will have to "unlock" it by clicking the button below.
@@ -69,7 +69,7 @@ if ( plugin ) {
                     <br/><br/>
                     If you have already unlocked your card but would like to see the <A href="/card?module=Instructions">instructions</A> again, click <A href="/card?module=Instructions">here</A>.
                     </p>
-                    
+
                     <br/>
 
 <div align="center">

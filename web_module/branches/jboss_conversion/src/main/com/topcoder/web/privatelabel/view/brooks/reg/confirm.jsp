@@ -3,10 +3,10 @@
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="privatelabel.tld" prefix="pl" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.ResumeRegInfo" scope="session" />
-<jsp:usebean id="responseList" class="java.util.List" scope="request" />
-<jsp:usebean id="questionMap" class="java.util.Map" scope="request" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="regInfo" class="com.topcoder.web.privatelabel.model.ResumeRegInfo" scope="session" />
+<jsp:useBean id="responseList" class="java.util.List" scope="request" />
+<jsp:useBean id="questionMap" class="java.util.Map" scope="request" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -29,10 +29,10 @@
             <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="EventId"/>"/>
 	<tr>
 		<td>
-			<table cellspacing="0" cellpadding="0" border="0" width="100%"> 
-				<tr> 
+			<table cellspacing="0" cellpadding="0" border="0" width="100%">
+				<tr>
 <%--
-                    <td class=brLeftCol valign="top"><a href="/pl/?&module=Static&d1=brooks&d2=overview"><img src="/i/events/brooks/overview.gif" alt="" width="146" height="19" border="0"></a></td> 
+                    <td class=brLeftCol valign="top"><a href="/pl/?&module=Static&d1=brooks&d2=overview"><img src="/i/events/brooks/overview.gif" alt="" width="146" height="19" border="0"></a></td>
 --%>
 					<td width="100%" valign="top">
                         <table width="100%" cellpadding="0" cellspacing="3" border="0" >
@@ -102,7 +102,7 @@
                         </table>
 
                         <p><br/></p>
-						
+
                         <table width="100%" cellpadding="0" cellspacing="3" border="0" >
                         <tr>
                             <td class="brRegTableQuestion"><b>Demographics</b></td>
@@ -120,7 +120,7 @@
                                 </td>
                             </tr>
                         </pl:responseIterator>
-                        
+
                         <tr>
                             <td class="brRegTableQuestion">Resume</td>
                             <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="UploadStatus"/></td>
@@ -134,7 +134,7 @@
                         </table>
 
 						<p><br/></p>
-					</td> 
+					</td>
 
 				</tr>
 			</table>
@@ -142,7 +142,7 @@
 	</tr>
 	</form>
 </table>
-	
+
 
 </body>
 </html>
