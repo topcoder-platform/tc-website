@@ -87,7 +87,7 @@
 
 							<tr valign="top">
 								<td class="statText">Review Board Score for this Project:</td>
-								<td class="statText" align="right">83.38</td>
+								<td class="statText" align="right">94.39</td>
 								<td class="statText"></td>
 							</tr>
 
@@ -99,7 +99,7 @@
 
 							<tr valign="top">
 								<td class="statText">Total Earnings for All Component Projects*:</td>
-								<td class="statText" align="right">$726.00</td>
+								<td class="statText" align="right">$936.00</td>
 								<td class="statText"></td>
 							</tr>
 
@@ -111,13 +111,13 @@
 			<table border="0" cellspacing="0" cellpadding="10" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
 				<tr valign="middle">
 					<td class="statText" background="/i/steel_darkblue_bg.gif">
-						<p><strong>Unique Key Generator:&#160;Design</strong><br />
-						The <a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2600131" class="statText">Unique Key Generator</a> provides the ability to create randomly generated keys. For more details, check out the Unique Key Generator at <a href="http://www.topcodersoftware.com" class="statText">topcodersoftware.com</a>.</p>
+						<p><strong>Simple Cache:&#160;Design</strong><br />
+						<a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2804505" class="statText">Simple Cache</a> provides the ability to quickly and effectively implement a caching strategy. For more details, check out Simple Cache at <a href="http://www.topcodersoftware.com" class="statText">topcodersoftware.com</a>.</p>
 						
 						<p><strong>Review Board Comments</strong><br />
-						"Wow&#151;This guy is good."<a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=150940">&#160;&#151;orb</a></p>
+						"Great job overall.  Very thorough."<a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=271008">&#160;&#151;ilya</a></p>
 
-						<p><strong>Total Submissions for this Project:</strong> 1</p></td>
+						<p><strong>Total Submissions for this Project:</strong> 2</p></td>
 				</tr>
 			</table>
 	<!-- Featured Winner Ends -->
@@ -144,29 +144,18 @@
 
 				<tr valign="middle">
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_darkblue_bg.gif" class="statText" height="18">&#160;&#160;<a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2600131" class="statText">Unique Key Generator:&#160;Design</a></td>
+					<td background="/i/steel_darkblue_bg.gif" class="statText" height="18">&#160;&#160;<a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2804505" class="statText">Simple Cache:&#160;Design</a></td>
 					<td background="/i/steel_darkblue_bg.gif" class="statText" height="18" align="center">2</td>
-					<td background="/i/steel_darkblue_bg.gif" class="statText" height="18"><a href="/stat?c=member_profile&amp;cr=296145" class="coderTextYellow"><strong>srowen</strong></a> ***</td>
-					<td background="/i/steel_darkblue_bg.gif" class="statText" height="18" align="center">83.38</td>
-					<td background="/i/steel_darkblue_bg.gif" class="statText" height="18" align="center">$726.00</td>
+					<td background="/i/steel_darkblue_bg.gif" class="statText" height="18"><a href="/stat?c=member_profile&amp;cr=296145" class="coderTextYellow"><strong>srowen</strong></a> ****</td>
+					<td background="/i/steel_darkblue_bg.gif" class="statText" height="18" align="center">94.39</td>
+					<td background="/i/steel_darkblue_bg.gif" class="statText" height="18" align="center">$936.00</td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-				</tr>
-
-				<tr valign="middle">
-					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_darkblue_bg.gif" class="statText" height="18">&#160;&#160;<a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2600179" class="statText">Object Formatter:&#160;Design</a></td>
-					<td background="/i/steel_darkblue_bg.gif" class="statText" height="18" align="center">1</td>
-					<td background="/i/steel_darkblue_bg.gif" class="statText" height="18"><a href="/stat?c=member_profile&amp;cr=158067" class="coderTextRed"><strong>KurtSteinKraus</strong></a></td>
-					<td background="/i/steel_darkblue_bg.gif" class="statText" height="18" align="center">78.23</td>
-					<td background="/i/steel_darkblue_bg.gif" class="statText" height="18" align="center">$336.00</td>
-					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-				</tr>
 
 				<tr><td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" height="5" colspan="7"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
 
 				<tr valign="middle">
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_darkblue_bg.gif" class="statTextSmall" height="18" colspan="5">&#160;&#160;* Total Earnings for all Component Projects (before royalties)<br />&#160;&#160;*** Our first 3x winner!</td>
+					<td background="/i/steel_darkblue_bg.gif" class="statTextSmall" height="18" colspan="5">&#160;&#160;* Total Earnings for all Component Projects (before royalties)<br />&#160;&#160;**** Our first 4x winner!</td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
 
