@@ -92,8 +92,13 @@
             participated in at least three (3) TopCoder rated events (i.e., Single
             Round Matches and previous tournaments) prior to October 7th, with at
             least one (1) of those events being between July 7th and October 7th,
-            will receive an automatic berth into Online Round 1.
+            will receive an automatic berth into Online Round 1. 
+            <br/><br/>
+            Please note that the top 100 rated members with automatic berths will not be permitted 
+            to compete in the Qualification Rounds.  In addition, the members qualifying for the tournament 
+            in Qualification Round #1 will not be permitted to compete in Qualification Round #2.
             </p>
+            
 
             <p><span class="bodySubtitle">Eligibility</span><br />
             TopCoder members who are 18 years of age or older are eligible to win cash prizes, unless otherwise prohibited.  The TopCoder Open is 
