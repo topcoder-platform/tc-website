@@ -221,7 +221,7 @@
         </init-param>
         <init-param>
             <param-name>error_page</param-name>
-            <param-value>/error.jsp</param-value>
+            <param-value>/pacts/internal/error.jsp</param-value>
             <description>where to forward for errors</description>
         </init-param>
         <!-- end  parameters required by BaseServlet -->
