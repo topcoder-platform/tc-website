@@ -10,6 +10,7 @@ import com.topcoder.web.privatelabel.model.DemographicQuestion;
 import com.topcoder.web.privatelabel.model.DemographicResponse;
 import com.topcoder.web.privatelabel.model.FullRegInfo;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
+import com.topcoder.shared.security.SimpleUser;
 
 import java.util.Iterator;
 import java.util.Map;
@@ -54,6 +55,9 @@ public class FullRegSubmit extends SimpleRegSubmit {
                 response.setResponseText(ret.getId(), r.getQuestionId(), r.getText(), db);
             }
         }
+        //log them is so that they can upload a resume
+        getAuthentication().login(new SimpleUser(ret.getId(), regInfo.getHandle(), regInfo.getPassword()));
+
 
         return ret;
     }
