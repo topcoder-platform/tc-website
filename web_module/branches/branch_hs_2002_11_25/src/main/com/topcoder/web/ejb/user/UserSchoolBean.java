@@ -54,8 +54,8 @@ public class UserSchoolBean implements SessionBean {
 
       Connection con=ds.getConnection();
       PreparedStatement ps=con.prepareStatement(query.toString());
-      ps.setLong(1,user_id);
-      ps.setLong(2,school_id);
+      ps.setLong(1,_user_id);
+      ps.setLong(2,_school_id);
 
       int rc=ps.executeUpdate();
       if (rc!=1) {
@@ -181,7 +181,7 @@ public class UserSchoolBean implements SessionBean {
       _sqle.printStackTrace();
       throw(new RemoteException(_sqle.getMessage()));
     }
-    catch (NameingException _ne) {
+    catch (NamingException _ne) {
       _ne.printStackTrace();
       throw(new RemoteException(_ne.getMessage()));
     }
