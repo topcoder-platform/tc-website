@@ -14,7 +14,7 @@
                         <table border="0" cellspacing="5" cellpadding="0" width="138" class="formFrame">
                             <tr><td class="subBodyCopy">Registraton Starts<br/><strong>October 27th</strong></td></tr>
 
-                            <tr><td class="subBodyCopy">Round 1 - Online<br/><strong>October 31st</strong></td></tr>
+                            <tr><td class="subBodyCopy">Round #1 - Online<br/><strong>October 31st</strong></td></tr>
 
                             <tr><td class="subBodyCopy">Championship Round<br/><span class="smallText">Live at the Verizon Chennai Facility</span><br/><strong>November 7th</strong></td></tr>
                         </table>

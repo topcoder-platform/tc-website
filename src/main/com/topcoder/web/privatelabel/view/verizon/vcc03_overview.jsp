@@ -132,9 +132,9 @@
 
                         <p><span class="bodySubtitle">Can Your Skills Carry You to November 7th?</span><br />
                         Registration for the Verizon Coding Challenge opens on October 27th and closes on October 30th, 2003.  Be sure to register early, as only the first 500 eligible individuals to
-                        register will be invited to compete in Round #1 which will be held at 8:00 pm IST (GMT + 5:30) on October 31st.</p>
+                        register will be invited to compete in Round #1 which will be held at 7:00 pm IST (GMT + 5:30) on October 31st.</p>
 
-                        <p>The competitors with the top 250 scores from the first round will advance to the second round on November 3rd. The top 25 performers in the second round will be invited to
+                        <p>The competitors with the top 250 scores from the first round will advance to the Round #2 on November 3rd. The top 25 performers in Round #2 will be invited to
                         compete for the large cash prizes onsite at VDSI Chennai on November 7th.</p>
 
                         <a name="sched"></a>
@@ -160,13 +160,13 @@
                             <tr valign="top">
                                 <td class="sidebarText">Friday, October 31</td>
                                 <td class="sidebarText">7:00 pm</td>
-                                <td class="sidebarText">Round 1 - 500 participants</td>
+                                <td class="sidebarText">Round #1 - 500 participants</td>
                             </tr>
 
                             <tr valign="top">
                                 <td class="sidebarText">Monday, November 3</td>
                                 <td class="sidebarText">7:00 pm</td>
-                                <td class="sidebarText">Round 2 - 250 participants</td>
+                                <td class="sidebarText">Round #2 - 250 participants</td>
                             </tr>
 
                             <tr valign="top">
@@ -188,7 +188,7 @@
                         4th Place - Rs. 10,000</p>
 
                         <p>To find out more detailed information about the Verizon Coding Challenge, including a list of the prizes, please read
-                        the <a href="/pl/?&module=Static&d1=verizon&d2=vcc03_rules">Terms and Conditions</a>.</p>
+                        the <a href="/pl/?&module=Static&d1=verizon&d2=vcc03_rules">Official Rules and Regulations</a>.</p>
 
                         <p><img src="/i/clear.gif" width="427" height="20" border="0"/></p>
                     </td>
