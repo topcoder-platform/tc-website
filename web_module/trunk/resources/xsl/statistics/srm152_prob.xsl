@@ -85,7 +85,8 @@
                         <strong>tomek</strong> continued to be perfect, successfully submitting all 3 problems for his 
                         4th straight competition. In division 2, <strong>Veloso</strong> edged out the competition by an 
                         equally large margin, getting high scores on all three problems. <strong>jpo</strong>, in fifth 
-                        place was the highest scoring new comer, with 1298.59.                         </p>
+                        place was the highest scoring new comer, with 1298.59.
+                        </p>
 
                         <p><b>Problem Set Analysis &amp; Opinion</b></p>
 
@@ -222,7 +223,8 @@
                         <PRE>	
 int S0 = 0, S1 = 1, S2 = 2, S3 = 3;
 String ops = "+*-/";
-if (dotForm.length() &lt; 1 || dotForm.length() &gt; 25) return "dotForm must contain between 1 and 25 characters, inclusive.";
+if (dotForm.length() &lt; 1 || dotForm.length() &gt; 25) 
+               return "dotForm must contain between 1 and 25 characters, inclusive.";
 boolean good = true;
 int STATE = S0;
 for (int i = 0; i &lt; dotForm.length(); i++) {
@@ -241,9 +243,9 @@ for (int i = 0; i &lt; dotForm.length(); i++) {
 			else good = false;
 		}
 		if (!good) return "dotForm is not in dot notation, check character "+i+".";
-	} if (STATE!=S1) return "dotForm is not in dot notation, check character "+(dotForm.length())+".";
-	return "";
-	</PRE>
+} if (STATE!=S1) return "dotForm is not in dot notation, check character "+(dotForm.length())+".";
+return "";
+</PRE>
                         <font size="+2"><b>QuiningTopCoder</b></font><br/>
                         Used as: Division-I - Level 2:
                         <blockquote>
