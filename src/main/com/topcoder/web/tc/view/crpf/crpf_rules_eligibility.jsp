@@ -66,7 +66,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 <!-- Tab bar sublinks-->
 <jsp:include page="crpfSublinks.jsp" >
    <jsp:param name="selectedList" value="rules"/>
-   <jsp:param name="selectedTab" value="registration"/>
+   <jsp:param name="selectedTab" value="eligibility"/>
 </jsp:include>
 
                
