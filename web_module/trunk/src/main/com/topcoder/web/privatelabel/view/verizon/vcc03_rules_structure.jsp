@@ -180,6 +180,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 </table>
 
 <!-- Footer Begins -->
+<jsp:include page="verizon_foot.jsp" />
 <!-- Footer Ends -->
 
 </body>
