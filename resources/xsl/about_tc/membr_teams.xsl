@@ -94,7 +94,7 @@ Division 2:  The number of teams is unlimited.</LI><BR/>
 <LI><B>Members per team:</B> (6)</LI><BR/>
 <LI><B>Members on a team competing at once</B><BR/>There will be a maximum number of 4 members and a minimum of 3 members competing in any given team-based competition. 
 Teams are encouraged to vary the team playing on any given night in order to ease scheduling conflicts and promote participation.</LI><BR/>
-<LI><B>Sign Up</B><BR/>TopCoder will announce on Monday, April 1 to the member base that team competitions will be starting on a predetermined date of June 3, 2002. 
+<LI><B>Sign Up</B><BR/>TopCoder will announce on Monday, April 1 to the member base that team competitions will be starting on a date to be determined. 
 TopCoder will "announce" this via a page posted to the web site, and linking this page to a round table post.  In order to be considered for team-based competitions, 
 members will have to sign up on the web site.  Part of the sign-up process will allow members to express interest in becoming a team captain.</LI><BR/>
 <LI><B>Captains</B><BR/>Based on the response, TopCoder will select 48 team captains and alert them of their status.  The highest rated individuals who express an 
@@ -102,8 +102,8 @@ interest in being team captains will be chosen as captains. Once the teams have 
 in the event of scheduling conflicts and/or emergencies.</LI><BR/>
 <LI><B>Draft</B><BR/>On a predetermined date, TopCoder will hold the TopCoder Draft. The TopCoder Draft will be similar to other professional drafts and will include 6 rounds 
 in which all teams will select a player to their team.<BR/><BR/><UL>
-<LI>Date: Friday, May 24, 2002</LI><BR/>
-<LI>Start Time: 12:01 P.M. EST</LI><BR/>
+<LI>Date: To be determined</LI><BR/>
+<LI>Start Time: To be determined</LI><BR/>
 <LI>Selection: The first selection in Round 1 will go to the lowest rated captain. The last selection in Round 1 will go to the highest rated captain. The first 
 selection in Round 2 will go to the lowest rated captain, and so on.<BR/><BR/>
 Each team will have 60 seconds to choose a member to their team.  If a team fails to select within the specified time slot they will have to wait until the end of 
@@ -112,17 +112,17 @@ that round to fill the spot. The clock within the arena will count down for each
 <LI>Trades: At any point during the draft, teams will be allowed to trade team members.</LI></UL></LI></UL>
 <P><B>Schedule</B><BR/>
 There will be a team-based competition every week.  The day and time will be the same for every team competition.  This will allow team members to set their 
-schedules accordingly.  The set date and time will be every Monday, starting on June 3, 2002, at 9:00PM EST.  The season will last for 10 weeks.  As with any 
+schedules accordingly.  The set date and time will be every Monday.  The season will last for 10 weeks.  As with any 
 other major sporting event, the season will be composed of a regular season and playoffs.<UL>
 <LI><B>Regular Season</B><BR/>The regular season will consist of 10 team-based competitions. However, only 24 Division I teams will compete for prize money each week. 
 All other teams in Division 1 and 2 are eligible to compete, however prize money will be paid only to the 24 teams designated to compete for that week.<BR/><BR/>
 Note:  Not every team will play each other during the regular season.</LI><BR/>
-<LI><B>Regular Season Start</B><BR/>Monday, June 3, 2002<BR/>There will be a team match every Monday for 10 weeks (total of 10 team matches).</LI><BR/>
+<LI><B>Regular Season Start</B><BR/>To be determined<BR/>There will be a team match every Monday for 10 weeks (total of 10 team matches).</LI><BR/>
 <LI><B>Playoffs Start (8 teams)</B><BR/>
-Round 1:	August 12, 2002, 4 teams advance<BR/>
-Semifinal:	August 19, 2002, 2 teams advance</LI><BR/>
+Round 1:	To be determined, 4 teams advance<BR/>
+Semifinal:	To be determined, 2 teams advance</LI><BR/>
 <LI><B>Championship Match (2 teams compete head-to-head)</B><BR/>
-August 26, 2002</LI></UL>
+To be determined</LI></UL>
 During the first 2 team-based competitions, which will span 2 weeks, a team captain will have the ability to trade players or cut players and select members 
 from a pool of players not selected in the TopCoder Draft.</P>
 <P><B>Competition Format</B><BR/>
