@@ -100,7 +100,7 @@
                 <tr><td id="leftNavTitle" >Competition:</td></tr>
                 <tr><td id="leftNavApplet"><a href="Javascript:arena()" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
 <%-- My Home --%>
-                <% if (!info.isAnonymous()) { %>
+                <% if ((!info.isAnonymous()) || level1.equals("my_home")) { %>
                     <tr><td id="<%=level1.equals("my_home")?"leftNavOn":"leftNav"%>"><a href="/tc?module=Static&d1=my_home&d2=index" class="<%=level1.equals("my_home")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("my_home")?"bottom":"right"%>.gif" border="0"/>$HOME</a></td></tr>
                     <% if (level1.equals("my_home")) { %>
                         <tr><td id="<%=level2.equals("profile")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/Registration">Update My Profile</A></td></tr>
