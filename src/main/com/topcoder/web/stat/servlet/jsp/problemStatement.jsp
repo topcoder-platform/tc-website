@@ -91,7 +91,7 @@ if (rsc!=null && !rsc.isEmpty()) {
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="problemText" VALIGN="middle" ALIGN="left">
                       <% if (problem!=null) {
                         ProblemRenderer pr = new ProblemRenderer(problem);
-                        pr.setForegroundColor(Color.white);%>
+                        pr.setTdClass("statText");%>
               		<%= pr.toHTML(JavaLanguage.JAVA_LANGUAGE) %>
                       <% } else { %>
                         Problem Statement not available.
