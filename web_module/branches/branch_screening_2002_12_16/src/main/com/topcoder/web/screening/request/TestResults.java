@@ -64,6 +64,8 @@ public class TestResults extends BaseProcessor {
         
         TestResultsInfo tinfo = new TestResultsInfo();
         tinfo.setSessionId(Long.parseLong(getRequest().getParameter(Constants.SESSION_ID)));
+        tinfo.setSessionComplete(!result.getItem(0,"has_ended").toString().equals("0"));
+        tinfo.setProblemSetBCount(Integer.parseInt(result.getItem(0,"num_set_b").toString()));
         tinfo.setProblemSetAResults((ResultSetContainer)map.get("testSetAResults"));        
         tinfo.setProblemSetBResults((ResultSetContainer)map.get("testSetBResults"));
         tinfo.setProblemSetATCStats((ResultSetContainer)dwMap.get("roundProblemStats"));

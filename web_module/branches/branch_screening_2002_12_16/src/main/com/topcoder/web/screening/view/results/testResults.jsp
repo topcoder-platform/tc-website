@@ -63,6 +63,7 @@ function getProblemDetail(id) {
 	        <TR>
 		       <TD COLSPAN="8"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10"></TD>
 	        </TR>	        	                 
+<% if(testResultsInfo.isSessionComplete()){ %>
 	        <TR>
 		       <TD COLSPAN="8" VALIGN="top" CLASS="bodyTextBold"><B>Problem Set A Results:</B></TD>
 	        </TR>
@@ -79,7 +80,7 @@ function getProblemDetail(id) {
 		       <TD VALIGN="middle" ALIGN="center" WIDTH="15%" CLASS="statText" BGCOLOR="#666666"><B>Time</B></TD>	
 		       <TD VALIGN="middle" ALIGN="center" WIDTH="15%" CLASS="statText" BGCOLOR="#666666">&#160;</TD>	       
 	        </TR>
-                <% { boolean even = true; %>
+                <% boolean even = true; %>
                    <screen:resultSetRowIterator id="row" list="<%=testResultsInfo.getProblemSetAResults()%>">
                      <% 
                         String color = even ? "BGCOLOR='#CCCCCC'" : "";
@@ -99,12 +100,13 @@ function getProblemDetail(id) {
 	             </TR>
                      <% even = !even; %>
                    </screen:resultSetRowIterator>
-                <% } %>
 	        <TR>
 		       <TD COLSPAN="8"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="30"></TD>
 	        </TR>
+<% } // isSessionComplete %>
 	        </TABLE>
 	        
+<% if(testResultsInfo.isSessionComplete()){ %>
 	        <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
 	        <TR>
 		       <TD COLSPAN="10" VALIGN="top" CLASS="bodyTextBold"><B>TopCoder Stats</B></TD>
@@ -147,7 +149,7 @@ function getProblemDetail(id) {
                    </screen:resultSetRowIterator>
                 <% } %>
          </TABLE>
-         
+    <% if(testResultsInfo.getProblemSetBCount() > 0){ %>     
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
 	        <TR>
 		       <TD COLSPAN="8"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="30"></TD>
@@ -193,6 +195,8 @@ function getProblemDetail(id) {
 		       <TD COLSPAN="8"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="30"></TD>
 	        </TR>
 	        </TABLE>
+    <% } // getProblemSetBCount() > 0 %>
+<% } // isSessionComplete %>
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">                   
            <TR>
               <TD COLSPAN="4"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
@@ -228,7 +232,7 @@ function getProblemDetail(id) {
            </TR>	        	        	        
          </TABLE>
          
-         
+<% if(testResultsInfo.getProblemSetBCount() > 0){ %>     
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">                   
            <TR>
               <TD COLSPAN="4"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
@@ -257,6 +261,8 @@ function getProblemDetail(id) {
               <TD COLSPAN="4"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
            </TR>	        	        	        
          </TABLE> 	                 
+<% } // getProblemSetBCount() > 0 %>
+
 <P><BR/></P>    
      </TD>
 <!-- Body Area Ends -->
