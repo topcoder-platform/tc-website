@@ -1,16 +1,8 @@
-<%@ page import="com.topcoder.web.codinginterface.techassess.Constants,java.util.List,
+<%@ page import="com.topcoder.web.codinginterface.techassess.Constants,
+                 java.util.List,
                  com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemSet,
-                 com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemLabel,
                  java.util.ArrayList"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<html>
-  <head>
-    <title></title>
-    <META HTTP-EQUIV=Refresh CONTENT="600; URL=<jsp:getProperty name="sessionInfo" property="absoluteServletPath"/>?module=CurrentTime">
-  </head>
-  <body>
-    <script language="javascript">
+<script language="javascript">
 
         <%
             Object o = request.getAttribute(Constants.PROBLEM_SETS);
@@ -23,8 +15,8 @@
                     problems = (List)o;
                 }
         %>
-        var times= new Array(<%=problems.size()%>);
-        var ids = new Array(<%=problems.size()%>);
+                var times= new Array(<%=problems.size()%>);
+                var ids = new Array(<%=problems.size()%>);
         <%
                 for (int i=0; i<problems.size(); i++) {
                     %> times(<%=i%>) = new Date(<%=((ScreeningProblemSet)problems.get(i)).getCompletionTime().intValue()%>); <%
@@ -36,35 +28,26 @@
 
 
         //perform clock sync, time below is in milliseconds after epoch
-        var serverTime = new Date(<%=request.getAttribute(Constants.CURRENT_TIME)%>);
-        var localTime = new Date();
+        var problemServerTime = new Date(<%=request.getAttribute(Constants.CURRENT_TIME)%>);
+        var problemLocalTime = new Date();
 
-        var serverOffset = -5; //hours from GMT
-        var offset = localTime.getTimezoneOffset();
-        offset = offset / 60;
-        offset = offset * -1
+        var problemServerOffset = -5; //hours from GMT
+        var problemOffset = problemLocalTime.getTimezoneOffset();
+        problemOffset = problemOffset / 60;
+        problemOffset = problemOffset * -1
 
-        serverTime = new Date(serverTime.getTime() - ((serverOffset - offset) * 60 * 60 * 1000));
-        var syncedOffset = localTime.getTime() - serverTime.getTime();
+        problemServerTime = new Date(problemServerTime.getTime() - ((problemServerOffset - problemOffset) * 60 * 60 * 1000));
+        var problemSyncedOffset = problemLocalTime.getTime() - problemServerTime.getTime();
 
         <% if (o!=null) { %>
         for (i=0;i<times.length; i++) {
-          times[i]=new Date(times[i].getTime() - ((serverOffset - offset) * 60 * 60 * 1000));
+          times[i]=new Date(times[i].getTime() - ((problemServerOffset - problemOffset) * 60 * 60 * 1000));
         }
         <% } %>
 
-        function update() {
+        function problemUpdate() {
             var d = new Date();
-            d = new Date(d.getTime() - syncedOffset);
-            var offset = d.getTimezoneOffset();
-            offset = offset / 60;
-            offset = offset * -1
-
-            var leadingIdent = d.getHours() >= 12 ? "PM" : "AM" ;
-
-            var text = padWithZeroes(d.getHours() % 12) + ":" + padWithZeroes(d.getMinutes()) + ":" + padWithZeroes(d.getSeconds()) + " " + leadingIdent + " GMT" + offset;
-
-            updateDivOrSpan(top.mainFrame.document, "currentTime", text);
+            d = new Date(d.getTime() - problemSyncedOffset);
 
             <% if (o!=null) { %>
             for (i=0; i<times.length;i++) {
@@ -110,5 +93,3 @@
 
         setTimeout("update()", 1000);
     </script>
-  </body>
-</html>
