@@ -1,10 +1,10 @@
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html lang="en">
+<html>
 <head>
-	<title>Document 1</title>
+    <title>Document 1</title>
 
-<jsp:include page="../../../script.jsp" />
+    <jsp:include page="../../../script.jsp" />
 
 </head>
 <body>

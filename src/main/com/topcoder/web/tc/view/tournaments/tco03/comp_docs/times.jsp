@@ -11,8 +11,8 @@
 <body class="compFiles">
 
             <table border="0" cellspacing="0" cellpadding="0">
-               <tr valign="top">
-                  <td class="compDocsTimeOff"><img src="/i/clear.gif" alt="" width="150" height="30" border="0"></td>
+               <tr valign="middle">
+                  <td class="compDocsTimeOff"><img src="/i/clear.gif" alt="" width="180" height="1" border="0"></td>
                   <td class="compDocsTimeOn">Initial Submission</td>
                   <td class="compDocsTimeOff"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=pops_830">8:30 AM</a></td>
                   <td class="compDocsTimeOff"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=pops_900">9:00 AM</a></td>
