@@ -37,7 +37,7 @@
             <jsp:param name="title" value=""/>  
         </jsp:include>
 
-        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">
             <tr>
                 <td>
                     Handle
