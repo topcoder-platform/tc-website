@@ -28,11 +28,13 @@ public class LoginCommand implements TCESCommand, Serializable {
 	boolean isStepView;
 
 	Logger log;
+	String message;
 
 	public LoginCommand() {
 		isStepView = true;
 
 		setLog(null);
+		setMessage("");
 	}
 
 	public LoginCommand(String step, Logger log) {
@@ -50,14 +52,23 @@ public class LoginCommand implements TCESCommand, Serializable {
 		}
 
 		setLog(log);
+		setMessage("");
 	}
 
 	public void setLog(Logger log) {
 		this.log=log;
 	}
 
-	public Logger getLog(Logger log) {
+	public Logger getLog() {
 		return log;
+	}
+
+	public void setMessage(String message) {
+		this.message=message;
+	}
+
+	public String getMessage() {
+		return message;
 	}
 
 	public void processCommand(HttpServletRequest request,
@@ -77,7 +88,15 @@ public class LoginCommand implements TCESCommand, Serializable {
 	}
 
 
-	public void viewAuth(HttpServletRequest request, HttpServletResponse response,
+	private void goLoginPage(HttpServletRequest request, HttpServletResponse response,
+					 	  	   ServletContext servCtx) throws Exception
+	{
+		servCtx.getContext("/").getRequestDispatcher(
+			response.encodeURL("/es/login.jsp")).forward(request, response);
+	}
+
+
+	private void viewAuth(HttpServletRequest request, HttpServletResponse response,
 					 	  	   InitialContext ctx, ServletContext servCtx)  throws Exception
 	{
         String handle = request.getParameter(TCESConstants.HANDLE_PARAM);
@@ -98,10 +117,9 @@ public class LoginCommand implements TCESCommand, Serializable {
 		ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_User_And_Password");
 
 		if (rsc.getRowCount() == 0) {
-			request.setAttribute(TCESConstants.MSG_ATTR_KEY, "User handle incorrect.  Please retry.");
+			setMessage("User handle incorrect.  Please retry.");
 
-			servCtx.getContext("/").getRequestDispatcher(
-				response.encodeURL("/es/login.jsp")).forward(request, response);
+			goLoginPage(request,response,servCtx);
 
 			return;
 		}
@@ -115,10 +133,9 @@ public class LoginCommand implements TCESCommand, Serializable {
 		}
 
 		if (!actualPassword.trim().equals(password)) {
-			request.setAttribute(TCESConstants.MSG_ATTR_KEY, "Password incorrect.  Please retry.");
+			setMessage("Password incorrect.  Please retry.");
 
-			servCtx.getContext("/").getRequestDispatcher(
-				response.encodeURL("/es/login.jsp")).forward(request, response);
+			goLoginPage(request,response,servCtx);
 
 			return;
 		}
@@ -126,15 +143,18 @@ public class LoginCommand implements TCESCommand, Serializable {
 		HttpSession session = request.getSession(true);
 		session.setAttribute( "user_id", new Integer(TCData.getTCInt(rRow,"user_id")) );
 		request.setAttribute("LoginCommand",this);
+
+		goLoginPage(request,response,servCtx);
 	}
 
-	public void viewLogin(HttpServletRequest request, HttpServletResponse response,
+
+
+	private void viewLogin(HttpServletRequest request, HttpServletResponse response,
 					 	  	   InitialContext ctx, ServletContext servCtx)  throws Exception
 	{
 		if (log!=null) log.debug("LoginCommand: forwarding to login page...");
 
-		servCtx.getContext("/").getRequestDispatcher(
-			response.encodeURL("/es/login.jsp")).forward(request, response);
+		goLoginPage(request,response,servCtx);
 	}
 
 }
