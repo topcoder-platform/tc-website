@@ -761,6 +761,79 @@ public class RegistrationHelper {
   }
 
   public static void updateCoach(CoachRegistrationBean _crb) throws Exception {
+
+    /* This is bad, please see above comment */
+    UserTransaction utx=null;
+
+    try {
+      /*utx=EJBContext.getUserTransaction();
+      utx.begin();*/
+
+      Context ctx;
+
+      if (_crb.getChangePassword()) {
+        ctx=TCContext.getContext(ApplicationServer.JBOSS_JNDI_FACTORY,
+                                 ApplicationServer.SECURITY_HOST);
+
+        PrincipalMgrRemoteHome pmrh=(PrincipalMgrRemoteHome)
+                                ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+        PrincipalMgrRemote pmr=pmrh.create();
+
+        TCSubject tcs=new TCSubject(0);
+
+        UserPrincipal up=pmr.getUser(_crb.getHandle());
+        pmr.editPassword(up,_crb.getPassword(),tcs);
+      }
+
+      ctx=TCContext.getInitial();
+
+      utx=(UserTransaction)ctx.lookup("javax.transaction.UserTransaction");
+      utx.begin();
+
+      UserHome uh=(UserHome)ctx.lookup(UserHome.EJB_REF_NAME);
+      User user=uh.create();
+      long user_id=_crb.getUserId().longValue();
+      user.setFirstName(user_id,_crb.getFirstName());
+      user.setLastName(user_id,_crb.getLastName());
+
+      UserSchoolHome ush=(UserSchoolHome)
+                                        ctx.lookup(UserSchoolHome.EJB_REF_NAME);
+      UserSchool user_school=ush.create();
+      long school_id=_crb.getSchoolId().longValue();
+      if (user_school.existsUserSchoolId(user_id,school_id)) {
+        user_school.setCurrentUserSchoolId(user_id,school_id);
+      }
+      else {
+        user_school.createUserSchool(user_id,school_id);
+        user_school.setCurrentUserSchoolId(user_id,school_id);
+      }
+
+      EmailHome eh=(EmailHome)ctx.lookup(EmailHome.EJB_REF_NAME);
+      Email email=eh.create();
+      long email_id=email.createEmail(user_id);
+      email.setPrimaryEmailId(user_id,email_id);
+      email.setAddress(email_id,_crb.getEmail());
+      email.setEmailTypeId(email_id,EMAIL_TYPE_ID_DEFAULT);
+
+      CoderHome ch=(CoderHome)ctx.lookup(CoderHome.EJB_REF_NAME);
+      Coder coder=ch.create();
+      coder.setEditorId(user_id,_crb.getEditorId().intValue());
+      coder.setLanguageId(user_id,_crb.getLanguageId().intValue());
+
+      utx.commit();
+    }
+    catch (Exception _e) {
+      _e.printStackTrace();
+      if (utx!=null) {
+        try {
+          utx.rollback();
+        }
+        catch (Exception _ex) {
+          /* log it */
+        }
+      }
+      throw(_e);
+    }
   }
 
   private static String getParameter(ServletRequest _request,String _param,
