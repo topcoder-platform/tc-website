@@ -64,6 +64,7 @@ pageContext.setAttribute("resultSet", rsc);
                  </TR>
                  <TR>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" HEIGHT="16" COLSPAN="6" ALIGN="center">
+                     In order to be included in this list, a school must have at least 10 rated members.
                    </TD>
                  </TR>
                  <TR>
