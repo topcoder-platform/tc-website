@@ -21,6 +21,13 @@ public class TestCache {
                 cc.set("mykey"+i, s, 1000*60*30);
                 log.debug("added item " + i);
             }
+            for (int i=0; i<10*max; i++) {
+                cc.set("mynewkey"+i, s, 1000*60*60);
+                if (i%5==0) {
+                    log.debug("get key " + i);
+                    cc.get("mynewkey"+i);
+                }
+            }
         } catch (Exception e) {
             log.error("error", e);
         }
