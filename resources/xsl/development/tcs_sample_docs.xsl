@@ -139,7 +139,7 @@
                     <td class="bodyText" valign="top"><br />
                         <table border="0" cellspacing="0" cellpadding="0">
                             <tr valign="top">
-                                <td class="bodyText">08.28.2003</td>
+                                <td class="bodyText">06.16.2004</td>
                                 <td class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
                                 <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/Component_Specification.rtf" class="bodyText">Component Specification.rtf</a></td>
                             </tr>
