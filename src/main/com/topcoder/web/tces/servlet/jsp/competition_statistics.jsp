@@ -17,7 +17,7 @@
     
   </HEAD>
   <body>
-  <jsp:include page="top.jsp" />             
+  <jsp:include page="top.jsp" />
   
   <TABLE WIDTH="100%" HEIGHT="50%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
     <TR valign="top">
@@ -303,7 +303,7 @@
   </TR>
   <TR>
     <TD COLSPAN="4" WIDTH="100%"><IMG src="/i/corp/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-  </TR>     
+  </TR>
 
 </TABLE>
     </TD>
@@ -325,5 +325,8 @@
     </TR>
   </TABLE>
   <!-- Body Ends -->
+  <!-- Footer begins -->
+<jsp:include page="../foot.jsp" />
+<!-- Footer ends -->
   </BODY>
 </HTML>
