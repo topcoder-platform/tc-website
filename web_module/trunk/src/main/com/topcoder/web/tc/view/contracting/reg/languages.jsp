@@ -103,16 +103,11 @@ return false;
             <% } %>
 			</tr>
 		<%String[] cssClasses = new String[] {"formTextEven", "formTextOdd" };
-                          int c = 0;%>
+                          int i = 0;%>
                 <tc:skillIterator id="skill" list="<%=skillList%>">
                 <tr>
-	            <td class=<%=cssClasses[c % 2]%> valign=top><%=skill.getText()%></td>
-                     <% for(int i = 0; i<=10; i++){ %>
-                     <td valign=top align=center class=<%=cssClasses[c % 2]%>>
-                        <input type="radio" name="<%=Constants.SKILL_PREFIX + skill.getID()%>" value="<%=i%>"/>
-                     </td>
-                     <% }%> 
-                     <%c++;%>
+	            <td class=<%=cssClasses[i % 2]%> valign=top><%=skill.getText()%></td>
+	            <tc:skillInput cssclass="<%=cssClasses[i++ % 2]%>" skill="<%=skill%>" />
                 </tr>
                 </tc:skillIterator>
 			<tr>
