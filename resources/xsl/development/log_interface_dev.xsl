@@ -52,7 +52,7 @@
     <TD CLASS="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
                                     <B>Logging Wrapper Component Development</B>
                                     <BR/>
-                                    <a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Loggin Wrapper" CLASS="statText"><B>Click here to inquire &gt;&gt;</B></a>
+                                    <a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Logging Wrapper Development" CLASS="statText"><B>Click here to inquire &gt;&gt;</B></a>
                                     <BR/>
 <P>
 <B>Overview</B>
@@ -142,7 +142,7 @@ After inquiring for this project please make sure you are registered at www.topc
 </P>
 
 
-                                    <a href="Javascript:document.frmInquire.Project.value='Logging Wrapper';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>
+          <a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Logging Wrapper Development" CLASS="statText"><B>Click here to inquire &gt;&gt;</B></a>
           <P><BR/></P>
     </TD>
     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

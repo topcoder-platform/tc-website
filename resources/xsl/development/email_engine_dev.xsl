@@ -53,7 +53,7 @@
                                     <B>Email Engine Enhancement Component Development</B>
                                     <BR/>
 
-                                    <a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Email Engine Enhancement" CLASS="statText"><B>Click here to inquire &gt;&gt;</B></a>
+                                    <a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Email Engine Enhancement Development" CLASS="statText"><B>Click here to inquire &gt;&gt;</B></a>
                                     <BR/>
 <P>
 <B>Overview</B>
@@ -146,7 +146,7 @@ After inquiring for this project please make sure you are registered at www.topc
 </P>
 
 
-                                    <a href="Javascript:document.frmInquire.Project.value='Email Engine Enhancement';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>
+            <a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Email Engine Enhancement Development" CLASS="statText"><B>Click here to inquire &gt;&gt;</B></a>
           <P><BR/></P>
     </TD>
     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
