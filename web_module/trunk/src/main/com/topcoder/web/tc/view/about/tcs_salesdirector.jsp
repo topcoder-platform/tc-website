@@ -82,9 +82,9 @@
                         
                         <strong>Qualifications include: </strong>
                         <ul>
-                            <li>Business development experience Ð Ideal candidates should have at least three years of prior technical sales experience 
+                            <li>Business development experience - Ideal candidates should have at least three years of prior technical sales experience 
                             in the New York/Northern New Jersey area.</li>                 
-                            <li>Strong selling skills Ð Ideal candidates should have experience identifying, qualifying and closing 
+                            <li>Strong selling skills - Ideal candidates should have experience identifying, qualifying and closing 
                             software or services deals.</li>                            
                             <li>Prior success - Ideal candidates should have a demonstrated ability to consistently exceed quota.</li> 
                             <li>Strong work ethic - Ideal candidates should be able to grow a pipeline two to four times the size of quota targets and prioritize likely prospects.</li>
