@@ -13,6 +13,7 @@
    <property name="build.javadocs" value="${build}/javadocs" />
    <property name="lib.dir"       value="lib" />
    <property name="jars.dir"      value="${lib.dir}/jars" />
+   <property name="struts.dir"    value="${lib.dir}/jakarta-struts-build-unknown/lib" />
 <!--   <property name="struts.dir"    value="${lib.dir}/jakarta-struts-1.1-b1/lib" /> -->
 <!--   <property name="struts.dir"    value="${lib.dir}/jakarta-struts-build-20020730/lib" /> -->
    <property name="bin"           value="lib/bin" />
@@ -103,7 +104,6 @@
       </move>
    </target>
 
-<!-- use this if we ever get a good version of struts to work with
    <target name="moveStruts" depends="check_java_version">
       <copy todir="${public_html}/WEB-INF/lib">
          <fileset dir="${struts.dir}" >
@@ -116,7 +116,8 @@
          </fileset>
       </copy>
    </target>
--->
+
+<!--
    <target name="moveStruts" depends="check_java_version">
       <copy todir="${public_html}/WEB-INF/lib">
          <fileset dir="${jars.dir}" >
@@ -132,6 +133,7 @@
          </fileset>
       </copy>
    </target>
+-->
 
    <target name="moveStats" depends="check_java_version">
       <copy todir="${public_html}/WEB-INF">
