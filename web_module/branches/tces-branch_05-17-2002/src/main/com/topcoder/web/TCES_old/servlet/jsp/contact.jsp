@@ -49,7 +49,7 @@
 									CoderBean beanCoder = new CoderBean();
 									CoderObject objCoder = new CoderObject();
 									objCoder.coder_id = new Long( (long)user.getUserId() );
-									objCoder = beanCoder.request(Coder.SELECT, obj);
+									objCoder = beanCoder.request(Coder.SELECT, objCoder);
 
 									UserBean beanUser = new UserBean();
 									UserObject objUser = new UserObject();
