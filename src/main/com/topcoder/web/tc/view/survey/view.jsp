@@ -37,7 +37,7 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1"></td> 
+        <td width="10"><img src="/i/clear.gif" width="10" height="1"></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
@@ -62,7 +62,7 @@
                            </tr>
                            <tr>
                               <td colspan="2" class="errorText">
-                                 <tc-webtag:errorIterator id="err" name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%></tc-webtag:errorIterator>
+                                 <tc-webtag:errorIterator id="err" name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%><br/></tc-webtag:errorIterator>
                               </td>
                            </tr>
                            <% boolean even = false; %>
@@ -71,7 +71,7 @@
                               <td width="100%">
                                  <%=answerText%>
                               </td>
-                              <td align="right">                                 
+                              <td align="right">
                                  <%=answerInput%>
                               </td>
                            </tr>
@@ -84,7 +84,7 @@
                         <tr><td><a href="javascript: document.surveyForm.submit();"><img src="/i/submit.gif" width="101" height="20" border="0"/></a>
                                <a href="?<%=Constants.MODULE_KEY%>=SurveyResults&<%=Constants.SURVEY_ID%>=<%=surveyInfo.getId()%>"><img src="/i/view_results.gif" width="101" height="20" border="0"/></a>
                                </td>
-                        </tr> 
+                        </tr>
                      </table>
                   </form>
                </p>
