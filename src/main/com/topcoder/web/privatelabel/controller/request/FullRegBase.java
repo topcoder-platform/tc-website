@@ -32,6 +32,9 @@ abstract class FullRegBase extends SimpleRegBase {
 
     protected void setDefaults(FullRegInfo info) {
         super.setDefaults(info);
+        setDefault(Constants.CODER_TYPE, String.valueOf(info.getCoderType()));
+        setDefault(Constants.RESUME, info.getFileName());
+        setDefault(Constants.FILE_TYPE, String.valueOf(info.getFileType()));
     }
 
     protected SimpleRegInfo makeRegInfo() throws Exception {
@@ -64,11 +67,6 @@ abstract class FullRegBase extends SimpleRegBase {
         return info;
     }
 
-    protected void storeRegInfo(Persistor p, SimpleRegInfo info) {
-        p.setObject(Constants.REGISTRATION_INFO, (FullRegInfo)info);
-    }
-
-
     protected void checkRegInfo(SimpleRegInfo info) throws TCWebException {
         super.checkRegInfo(info);
     }
@@ -88,4 +86,11 @@ abstract class FullRegBase extends SimpleRegBase {
         return ret;
     }
 
+    protected boolean hasDemogPageError() {
+        boolean ret = false;
+        ret |= hasError(Constants.FILE_TYPE);
+        ret |= hasError(Constants.CODER_TYPE);
+        ret |= hasError(Constants.RESUME);
+        return ret;
+    }
 }

@@ -33,7 +33,7 @@ public class Constants {
     public static String VERIZON_REG_SUCCESS_PAGE;
     public static String DEFAULT_PAGE;
 
-    //parameter keys
+    //main reg parameters
     public static String HANDLE;
     public static String PASSWORD;
     public static String PASSWORD_CONFIRM;
@@ -47,13 +47,18 @@ public class Constants {
     public static String STATE_CODE;
     public static String CITY;
     public static String ZIP;
+
+    //secondary reg parameters
+    public static String FILE_TYPE;
+    public static String CODER_TYPE;
+    public static String RESUME;
+
+    //other parameters
     public static String MODULE_KEY;
     public static String STATIC_PREFIX;
     public static String COMPANY_ID;
     public static String REGISTRATION_INFO;
-    public static String FILE_TYPE;
-    public static String CODER_TYPE;
-    public static String RESUME;
+
 
     //rules
     public static int MAX_PASSWORD_LENGTH;

@@ -41,7 +41,7 @@
                     Resume
                 </td>
                 <td align="left">
-                    <input type="file" name="file1">
+                    <input type="file" name="<%=Constants.RESUME%>">
                 </td>
             </tr>
 
