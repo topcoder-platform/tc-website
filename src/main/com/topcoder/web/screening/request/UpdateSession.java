@@ -26,7 +26,7 @@ import com.topcoder.web.screening.model.EmailInfo;
 import com.topcoder.web.screening.model.SessionInfo;
 
 public class UpdateSession extends BaseSessionProcessor {
-    public void process() throws Exception {
+    public synchronized void process() throws Exception {
         requireLogin();
         
         updateSessionInfo(); // we need this just in case of session timeout

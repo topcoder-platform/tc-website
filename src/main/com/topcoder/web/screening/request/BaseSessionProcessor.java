@@ -88,9 +88,10 @@ public abstract class BaseSessionProcessor extends BaseProcessor {
         //check dates in db to see if we need to have them pick new ones
         if(success) {
             SimpleDateFormat sdf = new SimpleDateFormat(DBMS.INFORMIX_DATETIME_FORMAT);
-            Request dRequest = new Request();
+            Request dRequest = new Request(); 
             dRequest.setProperty(DataAccessConstants.COMMAND, 
-                    Constants.SESSION_CHECK_CANDIDATE_TIME_QUERY_KEY);
+                    Constants.SESSION_CHECK_COMMAND);
+            dRequest.setProperty("spid", info.getProfileId());
             dRequest.setProperty("cid", info.getCandidateId());
             dRequest.setProperty("uid", 
                String.valueOf(getAuthentication().getUser().getId()));
@@ -99,12 +100,22 @@ public abstract class BaseSessionProcessor extends BaseProcessor {
             DataAccess dataAccess = getDataAccess();
             Map map = dataAccess.getData(dRequest);
 
+            //first check to see if it is a dupe
             ResultSetContainer rsc = (ResultSetContainer)
-                map.get(Constants.SESSION_CHECK_CANDIDATE_TIME_QUERY_KEY);
+                map.get(Constants.SESSION_DUPE_CHECK_QUERY_KEY);
             if(rsc.size() > 0) {
                 success = false;
-                errorMap.put("dateCompare", 
-                    "The candidate is already scheduled during selected time period");
+                errorMap.put("dateCompare", "This session already exists.");
+            }
+            else {
+                //if not a dupe check to see if it violates time window
+                rsc = (ResultSetContainer)
+                    map.get(Constants.SESSION_CHECK_CANDIDATE_TIME_QUERY_KEY);
+                if(rsc.size() > 0) {
+                    success = false;
+                    errorMap.put("dateCompare", 
+                        "The candidate is already scheduled during selected time period");
+                }
             }
         }
 
