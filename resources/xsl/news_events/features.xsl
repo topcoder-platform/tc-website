@@ -52,8 +52,21 @@
 					<TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>          
             <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="1" BGCOLOR="#FFFFFF">
 		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="23" BORDER="0"/></TD></TR>
-		<TR><TD VALIGN="middle" BGCOLOR="#CCCCCC" HEIGHT="18" WIDTH="12%" CLASS="bodyText">&#160;&#160;<B>Date</B></TD><TD WIDTH="25%" VALIGN="middle" BGCOLOR="#CCCCCC" CLASS="bodyText">&#160;&#160;<B>Author</B></TD><TD WIDTH="63%" VALIGN="middle" BGCOLOR="#CCCCCC" CLASS="bodyText">&#160;&#160;<B>Feature</B></TD></TR>		
-	
+		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="3" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;Upcoming Features</TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14" COLSPAN="3" BGCOLOR="#CCCCCC">Database security</TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14" COLSPAN="3">The ACE library - Adaptive Communication  Environment</TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14" COLSPAN="3" BGCOLOR="#CCCCCC">Authoring for an advanced morphing software (C++)</TD></TR>		
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14" COLSPAN="3">Massive-scale simulator to test an instant messaging server (C++)</TD></TR>		
+	    <TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14" COLSPAN="3" BGCOLOR="#CCCCCC">Tools for debugging memory leaks</TD></TR>
+	    <TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14" COLSPAN="3">Smart pointers in C++</TD></TR>	
+	    <TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14" COLSPAN="3" BGCOLOR="#CCCCCC">Explaining dynamic Programming</TD></TR>
+	    <TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14" COLSPAN="3">Genetic algorithms/programming</TD></TR>	    	
+	    <TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14" COLSPAN="3" BGCOLOR="#CCCCCC">Reverse engineering the MSN Messenger protocol</TD></TR>	
+	    <TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14" COLSPAN="3">XML-based UI description language that allows dynamic building and switching of UI screens at runtime</TD></TR>
+	    <TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14" COLSPAN="3"><A HREF="/index?t=news_events&amp;c=feat_topics" CLASS="bodyGeneric">Want to write?</A></TD></TR>		
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="23" BORDER="0"/></TD></TR>		
+				
+		<TR><TD VALIGN="middle" BGCOLOR="#CCCCCC" HEIGHT="18" WIDTH="12%" CLASS="bodyText">&#160;&#160;<B>Date</B></TD><TD WIDTH="25%" VALIGN="middle" BGCOLOR="#CCCCCC" CLASS="bodyText">&#160;&#160;<B>Author</B></TD><TD WIDTH="63%" VALIGN="middle" BGCOLOR="#CCCCCC" CLASS="bodyText">&#160;&#160;<B>Feature</B></TD></TR>
 		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="3" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;October</TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>		
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;10.09.02</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;Penwiper</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=feat_100902" CLASS="bodyGeneric">Graphics Programming for Motion Capture</A></TD></TR>
