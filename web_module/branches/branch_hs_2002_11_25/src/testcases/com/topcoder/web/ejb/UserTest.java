@@ -18,7 +18,8 @@ public class UserTest extends EJBTestCase {
     super(_name);
   }
 
-  public void createTest() throws Exception {
+  public void testCreateUser() throws Exception {
+    ArrayList al=new ArrayList();
     String username="unlord";
     InitialContext ctx=getContext();
   }
