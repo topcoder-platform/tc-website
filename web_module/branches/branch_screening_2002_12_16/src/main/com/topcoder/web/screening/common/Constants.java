@@ -39,6 +39,8 @@ public class Constants
     public static String CANDIDATE_INFO;
     public static String CANDIDATE_SETUP_PAGE;
     public static String CANDIDATE_LIST_PAGE;
+    public static String NOTE_LIST_PAGE;
+    public static String NOTE_CREATE_PAGE;
     public static String UC_DEFAULT_FORWARD_PROCESSOR;
     public static String UC_CREATE_CODER_STATUS_ID;
     public static String MAX_PASSWORD_SIZE;
@@ -61,6 +63,14 @@ public class Constants
     public static String PROFILE_ADD_PROBLEM_PROCESSOR;
     public static String PROFILE_REMOVE_PROBLEM_PROCESSOR;
     public static String PROFILE_CONFIRM_PROCESSOR;
+    
+    //Problem constants
+    public static String PROBLEM_LIST_PAGE;
+    
+    //Results constants
+    public static String PROBLEM_RESULT_PAGE;
+    public static String TC_PROBLEM_RESULT_PAGE;
+    public static String TEST_RESULTS_PAGE;
 
     //Common Constants
     public static String DATA_SOURCE;
@@ -100,6 +110,8 @@ public class Constants
         CANDIDATE_INFO = config.getInitParameter("candidate_info_attribute");
         CANDIDATE_SETUP_PAGE = config.getInitParameter("candidate_setup_page");
         CANDIDATE_LIST_PAGE = config.getInitParameter("candidate_list_page");
+        NOTE_LIST_PAGE = config.getInitParameter("note_list_page");
+        NOTE_CREATE_PAGE = config.getInitParameter("note_create_page");
         UC_DEFAULT_FORWARD_PROCESSOR = 
           config.getInitParameter("update_candidate_default_forward_processor");
         UC_CREATE_CODER_STATUS_ID = 
@@ -138,6 +150,14 @@ public class Constants
             config.getInitParameter("profile_remove_problem_processor");
         PROFILE_CONFIRM_PROCESSOR =
             config.getInitParameter("profile_confirm_processor");
+        
+        //Problem constants
+        PROBLEM_LIST_PAGE = config.getInitParameter("problem_list_page");
+        
+        //Result constants
+        PROBLEM_RESULT_PAGE = config.getInitParameter("problem_result_page");
+        TC_PROBLEM_RESULT_PAGE = config.getInitParameter("tc_problem_result_page");
+        TEST_RESULTS_PAGE = config.getInitParameter("test_results_page");
 
         //Common Constants
         DATA_SOURCE = config.getInitParameter("data_source_name");

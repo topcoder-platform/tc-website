@@ -40,7 +40,7 @@
 
   <init-param>
     <param-name>controller_url</param-name>
-    <param-value>/screening</param-value>
+    <param-value>/</param-value>
     <description></description>
   </init-param>
 
@@ -167,6 +167,18 @@
   </init-param>
 
   <init-param>
+    <param-name>note_list_page</param-name>
+    <param-value>/candidate/noteList.jsp</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>note_create_page</param-name>
+    <param-value>/candidate/noteCreate.jsp</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
     <param-name>update_candidate_default_forward_processor</param-name>
     <param-value>BuildCandidateList</param-value>
     <description></description>
@@ -270,6 +282,12 @@
   </init-param>
 
   <init-param>
+    <param-name>profile_list_page</param-name>
+    <param-value>/profile/profileList.jsp</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
     <param-name>profile_add_problem_processor</param-name>
     <param-value>AddProfileProblems</param-value>
     <description></description>
@@ -284,6 +302,32 @@
   <init-param>
     <param-name>profile_confirm_processor</param-name>
     <param-value>ConfirmProfile</param-value>
+    <description></description>
+  </init-param>
+
+  <!-- Results constants -->
+  <init-param>
+    <param-name>problem_result_page</param-name>
+    <param-value>/results/problemResults.jsp</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>tc_problem_result_page</param-name>
+    <param-value>/results/tcProblemResult.jsp</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>test_results_page</param-name>
+    <param-value>/results/testResults.jsp</param-value>
+    <description></description>
+  </init-param>
+
+  <!-- Problem constants -->
+  <init-param>
+    <param-name>problem_list_page</param-name>
+    <param-value>/problem/problemList.jsp</param-value>
     <description></description>
   </init-param>
 
@@ -310,7 +354,7 @@
 
 <servlet-mapping>
   <servlet-name>screening</servlet-name>
-  <url-pattern>screening</url-pattern>
+  <url-pattern>/</url-pattern>
 </servlet-mapping>
 
 <taglib>
