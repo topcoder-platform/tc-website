@@ -34,9 +34,20 @@ public class UserNoteBean extends BaseEJB {
      */
     public void createUserNote(long userId, long noteId)
             throws RemoteException {
-        log.debug("createUserNote called. userId: " + userId
-            + " noteId: " + noteId);
+        // construct debug message
+        StringBuffer debugBuf = new StringBuffer(200);
+        StringBuffer varBuf = new StringBuffer(200);
 
+        varBuf.append("userId: ");
+        varBuf.append(userId);
+        varBuf.append(" noteId: ");
+        varBuf.append(noteId);
+
+        debugBuf.append("createUserNote called. ");
+        debugBuf.append(varBuf.toString());
+
+        log.debug(debugBuf.toString());
+        // begin method
         Context ctx = null;
         PreparedStatement pstmt = null;
         Connection conn = null;
@@ -57,12 +68,21 @@ public class UserNoteBean extends BaseEJB {
 
             pstmt.executeUpdate();
 
-        } catch (SQLException sqe) {
-            throw new EJBException("SQLException in createUserNote userId: " + userId + " noteId: " + noteId);
+        } catch (SQLException e) {
+            StringBuffer exceptionBuf = new StringBuffer(200);
+            exceptionBuf.append("SQLException in createUserNote. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (NamingException e) {
-            throw new EJBException("NamingException in createUserNote userId: " + userId + " noteId: " + noteId);
+            StringBuffer exceptionBuf = new StringBuffer(200);
+            exceptionBuf.append("NamingException in createUserNote. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
-            throw new EJBException("Exception in createUserNote userId: " + userId + " noteId: " + noteId);
+            StringBuffer exceptionBuf = new StringBuffer(200);
+            exceptionBuf.append("Exception in createUserNote. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } finally {
             if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in createUserNote");}}
             if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in createUserNote");}}
@@ -78,8 +98,20 @@ public class UserNoteBean extends BaseEJB {
      */
     public void removeUserNote(long userId, long noteId)
             throws RemoteException {
-        log.debug("createUserNote called. userId: " + userId
-            + " noteId: " + noteId);
+        // construct debug message
+        StringBuffer debugBuf = new StringBuffer(200);
+        StringBuffer varBuf = new StringBuffer(200);
+
+        varBuf.append("userId: ");
+        varBuf.append(userId);
+        varBuf.append(" noteId: ");
+        varBuf.append(noteId);
+
+        debugBuf.append("removeUserNote called. ");
+        debugBuf.append(varBuf.toString());
+
+        log.debug(debugBuf.toString());
+        // begin method
 
         Context ctx = null;
         PreparedStatement pstmt = null;
@@ -102,11 +134,20 @@ public class UserNoteBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
-            throw new EJBException("SQLException in removeUserNote userId: " + userId + " noteId: " + noteId);
+            StringBuffer exceptionBuf = new StringBuffer(200);
+            exceptionBuf.append("SQLException in removeUserNote. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (NamingException e) {
-            throw new EJBException("NamingException in removeUserNote userId: " + userId + " noteId: " + noteId);
+            StringBuffer exceptionBuf = new StringBuffer(200);
+            exceptionBuf.append("SQLException in removeUserNote. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
-            throw new EJBException("Exception in removeUserNote userId: " + userId + " noteId: " + noteId);
+            StringBuffer exceptionBuf = new StringBuffer(200);
+            exceptionBuf.append("Exception in removeUserNote. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } finally {
             if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in removeUserNote");}}
             if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in removeUserNote");}}

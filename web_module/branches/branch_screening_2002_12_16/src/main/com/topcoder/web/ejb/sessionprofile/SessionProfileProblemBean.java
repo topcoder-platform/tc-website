@@ -37,10 +37,24 @@ public class SessionProfileProblemBean extends BaseEJB {
                                             int problemTypeId,
                                             int sortOrder)
             throws RemoteException {
-        log.debug("createSessionProfileProblem called. sessionProfileId: "
-            + sessionProfileId + " problemId: " + problemId
-            + " problemTypeId: " + problemTypeId + " sortOrder: " + sortOrder );
+        // construct debug message
+        StringBuffer debugBuf = new StringBuffer(200);
+        StringBuffer varBuf = new StringBuffer(200);
 
+        varBuf.append("sessionProfileId: ");
+        varBuf.append(sessionProfileId);
+        varBuf.append(" problemId: ");
+        varBuf.append(problemId);
+        varBuf.append(" problemTypeId: ");
+        varBuf.append(problemTypeId);
+        varBuf.append(" sortOrder: ");
+        varBuf.append(sortOrder);
+
+        debugBuf.append("createSessionProfileProblem called. ");
+        debugBuf.append(varBuf.toString());
+
+        log.debug(debugBuf.toString());
+        // begin method
         Context ctx = null;
         PreparedStatement pstmt = null;
         Connection conn = null;
@@ -65,11 +79,20 @@ public class SessionProfileProblemBean extends BaseEJB {
             pstmt.setInt(4,sortOrder);
 
         } catch (SQLException sqe) {
-            throw new EJBException("SQLException in createSessionProfileProblem session_profile_id: " + sessionProfileId + " problemId: " + problemId);
+            StringBuffer exceptionBuf = new StringBuffer(200);
+            exceptionBuf.append("SQLException in createSessionProfileProblem. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (NamingException e) {
-            throw new EJBException("NamingException in createSessionProfileProblem session_profile_id: " + sessionProfileId + " problemId: " + problemId);
+            StringBuffer exceptionBuf = new StringBuffer(200);
+            exceptionBuf.append("NamingException in createSessionProfileProblem. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
-            throw new EJBException("Exception in createSessionProfileProblem session_profile_id: " + sessionProfileId + " problemId: " + problemId);
+            StringBuffer exceptionBuf = new StringBuffer(200);
+            exceptionBuf.append("Exception in createSessionProfileProblem. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } finally {
             if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in createSessionProfileProblem");}}
             if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in createSessionProfileProblem");}}
@@ -88,10 +111,23 @@ public class SessionProfileProblemBean extends BaseEJB {
                                  long problemId,
                                  int problemTypeId)
             throws RemoteException {
-        log.debug("setProblemTypeId called. sessionProfileId: "
-            + sessionProfileId + " problemId: " + problemId + "problemTypeId: "
-            + problemTypeId);
+        // construct debug message
+        StringBuffer debugBuf = new StringBuffer(200);
+        StringBuffer varBuf = new StringBuffer(200);
 
+        varBuf.append("sessionProfileId: ");
+        varBuf.append(sessionProfileId);
+        varBuf.append(" problemId: ");
+        varBuf.append(problemId);
+        varBuf.append(" problemTypeId: ");
+        varBuf.append(problemTypeId);
+
+        debugBuf.append("setProblemTypeId called. ");
+        debugBuf.append(varBuf.toString());
+
+        log.debug(debugBuf.toString());
+
+        // begin method
         Context ctx = null;
         PreparedStatement pstmt = null;
         Connection conn = null;
@@ -116,11 +152,20 @@ public class SessionProfileProblemBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
-            throw new EJBException("SQLException in setProblemTypeId sessionProfileId: " + sessionProfileId + " problemId: " + problemId + " problemTypeId: " + problemTypeId);
+            StringBuffer exceptionBuf = new StringBuffer(200);
+            exceptionBuf.append("SQLException in setProblemTypeId. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (NamingException e) {
-            throw new EJBException("NamingException in setProblemTypeId sessionProfileId: " + sessionProfileId + " problemId: " + problemId + " problemTypeId: " + problemTypeId);
+            StringBuffer exceptionBuf = new StringBuffer(200);
+            exceptionBuf.append("NamingException in setProblemTypeId. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
-            throw new EJBException("Exception in setProblemTypeId sessionProfileId: " + sessionProfileId + " problemId: " + problemId + " problemTypeId: " + problemTypeId);
+            StringBuffer exceptionBuf = new StringBuffer(200);
+            exceptionBuf.append("Exception in setProblemTypeId. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } finally {
             if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in setProblemTypeId");}}
             if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in setProblemTypeId");}}
@@ -138,10 +183,23 @@ public class SessionProfileProblemBean extends BaseEJB {
     public void setSortOrder(long sessionProfileId, long problemId,
                              int sortOrder)
             throws RemoteException {
-        log.debug("setSortOrder called. sessionProfileId: "
-            + sessionProfileId + " problemId: " + problemId + "sortOrder: "
-            + sortOrder);
+        // construct debug message
+        StringBuffer debugBuf = new StringBuffer(200);
+        StringBuffer varBuf = new StringBuffer(200);
 
+        varBuf.append("sessionProfileId: ");
+        varBuf.append(sessionProfileId);
+        varBuf.append(" problemId: ");
+        varBuf.append(problemId);
+        varBuf.append(" sortOrder: ");
+        varBuf.append(sortOrder);
+
+        debugBuf.append("setSortOrder called. ");
+        debugBuf.append(varBuf.toString());
+
+        log.debug(debugBuf.toString());
+
+        // begin method
         Context ctx = null;
         PreparedStatement pstmt = null;
         Connection conn = null;
@@ -165,11 +223,20 @@ public class SessionProfileProblemBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
-            throw new EJBException("SQLException in setSortOrder sessionProfileId: " + sessionProfileId + " problemId: " + problemId + " sortOrder: " + sortOrder);
+            StringBuffer exceptionBuf = new StringBuffer(200);
+            exceptionBuf.append("SQLException in setSortOrder. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (NamingException e) {
-            throw new EJBException("NamingException in setSortOrder sessionProfileId: " + sessionProfileId + " problemId: " + problemId + " sortOrder: " + sortOrder);
+            StringBuffer exceptionBuf = new StringBuffer(200);
+            exceptionBuf.append("NamingException in setSortOrder. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
-            throw new EJBException("Exception in setSortOrder sessionProfileId: " + sessionProfileId + " problemId: " + problemId + " sortOrder: " + sortOrder);
+            StringBuffer exceptionBuf = new StringBuffer(200);
+            exceptionBuf.append("Exception in setSortOrder. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } finally {
             if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in setSortOrder");}}
             if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in setSortOrder");}}
@@ -186,9 +253,21 @@ public class SessionProfileProblemBean extends BaseEJB {
      */
     public int getProblemTypeId(long sessionProfileId, long problemId)
             throws RemoteException {
-        log.debug("getProblemTypeId called. sessionProfileId: "
-                + sessionProfileId + " problemId: " + problemId);
+        // construct debug message
+        StringBuffer debugBuf = new StringBuffer(200);
+        StringBuffer varBuf = new StringBuffer(200);
 
+        varBuf.append("sessionProfileId: ");
+        varBuf.append(sessionProfileId);
+        varBuf.append(" problemId: ");
+        varBuf.append(problemId);
+
+        debugBuf.append("getProblemTypeId called. ");
+        debugBuf.append(varBuf.toString());
+
+        log.debug(debugBuf.toString());
+
+        // begin method
         Context ctx = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
@@ -215,12 +294,21 @@ public class SessionProfileProblemBean extends BaseEJB {
                 problemTypeId = rs.getInt(1);
             }
 
-        } catch (SQLException sqe) {
-            throw new EJBException("SQLException in getProblemTypeId sessionProfileId: " + sessionProfileId + " problemId: " + problemId);
+        } catch (SQLException e) {
+            StringBuffer exceptionBuf = new StringBuffer(200);
+            exceptionBuf.append("SQLException in getProblemTypeId. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (NamingException e) {
-            throw new EJBException("NamingException in getProblemTypeId sessionProfileId: " + sessionProfileId + " problemId: " + problemId);
+            StringBuffer exceptionBuf = new StringBuffer(200);
+            exceptionBuf.append("NamingException in getProblemTypeId. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
-            throw new EJBException("Exception in getProblemTypeId sessionProfileId: " + sessionProfileId + " problemId: " + problemId);
+            StringBuffer exceptionBuf = new StringBuffer(200);
+            exceptionBuf.append("Exception in getProblemTypeId. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } finally {
             if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getProblemTypeId");}}
             if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in getProblemTypeId");}}
@@ -240,9 +328,21 @@ public class SessionProfileProblemBean extends BaseEJB {
      */
     public int getSortOrder(long sessionProfileId, long problemId)
             throws RemoteException {
-        log.debug("getSortOrder called. sessionProfileId: "
-                + sessionProfileId + " problemId: " + problemId);
+        // construct debug message
+        StringBuffer debugBuf = new StringBuffer(200);
+        StringBuffer varBuf = new StringBuffer(200);
 
+        varBuf.append("sessionProfileId: ");
+        varBuf.append(sessionProfileId);
+        varBuf.append(" problemId: ");
+        varBuf.append(problemId);
+
+        debugBuf.append("getSortOrder called. ");
+        debugBuf.append(varBuf.toString());
+
+        log.debug(debugBuf.toString());
+
+        // begin method
         Context ctx = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
@@ -270,20 +370,25 @@ public class SessionProfileProblemBean extends BaseEJB {
             }
 
         } catch (SQLException sqe) {
-            throw new EJBException("SQLException in getSortOrder sessionProfileId: " + sessionProfileId + " problemId: " + problemId);
+            StringBuffer exceptionBuf = new StringBuffer(200);
+            exceptionBuf.append("SQLException in getSortOrder. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (NamingException e) {
-            throw new EJBException("NamingException in getSortOrder sessionProfileId: " + sessionProfileId + " problemId: " + problemId);
+            StringBuffer exceptionBuf = new StringBuffer(200);
+            exceptionBuf.append("NamingException in getSortOrder. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
-            throw new EJBException("Exception in getSortOrder sessionProfileId: " + sessionProfileId + " problemId: " + problemId);
+            StringBuffer exceptionBuf = new StringBuffer(200);
+            exceptionBuf.append("Exception in getSortOrder. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } finally {
-            if (rs != null) {try {rs.close();} catch (Exception ignore)
-            {log.error("FAILED to close ResultSet in getSortOrder");}}
-            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore)
-            {log.error("FAILED to close PreparedStatement in getSortOrder");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore)
-            {log.error("FAILED to close Connection in getSortOrder");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore)
-            {log.error("FAILED to close Context in getSortOrder");}}
+            if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getSortOrder");}}
+            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore){log.error("FAILED to close PreparedStatement in getSortOrder");}}
+            if (conn != null) {try {conn.close();} catch (Exception ignore){log.error("FAILED to close Connection in getSortOrder");}}
+            if (ctx != null) {try {ctx.close();} catch (Exception ignore){log.error("FAILED to close Context in getSortOrder");}}
         }
 
         return sortOrder;
@@ -298,9 +403,20 @@ public class SessionProfileProblemBean extends BaseEJB {
      */
     public String getProblemTypeDesc(long sessionProfileId, long problemId)
             throws RemoteException {
-        log.debug("getProblemTypeDesc called. sessionProfileId: "
-                + sessionProfileId + " problemId: " + problemId);
+        // construct debug message
+        StringBuffer debugBuf = new StringBuffer(200);
+        StringBuffer varBuf = new StringBuffer(200);
 
+        varBuf.append("sessionProfileId: ");
+        varBuf.append(sessionProfileId);
+        varBuf.append(" problemId: ");
+        varBuf.append(problemId);
+
+        debugBuf.append("getProblemTypeDesc called. ");
+        debugBuf.append(varBuf.toString());
+
+        log.debug(debugBuf.toString());
+        // begin method
         Context ctx = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
@@ -328,18 +444,26 @@ public class SessionProfileProblemBean extends BaseEJB {
             }
 
         } catch (SQLException sqe) {
-            throw new EJBException("SQLException in getProblemTypeDesc sessionProfileId: " + sessionProfileId + " problemId: " + problemId);
+            StringBuffer exceptionBuf = new StringBuffer(200);
+            exceptionBuf.append("SQLException in getProblemTypeDesc. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (NamingException e) {
-            throw new EJBException("NamingException in getProblemTypeDesc sessionProfileId: " + sessionProfileId + " problemId: " + problemId);
+            StringBuffer exceptionBuf = new StringBuffer(200);
+            exceptionBuf.append("NamingException in getProblemTypeDesc. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
-            throw new EJBException("Exception in getProblemTypeDesc sessionProfileId: " + sessionProfileId + " problemId: " + problemId);
+            StringBuffer exceptionBuf = new StringBuffer(200);
+            exceptionBuf.append("Exception in getProblemTypeDesc. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } finally {
             if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getProblemTypeDesc");}}
             if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in getProblemTypeDesc");}}
             if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in getProblemTypeDesc");}}
             if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in getProblemTypeDesc");}}
         }
-
         return problemTypeDesc;
     }
 }

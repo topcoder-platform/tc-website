@@ -31,10 +31,20 @@ public class SessionProfileLanguageBean extends BaseEJB
      */
     public void createProfileLanguage(long sessionProfileId, int languageId)
             throws RemoteException {
+        // construct debug message
+        StringBuffer debugBuf = new StringBuffer(200);
+        StringBuffer varBuf = new StringBuffer(200);
 
-        log.debug("createProfileLanguage called. sessionProfileId: "
-                + sessionProfileId + "languageId: " + languageId);
+        varBuf.append("sessionProfileId: ");
+        varBuf.append(sessionProfileId);
+        varBuf.append(" languageId: ");
+        varBuf.append(languageId);
 
+        debugBuf.append("createProfileLanguage called. ");
+        debugBuf.append(varBuf.toString());
+
+        log.debug(debugBuf.toString());
+        // begin method
         Context ctx = null;
         PreparedStatement pstmt = null;
         Connection conn = null;
@@ -56,12 +66,21 @@ public class SessionProfileLanguageBean extends BaseEJB
 
             pstmt.executeUpdate();
 
-        } catch (SQLException sqe) {
-            throw new EJBException("SQLException in createProfileLanguage sessionProfileId: " + sessionProfileId + " languageId: " + languageId);
+        } catch (SQLException e) {
+            StringBuffer exceptionBuf = new StringBuffer(200);
+            exceptionBuf.append("SQLException in createProfileLanguage. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (NamingException e) {
-            throw new EJBException("NamingException in createProfileLanguage sessionProfileId: " + sessionProfileId + " languageId: " + languageId);
+            StringBuffer exceptionBuf = new StringBuffer(200);
+            exceptionBuf.append("NamingException in createProfileLanguage. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
-            throw new EJBException("Exception in createProfileLanguage sessionProfileId: " + sessionProfileId + " languageId: " + languageId);
+            StringBuffer exceptionBuf = new StringBuffer(200);
+            exceptionBuf.append("Exception in createProfileLanguage. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } finally {
             if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in createProfileLanguage");}}
             if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in createProfileLanguage");}}
@@ -77,8 +96,20 @@ public class SessionProfileLanguageBean extends BaseEJB
      */
     public void removeProfileLanguage(long sessionProfileId, int languageId)
             throws RemoteException {
-        log.debug("removeProfileLanguage called. sessionProfileId: "
-                + sessionProfileId + "languageId: " + languageId);
+        // construct debug message
+        StringBuffer debugBuf = new StringBuffer(200);
+        StringBuffer varBuf = new StringBuffer(200);
+
+        varBuf.append("sessionProfileId: ");
+        varBuf.append(sessionProfileId);
+        varBuf.append(" languageId: ");
+        varBuf.append(languageId);
+
+        debugBuf.append("removeProfileLanguage called. ");
+        debugBuf.append(varBuf.toString());
+
+        log.debug(debugBuf.toString());
+        // begin method
 
         Context ctx = null;
         PreparedStatement pstmt = null;
@@ -101,11 +132,20 @@ public class SessionProfileLanguageBean extends BaseEJB
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
-            throw new EJBException("SQLException in removeProfileLanguage sessionProfileId: " + sessionProfileId + " languageId: " + languageId);
+            StringBuffer exceptionBuf = new StringBuffer(200);
+            exceptionBuf.append("SQLException in removeProfileLanguage. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (NamingException e) {
-            throw new EJBException("NamingException in removeProfileLanguage sessionProfileId: " + sessionProfileId + " languageId: " + languageId);
+            StringBuffer exceptionBuf = new StringBuffer(200);
+            exceptionBuf.append("NamingException in removeProfileLanguage. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
-            throw new EJBException("Exception in removeProfileLanguage sessionProfileId: " + sessionProfileId + " languageId: " + languageId);
+            StringBuffer exceptionBuf = new StringBuffer(200);
+            exceptionBuf.append("Exception in removeProfileLanguage. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } finally {
             if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in removeProfileLanguage");}}
             if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in removeProfileLanguage");}}
