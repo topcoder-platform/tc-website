@@ -15,6 +15,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.LoginException;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
 
 import java.util.Arrays;
 import java.util.Iterator;
@@ -108,9 +109,9 @@ public class GoogleLogin extends FullLogin {
         FullRegInfo info = null;
 
         long userId = getAuthentication().getActiveUser().getId();
-        info = getCommonInfo(userId);
 
         if (hasCompanyAccount) {
+            info = getCommonInfo(userId, db);
             //load up the demographic information
             Response response = (Response) createEJB(getInitialContext(), Response.class);
             ResultSetContainer responses = response.getResponses(userId, db);
@@ -134,9 +135,10 @@ public class GoogleLogin extends FullLogin {
             }
         } else if (hasTCAccount) {
 
+            info = getCommonInfo(userId, DBMS.OLTP_DATASOURCE_NAME);
             //load up the demographic information
             Response response = (Response) createEJB(getInitialContext(), Response.class);
-            ResultSetContainer responses = response.getResponses(userId, db);
+            ResultSetContainer responses = response.getResponses(userId, DBMS.OLTP_DATASOURCE_NAME);
 
             ResultSetContainer.ResultSetRow row = null;
             DemographicQuestion question = null;
@@ -169,7 +171,7 @@ public class GoogleLogin extends FullLogin {
 
     }
 
-    private FullRegInfo getCommonInfo(long userId) throws Exception {
+    private FullRegInfo getCommonInfo(long userId, String db) throws Exception {
         FullRegInfo info = new FullRegInfo();
         info.setNew(false);
         User user = (User) createEJB(getInitialContext(), User.class);
