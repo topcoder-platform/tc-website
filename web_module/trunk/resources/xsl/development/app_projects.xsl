@@ -65,10 +65,10 @@
                 <tr valign="middle">
 
                     <td background="/i/steel_bluebv_bg.gif" class="statText">Application Design Projects</td>
-                    <td background="/i/steel_bluebv_bg.gif" class="statText" align="center">First Place</td>
+                    <td background="/i/steel_bluebv_bg.gif" class="statText" align="center">Winning Designer</td>
                     <td background="/i/steel_bluebv_bg.gif" class="statText" align="center">Second Place</td>
-                    <td background="/i/steel_bluebv_bg.gif" class="statText" align="center">Specification Submission Due Date</td>
-                    <td background="/i/steel_bluebv_bg.gif" class="statText" align="center">Design Submission Due Date</td>
+                    <td background="/i/steel_bluebv_bg.gif" class="statText" align="center">Specification Due Date</td>
+                    <td background="/i/steel_bluebv_bg.gif" class="statText" align="center">Design Due Date</td>
                     
                 </tr>
 
