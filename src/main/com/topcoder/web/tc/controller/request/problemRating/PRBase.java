@@ -122,35 +122,6 @@ abstract public class PRBase extends Base {
     }
 
 
-    /**
-     * figure out the average distribution given a list
-     * @param list
-     * @return
-     */
-    protected static ProblemRatingDistribution avg(List list) {
-        int[] sums;
-        if (!list.isEmpty())
-            sums =  new int[((ProblemRatingDistribution)list.get(0)).getFrequencies().size()];
-        else sums = new int[0];
-        ProblemRatingDistribution pr = null;
-        //go through each question
-        for (int k=list.size(); --k>=0;) {
-            pr = (ProblemRatingDistribution) list.get(k);
-            //go through each question's distribution of responses
-            for (int i=pr.getFrequencies().size(); --i>=0;) {
-                sums[i]+=((Number)pr.getFrequencies().get(i)).intValue();
-            }
-        }
-        ProblemRatingDistribution ret = new ProblemRatingDistribution();
-        List freqs = new ArrayList(sums.length);
-        //generate an average of the distributions
-        for (int i=0; i<sums.length; i++) {
-            freqs.add(new Float((float)sums[i]/list.size()));
-        }
-        ret.setFrequencies(freqs);
-        return ret;
-    }
-
     protected static ProblemRatingDistribution buildDistribution(ResultSetContainer list) {
         int[] sums = new int[NUM_RATINGS+1];
         //generate the distribution of responses
