@@ -55,58 +55,58 @@
 
             <p>There are also <A href="/index?t=development&amp;c=comp_projects">Component Projects</A> available.</p>
 
-            <table border="0" cellspacing="0" cellpadding="5" width="100%">
-                <tr valign="middle"><td bgcolor="#999999" class="statText" colspan="4"><font size="3"><strong>Open Application Design Projects</strong></font></td></tr>
+            <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
+                <tr valign="middle"><td  class="projectTitles" colspan="4">Open Application Design Projects</td></tr>
 
                 <tr valign="middle">
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" nowrap="nowrap">Project</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center" nowrap="nowrap">Winning Designer</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center" nowrap="nowrap">Second Place</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center" nowrap="nowrap">Inquire By</td>
+                    <td class="projectHeaders" nowrap="nowrap" width="75%">Project</td>
+                    <td class="projectHeaders" align="center" nowrap="nowrap">Winning Designer</td>
+                    <td class="projectHeaders" align="center" nowrap="nowrap">Second Place</td>
+                    <td class="projectHeaders" align="right" nowrap="nowrap" width="25%">Inquire By</td>
                 </tr>
 
                 <!--
                 <tr valign="top">
-                    <td align="center" colspan="4" class="formTextOdd">No New Projects Available</td>
+                    <td align="center" colspan="4" class="projectCells">No New Projects Available</td>
                 </tr>
                 -->
                 
 		<tr valign="top">
-                    <td class="formTextOdd"><a href="?t=development&amp;c=ossj_tck_test_proxy_v10_des">Sun OSSJ TCK Test Proxy</a></td>
-                    <td class="formTextOdd" align="center">$1,260</td>
-                    <td class="formTextOdd" align="center">$360</td>
-                    <td class="formTextOdd" align="center">closed</td>
+                    <td class="projectCells"><a href="?t=development&amp;c=ossj_tck_test_proxy_v10_des">Sun OSSJ TCK Test Proxy</a></td>
+                    <td class="projectCells" align="right">$1,260 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                    <td class="projectCells" align="right">$360 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                    <td class="projectCells" align="right">closed</td>
                 </tr>                
                 
 		<tr valign="top">
-                    <td class="formTextOdd"><a href="?t=development&amp;c=online_gift_card_v10_des">Online Gift Card Sales</a></td>
-                    <td class="formTextOdd" align="center">$810</td>
-                    <td class="formTextOdd" align="center">$225</td>
-                    <td class="formTextOdd" align="center">closed</td>
+                    <td class="projectCells"><a href="?t=development&amp;c=online_gift_card_v10_des">Online Gift Card Sales</a></td>
+                    <td class="projectCells" align="right">$810 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                    <td class="projectCells" align="right">$225 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                    <td class="projectCells" align="right">closed</td>
                 </tr>
 
                 <tr valign="top">
-                    <td class="formTextOdd" colspan="4"><a href="?t=development&amp;c=single_sign_on_v10_des">Single Sign-On (SSO)</a></td>
+                    <td class="projectCells" colspan="4"><a href="?t=development&amp;c=single_sign_on_v10_des">Single Sign-On (SSO)</a></td>
                  </tr>
                 <tr valign="top">
-                    <td class="formTextOdd">&#160;&#160;&#160;&#160;Security Server</td>
-                    <td class="formTextOdd" align="center">$3,306</td>
-                    <td class="formTextOdd" align="center">$1,005</td>
-                    <td class="formTextOdd" align="center">closed</td>
+                    <td class="projectCells"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Security Server</td>
+                    <td class="projectCells" align="right">$3,306 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                    <td class="projectCells" align="right">$1,005 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                    <td class="projectCells" align="right">closed</td>
                 </tr>
 
                 <tr valign="top">
-                    <td class="formTextOdd">&#160;&#160;&#160;&#160;Application Authentication</td>
-                    <td class="formTextOdd" align="center">$2,826</td>
-                    <td class="formTextOdd" align="center">$855</td>
-                    <td class="formTextOdd" align="center">closed</td>
+                    <td class="projectCells"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Application Authentication</td>
+                    <td class="projectCells" align="right">$2,826 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                    <td class="projectCells" align="right">$855 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                    <td class="projectCells" align="right">closed</td>
                 </tr>
                 <!--
                 <tr valign="top">
-                    <td class="formTextOdd"><a href="?t=development&amp;c=email_tool_enhancements">Email Tool Enhancements</a></td>
-                    <td class="formTextOdd" align="center">$1,290</td>
-                    <td class="formTextOdd" align="center">$420</td>
-                    <td class="formTextOdd" align="center">closed</td>
+                    <td class="projectCells"><a href="?t=development&amp;c=email_tool_enhancements">Email Tool Enhancements</a></td>
+                    <td class="projectCells" align="center">$1,290</td>
+                    <td class="projectCells" align="center">$420</td>
+                    <td class="projectCells" align="center">closed</td>
                 </tr>
                 -->
 
@@ -114,75 +114,75 @@
 
             <br/>
 
-            <table border="0" cellspacing="0" cellpadding="5" width="100%">
-                <tr valign="middle"><td bgcolor="#999999" class="statText" colspan="4"><font size="3"><strong>Open Application Development Projects</strong></font></td></tr>
+            <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
+                <tr valign="middle"><td class="projectTitles" colspan="4">Open Application Development Projects</td></tr>
 
                 <tr valign="middle">
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" nowrap="nowrap">Project</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center" nowrap="nowrap">Winning Developer</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center" nowrap="nowrap">Second Place</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center" nowrap="nowrap">Inquire By</td>
+                    <td class="projectHeaders" nowrap="nowrap" width="75%">Project</td>
+                    <td class="projectHeaders" align="center" nowrap="nowrap">Winning Developer</td>
+                    <td class="projectHeaders" align="center" nowrap="nowrap">Second Place</td>
+                    <td class="projectHeaders" align="right" nowrap="nowrap" width="25%">Inquire By</td>
                 </tr>
 
                 <!--
                <tr valign="top">
-                    <td align="center" colspan="4" class="formTextOdd">No New Projects Available</td>
+                    <td align="center" colspan="4" class="projectCells">No New Projects Available</td>
                </tr>
                -->
                <tr valign="top">
-                    <td class="formTextOdd" colspan="4"><a href="?t=development&amp;c=single_sign_on_v10_dev">Single Sign-On (SSO)</a></td>
+                    <td class="projectCells" colspan="4"><a href="?t=development&amp;c=single_sign_on_v10_dev">Single Sign-On (SSO)</a></td>
                </tr>
                <tr valign="top">
-                    <td class="formTextOdd">&#160;&#160;&#160;&#160;Security Server EJB Interface</td>
-                    <td class="formTextOdd" align="center">$980</td>
-                    <td class="formTextOdd" align="center">$350</td>
-                    <td class="formTextOdd" align="center">closed</td>
+                    <td class="projectCells"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Security Server EJB Interface</td>
+                    <td class="projectCells" align="right">$980 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                    <td class="projectCells" align="right">$350 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                    <td class="projectCells" align="right">closed</td>
                </tr>
                <tr valign="top">
-                    <td class="formTextOdd">&#160;&#160;&#160;&#160;Security Server SAML Interface</td>
-                    <td class="formTextOdd" align="center">$980</td>
-                    <td class="formTextOdd" align="center">$350</td>
-                    <td class="formTextOdd" align="center">closed</td>
+                    <td class="projectCells"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Security Server SAML Interface</td>
+                    <td class="projectCells" align="right">$980 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                    <td class="projectCells" align="right">$350 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                    <td class="projectCells" align="right">closed</td>
                </tr>
                <tr valign="top">
-                    <td class="formTextOdd">&#160;&#160;&#160;&#160;Portal Adapter</td>
-                    <td class="formTextOdd" align="center">$630</td>
-                    <td class="formTextOdd" align="center">$225</td>
-                    <td class="formTextOdd" align="center">closed</td>
+                    <td class="projectCells"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Portal Adapter</td>
+                    <td class="projectCells" align="right">$630 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                    <td class="projectCells" align="right">$225 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                    <td class="projectCells" align="right">closed</td>
                </tr>
                <tr valign="top">
-                    <td class="formTextOdd">&#160;&#160;&#160;&#160;JSP-Based Application Authenticators</td>
-                    <td class="formTextOdd" align="center">$805</td>
-                    <td class="formTextOdd" align="center">$287</td>
-                    <td class="formTextOdd" align="center">closed</td>
+                    <td class="projectCells"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;JSP-Based Application Authenticators</td>
+                    <td class="projectCells" align="right">$805 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                    <td class="projectCells" align="right">$287 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                    <td class="projectCells" align="right">closed</td>
                </tr>
                <tr valign="top">
-                    <td class="formTextOdd">&#160;&#160;&#160;&#160;WebConnect-based Application Authentication</td>
-                    <td class="formTextOdd" align="center">$805</td>
-                    <td class="formTextOdd" align="center">$287</td>
-                    <td class="formTextOdd" align="center">closed</td>
+                    <td class="projectCells"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;WebConnect-based Application Authentication</td>
+                    <td class="projectCells" align="right">$805 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                    <td class="projectCells" align="right">$287 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                    <td class="projectCells" align="right">closed</td>
                </tr>
                <tr valign="top">
-                    <td class="formTextOdd" colspan="4"><a href="?t=development&amp;c=online_gift_card_v10_dev">Online Gift Card Sales</a></td>
+                    <td class="projectCells" colspan="4"><a href="?t=development&amp;c=online_gift_card_v10_dev">Online Gift Card Sales</a></td>
                </tr>
                <tr valign="top">
-                    <td class="formTextOdd">&#160;&#160;&#160;&#160;Site Development</td>
-                    <td class="formTextOdd" align="center">$833</td>
-                    <td class="formTextOdd" align="center">$313</td>
-                    <td class="formTextOdd" align="center">closed</td>
+                    <td class="projectCells"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Site Development</td>
+                    <td class="projectCells" align="right">$833 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                    <td class="projectCells" align="right">$313 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                    <td class="projectCells" align="right">closed</td>
                </tr>
                <tr valign="top">
-                    <td class="formTextOdd">&#160;&#160;&#160;&#160;Supporting Operations</td>
-                    <td class="formTextOdd" align="center">$333</td>
-                    <td class="formTextOdd" align="center">$125</td>
-                    <td class="formTextOdd" align="center">closed</td>
+                    <td class="projectCells"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Supporting Operations</td>
+                    <td class="projectCells" align="right">$333 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                    <td class="projectCells" align="right">$125 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                    <td class="projectCells" align="right">closed</td>
                </tr>
                <!--
                <tr valign="top">
-                    <td class="formTextOdd"><a href="?t=development&amp;c=admin_tool_enhancements_dev">Admin Tool Enhancements</a></td>
-                    <td class="formTextOdd" align="center">$2,200</td>
-                    <td class="formTextOdd" align="center">$665</td>
-                    <td class="formTextOdd" align="center">closed</td>
+                    <td class="projectCells"><a href="?t=development&amp;c=admin_tool_enhancements_dev">Admin Tool Enhancements</a></td>
+                    <td class="projectCells" align="center">$2,200</td>
+                    <td class="projectCells" align="center">$665</td>
+                    <td class="projectCells" align="center">closed</td>
                 </tr>
 
 
