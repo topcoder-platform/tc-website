@@ -29,19 +29,6 @@ public class DemographicAnswerText  extends TagSupport {
             DemographicQuestion question = (DemographicQuestion)questions.get(new Long(response.getQuestionId()));
             String ret = "";
 
-
-            for (Iterator it = questions.values().iterator(); it.hasNext();) {
-                StringBuffer buf = new StringBuffer(100);
-                DemographicQuestion q = (DemographicQuestion)it.next();
-                buf.append("question: " + q.getText() + "  ");
-                for (Iterator it1 = q.getAnswers().iterator(); it1.hasNext();) {
-                    DemographicAnswer a = (DemographicAnswer)it1.next();
-                    buf.append(a.getText() + " ");
-                }
-                log.debug(buf.toString());
-            }
-
-
             if (question.getAnswerType()==DemographicQuestion.FREE_FORM) {
                 ret = response.getText();
             } else if (question.getAnswerType()==DemographicQuestion.SINGLE_SELECT) {

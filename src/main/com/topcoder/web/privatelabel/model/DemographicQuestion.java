@@ -95,6 +95,7 @@ public class DemographicQuestion extends Base implements Comparable {
      * @return
      */
     public DemographicAnswer getAnswer(long answerId) {
+        log.debug("get: " + answerId);
         Long key = new Long(answerId);
         DemographicAnswer ret = null;
         if (answers.containsKey(key))
