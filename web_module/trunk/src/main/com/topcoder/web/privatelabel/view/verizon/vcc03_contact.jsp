@@ -71,7 +71,7 @@
                                 Taramani, Chennai 600 113<br />
                                 India</p>
 
-
+                        <p><strong>Contact Us: <A href="mailto:vcc@topcoder.com">vcc@topcoder.com</A></strong></p>
                         
 
                         <p><img src="/i/clear.gif" width="427" height="20" border="0"/></p>
