@@ -4,7 +4,7 @@
   <xsl:template name="module_login">
       		<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" VALIGN="top" WIDTH="170">
               	<TR> 
-                	<TD CLASS="moduleTitle" BGCOLOR="#990000" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="17" VALIGN="middle"><IMG SRC="/i/label_login.gif" ALT="Member Login" WIDTH="170" HEIGHT="17" BORDER="0"/></TD>
+                	<TD CLASS="moduleTitle" BGCOLOR="#990000" HEIGHT="17" VALIGN="middle"><IMG SRC="/i/label_login.gif" ALT="Member Login" WIDTH="170" HEIGHT="17" VSPACE="3" BORDER="0"/></TD>
               	</TR>        		
         		<TR> 
           			<TD BGCOLOR="#43515E" VALIGN="top"> 
