@@ -31,7 +31,7 @@
     <img src="/i/clear.gif" width="500" height="1" vspace="5" border="0"><br/>
 
 <tc-webtag:errorIterator id="err" name="problemRating"><%=err%><br/></tc-webtag:errorIterator>
-<form name="ratings" action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="GET">
+<form name="ratings" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="GET">
 <input type="hidden" name="module" value="SubmitRatings">
 <input type="hidden" name="pid" value="<%= request.getParameter("pid") %>">
     <table BORDER="0" CELLSPACING="0" CELLPADDING="6" WIDTH="500" align="center" class="sidebarBox">

@@ -11,7 +11,7 @@
         <form name=frmConfig method=post enctype="multipart/form-data" action="/tc">
         <input type="hidden" name="module" value="PDFGenerator"/>
         <input type="hidden" name="process" value="true" />
-        <input type="hidden" name="uid" value="<jsp:getProperty name="configInfo" property="UserID"/>" />
+        <input type="hidden" name="uid" value="<jsp:getProperty name="configInfo" property="userID"/>" />
         <b>Profile Config</b><br />
         <table border=0>
             <tr>
@@ -19,7 +19,7 @@
                     <b>Handle:</b>
                 </td>
                 <td>
-                    <jsp:getProperty name="configInfo" property="Handle"/>
+                    <jsp:getProperty name="configInfo" property="handle"/>
                 </td>
             </tr>
             <tr>
@@ -27,7 +27,7 @@
                     <b>Name:</b>
                 </td>
                 <td>
-                    <jsp:getProperty name="configInfo" property="Name"/>
+                    <jsp:getProperty name="configInfo" property="name"/>
                 </td>
             </tr>
             <tr>

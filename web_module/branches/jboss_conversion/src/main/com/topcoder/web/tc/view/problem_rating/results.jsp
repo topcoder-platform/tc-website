@@ -119,7 +119,7 @@
         <tc:problemRatingResultIterator list="<%=problemRatingResults%>" id="result">
         <tr>
             <td class="sidebarText">
-                <jsp:getProperty name="result" property="Question"/>
+                <jsp:getProperty name="result" property="question"/>
             </td>
             <td class="sidebarText" align="center">
                 <tc-tags:format object="<%=result.getOverallAverage()%>" format="0.00"/>

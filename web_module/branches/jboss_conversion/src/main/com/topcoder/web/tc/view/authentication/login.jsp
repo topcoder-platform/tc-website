@@ -71,12 +71,12 @@ function submitEnter(e) {
                         and we can send it to you via email.</p>
 
                         <p><b>New to TopCoder?</b><br/>
-                        <A class="bodyText" href="https://<jsp:getProperty name="sessionInfo" property="ServerName"/>/Registration">Register now.</A>
+                        <A class="bodyText" href="https://<jsp:getProperty name="sessionInfo" property="serverName"/>/Registration">Register now.</A>
                         After you complete the registration process, we will send your account activation code via email.</p>
                     </td>
                 </tr>
                 <tr valign="middle">
-                  <form method="post" name="frmLogin" action="<jsp:getProperty name="sessionInfo" property="SecureAbsoluteServletPath"/>">
+                  <form method="post" name="frmLogin" action="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>">
                     <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= nextpage %>">
                     <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="Login">
                     <td class="bodyText" align="center">

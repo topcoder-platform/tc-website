@@ -105,12 +105,12 @@ document.write( 'id="tc_card" ');
 document.write( 'align="middle"&gt; ');
 document.write( '&lt;param name="allowScriptAccess" value="sameDomain" /&gt; ');
 document.write( '&lt;param name="movie" ');
-document.write( 'value="http://www.topcoder.com/i/card/tc_card.swf?memberID=<jsp:getProperty name="sessionInfo" property="UserId"/>"/&gt; ');
+document.write( 'value="http://www.topcoder.com/i/card/tc_card.swf?memberID=<jsp:getProperty name="sessionInfo" property="userId"/>"/&gt; ');
 document.write( '&lt;param name="menu" value="false" /&gt; ');
 document.write( '&lt;param name="quality" value="high" /&gt; ');
 document.write( '&lt;param name="bgcolor" value="#ffffff" /&gt; ');
 document.write( '&lt;embed ');
-document.write( 'src="http://www.topcoder.com/i/card/tc_card.swf?memberID=<jsp:getProperty name="sessionInfo" property="UserId"/>" ');
+document.write( 'src="http://www.topcoder.com/i/card/tc_card.swf?memberID=<jsp:getProperty name="sessionInfo" property="userId"/>" ');
 document.write( 'menu="false" ');
 document.write( 'quality="high" ');
 document.write( 'bgcolor="#ffffff" ');
@@ -166,12 +166,12 @@ height="410"
 id="tc_card"
 align="middle"&gt;
 &lt;param name="allowScriptAccess" value="sameDomain" /&gt;
-&lt;param name="movie" value="http://www.topcoder.com/i/card/tc_card.swf?memberID=<jsp:getProperty name="sessionInfo" property="UserId"/>"/&gt;
+&lt;param name="movie" value="http://www.topcoder.com/i/card/tc_card.swf?memberID=<jsp:getProperty name="sessionInfo" property="userId"/>"/&gt;
 &lt;param name="menu" value="false" /&gt;
 &lt;param name="quality" value="high" /&gt;
 &lt;param name="bgcolor" value="#ffffff" /&gt;
 &lt;embed
-src="http://www.topcoder.com/i/card/tc_card.swf?memberID=<jsp:getProperty name="sessionInfo" property="UserId"/>"
+src="http://www.topcoder.com/i/card/tc_card.swf?memberID=<jsp:getProperty name="sessionInfo" property="userId"/>"
 menu="false"
 quality="high"
 bgcolor="#ffffff"
