@@ -7,6 +7,7 @@
          autoFlush="false" %>
 <% BasicAuthentication auth = new BasicAuthentication(new SessionPersistor(request.getSession(true)), request, response);
    User activeUser = auth.getActiveUser();
+   boolean isHomePage = "true".equals(request.getParameter("isHomePage"));
 %>
 <a name="top"/>
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#333333">    
@@ -22,12 +23,17 @@
 <% } else { %>
             <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Logout" class="globalNavSmall" target="_parent">Logout</a>&#160;&#160;|&#160;&#160;
 <% } %>
-            <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=index" target="_parent" class="globalNavSmall">Home</a></td>
+<% if (isHomePage) { %>
+            <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=index" target="_parent" class="globalNavSmall">Home</a>
+<% } else { %>
+         this is not the home page something else belongs here
+<%  } %>
+            </td>
         <td width="15" bgcolor="#333333"><img src="/i/clear.gif" width="15" height="1" border="0" vspace="8" /></td>
     </tr>
 </table>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">            
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">
     <tr valign="middle">
         <td width="15" bgcolor="#000000"><a name="top"></a><img src="/i/clear.gif" width="15" height="1" border="0" /></td>
         <td width="206" bgcolor="#000000"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=index" target="_parent"><img src="/i/logo.gif" width="206" height="49" border="0" vspace="13" /></a></td>
