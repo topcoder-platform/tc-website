@@ -32,24 +32,27 @@
 <!-- Center Column Begins -->
          <td class="bodyText" width="100%">
 
-<table width="100%" align="center" border="0" cellpadding="0" cellspacing="10">
+<table width="550" align="center" border="0" cellpadding="0" cellspacing="10">
 	<tr><td colspan="2" class="bodyText">
 		<div align="center"><img src="/i/tournament/tccc05/monitor_logo.jpg" width="424" height="336" border="0"/></div>
 	
-		<p>The 2005 TopCoder Collegiate Challenge is an international programming tournament that will 
-		bring together some of the world's best young minds in head-to-head competition. The tournament has two tracks: </p>
+		<p><strong>The 2005 TopCoder Collegiate Challenge is an international programming tournament that<br/> 
+		will bring together some of the world's best young minds in head-to-head competition. The tournament has two tracks:</strong></p>
 	
 	</td></tr>
 	<tr>
 		<td valign="top">
-            <table width="300" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+            <table width="250" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td class="sidebarTitle">ALGORITHM COMPETITION</td>
                 </tr>
 
                 <tr>
                     <td class="sidebarText">WHAT:<br/>
-                    A timed coding competition with immediate results </td>
+                    	<ul>
+                    		<li>A timed coding competition with immediate results</li>
+                    	</ul>
+                    </td>
                 </tr>
 
                 <tr>
@@ -87,21 +90,26 @@
                 <tr>
                     <td class="sidebarText">WHO CAN PARTICIPATE:
                     	<ul>
-                    		<li>Any TopCoder member who is 18 years of age or older and a matriculated full-time student at an accredited college or university can participate</li> 
+                    		<li>Any TopCoder member* who is 18 years of age or older and a matriculated full-time student at an accredited college or university can participate</li> 
 							<li>The top 24 finishers in the online rounds will advance to the onsite Semifinal and Championship rounds</li>
 						</ul>
+						*If you're not already a TopCoder member<br/><a href="/reg/index.jsp">click here</a> to register.
 					</td>
                 </tr>
             </table>
 		</td>
 		<td>   	
-            <table width="300" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+            <table width="250" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td class="sidebarTitle">COMPONENT COMPETITION</td>
                 </tr>
 
                 <tr>
-                    <td class="sidebarText">WHAT:<br/>A competition to design and develop functional, reusable software components</td>
+                    <td class="sidebarText">WHAT:<br/>
+                    	<ul>
+                    		<li>A competition to design and develop functional, reusable software components</li>
+                    	</ul>
+                    </td>
                 </tr>
 
                 <tr>
@@ -138,9 +146,10 @@
                 <tr>
                     <td class="sidebarText">WHO CAN PARTICIPATE:
                     	<ul>
-                    		<li>Any TopCoder member who is 18 years of age or older and a matriculated full-time student at an accredited college or university can participate</li>
+                    		<li>Any TopCoder member* who is 18 years of age or older and a matriculated full-time student at an accredited college or university can participate</li>
 							<li>The top 4 Designers and the top 4 Developers will be present onsite for the announcement of the Component Competition results</li>
 						</ul>
+						*If you're not already a TopCoder member<br/><a href="/reg/index.jsp">click here</a> to register.
 					</td>
                 </tr>
             </table>
