@@ -649,6 +649,7 @@
                 <include name="com/topcoder/security/**/*.class" />
                 <include name="com/topcoder/common/web/util/Data.class"/>
                 <include name="com/topcoder/common/web/render/*.class"/>
+                <include name="com/fx4m/**/*.class" />
                 <exclude name="**/*Bean.class"/>
                 <exclude name="**/*Impl.class"/>
             </classes>
