@@ -10,6 +10,7 @@
   </xsl:template>
   <xsl:template name="Top">
   <xsl:param name="sectionName"></xsl:param>
+  <xsl:param name="level1"></xsl:param>
 
 <table width="100%" border="0" cellpadding="3" cellspacing="0" class="search">
     <tr valign="middle">
@@ -50,7 +51,14 @@
         <td width="206">
           <A target="_parent">
             <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/</xsl:attribute>
-            <img src="/i/logo_r.gif" width="206" height="49" border="0" vspace="5"/>
+                        <xsl:choose>
+                            <xsl:when test="$level1='development'">
+                                <img src="/i/logo.gif" width="206" height="49" border="0" vspace="5"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <img src="/i/logo_r.gif" width="206" height="49" border="0" vspace="5"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
           </A>
         </td>
         <td width="99%">
