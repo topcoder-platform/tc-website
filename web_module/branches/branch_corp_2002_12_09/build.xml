@@ -625,7 +625,7 @@
     </target>
         
     <target name="conditional-build-ejb-unit" unless="remake-ejb-unit">
-    <!-- recreate -->
+        <!-- recreate -->
         <property name="tmp-dir" value="${classes}/ejb-stuff"/>
         <delete dir="${tmp-dir}" />
         <mkdir dir="${tmp-dir}"/>
