@@ -56,9 +56,9 @@ if ( plugin ) {
          <div class="cardBody">
 
 <p>
-The TopCoder member base is an international community of computer programmers brought together through competition.  Our Algorithm competitions showcase developers' skills in solving complex mathematical and algorithmic problems.  Design and Development competitions give members an opportunity to build software components and applications that are sold to TopCoder clients.
+The TopCoder member base is an international community of computer programmers brought together through competition.  Our Algorithm competitions showcase developers' skills in solving complex mathematical and algorithmic problems.  Design and Development competitions give members an opportunity to build software components and applications that are sold to TopCoder clients.
 <br/><br/>
-TopCoder Cards are a snapshot of each member's performance to date. 
+TopCoder Cards are a snapshot of each member's performance to date. 
 </p>
 
 <br/>
