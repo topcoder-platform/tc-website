@@ -13,7 +13,6 @@ import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.rating.Rating;
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.ejb.user.UserAddress;
-import com.topcoder.web.ejb.jobposting.JobPostingServices;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
@@ -42,11 +41,18 @@ public class SimpleRegSubmit extends SimpleRegBase {
         if (hasErrors()) {
             getRequest().setAttribute("countryList", getCountryList());
             getRequest().setAttribute("stateList", getStateList());
-            setNextPage(Constants.SIMPLE_REG_PAGE);
             setDefaults(regInfo);
         } else {
             commit(regInfo);
             clearRegInfo();
+        }
+        setNextPage();
+    }
+
+    protected void setNextPage() {
+        if (hasErrors()) {
+            setNextPage(Constants.SIMPLE_REG_PAGE);
+        } else {
             setNextPage(Constants.SIMPLE_REG_SUCCESS_PAGE);
         }
         setIsNextPageInContext(true);
