@@ -6,6 +6,9 @@
 %>
 <%@ taglib uri="/query-taglib.tld" prefix="query"%>
 <jsp:useBean id="ModifyCommandTask" scope="request" class="com.topcoder.web.query.bean.ModifyCommandTask" />
+<%if (ModifyCommandTask.hasErrors())
+    System.out.println("XXX: some");
+  else System.out.println("XXX: none");%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
   <HEAD>

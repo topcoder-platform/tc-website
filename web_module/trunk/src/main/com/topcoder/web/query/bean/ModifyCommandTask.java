@@ -117,13 +117,13 @@ public class ModifyCommandTask extends BaseTask implements Task, Serializable {
             setDb(value);
         } else if (paramName.equalsIgnoreCase(Constants.COMMAND_ID_PARAM)) {
             setCommandId(Long.parseLong(value));
-        } else if (paramName.equalsIgnoreCase(Constants.COMMAND_ID_PARAM)) {
-            setCommandId(Long.parseLong(value));
+        } else if (paramName.equalsIgnoreCase(Constants.COMMAND_DESC_PARAM)) {
+            setCommandDesc(value);
         } else if (paramName.startsWith(Constants.GROUP_ID_PARAM)) {
             try {
                 setGroupId(Integer.parseInt(paramName.substring(Constants.GROUP_ID_PARAM.length())));
             } catch (NumberFormatException e) {
-                super.addError(Constants.SORT_ORDER_PARAM, e);
+                super.addError(Constants.GROUP_ID_PARAM, e);
             }
         }
 
