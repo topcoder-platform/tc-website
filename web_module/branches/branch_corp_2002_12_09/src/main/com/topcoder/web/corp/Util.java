@@ -1,15 +1,18 @@
 package com.topcoder.web.corp;
 
+import java.rmi.RemoteException;
+import javax.ejb.CreateException;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.transaction.NotSupportedException;
 import javax.transaction.SystemException;
 import javax.transaction.Transaction;
 import javax.transaction.TransactionManager;
 
+import com.topcoder.security.NoSuchUserException;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
-import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
 
 
@@ -38,14 +41,14 @@ public class Util {
      * transaction in the DB
      */
     public static Transaction beginTransaction()
-    throws NamingException, SystemException
+    throws NamingException, SystemException, NotSupportedException
     {
         InitialContext ic = null;
         try {
             ic = new InitialContext(Constants.JTA_CONTEXT_ENVIRONMENT);
             TransactionManager tm;
             tm = (TransactionManager)ic.lookup(Constants.JTA_TX_MANAGER);
-            ic.close();
+            tm.begin();
             return tm.getTransaction();
         }
         finally {
@@ -68,20 +71,58 @@ public class Util {
     }
 
     /**
-     * Pulls out TCSubject object for given user from DB
-     *
+     * Pulls out TCSubject object for given userID from DB
+     *  
+     * @param userID
      * @return TCSubject
+     * @throws NoSuchUserException there is not user for given handle in DB
      * @throws Exception some tech faults prevents to the operation completion
      */
-    public static TCSubject retrieveTCSubject(User u) throws Exception {
+    public static TCSubject retrieveTCSubject(long userID)
+    throws NoSuchUserException, Exception
+    {
+        PrincipalMgrRemote mgr = getPrincipalManager();
+        TCSubject ret = mgr.getUserSubject(userID);
+        log.debug("TCSubject retreived by ID ["+ret+"]");
+        return ret;
+    }
+    
+    /**
+     * Pulls out TCSubject object for given user handle from DB
+     *  
+     * @param handle
+     * @return TCSubject
+     * @throws NoSuchUserException there is not user for given handle in DB
+     * @throws Exception some tech faults prevents to the operation completion
+     */
+    public static TCSubject retrieveTCSubject(String handle)
+    throws NoSuchUserException, Exception
+    {
+        PrincipalMgrRemote mgr = getPrincipalManager();
+        TCSubject ret = mgr.getUserSubject(mgr.getUser(handle).getId());
+        log.debug("TCSubject retreived by handle ["+ret+"]");
+        return ret;
+    }
+    
+    /**
+     * Returns remote principal manager
+     * 
+     * @return PrincipalMgrRemote
+     * 
+     * @throws NamingException
+     * @throws CreateException
+     * @throws RemoteException
+     */
+    public static PrincipalMgrRemote getPrincipalManager()
+    throws NamingException, CreateException, RemoteException
+    {
         InitialContext ic = null;
         try {
             ic = new InitialContext(Constants.SECURITY_CONTEXT_ENVIRONMENT);
-            PrincipalMgrRemoteHome rHome =
-            (PrincipalMgrRemoteHome)ic.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
-            PrincipalMgrRemote mgr = rHome.create();
-            TCSubject ret = mgr.getUserSubject(u.getId());
-            log.debug("current TCSubject: "+ret);
+            PrincipalMgrRemoteHome rHome = (PrincipalMgrRemoteHome)
+                ic.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+
+            PrincipalMgrRemote ret = rHome.create();
             return ret;
         }
         finally {

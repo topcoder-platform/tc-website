@@ -98,7 +98,8 @@ public class MainServlet extends HttpServlet {
         RequestProcessor processorModule = null;
         
         try {
-            TCSubject tcUser = Util.retrieveTCSubject(authToken.getActiveUser());
+            TCSubject tcUser;
+            tcUser = Util.retrieveTCSubject(authToken.getActiveUser().getId());
             Authorization authorization = new TCESAuthorization(tcUser);
             boolean allowedToRun = false;
             allowedToRun = authorization.hasPermission(

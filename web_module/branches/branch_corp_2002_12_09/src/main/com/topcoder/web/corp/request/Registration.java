@@ -7,11 +7,11 @@ import javax.ejb.CreateException;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
-import javax.transaction.SystemException;
 import javax.transaction.Transaction;
 
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.NoSuchUserException;
+import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
@@ -23,6 +23,21 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.corp.Constants;
 import com.topcoder.web.corp.Util;
+import com.topcoder.web.corp.controller.MisconfigurationException;
+import com.topcoder.web.ejb.address.Address;
+import com.topcoder.web.ejb.address.AddressHome;
+import com.topcoder.web.ejb.company.Company;
+import com.topcoder.web.ejb.company.CompanyHome;
+import com.topcoder.web.ejb.email.Email;
+import com.topcoder.web.ejb.email.EmailHome;
+import com.topcoder.web.ejb.phone.Phone;
+import com.topcoder.web.ejb.phone.PhoneHome;
+import com.topcoder.web.ejb.user.Contact;
+import com.topcoder.web.ejb.user.ContactHome;
+import com.topcoder.web.ejb.user.User;
+import com.topcoder.web.ejb.user.UserAddress;
+import com.topcoder.web.ejb.user.UserAddressHome;
+import com.topcoder.web.ejb.user.UserHome;
 
 /**
  * This class contains logic Primary registration.
@@ -37,6 +52,7 @@ public class Registration extends BaseProcessor {
     public static final String KEY_FIRSTNAME    = "prim-first-name";
     public static final String KEY_LASTNAME     = "prim-last-name";
     public static final String KEY_TITLE        = "prim-title";
+    public static final String KEY_COMPANY      = "prim-company-name";
     public static final String KEY_ADDRLINE1    = "prim-company-address-1";
     public static final String KEY_ADDRLINE2    = "prim-company-address-2";
     public static final String KEY_CITY         = "prim-company-city";
@@ -53,6 +69,7 @@ public class Registration extends BaseProcessor {
 	private String firstName;
 	private String lastName;
 	private String title;
+    private String company;
 	private String compAddress1;
 	private String compAddress2;
 	private String city;
@@ -66,7 +83,10 @@ public class Registration extends BaseProcessor {
 
 	private String email;
 	private String email2;
-
+    
+    private boolean stateFieldEmpty = false;
+    private boolean countryFieldEmpty = false;
+    
 	public Registration() {
         pageInContext = true;
         // For this processor next page is always in the context. It is either
@@ -92,6 +112,7 @@ public class Registration extends BaseProcessor {
     	firstName      = (String) request.getParameter(KEY_FIRSTNAME);
     	lastName       = (String) request.getParameter(KEY_LASTNAME);
     	title          = (String) request.getParameter(KEY_TITLE);
+        company        = (String) request.getParameter(KEY_COMPANY);
     	compAddress1   = (String) request.getParameter(KEY_ADDRLINE1);
     	compAddress2   = (String) request.getParameter(KEY_ADDRLINE2);
     	city           = (String) request.getParameter(KEY_CITY);
@@ -105,6 +126,16 @@ public class Registration extends BaseProcessor {
     	email          = (String) request.getParameter(KEY_EMAIL1);
     	email2         = (String) request.getParameter(KEY_EMAIL2);
         
+        try {
+            stateFieldEmpty = Integer.parseInt(state) == -1;
+        }
+        catch(Exception ignore ) {}
+        
+        try {
+            countryFieldEmpty = Integer.parseInt(country) == -1;
+        }
+        catch(Exception ignore ) {}
+
         boolean formDataValid = isValid();
         if( formDataValid ) {
         	log.debug("data entered seem to be valid");
@@ -143,6 +174,12 @@ public class Registration extends BaseProcessor {
             "Ensure title is not empty, consists of letters and punctuation signs only"
         );
 
+        ret &= // company name validity (optional)
+        checkItemValidity(KEY_COMPANY, company,
+            StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, false, 7,
+            "Ensure company name consists of letters, digits and punctuation signs only (no more than 7 words)"
+        );
+
         ret &= // addr line 1 validity (optional)
         checkItemValidity(KEY_ADDRLINE1, compAddress1, 
             StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, false, 7,
@@ -160,20 +197,24 @@ public class Registration extends BaseProcessor {
             StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, false, 3,
             "Ensure city is not empty, consists of letters, digits and punctuation signs only (no more than 3 words)"
         );
-    	
-        ret &= // state validity (optional)
-        checkAgainstDB(
-            KEY_STATE, 
-            state, 
-            "Please choose state from the list carefully"
-        );
 
-        ret &= // country validity (optional)
-        checkAgainstDB(
-            KEY_COUNTRY,
-            country,
-            "Please choose country from the list carefully"
-        );
+        if( !stateFieldEmpty ) {    	
+            ret &= // state validity (optional)
+            checkAgainstDB(
+                KEY_STATE, 
+                state,
+                "Please choose state from the list carefully"
+            );
+        }
+
+        if( !countryFieldEmpty ) {
+            ret &= // country validity (optional)
+            checkAgainstDB(
+                KEY_COUNTRY,
+                country,
+                "Please choose country from the list carefully"
+            );
+        }
 
     	ret &= // zip validity (optional)
     	checkItemValidity(KEY_ZIP, zip, StringUtils.ALPHABET_DIGITS_EN, 
@@ -275,42 +316,145 @@ public class Registration extends BaseProcessor {
      * ready).
      */
     private void makePersistent()
-    throws SystemException, NamingException
+    throws MisconfigurationException, RemoteException, CreateException,
+            NamingException, Exception 
     {
-        //well, general scheme is
-        
-        // trying to start transaction
-        Transaction tx = Util.beginTransaction();
-        
-        // trying to store data
-        InitialContext ic = null;
+        // first of all we are needed in TCSubject of web-application itself
+        // it must be supplied when creating security user via security
+        // component
+        TCSubject corpAppSubject = null;
         try {
-            // store data in DB via EJB, eg.
-            
-//            // working with first ejb
-//            ic = new InitialContext();
-//            Object  l = ic.lookup(CountryMgrHome.EJB_REF_NAME);
-//            CountryMgrHome cmgrHome = (CountryMgrHome)l;
-//            CountryMgr mgr = cmgrHome.create();
-//            mgr.create("US", "United States of America");
-//
-//            Country [] lst = mgr.listByName("%");
-//            for( int i=0; i<lst.length; ++i ) {
-//                // some actions here
-//            }
-//
-//            // now working with other ejb
-//            l = ic.lookup(CompanyHome.EJB_REF_NAME);
-//            CompanyHome cmpHome = (CompanyHome)l;
-//            Company cmp = cmpHome.create();
-//            tx.commit(); // confirm tarnsaction - if all is ok
+            corpAppSubject = Util.retrieveTCSubject(Constants.CORP_PRINCIPAL);
         }
-        catch(Exception e) {
-            tx.rollback(); // roll failed transaction back
-//            throw e; 
+        catch(Exception cause) {
+            throw new MisconfigurationException(
+                "Can't retrieve TCSubject for corp web application",
+                cause
+            );
+        }
+        
+        // will create security user at first
+        PrincipalMgrRemote mgr = null;
+        InitialContext icEJB = null;
+        Transaction tx = null;
+        UserPrincipal newSecurityUser = null;
+        try {
+            mgr = Util.getPrincipalManager();
+            newSecurityUser = mgr.createUser(userName, password, corpAppSubject);
+            icEJB = new InitialContext(Constants.EJB_CONTEXT_ENVIRONMENT);
+            long userID = newSecurityUser.getId();
+            
+            // transaction boundary
+            tx = Util.beginTransaction();
+
+            // user first, last names            
+            User userTable = (
+                (UserHome)icEJB.lookup(UserHome.EJB_REF_NAME)
+            ).create();
+            userTable.createUser(userID);
+            userTable.setFirstName(userID, firstName);
+            userTable.setLastName(userID, lastName);
+            
+            // company item for user
+            Company companyTable = ( 
+                (CompanyHome)icEJB.lookup(CompanyHome.EJB_REF_NAME)
+            ).create();
+            long companyID = companyTable.createCompany();
+            companyTable.setName(companyID, company);
+
+            // link primary user with company            
+            Contact contactTable = (
+                (ContactHome)icEJB.lookup(ContactHome.EJB_REF_NAME)
+            ).create();            
+            contactTable.createContact(companyID, userID);
+            contactTable.setTitle(userID, title);
+            companyTable.setPrimaryContactId(companyID, userID);
+            
+            // setup email for user
+            Email emailTable = (
+                (EmailHome)icEJB.lookup(EmailHome.EJB_REF_NAME)
+            ).create();
+            long emailID = emailTable.createEmail(userID);
+            emailTable.setAddress(userID, emailID, email);
+            
+            // create address item for user
+            Address addrTable = (
+                (AddressHome)icEJB.lookup(AddressHome.EJB_REF_NAME)
+            ).create();
+            long addrID = addrTable.createAddress();
+            addrTable.setAddress1(addrID, compAddress1);
+            addrTable.setAddress2(addrID, compAddress2);
+            addrTable.setCity(addrID, city);
+            if( !stateFieldEmpty ) {
+                addrTable.setStateCode(addrID, state);
+            }
+            addrTable.setZip(addrID, zip);
+            if( ! countryFieldEmpty ) {
+                addrTable.setCountryCode(addrID, country);
+            }
+            
+            // link address to the user
+            UserAddress xrefUserAddr = (
+                (UserAddressHome)icEJB.lookup(UserAddressHome.EJB_REF_NAME)
+            ).create();
+            xrefUserAddr.createUserAddress(userID, addrID);
+            
+            // phone
+            Phone phoneTable = (
+                (PhoneHome)icEJB.lookup(PhoneHome.EJB_REF_NAME)
+            ).create();
+            long phoneID = phoneTable.createPhone(userID);
+            phoneTable.setNumber(userID, phoneID, phone);
+            
+            int t = 0;
+            System.err.println(1/t);
+            tx.commit();
+        }
+        catch(Exception exc) {
+            rollbackRoutine(tx, newSecurityUser, mgr, corpAppSubject);
+            throw exc;
         }
         finally {
-            Util.closeIC(ic);
+            Util.closeIC(icEJB);
+        }
+    }
+
+    /**
+     * Performs transaction rollback
+     * 
+     * @param tx
+     * @param user
+     * @param mgr
+     * @param corpAppSubject
+     */    
+    private void rollbackRoutine(
+        Transaction tx,
+        UserPrincipal user,
+        PrincipalMgrRemote mgr,
+        TCSubject corpAppSubject
+    )
+    {
+        if( tx != null ) {
+            log.error("rolling transaction back "+tx);
+            try {
+                tx.rollback();
+            }
+            catch(Exception ignore) {
+                ignore.printStackTrace();
+                log.error("tx.roolback(): op has failed");
+            }
+        }
+        if( user != null ) {
+            // security user creation is performed by the remote component
+            // (thus, outside of transaction scope) so we have remove it
+            // by hands
+            try {
+                mgr.removeUser(user, corpAppSubject);
+            }
+            catch(Exception ignore) {
+                ignore.printStackTrace();
+                log.error("tx.roolback(): removing of security user has failed");
+            }
         }
     }
     
@@ -390,7 +534,12 @@ public class Registration extends BaseProcessor {
      * @param message
      * @return boolean
      */    
-    private boolean checkAgainstDB(String key, String value, String message) {
+    private boolean checkAgainstDB(
+        String key,
+        String value,
+        String message
+    )
+    {
         InitialContext ic = null;
         boolean techProblems = false;
         boolean success = false;
@@ -437,6 +586,9 @@ public class Registration extends BaseProcessor {
                 );
                 return false;
             }
+        }
+        if( !success ) {
+            markFormFieldAsInvalid(key, message);
         }
         return success;
     }

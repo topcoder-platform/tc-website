@@ -28,6 +28,8 @@ public class Constants {
     private static final String KEY_EJB_CONTEXT_FACTORY = "ejb-context-factory";
     private static final String KEY_EJB_PROVIDER_URL    = "ejb-provider-url";
 
+    private static final String KEY_CORP_PRINCIPAL      = "corp-web-app-principal";
+
     // and their defaults
     private static final String DEF_SECURITY_CONTEXT_FACTORY =
         "org.jnp.interfaces.NamingContextFactory";
@@ -55,6 +57,8 @@ public class Constants {
 
     private static final String DEF_EJB_PROVIDER_URL =
         DEF_JTA_PROVIDER_URL;
+
+    private static final String DEF_CORP_PRINCIPAL      = "corp_user";
 
     private static final TCResourceBundle store;
     
@@ -97,8 +101,14 @@ public class Constants {
      */
     public static String NDS_DATA_SOURCE = null;
 
+    public static String CORP_PRINCIPAL = null;
+
     static {
         store = new TCResourceBundle("CorpConstants");
+        
+        CORP_PRINCIPAL = store.getProperty(KEY_CORP_PRINCIPAL,
+                                           DEF_CORP_PRINCIPAL
+        );
 
         JTA_TX_MANAGER = store.getProperty(KEY_JTA_TX_MANAGER,
                                            DEF_JTA_TX_MANAGER

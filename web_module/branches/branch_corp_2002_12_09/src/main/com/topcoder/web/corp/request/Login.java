@@ -57,12 +57,12 @@ public class Login extends BaseProcessor {
         if( ! authToken.getUser().isAnonymous() ) {
             throw new AuthenticationException("Already logged in. Try logout at first");
         }
-        if( ! "POST".equals(request.getMethod()) ) {
-            pageInContext = true;
-            nextPage = SessionPersistor.getInstance(request.getSession(true))
-                       .popLastPage();
-            return;
-        }
+//        if( ! "POST".equals(request.getMethod()) ) {
+//            pageInContext = true;
+//            nextPage = SessionPersistor.getInstance(request.getSession(true))
+//                       .popLastPage();
+//            return;
+//        }
         
         boolean miniLogin = false;
         try {

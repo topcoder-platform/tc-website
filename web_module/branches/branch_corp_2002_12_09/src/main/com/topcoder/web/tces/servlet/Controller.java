@@ -3,7 +3,7 @@ package com.topcoder.web.tces.servlet;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tces.bean.Task;
-import com.topcoder.web.tces.bean.LoginTask;
+//import com.topcoder.web.tces.bean.LoginTask;
 import com.topcoder.web.tces.common.TCESConstants;
 import com.topcoder.web.tces.common.TCESAuthenticationException;
 import com.topcoder.common.web.util.Data;
@@ -124,7 +124,7 @@ public class Controller extends HttpServlet {
                 task.setAuthToken(authToken);
 
                 TCSubject tcUser = Util.retrieveTCSubject(
-                    authToken.getActiveUser() 
+                    authToken.getActiveUser().getId()
                 );
                 Authorization authorize = new TCESAuthorization(tcUser);
                 Resource taskResource = new ProcessorResource(task);

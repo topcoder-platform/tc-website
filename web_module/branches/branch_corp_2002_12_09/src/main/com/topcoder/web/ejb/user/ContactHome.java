@@ -11,6 +11,7 @@ import java.rmi.RemoteException;
  * @version $Revision$
  */
 public interface ContactHome extends javax.ejb.EJBHome {
+    public static final String EJB_REF_NAME = ContactHome.class.getName();
     /**
      *
      * Creates the remote Contact EJB object

@@ -21,7 +21,8 @@ public class TryAuthorization extends BaseProcessor {
      */
     void businessProcessing() throws Exception {
         log.debug("entering TryAuthorization module");
-        TCSubject user = Util.retrieveTCSubject(authToken.getActiveUser());
+        TCSubject user;
+        user = Util.retrieveTCSubject(authToken.getActiveUser().getId());
         TCESAuthorization perm = new TCESAuthorization(user);
         
         String rcName = request.getParameter("rc-name");
