@@ -81,7 +81,7 @@
                                             <a href="#eligibility">Eligibility</a> |
                                             <a href="#timeline">Timeline</a> |
                                             <a target="_new" href="/i/development/downloads/OSSJTCKTestProxyApplicationSpec_v10.pdf">Requirement Specification</a> |
-                                            Inquire
+                                            <a href="#inquire">Inquire</a>
                                         </p>
 
                                         <!-- Overview -->
@@ -98,7 +98,7 @@
                                             
                                             <p>In order to make the process of developing test cases more efficient, the OSS/J community has asked TopCoder to initially develop an OSS/J Test Proxy that will provide a mechanism for utilizing the same junit test cases as they exist today, but execute the tests through any desired integration profile (i.e. JMS/XML, SOAP).</p>
                                             
-                                            <p>IMPORTANT NOTE:  This design project is unique in that what we are requesting of the designer is to take the requirements that are laid out below and come up with a high-level architecture and list of components that will satisfy these requirements when packaged and used together.  The corresponding set of component requirements specifications will then be posted along with the winning design from this project so that the final components can be designed and developed separately.</p>
+                                            <p>IMPORTANT NOTE:  This design project is unique in that what we are requesting of the designer is to take the requirements that are laid out below and come up with a high-level design that identifies additional components that will satisfy these requirements when packaged and used together.  The designer must properly document the component requirements and interfaces within the Application Design Specification and Class Diagram. A corresponding set of component requirements specifications will then be posted along with the winning design from this project so that the final components can be designed and developed separately.</p>
 
                                         <p>
                                             <strong>View the
@@ -150,32 +150,32 @@
                                         </p>
 
                                         <p>
-                                            <strong>Sun OSSJ TCK Test Proxy<br/>
+                                            <strong>Sun OSS/J TCK Test Proxy<br/>
                                             Winning Designer</strong>
                                             <br/>
-                                            Total Payment - $1,200.00
+                                            Total Payment - $1,050.00
                                             <br/>
-                                            First Payment - $900.00
+                                            First Payment - $790.00
                                             <br/>
-                                            Second Payment - $300.00
+                                            Second Payment - $260.00
                                         </p>
 
                                         <p>
                                             <strong>Second Place Designer</strong>
                                             <br/>
-                                            Total Payment - $600.00
+                                            Total Payment - $300.00
                                         </p>
 
                                         <p>
                                             <strong>Reviewers</strong>
                                             <br/>
-                                            Primary Design Reviewer - $475.00
+                                            Primary Design Reviewer - $295.00
                                             <br/>
-                                            Design Reviewer - $460.00
+                                            Design Reviewer - $280.00
                                             <br/>
-                                            Design Reviewer - $460.00
+                                            Design Reviewer - $280.00
                                             <br/><br/>
-                                            Total - $4,005.00
+                                            Total - $2,205.00
                                         </p>
 
                                         <!-- Definition of Completion -->
@@ -187,7 +187,7 @@
                                         <ul>
                                             <li>The Submission has been selected by the board as the winning submission.</li>
                                             <li>Final fixes accepted by the design review board.</li>
-                                            <li>All components and/or application modules that are designed and developed as specified by the winning design are completed and accepted by the review board.</li>
+                                            <li>All components and/or application modules that are developed further using the winning designer's recommendations are completed and accepted by the review board.</li>
                                             <li>Application launch into production environment.</li>
                                         </ul>
 
@@ -280,7 +280,7 @@
 
                                         <p>
                                             <strong>
-                                                <a href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=OSSJ%20TCK%20Test%20Proxy">Inquire for the OSSJ TCK Test Proxy Project</a> to get selected as a designer and to obtain the information necessary to submit a solution.
+                                                <a name="inquire" href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=OSS/J%20TCK%20Test%20Proxy">Inquire for the OSS/J TCK Test Proxy Project</a> to get selected as a designer and to obtain the information necessary to submit a solution.
                                             </strong>
                                         </p>
                                         <!--
