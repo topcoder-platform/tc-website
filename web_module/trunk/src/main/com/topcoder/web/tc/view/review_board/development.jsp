@@ -91,7 +91,7 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=260911"><img src="/i/m/amitc _mug.gif" alt="amitc " width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=260911"><img src="/i/m/amitc_mug.gif" alt="amitc" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
                         <a class="bodyText" href="/stat?c=member_profile&amp;cr=260911"><strong>amitc</strong></a><span class="smallText"></span>
@@ -130,7 +130,7 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=152605"><img src="/i/m/georgepf  _mug.gif" alt="georgepf  " width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=152605"><img src="/i/m/georgepf_mug.gif" alt="georgepf" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
                         <a class="bodyText" href="/stat?c=member_profile&amp;cr=152605"><strong>georgepf</strong></a><span class="smallText"> graduated from MIT.</span>
@@ -182,10 +182,36 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=108262"><img src="/i/m/mathgodleo _mug.gif" alt="mathgodleo " width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=108262"><img src="/i/m/mathgodleo_mug.gif" alt="mathgodleo" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
                         <a class="bodyText" href="/stat?c=member_profile&amp;cr=108262"><strong>mathgodleo</strong></a><span class="smallText"> graduated from Caltech and enjoys seeing the different ways that different people can implement the same design by being on the review board.</span>
+                        </p>                       
+                     </td>
+                </tr>
+            </table>            
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=299904"><img src="/i/m/mishagam_mug.gif" alt="mishagam" width="63" height="70" border="0" /></a></td>
+                    <td width="99%" class="bodyText">
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=299904"><strong>mishagam</strong></a><span class="smallText"></span>
+                        </p>                       
+                     </td>
+                </tr>
+            </table>            
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=289824"><img src="/i/m/MPhk_mug.gif" alt="MPhk" width="63" height="70" border="0" /></a></td>
+                    <td width="99%" class="bodyText">
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=289824"><strong>MPhk</strong></a><span class="smallText"></span>
                         </p>                       
                      </td>
                 </tr>
@@ -234,6 +260,19 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=297731"><img src="/i/m/TheCois_mug.gif" alt="TheCois" width="63" height="70" border="0" /></a></td>
+                    <td width="99%" class="bodyText">
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=297731"><strong>TheCois</strong></a><span class="smallText"></span>
+                        </p>                       
+                     </td>
+                </tr>
+            </table>            
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr valign="top">
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=302018"><img src="/i/m/Tomson _mug.gif" alt="Tomson " width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
@@ -247,7 +286,7 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=158447"><img src="/i/m/vald _mug.gif" alt="vald " width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=158447"><img src="/i/m/vald_mug.gif" alt="vald" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
                         <a class="bodyText" href="/stat?c=member_profile&amp;cr=158447"><strong>ValD </strong></a><span class="smallText"> currently studies at the University of Albany and plans to graduate with honors.  In his spare time, he studies optimization problems and evolution strategies.  In fact, ValD believes he may be making progress towards a new evolution model. </span>
@@ -260,7 +299,7 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=265522"><img src="/i/m/veredox _mug.gif" alt="veredox " width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=265522"><img src="/i/m/veredox_mug.gif" alt="veredox" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
                         <a class="bodyText" href="/stat?c=member_profile&amp;cr=265522"><strong>veredox</strong></a><span class="smallText"> graduated with a BS in Network Computing from Northern Michigan University.  As a part of the review board, he wants to make sure TCS provides the highest quality components.</span>
@@ -338,6 +377,19 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=290448"><img src="/i/m/BryanChen_mug.gif" alt="BryanChen" width="63" height="70" border="0" /></a></td>
+                    <td width="99%" class="bodyText">
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=290448"><strong>BryanChen</strong></a><span class="smallText"></span>
+                        </p>                       
+                     </td>
+                </tr>
+            </table>            
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr valign="top">
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=303185"><img src="/i/clear.gif" alt="Cosmin.ro" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
@@ -377,6 +429,19 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=288429"><img src="/i/clear.gif" alt="jfjiang" width="63" height="70" border="0" /></a></td>
+                    <td width="99%" class="bodyText">
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=288429"><strong>jfjiang</strong></a><span class="smallText"></span>
+                        </p>                       
+                     </td>
+                </tr>
+            </table>            
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr valign="top">
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=151886"><img src="/i/clear.gif" alt="kdby" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
@@ -403,10 +468,36 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=157582"><img src="/i/clear.gif" alt="msuhocki" width="63" height="70" border="0" /></a></td>
+                    <td width="99%" class="bodyText">
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=157582"><strong>msuhocki</strong></a><span class="smallText"></span>
+                        </p>                       
+                     </td>
+                </tr>
+            </table>            
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr valign="top">
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=158922"><img src="/i/clear.gif" alt="Revoklaw" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
                         <a class="bodyText" href="/stat?c=member_profile&amp;cr=158922"><strong>Revoklaw</strong></a><span class="smallText"></span>
+                        </p>                       
+                     </td>
+                </tr>
+            </table>            
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=158922"><img src="/i/clear.gif" alt="snard6" width="63" height="70" border="0" /></a></td>
+                    <td width="99%" class="bodyText">
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=158922"><strong>snard6</strong></a><span class="smallText"></span>
                         </p>                       
                      </td>
                 </tr>
