@@ -70,11 +70,12 @@
                         </td>
                     </tr>   
                         
-		<tr valign="top"> 
-		    <td align="left" class="bodyText">
+            <tr valign="top"> 
+		 <td align="left" class="bodyText">
                             <p>Located in Salt Lake City, <A href="http://www.northface.edu" target="_blank">Northface University</A> offers B.S. in Computer Science degrees 
                             and MBA degrees.</p>
                             
+                            <blockquote>
                             <ul><li><strong>Bachelor of Science in Computer Science</strong> (on-campus program: 28 month duration) enables students to align IT and business 
                             through modeling and business rules.</li>
                             <li><strong>Master of Business Administration in Enterprise Informatics</strong> (online and on-campus program: 24 month duration) provides 
@@ -117,16 +118,10 @@
                         prepare for a successful career in software development.</p>
                 </td>
             </tr>
-            
-            <tr valign="top"> 
-                <td align="left" colspan="2">
-                        <img src="/i/sponsor/northface/northface_title_5.gif" alt="Northface" width="360" height="42" border="0" />
-                </td>
-            </tr>  
-
-                         
+       
                 <tr valign="top">
                     <td class="bodyText" align="left">
+                    <img src="/i/sponsor/northface/northface_title_5.gif" alt="Northface" width="360" height="42" border="0" />
                           <p>Computer science graduates enjoy favorable job prospects and salaries, particularly if they have practical experience. </p>
                      </td>
                     <td align="left">  <img src="/i/sponsor/northface/northface_graph.gif" alt="Northface" width="245" height="120" border="0" />
