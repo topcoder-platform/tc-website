@@ -1,4 +1,4 @@
-package com.topcoder.utilities.dwload;
+package com.topcoder.utilities.pldwload;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
@@ -26,14 +26,14 @@ import java.sql.PreparedStatement;
  * @author Christopher Hopkins [TCid: darkstalker] (chrism_hopkins@yahoo.com)
  * @version $Revision$
  */
-public class PLLoadCoders extends TCLoad {
+public class TCLoadCoders extends TCLoad {
     private static Logger log = Logger.getLogger(TCLoadCoders.class);
     protected java.sql.Timestamp fStartTime = null;
     protected java.sql.Timestamp fLastLogTime = null;
     private int CODER_LOG_TYPE = 2;
 
 
-    public PLLoadCoders() {
+    public TCLoadCoders() {
         DEBUG = false;
     }
 
