@@ -44,7 +44,7 @@ public class FixPasswords {
         Context context = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY,
             ApplicationServer.SECURITY_PROVIDER_URL);
     try {
-        String s = "select su.password, u.user_id from user u, security_user su where u.user_id =su.login_id and trim(password) <> ''";
+        String s = "select su.password, u.user_id from user u, security_user su where u.user_id =su.login_id and trim(su.password) <> ''";
         String t = "update user set password = ? where user_id = ?";
         String u = "update coder set activation_code = ? where coder_id = ?";
 
