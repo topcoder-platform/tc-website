@@ -1,12 +1,13 @@
-<%@ page 
+<%@ page
   language="java"
   import="java.net.URLEncoder,com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
           com.topcoder.common.web.data.Navigation"
 
 %>
 
-<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
-<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="struts-bean.tld" prefix="bean" %>
+<%@ taglib uri="struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 
 
 <%
@@ -17,7 +18,7 @@ String sDivision = srb.getProperty("dn","1");
 
 String sContentHandle = srb.getContentHandle();
 boolean bSorted = sContentHandle.endsWith("_sorted");
-if (bSorted) 
+if (bSorted)
   sContentHandle = sContentHandle.substring(0, sContentHandle.indexOf("_sorted"));
 
 %>
@@ -37,7 +38,7 @@ if (hasSponsorImage) pageContext.setAttribute("sponsorImageRow", sir);
 String sStartRow = "";
 String sEndRow = "";
 String sNumRow = "";
-if (bSorted){ 
+if (bSorted){
 sStartRow = srb.getProperty("sr","1");
 sEndRow = srb.getProperty("er",Integer.toString(rsc2.size()));
 sNumRow = srb.getProperty("nr",Integer.toString(rsc2.size()));
@@ -76,7 +77,7 @@ String sortString = "&dn="+srb.getProperty("dn","1");
 if (srb.getProperty("sq")!=null){
   sortString+="&sq=" + srb.getProperty("sq");
   sortString+="&sc=" + srb.getProperty("sc");
-  sortString+="&sd=" + srb.getProperty("sd", "desc");  
+  sortString+="&sd=" + srb.getProperty("sd", "desc");
 }
 %>
 
@@ -85,7 +86,7 @@ if (srb.getProperty("sq")!=null){
    <TITLE>TopCoder Statistics - Round Statistics</TITLE>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-<jsp:include page="baseHRef.jsp" />   
+<jsp:include page="baseHRef.jsp" />
    <jsp:include page="../script.jsp" />
 <script language="JavaScript">
 <!--
@@ -96,7 +97,7 @@ function goTo(selection){
   }
 }
 // -->
-</script>   
+</script>
  </HEAD>
  <BODY>
    <jsp:include page="../top.jsp" />
@@ -163,7 +164,7 @@ pageContext.setAttribute("resultSetDates", rsc);
                  </TR>
                  <TR>
                    <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"></TD>
-                 </TR>      
+                 </TR>
                </TABLE>
 <% } %>
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
@@ -180,11 +181,11 @@ pageContext.setAttribute("resultSetDates", rsc);
                  </TR>
 <% if (resultRow_0==null) { %>
     <tr>
-      <TD CLASS="statTextBig" COLSPAN="18" align="left">There were no Division <%=sDivision.equals("1")?"I":"II"%> coders in this round.</td>  
+      <TD CLASS="statTextBig" COLSPAN="18" align="left">There were no Division <%=sDivision.equals("1")?"I":"II"%> coders in this round.</td>
     </tr>
 <% } else {
      pageContext.setAttribute("roomId",resultRow_0.getItem(4));
-     pageContext.setAttribute("roomName",resultRow_0.getItem(5)); 
+     pageContext.setAttribute("roomName",resultRow_0.getItem(5));
 
 %>
                  <TR>
@@ -193,7 +194,7 @@ pageContext.setAttribute("resultSetDates", rsc);
                    </TD>
                  </TR>
                  <TR>
-                   <TD COLSPAN="18"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>  
+                   <TD COLSPAN="18"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
                  </TR>
                  <TR>
                    <TD BACKGROUND="/i/steel_gray_bg3.gif" CLASS="registerNav" COLSPAN="18" HEIGHT="18">&#160;&#160;Statistics for <%= resultRow_0.getItem(2).toString() + "&nbsp;&gt;&nbsp;" + resultRow_0.getItem(3).toString() %>&nbsp;&gt;&nbsp;Division-<%=sDivision.equals("1")?"I":"II"%></TD>
@@ -204,76 +205,76 @@ pageContext.setAttribute("resultSetDates", rsc);
          <% if (!bSorted || (rsc2.croppedDataBefore() ||  rsc2.croppedDataAfter())) { %>
          <TR valign="middle"><TD CLASS="statText" BACKGROUND="/i/steel_blue_bg.gif" COLSPAN="18" HEIGHT="16" align="center">
         <% if ((!bSorted && !sStartRow.equals("1")) || rsc2.croppedDataBefore()) { %>
-          <a href="/stat?c=<%=sContentHandle%><%=bSorted?"_sorted":""%>&rd=<%=currRound %>&s<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("prev_s").toString() %>&e<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("prev_e").toString() %>&n<%=bSorted?"r":"m"%>=<%=sNumRow%><%=sortString%>" class="statText">&lt;&lt; previous</a>   
+          <a href="/stat?c=<%=sContentHandle%><%=bSorted?"_sorted":""%>&rd=<%=currRound %>&s<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("prev_s").toString() %>&e<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("prev_e").toString() %>&n<%=bSorted?"r":"m"%>=<%=sNumRow%><%=sortString%>" class="statText">&lt;&lt; previous</a>
         <% } else { %>
-          &lt;&lt; previous  
+          &lt;&lt; previous
         <% } %>
           &nbsp;|&nbsp;
         <% if ((!bSorted && bHasNextScroll) || rsc2.croppedDataAfter()) { %>
           <a href="/stat?c=<%=sContentHandle %><%=bSorted?"_sorted":""%>&rd=<%=currRound %>&s<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("next_s").toString() %>&e<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("next_e").toString() %>&n<%=bSorted?"r":"m"%>=<%=sNumRow%><%=sortString%>" class="statText">next &gt;&gt;</a>
         <% } else { %>
-           next &gt;&gt;           
+           next &gt;&gt;
         <% } %>
                     </TD>
-                 </TR> 
+                 </TR>
          <TR>
                    <TD COLSPAN="18"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-        <% } %>   
-        
-                 <TR VALIGN="middle">    
+        <% } %>
+
+                 <TR VALIGN="middle">
                    <TD BACKGROUND="/i/steel_blue_bg.gif"  WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="15%" HEIGHT="18">
              <A HREF="/stat?c=<%=sContentHandle%>_sorted&rd=<%=currRound%>&dn=<%=sDivision%>&sq=Round_Statistics_Data&sc=0&sd=<%= "0".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Coders</A>
-           </TD>  
+           </TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="center">
              <A HREF="/stat?c=<%=sContentHandle%>_sorted&rd=<%=currRound%>&dn=<%=sDivision%>&sq=Round_Statistics_Data&sc=7&sd=<%= "7".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Coding<br>Phase</A>
            </TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="center">+</TD>    
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="center">+</TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="center">
-             <A HREf="/stat?c=<%=sContentHandle%>_sorted&rd=<%=currRound%>&dn=<%=sDivision%>&sq=Round_Statistics_Data&sc=8&sd=<%= "8".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Score<br>Change</A>
+             <A HREf="/stat?c=<%=sContentHandle%>_sorted&rd=<%=currRound%>&dn=<%=sDivision%>&sq=Round_Statistics_Data&sc=17&sd=<%= "17".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Point<br>Change</A>
            </TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="center">=</TD>    
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="center">=</TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="center">
              <A HREf="/stat?c=<%=sContentHandle%>_sorted&rd=<%=currRound%>&dn=<%=sDivision%>&sq=Round_Statistics_Data&sc=10&sd=<%= "10".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Point<br>Total</A>
            </TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="center">
-             <A HREF="" CLASS="statText">Division<br/>Place</A>
-           </TD>  
+             <A HREF="/stat?c=<%=sContentHandle%>_sorted&rd=<%=currRound%>&dn=<%=sDivision%>&sq=Round_Statistics_Data&sc=16&sd=<%= "16".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Division<br/>Placed</A>
+           </TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="center">
              Adv.
-           </TD>  
+           </TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="center">
              <A HREF="/stat?c=<%=sContentHandle%>_sorted&rd=<%=currRound%>&dn=<%=sDivision%>&sq=Round_Statistics_Data&sc=12&sd=<%= "12".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Old<br>Rating</A>
            </TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="center">+</TD>    
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="center">+</TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="center">
              <A HREF="/stat?c=<%=sContentHandle%>_sorted&rd=<%=currRound%>&dn=<%=sDivision%>&sq=Round_Statistics_Data&sc=13&sd=<%= "13".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Rating<br>Change</A>
-           </TD>    
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="center">=</TD>    
+           </TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="center">=</TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="center" COLSPAN="3">
              <A HREF="/stat?c=<%=sContentHandle%>_sorted&rd=<%=currRound%>&dn=<%=sDivision%>&sq=Round_Statistics_Data&sc=14&sd=<%= "14".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">New<br>Rating</A>
-           </TD>    
+           </TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-         <TR>    
-                   <TD COLSPAN="18"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>    
+         <TR>
+                   <TD COLSPAN="18"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-         
-<% if (!bSorted) 
+
+<% if (!bSorted)
 //this nugget puts in the room-spacer-line on unsorted stats for the 1st room
 {
-  pageContext.setAttribute("roomDivision",resultRow_0.getItem(15)); 
+  pageContext.setAttribute("roomDivision",resultRow_0.getItem(15));
  %>
-                 <TR>    
-                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" COLSPAN="18" CLASS="statText" VALIGN="middle" HEIGHT="16"><IMG SRC="/i/mystats_icon.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0" HSPACE= "3" ALIGN="left"><A HREF="/stat?c=room_stats&rd=<%= currRound %>&rm=<%= pageContext.getAttribute("roomId") %>" CLASS="statText"><%= pageContext.getAttribute("roomName") %> - <%= pageContext.getAttribute("roomDivision") %></A></TD>
-                 </TR>   
                  <TR>
-                   <TD COLSPAN="18"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"></TD>    
-                 </TR> 
-<% } %>         
-           
-            
+                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" COLSPAN="18" CLASS="statText" VALIGN="middle" HEIGHT="16"><IMG SRC="/i/mystats_icon.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0" HSPACE= "3" ALIGN="left"><A HREF="/stat?c=room_stats&rd=<%= currRound %>&rm=<%= pageContext.getAttribute("roomId") %>" CLASS="statText"><%= pageContext.getAttribute("roomName") %> - <%= pageContext.getAttribute("roomDivision") %></A></TD>
+                 </TR>
+                 <TR>
+                   <TD COLSPAN="18"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"></TD>
+                 </TR>
+<% } %>
+
+
 <bean:define id="nameColor" name="CODER_COLORS" scope="application" toScope="page"/>
 <%-- attempting to reduce download size --%>
 <logic:iterate name="resultSet" id="resultRow" type="ResultSetContainer.ResultSetRow">
@@ -300,10 +301,10 @@ pageContext.setAttribute("resultSetDates", rsc);
 <TD CLASS="statText" nowrap="0"><A HREF="/stat?c=member_profile&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /* id */ + "]" %>'/>" CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 0 /* handle */ + "]" %>'/></A></TD>
 <TD CLASS="statText"ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 7 /* coding pts */ + "].resultData" %>'/></TD>
 <TD CLASS="statText" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-<TD CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 8 /* challenge pts */ + "].resultData" %>'/></TD>
+<TD CLASS="statText" ALIGN="right"><rsc:item row="<%=resultRow%>" name="point_change" format="0.00" /></TD>
 <TD CLASS="statText" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
 <TD CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 10 /* final pts */ + "].resultData" %>'/></TD>
-<TD CLASS="statText" ALIGN="center">&#160;</TD>
+<TD CLASS="statText" ALIGN="center"><rsc:item row="<%=resultRow%>" name="division_placed" /></TD>
 <TD CLASS="statText" ALIGN="center"><bean:write name="resultRow" property='<%= "item[" + 11 /* advanced */ + "]" %>'/></TD>
 <TD CLASS="statText" ALIGN="right"><bean:write format="0" name="resultRow" property='<%= "item[" + 12 /* old rating */ + "].resultData" %>'/></TD>
 <TD CLASS="statText" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
@@ -330,34 +331,34 @@ pageContext.setAttribute("resultSetDates", rsc);
            <% if (!bSorted || (rsc2.croppedDataBefore() ||  rsc2.croppedDataAfter())) { %>
          <TR valign="middle"><TD CLASS="statText" BACKGROUND="/i/steel_blue_bg.gif" COLSPAN="18" HEIGHT="16" align="center">
         <% if ((!bSorted && !sStartRow.equals("1")) || rsc2.croppedDataBefore()) { %>
-          <a href="/stat?c=<%=sContentHandle%><%=bSorted?"_sorted":""%>&rd=<%=currRound %>&s<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("prev_s").toString() %>&e<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("prev_e").toString() %>&n<%=bSorted?"r":"m"%>=<%=sNumRow%><%=sortString%>" class="statText">&lt;&lt; previous</a>   
+          <a href="/stat?c=<%=sContentHandle%><%=bSorted?"_sorted":""%>&rd=<%=currRound %>&s<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("prev_s").toString() %>&e<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("prev_e").toString() %>&n<%=bSorted?"r":"m"%>=<%=sNumRow%><%=sortString%>" class="statText">&lt;&lt; previous</a>
         <% } else { %>
-          &lt;&lt; previous  
+          &lt;&lt; previous
         <% } %>
           &nbsp;|&nbsp;
         <% if ((!bSorted && bHasNextScroll) || rsc2.croppedDataAfter()) { %>
           <a href="/stat?c=<%=sContentHandle %><%=bSorted?"_sorted":""%>&rd=<%=currRound %>&s<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("next_s").toString() %>&e<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("next_e").toString() %>&n<%=bSorted?"r":"m"%>=<%=sNumRow%><%=sortString%>" class="statText">next &gt;&gt;</a>
         <% } else { %>
-           next &gt;&gt;           
+           next &gt;&gt;
         <% } %>
                     </TD>
-                 </TR> 
+                 </TR>
          <TR>
                    <TD COLSPAN="18"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-        <% } %>   
+        <% } %>
                  <TR>
                    <TD CLASS="statText" COLSPAN="18"><A HREF="/stat?c=round_stats#top" CLASS="statText">&#160;Back to Top</A></TD>
                  </TR>
-<% } %>         
+<% } %>
                </TABLE>
              </TD>
            </TR>
            <TR>
              <TD VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-           </TR>     
+           </TR>
          </TABLE>
-         
+
          <p><br></p>
          <!-- END BODY -->
 
@@ -374,7 +375,7 @@ pageContext.setAttribute("resultSetDates", rsc);
        </TD>
     <!-- Gutter -->
     <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->       
+    <!-- Gutter Ends -->
      </TR>
    </TABLE>
    <jsp:include page="../foot.jsp" />
