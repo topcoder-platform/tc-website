@@ -54,7 +54,7 @@ public class Confirm extends FullRegConfirm {
     protected void checkRegInfo(SimpleRegInfo info) throws TCWebException {
         super.checkRegInfo(info);    
         
-        log.info("TZ OFFSET:" + Arrays.asList(TimeZone.getAvailableIDs()));
+        log.info("TZ OFFSET:" + TimeZone.getTimeZone("Indian/Mauritius").toString() );
         
         try
         {
