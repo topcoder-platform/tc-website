@@ -80,6 +80,8 @@ String sSolutionText = resultRow_0!=null?resultRow_0.getItem("submission_text").
       for (i=0; i<sTemp.length(); i++){
         if (sTemp.charAt(i)==' ')
           stBuffer.append("&#160;");
+        else
+          stBuffer.append(sTemp.charAt(i));
       }
       stBuffer.append("<BR>");
     }
