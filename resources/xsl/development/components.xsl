@@ -48,7 +48,7 @@
             <xsl:call-template name="BodyTop">
             <xsl:with-param name="image1">white</xsl:with-param>
             <xsl:with-param name="image">development</xsl:with-param>
-            <xsl:with-param name="title">&#160;This Week's Component Project Winners</xsl:with-param>
+            <xsl:with-param name="title">&#160;Components</xsl:with-param>
             </xsl:call-template>
 
             <img src="/i/clear.gif" alt="" width="240" height="10" border="0" />
@@ -61,55 +61,55 @@
             </table>
 
             <table border="0" cellspacing="0" cellpadding="3" width="100%">
-                <tr><td class="formHandleOdd" colspan="4"><strong>Coder: </strong><A class="coderTextBlue" href="/stat?c=member_profile&amp;cr=264803"><font size="3"><strong>zimmy</strong></font></A></td></tr>
+                <tr><td class="formHandleEven" colspan="4"><strong>Coder: </strong><A class="coderTextBlue" href="/stat?c=member_profile&amp;cr=264803"><font size="3"><strong>zimmy</strong></font></A></td></tr>
 
-                <tr valign="top"><td class="formTextEven" colspan="4"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td></tr>
+                <tr valign="top"><td class="formTextOdd" colspan="4"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td></tr>
 
                 <tr valign="top">
-<!--            <td class="formTextEven" rowspan="7" width="55"><a href="/stat?c=member_profile&amp;cr=264803" class="coderTextRed"><img src="/i/m/mishagam_big.jpg" alt="None" width="62" height="70" border="0" hspace="5" vspace="5" /></a></td>-->
-                    <td class="formTextEven" rowspan="7" width="1"><img src="/i/clear.gif" alt="" width="5" height="61" border="0" vspace="5" /></td>
-                    <td class="formTextEven" width="50%">Developer Level:</td>
-                    <td class="formTextEven" align="right" width="40%"><strong>II</strong></td>
-                    <td class="formTextEven" width="1"></td>
+<!--            <td class="formTextOdd" rowspan="7" width="55"><a href="/stat?c=member_profile&amp;cr=264803" class="coderTextRed"><img src="/i/m/mishagam_big.jpg" alt="None" width="62" height="70" border="0" hspace="5" vspace="5" /></a></td>-->
+                    <td class="formTextOdd" rowspan="7" width="1"><img src="/i/clear.gif" alt="" width="5" height="61" border="0" vspace="5" /></td>
+                    <td class="formTextOdd" width="50%">Developer Level:</td>
+                    <td class="formTextOdd" align="right" width="40%"><strong>II</strong></td>
+                    <td class="formTextOdd" width="1"></td>
                 </tr>
 
                 <tr valign="top">
-                    <td class="formTextEven">Rating:</td>
-                    <td class="formTextEven" align="right"><A href="/stat?c=ratings_history&amp;cr=264803"><strong>1373</strong></A></td>
-                    <td class="formTextEven"></td>
+                    <td class="formTextOdd">Rating:</td>
+                    <td class="formTextOdd" align="right"><A href="/stat?c=ratings_history&amp;cr=264803"><strong>1373</strong></A></td>
+                    <td class="formTextOdd"></td>
                 </tr>
 
                 <tr valign="top">
-                    <td class="formTextEven">Total Earnings for All Component Projects*:</td>
-                    <td class="formTextEven" align="right"><strong>$72.00</strong></td>
-                    <td class="formTextEven"></td>
+                    <td class="formTextOdd">Total Earnings for All Component Projects*:</td>
+                    <td class="formTextOdd" align="right"><strong>$72.00</strong></td>
+                    <td class="formTextOdd"></td>
                 </tr>
 
                  <tr valign="top">
-                    <td class="formTextEven">Project Name:</td>
-                    <td class="formTextEven" align="right"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7220290"><strong>Data Validation</strong></A></td>
-                    <td class="formTextEven"></td>
+                    <td class="formTextOdd">Project Name:</td>
+                    <td class="formTextOdd" align="right"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7220290"><strong>Data Validation</strong></A></td>
+                    <td class="formTextOdd"></td>
                 </tr>
 
                <tr valign="top">
-                    <td class="formTextEven">Review Board Score for this Project:</td>
-                    <td class="formTextEven" align="right"><strong>95.22</strong></td>
-                    <td class="formTextEven"></td>
+                    <td class="formTextOdd">Review Board Score for this Project:</td>
+                    <td class="formTextOdd" align="right"><strong>95.22</strong></td>
+                    <td class="formTextOdd"></td>
                 </tr>
 
                 <tr valign="top">
-                    <td class="formTextEven">Total Submissions for this Project:</td>
-                    <td class="formTextEven" align="right"><strong>2</strong></td>
-                    <td class="formTextEven"></td>
+                    <td class="formTextOdd">Total Submissions for this Project:</td>
+                    <td class="formTextOdd" align="right"><strong>2</strong></td>
+                    <td class="formTextOdd"></td>
                 </tr>
 
                 <tr valign="top">
-                    <td class="formTextEven" colspan="3">
+                    <td class="formTextOdd" colspan="3">
                         <p><strong>Review Board Comments</strong><br />
                         "All classes are implemented properly. Good implementation ..."&#151;<A href="/stat?c=member_profile&amp;cr=278342">adic</A></p></td>
                 </tr>
                 
-                <tr valign="top"><td class="formTextEven" colspan="4"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td></tr>
+                <tr valign="top"><td class="formTextOdd" colspan="4"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td></tr>
             </table>
     <!-- Featured Winner Ends -->
     
@@ -122,7 +122,7 @@
                 </tr>
             </table>
 
-            <table border="0" cellspacing="0" cellpadding="5" width="100%" class="formFrame">
+            <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
                 <tr valign="middle">
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="27%">Project Name</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="17%" align="center">Total<br/>Submissions</td>
@@ -186,7 +186,7 @@
                 </tr>
             </table>
 
-            <table border="0" cellspacing="0" cellpadding="5" width="100%" class="formFrame">
+            <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
                 <tr valign="middle">
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="27%">Project Name</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="17%" align="center">Total<br/>Submissions</td>

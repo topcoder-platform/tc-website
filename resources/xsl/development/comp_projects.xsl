@@ -28,7 +28,7 @@
 <head>
     <xsl:call-template name="Preload" />
 
- <title>TopCoder | Development</title>
+ <title>Open Component Projects Available for TopCoder Software Development</title>
 
     <xsl:call-template name="CSS" />
 
@@ -37,7 +37,6 @@
 #totalMoney {
     font-size: 130%;
     font-weight: bold;
-    color: #FFF;
     }
 
 </style>
@@ -71,7 +70,7 @@
             <xsl:call-template name="BodyTop">
             <xsl:with-param name="image1">white</xsl:with-param>
             <xsl:with-param name="image">development</xsl:with-param>
-            <xsl:with-param name="title">&#160;Component Development</xsl:with-param>
+            <xsl:with-param name="title">&#160;Components</xsl:with-param>
             </xsl:call-template>
 
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
@@ -80,14 +79,8 @@
                 <tr>
                     <xsl:variable name="priceFormat" select="'$###,###.00'" />
                     <td class="bodyText" colspan="5">
-                        <p><strong>TopCoder pays the developers who come in first, second and third place for EACH component design and development project 
-                        that receives a passing review score greater than 75. Triple your earning potential!!!!!</strong></p>
-                        
-                        <p>Currently open projects total <font size="3"><strong><xsl:value-of select="format-number(sum(/TC/DEVELOPMENT/projects/project/price) * 1.75, $priceFormat)"/></strong></font> 
+                        <p>Currently open projects total <span id="totalMoney"><xsl:value-of select="format-number(sum(/TC/DEVELOPMENT/projects/project/price) * 1.75, $priceFormat)"/></span> 
                         in payments to the winning designers and developers. Send us your solutions today so you can start collecting your share.</p>
-
-                        <p>*And that's before royalty payments. The more <A href="http://software.topcoder.com/components/s_subscriptions.jsp">Component Subscriptions</A> 
-                        we sell, the more royalties we pay out to our winners!</p>
                     </td>
                 </tr>
 
@@ -96,7 +89,7 @@
 
             <table border="0" cellspacing="0" cellpadding="3" width="100%">
                 <tr>
-                    <td class="bodyText" colspan="5"><a name="design"></a><h1 class="devSubhead">Open Component Design Projects</h1></td>
+                    <td class="statText" colspan="6" bgcolor="#999999"><a name="design"></a><font size="3"><strong>Open Component Design Projects</strong></font></td>
                 </tr>
 
 <!--                <tr valign="top">
@@ -136,7 +129,7 @@
                             <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="estimated_dev_date"/></xsl:call-template>
                         </xsl:variable>
                         <tr valign="top">
-                            <td class="bodyText">
+                            <td class="formTextOdd">
                                 <a>
                                     <xsl:attribute name="href"> 
                                         <xsl:value-of select="concat('/index?t=development&amp;c=tcs_inquire-design&amp;comp=', ./component_id, '&amp;phase=', ./phase_id, '&amp;docId=', ./document_id, '&amp;version=', ./version, '&amp;payment=', ./price, '&amp;compvers=', ./comp_vers_id, '&amp;date=', $initial_submission, '&amp;final_submission=', $final_submission, '&amp;winner_announced=', $winner_announced, '&amp;posting_date=', $posting_date, '&amp;estimated_dev=', $estimated_dev)"/>
@@ -146,11 +139,11 @@
                                     </xsl:if>
                                 </a>
                             </td>
-                            <td class="smallText" align="center"><xsl:value-of select="./catalog_name"/></td>
-                            <td class="smallText" align="center"><xsl:value-of select="./total_inquiries"/></td>
-                            <td class="smallText" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
-                            <td class="smallText" align="center"><xsl:value-of select="./description"/></td>
-                            <td class="smallText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
+                            <td class="formTextOdd" align="center"><xsl:value-of select="./catalog_name"/></td>
+                            <td class="formTextOdd" align="center"><xsl:value-of select="./total_inquiries"/></td>
+                            <td class="formTextOdd" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
+                            <td class="formTextOdd" align="center"><xsl:value-of select="./description"/></td>
+                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
                         </tr>
                     </xsl:if>
                 </xsl:for-each>
@@ -170,7 +163,7 @@
                 </tr>  -->
 
                 <tr>
-                    <td class="bodyText" colspan="5"><a name="design"></a><h1 class="devSubhead">Open Component Development Projects</h1></td>
+                    <td class="statText" colspan="6" bgcolor="#999999"><a name="design"></a><font size="3"><strong>Open Component Development Projects</strong></font></td>
                 </tr>
 
                 <tr valign="middle">
@@ -198,7 +191,7 @@
                         </xsl:variable>
 
                         <tr valign="top">
-                            <td class="bodyText">
+                            <td class="formTextOdd">
                                 <a>
                                     <xsl:attribute name="href"> 
                                         <xsl:value-of select="concat('/index?t=development&amp;c=tcs_inquire-dev&amp;comp=', ./component_id, '&amp;docId=', ./document_id, '&amp;version=', ./version, '&amp;phase=', ./phase_id, '&amp;payment=', ./price, '&amp;compvers=', ./comp_vers_id, '&amp;date=', $initial_submission, '&amp;final_submission=', $final_submission, '&amp;winner_announced=', $winner_announced, '&amp;posting_date=', $posting_date)"/>
@@ -208,11 +201,11 @@
                                     </xsl:if>
                                 </a>
                             </td>
-                            <td class="smallText" align="center"><xsl:value-of select="./catalog_name"/></td>
-                            <td class="smallText" align="center"><xsl:value-of select="./total_inquiries"/></td>
-                            <td class="smallText" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
-                            <td class="smallText" align="center"><xsl:value-of select="./description"/></td>
-                            <td class="smallText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
+                            <td class="formTextOdd" align="center"><xsl:value-of select="./catalog_name"/></td>
+                            <td class="formTextOdd" align="center"><xsl:value-of select="./total_inquiries"/></td>
+                            <td class="formTextOdd" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
+                            <td class="formTextOdd" align="center"><xsl:value-of select="./description"/></td>
+                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
                         </tr>
                     </xsl:if>
                 </xsl:for-each>
@@ -222,6 +215,9 @@
                 </tr>
             </table>
             
+            <p>*And that's before royalty payments. The more Component <A href="http://software.topcoder.com/components/s_subscriptions.jsp">Subscriptions</A> 
+            we sell, the more royalties we pay out to our winners!</p>
+
             <p><br/></p>
 <!-- Open Component Development Projects ends -->
         </td>

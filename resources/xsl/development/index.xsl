@@ -15,7 +15,7 @@
 
     <xsl:call-template name="Preload" />
 
- <title>TopCoder | Development</title>
+ <title>TopCoder Software Development: Another way to compete, earn cash, royalties, and recognition</title>
 
     <xsl:call-template name="CSS" />
 

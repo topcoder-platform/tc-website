@@ -15,7 +15,7 @@
 
     <xsl:call-template name="Preload" />
 
- <title>TopCoder &#160;|&#160; Development</title>
+ <title>Component Design Bonus Contest 2 for TopCoder Software Development</title>
 
     <xsl:call-template name="CSS" />
 
@@ -48,7 +48,7 @@
             <xsl:call-template name="BodyTop">
             <xsl:with-param name="image1">white</xsl:with-param>
             <xsl:with-param name="image">development</xsl:with-param>
-            <xsl:with-param name="title">&#160;Component Development</xsl:with-param>
+            <xsl:with-param name="title">&#160;Contests</xsl:with-param>
             </xsl:call-template>
 
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
@@ -57,19 +57,21 @@
                         <div align="center"><br /><img src="/i/development/header_des_bonus_contest2.gif" alt="TopCoder Software Component Design Bonus Contest 2" width="554" height="150" border="0" /></div>
 
 <!-- Comment out until final winner is known -->
-                        <p><strong>With an average score of 91.21 points on 6 submissions, TangentZ beat out the rest of the TopCoder competition to take 
-                        the top spot... and the $3000 bonus.  In addition to the bonus, TangentZ earned $1,004.50 in component winnings during the contest.</strong></p>
-                        <p><strong>Coming in second, isv also submitted 6 submissions with his top 5 averaging 90.68 points.  isv's bonus was $2,000, 
-                        which is on top of his $1,065 in component design earnings during the contest.</strong></p>
-                        <p><strong>srowen came in third with an average score of 89.16 points for 5 submissions.  The $1,000 bonus adds to his $412 
-                        in component design earnings during the contest.</strong></p><br/>
+                        <p>With an average score of 91.21 points on 6 submissions, <strong>TangentZ</strong> beat out the rest of the TopCoder competition to take 
+                        the top spot... and the $3000 bonus.  In addition to the bonus, <strong>TangentZ</strong> earned $1,004.50 in component winnings during the contest.</p>
+                        
+                        <p>Coming in second, <strong>isv</strong> also submitted 6 submissions with his top 5 averaging 90.68 points. <strong>isv's</strong> bonus was $2,000, 
+                        which is on top of his $1,065 in component design earnings during the contest.</p>
+                        
+                        <p><strong>srowen</strong> came in third with an average score of 89.16 points for 5 submissions.  The $1,000 bonus adds to his $412 
+                        in component design earnings during the contest.</p><br/>
                     </td>
                 </tr>
 
                 <tr>
                     <td align="center">
                         <table border="0" cellspacing="0" cellpadding="5" width="100%" class="formFrame">
-                            <tr valign="middle"><td class="bodyText" colspan="3">These are the projects and scores for the top three winners:</td></tr>
+                            <tr valign="middle"><td class="statTextLarge" colspan="3" bgcolor="#999999"><font size="3">Projects and scores for the top three winners</font></td></tr>
 
                             <tr valign="middle">
                                 <td background="/i/graybv_bg.gif" width="33%" class="statTextLarge">TangentZ</td>
@@ -120,13 +122,13 @@
                     <td align="center">
                         <table border="0" cellspacing="0" cellpadding="3" width="300" class="formFrame">
                 <tr>
-                    <td class="bodyText" colspan="3"><a name="design"></a><font size="3"><strong>Qualifying Members</strong></font><br />(5 or more submissions)</td>
+                    <td class="statTextLarge" colspan="3" bgcolor="#999999"><a name="design"></a><strong><font size="3">Qualifying Members</font><br />(5 or more submissions)</strong></td>
                 </tr>
 
                 <tr valign="middle">
-                    <td background="/i/graybv_bg.gif" class="statTextLarge">Handle</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Submissions</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Average Score</td>
+                    <td background="/i/graybv_bg.gif" width="33%" class="statTextLarge">Handle</td>
+                    <td background="/i/graybv_bg.gif" width="33%" class="statTextLarge" align="center">Submissions</td>
+                    <td background="/i/graybv_bg.gif" width="33%" class="statTextLarge" align="center">Average Score</td>
                 </tr>
 
                 <tr valign="top">
@@ -188,7 +190,7 @@
 
                         <table border="0" cellspacing="0" cellpadding="3" width="300" class="formFrame">
                 <tr>
-                    <td class="bodyText" colspan="3"><a name="design"></a><font size="3"><strong>Non-Qualifying Members</strong></font><br />(less than 5 submissions)</td>
+                    <td class="statTextLarge" colspan="3" bgcolor="#999999"><a name="design"></a><strong><font size="3">Non-Qualifying Members</font><br />(less than 5 submissions)</strong></td>
                 </tr>
 
                 <tr valign="middle">
