@@ -23,7 +23,7 @@
         </tr>
         <logic:iterate name="problemRatingQuestions" id="question" type="com.topcoder.web.tc.model.ProblemRatingQuestion">
         <tr>
-            <tc:problemRatingInput id="problemRatingInput" quesion="<%=question=>">
+            <tc:problemRatingInput id="problemRatingInput" quesion="<%=question%>">
             <td class="statText">
                 <%= question %>
             </td>
