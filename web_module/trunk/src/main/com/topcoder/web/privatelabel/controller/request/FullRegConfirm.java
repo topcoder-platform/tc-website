@@ -52,22 +52,6 @@ public class FullRegConfirm extends FullRegBase {
             throw new Exception("Registration info not found in persistor");
         }
 
-        if (fu != null) {
-            Iterator it = fu.getAllUploadedFiles();
-            //only need to worry about a single resume
-            UploadedFile uf = null;
-            byte[] fileBytes = null;
-            if (it.hasNext()) { //should only be one file
-                uf = (UploadedFile) it.next();
-                if (uf != null) {
-                    fileBytes = new byte[(int) uf.getSize()];
-                    uf.getInputStream().read(fileBytes);
-                    info.setFileType(Integer.parseInt(fu.getParameter(Constants.FILE_TYPE)));
-                    info.setFileName(uf.getRemoteFileName());
-                    info.setResume(fileBytes);
-                }
-            }
-        }
 
         //get the rest from the request
         String sCoderType = getRequestParameter(Constants.CODER_TYPE);
