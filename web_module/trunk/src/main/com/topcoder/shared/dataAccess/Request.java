@@ -20,18 +20,12 @@ public class Request implements RequestInt {
     //var for the c=someStuff
     private String msContentHandle;
 
-    private static TCResourceBundle bundle;
-    private static String COMMAND_KEY;
-
     /**
      * Default constructor
      */
     public Request() {
         msContentHandle = "";
         mProp = new Properties();
-        if (bundle == null)
-            bundle = new TCResourceBundle("DataAccess");
-        COMMAND_KEY = bundle.getProperty("COMMAND", "c");
     }
 
     /**
@@ -43,9 +37,6 @@ public class Request implements RequestInt {
     public Request(Map map) throws Exception {
         this();
         setProperties(map);
-        if (bundle == null)
-            bundle = new TCResourceBundle("DataAccess");
-        COMMAND_KEY = bundle.getProperty("COMMAND", "c");
     }
 
     /**
@@ -76,7 +67,7 @@ public class Request implements RequestInt {
                 sKey = me.getKey().toString(); //maps can't have null-key
                 sValue = (String) me.getValue();
                 sValue = sValue == null?"":sValue; //nulls not allowed in Properties
-                if (sKey.equals(COMMAND_KEY))
+                if (sKey.equals(DataAccessConstants.COMMAND))
                     setContentHandle(sValue);
                 else
                     mProp.put(sKey, sValue);
@@ -87,7 +78,7 @@ public class Request implements RequestInt {
                     sArray = (String[]) me.getValue();
                     sKey = me.getKey().toString();
                     if (sArray.length > 0) {
-                        if (sKey.equals(COMMAND_KEY))
+                        if (sKey.equals(DataAccessConstants.COMMAND))
                             setContentHandle(sArray[0]);
                         else
                             mProp.put(sKey, sArray[0]);
@@ -116,7 +107,7 @@ public class Request implements RequestInt {
      */
     public void setContentHandle(String s) {
         msContentHandle = s;
-        mProp.setProperty(COMMAND_KEY, s);
+        mProp.setProperty(DataAccessConstants.COMMAND, s);
     }
 
     /**
@@ -146,7 +137,7 @@ public class Request implements RequestInt {
      */
     public void setProperty(String sKey, String sVal) {
         mProp.setProperty(sKey, sVal);
-        if (sKey.equals(COMMAND_KEY))
+        if (sKey.equals(DataAccessConstants.COMMAND))
             msContentHandle = sVal;
     }
 
