@@ -24,6 +24,7 @@ public class ResumeUploadTask extends ResumeTask{
             //only need to worry about a single resume
             if (it.hasNext()) {
                 uf = (UploadedFile)it.next();
+                System.out.println(uf.getContentType());
                 if (uf == null) {
                     throw new ResumeTaskException("Empty file uploaded");
                 } else {

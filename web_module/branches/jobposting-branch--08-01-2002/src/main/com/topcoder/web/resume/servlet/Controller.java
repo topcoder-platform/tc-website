@@ -40,9 +40,7 @@ public class Controller
         HttpSession session = null;
         try {
             log.debug("In com.topcoder.web.resume.servlet.Controller.service()");
-            log.debug(request.getContentType().indexOf(MULTIPART_FORM_DATA)+"");
-            if (request.getContentType() == null || request.getContentType().indexOf(MULTIPART_FORM_DATA) < 0) {
-                log.debug("in if");
+            if (request.getContentType() != null && request.getContentType().indexOf(MULTIPART_FORM_DATA) >= 0) {
                 FileUpload fu = new FileUpload(request, false);
                 String taskName = fu.getParameter(TASK);
                 log.debug(taskName);
@@ -51,7 +49,6 @@ public class Controller
                     forwardToError(request, response, new Exception(TASK + " not found in request."));
                     return;
                 }
-                log.debug("task is word");
                 session = request.getSession();
                 ResumeTask task = null;
                 Class taskClass = null;
