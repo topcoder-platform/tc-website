@@ -265,7 +265,7 @@
 
   <init-param>
     <param-name>email_ejb_package</param-name>
-    <param-value>com.topcoder.server.ejb.EmailServices</param-value>
+    <param-value>com.topcoder.shared.ejb.EmailServices</param-value>
     <description>
       Package of e-mail ejb's
     </description>
