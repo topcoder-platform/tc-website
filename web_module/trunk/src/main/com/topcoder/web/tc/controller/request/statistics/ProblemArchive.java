@@ -50,12 +50,12 @@ public class ProblemArchive extends Base {
 
             ArrayList filters = new ArrayList();
             if (!className.equals("")) {
-                log.debug("add problem name filter");
+                log.debug("add problem name filter: " + className);
                 filters.add(new Contains(className, "problem_name"));
                 setDefault(Constants.CLASS_NAME, className);
             }
             if (!className.equals("")) {
-                log.debug("add category filter");
+                log.debug("add category filter: " + category);
                 filters.add(new Contains(category, "categories"));
                 setDefault(Constants.CATEGORY, category);
             }
