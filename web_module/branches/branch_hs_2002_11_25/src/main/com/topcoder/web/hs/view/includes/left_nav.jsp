@@ -29,13 +29,20 @@ String root, sub;
 
 // formats a table row for a section header on the root menu
 String rootheader(String text) {
-    return "<TR><TD CLASS=\"titlesidenav\" HEIGHT=\"15\" VALIGN=\"middle\">&nbsp;<B>" + text + "</B></TD></TR>";
+    return "<TR><TH HEIGHT=\"15\" VALIGN=\"middle\" CLASS=\"titlesidenav\">&nbsp;" + text + "</TH></TR>";
 }
 
 // formats a table row for an item on the root menu
 String rootitem(String link, String name, String key, boolean canopen) {
     String bg = root.equals(key) ? (canopen?sibbg:selbg) : defbg;
     String img = canopen && root.equals(key) ? openind : itemind;
+    return "<TR><TD HEIGHT=\"15\" VALIGN=\"middle\" CLASS=\"sidenav\" " + bg + ">&nbsp;<A CLASS=\"sidenav\" HREF=\"" + link + "\">" + img + name + "</A></TD></TR>";
+}
+
+// formats a table row for an item on the root menu... special case where the item can open, but can also become selected
+String bothitem(String link, String name, String key, String subkey) {
+    String bg = root.equals(key) ? (!sub.equals(subkey)?sibbg:selbg) : defbg;
+    String img = root.equals(key) ? openind : itemind;
     return "<TR><TD HEIGHT=\"15\" VALIGN=\"middle\" CLASS=\"sidenav\" " + bg + ">&nbsp;<A CLASS=\"sidenav\" HREF=\"" + link + "\">" + img + name + "</A></TD></TR>";
 }
 
@@ -123,7 +130,7 @@ sub = NavZone.getLevel1();
     <%=rootheader("[TCHS] Corporate")%>
     <%=rootsep%>
 
-    <%=rootitem("?module=Static&d1=about&d2=about", "About Us", "about", true)%>
+    <%=bothitem("?module=Static&d1=about&d2=about", "About Us", "about", "about")%>
     <% if(subopen("about")) { %>
         <%=subsep%>
         <%=subitem("?module=Static&d1=about&d2=about_member", "For Members", "about_member")%>
