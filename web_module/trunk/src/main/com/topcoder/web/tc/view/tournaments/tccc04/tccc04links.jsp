@@ -129,13 +129,13 @@
             <% } else { %>
                  <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_sponsors" class="statTextBig"><img src="/i/tournament/tccc04/tab_sponsors_off.gif" alt="about" width="88" height="22" border="0" /></A></td>
             <% } %>
+--%>
             
             <% if (tabLev2.equals("onsite_events")) {%>
-                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_onsite_events" class="statTextBig"><img src="/i/tournament/tccc04/tab_onsiteevents_on.gif" alt="about" width="88" height="22" border="0" /></A></td>
+                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=reception" class="statTextBig"><img src="/i/tournament/tccc04/tab_onsiteevents_on.gif" alt="about" width="88" height="22" border="0" /></A></td>
             <% } else { %>
-                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_onsite_events" class="statTextBig"><img src="/i/tournament/tccc04/tab_onsiteevents_off.gif" alt="about" width="88" height="22" border="0" /></A></td>
+                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=reception" class="statTextBig"><img src="/i/tournament/tccc04/tab_onsiteevents_off.gif" alt="about" width="88" height="22" border="0" /></A></td>
             <% } %>
---%>
    <% } %>
 
       <td width="49%"><img src="/i/clear.gif" alt="" width="5" height="10" border="0" /></td>
@@ -159,10 +159,10 @@
                     <td class="<%=tabLev3.equals("radeye")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=radeye_semi" target="_blank" class="topLink">radeye's Odds</a></td>
             <% } else if (tabLev2.equals("summary")) {%>
                     <td class="<%=tabLev3.equals("online")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=alg_sum_onlinerounds" class="topLink">Online Rounds</a></td>
-                    <td class="<%=tabLev3.equals("room1")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_room1" class="topLink">Room 1</a></td>
-                    <td class="<%=tabLev3.equals("room2")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_room2" class="topLink">Room 2</a></td>
-                    <td class="<%=tabLev3.equals("room3")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_room3" class="topLink">Room 3</a></td>
-                    <td class="<%=tabLev3.equals("room4")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_room4" class="topLink">Room 4</a></td>
+                    <td class="<%=tabLev3.equals("room1")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=alg_room1" class="topLink">Room 1</a></td>
+                    <td class="<%=tabLev3.equals("room2")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=alg_room2" class="topLink">Room 2</a></td>
+                    <td class="<%=tabLev3.equals("room3")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=alg_room3" class="topLink">Room 3</a></td>
+                    <td class="<%=tabLev3.equals("room4")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=alg_room4" class="topLink">Room 4</a></td>
                     <td class="<%=tabLev3.equals("finals")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_finals" class="topLink">Finals</a></td>
             <% } else { %>
                      <td width="100%"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
@@ -203,10 +203,11 @@
                     <td class="<%=tabLev3.equals("transportation")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_transportation" class="topLink">Transportation</a></td>
                     <td class="<%=tabLev3.equals("hotels")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_hotels" class="topLink">Hotels</a></td>
             <% } else if (tabLev2.equals("onsite_events")) {%>
-                    <td class="<%=tabLev3.equals("reception")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_reception" class="topLink">Reception</a></td>
-                    <td class="<%=tabLev3.equals("awards")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_awards" class="topLink">Awards</a></td>
+                    <td class="<%=tabLev3.equals("reception")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=reception" class="topLink">Reception</a></td>
                     <td class="<%=tabLev3.equals("photos")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_photos" class="topLink">Photos</a></td>
+<%--
                     <td class="<%=tabLev3.equals("movies")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_movies" class="topLink">Movies</a></td>
+--%>
             <% } else { %>
                      <td width="100%"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
             <% } %>
