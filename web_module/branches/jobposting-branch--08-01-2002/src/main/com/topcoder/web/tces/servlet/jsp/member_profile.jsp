@@ -17,7 +17,7 @@
     
   </HEAD>
   <BODY BGCOLOR="#43515E" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
-  <jsp:include page="../top.jsp" />             
+  <jsp:include page="../top_tces.jsp" />             
   
 
 
@@ -67,7 +67,7 @@
             <TD class="statText" ALIGN="left">
             <% } %>
             
-              <B>Coder Profile: <%= MemberInfo.get(TCESConstants.MEM_INFO_HANDLE_KEY)%> </B>
+              <B>Member Profile: <%= MemberInfo.get(TCESConstants.MEM_INFO_HANDLE_KEY)%> </B>
               <BR>
               <%= MemberInfo.get(TCESConstants.MEM_INFO_FULLNAME_KEY)%>
               <BR>

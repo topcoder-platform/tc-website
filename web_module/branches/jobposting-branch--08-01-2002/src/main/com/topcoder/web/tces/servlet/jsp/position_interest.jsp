@@ -19,7 +19,7 @@
     
   </HEAD>
   <BODY BGCOLOR="#43515E" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
-  <jsp:include page="../top.jsp" />             
+  <jsp:include page="../top_tces.jsp" />             
   <TABLE WIDTH="100%" HEIGHT="50%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
     <TR>
     <!-- Left Column Begins -->
@@ -50,7 +50,7 @@
                   <A HREF="<jsp:getProperty name="trailItem" property="href"/>" class="statText"><jsp:getProperty name="trailItem" property="name"/></A> &gt;
                 </tces:trailIterator>
               </P>
-              <P><B>Position Interest</B></P>
+              <P><FONT SIZE="5" COLOR="#FFFFFF" FACE="arial, verdana, tahoma">Position Interest</FONT></P>
               
               <P>
               <B>Campaign:</B> <jsp:getProperty name="PositionInterestTask" property="CampaignName"/><BR>
