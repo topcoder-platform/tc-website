@@ -120,6 +120,7 @@ public abstract class BaseServlet extends HttpServlet {
                         cmd = StringUtils.checkNull(getParameter(request, MODULE));
                     if (cmd.equals(""))
                         cmd = DEFAULT_PROCESSOR;
+                    log.debug("command = " + cmd);
                     if (!isLegalCommand(cmd))
                         throw new NavigationException();
 
