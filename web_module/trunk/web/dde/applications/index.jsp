@@ -120,7 +120,7 @@
                         re-usable components as possible.</p>
                     </td>
                     <td width="49%" class="bodyText" align="center">
-                        <a href="http://www.topcoder.com/?&t=development&c=tcs_sample_docs"><img src="/images/apps_home_scorecard.gif" alt="Uncompromising Quality" width="216" height="212" border="0" /></a>
+                        <a href="http://www.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=compDocumentation"><img src="/images/apps_home_scorecard.gif" alt="Uncompromising Quality" width="216" height="212" border="0" /></a>
                     </td>
                 </tr>
             </table>
