@@ -134,7 +134,7 @@ Check <A HREF="http://www.javasoft.com/products/plugin/1.3/troubleshooting.faq.h
         </TD>
 	<!-- Right Column Ends -->
 	<!-- Gutter -->
-		<TD WIDTH="25" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
+		<TD WIDTH="10" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
     <!-- Gutter Ends -->
 	</TR>
 </TABLE>

@@ -237,7 +237,7 @@ Best 4 teams win:  $55,000 total prize purse to be paid as follows:<BR/>
         </TD>
 	<!-- Right Column Ends -->
 	<!-- Gutter -->
-		<TD WIDTH="25" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
+		<TD WIDTH="10" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
     <!-- Gutter Ends -->
 	</TR>
 </TABLE>

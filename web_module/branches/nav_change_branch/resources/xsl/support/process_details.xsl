@@ -251,7 +251,7 @@ the final position in a room, all of the tied coders will advance to the next ro
         </TD>
 	<!-- Right Column Ends -->
 	<!-- Gutter -->
-		<TD WIDTH="25" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
+		<TD WIDTH="10" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
     <!-- Gutter Ends -->
 	</TR>
 </TABLE>

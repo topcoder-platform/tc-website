@@ -152,7 +152,7 @@ Copyright 2002 cleveland.com. All Rights Reserved.</P>
         </TD>
 	<!-- Right Column Ends -->
 	<!-- Gutter -->
-		<TD WIDTH="25" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
+		<TD WIDTH="10" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
     <!-- Gutter Ends -->
 	</TR>
 </TABLE>
