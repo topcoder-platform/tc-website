@@ -193,6 +193,59 @@ public class CompanyBean extends BaseEJB {
     /**
      *
      *
+     * @param companyId company ID of the entry
+     *
+     * @return new user status
+     */
+    public String getNewUserStatus(long companyId) {
+        log.debug("getNewUserStatus called...company_id: " + companyId);
+
+        Context ctx = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conn = null;
+        DataSource ds = null;
+        String ret = null;
+
+        try {
+            ctx = new InitialContext();
+            ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            conn = ds.getConnection();
+
+            ps = conn.prepareStatement("SELECT new_user_status FROM " +
+                    "company WHERE company_id = ?");
+            ps.setLong(1, companyId);
+
+            rs = ps.executeQuery();
+
+            if (rs.next())
+                ret = rs.getString("new_user_status");
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
+            throw new EJBException("SQLException getting new_user_status " +
+                    "for company_id: " + companyId);
+        } catch (NamingException e) {
+            throw new EJBException("NamingException getting new_user_statust " +
+                    "id");
+        } catch (Exception e) {
+            throw new EJBException("Exception getting new_user_status for" +
+                    " company_id: " + companyId + "\n" +
+                    e.getMessage());
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
+        }
+
+        return (ret);
+    }
+
+
+
+    /**
+     *
+     *
      * @param companyId company ID of entry to set
      * @param name the company name to set to
      */
@@ -289,4 +342,57 @@ public class CompanyBean extends BaseEJB {
             close(ctx);
         }
     }
+
+    /**
+     *
+     *
+     * @param companyId company ID of entry to set
+     * @param newUserStatus the primary contact to set to
+     */
+    public void setNewUserStatus(long companyId, String newUserStatus) {
+        log.debug("setNewUserStatus called...companyId: " + companyId +
+                " newUserStatus: " + newUserStatus);
+
+        Context ctx = null;
+        PreparedStatement ps = null;
+        Connection conn = null;
+        DataSource ds = null;
+
+        try {
+            ctx = new InitialContext();
+            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            conn = ds.getConnection();
+
+            ps = conn.prepareStatement("UPDATE company SET " +
+                    "new_user_status = ? " +
+                    "WHERE company_id = ?");
+            ps.setString(1, newUserStatus);
+            ps.setLong(2, companyId);
+
+            int rows = ps.executeUpdate();
+
+            if (rows != 1)
+                throw new EJBException("Wrong number of rows in update: " +
+                        rows + " for company_id: " + companyId +
+                        " new_user_status: " +
+                        newUserStatus);
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
+            throw new EJBException("SQLException updating company_id: " +
+                    companyId + " new_user_status: " +
+                    newUserStatus);
+        } catch (NamingException e) {
+            throw new EJBException("NamingException updating company " +
+                    "newUserStatus");
+        } catch (Exception e) {
+            throw new EJBException("Exception updating company_id: " +
+                    companyId + " new_user_status: " +
+                    newUserStatus + "\n" + e.getMessage());
+        } finally {
+            close(ps);
+            close(conn);
+            close(ctx);
+        }
+    }
+
 }
