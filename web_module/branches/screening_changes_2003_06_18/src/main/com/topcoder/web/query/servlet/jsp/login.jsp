@@ -5,6 +5,10 @@
           com.topcoder.web.query.request.*" %>
 <jsp:useBean id="Login" scope="request" class="com.topcoder.web.query.request.Login" />
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo" />
+<%
+  String message = (String)request.getAttribute("message");
+  if(message==null) message = "";
+%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
   <HEAD>
@@ -26,7 +30,7 @@
             <td valign="top" width="11"><img src="/i/clear.gif" ALT="" width="11" height="1" border="0"/></td>
             <td class="statText" colspan="2" valign="top" width="100%"><img src="/i/clear.gif" ALT="" width="240" height="1" border="0"/>
               <p class="statText">
-                <jsp:getProperty name="Login" property="ErrorMessage" />
+              <%=message%>
               </p>
               <FORM NAME="login" METHOD="POST" ACTION="<jsp:getProperty name="sessionInfo" property="ServletPath"/>">
                 <INPUT TYPE="HIDDEN" NAME="<%= Constants.TASK_PARAM %>" VALUE="<%=Constants.LOGIN_TASK %>"/>
