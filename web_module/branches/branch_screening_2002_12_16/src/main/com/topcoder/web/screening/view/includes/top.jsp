@@ -3,7 +3,7 @@
     <!-- Logo Bar Include Begins -->       
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#000000">            
    <TR>
-      <TD COLSPAN="3" WIDTH="100%" BGCOLOR="#333333" ALIGN="right" VALIGN="middle" HEIGHT="15"><screen:servletLink target="_top" styleClass="globalNavSmall">Main Page</screen:servletLink><img src="/i/ev/clear.gif" width="20" height="1" hspace="5" border="0"/></TD>        
+      <TD COLSPAN="3" WIDTH="100%" BGCOLOR="#333333" ALIGN="right" VALIGN="middle" HEIGHT="15"><screen:servletLink processor="Login" target="_top" styleClass="globalNavSmall">Login</screen:servletLink> <screen:servletLink target="_top" styleClass="globalNavSmall">Main Page</screen:servletLink><img src="/i/ev/clear.gif" width="20" height="1" hspace="5" border="0"/></TD>        
    </TR>   
    <TR>
       <TD WIDTH="15" BGCOLOR="#000000"><A NAME="top"></A><img src="/i/ev/clear.gif" width="15" height="1" border="0"/></TD>
