@@ -52,7 +52,7 @@
 
         <init-param>
             <param-name>default_page</param-name>
-            <param-value>/index.jsp</param-value>
+            <param-value>/home.jsp</param-value>
             <description></description>
         </init-param>
 
