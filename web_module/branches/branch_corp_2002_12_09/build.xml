@@ -658,9 +658,11 @@
     
     <target name="war_corp" depends="compile">
         <war warfile="${war.dir}/${corp.war.name}.war" webxml="${resources}/corp/web.xml">
+<!--
             <fileset dir="${resources}/corp/jsp">
                 <include name="**/*.jsp"/>
             </fileset>
+-->
             <classes dir="${classes}">
                 <include name="com/topcoder/web/corp/**"/>
                 <include name="com/topcoder/web/common/**"/>
@@ -677,6 +679,8 @@
             <webinf dir="${resources}/corp">
                 <include name="tc-webtags.tld"/>
             </webinf>
+
+            <zipfileset dir="${java}/com/topcoder/web/corp/request/jsp/" includes="prim-reg.jsp" prefix="reg" />
 <!--
             <zipfileset dir="${java}/com/topcoder/web/corp/jsp">
                 <include name="**/*.jpg"/>
