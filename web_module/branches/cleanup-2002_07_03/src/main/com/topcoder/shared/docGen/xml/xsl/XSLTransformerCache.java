@@ -1,5 +1,6 @@
 package com.topcoder.shared.docGen.xml.xsl;
 
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * XSLTransformerCache.java
@@ -15,6 +16,7 @@ public class XSLTransformerCache {
 
   private static java.util.HashMap cache = null;
   private static XSLTransformerCache xslTransformerCache = null;
+  private static Logger log = Logger.getLogger(XSLTransformerCache.class);
 
 
   /* Singleton -- the constructor is private, must use getInstance. */
@@ -47,6 +49,7 @@ public class XSLTransformerCache {
    */
   public XSLTransformerWrapper getXSLTransformerWrapper ( String cacheKey )
     throws XSLTransformerWrapperException {
+    log.debug("XSLTransformerCache.getXSLTransformerWrapper for " + cacheKey);
     XSLTransformerWrapper result = null;
     try {
       if ( cacheKey == null ) throw new XSLTransformerWrapperException ( "The cacheKey can not be null." );
