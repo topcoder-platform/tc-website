@@ -18,8 +18,8 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">
     <tr valign="middle">
         <td width="15"><img src="/i/clear.gif" width="15" height="1" alt="" border="0"></td>
-        <td width="206"><img src="/i/logo_corp.gif" width="206" height="49" border="0" alt="TopCoder Corporate Services" vspace="5"></td>
-        <td width="20"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" hspace="15"></td>
+        <td width="206"><img src="/i/logo.gif" width="206" height="49" border="0" alt="TopCoder Corporate Services" vspace="5"></td>
+        <td width="99%"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" hspace="15"></td>
     </tr>
     <tr><td height="4" class="headStripe" colspan="3"><img src="/images/clear.gif" alt="" height="4" alt="" border="0"></td></tr>
 </table>

@@ -19,7 +19,7 @@
 <body>
 
 <!-- Top begins -->
-<jsp:include page="includes/top.jsp"/>
+<jsp:include page="includes/top_generic.jsp"/>
 <!-- Top ends -->
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -27,7 +27,7 @@
 
 <!-- Left Column Begins -->
         <td width="170" bgcolor="#CCCCCC">
-            <jsp:include page="includes/left.jsp" />
+            <jsp:include page="includes/left_generic.jsp" />
         </td>
 <!-- Left Column Ends -->
 
@@ -42,8 +42,7 @@
             <p><br></p>
             <table width="350" border="0" cellpadding="3" cellspacing="0" class="loginForm">
                 <tr><td class="testTableTitle">Login</td></tr>
-                <tr valign="middle">
-                <form method="post" name="frmLogin" action="/?module=Login">
+                <tr valign="middle"><form method="post" name="frmLogin" action="/?module=Login">
                     <td class="statText" align="center">
 
 <%
@@ -57,33 +56,31 @@
     if(username==null) username = "";
 %>
 
-                    <input type="hidden" name="<%=Login.KEY_DESTINATION_PAGE%>" value="<%= nextpage %>">
-                    <table border="0" cellpadding="3" cellspacing="0" align="center">
-                    <TR>
-                       <TD CLASS="bodyText"><font size="+1" color="#ff2010"><%= message %></font></TD>
-                    </TR>
-                    </TABLE>
-                    <table CELLSPACING="5" CELLPADDING="5" BORDER="0" ALIGN="center">
-                           <tr valign="middle">
-                                <td class="loginText" align="right">User Name:</td>
-                                <td align="left"><INPUT TYPE="text" NAME="<%=Login.KEY_USER_HANDLE%>" VALUE="<%= username %>" SIZE="25" onKeyPress="submitEnter(event,document.frmLogin)"></TD>
-                                <td class="loginText">&#160</td>
-                            </tr>
+                        <input type="hidden" name="<%=Login.KEY_DESTINATION_PAGE%>" value="<%= nextpage %>">
+                    
+                        <table border="0" cellpadding="3" cellspacing="0" align="center">
+                            <tr><td class="errorForm"><%= message %></td></tr>
+                        </table>
+
+                        <table border="0" cellpadding="0" cellspacing="0">
                             <tr valign="middle">
-                                <td class="loginText" align="right">Password:</td>
-                                <td align="left"><INPUT TYPE="password" NAME="<%=Login.KEY_USER_PASS%>" VALUE="" SIZE="25" onKeyPress="submitEnter(event,document.frmLogin)"></TD>
-                                <td class="loginText"><a href="JavaScript:document.frmLogin.submit()" class="loginText">Login&#160;&gt;</a></td>
+                                <td nowrap class="loginText" align="right">User Name:&#160;&#160;</td>
+                                <td colspan="2" align="left"><input type="text" name="<%=Login.KEY_USER_HANDLE%>" value="<%= username %>" maxlength="15" size="12" onkeypress="submitEnter(event,document.frmLogin)"></td>
                             </tr>
-                           <tr valign="middle">
-                                <td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td>
+
+                            <tr valign="middle">
+                                <td nowrap class="loginText" align="right">Password:&#160;&#160;</td>
+                                <td align="left"><input type="password" name="<%=Login.KEY_USER_PASS%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event,document.frmLogin)"></td>
+                                <td nowrap class="loginText">&#160;&#160;<a href="JavaScript:document.frmLogin.submit()" class="loginText">Login&#160;&gt;</a></td>
                             </tr>
-                    </table>
+
+                           <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="10" alt="" border="0"></td></tr>
+                        </table>
                     <script>
                       document.frmLogin.<%=username.equals("")?Login.KEY_USER_HANDLE:Login.KEY_USER_PASS%>.focus();
                     </script>
 
-                    </td>
-                    </form>
+                    </td></form>
                 </tr>
             </table>
             <p><br></p>
@@ -100,7 +97,7 @@
 </table>
 
 <!-- Footer begins -->
-  <jsp:include page="includes/foot.jsp"/>
+  <jsp:include page="includes/foot_generic.jsp"/>
 <!-- Footer ends -->
 
 </body>
