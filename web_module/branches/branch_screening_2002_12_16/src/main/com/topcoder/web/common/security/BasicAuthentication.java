@@ -113,10 +113,13 @@ public class BasicAuthentication implements WebAuthentication {
             log.debug("Logging in");
             TCSubject sub = loginRemote.login(u.getUserName(),u.getPassword());
             
-            response.addCookie(new Cookie("user_id",
-                                          String.valueOf(sub.getUserId())));
-            response.addCookie(new Cookie("loggedInStatus","true"));
-            
+            Cookie c = new Cookie("user_id", String.valueOf(sub.getUserId()));
+            c.setMaxAge(Integer.MAX_VALUE);
+            response.addCookie(c);
+            c = new Cookie("loggedInStatus","true");
+            c.setMaxAge(Integer.MAX_VALUE);
+            response.addCookie(c);
+           
             persistor.setObject(request.getSession().getId()+"user_id",
                                 new Long(sub.getUserId()));
             persistor.setObject(request.getSession().getId()+"loggedInStatus",
@@ -131,8 +134,12 @@ public class BasicAuthentication implements WebAuthentication {
      * Logs out the current user.
      */
     public void logout() {
-        response.addCookie(new Cookie("user_id",""));
-        response.addCookie(new Cookie("loggedInStatus",""));
+        Cookie c = new Cookie("user_id","");
+        c.setMaxAge(0);
+        response.addCookie(c);
+        c = new Cookie("loggedInStatus","");
+        c.setMaxAge(0);
+        response.addCookie(c);
             
         persistor.removeObject(request.getSession().getId()+"user_id");
         persistor.removeObject(request.getSession().getId()+"loggedInStatus");
