@@ -138,10 +138,10 @@
                  <tr>
                    <td class="statText">Submission Percentage</TD>
                    <rsc:iterator list="<%=div1Lang%>" id="resultRow">
-                     <td class="statText"><rsc:item name="submission_percentage" row="<%=resultRow%>" ifNull="0.00%" format="0.00#"/></TD>
+                     <td class="statText"><rsc:item name="submission_percentage" row="<%=resultRow%>" ifNull="0.00%" format="0.00%"/></TD>
                    </rsc:iterator>
                    <rsc:iterator list="<%=div1Overall%>" id="resultRow">
-                     <td class="statText"><rsc:item name="submission_percentage" row="<%=resultRow%>" ifNull="0.00%" format="0.00#"/></TD>
+                     <td class="statText"><rsc:item name="submission_percentage" row="<%=resultRow%>" ifNull="0.00%" format="0.00%"/></TD>
                    </rsc:iterator>
                  </tr>
                  <tr>
@@ -156,10 +156,10 @@
                  <tr>
                    <td class="statText">Submission Accuracy</TD>
                    <rsc:iterator list="<%=div1Lang%>" id="resultRow">
-                     <td class="statText"><rsc:item name="submission_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00"/></TD>
+                     <td class="statText"><rsc:item name="submission_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00%"/></TD>
                    </rsc:iterator>
                    <rsc:iterator list="<%=div1Overall%>" id="resultRow">
-                     <td class="statText"><rsc:item name="submission_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00"/></TD>
+                     <td class="statText"><rsc:item name="submission_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00%"/></TD>
                    </rsc:iterator>
                  </tr>
                  <tr>
@@ -192,10 +192,10 @@
                  <tr>
                    <td class="statText">Challenge Accuracy</TD>
                    <rsc:iterator list="<%=div1Lang%>" id="resultRow">
-                     <td class="statText"><rsc:item name="challenge_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00"/></TD>
+                     <td class="statText"><rsc:item name="challenge_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00%"/></TD>
                    </rsc:iterator>
                    <rsc:iterator list="<%=div1Overall%>" id="resultRow">
-                     <td class="statText"><rsc:item name="challenge_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00"/></TD>
+                     <td class="statText"><rsc:item name="challenge_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00%"/></TD>
                    </rsc:iterator>
                  </tr>
                  <tr>
@@ -262,10 +262,10 @@
                  <tr>
                    <td class="statText">Submission Percentage</td>
                    <rsc:iterator list="<%=div2Lang%>" id="resultRow">
-                     <td class="statText"><rsc:item name="submission_percentage" row="<%=resultRow%>" ifNull="0.00%" format="0.00#"/></td>
+                     <td class="statText"><rsc:item name="submission_percentage" row="<%=resultRow%>" ifNull="0.00%" format="0.00%"/></td>
                    </rsc:iterator>
                    <rsc:iterator list="<%=div2Overall%>" id="resultRow">
-                     <td class="statText"><rsc:item name="submission_percentage" row="<%=resultRow%>" ifNull="0.00%" format="0.00#"/></td>
+                     <td class="statText"><rsc:item name="submission_percentage" row="<%=resultRow%>" ifNull="0.00%" format="0.00%"/></td>
                    </rsc:iterator>
                  </tr>
                  <tr>
@@ -280,10 +280,10 @@
                  <tr>
                    <td class="statText">Submission Accuracy</td>
                    <rsc:iterator list="<%=div2Lang%>" id="resultRow">
-                     <td class="statText"><rsc:item name="submission_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00"/></td>
+                     <td class="statText"><rsc:item name="submission_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00%"/></td>
                    </rsc:iterator>
                    <rsc:iterator list="<%=div2Overall%>" id="resultRow">
-                     <td class="statText"><rsc:item name="submission_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00"/></td>
+                     <td class="statText"><rsc:item name="submission_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00%"/></td>
                    </rsc:iterator>
                  </tr>
                  <tr>
@@ -316,10 +316,10 @@
                  <tr>
                    <td class="statText">Challenge Accuracy</td>
                    <rsc:iterator list="<%=div2Lang%>" id="resultRow">
-                     <td class="statText"><rsc:item name="challenge_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00"/></td>
+                     <td class="statText"><rsc:item name="challenge_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00%"/></td>
                    </rsc:iterator>
                    <rsc:iterator list="<%=div2Overall%>" id="resultRow">
-                     <td class="statText"><rsc:item name="challenge_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00"/></td>
+                     <td class="statText"><rsc:item name="challenge_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00%"/></td>
                    </rsc:iterator>
                  </tr>
                  <tr>
