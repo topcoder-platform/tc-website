@@ -742,7 +742,7 @@ public class TCLoadTCS extends TCLoad {
             sSQL = "select ucp.user_id, " +
                     "cp.contest_id, " +
                     "cp.prize_type_id, " +
-                    "pt.prize_type_desc as prize_description, " +
+                    "cp.prize_desc as prize_description, " +
                     "cp.place, " +
                     "cp.prize_amount, " +
                     "ucp.payment as prize_payment " +
