@@ -332,6 +332,11 @@
             <param-value>GoogleRegSubmit</param-value>
             <description></description>
         </init-param>
+        <init-param>
+            <param-name>google_activation</param-name>
+            <param-value>GoogleActivate</param-value>
+            <description></description>
+        </init-param>
 
         <!-- other -->
         <init-param>
