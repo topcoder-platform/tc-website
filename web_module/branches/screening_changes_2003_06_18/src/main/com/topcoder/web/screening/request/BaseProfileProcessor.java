@@ -39,9 +39,6 @@ public abstract class BaseProfileProcessor extends BaseProcessor {
         String testSetA = StringUtils.checkNull(request.getParameter(Constants.TEST_SET_A));
         if (!testSetA.equals("")) {
             info.setTestSetA(testSetA);
-            info.setHasTestSetA(!equals(String.valueOf(Constants.NO_TEST_SET_A)));
-        } else {
-          info.setHasTestSetA(false);
         }
 
         //these methods should return if it is null

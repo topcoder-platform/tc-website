@@ -33,8 +33,8 @@ public class ProfileDetail extends BaseProfileProcessor {
         log.debug("ProfileDetail for profile: " + info.getProfileId());
         long sessionRoundId = profile.getSessionRoundId(info.getProfileId().longValue());
         info.setTestSetAList(getTestSetAList(sessionRoundId, getUser()));
-        info.setTestSetA(new Long(sessionRoundId));
         info.setTestSetBList(getTestSetBList(info.getProfileId().longValue(), getUser()));
+        info.setHasTestSetA(sessionRoundId!=Constants.NO_TEST_SET_A);
 
         info.setProfileName(profile.getSessionProfileDesc(info.getProfileId().longValue()));
 

@@ -33,6 +33,8 @@ public class UpdateProfile extends BaseProfileProcessor {
         //validate the info
         ServletRequest request = getRequest();
         ProfileInfo info = buildProfileInfo(request);
+        info.setHasTestSetA(!info.getTestSetA().equals(new Long(Constants.NO_TEST_SET_A)));
+
         request.setAttribute(Constants.PROFILE_INFO, info);
         if(!validateProfileInfo()) {
             setNextPage(Constants.CONTROLLER_URL + "?" +
