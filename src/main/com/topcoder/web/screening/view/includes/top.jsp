@@ -4,14 +4,14 @@
 <!-- Logo Bar Include Begins -->       
 <jsp:usebean id="requestInfo" class="com.topcoder.web.screening.model.RequestInfo" />
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">            
-   <tr>
-      <td colspan="3" width="100%" bgcolor="#333333" align="right" valign="middle" height="15" class='globalNavSmall'>
+   <tr valign="middle">
+      <td colspan="3" width="100%" bgcolor="#333333" align="right" height="15" class='globalNavSmall'>
 <% if(requestInfo.isLoggedIn()) { %>
         <screen:servletLink processor="Logout" target="_top" styleclass="globalNavSmall">Logout</screen:servletLink>&#160;&#160;|&#160;&#160;
 <%} else {%>
         <screen:servletLink processor="Login" target="_top" styleclass="globalNavSmall">Login</screen:servletLink>&#160;&#160;|&#160;&#160;
 <%}%>
-        <img src="/i/ev/clear.gif" width="20" height="1" hspace="0" border="0"/><screen:servletLink target="_top" styleclass="globalNavSmall">Home</screen:servletLink><img src="/i/ev/clear.gif" width="20" height="1" hspace="5" border="0"/></td>
+        <screen:servletLink target="_top" styleclass="globalNavSmall">Home</screen:servletLink><img src="/i/ev/clear.gif" width="20" height="1" hspace="5" border="0"/></td>
    </tr>   
    <tr>
       <td width="15" bgcolor="#000000"><a name="top"></a><img src="/i/ev/clear.gif" width="15" height="1" border="0"/></td>
