@@ -29,7 +29,9 @@ public class PasswordEmail extends Base {
             try {
                 Request r = new Request();
                 r.setContentHandle("password_email");
-                r.setProperties(HttpUtils.parseQueryString(getRequest().getQueryString()));
+                r.setProperty(Constants.FIRST_NAME, firstName);
+                r.setProperty(Constants.LAST_NAME, lastName);
+                r.setProperty(Constants.EMAIL, email);
                 ResultSetContainer rsc = (ResultSetContainer)getDataAccess().getData(r).get("password_email");
                 if (rsc.isEmpty()) {
                     addError(Constants.FIRST_NAME, "Sorry, the information you supplied was not found.");
