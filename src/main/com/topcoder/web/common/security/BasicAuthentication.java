@@ -37,10 +37,10 @@ public class BasicAuthentication implements WebAuthentication {
     private User guest = SimpleUser.createGuest();
     private Resource defaultCookiePath;
 
-    public static final PathResource CORP_SITE = new PathResource("/corp");
-    public static final PathResource MAIN_SITE = new PathResource("/main");
-    public static final PathResource HS_SITE = new PathResource("/hs");
-    public static final PathResource PRIVATE_LABEL_SITE = new PathResource("/pl");
+    public static final Resource CORP_SITE = new SimpleResource("/corp");
+    public static final Resource MAIN_SITE = new SimpleResource("/main");
+    public static final Resource HS_SITE = new SimpleResource("/hs");
+    public static final Resource PRIVATE_LABEL_SITE = new SimpleResource("/pl");
 
     /**
      * Construct an authentication instance backed by the given persistor
