@@ -11,17 +11,21 @@
           com.topcoder.common.*,
           com.topcoder.web.tces.common.*,
           com.topcoder.web.tces.bean.*" %>
+          
+<%@ taglib uri="/tces-taglib.tld" prefix="tces"%>
 
+<jsp:useBean id="CampaignInterestTask" scope="request" class="com.topcoder.web.tces.bean.CampaignInterestTask" />          
+          
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
   <HEAD>
     <TITLE>TopCoder Employment Services</TITLE>
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-    <%@ include file="../script.jsp" %>
+    <%@ include file="/script.jsp" %>
   </HEAD>
   <BODY BGCOLOR="#43515E" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
-  <%@ include file="../top.jsp" %>
+  <%@ include file="/top.jsp" %>
   <TABLE WIDTH="100%" HEIGHT="50%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
     <TR>
     <!-- Left Column Begins -->
@@ -39,10 +43,10 @@
         <!-- Body Area -->
         <!-- Center Column Begins -->
       <TD class="statText" width="100%" bgcolor="#001935" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-        <jsp:include page="../body_top.jsp" >  
+        <jsp:include page="/body_top.jsp" >  
            <jsp:param name="image" value="tces"/>  
            <jsp:param name="image1" value="steelblue"/>  
-           <jsp:param name="title" value="Company Name"/>  
+           <jsp:param name="title" value="<jsp:getProperty name="CampaignInterestTask" property="CompanyName"/>"/>  
         </jsp:include><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"><BR>
         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
           <TR>
@@ -51,13 +55,13 @@
               <P><B>Position Interest</B></P>
               
               <P>
-              <B>Campaign Name</B><BR>
+              <B><jsp:getProperty name="CampaignDetailTask" property="CampaignName"/></B><BR>
               Status: <B>Active</B><BR>
-              <A HREF="demo_info.jsp" class="statText">View collective demographic info</A><BR>
+              <a href="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.DEMOGRAPHIC_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignDetailTask" property="CampaignID"/>" class="statText">View collective demographic info</A><BR>
               </P>
               <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">               
                 <TR>
-                  <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18">&#160;<b>Handle</b></TD>
+                  <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18">&#160;<b>sHandle</b></TD>
                   <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><b>Rating</b></TD>
                   <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
@@ -73,40 +77,49 @@
                   <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><b>Hit Date</b></TD>                                    
                 </TR>
+
+
+                <tces:mapIterator id="hit" mapList="<%=(List)CampaignInterestTask.getHitList()%>">
+
                 <TR>
-                  <TD class="statText" HEIGHT="18">&#160;<A HREF="#" class="statText">Luke</A></TD>
+                  <TD class="statText" HEIGHT="18">&#160;<A HREF="#" class="statText">
+                    <%= (String)position.get("handle") %>
+                  </A></TD>
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="statText">2187</TD>
+                  <TD class="statText">
+                    <%= (String)position.get("rating") %>
+                  </TD>
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="statText">VA</TD>
+                  <TD class="statText">
+                    <%= (String)position.get("state") %>
+                  </TD>
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="statText">USA</TD>                  
+                  <TD class="statText">
+                    <%= (String)position.get("country") %>
+                  </TD>                  
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="statText">Student</TD>                  
+                  <TD class="statText">
+                    <%= (String)position.get("type") %>
+                  </TD>                  
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="statText">Hard Knocks</TD> 
+                  <TD class="statText">
+                    <%= (String)position.get("school") %>
+                  </TD> 
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="statText"><A HREF="position_int.jsp" class="statText">DBA</A></TD>                                   
+                  <TD class="statText"><A HREF="position_int.jsp" class="statText">
+                    <%= (String)position.get("position") %>
+                  </A></TD>                                   
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="statText"><A HREF="campaign_int.jsp" class="statText">10.01.02</A></TD>
+                  <TD class="statText">
+                  <A HREF="campaign_int.jsp" class="statText">
+                    <%= (String)position.get("hit_date") %>
+                  </A>
+                  </TD>
                 </TR>
-                <TR>
-                  <TD class="statText" HEIGHT="18">&#160;<A HREF="#" class="statText">Hans</A></TD>
-                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="statText">2187</TD>
-                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="statText">CT</TD>
-                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="statText">USA</TD>                  
-                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="statText">Professional</TD>                  
-                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="statText">N/A</TD> 
-                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="statText"><A HREF="position_int.jsp" class="statText">Programmer</A></TD>                                    
-                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="statText"><A HREF="campaign_int.jsp" class="statText">10.01.02</A></TD>
-                </TR>                              
+                
+                </tces:mapIterator>
+
+
               </TABLE>
               <P><BR></P>
     </TD>

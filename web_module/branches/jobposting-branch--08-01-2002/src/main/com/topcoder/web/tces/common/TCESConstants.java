@@ -24,6 +24,7 @@ public class TCESConstants {
     public static String MAIN_TASK = "MainTask";
     public static String CAMPAIGN_DETAIL_TASK = "CampaignDetailTask";
     public static String CAMPAIGN_INTEREST_TASK = "CampaignInterestTask";
+    public static String DEMOGRAPHIC_TASK = "DemographicTask";
 
     public static String TASK_PARAM = "task";
     public static String STEP_PARAM = null;
