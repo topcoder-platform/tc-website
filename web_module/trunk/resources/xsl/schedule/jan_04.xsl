@@ -107,7 +107,7 @@
                                     Compete: 9:00&#160;PM<br />
                                     Sponsor: <A href="/?t=sponsor&amp;c=intel_ids">Intel</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=4695&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+                                    <A href="/?RoundId=4710&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">8</td>
                                 <td id="calendar">9</td>
                                 <td id="calendar">10</td>
@@ -127,7 +127,7 @@
                                     Compete: 12:00&#160;PM<br />
                                     Sponsor: <A href="/?t=tces&amp;c=index">NVIDIA</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=4700&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+                                    <A href="/?RoundId=4715&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                             </tr>
                             
                             <tr> 
@@ -142,7 +142,7 @@
                                     Compete: 8:00&#160;PM<br />
                                     Sponsor: <A href="/?t=sponsor&amp;c=intel_ids">Intel</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=4705&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+                                    <A href="/?RoundId=4720&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">23</td>
                                 <td id="calendar">24</td>
                             </tr>
@@ -158,7 +158,7 @@
                                     Compete: 9:00&#160;PM<br />
                                     Sponsor: <A href="/?t=tces&amp;c=index">Google</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=4710&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+                                    <A href="/?RoundId=4725&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">29</td>
                                 <td id="calendar">30</td>
                                 <td id="calendar">31</td>
