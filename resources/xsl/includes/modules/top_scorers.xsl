@@ -15,20 +15,20 @@
                 </tr>
             </table>
 
-            <table border="0" cellspacing="0" cellpadding="2" width="100%">
+            <table border="0" cellspacing="0" cellpadding="3" width="100%">
                 <tr valign="middle">
-                    <td width="10%" bgcolor="#093158" background="/i/steel_bluebv_bg.gif" class="statTextBig">&#160;Rank</td>        
-                    <td width="20%" bgcolor="#093158" background="/i/steel_bluebv_bg.gif" class="statTextBig">Room</td>
-                    <td width="50%" bgcolor="#093158" background="/i/steel_bluebv_bg.gif" class="statTextBig">Handle</td>
-                    <td width="10%" align="right" bgcolor="#093158" background="/i/steel_bluebv_bg.gif" class="statTextBig">Final&#160;Pts&#160;</td>
+                    <td background="/i/steel_bluebv_bg.gif" class="statText">&#160;Rank</td>        
+                    <td background="/i/steel_bluebv_bg.gif" class="statText">Room</td>
+                    <td background="/i/steel_bluebv_bg.gif" class="statText">Handle</td>
+                    <td align="right" background="/i/steel_bluebv_bg.gif" class="statText">Final&#160;Pts&#160;</td>
                 </tr>
 
         <xsl:choose>
           <xsl:when test="number($division)=2">
             <xsl:for-each select="/TC/HOME/Div2TopScorers/Coder">
                 <tr>
-                    <td align="right" class="statText">&#160;<xsl:value-of select="rank"/>.&#160;&#160;</td>
-                    <td align="left" class="statText"><A class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=coder_room_stats&amp;cr=<xsl:value-of select="coder_id"/>&amp;rd=<xsl:value-of select="round_id"/>&amp;rm=<xsl:value-of select="room_id"/></xsl:attribute><xsl:value-of select="room_name"/></A></td>
+                    <td align="right" class="statText">&#160;<xsl:value-of select="rank"/>.&#160;&#160;&#160;&#160;</td>
+                    <td align="left" class="statText" nowrap="nowrap"><A class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=coder_room_stats&amp;cr=<xsl:value-of select="coder_id"/>&amp;rd=<xsl:value-of select="round_id"/>&amp;rm=<xsl:value-of select="room_id"/></xsl:attribute><xsl:value-of select="room_name"/></A></td>
                     <td align="left" class="statText">
                         <A>
                         <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=member_profile&amp;cr=<xsl:value-of select="coder_id"/></xsl:attribute>
@@ -47,7 +47,7 @@
             <xsl:for-each select="/TC/HOME/Div1TopScorers/Coder">
                 <tr>
                     <td align="right" class="statText">&#160;<xsl:value-of select="rank"/>.&#160;&#160;</td>
-                    <td align="left" class="statText"><A class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=coder_room_stats&amp;cr=<xsl:value-of select="coder_id"/>&amp;rd=<xsl:value-of select="round_id"/>&amp;rm=<xsl:value-of select="room_id"/></xsl:attribute><xsl:value-of select="room_name"/></A></td>
+                    <td align="left" class="statText" nowrap="nowrap"><A class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=coder_room_stats&amp;cr=<xsl:value-of select="coder_id"/>&amp;rd=<xsl:value-of select="round_id"/>&amp;rm=<xsl:value-of select="room_id"/></xsl:attribute><xsl:value-of select="room_name"/></A></td>
                     <td align="left" class="statText">
                         <A>
                         <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=member_profile&amp;cr=<xsl:value-of select="coder_id"/></xsl:attribute>
