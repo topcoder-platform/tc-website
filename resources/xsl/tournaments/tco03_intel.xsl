@@ -67,12 +67,8 @@
                             					<p>With technology complexity increasing at a blistering pace, <a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>Intel&#174; 
                             					Developer Services</strong> </a> offers the resources and opportunities you need to keep stride with industry innovations,
                              					take advantage of emerging technologies and accelerate the successful development and delivery of your solutions.</p>
-                             					<p><br/></p>
-                            				</td>
-                            			</tr>
-                            				
-                            		<tr>
-                            				<td valign="top" class="bodyText"><p>How? With offerings such as legacy and emerging code, demos, software documentation, online training, developer forums and 
+                             				
+                             				<p>How? With offerings such as legacy and emerging code, demos, software documentation, online training, developer forums and 
                             				technical white papers, membership with <a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>Intel Developer 
                             				Services</strong> </a> gives you FREE access to tools and resources that can maximize your code's performance, give you 
                             				time-to-market advantage and make your software sing. Fast.</p></td>
