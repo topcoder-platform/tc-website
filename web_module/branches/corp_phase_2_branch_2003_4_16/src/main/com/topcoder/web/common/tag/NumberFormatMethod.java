@@ -15,22 +15,12 @@ public class NumberFormatMethod implements ObjectFormatMethod {
     private static final String DEFAULT_NUMBER_FORMAT = "#.##";
 
     public NumberFormatMethod() {
-        this(DEFAULT_NUMBER_FORMAT, null);
+        this(DEFAULT_NUMBER_FORMAT);
     }
 
     public NumberFormatMethod(String format) {
-        this(format, null);
-    }
-
-    NumberFormatMethod(String format, NumberFormat nf)
-            throws IllegalArgumentException {
-
-        if (format==null) this.format = DEFAULT_NUMBER_FORMAT;
-        else this.format = format;
-        if (nf==null) this.nf = NumberFormat.getInstance();
-        else this.nf = (NumberFormat)nf.clone();
+        nf = NumberFormat.getInstance();
         ((DecimalFormat)nf).applyPattern(format);
-
     }
 
     public String format(Number num) {
