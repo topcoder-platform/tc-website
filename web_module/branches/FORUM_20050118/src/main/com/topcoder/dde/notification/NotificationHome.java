@@ -18,7 +18,7 @@ import javax.ejb.EJBHome;
  * @author cucu
  */
 public interface NotificationHome extends EJBHome {
-    public static final String EJB_REF_NAME = "package com.topcoder.dde.notification.NotificationLocalHome";
+    public static final String EJB_REF_NAME = "com.topcoder.dde.notification.NotificationHome";
 
     /**
      * get a Notification object.
