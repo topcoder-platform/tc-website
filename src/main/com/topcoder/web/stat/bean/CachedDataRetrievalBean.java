@@ -1,6 +1,7 @@
 package com.topcoder.web.stat.bean;
 
 import java.util.*;
+import java.rmi.RemoteException;
 import javax.naming.*;
 import com.topcoder.common.*;
 import com.topcoder.web.stat.ejb.Statistics.*;
@@ -15,6 +16,9 @@ import com.topcoder.server.distCache.CacheClientFactory;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.1  2002/06/12 18:04:16  lbackstrom
+ *           cached version of DataRetrievalBean
+ *
  *           Revision 1.1.1.1  2002/04/02 17:20:38  steveb
  *           initial web load into cvs
  *
@@ -64,15 +68,26 @@ public class CachedDataRetrievalBean implements StatDataAccessInt {
 
     public Map getData(StatRequestBean request) throws DataRetrievalException {
         try {
+            boolean cached = true;
             String key = request.toString();
-            Map map = (Map)(client.get(key));
+            Map map = null;
+            try
+            {
+                map = (Map)(client.get(key));
+            }
+            catch(RemoteException re)
+            {
+                System.out.println("UNABLE TO ESTABLISH A CONNECT TO THE CACHE");
+                cached = false;
+            }
             if(map!=null)return map;
             Context c = TCContext.getInitial();
             StatisticsHome sh = (StatisticsHome)
                 c.lookup("com.topcoder.web.stat.ejb.Statistics.StatisticsHome");
             Statistics s = sh.create();
             map = s.executeCommand(request.getProperties());
-            client.set(key,map);
+            if(cached)
+                client.set(key,map);
             return map;
         } catch (Exception e) {
             throw new DataRetrievalException(e.getMessage());
