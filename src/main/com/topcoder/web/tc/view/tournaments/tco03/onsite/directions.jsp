@@ -85,7 +85,7 @@
             <p><strong>Valet Parking</strong><br/>
             24-hour valet parking service is available at the Sky, Hotel and Earth Summer Valet porte-cocheres. Recommended gratuity is $5.00.</p>
             
-            <p>See more transportation info on the <a href="http://www.mohegansun.com/plan_visit/faq_transportation.jsp" target="_blank">Mohegan Sun</a> web site.</p>
+            <p>See more transportation info on the Mohegan Sun <a href="http://www.mohegansun.com/plan_visit/faq_transportation.jsp" target="_blank">web site.</a></p>
 
          <p><br/></p>
          </td>
