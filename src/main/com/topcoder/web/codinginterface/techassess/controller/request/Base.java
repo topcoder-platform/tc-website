@@ -92,11 +92,13 @@ public abstract class Base extends BaseProcessor {
         HttpSession session = getRequest().getSession();
         if (m.isSynchronous()) {
             if (session.getAttribute(Constants.SERVER_BUSY + getSessionId()) == null) {
+                log.debug("lock it up, it's a syncronous request");
                 this.messageId = sender.sendMessageGetID(new HashMap(), m);
                 session.setAttribute(Constants.SERVER_BUSY + getSessionId(), "");
             } else {
                 //we need to mark it not busy anymore because if we don't
                 //they won't be able to make any more requests.
+                log.debug("unlock it and let them go to the error page");
                 session.removeAttribute(Constants.SERVER_BUSY + getSessionId());
                 throw new ServerBusyException();
             }
@@ -366,8 +368,10 @@ public abstract class Base extends BaseProcessor {
 
         ScreeningBaseResponse m = (ScreeningBaseResponse) receiver.receive(waitTime, messageId, getResponse());
 
-        if (m.isSynchronous())
+        if (m.isSynchronous()) {
+            log.debug("unlock it and send response");
             getRequest().getSession().removeAttribute(Constants.SERVER_BUSY + getSessionId());
+        }
 
         return m;
     }
