@@ -55,6 +55,17 @@ public class DBMS {
     public static final int RESPONSE_SEQ                = 9;
     public static final int PROBLEMSTATE_SEQ            = 11;
     
+
+  // Sequence ID's for PACTS
+  public static final int AFFIDAVIT_SEQ               = 50;
+  public static final int CONTRACT_SEQ                = 51;
+  public static final int NOTE_SEQ                    = 52;
+  public static final int PAYMENT_SEQ                 = 53;
+  public static final int PAYMENT_ADDRESS_SEQ         = 54;
+  public static final int PAYMENT_DETAIL_SEQ          = 55;
+  public static final int TAX_FORM_SEQ                = 56;
+
+
     public static final int PT_LOGIN_SEQ                = 20;
     public static final int PT_PROJ_SEQ                 = 21;
     public static final int PT_PROJ_TASK_SEQ            = 22;
@@ -261,59 +272,6 @@ public class DBMS {
         boolean getSeqId = true;
         String query = "";
         int result = 0;
-        if ( DB == POSTGRES ) {
-            switch (sequence_name) {
-                case JMA_SEQ:
-                case CHALLENGE_SEQ:
-                case EXPERIENCE_SEQ:
-                case EDUCATION_SEQ:
-                    query  = "SELECT nextval('jma_seq')";
-                    break;
-                case RTABLE_SEQ:
-                    query  = "SELECT nextval('rtable_seq')";
-                    break;
-                case PROBLEM_SEQ:
-                    query  = "SELECT nextval('problem_seq')";
-                    break;
-                case RESPONSE_SEQ:
-                    query  = "SELECT nextval('response_seq')";
-                    break;
-                case SCHOOL_SEQ:
-                    query  = "SELECT nextval('school_seq')";
-                    break;
-                case CORPORATE_SEQ:
-                    query  = "SELECT nextval('subscriber_seq')";
-                    break;
-                case PT_LOGIN_SEQ:
-                    query  = "SELECT nextval('login_seq')";
-                    break;
-                case PT_PROJ_SEQ:
-                    query  = "SELECT nextval('project_seq')";
-                    break;
-                case PT_PROJ_TASK_SEQ:
-                    query  = "SELECT nextval('project_task_seq')";
-                    break;
-                case PT_PROJ_USR_UPDATE_SEQ:
-                    query  = "SELECT nextval('project_user_update_seq')";
-                    break;
-                case PT_PROJ_USR_SEQ:
-                    query  = "SELECT nextval('project_user_seq')";
-                    break;
-                case PT_PROJ_USR_TASK_SEQ:
-                    query  = "SELECT nextval('project_user_task_seq')";
-                    break;
-                case PT_USR_MESSAGE_SEQ:
-                    query  = "SELECT nextval('user_message_seq')";
-                    break;
-                case PT_PROJ_ISSUE_SEQ:
-                    query  = "SELECT nextval('project_issue_seq')";
-                    break;
-                default:
-                    //Log.msg(sequence_name + " IS NOT A RECOGNIZED SEQUENCE ");
-                    getSeqId = false;
-                    break;
-            }
-        } else if ( DB == INFORMIX ) {
             switch (sequence_name) {
                 case JMA_SEQ:
                     query = " execute procedure nextval("+ JMA_SEQ +") ";
@@ -369,11 +327,31 @@ public class DBMS {
                 case PT_PROJ_ISSUE_SEQ:
                     query = " execute procedure nextval("+ PT_PROJ_ISSUE_SEQ +") ";
                     break;
+                case AFFIDAVIT_SEQ:
+                  query = " execute procedure nextval("+ AFFIDAVIT_SEQ +") ";
+                  break;
+                case CONTRACT_SEQ:
+                  query = " execute procedure nextval("+ CONTRACT_SEQ +") ";
+                  break;
+                case NOTE_SEQ:
+                  query = " execute procedure nextval("+ NOTE_SEQ +") ";
+                  break;
+                case PAYMENT_SEQ:
+                  query = " execute procedure nextval("+ PAYMENT_SEQ +") ";
+                  break;
+                case PAYMENT_ADDRESS_SEQ:
+                  query = " execute procedure nextval("+ PAYMENT_ADDRESS_SEQ +") ";
+                  break;
+                case PAYMENT_DETAIL_SEQ:
+                  query = " execute procedure nextval("+ PAYMENT_DETAIL_SEQ +") ";
+                  break;
+                case TAX_FORM_SEQ:
+                  query = " execute procedure nextval("+ TAX_FORM_SEQ +") ";
+                  break;
                 default:
                     //Log.msg ( sequence_name + " IS NO A RECOGNIZED SEQUENCE " );
                     getSeqId = false;
                     break;
-            }
         }
         
         if (getSeqId) return retVal(qconn, query);
@@ -672,4 +650,49 @@ public class DBMS {
             } while (sqle != null);
         }
     }
+
+
+
+
+
+  /*****************************************************************************************
+  * This generic method deserializes a text data type from the ResultSet and returns the
+  * deserialized String. This method should be called when retrieving a text data type from
+  * ANY database.  Unlike the getTextString() method, this method will return a null String
+  * if the database value is null (the getTextString() method returns an empty String).
+  *
+  * Example Usage:
+  * String text = DBMS.getTextStringWithNulls(rs, columnNum);
+  *
+  * @param rs - ResultSet - The ResultSet that the String should be retrieved from
+  * @param column - int - The number of the column in the ResultSet that the String should be
+  *                       retrieved from.
+  * @return String - the String retrieved from the Result Set at the column
+  * @exception Exception
+  * @author dpecora
+  ******************************************************************************************
+  **/
+  public static String getTextStringWithNulls(ResultSet rs, int column)
+    throws Exception
+  {
+    if (rs==null)
+      throw new Exception("DBMS.getTextStringWithNulls:ERROR ResultSet is NULL");
+    try {
+      byte[] bytes = rs.getBytes(column);
+      if (bytes == null)
+          return null;
+
+      return new String(bytes);
+    }
+    catch (SQLException sqle) {
+      sqle.printStackTrace();
+      throw new Exception(sqle.getMessage());
+    }
+  }
+
+
+
+
+
+
 }
