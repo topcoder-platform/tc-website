@@ -17,7 +17,7 @@ if (o!=null) {
                 var startTimes = new Array(<%=problems.size()%>);
         <%
                 for (int i=0; i<problems.size(); i++) {
-                    %> times[<%=i%>] = <%=((ProblemSetInfo)problems.get(i)).getTimeRemaining()%>; <%
+                    %> times[<%=i%>] = <%=((ProblemSetInfo)problems.get(i)).getTime()+((ProblemSetInfo)problems.get(i)).getStartTime()%>; <%
                     %> ids[<%=i%>] = 'problemTimer<%=((ProblemSetInfo)problems.get(i)).getProblems()[0].getComponentID()%>'; <%
                     %> types[<%=i%>] = <%=((ProblemSetInfo)problems.get(i)).getTypeId()%>; <%
                     %> startTimes[<%=i%>] = <%=((ProblemSetInfo)problems.get(i)).getStartTime()%>; <%
