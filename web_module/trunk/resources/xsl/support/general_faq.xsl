@@ -351,7 +351,7 @@ pointers to appropriate docs for each<BR/>
                         <TR><TD CLASS="bodyText"><A NAME="184"><B>What compiler options are used?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">
 <P>The compiler is invoked as:<BR/>
-g++ -Wall -W -s -pipe</P>
+g++ -Wall -W -O2 -s -pipe</P>
 <P>
 Additional info on gcc 3.1<BR/> 
 <A HREF="http://gcc.gnu.org/bugs.html#updating" TARGET="_blank" CLASS="bodyText">http://gcc.gnu.org/bugs.html#updating</A>
