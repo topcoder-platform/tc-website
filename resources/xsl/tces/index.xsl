@@ -78,7 +78,7 @@ next Single Round Match date.
 
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
 	<TR>
-		<TD COLSPAN="3" VALIGN="middle" HEIGHT="17" BGCOLOR="#43515E" CLASS="statText">&#160;<B>Client Employers</B></TD>
+		<TD COLSPAN="3" VALIGN="middle" HEIGHT="17" BGCOLOR="#43515E" CLASS="statText">&#160;<B>Employers</B></TD>
 	</TR>
 	<TR>
 		<TD VALIGN="middle" CLASS="bodyText" ALIGN="center"><A HREF="/?&amp;t=tces&amp;c=google"><IMG SRC="/i/es/google_sm.gif" WIDTH="143" HEIGHT="59" BORDER="0"/></A></TD>
@@ -113,7 +113,18 @@ people to work."
 	</TR>
 	<TR>
 		<TD COLSPAN="3" BGCOLOR="#43515E" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-	</TR>		
+	</TR>
+	<TR>
+		<TD VALIGN="middle" CLASS="bodyText" ALIGN="center"><A HREF="/?&amp;t=tces&amp;c=topcoder_openings&amp;a=secure"><IMG SRC="/i/es/topcoder/topcoder_logo.gif" WIDTH="160" HEIGHT="31" VSPACE="16" ALT="TopCoder" BORDER="0"/></A></TD>
+		<TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
+		<TD VALIGN="middle" CLASS="bodyText">Web Designer - <A HREF="/?&amp;t=tces&amp;c=topcoder_openings&amp;a=secure" CLASS="bodyText">Click here</A> for details.<BR/>	
+		TopCoder Software Sales - <A HREF="/?&amp;t=tces&amp;c=tcs_openings&amp;a=secure" CLASS="bodyText">Click here</A> for details.<BR/><BR/>	
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="3" BGCOLOR="#43515E" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+	</TR>	
+			
 </TABLE>
 
 <!-- <DIV ALIGN="center">
