@@ -68,7 +68,7 @@ abstract class TermsBase extends Base {
     public abstract Calendar getBeginning();
     public abstract String getEventName();
     public abstract int getTermsId();
-    protected abstract void setSuccessPage();
+    protected abstract void setSuccessPage() throws Exception ;
     public abstract boolean isEligible() throws Exception;
 
 
