@@ -13,8 +13,7 @@ import com.topcoder.shared.security.Persistor;
 import com.topcoder.web.common.RequestProcessor;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
-import com.topcoder.web.screening.common.Constants;
-import com.topcoder.web.screening.common.ScreeningException;
+import com.topcoder.web.screening.common.*;
 
 /**
  * This class handles all incoming requests.
@@ -79,8 +78,10 @@ public class MainServlet extends HttpServlet {
                 request.getParameter(Constants.REQUEST_PROCESSOR);
 
             //redirect to some default page
-            if (procParam == null || procParam.length() == 0)
+            if (procParam == null || procParam.length() == 0){
                 sendToPage(request, response, Constants.DEFAULT_PAGE, true);
+                return;
+            }
 
             if (!isLegal(procParam))
                 throw new Exception("Request Processor in illegal format.");
@@ -108,6 +109,10 @@ public class MainServlet extends HttpServlet {
             boolean forward = rp.isNextPageInContext();
 
             sendToPage(request, response, wherenow, forward);
+        } catch (AnonymousUserException e) {
+            sendToPage(request, response, Constants.LOGIN_PAGE, true);
+        } catch (PermissionDeniedException e) {
+            sendToErrorPage(request, response, e);
         } catch (Exception e) {
             sendToErrorPage(request, response, e);
         }

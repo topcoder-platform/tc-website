@@ -51,7 +51,9 @@
                            <screen:form NAME="login" METHOD="POST" ACTION="/screening">
                               <INPUT type="hidden" name='rp' value='Login'/>
                               <INPUT type="hidden" name='firstVisit' value='false'/>
-                              <% if((String)request.getParameter("redir") != null){ %>
+                              <% if((String)request.getAttribute("redir") != null){ %>
+                                 <INPUT type="hidden" name='redir' value='<%= request.getAttribute("redir").toString() %>'/>
+                              <% }else if((String)request.getParameter("redir") != null){ %>
                                  <INPUT type="hidden" name='redir' value='<%= request.getParameter("redir").toString() %>'/>
                               <% } %>
                               <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%" ALIGN="center">

@@ -12,6 +12,8 @@ public class ProfileList extends BaseProcessor {
      * @throws Exception
      */
     public void process() throws Exception {
+        authorize(getSelfRedirect());
+        
         setNextPage(Constants.PROFILE_LIST_PAGE);
         setNextPageInContext(true);
     }
