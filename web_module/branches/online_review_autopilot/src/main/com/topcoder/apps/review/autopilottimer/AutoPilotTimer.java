@@ -12,8 +12,14 @@ import com.topcoder.security.RolePrincipal;
 
 import com.topcoder.apps.review.projecttracker.*;
 import com.topcoder.apps.review.EJBHelper;
-
+import com.topcoder.apps.review.OnlineReviewProjectData;
+import com.topcoder.apps.review.ProjectForm;
 import com.topcoder.apps.review.projecttracker.UserProjectInfo;
+
+import com.topcoder.apps.review.ProjectData;
+import com.topcoder.apps.review.BusinessDelegate;
+import com.topcoder.apps.review.ResultData;
+import com.topcoder.apps.review.SuccessResult;
 
 
 /********************************************************************
@@ -71,18 +77,35 @@ public class AutoPilotTimer
             
             try {
                 //setup user
-                TCSubject user = new TCSubject(100129);
-                user.addPrincipal(new RolePrincipal("Administrator", 1));
-
+                TCSubject subject = new TCSubject(100129);
+                subject.addPrincipal(new RolePrincipal("Administrator", 1));
+                
+                UserManagerLocal userManager = EJBHelper.getUserManager();
+                
+                SecurityEnabledUser user = userManager.getUser(subject);
+                
                 //get projects that are in submission phase and have submission end time > current
                 ProjectTrackerLocal projectTracker = EJBHelper.getProjectTracker(); 
 
-                UserProjectInfo[] projs = projectTracker.getProjectInfo(user);
+                UserProjectInfo[] projs = projectTracker.getProjectInfo(user.getTCSubject());
                 
                 for(int i = 0; i < projs.length;i++) {
                     if(projs[i].getCurrentPhaseInstance().getPhase().getId() == Phase.ID_SUBMISSION) {
                         if(projs[i].getCurrentPhaseInstance() != null && projs[i].getCurrentPhaseInstance().getEndDate() !=null && projs[i].getCurrentPhaseInstance().getEndDate().getTime() <= System.currentTimeMillis()) {
                             logger.debug("SELECTED: " + projs[i].getProjectName());
+                            //move to screening
+                            OnlineReviewProjectData orpd = new OnlineReviewProjectData(user, projs[i]);
+                            ProjectForm form = new ProjectForm();
+                            
+                            Project p = projectTracker.getProject(projs[i], user.getTCSubject());
+                            form.fromProject(p);
+                            form.setCurrentPhase("Screening");
+                            
+                            ProjectData data = form.toActionData(orpd);
+                            ResultData result = new BusinessDelegate().projectAdmin(data); 
+                            if(!(result instanceof SuccessResult)) {
+                                logger.debug("ERROR " + result.toString() );
+                            }
                         }
                     } 
                 }

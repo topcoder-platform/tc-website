@@ -893,7 +893,7 @@ public final class ProjectForm extends ReviewForm {
      *
      * @param project The project for creating the form bean.
      */
-    protected void fromProject(Project project) {
+    public void fromProject(Project project) {
         BusinessDelegate businessDelegate = new BusinessDelegate();
         MessageResources messages =
             MessageResources.getMessageResources(Constants.MESSAGE_RESOURCE_KEY);
@@ -980,7 +980,7 @@ public final class ProjectForm extends ReviewForm {
      * ProjectData.
      * @return the ProjectData created from this form bean.
      */
-    protected ProjectData toActionData(OnlineReviewProjectData orpd) {
+    public ProjectData toActionData(OnlineReviewProjectData orpd) {
         ProjectData pData = new ProjectData(orpd, project, reason, null);
         pData.setSendMail(sendMail);
         pData.setSubmitterRemoval(submitterRemoval);
