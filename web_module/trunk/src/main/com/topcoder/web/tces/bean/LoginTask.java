@@ -121,6 +121,8 @@ public class LoginTask extends BaseTask implements Task, Serializable {
                 setNextPage(Authentication.getRequestedURL(session).trim());
                 customRedir=true;
                 Authentication.resetRequestedURL(session);
+            } else {
+                setNextPage(TCESConstants.LOGIN_OK_PAGE );
             }
         }
     }
