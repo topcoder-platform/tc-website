@@ -21,7 +21,7 @@ import java.rmi.RemoteException;
 public class SessionBean extends BaseEJB {
 
     private static Logger log = Logger.getLogger(SessionBean.class);
-    private static final String dataSourceName = "SCREENING_OLTP";
+    private static final String dataSourceName = "java:comp/env/datasource";
 
     /**
      *

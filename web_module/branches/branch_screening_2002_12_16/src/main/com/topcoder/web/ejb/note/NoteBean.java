@@ -24,7 +24,7 @@ import java.sql.ResultSet;
 public class NoteBean extends BaseEJB {
 
     private static Logger log = Logger.getLogger(NoteBean.class);
-    private static final String dataSourceName = "COMMON_OLTP";
+    private static final String dataSourceName = "java:comp/env/datasource";
 
     /**
      *

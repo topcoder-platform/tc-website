@@ -24,7 +24,7 @@ import java.sql.SQLException;
 public class UserNoteBean extends BaseEJB {
 
     private static Logger log = Logger.getLogger(UserNoteBean.class);
-    private static final String dataSourceName = "COMMON_OLTP";
+    private static final String dataSourceName = "java:comp/env/datasource";
 
     /**
      *

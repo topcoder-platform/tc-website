@@ -23,7 +23,7 @@ import java.sql.ResultSet;
 public class SessionProfileProblemBean extends BaseEJB {
 
     private static Logger log = Logger.getLogger(SessionProfileProblemBean.class);
-    private static final String dataSourceName = "SCREENING_OLTP";
+    private static final String dataSourceName = "java:comp/env/datasource";
     /**
      *
      * @param sessionProfileId

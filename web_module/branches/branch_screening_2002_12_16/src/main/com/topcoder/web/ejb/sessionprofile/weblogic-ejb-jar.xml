@@ -3,11 +3,31 @@
 
 <weblogic-ejb-jar>
     <weblogic-enterprise-bean>
-    <ejb-name>SessionProfile</ejb-name>
-    <caching-descriptor>
-        <max-beans-in-free-pool>200</max-beans-in-free-pool>
-        <initial-beans-in-free-pool>10</initial-beans-in-free-pool>
-    </caching-descriptor>
-    <jndi-name>com.topcoder.web.ejb.sessionprofile.SessionProfileHome</jndi-name>
+        <ejb-name>SessionProfile</ejb-name>
+        <caching-descriptor>
+            <max-beans-in-free-pool>200</max-beans-in-free-pool>
+            <initial-beans-in-free-pool>10</initial-beans-in-free-pool>
+        </caching-descriptor>
+        <jndi-name>com.topcoder.web.ejb.sessionprofile.SessionProfileHome</jndi-name>
+        <reference-descriptor>
+            <resource-description>
+                <res-ref-name>datasource</res-ref-name>
+                <jndi-name>SCREENING_OLTP</jndi-name>
+            </resource-description>
+        </reference-descriptor>
+    </weblogic-enterprise-bean>
+    <weblogic-enterprise-bean>
+        <ejb-name>SessionProfileProblem</ejb-name>
+        <caching-descriptor>
+            <max-beans-in-free-pool>200</max-beans-in-free-pool>
+            <initial-beans-in-free-pool>10</initial-beans-in-free-pool>
+        </caching-descriptor>
+        <jndi-name>com.topcoder.web.ejb.sessionprofile.SessionProfileProblemHome</jndi-name>
+        <reference-descriptor>
+            <resource-description>
+                <res-ref-name>datasource</res-ref-name>
+                <jndi-name>SCREENING_OLTP</jndi-name>
+            </resource-description>
+        </reference-descriptor>
     </weblogic-enterprise-bean>
 </weblogic-ejb-jar>

@@ -21,7 +21,7 @@ import java.sql.*;
 public class SessionProfileBean extends BaseEJB {
 
     private static Logger log = Logger.getLogger(SessionProfileBean.class);
-    private static final String dataSourceName = "SCREENING_OLTP";
+    private static final String dataSourceName = "java:comp/env/datasource";
 
     /**
      *
