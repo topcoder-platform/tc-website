@@ -58,10 +58,10 @@
 Plugin Name: CodeProcessor<BR/>
 Description: Plugin that will allow you to write pre/post processing source code scripts for use with other editor plugins<BR/>
 Author: Pops<BR/>
-Date: 5/8/2002<BR/>
+Date: 5/14/2002<BR/>
 Instructions: <A HREF="/contest/classes/CodeProcessor.htm" CLASS="statText">Documentation >></A><BR/>
-Upgrade Release Notes: <A HREF="/contest/classes/CodeProcessor_Upgrade_1_0_1.htm" CLASS="statText">Release Notes >></A><BR/>
-Version: 1.01<BR/>
+Upgrade Release Notes: <A HREF="/contest/classes/CodeProcessor_Upgrade_1_1.htm" CLASS="statText">Release Notes >></A><BR/>
+Version: 1.1<BR/>
 EntryPoint: codeprocessor.EntryPoint (case sensitive)<BR/>
 ClassPath: CodeProcessor.jar<BR/>
 <A HREF="/contest/classes/CodeProcessor.jar" CLASS="statText">CodeProcessor.jar Plugin >></A><BR/>
@@ -72,10 +72,10 @@ ClassPath: CodeProcessor.jar<BR/>
 Plugin Name: PopsEdit<BR/>
 Description: Feature rich editor that has all the features Pops needs<BR/>
 Author: Pops<BR/>
-Date: 5/6/2002<BR/>
+Date: 5/14/2002<BR/>
 Instructions: <A HREF="/contest/classes/PopsEdit.htm" CLASS="statText">Documentation >></A><BR/>
-Upgrade Release Notes: <A HREF="/contest/classes/PopsEdit_Upgrade_2_5.htm" CLASS="statText">Release Notes >></A><BR/>
-Version: 2.5<BR/>
+Upgrade Release Notes: <A HREF="/contest/classes/PopsEdit_Upgrade_2_6.htm" CLASS="statText">Release Notes >></A><BR/>
+Version: 2.6<BR/>
 EntryPoint: popsedit.EntryPoint (case sensitive)<BR/>
 ClassPath: PopsEdit.jar<BR/>
 <A HREF="/contest/classes/PopsEdit.jar" CLASS="statText">PopsEdit.jar Applet Plugin >></A><BR/>
@@ -86,10 +86,10 @@ ClassPath: PopsEdit.jar<BR/>
 Plugin Name: FileEdit<BR/>
 Description: Plugin that will read/write the problem information to an external file. This allows you to use your favorite editor/IDE to code the solutions to the problems.<BR/>
 Author: Pops<BR/>
-Date: 5/9/2002<BR/>
+Date: 5/14/2002<BR/>
 Instructions: <A HREF="/contest/classes/FileEdit.htm" CLASS="statText">Documentation >></A><BR/>
-Upgrade Release Notes: <A HREF="/contest/classes/FileEdit_Upgrade_2_5_1.htm" CLASS="statText">Release Notes >></A><BR/>
-Version: 2.51<BR/>
+Upgrade Release Notes: <A HREF="/contest/classes/FileEdit_Upgrade_2_6.htm" CLASS="statText">Release Notes >></A><BR/>
+Version: 2.6<BR/>
 Plugin Entry Point: fileedit.EntryPoint<BR/>
 Plugin ClassPath: FileEdit.jar<BR/>
 <A HREF="/contest/classes/FileEdit.jar" CLASS="statText">FileEdit.jar Applet Plugin >></A><BR/>
