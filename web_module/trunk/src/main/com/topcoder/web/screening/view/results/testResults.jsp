@@ -122,6 +122,7 @@ function getProblemDetail(id) {
                      Constants.ROUND_ID + '=' + row.getItem("session_round_id") + '&' +
                      Constants.PROBLEM_ID + '=' + row.getItem("problem_id") + '&' +
                      Constants.PROBLEM_TYPE_ID + '=' + row.getItem("problem_type_id");
+                     boolean isSubmitted = row.getItem("is_submitted").toString().equals("1");
                      %>
                      
                 <tr>
@@ -133,7 +134,11 @@ function getProblemDetail(id) {
 		       <td align="center" class="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="pct_passed" />%</td>
 		       <td align="center" class="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="points" format="#.##" ifNull="N/A" /></td>
 		       <td align="center" class="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="elapsed" /></td>
-		       <td align="center" class="<%=even?"testTableEven":"testTableOdd"%>"><screen:servletLink processor="ProblemResult" param="<%=prparam%>" >Details</screen:servletLink></td>
+		       <td align="center" class="<%=even?"testTableEven":"testTableOdd"%>">
+                 <% if (isSubmitted) {%>
+                 <screen:servletLink processor="ProblemResult" param="<%=prparam%>" >Details</screen:servletLink>
+                 <% } %>
+               </td>
                 </tr>
                 <% even = !even; %>
                 </screen:resultSetRowIterator>
@@ -202,6 +207,7 @@ function getProblemDetail(id) {
                                          Constants.ROUND_ID + '=' + row.getItem("session_round_id") + '&' +
                                          Constants.PROBLEM_ID + '=' + row.getItem("problem_id") + '&' +
                                          Constants.PROBLEM_TYPE_ID + '=' + row.getItem("problem_type_id");
+                        boolean isSubmitted = row.getItem("is_submitted").toString().equals("1");
                      %>
 	             <TR>
 		       <TD CLASS="<%=even?"testTableEven":"testTableOdd"%>">&#160;<A HREF="JavaScript:getProblemDetail('<screen:resultSetItem row="<%=row%>" name="session_round_id" />,<screen:resultSetItem row="<%=row%>" name="problem_id" />')" CLASS="bodyText"><screen:resultSetItem row="<%=row%>" name="problem_name" /></A></TD>
@@ -211,7 +217,9 @@ function getProblemDetail(id) {
 		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="num_failed" /></TD>
 		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="pct_passed" />%</TD>
 		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="elapsed" /></TD>
-		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:servletLink processor="ProblemResult" param="<%=prparam%>" styleClass="bodyText">Details</screen:servletLink></TD>
+               <% if (isSubmitted) { %>
+		         <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:servletLink processor="ProblemResult" param="<%=prparam%>" styleClass="bodyText">Details</screen:servletLink></TD>
+               <% } %>
 	             </TR>
                      <% even = !even; %>
                    </screen:resultSetRowIterator>
