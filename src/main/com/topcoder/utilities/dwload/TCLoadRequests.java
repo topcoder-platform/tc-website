@@ -22,7 +22,6 @@ import javax.sql.DataSource;
 import javax.naming.InitialContext;
 import java.sql.*;
 import java.util.*;
-import java.util.Date;
 
 public class TCLoadRequests extends TCLoad {
     private static Logger log = Logger.getLogger(TCLoadRequests.class);
@@ -37,6 +36,37 @@ public class TCLoadRequests extends TCLoad {
     private static final String[] CONTENT_IDS = {"module", "c", "task"};
     private HashMap sessionMap = new HashMap();
     private HashMap calendarMap = new HashMap();
+    private PreparedStatement getUrlPs = null;
+    private PreparedStatement addSiteHitPs = null;
+    private PreparedStatement createUrlPs = null;
+
+    private final static String GET_URL =
+            " select url_id" +
+            " from url" +
+            " where url = ?";
+
+    private final static String REQUEST_LIST =
+            " select user_id" +
+            " , url" +
+            " , session_id" +
+            " , timestamp" +
+            " from request" +
+            " where timestamp > ?";
+
+    private final static String ADD_SITE_HIT =
+            " insert into site_hit (coder_id, url_id, timestamp, session_id, calendar_id)" +
+            " values (?, ?, ?, ?, ?)";
+
+    private static final String CREATE_URL =
+            " insert into url (url, coder_id, round_id, page_name) " +
+            " values (?, ?, ?, ?)";
+    private static final String UPDATE_LOG =
+            "INSERT INTO update_log " +
+            "      (log_id " +
+            "       ,calendar_id " +
+            "       ,timestamp " +
+            "       ,log_type_id) " +
+            " VALUES (0, ?, ?, ?)";
 
     public TCLoadRequests() {
         //DEBUG = false;
@@ -70,7 +100,15 @@ public class TCLoadRequests extends TCLoad {
             setLastUpdateTime(REQUEST_LOAD);
 */
 
+
+            //creating this one ahead of time so that we can reuse it.
+            getUrlPs =  prepareStatement(GET_URL, TARGET_DB);
+            addSiteHitPs = prepareStatement(ADD_SITE_HIT, TARGET_DB);
+            createUrlPs = prepareStatement(CREATE_URL, TARGET_DB);
+
             loadWebRequests();
+
+
 
             setLastUpdateTime(WEB_REQUEST_LOAD);
 
@@ -78,11 +116,15 @@ public class TCLoadRequests extends TCLoad {
         } catch (Exception ex) {
             setReasonFailed(ex.getMessage());
             throw ex;
+        } finally {
+            close(getUrlPs);
+            close(addSiteHitPs);
+            close(createUrlPs);
         }
     }
 
     private final static String LAST_UPDATE =
-            " select timestamp from update_log where log_id = " +
+                " select timestamp from update_log where log_id = " +
             " (select max(log_id) from update_log " +
             " where log_type_id = ?)";
 
@@ -116,23 +158,10 @@ public class TCLoadRequests extends TCLoad {
     }
 
 
-    private final static String REQUEST_LIST =
-            " select user_id" +
-            " , url" +
-            " , session_id" +
-            " , timestamp" +
-            " from request" +
-            " where timestamp > ?";
-
-    private final static String ADD_SITE_HIT =
-            " insert into site_hit (coder_id, url_id, timestamp, session_id, calendar_id)" +
-            " values (?, ?, ?, ?, ?)";
-
 
     private void loadWebRequests() throws Exception {
         //log.debug("called loadWebRequests()");
         PreparedStatement psSel = null;
-        PreparedStatement psIns = null;
 
         ResultSet rs = null;
         int count = 0;
@@ -156,16 +185,16 @@ public class TCLoadRequests extends TCLoad {
                     createUrl(url);
                     urlId = getUrlId(url);
                 }
-                psIns = prepareStatement(ADD_SITE_HIT, TARGET_DB);
+                addSiteHitPs.clearParameters();
                 if (rs.getString("user_id")==null)
-                    psIns.setNull(1, Types.DECIMAL);
-                else psIns.setLong(1, rs.getLong("user_id"));
-                psIns.setLong(2, urlId);
-                psIns.setTimestamp(3, time);
-                psIns.setLong(4, getSessionId(rs.getString("session_id")));
-                psIns.setLong(5, getCalendarId(time));
+                    addSiteHitPs.setNull(1, Types.DECIMAL);
+                else addSiteHitPs.setLong(1, rs.getLong("user_id"));
+                addSiteHitPs.setLong(2, urlId);
+                addSiteHitPs.setTimestamp(3, time);
+                addSiteHitPs.setLong(4, getSessionId(rs.getString("session_id")));
+                addSiteHitPs.setLong(5, getCalendarId(time));
 
-                retVal = psIns.executeUpdate();
+                retVal = addSiteHitPs.executeUpdate();
 
                 count+=retVal;
                 if (retVal != 1) {
@@ -185,13 +214,9 @@ public class TCLoadRequests extends TCLoad {
         } finally {
             close(rs);
             close(psSel);
-            close(psIns);
         }
     }
 
-    private static final String CREATE_URL =
-            " insert into url (url, coder_id, round_id, page_name) " +
-            " values (?, ?, ?, ?)";
 
     /**
      *
@@ -199,23 +224,22 @@ public class TCLoadRequests extends TCLoad {
      */
     private void createUrl(URL url) throws Exception {
         //log.debug("called createUrl " + url.getUrl());
-        PreparedStatement ps = null;
 
         try {
 
-            ps = prepareStatement(CREATE_URL, TARGET_DB);
-            ps.setString(1, url.getUrl());
+            createUrlPs.clearParameters();
+            createUrlPs.setString(1, url.getUrl());
             if (url.hasCoderId())
-                ps.setLong(2, url.getCoderId());
+                createUrlPs.setLong(2, url.getCoderId());
             else
-                ps.setNull(2, Types.DECIMAL);
+                createUrlPs.setNull(2, Types.DECIMAL);
             if (url.hasRoundId())
-                ps.setLong(3, url.getRoundId());
+                createUrlPs.setLong(3, url.getRoundId());
             else
-                ps.setNull(3, Types.DECIMAL);
-            ps.setString(4, url.getPageName());
+                createUrlPs.setNull(3, Types.DECIMAL);
+            createUrlPs.setString(4, url.getPageName());
 
-            int ret = ps.executeUpdate();
+            int ret = createUrlPs.executeUpdate();
 
             if (ret != 1)
                 log.info("TCLoadRequests: Insert for " +
@@ -228,16 +252,10 @@ public class TCLoadRequests extends TCLoad {
             DBMS.printSqlException(true, sqle);
             throw new Exception("Load of 'url' table failed.\n" +
                     sqle.getMessage());
-        } finally {
-            close(ps);
         }
     }
 
 
-    private final static String GET_URL =
-            " select url_id" +
-            " from url" +
-            " where url = ?";
 
     /**
      * Returns the url_id of the url from a cache
@@ -254,13 +272,12 @@ public class TCLoadRequests extends TCLoad {
             ret = ((Long) urlMap.get(url.getUrl())).longValue();
         } else {
             //log.debug("url " + url + " not found");
-            PreparedStatement psSel = null;
             ResultSet rs = null;
 
             try {
-                psSel = prepareStatement(GET_URL, TARGET_DB);
-                psSel.setString(1, url.getUrl());
-                rs = psSel.executeQuery();
+                getUrlPs.clearParameters();
+                getUrlPs.setString(1, url.getUrl());
+                rs = getUrlPs.executeQuery();
                 int count = 0;
                 while (rs.next()) {
                     if (count < 1) {
@@ -279,7 +296,6 @@ public class TCLoadRequests extends TCLoad {
                         sqle.getMessage());
             } finally {
                 close(rs);
-                close(psSel);
             }
         }
         return ret;
@@ -333,13 +349,6 @@ public class TCLoadRequests extends TCLoad {
     }
 
 
-    private static final String UPDATE_LOG =
-            "INSERT INTO update_log " +
-            "      (log_id " +
-            "       ,calendar_id " +
-            "       ,timestamp " +
-            "       ,log_type_id) " +
-            " VALUES (0, ?, ?, ?)";
 
     private void setLastUpdateTime(int type) throws Exception {
         //log.debug("called setLastUpdateTime " + type);
