@@ -33,7 +33,7 @@
                 <tr valign="top">
                     <td class="sidebarText" width="25%">Registration</td>
                     <td class="sidebarText" width="75%">
-                        OPENS: Monday, August 16 at 9:00 AM ET<br /><br/>
+                        OPENS: Monday, August 9 at 9:00 AM ET<br /><br/>
                         CLOSES: Tuesday, September 7 at 9:00 AM ET
                     </td>
                 </tr>

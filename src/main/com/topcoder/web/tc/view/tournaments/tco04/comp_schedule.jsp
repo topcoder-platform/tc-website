@@ -30,6 +30,18 @@
             contestants in different time zones must adjust accordingly.</strong> </p>
             
 <!-- design schedule -->            
+            <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+                <tr valign="top">
+                    <td class="sidebarText" width="25%">Registration</td>
+                    <td class="sidebarText" width="75%">
+                        OPENS: Monday, August 9 at 9:00 AM ET<br /><br/>
+                        CLOSES: Tuesday, September 7 at 9:00 AM ET
+                    </td>
+                </tr>
+            </table>
+            
+            <p></p>
+            
             <table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td width="25%" class="sidebarTitle">Design Contest</td>

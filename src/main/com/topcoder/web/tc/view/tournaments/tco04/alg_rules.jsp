@@ -69,7 +69,7 @@
             <h3><a href="#top"><img src="/i/tournament/tccc04/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right">
             </a>Registration</h3>
 
-            <p>Registration for the 2004 TopCoder Open Algorithm Competition will open at 9:00AM ET on Monday, August 16, 2004, 
+            <p>Registration for the 2004 TopCoder Open Algorithm Competition will open at 9:00AM ET on Monday, August 9, 2004, 
             and will close at 9:00AM ET on Tuesday, September 7, 2004.  In order to be eligible to compete in the Algorithm 
             Competition, competitors must be a registered TopCoder member and have registered separately for the Algorithm 
             Competition.  Registration for the competition is unlimited, however each individual may only register once.</p>
