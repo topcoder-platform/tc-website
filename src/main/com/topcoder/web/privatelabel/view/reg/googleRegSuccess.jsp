@@ -86,7 +86,7 @@ If you would like to upload a resume, click <a href="JavaScript:void window.open
 </table>
 
 <!-- Footer Begins -->
-<jsp:include page=".../verizon/verizon_foot.jsp" />
+<jsp:include page="../verizon/verizon_foot.jsp" />
 <!-- Footer Ends -->
 
 </body>
