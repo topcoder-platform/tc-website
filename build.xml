@@ -609,6 +609,10 @@
             </fileset>
             <classes dir="${classes}">
                 <include name="com/topcoder/web/query/**"/>
+                <include name="com/topcoder/shared/**/*.class"/>
+                <include name="com/topcoder/common/**/*.class"/>
+                <include name="com/topcoder/web/common/**/*.class" />
+                <include name="com/topcoder/security/**/*.class" />
             </classes>
             <webinf dir="${resources}/query">
                 <include name="query-taglib.tld"/>
