@@ -871,6 +871,7 @@
                 <include name="com/topcoder/web/common/**/*.class" />
                 <include name="com/topcoder/web/tc/**/*.class" />
                 <include name="com/topcoder/security/**/*.class" />
+                <include name="com/fx4m/**/*.class" />
             </classes>
             <webinf dir="${resources}/taglib">
                 <include name="tc.tld"/>
