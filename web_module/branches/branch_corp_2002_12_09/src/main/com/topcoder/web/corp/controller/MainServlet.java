@@ -162,19 +162,6 @@ public class MainServlet extends HttpServlet {
             }
             fetchRegularPage(request, response, destination, forward);
         }
-        catch(NotAuthorizedException nae) {
-            if (authToken.getActiveUser().isAnonymous()) {
-                /* If the user is anonymous and tries to access a module 
-                   they are not authorized to access, send them to the 
-                   login page.
-                */
-                log.debug("user anonymous unauthorized to access STATIC " +
-                          "resource, forwarding to login page.");
-                fetchLoginPage(request,response);
-                return;
-            }
-            fetchErrorPage(request, response, nae);
-        }
         catch(Exception e) {
             log.error("exception during request processing ["
                 +processorName+"]", e
