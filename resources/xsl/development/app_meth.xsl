@@ -132,6 +132,7 @@
                                                     </span>&#160;&#160;|&#160;&#160;
                                                     <a class="methNav" href="#design">Architecture and Design</a>&#160;&#160;|&#160;&#160;
                                                     <a class="methNav" href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;
+                                                    <a class="methNav" href="#integration">Integration</a>&#160;&#160;|&#160;&#160;
                                                     <a class="methNav" href="#qa">QA</a>&#160;&#160;&#160;&#160;
                                                 </td>
                                                 <td class="methNav" width="2%" nowrap="nowrap">
@@ -180,6 +181,7 @@
                                                         <strong>Architecture and Design</strong>
                                                     </span>&#160;&#160;|&#160;&#160;
                                                     <a class="methNav" href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;
+                                                    <a class="methNav" href="#integration">Integration</a>&#160;&#160;|&#160;&#160;
                                                     <a class="methNav" href="#qa">QA</a>&#160;&#160;&#160;&#160;
                                                 </td>
                                                 <td class="methNav" width="2%" nowrap="nowrap">
@@ -244,6 +246,7 @@
                                                     <span class="bodyText">
                                                         <strong>Development and Testing</strong>
                                                     </span>&#160;&#160;|&#160;&#160;
+                                                    <a class="methNav" href="#integration">Integration</a>&#160;&#160;|&#160;&#160;
                                                     <a class="methNav" href="#qa">QA</a>&#160;&#160;&#160;&#160;
                                                 </td>
                                                 <td class="methNav" width="2%" nowrap="nowrap">
@@ -348,7 +351,7 @@
                                             <li>A Development Review Board is selected from the Development Review Board Pool.</li>
                                             <li>The Development Review Board and Designer are responsible for testing and scoring each submission.</li>
                                             <li>Once all submissions are scored a winning solution is chosen.</li>
-                                            <li>The winning developer incorporates Review Board suggestions into their final submission.</li>
+                                            <li>The winning integrator incorporates Review Board suggestions into their final submission.</li>
                                             <li>The Development Review Board performs the Final Application Review once all the of fixes have been applied.</li>
 
                                         </ol>
@@ -365,6 +368,7 @@
                                                     <a class="methNav" href="#spec">Specification</a>&#160;&#160;|&#160;&#160;
                                                     <a class="methNav" href="#design">Architecture and Design</a>&#160;&#160;|&#160;&#160;
                                                     <a class="methNav" href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;
+                                                    <a class="methNav" href="#integration">Integration</a>&#160;&#160;|&#160;&#160;
                                                     <span class="bodyText">
                                                         <strong>QA</strong>
                                                     </span>&#160;&#160;&#160;&#160;
