@@ -12,7 +12,7 @@
         <remote>com.topcoder.web.ejb.ProblemRatingServices.ProblemRatingServices</remote>
         <ejb-class>com.topcoder.web.ejb.ProblemRatingServices.ProblemRatingServicesBean</ejb-class>
         <session-type>Stateless</session-type>
-        <transaction-type>Bean</transaction-type>
+        <transaction-type>Container</transaction-type>
       </session>
     </enterprise-beans>
     <assembly-descriptor>
