@@ -1,48 +1,43 @@
-<HTML>
-<HEAD>
-	<title>TopCoder | High School</title>
-    <META NAME="description" CONTENT="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
-    <META NAME="keywords" CONTENT="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
-<jsp:include page="../includes/css.jsp" />
-</HEAD>
-<BODY BGCOLOR="#001934" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
-<jsp:include page="../includes/top.jsp" />
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000000" WIDTH="100%">
-<TR><TD>
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
-    <TR VALIGN="top">
-		<TD WIDTH="170" BGCOLOR="#001934">
-        <jsp:include page="../includes/left_nav.jsp" />
-<jsp:include page="../includes/left_calendar.jsp" />
-        </TD>
-        
-        
-        <TD VALIGN="top" BACKGROUND="/i/bluegradiant_bg.gif" BGCOLOR="#FFFFFF">
-            <TABLE CELLSPACING="0" CELLPADDING="0" BORDER="0" WIDTH="100%">
-    <TR>
-        <TD>
-            <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="" WIDTH="100%">
-             <TR><TD ALIGN="left" HEIGHT="44" WIDTH="348"><IMG SRC="/i/headinginside_login.gif" WIDTH="348" HEIGHT="44" BORDER="0"></TD>
-             <TD BACKGROUND="/i/headinginside_1pix_bg.gif" ALIGN="left" HEIGHT="44" WIDTH="4096">&nbsp;
-             </TD></TR>
-            </TABLE>
-        </TD>
-    </TR>
-    <TR>
-        <TD>
-        <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-        <TR>
-            <TD>
-                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-                <TR>
-                    <TD WIDTH="10"><IMG SRC="/i/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-                </TR>
-                </TABLE>
-            </TD>
-            <TD HEIGHT="100%"><BR><BR>
-                        <P CLASS="bodyText">New to TopCoder?  Click <A HREF="?module=Static&d1=registration&d2=registration">here</A> to register now.</P><BR>
+<html>
 
-<jsp:useBean id="SessionInfo" class="com.topcoder.web.hs.model.SessionInfoBean" scope="request" />
+<head>
+
+<title>TopCoder | High School</title>
+
+<meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
+<meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
+
+<jsp:include page="../includes/css.jsp" />
+
+</head>
+
+<body>
+
+<!-- Top begins -->
+<jsp:include page="../includes/top.jsp" />
+<!-- Top ends -->
+
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+    <tr valign="top">
+
+<!-- Left Column begins -->
+        <td width="170" bgcolor="#001934">
+            <jsp:include page="../includes/left_nav.jsp" />
+            <jsp:include page="../includes/left_calendar.jsp" />
+        </td>
+<!-- Left Column begins -->
+        
+<!-- Center Column begins -->
+        <td valign="top" width="99%">
+            <table cellspacing="0" cellpadding="10" border="0" width="100%">
+                <tr>
+                    <td width="100%" class="statText">
+                        
+                        <img src="/i/headinginside_login.gif" width="348" height="44" alt="Login" border="0">
+
+                        <p>New to TopCoder? <a href="?module=Static&d1=registration&d2=registration" class="statText">Click here</a> to register now.</p><br>
+
+<jsp:usebean id="SessionInfo" class="com.topcoder.web.hs.model.SessionInfoBean" scope="request" />
 <%
 String nextpage = (String)request.getAttribute("nextpage");
 if(nextpage==null) nextpage = request.getParameter("nextpage");
@@ -67,51 +62,44 @@ if(username==null) username = "";
     } else return true;
   }
 </script>
-<form name="loginform" action="<%= "https://"+request.getServerName()+request.getAttribute("canonpath") %>" method="POST">
-<input type="hidden" name="module" value="Login">
-<input type="hidden" name="nextpage" value="<%= nextpage %>">
-<TABLE CELLSPACING="5" CELLPADDING="5" BORDER="0" ALIGN="center">
-<TR>
-   <TD CLASS="bodyText"><font size=+1 color=#ff2010><%= message %></font></TD>
-</TR>
-</TABLE>
-<TABLE CELLSPACING="5" CELLPADDING="5" BORDER="0" ALIGN="center">
-<TR>
-    <TD CLASS="bodyText"><B>Handle</B><BR><INPUT TYPE="text" NAME="username" VALUE="<%= username %>" SIZE="25" onKeyPress="submitEnter(event)"></TD>
-</TR>
-<TR>
-    <TD CLASS="bodyText"><B>Password</B><BR><INPUT TYPE="password" NAME="password" SIZE="25" onKeyPress="submitEnter(event)"><BR><B><A HREF="javascript:document.loginform.submit()" CLASS="statTextBig">Login&gt;&gt;</A></B></TD>
-</TR>
-</TABLE>
-</form>
+                        <form name="loginform" action="<%= "https://"+request.getServerName()+request.getAttribute("canonpath") %>" method="POST">
+                        <input type="hidden" name="module" value="Login">
+                        <input type="hidden" name="nextpage" value="<%= nextpage %>">
+                        
+                        <table cellspacing="10" cellpadding="0" border="0" align="center">
+                            <tr><td class="statText"><h2><%= message %></h2></td></tr>
+                        </table>
+
+                        <table cellspacing="10" cellpadding="0" border="0" align="center">
+                            <tr><td class="statText"><strong>Handle</strong><br>
+                                    <input type="text" name="username" value="<%= username %>" size="25" onkeypress="submitEnter(event)"></td></tr>
+                            
+                            <tr><td class="statText"><strong>Password</strong><br>
+                                    <input type="password" name="password" size="25" onkeypress="submitEnter(event)"></td></tr>
+                                    
+                            <tr><td class="statText">
+                                    <div align="right"><a href="javascript:document.loginform.submit()" class="statTextBig">Login &gt;&gt;</a></div>
+                                </td></form>
+                            </tr>
+                        </table>
+
 <script>
   document.loginform.<%=username.equals("")?"username":"password"%>.focus();
 </script>
 
-            </TD>
-             <TD>
-                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-                 <TR>
-                    <TD WIDTH="10"><IMG SRC="/i/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                 </TR>
-                </TABLE>
-            </TD>
-           </TR>
-          </TABLE>
-         </TD>
-        </TR>
-
-       </TABLE>
-        </TD>
+                    </td>
+                </tr>
+            </table>
+        </td>
         
-        
-        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">
-
-<jsp:include page="../includes/right_resources.jsp" /></TD>
-	</TR>
-</TABLE>
-</TD></TR></TABLE>
+        <td width="" bgcolor="#001934" valign="top">
+            <jsp:include page="../includes/right_resources.jsp" />
+        </td>
+    </tr>
+</table>
 
 <jsp:include page="../includes/foot.jsp" />
-</BODY>
-</HTML>
+
+</body>
+
+</html>
