@@ -50,7 +50,7 @@
                 </tr>
             </table>
                         <% } %>
-                        
+
                         <br/>
 
             <table cellspacing="0" class="formFrame" align="center" width="530">
@@ -61,7 +61,7 @@
                     <td class="projectHeaders" align="left">Overview</td>
                 </tr>
             </table>
-            
+
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
             <table border="0" cellspacing="0" cellpadding="0" align="center" width="530">
@@ -124,7 +124,7 @@
                                 <td class="bodyText" nowrap="nowrap">Project Completion - </td><td class="bodyText" align="right">$<rsc:item set="<%=projectDetail%>" name="second_payment" format="0.00"/></td>
                             </tr>
                         </table>
-                        
+
                         <p><strong>Second Place Designer</strong><br />
                            Total Payment - $<rsc:item set="<%=projectDetail%>" name="second_place_payment" format="0.00"/><br/>
                         </p>
@@ -177,7 +177,7 @@
                                 <td class="bodyText">Final Submission Due Date:</td><td class="bodyText" align="right"><rsc:item set="<%=projectDetail%>" name="final_submission_date" format="MM.dd.yyyy"/></td>
                             </tr>
                         </table>
-                        
+
                         <br/>
 
 <%-- Register at TCS --%>
@@ -192,7 +192,8 @@
                                Registration is closed.
                            <% } else { %>
                                <% if (projectDetail.getIntItem(0, "status_id")==Constants.TOURNAMENT_COMPONENT
-                                       || projectDetail.getIntItem(0,"num_inquiries")<Constants.MAX_RATED_INQUIRIES) { %>
+                                       || (projectDetail.getIntItem(0,"num_rated_inquiries")<Constants.MAX_RATED_INQUIRIES &&
+                                       projectDetail.getIntItem(0,"num_unrated_inquiries")<Constants.MAX_UNRATED_INQUIRIES)) { %>
                             <p class="bigRed">
                             **Important Note:
                             By registering to work on this project you are committing to delivering the specified requirements.  Failure to submit the project requirements by the specified date will result in a one month suspension from TopCoder design and development competitions.</p>

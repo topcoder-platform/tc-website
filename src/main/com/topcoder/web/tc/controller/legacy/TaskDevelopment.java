@@ -624,7 +624,7 @@ public final class TaskDevelopment {
         return result;
     }
 
-    static boolean isProjectLockedOut(long componentId, long version, long phase, long userId) throws Exception {
+    public static boolean isProjectLockedOut(long componentId, long version, long phase, long userId) throws Exception {
         DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
         Request inquiryRequest = new Request();
         inquiryRequest.setContentHandle("inquiry_count");
