@@ -40,7 +40,7 @@
 <!--CRPF Header-->
                <table align="center">
                   <tr>
-                     <td><img src="/i/tournament/crpf03/crpf_banner.gif" width="601" height="152" border="0"  vspace="15"/></td>
+                     <td><img src="/i/tournament/crpf03/crpf_banner.gif" width="505" height="152" border="0"  vspace="15"/></td>
                   </tr>
                </table>
                
