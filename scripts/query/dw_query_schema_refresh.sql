@@ -234,4 +234,4 @@ INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (56, "Y", 1, 11, 2);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (57, "Y", 10, 20, 1);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (57, "Y", 1, 8, 2);
-INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (57, "Y", 10, 9, 3);
+INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (57, "Y", 50, 9, 3);
