@@ -857,7 +857,7 @@ public class PDFGenerator extends BaseProcessor {
                     cb.setColorFill(Color.white);
                     cb.setColorStroke(Color.white);
                     cb.setFontAndSize(BaseFont.createFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.NOT_EMBEDDED ), 14);
-                    cb.setTextMatrix(500, 33);
+                    cb.setTextMatrix(540, 33);
                     cb.showText("-" + writer.getPageNumber() + "-");
                     cb.endText();
 
@@ -869,19 +869,16 @@ public class PDFGenerator extends BaseProcessor {
                     footerimg.setAlignment(Element.ALIGN_LEFT);
                     footerimg.scalePercent(70f);
 
-                    footerimg.setAbsolutePosition(45,30);
-                    
                     cb = writer.getDirectContent();
                     cb.beginText();
-                    cb.setColorFill(Color.green);
-                    cb.setColorStroke(Color.green);
+                    cb.setColorFill(Color.white);
+                    cb.setColorStroke(Color.white);
                     cb.setFontAndSize(BaseFont.createFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.NOT_EMBEDDED ), 14);
-                    cb.setTextMatrix(600, 33);
-                    cb.showText("Hello");
-                    //cb.showText("-" + writer.getPageNumber() + "-");
+                    cb.setTextMatrix(540, 33);
+                    cb.showText("-" + writer.getPageNumber() + "-");
                     cb.endText();
 
-                    //cb.addImage(footerimg);
+                    cb.addImage(footerimg);
                 }
             
             }
