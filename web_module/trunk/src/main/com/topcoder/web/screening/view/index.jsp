@@ -60,7 +60,7 @@
                 </tr>
                 <tr><td colspan="3"><img src="/i/p/clear.gif" width="1" height="10"></td></tr>
                 <tr><td colspan="3"><img src="/i/p/clear.gif" width="1" height="10"></td></tr>
-                <tr><td colspan="3" class="bodyText" align="center"><screen:servletLink processor="PopulateSession" styleclass="bodyText">Create a New Session</screen:servletLink></td></tr>                                                       
+                <tr><td colspan="3" class="bodyText" align="center"><screen:servletLink processor="PopulateSession" styleclass="testButton">Create a New Session</screen:servletLink></td></tr>                                                       
             </table>
             <p><br/></p>    
         </td> 
