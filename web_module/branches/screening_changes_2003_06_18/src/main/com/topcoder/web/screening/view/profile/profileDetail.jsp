@@ -72,6 +72,7 @@ function getProblemDetail(id) {
             </table>
 
             <table cellspacing="0" cellpadding="3" width="70%" class="testFrame">
+              <% if (profile.hasTestSetA()) { %>
                 <tr><td class="testTableTitle" colspan="6">Test Set A</td></tr>
                 <tr>
                     <td width="10" class="testFormHeader"><img src="/i/clear.gif" width="10" height="1" alt="" border="0" /></td>
@@ -94,6 +95,8 @@ function getProblemDetail(id) {
                 </screen:listIterator>
 
                 <tr><td colspan="6"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
+              <% } %>
+
                 <% if (!profile.getTestSetBList().isEmpty()) { %>
                     <tr><td class="testTableTitle" colspan="6">Test Set B</td></tr>
 
