@@ -3,6 +3,7 @@ package com.topcoder.common.web.data;
 
 import java.util.ArrayList;
 import java.io.Serializable;
+import com.topcoder.ejb.AuthenticationServices.*;
 import com.topcoder.common.web.xml.*;
 
 
@@ -54,7 +55,6 @@ public final class RegionState
     RecordTag result = null;
     try {
       result = new RecordTag ( "RegionState"             );
-      result.addTag ( UserType.getXML()                  );
       result.addTag ( Region.getXML()                    );
       result.addTag ( RecordTag.getListXML("States",States) );
     } catch ( Exception e )  {

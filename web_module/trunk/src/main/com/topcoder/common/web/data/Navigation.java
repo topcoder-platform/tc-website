@@ -11,13 +11,14 @@ import com.topcoder.common.web.xml.*;
 import com.topcoder.common.web.data.*;
 import com.topcoder.common.web.util.*;
 import com.topcoder.ejb.UserServices.*;
+import com.topcoder.ejb.AuthenticationServices.*;
 
 /**
 * This class stores login information about site navigation.
 * @author Steve Burrows
 */
 public final class Navigation 
-  implements Serializable, Base, HttpSessionBindingListener {
+  implements Serializable, HttpSessionBindingListener {
 
   private static boolean VERBOSE = false;
   private String screen; 
@@ -385,7 +386,7 @@ public final class Navigation
 
 
 
-
+/*
   ///////////////////////////////////////////////////////////////
   public RecordTag getXML() throws Exception {
   ///////////////////////////////////////////////////////////////
@@ -413,5 +414,5 @@ public final class Navigation
     }
     return result;
   }
-
+*/
 }
