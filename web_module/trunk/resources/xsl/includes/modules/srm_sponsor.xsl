@@ -4,7 +4,7 @@
             <img src="/i/es/northface/srm_promo_home.gif" alt="" width="244" height="142" border="0" usemap="#srmanimation_home" /><br />
             <map name="srmanimation_home">
             <!--<area shape="rect" alt="TCES" coords="1,1,243,85" href="/?t=sponsor&amp;c=intel_ids" />-->
-            <area shape="rect" alt="TCES" coords="1,1,243,85" href="/?&amp;t=sponsor&amp;c=link&amp;link=http://www.northface.edu&amp;refer=homepage" />
+            <area shape="rect" alt="TCES" coords="1,1,243,85" href="/?t=tournaments&c=tco03_northface" />
 <!--            <area shape="rect" alt="TCES" coords="1,1,243,85" href="/?t=tces&amp;c=index" /> -->
             <!-- <area shape="rect" alt="AlphaSimplex" coords="1,1,243,85" href="/?t=sponsor&amp;c=intel_ids" /> -->
             <area shape="rect" alt="SRM Match 166" coords="0,93,243,141" href="/?RoundId=4635&amp;t=schedule&amp;c=srm" />
