@@ -81,7 +81,7 @@
                                             <a href="#eligibility">Eligibility</a> |
                                             <a href="#timeline">Timeline</a> |
                                             <a target="_new" href="/i/development/downloads/GiftCardApplicationSpec_v10.pdf">Requirement Specification</a> |
-                                            <a href="#inquire">Inquire</a>
+                                            Inquire
                                         </p>
 
                                         <!-- Overview -->
@@ -338,14 +338,7 @@
                                         </p>
 
                                         <p>
-                                            <strong>
-                                               <a name="inquire" href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Online%20Gift%20Card%20Site%20Development">Inquire for the Site Development Development Tasks of the Online Gift Card Sales Project</a> to get selected as a developer and to obtain the information necessary to submit a solution.
-                                            </strong>
-                                        </p>
-                                        <p>
-                                            <strong>
-                                               <a href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Online%20Gift%20Card%20Supporting%20Operations">Inquire for the Supporting Operations Development Tasks of the Online Gift Card Sales Project</a> to get selected as a developer and to obtain the information necessary to submit a solution.
-                                            </strong>
+                                        Inquiry closed.
                                         </p>                                        
                                         <!--
                                         <p>
