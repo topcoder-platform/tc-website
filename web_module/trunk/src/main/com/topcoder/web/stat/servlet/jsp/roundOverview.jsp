@@ -37,8 +37,8 @@
     ResultSetContainer percents = (ResultSetContainer) queryEntries.get("Round_Percentages");
     ResultSetContainer.ResultSetRow currentRow = null;
     int topN = Integer.parseInt(srb.getProperty("er","5"));
-    boolean lastMatch = request.getAttribute("rd") == null;
-    if(!lastMatch)lastMatch = request.getAttribute("rd").toString().length()==0;
+    boolean lastMatch = request.getParameter("rd") == null;
+//    if(!lastMatch)lastMatch = request.getAttribute("rd").toString().length()==0;
     if(topN<0||topN>100)topN = 5;
     currentRow = leaders.getRow(0);
     String contestName = currentRow.getItem("contest_name").toString();
@@ -100,7 +100,7 @@
  	<IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/><BR/>
 
    <A CLASS="bodyGeneric" href="/stat?&amp;c=<%= lastMatch?"last_match":("round_stats&amp;rd="+roundID) %>"><B><%= contestName %></B></A><BR/>
-<!--DATE <BR/>--><%=request.getAttribute("rd").toString()%>
+<!--DATE <BR/>--><%=request.getParameter("rd")%>
     <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/><BR/><A NAME="leaders"></A>
 <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
   <TR>
