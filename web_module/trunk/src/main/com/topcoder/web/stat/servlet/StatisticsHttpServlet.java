@@ -21,7 +21,7 @@ public class StatisticsHttpServlet extends HttpServlet{
   private static final String LOGGED_IN_ONLY = "1";
   private static final String ACCESS_MAP_KEY = "ACCESSCTRL";
   private Properties mProp = new Properties();
-  private static String dataClass = "com.topcoder.web.stat.bean.DataRetrievalBean";
+  private static String dataClass = "com.topcoder.web.stat.bean.CachedDataRetrievalBean";
 
   /**
      * This method returns the associated properties object
