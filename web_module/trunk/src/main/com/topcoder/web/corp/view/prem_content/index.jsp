@@ -59,7 +59,7 @@ Oem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh eu
 <P><BR/></P>    
 </td></tr>
 <tr><td>
-     <form method="POST" action="<%=request.getContextPath()+"/Tx/?"+TransactionServlet.KEY_OPERATION+"="+TransactionServlet.OP_TERMS%>">
+     <form method="GET" action="<%=request.getContextPath()+"/Tx/?"+TransactionServlet.KEY_OPERATION+"="+TransactionServlet.OP_TERMS%>">
        <input type="hidden" name="back-to" value="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>"/>
        <input type="hidden" name="prod-id" value="1"/> <!-- product id -->
        <table>
