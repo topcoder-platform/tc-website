@@ -12,6 +12,7 @@ import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.security.User;
 
 import com.topcoder.web.screening.common.Constants;
 
@@ -26,11 +27,15 @@ public class BuildCandidateList extends BaseProcessor {
     }
 
     public void process() throws Exception {
+
+        User user = getAuthentication().getUser();
+
         InitialContext context = new InitialContext();
         DataSource ds = (DataSource)
             PortableRemoteObject.narrow(context.lookup(Constants.DATA_SOURCE),
                                         DataSource.class);
         DataAccess dAccess = new DataAccess(ds);
+        dataRequest.setProperty("uid", String.valueOf(user.getId()));
         Map map = dAccess.getData(dataRequest);
 
         if(map != null && map.size() == 1)

@@ -48,6 +48,9 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
 
     public void process() throws Exception {
         request = getRequest();
+        
+        //check to see if they are logged in
+        User user = getAuthentication().getUser();
 
         InitialContext context = new InitialContext();
         DataSource ds = (DataSource)
@@ -63,6 +66,7 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
         }
 
         //get Problem Set
+        profileProblemSet.setProperty("uid", String.valueOf(user.getId()));
         Map map = dAccess.getData(profileProblemSet);
         if(map != null) {
             info.setProblemSetList((ResultSetContainer)
@@ -70,14 +74,14 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
         }
 
         if(info.getTestSetA() != null) {
-            profileTestSetA.setProperty("roundId", 
+            profileTestSetA.setProperty("rid", 
                     info.getTestSetA().toString());
         }
         else {
             ResultSetContainer rsc = info.getProblemSetList();
             ResultSetContainer.ResultSetRow row = 
              (ResultSetContainer.ResultSetRow)rsc.get(0);
-            profileTestSetA.setProperty("roundId", 
+            profileTestSetA.setProperty("rid", 
                     row.getItem("round_id").toString());
         }
 
@@ -90,7 +94,8 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
 
         Long [] testSetBArr = info.getTestSetB();
         if(testSetBArr.length > 0) {
-            profileTestSetB.setProperty("problemIdList", 
+            profileTestSetB.setProperty("uid", String.valueOf(user.getId()));
+            profileTestSetB.setProperty("pidlist", 
                     buildProblemIdList(testSetBArr));
             map = dAccess.getData(profileTestSetB);
             if(map != null) {
@@ -99,9 +104,7 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
             }
         }
 
-            //check to see if they are logged in
-        User user = getAuthentication().getUser();
-        profileCompanyProblem.setProperty("userId", 
+        profileCompanyProblem.setProperty("uid", 
                                             String.valueOf(user.getId()));
         map = dAccess.getData(profileCompanyProblem);
         if(map != null) {
