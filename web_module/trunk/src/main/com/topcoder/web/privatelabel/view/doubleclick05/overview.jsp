@@ -52,7 +52,7 @@ Within minutes of the end of the Challenge Phase, TopCoder's automated, objectiv
 </ul>
 
 <span class="dc_subTitle">Ready to prove you're one of DoubleClick's best?</span><br>
-Registration for the DoubleClick 2005 Coding Challenge opens on February 21st and closes on March 1st. All employees who register will be eligible to compete in the competition.
+Registration for the DoubleClick 2005 Coding Challenge opens on February 22nd and closes on March 1st. All employees who register will be eligible to compete in the competition.
 <br><br>         
 <span class="dc_subTitle">Prizes</span><br>
 All participants who compete in the competition round will receive a DoubleClick 2005 Coding Challenge T-shirt and a personally engraved trophy.  In addition, the top five scorers overall will win grand prizes, and the remaining top 10% of finishers in each region will win prizes.  For example, if there are 50 participants in a given region, the top five finishers in that region who did not receive a grand prize will receive a prize.  If a region has less than 10 participants, the top finisher in that region will still receive a prize, provided he/she did not win a grand prize. DoubleClick will pay all applicable taxes on prizes.  Prizes will be distributed as described here.
