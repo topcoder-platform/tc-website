@@ -204,7 +204,7 @@
                         <method-param>long</method-param>
                     </method-params>
                 </query-method>
-                <ejb-ql>SELECT OBJECT(c) FROM DDECompCatalog c WHERE c.statusId = ?1 AND c.rootCategory = ?2</ejb-ql>
+                <ejb-ql>SELECT OBJECT(c) FROM DDECompCatalog c WHERE c.rootCategory = ?1 AND c.statusId = ?2</ejb-ql>
             </query>
         </entity>
         <entity>
