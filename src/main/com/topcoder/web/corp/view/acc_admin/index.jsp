@@ -6,8 +6,11 @@
          errorPage="../exc/InternalError.jsp" %>
 <HTML>
 <HEAD>
-<TITLE>TopCoder Corporate</TITLE>
-<script language="JavaScript" src="/js/script.js"></script>
+<title>TopCoder Corporate Services</title>
+
+<link rel="stylesheet" type="text/css" href="/css/corpStyle.css" />
+
+<script language="JavaScript" type="text/javascript" src="/js/script.js"></script>
 </HEAD>
 <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
 <jsp:include page="../includes/top.jsp"/>

@@ -7,8 +7,11 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
 <HEAD>
-<TITLE>TopCoder Corporate</TITLE>
-<script language="JavaScript" src="/js/script.js"></script>
+<title>TopCoder Corporate Services</title>
+
+<link rel="stylesheet" type="text/css" href="/css/corpStyle.css" />
+
+<script language="JavaScript" type="text/javascript" src="/js/script.js"></script>
 <%-- <jsp:include page="../script.jsp"/> --%>
 </HEAD>
 
