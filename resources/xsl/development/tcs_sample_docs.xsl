@@ -76,7 +76,19 @@
                                     <td><img src="/i/clear.gif" alt="" height="1" width="1" border="0" /></td>
                                     <td class="statText" valign="top">
                                     <br />
-                                    03.20.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/topcoder_env.jar" class="statText">topcoder_env.jar</a>
+                                    05.28.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/topcoder_env.jar" class="statText">topcoder_env.jar</a>
+                                    </td>
+                                </tr>    
+
+                                <tr><td colspan="3"><hr width="100%" size="1px" color="666666" /></td></tr>
+                                
+                                <tr valign="middle">
+                                    <td class="statText" valign="top"><strong>TopCoder Software Component Guidelines</strong><br />
+                                    The TopCoder Software Component Guidelines provides details required to design and development TopCoder Software components.  This document includes software versions and coding standards.</td>
+                                    <td><img src="/i/clear.gif" alt="" height="1" width="1" border="0" /></td>
+                                    <td class="statText" valign="top">
+                                    <br />
+                                    05.28.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/TopCoder_Software_Component_Guidelines.pdf" class="statText">TopCoder Software Component Guidelines</a>
                                     </td>
                                 </tr>    
 
@@ -90,8 +102,8 @@
                                     <td><img src="/i/clear.gif" alt="" height="1" width="1" border="0" /></td>
                                     <td class="statText" valign="top">
                                     <br />
-                                    04.10.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/Designer_Component_Deliverables.pdf" class="statText">Java Design Deliverables.pdf</a><br />
-                                    04.10.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/.NET_Designer_Component_Deliverables.pdf" class="statText">.NET Design Deliverables.pdf</a>
+                                    05.28.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/Java_Designer_Component_Deliverables.pdf" class="statText">Java Design Deliverables.pdf</a><br />
+                                    05.28.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/.NET_Designer_Component_Deliverables.pdf" class="statText">.NET Design Deliverables.pdf</a>
                                     </td>
                                     
                                 </tr>
@@ -106,9 +118,8 @@
                                     <td><img src="/i/clear.gif" alt="" height="1" width="1" border="0" /></td>
                                     <td class="statText" valign="top">
                                     <br />
-                                    04.14.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/Developer_Component_Deliverables.pdf" class="statText">Java Development Deliverables.pdf</a>
-                                    <br />
-                                    04.14.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/DOTNET_Developer_Component_Deliverables.pdf" class="statText">.NET Development Deliverables.pdf</a>
+                                    05.28.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/Java_Developer_Component_Deliverables.pdf" class="statText">Java Development Deliverables.pdf</a><br />
+                                    05.28.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/DOTNET_Developer_Component_Deliverables.pdf" class="statText">.NET Development Deliverables.pdf</a>
                                     </td>
                                 </tr>
                                 
@@ -144,7 +155,20 @@
                                     04.10.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/TopCoder_Software_Design_Screening_Scorecard.pdf" class="statText">Design Screening Scorecard.pdf</a><br />
                                     04.10.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/TopCoder_Software_Design_Review_Scorecard.pdf" class="statText">Design Review Scorecard.pdf</a><br />
                                     04.14.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/TopCoder_Software_Development_Screening_Scorecard.pdf" class="statText">Development Screening Scorecard.pdf</a><br />
-                                    04.14.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/TopCoder_Software_Development_Review_Scorecard.pdf" class="statText">Development Review Scorecard.pdf</a>
+                                    05.28.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/TopCoder_Software_Development_Review_Scorecard.pdf" class="statText">Development Review Scorecard.pdf</a>
+                                    </td>
+                                </tr>
+                                
+                                <tr><td colspan="3"><hr width="100%" size="1px" color="666666" /></td></tr>
+                                
+                                <tr valign="middle">
+                                    <td class="statText" height="15" valign="top"><strong>TopCoder Software Jalopy Configuration File</strong><br />
+                                    The TopCoder Software Jalopy Configuration File contains the formatting rules required to adhere to the TopCoder Software Java Coding Standards.  Please use this configuration file with Jalopy to format your source code before submitting it for review.
+                                    </td>
+                                    <td><img src="/i/clear.gif" alt="" height="1" width="1" border="0" /></td>
+                                    <td class="statText" height="15" valign="top">
+                                    <br />
+                                    05.28.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/topcoder_code_convention.xml" class="statText">Jalopy Configuration File</a><br />
                                     </td>
                                 </tr>
                                 
