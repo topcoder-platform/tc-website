@@ -13,6 +13,7 @@
 <%
     String level1 = request.getParameter("level1")==null?"":request.getParameter("level1");
     String level2 = request.getParameter("level2")==null?"":request.getParameter("level2");
+    String level3 = request.getParameter("level3")==null?"":request.getParameter("level3");
     CoderSessionInfo info = (CoderSessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);
 %>
 
@@ -57,6 +58,40 @@
 
             </table>
 <%-- TopCoder Info ends *************************** --%>
+
+<%-- Development *************************** --%>
+<% } else if (level1.equals("development")) { %>
+            <table width="180" cellspacing="0" cellpadding="0" border="0">
+                <tr><td id="leftNavTitle" >Development:</td></tr>
+                <tr><td id="leftNavApplet"><a href="Javascript:arena()" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
+                <tr><td id="<%=level2.equals("getPaid")?"leftNavOn":"leftNav"%>"><a href="/?&t=development&c=dev_payment" class="<%=level2.equals("getPaid")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level2.equals("getPaid")?"bottom":"right"%>.gif" alt="" border="0"/>How to Get Paid</a></td></tr>
+                <tr><td id="<%=level2.equals("rTables")?"leftNavOn":"leftNav"%>"><a href="/rtables/viewForum.jsp?forum=157655&mc=239" class="<%=level2.equals("rTables")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level2.equals("rTables")?"bottom":"right"%>.gif" alt="" border="0"/>TC Developer Round Tables</a></td></tr>
+                <tr><td id="<%=level2.equals("forums")?"leftNavOn":"leftNav"%>"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/forum/c_active_collab.jsp?ft=2" class="<%=level2.equals("forums")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level2.equals("forums")?"bottom":"right"%>.gif" alt="" border="0"/>TCS Developer Forums</a></td></tr>
+                <tr><td id="<%=level2.equals("components")?"leftNavOn":"leftNav"%>"><a href="/?t=development&c=comp_projects" class="<%=level2.equals("components")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level2.equals("components")?"bottom":"right"%>.gif" alt="" border="0"/>Components</a></td></tr>
+                <% if (level2.equals("components")) { %>
+                    <tr><td id="<%=level3.equals("open")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=comp_projects">Open Projects</A></td></tr>
+                    <tr><td id="<%=level3.equals("reviews")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=ViewReviewProjects">Review Opportunities</A></td></tr>
+                    <tr><td id="<%=level3.equals("winners")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=components">This Week's Project Winners</A></td></tr>
+                    <tr><td id="<%=level3.equals("submit")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">Project Submit & Review</A></td></tr>
+                    <tr><td id="<%=level3.equals("status")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=comp_archive">Project Status</A></td></tr>
+                    <tr><td id="<%=level3.equals("submission")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=multiplier_status">Project Submission</A></td></tr>
+                    <tr><td id="<%=level3.equals("method")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=comp_meth">Development Methodology</A></td></tr>
+                    <tr><td id="<%=level3.equals("samples")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=tcs_sample_docs">Documentation and Sample Submissions</A></td></tr>
+                    <tr><td id="<%=level3.equals("gettingStarted")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=getting_started">Getting Started</A></td></tr>
+                <% } %>
+                <tr><td id="<%=level2.equals("applications")?"leftNavOn":"leftNav"%>"><a href="/?t=development&c=comp_projects" class="<%=level2.equals("applications")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level2.equals("applications")?"bottom":"right"%>.gif" alt="" border="0"/>Applications</a></td></tr>
+                <% if (level2.equals("applications")) { %>
+                    <tr><td id="<%=level3.equals("open")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=app_projects">Open Projects</A></td></tr>
+                    <tr><td id="<%=level3.equals("method")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=app_meth">Development Methodology</A></td></tr>
+                    <tr><td id="<%=level3.equals("documentation")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=app_sample_docs">Documentation</A></td></tr>
+                <% } %>
+                <tr><td id="<%=level2.equals("contests")?"leftNavOn":"leftNav"%>"><a href="/?t=development&c=comp_projects" class="<%=level2.equals("contests")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level2.equals("contests")?"bottom":"right"%>.gif" alt="" border="0"/>Contests</a></td></tr>
+                <% if (level2.equals("contests")) { %>
+                    <tr><td id="<%=level3.equals("open")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_comp_overview">TCO Component Contest</A></td></tr>
+                    <tr><td id="<%=level3.equals("descontest2")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=des_bonus_contest_2">Design Bonus Contest 2</A></td></tr>
+                    <tr><td id="<%=level3.equals("descontest1")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=bonus_contest_0303">Design Bonus Contest 1</A></td></tr>
+                <% } %>
+            </table>
 
 <% } else { %>
 
