@@ -132,9 +132,10 @@
 <!-- TopCoder Info begins -->
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <tr><td id="leftNavTitle">TopCoder Info:</td></tr>
-                <tr><td id="leftNav"><img src="/i/nav_arrow_right.gif" width="10" height="10" alt="" border="0"><a href="http://<%=ApplicationServer.SERVER_NAME%>/?t=about_tc&c=index" class="left">About Us</a></td></tr>
-                <tr><td id="leftNav"><img src="/i/nav_arrow_right.gif" width="10" height="10" alt="" border="0"><a href="http://<%=ApplicationServer.SERVER_NAME%>/?t=news_events&c=index" class="left">Press Room</a></td></tr>
-                <tr><td id="leftNav"><img src="/i/nav_arrow_right.gif" width="10" height="10" alt="" border="0"><a href="http://<%=ApplicationServer.SERVER_NAME%>/?t=contacts&c=index" class="left">Contact Us</a></td></tr>
+                <tr><td id="leftNav"><a href="http://<%=ApplicationServer.SERVER_NAME%>/?t=about_tc&c=index" class="left"><img src="/i/nav_arrow_right.gif" width="10" height="10" alt="" border="0">About TopCoder</a></td></tr>
+                <tr><td id="leftNav"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc/?d1=review_board&d2=competition" class="left"><img src="/i/nav_arrow_right.gif" width="10" height="10" alt="" border="0"/>Review Boards</a></td></tr>
+                <tr><td id="leftNav"><a href="http://<%=ApplicationServer.SERVER_NAME%>/?t=news_events&c=index" class="left"><img src="/i/nav_arrow_right.gif" width="10" height="10" alt="" border="0">Press Room</a></td></tr>
+                <tr><td id="leftNav"><a href="http://<%=ApplicationServer.SERVER_NAME%>/?t=contacts&c=index" class="left"><img src="/i/nav_arrow_right.gif" width="10" height="10" alt="" border="0">Contact Us</a></td></tr>
             </table>
 <!-- TopCoder Info ends -->
 
