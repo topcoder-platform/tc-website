@@ -47,10 +47,13 @@ A.registerToday:active { font-family:tahoma, arial, sans-serif; color:#999999; f
 .bodyTextBold { font-family:verdana, tahoma, arial, helvetica, sans-serif; color:#000000; font-size:10px; font-weight:bold; text-decoration:none }
 
 .bodyText { font-family:verdana, tahoma, arial, helvetica, sans-serif; color:#000000; font-size:10px; font-weight:normal; text-decoration:none }
+
 A.bodyText:link { font-family:verdana, tahoma, arial, helvetica, sans-serif; color:#CC0000; font-size:10px; font-weight:normal; text-decoration:none }
 A.bodyText:visited { font-family:verdana, tahoma, arial, helvetica, sans-serif; color:#990000; font-size:10px; font-weight:normal; text-decoration:none }
 A.bodyText:hover { font-family:verdana, tahoma, arial, helvetica, sans-serif; color:#999999; font-size:10px; font-weight:normal; text-decoration:none }
 A.bodyText:active { font-family:verdana, tahoma, arial, helvetica, sans-serif; color:#999999; font-size:10px; font-weight:normal; text-decoration:none }
+
+.errorText { font-family:verdana, tahoma, arial, helvetica, sans-serif; color:#CC0000; font-size:11px; font-weight:normal; font-style:italic; text-decoration:none }
 
 .moduleTitle { font-family:verdana, arial, sans-serif; color:#CCCCCC; font-size:9px; font-weight:bold; text-decoration:none }
 
