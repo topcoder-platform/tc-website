@@ -7,12 +7,12 @@
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Component Competition News" border="0" /><br>03.31.05<br>12:05 PM</td>
-     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?&module=SurveyResults&sid=208">TCO05 seeding/advancement survey</A></span><br><br>
+     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?&module=ViewSurvey&sid=208">TCO05 seeding/advancement survey</A></span><br><br>
       Which of the following seeding/advancement formats would you most prefer for the online portion of the upcoming TopCoder Open Algorithm Competition?
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?&module=SurveyResults&sid=208">view survey</A>&#160;|&#160;
+         <A href="/tc?&module=ViewSurvey&sid=208">view survey</A>&#160;|&#160;
          <A href="/tc?&module=SurveyList">archive</A>
    </td></tr>
 
