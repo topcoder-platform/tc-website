@@ -101,7 +101,7 @@
 
 			<ul>
 			<li>You may only submit a challenge if you have a greater-than-zero score at the time of the challenge.  Once your score drops to zero or lower, you will no longer have the option / ability to challenge.</li>
-			<li>You may only challenge submission made in the same competition room as your own.</li>
+			<li>You may only challenge submissions made in the same competition room as your own.</li>
 			<li>A given submission may only be successfully challenged once.  If any competitor has already successfully challenged a submission, it may not be further challenged.</li>
 			<li>You may only challenge a given submission once.  Even if your challenge against a competitor's submission is unsuccessful, you may not further challenge that submission.</li>
 			<li>You may not challenge your own submissions.</li>
@@ -115,7 +115,7 @@
 			<a name="systemtesting"></a>
 			<p><span class="bodySubtitle">6.3 The System-Testing Phase</span><br/>
 			The system-testing phase is non-interactive.  Immediately following the challenge phase, the TopCoder servers will run a number of housekeeping tasks, followed by the system testing.  During the system testing, every problem that is still standing will be subjected to an extensive set of test cases.  The system will check to make sure that each submission returns the correct result in under 8 seconds for each of these test cases.  If any submission fails any of the test cases, the submission will be marked incorrect and the points achieved for that submission would be removed from that coder's total score. 
-			The system testing will generally take between 10 and 20 minutes - sometime longer.  You do not need to stay logged into the TopCoder Arena during the system tests - only if you want to see your final score as soon as it is announced.  When the system tests have completed, a message will be sent out to all competitors who are logged in, and the leader board, room summary, and division summary scores will all be updated to reflect the final results.
+			The system testing will generally take between 10 and 20 minutes - sometimes longer.  You do not need to stay logged into the TopCoder Arena during the system tests - only if you want to see your final score as soon as it is announced.  When the system tests have completed, a message will be sent out to all competitors who are logged in, and the leader board, room summary, and division summary scores will all be updated to reflect the final results.
 		</li>
 		</ul>
 
@@ -206,7 +206,7 @@
 
 		<a name="prewrittencode"></a>
 		<p><span class="bodySubtitle">18 Using Pre-Written Code</span><br/>
-		Many TopCoder participants find is useful to create code libraries for situations that commonly arise in TopCoder competitions.  Doing such is perfectly legal - <b>as long as the code used has been entirely authored by you</b>.  Use of any code other than that which has been authored by you is cheating (and you know how we feel about cheating).  Keep in mind, however, that onsite rounds of TopCoder advancements tournaments are handled differently.  On-site finalists of TopCoder advancement tournaments are not allowed to bring anything "on stage" - including code libraries.
+		Many TopCoder participants find it useful to create code libraries for situations that commonly arise in TopCoder competitions.  Doing such is perfectly legal - <b>as long as the code used has been entirely authored by you</b>.  Use of any code other than that which has been authored by you is cheating (and you know how we feel about cheating).  Keep in mind, however, that onsite rounds of TopCoder advancements tournaments are handled differently.  On-site finalists of TopCoder advancement tournaments are not allowed to bring anything "on stage" - including code libraries.
 		<br/><br/>
 		Pasting large libraries of code into each submission with the intent of only using a small percentage (if any), although not against any rules, is considered by TopCoder to be bad etiquette.
 		</p>
