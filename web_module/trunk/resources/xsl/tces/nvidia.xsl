@@ -83,7 +83,7 @@
       <TD VALIGN="middle" HEIGHT="18" BGCOLOR="#43515E" CLASS="statText"><B>&#160;NVIDIA Jobs</B></TD>
   </TR>
   <TR>
-      <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText">&nbsp;
+      <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText">Software Engineering positions
       </TD>
   </TR>
 </TABLE>
