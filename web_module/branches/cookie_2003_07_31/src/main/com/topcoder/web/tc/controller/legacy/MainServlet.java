@@ -206,7 +206,6 @@ public final class MainServlet extends HttpServlet {
                     }
                 }
                 user.setLoggedIn("Y");
-                document.addTag(new ValueTag("LoggedIn", "true"));
             } else {
                 if (loggedIn.equals("true")) {
                     StringBuffer msg = new StringBuffer(200);
@@ -217,6 +216,9 @@ public final class MainServlet extends HttpServlet {
                 }
                 user.setLoggedIn("N");
             }
+            //we should be able to get away with isIdentified here cuz no xsl requires a true login
+            document.addTag(new ValueTag("LoggedIn", String.valueOf(nav.isIdentified())));
+
             // USE THE 'TASK' PARAMETER FROM THE
             // INCOMING REQUEST TO DETERMINE
             // STATIC PROCESSOR TO USE TO CREATE THE
