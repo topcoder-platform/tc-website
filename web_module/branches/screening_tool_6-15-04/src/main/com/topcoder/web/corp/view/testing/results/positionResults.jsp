@@ -26,8 +26,8 @@
                 <tr valign="top">
                     <td class="bodyText"> 
                         <p><span class=testHead>Position Results</span><br/>
-                        Company Name: <A href="/corp/testing/candidate/campaignList.jsp">Brooks</A><br/>
-                        Campaign Name: <A href="/corp/testing/candidate/campaignResults.jsp">Operation FindGeek</A><br/>
+                        Company Name: Brooks<br/>
+                        Campaign Name: Operation FindGeek<br/>
                         Position Name: Head Geek<br/>
                         </p>
                     </td>
@@ -45,7 +45,7 @@
             
             <br/>
             
-            <table cellspacing="0" cellpadding="0" width="600" class="screenFrame">
+            <table cellspacing="0" cellpadding="0" width="600" class="screeningFrame">
                 <tr>
                     <td class="screeningHeader" width="10%"><A class=screeningHeader href="/">Name</A></td>
                     <td class="screeningHeader" width="10%"><A class=screeningHeader href="/">State/<br/>Province</A></td>
@@ -53,25 +53,38 @@
                     <td class="screeningHeader" width="10%" align=center><A class=screeningHeader href="/">Type</A></td>
                     <td class="screeningHeader" width="10%"><A class=screeningHeader href="/">Problem</A></td>
                     <td class="screeningHeader" width="10%" align=center><A class=screeningHeader href="/">Time</A></td>
-                    <td class="screeningHeader" width="10%" align=center><A class=screeningHeader href="/">Results</A></td>
+                    <td class="screeningHeader" width="10%" align=center><A class=screeningHeader href="/">Problem<br/>Results</A></td>
                     <td class="screeningHeader" width="10%" align=center><A class=screeningHeader href="/">Preference<br/>Level</A></td>
                     <td class="screeningHeader" width="10%" align=center><A class=screeningHeader href="/">Notes</A></td>
                 </tr>
 
 <script type="text/javascript">
-for (i = 0; i <= 50; i++)
+for (i = 1; i <= 50; i++)
 {
-                document.write("<tr>")
-                    document.write("<td class='screeningCell' nowrap=nowrap><A href='/corp/testing/candidate/profile.jsp'>Johnny Doe"+i+"</A></td> ")
-                    document.write("<td class='screeningCell'>CT</td>")
-                    document.write("<td class='screeningCell' nowrap=nowrap>United States</td>")
-                    document.write("<td class='screeningCell' align=center>student</td>")
-                    document.write("<td class='screeningCell'><A href='/'>Rain</A></td>")
-                    document.write("<td class='screeningCell' align=center>00:40.20</td>")
-                    document.write("<td class='screeningCell' align=center><A href='/'>view</A></td>")
-                    document.write("<td class='screeningCell' align=center>Flash</td>")
-                    document.write("<td class='screeningCell' align=center><A href='/'>view</A></td>")
-                document.write("</tr>")
+    document.write("<tr>")
+    if(i%2==1)
+    {
+                    document.write("<td class='screeningCellOdd' nowrap=nowrap><A href='/corp/testing/candidate/profile.jsp'>Johnny Doe"+i+"</A></td> ")
+                    document.write("<td class='screeningCellOdd'>CT</td>")
+                    document.write("<td class='screeningCellOdd' nowrap=nowrap>United States</td>")
+                    document.write("<td class='screeningCellOdd' align=center>student</td>")
+                    document.write("<td class='screeningCellOdd'><A href='/'>Rain</A></td>")
+                    document.write("<td class='screeningCellOdd' align=center>00:40.20</td>")
+                    document.write("<td class='screeningCellOdd' align=center><A href='/'>view</A></td>")
+                    document.write("<td class='screeningCellOdd' align=center>Flash</td>")
+                    document.write("<td class='screeningCellOdd' align=center><A href='/'>view</A></td>")
+    } else {
+                    document.write("<td class='screeningCellEven' nowrap=nowrap><A href='/corp/testing/candidate/profile.jsp'>Johnny Doe"+i+"</A></td> ")
+                    document.write("<td class='screeningCellEven'>CT</td>")
+                    document.write("<td class='screeningCellEven' nowrap=nowrap>United States</td>")
+                    document.write("<td class='screeningCellEven' align=center>student</td>")
+                    document.write("<td class='screeningCellEven'><A href='/'>Rain</A></td>")
+                    document.write("<td class='screeningCellEven' align=center>00:40.20</td>")
+                    document.write("<td class='screeningCellEven' align=center><A href='/'>view</A></td>")
+                    document.write("<td class='screeningCellEven' align=center>Flash</td>")
+                    document.write("<td class='screeningCellEven' align=center><A href='/'>view</A></td>")
+    }
+    document.write("</tr>")
 }
 </script>
 

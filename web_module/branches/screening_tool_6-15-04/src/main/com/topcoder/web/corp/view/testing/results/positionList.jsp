@@ -26,8 +26,8 @@
                 <tr valign="top">
                     <td class="bodyText"> 
                         <p><span class=testHead>Position List</span><br/>
-                        Company Name: <A href="/corp/testing/candidate/campaignList.jsp">Brooks</A><br/>
-                        Campaign Name: <A href="/corp/testing/candidate/campaignList.jsp">Operation FindGeek</A><br/>
+                        Company Name: <A href="/corp/testing/results/campaignList.jsp">Brooks</A><br/>
+                        Campaign Name: <A href="/corp/testing/results/campaignList.jsp">Operation FindGeek</A><br/>
                         </p>
                     </td>
                 </tr>
@@ -35,7 +35,7 @@
 
             <br/>
             
-            <table cellspacing="0" cellpadding="0" width="600" class="screenFrame">
+            <table cellspacing="0" cellpadding="0" width="600" class="screeningFrame">
                 <tr>
                     <td class="screeningHeader" width="33%">Position Name</td>
                     <td class="screeningHeader" width="33%" align=center>Most Recent Activity</td>
@@ -43,13 +43,20 @@
                 </tr>
 
 <script type="text/javascript">
-for (i = 0; i <= 10; i++)
+for (i = 1; i <= 10; i++)
 {
-                document.write("<tr>")
-                    document.write("<td class='screeningCell' nowrap=nowrap><A href='/corp/testing/candidate/positionResults.jsp'>position"+i+"</A></td> ")
-                    document.write("<td class='screeningCell' align=center>06.21.2004 04:34</td>")
-                    document.write("<td class='screeningCell' align=right>"+i+"</td>")
-                document.write("</tr>")
+    document.write("<tr>")
+    if(i%2==1)
+    {
+                    document.write("<td class='screeningCellOdd' nowrap=nowrap><A href='/corp/testing/results/positionResults.jsp'>position"+i+"</A></td> ")
+                    document.write("<td class='screeningCellOdd' align=center>06.21.2004 04:34</td>")
+                    document.write("<td class='screeningCellOdd' align=right>"+i+"</td>")
+    } else {
+                    document.write("<td class='screeningCellEven' nowrap=nowrap><A href='/corp/testing/results/positionResults.jsp'>position"+i+"</A></td> ")
+                    document.write("<td class='screeningCellEven' align=center>06.21.2004 04:34</td>")
+                    document.write("<td class='screeningCellEven' align=right>"+i+"</td>")
+    }
+    document.write("</tr>")
 }
 </script>
 
