@@ -26,6 +26,8 @@
                 <td align=center>
                     <tc-webtag:textArea name="<%=com.topcoder.web.tc.Constants.NOTE_TEXT%>" rows="12" cols="100"/>
                 </td>
+            </tr>
+            <tr>
                 <td align=center>
                     <input type="submit" name="submit" value="Update"/>
                 </td>
