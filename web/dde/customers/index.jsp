@@ -56,12 +56,13 @@
             <img src="/images/clear.gif" width="1" height="15" alt="" border="0"><br>
             <img src="/images/headCustomers.gif" alt="Customers" width="545" height="32" border="0" /><br>
             
+
             <hr width="100%" size="1px" noshade>
-            
+
 <!-- ABB begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
-                    <td width="170"><img src="/images/abb_logo.gif" alt="Borders" width="170" height="57" border="0" /></td>
+                    <td width="170"><img src="/images/abb_logo.gif" alt="ABB" width="170" height="57" border="0" /></td>
                     
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
                     
@@ -88,6 +89,23 @@
                 </tr>
             </table>
 <!-- Borders ends -->
+            
+             <hr width="100%" size="1px" noshade>
+             
+<!-- Burlington begins -->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr valign="top">
+                    <td width="170"><img src="/images/burlington.gif" alt="Burlington Coat Factory" width="170" height="42" border="0" /></td>
+                    
+                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+                    
+                    <td width="99%" class="bodyText">
+                        <p>Burlington Coat Factory Warehouse Corporation is a national department store retail chain 
+                        offering current, high quality, designer merchandise at up to 60% less than other department store prices.</p>
+                    </td>
+                </tr>
+            </table>
+<!-- Burlington ends -->
             
              <hr width="100%" size="1px" noshade>
             
@@ -224,6 +242,22 @@
                 </tr>
             </table>
 <!-- Talbots ends -->
+            
+             <hr width="100%" size="1px" noshade>
+             
+<!-- Thomson begins -->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr valign="top">
+                    <td width="170"><img src="/images/thomson.gif" alt="Thomson Prometric" width="170" height="42" border="0" /></td>
+                    
+                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+                    
+                    <td width="99%" class="bodyText">
+                        <p>Providing superior value to clients, candidates, and channel partners through indispensable e-testing solutions.</p>
+                    </td>
+                </tr>
+            </table>
+<!-- Thomson ends -->
             
              <hr width="100%" size="1px" noshade>
             
