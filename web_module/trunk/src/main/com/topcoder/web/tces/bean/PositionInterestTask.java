@@ -299,19 +299,16 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
 
             hitList.add(hit);
         }
+*/
 
         if (sortBy!=null&&sortBy.length()>0) {
             if (sortOrder.length()>0) {
-                hitList=JSPUtils.sortMapList(hitList,sortBy,sortOrder.equals(TCESConstants.SORT_ORDER_ASC)?true:false);
+                getHitList().sortByColumn(sortBy,sortOrder.equals(TCESConstants.SORT_ORDER_ASC));
             }
             else {
-                hitList=JSPUtils.sortMapList(hitList,sortBy,true);
+                getHitList().sortByColumn(sortBy,true);
             }
         }
-
-
-        setHitList( hitList );
-*/
 
         setNextPage( TCESConstants.POSITION_INTEREST_PAGE );
     }
