@@ -100,6 +100,7 @@ public class Project implements Serializable {
     }
     
     public void setAutoPilot(boolean autopilot) {
+        this.dirtyFlag = true;
         this.autopilot = autopilot;
     }
     
@@ -108,6 +109,7 @@ public class Project implements Serializable {
     }
     
     protected void setLevelId(long levelId) {
+        this.dirtyFlag = true;
         this.levelId = levelId;
     }
 

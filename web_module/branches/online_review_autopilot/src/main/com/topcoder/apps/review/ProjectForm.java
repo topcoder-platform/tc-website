@@ -988,11 +988,11 @@ public final class ProjectForm extends ReviewForm {
     }
     
     public boolean getAutoPilot() {
-        return autopilot;
+        return project.getAutoPilot();
     }
     
     public void setAutoPilot(boolean b) {
-        this.autopilot = b;
+        project.setAutoPilot(b);
     }
 
     /**
