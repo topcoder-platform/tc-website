@@ -24,7 +24,7 @@
       <tr>
          <td>
             <p class="bodyText">
-                This list represents the top rated algorithm competition participants that have competed within the last 180 days.
+                This list represents the top rated component developers.
             </p>
          </td>
       </tr>
