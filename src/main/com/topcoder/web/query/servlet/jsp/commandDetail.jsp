@@ -53,7 +53,7 @@
               <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
                 <TR BGCOLOR="#333333">
                   <TD CLASS="statText"></TD>
-                  <TD CLASS="statText" ALIGN="left">Query Name</TD>
+                  <TD CLASS="statTextBig" ALIGN="left">Query Name</TD>
                 </TR>
                 <TR><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
                 <query:resultSetRowIterator id="query" list="<%=CommandDetailTask.getQueryList()%>">
@@ -78,8 +78,8 @@
               <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
                 <TR BGCOLOR="#333333">
                   <TD CLASS="statText"></TD>
-                  <TD CLASS="statText" ALIGN="left">Input Code</TD>
-                  <TD CLASS="statText" ALIGN="left">Input Description</TD>
+                  <TD CLASS="statTextBig" ALIGN="left">Input Code</TD>
+                  <TD CLASS="statTextBig" ALIGN="left">Input Description</TD>
                 </TR>
                 <TR><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
                 <query:resultSetRowIterator id="input" list="<%=CommandDetailTask.getInputList()%>">

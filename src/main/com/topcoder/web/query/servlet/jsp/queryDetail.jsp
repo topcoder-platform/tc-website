@@ -50,7 +50,7 @@
           </TD></TR>
           <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
           <TR BGCOLOR="#333333" COLSPAN="2">
-            <TD CLASS="statText">Query Text</TD>
+            <TD CLASS="statTextBig">Query Text</TD>
           </TR>
           <TR><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
           <TR>
@@ -63,9 +63,9 @@
             <TD VALIGN="top" WIDTH="50%">
               <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
                 <TR BGCOLOR="#333333">
-                  <TD CLASS="statText"></TD>
-                  <TD CLASS="statText" ALIGN="left">Input Code</TD>
-                  <TD CLASS="statText" ALIGN="left">Input Description</TD>
+                  <TD></TD>
+                  <TD CLASS="statTextBig" ALIGN="left">Input Code</TD>
+                  <TD CLASS="statTextBig" ALIGN="left">Input Description</TD>
                 </TR>
                 <TR><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
                 <query:resultSetRowIterator id="input" list="<%=QueryDetailTask.getInputList()%>">
