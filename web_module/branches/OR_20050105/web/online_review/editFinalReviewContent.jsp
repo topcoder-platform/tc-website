@@ -148,23 +148,27 @@
 					<td class="forumText" colspan="6">
 					    <p class='scorecardQuestion'>Comments for the final fixes</p></td>
 				</tr>
-			    	<tr>
-					<td colspan="6" width="100%" class="errorText">
-					    <html:errors property='comments' /></td>
-			    	</tr>
+				<logic:equal name="finalReviewForm" property="commentsValid" value="false">
+					<tr>
+						<td colspan="6" width="100%" class="errorText">
+						    <html:errors property='comments' /></td>
+					</tr>
+				</logic>
 				<tr>
-					<td class="forumTextEven" align="center">
-						<textarea name="comments" cols="80" rows="10"></textarea>
+					<td class="forumTextEven" align="center">						
+						<html:textarea property="comments" rows="10" cols="80" /></td>
 					</td>
 				</tr>
-			    	<tr>
-					<td colspan="6" width="100%" class="errorText">
-					    <html:errors property='approved' /></td>
-			    	</tr>
+				<logic:equal name="finalReviewForm" property="approvedValid" value="false">
+					<tr>
+						<td colspan="6" width="100%" class="errorText">
+						<html:errors property='approved' /></td>
+					</tr>
+				</logic>
 				<tr>
 					<td class="forumTextOdd" align="center">
-						<input type="radio" name="approved" value="true">Accepted</input>
-						<input type="radio" name="approved" value="false">Rejected</input>
+						<html:radio property="approved" value="true">Accepted</input>
+						<html:radio property="approved" value="false">Rejected</input>
 					</td>
 				</tr>
 

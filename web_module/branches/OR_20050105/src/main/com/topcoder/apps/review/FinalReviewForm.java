@@ -43,6 +43,15 @@ public class FinalReviewForm extends AggregationWorksheetForm {
      */
     private String approvedStatus = null;
 
+    /**
+     * Wheter the comments textarea value is valid or not
+     */
+    private boolean commentsValid;
+
+    /**
+     * Wheter the user has selected a valid value for the approved radio button
+     */
+    private boolean approvedValid;
 
     // ----------------------------------------------------------- Properties
 
@@ -151,6 +160,30 @@ public class FinalReviewForm extends AggregationWorksheetForm {
         finalReview.setComments(comments);
     }
 
+
+    /**
+     * <p>
+     * Return true if the comments field is valid.
+     * </p>
+     *
+     * @return true if the comments field is valid.
+     */
+    public boolean getCommentsValid() {
+        return commentsValid;
+    }
+
+
+    /**
+     * <p>
+     * Return true if the comments field is valid.
+     * </p>
+     *
+     * @return true if the comments field is valid.
+     */
+    private boolean getApprovedValid() {
+        return approvedValid;
+    }
+
     // --------------------------------------------------------- Public Methods
 
     /**
@@ -168,6 +201,9 @@ public class FinalReviewForm extends AggregationWorksheetForm {
      */
     public ActionErrors validate(ActionMapping mapping,
                                  HttpServletRequest request) {
+
+        boolean mustReject = false;
+
         ActionErrors errors = new ActionErrors();
         setValid(true);
 
@@ -181,17 +217,29 @@ public class FinalReviewForm extends AggregationWorksheetForm {
                     getResponses()[i].setValid(false);
                     errors.add("responses[" + i + "]",
                                new ActionError("error.status.required"));
+
+                } else if (status.equalsIgnoreCase("Not Fixed")) {
+                    mustReject = true;
                 }
             }
         }
 
+        approvedValid = true;
+        commentsValid = true;
+
         if (getApproved() == null) {
             setValid(false);
             errors.add("approved", new ActionError("error.status.required"));
+            approvedValid = false;
         } else {
             if (!finalReview.isApproved() && ((getComments() == null) || (getComments().trim().length() == 0))) {
                 setValid(false);
                 errors.add("comments", new ActionError("error.message.required"));
+                commentsValid = false;
+            }
+            if (finalReview.isApproved() && mustReject) {
+                errors.add("approved", new ActionError("error.reject.required"));
+                approvedValid = false;
             }
 
         }
