@@ -70,6 +70,14 @@
                     <td align="center" colspan="4" class="formTextOdd">No New Projects Available</td>
                 </tr>
                 -->
+                
+		<tr valign="top">
+                    <td class="formTextOdd"><a href="?&amp;t=development&amp;c=ossj_tck_test_proxy_v10_des">Sun OSSJ TCK Test Proxy</a></td>
+                    <td class="formTextOdd" align="center">$1,200</td>
+                    <td class="formTextOdd" align="center">$600</td>
+                    <td class="formTextOdd" align="center"></td>
+                </tr>                
+                
 		<tr valign="top">
                     <td class="formTextOdd"><a href="?&amp;t=development&amp;c=online_gift_card_v10_des">Online Gift Card Sales</a></td>
                     <td class="formTextOdd" align="center">$810</td>
