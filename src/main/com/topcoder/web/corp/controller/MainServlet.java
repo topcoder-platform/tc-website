@@ -90,8 +90,6 @@ public class MainServlet extends HttpServlet {
         log.debug("URI: " +
                 request.getRequestURI() + "[" + request.getQueryString() + "]"
         );
-        log.debug("context: " + request.getContextPath());
-        log.debug("servlet: " + request.getServletPath());
 
         // put prefix of the url into request
         request.setAttribute(Constants.KEY_LINK_PREFIX, Util.appRootPage(request));

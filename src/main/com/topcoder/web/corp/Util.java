@@ -139,4 +139,15 @@ public class Util {
         return req.getContextPath() + req.getServletPath();
     }
 
+    /**
+     * This is like a hack.  I can't think of a way to have the
+     * Transaction servlet put up the correct path for the links
+     * in top, left and bottom.  This is only gonna work if the
+     * app is deployed as the default and the servlet = "/"
+     * @return
+     */
+    public static String appRootPage() {
+        return "/";
+    }
+
 }
