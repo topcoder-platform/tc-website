@@ -19,7 +19,7 @@ import com.topcoder.web.common.security.TCESAuthorization;
  * A basic implementation of Task.
  * @author bigjake <kitz@mit.edu>
  * @author swif0ne <dancohn1@yahoo.com>
- * @version 1.2.8.7
+ * @version $Revision$
  */
 
 public abstract class BaseTask implements Task {
@@ -29,7 +29,7 @@ public abstract class BaseTask implements Task {
     /* Holds the InitialContext of a request being processed by this task */
     private InitialContext ctx;
 
-    /* Holds the next page to which the controller should forward after task processing */
+    /* Holds next page where controller should forward after task processing */
     private String nextPage;
     private List trail;
     private String servletPath;
@@ -83,38 +83,30 @@ public abstract class BaseTask implements Task {
         this.servletPath = servletPath;
     }
 
-    public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
-         throws Exception {
+    public void servletPreAction(HttpServletRequest request, 
+            HttpServletResponse response) throws Exception {
 
         User curUser = getAuthenticityToken().getActiveUser();
         uid = curUser.getId();
 
-        // For testing purposes only:
-        String testUser = request.getParameter("testUserId");
-        if (testUser != null) {
-            uid = Long.parseLong(testUser);
-        }
-        log.debug(this.getClass().getName() + ": User id set: " + uid);
+        log.debug("TCES Task = "+ this.getClass().getName() + 
+                  " called with user id = "+ uid);
 
     }
 
-    public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
-        throws Exception {
+    public void servletPostAction(HttpServletRequest request,
+            HttpServletResponse response) throws Exception {
 
     }
 
     public abstract void setAttributes(String paramName, String paramValues[]);
 
 
-
-//------------------------------
     /**
-     * For request being proccessed returns user's authenticity token. Anonymous
-     * users (Guests) are authentic always forever by definition however
-     * there is not the way to get them logged in neither via cookies nor via
-     * login page.
+     * For request being proccessed returns user's authenticity token. 
      *
-     * @return BasicAuthentication
+     * @return WebAuthentication authentication token used in tasks for 
+     *         retrieving the current user's Id
      */
     protected WebAuthentication getAuthenticityToken() {
         return authToken; 
@@ -127,8 +119,6 @@ public abstract class BaseTask implements Task {
     public void setAuthToken(WebAuthentication auth) {
         authToken = auth;
     }
-
-//-----------------------------
 
 
     /** Retreives and parses a date from a ResultSetRow
@@ -163,4 +153,3 @@ public abstract class BaseTask implements Task {
     }
 
 }
-
