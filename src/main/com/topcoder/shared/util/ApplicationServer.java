@@ -18,7 +18,7 @@ public class ApplicationServer {
 
     public static int ENVIRONMENT = bundle.getIntProperty("ENVIRONMENT", DEV);
     public static String SERVER_NAME = bundle.getProperty("SERVER_NAME", "172.16.20.20");
-    public static String CORP_SERVER_NAME = bundle.getProperty("CORP_SERVER_NAME", "172.16.20.23");
+    public static String CORP_SERVER_NAME = bundle.getProperty("CORP_SERVER_NAME", "172.16.20.20");
     public static String SOFTWARE_SERVER_NAME = bundle.getProperty("SOFTWARE_SERVER_NAME", "172.16.20.222");
     public static String HOST_URL = bundle.getProperty("HOST_URL", "t3://172.16.20.41:7030");
     public static String CONTEST_HOST_URL = bundle.getProperty("CONTEST_HOST_URL", "t3://172.16.20.40:9003");
