@@ -36,6 +36,7 @@
 				<tr valign="middle"><td class="statTextLarge" bgcolor="#999999" colspan="2"><font size="3">Tutor Transcripts Archive - 2004</font></td></tr>
 				<tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
 				<tr><td valign="middle" class="bodyText" colspan="2">&#160;<strong>August</strong></td></tr>
+				<tr><td class="bodyText">08.28.04</td><td class="bodyText" nowrap=nowrap width="100%">&#160;-&#160;<a href="/tc?module=Static&d1=tutor_transcripts&d2=tt_082804">SRM 209</a></td></tr>
 				<tr><td class="bodyText">08.19.04</td><td class="bodyText" nowrap=nowrap width="100%">&#160;-&#160;<a href="/tc?module=Static&d1=tutor_transcripts&d2=tt_081904">SRM 208</a></td></tr>
 
 			</table>
