@@ -46,11 +46,10 @@
             <h2>Description of the Component Competition</h2>
 
             <p>
-            The 2004 Collegiate Challenge is bigger and better than ever! 24 Algorithm finalists and 8 Component finalists will be invited to compete live at the onsite finals in Boston.</p>
+            The 2004 Collegiate Challenge is bigger and better than ever! 8 Component finalists will be invited to compete live at the onsite finals in Boston.</p>
             <ul>
                 <li><strong>Elimination Starts</strong><br />
                     January 2004 - Component<br />
-                    February 2004 - Algorithm<br /></li>
                 <li><strong>Onsite Finals</strong><br />
                     April 2004 in Boston, MA</li>
                 <li><strong>Free Competition</strong></li>
