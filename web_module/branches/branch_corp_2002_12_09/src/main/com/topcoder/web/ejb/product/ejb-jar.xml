@@ -13,6 +13,16 @@
         <ejb-class>com.topcoder.web.ejb.product.ProductBean</ejb-class>
         <session-type>Stateless</session-type>
         <transaction-type>Container</transaction-type>
+        <env-entry>
+          <env-entry-name>datasource_name</env-entry-name>
+          <env-entry-type>java.lang.String</env-entry-type>
+          <env-entry-value>JTS_CORP_OLTP</env-entry-value>
+        </env-entry>
+        <env-entry>
+          <env-entry-name>idgen_datasource_name</env-entry-name>
+          <env-entry-type>java.lang.String</env-entry-type>
+          <env-entry-value>CORP_OLTP</env-entry-value>
+        </env-entry>
     </session>
     <session>
         <ejb-name>Purchase</ejb-name>
@@ -21,6 +31,16 @@
         <ejb-class>com.topcoder.web.ejb.product.PurchaseBean</ejb-class>
         <session-type>Stateless</session-type>
         <transaction-type>Container</transaction-type>
+        <env-entry>
+          <env-entry-name>datasource_name</env-entry-name>
+          <env-entry-type>java.lang.String</env-entry-type>
+          <env-entry-value>JTS_CORP_OLTP</env-entry-value>
+        </env-entry>
+        <env-entry>
+          <env-entry-name>idgen_datasource_name</env-entry-name>
+          <env-entry-type>java.lang.String</env-entry-type>
+          <env-entry-value>CORP_OLTP</env-entry-value>
+        </env-entry>
     </session>
     <session>
         <ejb-name>Unit</ejb-name>
@@ -29,6 +49,16 @@
         <ejb-class>com.topcoder.web.ejb.product.UnitBean</ejb-class>
         <session-type>Stateless</session-type>
         <transaction-type>Container</transaction-type>
+        <env-entry>
+          <env-entry-name>datasource_name</env-entry-name>
+          <env-entry-type>java.lang.String</env-entry-type>
+          <env-entry-value>JTS_CORP_OLTP</env-entry-value>
+        </env-entry>
+        <env-entry>
+          <env-entry-name>idgen_datasource_name</env-entry-name>
+          <env-entry-type>java.lang.String</env-entry-type>
+          <env-entry-value>CORP_OLTP</env-entry-value>
+        </env-entry>
     </session>
   </enterprise-beans>
   <assembly-descriptor>
