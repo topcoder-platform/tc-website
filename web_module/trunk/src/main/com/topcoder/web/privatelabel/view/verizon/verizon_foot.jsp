@@ -1,20 +1,18 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@  page
   contentType="text/html"%>
-<!-- Footer Include Begins -->
 
 <!-- Footer Include Begins -->
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">
-
-    <tr valign="top">
-        <td width="100%" align="center" bgcolor="#000000"><img src="/i/clear.gif" width="1" height="5" border="0"/><br/>
-            <div class="smallFoot">Copyright &#169; 2001-2003, TopCoder, Inc. All rights reserved. &#160;&#160;|&#160;&#160;
-            <A href="http://www.verizon.com" class="smallFoot">Home</A>&#160;&#160;|&#160;&#160;
-            <A href="/?t=about_tc&c=index" class="smallFoot">About TopCoder</A>&#160;&#160;|&#160;&#160;
-            <A href="/?t=contacts&c=index" class="smallFoot">Contact Us</A>&#160;&#160;|&#160;&#160;
-            <A href="http://www22.verizon.com/privacy/" class="smallFoot">Privacy</A>&#160;&#160;|&#160;&#160;
-            <A href="http://www22.verizon.com/About/Privacy/terms/" class="smallFoot">Terms</A>
-            </div>
+<table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr class="black">
+        <td width="159" height="25"><img src="/i/clear.gif" width="157" height="10" alt=""></td>
+        <td height="25" width="100%" class="copyright">
+            Copyright &#169; 2001-2003, TopCoder, Inc. All rights reserved. &#160;&#160;|&#160;&#160;
+            <A href="http://www.verizon.com" class="copyrightLink">Home</A>&#160;&#160;|&#160;&#160;
+            <A href="/?t=about_tc&c=index" class="copyrightLink">About TopCoder</A>&#160;&#160;|&#160;&#160;
+            <A href="http://www22.verizon.com/CustomerSupport/ContactUs/Index/" class="copyrightLink">Contact Us</A>&#160;&#160;|&#160;&#160;
+            <A href="http://www22.verizon.com/privacy/" class="copyrightLink">Privacy Policy</A>&#160;&#160;|&#160;&#160;
+            <A href="http://www22.verizon.com/About/Privacy/terms/" class="copyrightLink">Terms</A>
         </td>
     </tr>
 </table>
