@@ -44,11 +44,6 @@
 		<td colspan=2>
 		<table border=0 cellspacing=0 cellpadding=0 width="100%">
     		<tr>
-<!--
-        		<td class=nav>&#160;&#160;&#160;</td>
-        		<td class=nav width="50%">&#160;</td>
-        		<td class=nav width="100%">&#160;</td>
--->
         		<td class=nav>&#160;&#160;&#160;</td>
         		<td class=nav align=right><img src="/i/tournament/tccc05/tabs/L2_sideDK.gif" border=0 /></td>
 
@@ -63,6 +58,7 @@
 				<% } else { %>
 					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=onsite_schedule"><img src="/i/tournament/tccc05/tabs/L2_joinusOff.gif" alt="" border=0 /></A></td>
 				<% } %>
+<%--
 				<% if (tabLev2.equals("onsite_events")) {%>
 					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=photos"><img src="/i/tournament/tccc05/tabs/L2_onsiteeventsOn.gif" alt="" border=0 /></A></td>
 				<% } else { %>
@@ -73,6 +69,7 @@
 				<% } else { %>
 					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=specshow"><img src="/i/tournament/tccc05/tabs/L2_specshowOff.gif" alt="" border=0 /></A></td>
 				<% } %>
+--%>
 				<% } else if (tabLev1.equals("algorithm")) { %>
 				<% if (tabLev2.equals("details")) {%>
 					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_description"><img src="/i/tournament/tccc05/tabs/L2_detailsOn.gif" alt="" border=0 /></A></td>
@@ -108,11 +105,6 @@
 			<% } %>
         		<td class=nav align=left><img src="/i/tournament/tccc05/tabs/L2_sideLT.gif" border=0 /></td>
         		<td class=nav width="100%">&#160;</td>
-<!--
-        		<td class=nav>&#160;&#160;&#160;</td>
-        		<td class=nav width="50%">&#160;</td>
-        		<td class=nav width="100%">&#160;</td>
--->
 			</tr>
 		</table>
 		</td>
@@ -124,11 +116,6 @@
 		<td colspan=2>
 		<table width="100%" border=0 cellspacing=0 cellpadding=0 class="subNav">
 			<tr>
-<!--
-				<td class=subNavBG>&#160;&#160;&#160;</td>
-				<td class=subNavBG width="50%">&#160;</td>
-				<td class=subNavBG width="100%">&#160;&#160;&#160;</td>
--->
 				<td class=subNavBG>&#160;&#160;&#160;</td>
 				<% if (tabLev1.equals("overview")) { %>
 					<% if (tabLev2.equals("join_us")) {%>
@@ -180,11 +167,6 @@
 					<% } %>
 				<% } %>
 				<td class=subNavBG width="100%">&#160;</td>
-<!--
-				<td class=subNavBG width="100%">&#160;</td>
-				<td class=subNavBG width="50%">&#160;</td>
-				<td class=subNavBG>&#160;&#160;&#160;</td>
--->
 			</tr>
 		</table>
 		</td>

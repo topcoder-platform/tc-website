@@ -21,43 +21,46 @@
 		<td valign=top align=center>
 		<div class=bodySpacer>
             
-        <p class=bigTitle>2004 TopCoder Open - Overview</p>
-
-        <p>If you're looking for information on <strong>THE</strong> premier international programming tournament, you've come to the right place!  
-        The 2004 TopCoder Open, Sponsored by Microsoft&#174; will set as rivals some of the IT industry's top professionals and 
-        international collegiate coders.  Software will be designed and developed.  Seemingly unsolvable algorithmic problems 
-        will be solved. $150,000 will be awarded over the course of 14 weeks.</p>
-        
-        <h3>ARE YOU READY?</h3>
-        
-        
+        <p class=bigTitle>2005 TopCoder Collegiate Challenge - Overview</p>
+		<p>Welcome to the official site of the 2005 TopCoder&#174; Collegiate Challenge, Sponsored by Yahoo!&#174; - a battle of some of the world's top international collegiate coders along two exciting competitive tracks.  Software components will be crafted and implemented.  Algorithmic problems of astounding difficulty will be solved.  $150,000 will be awarded over the course of 10 weeks.
+		<br/><br/>
+		<h3>HERE ARE THE FACTS...</h3>
 		<ul>
-		<li><span class="bodySubtitle">Who:</span><br/>	
-       		All registered TopCoder members over the age of 18</li>
+		<li>
+		<span class=bodySubtitle>Who</span><br/>
+		All registered TopCoder members over the age of 18 who are matriculated full time at an accredited college or university
+		</li>
 
-		<li><span class="bodySubtitle">What:</span><br/>
-       		Algorithm Competition<br/>
-       		Component Design Competition<br/>
-       		Component Development Competition
-       	</li>
+		<li>
+		<span class=bodySubtitle>What</span><br/>
+		Algorithm Competition<br/>
+		Component Design Competition<br/>
+		Component Development Competition
+		</li>
 
-		<li><span class="bodySubtitle">Where:</span><br/>	
-			Santa Clara Marriott in Santa Clara, CA, USA</li>
+		<li>
+		<span class=bodySubtitle>Where</span><br/>
+		Santa Clara Marriott in Santa Clara, CA
+		</li>
 
-		<li><span class="bodySubtitle">When:</span><br/>	
-			Algorithm and Component registration opens August 9th<br/>
-			Component Development Competition starts August 10th<br/>
-       		Component Design Competition starts August 12th	<br/>
-       	</li>
+		<li>
+		<span class=bodySubtitle>When</span>
+		Registration opens December 20, 2004<br/>
+		Component Development Competition starts January 4, 2005<br/>
+		Component Design Competition starts January 6, 2005<br/>
+		Algorithm Competition starts January 11, 2005
+		</li>
 
-		<li><span class="bodySubtitle">How Much:</span><br/>	
-			$100,000 will be awarded to Component Design & Development competitors<br/>
-       		$50,000 will be awarded to Algorithm competitors	
-       	</li>
-       	</ul>       		
-       	<p>See the official rules and regulations for full details.</p>
+		<li>
+		<span class=bodySubtitle>How much</span><br/>
+		$90,000 will be awarded to Component Design & Development competitors<br/>
+		$60,000 will be awarded to Algorithm competitors
+		</li>
+		</ul>
 
-            
+		See the official <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_rules">Algorithm</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_rules">Component</A> rules and regulations for full details.
+		</p>
+
         </div>
 		</td>
         
