@@ -30,6 +30,18 @@ public interface SalaryLu extends javax.ejb.EJBObject {
 	public void create( Integer salary_id, String salary_desc ) throws RemoteException, SQLException;
 
 	/**
+	 * Create a new record with a pre-existing database connection.
+	 * @param conn an open database connection
+	 * @param salary_id salary_id
+	 * @param salary_desc salary_desc
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
+	public void create( java.sql.Connection conn, Integer salary_id, String salary_desc ) throws RemoteException, SQLException;
+
+	/**
 	 * Delete a record.
 	 * @param salary_id salary_id
 	 * @exception SQLException if a database error occurs

@@ -30,6 +30,18 @@ public interface DegreeTypeLu extends javax.ejb.EJBObject {
 	public void create( Integer degree_type_id, String degree_type_desc ) throws RemoteException, SQLException;
 
 	/**
+	 * Create a new record with a pre-existing database connection.
+	 * @param conn an open database connection
+	 * @param degree_type_id degree_type_id
+	 * @param degree_type_desc degree_type_desc
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
+	public void create( java.sql.Connection conn, Integer degree_type_id, String degree_type_desc ) throws RemoteException, SQLException;
+
+	/**
 	 * Delete a record.
 	 * @param degree_type_id degree_type_id
 	 * @exception SQLException if a database error occurs

@@ -35,6 +35,23 @@ public interface Profile extends javax.ejb.EJBObject {
 	public void create( Long profile_id, Long coder_id, Date date_available, Integer profile_status_id, Integer preference_travel_level_id, Integer preference_travel_time_id, Integer preference_salary_id ) throws RemoteException, SQLException;
 
 	/**
+	 * Create a new record with a pre-existing database connection.
+	 * @param conn an open database connection
+	 * @param profile_id profile_id
+	 * @param coder_id coder_id
+	 * @param date_available date_available
+	 * @param profile_status_id profile_status_id
+	 * @param preference_travel_level_id preference_travel_level_id
+	 * @param preference_travel_time_id preference_travel_time_id
+	 * @param preference_salary_id preference_salary_id
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
+	public void create( java.sql.Connection conn, Long profile_id, Long coder_id, Date date_available, Integer profile_status_id, Integer preference_travel_level_id, Integer preference_travel_time_id, Integer preference_salary_id ) throws RemoteException, SQLException;
+
+	/**
 	 * Delete a record.
 	 * @param profile_id profile_id
 	 * @exception SQLException if a database error occurs

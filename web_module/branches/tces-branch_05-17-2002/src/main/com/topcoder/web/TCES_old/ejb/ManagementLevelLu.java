@@ -30,6 +30,18 @@ public interface ManagementLevelLu extends javax.ejb.EJBObject {
 	public void create( Integer management_level_id, String management_level_desc ) throws RemoteException, SQLException;
 
 	/**
+	 * Create a new record with a pre-existing database connection.
+	 * @param conn an open database connection
+	 * @param management_level_id management_level_id
+	 * @param management_level_desc management_level_desc
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
+	public void create( java.sql.Connection conn, Integer management_level_id, String management_level_desc ) throws RemoteException, SQLException;
+
+	/**
 	 * Delete a record.
 	 * @param management_level_id management_level_id
 	 * @exception SQLException if a database error occurs

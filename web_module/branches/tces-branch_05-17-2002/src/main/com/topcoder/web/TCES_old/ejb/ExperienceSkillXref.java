@@ -30,8 +30,21 @@ public interface ExperienceSkillXref extends javax.ejb.EJBObject {
 	public void create( Long experience_id, Integer skill_id ) throws RemoteException, SQLException;
 
 	/**
+	 * Create a new record with a pre-existing database connection.
+	 * @param conn an open database connection
+	 * @param experience_id experience_id
+	 * @param skill_id skill_id
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
+	public void create( java.sql.Connection conn, Long experience_id, Integer skill_id ) throws RemoteException, SQLException;
+
+	/**
 	 * Delete a record.
 	 * @param experience_id experience_id
+	 * @param skill_id skill_id
 	 * @exception SQLException if a database error occurs
 	 * @exception RemoteException if a system error occurs
 	 * @author Phil Selby, May 22nd, 2002

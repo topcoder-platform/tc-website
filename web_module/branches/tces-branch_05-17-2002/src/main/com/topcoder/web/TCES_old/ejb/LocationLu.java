@@ -30,6 +30,18 @@ public interface LocationLu extends javax.ejb.EJBObject {
 	public void create( Integer location_id, String location_desc ) throws RemoteException, SQLException;
 
 	/**
+	 * Create a new record with a pre-existing database connection.
+	 * @param conn an open database connection
+	 * @param location_id location_id
+	 * @param location_desc location_desc
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
+	public void create( java.sql.Connection conn, Integer location_id, String location_desc ) throws RemoteException, SQLException;
+
+	/**
 	 * Delete a record.
 	 * @param location_id location_id
 	 * @exception SQLException if a database error occurs

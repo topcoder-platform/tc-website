@@ -45,6 +45,33 @@ public interface ProfileExperience extends javax.ejb.EJBObject {
 	public void create( Long experience_id, Date date_start, Date date_end, String job_title, String organization_name, String organization_url, String job_description, Long profile_id, Integer salary_id, Integer industry_id, Integer job_role_id, Integer job_type_id, Integer organization_size_id, Integer management_level_id, String city, String state_code, String country_code ) throws RemoteException, SQLException;
 
 	/**
+	 * Create a new record with a pre-existing database connection.
+	 * @param conn an open database connection
+	 * @param experience_id experience_id
+	 * @param date_start date_start
+	 * @param date_end date_end
+	 * @param job_title job_title
+	 * @param organization_name organization_name
+	 * @param organization_url organization_url
+	 * @param job_description job_description
+	 * @param profile_id profile_id
+	 * @param salary_id salary_id
+	 * @param industry_id industry_id
+	 * @param job_role_id job_role_id
+	 * @param job_type_id job_type_id
+	 * @param organization_size_id organization_size_id
+	 * @param management_level_id management_level_id
+	 * @param city city
+	 * @param state_code state_code
+	 * @param country_code country_code
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
+	public void create( java.sql.Connection conn, Long experience_id, Date date_start, Date date_end, String job_title, String organization_name, String organization_url, String job_description, Long profile_id, Integer salary_id, Integer industry_id, Integer job_role_id, Integer job_type_id, Integer organization_size_id, Integer management_level_id, String city, String state_code, String country_code ) throws RemoteException, SQLException;
+
+	/**
 	 * Delete a record.
 	 * @param experience_id experience_id
 	 * @exception SQLException if a database error occurs

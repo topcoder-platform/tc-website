@@ -30,6 +30,18 @@ public interface SkillLevelLu extends javax.ejb.EJBObject {
 	public void create( Integer skill_level_id, String skill_level_desc ) throws RemoteException, SQLException;
 
 	/**
+	 * Create a new record with a pre-existing database connection.
+	 * @param conn an open database connection
+	 * @param skill_level_id skill_level_id
+	 * @param skill_level_desc skill_level_desc
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
+	public void create( java.sql.Connection conn, Integer skill_level_id, String skill_level_desc ) throws RemoteException, SQLException;
+
+	/**
 	 * Delete a record.
 	 * @param skill_level_id skill_level_id
 	 * @exception SQLException if a database error occurs

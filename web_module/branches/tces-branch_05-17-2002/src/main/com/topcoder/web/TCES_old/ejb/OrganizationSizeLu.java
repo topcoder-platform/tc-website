@@ -30,6 +30,18 @@ public interface OrganizationSizeLu extends javax.ejb.EJBObject {
 	public void create( Integer organization_size_id, String organization_size_desc ) throws RemoteException, SQLException;
 
 	/**
+	 * Create a new record with a pre-existing database connection.
+	 * @param conn an open database connection
+	 * @param organization_size_id organization_size_id
+	 * @param organization_size_desc organization_size_desc
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
+	public void create( java.sql.Connection conn, Integer organization_size_id, String organization_size_desc ) throws RemoteException, SQLException;
+
+	/**
 	 * Delete a record.
 	 * @param organization_size_id organization_size_id
 	 * @exception SQLException if a database error occurs

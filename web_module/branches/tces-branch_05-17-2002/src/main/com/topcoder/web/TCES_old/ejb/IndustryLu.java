@@ -30,6 +30,18 @@ public interface IndustryLu extends javax.ejb.EJBObject {
 	public void create( Integer industry_id, String industry_desc ) throws RemoteException, SQLException;
 
 	/**
+	 * Create a new record with a pre-existing database connection.
+	 * @param conn an open database connection
+	 * @param industry_id industry_id
+	 * @param industry_desc industry_desc
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
+	public void create( java.sql.Connection conn, Integer industry_id, String industry_desc ) throws RemoteException, SQLException;
+
+	/**
 	 * Delete a record.
 	 * @param industry_id industry_id
 	 * @exception SQLException if a database error occurs

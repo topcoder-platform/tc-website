@@ -30,6 +30,18 @@ public interface JobRoleLu extends javax.ejb.EJBObject {
 	public void create( Integer job_role_id, String job_role_desc ) throws RemoteException, SQLException;
 
 	/**
+	 * Create a new record with a pre-existing database connection.
+	 * @param conn an open database connection
+	 * @param job_role_id job_role_id
+	 * @param job_role_desc job_role_desc
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
+	public void create( java.sql.Connection conn, Integer job_role_id, String job_role_desc ) throws RemoteException, SQLException;
+
+	/**
 	 * Delete a record.
 	 * @param job_role_id job_role_id
 	 * @exception SQLException if a database error occurs

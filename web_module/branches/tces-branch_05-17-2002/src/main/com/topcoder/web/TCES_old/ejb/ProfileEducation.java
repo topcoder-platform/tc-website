@@ -34,6 +34,22 @@ public interface ProfileEducation extends javax.ejb.EJBObject {
 	public void create( Long education_id, Long profile_id, Integer degree_type_id, Integer school_id, Date date_graduation, Integer gpa_id ) throws RemoteException, SQLException;
 
 	/**
+	 * Create a new record with a pre-existing database connection.
+	 * @param conn an open database connection
+	 * @param education_id education_id
+	 * @param profile_id profile_id
+	 * @param degree_type_id degree_type_id
+	 * @param school_id school_id
+	 * @param date_graduation date_graduation
+	 * @param gpa_id gpa_id
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
+	public void create( java.sql.Connection conn, Long education_id, Long profile_id, Integer degree_type_id, Integer school_id, Date date_graduation, Integer gpa_id ) throws RemoteException, SQLException;
+
+	/**
 	 * Delete a record.
 	 * @param education_id education_id
 	 * @exception SQLException if a database error occurs

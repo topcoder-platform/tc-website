@@ -30,6 +30,18 @@ public interface SubjectLu extends javax.ejb.EJBObject {
 	public void create( Integer subject_id, String subject_desc ) throws RemoteException, SQLException;
 
 	/**
+	 * Create a new record with a pre-existing database connection.
+	 * @param conn an open database connection
+	 * @param subject_id subject_id
+	 * @param subject_desc subject_desc
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
+	public void create( java.sql.Connection conn, Integer subject_id, String subject_desc ) throws RemoteException, SQLException;
+
+	/**
 	 * Delete a record.
 	 * @param subject_id subject_id
 	 * @exception SQLException if a database error occurs

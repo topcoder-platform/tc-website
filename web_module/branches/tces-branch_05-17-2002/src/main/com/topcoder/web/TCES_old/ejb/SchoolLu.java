@@ -32,6 +32,20 @@ public interface SchoolLu extends javax.ejb.EJBObject {
 	public void create( Integer school_id, String name, String location, Long profile_id ) throws RemoteException, SQLException;
 
 	/**
+	 * Create a new record with a pre-existing database connection.
+	 * @param conn an open database connection
+	 * @param school_id school_id
+	 * @param name name
+	 * @param location location
+	 * @param profile_id profile_id
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
+	public void create( java.sql.Connection conn, Integer school_id, String name, String location, Long profile_id ) throws RemoteException, SQLException;
+
+	/**
 	 * Delete a record.
 	 * @param school_id school_id
 	 * @exception SQLException if a database error occurs

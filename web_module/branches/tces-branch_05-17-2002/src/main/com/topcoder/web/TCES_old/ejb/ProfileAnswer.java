@@ -31,6 +31,19 @@ public interface ProfileAnswer extends javax.ejb.EJBObject {
 	public void create( Long answer_id, Long question_id, String text ) throws RemoteException, SQLException;
 
 	/**
+	 * Create a new record with a pre-existing database connection.
+	 * @param conn an open database connection
+	 * @param answer_id answer_id
+	 * @param question_id question_id
+	 * @param text text
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
+	public void create( java.sql.Connection conn, Long answer_id, Long question_id, String text ) throws RemoteException, SQLException;
+
+	/**
 	 * Delete a record.
 	 * @param answer_id answer_id
 	 * @exception SQLException if a database error occurs

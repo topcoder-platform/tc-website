@@ -30,6 +30,18 @@ public interface TravelLevelLu extends javax.ejb.EJBObject {
 	public void create( Integer travel_level_id, String travel_level_desc ) throws RemoteException, SQLException;
 
 	/**
+	 * Create a new record with a pre-existing database connection.
+	 * @param conn an open database connection
+	 * @param travel_level_id travel_level_id
+	 * @param travel_level_desc travel_level_desc
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
+	public void create( java.sql.Connection conn, Integer travel_level_id, String travel_level_desc ) throws RemoteException, SQLException;
+
+	/**
 	 * Delete a record.
 	 * @param travel_level_id travel_level_id
 	 * @exception SQLException if a database error occurs

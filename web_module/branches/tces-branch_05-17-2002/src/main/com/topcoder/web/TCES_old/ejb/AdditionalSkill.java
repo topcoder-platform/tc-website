@@ -32,6 +32,20 @@ public interface AdditionalSkill extends javax.ejb.EJBObject {
 	public void create( Long additional_skill_id, Long profile_id, Integer skill_type_id, String description ) throws RemoteException, SQLException;
 
 	/**
+	 * Create a new record with a pre-existing database connection.
+	 * @param conn an open database connection
+	 * @param additional_skill_id additional_skill_id
+	 * @param profile_id profile_id
+	 * @param skill_type_id skill_type_id
+	 * @param description description
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
+	public void create( java.sql.Connection conn, Long additional_skill_id, Long profile_id, Integer skill_type_id, String description ) throws RemoteException, SQLException;
+
+	/**
 	 * Delete a record.
 	 * @param additional_skill_id additional_skill_id
 	 * @exception SQLException if a database error occurs

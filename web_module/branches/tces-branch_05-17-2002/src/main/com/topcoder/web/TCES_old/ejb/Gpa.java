@@ -32,6 +32,20 @@ public interface Gpa extends javax.ejb.EJBObject {
 	public void create( Integer gpa_id, Integer gpa_type_id, String gpa_desc, Integer gpa_value ) throws RemoteException, SQLException;
 
 	/**
+	 * Create a new record with a pre-existing database connection.
+	 * @param conn an open database connection
+	 * @param gpa_id gpa_id
+	 * @param gpa_type_id gpa_type_id
+	 * @param gpa_desc gpa_desc
+	 * @param gpa_value gpa_value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
+	public void create( java.sql.Connection conn, Integer gpa_id, Integer gpa_type_id, String gpa_desc, Integer gpa_value ) throws RemoteException, SQLException;
+
+	/**
 	 * Delete a record.
 	 * @param gpa_id gpa_id
 	 * @exception SQLException if a database error occurs

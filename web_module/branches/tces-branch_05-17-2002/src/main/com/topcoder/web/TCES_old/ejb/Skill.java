@@ -35,6 +35,23 @@ public interface Skill extends javax.ejb.EJBObject {
 	public void create( Integer skill_id, Integer skill_type_id, String skill_desc, Integer skill_order, String status, Date modify_date, Long profile_id ) throws RemoteException, SQLException;
 
 	/**
+	 * Create a new record with a pre-existing database connection.
+	 * @param conn an open database connection
+	 * @param skill_id skill_id
+	 * @param skill_type_id skill_type_id
+	 * @param skill_desc skill_desc
+	 * @param skill_order skill_order
+	 * @param status status
+	 * @param modify_date modify_date
+	 * @param profile_id profile_id
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
+	public void create( java.sql.Connection conn, Integer skill_id, Integer skill_type_id, String skill_desc, Integer skill_order, String status, Date modify_date, Long profile_id ) throws RemoteException, SQLException;
+
+	/**
 	 * Delete a record.
 	 * @param skill_id skill_id
 	 * @exception SQLException if a database error occurs

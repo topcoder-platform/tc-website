@@ -30,6 +30,18 @@ public interface ConcentrationTypeLu extends javax.ejb.EJBObject {
 	public void create( Integer concentration_type_id, String concentration_type_desc ) throws RemoteException, SQLException;
 
 	/**
+	 * Create a new record with a pre-existing database connection.
+	 * @param conn an open database connection
+	 * @param concentration_type_id concentration_type_id
+	 * @param concentration_type_desc concentration_type_desc
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
+	public void create( java.sql.Connection conn, Integer concentration_type_id, String concentration_type_desc ) throws RemoteException, SQLException;
+
+	/**
 	 * Delete a record.
 	 * @param concentration_type_id concentration_type_id
 	 * @exception SQLException if a database error occurs
