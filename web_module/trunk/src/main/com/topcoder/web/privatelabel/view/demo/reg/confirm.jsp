@@ -11,18 +11,19 @@
 <html>
 <head>
 
-<title>Brooks Automation, Inc. - Screening</title>
+<title>TopCoder Technical Assessment Tool - Demo</title>
 
 <jsp:include page="../../script.jsp" />
-<link type="text/css" rel="stylesheet" href="/css/brooks.css"/>
+<link type="text/css" rel="stylesheet" href="/css/demo.css"/>
 
 </head>
 <body>
 
 <table width="770" align="left" valign="top" cellpadding=0 cellspacing=0 border=0>
-	<tr><td><img src="/i/events/brooks/brooks_logo.gif" border="0" width="122" height="66"/><img src="/i/events/brooks/header.gif" border="0" width="409" height="66"/></td></tr>
+	<tr><td valign="middle"><img src="/i/demo/xyz_logo.gif" border="0" width="122" height="66"/><img src="/i/demo/header.gif" border="0" width="409" height="66"/><img src="/i/clear.gif" height="1" width="140" border="0">
+	<a href="http://www.topcoder.com/"><img src="/i/demo/pbtc_logo.gif" border="0" width="90" height="66"/></a></td></tr>
 	<tr><td><div class=brHead><img src="/i/clear.gif" height="23" width="1"></div></td></tr>
-	<tr><td><div class=brHeadSpacer><img src="/i/clear.gif" height="4" width="1"></div></td></tr>
+	<tr><td><div><img src="/i/clear.gif" height="4" width="1"></div></td></tr>
 	<form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.DEMO_REG_SUBMIT%>"/>
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
