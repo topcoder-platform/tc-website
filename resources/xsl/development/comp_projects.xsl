@@ -85,7 +85,7 @@
                         <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_comp_description">Click here</A>
                         for the rules and more information about the 2004 TCCC Component Competition. At the <A href="#comp_des">bottom</A> of this page are regular component projects that do not qualify for the TCCC.</strong></p>
                        Be the first submitter for any TCCC project and earn yourself the multiplier.  Now from the
-                       <a href='?t=development&amp;c=multiplier_status'>Project Submission</a> page you can view who has inquired, submitted and who has the multiplier!
+                       Project Submission page you can view who has inquired, submitted and who has the multiplier! 
 
                     </td>
                 </tr>
@@ -143,8 +143,22 @@
                                 </a>
                             </td>
                             <td class="formTextOdd" align="center"><xsl:value-of select="./catalog_name"/></td>
-                            <td class="formTextOdd" align="center"><xsl:value-of select="./total_inquiries"/></td>
-                            <td class="formTextOdd" align="center"><xsl:value-of select="./total_submissions"/></td>
+                            <td class="formTextOdd" align="center">
+                             <a>
+                                <xsl:attribute name="href">
+                                     <xsl:value-of select="concat('?t=development&amp;c=multiplier_status&amp;pj=', ./project_id)"/>
+                                </xsl:attribute>
+                               <xsl:value-of select="./total_inquiries"/>
+                             </a>
+                            </td>
+                            <td class="formTextOdd" align="center">
+                             <a>
+                                <xsl:attribute name="href">
+                                     <xsl:value-of select="concat('?t=development&amp;c=multiplier_status&amp;pj=', ./project_id)"/>
+                                </xsl:attribute>
+                               <xsl:value-of select="./total_submissions"/>
+                             </a>
+                            </td>
                             <td class="formTextOdd" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
                             <td class="formTextOdd" align="center"><xsl:value-of select="./description"/></td>
                             <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
@@ -226,8 +240,22 @@
                                 </a>
                             </td>
                             <td class="formTextOdd" align="center"><xsl:value-of select="./catalog_name"/></td>
-                            <td class="formTextOdd" align="center"><xsl:value-of select="./total_inquiries"/></td>
-                            <td class="formTextOdd" align="center"><xsl:value-of select="./total_submissions"/></td>
+                            <td class="formTextOdd" align="center">
+                             <a>
+                                <xsl:attribute name="href">
+                                     <xsl:value-of select="concat('?t=development&amp;c=multiplier_status&amp;pj=', ./project_id)"/>
+                                </xsl:attribute>
+                               <xsl:value-of select="./total_inquiries"/>
+                             </a>
+                            </td>
+                            <td class="formTextOdd" align="center">
+                             <a>
+                                <xsl:attribute name="href">
+                                     <xsl:value-of select="concat('?t=development&amp;c=multiplier_status&amp;pj=', ./project_id)"/>
+                                </xsl:attribute>
+                               <xsl:value-of select="./total_submissions"/>
+                             </a>
+                            </td>
                             <td class="formTextOdd" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
                             <td class="formTextOdd" align="center"><xsl:value-of select="./description"/></td>
                             <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
@@ -329,8 +357,21 @@
                                 </a>
                             </td>
                             <td class="formTextOdd" align="center"><xsl:value-of select="./catalog_name"/></td>
-                            <td class="formTextOdd" align="center"><xsl:value-of select="./total_inquiries"/></td>
-                            <td class="formTextOdd" align="center"><xsl:value-of select="./total_submissions"/></td>
+                            <td class="formTextOdd" align="center">
+                             <a>
+                                <xsl:attribute name="href">
+                                     <xsl:value-of select="concat('?t=development&amp;c=multiplier_status&amp;pj=', ./project_id)"/>
+                                </xsl:attribute>
+                                <xsl:value-of select="./total_inquiries"/>
+                            </a></td>
+                            <td class="formTextOdd" align="center">
+                             <a>
+                                <xsl:attribute name="href">
+                                     <xsl:value-of select="concat('?t=development&amp;c=multiplier_status&amp;pj=', ./project_id)"/>
+                                </xsl:attribute>
+                               <xsl:value-of select="./total_submissions"/>
+                             </a>
+                            </td>
                             <td class="formTextOdd" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
                             <td class="formTextOdd" align="center"><xsl:value-of select="./description"/></td>
                             <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
@@ -404,8 +445,22 @@
                                 </a>
                             </td>
                             <td class="formTextOdd" align="center"><xsl:value-of select="./catalog_name"/></td>
-                            <td class="formTextOdd" align="center"><xsl:value-of select="./total_inquiries"/></td>
-                            <td class="formTextOdd" align="center"><xsl:value-of select="./total_submissions"/></td>
+                            <td class="formTextOdd" align="center">
+                             <a>
+                                <xsl:attribute name="href">
+                                     <xsl:value-of select="concat('?t=development&amp;c=multiplier_status&amp;pj=', ./project_id)"/>
+                                </xsl:attribute>
+                               <xsl:value-of select="./total_inquiries"/>
+                             </a>
+                            </td>
+                            <td class="formTextOdd" align="center">
+                             <a>
+                                <xsl:attribute name="href">
+                                     <xsl:value-of select="concat('?t=development&amp;c=multiplier_status&amp;pj=', ./project_id)"/>
+                                </xsl:attribute>
+                               <xsl:value-of select="./total_submissions"/>
+                             </a>
+                            </td>
                             <td class="formTextOdd" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
                             <td class="formTextOdd" align="center"><xsl:value-of select="./description"/></td>
                             <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
