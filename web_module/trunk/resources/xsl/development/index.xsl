@@ -75,7 +75,7 @@ Inquiry Deadline: TBD<BR/>
 </P>
 
 <P>
-Project: <A HREF="/index?t=development&amp;c=tces1" CLASS="statTextBig">TCES Extension Part One</A><BR/>
+Project: <A HREF="/index?t=development&amp;c=tces1" CLASS="statText">TCES Extension Part One</A><BR/>
 Start Date: May 15, 2002<BR/>
 End Date: June 17, 2002<BR/>
 Member Selection: Closed<BR/>
