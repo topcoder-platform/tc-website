@@ -68,7 +68,7 @@
 			</tr>
 			<tr valign="top">
 			<td class="advancersRound"><a href="/pl/?&module=Static&d1=google04&d2=advFinals" class="topLink">Onsite Finals</a></td>
-			<td class="sidebarText" align="right"><a href="/pl/?&module=Static&d1=google04&d2=advRd2">4</a></td>
+			<td class="sidebarText" align="right"><a href="/pl/?&module=Static&d1=google04&d2=advFinals">4</a></td>
 			</tr>
 			</table>
 
