@@ -29,6 +29,8 @@ public class FinalReview implements Serializable {
     private boolean dirtyFlag = false;
     private long requestorId;
     private long versionId;
+    private boolean isApproved;
+    private String comments;
 
     /**
      * Constructor
@@ -40,13 +42,16 @@ public class FinalReview implements Serializable {
      * @param versionId DOCUMENT ME!
      */
     public FinalReview(long id, FixItem[] fixItem, AggregationWorksheet aggWorksheet,
-                       boolean isCompleted, long requestorId, long versionId) {
+            boolean isCompleted, long requestorId, long versionId, boolean isApproved, String comments) {
+
         this.id = id;
         this.fixItem = fixItem;
         this.aggregationWorksheet = aggWorksheet;
         this.isCompleted = isCompleted;
         this.requestorId = requestorId;
         this.versionId = versionId;
+        this.isApproved = isApproved;
+        this.comments = comments;
         if (id == -1) {
             this.dirtyFlag = true;
         }
@@ -168,6 +173,53 @@ public class FinalReview implements Serializable {
         this.isCompleted = isCompleted;
         this.dirtyFlag = true;
     }
+
+
+
+    /**
+     * <p>
+     * Return whether this final review is approved
+     * </p>
+     *
+     * @return true if the final review is approved, otherwise false.
+     */
+    public boolean isApproved() {
+        return isApproved;
+    }
+
+    /**
+     * <p>
+     * Set whether this review is approved.
+     * </p>
+     *
+     * @param isApproved Whether this review is approved.
+     */
+    public void setApproved(boolean isApproved) {
+        this.isApproved = isApproved;
+    }
+
+    /**
+     * <p>
+     * Get the comments for this review
+     * </p>
+     *
+     * @return the comments for this review
+     */
+    public String getComments() {
+        return comments;
+    }
+
+    /**
+     * <p>
+     * Set the comments for this review
+     * </p>
+     *
+     * @param comments comments for this review
+     */
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
+
 
 
     /* (non-Javadoc)

@@ -200,7 +200,8 @@ public class ProjectAdministration implements Model {
                             }
                             message += submissions[i].getSubmitter().getHandle() + "'s";
                         }
-                    } else {
+                    }
+                    if (!submissions[i].isAdvancedToReview()) {
                         mailQueue.add(new ResultsMail(user, submissions[i].getSubmitter(), 0, MailHelper.PLACE_SCREENING_FAIL, newProject));
                     }
                 }
@@ -484,7 +485,7 @@ public class ProjectAdministration implements Model {
 
                 // give the winner final fix submit permission
                 UserPrincipal userPrincipal = principalMgr.getUser(winner.getId());
-                RolePrincipal rolePrincipal = getRolePrincipal(null, newProject, user.getTCSubject());
+                RolePrincipal rolePrincipal = getRolePrincipal(null, newProject, user.getTCSubject(), newProject.getId());
                 principalMgr.unAssignRole(userPrincipal, rolePrincipal, user.getTCSubject());
                 principalMgr.assignRole(userPrincipal, rolePrincipal, user.getTCSubject());
 
@@ -636,9 +637,10 @@ public class ProjectAdministration implements Model {
                             && RoleHelper.isSubmitterOnly(rev, newProject)
                             && !rev.equals(newProject.getWinner())) {
                         LogHelper.log("Not sending mail to submitter " + rev.getHandle()
-                                + " because the phase is past review and he is not a winner");
-                        // do not send mails to "fake" submitters
-                    } else if (!RoleHelper.isFakeSubmitter(rev, newProject, user)) {
+                                    + " because the phase is past review and he is not a winner");
+                    // do not send mails to "fake" submitters, or to the autopilot user
+                    } else if (!RoleHelper.isFakeSubmitter(rev, newProject, user)
+                               && user.getId() != AutoPilot.ADMINISTRATOR_ID) {
                         mailQueue.add(new ProjectChangeMail(
                                 user, rev, oldProject, newProject, projectData.getReason(), changeType));
                     }
@@ -692,14 +694,14 @@ public class ProjectAdministration implements Model {
                     if (removeUserRole.getUser() != null) {
                         // remove permission for the current role
                         UserPrincipal userPrincipal = principalMgr.getUser(removeUserRole.getUser().getId());
-                        RolePrincipal rolePrincipal = getRolePrincipal(removeUserRole, oldProject, user.getTCSubject());
+                        RolePrincipal rolePrincipal = getRolePrincipal(removeUserRole, oldProject, user.getTCSubject(), newProject.getId());
                         if (rolePrincipal != null) {
                             principalMgr.unAssignRole(userPrincipal, rolePrincipal, user.getTCSubject());
                             LogHelper.log(userPrincipal.getName() + " has lost role " + rolePrincipal.getName());
 
                             // remove the generic View Project permission
                             String roleName = oldProject.getName() + " " + oldProject.getVersion() + " " +
-                                    oldProject.getProjectType().getName() + " " + "View Project";
+                                    oldProject.getProjectType().getName() + " " + "View Project " + oldProject.getId();
                             rolePrincipal = getRolePrincipal(roleName, user.getTCSubject());
                             principalMgr.unAssignRole(userPrincipal, rolePrincipal, user.getTCSubject());
                             LogHelper.log(userPrincipal.getName() + " has lost role " + rolePrincipal.getName());
@@ -716,7 +718,8 @@ public class ProjectAdministration implements Model {
                             // add permission for the current role
                             UserPrincipal userPrincipal = principalMgr.getUser(addUserRole.getUser().getId());
                             RolePrincipal rolePrincipal =
-                                    getRolePrincipal(addUserRole, newProject, user.getTCSubject());
+                                getRolePrincipal(addUserRole, newProject, user.getTCSubject(), newProject.getId());
+                                
                             if (rolePrincipal != null) {
                                 // unassign and assign in case the user already had the role
                                 principalMgr.unAssignRole(userPrincipal, rolePrincipal, user.getTCSubject());
@@ -725,7 +728,7 @@ public class ProjectAdministration implements Model {
 
                                 // add the generic View Project permission
                                 String roleName = oldProject.getName() + " " + oldProject.getVersion() + " " +
-                                        oldProject.getProjectType().getName() + " " + "View Project";
+                                        oldProject.getProjectType().getName() + " " + "View Project " + newProject.getId();
                                 rolePrincipal = getRolePrincipal(roleName, user.getTCSubject());
                                 // unassign and assign in case the user already had the role
                                 principalMgr.unAssignRole(userPrincipal, rolePrincipal, user.getTCSubject());
@@ -859,20 +862,20 @@ public class ProjectAdministration implements Model {
      * @exception Exception remoting and EJB related
      *
      */
-    private RolePrincipal getRolePrincipal(UserRole userRole, Project project, TCSubject requestor) throws Exception {
+    private RolePrincipal getRolePrincipal(UserRole userRole, Project project, TCSubject requestor, long projectId) throws Exception {
         String prefix = getRolePrefix(project);
         if (userRole == null) {
-            return getRolePrincipal(prefix + "Submit Final Fix", requestor);
+            return getRolePrincipal(prefix + "Submit Final Fix " + projectId, requestor);
         } else if (RoleHelper.isSubmitter(userRole)) {
-            return getRolePrincipal(prefix + "Submit", requestor);
+            return getRolePrincipal(prefix + "Submit " + projectId, requestor);
         } else if (RoleHelper.isScreener(userRole)) {
-            return getRolePrincipal(prefix + "Screen", requestor);
+            return getRolePrincipal(prefix + "Screen " + projectId, requestor);
         } else if (RoleHelper.isReviewer(userRole)) {
-            return getRolePrincipal(prefix + "Review", requestor);
+            return getRolePrincipal(prefix + "Review " + projectId, requestor);
         } else if (RoleHelper.isAggregator(userRole)) {
-            return getRolePrincipal(prefix + "Aggregation", requestor);
+            return getRolePrincipal(prefix + "Aggregation " + projectId, requestor);
         } else if (RoleHelper.isFinalReviewer(userRole)) {
-            return getRolePrincipal(prefix + "Final Review", requestor);
+            return getRolePrincipal(prefix + "Final Review " + projectId, requestor);
         }
         return null;
     }

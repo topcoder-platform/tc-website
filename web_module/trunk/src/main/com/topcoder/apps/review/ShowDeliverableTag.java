@@ -9,6 +9,11 @@ import com.topcoder.util.format.FormatMethodFactory;
 import org.apache.struts.util.RequestUtils;
 import org.apache.struts.util.ResponseUtils;
 
+import com.topcoder.apps.review.document.DocumentManagerLocal;
+
+import com.topcoder.security.TCSubject;
+
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.jsp.JspException;
@@ -66,7 +71,7 @@ public class ShowDeliverableTag extends BaseTag {
      * The formater for the date.
      */
     private DateFormatMethod dateFormatter =
-            FormatMethodFactory.getDefaultDateFormatMethod(Constants.DATE_FORMAT);
+        FormatMethodFactory.getDefaultDateFormatMethod(Constants.DATE_FORMAT);
 
     // ------------------------------------------------------------- Properties
 
@@ -207,6 +212,7 @@ public class ShowDeliverableTag extends BaseTag {
             boolean isWinner = false;
             boolean isAdmin = utility.getAdmin();
             boolean isAggregator = false;
+            boolean isFinalFixAvailable = false;
             UserRole[] roles = null;
             Phase phase = null;
             long typeId;
@@ -241,13 +247,43 @@ public class ShowDeliverableTag extends BaseTag {
                 }
             }
 
+            // If the project is in final fixes, it finds out whether this project has already been in final review in order
+            // to show the "final review" button
+            if (phase.getId() == Phase.ID_FINAL_FIXES) {
+                try {
+                    // For a button or a link, check if there is a final review available.
+                    if (button || link)
+                    {
+                        DocumentManagerLocal documentManager = EJBHelper.getDocumentManager();
+                        com.topcoder.apps.review.document.FinalReview finalReview = null;
+
+                        // Create a project to hold the projectId that will be used by getFinalReview
+                        Project project = new Project(projectId,0,0,0,null,null,null,null,null,null,
+                                                        roles,null,null,null,null,false,
+                                                        0,0,0,0,0,false);
+
+                        finalReview = documentManager.getFinalReview(project, false, new TCSubject(user.getId()));
+
+                        // if the final review has a positive id, it's because it was retrieved from the db
+                        if (finalReview.getId() >= 0) isFinalFixAvailable = true;
+                    }
+
+
+
+                } catch (Exception e) {
+                    // If a problem occurs when getting the documentManager, isFinalFixAvailable will remain false
+                }
+            }
+
             for (int i = 0; i < roles.length; i++) {
                 UserRole userRole = roles[i];
                 if (user.equals(userRole.getUser())) {
                     long roleId = userRole.getRole().getId();
                     String[] deliverables = businessDelegate.getDeliverable(phase, roleId, isWinner, isAdmin,
-                            button || link, utility.getNotice() == null,
-                            typeId, isAggregator, utility.getSubmitted());
+                                                                            button || link, utility.getNotice() == null,
+                                                                            typeId, isAggregator, utility.getSubmitted(),
+                                                                            isFinalFixAvailable);
+
                     if (deliverables != null) {
                         for (int j = 0; j < deliverables.length; j += 2) {
                             texts.add(deliverables[j]);
@@ -259,8 +295,10 @@ public class ShowDeliverableTag extends BaseTag {
 
             if (isAdmin && texts.size() == 0) {
                 String[] deliverables =
-                        businessDelegate.getDeliverable(phase, 0, isWinner, isAdmin, button || link,
-                                utility.getNotice() == null, typeId, isAggregator, false);
+                    businessDelegate.getDeliverable(phase, 0, isWinner, isAdmin, button || link,
+                                                    utility.getNotice() == null, typeId, isAggregator, false,
+                                                    isFinalFixAvailable);
+
                 if (deliverables != null) {
                     for (int j = 0; j < deliverables.length; j += 2) {
                         texts.add(deliverables[j]);

@@ -8,6 +8,8 @@
 <%@ page import="java.lang.reflect.*" %>
 
 <%@ page import="com.topcoder.dde.catalog.*" %>
+<%@ page import="com.topcoder.dde.notification.Notification" %>
+<%@ page import="com.topcoder.dde.notification.NotificationHome" %>
 
 <%@ include file="/includes/util.jsp" %>
 <%@ include file="session.jsp" %>
@@ -86,6 +88,19 @@
                             );
                             debug.addMsg("admin->catalog", "Requested component");
                             strRequestMsg += "Component (" + fieldsRequest.get("name").getValue() + " has been requested.";
+
+			    NotificationHome notificationHome = (NotificationHome)
+					    PortableRemoteObject.narrow(
+					    CONTEXT.lookup(NotificationHome.EJB_REF_NAME),
+					    NotificationHome.class);
+
+  			    Notification notification = notificationHome.create();
+
+			    Properties prop = new Properties();
+			    prop.setProperty(notification.COMPONENT_NAME, fieldsRequest.get("name").getValue());
+			    prop.setProperty(notification.REQUESTOR_NAME, tcUser.getRegInfo().getUsername());
+			    notification.notifyEvent("com.topcoder.dde.admin.ComponentRequestEvent", prop);
+
                         } catch (RemoteException re) {
                             requestError = true;
                             strRequestError += "System error occurred: " + re.getMessage() + "<BR>";

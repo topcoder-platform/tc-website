@@ -37,6 +37,22 @@ public class FinalReviewForm extends AggregationWorksheetForm {
      */
     private FinalFixStatus[] statuses = null;
 
+    /**
+     * Wheter the comments textarea value is valid or not
+     */
+    private boolean commentsValid = true;
+
+    /**
+     * Wheter the user has selected a valid value for the approved radio button
+     */
+    private boolean approvedValid = true;
+
+
+    /**
+     * Wheter the final fixes are approved.
+     */
+    private boolean isApproved = false;
+
     // ----------------------------------------------------------- Properties
 
     /**
@@ -48,7 +64,7 @@ public class FinalReviewForm extends AggregationWorksheetForm {
     public String getFixItem(int idx) {
         if (finalReview != null) {
             FinalFixStatus status =
-                    finalReview.getFixCheckList()[idx].getFinalFixStatus();
+                finalReview.getFixCheckList()[idx].getFinalFixStatus();
             if (status != null) {
                 return status.getName();
             } else {
@@ -86,6 +102,74 @@ public class FinalReviewForm extends AggregationWorksheetForm {
         return statuses;
     }
 
+    /**
+     * <p>
+     * Return whether this final review is approved
+     * </p>
+     *
+     * @return true if the final review is approved
+     */
+    public boolean getApproved() {
+        return isApproved;
+    }
+
+    /**
+     * <p>
+     * Set whether this review is approved.
+     * </p>
+     *
+     * @param isApproved Whether this review is approved.
+     */
+    public void setApproved(boolean isApproved) {
+        this.isApproved = isApproved;
+    }
+
+    /**
+     * <p>
+     * Get the comments for this review
+     * </p>
+     *
+     * @return the comments for this review
+     */
+    public String getComments() {
+        return finalReview.getComments();
+    }
+
+    /**
+     * <p>
+     * Set the comments for this review
+     * </p>
+     *
+     * @param comments comments for this review
+     */
+    public void setComments(String comments) {
+        finalReview.setComments(comments);
+    }
+
+
+    /**
+     * <p>
+     * Return true if the comments field is valid.
+     * </p>
+     *
+     * @return true if the comments field is valid.
+     */
+    public boolean getCommentsValid() {
+        return commentsValid;
+    }
+
+
+    /**
+     * <p>
+     * Return true if one of the approved/rejected radio buttons is marked
+     * </p>
+     *
+     * @return true if one of the approved/rejected radio buttons is marked
+     */
+    public boolean getApprovedValid() {
+        return approvedValid;
+    }
+
     // --------------------------------------------------------- Public Methods
 
     /**
@@ -103,6 +187,9 @@ public class FinalReviewForm extends AggregationWorksheetForm {
      */
     public ActionErrors validate(ActionMapping mapping,
                                  HttpServletRequest request) {
+
+        boolean mustReject = false;
+
         ActionErrors errors = new ActionErrors();
         setValid(true);
 
@@ -115,9 +202,29 @@ public class FinalReviewForm extends AggregationWorksheetForm {
                     setValid(false);
                     getResponses()[i].setValid(false);
                     errors.add("responses[" + i + "]",
-                            new ActionError("error.status.required"));
+                               new ActionError("error.status.required"));
+
+                } else if (status.equalsIgnoreCase("Not Fixed")) {
+                    mustReject = true;
                 }
             }
+        }
+
+        approvedValid = true;
+        commentsValid = true;
+
+        // if the project was rejected but all the items were fixed, a comment is needed
+        if (!getApproved() && !mustReject && ((getComments() == null) || (getComments().trim().length() == 0))) {
+            setValid(false);
+            errors.add("comments", new ActionError("error.commentForReject.required"));
+            commentsValid = false;
+        }
+
+        // if the reviewer approved the project but there are not fixed items, show error
+        if (getApproved() && mustReject) {
+            setValid(false);
+            errors.add("approved", new ActionError("error.reject.required"));
+            approvedValid = false;
         }
 
         return errors;
@@ -133,18 +240,21 @@ public class FinalReviewForm extends AggregationWorksheetForm {
      */
     protected void fromReview(FinalReview finalReview) {
         AggregationResponse[] responses =
-                new AggregationResponse[finalReview.getFixCheckList().length];
+            new AggregationResponse[finalReview.getFixCheckList().length];
+            
         BusinessDelegate businessDelegate = new BusinessDelegate();
 
         this.finalReview = finalReview;
         for (int i = 0; i < responses.length; i++) {
             responses[i] =
-                    finalReview.getFixCheckList()[i].getAggregationResponse();
+                finalReview.getFixCheckList()[i].getAggregationResponse();
         }
+        
         super.fromWorksheet(finalReview.getAggregationWorkSheet(),
-                responses);
+                            responses);
 
         statuses = businessDelegate.getFinalFixStatuses();
+        isApproved = finalReview.isApproved();
     }
 
     /**
@@ -156,6 +266,16 @@ public class FinalReviewForm extends AggregationWorksheetForm {
      */
     protected FinalReviewData toReviewData(OnlineReviewProjectData orpd) {
         finalReview.setCompleted(true);
+        finalReview.setApproved(isApproved);
         return new FinalReviewData(orpd, finalReview);
     }
+
+    /**
+     * @see org.apache.struts.action.ActionForm#reset(org.apache.struts.action.ActionMapping, javax.servlet.http.HttpServletRequest)
+     */
+    public void reset(ActionMapping mapping, HttpServletRequest request) {
+        super.reset(mapping, request);
+        isApproved = false;
+    }
+
 }

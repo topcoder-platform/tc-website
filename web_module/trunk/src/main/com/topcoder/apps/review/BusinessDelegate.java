@@ -14,6 +14,8 @@ import com.topcoder.security.policy.TCPermission;
 import org.apache.struts.util.MessageResources;
 
 import java.util.Iterator;
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  * <p>
@@ -342,11 +344,12 @@ public final class BusinessDelegate {
      * @param typeId The project type id.
      * @param isAggregator Whether the user is an aggregator.
      * @param isSubmitted Whether the user has submitted the solution.
+     * @param isFinalReviewAvailable Whether the final review is available
      * @return the deliverable name and action list.
      */
     public String[] getDeliverable(Phase phase, long roleId, boolean isWinner, boolean isAdmin,
                                    boolean isLink, boolean isFinished, long typeId, boolean isAggregator,
-                                   boolean isSubmitted) {
+                                   boolean isSubmitted, boolean isFinalReviewAvailable) {
         MessageResources messages = MessageResources.getMessageResources(Constants.MESSAGE_RESOURCE_KEY);
         long phaseId = phase.getId();
 
@@ -677,92 +680,97 @@ public final class BusinessDelegate {
             if (roleId == Constants.ROLE_DESINGER_DEVELOPER) {
                 // Designer / Developer
                 if (isLink && isSubmitted) {
+                    List deliverables = new ArrayList();
+
+                    // Common for all the designer/developers
+                    deliverables.add(messages.getMessage("prompt.screeningScorecard"));
+                    deliverables.add("/screeningScorecard.do?action=view");
+                    deliverables.add(messages.getMessage("prompt.reviewScorecard"));
+                    deliverables.add("/reviewScorecardList.do?action=view");
+                    deliverables.add(messages.getMessage("prompt.appeals"));
+                    deliverables.add("/appealScorecardList.do");
+
                     if (isWinner && typeId == ProjectType.ID_DESIGN) {
-                        return new String[]{
-                            messages.getMessage("prompt.screeningScorecard"),
-                            "/screeningScorecard.do?action=view",
-                            messages.getMessage("prompt.reviewScorecard"),
-                            "/reviewScorecardList.do?action=view",
-                            messages.getMessage("prompt.appeals"),
-                            "/appealScorecardList.do",
-                            messages.getMessage("prompt.aggregationWorksheet"),
-                            "/aggregation.do?action=view",
-                            messages.getMessage("deliverable.uploadFinalFixes"),
-                            "/submitSolution.do"
-                        };
+                        deliverables.add(messages.getMessage("prompt.aggregationWorksheet"));
+                        deliverables.add("/aggregation.do?action=view");
+                        deliverables.add(messages.getMessage("deliverable.uploadFinalFixes"));
+                        deliverables.add("/submitSolution.do");
+
+                        if (isFinalReviewAvailable) {
+                            deliverables.add (messages.getMessage("prompt.finalReview"));
+                            deliverables.add ("/finalReview.do?action=edit");
+                        }
                     } else if (isWinner && typeId == ProjectType.ID_DEVELOPMENT) {
-                        return new String[]{
-                            messages.getMessage("prompt.screeningScorecard"),
-                            "/screeningScorecard.do?action=view",
-                            messages.getMessage("prompt.reviewScorecard"),
-                            "/reviewScorecardList.do?action=view",
-                            messages.getMessage("prompt.appeals"),
-                            "/appealScorecardList.do",
-                            messages.getMessage("prompt.aggregationWorksheet"),
-                            "/aggregation.do?action=view",
-                            messages.getMessage("prompt.testcases"),
-                            "/testCaseList.do",
-                            messages.getMessage("deliverable.uploadFinalFixes"),
-                            "/submitSolution.do"
-                        };
-                    } else {
-                        return new String[]{
-                            messages.getMessage("prompt.screeningScorecard"),
-                            "/screeningScorecard.do?action=view",
-                            messages.getMessage("prompt.reviewScorecard"),
-                            "/reviewScorecardList.do?action=view",
-                            messages.getMessage("prompt.appeals"),
-                            "/appealScorecardList.do"
-                        };
+                        deliverables.add (messages.getMessage("prompt.aggregationWorksheet"));
+                        deliverables.add ("/aggregation.do?action=view");
+                        deliverables.add (messages.getMessage("prompt.testcases"));
+                        deliverables.add ("/testCaseList.do");
+                        deliverables.add (messages.getMessage("deliverable.uploadFinalFixes"));
+                        deliverables.add ("/submitSolution.do");
+
+                        if (isFinalReviewAvailable) {
+                            deliverables.add (messages.getMessage("prompt.finalReview"));
+                            deliverables.add ("/finalReview.do?action=view");
+                        }
                     }
+                    return (String[]) deliverables.toArray(new String[0]);
                 }
             } else if (roleId == Constants.ROLE_PROJECT_MANAGER || isAdmin) {
                 if (isLink) {
-                    return new String[]{
-                        messages.getMessage("prompt.submission"),
-                        "/projectDetail.do?action=" + Constants.PHASE_SUBMISSION,
-                        messages.getMessage("prompt.screeningScorecard"),
-                        "/projectDetail.do?action=" + Constants.PHASE_SCREENING,
-                        messages.getMessage("prompt.reviewScorecard"),
-                        "/projectDetail.do?action=" + Constants.PHASE_REVIEW,
-                        messages.getMessage("prompt.testcases"),
-                        "/testCaseList.do",
-                        messages.getMessage("prompt.appeals"),
-                        "/projectDetail.do?action=" + Constants.PHASE_APPEALS,
-                        messages.getMessage("prompt.aggregationWorksheet"),
-                        "/aggregation.do?action=admin",
-                        messages.getMessage("prompt.finalFix"),
-                        "/projectDetail.do?action=" + Constants.PHASE_FINAL_FIX,
-                        messages.getMessage("deliverable.terminateProject"),
-                        "/editProject.do?action=terminate",
-                        messages.getMessage("deliverable.editProject"),
-                        "/editProject.do?action=edit"
-                    };
+                    List deliverables = new ArrayList();
+                    deliverables.add(messages.getMessage("prompt.submission"));
+                    deliverables.add("/projectDetail.do?action=" + Constants.PHASE_SUBMISSION);
+                    deliverables.add(messages.getMessage("prompt.screeningScorecard"));
+                    deliverables.add("/projectDetail.do?action=" + Constants.PHASE_SCREENING);
+                    deliverables.add(messages.getMessage("prompt.reviewScorecard"));
+                    deliverables.add("/projectDetail.do?action=" + Constants.PHASE_REVIEW);
+                    deliverables.add(messages.getMessage("prompt.testcases"));
+                    deliverables.add("/testCaseList.do");
+                    deliverables.add(messages.getMessage("prompt.appeals"));
+                    deliverables.add("/projectDetail.do?action=" + Constants.PHASE_APPEALS);
+                    deliverables.add(messages.getMessage("prompt.aggregationWorksheet"));
+                    deliverables.add("/aggregation.do?action=admin");
+                    deliverables.add(messages.getMessage("prompt.finalFix"));
+                    deliverables.add("/projectDetail.do?action=" + Constants.PHASE_FINAL_FIX);
+
+                    if (isFinalReviewAvailable) {
+                        deliverables.add (messages.getMessage("prompt.finalReview"));
+                        deliverables.add ("/finalReview.do?action=view");
+                    }
+
+
+                    deliverables.add(messages.getMessage("deliverable.terminateProject"));
+                    deliverables.add("/editProject.do?action=terminate");
+                    deliverables.add(messages.getMessage("deliverable.editProject"));
+                    deliverables.add("/editProject.do?action=edit");
+
+
+
+                    return (String[]) deliverables.toArray(new String[0]);
                 }
             } else if (roleId == Constants.ROLE_REVIEWER) {
                 // Reviewer
-                if (typeId == ProjectType.ID_DESIGN) {
-                    return new String[]{
-                        messages.getMessage("prompt.screeningScorecard"),
-                        "/screeningScorecardList.do",
-                        messages.getMessage("prompt.reviewScorecard"),
-                        "/reviewScorecardList.do",
-                        messages.getMessage("prompt.appeals"),
-                        "/appealScorecardList.do"
-                    };
-                } else {
-                    return new String[]{
-                        messages.getMessage("prompt.screeningScorecard"),
-                        "/screeningScorecardList.do",
-                        messages.getMessage("prompt.reviewScorecard"),
-                        "/reviewScorecardList.do",
-                        messages.getMessage("prompt.appeals"),
-                        "/appealScorecardList.do",
-                        messages.getMessage("prompt.testcases"),
-                        "/testCaseList.do"
-                    };
+                List deliverables = new ArrayList();
+
+                deliverables.add(messages.getMessage("prompt.screeningScorecard"));
+                deliverables.add("/screeningScorecard.do?action=view");
+                deliverables.add(messages.getMessage("prompt.reviewScorecard"));
+                deliverables.add("/reviewScorecardList.do?action=view");
+                deliverables.add(messages.getMessage("prompt.appeals"));
+                deliverables.add("/appealScorecardList.do");
+
+                if (typeId == ProjectType.ID_DEVELOPMENT) {
+                    deliverables.add (messages.getMessage("prompt.testcases"));
+                    deliverables.add ("/testCaseList.do");
                 }
-            }
+
+                if (isFinalReviewAvailable) {
+                    deliverables.add (messages.getMessage("prompt.finalReview"));
+                    deliverables.add ("/finalReview.do?action=view");
+                }
+
+                return (String[]) deliverables.toArray(new String[0]);
+           }
         } else if (phaseId == Constants.PHASE_FINAL_REVIEW) {
             // Final Review
             if (roleId == Constants.ROLE_DESINGER_DEVELOPER) {

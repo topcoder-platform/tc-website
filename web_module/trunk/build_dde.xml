@@ -48,6 +48,7 @@
     <property name="catalogdir" value="${packagedir}/catalog" />
     <property name="admindir" value="${packagedir}/admin" />
     <property name="ddeforumdir" value="${packagedir}/forum" />
+    <property name="notificationdir" value="${packagedir}/notification" />
     <property name="wrapperdir" value="${packagedir}/sql/wrapper" />
     <property name="ddeservletdir" value="${packagedir}/servlet" />
     <property name="ddeutildir" value="${packagedir}/util" />
@@ -85,6 +86,8 @@
     <property name="admin.jar" value="${dist.jars.dir}/admin.jar"/>
     <property name="ddeforum.src.dir" value="${src.package.dir}/forum"/>
     <property name="ddeforum.jar" value="${dist.jars.dir}/ddeforum.jar"/>
+    <property name="notification.src.dir" value="${src.package.dir}/notification"/>
+    <property name="notification.jar" value="${dist.jars.dir}/notification.jar"/>
     <property name="ddeservlet.src.dir" value="${src.package.dir}/servlet"/>
     <property name="ddeservlet.jar" value="${dist.jars.dir}/ddeservlet.jar"/>
     <property name="ddesubmission.src.dir" value="${src.package.dir}/submission"/>
@@ -109,6 +112,7 @@
     <property name="searchengine.jar" value="${jardir}/searchengine.jar"/>
     <property name="configmanager.jar" value="${jardir}/tcs/configuration_manager.jar"/>
     <property name="emailengine.jar" value="${jardir}/tcs/email_engine.jar"/>
+    <property name="math_matrix.jar" value="${jardir}/tcs/math_matrix.jar"/>
     <property name="render.jar" value="${jardir}/render.jar"/>
     <property name="security.jar" value="${jardir}/security.jar" />
     <property name="forum.jar" value="${jardir}/tcs/forum.jar"/>
@@ -347,6 +351,12 @@
             <metainf dir="${ddeforum.src.dir}" includes="*.xml"/>
         </jar>
 
+        <jar    jarfile="${notification.jar}"
+                basedir="${build_classdir}"
+                includes="${notificationdir}/**">
+            <metainf dir="${notification.src.dir}" includes="*.xml"/>
+        </jar>
+
         <jar    jarfile="${ddeservlet.jar}"
                 basedir="${build_classdir}"
                 includes="${ddeservletdir}/**,${ddeutildir}/**">
@@ -394,6 +404,7 @@
         <copy file="${security.jar}" todir="${dist.jars.dir}"/>
         <copy file="${searchengine.jar}" todir="${dist.jars.dir}"/>
         <copy file="${simplecache.jar}" todir="${dist.jars.dir}"/>
+        <copy file="${math_matrix.jar}" todir="${dist.jars.dir}"/>
     </target>
 
     <target name="package-devtests" depends="compile-devtests">

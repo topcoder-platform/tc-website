@@ -22,6 +22,8 @@
 <%@ page import="java.text.*" %>
 <%@ page import = "com.topcoder.util.config.*" %>
 <%@ page import = "com.topcoder.servlet.request.*" %>
+<%@ page import="com.topcoder.dde.notification.Notification" %>
+<%@ page import="com.topcoder.dde.notification.NotificationHome" %>
 
 <% //@ include file="/includes/forumUtils.jsp" %>
 
@@ -345,6 +347,22 @@
             }
             if (!error) {
                 forumBean.createThread(topic, thread, post);
+
+		NotificationHome notificationHome = (NotificationHome)
+			    PortableRemoteObject.narrow(
+			    CONTEXT.lookup(NotificationHome.EJB_REF_NAME),
+			    NotificationHome.class);
+
+		Notification notification = notificationHome.create();
+
+		Properties prop = new Properties();
+		prop.setProperty(notification.IS_NEW_THREAD, "1");
+		prop.setProperty(notification.COMPONENT_NAME,forumComponent.getName());
+		prop.setProperty(notification.THREAD_NAME, thread.getSubject());
+		prop.setProperty(notification.WRITER_NAME, tcUser.getRegInfo().getUsername());
+		prop.setProperty(notification.LINK, "/forum/c_forum.jsp?f=" + forumId);
+		notification.notifyEvent("com.topcoder.dde.forum.ForumPostEvent " + forumId, prop);
+
                 response.sendRedirect("/forum/c_forum.jsp?f="+forumId);
                 return;
             }
