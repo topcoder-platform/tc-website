@@ -25,26 +25,23 @@ BODY
 	padding: 0px;
 	margin: 0px;
 }
-FONT{
-    color: #FFFFFF;
-}
 </STYLE>
 </head>
 <body bgcolor="#001B35">
-<center><h3><%= request.getAttribute("problemName") %></h3></center>
-<form action="/tc/?module=SubmitRatings" method="POST">
+<center><h3><font color="#FFFFFF"><%= request.getAttribute("problemName") %></font></h3></center>
+<form name="ratings" action="/tc/?module=SubmitRatings" method="POST">
 <input type="hidden" name="pid" value="<%= request.getParameter("pid") %>">
     <table BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%">
         <tr><td></td>
             <% for(int i = 0; i<10; i++){ %>
-                <td class="statTextBig">
+                <td class="statTextBig" align="center">
                     <%=i%>
                 </td>
             <% } %>
         </tr>
         <rsc:iterator list="<%=problemRatingQuestions%>" id="result">
         <tr>
-            <td class="statText">
+            <td class="statText" align="center">
                 <rsc:item row="<%=result%>" name="question"/>
             </td>
                 <%
@@ -57,6 +54,12 @@ FONT{
                 <%  } %>
         </tr>
         </rsc:iterator>
+        <tr>
+        <td colspan="9" align="right">
+            <a href="/tc/?module=ProblemRatingResults&pid=<%= request.getParameter("pid") %>" class="statText">View Results</a>
+        </td><td>
+            <a onlick="document.ratings.submit()" class="statText">View Results</a>
+        </td></tr>
     </table>
     <center>
 <input type="submit" value="Submit Ratings">
