@@ -47,9 +47,9 @@
 </jsp:include>
 
             <h2>Advancers</h2>
-            <div align="right" class="bodyText">Design&#160;&#160;|&#160;&#160;<A href="/tc?module=Static&d1=tco03&d2=tco03_comp_dev_rd1">Development</A></div>
+            <div align="right" class="bodyText">Design&#160;&#160;|&#160;&#160;<A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_comp_dev_rd1">Development</A></div>
             <br/>
-            
+
 <!-- Design Winners Begins -->
             <table border="0" cellspacing="0" cellpadding="3" width="500" align="center">
                 <tr valign="middle">
@@ -65,7 +65,7 @@
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="30%" align="right">Round Scores</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="15%" align="right">Tournament Earnings</td>
                 </tr>
-                
+
                 <tr valign="middle">
                     <td class="formHandleOdd" align="center">1(T)</td>
                     <td class="formHandleOdd" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=119676">Pops</a></td>
@@ -117,9 +117,9 @@
                 <tr valign="middle"><td background="/i/graybv_bg.gif" class="statTextLarge" width="20%" align="left" colspan="5">*the average of the two highest scores, including at least one level II score</td></tr>
 
             </table>
-           
+
            <br/><br/>
-            
+
             <table border="0" cellspacing="0" cellpadding="3" width="500" align="center">
                 <tr valign="middle">
                     <td class="statTextLarge" bgcolor="#999999"><font size="3">Design Wild Card Pool</font></td>
@@ -134,7 +134,7 @@
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="30%" align="right">Round Scores</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="15%" align="right">Tournament Earnings</td>
                 </tr>
-                
+
                 <tr valign="middle">
                     <td class="formHandleOdd" align="center">1</td>
                     <td class="formHandleOdd" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296145">srowen</a></td>
@@ -161,7 +161,7 @@
 
                 <tr valign="middle"><td background="/i/graybv_bg.gif" class="statTextLarge" width="20%" align="left" colspan="5">*the average of the two highest scores, including at least one level II score</td></tr>
 
-            </table>            
+            </table>
 
            <br/><br/>
 
@@ -244,7 +244,7 @@
                     <td class="formHandleOdd"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=299180">isv</a></td>
                     <td class="formHandleOdd" align="right">81.84</td>
                 </tr>
-                
+
                 <tr valign="middle">
                     <td class="formHandleEven"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=7408797" class="statText" target="_blank">SVG Generator</a></td>
                     <td class="formHandleEven" align="center">1</td>

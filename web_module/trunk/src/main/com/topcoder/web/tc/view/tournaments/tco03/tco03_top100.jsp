@@ -47,9 +47,9 @@
 </jsp:include>
 
             <h2>Advancers</h2>
-            
+
             <p>The following TopCoder members have received byes in the qualification round of the 2003 TopCoder Open:</p>
-            
+
             <table width="300" align="center" border="0" cellpadding="6" cellspacing="0" class="formFrame">
                 <tr>
                   <td class="header" width="100%" colspan="2">Top 100</td>
@@ -66,8 +66,8 @@
                </tr>
             </table>
             <br/><br/>
-            
-            <p> Click <A href="/tc?module=Static&d1=tco03&d2=tco03_top100">here</A> to see the full TCO advancers table.</p>
+
+            <p> Click <A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_top100">here</A> to see the full TCO advancers table.</p>
 
         <p><br/></p>
          </td>
