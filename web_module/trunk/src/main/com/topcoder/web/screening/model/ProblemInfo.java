@@ -22,7 +22,7 @@ import com.topcoder.web.screening.common.ScreeningException;
 public class ProblemInfo extends BaseModel {
     private static Logger log = Logger.getLogger(ProblemInfo.class);
 
-    private static DataAccessInt nonCached;
+//    private static DataAccessInt nonCached;
     private static DataAccessInt cached;
     private static DataAccessInt dwAccess;
 
@@ -284,7 +284,10 @@ public class ProblemInfo extends BaseModel {
         throws Exception {
             
         log.debug("Getting problem info for round " + roundId + ", problem " + problemId);
-
+        /* was only used to check permissions for a particular user to a particular problem.
+           i don't expect this to change often, so we'll cache it instead
+         */
+/*
         if(nonCached == null) {
             InitialContext context = new InitialContext();
             DataSource ds = (DataSource)
@@ -294,7 +297,7 @@ public class ProblemInfo extends BaseModel {
 
             nonCached = new DataAccess(ds);
         }
-
+*/
         if(cached == null) {
             InitialContext context = new InitialContext();
             DataSource ds = (DataSource)
@@ -321,7 +324,9 @@ public class ProblemInfo extends BaseModel {
                 Constants.CHECK_ACCESS_QUERY_KEY);
         checkAccess.setProperty("uid", String.valueOf(user.getId()));
         checkAccess.setProperty("rid", String.valueOf(roundId));
-        Map map = nonCached.getData(checkAccess);
+//        Map map = nonCached.getData(checkAccess);
+        /* we'll cached this cuz i don't expect it to change very often */
+        Map map = cached.getData(checkAccess);
         ResultSetContainer rsc = (ResultSetContainer)
                     map.get(Constants.CHECK_ACCESS_QUERY_KEY);
         if(rsc.size() == 0) {
