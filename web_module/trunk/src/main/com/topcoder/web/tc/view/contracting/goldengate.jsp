@@ -93,7 +93,7 @@
       </ul>
 
       <br><br>
-      <a href="/tc?module=JobHit&jid=270&jt=2">Register for this position here!</a>
+      <a href="/tc?module=JobHit&jid=274&jt=2">Register for this position here!</a>
 		<br/><br/>
 
       <hr noshade="noshade" size="1" />      
@@ -140,7 +140,7 @@
       </ul>
 
       <br><br>
-      <a href="/tc?module=JobHit&jid=273&jt=2">Register for this position here!</a>
+      <a href="/tc?module=JobHit&jid=275&jt=2">Register for this position here!</a>
 		<br/><br/>
 
       <hr noshade="noshade" size="1" />      
