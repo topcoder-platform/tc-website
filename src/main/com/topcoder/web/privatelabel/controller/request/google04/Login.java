@@ -130,6 +130,9 @@ public class Login extends FullLogin {
             try {
             info.setCoderType(coder.getCoderTypeId(userId, db));
             } catch (Exception e) {
+                if(hasTCAccount) {
+                    info.setCoderType(coder.getCoderTypeId(userId, DBMS.OLTP_DATASOURCE_NAME));
+                }
             }
 
             //load up the demographic information
