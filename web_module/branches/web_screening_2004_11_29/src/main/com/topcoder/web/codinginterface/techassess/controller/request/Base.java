@@ -95,6 +95,11 @@ public abstract class Base extends BaseProcessor {
         return defaults.get(key);
     }
 
+    protected boolean hasDefault(String key ) {
+        return defaults.containsKey(key);
+    }
+
+
     protected void clearSessionErrors(String messageId) {
         getRequest().getSession().removeAttribute(ERRORS_KEY + messageId);
         if (errors == null)
