@@ -2,8 +2,9 @@
 <P><BR></P>
 <P>Welcome to TopCoder High School, a site developed by programmers for high school students who are already interested in computer science.</P>
 <P><B>There is no cost to sign up or compete.</B></P>
-<FORM ACTION="?module=Registration" METHOD="post" NAME="regForm">
- <INPUT TYPE="hidden" NAME="c" VALUE="reg"/>
+<FORM ACTION="" METHOD="post" NAME="regForm">
+ <INPUT TYPE="hidden" NAME="module" value="Registration">
+ <INPUT TYPE="hidden" NAME="c" VALUE="reg">
  <TABLE WIDTH="400" BORDER="0" CELLSPACING="0" CELLPADDING="5" ALIGN="center">
   <TR ALIGN="right" VALIGN="middle">
    <TD CLASS="bodyText" ALIGN="center" VALIGN="middle" COLSPAN="2">Coach<INPUT TYPE="radio" NAME="coderType" VALUE="coach">&nbsp;&nbsp;Student<INPUT TYPE="radio" NAME="coderType" VALUE="student"></TD>
