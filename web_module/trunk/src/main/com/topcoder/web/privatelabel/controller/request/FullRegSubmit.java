@@ -34,10 +34,25 @@ abstract class FullRegSubmit extends SimpleRegSubmit {
           already been done.  we got it all from the session
           so it should be good
         */
-        UserPrincipal newUser = commit(regInfo);
-        handleActivation(regInfo, newUser);
+        /* actually, we do need to check the handle, someone
+           may have taken in the meantime
+         */
+
+        try {
+            if (regInfo.isNew() && userExists(regInfo.getHandle())) {
+                addError(Constants.HANDLE, "Please choose another handle.");
+            } else {
+                UserPrincipal newUser = commit(regInfo);
+                handleActivation(regInfo, newUser);
+                clearRegInfo();
+            }
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new TCWebException(e);
+        }
+
         setNextPage();
-        clearRegInfo();
     }
 
     protected UserPrincipal store(SimpleRegInfo regInfo, UserPrincipal newUser) throws Exception {
