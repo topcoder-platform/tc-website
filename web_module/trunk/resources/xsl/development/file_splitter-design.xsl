@@ -61,7 +61,7 @@
 							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=File Splitter: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 							<p><strong>Overview</strong><br />
-							The File Splitter component divides a file into numerous file segments and then reassables these segments back into the original file.  The segments contain all the information required to reassemble the original file.  This allows a file to be split and reconstructed on different servers.
+							The File Splitter component divides a file into numerous file segments and then reassembles these segments back into the original file.
 							</p>
 
 							<p><strong>Project Type</strong><br />
