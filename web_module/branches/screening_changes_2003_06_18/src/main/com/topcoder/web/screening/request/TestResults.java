@@ -67,7 +67,6 @@ public class TestResults extends BaseProcessor {
             tinfo.setProblemSetATCStats((ResultSetContainer)dwMap.get("roundProblemStats"));
             pinfo.setTestSetAName(result.getItem(0,"session_round_name").toString());
 
-            problemSetAList = new ArrayList();
             ResultSetContainer dwResult = (ResultSetContainer)map.get("testSetAResults");
             for(int i=0; i < dwResult.size(); i++){
                 problemSetAList.add(
