@@ -42,35 +42,35 @@
         <td width="100%">
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top"><td id="corpTitle" width="100%" colspan="3"><img src="/i/corp/header_event_sponsorship.gif" alt="" width="546" height="41" border="0"></td></tr>
-                
+
                 <tr valign="top">
                     <td class="bodyText" width="99%">
                         <img src="/i/corp/clear.gif" width="1" height="10" alt="" border="0"><br>
-                        
+
                         <h2 class="corpHead">Powered by TopCoder&#8482;</h2>
 
-                        <p>TopCoder can conduct online and onsite programming competitions using the TopCoder Arena Applet for 
-                        designated developers (employees, conference attendees, etc.). This service includes the use of the competition 
+                        <p>TopCoder can conduct online and onsite programming competitions using the TopCoder Arena Applet for
+                        designated developers (employees, conference attendees, etc.). This service includes the use of the competition
                         process, problem sets, scoring engine, administration and match reporting.</p>
-                        
+
                         <p><font size="2"><strong>Create Your Own Developer Event</strong></font><br>
-                        Managing and conducting a programming competition can be extremely difficult to accomplish. By the time 
-                        a company designs, constructs, and receives legal approval, it will take valuable resources and great expense. 
-                        TopCoder has created a competition platform that allows companies to conduct developer contests at their 
-                        conferences, product events, through their developer portals, and in-house throughout the calendar year as 
-                        an incentive, and a way to motivate their developer community. These competitions provide an opportunity 
-                        to conduct a competition style programming event that draws programmers together for a consolidated period 
-                        of time and capture the interest of the participating developers to gain the recognition from their peers and 
+                        Managing and conducting a programming competition can be extremely difficult to accomplish. By the time
+                        a company designs, constructs, and receives legal approval, it will take valuable resources and great expense.
+                        TopCoder has created a competition platform that allows companies to conduct developer contests at their
+                        conferences, product events, through their developer portals, and in-house throughout the calendar year as
+                        an incentive, and a way to motivate their developer community. These competitions provide an opportunity
+                        to conduct a competition style programming event that draws programmers together for a consolidated period
+                        of time and capture the interest of the participating developers to gain the recognition from their peers and
                         management.</p>
 
-                        <p>These competitions also create an opportunity for interaction with developers, identify top developers, 
-                        and create tie-ins to todayÕs technologies.  They also represent chances to improve corporate morale, build 
-                        excitement within the developer community in a credible manner, and differentiate your company in the 
+                        <p>These competitions also create an opportunity for interaction with developers, identify top developers,
+                        and create tie-ins to todayï¿½s technologies.  They also represent chances to improve corporate morale, build
+                        excitement within the developer community in a credible manner, and differentiate your company in the
                         mindset of your developers through this hands-on experience.</p>
 
-                        <p>TopCoder offers a platform to conduct developer competitions that have captured the attention and 
+                        <p>TopCoder offers a platform to conduct developer competitions that have captured the attention and
                         credibility of the developer community worldwide.</p>
-                        
+
                         <p><br></p>
                     </td>
 
@@ -79,9 +79,9 @@
 <!-- Gutter Ends -->
 
 <!-- Right Column begins -->
-                    <jsp:include page="../../right.jsp">
+                    <jsp:include page="/right.jsp">
                         <jsp:param name="level1" value="pbtc"/>
-                        <jsp:param name="level2" value="index"/> 
+                        <jsp:param name="level2" value="index"/>
                     </jsp:include>
 <!-- Right Column ends -->
 
@@ -94,7 +94,7 @@
 </table>
 
 <!-- Footer begins -->
-  <jsp:include page="../../foot.jsp"/>
+  <jsp:include page="/foot.jsp"/>
 <!-- Footer ends -->
 
 </body>

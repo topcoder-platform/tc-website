@@ -19,7 +19,7 @@
     <tr>
         <td class=homeTopBar>
 		<span class="time">Current Member Count</span>&#160;:&#160;<%=new DecimalFormat("#,##0").format(sessionInfo.getMemberCount())%> -
-		<span class="time"><jsp:include page="../../date_time.jsp" /></span>
+		<span class="time"><jsp:include page="/date_time.jsp" /></span>
 		<a href="Javascript:tcTime()" class="time">&#160;<strong>[Get Time]</strong></a>
 		</td>
         <td class=homeTopBar width="100%" align=right>
@@ -52,6 +52,6 @@
 			</tr>
 		</table>
 <% } else { %>
-<jsp:include page="../../corpMenu.jsp"/>
+<jsp:include page="/corpMenu.jsp"/>
 <% } %>
 <!-- Main Navigation bar ends -->
