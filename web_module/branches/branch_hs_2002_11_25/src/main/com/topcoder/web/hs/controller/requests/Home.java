@@ -17,6 +17,8 @@ public class Home extends Base {
         else
             path = Constants.member_home;
 
+        /* no permission check on the path, unlike Static */
+
         nav.setAll("home");
 
         setNextPage(path);

@@ -52,7 +52,10 @@ public abstract class Base implements RequestProcessor {
             user = auth.getUser();
             hsa = new HSAuthorization(user);
 
-        } catch(Exception e) {  /* most likely a stale cookie, so clear it out and try again */
+        } catch(Exception e) {
+            e.printStackTrace();
+
+            /* most likely a stale cookie, so clear it out and try again */
             auth.logout();
             user = auth.getUser();
             hsa = new HSAuthorization(user);
