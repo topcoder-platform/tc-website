@@ -63,6 +63,20 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<!-- Fortune  -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="http://www.tmcnet.com/usubmit/2004/Apr/1033792.htm" target="_blank"><img src="/i/pressroom/tmcnet.gif" alt="TMCNET" width="135" height="60" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://www.tmcnet.com/usubmit/2004/Apr/1033792.htm" target="_blank">Java Technology Spreads Like Wildfire at JavaOne</A></strong></font><br />
+                        One of the highest-rated Attendee events in 2003, the JavaOne Coding Challenge is back this year. Sun has teamed up with TopCoder, Inc. to bring Java technology programmers together for coding, competition, and fun.<span class="prHead"> [April 21]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+ 
 <!-- TCO Announcement -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
