@@ -49,7 +49,7 @@
 					</tr>
 					<tr>
 						<td class=tableText align=right>&#160;</td>
-						<td class=tableText><A href="/mockup/directions.jsp"><img src="/i/corp/screening/buttonGo.gif" alt=""/></A></td>
+						<td class=loginRight><A href="/mockup/directions.jsp"><img src="/i/corp/screening/buttonGo.gif" alt=""/></A></td>
 					</tr>
 					<tr><td class=tableText colspan=2>&#160;</td></tr>
 				</table>
