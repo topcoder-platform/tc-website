@@ -56,19 +56,19 @@
 						<td bgcolor="#000033" background="/i/steel_darkblue_bg.gif" valign="top" width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
 						<td class="statText" colspan="2" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
 							
-							<h1 class="devSubhead"><strong>File Type: Design</strong></h1>
+							<h1 class="devSubhead"><strong>Magic Numbers: Design</strong></h1>
                                     
-							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=File Type: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Magic Numbers: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 							<p><strong>Overview</strong><br />
-                            The File Type component is the java equivalent of the unix magic numbers functionality. The premise behind magic numbers is that a file's type can be determined by specific bits within that file. This is different to the non-unix approach of obtaining the file extension portion of the file name to determine the file type.
+                            The Magic Numbers component is the java equivalent of the unix magic numbers functionality. The premise behind magic numbers is that a file's type can be determined by specific bits within that file. This is different to the non-unix approach of obtaining the file extension portion of the file name to determine the underlying file type.
                             </p><p>
                             Being able to obtain a file's type is a valuable tool. For example, this would enable web-based applications that support file uploads to accurately determine the type of file being uploaded. This provides an added layer of security by only accepting permitted file types to be uploaded as some file types may be considered dangerous or undesirable.
 
 							</p>
 
 							<p><strong>Project Type</strong><br />
-							Component Design Project: Provide a complete design for the File Type component.<br />
+							Component Design Project: Provide a complete design for the Magic Numbers component.<br />
 							Please review the TopCoder Software <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_meth" class="statText">Component Development Methodology</a> before you submit a solution. 
 							If you're not sure what to submit, go to <a href="/?&amp;t=development&amp;c=tcs_sample_docs" class="statText">Documentation and Sample Submissions</a> for more information.
                             </p>
@@ -122,7 +122,7 @@
                             
 							<p>After inquiring for this project please make sure you are registered at <a href="http://www.topcodersoftware.com" class="statText">TopCoder Software</a>.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=File Type: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Magic Numbers: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>
 					</td>
 
