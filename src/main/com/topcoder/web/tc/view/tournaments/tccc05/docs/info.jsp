@@ -80,7 +80,7 @@
                                 <li>
                                 <p><strong>HEAD SHOT</strong> - must be emailed by 9:00 PM EST on Wednesday, February 2.</p>
                                     <p>
-                                    <% if (info.getIntItem(0, "has_image_form")==0) {%>
+                                    <% if (info.getIntItem(0, "has_image")==0) {%>
                                         <p>We do not have your headshot on file.  Click below to submit your headshot.</p>
                                         <div align="center"><a href="mailto:memberphotos@topcoder.com?subject=<%=info.getStringItem(0, "activation_code")%>%20|%20[%20<%=info.getStringItem(0, "handle")%>%20]%20|%20<%=info.getLongItem(0, "user_id")%>%20SUBMIT%20IMAGE:%20PLEASE%20DO%20NOT%20CHANGE%20SUBJECT"><img src="/i/m/nophoto_submit.gif" width="126" height="140" border="0"/></a></div>
                                     <% } else {%>
