@@ -11,7 +11,7 @@
     <xsl:template name="formatmmddyyyy">
         <xsl:param name="DATE"/>
         <xsl:if test='boolean($DATE)'>
-            <xsl:value-of select="substring($DATE, 6,2)"/>.<xsl:value-of select="substring($DATE, 9,2)"/>.<xsl:value-of select="substring($DATE, 1,4)"/>
+            <xsl:value-of select="substring($DATE, 6,2)"/>.<xsl:value-of select="substring($DATE, 9,2)"/>.<xsl:value-of select="substring($DATE, 1,4)"/> -  <xsl:value-of select="substring($DATE, 9,8)"/> 
         </xsl:if>
     </xsl:template>
     <xsl:template name="urldate">
@@ -87,18 +87,19 @@
                 <tr valign="middle"><td bgcolor="#999999" class="statText" colspan="6"><a name="design"></a><font size="3"><strong>Component Design Project Status</strong></font></td></tr>
 
                 <tr valign="middle">
-                    <td background="/i/graybv_bg.gif" width="30%" class="statTextLarge">Design Projects</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Catalog</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Initial<br />Submit</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Review<br />Complete</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Final<br />Submit</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Design<br />Complete</td>
+                    <td background="/i/graybv_bg.gif" width="30%" class="statTextLarge">Design Projects</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Designer</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Design<br />Rating</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Inquiry<br />Date</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Submission<br />Date</td>
                 </tr>
 
 
-                <xsl:for-each select="/TC/DEVELOPMENT/reviews/status"> 
-                    <xsl:if test="./phase_id=$design-phase">
+                <xsl:for-each select="/TC/DEVELOPMENT/projects/project"> 
+                    <xsl:if test="./phase=$design-phase">
                         <tr>
+                            <td class="formTextOdd" align="center"><xsl:value-of select="./root_category_id"/></td>
                             <td class="formTextOdd" >                            
                                 <a target="_new">
                                     <xsl:attribute name="href"> 
@@ -109,11 +110,28 @@
                                     </xsl:if>
                                 </a>
                             </td>
-                            <td class="formTextOdd" align="center"><xsl:value-of select="./catalog_name"/></td>
-                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
-                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="review_complete_date"/></xsl:call-template></td>
-                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="final_submission_date"/></xsl:call-template></td>
-                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="phase_complete_date"/></xsl:call-template></td>
+                            <td class="formTextOdd" align="center"><xsl:value-of select="./user_id"/></td>
+                            <td class="formTextOdd" align="center">
+                            <xsl:choose>
+                                <xsl:when test="./submission_date != ''"> 
+                                   <xsl:value-of select="./rating"/>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                   Not Rated 	
+                                </xsl:otherwise>
+                            </xsl:choose>
+                            </td>
+                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="inquiry_date"/></xsl:call-template></td>
+                            <td class="formTextOdd" align="center">
+                            <xsl:choose>
+                                <xsl:when test="./submission_date != ''"> 
+                                    <xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="submission_date"/></xsl:call-template>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    -
+                                </xsl:otherwise>
+                            </xsl:choose>
+                            </td>
                         </tr>                 
                     </xsl:if>
                 </xsl:for-each> 
@@ -125,17 +143,18 @@
                 <tr valign="middle"><td bgcolor="#999999" class="statText" colspan="6"><a name="development"></a><font size="3"><strong>Component Development Project Status</strong></font></td></tr>
 
                 <tr valign="middle">
-                    <td background="/i/graybv_bg.gif" width="30%" class="statTextLarge">Development Projects</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Catalog</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Initial<br />Submit</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Review<br />Complete</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Final<br />Submit</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Development<br />Complete</td>
+                    <td background="/i/graybv_bg.gif" width="30%" class="statTextLarge">Development Projects</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Developer</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Developer<br />Rating</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Inquiry<br />Date</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Submission<br />Date</td>
                 </tr>
                 
-                <xsl:for-each select="/TC/DEVELOPMENT/reviews/status"> 
-                    <xsl:if test="./phase_id=$dev-phase">
+                <xsl:for-each select="/TC/DEVELOPMENT/projects/project"> 
+                    <xsl:if test="./phase=$dev-phase">
                         <tr>
+                            <td class="formTextOdd" align="center"><xsl:value-of select="./root_category_id"/></td>
                             <td class="formTextOdd" >                            
                                 <a target="_new">
                                     <xsl:attribute name="href"> 
@@ -146,11 +165,19 @@
                                     </xsl:if>
                                 </a>
                             </td>
-                            <td class="formTextOdd" align="center"><xsl:value-of select="./catalog_name"/></td>
-                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
-                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="review_complete_date"/></xsl:call-template></td>
-                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="final_submission_date"/></xsl:call-template></td>
-                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="phase_complete_date"/></xsl:call-template></td>
+                            <td class="formTextOdd" align="center"><xsl:value-of select="./user_id"/></td>
+                            <td class="formTextOdd" align="center"><xsl:value-of select="./rating"/></td>
+                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="inquiry_date"/></xsl:call-template></td>
+                            <td class="formTextOdd" align="center">
+                            <xsl:choose>
+                                <xsl:when test="./submission_date != ''"> 
+                                    <xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="submission_date"/></xsl:call-template>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    -
+                                </xsl:otherwise>
+                            </xsl:choose>
+                            </td>
                         </tr>                 
                     </xsl:if>
                 </xsl:for-each> 
