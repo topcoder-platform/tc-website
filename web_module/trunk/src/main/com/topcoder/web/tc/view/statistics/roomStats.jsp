@@ -141,7 +141,7 @@ else {
      pageContext.setAttribute("roundName",resultRow_0.getItem(4));
      pageContext.setAttribute("roomName",resultRow_0.getItem(3));
 %>      
-               <TABLE BORDER="1" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
+               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
                  <TR>
                    <TD COLSPAN="21"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
@@ -261,7 +261,7 @@ else {
 <IMG src="/i/arrow_green_up.gif" width="10" height="10" border="0"/>
 <% } %>
 </TD>
-                   <TD WIDTH="10" BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                   <TD WIDTH="10" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
          <% } else { %>
                     <TD WIDTH="10"><A HREF="/stat?c=coder_room_stats&rd=<%=pageContext.getAttribute("rd") %>&rm=<%=pageContext.getAttribute("rm") %>&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /* id */ + "]" %>'/>" CLASS="statText"><IMG SRC="/i/coders_icon.gif" ALT="" WIDTH="10" HEIGHT="10" HSPACE="4" BORDER="0"></A></TD>
                    <TD CLASS="coderBrackets" ALIGN="left" HEIGHT="13"> 
