@@ -23,6 +23,10 @@ public class Index extends Base {
     protected static Logger log = Logger.getLogger(Index.class);
 
     protected void businessProcessing() throws Exception {
+        indexProcessing(Constants.RP_INDEX_RESPONSE);
+    }
+
+    protected void indexProcessing(String nextPage) throws Exception {
 
         if (getUser().isAnonymous()) {
             setNextPage(buildProcessorRequestString(Constants.RP_LOGIN,
@@ -36,7 +40,7 @@ public class Index extends Base {
 
             send(request);
 
-            showProcessingPage(buildProcessorRequestString(Constants.RP_INDEX_RESPONSE,
+            showProcessingPage(buildProcessorRequestString(nextPage,
                     new String[] {Constants.MESSAGE_ID}, new String[]{String.valueOf(getMessageId())}));
 
             ScreeningGetProblemSetsResponse response = (ScreeningGetProblemSetsResponse)receive(5000);
@@ -56,6 +60,7 @@ public class Index extends Base {
         }
 
     }
+
 
 
     private ArrayList getLanguages(ScreeningGetProblemSetsResponse response) {

@@ -11,14 +11,18 @@ import com.topcoder.web.codinginterface.techassess.Constants;
 public class IndexInner extends Base {
 
 
-    protected void businessProcessing() throws TCWebException {
+    protected void businessProcessing() throws Exception {
+        indexProcessing(Constants.PAGE_INDEX_INNER, Constants.RP_INDEX);
 
+    }
+
+    protected void indexProcessing(String successPage, String problemProcessor) throws Exception {
         if (getUser().isAnonymous()) {
             setNextPage(buildProcessorRequestString(Constants.RP_LOGIN,
                     new String[] {Constants.COMPANY_ID}, new String[]{String.valueOf(getCompanyId())}));
             setIsNextPageInContext(false);
         } else {
-            setNextPage(buildProcessorRequestString(Constants.RP_INDEX, null, null));
+            setNextPage(buildProcessorRequestString(problemProcessor, null, null));
             setIsNextPageInContext(false);
 
             if (hasParameter(Constants.MESSAGE_ID)) {
@@ -31,7 +35,7 @@ public class IndexInner extends Base {
                     log.debug("has defaults");
                     getRequest().setAttribute(Constants.PROBLEM_SETS, getDefault(Constants.PROBLEM_SETS));
                     getRequest().setAttribute(Constants.LANGUAGES, getDefault(Constants.LANGUAGES));
-                    setNextPage(Constants.PAGE_INDEX_INNER);
+                    setNextPage(successPage);
                     setIsNextPageInContext(true);
                 }
             }

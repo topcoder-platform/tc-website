@@ -28,7 +28,7 @@ public class Constants {
     public static String PAGE_VIEW_PROBLEM;
     public static String PAGE_VIEW_PROBLEM_INNER;
     public static String PAGE_VIEW_PROBLEM_SET;
-    public static String PAGE_VIEW_PROBLEM_INNER_SET;
+    public static String PAGE_VIEW_PROBLEM_SET_INNER;
 
     //parameters
     public static String HANDLE;
