@@ -243,12 +243,14 @@ public abstract class BaseTask implements Task {
         ResultSetContainer rsc = ((ResultSetContainer)getDataAccess(getOltp()).getData(r).get("campaign_rounds"));
         StringBuffer buf = new StringBuffer();
         ResultSetContainer.ResultSetRow row = null;
-        for (Iterator it = rsc.iterator(); it.hasNext();) {
+        int i=0;
+        for (Iterator it = rsc.iterator(); it.hasNext(); i++) {
             row = (ResultSetContainer.ResultSetRow)it.next();
             buf.append(row.getLongItem("round_id"));
             buf.append(", ");
         }
-        buf.setLength(buf.length()-2);
+        if (i>0)
+            buf.setLength(buf.length()-2);
         log.debug("round list is " + buf.toString());
         return buf.toString();
 
