@@ -79,12 +79,12 @@ public class TCCC05ProjectDetail implements Serializable {
         score = c;
     }
     
-    public String getPayment() {
-        return payment;
+    public String getPlaced() {
+        return placed;
     }
     
-    public void setPayment(String s) {
-        payment = s;
+    public void setPlaced(String s) {
+        placed = s;
     }
     
 }
