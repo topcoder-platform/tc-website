@@ -88,7 +88,7 @@ experience for millions of users.</p>
 <li>BSCS or MSCS</li>
 </ul>
 	
-<p ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=140&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=cryptic_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></p>
+<p ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=140&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=google_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></p>
 <br/><br/>
                            
 
