@@ -115,7 +115,7 @@ The FBI also works with other federal, state and local law enforcement agencies 
 When you join the FBI, you join a united effort against crime. It's a rewarding career for anyone who has the ability and desire to contribute to the proud history and bright future of today's FBI.
 </P>
 <P><A HREF="/?t=tces&amp;c=fbi_agents&amp;a=secure" CLASS="bodyText">Click here</A> for job details.</P>
-<P>Please note: Applications for employment are only accepted during the first 7 days of the month.</P>
+<P>Please note: applications for Special Agent employment are only accepted during the first 7 days of the month.</P>
 
 <P>
 <B>Professional Support</B>
