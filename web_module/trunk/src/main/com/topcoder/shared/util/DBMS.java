@@ -144,9 +144,8 @@ public class DBMS {
      */
     public static final int getTransSeqId(java.sql.Connection qconn, int sequence_name)
             throws Exception {
-        String query = "";
-        int result = 0;
-        return getSeqId(qconn, sequence_name);
+        //don't use the connection anymore, who cares about having the sequence in the transaction anyway?
+        return getSeqId(sequence_name);
     }
 
     /**
