@@ -6,7 +6,7 @@ import com.topcoder.common.web.data.MemberSearch;
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.common.web.data.Scroll;
 import com.topcoder.common.web.data.SortKey;
-import com.topcoder.common.web.error.NavigationException;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.common.web.util.Cache;
 import com.topcoder.common.web.util.Conversion;
 import com.topcoder.common.web.xml.HTMLRenderer;

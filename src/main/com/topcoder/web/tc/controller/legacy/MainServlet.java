@@ -354,7 +354,7 @@ public final class MainServlet extends HttpServlet {
             request.setAttribute(BaseServlet.MESSAGE_KEY, "Sorry, you do not have permission to access the specified resource.");
         } else if (e instanceof NavigationException) {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-            request.setAttribute(BaseServlet.MESSAGE_KEY, e.getMessage());
+            //request.setAttribute(BaseServlet.MESSAGE_KEY, "");
         } else {
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             request.setAttribute(BaseServlet.MESSAGE_KEY, "An error has occurred when attempting to process your request.");
