@@ -144,7 +144,7 @@ people to work."
 		<TD COLSPAN="3" BGCOLOR="#43515E" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
 	</TR>
 	<TR>
-		<TD VALIGN="middle" CLASS="bodyText" ALIGN="center"><A HREF="/?&amp;t=tces&amp;c=topcoder_openings&amp;a=secure"><IMG SRC="/i/es/topcoder/topcoder_logo.gif" WIDTH="160" HEIGHT="31" VSPACE="16" ALT="TopCoder" BORDER="0"/></A></TD>
+		<TD VALIGN="middle" CLASS="bodyText" ALIGN="center"><A HREF="/?&amp;t=tces&amp;c=tcs_openings&amp;a=secure"><IMG SRC="/i/es/topcoder/topcoder_logo.gif" WIDTH="160" HEIGHT="31" VSPACE="16" ALT="TopCoder" BORDER="0"/></A></TD>
 		<TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
 		<TD VALIGN="middle" CLASS="bodyText">TopCoder Software Sales - <A HREF="/?&amp;t=tces&amp;c=tcs_openings&amp;a=secure" CLASS="bodyText">Click here</A> for details.<BR/><BR/>	
 		</TD>
