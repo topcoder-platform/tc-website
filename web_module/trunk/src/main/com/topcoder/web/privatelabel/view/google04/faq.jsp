@@ -48,11 +48,8 @@
 			</span>
 
 			<br/><br/>
-			<b>Is there a way to practice before my qualification attempt?</b><br/>
-			Once you've registered for the Google Code Jam, you may use your handle and password to login to the competition arena.  Within the arena there is a practice area that mimics the functionality of the real competition.  Nothing that you do in the practice room will count against you in the competition.
-			<br/><br/>
-			<b>Can I attempt to qualify more than once?</b><br/>
-			You may only register a single account and use that one account to attempt to qualify one time.  Registering more than one account and/or attempting more than one qualification are violations of the competition rules.
+			<b>Is there a way to practice before the elimination rounds?</b><br/>
+			You may use your handle and password to login to the competition arena.  Within the arena there is a practice area that mimics the functionality of the real competition.  Nothing that you do in the practice room will count against you in the competition.
 			<br/><br/>
 			<b>What resources can I use to help me during the competition?</b><br/>
 			You may utilize any reference materials, including those found on the Internet.  You may not collaborate with any other person.  
@@ -61,13 +58,13 @@
 			Only code that has been authored by you may be used in a code submission.  No third-party source code may be used as a part of any code submission.
 			<br/><br/>
 			<b>I've submitted a solution for a problem, but the time has not run out.  Can I submit again?</b><br/>
-			No.  During the Qualification Round, you may only submit one time for a given problem, so be sure to test before submitting.
+			Yes.  However, if you've already submitted a problem and you choose to submit again, your score for that submission will be adjusted to account for the additional lapsed time since your last submission, as well as an additional penalty of 10% of the maximum point value for the problem.
 			<br/><br/>
-			<b>What does the score that I received in the qualification round mean?</b><br/>
-			The score that you end up with when you have completed your qualification attempt may or may not be your final score.  When the Qualification Round has ended, all submissions will be run against a series of predetermined system test cases.  If your submission produces the wrong result (or runs more than 8 seconds) for any of the test cases, you will lose all points for that submission.  The points that you receive for a submission are a factor of the time elapsed between opening the problem statement and submitting the solution.  Whether or not you get to keep those points is determined during the system testing process, which will take place after the end of the Qualification Round.
+			<b>What is the Challenge Phase?</b><br/>
+			During the Challenge Phase, you have the opportunity to view the source code submissions of the other competitors in your room.  If you believe that any of the submissions are flawed, you may challenge the submission with a specific test case that you feel will result in that submission returning the wrong result.  If your challenge is successful, and the submission returns the wrong result, you will be awarded 50 points and the competitor will lose the points for the challenged submission.  However, if your challenge is unsuccessful, and the submission returns the correct result for the test case, you will lose 50 points from your score.  Please read the updated <A href="/i/events/google2004/competitionManual2.pdf">Competition Manual</A> for a complete explanation.
 			<br/><br/>
-			<b>How will I know if I have qualified for the first round of the Google Code Jam?</b><br/>
-			Shortly following the Qualification Round, the testing will be done.  As soon as the testing is completed, the qualifiers for Round 1 will be posted at www.topcoder.com/googlecodejam <http://www.topcoder.com/googlecodejam>.  In addition, an email will be sent to all participants indicating whether or not each has advanced.
+			<b>How will I know if I have advanced to Round 2 of the Google Code Jam?</b><br/>
+			As soon as the Testing Phase has been completed, the advancers to Round 2 will be posted at <A href="/googlecodejam">www.topcoder.com/googlecodejam</A>.  In addition, an email will be sent to all participants indicating whether or not each has advanced.
 			<br/><br/>
 			Questions not addressed here should be directed to <A href="mailto:googlecodejam@topcoder.com">googlecodejam@topcoder.com</A>
 			<br/><br/>
