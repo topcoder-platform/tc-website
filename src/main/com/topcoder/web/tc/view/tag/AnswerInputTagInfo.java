@@ -11,7 +11,6 @@ public class AnswerInputTagInfo
         VariableInfo[] variableInfo = new VariableInfo[]
         {
             new VariableInfo(data.getId(), String.class.getName(), true, VariableInfo.NESTED),
-            new VariableInfo(AnswerInput.NAME, String.class.getName(), true, VariableInfo.NESTED),
         };
         return variableInfo;
     }

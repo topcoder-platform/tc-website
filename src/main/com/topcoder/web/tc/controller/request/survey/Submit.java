@@ -24,7 +24,6 @@ public class Submit extends View {
         InitialContext ctx = null;
         UserTransaction tx = null;
         try {
-            Response response = (Response) createEJB(ctx, Response.class);
             if (alreadyResponded()) {
                 throw new NavigationException("Sorry, you may only respond to a survey once.");
             } else {
@@ -47,6 +46,7 @@ public class Submit extends View {
                     Transaction.begin(tx);
 
                     SurveyResponse resp = null;
+                    Response response = (Response) createEJB(ctx, Response.class);
                     for (Iterator it = responses.iterator(); it.hasNext();) {
                         resp = (SurveyResponse) it.next();
                         hasAllFreeForm &= resp.isFreeForm();

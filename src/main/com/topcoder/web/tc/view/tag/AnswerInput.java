@@ -14,7 +14,6 @@ public class AnswerInput extends BaseTag {
     protected static Logger log = Logger.getLogger(AnswerInput.class);
 
     public static final String PREFIX = "question_";
-    public static final String NAME = "inputName";
 
     private String cssclass;
     private Question question;
@@ -52,7 +51,6 @@ public class AnswerInput extends BaseTag {
             } else if (question.getStyleId()==Question.SHORT_ANSWER) {
                 inputText = buildText();
             }
-            pageContext.setAttribute(NAME, name, PageContext.PAGE_SCOPE);
             /* if we haven't done so already, set the information
                to make it accessible from the jsp and evaluate, otherwise, skip the body
              */
@@ -71,7 +69,6 @@ public class AnswerInput extends BaseTag {
                 inputText = buildRadioButton(answer.getId());
             }
             pageContext.setAttribute(getId(), inputText, PageContext.PAGE_SCOPE);
-            pageContext.setAttribute(NAME, name, PageContext.PAGE_SCOPE);
             return EVAL_BODY_TAG;
         } else {
             return wrapItUp();
