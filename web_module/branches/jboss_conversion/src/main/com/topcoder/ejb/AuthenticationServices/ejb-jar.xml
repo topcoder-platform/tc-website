@@ -12,7 +12,6 @@
             <description>Authentication Services EJB</description>
             <display-name>Authentication Services EJB</display-name>
             <ejb-name>AuthenticationServices</ejb-name>
-            <
             <home>com.topcoder.ejb.AuthenticationServices.AuthenticationServicesHome</home>
             <remote>com.topcoder.ejb.AuthenticationServices.AuthenticationServices</remote>
 <!--
