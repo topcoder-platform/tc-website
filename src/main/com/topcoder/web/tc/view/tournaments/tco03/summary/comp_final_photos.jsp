@@ -49,8 +49,8 @@
 
 <!-- Tab bar sublinks-->
 <jsp:include page="../tco03Sublinks.jsp" >
-   <jsp:param name="selectedList" value="comp_summary"/>
-   <jsp:param name="selectedTab" value="comp_final"/>
+   <jsp:param name="selectedList" value=""/>
+   <jsp:param name="selectedTab" value=""/>
 </jsp:include>
 
             <p class="terciary">
@@ -74,6 +74,10 @@
                 </tr>
                 
                 <tr>
+                    <td class="bodyText" align="center"><img src="/i/tournament/tco03/comp_final/01.jpg" name="bigVersion" width="432" height="288" class="photoFrameBig" /></td>
+                </tr>            
+                
+                <tr>
                     <td class="bodyText" align="center">
                         <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/comp_final/06.jpg');"><img src="/i/tournament/tco03/comp_final/06_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
                         <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/comp_final/07.jpg');"><img src="/i/tournament/tco03/comp_final/07_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
@@ -83,29 +87,6 @@
                     </td>
                 </tr>
                 
-                <tr>
-                    <td class="bodyText" align="center"><img src="/i/tournament/tco03/comp_final/01.jpg" name="bigVersion" width="432" height="288" class="photoFrameBig" /></td>
-                </tr>            
-                
-                <tr>
-                    <td class="bodyText" align="center">
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/comp_final/11.jpg');"><img src="/i/tournament/tco03/comp_final/11_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/comp_final/12.jpg');"><img src="/i/tournament/tco03/comp_final/12_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/comp_final/13.jpg');"><img src="/i/tournament/tco03/comp_final/13_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/comp_final/14.jpg');"><img src="/i/tournament/tco03/comp_final/14_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/comp_final/15.jpg');"><img src="/i/tournament/tco03/comp_final/15_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
-                    </td>
-                </tr>            
-
-                <tr>
-                    <td class="bodyText" align="center">
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/comp_final/16.jpg');"><img src="/i/tournament/tco03/comp_final/16_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/comp_final/17.jpg');"><img src="/i/tournament/tco03/comp_final/17_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/comp_final/18.jpg');"><img src="/i/tournament/tco03/comp_final/18_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/comp_final/19.jpg');"><img src="/i/tournament/tco03/comp_final/19_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/comp_final/20.jpg');"><img src="/i/tournament/tco03/comp_final/20_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
-                    </td>
-                </tr>
             </table>
 
             <p><br/></p>
