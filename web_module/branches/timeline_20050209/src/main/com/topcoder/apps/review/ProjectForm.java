@@ -450,6 +450,16 @@ private Log log = null;
         }
     }
 
+    private Date parseDate(String date) {
+        SimpleDateFormat sdf = new SimpleDateFormat(Constants.DATE_FORMAT);
+        SimpleDateFormat sdf2 = new SimpleDateFormat(Constants.DATE_FORMAT2);
+
+        if (date.indexOf(".") >= 0) {
+            return sdf.parse(date.trim(), new ParsePosition(0));
+        } else {
+            return sdf2.parse(date.trim(), new ParsePosition(0));
+        }
+    }
 
 
     /**
@@ -1248,8 +1258,43 @@ public void timeLineFromProject(Project project)
         }
 
         return new SuccessResult();
+    }
+
+    public ResultData refreshTimeline() {
+        projectPhases.clearPhases();
+        // start date??
+
+        int n = startDates.length;
+        TCPhase[] phases = new TCPhase[n];
+
+        Date startDate = projectPhases.getStartDate();
+        for (int i = 0; i < n; i++) {
+
+            if (!adjustStartDates[i]) {
+                startDate = parseDate(forcedStartDates[i]);
+            }
+            phases[i] = new TCPhase(projectPhases, startDate, phaseLengths[i]);
+        }
+
+        for (int i = 0; i < n; i++) {
+            startDates[i] = dateFormatter.format(phases[i].getStartDate());
+            endDates[i] = dateFormatter.format(phases[i].calcEndDate());
+        }
+
+        return new SuccessResult();
+    }
+
+    public ResultData commitTimeline() {
+        for (int i = 0; i < startDates.length; i++)  {
+            setPhaseStart(i, startDates[i]);
+            setPhaseEnd(i, endDates[i]);
+        }
+        return new SuccessResult();
 
     }
+
+
+
     /**
      * Creates the ProjectData from this form bean.
      *

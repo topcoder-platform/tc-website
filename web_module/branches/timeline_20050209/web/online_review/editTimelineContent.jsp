@@ -110,12 +110,12 @@ function clearPhaseStart(n)
 			    <table border="0" width="100%">
 				    <tr>
 					<td width="50%" align="left">
-		                        <html:radio property='<%="adjustStartDate["+pIdx+"]"%>' value="true" onclick='<%="clearPhaseStart("+pIdx+")"%>' />
+		                        <html:radio property='<%="adjustStartDate["+pIdx+"]"%>' value="true" onclick='<%="phaseStart["+pIdx+"]="""""%>' />
 						When previous phase ends
 					</td>
 					<td width="50%">
 			                        <html:radio property='<%="adjustStartDate["+pIdx+"]"%>' value="false" />
-			                        <html:text property='<%="forcedPhaseStart["+pIdx+"]"%>' size="20" onkeydown='<%="adjustStartDate["+pIdx+"]"%>[1].checked=true' />
+			                        <html:text property='<%="forcedPhaseStart["+pIdx+"]"%>' size="20" onkeydown='<%="adjustStartDate["+pIdx+"][1].checked=true"%>' />
 					</td>
 				    </tr>
 			    </table>

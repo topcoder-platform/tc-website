@@ -65,6 +65,10 @@ ResultData result = new SuccessResult();
 
         if (Constants.ACTION_STORE.equals(action)) {
             log(Level.INFO, "store_timeline");
+
+            result = ((ProjectForm) form).refreshTimeline();
+            result = ((ProjectForm) form).commitTimeline();
+
             request.getSession().setAttribute(mapping.getAttribute(), form);
             forwards.removeForward(mapping.findForward(Constants.SUCCESS_KEY));
             forwards.addForward(mapping.findForward("store"));
@@ -72,6 +76,8 @@ ResultData result = new SuccessResult();
 
         } else if (Constants.ACTION_REFRESH.equals(action)) {
             log(Level.INFO, "refresh_timeline");
+
+            result = ((ProjectForm) form).refreshTimeline();
 
             request.getSession().setAttribute(mapping.getAttribute(), form);
 
