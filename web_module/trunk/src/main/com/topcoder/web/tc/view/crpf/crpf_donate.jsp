@@ -74,7 +74,7 @@
                         <ol>
                         <li>Go to <A href="https://www.virtualsprockets.com/Transactions/secure1.cfm?clientID=72&return=http://www.christopherreeve.org/&ContributeType=c&ContributeURL=https://www.virtualsprockets.com/Transactions/secure1.cfm&case=DEFAULT&category=2&origin=TopCoderWebsite2003&mx=0&H=0&source=C&email=$X$&O18=0&CTZ=0&mid=0&FN=2&FormType=C&ExecNum=x5s6&FA=0&ACT=0" target="_blank">www.christopherreeve.org/topcoder</A></li>
                         <li>Remember to enter the TopCoder member's name and/or handle so the donation can be matched to the correct competitor</li>
-                        <li>If you have any questions about this please contact <A href="mailto:service@topcoder.com" class="bodyText">General Questions</A></li>
+                        <li>If you have any questions about this please contact <A href="mailto:service@topcoder.com" class="bodyText">TopCoder Service</A></li>
                         </ol>
                         </ul>                    
                      </td>
