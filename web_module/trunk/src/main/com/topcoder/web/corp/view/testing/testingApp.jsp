@@ -84,13 +84,13 @@
                             if ((companyID==null) || companyID.equals("")) companyID="1";
                         %>
 
-                        <OBJECT classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93" width="239" height="26" name="LaunchApplet" align="middle" vspace="0" hspace="0" codebase="http://java.sun.com/products/plugin/autodl/jinstall-1_4-windows-i586.cab#Version=1,4,0,0">
+                        <OBJECT classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93" width="270" height="26" name="LaunchApplet" align="middle" vspace="0" hspace="0" codebase="http://java.sun.com/products/plugin/autodl/jinstall-1_4-windows-i586.cab#Version=1,4,0,0">
                         <PARAM name="type" value="application/x-java-applet;version=1.4" >
                         <PARAM name="code" value="com.topcoder.client.screening.tool.view.screeningClient.LaunchApplet.class" >
                         <PARAM name="codebase" value="/contest/classes">
                         <PARAM name="name" value="LaunchApplet" >
                         <PARAM name="archive" value="ScreeningClient.jar" >
-                        <PARAM name="scriptable" value="false" >
+                        <PARAM name="scriptable" value="false" > 
                         <PARAM name="HOST" value="<%=host%>">
                         <PARAM name="PORT" value="<%=port%>">
                         <PARAM name="TUNNEL" value="<%=tunnel%>">
@@ -105,7 +105,7 @@
                         PORT="<%=port%>"
                         TUNNEL="<%=tunnel%>"
                         COMPANYID="<%=companyID%>"
-                        width="239"
+                        width="270"
                         height="26"
                         align="middle"
                         vspace="0"
