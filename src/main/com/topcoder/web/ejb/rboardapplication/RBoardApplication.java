@@ -1,5 +1,7 @@
 package com.topcoder.web.ejb.rboardapplication;
 
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
 
@@ -25,6 +27,8 @@ public interface RBoardApplication extends EJBObject {
     boolean isPrimary(String dataSource, long userId, long projectId, int phaseId) throws RemoteException;
 
     boolean exists(String dataSource, long userId, long projectId, int phaseId) throws RemoteException;
+
+    ResultSetContainer getReviewers(String dataSource, long projectId, int phaseId) throws RemoteException;
 
 }
 

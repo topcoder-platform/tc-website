@@ -9,6 +9,7 @@ import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.ejb.rboard.RBoardApplication;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.tc.Constants;
@@ -58,67 +59,72 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
         RBoardApplication rba = (RBoardApplication) createEJB(getInitialContext(), RBoardApplication.class);
 
         //todo wrap in a transaction
-        rba.createRBoardApplication(DBMS.TCS_OLTP_DATASOURCE_NAME, userId, projectId, phaseId);
-        String primary = StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_FLAG));
-        rba.setPrimary(DBMS.TCS_OLTP_DATASOURCE_NAME, userId,
-                projectId, phaseId, new Boolean(primary).booleanValue());
-        if (phaseId == SoftwareComponent.DEV_PHASE) {
-            int reviewTypeId = Integer.parseInt(getRequest().getParameter(Constants.REVIEWER_TYPE_ID));
-            rba.setReviewRespId(DBMS.TCS_OLTP_DATASOURCE_NAME, userId, projectId, phaseId, reviewTypeId);
+        if (rba.getReviewers(DBMS.TCS_OLTP_DATASOURCE_NAME, projectId, phaseId).size()==3) {
+            throw new NavigationException("Sorry, this project is full.");
+        } else {
+            rba.createRBoardApplication(DBMS.TCS_OLTP_DATASOURCE_NAME, userId, projectId, phaseId);
+            String primary = StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_FLAG));
+            rba.setPrimary(DBMS.TCS_OLTP_DATASOURCE_NAME, userId,
+                    projectId, phaseId, new Boolean(primary).booleanValue());
+            if (phaseId == SoftwareComponent.DEV_PHASE) {
+                int reviewTypeId = Integer.parseInt(getRequest().getParameter(Constants.REVIEWER_TYPE_ID));
+                rba.setReviewRespId(DBMS.TCS_OLTP_DATASOURCE_NAME, userId, projectId, phaseId, reviewTypeId);
+            }
+
+            //send email
+            Request r = new Request();
+            r.setContentHandle("review_project_detail");
+            String projectId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID));
+            String phaseId = StringUtils.checkNull(getRequest().getParameter(Constants.PHASE_ID));
+            r.setProperty(Constants.PROJECT_ID, projectId);
+            r.setProperty(Constants.PHASE_ID, phaseId);
+            Map results = getDataAccess().getData(r);
+            ResultSetContainer detail = (ResultSetContainer) results.get("review_project_detail");
+
+            String component_name = detail.getStringItem(0, "component_name");
+            String phase = detail.getStringItem(0, "phase_desc");
+            String version = detail.getStringItem(0, "version_text");
+            String lang = detail.getStringItem(0, "catalog");
+
+            String handle = getUser().getUserName();
+
+            //lookup pm email
+            r = new Request();
+            r.setContentHandle("pm_details");
+            r.setProperty(Constants.PROJECT_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID)));
+            results = getDataAccess().getData(r);
+            detail = (ResultSetContainer) results.get("pm_details");
+
+            String address = detail.getStringItem(0, "address");
+            log.debug("ORIGINAL ADDRESS IS: " + address);
+
+            TCSEmailMessage mail = new TCSEmailMessage();
+            mail.setSubject("New Review Application");
+            StringBuffer sb = new StringBuffer();
+            sb.append(handle + " has applied to review:\n\n");
+            sb.append("Component: " + component_name + "\n");
+            sb.append("Version: " + version + "\n");
+            sb.append("Language: " + lang + "\n");
+            sb.append("Phase: " + phase + "\n");
+            sb.append("http://");
+            sb.append(ApplicationServer.SERVER_NAME);
+            sb.append("/tc?module=ReviewProjectDetail&");
+            sb.append(Constants.PROJECT_ID);
+            sb.append("=");
+            sb.append(projectId);
+            sb.append("&");
+            sb.append(Constants.PHASE_ID);
+            sb.append("=");
+            sb.append(phaseId);
+            sb.append("\n");
+
+            mail.setBody(sb.toString());
+            mail.setFromAddress("review@topcoder.com");
+            //mail.setToAddress("rfairfax@topcoder.com", TCSEmailMessage.TO);
+            mail.setToAddress(address, TCSEmailMessage.TO);
+
+            EmailEngine.send(mail);
         }
 
-        //send email
-        Request r = new Request();
-        r.setContentHandle("review_project_detail");
-        String projectId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID));
-        String phaseId = StringUtils.checkNull(getRequest().getParameter(Constants.PHASE_ID));
-        r.setProperty(Constants.PROJECT_ID, projectId);
-        r.setProperty(Constants.PHASE_ID, phaseId);
-        Map results = getDataAccess().getData(r);
-        ResultSetContainer detail = (ResultSetContainer) results.get("review_project_detail");
-
-        String component_name = detail.getStringItem(0, "component_name");
-        String phase = detail.getStringItem(0, "phase_desc");
-        String version = detail.getStringItem(0, "version_text");
-        String lang = detail.getStringItem(0, "catalog");
-
-        String handle = getUser().getUserName();
-
-        //lookup pm email
-        r = new Request();
-        r.setContentHandle("pm_details");
-        r.setProperty(Constants.PROJECT_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID)));
-        results = getDataAccess().getData(r);
-        detail = (ResultSetContainer) results.get("pm_details");
-
-        String address = detail.getStringItem(0, "address");
-        log.debug("ORIGINAL ADDRESS IS: " + address);
-
-        TCSEmailMessage mail = new TCSEmailMessage();
-        mail.setSubject("New Review Application");
-        StringBuffer sb = new StringBuffer();
-        sb.append(handle + " has applied to review:\n\n");
-        sb.append("Component: " + component_name + "\n");
-        sb.append("Version: " + version + "\n");
-        sb.append("Language: " + lang + "\n");
-        sb.append("Phase: " + phase + "\n");
-        sb.append("http://");
-        sb.append(ApplicationServer.SERVER_NAME);
-        sb.append("/tc?module=ReviewProjectDetail&");
-        sb.append(Constants.PROJECT_ID);
-        sb.append("=");
-        sb.append(projectId);
-        sb.append("&");
-        sb.append(Constants.PHASE_ID);
-        sb.append("=");
-        sb.append(phaseId);
-        sb.append("\n");
-
-        mail.setBody(sb.toString());
-        mail.setFromAddress("review@topcoder.com");
-        //mail.setToAddress("rfairfax@topcoder.com", TCSEmailMessage.TO);
-        mail.setToAddress(address, TCSEmailMessage.TO);
-
-        EmailEngine.send(mail);
     }
 }
