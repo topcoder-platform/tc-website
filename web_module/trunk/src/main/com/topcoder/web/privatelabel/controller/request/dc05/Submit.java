@@ -79,7 +79,7 @@ public class Submit extends FullRegSubmit {
             
             mail.setBody(buf.toString());
             mail.addToAddress(info.getEmail(), TCSEmailMessage.TO);
-            mail.setFromAddress("service@topcoder.com");
+            mail.setFromAddress("dccc@topcoder.com", "DoubleClick Coding Challenge Team");
             log.info("sent registration email to " + info.getEmail());
             
             EmailEngine.send(mail);
