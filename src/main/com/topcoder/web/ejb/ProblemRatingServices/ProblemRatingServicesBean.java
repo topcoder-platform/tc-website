@@ -45,7 +45,7 @@ public class ProblemRatingServicesBean implements SessionBean {
             rs = ps.executeQuery();
             rs.next();
             if(questions.length!=rs.getInt(1))
-                throw new Exception("Not enough answers");
+                throw new IllegalArgumentException("Not enough answers");
             ps = conn.prepareStatement(insertQuery.toString());
             for(int i = 0; i<questions.length; i++){
                 ps.setInt(1,questions[i]);
