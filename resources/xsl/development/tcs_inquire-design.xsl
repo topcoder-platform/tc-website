@@ -166,7 +166,10 @@
                                 </a>
                                 to get information necessary to submit a solution &gt;&gt;</strong>
                             </p>
-
+                            <p>
+                                 To submit a solution, email your submissions to <a href="mailto:submissions@topcodersoftware.com" class="statText">
+submissions@topcodersoftware.com</a>.
+                            </p>
                         <p><br /></p>
                     </td>
 
