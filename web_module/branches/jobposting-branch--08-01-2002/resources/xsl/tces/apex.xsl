@@ -34,7 +34,7 @@
 
 
 
-  <xsl:import href="../includes/jobs/public_jobs_left.xsl"/> 
+  <xsl:import href="../includes/tces/public_tces_left.xsl"/> 
 
 
 
@@ -130,7 +130,7 @@
 
 
 
-        <xsl:call-template name="public_jobs_left"/>
+        <xsl:call-template name="public_tces_left"/>
 
 
 
