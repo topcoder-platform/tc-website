@@ -94,9 +94,9 @@
 						<p><strong>Designer</strong><br />
 						Royalty Percentage - 25%</p>
 							
-						<p>Total Payment - $<<<total_payment>>><br/>
-						First Deliverable - $<<<first_deliverable>>><br/>
-						Project Completion - $<<<final_payment>>></p>
+						<p>Total Payment - $280.00<br/>
+						First Deliverable - $210.00<br/>
+						Project Completion - $70.00</p>
 
 <!-- Definition of Completion -->
 						<p><sup>*</sup>Completion of the project is defined as follows:</p>
