@@ -79,23 +79,18 @@ public class SessionInfoBean implements Serializable {
         try {
             Data.initializeDataTypes();
 
-            /* this is probably too clever for its own good... i have different
-             * queries on the two databases with the same command name */
             Map qm = new TreeMap();
             qm.put("cr", ""+userid);
             qm.put(DataAccessConstants.COMMAND, "SessionInfoBean");
             Request dataRequest = new Request(qm);
-            DataAccessInt dai = new CachedDataAccess((javax.sql.DataSource)TCContext.getInitial().lookup(
-                isStudent() ? DBMS.DW_DATASOURCE_NAME : DBMS.OLTP_DATASOURCE_NAME));
+            DataAccessInt dai = new CachedDataAccess((javax.sql.DataSource)TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
 
             Map res = dai.getData(dataRequest);
-            ResultSetContainer rsc = (ResultSetContainer)res.get(
-                isStudent() ? "coder_to_school_and_rating" : "user_to_school");
+            ResultSetContainer rsc = (ResultSetContainer)res.get("user_to_school_and_rating");
             ResultSetContainer.ResultSetRow rr = rsc.getRow(0);
 
             setSchoolId(Integer.parseInt(rr.getItem("school_id").toString()));
-            if(isStudent())
-                setRating(Integer.parseInt(rr.getItem("rating").toString()));
+            setRating(Integer.parseInt(rr.getItem("rating").toString()));
 
         } catch(Exception e) {
             log.error("caught exception from database queries, some values left at defaults", e);

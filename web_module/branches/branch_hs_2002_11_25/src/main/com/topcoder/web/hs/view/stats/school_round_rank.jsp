@@ -20,10 +20,10 @@ pageContext.setAttribute("resultSetDates", rdlist);
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
   <TR>
    <TD>
-    <SPAN class="statText"><B>Please select a round:</B><BR/></SPAN>
+    <SPAN class="statText"><B>Select round:</B></SPAN>
     <FORM name="selectform">
     <SELECT CLASS="dropdown" NAME="Contest" onchange="goTo(this)">
-        <OPTION value="#">Select a Round:</OPTION>
+        <OPTION value="#">Select round:</OPTION>
         <logic:iterate name="resultSetDates" id="resultRow" type="ResultSetContainer.ResultSetRow">
          <% if (resultRow.getItem(0).toString().equals(currRound)) { %>
            <OPTION value="?module=Statistics&c=school_round_rank&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>" selected><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></OPTION>

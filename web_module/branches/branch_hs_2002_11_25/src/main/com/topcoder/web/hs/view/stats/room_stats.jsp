@@ -41,9 +41,9 @@ pageContext.setAttribute("rm", currRoom);
 
                 <TR>
                   <TD COLSPAN="4"  CLASS="statText">
-                    <SPAN CLASS="statText"><B>Please select a round:</B><BR/></SPAN>
+                    <SPAN CLASS="statText"><B>Select round:</B></SPAN>
                     <FORM name="selectform">
-                    <SELECT NAME="Contest" onchange="goTo(this)" CLASS="dropdown"><OPTION value="#">Select a Round:</OPTION>
+                    <SELECT NAME="Contest" onchange="goTo(this)" CLASS="dropdown"><OPTION value="#">Select round:</OPTION>
                       <logic:iterate name="resultSetDates" id="resultRow" type="ResultSetContainer.ResultSetRow">
                         <% if (resultRow.getItem(0).toString().equals(pageContext.getAttribute("rd"))) { %>
                           <OPTION value="?module=Statistics&c=room_stats&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>&rm=<bean:write name="resultRow" property='<%= "item[" + 5 /* first room */ + "]" %>'/>" selected><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round */ + "]" %>'/></OPTION>
@@ -57,9 +57,9 @@ pageContext.setAttribute("rm", currRoom);
                 </TR>
                 <TR>
                   <TD COLSPAN="4"  CLASS="statText">
-                     <SPAN CLASS="statText"><B>Please select a room:</B><BR/></SPAN>
+                     <SPAN CLASS="statText"><B>Select room:</B></SPAN>
                      <FORM name="selectanotherform">
-                     <SELECT NAME="Round" onchange="goTo(this)" CLASS="dropdown"><OPTION value="#">Select a Room:</OPTION>
+                     <SELECT NAME="Round" onchange="goTo(this)" CLASS="dropdown"><OPTION value="#">Select room:</OPTION>
                        <logic:iterate name="resultSetRooms" id="resultRowRoom" type="ResultSetContainer.ResultSetRow">
                          <% if (resultRowRoom.getItem(0).toString().equals(pageContext.getAttribute("rm"))) { %>
                            <OPTION value="?module=Statistics&c=room_stats&rd=<%= pageContext.getAttribute("rd") %>&rm=<bean:write name="resultRowRoom" property='<%= "item[" + 0 /* id */ + "]" %>'/>" selected><bean:write name="resultRowRoom" property='<%= "item[" + 1 /* name */ + "]" %>'/> - <bean:write name="resultRowRoom" property='<%= "item[" + 2 /* division */ + "]" %>'/></OPTION>
