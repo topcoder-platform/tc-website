@@ -82,11 +82,11 @@ function checkInputs(){
 </SCRIPT>
 
             <img src="/i/clear.gif" width="240" height="1" vspace="5" border="0"><br>
+            <form action="<%=response.encodeURL(Controller.ALIAS)%>" method="post" name="frmReg" >  
+            <input type="hidden" name="<%=Controller.TASK%>" value="Registration">  
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr>
                     <td class="statText" valign="top" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"><br>
-                        <form action="<%=response.encodeURL(Controller.ALIAS)%>" method="post" name="frmReg" >  
-                        <input type="hidden" name="<%=Controller.TASK%>" value="Registration">  
                         <p>Welcome to TopCoder. Before you register, there are a few things we think you should know:  First, and most importantly, TopCoder is a commercial
                         site.  We charge sponsors for the right to advertise on our site.  This money pays for the operation of the site and the prizes awarded in competitions.</p>
                         
