@@ -78,7 +78,6 @@ public class Controller
                 }
                 com.topcoder.web.reg.bean.Registration r = (com.topcoder.web.reg.bean.Registration)task;
                 task.setUser(getUser(session));
-                log.debug("user: " + task.getUser().getUserId());
                 task.setStep(request.getParameter(STEP));  //the only use for this seems to be to clear notifications
 
                 Enumeration parameterNames = request.getParameterNames();
