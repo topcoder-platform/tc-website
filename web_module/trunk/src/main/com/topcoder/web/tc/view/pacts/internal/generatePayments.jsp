@@ -18,25 +18,15 @@
                     <tr><td><tc-webtag:errorIterator id="err" name="<%=PactsConstants.ROUND_ID%>"><%=err%></tc-webtag:errorIterator></td></tr>
                     <tr>
                         <td align="center">
-                            SRM Payments
+                            Round Id: <input type="text" name="<%=PactsConstants.ROUND_ID%>" maxlength="10" size="10"/>
                         </td>
                     </tr>
                     <tr>
                         <td align="center">
-                            Round Id: <input type="text" name="<%=PactsConstants.ROUND_ID%>" maxlength="10" size="10"/> <a href="JavaScript:document.paymentForm.submit();">submit</a>
+                            <a href="JavaScript:document.paymentForm.submit();">Generate SRM Payments</a> <br />
+                            <a href="JavaScript:document.paymentForm.<%=PactsConstants.AFFIDAVIT_TYPE_ID%>.value='<%=PactsConstants.TCCC05_ALGORITHM_AFFIDAVIT%>';document.paymentForm.submit();">submit</a> <br />
                         </td>
                     </tr>
-                    <tr>
-                        <td align="center">
-                            TCCC05 Payments
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="center">
-                            Round Id: <input type="text" name="<%=PactsConstants.ROUND_ID%>" maxlength="10" size="10"/> <a href="JavaScript:document.paymentForm.<%=PactsConstants.AFFIDAVIT_TYPE_ID%>.value='<%=PactsConstants.TCCC05_ALGORITHM_AFFIDAVIT%>';document.paymentForm.submit();">submit</a>
-                        </td>
-                    </tr>
-
                 </table>
             </form>
         </center>
