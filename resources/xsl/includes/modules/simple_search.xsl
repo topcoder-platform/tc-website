@@ -19,7 +19,7 @@
                         </script>
                         -->
 
-                        <input type="text" name="search" size="12" maxlength="15" />
+                        <input type="text" name="SearchHandle" size="12" maxlength="15" />
                     </td>
                     <td class="statTextBig"><A href="javascript:void document.simpleSearchForm.submit();"><img src="/i/button_go_member_search.gif" alt="Go" width="24" height="18" vspace="3" border="0" /></A></td>
                     <td width="99%"><img src="/i/clear.gif" alt="" width="5" height="5" border="0" /></td>
