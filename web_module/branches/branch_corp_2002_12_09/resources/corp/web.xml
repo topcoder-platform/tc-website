@@ -25,9 +25,21 @@
   </init-param>
 </servlet>
 
+<servlet>
+  <servlet-name>MainServletStub</servlet-name>
+  <display-name>MainServletStub</display-name>
+  <description>Static Processor Controller Testing of Topcoder Corporate</description>
+  <servlet-class>com.topcoder.web.corp.controller.MainServletStub</servlet-class>
+</servlet>
+
 <servlet-mapping>
   <servlet-name>MainServlet</servlet-name>
   <url-pattern>/</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+  <servlet-name>MainServletStub</servlet-name>
+  <url-pattern>/hs</url-pattern>
 </servlet-mapping>
 
 </web-app>
