@@ -66,8 +66,8 @@
                     boolean hasNotes = ((Long)row.getItem("note_count").getResultData()).longValue()>0;
                     boolean hasResults = row.getItem("has_results").getResultData().equals("1");
 
-                    String color = (even) ? "class='testTableEven'" : "class='testTableOdd'";
                 %>
+<%--                    String color = (even) ? "class='testTableEven'" : "class='testTableOdd'"; --%>
             
                 <tr>
                    <td align="center" <%=color%>>&#160;</TD>
@@ -79,7 +79,7 @@
                    <td align="center" <%=color%>><screen:servletLink processor="NoteList" param="<%=params%>" styleClass="bodyText"><%=hasNotes?"View":"None"%></screen:servletLink></TD>
                 </tr>
 
-                <% even = !even; %>
+<%--                <% even = !even; %> --%>
                 
             </screen:resultSetRowIterator>
             </table>
@@ -87,7 +87,7 @@
             <table border="0" cellspacing="10" cellpadding="0" width="70%">
                  <tr>
                     <td><div align="center"><p class="button"><screen:servletLink processor="PopulateCandidate" param="referrer=BuildCandidateList" styleClass="button">Add Candidate</screen:servletLink></p></div></td>
-                </screen:form></tr>
+                </tr>
             </table>
             <p><br></p>
         </td>
