@@ -74,7 +74,7 @@
             <p class="bodyText"></p>
 
             <p class="bodyText">We have chosen an <b><i>R</i></b> of .87, this means that
-            the top 10 coders contribute about 75% of a country�s rating.</p>
+            the top 10 coders contribute about 75% of a country's rating.</p>
 
          </td>
       </tr>
