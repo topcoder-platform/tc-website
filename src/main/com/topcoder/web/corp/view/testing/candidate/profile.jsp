@@ -179,7 +179,7 @@ function getProblemDetail(id) {
                         </tr>
                         </screen:resultSetRowIterator>
 
-                        <% long uid;%>
+                        <% long uid = 0;%>
                         <screen:resultSetRowIterator id="row"
                                 list="<%=(List) request.getAttribute(Constants.CANDIDATE_PREFERENCE_INFO)%>">
                                 <% uid = row.getIntItem("user_id");%>
