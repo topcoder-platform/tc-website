@@ -83,7 +83,7 @@
         <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${classes}"/>
     </target>
     <target name="full_deploy" depends="build_ejbs,deploy"/>
-    <target name="deploy" depends="build_wars,servlets,jsp,moveStruts,moveReg,moveStats,deploy-corp"/>
+    <target name="deploy" depends="build_wars,servlets,jsp,moveStruts,moveReg,moveStats,moveTCES,deploy-corp"/>
     <target name="servlets" depends="compile,move_file_upload_xml">
         <move todir="${servlets}/${statservlets}">
             <fileset dir="${classes}/${statservlets}">
@@ -169,7 +169,6 @@
             </fileset>
         </copy>
     </target>
-	<!--
     <target name="moveTCES" depends="check_java_version">
         <copy todir="${public_html}/WEB-INF">
             <fileset dir="resources/tces">
@@ -177,7 +176,6 @@
             </fileset>
         </copy>
     </target>
-	-->
     <target name="jsp" depends="check_java_version">
         <property name="stat.trgt" value="${public_html}/stat_jsp"/>
         <property name="stat.src" value="${web}/stat/servlet/jsp"/>
@@ -199,10 +197,8 @@
         <property name="resume.src" value="${web}/resume/servlet/jsp"/>
         <property name="jobposting.trgt" value="${public_html}/jobposting_jsp"/>
         <property name="jobposting.src" value="${web}/jobposting/servlet/jsp"/>
-<!--
-		<property name="tces.trgt" value="${public_html}/tces_jsp"/>
+        <property name="tces.trgt" value="${public_html}/tces_jsp"/>
         <property name="tces.src" value="${web}/tces/servlet/jsp"/>
--->
         <mkdir dir="${stat.trgt}"/>
         <mkdir dir="${root.trgt}"/>
         <mkdir dir="${pacts.trgt}"/>
@@ -478,7 +474,7 @@
         <antcall target="dev_war_query"/>
         <antcall target="dev_war_email"/>
         <antcall target="dev_war_corp"/>
-		<antcall target="dev_war_tces"/>
+<!--		<antcall target="dev_war_tces"/> -->
     </target>
     <target name="dev_war_corp" depends="compile">
         <!--      <delete dir="${public_html}/${corp.war.name}"/>
@@ -543,26 +539,6 @@
             </fileset>
         </copy>
     </target>
-	<target name="dev_war_tces" depends="compile">
-        <delete dir="${public_html}/${tces.war.name}_jsp"/>
-        <mkdir dir="${public_html}/${tces.war.name}_jsp"/>
-        <copy todir="${public_html}/${tces.war.name}_jsp">
-            <fileset dir="${java}/com/topcoder/web/tces/servlet/jsp">
-                <include name="**/*.jsp"/>
-            </fileset>
-        </copy> 
-        <copy todir="${public_html}/${tces.war.name}/WEB-INF">
-            <fileset dir="${resources}/${tces.war.name}">
-                <include name="*.tld"/>
-                <include name="*.xml"/>
-            </fileset>
-        </copy>
-        <copy todir="${public_html}/${tces.war.name}/WEB-INF/classes">
-            <fileset dir="${classes}">
-                <include name="com/topcoder/web/tces/**"/>
-            </fileset>
-        </copy>
-    </target>
 
     <target name="war_corp" depends="compile,corp-ejb-all">
         <war warfile="${war.dir}/${corp.war.name}.war" webxml="${resources}/corp/web.xml">
@@ -602,7 +578,7 @@
             <webinf dir="${resources}/email">
                 <include name="email-taglib.tld"/>
             </webinf>
-            <zipfileset dir="${java}/com/topcoder/web/email/servlet/jsp">
+            <zipfileset dir="${java}/com/topcoder/web/email/servlet/jsp" >
                 <include name="**/*.jpg"/>
             </zipfileset>
         </war>
@@ -627,10 +603,15 @@
             </fileset>
             <classes dir="${classes}">
                 <include name="com/topcoder/web/tces/**"/>
+				<include name="com/topcoder/web/common/**"/>
+				<include name="com/topcoder/shared/**"/>
+				<exclude name="**/*Bean.class"/>
+                <exclude name="**/*Impl.class"/>
             </classes>
-            <webinf dir="${resources}/tces">
+            <webinf dir="${resources}/${tces.war.name}">
                 <include name="tces-taglib.tld"/>
             </webinf>
+            <zipfileset dir="${java}/com/topcoder/web/tces/servlet/jsp" includes="*, **/*" prefix=""/>
         </war>
     </target>
 
