@@ -67,6 +67,10 @@ public class ProblemStatementTag extends TagSupport {
         }
     }
 
+    public void setLanguage(Language l) {
+        this.language = l;
+    }
+
     /**
      * Method specific to JSP Tags.  Validates inputs and writes out property
      * if possible.  If it is not possible because bean does not exist, exits
