@@ -30,6 +30,8 @@ public class RBoardApplicationBean extends BaseEJB {
         int ret = update("rboard_application",
                 new String[] {"review_resp_id"},
                 new String[] {String.valueOf(reviewRespId)},
+                new String[] {"user_id", "project_id", "phase_id"},
+                new String[] {String.valueOf(userId), String.valueOf(projectId), String.valueOf(phaseId)},
                 dataSource);
         if (ret != 1) {
             throw(new EJBException("Wrong number of rows updated in " +
@@ -42,6 +44,8 @@ public class RBoardApplicationBean extends BaseEJB {
         int ret = update("rboard_application",
                 new String[] {"primary_ind"},
                 new String[] {String.valueOf(isPrimary?1:0)},
+                new String[] {"user_id", "project_id", "phase_id"},
+                new String[] {String.valueOf(userId), String.valueOf(projectId), String.valueOf(phaseId)},
                 dataSource);
         if (ret != 1) {
             throw(new EJBException("Wrong number of rows updated in " +

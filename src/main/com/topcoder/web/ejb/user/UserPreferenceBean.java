@@ -77,6 +77,8 @@ public class UserPreferenceBean extends BaseEJB {
         int ret = update("user_preference",
                 new String[] {"value"},
                 new String[] {value},
+                new String[] {"user_id", "preference_id"},
+                new String[] {String.valueOf(userId), String.valueOf(preferenceId)},
                 dataSource);
         if (ret != 1) {
             throw(new EJBException("Wrong number of rows updated in " +
