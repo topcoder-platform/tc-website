@@ -130,19 +130,19 @@ Members will also collect royalties on the revenue generated from the sale of th
   </TR>
   <TR>
     <TD class="statTextBig">Total Payment</TD>
-    <TD class="statTextBig" align="left">$150.00</TD>
+    <TD class="statTextBig" align="left">$300.00</TD>
   </TR>
   <TR>
     <TD class="statText">First Payment</TD>
-    <TD class="statText" align="left">$15.00</TD>
+    <TD class="statText" align="left">$30.00</TD>
   </TR>
   <TR>
     <TD class="statText">Second Payment</TD>
-    <TD class="statText" align="left">$60.00</TD>
+    <TD class="statText" align="left">$120.00</TD>
   </TR>
   <TR>
     <TD class="statText">Final Payment</TD>
-    <TD class="statText" align="left">$75.00</TD>
+    <TD class="statText" align="left">$150.00</TD>
   </TR>
   <TR><TD colspan="2"><BR/></TD></TR>
   <TR>
@@ -154,19 +154,19 @@ Members will also collect royalties on the revenue generated from the sale of th
   </TR>
   <TR>
     <TD class="statTextBig">Total Payment</TD>
-    <TD class="statTextBig" align="left">$500.00</TD>
+    <TD class="statTextBig" align="left">$1000.00</TD>
   </TR>
   <TR>
     <TD class="statText">First Payment</TD>
-    <TD class="statText" align="left">$50.00</TD>
+    <TD class="statText" align="left">$100.00</TD>
   </TR>
   <TR>
     <TD class="statText">Second Payment</TD>
-    <TD class="statText" align="left">$200.00</TD>
+    <TD class="statText" align="left">$400.00</TD>
   </TR>
   <TR>
     <TD class="statText">Final Payment</TD>
-    <TD class="statText" align="left">$250.00</TD>
+    <TD class="statText" align="left">$500.00</TD>
   </TR>
   <TR><TD colspan="2"><BR/></TD></TR>
   <TR>
@@ -178,19 +178,19 @@ Members will also collect royalties on the revenue generated from the sale of th
   </TR>
   <TR>
     <TD class="statTextBig">Total Payment</TD>
-    <TD class="statTextBig" align="left">$125.00</TD>
+    <TD class="statTextBig" align="left">$250.00</TD>
   </TR>
   <TR>
     <TD class="statText">First Payment</TD>
-    <TD class="statText" align="left">$12.50</TD>
+    <TD class="statText" align="left">$25.00</TD>
   </TR>
   <TR>
     <TD class="statText">Second Payment</TD>
-    <TD class="statText" align="left">$50.00</TD>
+    <TD class="statText" align="left">$100.00</TD>
   </TR>
   <TR>
     <TD class="statText">Final Payment</TD>
-    <TD class="statText" align="left">$62.50</TD>
+    <TD class="statText" align="left">$125.00</TD>
   </TR>
   <TR><TD colspan="2"><BR/></TD></TR>
 
