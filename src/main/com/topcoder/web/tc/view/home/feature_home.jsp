@@ -18,13 +18,15 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td  width="99%" class="bodyText"  valign="top">
-                        <p><a href="/?&amp;t=features&amp;c=feat_042904" class="bodyText"><font size="4"><strong>All I really need to know about Software Development I learned from TopCoder</strong></font></a><br />
-                        Thursday, April 29, 2004</p>
+                        <p><a href="/?&amp;t=features&amp;c=feat_060204" class="bodyText"><font size="4"><strong>Java for C++ coders, and vice versa</strong></font></a><br />
+                        Wednesday, June 2, 2004</p>
 
                         <p>
- With apologies to Robert Fulghum, here is my interpretation of TopCoder being a microcosm of the Software Development world. 
- 
-                        <a href="/?&amp;t=features&amp;c=feat_042904" class="bodyText"><strong>full&#160;story</strong></a></p>
+Three out of the four languages used in TopCoder competitions derive from a common language, C.  
+But there are still differences (and similarities) between C++, Java, and C#.  In this feature, I will point 
+out the more significant, and interesting, features that distinguish these three languages.
+
+                        <a href="/?&amp;t=features&amp;c=feat_060204" class="bodyText"><strong>full&#160;story</strong></a></p>
                     </td>
                 </tr>
             </table>
