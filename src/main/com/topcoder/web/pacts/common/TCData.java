@@ -7,7 +7,7 @@
 package com.topcoder.web.pacts.common;
 
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.*;
+import com.topcoder.shared.dataAccess.resultSet.*;
 
 import java.util.StringTokenizer;
 

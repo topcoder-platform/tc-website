@@ -5,7 +5,7 @@ import com.topcoder.shared.messaging.QueueMessageSender;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.pacts.common.*;
 
 import javax.jms.JMSException;

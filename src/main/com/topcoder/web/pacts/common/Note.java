@@ -23,7 +23,7 @@
 
 package com.topcoder.web.pacts.common;
 
-import com.topcoder.web.common.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 import java.util.Map;
 
