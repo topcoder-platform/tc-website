@@ -25,7 +25,7 @@ public class SecurityHelper {
 
     public static final String KEY_PREFIX = "user_subject:";
 
-    public static final TCSubject getUserSubject(long l, boolean forceLoadFromDb)
+    public static TCSubject getUserSubject(long l, boolean forceLoadFromDb)
             throws Exception, NoSuchUserException, NamingException {
         log.debug("get " + l + " from db " + forceLoadFromDb);
         TCSubject ret = null;
@@ -70,7 +70,7 @@ public class SecurityHelper {
         }
     }
 
-    public static final TCSubject getUserSubject(long l)
+    public static  TCSubject getUserSubject(long l)
             throws Exception, NoSuchUserException, NamingException {
         return getUserSubject(l, false);
     }
