@@ -63,8 +63,6 @@ private String getPercentage (ResultSetContainer total, int total_row, String to
    	df.setMinimumFractionDigits(2);
    	df.setMaximumFractionDigits(2);
    	return df.format(ret);
-//	return ret;
-	
 }
 
 private String getPercent (long subs, long succ)

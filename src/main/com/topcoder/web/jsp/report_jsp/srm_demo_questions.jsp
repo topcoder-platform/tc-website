@@ -22,7 +22,7 @@ javax.servlet.jsp.JspWriter
 <%!
 
 
-
+dataRequest.setProperty("rd", request.getParameter("rd")==null?"4445":request.getParameter("rd"));
 
 
   //////////////////////////////////////////////////////////////////////////////// 
@@ -399,9 +399,9 @@ javax.servlet.jsp.JspWriter
 <td class=sectionTitle width="40">&nbsp;&nbsp;</td>
 <td class=sectionTitle>Professionals</td></tr>
 <tr>
-	<td valign="top"><%doit(out,1,4335);%></td>
+	<td valign="top"><%doit(out,1,rd);%></td>
 	<td width="40">&nbsp;&nbsp;</td>
-	<td valign="top"><%doit(out,2,4335);%></td>
+	<td valign="top"><%doit(out,2,rd);%></td>
 </tr>
 </table>
 
