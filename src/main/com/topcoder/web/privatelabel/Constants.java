@@ -158,6 +158,7 @@ public class Constants {
     public static String GOOGLE_INDIA_05_REG_CONFIRM;
     public static String GOOGLE_INDIA_05_REG_SUBMIT;
     public static String GOOGLE_INDIA_05_ACTIVATION;
+    public static String GOOGLE_INDIA_05_CREDENTIALS;
     public static String VERIZON_REG_MAIN;
     public static String VERIZON_REG_DEMOG;
     public static String VERIZON_REG_CONFIRM;
