@@ -9,8 +9,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/antimatter_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
-                        By <a class="bodyText" href="/stat?c=member_profile&amp;cr=275071"><strong>antimatter</strong></a><br/>
+                        <img src="/i/m/dgarthur_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
+                        By <a class="bodyText" href="/stat?c=member_profile&amp;cr=262936"><strong>dgarthur</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -19,16 +19,15 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm181_prob">SRM 181 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Wednesday, January 28, 2004</p>
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm182_prob">SRM 182 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Saturday, February 7, 2004</p>
 
                         <p>
-This SRM seemed significantly easier than the last few for Division I coders, with seven 
-coders within 50 points of leader <b>tomek</b> after the coding phase.  After challenge phase, 
-however, <b>SnapDragon</b> barely pulled ahead by picking up a successful challenge, and he 
-won the match with an impressive 1629.45 points.
+A level one problem with some nasty boundary cases and a devious level two problem made this SRM a tough one for 
+many Division 1 participants. Coding phase saw <b>nicka81</b> jump into an early lead with exceptionally fast 
+submissions on the two harder problems. He had to resubmit the hard, however, which allowed <b>jshute</b> to pass him.
 
-                       <a href="/?t=statistics&amp;c=srm181_prob" class="bodyText"><strong>full&#160;story</strong></a>
+                       <a href="/?t=statistics&amp;c=srm182_prob" class="bodyText"><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
