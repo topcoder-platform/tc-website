@@ -50,15 +50,15 @@
                   <TD class="statText" HEIGHT="18" COLSPAN="20"><BR></TD>                  
                 </TR>                
                 <TR>
-                  <TD class="statText" HEIGHT="18" align="center" colspan="20">
+                  <TD class="statText" HEIGHT="18" align="left" colspan="20">
 
                       <!-- Error message content pane -->
-                    
-                        You do not enough priveleges to perform this action.<br>
+                   <DIV CLASS="header">    
+                        You do not enough priveleges to perform this action<br>
                         If you think this page was shown by mistake, please contact us<br>
                         We are sorry for any inconveniences caused by this<br>
-                        Site Administration<br><br>
-
+                        site administration<br><br>
+                   </DIV CLASS="header">
                        <!-- web-app debug time stack trace  BEGIN -->
 
                         <hr><b><i>Trace information is provided for web application debug time only</i></b><br>
