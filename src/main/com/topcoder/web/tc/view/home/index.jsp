@@ -26,9 +26,9 @@
 <%-- Banners --%>
 	<tr>
 		<td width="50%" rowspan=2>&#160;</td>
-		<td class=homeLeftBan><img src="/i/home/tab_developercenter.gif" border=0 /></td>
+		<td class=homeLeftBan><A href="/"><img src="/i/home/tab_developercenter.gif" border=0 /></A></td>
 		<td class=homeGutter rowspan=2>&#160;</td>
-		<td class=homeCentBan><img src="/i/home/tab_corporateservices.gif" border=0 /></td>
+		<td class=homeCentBan><A href="/corp/?module=Static&d1=corp&d2=index"><img src="/i/home/tab_corporateservices.gif" border=0 /></A></td>
 		<td class=homeGutter rowspan=2>&#160;</td>
 		<td class=homeRightBan><img src="/i/home/tab_newsevents.gif" border=0 /></td>
 		<td width="50%" rowspan=2>&#160;</td>
