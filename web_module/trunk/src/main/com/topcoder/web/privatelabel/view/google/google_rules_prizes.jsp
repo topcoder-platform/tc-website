@@ -114,7 +114,7 @@
                     <td class="sidebarText" align="right">$5,000</td>
                 </tr>
                 <tr valign="top">
-                    <td class="sidebarText"><b>1st place finisher* Ð Tournament Champion</b></td>
+                    <td class="sidebarText"><b>1st place finisher* - Tournament Champion</b></td>
                     <td class="sidebarText" align="right"><b>$10,000</b></td>
                 </tr>
 
