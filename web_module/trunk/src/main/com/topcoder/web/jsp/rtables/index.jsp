@@ -17,7 +17,7 @@
   String rtPassword = "";
   String Redirect_URL = "http://" + request.getServerName();
   String responseURL = response.encodeURL(""); 
-  SimpleDateFormat dateFormatter = new SimpleDateFormat("EEE, MMM d 'at' hh:mm a z");
+  SimpleDateFormat dateFormatter = new SimpleDateFormat("EEE, MMM d yyyy 'at' hh:mm a z");
   Navigation n = null;
   try {
     n = (Navigation) session.getAttribute("navigation");

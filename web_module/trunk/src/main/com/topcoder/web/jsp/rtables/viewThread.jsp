@@ -78,7 +78,7 @@
 <%!  ////////////////
   // global variables
   SimpleDateFormat dateFormatter 
-    = new SimpleDateFormat("EEE, MMM d 'at' hh:mm a z");
+    = new SimpleDateFormat("EEE, MMM d yyyy 'at' hh:mm a z");
     
   /**
    * Print a child message
