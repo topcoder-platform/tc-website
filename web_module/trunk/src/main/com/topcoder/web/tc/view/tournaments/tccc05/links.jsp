@@ -63,12 +63,12 @@
 					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=onsite_schedule"><img src="/i/tournament/tccc05/tabs/L2_joinusOff.gif" alt="" border=0 /></A></td>
 				<% } %>
 <%--
+--%>
 				<% if (tabLev2.equals("onsite_events")) {%>
 					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=photos"><img src="/i/tournament/tccc05/tabs/L2_onsiteeventsOn.gif" alt="" border=0 /></A></td>
 				<% } else { %>
 					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=photos"><img src="/i/tournament/tccc05/tabs/L2_onsiteeventsOff.gif" alt="" border=0 /></A></td>
 				<% } %>
---%>
 				<% if (tabLev2.equals("specshow")) {%>
 					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=ss_description"><img src="/i/tournament/tccc05/tabs/L2_specshowOn.gif" alt="" border=0 /></A></td>
 				<% } else { %>
