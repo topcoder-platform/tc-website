@@ -19,6 +19,10 @@ public class FullRegConfirm extends FullRegBase {
 
     protected void registrationProcessing() throws TCWebException {
 
+        for (Iterator it = fu.getParameterNames(); it.hasNext();) {
+            log.debug("param: " + it.next().toString());
+        }
+
         /*
           check the 2nd page input, no reason to do the first page again
           we got it from the persistor at this point, so we can assume it
@@ -45,7 +49,8 @@ public class FullRegConfirm extends FullRegBase {
         }
 
         //get the rest from the request
-        info.setCoderType(Integer.parseInt(StringUtils.checkNull(getRequestParameter(Constants.CODER_TYPE))));
+        String sCoderType = getRequestParameter(Constants.CODER_TYPE);
+        info.setCoderType(Integer.parseInt(sCoderType==null?"-1":sCoderType));
 
         try {
             fu = new FileUpload(getRequest(), false);
@@ -78,6 +83,9 @@ public class FullRegConfirm extends FullRegBase {
      */
     protected void checkRegInfo(FullRegInfo info) throws TCWebException {
         //TODO check the demo and other input
+        if (info.getCoderType() != Constants.STUDENT || info.getCoderType() != Constants.PROFESSIONAL) {
+            addError(Constants.CODER_TYPE, "Please choose either Student or Professional.");
+        }
     }
 
 
