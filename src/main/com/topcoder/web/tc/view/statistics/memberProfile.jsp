@@ -28,21 +28,23 @@
 <jsp:include page="../top.jsp" />
 
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-     <TR>
-       <TD WIDTH="180" VALIGN="top">
+     <TR valign="top">
 
+       <TD WIDTH="180">
 <!-- Left nav begins -->
             <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="statistics"/>
             </jsp:include>
 <!-- Left nav ends -->
-
        </TD>
-       <TD WIDTH="10" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+
+<!-- Gutter begins -->
+       <TD WIDTH="15"><IMG SRC="/i/clear.gif" WIDTH="15" HEIGHT="1" BORDER="0"></TD>
+<!-- Gutter ends -->
+
        <TD CLASS="bodyText" WIDTH="100%" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="1" VSPACE="5" BORDER="0"><BR/>
 
-
-         <!-- BEGIN BODY -->
+<!-- Center column begins -->
          <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
            <TR>
              <TD WIDTH="11" HEIGHT="26" ALIGN="left" VALIGN="bottom"><IMG WIDTH="11" HEIGHT="26" BORDER="0" SRC="/i/steelblue_top_left1.gif"></TD>
@@ -341,13 +343,12 @@ pageContext.setAttribute("resultSet", rsc3);
         </logic:present>
          
          <p><br></p>
-
-        <!-- END BODY -->
+<!-- Center column ends -->
 
        </TD>
 
 <!-- Gutter begins -->
-       <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+       <TD WIDTH="15"><IMG SRC="/i/clear.gif" WIDTH="15" HEIGHT="1" BORDER="0"></TD>
 <!-- Gutter ends -->
 
         <TD width="170">
