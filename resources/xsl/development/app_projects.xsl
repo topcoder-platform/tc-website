@@ -109,31 +109,12 @@
                                 </tr>
                                 <tr valign="top">
                                     <td class="projectCells">
-                                        <a href="?t=development&amp;c=Order_Fulfillment_Design">Order Fulfillment Design</a>
-                                    </td>
-                                    <td class="projectCells" align="right">$3200 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$1100 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">closed</td>
-                                </tr>
-
-                                <tr valign="top">
-                                    <td class="projectCells">
                                         <a href="?t=development&amp;c=Palm_Common_Connectivity_Design ">Palm Common Connectivity Application</a>
                                     </td>
                                     <td class="projectCells" align="right">$1200 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$400 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">closed</td>
                                 </tr>
-
-                                <tr valign="top">
-                                    <td class="projectCells">
-                                        <a href="?t=development&amp;c=Store_File_Loader_Design ">Store File Loader Application</a>
-                                    </td>
-                                    <td class="projectCells" align="right">$300 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$150 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">closed</td>
-                                </tr>
-
                             </table>
 
                             <br/>
@@ -173,7 +154,14 @@
                                     <td class="projectCells" align="right">$700 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">06/14/2004 9:00 AM ET</td>
                                 </tr>
-
+                                <tr valign="top">
+                                    <td class="projectCells">
+                                        <a href="?t=development&amp;c=Store_File_Loader_Development">Store File Loader Application</a>
+                                    </td>
+                                    <td class="projectCells" align="right">$300 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$150 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">06/14/2004 9:00 AM ET</td>
+                                </tr>
 
                                 <!--
                                 <tr valign="top">
