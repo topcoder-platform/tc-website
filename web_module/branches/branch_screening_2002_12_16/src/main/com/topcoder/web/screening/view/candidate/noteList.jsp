@@ -42,16 +42,16 @@
               <TD COLSPAN="3"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
            </TR>
            <TR>
-              <TD ALIGN="center" VALIGN="middle" CLASS="statText" BGCOLOR="#666666" HEIGHT="15">&#160;<B>Date Created</B></TD>
+              <TD ALIGN="center" VALIGN="middle" CLASS="statText" BGCOLOR="#666666">&#160;<B>Notes</B></TD>
               <TD ALIGN="center" VALIGN="middle" CLASS="statText" BGCOLOR="#666666">&#160;<B>Author</B></TD>
-              <TD CLASS="statText" VALIGN="top" BGCOLOR="#666666">&#160;</TD>
-           </TR>                      
+              <TD ALIGN="center" VALIGN="middle" CLASS="statText" BGCOLOR="#666666" HEIGHT="15">&#160;<B>Date Created</B></TD>
+           </TR>
            <% { boolean even = true; %>
               <screen:resultSetRowIterator id="row" list="<%=candidateInfo.getNoteList()%>">
                  <TR>
-                    <TD ALIGN="center" VALIGN="top" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %> HEIGHT="15">&#160;<B><screen:resultSetItem row="<%=row%>" name="create_date" /></B>&#160;&#160;</TD>
-                    <TD ALIGN="center" VALIGN="top" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %> HEIGHT="15">&#160;<screen:resultSetItem row="<%=row%>" name="created_by" />&#160;&#160;</TD>
                     <TD CLASS="bodyText" VALIGN="top" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>><screen:resultSetItem row="<%=row%>" name="text" /></TD>
+                    <TD ALIGN="center" VALIGN="top" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %> HEIGHT="15">&#160;<screen:resultSetItem row="<%=row%>" name="created_by" />&#160;&#160;</TD>
+                    <TD ALIGN="center" VALIGN="top" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %> HEIGHT="15">&#160;<B><screen:resultSetItem row="<%=row%>" name="create_date" /></B>&#160;&#160;</TD>
                  </TR>
                  <% even = !even; %>
               </screen:resultSetRowIterator>
