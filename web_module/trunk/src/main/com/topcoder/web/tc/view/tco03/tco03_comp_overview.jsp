@@ -46,11 +46,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 <!-- Center Column Begins -->
          <td class="bodyText" WIDTH="100%">
 
-            <div align="center">
-                <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br />
-                <img src="/i/promos/tco03/tco_home_comp_start_a.gif" alt="Component Competition starts Sept 2" width="540" height="165" border="0"/><br/>
-                <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br />
-            </div>
+<jsp:include page="tco03Head.jsp" />
 
 <!-- Tab bar links-->
 <jsp:include page="tco03Links.jsp" >
