@@ -442,7 +442,7 @@ public final class TaskDevelopment {
 
                         int i = 0;
                         boolean notFound = true;
-                        if (rating > 0 || rating == -1) {
+                        //if (rating > 0 || rating == -1) {
                             //get catalog object
                             Object objTechTypes = CONTEXT.lookup("ComponentManagerEJB");
                             ComponentManagerHome home = (ComponentManagerHome) PortableRemoteObject.narrow(objTechTypes, ComponentManagerHome.class);
@@ -481,7 +481,7 @@ public final class TaskDevelopment {
                                 }
                                 i++;
                             }
-                        }
+                        //}
 
                         if (!permissionAdded && rating > 0 || rating == -1) {
 
