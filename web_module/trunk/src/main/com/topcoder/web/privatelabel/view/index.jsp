@@ -40,15 +40,31 @@
             <img src="/i/clear.gif" alt="" width="1" height="15" border="0"/><br/>
 
 <!-- Upcoming Tournaments begins -->
-<%--
+
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
                 <tr><td class="header">Upcoming Private Label Events</td></tr>
             </table>
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+            
+           <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274" rowspan="2"><A href="/pl/?&module=Static&d1=javaone04&d2=javaone_overview" target="_blank"><img src="/i/events/2004javaone_logo.gif" alt="2004 JavaOne" width="274" height="66" border="0" /></A></td>
+                    <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText"><font size="3"><strong>2004 Javaone&#153; Coding Challenge</strong></font></td>
+                </tr>
+                <tr valign="top">
+                    <td class="bodyText">
+                        June 28-30, 2004<br />
+                        Moscone Convention Center<br/>
+                        San Francisco, California<br />
+                        <A href="/pl/?&module=Static&d1=javaone04&d2=javaone_overview" target="_blank">Details</A>
+                    </td>
+                </tr>
+            </table>
 
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
---%>
+
 <!-- Past Tournaments begins -->
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
                 <tr><td class="header">Past Private Label Events</td></tr>
