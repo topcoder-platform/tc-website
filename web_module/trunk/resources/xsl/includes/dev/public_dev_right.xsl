@@ -129,7 +129,7 @@
                         <table border="0" cellspacing="3" cellpadding="0">
                             <tr valign="middle">
                                 <td width="99%">&#160;</td>
-                                <td width="1%" class="statText" nowrap="nowrap"><a class="statText" href="/index?tco=t&amp;t=development&amp;c=comp_projects#tco_des"><strong>View all Projects</strong></a></td>
+                                <td width="1%" class="statText" nowrap="nowrap"><a class="statText" href="/index?t=development&amp;c=comp_projects#tco_des"><strong>View all Projects</strong></a></td>
                             </tr>
                         </table>
                     </td>
@@ -178,7 +178,7 @@
                                     <a class="statText">
 
                         <xsl:attribute name="href">
-                            <xsl:value-of select="concat('/index?t=development&amp;c=tcs_inquire-dev&amp;comp=', ./component_id, '&amp;docId=', ./document_id, '&amp;version=', ./version, '&amp;phase=', ./phase_id, '&amp;payment=', ./price, '&amp;compvers=', ./comp_vers_id, '&amp;date=', $initial_submission, '&amp;final_submission=', $final_submission, '&amp;winner_announced=', $winner_announced, '&amp;posting_date=', $posting_date)"/>
+                            <xsl:value-of select="concat('/index?tco=t&amp;t=development&amp;c=tcs_inquire-dev&amp;comp=', ./component_id, '&amp;docId=', ./document_id, '&amp;version=', ./version, '&amp;phase=', ./phase_id, '&amp;payment=', ./price, '&amp;compvers=', ./comp_vers_id, '&amp;date=', $initial_submission, '&amp;final_submission=', $final_submission, '&amp;winner_announced=', $winner_announced, '&amp;posting_date=', $posting_date)"/>
                         </xsl:attribute><xsl:value-of select="./component_name"/>
                         
                         <xsl:if test="number(./version) &gt;  number('1')">
