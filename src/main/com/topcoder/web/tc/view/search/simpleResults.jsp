@@ -1,4 +1,11 @@
+<%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants,
+                 com.topcoder.web.tc.Constants,
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
 <%@ page language="java"  %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
+<jsp:usebean id="memberSearch" class="com.topcoder.web.tc.model.MemberSearch" scope="request" />
+<% ResultSetContainer results = memberSearch.getResults();%>
 
 <html>
 
@@ -7,6 +14,19 @@
 <title>Member Search Results at TopCoder</title>
 
 <jsp:include page="../script.jsp"/>
+
+<script language="JavaScript"><!--
+  function next() {
+    document.simpleSearch.<%=DataAccessConstants.START_RANK%>.value=<%=results.getStartRow()+Constants.SEARCH_SCROLL_SIZE%>;
+    document.simpleSearch.<%=DataAccessConstants.END_RANK%>.value=<%=results.getEndRow()+Constants.SEARCH_SCROLL_SIZE%>;
+    document.simpleSearch.submit();
+  }
+  function previous() {
+    document.simpleSearch.<%=DataAccessConstants.START_RANK%>.value=<%=results.getStartRow()-Constants.SEARCH_SCROLL_SIZE%>;
+    document.simpleSearch.<%=DataAccessConstants.END_RANK%>.value=<%=results.getEndRow()-Constants.SEARCH_SCROLL_SIZE%>;
+    document.simpleSearch.submit();
+  }
+//--></script>
 
 <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
 <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
@@ -40,8 +60,69 @@
                 <jsp:param name="title" value="Member Search Results"/>
             </jsp:include>
 
-            <jsp:include page="results.jsp"/>
+            <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
+              <tr valign="top">
+                  <td width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
+                      <form name="simpleSearch" method="get">
+                      <input type="hidden" name="module" value="SimpleSearch"/>
+                      <input type="hidden" name=<%=DataAccessConstants.START_RANK%> value=""/>
+                      <input type="hidden" name=<%=DataAccessConstants.END_RANK%> value=""/>
+                      <input type="hidden" name=<%=Constants.HANDLE%> value="<jsp:getProperty name="memberSearch" property="handle"/>"/>
+          <table border="0" cellspacing="0" cellpadding="3" width="100%">
+              <tr valign="middle">
+                  <td background="/i/steel_gray_bg.gif" colspan="7" class="statTextBig">Search Results:
+                          &#160;&#160;<%=results.getStartRow()%>
+                          to
+                          <%=results.getEndRow()%>
+                  </td>
+              </tr>
 
+              <tr valign="middle">
+                  <td class="statText" height="16" colspan="7" align="center">
+                    <%=(results.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"statText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+                    | <%=(results.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"statText\">next &gt;&gt;</a>":"&gt;&gt; next")%>
+                  </td>
+              </tr>
+
+              <tr>
+                  <td background="/i/steel_bluebv_bg.gif" class="statText" valign="middle" height="18" width="20%">Handle</td>
+                  <td background="/i/steel_bluebv_bg.gif" class="statText" valign="middle" align="right" width="10%">Rating</td>
+                  <td background="/i/steel_bluebv_bg.gif" class="statText" valign="middle" align="right" width="3"><img src="/i/clear.gif" alt="" width="3" height="1" border="0"/></td>
+                  <td background="/i/steel_bluebv_bg.gif" class="statText" valign="middle" align="center" width="5%">State</td>
+                  <td background="/i/steel_bluebv_bg.gif" class="statText" valign="middle" align="right" width="30%"># of Rated Events</td>
+                  <td background="/i/steel_bluebv_bg.gif" class="statText" valign="middle" align="right" width="30%">Last Date Competed</td>
+                  <td background="/i/steel_bluebv_bg.gif" class="statText" valign="middle" align="right" width="3"><img src="/i/clear.gif" alt="" width="3" height="1" border="0"/></td>
+              </tr>
+
+              <rsc:iterator list="<%=results%>" id="resultRow">
+              <tr>
+                  <td class="statText" valign="middle" height="13">
+                      <a href="/stat?c=member_profile&cr=<rsc:item row="<%=resultRow%>" name="user_id"/>" class="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item row="<%=resultRow%>" name="handle"/></a>
+                  </td>
+                  <td class="statText" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="rating"/></td>
+                  <td class="statText" valign="middle" align="right" width="3"><img src="/i/clear.gif" alt="" width="3" height="1" border="0"/></td>
+                  <td class="statText" valign="middle" align="center"><rsc:item row="<%=resultRow%>" name="state_code"/></td>
+                  <td class="statText" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="num_ratings"/></td>
+                  <td class="statText" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="last_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
+                  <td class="statText" valign="middle" align="right" width="3"><img src="/i/clear.gif" alt="" width="3" height="1" border="0"/></td>
+              </tr>
+              </rsc:iterator>
+
+              <tr><td colspan="7"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
+
+              <tr valign="middle">
+                  <td class="statText" height="16" colspan="7" align="center">
+                    <%=(results.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"statText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+                    | <%=(results.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"statText\">next &gt;&gt;</a>":"&gt;&gt; next")%>
+                  </td>
+              </tr>
+
+              <tr><td colspan="7"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
+          </table>
+          </form>
+                  </td>
+              </tr>
+            </table>
         </td>
 
 
