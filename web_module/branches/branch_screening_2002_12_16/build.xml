@@ -5,6 +5,7 @@
    <property name="war.dir"       value="${build}/wars" />
    <property name="email.war.name"      value="email"/>
    <property name="query.war.name"      value="query"/>
+   <property name="screening.war.name"      value="screening"/>
    <property name="ejb_jars"      value="${build}/ejb_jars" />
    <property name="classes"       value="${build}/classes" />
    <property name="testclasses"   value="${build}/testcases" />
@@ -28,6 +29,7 @@
 
    <property name="deprecation"   value="false" />
    <property name="debug"   value="true" />
+   <property name="junitsummary" value="on" />
 
 
 
@@ -580,6 +582,7 @@
         <mkdir  dir="${war.dir}"/>
         <antcall target="war_email"/>
         <antcall target="war_query"/>
+        <antcall target="war_screening" />
     </target>
 
     <target name="dev_wars" depends="compile">
@@ -646,6 +649,7 @@
             </zipfileset>
         </war>
     </target>
+
     <target name="war_query" depends="compile">
         <war warfile="${war.dir}/${query.war.name}.war" webxml="${resources}/query/web.xml">
             <fileset dir="${java}/com/topcoder/web/query/servlet/jsp">
@@ -658,6 +662,49 @@
                 <include name="query-taglib.tld"/>
             </webinf>
         </war>
+    </target>
+
+    <target name="war_screening" depends="compile">
+        <war warfile="${war.dir}/${screening.war.name}.war" webxml="${resources}/screening/web.xml">
+            <fileset dir="${java}/com/topcoder/web/screening/servlet/jsp">
+                <include name="**/*.jsp"/>
+            </fileset>
+            <classes dir="${classes}">
+                <include name="com/topcoder/web/screening/"/>
+            </classes>
+            <!-- uncomment if we have any taglibs
+            <webinf dir="${resources}/query">
+                <include name="query-taglib.tld"/>
+            </webinf>
+            -->
+        </war>
+    </target>
+
+    <target name="compile_tests" depends="compile">
+        <javac srcdir="${testjava}" destdir="${testclasses}"
+               classpathref="class.path"
+               deprecation="${deprecation}"
+               debug="${debug}">
+        </javac>
+    </target>
+
+    <target name="run_tests" depends="compile_tests" description="run junit tests">
+        <junit printsummary="${junitsummary}" fork="yes">
+            <classpath refid="class.path" />
+            <formatter type="xml" />
+            <batchtest todir="${testclasses}">
+                <fileset dir="${testclasses}">
+                    <include name="**/*TestCase.class" />
+                </fileset>
+            </batchtest>
+        </junit>
+
+        <junitreport todir="${testclasses}">
+            <fileset dir="${testclasses}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames" todir="${testclasses}/html"/>
+        </junitreport>
     </target>
 
 </project>
