@@ -17,7 +17,13 @@ import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.security.Constants;
+import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.tc.model.CoderSessionInfo;
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.TCSubject;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -120,10 +126,7 @@ public final class MainServlet extends HttpServlet {
             // INIT SESSION AND XML DOCUMENT
             session = request.getSession(true);
             document = new XMLDocument("TC");
-            nav = getNav(request);
-            if (nav==null) {
-                nav = new Navigation(request, response);
-            }
+            nav = getNav(request, response);
             addURLTags(nav, request, response, document);
             // NEED THE TASK TO SEE WHAT THE USER WANTS
             requestTask = request.getParameter("t");
@@ -147,16 +150,8 @@ public final class MainServlet extends HttpServlet {
             trail.append(request.getRemoteHost());
             trail.append(" ****]");
             log.info(trail.toString());
-            User user = null;
-            if (nav.getUser() == null) {
-                user = new User();
-                nav.setUser(user);
-            } else {
-                user = nav.getUser();
-            }
+            User user = nav.getUser();
             if (nav.isLoggedIn()) {
-                //probably don't need to load them up, code can do it on demand
-//                Data.loadUser(nav);
                 user.setLoggedIn("Y");
             } else {
                 if (loggedIn.equals("true")) {
@@ -279,11 +274,10 @@ public final class MainServlet extends HttpServlet {
             log.debug("caught PermissionException");
             try {
                 if (!nav.isLoggedIn()) {
-                    CoderSessionInfo info = nav.getSessionInfo();
                     /* forward to the login page, with a message and a way back */
                     request.setAttribute(BaseServlet.MESSAGE_KEY, "In order to continue, you must provide your user name " +
                             "and password.");
-                    request.setAttribute(BaseServlet.NEXT_PAGE_KEY, info.getRequestString());
+                    request.setAttribute(BaseServlet.NEXT_PAGE_KEY, nav.getSessionInfo().getRequestString());
 
                     request.setAttribute("module", "Login");
                     fetchRegularPage(request, response, "/tc", true);
@@ -363,8 +357,19 @@ public final class MainServlet extends HttpServlet {
         }
     }
 
-    private Navigation getNav(HttpServletRequest request) {
-        return (Navigation)request.getSession(true).getAttribute("navigation");
+    private Navigation getNav(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        Navigation nav = (Navigation)request.getSession(true).getAttribute("navigation");
+        if (nav==null) {
+            nav = new Navigation(request, response);
+        }
+        WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(request.getSession(true)), request, response);
+        PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
+        TCSubject user = pmgr.getUserSubject(authentication.getActiveUser().getId());
+        CoderSessionInfo info = new CoderSessionInfo(request, authentication, user.getPrincipals());
+        nav.setCoderSessionInfo(info);
+        request.getSession(true).setAttribute("navigation", nav);
+
+        return nav;
     }
 
     protected final void fetchRegularPage(HttpServletRequest request, HttpServletResponse response, String dest,
