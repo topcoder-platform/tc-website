@@ -265,7 +265,7 @@ public class TCLoadTCS extends TCLoad {
                 {
                     //need to insert
                     sSQL = "insert into user_rating (user_id, rating, phase_id, vol, rating_no_vol, num_ratings, mod_date_time, create_date_time) " +
-                           "values (?, ?, ?, ?, ?, ?, ?, CURRENT, CURRENT) ";
+                           "values (?, ?, ?, ?, ?, ?, CURRENT, CURRENT) ";
 
                     ps2 = prepareStatement(sSQL, TARGET_DB);
                     ps2.setLong(1, rs.getLong("user_id"));
