@@ -74,7 +74,7 @@ In one of several key roles, you will be responsible for research and developmen
 <LI>Very strong programming skills and strong written/verbal ability are required. </LI>
 <LI>Knowledge of PC architecture highly desirable. Knowledge of networking and/or other I/O protocols highly desirable. </LI>
 <LI>Experience in hardware development or testing highly desirable. </LI>
-<LI>Experience performance analysis and performance modeling highly desirable.<LI>
+<LI>Experience performance analysis and performance modeling highly desirable.</LI>
 </UL>
 
   

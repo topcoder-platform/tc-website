@@ -89,7 +89,7 @@
 </TABLE>
 <IMG SRC="/i/es/nvidia/nvidia_logo.gif" WIDTH="120" HEIGHT="83" ALT="" BORDER="0" VSPACE="10"/>
 
-<P>NVIDIA Corporation is the worldwide leader in graphics processors and media and communications devices. The unmatched breadth of the NVIDIA product line enriches 3D & 2D graphics, video, audio, communications, broadband connectivity, and high-definition digital video and television for every audience and platform including desktop PCs, game consoles, workstations, Internet-enabled appliances, Macintosh, and mobile PCs.</P>
+<P>NVIDIA Corporation is the worldwide leader in graphics processors and media and communications devices. The unmatched breadth of the NVIDIA product line enriches 3D &amp; 2D graphics, video, audio, communications, broadband connectivity, and high-definition digital video and television for every audience and platform including desktop PCs, game consoles, workstations, Internet-enabled appliances, Macintosh, and mobile PCs.</P>
 
 <P>As the world leader in 3D graphics technology our objective remains solid:  to be the most important 3D company in the world.  We are committed to developing innovative technologies that deliver stunning multimedia experiences on mass computing platforms.  We invest in our people and our technologies, support and fund industry research around the world, and consistently deliver a quality, competitively priced product to our customers.</P>
 
