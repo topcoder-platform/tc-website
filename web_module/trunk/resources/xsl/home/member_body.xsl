@@ -539,7 +539,11 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
 <!--SRM Sponsor Ends-->
 
 <!-- TCES Quote Begins -->
-			<a href="/?&amp;t=schedule&amp;c=index"><img src="/i/tces_quote.gif" alt="Only rated members can apply for TCES jobs" width="244" height="138" border="0" /></a>
+			<map name="tcesMap">
+			<area shape="rect" alt="" coords="33,89,159,104" href="/?t=schedule&amp;c=index"></area>
+			<area shape="rect" alt="" coords="3,3,239,23" href="/?t=tces&amp;c=index"></area>
+			</map>
+			<img src="/i/tces_quote.gif" width="244" height="138" alt="Only rated members can apply for TCES jobs" border="0" usemap="#tcesMap" />
 <!-- TCES Quote Ends -->
 
 <!-- Software Promo Begins -->
