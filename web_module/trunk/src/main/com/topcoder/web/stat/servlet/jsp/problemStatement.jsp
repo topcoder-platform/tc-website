@@ -1,7 +1,7 @@
 <%@ page 
   language="java"
   errorPage="/errorPage.jsp"
-  import="com.topcoder.web.stat.common.JSPUtils,com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*"
+  import="com.topcoder.web.stat.common.JSPUtils,com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,com.topcoder.shared.problem.*,com.topcoder.shared.language.*,com.topcoder.shared.problemParser.*"
 
 %>
 
@@ -42,6 +42,16 @@ ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Problem_Statemen
 ResultSetContainer.ResultSetRow resultRow_0 = rsc.isValidRow(0)? rsc.getRow(0):null;
 String sClassName = resultRow_0!=null?resultRow_0.getItem("class_name").toString():"";
 String sProblemText = resultRow_0!=null?resultRow_0.getItem("problem_text").toString():"";
+
+// jeddie 09/05/02 - put problem text into a Reader, create default language, and use ProblemComponentRenderer
+StringReader reader = new StringReader(sProblemText);
+ProblemComponent arrProblemComponent[] = new ProblemComponent[1];
+arrProblemComponent[0] = new ProblemComponentFactory().buildFromXML(reader, true);
+Problem problem = new Problem();
+problem.setProblemComponents(arrProblemComponent);
+
+
+/* jeddie 09/05/02 - Don't need to make problem-text readable since we're using the ProblemComponentRenderer
 //here is where we make the problem-text readable
 int i=-1;
 while((i = sProblemText.indexOf("\n\n"))>=0){
@@ -72,6 +82,7 @@ while (strtok.hasMoreTokens()){
 	}
 	stBuffer.append("<BR>");
 }
+*/
 %>		 
          <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
            <TR>
@@ -96,7 +107,11 @@ while (strtok.hasMoreTokens()){
                  </TR>
                  <TR>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="problemText" VALIGN="middle" ALIGN="left">
-              		<%= stBuffer.toString() %>
+              		<% 
+                            // jeddie 09/05/02
+                            // stBuffer.toString()
+                            out.println(problem.toHTML(JavaLanguage.JAVA_LANGUAGE, false));
+                        %>
                    </TD>
                  </TR>
                  <TR>
