@@ -51,6 +51,11 @@
                                 </td>
                            </tr>
                         </pl:questionIterator>
+                            <tr>
+                                <td class="brErrorText" colspan="2">
+                                    <tc-webtag:errorIterator id="err" name="<%=Constants.FILE%>"><%=err%><br/></tc-webtag:errorIterator>
+                                </td>
+                            </tr>
                            <tr>
                                 <td class="brRegTableQuestion">
                                     <span class="brErrorText"><b>OPTIONAL:</b></span> Resume

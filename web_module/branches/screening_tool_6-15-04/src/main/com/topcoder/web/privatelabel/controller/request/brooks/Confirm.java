@@ -54,25 +54,32 @@ public class Confirm extends FullRegConfirm {
     protected void checkRegInfo(SimpleRegInfo info) throws TCWebException {
         super.checkRegInfo(info);    
         
-        //validate uploaded file, if applicable
-        ResumeRegInfo rinfo = (ResumeRegInfo)info;
-        if(rinfo.getUploadedFile() != null)
+        try
         {
-            byte[] fileBytes = null;   
-            
-            fileBytes = new byte[(int) rinfo.getUploadedFile().getSize()];
-            rinfo.getUploadedFile().getInputStream().read(fileBytes);
-            if (fileBytes == null || fileBytes.length == 0)
-                addError(Constants.FILE, "Sorry, the file you attempted to upload was empty.");
-            else {
-                //fileType = Integer.parseInt(file.getParameter("fileType"));
-                Map types = getFileTypes(transDb);
-                if(!types.containsKey(rinfo.getUploadedFile().getContentType()) )
-                {
-                    log.info("DID NOT FIND TYPE " + rinfo.getUploadedFile().getContentType());
-                    addError(Constants.FILE, "Unknown file type (" + rinfo.getUploadedFile().getContentType() + ")");
+            //validate uploaded file, if applicable
+            ResumeRegInfo rinfo = (ResumeRegInfo)info;
+            if(rinfo.getUploadedFile() != null)
+            {
+                byte[] fileBytes = null;   
+
+                fileBytes = new byte[(int) rinfo.getUploadedFile().getSize()];
+                rinfo.getUploadedFile().getInputStream().read(fileBytes);
+                if (fileBytes == null || fileBytes.length == 0)
+                    addError(Constants.FILE, "Sorry, the file you attempted to upload was empty.");
+                else {
+                    //fileType = Integer.parseInt(file.getParameter("fileType"));
+                    Map types = getFileTypes(transDb);
+                    if(!types.containsKey(rinfo.getUploadedFile().getContentType()) )
+                    {
+                        log.info("DID NOT FIND TYPE " + rinfo.getUploadedFile().getContentType());
+                        addError(Constants.FILE, "Unknown file type (" + rinfo.getUploadedFile().getContentType() + ")");
+                    }
                 }
             }
+        }
+        catch(Exception e)
+        {
+            throw new TCWebException(e);
         }
     }
     
