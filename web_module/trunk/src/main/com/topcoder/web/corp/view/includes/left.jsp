@@ -3,13 +3,13 @@
          autoFlush="false" %>
 
 <!-- My Services begins -->
-            <table width="170" bgcolor="#000000" cellspacing="0" cellpadding="0" border="0">
+            <table width="170" cellspacing="0" cellpadding="0" border="0">
                 <tr><td id="myServicesTitle">My Services</td></tr>
-                <tr><td id="myServicesNav"><a href="#" class="leftNav">Candidate Testing</a></td></tr>
-                <tr><td id="myServicesNav"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=spon_prog&d2=index" class="leftNav">Sponsorship</a></td></tr>
-                <tr><td id="myServicesNav"><a href="/tces/tces?task=MainTask" class="leftNav">Employment Services</a></td> </tr>
-<!--               <tr><td id="myServicesNav"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=prem_content&d2=index" class="leftNav">Premium Content</a></td></tr>  -->
-                <tr><td id="myServicesNav"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=acc_admin&d2=index" class="leftNav">My Account</a></td></tr>
+                <tr><td id="myServicesNav"><a href="#" id="leftNav">Candidate Testing</a></td></tr>
+                <tr><td id="myServicesNav"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=spon_prog&d2=index" id="leftNav">Sponsorship</a></td></tr>
+                <tr><td id="myServicesNav"><a href="/tces/tces?task=MainTask" id="leftNav">Employment Services</a></td> </tr>
+<!--               <tr><td id="myServicesNav"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=prem_content&d2=index" id="leftNav">Premium Content</a></td></tr>  -->
+                <tr><td id="myServicesNav"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=acc_admin&d2=index" class="id">My Account</a></td></tr>
             </table>
 <!-- My Services ends -->
 
