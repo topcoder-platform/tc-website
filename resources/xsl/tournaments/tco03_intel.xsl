@@ -48,7 +48,8 @@ function openWin(url, name, w, h) {
         </td>
 <!-- Left Column Ends -->
 
-<!-- Center Column Begins -->	
+<!-- Center Column Begins -->
+<td>	
 <table border="0" cellspacing="10" cellpadding="0" width="510">
     <tr valign="top">
         <td align="center" width="510">
@@ -110,6 +111,7 @@ function openWin(url, name, w, h) {
         </td>
     </tr>
 </table>
+</td>
 <!-- Center Column Ends -->
 
 <!-- Right Column Begins -->
