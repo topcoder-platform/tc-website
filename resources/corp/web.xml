@@ -526,7 +526,7 @@
 
         <init-param>
             <param-name>controller_url</param-name>
-            <param-value>/testing/</param-value>
+            <param-value>/corp/testing/</param-value>
             <description></description>
         </init-param>
 
