@@ -109,7 +109,7 @@ Directed edges in the graph are constructed from every color to every other colo
 Once all of the edges are constructed, there are a number of ways to find loops.  The fastest to code is probably the a variant of the Floyd-Warshall algorithm 
 (see <A HREF="/stat?&amp;c=last_match" CLASS="bodyGeneric">John Dethridge's</A> solution for an example).  If a path is found from a pixel to itself, then there is a loop in the 
 graph, and hence the picture is not valid.</P>
-<!--<P><BR/><DIV ALIGN="center"><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" ALIGN="center">
+<P><BR/><DIV ALIGN="center"><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" ALIGN="center">
 <TR>
 	<TD WIDTH="20%" CLASS="bodyText" ALIGN="left" BGCOLOR="#CCCCCC"><B>&#160;Problem<BR/>&#160;</B></TD>
 	<TD WIDTH="20%" CLASS="bodyText" ALIGN="right" BGCOLOR="#CCCCCC"><B>Points<BR/>&#160;</B></TD>
@@ -126,26 +126,26 @@ graph, and hence the picture is not valid.</P>
 	<TD CLASS="bodyText" ALIGN="right">250</TD>
 	<TD CLASS="bodyText" ALIGN="right">58.44%</TD>
 	<TD CLASS="bodyText" ALIGN="right">96.28%</TD>
-	<TD CLASS="bodyText" ALIGN="right">221</TD>
-	<TD CLASS="bodyText" ALIGN="center"><A HREF="/stat?c=last_match" CLASS="bodyGeneric">NDBronson<BR/>244.20</A></TD>
+	<TD CLASS="bodyText" ALIGN="right">212.39</TD>
+	<TD CLASS="bodyText" ALIGN="center">SnapDragon<BR/>243.74</TD>
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 <TR>
-	<TD CLASS="bodyText" ALIGN="left">Level 2<BR/>Pinball</TD>
-	<TD CLASS="bodyText" ALIGN="right">450</TD>
-	<TD CLASS="bodyText" ALIGN="right">95.81%</TD>
-	<TD CLASS="bodyText" ALIGN="right">51.63%</TD>
-	<TD CLASS="bodyText" ALIGN="right">326</TD>
-	<TD CLASS="bodyText" ALIGN="center"><A HREF="/stat?c=last_match" CLASS="bodyGeneric">Logan<BR/>412.42</A></TD>
+	<TD CLASS="bodyText" ALIGN="left">Level 2<BR/>Virtual Machine</TD>
+	<TD CLASS="bodyText" ALIGN="right">600</TD>
+	<TD CLASS="bodyText" ALIGN="right">52.67%</TD>
+	<TD CLASS="bodyText" ALIGN="right">21.81%</TD>
+	<TD CLASS="bodyText" ALIGN="right">270.34</TD>
+	<TD CLASS="bodyText" ALIGN="center">NDBronson<BR/>372.67</TD>
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 <TR>
-	<TD CLASS="bodyText" ALIGN="left">Level 3<BR/>CleaupCrew</TD>
-	<TD CLASS="bodyText" ALIGN="right">1050</TD>
-	<TD CLASS="bodyText" ALIGN="right">30.23%</TD>
-	<TD CLASS="bodyText" ALIGN="right">11.16%</TD>
-	<TD CLASS="bodyText" ALIGN="right">631</TD>
-	<TD CLASS="bodyText" ALIGN="center"><A HREF="/stat?c=last_match" CLASS="bodyGeneric">thekcc<BR/>981.45</A></TD>
+	<TD CLASS="bodyText" ALIGN="left">Level 3<BR/>FillRate</TD>
+	<TD CLASS="bodyText" ALIGN="right">900</TD>
+	<TD CLASS="bodyText" ALIGN="right">36.21%</TD>
+	<TD CLASS="bodyText" ALIGN="right">25.93%</TD>
+	<TD CLASS="bodyText" ALIGN="right">541.14</TD>
+	<TD CLASS="bodyText" ALIGN="center">John Dethridge<BR/>769.06</TD>
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 
@@ -153,33 +153,33 @@ graph, and hence the picture is not valid.</P>
 <TR><TD COLSPAN="6" CLASS="bodyText" ALIGN="left">Division II</TD></TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 <TR>
-	<TD CLASS="bodyText" ALIGN="left">Level 1<BR/>Scoreboard</TD>
+	<TD CLASS="bodyText" ALIGN="left">Level 1<BR/>LitLCD</TD>
 	<TD CLASS="bodyText" ALIGN="right">250</TD>
-	<TD CLASS="bodyText" ALIGN="right">97.65%</TD>
-	<TD CLASS="bodyText" ALIGN="right">97.07%</TD>
-	<TD CLASS="bodyText" ALIGN="right">240</TD>
-	<TD CLASS="bodyText" ALIGN="center"><A HREF="/stat?c=last_match" CLASS="bodyGeneric">kokon<BR/>249.16</A></TD>
+	<TD CLASS="bodyText" ALIGN="right">92.56%</TD>
+	<TD CLASS="bodyText" ALIGN="right">72.33%</TD>
+	<TD CLASS="bodyText" ALIGN="right">207.37</TD>
+	<TD CLASS="bodyText" ALIGN="center">androm<BR/>247.02</TD>
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 <TR>
-	<TD CLASS="bodyText" ALIGN="left">Level 2<BR/>PoemCode</TD>
-	<TD CLASS="bodyText" ALIGN="right">500</TD>
-	<TD CLASS="bodyText" ALIGN="right">91.79%</TD>
-	<TD CLASS="bodyText" ALIGN="right">79.47%</TD>
-	<TD CLASS="bodyText" ALIGN="right">372</TD>
-	<TD CLASS="bodyText" ALIGN="center"><A HREF="/stat?c=last_match" CLASS="bodyGeneric">WhiteShadow<BR/>478.40</A></TD>
+	<TD CLASS="bodyText" ALIGN="left">Level 2<BR/>ColorMatch</TD>
+	<TD CLASS="bodyText" ALIGN="right">600</TD>
+	<TD CLASS="bodyText" ALIGN="right">76.51%</TD>
+	<TD CLASS="bodyText" ALIGN="right">54.41%</TD>
+	<TD CLASS="bodyText" ALIGN="right">379.10</TD>
+	<TD CLASS="bodyText" ALIGN="center">GroZZler<BR/>556.91</TD>
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 <TR>
-	<TD CLASS="bodyText" ALIGN="left">Level 3<BR/>ToyPatrol</TD>
-	<TD CLASS="bodyText" ALIGN="right">1200</TD>
-	<TD CLASS="bodyText" ALIGN="right">47.80%</TD>
-	<TD CLASS="bodyText" ALIGN="right">3.23%</TD>
-	<TD CLASS="bodyText" ALIGN="right">601</TD>
-	<TD CLASS="bodyText" ALIGN="center"><A HREF="/stat?c=last_match" CLASS="bodyGeneric">antimatter<BR/>742.48</A></TD>
+	<TD CLASS="bodyText" ALIGN="left">Level 3<BR/>ChatParser</TD>
+	<TD CLASS="bodyText" ALIGN="right">900</TD>
+	<TD CLASS="bodyText" ALIGN="right">65.58%</TD>
+	<TD CLASS="bodyText" ALIGN="right">26.05%</TD>
+	<TD CLASS="bodyText" ALIGN="right">619.11</TD>
+	<TD CLASS="bodyText" ALIGN="center">LehooZeher<BR/>851.45</TD>
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
-</TABLE></DIV></P>-->
+</TABLE></DIV></P>
     <IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
 By&#160;lbackstrom<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=159052" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>   
           <P><BR/></P>					</TD>
