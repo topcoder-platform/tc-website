@@ -109,7 +109,7 @@ The Problems
 <font size="+2"> 
 <b>EyeDrops</b> 
 </font> 
-<A href="_Javascript:openProblemRating(1750)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/> 
+<A href="Javascript:openProblemRating(1750)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/> 
 
 Used as: Division Two - Level One: <blockquote><table cellspacing="2"> 
   <tr> 
@@ -175,7 +175,7 @@ doubles before doing the division.
 <font size="+2"> 
 <b>Animation</b> 
 </font> 
-<A href="_Javascript:openProblemRating(1914)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/> 
+<A href="Javascript:openProblemRating(1914)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/> 
 
 Used as: Division Two - Level Two: <blockquote><table cellspacing="2"> 
   <tr> 
@@ -279,7 +279,7 @@ over when all the particles leave the string.
 <font size="+2"> 
 <b>Orchard</b> 
 </font> 
-<A href="_Javascript:openProblemRating(1859)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/> 
+<A href="Javascript:openProblemRating(1859)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/> 
 
 Used as: Division Two - Level Three: <blockquote><table cellspacing="2"> 
   <tr> 
@@ -335,7 +335,7 @@ ties.  Simply return the coordinates of the best bfs starting location.
 <font size="+2"> 
 <b>TeamPhoto</b> 
 </font> 
-<A href="_Javascript:openProblemRating(1614)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/> 
+<A href="Javascript:openProblemRating(1614)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/> 
 
 Used as: Division One - Level Two: <blockquote><table cellspacing="2"> 
   <tr> 
@@ -416,7 +416,7 @@ values, which gives you 16 tests to do.  The variables are:
 <font size="+2"> 
 <b>AlphaDice</b> 
 </font> 
-<A href="_Javascript:openProblemRating(1761)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/> 
+<A href="Javascript:openProblemRating(1761)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/> 
 
 Used as: Division One - Level Three: <blockquote><table cellspacing="2"> 
   <tr> 
