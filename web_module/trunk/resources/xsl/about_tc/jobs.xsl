@@ -60,34 +60,32 @@
                         
                         <hr width="100%" noshade="noshade" />
                         
-                        <h3>Web Design Production</h3>
+                        <h3>Graphic Designer</h3>
                         
-                        <p>We are currently looking for an entry-level web production artist in our Marketing Department. The ideal candidate is 
+                        <p>We are currently looking for an entry-level Graphic Designer in our Marketing Department. The ideal candidate is 
                         a self-starter who seeks out opportunities to learn new technologies and skills. Recent college grads are encouraged to apply.</p>
 
                         Responsibilities: 
                         <ul>
-                            <li>Edit and create HTML/JSP templates for our web sites.</li>
+                            <li>Design and produce printed sales / promotional materials.</li>
                             <li>Design and produce promotions for our web sites.</li>
-                            <li>Design and produce marketing / sales collateral materials.</li>
                         </ul>
                         
                         Qualifications: 
                         <ul>
-                            <li>Eagerness to give 110% to a startup for delayed gratification.</li>
-                            <li>Ability to meet aggressive deadlines and juggle multiple priorities.</li>
-                            <li>Expects to be challenged by setbacks, obstacles and shifting priorities.</li>
-                            <li>Strong understanding of the strengths and limitations of web-based design.</li>
+                            <li>Advanced understanding of Photoshop and Illustrator.</li>
+                            <li>Advanced knowledge of desktop publishing tools (InDesign, Acrobat, etc.).</li>
                             <li>Meticulous attention to detail.</li>
                             <li>Excellent written and verbal communication skills.</li>
                             <li>Demonstrated ability to translate the written word into compelling imagery.</li>
-                            <li>Advanced understanding of Photoshop, ImageReady and Illustrator. </li>
-                            <li>Advanced understanding of HTML and CSS layouts.</li>
-                            <li>Basic knowledge of desktop publishing tools (QuarkXPress, Acrobat, etc.).</li>
-                            <li>Basic knowledge of JavaScript, JSP and XSL.</li>
                             <li>Experience on the Mac platform.</li>
                             <li>Proficiency at digital photography, image manipulation and retouching.</li>
-                            <li>Degree in Graphic Design or equivalent.</li>
+                            <li>Basic understanding of HTML and CSS.</li>
+                            <li>Basic understanding of the strengths and limitations of web-based design.</li>
+                            <li>Eagerness to give 110% to a startup for delayed gratification.</li>
+                            <li>Ability to meet aggressive deadlines and juggle multiple priorities.</li>
+                            <li>Expects to be challenged by setbacks, obstacles and shifting priorities.</li>
+                            <li><strong>MUST POSSESS A DEGREE IN GRAPHIC DESIGN OR EQUIVALENT.</strong></li>
                         </ul>
                         
                         This position is at our Glastonbury, CT offices. No telecommuting options are available. 
@@ -125,7 +123,7 @@
                             <li>Experience writing for the Internet or a daily newspaper.</li>
                             <li>Meticulous attention to detail.</li>
                             <li>Basic knowledge of HTML.</li>
-                            <li>Basic knowledge of desktop publishing tools (QuarkXPress, Acrobat, etc.).</li>
+                            <li>Basic knowledge of desktop publishing tools (InDesign, Acrobat, etc.).</li>
                             <li>Demonstrates an interest in technology, especially in computer software.</li>
                             <li>Degree in English, Journalism or equivalent.</li>
                         </ul>
@@ -139,7 +137,7 @@
                         
                         <p>We are currently looking for a salesperson to join TopCoder Employment Services. Candidates must work well under pressure in a 
                         high-risk environment and must have excellent  communication skills. We currently offer two programs for clients&#151;the TopCoder 
-                        Recruiting Program, whereby clients post jobs on our website and are given access to detailed statistical information about interested 
+                        Recruiting Program, whereby clients post jobs on our web site and are given access to detailed statistical information about interested 
                         candidates, and the TopCoder Testing Program, whereby clients have the ability to test a developer's programming skills prior to making 
                         a hiring decision. The salesperson will be calling on qualified companies to identify and contact appropriate professionals interested in 
                         finding quality candidates through TopCoder. The salesperson will build a relationship with these professionals and set up phone calls 
