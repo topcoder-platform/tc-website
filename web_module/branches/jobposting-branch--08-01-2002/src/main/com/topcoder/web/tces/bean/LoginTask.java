@@ -46,12 +46,10 @@ public class LoginTask extends BaseTask implements Task, Serializable {
     }
 
     public void setHandleInput(String handleInput) {
-log.debug("Setting HandleInput to "+handleInput);
         this.handleInput=handleInput;
     }
 
     public String getHandleInput() {
-log.debug("getting handleinput "+handleInput);
         return handleInput;
     }
 
@@ -83,9 +81,7 @@ log.debug("getting handleinput "+handleInput);
             session.setAttribute("user_id", null);  // record the user as not being logged-in.
         }
         else {
-log.debug("user_id set to "+Integer.toString(getUserIdAuthenticated()) );
             session.setAttribute("user_id", new Integer(getUserIdAuthenticated()));
-log.debug("verify - "+((Integer)session.getAttribute("user_id")).toString() );
         }
     }
 
@@ -126,11 +122,6 @@ log.debug("verify - "+((Integer)session.getAttribute("user_id")).toString() );
         }
 
         ResultSetContainer.ResultSetRow rRow = rsc.getRow(0);
-ResultColumn[] cols = rsc.getColumns();
-for (int rci=0;rci<cols.length;rci++) {
-	log.debug("COL"+Integer.toString(rci)+" = "+cols[rci].getName());
-}
-log.debug("ROW = "+rRow.toString());
         String actualPassword = TCData.getTCString(rRow, "password");
         if (actualPassword == null) {
             throw new Exception("Unable to read user data from DB in handleLogin");
@@ -149,7 +140,6 @@ log.debug("ROW = "+rRow.toString());
         // record in this session that we have authenticated a user.
 
         setUserIdAuthenticated( (int)TCData.getTCLong(rRow,"user_id", -2, true) );
-log.debug("USER ID AUTH = "+Integer.toString(getUserIdAuthenticated()) );
         setMessage("Login OK!");
         setNextPage(TCESConstants.LOGIN_OK_PAGE );
     }
@@ -164,8 +154,6 @@ log.debug("USER ID AUTH = "+Integer.toString(getUserIdAuthenticated()) );
     public void setAttributes(String paramName, String paramValues[]) {
         String value = paramValues[0];
         value = (value == null?"":value.trim());
-
-log.debug("setting param "+paramName+" = "+value);
 
         if (paramName.equalsIgnoreCase(TCESConstants.HANDLE_PARAM))
             setHandleInput(value);

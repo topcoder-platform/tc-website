@@ -64,7 +64,7 @@
         </p>
         
         <p>
-        <a href="<%= TCESConstants.CAMPAIGN_INTEREST_PAGE %>&<% TCESConstants.CAMPAIGN_ID_PARAM %>=<jsp:getProperty name="CampaignDetailTask" property="CampaignID">" class="statText">View Hit Details</a>
+        <a href="<%=TCESConstants.CAMPAIGN_INTEREST_PAGE%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignDetailTask" property="CampaignID"/>" class="statText">View Hit Details</a>
         </p>
         
         <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"><BR>
@@ -82,7 +82,9 @@
                   <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><b>Most Recent Hit</b></TD>
                 </TR>
 
-                <tces:mapIterator id="position" mapList="<%=(List) request.getAttribute(PositionList)%>">
+                
+
+                <tces:mapIterator id="position" mapList="<%=(List)CampaignDetailTask.getPositionList()%>">
                   <TR>
                     <TD class="statText" HEIGHT="18">&#160;<A HREF="position_int.jsp" class="statText">
                         <%= (String)position.get("job_desc") %>
