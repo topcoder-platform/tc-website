@@ -252,7 +252,11 @@ public class TCES extends Task implements Serializable {
 
                                         parameterValues = (String[])htParams.get("language");
                                         if (this.isValid(parameterValues)) {
-                                            coderObject.language_id = parameterValues[0];
+                                            try {
+                                                coderObject.language_id = new Integer(parameterValues[0]);
+                                            } catch (NumberFormatException exc) {
+                                                coderObject.language_id = null;
+                                            }
                                         } else {
                                             //xxx todo - add error redirect
                                             isTaskValidated = false;
@@ -260,7 +264,11 @@ public class TCES extends Task implements Serializable {
 
                                         parameterValues = (String[])htParams.get("editor");
                                         if (this.isValid(parameterValues)) {
-                                            coderObject.editor_id = parameterValues[0];
+                                            try {
+                                                coderObject.editor_id = new Integer(parameterValues[0]);
+                                            } catch (NumberFormatException exc) {
+                                                coderObject.editor_id = null;
+                                            }
                                         } else {
                                             //xxx todo - add error redirect
                                             isTaskValidated = false;
