@@ -90,7 +90,7 @@ public class TCESServlet extends HttpServlet {
         try {
             ctx = TCContext.getInitial();
 
-            if (taskName != null && taskName.trim().length() > 0) {
+            if (taskName == null || taskName.trim().length() == 0) {
                 taskName = TCESConstants.MAIN_TASK;
             }
             String taskClassName = TCESConstants.TCES_PACKAGE + "."
