@@ -306,6 +306,8 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
                 referralMapList.add(referralItem);
             }
             demoInfoMap.put( TCESConstants.DEMOGRAPHIC_REFERRAL_KEY , referralMapList );
+/*
+   grp - 09/08/2002 - skip notify for now, it's a dead column anyway. 
 
             rsc = (getJobID()>=0) ?
                         (ResultSetContainer) resultMap.get("TCES_Position_Notify_Responses")
@@ -329,6 +331,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
                 notifyMapList.add(notifyItem);
             }
             demoInfoMap.put( TCESConstants.DEMOGRAPHIC_NOTIFY_KEY , notifyMapList );
+*/
 
             rsc = (getJobID()>=0) ?
                         (ResultSetContainer) resultMap.get("TCES_Position_Demographic_Responses")

@@ -53,6 +53,7 @@
         <FONT SIZE="5" COLOR="#FFFFFF" FACE="arial, verdana, tahoma">Member Profile: <jsp:getProperty name="CoderDemographicsTask" property="Handle"/></FONT>
         </b>
         </p>                   
+<% if (CoderDemographicTask.getIsRanked()) { %>
                   <TABLE ID="linksTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BORDER="0">
                     <TR>
                         <TD class="statText" ALIGN="center" WIDTH="33%">
@@ -71,6 +72,7 @@
                         </TD>
                     </TR>
                   </TABLE>             
+<% } %>
              
              
               <P><FONT SIZE="5" COLOR="#FFFFFF" FACE="arial, verdana, tahoma">Demographic Info</FONT></P>
