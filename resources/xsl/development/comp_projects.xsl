@@ -186,7 +186,7 @@
 
             <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
                 <tr>
-                    <td class="tco04DevHeader" colspan="9">TCO04 Component Development Projects</td>
+                    <td class="projectTitles" colspan="9">Component Development Projects</td>
                 </tr>
 
                 <tr valign="middle">
