@@ -25,6 +25,7 @@
                   <td class="searchHeaders" valign="middle" align="left" width="25%">Country</td>
                   <td class="searchHeaders" valign="middle" align="center" width="12%">Rated<br/>Events</td>
                   <td class="searchHeaders" valign="middle" align="center" width="12%">Last<br/>Event</td>
+                  <td class="searchHeaders" valign="middle" align="center" width="12%">School</td>
               </tr>
 
               <%boolean even = false;%>
@@ -38,6 +39,7 @@
                   <td class="formHandleEven" valign="middle" align="left" nowrap><rsc:item row="<%=resultRow%>" name="country_name"/></td>
                   <td class="formHandleEven" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="num_ratings"/>&#160;&#160;&#160;&#160;&#160;&#160;</td>
                   <td class="formHandleEven" valign="middle" align="center"><rsc:item row="<%=resultRow%>" name="last_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
+                  <td class="formHandleEven" valign="middle" align="center"><rsc:item row="<%=resultRow%>" name="school_name" format="MM.dd.yyyy" ifNull="N/A"/></td>
               </tr>
               <%even=!even;%>
               </rsc:iterator>
