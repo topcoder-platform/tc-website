@@ -14,11 +14,24 @@
             <session-type>Stateless</session-type>
             <transaction-type>Container</transaction-type>
         </session>
+        <session>
+            <ejb-name>RBoardUser</ejb-name>
+            <home>com.topcoder.web.ejb.rboard.RBoardUserHome</home>
+            <remote>com.topcoder.web.ejb.rboard.RBoardUser</remote>
+            <ejb-class>com.topcoder.web.ejb.rboard.RBoardUserBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Container</transaction-type>
+        </session>
     </enterprise-beans>
     <assembly-descriptor>
         <container-transaction>
             <method>
                 <ejb-name>RBoardApplication</ejb-name>
+                <method-intf>Remote</method-intf>
+                <method-name>*</method-name>
+            </method>
+            <method>
+                <ejb-name>RBoardUser</ejb-name>
                 <method-intf>Remote</method-intf>
                 <method-name>*</method-name>
             </method>
