@@ -5,7 +5,7 @@
               	<TR> 
                 	<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
                 	<TD COLSPAN="4" CLASS="bodyText" VALIGN="middle"><FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>[TC] Updates</B></FONT></TD>
-              	</TR> 
+              	</TR>              	 
               				<TR>
               				    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
                 				<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">04.19.02</TD>
@@ -31,7 +31,29 @@
               	<TR> 
                 	<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
                 	<TD COLSPAN="4" CLASS="bodyText" VALIGN="middle"><FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>Members in the News</B></FONT></TD>
-              	</TR>        		
+              	</TR> 
+              	
+              				<TR> 
+                				<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+                				<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">04.22.02</TD>
+                				<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+								<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="bottom"><A HREF="http://www.admin.mtu.edu/urel/breaking/2002/codewin.html" CLASS="bodyGeneric" TARGET="_blank">Michigan Tech Student Wins $5,000 in TopCoder Competition</A></TD>
+              				    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+              				</TR>
+              				<TR> 
+                				<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+                				<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">04.20.02</TD>
+                				<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+								<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="bottom"><A HREF="http://ADTmag.com/article.asp?id=6296" CLASS="bodyGeneric" TARGET="_blank">Student Wins $100K in Collegiate Programming Challenge</A></TD>
+              				    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+              				</TR>              				
+              				<TR> 
+                				<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+                				<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">04.20.02</TD>
+                				<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+								<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="bottom"><A HREF="http://boston.internet.com/news/article/0,,2001_1013931,00.html" CLASS="bodyGeneric" TARGET="_blank">College Code King Crowned</A></TD>
+              				    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+              				</TR>               				              	              	       		
               				<TR> 
                 				<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
                 				<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">04.12.02</TD>
@@ -64,7 +86,14 @@
               	<TR> 
                 	<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
                 	<TD COLSPAN="4" CLASS="bodyText" VALIGN="middle"><FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>Sponsor Related News</B></FONT></TD>
-              	</TR>        		
+              	</TR> 
+              				<TR>
+              				    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+                				<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">04.26.02</TD>
+                				<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+								<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="bottom"><A HREF="http://java.sun.com/features/2002/04/topcoder.html" TARGET="_blank" CLASS="bodyGeneric">Top College Developers Duke It Out With Java[tm] Technology</A></TD>
+              				    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+              				</TR>              	       		
               				<TR> 
                 				<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
                 				<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">04.10.02</TD>
@@ -95,47 +124,5 @@
               				</TR>              				              		
 							<TR><TD BGCOLOR="#FFFFFF" COLSPAN="5"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>
       		</TABLE>
-			<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
-			  <TR><TD VALIGN="top" COLSPAN="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>  
-			  <TR>
-				  <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-			  	  <TD VALIGN="middle" COLSPAN="10" ALIGN="left" CLASS="bodyText"><FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>2002 TopCoder Collegiate Challenge - Archived Links</B></FONT></TD>
-			  </TR>
-			  <TR>
-				<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>  
-				<TD VALIGN="top" WIDTH="30%" ALIGN="left" CLASS="bodyText"><B>Friday, April 19th:</B><BR/>
-			- <A HREF="/index?t=statistics&amp;c=2002tccc_semiroom1" CLASS="bodyGeneric">Semifinal Room 1</A><BR/>
-			- <A HREF="/index?t=statistics&amp;c=2002tccc_semiroom2" CLASS="bodyGeneric">Semifinal Room 2</A><BR/>
-			- <A HREF="/index?t=statistics&amp;c=2002tccc_semiroom3" CLASS="bodyGeneric">Semifinal Room 3</A><BR/>
-			- <A HREF="/index?t=statistics&amp;c=2002tccc_semiroom4" CLASS="bodyGeneric">Semifinal Room 4</A><BR/> 
-			- <A HREF="/index?t=statistics&amp;c=2002tccc_breakdown" CLASS="bodyGeneric">Bracket Update</A><BR/> 
-			<!-- - <A HREF="/index?t=statistics&amp;c=2002tccc_photos" CLASS="bodyGeneric"></A>Photos<BR/> -->
-				</TD>
-				<TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
-				<TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="1"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
-				<TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>    
-				<TD VALIGN="top" WIDTH="35%" ALIGN="left" CLASS="bodyText"><B>Saturday, April 20th:</B><BR/>
-			- <A HREF="/index?t=statistics&amp;c=2002tccc_champ" CLASS="bodyGeneric">Championship</A><BR/>
-			<!-- - <A HREF="/index?t=statistics&amp;c=2002tccc_sunnotes" CLASS="bodyGeneric"></A>Sun Presentation Notes<BR/> --> 
-			- <A HREF="/index?t=statistics&amp;c=2002tccc_breakdown" CLASS="bodyGeneric">Bracket Update</A><BR/> 
-			- <A HREF="/index?t=statistics&amp;c=2002tccc_champ#photo" CLASS="bodyGeneric">Photos</A><BR/>
-				</TD>
-				<TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
-				<TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="1"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
-				<TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>    
-				<TD VALIGN="top" WIDTH="35%" ALIGN="left" CLASS="bodyText"><B>Overall:</B><BR/>
-			- <A HREF="/index?t=statistics&amp;c=2002tccc_favs" CLASS="bodyGeneric">Favorites</A><BR/> 
-			- <A HREF="/index?t=statistics&amp;c=2002tccc_cind" CLASS="bodyGeneric">Cinderellas</A><BR/>
-			- <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon" CLASS="bodyGeneric">Keep your eye on...</A><BR/> 
-			- <A HREF="/index?t=statistics&amp;c=coderprofile_sun" CLASS="bodyGeneric">Java.Sun.Com Coder Profile</A><BR/>
-			- <A HREF="/index?t=statistics&amp;c=2002tccc_reception" CLASS="bodyGeneric">Opening Ceremonies</A><BR/>
-				</TD>
-				<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-			  </TR>
-			
-			  <TR>  
-				<TD VALIGN="top" COLSPAN="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"/></TD>   
-			  </TR>   
-			</TABLE>
   </xsl:template>
 </xsl:stylesheet>
