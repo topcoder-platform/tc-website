@@ -2,7 +2,6 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:template name="right_promo">
 
-            <A href="/?t=tournaments&amp;c=tco03_overview"><img src="/i/promos/tco03/tco_promo_right.gif" alt="TCO" border="0" width="244" height="76" /></A><br />
 
 <!--            <A href="/?t=development&amp;c=des_bonus_contest_2"><img src="/i/header_contest_leaders.gif" alt="Contest Leaders" width="244" height="20" border="0" /></A><br />
 
