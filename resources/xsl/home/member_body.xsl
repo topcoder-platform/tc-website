@@ -589,7 +589,7 @@ across the board...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl
 							
 				<TR VALIGN="top">
 					<TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-					<TD CLASS="statText"><A CLASS="coderTextRed" HREF="/stat?c=member_profile&amp;cr=158067">KurtSteinKraus</A></TD>
+					<TD CLASS="statText"><A CLASS="coderTextYellow" HREF="/stat?c=member_profile&amp;cr=150940">orb</A></TD>
 					<TD CLASS="statText" ALIGN="right">83.78</TD>
 					<TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 				</TR>             
@@ -600,7 +600,7 @@ across the board...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl
 							
 				<TR VALIGN="top">
 					<TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-					<TD CLASS="statText"><A CLASS="coderTextGray" HREF="/stat?c=member_profile&amp;cr=302729">kislookhin</A></TD>
+					<TD CLASS="statText"><A CLASS="coderTextGreen" HREF="/stat?c=member_profile&amp;cr=285960">jkang</A></TD>
 					<TD CLASS="statText" ALIGN="right">82.40</TD>
 					<TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 				</TR>             
@@ -622,7 +622,7 @@ across the board...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl
 							
 				<TR VALIGN="top">
 					<TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-					<TD CLASS="statText"><A CLASS="coderTextYellow" HREF="/stat?c=member_profile&amp;cr=150940">orb</A></TD>
+					<TD CLASS="statText"><A CLASS="coderTextGray" HREF="/stat?c=member_profile&amp;cr=302729">kislookhin</A></TD>
 					<TD CLASS="statText" ALIGN="right">81.38</TD>
 					<TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 				</TR>             

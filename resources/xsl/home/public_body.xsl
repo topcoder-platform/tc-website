@@ -93,8 +93,8 @@
 <TR> 
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" COLSPAN="3" CLASS="bodyText"><A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><B>Single Round Match 125</B></A><BR/>
-Monday, December 16, 2002<BR/><BR/>
+        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><B>Single Round Match 126</B></A><BR/>
+Monday, December 23, 2002<BR/><BR/>
 
 
     </TD>    
@@ -188,26 +188,25 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><BR/>
   </TR>  
   <TR>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
-    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> 
-    By&#160;ZorbaTHut<BR/><I>[TC]&#160;Member</I><BR/></TD>
+    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/Logan_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> 
+    By&#160;Logan<BR/><I>[TC]&#160;Member</I><BR/></TD>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText" COLSPAN="2">
-    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>SRM 125</B></FONT>
+    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>SRM 126</B></FONT>
     </TD>
   </TR>      
   <TR>
     <TD VALIGN="top" CLASS="bodyText" WIDTH="100%">
 	<A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm125_prob</xsl:attribute>
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm126_prob</xsl:attribute>
         <B>Problem Set Analysis &amp; Opinion</B>
       </A><BR/>
 <P> 
-SRM 125. Every once in a while we have a truly nasty round with a problem
-that nobody solves, but usually we get at least a dozen submissions on it.
-This would be an exception - there were only two submissions to the Div-I
-Level Three problem, and unfortunately, they were both wrong. Many of the
-other problems were similarly tough, with low success rates - and scores -
-across the board...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm125_prob</xsl:attribute>Get the analysis</A>
+This problem set had some extremely easy problems, but it also had some difficult problems 
+(relatively speaking). The Division-II Level 3 problem was moderately difficult for a Division-II 
+problem. The Division-I Level 2 problem was a bit large for a Level 2 problem; it could have easily 
+been split up into three different Level 1 problems. The Division-I Level 3 problem was also time-consuming, 
+yielding only 15 submissions, out of which only 6 were correct...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm126_prob</xsl:attribute>Get the analysis</A>
 </P>
     </TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>     
@@ -342,8 +341,8 @@ the morning and afternoon drive-time slots for the past month...<A CLASS="bodyGe
 					<IMG USEMAP="#cryptic_home" SRC="/i/es/cryptic/cryptic_home.gif" ALT="" WIDTH="244" HEIGHT="160" BORDER="0"/><BR/>
 					<MAP NAME="cryptic_home">
 						<AREA ALT="TCES" SHAPE="poly" COORDS="17,33,17,60,141,60,141,92,228,92,228,25,17,25" HREF="/?&amp;t=tces&amp;c=cryptic"/>
-						<AREA ALT="" SHAPE="poly" COORDS="229,104,120,105,105,94,11,95,10,120,36,146,229,148" HREF="/?RoundId=4420&amp;t=schedule&amp;c=srm"/>
-						<!-- <AREA ALT="" SHAPE="poly" COORDS="229,104,120,105,105,94,11,95,10,120,36,146,229,148" HREF="/stat?&amp;c=last_match"/> --> 
+						<!-- <AREA ALT="" SHAPE="poly" COORDS="229,104,120,105,105,94,11,95,10,120,36,146,229,148" HREF="/?RoundId=4420&amp;t=schedule&amp;c=srm"/> --> 
+						<AREA ALT="" SHAPE="poly" COORDS="229,104,120,105,105,94,11,95,10,120,36,146,229,148" HREF="/stat?&amp;c=last_match"/>
 					</MAP>
 <!--SRM Sponsor Ends-->
 
@@ -394,7 +393,7 @@ the morning and afternoon drive-time slots for the past month...<A CLASS="bodyGe
 							
 				<TR VALIGN="top">
 					<TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-					<TD CLASS="statText"><A CLASS="coderTextRed" HREF="/stat?c=member_profile&amp;cr=158067">KurtSteinKraus</A></TD>
+					<TD CLASS="statText"><A CLASS="coderTextYellow" HREF="/stat?c=member_profile&amp;cr=150940">orb</A></TD>
 					<TD CLASS="statText" ALIGN="right">83.78</TD>
 					<TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 				</TR>             
@@ -405,7 +404,7 @@ the morning and afternoon drive-time slots for the past month...<A CLASS="bodyGe
 							
 				<TR VALIGN="top">
 					<TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-					<TD CLASS="statText"><A CLASS="coderTextGray" HREF="/stat?c=member_profile&amp;cr=302729">kislookhin</A></TD>
+					<TD CLASS="statText"><A CLASS="coderTextGreen" HREF="/stat?c=member_profile&amp;cr=285960">jkang</A></TD>
 					<TD CLASS="statText" ALIGN="right">82.40</TD>
 					<TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 				</TR>             
@@ -427,7 +426,7 @@ the morning and afternoon drive-time slots for the past month...<A CLASS="bodyGe
 							
 				<TR VALIGN="top">
 					<TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-					<TD CLASS="statText"><A CLASS="coderTextYellow" HREF="/stat?c=member_profile&amp;cr=150940">orb</A></TD>
+					<TD CLASS="statText"><A CLASS="coderTextGray" HREF="/stat?c=member_profile&amp;cr=302729">kislookhin</A></TD>
 					<TD CLASS="statText" ALIGN="right">81.38</TD>
 					<TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 				</TR>             
