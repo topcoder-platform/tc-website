@@ -544,7 +544,7 @@ public class TransactionServlet extends HttpServlet {
         UserAddress userAddress = uaHome.create();
         AddressHome aHome = (AddressHome)
             PortableRemoteObject.narrow(
-                context.lookup("corp:"+AddressHome.class.getName()), AddressHome.class);
+                context.lookup(AddressHome.class.getName()), AddressHome.class);
         Address address = aHome.create();
         ResultSetContainer rsc = userAddress.getUserAddresses(userId);
 
