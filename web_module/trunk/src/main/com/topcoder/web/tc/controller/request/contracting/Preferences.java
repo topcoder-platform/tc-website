@@ -90,6 +90,7 @@ public class Preferences extends ContractingBase {
             CoderSessionInfo info = (CoderSessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
             boolean isRated = info.getRating()>0 || info.getDevRating()>0 || info.getDesignRating()>0;
 
+            getRequest().setAttribute("isRated", String.valueOf(isRated));
             if (!isRated) {
                 CachedDataAccess nextRoundDai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
                 nextRoundDai.setExpireTime(30*60*1000);
