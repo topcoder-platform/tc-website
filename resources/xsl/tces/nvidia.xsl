@@ -67,7 +67,7 @@
 <P>What does this commitment to being the best mean? It means that NVIDIA offers a challenging, high-energy and rewarding work experience.  We thrive on innovation, we're passionate about developing cutting edge technology, and we work alongside the most brilliant minds in the industry.  It is these factors that keep us at the top of our game, and NVIDIA at the top of the 3D world. </P>
 
 <P>If you are at the top of your game and are passionate about winning, we'd like to hear from you. Year-round internships and new college graduate positions are available.<br /><br />
-<A HREF="/?&amp;t=tces&amp;c=nvidia_openings&amp;a=secure" CLASS="bodyText">Click here</A> to see what possibilities await you at NVIDIA.</P>
+NVIDIA is a <A HREF="/?t=tournaments&amp;c=tco03_nvidia" CLASS="bodyText">Premeir Sponsor</A> of the 2003 TopCoder Open, sponsored by Intel&#174;</P>
 
 
 
