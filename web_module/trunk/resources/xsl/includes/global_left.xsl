@@ -178,8 +178,8 @@
 <!-- Last Match Results -->
 
         <xsl:choose>
-            <xsl:when test="number(/TC/Rating)>0 and/TC/LoggedIn='true'">
-                <tr><td id="leftSubnav"><a class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?c=round_stats">Last Match Results</a></td></tr>
+            <xsl:when test="number(/TC/Rating)>0and/TC/LoggedIn='true'">
+                 <tr><td id="leftSubnav"><a class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?c=round_stats">Last Match Results</xsl:attribute></a></td></tr>
                  <tr><td id="leftSubnav"><a class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?c=coder_room_stats&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>My Last Match</a></td></tr>
                  <tr><td id="leftSubnav"><a class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?c=member_profile&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>Member Profile</a></td></tr>
                  <tr><td id="leftSubnav"><a class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?c=ratings_history&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>Ratings History</a></td></tr>
