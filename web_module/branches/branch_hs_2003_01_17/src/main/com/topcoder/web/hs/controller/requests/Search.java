@@ -23,6 +23,8 @@ public class Search extends Base {
     log.info("Search: cmd="+cmd);
 
     if (cmd==null||cmd.equals("")) {
+      log.debug("Search processing 'adv' command.");
+
       setNextPage(SEARCH_BASE+ADVANCED_SEARCH_PAGE);
       setIsNextPageInContext(true);
     }
