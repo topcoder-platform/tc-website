@@ -107,7 +107,7 @@
                 
                 <tr>
                     <td class="bodyText">5:45pm - 6:45pm</td>
-                    <td class="bodyText">TopCoder Member Technical Presentation<br/>(tentative)</td>
+                    <td class="bodyText">TopCoder Software Presentation</td>
                 </tr>
                 
                 <tr>
