@@ -42,7 +42,7 @@
               <xsl:attribute name="SRC">/i/menu_tces_<xsl:choose><xsl:when test="/TC/Task='tces'">on</xsl:when><xsl:otherwise>off</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
             </IMG>
           </A>
-          <A HREF="http://www.topcodersoftware.com" onMouseOver="changeImages('image3', 'image3on')" onMouseOut="changeImages('image3', 'image3off')" TARGET="_parent"><IMG NAME="image3" SRC="/i/menu_tcs_off.gif" ALT="TCS" WIDTH="128" HEIGHT="21" BORDER="0"/></A> 
+          <A HREF="http://www.topcodersoftware.com" onMouseOver="changeImages('image4', 'image4on')" onMouseOut="changeImages('image4', 'image4off')" TARGET="_parent"><IMG NAME="image4" SRC="/i/menu_tcs_off.gif" ALT="TCS" WIDTH="128" HEIGHT="21" BORDER="0"/></A> 
           <!-- <IMG SRC="/i/divider.gif" ALT="" WIDTH="1" HEIGHT="21" BORDER="0"/> -->
           <!-- <A onMouseOver="changeImages('image5', 'image5on')" onMouseOut="changeImages('image5', 'image5off')" TARGET="_parent">
             <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/rtables/index.jsp</xsl:attribute>

@@ -55,7 +55,7 @@ if (document.images) {
   image2on = new Image();
   image2on.src = "/i/nav_news_on.gif";
   image3on = new Image();
-  image3on.src = "/i/nav_roundtables_on.gif";
+  image3on.src = "/i/menu_tcs_on.gif";
   image4on = new Image();
   image4on.src = "/i/nav_stats_on.gif";
   image5on = new Image();
@@ -67,7 +67,7 @@ if (document.images) {
   image2off = new Image();
   image2off.src = "/i/nav_news_off.gif";
   image3off = new Image();
-  image3off.src = "/i/nav_roundtables_off.gif";
+  image3off.src = "/i/menu_tcs_off.gif";
   image4off = new Image();
   image4off.src = "/i/nav_stats_off.gif";
   image5off = new Image();
