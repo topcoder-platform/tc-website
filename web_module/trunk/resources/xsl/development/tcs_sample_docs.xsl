@@ -199,7 +199,7 @@
                                 
                                 <tr valign="middle">
                                     <td class="statText" height="15" valign="top"><strong>Development Deliverables</strong><br />
-				    This document proivdes an overview of the development process including the deliverables required for
+				    This document provides an overview of the development process including the deliverables required for
 				    submission. Submissions which do not meet the screening requirements will not be reviewed by the
 				    Development Review Board.
                                     </td>
