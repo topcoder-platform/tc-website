@@ -22,7 +22,7 @@ import java.util.*;
  * Date: Mar 24, 2004
  */
 public class ProjectReviewTermsAgree extends ProjectReviewApply {
-    
+
     private static Logger log = Logger.getLogger(ProjectReviewTermsAgree.class);
 
     protected void applicationProcessing() throws TCWebException {
@@ -67,12 +67,14 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
             int reviewTypeId = Integer.parseInt(getRequest().getParameter(Constants.REVIEWER_TYPE_ID));
             rba.setReviewRespId(DBMS.TCS_OLTP_DATASOURCE_NAME, userId, projectId, phaseId, reviewTypeId);
         }
-        
+
         //send email
         Request r = new Request();
         r.setContentHandle("review_project_detail");
-        r.setProperty(Constants.PROJECT_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID)));
-        r.setProperty(Constants.PHASE_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PHASE_ID)));
+        String projectId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID));
+        String phaseId = StringUtils.checkNull(getRequest().getParameter(Constants.PHASE_ID));
+        r.setProperty(Constants.PROJECT_ID, projectId);
+        r.setProperty(Constants.PHASE_ID, phaseId);
         Map results = getDataAccess().getData(r);
         ResultSetContainer detail = (ResultSetContainer) results.get("review_project_detail");
 
@@ -80,19 +82,19 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
         String phase = detail.getStringItem(0, "phase_desc");
         String version = detail.getStringItem(0, "version_text");
         String lang = detail.getStringItem(0, "catalog");
-        
+
         String handle = getUser().getUserName();
-        
+
         //lookup pm email
         r = new Request();
         r.setContentHandle("pm_details");
         r.setProperty(Constants.PROJECT_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID)));
         results = getDataAccess().getData(r);
         detail = (ResultSetContainer) results.get("pm_details");
-        
+
         String address = detail.getStringItem(0,"address");
         log.info("ORIGINAL ADDRESS IS: " + address);
-        
+
         TCSEmailMessage mail = new TCSEmailMessage();
         mail.setSubject("New Review Application");
         StringBuffer sb = new StringBuffer();
@@ -101,12 +103,23 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
         sb.append("Version: " + version + "\n");
         sb.append("Language: " + lang + "\n");
         sb.append("Phase: " + phase + "\n");
-        
+        sb.append("http://");
+        sb.append(ApplicationServer.SERVER_NAME);
+        sb.append("/tc?module=ReviewProjectDetail&");
+        sb.append(Constants.PROJECT_ID);
+        sb.append("=");
+        sb.append(projectId);
+        sb.append("&");
+        sb.append(Constants.PHASE_ID);
+        sb.append("=");
+        sb.append(phaseId);
+        sb.append("\n");
+
         mail.setBody(sb.toString());
         mail.setFromAddress("review@topcoder.com");
         //mail.setToAddress("rfairfax@topcoder.com", TCSEmailMessage.TO);
         mail.setToAddress(address, TCSEmailMessage.TO);
-        
+
         EmailEngine.send(mail);
     }
 }
