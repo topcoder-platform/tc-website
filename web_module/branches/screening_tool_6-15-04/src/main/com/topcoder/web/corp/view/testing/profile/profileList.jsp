@@ -44,33 +44,30 @@ function getProblemDetail(id) {
 
 <!-- Middle column begins -->
         <td width="100%" align="center"><img src="/i/corp/clear.gif" width="400" height="11" alt="" border="0"><br>
-            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrameNB">
                 <tr valign="top">
                     <td class="bodyText">
-                        <h1 class="testHead">Test Profile List</h1>
+                        <p class="testHead">Test Profile List</p>
                     </td>
                 </tr>
             </table>
 
             <jsp:useBean id="profileList" type="java.util.List" scope="request" />
 
-            <table cellspacing="1" cellpadding="3" width="70%" class="testFrame">
+            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
                 <tr>
-                    <td class="testTableTitleSmall">&#160;</td>
-                    <td colspan="2" align="center" class="testTableTitleSmall">Candidates</td>
-                    <td class="testTableTitleSmall">&#160;</td>
-
+                    <td colspan="4" align="left" class="screeningTitle">Candidates</td>
                 </tr>
 
                 <tr>
-                   <td align="center" class="testFormHeader">Test Profile</td>
-                   <td align="center" class="testFormHeader">Total</td>
-                   <td align="center" class="testFormHeader">Complete</td>
-                   <td align="center" class="testFormHeader">Create Date</td>
+                   <td align="center" class="screeningHeader">Test Profile</td>
+                   <td align="center" class="screeningHeader">Total</td>
+                   <td align="center" class="screeningHeader">Complete</td>
+                   <td align="center" class="screeningHeader">Create Date</td>
                 </tr>
                 <% if(profileList.isEmpty()){ %>
                     <tr>
-                       <td colspan="4" align="center" class="testTableOdd">No test profiles have been created.</td>
+                       <td colspan="4" align="center" class="screeningCellOdd">No test profiles have been created.</td>
                     </tr>
                 <% } else { %>
                     <% int i = 0;
@@ -82,10 +79,10 @@ function getProblemDetail(id) {
                        cparam = Constants.PROFILE_ID + '=' + row.getItem("session_profile_id");
                     %>
                     <tr>
-                        <td width="20%" class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><screen:servletLink processor="ProfileDetail" param="<%=cparam%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="session_profile_desc" /></screen:servletLink></td>
-                        <td align="center" class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><screen:resultSetItem row="<%=row%>" name="num_sessions" /></td>
-                        <td align="center" class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><screen:resultSetItem row="<%=row%>" name="num_complete" /></td>
-                        <td align="center" class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><screen:resultSetItem row="<%=row%>" name="create_date" format='MM/dd/yyyy hh:mm a'/></td>
+                        <td width="20%" class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><screen:servletLink processor="ProfileDetail" param="<%=cparam%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="session_profile_desc" /></screen:servletLink></td>
+                        <td align="center" class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><screen:resultSetItem row="<%=row%>" name="num_sessions" /></td>
+                        <td align="center" class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><screen:resultSetItem row="<%=row%>" name="num_complete" /></td>
+                        <td align="center" class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><screen:resultSetItem row="<%=row%>" name="create_date" format='MM/dd/yyyy hh:mm a'/></td>
                     </tr>
                     </screen:resultSetRowIterator>
                 <% } %>
