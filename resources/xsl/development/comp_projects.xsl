@@ -79,7 +79,7 @@
 
                 <tr>
                     <xsl:variable name="priceFormat" select="'$###,###.00'" />
-                    <td class="bodyText" colspan="5">
+                    <td class="bodyText" colspan="6">
                         <p><strong>Only the projects below designated as TCO Component Projects qualify for the 2003 TCO Component Competition.</strong> 
                         You must submit at least two projects, with at least one being a Level 2 project, to qualify. <A href="/index?t=tournaments&amp;c=tco03_comp_overview">Click here</A> 
                         for more information about the 2003 TCO Component Competition. At the <A href="#comp_des">bottom</A> of this page are regular component projects that do not qualify for the TCO.</p>
@@ -148,9 +148,7 @@
                                                     and status_id=303]"/>
                 <xsl:if test="not($designtco)">
                         <tr valign="top">
-                            <td class="formTextOdd">
-                              The Design TCO begins on 9/4/2003
-                            </td>
+                            <td class="formTextOdd" colspan="6"><strong>The 2003 TCO Component Design Competition begins on 9/4/2003</strong></td>
                             <td class="formTextOdd" align="center"></td>
                             <td class="formTextOdd" align="center"></td>
                             <td class="formTextOdd" align="center"></td>
@@ -160,10 +158,10 @@
                 </xsl:if>
 
                 <tr>
-                    <td class="bodyText" colspan="5">*Total Payment (before royalties) </td>
+                    <td class="bodyText" colspan="6">*Total Payment (before royalties) </td>
                 </tr>
 
-                <tr><td colspan="5"><A name="tco_dev"><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></A></td></tr>
+                <tr><td colspan="6"><A name="tco_dev"><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></A></td></tr>
 <!-- TCO Design Ends -->
 
 <!-- TCO Development Begins -->
@@ -219,9 +217,7 @@
                                                     and status_id=303]"/>
                 <xsl:if test="not($devtco)">
                         <tr valign="top">
-                            <td class="formTextOdd">
-                              The Development TCO begins on 9/2/2003
-                            </td>
+                            <td class="formTextOdd" colspan="6"><strong>The 2003 TCO Component Development Competition begins on 9/2/2003</strong></td>
                             <td class="formTextOdd" align="center"></td>
                             <td class="formTextOdd" align="center"></td>
                             <td class="formTextOdd" align="center"></td>
@@ -230,16 +226,16 @@
                         </tr>
                 </xsl:if> 
                 <tr>
-                    <td class="bodyText" colspan="5">*Total Payment (before royalties) </td>
+                    <td class="bodyText" colspan="6">*Total Payment (before royalties) </td>
                 </tr>
 
-                <tr><td colspan="5"><A name="comp_des"><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></A></td></tr>
+                <tr><td colspan="6"><A name="comp_des"><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></A></td></tr>
 <!-- TCO Development Ends -->
 
 <!-- Open Component Design Projects begins -->
                 <tr>
                     <xsl:variable name="priceFormat" select="'$###,###.00'" />
-                    <td class="bodyText" colspan="5">
+                    <td class="bodyText" colspan="6">
                         <p>Currently open projects total <span id="totalMoney"><xsl:value-of select="format-number(sum(/TC/DEVELOPMENT/projects/project/price) * 1.75, $priceFormat)"/></span> 
                         in payments to the winning designers and developers. Send us your solutions today so you can start collecting your share.</p>
                     </td>
@@ -308,10 +304,10 @@
                 </xsl:for-each>
 
                 <tr>
-                    <td class="bodyText" colspan="5">*Total Payment (before royalties) </td>
+                    <td class="bodyText" colspan="6">*Total Payment (before royalties) </td>
                 </tr>
 
-                <tr><td colspan="5"><A name="comp_dev"><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></A></td></tr>
+                <tr><td colspan="6"><A name="comp_dev"><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></A></td></tr>
 <!-- Open Component Design Projects ends -->
 
 <!-- Open Component Development Projects begins -->
@@ -370,7 +366,7 @@
                 </xsl:for-each>
 
                 <tr>
-                    <td class="bodyText" colspan="5">*Total Payment (before royalties)</td>
+                    <td class="bodyText" colspan="6">*Total Payment (before royalties)</td>
                 </tr>
             </table>
             
