@@ -26,12 +26,11 @@
 		<TD CLASS="bodyText" VALIGN="top">
 		
 <P>
-<SPAN CLASS="bodyTextBold">Single Round Match 84</SPAN><BR/>
-Tuesday, April 30, 2002<BR/>
+<SPAN CLASS="bodyTextBold">Single Round Match 85</SPAN><BR/>
+Wednesday May1, 2002<BR/>
 By Adam Loss, <I>TopCoder Staff Writer</I><BR/>
-It was a night of very close battles in the top-three Division-I rooms.<BR/> Starting right off in Room 1, where the top-rated coders battle each other every match, 
-<A HREF="/index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">reid</A> was the winner with 1274.00 final points.<BR/><BR/>
-<A HREF="/index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">Get the summary</A> or <A HREF="/stat?c=last_match" CLASS="bodyGeneric">View Match Results</A>
+Four huge upsets took place in Division-I as four 10 seeds won their rooms.<BR/>
+In Room 4, <A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">tck</A> was the winner with 1296.97 final points. That was 26.44 points more than <A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">DjinnKahn</A>, who finished with 1270.53
 <BR CLEAR="all"/>
 </P>
 					
