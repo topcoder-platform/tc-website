@@ -74,6 +74,7 @@
                <tr><td><jsp:include page="top_countries.jsp" /></td></tr>
                <tr><td><img src="/i/clear.gif" width="1" height="1" border="0" /></td></tr>
                <tr><td><img src="/i/home_right_bottom.gif" width="180" height="20" border="0" /></td></tr>
+           </table>
 
             <p><br/></p>
          </td>
