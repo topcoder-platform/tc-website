@@ -343,7 +343,7 @@ public class PLLoadCoders extends TCLoad {
             query.append("       ,last_login ");                // 21
             query.append("       ,coder_region_code ");         // 22
             query.append("       ,password ");                  // 23
-            query.append("       ,terms ");                     //24
+            query.append("       ,terms) ");                     //24
             query.append(" VALUES (");
             query.append("?,?,?,?,?,?,?,?,?,?,");  // 10
             query.append("?,?,?,?,?,?,?,?,?,?,");  // 20
