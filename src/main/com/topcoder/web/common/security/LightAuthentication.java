@@ -38,10 +38,10 @@ public class LightAuthentication extends BasicAuthentication {
 
 
     /**
-     * Use the security component to log the supplied user in.
-     * If login succeeds, set a cookie if rememberUser is true, and record status in the persistor.
-     * If login fails, throw a LoginException.
+     * Just set their cookie and whatnot to indicate they're logged in.
+     * The server takes care of the actual login, we're just setting the cookie here
      * @param u
+     * @param rememberUser
      * @throws LoginException
      */
     public void login(User u, boolean rememberUser) throws LoginException {
