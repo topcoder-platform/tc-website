@@ -13,7 +13,7 @@
 <%
     System.out.println("sets; " + request.getAttribute(Constants.PROBLEM_SETS));
     System.out.println("sets; " + session.getAttribute(Constants.PROBLEM_SETS));
-    System.out.println("sets; " + session.getAttribute(BaseProcessor.DEFAULTS_KEY));
+    System.out.println("sets; " + request.getAttribute(BaseProcessor.DEFAULTS_KEY));
 %>
 
 <table class=bodyCenter cellspacing=0 cellpadding=0>

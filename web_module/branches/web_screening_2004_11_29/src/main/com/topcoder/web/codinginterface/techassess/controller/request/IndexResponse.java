@@ -23,8 +23,10 @@ public class IndexResponse extends Base {
 
         if (hasParameter(Constants.MESSAGE_ID)) {
             String messageId = getRequest().getParameter(Constants.MESSAGE_ID);
+            log.debug("before defaults: " + defaults);
             loadSessionErrorsIntoRequest(messageId);
             loadSessionDefaultsIntoRequest(messageId);
+            log.debug("after defaults: " + defaults);
             if (hasDefault(Constants.PROBLEM_SETS)&&hasDefault(Constants.LANGUAGES)) {
                 getRequest().setAttribute(Constants.PROBLEM_SETS, getDefault(Constants.PROBLEM_SETS));
                 getRequest().setAttribute(Constants.LANGUAGES, getDefault(Constants.LANGUAGES));
