@@ -86,6 +86,8 @@ function openWnd(pageUrl) {
               <br>
               <B>Problem Level:</B> <%= ProblemStatisticsTask.getStatistic("level_desc") %>
               <br>
+              <B>Event Name:</B> <%= ProblemStatisticsTask.getStatistic("contest_name") %>
+              <br>
               <B># of Competitors:</B> <%= ProblemStatisticsTask.getStatistic("problems_presented") %>
               </p>
       
