@@ -23,8 +23,9 @@ public class TCO05LogoSubmit extends Base {
         } else {
             MultipartRequest request = (MultipartRequest)getRequest();
             UploadedFile[] files = request.getAllUploadedFiles();
+            log.debug("got " + files.length + " files");
             for (int i=0; i<files.length; i++) {
-                log.debug("got file " + files[i].getFile().toString());
+                log.debug("got file " + files[i].getFile());
                 FileOutputStream fos = new FileOutputStream(IMAGE_PATH + files[i].getFile().getName());
                 log.debug("write that file to " + IMAGE_PATH + files[i].getFile().getName());
                 byte[] bytes = new byte[(int)files[i].getSize()];
