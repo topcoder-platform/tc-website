@@ -77,7 +77,7 @@
                     <td class="bodyText">
                         <p align="left"><font size="3"><strong>Software Components</strong></font><br/>
                         <A href="/?t=development&amp;c=components"><img src="/i/development/graphic_components.gif" alt="" width="165" height="95" border="0"  align="right" /></A>
-                        If you're a rated TopCoder member, you can submit design and development <A href="/?t=development&amp;c=components">solutions</A> for these projects. You will be 
+                        If you're a TopCoder member, you can submit design and development <A href="/?t=development&amp;c=components">solutions</A> for these projects. You will be 
                         paid cash for each winning solution you submit.  Every solution becomes part of a TopCoder Software <A href="http://software.topcoder.com/catalog/c_showroom.jsp">Catalog,</A> now 
                         available for sale online. For every commercial sale of a catalog, TopCoder will pay the members who designed and 
                         developed the components in that catalog a percentage of the sale. </p>
