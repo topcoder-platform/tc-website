@@ -154,9 +154,10 @@ String endYear = "";
 <tr>
 <td colspan="5"><table width="100%" cellpadding="1" cellspacing="0" border="0">
 <tr>
-<td width="150" class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif"><b>Step 1: Enter Company Name and Information</b></td>
+<td width="150" class="statTextBig" align="left" valign="middle" background="/i/steel_gray_bg.gif"><b>Step 1: Enter Company Name and Information</b></td>
 <td colspan="2"><img src="/i/clear.gif" height="1" width="1" border="0"></td>
 </tr>
+<tr><td colspan="3"><img src="/i/clear.gif" height="1" width="1" border="0"></td></tr>
 <tr>
 <td width="150" class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Company&nbsp;</td>
 <td width="1"><img src="/i/clear.gif" height="1" width="1" border="0"></td>
@@ -287,9 +288,10 @@ String endYear = "";
 <tr>
 <td colspan="5"><table width="100%" cellpadding="1" cellspacing="0" border="0">
 <tr>
-<td width="150" class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif"><b>Step 2: Your Position</b></td>
+<td width="150" class="statTextBig" align="left" valign="middle" background="/i/steel_gray_bg.gif"><b>Step 2: Your Position</b></td>
 <td colspan="2"><img src="/i/clear.gif" height="1" width="1" border="0"></td>
 </tr>
+<tr><td colspan="3"><img src="/i/clear.gif" height="1" width="1" border="0"></td></tr>
 <tr>
 <td width="150" class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Title&nbsp;</td>
 <td width="1"><img src="/i/clear.gif" height="1" width="1" border="0"></td>
