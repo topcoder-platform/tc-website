@@ -81,7 +81,7 @@
             account.  You will be required, however, to provide a credit card upon check-in for any incidentals.
             <BR/><BR/>
             At the TCCC04, you will be sharing a hotel room with another competitor.  Once the finalists have
-            been announced, you can email me bhealy@topcoder.com with any preference you may have for a
+            been announced, you can email <a href="mailto:bhealy@topcoder.com">Barbara Healy</a> with any preference you may have for a
             roommate.  We will do everything possible to accommodate your request. <BR/>
         <BR/>
         <B><U>AIRLINE INFORMATION:</U></B><BR/>
@@ -228,7 +228,7 @@
 
             <TR>
               <TD align="right"><INPUT TYPE="hidden" NAME="q29" VALUE="April 17, 2004 - preferred departure time:"/>April 17, 2004 - preferred departure time:</TD>
-              <TD align="left"><SELECT name="a29"><OPTION value="AM">AM</OPTION><OPTION value="PM">PM</OPTION></SELECT> Please note: You <u>must</u> depart on Saturday April 17, 2004.</TD>
+              <TD align="left"><SELECT name="a29"><OPTION value="AM">AM</OPTION><OPTION value="PM">PM</OPTION></SELECT></TD>
             </TR>
 
             <BR/>
