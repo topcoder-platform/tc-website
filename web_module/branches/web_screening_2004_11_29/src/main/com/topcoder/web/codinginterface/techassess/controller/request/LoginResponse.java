@@ -17,6 +17,9 @@ public class LoginResponse extends Base {
             String messageId = getRequest().getParameter(Constants.MESSAGE_ID);
             loadSessionErrorsIntoRequest(messageId);
             loadSessionDefaultsIntoRequest(messageId);
+            setDefault(Constants.COMPANY_ID,
+                    getRequest().getSession().getAttribute(Constants.COMPANY_ID));
+            getRequest().getSession().removeAttribute(Constants.COMPANY_ID);
             setNextPage(Constants.PAGE_LOGIN);
             setIsNextPageInContext(true);
         } else {

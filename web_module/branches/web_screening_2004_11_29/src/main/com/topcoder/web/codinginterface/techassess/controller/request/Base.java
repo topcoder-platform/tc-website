@@ -1,6 +1,7 @@
 package com.topcoder.web.codinginterface.techassess.controller.request;
 
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.codinginterface.techassess.model.WebQueueResponseManager;
 import com.topcoder.shared.messaging.QueueMessageSender;
 import com.topcoder.shared.messaging.TimeOutException;
@@ -16,8 +17,9 @@ import java.io.IOException;
  * Date: Dec 10, 2004
  */
 public abstract class Base extends BaseProcessor {
-    private QueueMessageSender sender;
-    private WebQueueResponseManager receiver;
+    private QueueMessageSender sender = null;
+    private WebQueueResponseManager receiver = null;
+    private String messageId = null;
 
 
     public void setReceiver(WebQueueResponseManager receiver) {
@@ -34,15 +36,67 @@ public abstract class Base extends BaseProcessor {
         return user;
     }
 
-    protected String send(Message m) {
-        //todo if it becomes a problem, we may want to change
-        //todo the behavior so that we don't wait indefinately
-        String messageId = sender.sendMessageGetID(new HashMap(), m);
+    protected void send(Message m) {
+        /*todo if it becomes a problem, we may want to change
+         *the behavior so that we don't wait indefinately
+         */
+        this.messageId = sender.sendMessageGetID(new HashMap(), m);
+    }
+
+    public String getMessageId() {
         return messageId;
     }
-    protected void postProcessing(Message message) throws Exception {
 
+    /**
+     * If we have a messageId, that means that we've already put the
+     * request on the jms queue, additionally, this means that we've
+     * already started writting to the response.  In that case,
+     * another requeest will have to be dispatched in order to get
+     * back and show the error approriately.  Therefore, we can't
+     * store errors/default informatin in the request because it's
+     * as good as dead, we'll store it in the session.  The processor
+     * that retreives it is expected to remove it and place it in
+     * a request for usage by the front end.
+     * @throws TCWebException
+     */
+    protected void baseProcessing() throws TCWebException {
+        /*
+         * key it with the message id so that in case someone
+         * has two browsers we can keep things straight.
+         */
+        if (messageId==null) {
+            getRequest().setAttribute(ERRORS_KEY, errors);
+            getRequest().setAttribute(DEFAULTS_KEY, defaults);
+        } else {
+            getRequest().getSession().setAttribute(ERRORS_KEY+messageId, errors);
+            getRequest().getSession().setAttribute(DEFAULTS_KEY+messageId, defaults);
+        }
     }
+
+    protected void clearSessionErrors(String messageId) {
+        getRequest().getSession().removeAttribute(ERRORS_KEY+messageId);
+        if (errors==null)
+            log.debug("errors is null");
+        else log.debug("errors is " + errors);
+    }
+
+    protected void clearSessionDefaults(String messageId) {
+        getRequest().getSession().removeAttribute(DEFAULTS_KEY+messageId);
+        if (defaults==null)
+            log.debug("defaults is null");
+        else log.debug("defaults is " + defaults);
+    }
+
+    protected void loadSessionErrorsIntoRequest(String messageId) {
+        HashMap m = (HashMap)getRequest().getSession().getAttribute(ERRORS_KEY+messageId);
+        if (m!=null) errors = m;
+    }
+
+    protected void loadSessionDefaultsIntoRequest(String messageId) {
+        HashMap m = (HashMap)getRequest().getSession().getAttribute(DEFAULTS_KEY+messageId);
+        if (m!=null) defaults = m;
+    }
+
 
     protected void showProcessingPage(String nextPage) throws IOException {
         getResponse().setStatus(200);
@@ -113,8 +167,8 @@ public abstract class Base extends BaseProcessor {
         out.flush();
     }
 
-    protected Message receive(int waitTime, String correlationId) throws TimeOutException {
-        return (Message)receiver.receive(waitTime, correlationId, getResponse());
+    protected Message receive(int waitTime) throws TimeOutException {
+        return (Message)receiver.receive(waitTime, messageId, getResponse());
     }
 
 

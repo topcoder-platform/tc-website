@@ -40,6 +40,7 @@ public class Constants {
     //request processors
     public static String RP_LOGIN;
     public static String RP_INDEX;
+    public static String RP_LOGIN_RESPONSE;
 
     //session keys
     public static String TEST_SET_A;

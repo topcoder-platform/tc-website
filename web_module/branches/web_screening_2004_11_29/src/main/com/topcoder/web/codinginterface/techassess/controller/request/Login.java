@@ -58,7 +58,7 @@ public class Login extends Base {
                 send(request);
 
                 SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
-                showProcessingPage(info.getServletPath());
+                showProcessingPage(info.getServletPath()+"?"+Constants.MODULE+"="+Constants.RP_LOGIN_RESPONSE);
 
                 ScreeningLoginResponse response = (ScreeningLoginResponse)receive(5000);
 
@@ -69,6 +69,7 @@ public class Login extends Base {
                     for (int i=0; i<problemSets.length; i++) {
                         sets.add(problemSets[i]);
                     }
+                    getRequest().getSession().setAttribute(Constants.COMPANY_ID, new Long(companyId));
                     getRequest().getSession().setAttribute(Constants.PROBLEM_SETS, sets);
                     getRequest().getSession().setAttribute(Constants.LANGUAGES, getLanguages(response));
 
