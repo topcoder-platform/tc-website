@@ -14,10 +14,7 @@ import com.topcoder.web.common.security.WebAuthentication;
 import javax.naming.InitialContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
-import java.util.Map;
-import java.util.StringTokenizer;
-import java.util.Iterator;
+import java.util.*;
 
 
 /**
@@ -237,16 +234,11 @@ public abstract class BaseTask implements Task {
     }
 
     protected String getRoundList(long campaignId) throws Exception {
-        Request r = new Request();
-        r.setContentHandle("campaign_rounds");
-        r.setProperty("cid", String.valueOf(campaignId));
-        ResultSetContainer rsc = ((ResultSetContainer)getDataAccess(getOltp()).getData(r).get("campaign_rounds"));
         StringBuffer buf = new StringBuffer();
-        ResultSetContainer.ResultSetRow row = null;
+        List l = getRoundIds(campaignId);
         int i=0;
-        for (Iterator it = rsc.iterator(); it.hasNext(); i++) {
-            row = (ResultSetContainer.ResultSetRow)it.next();
-            buf.append(row.getLongItem("round_id"));
+        for (Iterator it = l.iterator(); it.hasNext(); i++) {
+            buf.append(it.next().toString());
             buf.append(", ");
         }
         if (i>0)
@@ -254,6 +246,20 @@ public abstract class BaseTask implements Task {
         log.debug("round list is " + buf.toString());
         return buf.toString();
 
+    }
+
+    protected List getRoundIds(long campaignId) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("campaign_rounds");
+        r.setProperty("cid", String.valueOf(campaignId));
+        ResultSetContainer rsc = ((ResultSetContainer)getDataAccess(getOltp()).getData(r).get("campaign_rounds"));
+        ArrayList ret = new ArrayList(rsc.size());
+        ResultSetContainer.ResultSetRow row = null;
+        for (Iterator it = rsc.iterator(); it.hasNext();) {
+            row = (ResultSetContainer.ResultSetRow)it.next();
+            ret.add(new Long(row.getLongItem("round_id")));
+        }
+        return ret;
     }
 
 }
