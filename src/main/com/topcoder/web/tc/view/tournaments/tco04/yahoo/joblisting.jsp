@@ -22,7 +22,7 @@
 			<table width="510" border=0 cellpadding=20 cellspacing=0>
 				<tr>
 					<td class="bodyText">
-                    <a href="" target="_blank"><img src="/i/tournament/tco04/yahoo_header.gif" width="510" height="75" border="0" alt="Yahoo!" /></a>
+                    <a href="/?t=sponsor&c=link&link=http://careers.yahoo.com/&refer=tco_minisite" target="_blank"><img src="/i/tournament/tco04/yahoo_header.gif" width="510" height="75" border="0" alt="Yahoo!" /></a>
                     <p class=pageTitle>Yahoo! Positions Available</p>
 					<ul>
 						<li><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=yahoo&d4=ty_sde">Technical Yahoo! - Software Development Engineers</a></li>
