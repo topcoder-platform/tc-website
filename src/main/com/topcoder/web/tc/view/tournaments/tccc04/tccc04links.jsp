@@ -157,9 +157,7 @@
             <% } else if (tabLev2.equals("advancers")) {%>
                     <td class="<%=tabLev3.equals("qualification")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=SimpleStats&c=tccc04_alg_qual&trans=true" class="topLink">Qualification</a></td>
                     <td class="<%=tabLev3.equals("overview")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=SimpleStats&c=tccc04_alg_adv_overview&trans=true" class="topLink">Overview</a></td>
-<%--
-                    <td class="<%=tabLev3.equals("bracket")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_adv_bracket" class="topLink">Bracket</a></td>
---%>
+                    <td class="<%=tabLev3.equals("bracket")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=alg_bracket" class="topLink">Bracket</a></td>
                     <td class="<%=tabLev3.equals("radeye")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=radeye_semi" target="_blank" class="topLink">radeye's Odds</a></td>
             <% } else if (tabLev2.equals("summary")) {%>
                     <td class="<%=tabLev3.equals("online")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_onlinerounds" class="topLink">Online Rounds</a></td>
