@@ -81,7 +81,7 @@ public class NoteCreate extends BaseProcessor {
             
             long noteId = note.createNote(noteText, getAuthentication().getUser().getId(), 1);
             
-            UserNoteHome uHome = (UserNoteHome)context.lookup(UserNoteHome.class.getName());
+            UserNoteHome uHome = (UserNoteHome)context.lookup("screening:"+UserNoteHome.class.getName());
             UserNote unote = uHome.create();
             
             unote.createUserNote(Long.parseLong(candId), noteId);

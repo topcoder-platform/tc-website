@@ -123,7 +123,7 @@ public final class Registration extends UserEdit {
             TermsOfUse terms = ((TermsOfUseHome)ic.lookup(TermsOfUseHome.EJB_REF_NAME)).create();
             setFormFieldDefault(Constants.KEY_TERMS, terms.getText(Constants.CORP_SITE_TERMS_ID));
 
-            UserTermsOfUse userTerms = ((UserTermsOfUseHome)ic.lookup(UserTermsOfUseHome.EJB_REF_NAME)).create();
+            UserTermsOfUse userTerms = ((UserTermsOfUseHome)ic.lookup("corp:"+UserTermsOfUseHome.EJB_REF_NAME)).create();
             if (userTerms.hasTermsOfUse(secTok.loggedUserID, Constants.CORP_SITE_TERMS_ID)) {
                 setFormFieldDefault(Constants.KEY_AGREE_TO_TERMS, Boolean.TRUE.toString());
             } else {
@@ -332,7 +332,7 @@ public final class Registration extends UserEdit {
                 ).create();
 
         Contact contactTable = (
-                (ContactHome) ic.lookup(ContactHome.EJB_REF_NAME)
+                (ContactHome) ic.lookup("corp:"+ContactHome.EJB_REF_NAME)
                 ).create();
 
         long companyID = -1;
@@ -353,7 +353,7 @@ public final class Registration extends UserEdit {
 
         // address items for user
         UserAddress xrefUserAddr = (
-                (UserAddressHome) ic.lookup(UserAddressHome.EJB_REF_NAME)
+                (UserAddressHome) ic.lookup("corp:"+UserAddressHome.EJB_REF_NAME)
                 ).create();
 
         Address addrTable = (
@@ -387,7 +387,7 @@ public final class Registration extends UserEdit {
         }
         addrTable.setZip(addressID, zip);
 
-        UserTermsOfUse userTerms = ((UserTermsOfUseHome)ic.lookup(UserTermsOfUseHome.EJB_REF_NAME)).create();
+        UserTermsOfUse userTerms = ((UserTermsOfUseHome)ic.lookup("corp:"+UserTermsOfUseHome.EJB_REF_NAME)).create();
         if (!userTerms.hasTermsOfUse(secTok.loggedUserID, Constants.CORP_SITE_TERMS_ID)) {
             userTerms.createUserTermsOfUse(targetUserID, Constants.CORP_SITE_TERMS_ID);
         }
@@ -404,7 +404,7 @@ public final class Registration extends UserEdit {
         // additional fields
         // title item for user
         Contact contactTable = (
-                (ContactHome) ic.lookup(ContactHome.EJB_REF_NAME)
+                (ContactHome) ic.lookup("corp:"+ContactHome.EJB_REF_NAME)
                 ).create();
         long companyID = contactTable.getCompanyId(targetUserID);
         title = contactTable.getTitle(targetUserID);
@@ -417,7 +417,7 @@ public final class Registration extends UserEdit {
 
         // address item for user
         UserAddress xrefUserAddr = (
-                (UserAddressHome) ic.lookup(UserAddressHome.EJB_REF_NAME)
+                (UserAddressHome) ic.lookup("corp:"+UserAddressHome.EJB_REF_NAME)
                 ).create();
         long addrID = -1;
         // single address per company so address is to be fetched for primary

@@ -96,13 +96,13 @@ public class TransactionInfo {
             qtty = productUnit.getNumUnits(productID, getUnitIdByType(TIME_UNIT_TYPE_ID, productID));
 
             if (qtty <= 0) {
-                throw new Exception("No valid unit found for product: " + productID +
+                throw new Exception("No unit found for product: " + productID +
                         " unit type: " + TIME_UNIT_TYPE_ID);
             }
 
 
             Contact contactTable = (
-                    (ContactHome) icEJB.lookup(ContactHome.EJB_REF_NAME)
+                    (ContactHome) icEJB.lookup("corp:"+ContactHome.EJB_REF_NAME)
                     ).create();
             companyID = contactTable.getCompanyId(contactID);
 

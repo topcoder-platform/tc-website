@@ -371,14 +371,14 @@ public class RegistrationHelper {
       utx=(UserTransaction)ctx.lookup("javax.transaction.UserTransaction");
       utx.begin();
 
-      UserHome uh=(UserHome)ctx.lookup(UserHome.EJB_REF_NAME);
+      UserHome uh=(UserHome)ctx.lookup("hs:"+UserHome.EJB_REF_NAME);
       User user=uh.create();
       user.createUser(user_id,_srb.getHandle(),NEW_USER_TYPE);
       user.setFirstName(user_id,_srb.getFirstName());
       user.setLastName(user_id,_srb.getLastName());
 
       UserSchoolHome ush=(UserSchoolHome)
-                                        ctx.lookup(UserSchoolHome.EJB_REF_NAME);
+                                        ctx.lookup("hs:"+UserSchoolHome.EJB_REF_NAME);
       UserSchool user_school=ush.create();
       user_school.createUserSchool(user_id,_srb.getSchoolId().longValue());
       user_school.setCurrentUserSchoolId(user_id,
@@ -399,7 +399,7 @@ public class RegistrationHelper {
       coder.setLanguageId(user_id,_srb.getLanguageId().intValue());
 
       UserTermsOfUseHome utouh=(UserTermsOfUseHome)
-                                    ctx.lookup(UserTermsOfUseHome.EJB_REF_NAME);
+                                    ctx.lookup("hs:"+UserTermsOfUseHome.EJB_REF_NAME);
       UserTermsOfUse user_terms_of_use=utouh.create();
       user_terms_of_use.createUserTermsOfUse(user_id,TERMS_OF_USE_ID);
 
@@ -454,14 +454,14 @@ public class RegistrationHelper {
       utx=(UserTransaction)ctx.lookup("javax.transaction.UserTransaction");
       utx.begin();
 
-      UserHome uh=(UserHome)ctx.lookup(UserHome.EJB_REF_NAME);
+      UserHome uh=(UserHome)ctx.lookup("hs:"+UserHome.EJB_REF_NAME);
       User user=uh.create();
       long user_id=_srb.getUserId().longValue();
       user.setFirstName(user_id,_srb.getFirstName());
       user.setLastName(user_id,_srb.getLastName());
 
       UserSchoolHome ush=(UserSchoolHome)
-                                        ctx.lookup(UserSchoolHome.EJB_REF_NAME);
+                                        ctx.lookup("hs:"+UserSchoolHome.EJB_REF_NAME);
       UserSchool user_school=ush.create();
       long school_id=_srb.getSchoolId().longValue();
       if (user_school.existsUserSchoolId(user_id,school_id)) {
@@ -723,14 +723,14 @@ public class RegistrationHelper {
       utx_tchs=(UserTransaction)ctx.lookup("javax.transaction.UserTransaction");
       utx_tchs.begin();
 
-      UserHome uh=(UserHome)ctx.lookup(UserHome.EJB_REF_NAME);
+      UserHome uh=(UserHome)ctx.lookup("hs:"+UserHome.EJB_REF_NAME);
       User user=uh.create();
       user.createUser(user_id,_crb.getHandle(),NEW_USER_TYPE);
       user.setFirstName(user_id,_crb.getFirstName());
       user.setLastName(user_id,_crb.getLastName());
 
       UserSchoolHome ush=(UserSchoolHome)
-                                        ctx.lookup(UserSchoolHome.EJB_REF_NAME);
+                                        ctx.lookup("hs:"+UserSchoolHome.EJB_REF_NAME);
       UserSchool user_school=ush.create();
       user_school.createUserSchool(user_id,_crb.getSchoolId().longValue());
       user_school.setCurrentUserSchoolId(user_id,
@@ -751,7 +751,7 @@ public class RegistrationHelper {
       coder.setLanguageId(user_id,_crb.getLanguageId().intValue());
 
       UserTermsOfUseHome utouh=(UserTermsOfUseHome)
-                                    ctx.lookup(UserTermsOfUseHome.EJB_REF_NAME);
+                                    ctx.lookup("hs:"+UserTermsOfUseHome.EJB_REF_NAME);
       UserTermsOfUse user_terms_of_use=utouh.create();
       user_terms_of_use.createUserTermsOfUse(user_id,TERMS_OF_USE_ID);
 
@@ -821,14 +821,14 @@ public class RegistrationHelper {
       utx=(UserTransaction)ctx.lookup("javax.transaction.UserTransaction");
       utx.begin();
 
-      UserHome uh=(UserHome)ctx.lookup(UserHome.EJB_REF_NAME);
+      UserHome uh=(UserHome)ctx.lookup("hs:"+UserHome.EJB_REF_NAME);
       User user=uh.create();
       long user_id=_crb.getUserId().longValue();
       user.setFirstName(user_id,_crb.getFirstName());
       user.setLastName(user_id,_crb.getLastName());
 
       UserSchoolHome ush=(UserSchoolHome)
-                                        ctx.lookup(UserSchoolHome.EJB_REF_NAME);
+                                        ctx.lookup("hs:"+UserSchoolHome.EJB_REF_NAME);
       UserSchool user_school=ush.create();
       long school_id=_crb.getSchoolId().longValue();
       if (user_school.existsUserSchoolId(user_id,school_id)) {

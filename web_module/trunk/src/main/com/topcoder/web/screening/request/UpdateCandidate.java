@@ -119,7 +119,7 @@ public class UpdateCandidate extends BaseProcessor
         
         UserHome uHome = (UserHome)
             PortableRemoteObject.narrow(
-                context.lookup(UserHome.class.getName()), UserHome.class);
+                context.lookup("screening:"+UserHome.class.getName()), UserHome.class);
         User user = uHome.create();
 
         if(!user.userExists(userId)) {

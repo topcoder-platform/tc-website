@@ -343,7 +343,7 @@ public class TransactionServlet extends HttpServlet {
             throws Exception {
         TransactionInfo txInfo = buildTransactionInfo(req, resp);
         InitialContext ic = (InitialContext) TCContext.getInitial();
-        UserTermsOfUse userTerms = ((UserTermsOfUseHome) ic.lookup(UserTermsOfUseHome.EJB_REF_NAME)).create();
+        UserTermsOfUse userTerms = ((UserTermsOfUseHome) ic.lookup("corp:"+UserTermsOfUseHome.EJB_REF_NAME)).create();
         if (!userTerms.hasTermsOfUse(txInfo.getContactID(), Constants.GENERAL_PRODUCT_TERMS_ID)) {
             userTerms.createUserTermsOfUse(txInfo.getContactID(), Constants.GENERAL_PRODUCT_TERMS_ID);
         }
@@ -476,7 +476,7 @@ public class TransactionServlet extends HttpServlet {
         InitialContext ic = (InitialContext) TCContext.getInitial();
         TermsOfUse terms = ((TermsOfUseHome) ic.lookup(TermsOfUseHome.EJB_REF_NAME)).create();
         txInfo.setTerms(terms.getText(Constants.GENERAL_PRODUCT_TERMS_ID));
-        UserTermsOfUse userTerms = ((UserTermsOfUseHome) ic.lookup(UserTermsOfUseHome.EJB_REF_NAME)).create();
+        UserTermsOfUse userTerms = ((UserTermsOfUseHome) ic.lookup("corp:"+UserTermsOfUseHome.EJB_REF_NAME)).create();
         if (userTerms.hasTermsOfUse(txInfo.getContactID(), Constants.GENERAL_PRODUCT_TERMS_ID)) {
             txInfo.setAgreed(true);
         } else {
