@@ -26,42 +26,12 @@ function find(n) {
 
 <xsl:choose>
     <xsl:when test="$sectionName='tco03'or$sectionName='statistics'">
-            <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+            <IMG src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
 
-            <img src="/i/tournament/tco03/promo_tco_header.gif" alt="2003 TopCoder Open Sponsors" width="170" height="62" border="0" /><br />
+            <A href="/i/downloads/tco03_guide.pdf"  target="_blank"><img src="/i/promos/tco_guide_promo_third.gif" alt="The TCO Guide" width="170" height="150" border="0" /></A><br/>
 
-            <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
-
-            <xsl:choose>
-                <xsl:when test="$sectionSubname='intel'">
-
-                </xsl:when>
-                <xsl:otherwise>
-
-            <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_intel"><img src="/i/tournament/tco03/promo_sm_intel.gif" alt="Intel Developer Services" width="170" height="104" border="0" /></A><br />
+            <IMG src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             
-            <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
-
-                </xsl:otherwise>
-            </xsl:choose>
-
-            <xsl:choose>
-                <xsl:when test="$sectionSubname='nvidia'">
-
-                </xsl:when>
-                <xsl:otherwise>
-
-            <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_nvidia"><img src="/i/tournament/tco03/promo_sm_nvidia.gif" alt="NVIDIA" width="170" height="95" border="0" /></A><br />
-            
-            <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
-
-                </xsl:otherwise>
-            </xsl:choose>
-
-            <A href="" name="changerHref"><img src="" name="changerImg" width="170" height="84" border="0" /></A><br />
-
-            <img alt="" width="1" height="10" src="/i/clear.gif" border="0"/><br />
-
             <xsl:call-template name="calendar"/>
 
             <p><br/></p>
