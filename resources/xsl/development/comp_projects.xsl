@@ -78,7 +78,14 @@
             </xsl:call-template>
 
             <p><h2 align="left">Projects for Design and/or Development currently available!</h2></p>
-            <p>Be the first submitter for ANY project and earn yourself the multiplier.  Click the "details" link for any project to see who inquired, who submitted, and who got the multiplier!</p>
+            <p>
+                In order to participate in a component project, you MUST register for that project.  There are
+                only a limited number of registration slots available for each component project.  Registration
+                for each project below will be open until the listed "Max Registrants" has been reached or until
+                the project is completed or removed from the project list.  Please note that by registering for
+                the project, you are agreeing to the requirements and committing to perform the work outlined in
+                the requirement specifications.
+            </p>
             <p cass="bodyText" align="right"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=comp_des_rd1">View</A> TCCC04 Design project submitters!</p>
 
 <!-- TCCC Design Begins -->
@@ -90,12 +97,11 @@
                 <tr valign="middle">
                     <td class="projectHeaders" align="center">Catalog</td>
                     <td width="15%" class="projectHeaders">Projects</td>
-                    <td class="projectHeaders" align="center">Inquiries</td>
+                    <td class="projectHeaders" align="center">Registrants</td>
                     <td class="projectHeaders" align="center">Submissions</td>
                     <td class="projectHeaders" align="center">Payment*</td>
                     <td class="projectHeaders" align="center">Complexity</td>
                     <td class="projectHeaders" align="center">Submit by</td>
-                    <td class="projectHeaders" align="center">Multiplier</td>
                     <td class="projectHeaders" align="center">Details</td>
                 </tr>
 
@@ -152,16 +158,7 @@
                             <td class="projectCells" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
                             <td class="projectCells" align="center"><xsl:value-of select="./description"/></td>
                             <td class="projectCells" align="center" nowrap="nowrap"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
-                    <td class="projectCells" align="center">
-                    <xsl:if test="./total_submissions &gt; 0">
-                             <a>
-                                <xsl:attribute name="href">
-                                     <xsl:value-of select="concat('?t=development&amp;c=multiplier_status&amp;pj=', ./project_id)"/>
-                                </xsl:attribute>
-                                     <img src="/i/development/multiplierLGray.gif" width="23" height="21" alt="" border="0"/>
-                             </a>
-                    </xsl:if>
-                    </td>
+
                     <td class="projectCells" align="center">
                              <A><xsl:attribute name="href"><xsl:value-of select="concat('?t=development&amp;c=multiplier_status&amp;pj=', ./project_id)"/></xsl:attribute>details</A>
                     </td>
@@ -189,12 +186,11 @@
                 <tr valign="middle">
                     <td class="projectHeaders" align="center">Catalog</td>
                     <td width="15%" class="projectHeaders">Projects</td>
-                    <td class="projectHeaders" align="center">Inquiries</td>
+                    <td class="projectHeaders" align="center">Registrants</td>
                     <td class="projectHeaders" align="center">Submissions</td>
                     <td class="projectHeaders" align="center">Payment*</td>
                     <td class="projectHeaders" align="center">Complexity</td>
                     <td class="projectHeaders" align="center">Submit by</td>
-                    <td class="projectHeaders" align="center">Multiplier</td>
                     <td class="projectHeaders" align="center">Details</td>
                 </tr>
 
@@ -249,16 +245,7 @@
                             <td class="projectCells" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
                             <td class="projectCells" align="center"><xsl:value-of select="./description"/></td>
                             <td class="projectCells" align="center" nowrap="nowrap"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
-                    <td class="projectCells" align="center">
-                    <xsl:if test="./total_submissions &gt; 0">
-                             <a>
-                                <xsl:attribute name="href">
-                                     <xsl:value-of select="concat('?t=development&amp;c=multiplier_status&amp;pj=', ./project_id)"/>
-                                </xsl:attribute>
-                              <img src="/i/development/multiplierLGray.gif" width="23" height="21" alt="" border="0"/>
-                             </a>
-                    </xsl:if>
-                    </td>
+
                     <td class="projectCells" align="center">
                              <A><xsl:attribute name="href"><xsl:value-of select="concat('?t=development&amp;c=multiplier_status&amp;pj=', ./project_id)"/></xsl:attribute>details</A>
                     </td>
@@ -286,12 +273,11 @@
                 <tr valign="middle">
                     <td class="projectHeaders" align="center">Catalog</td>
                     <td width="15%" class="projectHeaders">Projects</td>
-                    <td class="projectHeaders" align="center">Inquiries</td>
+                    <td class="projectHeaders" align="center">Registrants</td>
                     <td class="projectHeaders" align="center">Submissions</td>
                     <td class="projectHeaders" align="center">Payment*</td>
                     <td class="projectHeaders" align="center">Complexity</td>
                     <td class="projectHeaders" align="center">Submit by</td>
-                    <td class="projectHeaders" align="center">Multiplier</td>
                     <td class="projectHeaders" align="center">Details</td>
                 </tr>
 
@@ -350,16 +336,6 @@
                             <td class="projectCells" align="center"><xsl:value-of select="./description"/></td>
                             <td class="projectCells" align="center" nowrap="nowrap"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
                     <td class="projectCells" align="center">
-                    <xsl:if test="./total_submissions &gt; 0">
-                             <a>
-                                <xsl:attribute name="href">
-                                     <xsl:value-of select="concat('?t=development&amp;c=multiplier_status&amp;pj=', ./project_id)"/>
-                                </xsl:attribute>
-                              <img src="/i/development/multiplierLGray.gif" width="23" height="21" alt="" border="0"/>
-                             </a>
-                    </xsl:if>
-                    </td>
-                    <td class="projectCells" align="center">
                              <A><xsl:attribute name="href"><xsl:value-of select="concat('?t=development&amp;c=multiplier_status&amp;pj=', ./project_id)"/></xsl:attribute>details</A>
                     </td>
                         </tr>
@@ -380,12 +356,11 @@
                 <tr valign="middle">
                     <td class="projectHeaders" align="center">Catalog</td>
                     <td width="15%" class="projectHeaders">Projects</td>
-                    <td class="projectHeaders" align="center">Inquiries</td>
+                    <td class="projectHeaders" align="center">Registrants</td>
                     <td class="projectHeaders" align="center">Submissions</td>
                     <td class="projectHeaders" align="center">Payment*</td>
                     <td class="projectHeaders" align="center">Complexity</td>
                     <td class="projectHeaders" align="center">Submit by</td>
-                    <td class="projectHeaders" align="center">Multiplier</td>
                     <td class="projectHeaders" align="center">Details</td>
                 </tr>
 
@@ -440,16 +415,7 @@
                             <td class="projectCells" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
                             <td class="projectCells" align="center"><xsl:value-of select="./description"/></td>
                             <td class="projectCells" align="center" nowrap="nowrap"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
-                    <td class="projectCells" align="center">
-                    <xsl:if test="./total_submissions &gt; 0">
-                             <a>
-                                <xsl:attribute name="href">
-                                     <xsl:value-of select="concat('?t=development&amp;c=multiplier_status&amp;pj=', ./project_id)"/>
-                                </xsl:attribute>
-                              <img src="/i/development/multiplierLGray.gif" width="23" height="21" alt="" border="0"/>
-                             </a>
-                    </xsl:if>
-                    </td>
+
                     <td class="projectCells" align="center">
                              <A><xsl:attribute name="href"><xsl:value-of select="concat('?t=development&amp;c=multiplier_status&amp;pj=', ./project_id)"/></xsl:attribute>details</A>
                     </td>
