@@ -19,7 +19,7 @@ public class CacheConfiguration
     static final String PROP_SYNC        = "cache.synctime";
 
     static final String PROP_EXPIREDELAY = "cache.expirecheck";
-    static final String PROP_EXPIRETIME  = "cache.expiretime";
+//    static final String PROP_EXPIRETIME  = "cache.expiretime";
 
     static Properties _properties = null;
 
@@ -72,22 +72,6 @@ public class CacheConfiguration
                 delay = Integer.parseInt(delaystr);
             } catch (NumberFormatException e) {
                 System.out.println("cannot parse " + PROP_EXPIREDELAY + " value " + delaystr);
-            }
-        }
-
-        return delay;
-    }
-
-
-    public static long getExpirationTime() {
-        long   delay    = 24*60*60000; // 1 day
-        String strval = getProperties().getProperty(PROP_EXPIRETIME);
-
-        if ((strval != null) && (strval.length() > 0)) {
-            try {
-                delay = Long.parseLong(strval);
-            } catch (NumberFormatException e) {
-                System.out.println("cannot parse " + PROP_EXPIRETIME + " value " + strval);
             }
         }
 
