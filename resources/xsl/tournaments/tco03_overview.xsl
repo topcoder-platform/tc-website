@@ -27,7 +27,7 @@
 
 </head>
 
-<body>
+<body onLoad="timer(1);">
 
 <a name="top_page"></a>
 
