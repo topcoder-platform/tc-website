@@ -32,7 +32,7 @@
                 <tr><td id="<%=level2.equals("find")?"leftSubnavOn":"leftSubnav"%>"><a href="/catalog/index.jsp" class="leftOn">Find Components</a></td></tr>
                 <tr><td id="<%=level2.equals("overview")?"leftSubnavOn":"leftSubnav"%>"><a href="/components/index.jsp" class="leftOn">What Are Components?</a></td></tr>
                 <tr><td id="<%=level2.equals("methodology")?"leftSubnavOn":"leftSubnav"%>"><a href="/components/methodology.jsp" class="leftOn">Methodology</a></td></tr>
-                <tr><td id="<%=level2.equals("subscriptions")?"leftSubnavOn":"leftSubnav"%>"><a href="/components/subscriptions.jsp" class="leftOn">Purchasing</a></td></tr>
+                <tr><td id="<%=level2.equals("subscriptions")?"leftSubnavOn":"leftSubnav"%>"><a href="/components/subscriptions.jsp" class="leftOn">Subscriptions</a></td></tr>
                 <tr><td id="<%=level2.equals("suggest")?"leftSubnavOn":"leftSubnav"%>"><a href="/components/request.jsp" class="leftOn">Suggest a Component</a></td></tr>
             <% } %>
 <!-- Components ends -->
