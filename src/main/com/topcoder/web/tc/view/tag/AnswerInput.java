@@ -89,7 +89,7 @@ public class AnswerInput extends BaseTag {
     private String buildText() {
         setName(PREFIX + question.getId());
         StringBuffer s = new StringBuffer(200);
-        if (question.getTypeId()==Question.LONG_ANSWER) {
+        if (question.getStyleId()==Question.LONG_ANSWER) {
             s.append("<textarea");
             s.append("cols=\"").append(60).append("\" ");
             s.append("rows=\"").append(8).append("\" ");
