@@ -125,7 +125,6 @@ public class SimpleSearch extends Base {
             queryBottom.append(" AND cal.date > CURRENT - ").append(m.getMaxDaysSinceLastComp()).append(" UNITS DAY");
         }
         queryBottom.append(" AND c.country_code = co.country_code");
-        queryBottom.append(" ORDER BY rating_order, lower_handle");
 
 
         StringBuffer searchQuery = new StringBuffer(400);
@@ -139,6 +138,7 @@ public class SimpleSearch extends Base {
         searchQuery.append(" , CASE WHEN r.rating > 0 THEN 1 ELSE 2 END AS rating_order");
         searchQuery.append(" , co.country_name");
         searchQuery.append(queryBottom.toString());
+        searchQuery.append(" ORDER BY rating_order, lower_handle");
 
         StringBuffer countQuery = new StringBuffer(400);
         countQuery.append(" SELECT count(*) ");

@@ -70,6 +70,9 @@ public class Constants {
     public static int SEARCH_SCROLL_SIZE;
     public static String STATISTICS_PATH;
 
+    static {
+        initialize();
+    }
 
     private Constants() {
     }
