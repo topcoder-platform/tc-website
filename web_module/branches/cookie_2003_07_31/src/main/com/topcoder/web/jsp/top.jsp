@@ -36,7 +36,7 @@
         <td nowrap="0" class="registerToday"><span class="time">Current Member Count</span>&#160;:&#160; <%=new DecimalFormat("#,##0").format(dcHome.getMemberCount())%> - <span class="time"><jsp:include page="date_time.jsp" /></span><a href="Javascript:tcTime()" class="statText">[Get Time]</a></span></td>
         <td width="99%" align="right" class="login" nowrap="0">
 
-<% if ( !sessionInfo.isAnonymouse() ) { %>
+<% if ( !sessionInfo.isAnonymous() ) { %>
             <strong>Hello, </strong>
             <a href="/stat?c=member_profile&amp;cr=<%=sessionInfo.getUserId()%>" class="<%=styleClass%>" target="_parent"><%=sessionInfo.getHandle()%></a>
             &#160;&#160;|&#160;&#160;<a href="/?t=authentication&amp;c=submit_logout" class="loginLinks" target="_parent">Logout</a>
