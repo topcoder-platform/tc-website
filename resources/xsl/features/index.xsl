@@ -17,7 +17,7 @@
 
 <xsl:call-template name="Preload" />      
 
-<title>TopCoder :: Features</title>
+<title>Feature articles written by TopCoder members</title>
 
 <xsl:call-template name="CSS" />      
 
@@ -53,136 +53,196 @@
                 <xsl:with-param name="title">Feature Article Archive</xsl:with-param>
             </xsl:call-template>
             
-            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" width="100%">
-                <tr><td colspan="3"><img src="/i/clear.gif" alt="" width="1" height="23" border="0"/></td></tr>
+            <table border="0" cellspacing="10" cellpadding="0" width="100%">
+                <tr><td colspan="3"><img src="/i/clear.gif" alt="" width="1" height="3" border="0"/></td></tr>
                 <tr valign="top">
-                    <td width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
                     <td class="bodyText" width="100%">         
-                        <table width="100%" border="0" cellpadding="0" cellspacing="1">
-                            <tr><td valign="middle" bgcolor="#666666" colspan="3" height="18" class="statText">&#160;&#160;<strong>2003 Feature Articles</strong></td></tr>        
-                            <tr>
-                                <td valign="middle" bgcolor="#CCCCCC" height="18" width="12%" class="bodyText">&#160;&#160;<strong>Date</strong></td>
-                                <td width="25%" valign="middle" bgcolor="#CCCCCC" class="bodyText">&#160;&#160;<strong>Author</strong></td>
-                                <td width="63%" valign="middle" bgcolor="#CCCCCC" class="bodyText">&#160;&#160;<strong>Feature</strong></td>
+<!-- 2003 Features -->
+                        <table width="100%" border="0" cellpadding="3" cellspacing="0">
+                            <tr><td valign="middle" bgcolor="#666666" colspan="3" class="statText"><font size="3"><strong>2003 Features</strong></font></td></tr>        
+
+                            <tr valign="middle">
+                                <td width="12%" class="statTextBig" bgcolor="#999999"><strong>Date</strong></td>
+                                <td width="25%" class="statTextBig" bgcolor="#999999"><strong>Author</strong></td>
+                                <td width="63%" class="statTextBig" bgcolor="#999999"><strong>Feature</strong></td>
                             </tr>
                             
-                            <tr><td valign="middle" class="statTextBig" colspan="3" background="/i/steel_gray_bg.gif" height="18">&#160;May</td></tr>
-                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>        
                             <tr>
-                                <td valign="middle" class="bodyText" height="14">&#160;05.27.03</td><td valign="middle" class="bodyText">&#160;&#160;schveiguy</td>
-                                <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_052703" class="bodyGeneric">Threads and Atomicity</a></td>
+                                <td valign="middle" class="bodyText" height="14">May 27</td>
+                                <td valign="middle" class="bodyText">schveiguy</td>
+                                <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_052703" class="bodyText">Threads and Atomicity</A></td>
                             </tr>
-                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="15" border="0"/></td></tr>
-                            
-                            
-                            <tr><td valign="middle" class="statTextBig" colspan="3" background="/i/steel_gray_bg.gif" height="18">&#160;April</td></tr>
-                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>        
+
                             <tr>
-                                <td valign="middle" class="bodyText" height="14">&#160;04.08.03</td><td valign="middle" class="bodyText">&#160;&#160;nicomp</td>
-                                <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_040803" class="bodyGeneric">TopCoder Competitions vs. The Real World</a></td>
+                                <td valign="middle" class="bodyText" height="14">April 8</td>
+                                <td valign="middle" class="bodyText">nicomp</td>
+                                <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_040803" class="bodyText">TopCoder Competitions vs. The Real World</a></td>
                             </tr>
-                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="15" border="0"/></td></tr>
-                            
-                            
-                            
-                            <tr><td valign="middle" class="statTextBig" colspan="3" background="/i/steel_gray_bg.gif" height="18">&#160;March</td></tr>
-                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>        
+
                             <tr>
-                                <td valign="middle" class="bodyText" height="14">&#160;03.17.03</td><td valign="middle" class="bodyText">&#160;&#160;srowen</td>
-                                <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_031703" class="bodyGeneric">Component-Based Development: TopCoder Style</a></td>
+                                <td valign="middle" class="bodyText" height="14">March 17</td>
+                                <td valign="middle" class="bodyText">srowen</td>
+                                <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_031703" class="bodyText">Component-Based Development: TopCoder Style</a></td>
                             </tr>
-                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="15" border="0"/></td></tr>
-                            
-                            
-                            <tr><td valign="middle" class="statTextBig" colspan="3" background="/i/steel_gray_bg.gif" height="18">&#160;February</td></tr>
-                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>        
+
                             <tr>
-                                <td valign="middle" class="bodyText" height="14">&#160;02.20.03</td><td valign="middle" class="bodyText">&#160;&#160;David Tanacea</td>
-                                <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_022003" class="bodyGeneric">Component-Based Development: Why Hasn't the Vision Met Reality?</a></td>
+                                <td valign="middle" class="bodyText" height="14">February 20</td>
+                                <td valign="middle" class="bodyText">David Tanacea</td>
+                                <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_022003" class="bodyText">Component-Based Development: Why Hasn't the Vision Met Reality?</a></td>
                             </tr>
-                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="15" border="0"/></td></tr>
-                            
-                            
-                            <tr><td valign="middle" class="statTextBig" colspan="3" background="/i/steel_gray_bg.gif" height="18">&#160;January</td></tr>
-                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>        
+
                             <tr>
-                                <td valign="middle" class="bodyText" height="14">&#160;01.22.03</td><td valign="middle" class="bodyText">&#160;&#160;the_gigi</td>
-                                <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_012203" class="bodyGeneric">Who needs another UI framework?</a></td>
+                                <td valign="middle" class="bodyText" height="14">January 22</td>
+                                <td valign="middle" class="bodyText">the_gigi</td>
+                                <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_012203" class="bodyText">Who needs another UI framework?</a></td>
                             </tr>
+
                             <tr>
-                                <td valign="middle" class="bodyText" height="14">&#160;01.08.03</td><td valign="middle" class="bodyText">&#160;&#160;radeye</td>
-                                <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_010803" class="bodyGeneric">Functional Programming</a></td>
+                                <td valign="middle" class="bodyText" height="14">January 8</td>
+                                <td valign="middle" class="bodyText">radeye</td>
+                                <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_010803" class="bodyText">Functional Programming</a></td>
                             </tr>
-                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="15" border="0"/></td></tr>
+
+                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
                         </table>
         
-                        <table width="100%" border="0" cellpadding="0" cellspacing="1">
-                            <tr><td valign="middle" bgcolor="#666666" colspan="3" height="18" class="statText">&#160;&#160;<strong>Feature Articles</strong></td></tr>        
-                            <tr><td valign="middle" bgcolor="#CCCCCC" height="18" width="12%" class="bodyText">&#160;&#160;<strong>Date</strong></td><td width="25%" valign="middle" bgcolor="#CCCCCC" class="bodyText">&#160;&#160;<strong>Author</strong></td><td width="63%" valign="middle" bgcolor="#CCCCCC" class="bodyText">&#160;&#160;<strong>Feature</strong></td></tr>
-                            <tr><td valign="middle" class="statTextBig" colspan="3" background="/i/steel_gray_bg.gif" height="18">&#160;December</td></tr>
-                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>        
-                            <tr><td valign="middle" class="bodyText" height="14">&#160;12.20.02</td><td valign="middle" class="bodyText">&#160;&#160;KaiEl</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_122002" class="bodyGeneric">The Big Rerun</a></td></tr>
-                            <tr><td valign="middle" class="bodyText" height="14">&#160;12.09.02</td><td valign="middle" class="bodyText">&#160;&#160;KaiEl</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_120902" class="bodyGeneric">It's Sink or Swim During the Challenge Phase</a></td></tr>
+<!-- 2002 Features -->
+                        <table width="100%" border="0" cellpadding="3" cellspacing="0">
+                            <tr><td valign="middle" bgcolor="#666666" colspan="3" class="statText"><font size="3"><strong>2002 Features</strong></font></td></tr>        
+
+                            <tr valign="middle">
+                                <td width="12%" class="statTextBig" bgcolor="#999999"><strong>Date</strong></td>
+                                <td width="25%" class="statTextBig" bgcolor="#999999"><strong>Author</strong></td>
+                                <td width="63%" class="statTextBig" bgcolor="#999999"><strong>Feature</strong></td>
+                            </tr>
+                            
+                            <tr>
+                                <td valign="middle" class="bodyText" height="14">December 20</td>
+                                <td valign="middle" class="bodyText">KaiEl</td>
+                                <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_122002" class="bodyText">The Big Rerun</a></td>
+                            </tr>
+                            
+                            <tr>
+                                <td valign="middle" class="bodyText" height="14">December 9</td>
+                                <td valign="middle" class="bodyText">KaiEl</td>
+                                <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_120902" class="bodyText">It's Sink or Swim During the Challenge Phase</a></td>
+                            </tr>
+
+                            <tr>
+                                <td valign="middle" class="bodyText" height="14">November 20</td>
+                                <td valign="middle" class="bodyText">leadhyena_inran</td>
+                                <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_112002" class="bodyText">The eight seconds of death: Tips on preventing timeout</a></td>
+                            </tr>
+                            
+                            <tr>
+                                <td valign="middle" class="bodyText" height="14">November 13</td>
+                                <td valign="middle" class="bodyText">RevenantChaos</td>
+                                <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_111302" class="bodyText">King of the Silicon Hill: Today's High-End Microprocessors</a></td>
+                            </tr>
                 
-                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="15" border="0"/></td></tr>        
-                            <tr><td valign="middle" class="statTextBig" colspan="3" background="/i/steel_gray_bg.gif" height="18">&#160;November</td></tr>
-                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>        
-                            <tr><td valign="middle" class="bodyText" height="14">&#160;11.20.02</td><td valign="middle" class="bodyText">&#160;&#160;leadhyena_inran</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_112002" class="bodyGeneric">The eight seconds of death: Tips on preventing timeout</a></td></tr>
-                            <tr><td valign="middle" class="bodyText" height="14">&#160;11.13.02</td><td valign="middle" class="bodyText">&#160;&#160;RevenantChaos</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_111302" class="bodyGeneric">King of the Silicon Hill: Today's High-End Microprocessors</a></td></tr>
-                
-                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="15" border="0"/></td></tr>        
-                            <tr><td valign="middle" class="statTextBig" colspan="3" background="/i/steel_gray_bg.gif" height="18">&#160;October</td></tr>
-                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>        
-                            <tr><td valign="middle" class="bodyText" height="14">&#160;10.09.02</td><td valign="middle" class="bodyText">&#160;&#160;Penwiper</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_100902" class="bodyGeneric">Graphics Programming for Motion Capture</a></td></tr>
-                            <tr><td valign="middle" class="bodyText" height="14">&#160;10.02.02</td><td valign="middle" class="bodyText">&#160;&#160;pearl</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_100202" class="bodyGeneric">Finding a Job is a Job</a></td></tr>
+                            <tr>
+                                <td valign="middle" class="bodyText" height="14">October 9</td>
+                                <td valign="middle" class="bodyText">Penwiper</td>
+                                <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_100902" class="bodyText">Graphics Programming for Motion Capture</a></td>
+                            </tr>
+                            
+                            <tr>
+                                <td valign="middle" class="bodyText" height="14">October 2</td>
+                                <td valign="middle" class="bodyText">pearl</td>
+                                <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_100202" class="bodyText">Finding a Job is a Job</a></td>
+                            </tr>
 
-                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="15" border="0"/></td></tr>        
-                            <tr><td valign="middle" class="statTextBig" colspan="3" background="/i/steel_gray_bg.gif" height="18">&#160;September</td></tr>
-                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>        
-                            <tr><td valign="middle" class="bodyText" height="14">&#160;09.11.02</td><td valign="middle" class="bodyText">&#160;&#160;KaiEl</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_091102" class="bodyGeneric">...A Problem is Born</a></td></tr>
+                            <tr>
+                                <td valign="middle" class="bodyText" height="14">September 11</td>
+                                <td valign="middle" class="bodyText">KaiEl</td>
+                                <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_091102" class="bodyText">...A Problem is Born</a></td>
+                            </tr>
 
-                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="15" border="0"/></td></tr>                
-                            <tr><td valign="middle" class="statTextBig" colspan="3" background="/i/steel_gray_bg.gif" height="18">&#160;August</td></tr>
-                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>        
-                            <tr><td valign="middle" class="bodyText" height="14">&#160;08.21.02</td><td valign="middle" class="bodyText">&#160;&#160;polgara</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_082102" class="bodyGeneric">Wireless Woes and Winners</a></td></tr>
-                            <tr><td valign="middle" class="bodyText" height="14">&#160;08.07.02</td><td valign="middle" class="bodyText">&#160;&#160;KaiEl</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_080702" class="bodyGeneric">Match Strategy</a></td></tr>
-        
-                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="15" border="0"/></td></tr>        
-                            <tr><td valign="middle" class="statTextBig" colspan="3" background="/i/steel_gray_bg.gif" height="18">&#160;July</td></tr>
-                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>        
-                            <tr><td valign="middle" class="bodyText" height="14">&#160;07.24.02</td><td valign="middle" class="bodyText">&#160;&#160;polgara</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_072402" class="bodyGeneric">Attack of the Moans: Building Applications for Users</a></td></tr>
-                            <tr><td valign="middle" class="bodyText" height="14">&#160;07.10.02</td><td valign="middle" class="bodyText">&#160;&#160;bitbucket43</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_071002" class="bodyGeneric">From the Field - Avoid Overloading!</a></td></tr>
+                            <tr>
+                                <td valign="middle" class="bodyText" height="14">August 21</td>
+                                <td valign="middle" class="bodyText">polgara</td>
+                                <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_082102" class="bodyText">Wireless Woes and Winners</a></td>
+                            </tr>
+                            
+                            <tr>
+                                <td valign="middle" class="bodyText" height="14">August 7</td>
+                                <td valign="middle" class="bodyText">KaiEl</td>
+                                <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_080702" class="bodyText">Match Strategy</a></td>
+                            </tr>
 
-                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="15" border="0"/></td></tr>
-                            <tr><td valign="middle" class="statTextBig" colspan="3" background="/i/steel_gray_bg.gif" height="18">&#160;June</td></tr> 
-                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
-                            <tr><td valign="middle" class="bodyText" height="14">&#160;06.26.02</td><td valign="middle" class="bodyText">&#160;&#160;kpsmith</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_062602" class="bodyGeneric">From the Field</a></td></tr>        
-                            <tr><td valign="middle" class="bodyText" height="14">&#160;06.12.02</td><td valign="middle" class="bodyText">&#160;&#160;polgara</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_061202" class="bodyGeneric">To in-house or to out-source, that is the question</a></td></tr>
-                            <tr><td valign="middle" class="bodyText" height="14">&#160;06.05.02</td><td valign="middle" class="bodyText">&#160;&#160;TopCoder Staff</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_060502" class="bodyGeneric">Where Has The Time Gone?</a></td></tr>
+                            <tr>
+                                <td valign="middle" class="bodyText" height="14">July 24</td>
+                                <td valign="middle" class="bodyText">polgara</td>
+                                <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_072402" class="bodyText">Attack of the Moans: Building Applications for Users</a></td>
+                            </tr>
+                            
+                            <tr>
+                                <td valign="middle" class="bodyText" height="14">July 10</td>
+                                <td valign="middle" class="bodyText">bitbucket43</td>
+                                <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_071002" class="bodyText">From the Field - Avoid Overloading!</a></td>
+                            </tr>
 
-                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="15" border="0"/></td></tr>
-                            <tr><td valign="middle" class="statTextBig" colspan="3" background="/i/steel_gray_bg.gif" height="18">&#160;May</td></tr> 
-                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
-                            <tr><td valign="middle" class="bodyText" height="14">&#160;05.29.02</td><td valign="middle" class="bodyText">&#160;&#160;TopCoder Staff</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_052902" class="bodyGeneric">The Outsiders</a></td></tr>        
-                            <tr><td valign="middle" class="bodyText" height="14">&#160;05.22.02</td><td valign="middle" class="bodyText">&#160;&#160;KaiEl</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_052202" class="bodyGeneric">Obfu-What?</a></td></tr>        
-                            <tr><td valign="middle" class="bodyText" height="14">&#160;05.15.02</td><td valign="middle" class="bodyText">&#160;&#160;TopCoder Staff</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_051502" class="bodyGeneric">First Time Phenomenal</a></td></tr>
-                            <tr><td valign="middle" class="bodyText" height="14">&#160;05.08.02</td><td valign="middle" class="bodyText">&#160;&#160;TopCoder Staff</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_050802" class="bodyGeneric">Working Their Way Up</a></td></tr>
-                            <tr><td valign="middle" class="bodyText" height="14">&#160;05.01.02</td><td valign="middle" class="bodyText">&#160;&#160;TopCoder Staff</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_050102" class="bodyGeneric">The Women of TopCoder</a></td></tr>
+                            <tr>
+                                <td valign="middle" class="bodyText" height="14">June 26</td>
+                                <td valign="middle" class="bodyText">kpsmith</td>
+                                <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_062602" class="bodyText">From the Field</a></td>
+                            </tr>        
+                            
+                            <tr>
+                                <td valign="middle" class="bodyText" height="14">June 12</td>
+                                <td valign="middle" class="bodyText">polgara</td>
+                                <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_061202" class="bodyText">To in-house or to out-source, that is the question</a></td>
+                            </tr>
+                            
+                            <tr>
+                                <td valign="middle" class="bodyText" height="14">June 5</td>
+                                <td valign="middle" class="bodyText">TopCoder Staff</td>
+                                <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_060502" class="bodyText">Where Has The Time Gone?</a></td></tr>
 
-                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="15" border="0"/></td></tr>
-                            <tr><td valign="middle" class="statTextBig" colspan="3" background="/i/steel_gray_bg.gif" height="18">&#160;April</td></tr> 
-                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>        
-                            <tr><td valign="middle" class="bodyText" height="14">&#160;04.24.02</td><td valign="middle" class="bodyText">&#160;&#160;TopCoder Staff</td><td valign="middle" class="bodyText"><a href="/index?t=statistics&amp;c=2002tccc_feature" class="bodyGeneric">A Matter of Time</a></td></tr>
+                            <tr>
+                                <td valign="middle" class="bodyText" height="14">May 29</td>
+                                <td valign="middle" class="bodyText">TopCoder Staff</td>
+                                <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_052902" class="bodyText">The Outsiders</a></td>
+                            </tr>        
+                            
+                            <tr>
+                                <td valign="middle" class="bodyText" height="14">May 22</td>
+                                <td valign="middle" class="bodyText">KaiEl</td>
+                                <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_052202" class="bodyText">Obfu-What?</a></td>
+                            </tr>        
+                            
+                            <tr>
+                                <td valign="middle" class="bodyText" height="14">May 15</td>
+                                <td valign="middle" class="bodyText">TopCoder Staff</td>
+                                <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_051502" class="bodyText">First Time Phenomenal</a></td>
+                            </tr>
+                            
+                            <tr>
+                                <td valign="middle" class="bodyText" height="14">May 8</td>
+                                <td valign="middle" class="bodyText">TopCoder Staff</td>
+                                <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_050802" class="bodyText">Working Their Way Up</a></td>
+                            </tr>
+                            
+                            <tr>
+                                <td valign="middle" class="bodyText" height="14">May 1</td>
+                                <td valign="middle" class="bodyText">TopCoder Staff</td>
+                                <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_050102" class="bodyText">The Women of TopCoder</a></td>
+                            </tr>
+
+                            <tr>
+                                <td valign="middle" class="bodyText" height="14">April 24</td>
+                                <td valign="middle" class="bodyText">TopCoder Staff</td>
+                                <td valign="middle" class="bodyText"><a href="/index?t=statistics&amp;c=2002tccc_feature" class="bodyText">A Matter of Time</a></td>
+                            </tr>
+                            
+                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
                         </table>
                         
-                        <p><a href="/index?t=features&amp;c=feat_topics" class="bodyGeneric">Write feature articles for TopCoder.com</a></p>
+                        <p><a href="/index?t=features&amp;c=feat_topics" class="bodyText">Write feature articles for TopCoder.com</a></p>
                         
                         <p><br/></p>
                     </td>
-                    <td valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
                 </tr>
-                
-                <tr><td colspan="4" valign="top" width="100%"><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>       
             </table>
         </td>
     <!-- Center Column Ends -->
