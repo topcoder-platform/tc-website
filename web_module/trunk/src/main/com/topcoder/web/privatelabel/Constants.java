@@ -32,6 +32,7 @@ public class Constants {
     public static String VERIZON_REG_CONFIRM_PAGE;
     public static String VERIZON_REG_SUCCESS_PAGE;
     public static String DEFAULT_PAGE;
+    public static String UPLOAD_RESUME_PAGE;
 
     //main reg parameters
     public static String HANDLE;
