@@ -59,7 +59,7 @@
                     <td width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
                     <td class="bodyText" width="100%">         
                         <p><font size="4"><strong>Java for C++ coders, and vice versa</strong></font><br />
-                        Tuesday, June 1, 2004</p>
+                        Tuesday, June 2, 2004</p>
 
                         <p>By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=251184"><strong>dplass</strong></a><br />
                         <span class="smallText"><em>TopCoder Member</em></span></p>
