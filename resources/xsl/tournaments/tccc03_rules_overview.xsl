@@ -73,6 +73,7 @@
                         <table width="100%" border="0" cellpadding="0" cellspacing="0">
                             <tr>
                                 <td valign="middle" class="statText">
+                                    <br />
                                     <div align="center">
                                     <p><b>2003 TopCoder Collegiate Challenge<br/>
                                     Official Rules and Regulations</b></p>
