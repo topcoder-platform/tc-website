@@ -37,8 +37,10 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
     /* Holds the member ID for which a member profile is being requested */
     private int memberID;
 
-    /* Holds a mapping of information about the member */
-    private Map memberInfo;
+    /* Holds information about the member */
+    private ResultSetContainer memberInfo;
+
+    private ResultSetContainer memberStats;
 
     /* Holds the name of the position/job in which the member expressed interest */
     private String jobName;
@@ -61,40 +63,41 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
 
     /** Holds data about the coder's Division I performance. */
     private ResultSetContainer.ResultSetRow divIStats;
-    
+
     /** Holds flag indicating whether coder has participated in Division I. */
     private boolean hasDivisionI;
-    
+
     /** Holds flag indicating whether coder has participated in Division II. */
     private boolean hasDivisionII;
-    
+
     /** Holds data about the coder's Division II performance. */
     private ResultSetContainer.ResultSetRow divIIStats;
-    
+
     /** Holds list of Division I performance stats aggregated by problem level. */
     private List divIStatsByLevel;
-    
+
     /** Holds list of Division I performance stats aggregated by language. */
     private List divIStatsByLang;
-    
+
     /** Holds list of Division II performance stats aggregated by problem level. */
     private List divIIStatsByLang;
-    
+
     /** Holds list of Division I performance stats aggregated by language. */
     private List divIIStatsByLevel;
-    
+
+
     /** Creates new MemberProfileTask */
     public MemberProfileTask() {
         super();
         setNextPage(TCESConstants.MEMBER_PROFILE_PAGE);
 
-        uid=-1;
+        uid = -1;
 
         setJobID(-1);
         setCampaignID(-1);
     }
 
-    
+
     /** Getter for property hasResume.
      * @return Value of property hasResum
      */
@@ -106,7 +109,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
      * @param hasResume New value of property hasResume.
      */
     public void setHasResume(boolean hasResume) {
-        this.hasResume=hasResume;
+        this.hasResume = hasResume;
     }
 
     /** Getter for property isRanked.
@@ -120,7 +123,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
      * @param isRanked New value of property isRanked.
      */
     public void setIsRanked(boolean isRanked) {
-        this.isRanked=isRanked;
+        this.isRanked = isRanked;
     }
 
     /** Getter for property imagePath
@@ -210,14 +213,14 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
     /** Getter for property memberInfo.
      * @return Value of property memberInfo
      */
-    public Map getMemberInfo() {
+    public ResultSetContainer getMemberInfo() {
         return memberInfo;
     }
 
     /** Setter for property memberInfo.
      * @param memberInfo New value of property memberInfo.
      */
-    public void setMemberInfo(Map memberInfo) {
+    public void setMemberInfo(ResultSetContainer memberInfo) {
         this.memberInfo = memberInfo;
     }
 
@@ -235,19 +238,28 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         this.jobName = jobName;
     }
 
+    public ResultSetContainer getMemberStats() {
+        return memberStats;
+    }
+
+    public void setMemberStats(ResultSetContainer memberStats) {
+        this.memberStats = memberStats;
+    }
+
+
 
     /** Gets a statistic about the coder's Division I performance.
      * @param name The name of the statistic to be retrieved.
      * @return The value of the statistic, or an empty string if
      * the requested item is not found.
      *
-     */    
-    public String getDivIStatistic(String name){
-        try{
+     */
+    public String getDivIStatistic(String name) {
+        try {
             return JSPUtils.autoFormat(getDivIStats().getItem(name));
-        }catch(NullPointerException npe){
+        } catch (NullPointerException npe) {
             log.debug("Null pointer exception in MemberProfileTask.getDivIStatistic(\""
-                      + name + "\")");
+                    + name + "\")");
             return "";
         }
     }
@@ -257,13 +269,13 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
      * @return The value of the statistic, or an empty string if
      * the requested item is not found.
      *
-     */    
-    public String getDivIIStatistic(String name){
-        try{
+     */
+    public String getDivIIStatistic(String name) {
+        try {
             return JSPUtils.autoFormat(getDivIIStats().getItem(name));
-        }catch(NullPointerException npe){
+        } catch (NullPointerException npe) {
             log.debug("Null pointer exception in MemberProfileTask.getDivIIStatistic(\""
-                      + name + "\")");
+                    + name + "\")");
             return "";
         }
     }
@@ -272,10 +284,9 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
      * @param request The servlet request object.
      * @param response The servlet response object.
      * @throws Exception
-     */    
+     */
     public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
-        throws Exception
-    {
+            throws Exception {
         HttpSession session = request.getSession(true);
 
         if (!Authentication.isLoggedIn(session)) {
@@ -290,24 +301,24 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
      * @param request The servlet request object.
      * @param response The servlet response object.
      * @throws Exception
-     */    
+     */
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
-        throws Exception {
+            throws Exception {
 
         ArrayList a = new ArrayList();
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() + 
-            "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MAIN_TASK + "&" + 
-            TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.MAIN_NAME));
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() + 
-            "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_DETAIL_TASK + "&" + 
-            TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.CAMPAIGN_DETAIL_NAME));
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() + 
-            "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_INTEREST_TASK + "&" + 
-            TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.CAMPAIGN_INTEREST_NAME));
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() + 
-            "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.POSITION_INTEREST_TASK + "&" + 
-            TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID() + "&" +
-            TCESConstants.JOB_ID_PARAM + "=" + getJobID(), TCESConstants.POSITION_INTEREST_NAME));
+        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
+                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MAIN_TASK + "&" +
+                TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.MAIN_NAME));
+        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
+                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_DETAIL_TASK + "&" +
+                TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.CAMPAIGN_DETAIL_NAME));
+        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
+                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_INTEREST_TASK + "&" +
+                TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.CAMPAIGN_INTEREST_NAME));
+        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
+                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.POSITION_INTEREST_TASK + "&" +
+                TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID() + "&" +
+                TCESConstants.JOB_ID_PARAM + "=" + getJobID(), TCESConstants.POSITION_INTEREST_NAME));
         setTrail(a);
 
     }
@@ -315,10 +326,9 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
     /** Processes the given step or phase of the task.
      * @param step The step to be processed.
      * @throws Exception
-     */    
+     */
     public void processStep(String step)
-        throws Exception
-    {
+            throws Exception {
         viewMemberProfile();
 
         ResumeServicesHome rHome = null;
@@ -330,130 +340,71 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         } catch (Exception e) {
             log.error("could not determine if user has a resume or not");
         }
-        
+
     }
 
-    private void viewMemberProfile() throws Exception
-    {
-        NumberFormat decFmt = TCESConstants.NUMBER_FORMAT;
-
-        Map memberInfo = new HashMap();
-        setMemberInfo(memberInfo);
+    private void viewMemberProfile() throws Exception {
 
         // set up Data Warehouse query command.
         Request dwDataRequest = new Request();
         dwDataRequest.setContentHandle("tces_member_profile");
-        dwDataRequest.setProperty("mid", Integer.toString(getMemberID()) );
+        dwDataRequest.setProperty("mid", Integer.toString(getMemberID()));
 
-        DataAccessInt dw = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.DW_DATASOURCE_NAME));
+        DataAccessInt dw = new DataAccess((javax.sql.DataSource) getInitialContext().lookup(DBMS.DW_DATASOURCE_NAME));
         Map dwResultMap = dw.getData(dwDataRequest);
         ResultSetContainer dwRSC = null;
 
         // set up OLTP query command.
         Request oltpDataRequest = new Request();
         oltpDataRequest.setContentHandle("tces_member_profile");
-        oltpDataRequest.setProperty("uid", Integer.toString(uid) );
-        oltpDataRequest.setProperty("jid", Integer.toString(getJobID()) );
-        oltpDataRequest.setProperty("cid", Integer.toString(getCampaignID()) );
-        oltpDataRequest.setProperty("mid", Integer.toString(getMemberID()) );
+        oltpDataRequest.setProperty("uid", Integer.toString(uid));
+        oltpDataRequest.setProperty("jid", Integer.toString(getJobID()));
+        oltpDataRequest.setProperty("cid", Integer.toString(getCampaignID()));
+        oltpDataRequest.setProperty("mid", Integer.toString(getMemberID()));
 
-        DataAccessInt oltp = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
+        DataAccessInt oltp = new DataAccess((javax.sql.DataSource) getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
         Map oltpResultMap = oltp.getData(oltpDataRequest);
 
         // verify that campaign/job/tces user have access to this members's info.
         ResultSetContainer oltpRSC = (ResultSetContainer) oltpResultMap.get("TCES_Verify_Member_Access");
         if (oltpRSC.getRowCount() == 0) {
-            throw new TCESAuthenticationException (" mid="+Integer.toString(getMemberID())
-                                 + " jid="+Integer.toString(getJobID())
-                                 + " cid="+Integer.toString(getCampaignID())
-                                 + "does not belong to uid="+Integer.toString(uid) );
+            throw new TCESAuthenticationException(" mid=" + Integer.toString(getMemberID())
+                    + " jid=" + Integer.toString(getJobID())
+                    + " cid=" + Integer.toString(getCampaignID())
+                    + "does not belong to uid=" + Integer.toString(uid));
         }
 
         // start packaging data for presentation.
 
         oltpRSC = (ResultSetContainer) oltpResultMap.get("TCES_Company_Name");
-        ResultSetContainer.ResultSetRow cmpyNameRow = oltpRSC.getRow(0);
-        setCompanyName( cmpyNameRow.getItem("company_name").toString() );
-
-        oltpRSC = (ResultSetContainer) oltpResultMap.get("TCES_Member_Handle");
-        ResultSetContainer.ResultSetRow memHdlRow = oltpRSC.getRow(0);
-        memberInfo.put(TCESConstants.MEM_INFO_HANDLE_KEY, memHdlRow.getItem("handle").toString());
+        setCompanyName(oltpRSC.getItem(0, "company_name").toString());
 
         oltpRSC = (ResultSetContainer) oltpResultMap.get("TCES_Position_Name");
-        ResultSetContainer.ResultSetRow posNameRow = oltpRSC.getRow(0);
-        setJobName( posNameRow.getItem("job_desc").toString() );
+        setJobName(oltpRSC.getItem(0, "job_desc").toString());
 
-        oltpRSC = (ResultSetContainer) oltpResultMap.get("TCES_Member_Profile");
-        ResultSetContainer.ResultSetRow memProfRow = oltpRSC.getRow(0);
+        setMemberInfo((ResultSetContainer) oltpResultMap.get("TCES_Member_Profile"));
 
-        setImagePath( memProfRow.getItem("image_path").toString() );
+        setImagePath(getMemberInfo().getItem(0, "image_path").toString());
 
-        memberInfo.put(TCESConstants.MEM_INFO_SINCE_KEY ,
-                            memProfRow.getItem("member_since_date").toString() );
-
-        memberInfo.put(TCESConstants.MEM_INFO_FULLNAME_KEY ,
-                            memProfRow.getItem("first_name").toString() + " " +
-                            memProfRow.getItem("last_name").toString() );
-        memberInfo.put(TCESConstants.MEM_INFO_FULLADDR_KEY ,
-                            memProfRow.getItem("address1").toString() +
-                            ((memProfRow.getItem("address2").toString().trim().length() > 0)?
-                                ("<BR>"+memProfRow.getItem("address2").toString()+"<BR>")
-                                : "<BR>" ) +
-                            memProfRow.getItem("city").toString() +
-                            ", " +
-                            memProfRow.getItem("state_code").toString() +
-                            " " +
-                            memProfRow.getItem("zip"));
-        memberInfo.put(TCESConstants.MEM_INFO_CONTACT_KEY,
-                            memProfRow.getItem("email").toString() +
-                            " | " +
-                            memProfRow.getItem("home_phone").toString() );
-        if (memProfRow.getItem("coder_type_desc").toString().toUpperCase().indexOf("STUDENT")>=0)
+        if (getMemberInfo().getItem(0, "coder_type_desc").toString().toUpperCase().indexOf("STUDENT") >= 0)
             setIsStudent(true);
         else
             setIsStudent(false);
 
-        memberInfo.put(TCESConstants.MEM_INFO_MEMTYPE_KEY,
-                            memProfRow.getItem("coder_type_desc").toString() );
-        memberInfo.put(TCESConstants.MEM_INFO_SCHOOLNAME_KEY,
-                            memProfRow.getItem("school_name").toString() );
-        memberInfo.put(TCESConstants.MEM_INFO_DEGREE_KEY,
-                            memProfRow.getItem("degree").toString() );
-        memberInfo.put(TCESConstants.MEM_INFO_MAJOR_KEY,
-                            memProfRow.getItem("major").toString() );
-        memberInfo.put(TCESConstants.MEM_INFO_GRADDATE_KEY,
-                            ((memProfRow.getItem("grad_month").toString().trim().length()>0)?
-                                memProfRow.getItem("grad_month").toString() + ", " : "" ) +
-                            memProfRow.getItem("grad_year").toString() );
-
-        dwRSC = (ResultSetContainer) dwResultMap.get("TCES_Coder_Stats");
-        if (dwRSC.getRowCount() > 0) {
+        setMemberStats((ResultSetContainer)dwResultMap.get("TCES_Coder_Stats"));
+        if (!getMemberStats().isEmpty()) {
             setIsRanked(true);
 
-            ResultSetContainer.ResultSetRow memStatsRow = dwRSC.getRow(0);
-            memberInfo.put(TCESConstants.MEM_RATING_CURRENT_KEY,
-                                memStatsRow.getItem("rating").toString());
-            memberInfo.put(TCESConstants.MEM_RATING_HIGH_KEY,
-                                memStatsRow.getItem("highest_rating").toString() );
-            memberInfo.put(TCESConstants.MEM_RATING_LOW_KEY,
-                                memStatsRow.getItem("lowest_rating").toString() );
-            memberInfo.put(TCESConstants.MEM_RATING_PCTILE_KEY,
-                                memStatsRow.getItem("percentile").toString() );
-            memberInfo.put(TCESConstants.MEM_RATING_NUMEVENTS_KEY,
-                                memStatsRow.getItem("num_ratings").toString() );
-            memberInfo.put(TCESConstants.MEM_RATING_MOSTRECENT_KEY,
-                                getDate(memStatsRow,"last_rated_event") );
-            
             setHasDivisionI(false);
             dwRSC = (ResultSetContainer) dwResultMap.get("TCES_Coder_Stats_D1");
             if (dwRSC.getRowCount() > 0) {
                 setDivIStats(dwRSC.getRow(0));
-                
+
                 dwRSC = (ResultSetContainer) dwResultMap.get("TCES_Coder_Stats_by_Level_D1");
-                setDivIStatsByLevel( (List) dwRSC );
-                
+                setDivIStatsByLevel((List) dwRSC);
+
                 dwRSC = (ResultSetContainer) dwResultMap.get("TCES_Coder_Stats_by_Language_D1");
-                setDivIStatsByLang( (List) dwRSC );
+                setDivIStatsByLang((List) dwRSC);
                 if (!getDivIStatsByLevel().isEmpty() && !getDivIStatsByLang().isEmpty()) {
                     setHasDivisionI(true);
                 }
@@ -463,28 +414,27 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
             dwRSC = (ResultSetContainer) dwResultMap.get("TCES_Coder_Stats_D2");
             if (dwRSC.getRowCount() > 0) {
                 setDivIIStats(dwRSC.getRow(0));
-                
+
                 dwRSC = (ResultSetContainer) dwResultMap.get("TCES_Coder_Stats_by_Level_D2");
-                setDivIIStatsByLevel( (List) dwRSC );
-                
+                setDivIIStatsByLevel((List) dwRSC);
+
                 dwRSC = (ResultSetContainer) dwResultMap.get("TCES_Coder_Stats_by_Language_D2");
-                setDivIIStatsByLang( (List) dwRSC );
+                setDivIIStatsByLang((List) dwRSC);
                 if (!getDivIIStatsByLevel().isEmpty() && !getDivIIStatsByLang().isEmpty()) {
                     setHasDivisionII(true);
                 }
             }
-        }
-        else {
+        } else {
             setIsRanked(false);
         }
 
-        setNextPage( TCESConstants.MEMBER_PROFILE_PAGE );
+        setNextPage(TCESConstants.MEMBER_PROFILE_PAGE);
     }
 
     /** Sets attributes for the task.
      * @param paramName The name of the attribute being set.
      * @param paramValues The values to be associated with the given attribute.
-     */    
+     */
     public void setAttributes(String paramName, String paramValues[]) {
         String value = paramValues[0];
         value = (value == null?"":value.trim());
@@ -503,112 +453,112 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
     public ResultSetContainer.ResultSetRow getDivIStats() {
         return this.divIStats;
     }
-    
+
     /** Setter for property divIStats.
      * @param divIStats New value of property divIStats.
      */
     public void setDivIStats(ResultSetContainer.ResultSetRow divIStats) {
         this.divIStats = divIStats;
     }
-    
+
     /** Getter for property hasDivisionI.
      * @return Value of property hasDivisionI.
      */
     public boolean hasDivisionI() {
         return this.hasDivisionI;
     }
-    
+
     /** Setter for property hasDivisionI.
      * @param hasDivisionI New value of property hasDivisionI.
      */
     public void setHasDivisionI(boolean hasDivisionI) {
         this.hasDivisionI = hasDivisionI;
     }
-    
+
     /** Getter for property hasDivisionII.
      * @return Value of property hasDivisionII.
      */
     public boolean hasDivisionII() {
         return this.hasDivisionII;
     }
-    
+
     /** Setter for property hasDivisionII.
      * @param hasDivisionII New value of property hasDivisionII.
      */
     public void setHasDivisionII(boolean hasDivisionII) {
         this.hasDivisionII = hasDivisionII;
     }
-    
+
     /** Getter for property divIIStats.
      * @return Value of property divIIStats.
      */
     public ResultSetContainer.ResultSetRow getDivIIStats() {
         return this.divIIStats;
     }
-    
+
     /** Setter for property divIIStats.
      * @param divIIStats New value of property divIIStats.
      */
     public void setDivIIStats(ResultSetContainer.ResultSetRow divIIStats) {
         this.divIIStats = divIIStats;
     }
-    
+
     /** Getter for property divIStatsByLevel.
      * @return Value of property divIStatsByLevel.
      */
     public List getDivIStatsByLevel() {
         return this.divIStatsByLevel;
     }
-    
+
     /** Setter for property divIStatsByLevel.
      * @param divIStatsByLevel New value of property divIStatsByLevel.
      */
     public void setDivIStatsByLevel(List divIStatsByLevel) {
         this.divIStatsByLevel = divIStatsByLevel;
     }
-    
+
     /** Getter for property divIStatsByLang.
      * @return Value of property divIStatsByLang.
      */
     public List getDivIStatsByLang() {
         return this.divIStatsByLang;
     }
-    
+
     /** Setter for property divIStatsByLang.
      * @param divIStatsByLang New value of property divIStatsByLang.
      */
     public void setDivIStatsByLang(List divIStatsByLang) {
         this.divIStatsByLang = divIStatsByLang;
     }
-    
+
     /** Getter for property divIIStatsByLang.
      * @return Value of property divIIStatsByLang.
      */
     public List getDivIIStatsByLang() {
         return this.divIIStatsByLang;
     }
-    
+
     /** Setter for property divIIStatsByLang.
      * @param divIIStatsByLang New value of property divIIStatsByLang.
      */
     public void setDivIIStatsByLang(List divIIStatsByLang) {
         this.divIIStatsByLang = divIIStatsByLang;
     }
-    
+
     /** Getter for property divIIStatsByLevel.
      * @return Value of property divIIStatsByLevel.
      */
     public List getDivIIStatsByLevel() {
         return this.divIIStatsByLevel;
     }
-    
+
     /** Setter for property divIIStatsByLevel.
      * @param divIIStatsByLevel New value of property divIIStatsByLevel.
      */
     public void setDivIIStatsByLevel(List divIIStatsByLevel) {
         this.divIIStatsByLevel = divIIStatsByLevel;
     }
-    
+
 }
 
 
