@@ -234,7 +234,7 @@ public class DocumentManagerBean implements SessionBean {
                         "s.is_completed, s.is_pm_reviewed, " +
                         "s.author_id, s.submission_id, s.score, " +
                         "s.scorecard_v_id, sub.is_removed, s.raw_score, s.pm_review_timestamp " +
-                        "FROM scorecard s, submission sub " +
+                        "FROM scorecard s, submission sub" +
                         "WHERE s.cur_version = 1 AND " +
                         "sub.cur_version = 1 AND " +
                         "s.submission_id = sub.submission_id AND " +
@@ -257,10 +257,14 @@ public class DocumentManagerBean implements SessionBean {
                         "s.is_completed, s.is_pm_reviewed, " +
                         "s.author_id, s.submission_id, s.score, " +
                         "s.scorecard_v_id, sub.is_removed, s.raw_score, s.pm_review_timestamp " +
-                        "FROM scorecard s, submission sub  " +
+                        "FROM scorecard s, submission sub, r_user_role rur " +
                         "WHERE s.cur_version = 1 AND " +
                         "sub.cur_version = 1 AND " +
                         "s.submission_id = sub.submission_id AND " +
+                        "rur.project_id = s.project_id AND " +
+                        "rur.login_id = sub.submitter_id AND " +
+                        "rur.current_version = 1 AND " +
+                        "rur.r_role_id = 1 AND " +
                         "s.project_id = ? AND " +
                         "s.scorecard_type = ? AND " +
                         "s.author_id = ? " +
@@ -302,9 +306,13 @@ public class DocumentManagerBean implements SessionBean {
                         "s.is_completed, s.is_pm_reviewed, " +
                         "s.author_id, s.submission_id, s.score, " +
                         "s.scorecard_v_id, sub.is_removed, s.raw_score, s.pm_review_timestamp " +
-                        "FROM scorecard s, submission sub " +
+                        "FROM scorecard s, submission sub, r_user_role rur " +
                         "WHERE s.cur_version = 1 AND " +
                         "sub.cur_version = 1 AND " +
+                        "rur.project_id = s.project_id AND " +
+                        "rur.login_id = sub.submitter_id AND " +
+                        "rur.current_version = 1 AND " +
+                        "rur.r_role_id = 1 AND " +
                         "s.submission_id = sub.submission_id AND " +
                         "s.project_id = ? AND " +
                         "s.scorecard_type = ? " +
