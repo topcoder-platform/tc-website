@@ -71,14 +71,14 @@
                 
                 for(var i = 0; i < getLength("document.frmTesting", "listBox.options") ; i++) {
                     var val = getOption("document.frmTesting", "listBox", i).value;
-                    alert(val);
+                    alert(getOption("document.frmTesting", "listBox", i));
                     val = replace(val, "\\", "\\\\");
                     val = replace(val, "\"", "\\\"");
                     arr = arr + "\"" + val + "\",";
                 }
                 
-                alert(arr);
                 arr = arr.substring(0, arr.length-1);
+                alert(arr);
                 
                 putValue("window.opener.opener.document.forms[0]", "arg" + arg, arr);
                 putValue("window.opener.document.forms[0]", "arg" + arg + "input", "modify");
