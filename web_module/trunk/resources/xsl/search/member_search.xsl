@@ -159,7 +159,7 @@
           </TR>
           <TR>
             <TD CLASS="statText" VALIGN="middle" HEIGHT="15" WIDTH="50%">&#160;Handle&#160;
-              <INPUT TYPE="text" NAME="Handle" SIZE="15" MAXLENGTH="20" onKeyPress="submitEnter(event)">
+              <INPUT TYPE="text" NAME="SearchHandle" SIZE="15" MAXLENGTH="20" onKeyPress="submitEnter(event)">
                 <xsl:choose>
                   <xsl:when test="/TC/MEMBER_SEARCH/MemberSearch/Handle!='%'">
                     <xsl:attribute name="value">

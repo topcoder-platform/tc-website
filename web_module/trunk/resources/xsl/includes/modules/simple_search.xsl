@@ -17,7 +17,7 @@
                             <INPUT TYPE="hidden" NAME="c" VALUE="simple_search"/>
                               <SCRIPT type="text/javascript"><![CDATA[
                                 var search=document.searchForm;
-                                function submitEnter(e) {
+                                function checkEnter(e) {
                                   var keycode;
                                   if (window.event) keycode = window.event.keyCode;
                                   else if (e) keycode = e.which;
@@ -32,7 +32,7 @@
                                 }
                               ]]></SCRIPT>
 
-                          <INPUT TYPE="text" NAME="Handle" SIZE="15" MAXLENGTH="20" onKeyPress="submitEnter(event)"/>
+                          <INPUT TYPE="text" NAME="Handle" SIZE="15" MAXLENGTH="20" onKeyPress="checkEnter(event)"/>
                           <A HREF="javascript:submitSearch()"><xsl:attribute name="CLASS">statText</xsl:attribute>&#160;[ submit ]</A>
                           </FORM>
                         </TD>
