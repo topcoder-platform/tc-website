@@ -271,7 +271,8 @@ p.path || i.file_name as image_path,
        ,image i
  WHERE cix.image_id = i.image_id
    AND cix.coder_id = @cr@
-   AND i.image_type_id = 1) as has_image
+   AND i.image_type_id = 1) as has_image,
+TO_CHAR(c.member_since, '%iY-%m-%d') as member_since_date
 FROM coder_problem_summary cps JOIN coder c ON cps.coder_id = c.coder_id
                                 AND cps.coder_id = @cr@
                                JOIN rating r ON c.coder_id = r.coder_id
@@ -783,7 +784,7 @@ SELECT p.path || i.file_name, link, width, height
    AND rix.display_flag = 1
    AND rix.round_id = @rd@
 "
-java QueryLoader 46 "Top_Room_Winners" 1 7"
+java QueryLoader 46 "Top_Room_Winners" 1 7 "
 SELECT ro.name as round_name
        ,ro.round_id as round_id
        ,r.name as room_name
@@ -812,7 +813,7 @@ SELECT ro.name as round_name
                           WHERE r.round_type_id = 1)
  ORDER BY final_points desc
 "
-java QueryLoader 47 "Top_Ranked_Div_1" 1 3"
+java QueryLoader 47 "Top_Ranked_Div_1" 1 3 "
 SELECT c.coder_id
        ,c.handle
        ,r.rating
@@ -822,7 +823,6 @@ SELECT c.coder_id
    AND r.rating > 1199
  ORDER BY r.rating DESC
 "
-
 java QueryLoader 48 "Top_Ranked_Div_2" 1 3 "
 SELECT c.coder_id
        ,c.handle
