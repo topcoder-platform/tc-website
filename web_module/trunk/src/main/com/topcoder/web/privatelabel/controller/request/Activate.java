@@ -3,12 +3,8 @@ package com.topcoder.web.privatelabel.controller.request;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.user.User;
-import com.topcoder.shared.util.DBMS;
 
-import javax.naming.InitialContext;
 import java.util.Arrays;
 
 abstract public class Activate extends RegistrationBase {
