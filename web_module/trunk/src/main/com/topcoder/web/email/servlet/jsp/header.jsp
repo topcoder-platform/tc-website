@@ -1,3 +1,5 @@
+<%@ page import="com.topcoder.web.email.servlet.*" %>
+
 <SCRIPT type="text/javascript">
 if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
   // Linux Stylesheets
