@@ -44,7 +44,7 @@ public class HSAuthorization implements Authorization {
             TCPermission perm = new GenericPermission(r.getName());
             return policy.checkPermission(user, perm);
         } catch(Exception e) {
-            return false;
+            return true;  //@@@ opposite of production
         }
     }
 }
