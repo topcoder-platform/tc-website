@@ -314,7 +314,7 @@
                       </TD>
                     </TR>
                   </tces:rowIterator>
-
+                <% if (MemberProfileTask.hasMultipleDivILanguage()) { %>
                     <TR>
                       <TD class="statText" HEIGHT="18">
                         &#160;<b>All</b>
@@ -344,8 +344,9 @@
                         <%= JSPUtils.timeFormat(MemberProfileTask.getDivIStats().getItem("avg_time_elapsed")) %>
                       </TD>
                     </TR>
+                <% } %>
                   </TABLE>
-                  </P>    
+                  </P>
     <% } %>
 
     <% if (MemberProfileTask.hasDivisionII()) { %>
@@ -466,11 +467,11 @@
                       </TD>
                     </TR>
                   </TABLE>
-                  </P>    
+                  </P>
 
                   <P>
                   <B>Statistics by Language:<br></B>
-                  <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">               
+                  <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">
                     <TR>
                       <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18">&#160;<b></b></TD>
                       <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
@@ -487,7 +488,7 @@
                       <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><b>Avg Time to Submit</b></TD>
                     </TR>
 
-                
+
 
                   <tces:rowIterator id="language" rowList="<%=(List)MemberProfileTask.getDivIIStatsByLang()%>">
                     <TR>
@@ -521,6 +522,7 @@
                     </TR>
                   </tces:rowIterator>
 
+                <% if (MemberProfileTask.hasMultipleDivILanguage()) { %>
                     <TR>
                       <TD class="statText" HEIGHT="18">
                         &#160;<b>All</b>
@@ -550,6 +552,7 @@
                         <%= JSPUtils.timeFormat(MemberProfileTask.getDivIIStats().getItem("avg_time_elapsed")) %>
                       </TD>
                     </TR>
+                  <% } %>
                   </TABLE>
                   </P>    
     <% } %>
