@@ -96,7 +96,7 @@ while (strtok.hasMoreTokens()){
                  </TR>
                  <TR>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="problemText" VALIGN="middle" ALIGN="left">
-              		<%= stBuffer.toString() %>
+              		JEddie test: <%= stBuffer.toString() %>
                    </TD>
                  </TR>
                  <TR>
