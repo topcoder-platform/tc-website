@@ -27,12 +27,12 @@
            <jsp:param name="title" value=""/>
         </jsp:include>
 
-<p class="header">Problem:&nbsp;<%= request.getAttribute("problemName") %></p>
 <tc-webtag:errorIterator id="err" name="problemRating"><%=err%><br/></tc-webtag:errorIterator>
 <form name="ratings" action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="GET">
 <input type="hidden" name="module" value="SubmitRatings">
 <input type="hidden" name="pid" value="<%= request.getParameter("pid") %>">
     <table BORDER="0" CELLSPACING="0" CELLPADDING="6" WIDTH="500" align="center" class="sidebarBox">
+        <tr><td class="testTableTitleSmall" valign="top" align="center" colspan="11">Problem:&nbsp;<%= request.getAttribute("problemName") %></td></tr>
         <tr><td class="sidebarTitle" valign="top">Question</td>
             <% for(int i = 1; i<=10; i++){ %>
                 <td class="sidebarTitle" align="center" valign="top">

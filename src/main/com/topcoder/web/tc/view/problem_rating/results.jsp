@@ -94,8 +94,8 @@
            <jsp:param name="title" value="Results"/>
         </jsp:include>
 
-<p class="header">Problem:&nbsp;<%= request.getAttribute("problemName") %></p>
     <table  WIDTH="500" BORDER="0" CELLSPACING="0" CELLPADDING="6"align="center" class="sidebarBox">
+        <tr><td class="testTableTitleSmall" valign="top" align="center" colspan="4">Problem:&nbsp;<%= request.getAttribute("problemName") %></td></tr>
         <tr>
            <td class="sidebarTitle" align="left" valign="bottom" nowrap>Question</td>
            <td class="sidebarTitle" align="right" valign="bottom" nowrap>Total Avg. Rating</td>
