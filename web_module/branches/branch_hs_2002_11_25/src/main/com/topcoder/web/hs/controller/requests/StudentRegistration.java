@@ -18,6 +18,7 @@ import javax.ejb.*;
 import javax.naming.*;
 import javax.servlet.*;
 import javax.sql.*;
+import javax.transaction.UserTransaction;
 
 /**
  * A RequestProcessor which handles the registration of new students.  It
@@ -499,7 +500,11 @@ public class StudentRegistration extends Base {
   }
 
   private void commitStudent(StudentRegistrationBean _srb) throws Exception {
+    UserTransaction utx=null;
     try {
+      utx=Transaction.get();
+      Transaction.begin(utx);
+
       Context ctx=TCContext.getContext(ApplicationServer.JBOSS_JNDI_FACTORY,
                                        ApplicationServer.SECURITY_HOST);
       PrincipalMgrRemoteHome pmrh=(PrincipalMgrRemoteHome)
@@ -545,8 +550,16 @@ public class StudentRegistration extends Base {
       RatingHome rh=(RatingHome)ctx.lookup(RatingHome.EJB_REF_NAME);
       Rating rating=rh.create();
       rating.createRating(user_id);
+
+      Transaction.commit(utx);
     }
-    catch (RemoteException _re) {
+    catch (Exception _e) {
+      if (utx!=null) {
+        Transaction.rollback(utx);
+      }
+      throw(_e);
+    }
+    /*catch (RemoteException _re) {
       _re.printStackTrace();
       throw(new Exception(_re.getMessage()));
     }
@@ -561,7 +574,7 @@ public class StudentRegistration extends Base {
     catch (GeneralSecurityException _gse) {
       _gse.printStackTrace();
       throw(new Exception(_gse.getMessage()));
-    }
+    }*/
   }
 
 };
