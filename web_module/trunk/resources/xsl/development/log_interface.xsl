@@ -85,9 +85,9 @@ Please review the <a href="http://www.topcoder.com/?&amp;t=development&amp;c=ind
 <B>Payment</B>
 </P>
 <P>
-TopCoder will compensate the member with the winning solution.  Compensation will consist of both initial payments and royalties on the sale of the component.  The initial payment will be distributed in three installments.
-First Milestone: When the winning solution is submitted and review board suggestions are integrated.
-Second Milestone: At the completion of the development project.  
+TopCoder will compensate the member with the winning solution.  Compensation will consist of both initial payments and royalties on the sale of the component.  The initial payment will be distributed in two installments.
+<br>First Milestone: When the winning solution is submitted and review board suggestions are integrated.
+<br>Second Milestone: At the completion of the development project.  
 </P>
 
 <P>
@@ -135,10 +135,10 @@ You must be a rated TopCoder member, at least 18 years of age, meeting all of th
 <B>Time Line</B>
 </P>
 <P>
-Component Posting: 10/25/2002<BR/>	
-Initial Submission Date: 11/6/2002<BR/>
-Final Submission Date: 11/7/2002<BR/>
-Estimated Development End Date: 11/18/2002<BR/>
+Component Posting: 10/25/2002<BR/>
+Initial Submission Due Date: 11/6/2002<BR/>
+Final Submission Due Date: 11/12/2002<BR/>
+Estimated Development End Date: 12/3/2002<BR/>
 
 </P>
 

@@ -74,9 +74,11 @@ Please review the <A HREF="http://www.topcoder.com/?&amp;t=development&amp;c=ind
 
 <P><B>Payment</B></P>
 
-<P>TopCoder will compensate the member with the winning solution.  Compensation will consist of both initial payments and royalties on the sale of the component.  The initial payment will be distributed in three installments.
-First Milestone: When the winning solution is submitted and review board suggestions are integrated.
-Second Milestone: At the completion of the development project.  </P>
+<P>
+TopCoder will compensate the member with the winning solution.  Compensation will consist of both initial payments and royalties on the sale of the component.  The initial payment will be distributed in two installments.
+<br>First Milestone: When the winning solution is submitted and review board suggestions are integrated.
+<br>Second Milestone: At the completion of the development project.  
+</P>
 
 <P>Members will also collect royalties on the revenue generated from the sale of the component.  This amount is determined using the company royalty pool percentage, currently set as 10% of the component's revenue, and the percentage of the developer's contribution to the total contribution for the development of the component.  For example if a developer contributes 50% of the work effort for a component (is paid 50% of the total member cost of developing the component) that developer will receive 50% of the royalty pool for that component.  Royalties may be diluted if additional work is done to the component, as the total cost of the component will increase. </P>
 
@@ -106,10 +108,10 @@ Second Payment	$37.50<BR/>
 </UL>
 </P>
 <P>
-Component Posting: 10/25/2002	<BR/>
-Component Submission Due Date: 11/7/2002<BR/>
-Component Enhancement Date: 11/8/2002<BR/>
-Estimated Development End Date: 11/27/2002<BR/>
+Component Posting: 10/25/2002<BR/>
+Initial Submission Due Date: 11/7/2002<BR/>
+Final Submission Due Date: 11/13/2002<BR/>
+Estimated Development End Date: 12/4/2002<BR/>
 </P>
 
 
