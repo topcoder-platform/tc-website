@@ -202,7 +202,9 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
                 refRspRow = rsc.getRow(rowI);
                 Map referralItem = new HashMap();
 
-                double pct = (((Long)refRspRow.getItem("resp_count").getResultData())).doubleValue() / ((double) getStudentCoderCount());
+                double pct = (((Long)refRspRow.getItem("resp_count").getResultData())).doubleValue() / ((types[typeI]==TCESConstants.STUDENT_CODER_TYPE) ?
+                    ((double) getStudentCoderCount()):((double) getProCoderCount()) );
+
                 pct = (int)(pct*10000+0.5)/100.0;
 
                 referralItem.put("title", refRspRow.getItem("response").toString() );
@@ -223,7 +225,9 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
                 Map notifyItem = new HashMap();
 
                 double pct =
-                    (((Long)notifyRow.getItem("resp_count").getResultData())).doubleValue() / ((double) getStudentCoderCount());
+                    (((Long)notifyRow.getItem("resp_count").getResultData())).doubleValue()
+                        / ((types[typeI]==TCESConstants.STUDENT_CODER_TYPE) ?
+                        ((double) getStudentCoderCount()):((double) getProCoderCount()) );
                 pct = (int)(pct*10000+0.5)/100.0;
 
                 notifyItem.put("title", notifyRow.getItem("response").toString() );
@@ -251,7 +255,8 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
 
                 double pct =
                     (((Long)demoInfoRow.getItem("resp_count").getResultData())).doubleValue()
-                    / ((double) getStudentCoderCount());
+                        / ((types[typeI]==TCESConstants.STUDENT_CODER_TYPE) ?
+                        ((double) getStudentCoderCount()):((double) getProCoderCount()) );
                 pct = (int)(pct*10000+0.5)/100.0;
 
                 HashMap respItem = new HashMap();
