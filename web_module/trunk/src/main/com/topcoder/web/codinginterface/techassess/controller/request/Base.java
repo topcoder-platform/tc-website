@@ -68,6 +68,7 @@ public abstract class Base extends BaseProcessor {
             getRequest().setAttribute(Constants.SPONSOR_IMAGE, compImage);
 
         } catch (TimeOutException e) {
+            unlock();
             closeProcessingPage(buildProcessorRequestString(Constants.RP_TIMEOUT, null, null));
         }
     }
