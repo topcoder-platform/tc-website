@@ -6,6 +6,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>03.04.05<br>10:00 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm233_prob">SRM 233 - Problem Set & Analysis</A></span><br><br>
+      The submissions came fast and furious in both divisions; more than 85 submissions were recorded in the first five minutes of the match.</td>
+      <td class="newsPhoto"><img src="/i/m/radeye_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=277659">radeye</A></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/index?t=statistics&c=srm233_prob">full story</A>&#160;|&#160;
+         <A href="/?t=statistics&c=editorial_archive">archive</A>
+   </td></tr>
+ 
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General TopCoder News" border="0" /><br>03.03.05<br>4:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/rtables/viewThread.jsp?forum=244237&thread=443165&mc=1">School name to be made public in Member Profiles</A></span><br><br>
       A member's school name will be available within the web site member profiles, and will eventually be available from within the TopCoder Arena.
@@ -242,18 +257,6 @@
    <tr><td class="newsLinksCell">
          <A href="http://software.topcoder.com/components/subscriptions.jsp">register</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>02.09.05<br>9:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/?&t=news_events&c=pr_02_09_05">Google Code Jam Comes to India</A></span><br><br>
-      The Google India Code Jam is an extension of Google's annual Code Jam competition and celebrates the art of computer science...
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/?&t=news_events&c=pr_02_09_05">full story</A>&#160;|&#160;
-         <A href="/?t=news_events&c=index">archive</A>
    </td></tr>
 
 </table>
