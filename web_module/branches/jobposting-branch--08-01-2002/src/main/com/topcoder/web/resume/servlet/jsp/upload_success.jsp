@@ -3,6 +3,9 @@
 <%@ page errorPage="/errorPage.jsp"%>
 
 <HTML>
+<HEAD><TITLE>Resume Uploaded Successfully</TITLE>
+    <%@ include file="../script.jsp" %>
+    </HEAD>
   <BODY BGCOLOR="#CCCCCC">
     <TABLE WIDTH="100%" HEIGHT="100%" BACKGROUND="/i/steel_darkblue_bg.gif">
       <TR>
