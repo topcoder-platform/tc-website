@@ -157,70 +157,41 @@ function sort(key,dir){
       <TD WIDTH="21%" HEIGHT="21" ALIGN="right" CLASS="statText">Referral Earnings</TD>
     </TR>
     <xsl:for-each select="/TC/MEMBER_SEARCH/Referrals/Coder">
-      <xsl:variable name="color">
-        <xsl:call-template name="GetRatingColor">
-          <xsl:with-param name="rating"><xsl:value-of select="Rating"/></xsl:with-param>
-        </xsl:call-template>
-      </xsl:variable>
       <tr>
         <td align="left" class="statText">
-            <a>
-              <xsl:attribute name="href">/?t=statistics&amp;c=member_profile&amp;Coder_Id=<xsl:value-of select="CoderId"/></xsl:attribute>
-              <font>
-                <xsl:attribute name="color"><xsl:value-of select="$color"/></xsl:attribute>
                 <xsl:value-of select="MemberSince"/>
-              </font>
-            </a>
         </td>
         <td align="left" class="statText">
+
           <a>
-            <xsl:attribute name="href">/?t=statistics&amp;c=member_profile&amp;Coder_Id=<xsl:value-of select="CoderId"/></xsl:attribute>
-            <font>
-              <xsl:attribute name="color"><xsl:value-of select="$color"/></xsl:attribute>
+            <xsl:attribute name="href">/stat?&amp;c=member_profile&amp;cr=<xsl:value-of select="CoderId"/></xsl:attribute>
+              <xsl:attribute name="CLASS">
+                <xsl:call-template name="GetRatingClass"><xsl:with-param name="rating"><xsl:value-of select="Rating"/></xsl:with-param></xsl:call-template>
+              </xsl:attribute>
               <xsl:value-of select="Handle"/>
-            </font>
           </a>
         </td>
         <td align="right" class="statText">
-            <a>
-              <xsl:attribute name="href">/?t=statistics&amp;c=member_profile&amp;Coder_Id=<xsl:value-of select="CoderId"/></xsl:attribute>
-              <font>
-                <xsl:attribute name="color"><xsl:value-of select="$color"/></xsl:attribute>
                 <xsl:value-of select="Rating"/>
-              </font>
-            </a>
         </td>
         <td align="right" class="statText">
-            <a>
-              <xsl:attribute name="href">/?t=statistics&amp;c=member_profile&amp;Coder_Id=<xsl:value-of select="CoderId"/></xsl:attribute>
-              <font>
-                <xsl:attribute name="color"><xsl:value-of select="$color"/></xsl:attribute>
                 <xsl:choose>
                   <xsl:when test="number(TotalEarnings)=0">-</xsl:when>
                   <xsl:otherwise>
                     $<xsl:value-of select="format-number(TotalEarnings,'0.00')"/>
                   </xsl:otherwise>
                 </xsl:choose>
-              </font>
-            </a>
         </td>
         <td align="right" class="statText">
-            <a>
-              <xsl:attribute name="href">/?t=statistics&amp;c=member_profile&amp;Coder_Id=<xsl:value-of select="CoderId"/></xsl:attribute>
-              <font>
-                <xsl:attribute name="color"><xsl:value-of select="$color"/></xsl:attribute>
                 <xsl:choose>
                   <xsl:when test="number(TotalEarnings)=0">-</xsl:when>
                   <xsl:otherwise>
                     $<xsl:value-of select="format-number(number(TotalEarnings)*.1,'0.00')"/>
                   </xsl:otherwise>
                 </xsl:choose>
-              </font>
-            </a>
         </td>
       </tr>
     </xsl:for-each>
-
 
   <TR><TD COLSPAN="5" BACKGROUND="/i/steel_darkblue_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="11" BORDER="0"/></TD></TR>
   </TABLE>
