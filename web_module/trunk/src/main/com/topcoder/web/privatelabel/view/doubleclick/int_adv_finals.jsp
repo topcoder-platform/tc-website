@@ -24,17 +24,20 @@
 	  	</td>
 		<td class="dc_bodyText">
          <p class="pageTitle">Advancers</p>
+         
+         <p>Main Competition Round</p>
 
-                      <table class="formFrame" cellpadding=5 cellspacing=2 width="250">
+                      <table class="formFrame" cellpadding=5 cellspacing=2 width="400">
                         <tr>
-                           <td class="sidebarTitle">Round</td>
+                           <td class="sidebarTitle" width="25%">Place</td>
+                           <td class="sidebarTitle" width="50%">Handle</td>
+                           <td class="sidebarTitle" width="25%">Score</td>
                         </tr>
-                        <tr>
-                           <td class="sidebarText" nowrap="nowrap"><a class="bodyText_link" href="/pl/?&module=Static&d1=doubleclick&d2=int_adv_main">Main Competition Round</a></td>
-                        </tr>
-                        <tr>
-                           <td class="sidebarText" nowrap="nowrap"><a class="bodyText_link" href="/pl/?&module=Static&d1=doubleclick&d2=int_adv_finals">Finals</a></td>
-                        </tr>
+
+<tr><td class="sidebarText">Champion</td><td class="sidebarText">handle</td><td class="sidebarText">score</td></tr>
+<tr><td class="sidebarText">2nd</td><td class="sidebarText">handle</td><td class="sidebarText">score</td></tr>
+
+
                      </table>
 
 		</td>
