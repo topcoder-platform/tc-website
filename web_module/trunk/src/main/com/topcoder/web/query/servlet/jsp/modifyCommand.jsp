@@ -42,7 +42,7 @@
           <TR>
             <TD CLASS="statText" ALIGN="right">Group: </TD>
             <TD CLASS="statText" ALIGN="left">
-              <query:commandGroupSelect name="<%=Constants.GROUP_ID_PARAM%>" class="dropdown" list="<%=ModifyCommandTask.getGroups()%>" selectedValue="<%=""+ModifyCommandTask.getGroupId()%>"/></td>
+              <query:commandGroupSelect name="<%=Constants.GROUP_ID_PARAM%>" class="dropdown" list="<%=ModifyCommandTask.getGroups()%>" selectedValue='<%=""+ModifyCommandTask.getGroupId()%>'/>
             </TD>
           </TR>
         </TABLE>

@@ -27,7 +27,7 @@ public class CommandGroupSelect extends Select {
     }
 
     String getOptionText(Object o) {
-        return ((ResultSetContainer.ResultSetRow)o).getItem("command_group_desc").toString();
+        return ((ResultSetContainer.ResultSetRow)o).getItem("command_group_name").toString();
     }
 
     List getSelectOptions() throws JspException {
