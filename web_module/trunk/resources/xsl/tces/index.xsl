@@ -135,7 +135,7 @@ Vertex ends -->
                             <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
 <!-- FBI ends -->
 
-<!-- Google begins -->
+<!-- Google begins
                             <tr valign="top">
                                 <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=google"><img src="/i/es/google_sm.gif" width="143" height="59" border="0"/></a></td>
                                 <td width="99%" class="bodyText">Google is looking for exceptional people who like to develop innovative new products, especially software 
@@ -145,7 +145,7 @@ Vertex ends -->
                             </tr>
                         
                             <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
-<!-- Google ends -->
+ Google ends -->
 
 <!-- GE begins
  <TR>
@@ -163,7 +163,7 @@ IMLP puts information management careers on the fast track. Program graduates ar
 
 <!-- Apex begins -->
                             <tr valign="top">
-                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=apex"><img src="/i/es/apex/apexlogo.gif" width="82" height="94" alt="Apex" border="0"/></a></td>
+                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=apex"><img src="/i/es/apex/apexlogo.gif" width="82" height="71" alt="Apex" border="0"/></a></td>
                                 <td class="bodyText" width="99%">Apex is a company built upon a set of core values that guide their every action - excellence, human 
                                     dignity and integrity.  They consider themselves "the best place for the best people to work."  
                                     <a href="/?&amp;t=tces&amp;c=apex" class="bodyText">Click here</a> to view current job opportunities available at Apex.<br /><br /></td>
