@@ -52,7 +52,7 @@ public class TCESConstants {
     public static String HANDLE_PARAM = null;
     public static String PASSWORD_PARAM = null;
     public static String CAMPAIGN_ID_PARAM = "cid";
-    public static String JOB_ID_PARAM = "jid";
+    public static String JOB_ID_PARAM = null;
     public static String MEMBER_ID_PARAM = "mid";
     public static String JOB_HIT_TYPE_PARAM = null;
 
