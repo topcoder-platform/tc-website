@@ -3,7 +3,6 @@ package com.topcoder.web.query.request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.query.common.Constants;
-import com.topcoder.web.query.common.Util;
 import com.topcoder.web.query.ejb.QueryServices.Query;
 import com.topcoder.web.query.ejb.QueryServices.QueryInput;
 import com.topcoder.web.query.ejb.QueryServices.CommandQuery;
@@ -50,9 +49,9 @@ public class QueryDetail extends BaseProcessor {
 
     protected void businessProcessing() throws TCWebException {
         try {
-            QueryInput qi = (QueryInput) Util.createEJB(getInitialContext(), QueryInput.class);
-            Query q = (Query) Util.createEJB(getInitialContext(), Query.class);
-            CommandQuery cq = (CommandQuery) Util.createEJB(getInitialContext(), CommandQuery.class);
+            QueryInput qi = (QueryInput) createEJB(getInitialContext(), QueryInput.class);
+            Query q = (Query) createEJB(getInitialContext(), Query.class);
+            CommandQuery cq = (CommandQuery) createEJB(getInitialContext(), CommandQuery.class);
 
             setQueryText(q.getText(getQueryId(), getDb()));
             setQueryName(q.getName(getQueryId(), getDb()));

@@ -3,7 +3,6 @@ package com.topcoder.web.query.request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.query.common.Constants;
-import com.topcoder.web.query.common.Util;
 import com.topcoder.web.query.ejb.QueryServices.Query;
 import com.topcoder.web.query.bean.QueryBean;
 import com.topcoder.web.common.BaseProcessor;
@@ -49,7 +48,7 @@ public class QuerySearch extends BaseProcessor {
     protected void businessProcessing() throws TCWebException {
         try {
 
-            Query q = (Query) Util.createEJB(getInitialContext(), Query.class);
+            Query q = (Query) createEJB(getInitialContext(), Query.class);
 
             ResultSetContainer rsc = q.getAllQueries(true, getDb());
             if (getSearchCriteria() != null && !getSearchCriteria().equals("")) {

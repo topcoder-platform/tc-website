@@ -3,7 +3,6 @@ package com.topcoder.web.query.request;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.web.query.common.Constants;
-import com.topcoder.web.query.common.Util;
 import com.topcoder.web.query.ejb.QueryServices.Input;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
@@ -61,7 +60,7 @@ public class ModifyInput extends BaseProcessor {
     protected void businessProcessing() throws TCWebException {
         String step = getRequest().getParameter(Constants.STEP_PARAM);
         try {
-            Input i = (Input) Util.createEJB(getInitialContext(), Input.class);
+            Input i = (Input) createEJB(getInitialContext(), Input.class);
 
             if (step != null && step.equals(Constants.SAVE_STEP)) {
                 checkInputCode(getInputCode(), i);
