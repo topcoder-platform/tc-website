@@ -69,6 +69,24 @@
           <env-entry-value>JTS_SCREENING_OLTP</env-entry-value>
         </env-entry>
     </session>
+        <session>
+            <ejb-name>UserNote</ejb-name>
+            <home>com.topcoder.web.ejb.user.UserNoteHome</home>
+            <remote>com.topcoder.web.ejb.user.UserNote</remote>
+            <ejb-class>com.topcoder.web.ejb.user.UserNoteBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Container</transaction-type>
+            <resource-ref>
+                <res-ref-name>datasource</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+            <resource-ref>
+                <res-ref-name>jts_datasource</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+        </session>
   </enterprise-beans>
   <assembly-descriptor>
     <container-transaction>
@@ -99,5 +117,14 @@
       </method>
       <trans-attribute>Required</trans-attribute>
     </container-transaction>
+      <container-transaction>
+          <method>
+              <ejb-name>UserNote</ejb-name>
+              <method-intf>Remote</method-intf>
+              <method-name>*</method-name>
+          </method>
+          <trans-attribute>Required</trans-attribute>
+      </container-transaction>
+
   </assembly-descriptor>
 </ejb-jar>
