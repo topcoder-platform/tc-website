@@ -78,7 +78,8 @@
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText">
 <P><IMG SRC="/i/tournament/invit02/tourney_photo_SFR1.jpg" ALT="" WIDTH="200" HEIGHT="435" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/>
-<FONT SIZE="5" COLOR="#000000" FACE="tahoma, verdana"><B>As expected, SnapDragon struts his stuff</B></FONT><BR/><BR/>
+<FONT SIZE="5" COLOR="#000000" FACE="tahoma, verdana"><B>As expected, SnapDragon struts his stuff</B></FONT><BR/>
+by MaryBeth Biondi, <I>TopCoder Staff</I><BR/>
 Friday, November 22, 2002<BR/>
 </P>
 
