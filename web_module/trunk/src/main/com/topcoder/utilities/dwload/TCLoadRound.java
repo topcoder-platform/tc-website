@@ -23,6 +23,9 @@ package com.topcoder.utilities.dwload;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.4  2002/05/31 01:25:37  gpaul
+ *           added more stuff to speed it up
+ *
  *           Revision 1.3  2002/05/24 19:28:10  gpaul
  *           added some  code so that we can load just the stuff for the current round in the aggregate load
  *
@@ -557,25 +560,25 @@ public class TCLoadRound extends TCLoad {
 
     try {
       fSql.setLength(0);
-      fSql.append(" SELECT ps.round_id");
-      fSql.append(       " ,ps.coder_id ");
-      fSql.append(       " ,ps.problem_id ");
-      fSql.append(       " ,ps.points ");
-      fSql.append(       " ,ps.status_id ");
-      fSql.append(       " ,ps.language_id ");
-      fSql.append(       " ,s.open_time ");
-      fSql.append(       " ,ps.submission_number ");
-      fSql.append(       " ,s.submission_text ");
-      fSql.append(       " ,s.submit_time ");
-      fSql.append(       " ,s.submission_points ");
-      fSql.append(       "  ,(SELECT status_desc ");
+      fSql.append(" SELECT ps.round_id");              //1
+      fSql.append(       " ,ps.coder_id ");            //2
+      fSql.append(       " ,ps.problem_id ");          //3 
+      fSql.append(       " ,ps.points ");              //4
+      fSql.append(       " ,ps.status_id ");           //5
+      fSql.append(       " ,ps.language_id ");         //6
+      fSql.append(       " ,s.open_time ");            //7
+      fSql.append(       " ,ps.submission_number ");   //8
+      fSql.append(       " ,s.submission_text ");      //9
+      fSql.append(       " ,s.submit_time ");          //10
+      fSql.append(       " ,s.submission_points ");    //11
+      fSql.append(       "  ,(SELECT status_desc ");   //12
       fSql.append(            " FROM problem_status ");
       fSql.append(            " WHERE problem_status_id = ps.status_id) ");
-      fSql.append(       " ,c.compilation_text");
+      fSql.append(       " ,c.compilation_text");      //13
+      fSql.append(       " ,s.submission_number");     //14
       fSql.append(  " FROM problem_state ps ");
       fSql.append(  " LEFT OUTER JOIN submission s ");
       fSql.append(    " ON ps.problem_state_id = s.problem_state_id");
-      fSql.append(   " AND s.submission_number = ps.submission_number");
       fSql.append(  " LEFT OUTER JOIN compilation c ");
       fSql.append(    " ON ps.problem_state_id = c.problem_state_id");
       fSql.append( " WHERE ps.round_id = ?");
@@ -603,10 +606,11 @@ public class TCLoadRound extends TCLoad {
       fSql.append("       ,submission_text ");    // 9
       fSql.append("       ,submit_time ");        // 10
       fSql.append("       ,submission_points ");  // 11
-      fSql.append("       ,status_desc) ");       // 12
+      fSql.append("       ,status_desc ");        // 12
+      fSql.append("       ,last_submission) ");   // 13
       fSql.append("VALUES (");
       fSql.append("?,?,?,?,?,?,?,?,?,?,");  // 10
-      fSql.append("?,?)");                  // 12 total values
+      fSql.append("?,?,?)");                // 12 total values
       psIns = prepareStatement(fSql.toString(), TARGET_DB);
 
       fSql.setLength(0);
@@ -624,6 +628,10 @@ public class TCLoadRound extends TCLoad {
         int round_id = rs.getInt(1);
         int coder_id = rs.getInt(2);
         int problem_id = rs.getInt(3);
+        int last_submission = 0;
+        if (rs.getInt(8)>0) {  //they submitted at least once
+          last_submission = rs.getInt(8)==rs.getInt(14)?1:0;
+        }
 
         psDel.clearParameters();
         psDel.setInt(1, round_id);
@@ -646,6 +654,7 @@ public class TCLoadRound extends TCLoad {
         psIns.setLong     (10, rs.getLong  (10));  // submit_time
         psIns.setFloat    (11, rs.getFloat (11));  // submission_points
         psIns.setString   (12, rs.getString(12));  // status_desc
+        psIns.setInt      (13, last_submission);  // last_submission
 
         retVal = psIns.executeUpdate();
         count += retVal;
@@ -1674,13 +1683,17 @@ public class TCLoadRound extends TCLoad {
       fSql.append("       ,rr.overall_rank ");                        // 28
       fSql.append("       ,rr.division_placed ");                     // 29
       fSql.append("       ,rr.division_seed ");                       // 30
+      fSql.append("       ,pt.payment_type_id");                      // 31
+      fSql.append("       ,pt.payment_type_desc");                    // 32
       fSql.append("  FROM room_result rr ");
-      fSql.append("       ,room r ");
-      fSql.append(" WHERE rr.round_id = ? ");
+      fSql.append("  JOIN room r ON rr.round_id = r.round_id ");
+      fSql.append("   AND rr.room_id = r.room_id ");
+      fSql.append("  LEFT OUTER JOIN round_payment rp ON rr.round_payment_id = rp.round_payment_id");
+      fSql.append("  LEFT OUTER JOIN payment_type_lu pt ON rp.payment_type_id = pt.payment_type_id");
+      fSql.append(" WHERE r.room_type_id = " + CONTEST_ROOM);
+      fSql.append("   AND rr.round_id = ?");
       fSql.append("   AND rr.attended = 'Y'");
-      fSql.append("   AND rr.round_id = r.round_id");
-      fSql.append("   AND rr.room_id = r.room_id");
-      fSql.append("   AND r.room_type_id = "+ CONTEST_ROOM);
+
 
       // Need to exclude Admins from this query! Make sure there is no row
       // in the group_user table where this coder is in group 13
@@ -1723,10 +1736,12 @@ public class TCLoadRound extends TCLoad {
       fSql.append("       ,defense_points ");                  // 27
       fSql.append("       ,overall_rank ");                    // 28
       fSql.append("       ,division_placed ");                 // 29
-      fSql.append("       ,division_seed) ");                  // 30
+      fSql.append("       ,division_seed ");                   // 30
+      fSql.append("       ,payment_type_id ");                 // 31
+      fSql.append("       ,payment_type_desc) ");              // 32
       fSql.append("VALUES (?,?,?,?,?,?,?,?,?,?,");  // 10 values
       fSql.append("        ?,?,?,?,?,?,?,?,?,?,");  // 20 values
-      fSql.append("        ?,?,?,?,?,?,?,?,?,?)");  // 30 total values
+      fSql.append("        ?,?,?,?,?,?,?,?,?,?,?,?)");  // 32 total values
       psIns = prepareStatement(fSql.toString(), TARGET_DB);
 
       fSql.setLength(0);
@@ -1782,6 +1797,13 @@ public class TCLoadRound extends TCLoad {
         psIns.setInt      (28, rs.getInt   (28));  // overall_rank
         psIns.setInt      (29, rs.getInt   (29));  // division_placed
         psIns.setInt      (30, rs.getInt   (30));  // division_seed
+        if (rs.getInt("payment_type_id")==0) {  //it's null
+          psIns.setNull(31, java.sql.Types.DECIMAL);
+          psIns.setNull(32, java.sql.Types.VARCHAR);
+        } else {
+          psIns.setInt      (31, rs.getInt   ("payment_type_id"));
+          psIns.setString   (32, rs.getString("payment_type_desc")); 
+        }
 
         retVal = psIns.executeUpdate();
         count += retVal;
