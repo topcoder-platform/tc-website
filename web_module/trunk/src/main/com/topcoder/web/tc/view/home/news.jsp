@@ -6,6 +6,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>03.17.05<br>10:30 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm234_prob">SRM 234 - Problem Set & Analysis</A></span><br><br>
+      During this fast paced SRM, many coders were able to finish the entire set well before the coding phase ended.</td>
+      <td class="newsPhoto"><img src="/i/m/brett1479_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=251317">brett1479</A></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/index?t=statistics&c=srm234_prob">full story</A>&#160;|&#160;
+         <A href="/?t=statistics&c=editorial_archive">archive</A>
+   </td></tr>
+ 
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>03.16.05<br>12:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/i/tournament/tccc05/onsite_movies/NBC.wmv">The TCCC05 on NBC</A></span><br><br>
       NBC Channel 11's Technology Reporter Scott Budman in Santa Clara recently did this segment on the TCCC05.
@@ -236,18 +251,6 @@
    <tr><td class="newsLinksCell">
          <A href="/index?t=features&c=feat_030205">full article</A>&#160;|&#160;
          <A href="/?&t=features&c=index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>02.28.05<br>1:05 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=ss_description">Announcing the TCCC05 Spectator Showdown</A></span><br><br>
-      Come to the TCCC05 and compete for prizes like a Motorola Moto Razr V3 phone!
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=ss_description">full story</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
 </table>
