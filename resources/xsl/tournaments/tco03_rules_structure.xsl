@@ -128,6 +128,40 @@
                 number of room winners.)</li>
             </ul>
 
+            <p><span class="bodySubtitle">Onsite Semifinal and Championship Rounds</span><br/>
+            The sixteen (16) advancers from Online Round #4 will travel to Mohegan Sun on Wednesday, December 3rd to compete 
+            in the Semifinal round of the tournament being held on Thursday, December 4th.  All contestants must arrive at Mohegan 
+            Sun no later than 4:00 PM on Wednesday, December 3rd.  If a contestant is unable to attend the onsite rounds, he/she will 
+            forfeit his/her eligibility to receive a prize, and his/her spot in the tournament will be given to the next highest overall 
+            scorer from Online Round #4.  
+            <br/><br/>
+            TopCoder will provide travel arrangements for each competitor and a guest of his/her choice, up to a cost of $1,000 per 
+            person.  (That is, if a contestant's airfare is greater than $1,000, the contestant will be responsible for the difference 
+            between the cost of the airfare and $1,000.)  In addition, TopCoder will also provide travel arrangements to and from the 
+            airport to the Mohegan Sun Casino and accommodations and certain meals for each contestant and his/her guest.  All other 
+            expenses are the responsibility of the contestant and his/her guest.  
+            <br/><br/>
+            TopCoder will determine the room assignments for the Semifinal rooms prior to the start of each Semifinal round, in a 
+            manner such that the average competitor rating (as of October 6th) for each room will be similar.  Click
+            <A href="/?&amp;t=tournaments&amp;c=tco03_sched">here</A> for the schedule.
+            <br/><br/>
+            The Semifinal Round will consist of four (4) rooms of four (4) coders each. The winner in each room will advance to the 
+            Championship Round.
+            <br/><br/>
+            The Championship Round will be a single round of four (4) coders. First, second, third and fourth place in the Championship 
+            round are determined by comparing the total points of each coder, with the highest point value placing first. The winner of 
+            the Championship Round will be the coder with the highest point total for the round. In the event of a tie in the Semifinal 
+            and/or Championship rounds, the tie will be resolved in the following manner (in order):
+            <ul>
+            <li>Total points acquired (higher is better) during Online Rounds #1, #2, #3 and #4 of the 2003 TopCoder Open</li>
+            <li>If a tie still remains, then by rating (higher is better) as of October 6th </li>
+            <ul>
+            <li>If a tie still remains in the Semifinal round, then all tied coders will advance to the Championship Round</li>
+            <li>If a tie still remains in the Championship round, then the prize money will be distributed equally amongst the tied coders</li>
+            </ul>
+            </ul>
+            </p>
+            
             <p><strong>NOTE:</strong>  In the event of a tie for any advancing position (i.e. room winner or
             wildcard spot), the tie will be resolved in the following manner:</p>
 
