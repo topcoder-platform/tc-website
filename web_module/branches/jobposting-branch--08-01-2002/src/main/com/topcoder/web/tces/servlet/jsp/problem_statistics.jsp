@@ -14,6 +14,15 @@
 
 <%@ taglib uri="/tces-taglib.tld" prefix="tces"%>
 
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+
+function openWnd(pageUrl) {
+  OpenWin=this.open(page,"CtrlWindow","toolbar=yes,menubar=yes,location=yes,scrollbars=yes,resizable=yes");
+}
+// End -->
+</SCRIPT>
+
 <jsp:useBean id="ProblemStatisticsTask" scope="request" class="com.topcoder.web.tces.bean.ProblemStatisticsTask" />
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -72,7 +81,7 @@
               </p>
       
               <p>
-                <A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_STATEMENT_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=ProblemStatisticsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=ProblemStatisticsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=ProblemStatisticsTask.getMemberID()%>&<%=TCESConstants.PROBLEM_ID_PARAM%>=<%=ProblemStatisticsTask.getProblemID()%>" class="statText">
+                <A HREF="javascript:openWnd('/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_STATEMENT_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=ProblemStatisticsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=ProblemStatisticsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=ProblemStatisticsTask.getMemberID()%>&<%=TCESConstants.PROBLEM_ID_PARAM%>=<%=ProblemStatisticsTask.getProblemID()%>')" class="statText">
                   View Problem Statement
                 </A>
               </P>
