@@ -64,6 +64,27 @@
 
                         <h2 class="pgTitle">Advancers</h2>
                         
+                        <table border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align="center">
+                            <tr>
+                                <td class="sidebarTitle">Round</td>
+                                <td class="sidebarTitle">Advancers</td>
+                            </tr>
+
+                            <tr valign="top">
+                                <td class="sidebarText">Round #1</td>
+                                <td class="sidebarText" nowrap="nowrap">n/a</td>
+                            </tr>
+
+                            <tr valign="top">
+                                <td class="sidebarText">Round #2</td>n/a</td>
+                            </tr>
+
+                            <tr valign="top">
+                                <td class="sidebarText">Round #3 - Championship Round</td>
+                                <td class="sidebarText" nowrap="nowrap">n/a</td>
+                           </tr>
+            </table>
+                        
                         
                         
                         
