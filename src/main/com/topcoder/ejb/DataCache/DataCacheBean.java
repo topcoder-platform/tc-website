@@ -1,11 +1,9 @@
 package com.topcoder.ejb.DataCache;
 
-import com.topcoder.common.web.constant.OLTP;
 import com.topcoder.common.web.data.*;
 import com.topcoder.common.web.error.TCException;
 import com.topcoder.common.web.util.DateTime;
 import com.topcoder.common.web.data.Group;
-import com.topcoder.common.web.data.UserType;
 import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
@@ -19,62 +17,36 @@ public class DataCacheBean extends BaseEJB {
 
     private static ArrayList notifications;
     private static ArrayList rounds;
-    private static ArrayList coderTypes;
     private static ArrayList demographicAssignments;
-    private static ArrayList sectorFiles;
-    private static ArrayList titles;
-    private static ArrayList organizations;
-    private static ArrayList experienceTypes;
     private static ArrayList languages;
     private static ArrayList referralTypes;
     private static ArrayList jobTypes;
     private static ArrayList editorTypes;
-    private static ArrayList newsItems;
     private static ArrayList schools;
     private static ArrayList countries;
     private static ArrayList states;
-    private static ArrayList skills;
-    private static ArrayList skillTypes;
     private static ArrayList degreeLevels;
-    private static ArrayList contactSubjects;
-    private static ArrayList coderRegions;
-    private static ArrayList forums;
     private static ArrayList contests;
-    private static HashMap roomresults;
-    private static HashMap contestNavs;
     private static ArrayList roundProblems;
+    private static HashMap contestNavs;
 
     private static boolean notificationsCached;
-    private static boolean coderTypesCached;
     private static boolean demographicAssignmentsCached;
-    private static boolean sectorFilesCached;
-    private static boolean titlesCached;
-    private static boolean organizationsCached;
-    private static boolean experienceTypesCached;
     private static boolean languagesCached;
     private static boolean referralTypesCached;
     private static boolean jobTypesCached;
     private static boolean editorTypesCached;
-    private static boolean newsItemsCached;
     private static boolean contestNavsCached;
     private static boolean contestsCached;
     private static boolean schoolsCached;
     private static boolean countriesCached;
     private static boolean statesCached;
-    private static boolean skillsCached;
-    private static boolean skillTypesCached;
     private static boolean degreeLevelsCached;
-    private static boolean contactSubjectsCached;
-    private static boolean coderRegionsCached;
-    private static boolean forumsCached;
-    private static boolean roomresultsCached;
-    private static int problemCached;
-    private static int contestCached;
     private static int memberCount;
     private static Calendar memberCountLastRefresh;
+    private static Calendar roundsLastRefresh;
     private static final int MEMBER_COUNT_REFRESH_INTERVAL = 900000;
     private static boolean roundsCached;
-    private static Calendar roundsLastRefresh;
     private static final int ROUND_REFRESH_INTERVAL = 1800000;
 
     private static Logger log = Logger.getLogger(DataCacheBean.class);
@@ -242,8 +214,7 @@ public class DataCacheBean extends BaseEJB {
      * setMemberCount
      * set the static member count in the data cache and return the ip of the server it has been
      * reset on to the client
-     * @author Steve Burrows
-     * @param integer of the total TopCoder member count.
+     * @param memberCount of the total TopCoder member count.
      * @return an array of the bytes of the server ip address.
      * @throws TCException
      *********************************************************************************************
@@ -278,12 +249,7 @@ public class DataCacheBean extends BaseEJB {
         synchronized (this) {
             this.notificationsCached = false;
             this.roundsCached = false;
-            this.coderTypesCached = false;
             this.demographicAssignmentsCached = false;
-            this.sectorFilesCached = false;
-            this.titlesCached = false;
-            this.organizationsCached = false;
-            this.experienceTypesCached = false;
             this.languagesCached = false;
             this.degreeLevelsCached = false;
             this.referralTypesCached = false;
@@ -291,18 +257,10 @@ public class DataCacheBean extends BaseEJB {
             this.editorTypesCached = false;
             this.contestNavsCached = false;
             this.contestsCached = false;
-            this.newsItemsCached = false;
             this.schoolsCached = false;
             this.countriesCached = false;
             this.statesCached = false;
-            this.skillsCached = false;
-            this.skillTypesCached = false;
-            this.contactSubjectsCached = false;
-            this.coderRegionsCached = false;
-            this.forumsCached = false;
-            this.problemCached = 0;
             this.roundProblems = new ArrayList();
-            this.contestCached = 0;
             this.memberCount = 0;
             this.memberCountLastRefresh = null;
         }
@@ -336,14 +294,6 @@ public class DataCacheBean extends BaseEJB {
     }
 
 
-    public void resetCoderTypes() throws TCException {
-        log.debug("EJB DataCacheBean resetCoderTypes called.");
-        synchronized (this) {
-            this.coderTypesCached = false;
-        }
-    }
-
-
     public void resetMemberCount() throws TCException {
         log.debug("EJB DataCacheBean resetMemberCount called.");
         synchronized (this) {
@@ -359,49 +309,10 @@ public class DataCacheBean extends BaseEJB {
         }
     }
 
-
-    public void resetSectorFiles() throws TCException {
-        log.debug("EJB DataCacheBean resetSectorFiles called.");
-        synchronized (this) {
-            this.sectorFilesCached = false;
-        }
-    }
-
-
-    public void resetTitles() throws TCException {
-        log.debug("EJB DataCacheBean resetTitles called.");
-        synchronized (this) {
-            this.titlesCached = false;
-        }
-    }
-
-    public void resetOrganizations() throws TCException {
-        log.debug("EJB DataCacheBean resetOrganizations called.");
-        synchronized (this) {
-            this.organizationsCached = false;
-        }
-    }
-
-    public void resetExperienceTypes() throws TCException {
-        log.debug("EJB DataCacheBean resetExperienceTypes called.");
-        synchronized (this) {
-            this.experienceTypesCached = false;
-        }
-    }
-
-
     public void resetLanguages() throws TCException {
         log.debug("EJB DataCacheBean resetLanguages called.");
         synchronized (this) {
             this.languagesCached = false;
-        }
-    }
-
-
-    public void resetContactSubjects() throws TCException {
-        log.debug("EJB DataCacheBean resetContactSubjects called.");
-        synchronized (this) {
-            this.contactSubjectsCached = false;
         }
     }
 
@@ -412,23 +323,6 @@ public class DataCacheBean extends BaseEJB {
             this.degreeLevelsCached = false;
         }
     }
-
-
-    public void resetSkills() throws TCException {
-        log.debug("EJB DataCacheBean resetSkills called.");
-        synchronized (this) {
-            this.skillsCached = false;
-        }
-    }
-
-
-    public void resetSkillTypes() throws TCException {
-        log.debug("EJB DataCacheBean resetSkillTypes called.");
-        synchronized (this) {
-            this.skillTypesCached = false;
-        }
-    }
-
 
     public void resetJobTypes() throws TCException {
         log.debug("EJB DataCacheBean resetJobTypes called.");
@@ -462,34 +356,10 @@ public class DataCacheBean extends BaseEJB {
     }
 
 
-    public void resetForums() throws TCException {
-        log.debug("EJB DataCacheBean resetForums called.");
-        synchronized (this) {
-            this.forumsCached = false;
-        }
-    }
-
-
-    public void resetCoderRegions() throws TCException {
-        log.debug("EJB DataCacheBean resetCoderRegions called.");
-        synchronized (this) {
-            this.coderRegionsCached = false;
-        }
-    }
-
-
     public void resetCountries() throws TCException {
         log.debug("EJB DataCacheBean resetCountries called.");
         synchronized (this) {
             this.countriesCached = false;
-        }
-    }
-
-
-    public void resetNewsItems() throws TCException {
-        log.debug("ejb.DataCacheBean:resetNewsItems:called.");
-        synchronized (this) {
-            this.newsItemsCached = false;
         }
     }
 
@@ -1013,80 +883,6 @@ public class DataCacheBean extends BaseEJB {
     }
 
 
-    public ArrayList getCoderTypes() throws TCException {
-        try {
-            log.debug("EJB DataCacheBean getCoderTypes called.");
-            if (!this.coderTypesCached) {
-                synchronized (this) {
-                    this.coderTypes = popCoderTypes();
-                    this.coderTypesCached = true;
-                }
-            }
-        } catch (Exception e) {
-            throw new TCException("ejb.DataCache:getCoderTypes:ERROR:\n" + e);
-        }
-        return this.coderTypes;
-    }
-
-
-    private ArrayList popCoderTypes() throws TCException {
-        log.debug("EJB DataCacheBean popCoderTypes called.");
-        Connection conn = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        ArrayList result = new ArrayList(5);
-        try {
-            conn = DBMS.getConnection();
-            StringBuffer query = new StringBuffer(200);
-            query.append(" SELECT");
-            query.append(" coder_type_id");
-            query.append(" ,coder_type_desc");
-            query.append(" FROM ");
-            query.append(" coder_type");
-            query.append(" WHERE ");
-            query.append(" status = 'A'");
-            query.append(" ORDER BY");
-            query.append(" coder_type_id");
-            ps = conn.prepareStatement(query.toString());
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                CoderType coderType = new CoderType();
-                coderType.setCoderTypeId(rs.getInt(1));
-                coderType.setCoderTypeDesc(rs.getString(2));
-                coderType.setStatus("A");
-                result.add(coderType);
-            }
-            if (result != null) result.trimToSize();
-        } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new TCException(
-                    "ejb.DataCache.DataCacheBean:popCoderTypes:ERROR:\n" + sqe.getMessage()
-            );
-        } catch (Exception e) {
-            throw new TCException("ejb.DataCache.DataCacheBean:popCoderTypes:ERROR:" + e);
-        } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception ignore) {
-                }
-            }
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                }
-            }
-        }
-        return result;
-    }
-
 
     public ArrayList getDemographicAssignments(int coderTypeId) throws TCException {
         ArrayList result = null;
@@ -1251,88 +1047,6 @@ public class DataCacheBean extends BaseEJB {
     }
 
 
-    public ArrayList getNewsItems() throws TCException {
-        try {
-            log.debug("EJB DataCacheBean getNewsItems called.");
-            if (!this.newsItemsCached) {
-                synchronized (this) {
-                    this.newsItems = popNewsItems();
-                    this.newsItemsCached = true;
-                }
-            }
-        } catch (Exception e) {
-            throw new TCException("ejb.DataCache:getNewsItems:ERROR:\n" + e);
-        }
-        return this.newsItems;
-    }
-
-
-    private ArrayList popNewsItems() throws TCException {
-        log.debug("EJB DataCacheBean popNewsItems called.");
-        Connection conn = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        ArrayList result = new ArrayList();
-        try {
-            conn = DBMS.getConnection();
-            StringBuffer query = new StringBuffer(250);
-            query.append(" SELECT");
-            query.append(" news_id");
-            query.append(" ,news_type_id");
-            query.append(" ,headline");
-            query.append(" ,news");
-            query.append(" ,new_posting");
-            query.append(" ,posting_date");
-            query.append(" ,status");
-            query.append(" FROM ");
-            query.append(" news");
-            query.append(" WHERE ");
-            query.append(" status = 'A'");
-            query.append(" ORDER BY");
-            query.append(" posting_date DESC");
-            ps = conn.prepareStatement(query.toString());
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                News news = new News();
-                news.setNewsId(rs.getInt(1));
-                news.setNewsTypeId(rs.getString(2));
-                news.setHeadline(rs.getString(3));
-                news.setNews(DBMS.getTextString(rs, 4));
-                news.setNewPosting(rs.getString(5));
-                news.setPostingDate(rs.getTimestamp(6));
-                news.setStatus(rs.getString(7));
-                news.setModified("S");
-                result.add(news);
-            }
-            if (result != null) result.trimToSize();
-        } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new TCException("ejb.DataCache.DataCacheBean:popNewsItems: ERROR \n " + sqe.getMessage());
-        } catch (Exception e) {
-            throw new TCException("EJB SchoolsBean getNewsItems error:" + e);
-        } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception ignore) {
-                }
-            }
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                }
-            }
-        }
-        return result;
-    }
-
 
     public ArrayList getCountries() throws TCException {
         log.debug("EJB DataCacheBean getCountries called.");
@@ -1402,170 +1116,7 @@ public class DataCacheBean extends BaseEJB {
     }
 
 
-    public ArrayList getCoderRegions() throws TCException {
-        log.debug("ejb.DataCache.DataCacheBean:getCoderRegions:called");
-        if (!this.coderRegionsCached) {
-            this.coderRegions = popCoderRegions();
-            this.coderRegionsCached = true;
-        }
-        return this.coderRegions;
-    }
 
-
-    private ArrayList popCoderRegions() throws TCException {
-        log.debug("ejb.DataCache.DataCacheBean:popCoderRegions:called");
-        Connection conn = null;  //conn stands for regions connection
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        ArrayList result = new ArrayList(10);
-        try {
-            conn = DBMS.getConnection(); //st stansds for state connection
-            StringBuffer query = new StringBuffer(500);
-            /*************************************************************************************/
-            /********************************** Informix *****************************************/
-            /*************************************************************************************/
-            query.append(" SELECT u.user_type_desc");
-            query.append(" ,TRIM(rs.region_code)");
-            query.append(" ,r.region_name");
-            query.append(" ,r.country_code");
-            query.append(" ,c.country_name");
-            query.append(" ,c.participating");
-            query.append(" ,rs.state_code");
-            query.append(" ,s.state_name");
-            query.append(" ,s.demographic_decline");
-            query.append(" FROM regional_state rs");
-            query.append(" ,region r");
-            query.append(" ,country c");
-            query.append(" ,state s");
-            query.append(" ,user_type u");
-            query.append(" WHERE rs.user_type_id = ?");
-            query.append(" AND rs.region_code = r.region_code");
-            query.append(" AND r.country_code = c.country_code");
-            query.append(" AND rs.state_code = s.state_code");
-            query.append(" AND rs.user_type_id = u.user_type_id");
-            query.append(" ORDER BY r.region_name");
-            query.append(" ,s.state_name");
-            /*************************************************************************************/
-            ps = conn.prepareStatement(query.toString());
-            ps.setInt(1, OLTP.CODER_USER_TYPE_ID);
-            rs = ps.executeQuery();
-            String previousRegionCode = "";
-            RegionState regionState = null;
-            ArrayList states = null;
-            while (rs.next()) {
-                String regionCode = rs.getString(2);
-                if (!regionCode.equals(previousRegionCode)) {
-                    if (!previousRegionCode.equals("")) {
-                        result.add(regionState);
-                    }
-                    previousRegionCode = regionCode;
-                    regionState = new RegionState();
-                    states = regionState.getStates();
-                    UserType userType = regionState.getUserType();
-                    Region region = regionState.getRegion();
-                    Country country = region.getCountry();
-                    userType.setUserTypeId(OLTP.CODER_USER_TYPE_ID);
-                    userType.setUserTypeDesc(rs.getString(1));
-                    userType.setModified("S");
-                    region.setRegionCode(regionCode);
-                    region.setRegionName(rs.getString(3));
-                    country.setCountryCode(rs.getString(4));
-                    country.setCountryName(rs.getString(5));
-                    country.setParticipating(rs.getInt(6));
-                }
-                State state = new State();
-                state.setStateCode(rs.getString(7));
-                state.setStateName(rs.getString(8));
-                state.setDemographicDecline(rs.getInt(9));
-                states.add(state);
-            }
-            result.add(regionState);
-            if (result != null) result.trimToSize();
-        } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new TCException("ejb.DataCache.DataCacheBean:popCoderRegions: ERROR \n " + sqe.getMessage());
-        } catch (Exception e) {
-            throw new TCException("EJB DatCacheBean getCoderRegions error: " + e);
-        } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception ignore) {
-                }
-            }
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                }
-            }
-        }
-        return result;
-    }
-
-
-    public ArrayList getForums() throws TCException {
-        log.debug("EJB DataCacheBean getForums called.");
-        if (!this.forumsCached) {
-            synchronized (this) {
-                this.forums = popForums();
-                this.forumsCached = true;
-            }
-        }
-        return this.forums;
-    }
-
-
-    private ArrayList popForums() throws TCException {
-        log.debug("EJB DataCacheBean popForums called.");
-        Connection conn = null;  //conn stands for forums connection
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        ArrayList result = new ArrayList(10);
-        StringBuffer sqlStr = new StringBuffer(49);
-        try {
-            conn = DBMS.getConnection();
-            sqlStr.append("SELECT forumid, name, description FROM jiveforum");
-            ps = conn.prepareStatement(sqlStr.toString());
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                Forum forum = new Forum();
-                forum.setForumId(rs.getInt(1));
-                forum.setForumName(rs.getString(2));
-                forum.setForumDescription(rs.getString(3));
-                result.add(forum);
-            }
-            if (result != null) result.trimToSize();
-        } catch (Exception e) {
-            throw new TCException("EJB DatCacheBean getForums error: " + e);
-        } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception ignore) {
-                }
-            }
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                }
-            }
-        }
-        return result;
-    }
 
 
     public ArrayList getStates() throws TCException {
@@ -1636,81 +1187,6 @@ public class DataCacheBean extends BaseEJB {
     }
 
 
-    public ArrayList getSkills() throws TCException {
-        log.debug("EJB DataCacheBean getSkills called.");
-        if (!this.skillsCached) {
-            synchronized (this) {
-                this.skills = popSkills();
-                this.skillsCached = true;
-            }
-        }
-        return this.skills;
-    }
-
-
-    private ArrayList popSkills() throws TCException {
-        log.debug("EJB DataCacheBean popSkills called.");
-        Connection skconn = null;  //skconn stands for skills connection
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        ArrayList result = new ArrayList(100);
-        try {
-            skconn = DBMS.getConnection(); //sk stands for skills connection
-            StringBuffer query = new StringBuffer(222);
-            query.append("SELECT s.skill_id");                                     //1
-            query.append(" ,s.skill_type_id");                               //2
-            query.append(" ,s.skill_desc");                                  //3
-            query.append(" ,LOWER(s.skill_desc) AS lower_skill_desc");       //4
-            query.append(" ,s.status");                                      //5
-            query.append(" ,s.skill_order");                                 //6
-            query.append(" ,t.skill_type_id");                               //7
-            query.append(" ,t.skill_type_desc");                             //8
-            query.append(" ,t.skill_type_order");                            //9
-            query.append(" ,t.status");                                      //10
-            query.append(" FROM skill s");
-            query.append(" ,skill_type t");
-            query.append(" WHERE s.skill_type_id = t.skill_type_id");
-            query.append(" ORDER BY");
-            query.append(" t.skill_type_id");
-            query.append(" ,lower_skill_desc");
-            ps = skconn.prepareStatement(query.toString());
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                Skill skill = new Skill();
-                skill.setSkillId(rs.getInt(1));
-                SkillType skilltype = new SkillType();
-                skilltype.setSkillTypeId(rs.getInt(2));
-                skilltype.setSkillTypeDesc(rs.getString(8));
-                skilltype.setSkillTypeOrder(rs.getInt(9));
-                skilltype.setActiveInd(rs.getString(10));
-                skill.setSkillType(skilltype);
-                skill.setSkillDesc(rs.getString(3));
-                skill.setSkillOrder(rs.getInt(6));
-                skill.setActiveInd(rs.getString(5));
-                result.add(skill);
-            }
-            if (result != null) result.trimToSize();
-        } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new TCException("ejb.DataCache.DataCacheBean:popSkills: ERROR \n " + sqe.getMessage());
-        } catch (Exception e) {
-            throw new TCException("EJB SkillsBean getSkills error: " + e);
-        } finally {
-            try {
-                if (rs != null) rs.close();
-            } catch (Exception ignore) {
-            }
-            try {
-                if (ps != null) ps.close();
-            } catch (Exception ignore) {
-            }
-            try {
-                if (skconn != null) skconn.close();
-            } catch (Exception ignore) {
-            }
-        }
-        return result;
-    }
 
 
     public ArrayList getReferrals() throws TCException {
@@ -1919,72 +1395,6 @@ public class DataCacheBean extends BaseEJB {
     }
 
 
-    public ArrayList getSkillTypes() throws TCException {
-        log.debug("EJB DataCacheBean getSkillTypes called.");
-        if (!this.skillTypesCached) {
-            synchronized (this) {
-                this.skillTypes = popSkillTypes();
-                this.skillTypesCached = true;
-            }
-        }
-        return this.skillTypes;
-    }
-
-
-    private ArrayList popSkillTypes() throws TCException {
-        log.debug("EJB DataCacheBean popSkillTypes called.");
-        Connection conn = null;  //conn stands for skillTypes connection
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        ArrayList result = new ArrayList(10);
-        try {
-            conn = DBMS.getConnection();
-            StringBuffer query = new StringBuffer();
-            query.append(" SELECT skill_type_id");
-            query.append(" ,skill_type_desc");
-            query.append(" ,skill_type_order");
-            query.append(" ,status");
-            query.append(" FROM skill_type");
-            query.append("  ORDER BY skill_type_desc");
-
-            ps = conn.prepareStatement(query.toString());
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                SkillType skillTypes = new SkillType();
-                skillTypes.setSkillTypeId(rs.getInt(1));
-                skillTypes.setSkillTypeDesc(rs.getString(2));
-                skillTypes.setSkillTypeOrder(rs.getInt(3));
-                skillTypes.setActiveInd(rs.getString(4));
-                result.add(skillTypes);
-            }
-            if (result != null) result.trimToSize();
-        } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new TCException("ejb.DataCache.DataCacheBean:popSkillTypes: ERROR \n " + sqe.getMessage());
-        } catch (Exception e) {
-            throw new TCException("EJB DatCacheBean popSkillTypes error: " + e);
-        } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception ignore) {
-                }
-            }
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                }
-            }
-        }
-        return result;
-    }
 
     /**
      ************************
@@ -2056,84 +1466,11 @@ public class DataCacheBean extends BaseEJB {
     }
 
 
-    /**
-     ************************
-     * Begin ContactSubjects Code
-     */
-
-    public ArrayList getContactSubjects() throws TCException {
-        log.debug("EJB DataCacheBean getContactSubjects called.");
-        if (!this.contactSubjectsCached) {
-            synchronized (this) {
-                this.contactSubjects = popContactSubjects();
-                this.contactSubjectsCached = true;
-            }
-        }
-        return this.contactSubjects;
-    }
-
-    /**
-     ***********************************************************************************************
-     * The popContactSubjects method is a "thread safe method' which returns a ArrayList of all
-     * contactSubjects data in the database and sets the contactSubjectsCached Instance variable to
-     * true.
-     ***********************************************************************************************
-     */
-    private ArrayList popContactSubjects() throws TCException {
-        log.debug("EJB DataCacheBean popContactSubjects called.");
-        Connection conn = null;  //conn stands for contactSubjects connection
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        ArrayList result = new ArrayList(6);
-        try {
-            conn = DBMS.getConnection();
-            String query = null;
-            query = "SELECT contact_us_subject_id, subject_desc, status FROM contact_us_subject";
-
-            ps = conn.prepareStatement(query);
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                ContactSubject contactsubject = new ContactSubject();
-                contactsubject.setContactSubjectId(rs.getInt(1));
-                contactsubject.setSubjectDesc(rs.getString(2));
-                contactsubject.setActiveInd(rs.getString(3));
-                result.add(contactsubject);
-            }
-            if (result != null) result.trimToSize();
-        } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new TCException("ejb.DataCache.DataCacheBean:popContactSubjects: ERROR \n " + sqe.getMessage());
-        } catch (Exception e) {
-            throw new TCException("EJB DatCacheBean getContactSubjects error:" + e);
-        } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception ignore) {
-                }
-            }
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                }
-            }
-        }
-        return result;
-    }
-
 
     /**
      *********************************************************************************************
      * getLanguages
      * Get the contest programming languages
-     * @author Steve Burrows
      * @return ArrayList of the Languages
      * @throws TCException
      *********************************************************************************************
@@ -2200,82 +1537,6 @@ public class DataCacheBean extends BaseEJB {
     }
 
 
-    /*********************************************************************************************
-     * getSectorFiles
-     * Get the secure files available for download to those given access.
-     * @author Steve Burrows
-     * @return ArrayList of the secure files available for download to those given access
-     * @throws TCException
-     *********************************************************************************************
-     */
-    public ArrayList getSectorFiles() throws TCException {
-        log.debug("ejb.DataCache.DataCacheBean:getSectorFiles:called.");
-        if (!this.sectorFilesCached) {
-            synchronized (this) {
-                this.sectorFiles = popSectorFiles();
-                this.sectorFilesCached = true;
-            }
-        }
-        return this.sectorFiles;
-    }
-
-
-    /*********************************************************************************************
-     * getTitles
-     * Get the experience job titles
-     * @author Steve Burrows
-     * @return ArrayList of the Job Titles
-     * @throws TCException
-     *********************************************************************************************
-     */
-    public ArrayList getTitles() throws TCException {
-        log.debug("ejb.DataCache.DataCacheBean:getTitles:called.");
-        if (!this.titlesCached) {
-            synchronized (this) {
-                this.titles = popTitles();
-                this.titlesCached = true;
-            }
-        }
-        return this.titles;
-    }
-
-    /*********************************************************************************************
-     * getOrganizations
-     * Get the organizations coders belong to
-     * @author Steve Burrows
-     * @return ArrayList of Organizations
-     * @throws TCException
-     *********************************************************************************************
-     */
-    public ArrayList getOrganizations() throws TCException {
-        log.debug("ejb.DataCache.DataCacheBean:getOrganizations:called.");
-        if (!this.organizationsCached) {
-            synchronized (this) {
-                this.organizations = popOrganizations();
-                this.organizationsCached = true;
-            }
-        }
-        return this.organizations;
-    }
-
-    /*********************************************************************************************
-     * getExperienceTypes
-     * Get the types of experience for coders (work, clubs...)
-     * @author Steve Burrows
-     * @return ArrayList of ExperienceTypes
-     * @throws TCException
-     *********************************************************************************************
-     */
-    public ArrayList getExperienceTypes() throws TCException {
-        log.debug("ejb.DataCache.DataCacheBean:getExperienceTypes:called.");
-        if (!this.experienceTypesCached) {
-            synchronized (this) {
-                this.experienceTypes = popExperienceTypes();
-                this.experienceTypesCached = true;
-            }
-        }
-        return this.experienceTypes;
-    }
 
     private int popMemberCount() throws TCException {
         PreparedStatement ps = null;
@@ -2303,196 +1564,6 @@ public class DataCacheBean extends BaseEJB {
         } catch (Exception e) {
             e.printStackTrace();
             throw new TCException(e.getMessage());
-        } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception ignore) {
-                }
-            }
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                }
-            }
-        }
-        return result;
-    }
-
-
-    private ArrayList popSectorFiles() throws TCException {
-        log.debug("ejb.DataCache.DataCacheBean:popSectorFiles:called.");
-        Connection conn = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        ArrayList result = new ArrayList(20);
-        try {
-            conn = DBMS.getConnection();
-            String query = "SELECT sector_id, file, system FROM sector_file WHERE status = 'A'";
-            ps = conn.prepareStatement(query);
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                SectorFile sectorFile = new SectorFile();
-                sectorFile.setSectorId(rs.getInt(1));
-                sectorFile.setName(rs.getString(2));
-                sectorFile.setSystem(rs.getString(3));
-                sectorFile.setStatus("A");
-                result.add(sectorFile);
-            }
-            if (result != null) result.trimToSize();
-        } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new TCException("ejb.DataCache.DataCacheBean:popSectorFiles: ERROR \n " + sqe.getMessage());
-        } catch (Exception e) {
-            throw new TCException("ejb.DataCache.DataCacheBean:popSectorFiles:ERROR:" + e);
-        } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception ignore) {
-                }
-            }
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                }
-            }
-        }
-        return result;
-    }
-
-
-    private ArrayList popTitles() throws TCException {
-        log.debug("ejb.DataCache.DataCacheBean:popTitles:called.");
-        Connection conn = null;  //conn stands for contactTitles connection
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        ArrayList result = new ArrayList(80);
-        try {
-            conn = DBMS.getConnection();
-            String query = "SELECT title_id, title_desc, title FROM title WHERE title_id > 0";
-            ps = conn.prepareStatement(query);
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                Title title = new Title();
-                title.setTitleId(rs.getInt(1));
-                title.setTitleDesc(rs.getString(2));
-                title.setTitle(rs.getString(3));
-                result.add(title);
-            }
-            if (result != null) result.trimToSize();
-        } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new TCException("ejb.DataCache.DataCacheBean:popTitles: ERROR \n " + sqe.getMessage());
-        } catch (Exception e) {
-            throw new TCException("ejb.DataCache.DataCacheBean:popTitles:ERROR:" + e);
-        } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception ignore) {
-                }
-            }
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                }
-            }
-        }
-        return result;
-    }
-
-    private ArrayList popOrganizations() throws TCException {
-        log.debug("ejb.DataCache.DataCacheBean:popOrganizations:called.");
-        Connection conn = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        ArrayList result = new ArrayList(80);
-        try {
-            conn = DBMS.getConnection(); //get connection from the pool
-            String query = "SELECT organization_id, organization_desc, organization FROM organization WHERE organization_id > 0";
-            ps = conn.prepareStatement(query);
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                Organization organization = new Organization();
-                organization.setOrganizationId(rs.getInt(1));
-                organization.setOrganizationDesc(rs.getString(2));
-                organization.setOrganization(rs.getString(3));
-                result.add(organization);
-            }
-            if (result != null) result.trimToSize();
-        } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new TCException("ejb.DataCache.DataCacheBean:popOrganizations: ERROR \n " + sqe.getMessage());
-        } catch (Exception e) {
-            throw new TCException("ejb.DataCache.DataCacheBean:popOrganizations:ERROR:" + e);
-        } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception ignore) {
-                }
-            }
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                }
-            }
-        }
-        return result;
-    }
-
-    private ArrayList popExperienceTypes() throws TCException {
-        log.debug("ejb.DataCache.DataCacheBean:popExperienceTypes:called.");
-        Connection conn = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        ArrayList result = new ArrayList(3);
-        try {
-            conn = DBMS.getConnection();
-            String query = "SELECT experience_type_id, experience_type_desc FROM experience_type_lu WHERE experience_type_id > 0";
-            ps = conn.prepareStatement(query);
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                ExperienceType experienceType = new ExperienceType();
-                experienceType.setExperienceTypeId(rs.getInt(1));
-                experienceType.setExperienceTypeDesc(rs.getString(2));
-                result.add(experienceType);
-            }
-            if (result != null) result.trimToSize();
-        } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new TCException("ejb.DataCache.DataCacheBean:popExperienceTypes: ERROR \n " + sqe.getMessage());
-        } catch (Exception e) {
-            throw new TCException("ejb.DataCache.DataCacheBean:popExperienceTypes:ERROR:" + e);
         } finally {
             if (rs != null) {
                 try {
