@@ -5,6 +5,21 @@
 <title>Algorithm Tutorials</title>
 
 <jsp:include page="../../script.jsp" />
+<style type="text/css">
+    .code
+{
+	width: 500;
+	padding: 10px;
+	margin: 20px;
+	color: #333;
+	font-size: 11px;
+	font-weight: normal;
+	line-height: 14px;
+	background-color: #EEEEEE;
+	border: 1px solid #999;
+    }
+
+</style>
 
 </head>
 
@@ -62,7 +77,7 @@ The first key to solving a graph related problem is recognizing that it is a gra
 Bob's initial position will be represented by a 'B' and the house location will be represented by an 'H'.  Empty squares on the grid are represented by '.' and houses are represented by 'X'.  Find the minimum number of steps it takes Bob to get back home, but if it is not possible for Bob to return home, return -1.
 <br/><br/>
 An example of a neighborhood of width 7 and height 5:
-<pre>
+<pre class="code">
 ...X..B
 .X.X.XX
 .H.....
@@ -85,7 +100,7 @@ Size - The number of edges in a graph
 An example of one of the simplest types of graphs is a singly linked list!  Now we can start to see the power of the graph data structure, as it can represent very complicated relationships, but also something as simple as a list.
 <br/><br/>
 A singly linked list has one "head" node, and each node has a link to the next node.  So the structure looks like this:
-<pre>
+<pre class="code">
 structure node
 	[node] link;
 	[data]
@@ -94,7 +109,7 @@ end
 node head;
 </pre>
 A simple example would be:
-<pre>
+<pre class="code">
 node B, C;
 head.next = B;
 B.next = C;
@@ -103,7 +118,7 @@ C.next = null;
 This would be represented graphically as head -> B -> C -> null.  I've used null here to represent the end of a list.
 <br/><br/>
 Getting back to the concept of a cost function, our cost function would look as follows:
-<pre>
+<pre class="code">
 cost(X, Y) := if (X.link = Y) return 1;
 			  else if (X = Y) return 0;
 			  else "Not possible"
@@ -115,7 +130,7 @@ Now that we have seen an example of the one of the simplest types of graphs, we 
 <a name="trees"></a>
 <span class=bodySubtitle>Trees</span><br/>
 There will be a whole section written on trees.  We are going to cover them very briefly as a stepping-stone along the way to a full-fledged graph.  In our list example above we are somewhat limited in the type of data we can represent.  For example, if you wanted to start a family tree (a hierarchal organization of children to parents, starting from one child) you would not be able to store more than one parent per child.  So we obviously need a new type of data structure.  Our new node structure will look something like this:
-<pre>
+<pre class="code">
 structure node
 	[node] mother, father;
 	[string] name
@@ -124,7 +139,7 @@ end
 node originalChild;
 </pre>
 With a cost function of:
-<pre>
+<pre class="code">
 cost(X, Y) := if ((X.mother = Y) or (X.father = Y)) return 1;
 			  else if (X = Y) return 0;
 			  else "Not possible"
@@ -138,7 +153,7 @@ Another thing to note is that we could imagine a situation easily where the tree
 A tree only allows a node to have children, and there cannot be any loops in the tree, with a more general graph we can represent many different situations.  A very common example used is flight paths between cities.  If there is a flight between city A and city B there is an edge between the cities.  The cost of the edge can be the length of time that it takes for the flight, or perhaps the amount of fuel used.
 <br/><br/>
 The way that we will represent this is to have a concept of a node (or vertex) that contains links to other nodes, and the data associated with that node.  So for our flight path example we might have the name of the airport as the node data, and for every flight leaving that city we have an element in neighbors that points to the destination.
-<pre>
+<pre class="code">
 structure node
 	[list of nodes] neighbors
 	[data]
@@ -158,7 +173,7 @@ Representing a graph as a list of nodes is a very flexible method.  But usually 
 The basic concept is to have a 2 dimensional array of integers, where the element in row i, at column j represents the edge cost from node i to j.  If the connection from i to j is not possible, we use some sort of sentinel value (usually a very large or small value, like -1 or the maximum integer).  Another nice thing about this type of structure is that we can represent directed or undirected edges very easily.
 <br/><br/>
 So for example, the following connection matrix:
-<pre>
+<pre class="code">
     A  B  C
 A   0  1  5
 B  -1  0  1
@@ -170,6 +185,8 @@ Would mean that node A has a 0 weight connection to itself, a 1 weight connectio
 <br/><br/>
 This representation is very convenient for graphs that do not have multiple edges between each node, and allows us to simplify working with the graph.
 
+<br/><br/>
+<A href="/tc?module=Static&d1=tutorials&d2=graphsDataStrucs2">...continue to Section 2</A>
 			</p>
             
 

@@ -5,6 +5,21 @@
 <title>Algorithm Tutorials</title>
 
 <jsp:include page="../../script.jsp" />
+<style type="text/css">
+    .code
+{
+	width: 500;
+	padding: 10px;
+	margin: 20px;
+	color: #333;
+	font-size: 11px;
+	font-weight: normal;
+	line-height: 14px;
+	background-color: #EEEEEE;
+	border: 1px solid #999;
+    }
+
+</style>
 
 </head>
 
@@ -69,7 +84,7 @@ Let's talk about one of the most common approach tactics: breaking down a proble
 <br/><br/>
 A good example of where this approach is useful is in MatArith from Round 2 of the 2002 TopCoder Invitational. The problem requires you to evaluate an expression involving matrices. You know that in order to get to the numbers you'll need to parse them (because they're in String arrays) and pass those values into an evaluator, change it back into a String array and then you're done. So you'll need a print function, a parse function and a new calc function. Without thinking too hard, if you imaging having all three of these functions written already the problem could be solved in one line:
 
-<pre>
+<pre class="code">
 public String[] calculate(String[] A, String[] B, String[] C, String eval){
 	return print(calc(parse(A),parse(B),parse(C),eval));
 }
