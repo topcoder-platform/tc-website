@@ -77,8 +77,8 @@ while (strtok.hasMoreTokens()){
 	}
 	}
 	stBuffer.append("<BR>");
-*/
 }
+*/
 %>		 
          <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
            <TR>
