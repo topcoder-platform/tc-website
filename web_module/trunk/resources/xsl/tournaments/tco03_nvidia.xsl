@@ -78,7 +78,7 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td class="bodyText">
                     <p><strong>NVIDIA and TopCoder - Partnering for Success</strong></p>
                         
                         <p><A href="http://www.nvidia.edu" target="_blank"><img src="/i/tournament/tco03/sponsors/nvidia_geforcefx.gif" alt="geforce" width="160" height="160" border="0" align="right" /></A>
