@@ -3,7 +3,6 @@ package com.topcoder.web.privatelabel;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.TCResourceBundle;
 
-import javax.servlet.ServletConfig;
 import java.lang.reflect.Field;
 
 /**
@@ -94,9 +93,6 @@ public class Constants {
     public static String VERIZON_REG_DEMOG;
     public static String VERIZON_REG_CONFIRM;
     public static String VERIZON_REG_SUBMIT;
-
-    //DB's
-    public static String REGISTRATION_DB;
 
     //various constants
     public static int STUDENT;
