@@ -36,14 +36,15 @@ public class UpdateProfile extends BaseProfileProcessor {
         requireLogin();
 
         //validate the info
+        ServletRequest request = getRequest();
+        ProfileInfo info = buildProfileInfo(request);
+        request.setAttribute(Constants.PROFILE_INFO, info);
         if(!validateProfileInfo()) {
             setNextPage(Constants.PROFILE_SETUP_PAGE);
             setNextPageInContext(true);
             return;
         }
 
-        ServletRequest request = getRequest();
-        ProfileInfo info = buildProfileInfo(request);
         InitialContext context = new InitialContext();
         SessionProfileHome spHome = (SessionProfileHome)
             PortableRemoteObject.narrow(
