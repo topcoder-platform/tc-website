@@ -65,6 +65,8 @@
 <!-- Client Job List begins -->
                         <p><A href="/?&amp;t=tces&amp;c=paypal" class="bodyText"><img src="/i/es/paypal/paypal_logo.gif" width="150" height="50" alt="PayPal" border="0" /></A></p>
                         
+                        <p>All positions located in San Jose, CA.</p> 
+                        
                         <p><A href="/?&amp;t=tces&amp;c=paypal_srsofteng&amp;a=secure" class="bodyText">Sr. Software Engineer</A></p>
                         <p><A href="/?&amp;t=tces&amp;c=paypal_staffsofteng&amp;a=secure" class="bodyText">Staff Software Engineer</A></p>
                         <p><A href="/?&amp;t=tces&amp;c=paypal_softlocaleng&amp;a=secure" class="bodyText">Software QA Localization Engineer</A></p>
