@@ -404,6 +404,7 @@ public final class ReportServlet extends HttpServlet {
         query.append(" ,demographic_answer da6\n");
         query.append(" ,OUTER current_school cs \n");
         query.append(" WHERE c.coder_id = u.user_id\n");
+        query.append(" AND u.status='A'");
         query.append(" AND ct.coder_type_id = c.coder_type_id\n");
         if (coderTypes != null && !coderTypes.equals("")) {
             query.append(" AND ct.coder_type_id in (" + coderTypes + ")\n");
