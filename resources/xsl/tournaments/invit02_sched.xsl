@@ -251,10 +251,10 @@
                     </TR>                    
                     <TR>
                       <TD ALIGN="right" VALIGN="middle" WIDTH="26%" HEIGHT="13" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><B>Total Competitors</B></TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=schedule&amp;c=tourney_semi" CLASS="statTextBig">Room #1</A></TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=schedule&amp;c=tourney_semi" CLASS="statTextBig">Room #2</A></TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=schedule&amp;c=tourney_semi" CLASS="statTextBig">Room #3</A></TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=schedule&amp;c=tourney_semi" CLASS="statTextBig">Room #4</A></TD>
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=tournaments&amp;c=tourney_semi" CLASS="statTextBig">Room #1</A></TD>
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=tournaments&amp;c=tourney_semi" CLASS="statTextBig">Room #2</A></TD>
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=tournaments&amp;c=tourney_semi" CLASS="statTextBig">Room #3</A></TD>
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=tournaments&amp;c=tourney_semi" CLASS="statTextBig">Room #4</A></TD>
                     </TR>
                     <TR>
                       <TD ALIGN="right" HEIGHT="13" CLASS="statText">16</TD>
@@ -296,7 +296,7 @@
                     </TR>                    
                     <TR>
                       <TD ALIGN="right" VALIGN="middle" WIDTH="26%" HEIGHT="13" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><B>Total Competitors</B></TD>
-                      <TD COLSPAN="4" ALIGN="center" VALIGN="middle" WIDTH="74%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=schedule&amp;c=tourney_champ" CLASS="statTextBig">1 Room</A></TD>
+                      <TD COLSPAN="4" ALIGN="center" VALIGN="middle" WIDTH="74%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=tournaments&amp;c=tourney_champ" CLASS="statTextBig">1 Room</A></TD>
                     </TR>
                     <TR>
                       <TD ALIGN="right" HEIGHT="13" CLASS="statText">4</TD>

@@ -45,7 +45,7 @@
 <xsl:call-template name="BodyTop">
   <xsl:with-param name="image1">white</xsl:with-param>
   <xsl:with-param name="image">tournaments</xsl:with-param>
-  <xsl:with-param name="title">&#160;Room&#160;1:&#160;Problems&#160;&amp;&#160;Chrono&#160;Logs</xsl:with-param>
+  <xsl:with-param name="title">&#160;Room&#160;3:&#160;Problems&#160;&amp;&#160;Chrono&#160;Logs</xsl:with-param>
 </xsl:call-template>
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
   <TR>
