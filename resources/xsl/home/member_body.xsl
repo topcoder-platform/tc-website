@@ -384,7 +384,7 @@
 
     <!-- My Stats Ends -->
 <img src="/i/clear.gif" alt="" width="1" height="1" border="0"/><br/>
-<table border="1" cellspacing="0" cellpadding="0" width="100%" bgcolor="#FFFFFF">
+<table border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#FFFFFF">
   <tr>
     <td VALIGN="top" WIDTH="1"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></td>
     <td VALIGN="top" WIDTH="1" bgcolor="#000000"><A HREF="/?&amp;t=tournaments&amp;c=tccc03_sched"><IMG SRC="/i/tournament/tccc03/tccc03_home.gif" ALT="" WIDTH="138" HEIGHT="90" BORDER="0"/></A></td>
@@ -399,6 +399,7 @@ for more information.<BR/><BR/>
     <td VALIGN="top" WIDTH="1"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></td>
   </tr>
 
+<!--
   <tr>
     <td VALIGN="top" WIDTH="1" COLSPAN="4">
       <xsl:choose>
@@ -440,6 +441,7 @@ for more information.<BR/><BR/>
       </xsl:choose>
     </td>
   </tr>
+-->
 </table>
 
 <!-- Summary/Best/Worst Begins -->
