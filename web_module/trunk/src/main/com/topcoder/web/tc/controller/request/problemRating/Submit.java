@@ -10,6 +10,7 @@ import com.topcoder.web.ejb.ProblemRatingServices.ProblemRatingServices;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.common.NavigationException;
 
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
@@ -18,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Iterator;
 import java.util.Enumeration;
 import java.util.ArrayList;
+import java.rmi.RemoteException;
 
 
 /**
@@ -68,6 +70,10 @@ public class Submit extends Base {
                 setNextPage("?" + Constants.MODULE_KEY + "=ProblemRatingQuestions");
                 setIsNextPageInContext(true);
             }
+        }catch(RemoteException e){
+            if(e.detail instanceof NavigationException)
+                throw (NavigationException)e.detail;
+            e.printStackTrace();
         }catch(Exception e){
             e.printStackTrace();
         }
