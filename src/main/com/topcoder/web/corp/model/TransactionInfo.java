@@ -96,7 +96,8 @@ public class TransactionInfo {
             qtty = productUnit.getNumUnits(productID, getUnitIdByType(TIME_UNIT_TYPE_ID, productID));
 
             if (qtty <= 0) {
-                throw new Exception("No valid unit found for ID given");
+                throw new Exception("No valid unit found for product: " + productID +
+                        " unit type: " + TIME_UNIT_TYPE_ID);
             }
 
 
@@ -148,13 +149,16 @@ public class TransactionInfo {
      * @throws RemoteException
      */
     private long getUnitIdByType(int unitTypeId, long productId)
-            throws NamingException, CreateException, RemoteException {
+            throws Exception, CreateException, RemoteException {
         long ret = -1;
         InitialContext icEJB = null;
         try {
             icEJB = (InitialContext) TCContext.getInitial();
                 ProductUnit productUnit = ((ProductUnitHome) icEJB.lookup(ProductUnitHome.EJB_REF_NAME)).create();
             ResultSetContainer unitList = productUnit.getUnits(productId);
+            if (unitList.size()==0) {
+                throw new Exception("No units exist for product: "+ productId);
+            }
             ResultSetContainer.ResultSetRow row = null;
             for (Iterator it = unitList.iterator(); it.hasNext();) {
                 row = (ResultSetContainer.ResultSetRow) it.next();
