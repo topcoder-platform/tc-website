@@ -24,8 +24,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpUtils;
 import java.io.IOException;
-import java.net.URLEncoder;
 import java.util.Enumeration;
 import java.util.Set;
 
@@ -153,15 +153,30 @@ public class Controller extends HttpServlet {
 
                 task.servletPreAction(request, response);
 
-                task.processStep(taskStepName);
+                try {
+                    task.processStep(taskStepName);
+                } catch (TCESAuthenticationException authex) {
+                    log.error("User authenticated error in TCES resource."
+                            + authex.getMessage());
+                    request.setAttribute("message", "You must login to view this page.");
+                    log.debug("login nextpage will be: " + HttpUtils.getRequestURL(request) + "?" + request.getQueryString());
+                    request.setAttribute("nextpage", HttpUtils.getRequestURL(request) + "?" + request.getQueryString());
+                    Login l = new Login();
+                    l.setRequest(request);
+                    l.setAuthentication(authToken);
+                    l.process();
+                    boolean forward = l.isNextPageInContext();
+                    String destination = l.getNextPage();
+                    fetchRegularPage(request, response, destination, forward);
+
+                }
 
                 task.servletPostAction(request, response);
 
                 request.setAttribute(taskName, task);
 
                 if (!response.isCommitted()) {
-                    getServletContext().getRequestDispatcher(response.encodeURL(
-                            task.getNextPage())).forward(request, response);
+                    fetchRegularPage(request, response, task.getNextPage(), true);
                 }
 
             } else {
@@ -169,11 +184,6 @@ public class Controller extends HttpServlet {
                         new Exception("missing " + TCESConstants.TASK_PARAM
                         + " parameter in request"), false);
             }
-        } catch (TCESAuthenticationException authex) {
-            log.error("User authenticated error in TCES resource."
-                    + authex.getMessage());
-            redirectToLoginPage(request, response);
-            return;
         } catch (NotAuthorizedException ae) {
             log.debug("TCES Authorization failure! ", ae);
             forwardToErrorPage(request, response, ae, true);
@@ -188,30 +198,6 @@ public class Controller extends HttpServlet {
         }
     }
 
-
-    /**
-     * private method for redirecting user to login page.
-     *
-     * @param request the servlet request object
-     * @param response the servlet response object
-     *
-     * @throws ServletException
-     * @throws IOException
-     */
-    private void redirectToLoginPage(HttpServletRequest request,
-                                     HttpServletResponse response)
-            throws ServletException, IOException {
-
-        String originatingPage = request.getRequestURI();
-        if (request.getQueryString() != null) {
-            originatingPage += "?" + request.getQueryString();
-        }
-        String destParam = Login.KEY_DESTINATION_PAGE;
-        String loginPageDest = TCESConstants.LOGIN_PAGE + "&" + destParam
-                + "=" +originatingPage;
-
-        response.sendRedirect(response.encodeRedirectURL(loginPageDest));
-    }
 
     /**
      * private method for forward user to one of the two error pages.  If a
@@ -239,4 +225,39 @@ public class Controller extends HttpServlet {
         getServletContext().getRequestDispatcher(
                 response.encodeURL(forwardPage)).forward(request, response);
     }
+
+    /**
+     *
+     * @param req
+     * @param resp
+     * @param dest
+     * @param forward
+     * @throws IOException
+     * @throws ServletException
+     */
+    private void fetchRegularPage(
+            HttpServletRequest req,
+            HttpServletResponse resp,
+            String dest,
+            boolean forward
+            )
+            throws IOException, ServletException {
+        if (dest == null) {
+            dest = req.getContextPath() + "/"; // default page is web app root
+        }
+        log.debug((forward ? "forwarding" : "redirecting") + " to " + dest);
+
+        String contextPrefix = req.getContextPath();
+        boolean startsWithContextPath = dest.startsWith(contextPrefix);
+        if (forward) {
+            // forwarded pages *must not* contain servlet context path
+            if (startsWithContextPath) {
+                dest = dest.substring(contextPrefix.length());
+            }
+            getServletContext().getRequestDispatcher(resp.encodeURL(dest)).forward(req, resp);
+        } else {
+            resp.sendRedirect(resp.encodeRedirectURL(dest));
+        }
+    }
+
 }
