@@ -6,6 +6,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>02.25.05<br>11:55 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/?&t=news_events&c=art_02_13_05">Program for life</A></span><br><br>
+      "Warsaw University graduates are some of the best computer scientists in the world."
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/?&t=news_events&c=art_02_13_05">full story</A>&#160;|&#160;
+         <A href="/?t=news_events&c=index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>02.24.05<br>9:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/index?t=statistics&c=srm232_prob">SRM 232 - Problem Set & Analysis</A></span><br><br>
       This match seemed to have a lot less challenges than other matches, but the systests were brutal for many coders, especially on the division 1 650 and 900.
@@ -226,18 +238,6 @@
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=contracting&d2=index">see all available jobs</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>02.03.05<br>11:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_bracket">TCCC05 Algorithm SemiFinalists</A></span><br><br>
-      The semifinalists for the TCCC05 Algorithm Competition have been announced.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_bracket">results</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
 </table>
