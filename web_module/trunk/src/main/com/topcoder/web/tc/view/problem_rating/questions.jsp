@@ -1,7 +1,7 @@
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="/rsc-taglib.tld" prefix="rsc" %>
-<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="/.tld" prefix="logic" %>
 <jsp:useBean id="problemRatingQuestions" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" />
 <html>
 <head>
@@ -22,7 +22,7 @@
                 </td>
             <% } %>
         </tr>
-        <logic:iterate name="problemRatingQuestions" id="question" type="com.topcoder.web.tc.model.ProblemRatingQuestion">
+        <tc:roblemRatingIteratorc list="<%=problemRatingQuestions%>" id="question">
         <tr>
             <tc:problemRatingInput id="problemRatingInput" question="<%=question%>">
             <td class="statText">
