@@ -47,22 +47,23 @@ public abstract class Base extends BaseProcessor {
     protected void businessProcessing() throws Exception {
         //log.debug("session timeout is " + getRequest().getSession().getMaxInactiveInterval());
         getRequest().setAttribute(Constants.CURRENT_TIME, String.valueOf(System.currentTimeMillis()));
-        //figure out the sponsor image
-        ImageInfo compImage = new ImageInfo();
-        Request dataRequest = new Request();
-        dataRequest.setContentHandle("sponsor_image");
-        dataRequest.setProperty(Constants.COMPANY_ID, String.valueOf(getCompanyId()));
-        dataRequest.setProperty(Constants.IMAGE_TYPE, String.valueOf(Constants.TEST_IMAGE_TYPE));
-        DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
-        Map resultMap = dai.getData(dataRequest);
-        ResultSetContainer rsc = (ResultSetContainer) resultMap.get("Sponsor_Image");
-        compImage.setSrc(rsc.getStringItem(0, "file_path"));
-        compImage.setHeight(rsc.getIntItem(0, "height"));
-        compImage.setHeight(rsc.getIntItem(0, "width"));
-        compImage.setLink(rsc.getStringItem(0, "link"));
-        getRequest().setAttribute(Constants.SPONSOR_IMAGE, compImage);
         try {
             techAssessProcessing();
+            //figure out the sponsor image
+            ImageInfo compImage = new ImageInfo();
+            Request dataRequest = new Request();
+            dataRequest.setContentHandle("sponsor_image");
+            dataRequest.setProperty(Constants.COMPANY_ID, String.valueOf(getCompanyId()));
+            dataRequest.setProperty(Constants.IMAGE_TYPE, String.valueOf(Constants.TEST_IMAGE_TYPE));
+            DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
+            Map resultMap = dai.getData(dataRequest);
+            ResultSetContainer rsc = (ResultSetContainer) resultMap.get("Sponsor_Image");
+            compImage.setSrc(rsc.getStringItem(0, "file_path"));
+            compImage.setHeight(rsc.getIntItem(0, "height"));
+            compImage.setHeight(rsc.getIntItem(0, "width"));
+            compImage.setLink(rsc.getStringItem(0, "link"));
+            getRequest().setAttribute(Constants.SPONSOR_IMAGE, compImage);
+
         } catch (TimeOutException e) {
             closeProcessingPage(buildProcessorRequestString(Constants.RP_TIMEOUT, null, null));
         }
