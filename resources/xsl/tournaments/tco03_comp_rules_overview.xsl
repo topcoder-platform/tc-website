@@ -84,11 +84,11 @@
             
             <h3><font color="#CC0000">No purchase necessary to enter or win</font></h3>
 
-            <p>The 2003 TopCoder Open ("TCO") will take place between October 7th and December 5th, 2003.  It will consist of two (2) online 
-            qualification rounds, four (4) online elimination rounds and two (2) onsite final rounds, being the Semifinal and Championship rounds.  
-            The prize purse for this tournament is $100,000 in cash.  Up to 500 competitors will receive a prize just for competing in Online 
-            Round #1, and up to 200 eligible competitors will receive cash prizes.  The top 16 finishers in the online rounds will advance to 
-            the onsite Semifinal and Championship rounds, being held at the Mohegan Sun Casino in Uncasville, CT from December 4th and 5th.</p>
+            <p>The 2003 TopCoder Open Component Design and Development Competition ("CDDC") will take place between September 2nd and December 5th, 2003.  
+            It will consist of two (2) online elimination rounds, and one (1) onsite final round, being the Championship round.  The prize purse for this tournament 
+            is $20,000 in cash, with $10,000 being awarded for the design contest and $10,000 for the development contest.  The top two scorers from each of the 
+            last online rounds will advance to the onsite Championship round, being held at the Mohegan Sun Casino in Uncasville, CT on December 5th.
+            </p>
             </blockquote>
 
             <p><br/></p>
