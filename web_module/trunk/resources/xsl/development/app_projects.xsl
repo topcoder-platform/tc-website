@@ -88,7 +88,7 @@
                                     </td>
                                     <td class="projectCells" align="right">$2,400 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$800 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">10.07c.2004</td>
+                                    <td class="projectCells" align="right">10.07.2004</td>
                                 </tr>
 
                             </table>
