@@ -103,7 +103,7 @@
 <P><B>Problem Set Analysis &amp; Opinion</B></P>
 <p>  Tension builds as we get closer and closer to the finals.  This round, the Regional Quarterfinals, proved to be
     one of the most interesting to date.  After 15 minutes only a few competitors submitted the easy problem, a
-    departure from the normal frantic pace.  John Dethridge, the top ranked competitor, was seemingly unphased by
+    departure from the normal frantic pace.  John Dethridge, the top ranked competitor, was seemingly unfazed by
     the problem set.  He sped through all 3 problems winning the round by a margin.  Quite amazingly he finished
     both the easy and the hard before second highest ranked coder Yarin submitted his first problem.  As time passed
     many coders finished the treacherous easy and were able to complete the rest of the problems.  Although slightly
