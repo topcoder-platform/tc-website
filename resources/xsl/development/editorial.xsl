@@ -55,7 +55,7 @@
                                     </FORM>
                                     <b>Website Editorial Project</b>
                                     <BR/>
-                                    <a href="Javascript:document.frmInquire.Project.value='Website Editorial';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>
+                                    <!--<a href="Javascript:document.frmInquire.Project.value='Website Editorial';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>-->
                                     <BR/>
                                     <BR/>
                                     <b>Preface</b>
@@ -179,7 +179,7 @@ The project will begin on the 28th of May. There will be a kick-off conference c
                                         <li>Project Start Date:    May 28, 2002</li>
                                         <li>Project End Date:      July 9, 2002</li>
                                     </ul>
-                                    <a href="Javascript:document.frmInquire.Project.value='Website Editorial';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>
+                                    <!--<a href="Javascript:document.frmInquire.Project.value='Website Editorial';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>-->
           <P><br/></P>
     </TD>
     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
