@@ -32,6 +32,12 @@
             
             <h2>Introduction to graphs and their data structures: Section 3</h2>
 
+			<p>
+			<img src="/i/m/gladius_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+			By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=268851"><strong>gladius</strong></a><br />
+			<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
+			</p>
+
 <span class="outline1"><A href="#finding">Finding the best path through a graph</A></span><br/>
 	<span class="outline2"><A href="#dijkstra">Dijkstra (Heap method)</A></span><br/>
 	<span class="outline2"><A href="#floydWarshall">Floyd-Warshall</A></span>

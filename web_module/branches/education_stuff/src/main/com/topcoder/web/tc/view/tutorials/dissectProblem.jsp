@@ -33,6 +33,12 @@
             <h2>How To Dissect a TopCoder Problem Statement</h2>
 
 			<p>
+			<img src="/i/m/antimatter_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+			By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=275071"><strong>antimatter</strong></a><br />
+			<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
+			</p>
+
+<p>
 How many times has this happened to you: you register for the SRM, go into your assigned room when the system tells you to, and when the match starts, you open the 250... and find it incomprehensible. 
 <br/><br/>
 Maybe it's never happened to you.  You may be lucky, or you may already be extremely skilled.  However, many experienced competitors (yes, reds too) might end up just staring at a problem for a long time.  This is a pretty serious issue.  How can you solve the problem if you have no idea what it's asking you to do? 
