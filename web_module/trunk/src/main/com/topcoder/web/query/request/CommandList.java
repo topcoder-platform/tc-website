@@ -66,7 +66,7 @@ public class CommandList extends BaseProcessor {
 
         if (paramName.equalsIgnoreCase(Constants.DB_PARAM))
             setDb(value);
-        if (paramName.equalsIgnoreCase(Constants.COMMAND_GROUP_ID_PARAM)) {
+        if (paramName.equalsIgnoreCase(Constants.GROUP_ID_PARAM)) {
             try {
                 log.debug("setting group id: " + Integer.parseInt(value));
                 setCommandGroupId(Integer.parseInt(value));
