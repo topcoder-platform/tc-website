@@ -103,7 +103,9 @@
                                                     <p>
                                                         <strong>Business Requirement Specification </strong>
                                                         <br/>
-                                                        View the <a target="_new" class="bodyText" href="/i/development/downloads/GeneChipDataInterfaceApplicationSpec.pdf">Business Requirement Specification</a> for this application project.
+                                                        View the <a target="_new" class="bodyText" href="/i/development/downloads/ServiceAbstract.pdf">Service Requirement Specification</a> for this application project.
+                                                        <br/>
+                                                        View the <a target="_new" class="bodyText" href="/i/development/downloads/ReportsAbstract.pdf">Reports Requirement Specification</a> for this application project.
                                                     </p>
                                                     <!-- Technologies -->
                                                     <p class="noSpListTitle">
