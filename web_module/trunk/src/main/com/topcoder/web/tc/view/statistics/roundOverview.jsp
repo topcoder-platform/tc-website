@@ -226,6 +226,7 @@ function goTo(selection){
                                 <TD VALIGN="middle" NOWRAP="0" WIDTH="17%" HEIGHT="15" CLASS="statText" ALIGN="right">&#160;<B>Correct %&#160;&#160;</B></TD>
                                 <TD VALIGN="middle" NOWRAP="0" WIDTH="17%" HEIGHT="15" CLASS="statText" ALIGN="right"><B>Average Pts.</B></TD>
                                 <TD VALIGN="middle" NOWRAP="0" WIDTH="15%" HEIGHT="15" CLASS="statText" ALIGN="right"></TD>
+                                <TD VALIGN="middle" NOWRAP="0" WIDTH="15%" HEIGHT="15" CLASS="statText" ALIGN="right"></TD>
                             </TR>
   <%
       currentRow = percents.getRow(currentRowPtr);
@@ -250,6 +251,7 @@ function goTo(selection){
                                 <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText" ALIGN="right"><%=perCor%> &#160;&#160;</TD>
                                 <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText" ALIGN="right"><%=avgPoints%></TD>
                                 <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText" ALIGN="right">&#160;<A HREF="JavaScript:getGraph('/graph?c=problem_distribution_graph&pm=<%= problemID %>&dn=<%= currentDivID %>','600','400','distribution')" class="statText">Distribution Graph</A></TD>
+                                <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText" ALIGN="right">&#160;<A HREF="/tc?module=ProblemRatingQuestions&pid=<%= problemID %>" class="statText">Rate</A></TD>
                             </TR>
                                 <%
                                     }
@@ -257,7 +259,7 @@ function goTo(selection){
                             <TR><TD VALIGN="middle" COLSPAN="6" WIDTH="100%" NOWRAP="0" HEIGHT="16" CLASS="registerNav"  BACKGROUND="/i/steel_bluebv_bg.gif"></TD></TR>
                             
                             <TR>
-                                <TD COLSPAN="6" ALIGN="center" CLASS="statText">
+                                <TD COLSPAN="7" ALIGN="center" CLASS="statText">
                                     <%if(!lastMatch){%>
                                         <INPUT TYPE="HIDDEN" NAME="rd" VALUE="<%=roundID%>">
                                     <%}%>
