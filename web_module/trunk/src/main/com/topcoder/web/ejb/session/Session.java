@@ -7,7 +7,7 @@ import java.rmi.RemoteException;
 /**
  * The interface for the Session EJB.
  * This stateless session EJB controls user session information
- * @author Fred Wang (fred@fredwang.com)
+ * @author Fred Wang (silentmobius)
  * @version $Revision$
  */
 public interface Session extends EJBObject {

@@ -6,7 +6,7 @@ import java.rmi.RemoteException;
 
 /**
  * Session Home Interface
- * @author Fred Wang (fred@fredwang.com)
+ * @author Fred Wang (silentmobius)
  * @version $Revision$
  */
 

@@ -6,7 +6,7 @@ import java.rmi.RemoteException;
 
 /**
  *
- * @author Fred Wang (fred@fredwang.com)
+ * @author Fred Wang (silentmobius)
  * @version $Revision$
  * Dec 19, 2002 10:27:43 PM
  */

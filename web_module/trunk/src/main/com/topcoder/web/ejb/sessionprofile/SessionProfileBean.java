@@ -14,7 +14,7 @@ import java.sql.*;
 
 /**
  *
- * @author Fred Wang (fred@fredwang.com)
+ * @author Fred Wang (silentmobius)
  * @version $Revision$ 
  * Dec 23, 2002 12:44:49 AM
  */

@@ -6,7 +6,7 @@ import java.sql.Date;
 
 /**
  *
- * @author Fred Wang (fred@fredwang.com)
+ * @author Fred Wang (silentmobius)
  * @version $Revision$ 
  * Dec 25, 2002 1:00:16 AM
  */
