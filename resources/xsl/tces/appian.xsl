@@ -65,31 +65,20 @@
 <!-- Client Message Begins -->
                         <p><A href="/?&amp;t=tces&amp;c=appian" class="bodyText"><img src="/i/es/appian/appian_logo.gif" width="121" height="38" alt="Appian" border="0" /></A></p>
 
-                        <p>What's your edge?</p>
+                        <p>Founded in 1999, Appian is one of the fastest growing companies in the Washington, DC area. We've expanded 100% 
+                        annually over the last four years, and our aggressive growth path continues.</p>
 
-                        <p>Today, organizations have virtually unlimited access to data.  The sheer volume can easily overwhelm the unprepared.</p>
+                        <p>We are a different kind of company, with a unique culture. We go on a weeklong Caribbean cruise every year. We attend 
+                        early releases of first run movies (we saw Matrix: Reloaded two days before everyone else). We hire from the top 
+                        universities in the country. For us, software development is as much art as it is science.</p>
 
-                        <p>For the prepared, however, the ability to capture and use data effectively and efficiently can be a critical competitive 
-                        edge. Whether you're a blue-chip company competing for market share or a government agency serving the public, Appian 
-                        can help you manage and leverage your data to gain a strategic advantage.</p>
+                        <p>We build real time, enterprise web solutions that leverage the power of personalization to enable blue-chip companies 
+                        and government agencies to integrate and transform the way business users work together and interact with information.</p>
 
-                        <p>Appian is a software and professional services company dedicated to connecting people and ideas.  We build real time, 
-                        enterprise web solutions that leverage the power of personalization to enable blue-chip companies and government agencies 
-                        to integrate and transform the way business users work together and interact with information.</p>
-
-                        <p>Appian solutions are tailored to meet the special needs of our customers. Our expertise and experience includes 
-                        development and deployment of solutions for the energy, financial services, retail, telecommunications, insurance, and 
-                        health care industries, in addition to extensive work for federal and state government.</p>
-
-                        <p>Our client relationships are enduring. With dozens of sites and thousands of users, these organizations demand the best.  
-                        Best in technical thought.  Best in rapid deployment.  And best in building solutions that scale to meet unexpected demand 
-                        and future growth.</p>
-
-                        <p>Since 1999, Appian revenue and personnel have increased by 100% annually. We are completely self-funded and 
-                        profitable. Such solid, triple-digit growth is unusual during an economic downturn. But then, Appian isn't like other 
-                        companies.</p>
-
-                        <p>We are looking to hire top quality <A href="/?&amp;t=tces&amp;c=appian_soft_eng&amp;a=secure" class="bodyText">Software Engineers.</A></p>
+                        <p>We seek talented, passionate coders to help us build our next generation of highly scalable, high performance, highly 
+                        available applications.  If you code both for work and fun, are attracted to a young, dynamic culture, prefer working in 
+                        small, highly focused teams, and don't mind being around people smarter than you, 
+                        <A href="/?&amp;t=tces&amp;c=appian_soft_eng&amp;a=secure" class="bodyText">consider us.</A></p>
 <!-- Client Message Ends -->
 
                         <p><br /></p>
