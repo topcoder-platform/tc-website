@@ -15,7 +15,7 @@
 
 <xsl:call-template name="Preload"/>      
 
-<title>TopCoder | Schedule</title>
+<title>Schedule of upcoming Single Round Matches for computer programming competitions at TopCoder</title>
 
 <!-- Include External CSS file -->
 <xsl:call-template name="CSS"/>      
