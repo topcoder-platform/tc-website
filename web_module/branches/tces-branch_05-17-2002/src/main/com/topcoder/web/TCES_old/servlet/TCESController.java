@@ -39,13 +39,31 @@ public class TCESController extends HttpServlet {
             String taskName = request.getParameter(TASK);
             if (taskName == null || !TCES.navs.getHash().containsKey(taskName)) {
                 Log.msg(TASK+" not found in request.");
-                forwardToError(request,response,new TaskException(TASK+" not found in request."));
-                return;
+								response.sendRedirect("/index");
+                //forwardToError(request,response,new TaskException(TASK+" not found in request."));
+                //return;
             }
             session = request.getSession(true); // for now create a new session, later this'll be done in the front page
-						if (getUser(session) == null) {
+						User currentUser = getUser(session);
+						if (currentUser == null) {
 							response.sendRedirect("/?t=authentication&c=login");
 						} else {
+							TCES tces = new TCES(currentUser, taskName);
+	            Enumeration parameterNames = request.getParameterNames();
+	            while (parameterNames.hasMoreElements())
+	            {
+	                String parameterName = parameterNames.nextElement().toString();
+	                String[] parameterValues = request.getParameterValues(parameterName);
+	                if (parameterValues != null) {
+	                    tces.setAttributes(parameterName,parameterValues);
+	                }
+	            }
+							try {
+								tces.process();
+							} catch (TaskException te) {
+                forwardToError(request,response,new TaskException(TASK+": " + te.getMessage()));
+							}
+							
             	forward(request,response, TCES.navs.getTCESNav(taskName).getFullPageName());
 						}
          } 
@@ -83,7 +101,7 @@ public class TCESController extends HttpServlet {
     }
    
     void forwardToError(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-       forward(request,response,CONTROLLER_ERROR_URL);
+       forward(request,response,TCES.PATH + CONTROLLER_ERROR_URL);
     } 
    
     void forwardToError(HttpServletRequest request, HttpServletResponse response, Throwable exception) throws ServletException, IOException {

@@ -26,7 +26,7 @@ public class TCES extends Task implements Serializable {
 		private TCESNav currentNav = null;
 		private TCESNav nextNav = null;
 		private Hashtable htParams = new Hashtable();
-		private isTaskValidated = true;
+		private boolean isTaskValidated = true;
 
     public static final String PROTOCOL = "http";
     public static final String HOST = ApplicationServer.SERVER_NAME;
