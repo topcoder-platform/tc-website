@@ -111,7 +111,8 @@ function goTo(selection){
 	    
 	    // payment
             vec.clear();
-	    str = new String(affidavits[i-1]._payment._recentNetAmount + "");
+	    DecimalFormat decf = new DecimalFormat("0.00");
+	    str = "$" + decf.format(affidavits[i-1]._payment._recentNetAmount);
 	    vec.add(new String(PactsConstants.PAYMENT_ID + "=" +
 	            affidavits[i-1]._payment._id));
 	    href = PactsHtmlHelpers.createPactsHtmlHref(

@@ -43,7 +43,7 @@ function goTo(selection){
 		<TD CLASS="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
 <BR/>
 <!-- <jsp:include page="MemberHeader.jsp" flush="true" /> -->
-<%@ page import="com.topcoder.web.pacts.common.*" %>
+<%@ page import="com.topcoder.web.pacts.common.*,java.text.*" %>
 
 <%
 
@@ -78,7 +78,8 @@ function goTo(selection){
 
 	    // the net payment amount
 	    vec.clear();
-	    str = payments[i-1]._recentNetAmount + "";
+	    DecimalFormat decf = new DecimalFormat("0.00");
+	    str = "$" + decf.format(payments[i-1]._recentNetAmount);
 	    vec.add(new String(PactsConstants.PAYMENT_ID + "=" + 
 	            payments[i-1]._id));
 
