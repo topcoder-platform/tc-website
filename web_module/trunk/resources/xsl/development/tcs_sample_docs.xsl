@@ -31,7 +31,7 @@
     <xsl:call-template name="Top"/>
 <!-- Header Begins -->
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#001B35">
     <tr valign="top">
 <!-- Left Column Begins -->
         <td width="170" bgcolor="#CCCCCC" valign="top">
@@ -44,26 +44,21 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->  
-            <td class="bodyText" width="100%" valign="top"><img src="/i/clear.gif" width="240" height="1" vspace="5" alt="" border="0"/><br />
+            <td class="bodyText" width="100%" valign="top">
                 <xsl:call-template name="BodyTop">
                     <xsl:with-param name="image1">steelblue</xsl:with-param>
                     <xsl:with-param name="image">development</xsl:with-param>
                     <xsl:with-param name="title">&#160;Component Development</xsl:with-param>
                 </xsl:call-template>
                 
-                <table border="0" cellspacing="0" cellpadding="0" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
-                    <tr>
-                        <td bgcolor="#000033" background="/i/steel_darkblue_bg.gif" valign="top" width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
-                        <td class="statText" colspan="2" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br />
+                <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
+                    <tr valign="top">
+                        <td class="statText" width="100%"><img src="/i/clear.gif" alt="" width="240" height="10" border="0"/><br />
                             
-                            <h1 class="devSubhead"><strong>Documentation and Sample Submissions</strong></h1>
-                                    
+                            <h2 class="devSubhead"><strong>Documentation and Sample Submissions</strong></h2>
     
-                            <table border="0" cellspacing="0" cellpadding="2" bgcolor="#001B35" width="100%">
-                            
-                                <tr valign="middle">
-                                    <td bgcolor="#666666" class="registerNav" height="18" colspan="3">&#160;Component Documentation</td>
-                                </tr>
+                            <table border="0" cellspacing="0" cellpadding="3" width="100%">
+                                <tr valign="middle"><td bgcolor="#666666" class="registerNav" height="18" colspan="3">&#160;Component Documentation</td></tr>
                                 
                                 <tr valign="middle">
                                     <td background="/i/steel_bluebv_bg.gif" class="statText" width="45%" height="18">&#160;Description&#160;</td>
@@ -71,10 +66,7 @@
                                     <td background="/i/steel_bluebv_bg.gif" class="statText" width="50%" height="18">Modified&#160;&#160;&#160;&#160;&#160; Download File&#160;</td>
                                 </tr>
                             
-                                <tr>
-                                    <td colspan="3">
-                                    <hr width="100%" size="1px" color="666666" /></td>
-                                </tr>
+                                <tr><td colspan="3"><hr width="100%" size="1px" color="666666" /></td></tr>
                                 
                                 <tr valign="middle">
                                     <td class="statText" valign="top"><strong>TopCoder Software Development Environment</strong><br />
@@ -88,10 +80,7 @@
                                     </td>
                                 </tr>    
 
-                                <tr>
-                                    <td colspan="3">
-                                    <hr width="100%" size="1px" color="666666" /></td>
-                                </tr>
+                                <tr><td colspan="3"><hr width="100%" size="1px" color="666666" /></td></tr>
 
                                 <tr valign="middle">
                                     <td class="statText" valign="top"><strong>Design Deliverables</strong><br />
@@ -107,10 +96,7 @@
                                     
                                 </tr>
                                 
-                                <tr>
-                                    <td colspan="3">
-                                    <hr width="100%" size="1px" color="666666" /></td>
-                                </tr>
+                                <tr><td colspan="3"><hr width="100%" size="1px" color="666666" /></td></tr>
                                 
                                 <tr valign="middle">
                                     <td class="statText" valign="top"><strong>Development Deliverables</strong><br />
@@ -126,10 +112,7 @@
                                     </td>
                                 </tr>
                                 
-                                <tr>
-                                    <td colspan="3">
-                                    <hr width="100%" size="1px" color="666666" /></td>
-                                </tr>
+                                <tr><td colspan="3"><hr width="100%" size="1px" color="666666" /></td></tr>
                                 
                                 <tr valign="middle">
                                     <td class="statText" valign="top"><strong>Specification</strong><br />
@@ -147,10 +130,7 @@
                                     </td>
                                 </tr>
                                 
-                                <tr>
-                                    <td colspan="3">
-                                    <hr width="100%" size="1px" color="666666" /></td>
-                                </tr>
+                                <tr><td colspan="3"><hr width="100%" size="1px" color="666666" /></td></tr>
                                 
                                 <tr valign="middle">
                                     <td class="statText" height="15" valign="top"><strong>Screening and Review Scorecards</strong><br />
@@ -168,19 +148,14 @@
                                     </td>
                                 </tr>
                                 
-                                <tr>
-                                    <td colspan="3">
-                                    <hr width="100%" size="1px" color="666666" /></td>
-                                </tr>
-                                
+                                <tr><td colspan="3"><hr width="100%" size="1px" color="666666" /></td></tr>
                             </table>
-                            <br />
-                            <br />
-                            <table border="0" cellspacing="0" cellpadding="2" bgcolor="#001B35" width="100%">
+
+                            <p><br /></p>
+
+                            <table border="0" cellspacing="0" cellpadding="3" bgcolor="#001B35" width="100%">
                             
-                                <tr valign="middle">
-                                    <td bgcolor="#666666" class="registerNav" height="18" colspan="3">&#160;Application Documentation</td>
-                                </tr>
+                                <tr valign="middle"><td bgcolor="#666666" class="registerNav" height="18" colspan="3">&#160;Application Documentation</td></tr>
                                 
                                 <tr valign="middle">
                                     <td background="/i/steel_bluebv_bg.gif" class="statText" width="45%" height="18">&#160;Description&#160;</td>
@@ -188,9 +163,7 @@
                                     <td background="/i/steel_bluebv_bg.gif" class="statText" width="50%" height="18">Modified&#160;&#160;&#160;&#160;&#160; Download File&#160;</td>
                                 </tr>
                                 
-                                <tr>
-                                    <td colspan="3"><img src="/i/clear.gif" alt="" height="5" border="0" /></td>
-                                </tr>
+                                <tr><td colspan="3"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
 
                                 <tr valign="middle">
                                     <td class="statText" valign="top"><strong>Design Deliverables</strong><br />
@@ -206,10 +179,7 @@
                                     
                                 </tr>
                             
-                                <tr>
-                                    <td colspan="3">
-                                    <hr width="100%" size="1px" color="666666" /></td>
-                                </tr>
+                                <tr><td colspan="3"><hr width="100%" size="1px" color="666666" /></td></tr>
                                 
                                 <tr valign="middle">
                                     <td class="statText" height="15" valign="top"><strong>Screening and Review Scorecards</strong><br />
@@ -225,23 +195,15 @@
                                     </td>
                                 </tr>
                                 
-                                <tr>
-                                    <td colspan="3">
-                                    <hr width="100%" size="1px" color="666666" /></td>
-                                </tr>
-                                
+                                <tr><td colspan="3"><hr width="100%" size="1px" color="666666" /></td></tr>
                             </table>
-                            
-                            
 
                             <p>For more information about deliverables see the <a href="/?&amp;t=development&amp;c=comp_meth" class="statText">TopCoder Component Methodology.</a></p><br />
                     </td>
-
-                    <td valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0" /></td>
                 </tr>
             </table>
 
-            <table border="0" cellspacing="0" cellpadding="10" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
+            <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
                 <tr valign="top">
                     <td width="100%" background="/i/steel_darkblue_bg.gif">
                         <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
@@ -257,9 +219,7 @@
                             </tr>
                         </table></td>
                 </tr>
-            </table>
-            
-            <table border="0" cellspacing="0" cellpadding="10" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
+
                 <tr valign="top">
                     <td width="100%" background="/i/steel_darkblue_bg.gif">
                         <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
@@ -275,9 +235,7 @@
                             </tr>
                         </table></td>
                 </tr>
-            </table>
 
-            <table border="0" cellspacing="0" cellpadding="10" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
                 <tr valign="top">
                     <td width="100%" background="/i/steel_darkblue_bg.gif">
                         <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
@@ -292,22 +250,8 @@
                 </tr>
             </table>
             
-            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
-                <tr><td colspan="4" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>     
-
-                <tr>
-                    <td valign="top" background="" bgcolor="#FFFFFF" width="11" align="right"><img src="/i/clear.gif" alt="" width="11" height="8" border="0" /></td>
-                    <td background="/i/steel_darkblue_bg.gif" valign="top" bgcolor="#000033" width="14"><img src="/i/table_mid_left2x.gif" alt="" width="14" height="8" border="0" /></td>
-                    <td background="/i/steel_darkblue_bg.gif" valign="top" bgcolor="#000033" width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
-                    <td valign="top" background="" bgcolor="#FFFFFF" width="10"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
-                </tr>  
-
-                <tr>
-                    <td valign="top" background="" width="11" align="right" bgcolor="#FFFFFF"><img src="/i/clear.gif" alt="" width="11" height="8" border="0" /></td>
-                    <td valign="top" background="" bgcolor="#FFFFFF" width="14"><img src="/i/table_btm_left2.gif" alt="" width="14" height="8" border="0" /></td>
-                    <td valign="top" background="" bgcolor="#FFFFFF" width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
-                    <td valign="top" background="" bgcolor="#FFFFFF" width="10"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
-                </tr>
+            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
+                <tr><td colspan="4" valign="top" bgcolor="#001B35" width="100%"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>     
             </table>
         </td>
 <!-- Center Column Ends -->
