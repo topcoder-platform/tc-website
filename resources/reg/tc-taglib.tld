@@ -171,6 +171,30 @@
   </tag>
 
   <tag>
+    <name>notification</name>
+    <info>
+    </info>
+    <tagclass>com.topcoder.web.reg.servlet.jsp.tag.Notification</tagclass>
+    <teiclass>com.topcoder.web.reg.servlet.jsp.tag.NotificationTEI</teiclass>
+    <bodycontent>JSP</bodycontent>
+    <attribute>
+      <name>class</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>selectedValues</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>selectedOnly</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
     <name>editorSelect</name>
     <info>
         Generates an html select box with editor
