@@ -69,14 +69,14 @@
 </TABLE>
 <IMG SRC="/i/es/raytheon/raytheon_logo.gif" WIDTH="160" HEIGHT="44" ALT="" BORDER="0"/>      
 <P>
-Senior Software Engineer (C3-723796):
-Requisition Number: C3-723796 
-Job Title: Senior Software Engineer 
-Number of Openings: 1
-Job Type: Full-Time
-Function: Engineering &amp; Scientific - Software
-Experience: 6-8 years
-First Shift 
+Senior Software Engineer (C3-723796):<BR/>
+Requisition Number: C3-723796 <BR/>
+Job Title: Senior Software Engineer <BR/>
+Number of Openings: 1<BR/>
+Job Type: Full-Time<BR/>
+Function: Engineering &amp; Scientific - Software<BR/>
+Experience: 6-8 years<BR/>
+First Shift<BR/> 
 </P>
 
 <P>
