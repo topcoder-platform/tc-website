@@ -80,7 +80,7 @@ public class FullRegSubmit extends SimpleRegSubmit {
             //this is really sketchy if they we are requiring an activation email to activate their account
             getAuthentication().login(new SimpleUser(ret.getId(), regInfo.getHandle(), regInfo.getPassword()));
         } else {
-            User user = (User)createEJB(getInitialContext(), User.class);
+            User user = (User) createEJB(getInitialContext(), User.class, "main:");
             user.setStatus(ret.getId(), 'U');  //they're not eligible so override whatever we had set their status to be unactive
         }
 
