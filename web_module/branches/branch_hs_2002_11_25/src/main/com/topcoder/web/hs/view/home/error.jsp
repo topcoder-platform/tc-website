@@ -48,7 +48,6 @@
 <h3>Trace:</h3>
 <p><pre> <% exception.printStackTrace(new PrintWriter(out)); %> </pre></p>
 --%>
-<% } %>
 </font>
 
             <!--body ends here-->                        
