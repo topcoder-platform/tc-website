@@ -22,8 +22,8 @@
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" /> -->
 
-                        <img src="/i/m/dimkadimon_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=276230"><strong>dimkadimon</strong></a><br/>
+                        <img src="/i/m/lars_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
+                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=287105"><strong>lars</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -32,14 +32,15 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                     
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm159_prob">Problem Set Analysis &amp; Opinion: SRM 159</a></font></strong><br />
-                        Tuesday, August 12, 2003</p>
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm160_prob">Problem Set Analysis &amp; Opinion: SRM 160</a></font></strong><br />
+                        Saturday, August 23, 2003</p>
 
                        <p>
-                        In Division I <b>antimatter</b> and <b>bladerunner</b> were on fire, as they both finished all 3 problems in under 30 minutes. However, 
-                        as it is often the case, fast code is not always good code and both had to resubmit their Easy problems. After the coding phase, <b>CristopherH</b> 
-                        looked certain to win his first SRM with an impressive score of 1500.67, but that was about to change...
-                       <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=statistics&amp;c=srm159_prob</xsl:attribute><strong>full&#160;story</strong></a>
+                        Tonight's set was pretty standard, with lots of successful submissions and few challenges in both divisions.  In an unusual turn of events, 
+                        SRM 160 was not won by a member with a target, nor even by a red member.  Instead, it was a yellow member, <b>PMH</b>, who had the highest score, 
+                        unaided by any challenges.  This win, the first be a yellow member in a long time, propelled <b>PMH</b> up 215 rating points, to 2066.
+                        Less than 50 points behind was the TCCC champion <b>dgarthur</b>.  Rounding out the top 3 was <b>bladerunner</b>, only 8 points behind <b>dgarthur</b>. 
+                       <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=statistics&amp;c=srm160_prob</xsl:attribute><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
