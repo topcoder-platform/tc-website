@@ -96,7 +96,7 @@
             <TD WIDTH="2%">&#160;</TD>
             <TD WIDTH="48%" ALIGN="left" VALIGN="top" CLASS="bodyText">
             <B>Entry Level Java Programmers</B><BR/>
-            <B>Status:</B> Candidates needed<BR/>
+            <B>Status:</B> No Candidates needed at this time, but check back soon<BR/>
             <UL><LI>Software company just outside of NYC</LI>
             <LI>Utilizing complete suite of Java products (except EJBs)</LI>
             <LI>Developing add-ons and tools for an ERP package</LI>
@@ -106,13 +106,13 @@
 		  <TR>
 			<TD WIDTH="48%" ALIGN="left" VALIGN="top" CLASS="bodyText"><A HREF="/?t=jobs&amp;c=inquire&amp;Job=SD-C02251&amp;JobDesc=C%2B%2B%20Game%20Programmer&amp;To=tcesr@topcoder.com" CLASS="bodyText">Feel qualified and are interested?</A></TD>
             <TD WIDTH="2%">&#160;</TD>
-			<TD WIDTH="48%" ALIGN="left" VALIGN="top" CLASS="bodyText"><A HREF="/?t=jobs&amp;c=inquire&amp;Job=CA-J02271&amp;JobDesc=Entry%20Level%20Java%20Programmers&amp;To=tcesr@topcoder.com" CLASS="bodyText">Feel qualified and are interested?</A></TD>
+			<TD WIDTH="48%" ALIGN="left" VALIGN="top" CLASS="bodyText"><!-- <A HREF="/?t=jobs&amp;c=inquire&amp;Job=CA-J02271&amp;JobDesc=Entry%20Level%20Java%20Programmers&amp;To=tcesr@topcoder.com" CLASS="bodyText">Feel qualified and are interested?</A> --></TD>
 		  </TR>
           <TR><TD COLSPAN="3" HEIGHT="18"><HR SIZE="1" WIDTH="100%"/></TD></TR>
           <TR>
             <TD WIDTH="48%" ALIGN="left" VALIGN="top" CLASS="bodyText">
             <B>Java Architect and Team Leader</B><BR/>
-              <B>Status:</B> Candidates needed<BR/>
+              <B>Status:</B> No Candidates needed at this time, but check back soon<BR/>
             <UL><LI>Software company just outside of NYC</LI>
             <LI>Utilizing complete suite of Java products (except EJBs)</LI>
             <LI>Developing add-ons and tools for an ERP package</LI>
@@ -121,7 +121,7 @@
             <TD WIDTH="2%">&#160;</TD>
             <TD WIDTH="48%" ALIGN="left" VALIGN="top" CLASS="bodyText">
             <B>Experienced Java Programmers</B><BR/>
-            <B>Status:</B> Candidates needed<BR/>
+            <B>Status:</B> No Candidates needed at this time, but check back soon<BR/>
             <UL><LI>Software company just outside of NYC</LI>
             <LI>Utilizing complete suite of Java products (except EJBs)</LI>
             <LI>Developing add-ons and tools for an ERP package</LI>
@@ -129,9 +129,9 @@
             </TD>
           </TR>
 		  <TR>
-			<TD WIDTH="48%" ALIGN="left" VALIGN="top" CLASS="bodyText"><A HREF="/?t=jobs&amp;c=inquire&amp;Job=CA-J02273&amp;JobDesc=Java%20Architect%20Team%20Leader&amp;To=tcesr@topcoder.com" CLASS="bodyText">Feel qualified and are interested?</A></TD>
+			<TD WIDTH="48%" ALIGN="left" VALIGN="top" CLASS="bodyText">&#160;<!--<A HREF="/?t=jobs&amp;c=inquire&amp;Job=CA-J02273&amp;JobDesc=Java%20Architect%20Team%20Leader&amp;To=tcesr@topcoder.com" CLASS="bodyText">Feel qualified and are interested?</A> --></TD>
             <TD WIDTH="2%">&#160;</TD>
-			<TD WIDTH="48%" ALIGN="left" VALIGN="top" CLASS="bodyText"><A HREF="/?t=jobs&amp;c=inquire&amp;Job=CA-J02272&amp;JobDesc=Experienced%20Java%20Programmer&amp;To=tcesr@topcoder.com" CLASS="bodyText">Feel qualified and are interested?</A></TD>
+			<TD WIDTH="48%" ALIGN="left" VALIGN="top" CLASS="bodyText"><!--<A HREF="/?t=jobs&amp;c=inquire&amp;Job=CA-J02272&amp;JobDesc=Experienced%20Java%20Programmer&amp;To=tcesr@topcoder.com" CLASS="bodyText">Feel qualified and are interested?</A> --></TD>
 		  </TR>
           <TR><TD COLSPAN="3" HEIGHT="18"><HR SIZE="1" WIDTH="100%"/></TD></TR>
           <TR>
@@ -185,15 +185,24 @@
           <TR><TD COLSPAN="3" HEIGHT="18"><HR SIZE="1" WIDTH="100%"/></TD></TR>
           <TR>
             <TD WIDTH="48%" ALIGN="left" VALIGN="top" CLASS="bodyText">
+              <B>C++ Interactive Entertainment Sr. Programmer </B><BR/>
+			  <B>Status:</B> Candidates needed<BR/><BR/>
+			  Game company in San Jose, CA needs someone who can: crank out clean, organized code; has a deep understanding of 3D graphics; has the ability to design and implement efficient data structures for giant online worlds; and has an understanding of AI and path finding algorithms.
+            </TD>          
+            <TD WIDTH="2%">&#160;</TD>         
+            <TD WIDTH="48%" ALIGN="left" VALIGN="top" CLASS="bodyText">
 		      <B>ONGOING NEEDS</B><BR/>
 			  <B>Status:</B> Candidates needed<BR/>
 			  <UL><LI><A HREF="/?t=jobs&amp;c=detailOECJ02191" CLASS="bodyText">Job 1</A> - Very strong Oracle background</LI>
 			  <LI><A HREF="/?t=jobs&amp;c=detailCEJC02131" CLASS="bodyText">Job 2</A> - Cold Fusion skills</LI>
 			  <LI><A HREF="/?t=jobs&amp;c=detailON-J02221" CLASS="bodyText">Job 3</A> - Coders with Top Secret clearance</LI></UL>
             </TD>
-            <TD WIDTH="2%">&#160;</TD>
-            <TD WIDTH="48%" ALIGN="left" VALIGN="top" CLASS="bodyText">&#160;</TD>
           </TR>
+		  <TR>
+			<TD WIDTH="48%" ALIGN="left" VALIGN="top" CLASS="bodyText"><A HREF="/?t=jobs&amp;c=detailCS-C05021" CLASS="bodyText">More details</A><BR/><A HREF="/?t=jobs&amp;c=inquire&amp;Job=CS-C05021&amp;JobDesc=C&#43;&#43;%20Interactive%20Entertainment%20Sr%20Programmer&amp;To=tcesr@topcoder.com" CLASS="bodyText">Feel qualified and are interested?</A></TD>
+            <TD WIDTH="2%">&#160;</TD>
+			<TD WIDTH="48%" ALIGN="left" VALIGN="top" CLASS="bodyText">&#160;</TD>
+		  </TR>          
           </TABLE></DIV>
           <P><BR/></P>
           </TD>
