@@ -13,11 +13,6 @@
 <html>
 
 <head>
-    <xsl:variable name='docId' select='/TC/DEVELOPMENT/documentId'/>
-    <xsl:variable name='componentId' select='/TC/DEVELOPMENT/comp'/>
-    <xsl:variable name='phase' select="/TC/DEVELOPMENT/phase"/>
-    <xsl:variable name='version' select="/TC/DEVELOPMENT/version"/>
-    <xsl:variable name='formattedName' select="/TC/DEVELOPMENT/formattedName"/>
     
 	<xsl:call-template name="Preload"/>      
 
@@ -31,6 +26,11 @@
 </head>
 
 <body bgcolor="#CCCCCC" topmargin="0" marginheight="0" leftmargin="0" marginwidth="0">
+    <xsl:variable name='docId' select='/TC/DEVELOPMENT/documentId'/>
+    <xsl:variable name='componentId' select='/TC/DEVELOPMENT/comp'/>
+    <xsl:variable name='phase' select="/TC/DEVELOPMENT/phase"/>
+    <xsl:variable name='version' select="/TC/DEVELOPMENT/version"/>
+    <xsl:variable name='formattedName' select="/TC/DEVELOPMENT/formattedName"/>
 
 <!-- Header Begins -->
 	<xsl:call-template name="Top"/>
