@@ -33,7 +33,7 @@
          var is_safari = ((agt.indexOf('safari')!=-1)&&(agt.indexOf('mac')!=-1))?true:false;
 
          var is_khtml = (is_safari || is_konq);
-         var is_moz = ((agt.indexOf('mozilla/5')!=-1) && (agt.indexOf('spoofer')==-1) &&  (agt.indexOf('compatible')==-1) && (agt.indexOf('opera')==-1) &&  (agt.indexOf('webtv')==-1) && (agt.indexOf('hotjava')==-1) &&  (is_gecko) && ((navigator.vendor=="")||(navigator.vendor=="Mozilla")));
+         var is_moz = ((agt.indexOf('mozilla/5')!=-1) && (agt.indexOf('spoofer')==-1) &&  (agt.indexOf('compatible')==-1) && (agt.indexOf('opera')==-1) &&  (agt.indexOf('webtv')==-1) && (agt.indexOf('hotjava')==-1) && ((navigator.vendor=="")||(navigator.vendor=="Mozilla")));
          var is_nav = ((agt.indexOf('mozilla')!=-1) && (agt.indexOf('spoofer')==-1) && (agt.indexOf('compatible') == -1) && (agt.indexOf('opera')==-1) && (agt.indexOf('webtv')==-1) && (agt.indexOf('hotjava')==-1) && (!is_khtml) && (!(is_moz)));
          var is_nav5up = (is_nav && is_minor >= 5);
          var is_ie = ((iePos!=-1) && (!is_opera) && (!is_khtml));
