@@ -80,7 +80,6 @@
                     </td>
                     <td background="" class="statText" align="center">$1,500.00</td>
                     <td background="" class="statText" align="center">03.03.03</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
 
 			</table>
