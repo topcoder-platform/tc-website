@@ -161,6 +161,7 @@ log.debug("rating_int inserted: "+hitListRow.getItem("rating").getResultData());
                     hitListRow.getItem("state_code").toString().trim() );
 
             hit.put("position", hitListRow.getItem("job_desc").toString() );
+            hit.put("p", hitListRow.getItem("job_desc").toString().toLowerCase().trim() );
 
             if ( ((String)hit.get("state")).trim().length()>0)
                 hit.put("st",((String)hit.get("state")).trim().toUpperCase());
