@@ -17,8 +17,8 @@
         <TD>
           <form name="upload_form" enctype="multipart/form-data" method="POST" action="<%=Controller.ALIAS%>">
             <input type="hidden" name="<%=Controller.TASK%>" value="<%=Controller.RESUME_UPLOAD_TASK%>">
-            <input type=file name=file1>
-            <select name="fileType" class="dropdown">
+            Resume: <input type=file name=file1>
+            File Type: <select name="fileType" class="dropdown">
             <%
                 ArrayList al = null;
                 Context context = null;
