@@ -8,7 +8,7 @@ import com.topcoder.web.tc.Constants;
  * Time: 3:34:18 PM
  */
 public class TCO04ComponentTerms extends TCO04AlgorithmTerms {
-    protected String getEventName() {
+    public String getEventName() {
         return "TCO Component Competition";
     }
 
