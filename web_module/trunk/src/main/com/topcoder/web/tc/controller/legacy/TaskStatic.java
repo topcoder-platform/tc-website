@@ -162,6 +162,14 @@ public final class TaskStatic {
                             rsc.sortByColumn(sortCol, sortDir.trim().toLowerCase().equals("asc"));
                         tournamentTag.addTag(rsc.getTag(regionCode+"_Competitors", "Competitor"));
                     }
+                    if (requestCommand.equals("tco03_top100")) {
+                        dataRequest = new Request();
+                        dataRequest.setContentHandle(requestCommand);
+                        Map top100Map= dai.getData(dataRequest);
+                        ResultSetContainer top100Rsc = (ResultSetContainer) top100Map.get("tco03_top100");
+                        tournamentTag.addTag(top100Rsc.getTag("Competitors", "Competitor"));
+
+                    }
                     document.addTag(tournamentTag);
                 }
             } catch (NamingException e) {
