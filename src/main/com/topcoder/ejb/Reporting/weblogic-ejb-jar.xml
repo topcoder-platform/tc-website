@@ -8,6 +8,6 @@
       <caching-descriptor>
   <max-beans-in-free-pool>100</max-beans-in-free-pool>
       </caching-descriptor>
-      <jndi-name>com.topcoder.ejb.ReportingHome</jndi-name>
+      <jndi-name>com.topcoder.ejb.Reporting.ReportingHome</jndi-name>
     </weblogic-enterprise-bean>
   </weblogic-ejb-jar>

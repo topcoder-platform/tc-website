@@ -88,7 +88,7 @@
                     The purse for these tournaments ranges anywhere from $100,000 to $250,000.  TopCoder holds two major tournaments per year: 
                     the Collegiate Challenge, open for full-time students, and the Invitational, open to all eligible members.</p>
                     
-                    <div align="center"><strong>- There is no cost to <a class="bodyText"><xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute><strong>register</strong></a> or participate in any match or tournament -</strong></div>
+                    <div align="center"><strong>- There is no cost to <a class="bodyText"><xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/Registration</xsl:attribute><strong>register</strong></a> or participate in any match or tournament -</strong></div>
                     </td>
                 </tr>
             </table>

@@ -104,6 +104,8 @@ public class LoginBean extends BaseEJB {
                 rp = new RolePrincipal(rs2.getString(2), rs2.getLong(1));
                 pl.add(rp);
             }
+        } catch (GeneralSecurityException e) {
+            throw e;
         } catch (Exception e) {
             throw new GeneralSecurityException(e);
         } finally {

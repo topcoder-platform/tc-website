@@ -8,6 +8,6 @@
       <caching-descriptor>
   <max-beans-in-free-pool>20</max-beans-in-free-pool>
       </caching-descriptor>
-      <jndi-name>com.topcoder.ejb.SearchHome</jndi-name>
+      <jndi-name>com.topcoder.ejb.Search.SearchHome</jndi-name>
     </weblogic-enterprise-bean>
   </weblogic-ejb-jar>

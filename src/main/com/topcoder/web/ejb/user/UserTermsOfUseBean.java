@@ -16,11 +16,9 @@ import java.sql.ResultSet;
 public class UserTermsOfUseBean extends BaseEJB {
 
     private static Logger log = Logger.getLogger(UserTermsOfUseBean.class);
-    private final static String DATA_SOURCE = "java:comp/env/datasource_name";
-    private final static String JTS_DATA_SOURCE = "java:comp/env/jts_datasource_name";
 
 
-    public void createUserTermsOfUse(long userId, long _terms_of_use_id)
+    public void createUserTermsOfUse(long userId, long _terms_of_use_id, String dataSource)
             throws EJBException {
 
         Connection conn = null;
@@ -30,7 +28,7 @@ public class UserTermsOfUseBean extends BaseEJB {
         try {
 
             ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("INSERT ");
@@ -61,7 +59,7 @@ public class UserTermsOfUseBean extends BaseEJB {
         }
     }
 
-    public void removeUserTermsOfUse(long userId, long _terms_of_use_id)
+    public void removeUserTermsOfUse(long userId, long _terms_of_use_id, String dataSource)
             throws EJBException {
 
         Connection conn = null;
@@ -71,7 +69,7 @@ public class UserTermsOfUseBean extends BaseEJB {
         try {
 
             ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("DELETE ");
@@ -103,7 +101,7 @@ public class UserTermsOfUseBean extends BaseEJB {
     }
 
 
-    public boolean hasTermsOfUse(long userId, long termsOfUseId)
+    public boolean hasTermsOfUse(long userId, long termsOfUseId, String dataSource)
             throws EJBException {
 
         Connection conn = null;
@@ -114,7 +112,7 @@ public class UserTermsOfUseBean extends BaseEJB {
         try {
             ctx = new InitialContext();
 
-            DataSource ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT '1' ");

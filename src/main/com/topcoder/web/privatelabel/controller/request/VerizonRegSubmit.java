@@ -64,7 +64,7 @@ public class VerizonRegSubmit extends FullRegSubmit {
         Address address = (Address) createEJB(getInitialContext(), Address.class);
         UserAddress userAddress = (UserAddress) createEJB(getInitialContext(), UserAddress.class, "main:");
 
-        ResultSetContainer addresses = userAddress.getUserAddresses(ret.getId());
+        ResultSetContainer addresses = userAddress.getUserAddresses(ret.getId(), db);
         if (addresses.size()!=1) {
             throw new RuntimeException("found " + addresses.size() + " addresses for " + ret.getId() + " dunno what to do");
         }

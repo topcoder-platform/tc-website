@@ -30,7 +30,7 @@ import java.util.Map;
  * This puts the results of a problem rating into the DB
  * @author lbackstrom 07.08.2003
  */
-public class Submit extends Base {
+public class Submit extends PRBase {
 
     protected static final TCSubject CREATE_USER = new TCSubject(100000);
 

@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Questions extends Base {
+public class Questions extends PRBase {
     protected void businessProcessing() throws TCWebException {
         try{
             processQuestions();

@@ -1,7 +1,6 @@
 package com.topcoder.common.web.data;
 
 
-import com.topcoder.ejb.AuthenticationServices.UserType;
 import com.topcoder.shared.docGen.xml.RecordTag;
 import com.topcoder.shared.docGen.xml.TagRenderer;
 

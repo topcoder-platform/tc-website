@@ -4,7 +4,7 @@
  * value to use if you are excepted.
  */
 
-// bigjake: copied from com.topcoder.web.pacts.common
+// bigjake: copied from com.topcoder.web.tc.controller.legacy.pacts.common
 
 package com.topcoder.web.tces.common;
 

@@ -23,8 +23,6 @@ import java.sql.SQLException;
  */
 public class ContactBean extends BaseEJB {
     private static Logger log = Logger.getLogger(ContactBean.class);
-    private final static String DATA_SOURCE = "java:comp/env/datasource_name";
-    private final static String JTS_DATA_SOURCE = "java:comp/env/jts_datasource_name";
 
 
     /**
@@ -33,7 +31,7 @@ public class ContactBean extends BaseEJB {
      * @param companyId company ID to insert into table
      * @param contactId contact ID to insert into table
      */
-    public void createContact(long companyId, long contactId) {
+    public void createContact(long companyId, long contactId, String dataSource) {
         log.debug("createContact called...");
 
         Context ctx = null;
@@ -43,7 +41,7 @@ public class ContactBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("INSERT INTO contact (contact_id, " +
@@ -77,7 +75,7 @@ public class ContactBean extends BaseEJB {
      * @param contactId contact ID of entry to set
      * @param companyId company ID to set to
      */
-    public void setCompanyId(long contactId, long companyId) {
+    public void setCompanyId(long contactId, long companyId, String dataSource) {
         log.debug("setCompanyId called...contactId: " + contactId +
                 " companyId: " + companyId);
 
@@ -88,7 +86,7 @@ public class ContactBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE contact SET company_id = ? " +
@@ -126,7 +124,7 @@ public class ContactBean extends BaseEJB {
      *
      * @return a long with the entry's company ID
      */
-    public long getCompanyId(long contactId) {
+    public long getCompanyId(long contactId, String dataSource) {
         log.debug("getCompanyId called...contact_id: " + contactId);
 
         Context ctx = null;
@@ -138,7 +136,7 @@ public class ContactBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT company_id FROM contact " +
@@ -176,7 +174,7 @@ public class ContactBean extends BaseEJB {
      *
      * @return a String with entry's title
      */
-    public String getTitle(long contactId) {
+    public String getTitle(long contactId, String dataSource) {
         log.debug("getTitle called...contact_id: " + contactId);
 
         Context ctx = null;
@@ -188,7 +186,7 @@ public class ContactBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT title FROM contact " +
@@ -226,7 +224,7 @@ public class ContactBean extends BaseEJB {
      * @param contactId contact ID of entry to set
      * @param title title to set to
      */
-    public void setTitle(long contactId, String title) {
+    public void setTitle(long contactId, String title, String dataSource) {
         log.debug("setTitle called...contactId: " + contactId + " title: " +
                 title);
 
@@ -237,7 +235,7 @@ public class ContactBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE contact SET title = ? " +

@@ -1,5 +1,5 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-  <xsl:import href="../top2.xsl"/>
+  <xsl:import href="../top.xsl"/>
   <xsl:import href="public_body.xsl"/>
   <xsl:import href="../foot.xsl"/>
   <xsl:import href="../script.xsl"/>

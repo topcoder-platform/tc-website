@@ -5,8 +5,10 @@ import com.topcoder.ejb.DataCache.DataCacheHome;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.BaseProcessor;
 
 import javax.naming.Context;
+import javax.naming.InitialContext;
 import java.net.InetAddress;
 
 
@@ -111,7 +113,7 @@ public class Cache {
 
     public static DataCache get() throws Exception {
         DataCache result = null;
-        Context ctx = null;
+        InitialContext ctx = null;
         try {
             ctx = TCContext.getInitial();
             result = get(ctx);
@@ -131,11 +133,10 @@ public class Cache {
         return result;
     }
 
-    public static DataCache get(Context ctx) throws Exception {
+    public static DataCache get(InitialContext ctx) throws Exception {
         DataCache result = null;
         try {
-            DataCacheHome home = (DataCacheHome) ctx.lookup(ApplicationServer.DATA_CACHE);
-            result = home.create();
+            result = (DataCache)BaseProcessor.createEJB(ctx, DataCache.class);
         } catch (Exception ex) {
             ex.printStackTrace();
             throw new Exception(

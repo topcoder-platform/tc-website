@@ -3,7 +3,7 @@ package com.topcoder.web.ejb.resume;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.web.resume.bean.Resume;
+import com.topcoder.web.tc.controller.legacy.resume.bean.Resume;
 import com.topcoder.web.ejb.BaseEJB;
 
 import javax.naming.InitialContext;

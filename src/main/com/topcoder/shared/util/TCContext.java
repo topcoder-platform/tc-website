@@ -26,7 +26,7 @@ public class TCContext {
      * @return
      * @throws NamingException
      */
-    public static Context getInitial() throws NamingException {
+    public static InitialContext getInitial() throws NamingException {
         return getContext(ApplicationServer.JNDI_FACTORY, ApplicationServer.HOST_URL);
     }
 
@@ -36,7 +36,7 @@ public class TCContext {
      * @return
      * @throws NamingException
      */
-    public static Context getInitial(String url) throws NamingException {
+    public static InitialContext getInitial(String url) throws NamingException {
         return getContext(ApplicationServer.JNDI_FACTORY, url);
     }
 
@@ -45,7 +45,7 @@ public class TCContext {
      * @return
      * @throws NamingException
      */
-    public static Context getContestInitial() throws NamingException {
+    public static InitialContext getContestInitial() throws NamingException {
         return getContext(ApplicationServer.JNDI_FACTORY, ApplicationServer.CONTEST_HOST_URL);
     }
 
@@ -81,7 +81,7 @@ public class TCContext {
      * @return
      * @throws NamingException
      */
-    public static Context getContext(String initialContextFactory, String providerUrl) throws NamingException {
+    public static InitialContext getContext(String initialContextFactory, String providerUrl) throws NamingException {
         Hashtable env = new Hashtable();
         env.put(Context.INITIAL_CONTEXT_FACTORY, initialContextFactory);
         env.put(Context.PROVIDER_URL, providerUrl);

@@ -5,8 +5,10 @@ import com.topcoder.ejb.Reporting.ReportingHome;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.BaseProcessor;
 
 import javax.naming.Context;
+import javax.naming.InitialContext;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -107,9 +109,8 @@ public class Query implements Serializable {
     public ArrayList execute() throws Exception {
         ArrayList result = null;
         try {
-            Context ctx = TCContext.getInitial();
-            ReportingHome rHome = (ReportingHome) ctx.lookup(ApplicationServer.REPORTING);
-            Reporting r = rHome.create();
+            InitialContext ctx = TCContext.getInitial();
+            Reporting r = (Reporting)BaseProcessor.createEJB(ctx, Reporting.class);
             result = r.getResult(this);
         } catch (Exception e) {
             log.error("query: " + query);

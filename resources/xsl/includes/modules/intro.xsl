@@ -85,7 +85,7 @@
         <TD VALIGN="middle" HEIGHT="15" CLASS="statText">
           &#160;
           <A CLASS="statText">
-            <xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>
+            <xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/Registration</xsl:attribute>
             - <B>Register Now</B>
           </A>
         </TD>

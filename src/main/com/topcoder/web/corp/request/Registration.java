@@ -153,8 +153,8 @@ public final class Registration extends UserEdit {
             TermsOfUse terms = ((TermsOfUseHome)ic.lookup("corp:"+TermsOfUseHome.EJB_REF_NAME)).create();
             setDefault(Constants.KEY_TERMS, terms.getText(Constants.CORP_SITE_TERMS_ID));
 
-            UserTermsOfUse userTerms = ((UserTermsOfUseHome)ic.lookup("corp:"+UserTermsOfUseHome.EJB_REF_NAME)).create();
-            if (userTerms.hasTermsOfUse(getAuthentication().getUser().getId(), Constants.CORP_SITE_TERMS_ID)) {
+            UserTermsOfUse userTerms = ((UserTermsOfUseHome)ic.lookup(UserTermsOfUseHome.EJB_REF_NAME)).create();
+            if (userTerms.hasTermsOfUse(getAuthentication().getUser().getId(), Constants.CORP_SITE_TERMS_ID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME)) {
                 setDefault(Constants.KEY_AGREE_TO_TERMS, Boolean.TRUE.toString());
             } else {
                 setDefault(Constants.KEY_AGREE_TO_TERMS, Boolean.FALSE.toString());
@@ -361,11 +361,11 @@ public final class Registration extends UserEdit {
         if (secTok.createNew) {
             companyID = companyTable.createCompany();
             companyTable.setPrimaryContactId(companyID, targetUserID);
-            contactTable.createContact(companyID, targetUserID);
+            contactTable.createContact(companyID, targetUserID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
         } else {
-            companyID = contactTable.getCompanyId(targetUserID);
+            companyID = contactTable.getCompanyId(targetUserID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
         }
-        contactTable.setTitle(targetUserID, title);
+        contactTable.setTitle(targetUserID, title, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
         if (secTok.isAccountAdmin || getAuthentication().getUser().isAnonymous()) {
             companyTable.setName(companyID, company);
         }
@@ -381,7 +381,7 @@ public final class Registration extends UserEdit {
 
         long addressID = -1;
         if (!secTok.createNew) { // editing mode
-            ResultSetContainer rsc = xrefUserAddr.getUserAddresses(targetUserID);
+            ResultSetContainer rsc = xrefUserAddr.getUserAddresses(targetUserID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
             try {
                 String tmp = rsc.getItem(0, "address_id").getResultData().toString();
                 addressID = Long.parseLong(tmp);
@@ -392,7 +392,7 @@ public final class Registration extends UserEdit {
         if (addressID < 0) {
             // either create mode or editing mode but there was not an address yet
             addressID = addrTable.createAddress();
-            xrefUserAddr.createUserAddress(targetUserID, addressID);
+            xrefUserAddr.createUserAddress(targetUserID, addressID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
             addrTable.setAddressTypeId(addressID, 1); // *HARDCODED*
         }
         addrTable.setAddress1(addressID, compAddress);
@@ -406,9 +406,9 @@ public final class Registration extends UserEdit {
         }
         addrTable.setZip(addressID, zip);
 
-        UserTermsOfUse userTerms = ((UserTermsOfUseHome)ic.lookup("corp:"+UserTermsOfUseHome.EJB_REF_NAME)).create();
-        if (!userTerms.hasTermsOfUse(getAuthentication().getUser().getId(), Constants.CORP_SITE_TERMS_ID)) {
-            userTerms.createUserTermsOfUse(targetUserID, Constants.CORP_SITE_TERMS_ID);
+        UserTermsOfUse userTerms = ((UserTermsOfUseHome)ic.lookup(UserTermsOfUseHome.EJB_REF_NAME)).create();
+        if (!userTerms.hasTermsOfUse(getAuthentication().getUser().getId(), Constants.CORP_SITE_TERMS_ID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME)) {
+            userTerms.createUserTermsOfUse(targetUserID, Constants.CORP_SITE_TERMS_ID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
         }
 
 
@@ -422,18 +422,18 @@ public final class Registration extends UserEdit {
 
         // additional fields
         // title item for user
-        Contact contactTable = ((ContactHome) ic.lookup("corp:"+ContactHome.EJB_REF_NAME)).create();
-        long companyID = contactTable.getCompanyId(targetUserID);
-        title = contactTable.getTitle(targetUserID);
+        Contact contactTable = ((ContactHome) ic.lookup(ContactHome.EJB_REF_NAME)).create();
+        long companyID = contactTable.getCompanyId(targetUserID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
+        title = contactTable.getTitle(targetUserID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
 
         // company item for user
         Company companyTable = ((CompanyHome) ic.lookup(CompanyHome.EJB_REF_NAME)).create();
         company = companyTable.getName(companyID);
 
         // address item for user
-        UserAddress xrefUserAddr = ((UserAddressHome) ic.lookup("corp:"+UserAddressHome.EJB_REF_NAME)).create();
+        UserAddress xrefUserAddr = ((UserAddressHome) ic.lookup(UserAddressHome.EJB_REF_NAME)).create();
         long addrID = -1;
-        ResultSetContainer rsc = xrefUserAddr.getUserAddresses(targetUserID);
+        ResultSetContainer rsc = xrefUserAddr.getUserAddresses(targetUserID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
         if (!rsc.isEmpty()) {
             String tmp = rsc.getItem(0, "address_id").getResultData().toString();
             addrID = Long.parseLong(tmp);

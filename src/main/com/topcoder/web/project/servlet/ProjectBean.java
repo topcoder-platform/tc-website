@@ -3,9 +3,8 @@ package com.topcoder.web.project.servlet;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.web.project.common.*;
 import com.topcoder.web.project.ejb.ProjectServices.ProjectServices;
-import com.topcoder.web.project.ejb.ProjectServices.ProjectServicesHome;
+import com.topcoder.web.common.BaseProcessor;
 
-import javax.naming.Context;
 import javax.naming.InitialContext;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -13,7 +12,6 @@ import java.util.*;
 
 public final class ProjectBean {
 
-    protected final static String PROJECTSERVICESHOME = ApplicationServer.PROJECT_SERVICES;
     protected static ProjectServices projectServices = null;
     protected static Exception exception = null;
 
@@ -30,9 +28,8 @@ public final class ProjectBean {
 
     static {
         try {
-            Context ctx = new InitialContext();
-            ProjectServicesHome projectServicesHome = (ProjectServicesHome) ctx.lookup(PROJECTSERVICESHOME);
-            projectServices = (ProjectServices) projectServicesHome.create();
+            InitialContext ctx = new InitialContext();
+            projectServices = (ProjectServices) BaseProcessor.createEJB(ctx, ProjectServices.class);
         } catch (Exception e) {
             exception = e;
         }

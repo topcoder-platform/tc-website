@@ -32,7 +32,7 @@
             <TD class="bodyText" width="100%" bgcolor="#CCCCCC" valign="top">
               <IMG src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"/><BR/>
               <DIV class="header">Your account has been successfully activated.<br/>Thank You!</DIV><br/><br/>
-              <DIV class="header"><A HREF="/?t=authentication&amp;c=login">Click here to login to your new member account &gt;&gt;</A></DIV>
+              <DIV class="header"><A HREF="/tc?&amp;module=Login">Click here to login to your new member account &gt;&gt;</A></DIV>
             </TD>
             <!-- Center Column Ends -->
             <!-- Body Area Ends -->

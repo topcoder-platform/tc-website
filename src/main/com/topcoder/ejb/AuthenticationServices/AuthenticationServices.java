@@ -1,5 +1,9 @@
 package com.topcoder.ejb.AuthenticationServices;
 
+import com.topcoder.common.web.data.PermissionAssignee;
+import com.topcoder.common.web.data.User;
+import com.topcoder.common.web.data.Authentication;
+
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
 import java.util.Map;

@@ -1,13 +1,7 @@
 package com.topcoder.ejb.JavaDocServices;
 
-import java.util.*;
-
-import javax.ejb.*;
 import java.rmi.RemoteException;
-import javax.naming.*;
-import java.util.*;
 import java.sql.*;
-import java.io.*;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.ejb.BaseEJB;

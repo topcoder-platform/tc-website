@@ -4,6 +4,7 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.web.tc.model.Question;
 import com.topcoder.web.tc.model.Survey;
 import com.topcoder.shared.dataAccess.Request;

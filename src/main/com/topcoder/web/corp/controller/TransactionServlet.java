@@ -259,12 +259,12 @@ public class TransactionServlet extends HttpServlet {
                 if ("on".equalsIgnoreCase(request.getParameter(Constants.KEY_AGREE_TO_TERMS))) {
                     txInfo = buildTransactionInfo(request, response);
                     if (txInfo.isFromEligibleCountry()) {
-                        InitialContext ic = (InitialContext) TCContext.getInitial();
-                        UserTermsOfUse userTerms = ((UserTermsOfUseHome) ic.lookup("corp:"+UserTermsOfUseHome.EJB_REF_NAME)).create();
+                        InitialContext ic = TCContext.getInitial();
+                        UserTermsOfUse userTerms = ((UserTermsOfUseHome) ic.lookup(UserTermsOfUseHome.EJB_REF_NAME)).create();
                         //they must have agreeded to terms, since the purchase is beginning.  should probably be done outside
                         //but then we don't have access to the transaction info object
-                        if (!userTerms.hasTermsOfUse(txInfo.getBuyerID(), txInfo.getTermsId())) {
-                            userTerms.createUserTermsOfUse(txInfo.getBuyerID(), txInfo.getTermsId());
+                        if (!userTerms.hasTermsOfUse(txInfo.getBuyerID(), txInfo.getTermsId(), DBMS.CORP_OLTP_DATASOURCE_NAME)) {
+                            userTerms.createUserTermsOfUse(txInfo.getBuyerID(), txInfo.getTermsId(), DBMS.CORP_OLTP_DATASOURCE_NAME);
                         }
                         txInfo.setAgreed(true);
                         txBegin(request);
@@ -524,13 +524,13 @@ public class TransactionServlet extends HttpServlet {
 
         UserAddressHome uaHome = (UserAddressHome)
             PortableRemoteObject.narrow(
-                context.lookup("corp:"+UserAddressHome.class.getName()), UserAddressHome.class);
+                context.lookup(UserAddressHome.class.getName()), UserAddressHome.class);
         UserAddress userAddress = uaHome.create();
         AddressHome aHome = (AddressHome)
             PortableRemoteObject.narrow(
                 context.lookup(AddressHome.class.getName()), AddressHome.class);
         Address address = aHome.create();
-        ResultSetContainer rsc = userAddress.getUserAddresses(userId);
+        ResultSetContainer rsc = userAddress.getUserAddresses(userId, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
 
         //if they have no address, deny them
         eligible &= !rsc.isEmpty();

@@ -2,6 +2,7 @@ package com.topcoder.web.tc.controller.request.survey;
 
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.shared.dataAccess.Request;
 
 public class SurveyList extends Base {

@@ -22,6 +22,10 @@ public class Constants {
     public static String PROBLEM_ID;
     public static String SURVEY_ID;
     public static String MODULE_KEY;
+    public static String FIRST_NAME;
+    public static String LAST_NAME;
+    public static String EMAIL;
+    public static String ACTIVATION_CODE;
 
     /* pages */
     public static String SURVEY_RESULTS;
@@ -35,6 +39,15 @@ public class Constants {
     public static String PROBLEM_RATING_QUESTIONS;
 
     public static String HIGHEST_RATING;
+
+    public static String LOGIN;
+    public static String ACTIVATE;
+    public static String UNACTIVE;
+    public static String RECOVER_PASSWORD;
+    public static String EMAIL_SENT;
+
+    /* misc constants */
+
 
     private Constants() {
     }

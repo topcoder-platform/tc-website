@@ -75,7 +75,7 @@
 			 <A HREF="/index?t=tournaments&amp;c=2002tccc_chmpprob" CLASS="bodyText">Problems</A> | 			
 			 <A HREF="/index?t=tournaments&amp;c=2002tccc_chmpprob#log" CLASS="bodyText">Chrono Log</A> | 
 			 <A HREF="/index?t=tournaments&amp;c=2002tccc_chmp#photo" CLASS="bodyText">Photos</A> | 
- 			 <A CLASS="bodyText"><xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>Register Today!</A> |
+ 			 <A CLASS="bodyText"><xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/Registration</xsl:attribute>Register Today!</A> |
 			 <A HREF="/index" CLASS="bodyText">TopCoder Home</A>
 			</TD>									
         </TR>

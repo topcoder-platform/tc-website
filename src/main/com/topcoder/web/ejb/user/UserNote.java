@@ -17,7 +17,7 @@ public interface UserNote extends EJBObject {
      * @param noteId
      * @throws RemoteException
      */
-    public void createUserNote(long userId, long noteId)
+    public void createUserNote(long userId, long noteId, String dataSource)
             throws RemoteException;
 
     /**
@@ -26,6 +26,6 @@ public interface UserNote extends EJBObject {
      * @param noteId
      * @throws RemoteException
      */
-    public void removeUserNote(long userId, long noteId)
+    public void removeUserNote(long userId, long noteId, String dataSource)
             throws RemoteException;
 }

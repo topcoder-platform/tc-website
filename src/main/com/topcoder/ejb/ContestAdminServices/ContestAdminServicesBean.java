@@ -1,7 +1,7 @@
 package com.topcoder.ejb.ContestAdminServices;
 
 import com.topcoder.common.web.data.*;
-import com.topcoder.ejb.AuthenticationServices.Group;
+import com.topcoder.common.web.data.Group;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 

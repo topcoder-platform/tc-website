@@ -16,7 +16,7 @@ public class SessionInfo {
 
     private static final String GROUP_PREFIX = "group_";
     private String handle = null;
-    private long userid = -1;
+    private long userid = SimpleUser.createGuest().getId();
     private String serverName = null;
     private String servletPath = null;
     private String queryString = null;
