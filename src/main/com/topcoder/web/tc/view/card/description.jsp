@@ -34,7 +34,7 @@
 
             <div align="center"><img src="/i/card/banner.gif" border="0" usemap="#cards"/></div>
             <map name="cards">
-            <area shape="rect" alt="" coords="0,50,135,135" href="/tc?module=Static&d1=card&d2=preview" />
+            <area shape="rect" alt="" coords="0,50,135,135" href="/card?module=Preview" />
             </map>
 
             
@@ -55,7 +55,7 @@
             
             Know any other TopCoder Members? Why not build a TopCoder Member Card collection. You could have a site to represent your college where anyone can go to see every member's card on your campus.  You could build a site where you and all your coworkers can compare stats, see who else they work with, and find out who is the best in the company. It's all possible with the TopCoder Member Cards.</p>
 
-            <p>See <a href="/tc?module=Static&d1=card&d2=preview">your TopCoder Card preview</a></p>
+            <p>See <a href="/card?module=Preview">your TopCoder Card preview</a></p>
 
         </div>
         <p><br/></p>
