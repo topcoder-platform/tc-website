@@ -15,18 +15,21 @@ public class ProblemSetInfo implements Serializable {
     private String description = null;
     private int typeId = 0;
     private String name = null;
-    private long timeRemaining = 0;
+    private long time = 0;
+    private long startTime = 0;
     private String status = null;
     private ScreeningProblemLabel[] problems = null;
+
 
     public ProblemSetInfo() {
     }
 
-    public ProblemSetInfo(String description, String name, long timeRemaining,
+    public ProblemSetInfo(String description, String name, long startTime, long time,
                           String status, int typeId, ScreeningProblemLabel[] problems) {
         this.description = description;
         this.name = name;
-        this.timeRemaining = timeRemaining;
+        this.time = time;
+        this.startTime = startTime;
         this.status = status;
         this.typeId = typeId;
         this.problems = problems;
@@ -76,11 +79,13 @@ public class ProblemSetInfo implements Serializable {
     }
 
     public long getTimeRemaining() {
-        return timeRemaining;
-    }
-
-    public void setTimeRemaining(long timeRemaining) {
-        this.timeRemaining = timeRemaining;
+        long ret = 0;
+        if (startTime>0) {
+            ret = System.currentTimeMillis()+time-startTime;
+        } else {
+            ret = time;
+        }
+        return ret;
     }
 
     public String getStatus() {
@@ -99,6 +104,22 @@ public class ProblemSetInfo implements Serializable {
         this.typeId = typeId;
     }
 
+
+    public long getTime() {
+        return time;
+    }
+
+    public void setTime(long time) {
+        this.time = time;
+    }
+
+    public long getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(long startTime) {
+        this.startTime = startTime;
+    }
 }
 
 

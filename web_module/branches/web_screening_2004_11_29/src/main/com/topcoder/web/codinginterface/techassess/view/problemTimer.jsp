@@ -25,6 +25,7 @@ if (o!=null) {
                     %> times[<%=i%>] = <%=((ProblemSetInfo)problems.get(i)).getTimeRemaining()%>; <%
                     %> ids[<%=i%>] = 'problemTimer<%=((ProblemSetInfo)problems.get(i)).getProblems()[0].getComponentID()%>'; <%
                     %> types[<%=i%>] = <%=((ProblemSetInfo)problems.get(i)).getTypeId()%>; <%
+                    %> startTimes[<%=i%>] = <%=((ProblemSetInfo)problems.get(i)).getStartTime()%>; <%
                 }
         %>
         var EXAMPLE_SET = <%=Constants.EXAMPLE_ID%>;
@@ -54,10 +55,15 @@ if (o!=null) {
             var correctedLocalTime = new Date(d.getTime() - problemSyncedOffset);
 
             for (i=0; i<times.length;i++) {
-                var timeLeft = times[i] - correctedLocalTime.getTime();
+                var timeLeft
+                if (startTimes[i]==0) {
+                  timeLeft = times[i];
+                } else {
+                  timeLeft = times[i] - correctedLocalTime.getTime();
+                }
                 if (types[i]==EXAMPLE_SET) {
                     text = "N/A";
-                } else {
+                } else  {
                     if(timeLeft > 0 ) {
                         text = convertToTimeString(timeLeft);
                     } else {
