@@ -59,7 +59,7 @@
 <!-- Title -->
 						<h1 class="devSubhead"><strong><<<component_name>>>: Design</strong></h1>
                                     
-						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=<<<COMPONENT_NAME>>>: Design&amp;comp=<<<COMPONENT_ID>>>&amp;date=<<<MONTH>>>&#47;<<<DAY>>>" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=<<<COMPONENT_NAME>>>:%20Design&amp;comp=<<<COMPONENT_ID>>>&amp;date=<<<MONTH>>>&#47;<<<DAY>>>" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 <!-- Overview -->
 						<p><strong>Overview</strong><br />
@@ -131,7 +131,7 @@
 <!-- Register at TCS -->
 						
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=<<<COMPONENT_NAME>>>: Design&amp;comp=<<<COMPONENT_ID>>>&amp;date=<<<MONTH>>>&#47;<<<DAY>>>" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=<<<COMPONENT_NAME>>>:%20Design&amp;comp=<<<COMPONENT_ID>>>&amp;date=<<<MONTH>>>&#47;<<<DAY>>>" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>
 					</td>
 
