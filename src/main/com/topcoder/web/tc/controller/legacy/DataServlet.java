@@ -207,7 +207,7 @@ public class DataServlet extends HttpServlet {
             "<failedSysTest>1</failedSysTest>" +
             "<success>57.14%</success>" +
          "</problem>" +
-      "</div2SubInfo>" +
+      "</challengeInfo>" +
    "<competitionStats>" +
 "</memberStats>";
         return ret;
