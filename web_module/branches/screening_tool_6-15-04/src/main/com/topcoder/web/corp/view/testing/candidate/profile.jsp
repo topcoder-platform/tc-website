@@ -147,7 +147,7 @@ function getProblemDetail(id) {
                             </td>
                         </tr>
                         <tr>
-                            <td class="screeningCellOdd" align=right>State:</td>
+                            <td class="screeningCellOdd" align=right>State / Province:</td>
                             <td class="screeningCellOdd">
                                 <screen:resultSetItem row="<%=row%>" name="state_code" />
                             </td>
