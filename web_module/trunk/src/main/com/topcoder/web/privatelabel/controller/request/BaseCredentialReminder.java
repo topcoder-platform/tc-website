@@ -39,7 +39,7 @@ public abstract class BaseCredentialReminder extends RegistrationBase {
                 Request r = new Request();
                 r.setContentHandle("user_info_using_email");
                 r.setProperty("email", email);
-                Map m = getDataAccess(db, true).getData(r);
+                Map m = getDataAccess(db).getData(r);
                 ResultSetContainer rsc = (ResultSetContainer) m.get("user_info_using_email");
                 if (rsc.isEmpty()) {
                     throw new NavigationException("Sorry, this email address does not exist " + email);
