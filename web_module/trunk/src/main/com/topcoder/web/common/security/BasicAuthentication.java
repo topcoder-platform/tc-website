@@ -28,11 +28,12 @@ public class BasicAuthentication implements WebAuthentication {
 
     private static Logger log = Logger.getLogger(BasicAuthentication.class);
 
+    private static final String USER_PERSISTOR_KEY = "user_obj";
+    private static final String USER_COOKIE_NAME = "user_id";
+
     private Persistor persistor;
     private HttpServletRequest request;
     private HttpServletResponse response;
-    private LoginRemote login;
-    private PrincipalMgrRemote pmgr;
     private User guest = SimpleUser.createGuest();
 
     /**
@@ -43,9 +44,6 @@ public class BasicAuthentication implements WebAuthentication {
         this.persistor = userPersistor;
         this.request = (HttpServletRequest) request;
         this.response = (HttpServletResponse) response;
-        this.login = (LoginRemote) Constants.createEJB(LoginRemote.class);
-        this.pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
-
     }
 
     /**
@@ -56,10 +54,11 @@ public class BasicAuthentication implements WebAuthentication {
     public void login(User u) throws LoginException {
         log.info("attempting login as " + u.getUserName());
         try {
+            LoginRemote login = (LoginRemote) Constants.createEJB(LoginRemote.class);
             TCSubject sub = login.login(u.getUserName(), u.getPassword());
             long uid = sub.getUserId();
             setCookie(uid);
-            setSessionUser(makeUser(uid), true);  //@@@ we could just use the name we already have
+            setUserInPersistor(makeUser(uid));
             log.info("login succeeded");
 
         } catch (Exception e) {
@@ -72,12 +71,11 @@ public class BasicAuthentication implements WebAuthentication {
      * Figure out who the current user is using either a cookie if it's available, or the persistor.
      * 1.  remove their information from the persistor.
      * 2.  clear their identifying cookies
-     * 3.  clear any information in the session associated with them
      */
     public void logout() {
         log.info("logging out");
         clearCookie();
-        setSessionUser(guest, false);
+        setUserInPersistor(guest);
     }
 
     /**
@@ -86,7 +84,7 @@ public class BasicAuthentication implements WebAuthentication {
      * is present, returns an anonymous user.
      */
     public User getActiveUser() {
-        User u = getSessionUser();
+        User u = getUserFromPersistor();
         if (u == null) {
             u = checkCookie();
             if (u==null) {
@@ -101,7 +99,7 @@ public class BasicAuthentication implements WebAuthentication {
      * this session.  Otherwise returns an anonymous user.
      */
     public User getUser() {
-        User u = getSessionUser();
+        User u = getUserFromPersistor();
         if(u == null) u = guest;
         return u;
     }
@@ -109,6 +107,7 @@ public class BasicAuthentication implements WebAuthentication {
     /** Fill in the name field from the user id. */
     private User makeUser(long id) {
         try {
+            PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
             UserPrincipal up = pmgr.getUser(id);
             return new SimpleUser(id, up.getName(), "");
         } catch (Exception e) {
@@ -165,7 +164,7 @@ public class BasicAuthentication implements WebAuthentication {
      */
     public void setCookie(long uid) throws Exception {
         String hash = hashForUser(uid);
-        Cookie c = new Cookie("user_id", ""+uid+"|"+hash);
+        Cookie c = new Cookie(USER_COOKIE_NAME, ""+uid+"|"+hash);
         // could set path here, but we have been assuming only one path is ever used
         c.setMaxAge(Integer.MAX_VALUE);  // this should fit comfortably, since the expiration date is a string on the wire
         response.addCookie(c);
@@ -173,7 +172,7 @@ public class BasicAuthentication implements WebAuthentication {
 
     /** Remove any cookie previously set on the client by the method above. */
     private void clearCookie() {
-        Cookie c = new Cookie("user_id", "");
+        Cookie c = new Cookie(USER_COOKIE_NAME, "");
         c.setMaxAge(0);
         response.addCookie(c);
     }
@@ -182,7 +181,7 @@ public class BasicAuthentication implements WebAuthentication {
     private User checkCookie() {
         Cookie[] ca = request.getCookies();
         for(int i=0; i<ca.length; i++)
-            if(ca[i].getName().equals("user_id")) {
+            if(ca[i].getName().equals(USER_COOKIE_NAME)) {
 
                 try {
                     StringTokenizer st = new StringTokenizer(ca[i].getValue(), "|");
@@ -190,7 +189,7 @@ public class BasicAuthentication implements WebAuthentication {
                     String hash = hashForUser(uid);
                     if(!st.hasMoreTokens()) {  //@@@ special case to convert old cookies
                         log.info("replacing cookie in old format");
-                        Cookie c = new Cookie("user_id", ""+uid+"|"+hash);
+                        Cookie c = new Cookie(USER_COOKIE_NAME, ""+uid+"|"+hash);
                         c.setMaxAge(Integer.MAX_VALUE);
                         response.addCookie(c);
                     } else {
@@ -207,8 +206,8 @@ public class BasicAuthentication implements WebAuthentication {
         return null;
     }
 
-    private User getSessionUser() {
-        return (User)persistor.getObject(request.getSession().getId()+"user_obj");
+    private User getUserFromPersistor() {
+        return (User)persistor.getObject(request.getSession().getId()+USER_PERSISTOR_KEY);
     }
 
     /**
@@ -217,10 +216,8 @@ public class BasicAuthentication implements WebAuthentication {
      * handle logins which expire with the session.
      *
      * @param user
-     * @param fresh  true if they have logged in during this session
      */
-    private void setSessionUser(User user, boolean fresh) {
-        persistor.setObject(request.getSession().getId()+"user_obj", user);
-        persistor.setObject(request.getSession().getId()+"logged_in", fresh ? "yes" : null);
+    private void setUserInPersistor(User user) {
+        persistor.setObject(request.getSession().getId()+USER_PERSISTOR_KEY, user);
     }
 }

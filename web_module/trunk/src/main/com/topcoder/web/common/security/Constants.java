@@ -5,6 +5,7 @@ import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 
 import javax.naming.Context;
+import javax.naming.NamingException;
 import java.lang.reflect.Method;
 
 /**
@@ -13,7 +14,7 @@ import java.lang.reflect.Method;
  *
  * @author Ambrose Feinstein
  */
-class Constants {
+public class Constants {
 
     private static Logger log = Logger.getLogger(Constants.class);
 
@@ -25,10 +26,13 @@ class Constants {
      * Assumes the home class will have the same name plus "Home".
      *
      * @param remoteclass The class of the interface which should be returned.
+     * @throws NamingException if we can't find the get context
+     * @throws Exception if something goes wrong when creating or calling
+     * the method on the ejb.
+     *
      */
-    static Object createEJB(Class remoteclass) throws Exception {
+    public static Object createEJB(Class remoteclass) throws NamingException, Exception {
 
-        try {
             /* create the context anew each time in case the JNDI provider is restarted. */
             Context ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
 
@@ -37,10 +41,5 @@ class Constants {
             Object remotehome = ctx.lookup(refname);
             Method createmethod = remotehome.getClass().getMethod("create", null);
             return createmethod.invoke(remotehome, null);
-
-        } catch (Exception e) {
-            log.error("caught exception in createEJB, rethrowing it", e);
-            throw e;
-        }
     }
 }
