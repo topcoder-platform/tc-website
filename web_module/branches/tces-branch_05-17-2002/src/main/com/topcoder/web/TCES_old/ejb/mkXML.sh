@@ -27,6 +27,11 @@ do
          <ejb-class>com.topcoder.web.TCES.ejb.${CLASS_NAME}Bean</ejb-class>
          <session-type>Stateless</session-type>
          <transaction-type>Container</transaction-type>
+         <env-entry id="EnvEntry_$SESS_ID">
+            <env-entry-name>DSname</env-entry-name>
+            <env-entry-type>java.lang.String</env-entry-type>
+            <env-entry-value>OLTP</env-entry-value>
+         </env-entry>
       </session>
 EOF
 	cat >> META-INF/weblogic-ejb-jar.xml <<EOF
