@@ -39,6 +39,7 @@ public class ProblemList extends BaseProcessor {
         if(result != null && result.size() > 0){
             String round;
             int item=0;
+            /* looping twice to group problems into sets */
             while(item < result.size()){
                 ArrayList subList = new ArrayList(3);
                 round = result.getItem(item,"session_round_id").toString();
