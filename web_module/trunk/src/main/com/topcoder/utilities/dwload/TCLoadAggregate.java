@@ -456,16 +456,16 @@ public class TCLoadAggregate extends TCLoad {
         try {
             query = new StringBuffer(100);
 
-            //  dok replace hard codes with constants
+            //  TODO replace hard codes with constants
             query.append(" SELECT cp.coder_id ");                       // 1
             query.append(" ,cp.division_id ");                          // 2
             query.append(" ,cp.level_id ");                             // 3
-            query.append(" ,SUM(CASE WHEN cp.end_status_id >= 120 THEN 1 ELSE 0 END)");     // 4
-            query.append(" ,SUM(CASE WHEN cp.end_status_id >= 130 THEN 1 ELSE 0 END)");   //5
-            query.append(" ,SUM(CASE WHEN cp.end_status_id = 150 THEN 1 ELSE 0 END)  ");   //6
-            query.append(" ,SUM(CASE WHEN cp.end_status_id = 140 THEN 1 ELSE 0 END)  ");   //7
-            query.append(" ,SUM(CASE WHEN cp.end_status_id = 160 THEN 1 ELSE 0 END)  ");   //8
-            query.append(" ,SUM(CASE WHEN cp.end_status_id between 120 and 121 THEN 1 ELSE 0 END)");   //9
+            query.append(" ,SUM(CASE WHEN cp.end_status_id >= 120 THEN 1 ELSE 0 END) AS problems_opened");     // 4
+            query.append(" ,SUM(CASE WHEN cp.end_status_id >= 130 THEN 1 ELSE 0 END) AS problems_submitted");   //5
+            query.append(" ,SUM(CASE WHEN cp.end_status_id = 150 THEN 1 ELSE 0 END) AS problems_correct");   //6
+            query.append(" ,SUM(CASE WHEN cp.end_status_id = 140 THEN 1 ELSE 0 END) AS problems_failed_by_challenge ");   //7
+            query.append(" ,SUM(CASE WHEN cp.end_status_id = 160 THEN 1 ELSE 0 END) AS problems_failed_by_system_test ");   //8
+            query.append(" ,SUM(CASE WHEN cp.end_status_id between 120 and 121 THEN 1 ELSE 0 END) AS problems_left_open");   //9
             query.append(" ,AVG(cp.final_points)");   //10
             query.append(" ,SUM(cp.submission_points) ");   //11
             query.append(" ,SUM(cp.challenge_points)");   //12
@@ -484,125 +484,129 @@ public class TCLoadAggregate extends TCLoad {
             }
             query.append(" GROUP BY 1,2,3");
             psSel = prepareStatement(query.toString(), SOURCE_DB);
+
+
             query = new StringBuffer(100);
-            query.append("INSERT INTO coder_level ");
-            query.append("      (coder_id ");                         // 1
-            query.append("       ,division_id ");                     // 2
-            query.append("       ,level_id ");                        // 3
-            query.append("       ,problems_opened ");                 // 4
-            query.append("       ,problems_submitted ");              // 5
-            query.append("       ,problems_correct ");                // 6
-            query.append("       ,problems_failed_by_challenge ");    // 7
-            query.append("       ,problems_failed_by_system_test ");  // 8
-            query.append("       ,problems_left_open ");              // 9
-            query.append("       ,average_points ");                  // 10
-            query.append("       ,submission_points ");               // 11
-            query.append("       ,challenge_points ");                // 12
-            query.append("       ,system_test_points ");              // 13
-            query.append("       ,final_points ");                    // 14
-            query.append("       ,point_standard_deviation ");        // 15
-            query.append("       ,defense_points ");                  // 16
-            query.append("       ,avg_time_elapsed) ");               // 16
-            query.append("VALUES (");
+            query.append(" INSERT ");
+            query.append(   " INTO coder_level ");
+            query.append(       " (coder_id ");                         // 1
+            query.append(       " ,division_id ");                     // 2
+            query.append(       " ,level_id ");                        // 3
+            query.append(       " ,problems_opened ");                 // 4
+            query.append(       " ,problems_submitted ");              // 5
+            query.append(       " ,problems_correct ");                // 6
+            query.append(       " ,problems_failed_by_challenge ");    // 7
+            query.append(       " ,problems_failed_by_system_test ");  // 8
+            query.append(       " ,problems_left_open ");              // 9
+            query.append(       " ,average_points ");                  // 10
+            query.append(       " ,submission_points ");               // 11
+            query.append(       " ,challenge_points ");                // 12
+            query.append(       " ,system_test_points ");              // 13
+            query.append(       " ,final_points ");                    // 14
+            query.append(       " ,point_standard_deviation ");        // 15
+            query.append(       " ,defense_points ");                  // 16
+            query.append(       " ,avg_time_elapsed) ");               // 16
+            query.append(" VALUES (");
             query.append("?,?,?,?,?,?,?,?,?,?,");  // 10 values
             query.append("?,?,?,?,?,?,?)");       // 17 total values
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
             query.append(" UPDATE coder_level");
-            query.append(" SET problems_presented = ");
-            query.append(" (SELECT count(*)");
-            query.append(" FROM problem p ");
-            query.append(" ,room_result rr ");
-            query.append(" WHERE p.round_id = rr.round_id ");
-            query.append(" AND rr.coder_id = coder_level.coder_id");
-            query.append(" AND p.level_id = coder_level.level_id");
-            query.append(" AND p.division_id = coder_level.division_id)");
-            query.append(" ,challenge_attempts_made = ");
-            query.append(" (SELECT count(*) ");
-            query.append(" FROM challenge c ");
-            query.append(" ,problem p ");
-            query.append(" ,room_result rr ");
-            query.append(" WHERE c.challenger_id = rr.coder_id");
-            query.append(" AND rr.coder_id = coder_level.coder_id");
-            query.append(" AND c.round_id = rr.round_id");
-            query.append(" AND rr.round_id = p.round_id");
-            query.append(" AND rr.division_id = p.division_id");
-            query.append(" AND p.problem_id = c.problem_id");
-            query.append(" AND p.division_id = coder_level.division_id");
-            query.append(" AND p.level_id = coder_level.level_id)");
-            query.append(" ,challenges_made_successful = ");
-            query.append(" (SELECT count(*) ");
-            query.append(" FROM challenge c ");
-            query.append(" ,problem p ");
-            query.append(" ,room_result rr ");
-            query.append(" WHERE c.challenger_id = rr.coder_id");
-            query.append(" AND rr.coder_id = coder_level.coder_id");
-            query.append(" AND c.round_id = rr.round_id");
-            query.append(" AND rr.round_id = p.round_id");
-            query.append(" AND rr.division_id = p.division_id");
-            query.append(" AND p.problem_id = c.problem_id");
-            query.append(" AND p.division_id = coder_level.division_id");
-            query.append(" AND p.level_id = coder_level.level_id ");
-            query.append(" AND c.succeeded = " + STATUS_SUCCEEDED + ")");
-            query.append(" ,challenges_made_failed = ");
-            query.append(" (SELECT count(*) ");
-            query.append(" FROM challenge c ");
-            query.append(" ,problem p ");
-            query.append(" ,room_result rr ");
-            query.append(" WHERE c.challenger_id = rr.coder_id");
-            query.append(" AND rr.coder_id = coder_level.coder_id");
-            query.append(" AND c.round_id = rr.round_id");
-            query.append(" AND rr.round_id = p.round_id");
-            query.append(" AND rr.division_id = p.division_id");
-            query.append(" AND p.problem_id = c.problem_id");
-            query.append(" AND p.division_id = coder_level.division_id");
-            query.append(" AND p.level_id = coder_level.level_id ");
-            query.append(" AND c.succeeded = " + STATUS_FAILED + ")");
-            query.append(" ,challenge_attempts_received = ");
-            query.append(" (SELECT count(*) ");
-            query.append(" FROM challenge c ");
-            query.append(" ,problem p ");
-            query.append(" ,room_result rr ");
-            query.append(" WHERE c.defendant_id = rr.coder_id");
-            query.append(" AND rr.coder_id = coder_level.coder_id");
-            query.append(" AND c.round_id = rr.round_id");
-            query.append(" AND rr.round_id = p.round_id");
-            query.append(" AND rr.division_id = p.division_id");
-            query.append(" AND p.problem_id = c.problem_id");
-            query.append(" AND p.division_id = coder_level.division_id");
-            query.append(" AND p.level_id = coder_level.level_id) ");
-            query.append(" ,challenges_received_successful = ");
-            query.append(" (SELECT count(*) ");
-            query.append(" FROM challenge c ");
-            query.append(" ,problem p ");
-            query.append(" ,room_result rr ");
-            query.append(" WHERE c.defendant_id = rr.coder_id");
-            query.append(" AND rr.coder_id = coder_level.coder_id");
-            query.append(" AND c.round_id = rr.round_id");
-            query.append(" AND rr.round_id = p.round_id");
-            query.append(" AND rr.division_id = p.division_id");
-            query.append(" AND p.problem_id = c.problem_id");
-            query.append(" AND p.division_id = coder_level.division_id");
-            query.append(" AND p.level_id = coder_level.level_id ");
-            query.append(" AND c.succeeded = " + STATUS_SUCCEEDED + ")");
-            query.append(" ,challenges_received_failed = ");
-            query.append(" (SELECT count(*) ");
-            query.append(" FROM challenge c ");
-            query.append(" ,problem p ");
-            query.append(" ,room_result rr ");
-            query.append(" WHERE c.defendant_id = rr.coder_id");
-            query.append(" AND rr.coder_id = coder_level.coder_id");
-            query.append(" AND c.round_id = rr.round_id");
-            query.append(" AND rr.round_id = p.round_id");
-            query.append(" AND rr.division_id = p.division_id");
-            query.append(" AND p.problem_id = c.problem_id");
-            query.append(" AND p.division_id = coder_level.division_id");
-            query.append(" AND p.level_id = coder_level.level_id ");
-            query.append(" AND c.succeeded = " + STATUS_FAILED + ")");
-            query.append(" WHERE coder_id = ?");
-            query.append(" AND division_id = ?");
-            query.append(" AND level_id = ?");
+            query.append(   " SET problems_presented = ");
+            query.append(          " (SELECT count(*)");
+            query.append(             " FROM problem p ");
+            query.append(                  " ,room_result rr ");
+            query.append(            " WHERE p.round_id = rr.round_id ");
+            query.append(              " AND rr.coder_id = coder_level.coder_id");
+            query.append(              " AND rr.division_id = p.division_id");
+            query.append(              " AND p.level_id = coder_level.level_id");
+            query.append(              " AND p.division_id = coder_level.division_id)");
+            query.append(       " ,challenge_attempts_made = ");
+            query.append(          " (SELECT count(*) ");
+            query.append(             " FROM challenge c ");
+            query.append(                  " ,problem p ");
+            query.append(                  " ,room_result rr ");
+            query.append(            " WHERE c.challenger_id = rr.coder_id");
+            query.append(              " AND rr.coder_id = coder_level.coder_id");
+            query.append(              " AND c.round_id = rr.round_id");
+            query.append(              " AND rr.round_id = p.round_id");
+            query.append(              " AND rr.division_id = p.division_id");
+            query.append(              " AND p.problem_id = c.problem_id");
+            query.append(              " AND p.division_id = coder_level.division_id");
+            query.append(              " AND p.level_id = coder_level.level_id)");
+            query.append(       " ,challenges_made_successful = ");
+            query.append(          " (SELECT count(*) ");
+            query.append(             " FROM challenge c ");
+            query.append(                  " ,problem p ");
+            query.append(                  " ,room_result rr ");
+            query.append(            " WHERE c.challenger_id = rr.coder_id");
+            query.append(              " AND rr.coder_id = coder_level.coder_id");
+            query.append(              " AND c.round_id = rr.round_id");
+            query.append(              " AND rr.round_id = p.round_id");
+            query.append(              " AND rr.division_id = p.division_id");
+            query.append(              " AND p.problem_id = c.problem_id");
+            query.append(              " AND p.division_id = coder_level.division_id");
+            query.append(              " AND p.level_id = coder_level.level_id ");
+            query.append(              " AND c.succeeded = " + STATUS_SUCCEEDED + ")");
+            query.append(       " ,challenges_made_failed = ");
+            query.append(          " (SELECT count(*) ");
+            query.append(             " FROM challenge c ");
+            query.append(                  " ,problem p ");
+            query.append(                  " ,room_result rr ");
+            query.append(            " WHERE c.challenger_id = rr.coder_id");
+            query.append(              " AND rr.coder_id = coder_level.coder_id");
+            query.append(              " AND c.round_id = rr.round_id");
+            query.append(              " AND rr.round_id = p.round_id");
+            query.append(              " AND rr.division_id = p.division_id");
+            query.append(              " AND p.problem_id = c.problem_id");
+            query.append(              " AND p.division_id = coder_level.division_id");
+            query.append(              " AND p.level_id = coder_level.level_id ");
+            query.append(              " AND c.succeeded = " + STATUS_FAILED + ")");
+            query.append(       " ,challenge_attempts_received = ");
+            query.append(          " (SELECT count(*) ");
+            query.append(             " FROM challenge c ");
+            query.append(                  " ,problem p ");
+            query.append(                  " ,room_result rr ");
+            query.append(            " WHERE c.defendant_id = rr.coder_id");
+            query.append(              " AND rr.coder_id = coder_level.coder_id");
+            query.append(              " AND c.round_id = rr.round_id");
+            query.append(              " AND rr.round_id = p.round_id");
+            query.append(              " AND rr.division_id = p.division_id");
+            query.append(              " AND p.problem_id = c.problem_id");
+            query.append(              " AND p.division_id = coder_level.division_id");
+            query.append(              " AND p.level_id = coder_level.level_id) ");
+            query.append(       " ,challenges_received_successful = ");
+            query.append(          " (SELECT count(*) ");
+            query.append(             " FROM challenge c ");
+            query.append(                  " ,problem p ");
+            query.append(                  " ,room_result rr ");
+            query.append(            " WHERE c.defendant_id = rr.coder_id");
+            query.append(              " AND rr.coder_id = coder_level.coder_id");
+            query.append(              " AND c.round_id = rr.round_id");
+            query.append(              " AND rr.round_id = p.round_id");
+            query.append(              " AND rr.division_id = p.division_id");
+            query.append(              " AND p.problem_id = c.problem_id");
+            query.append(              " AND p.division_id = coder_level.division_id");
+            query.append(              " AND p.level_id = coder_level.level_id ");
+            query.append(              " AND c.succeeded = " + STATUS_SUCCEEDED + ")");
+            query.append(       " ,challenges_received_failed = ");
+            query.append(          " (SELECT count(*) ");
+            query.append(             " FROM challenge c ");
+            query.append(                  " ,problem p ");
+            query.append(                  " ,room_result rr ");
+            query.append(            " WHERE c.defendant_id = rr.coder_id");
+            query.append(              " AND rr.coder_id = coder_level.coder_id");
+            query.append(              " AND c.round_id = rr.round_id");
+            query.append(              " AND rr.round_id = p.round_id");
+            query.append(              " AND rr.division_id = p.division_id");
+            query.append(              " AND p.problem_id = c.problem_id");
+            query.append(              " AND p.division_id = coder_level.division_id");
+            query.append(              " AND p.level_id = coder_level.level_id ");
+            query.append(              " AND c.succeeded = " + STATUS_FAILED + ")");
+            query.append( " WHERE coder_id = ?");
+            query.append(   " AND division_id = ?");
+            query.append(   " AND level_id = ?");
 
 
             psUpd = prepareStatement(query.toString(), TARGET_DB);
