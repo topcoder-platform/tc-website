@@ -105,13 +105,21 @@
 
                         <p>Members will also collect royalties on the revenue generated from the sale of the component. The total royalty per component will be equal to 10%* of the component's revenue, with 25%* of the royalty being paid to the designer, 25% to the developer(s), 25% to the Architecture Board member(s) and 25% to the Development Board member(s).  Royalties may be diluted if additional work is done to the component, as the total work effort for the component will increase.</p>
                             
-                        <p><strong>Designer</strong><br />
+                        <p><strong>Winning Designer</strong><br />
                         Royalty Percentage - 25%</p>
                             
                         <p>Total Payment - <xsl:value-of select="/TC/DEVELOPMENT/payment"/><br/>
                            First Deliverable - <xsl:value-of select="/TC/DEVELOPMENT/first_payment"/><br/>
                                Project Completion - <xsl:value-of select="/TC/DEVELOPMENT/second_payment"/></p>
 
+			<xsl:variable name="numericPayment" select="translate(/TC/DEVELOPMENT/payment, '$', '')" />
+			<xsl:variable name="dollarFormat" select="'$###,###.00'" />
+                        <p><strong>Second Place Designer</strong><br />
+                           Total Payment - <xsl:value-of select="format-number(number($numericPayment)*.5, $dollarFormat)"/><br/>
+                        </p>
+                        <p><strong>Third Place Designer</strong><br />
+                           Total Payment - <xsl:value-of select="format-number(number($numericPayment)*.25, $dollarFormat)"/><br/>
+                        </p>
 <!-- Definition of Completion -->
                         <p><sup>*</sup>Completion of the project is defined as follows:</p>
 
@@ -141,7 +149,8 @@
                         Initial Submission Due Date: <xsl:value-of select="/TC/DEVELOPMENT/date"/><br/>
                         Winner Announced: <xsl:value-of select="/TC/DEVELOPMENT/winner_announced"/><br/>
                         Final Submission Due Date: <xsl:value-of select="/TC/DEVELOPMENT/final_submission"/><br/>
-                        Estimated Development End Date: <xsl:value-of select="/TC/DEVELOPMENT/estimated_dev"/></p>
+                        </p>
+
 
 
 <!-- Register at TCS -->
