@@ -111,7 +111,11 @@ public class Controller extends HttpServlet {
 
     private void sendToLoginPage(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        sendToPage(request, response, Constants.LOGIN_PAGE, false);
+        sendToPage(request,
+                response,
+                request.getContextPath() + request.getServletPath() + "?" +
+                Constants.TASK_PARAM + "=" + Constants.LOGIN_TASK,
+                false);
     }
 
     private void sendToPage(HttpServletRequest request, HttpServletResponse response, String page, boolean forward)
