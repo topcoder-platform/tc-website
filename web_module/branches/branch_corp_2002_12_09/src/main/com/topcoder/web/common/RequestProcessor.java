@@ -36,7 +36,7 @@ public interface RequestProcessor {
 	 * 
 	 * @param req request issued by user  
 	 */
-	public void setRequest(HttpServletRequest req);
+	public void setRequest(ServletRequest req);
 	
 	/**
 	 * Based on the request (received via setRequest(..)) performs some actions
