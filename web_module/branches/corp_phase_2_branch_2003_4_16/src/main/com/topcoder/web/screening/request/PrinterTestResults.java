@@ -63,6 +63,8 @@ public class PrinterTestResults extends TestResults {
             result = (ResultSetContainer) map.get("noteList");
             getRequest().setAttribute("noteList", result);
         }
+        setNextPage(Constants.PRINTER_RESULTS_PAGE);
+        setNextPageInContext(true);
     }
 }
 
