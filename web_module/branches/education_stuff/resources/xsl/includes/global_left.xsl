@@ -214,7 +214,7 @@
                 <xsl:call-template name="sched_row"/>
                 <xsl:call-template name="stats_row"/>
 
-                <tr><td id="leftNavOn"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=help&amp;d2=index</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Educational Content</A></td></tr>
+                <tr><td id="leftNavOn"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=tutorials&amp;d2=index</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Educational Content</A></td></tr>
 
 <!-- Alg Tutorials -->
                 <tr>
@@ -225,7 +225,7 @@
                         <xsl:otherwise>leftSubnav</xsl:otherwise>
                         </xsl:choose>
                         </xsl:attribute>
-                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=help&amp;d2=index</xsl:attribute>Algorithm Tutorials</A>
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=tutorials&amp;d2=index</xsl:attribute>Algorithm Tutorials</A>
                     </td>
                 </tr>
 
@@ -708,7 +708,7 @@
 </xsl:template>
 
 <xsl:template name="education_row">
-                <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/</xsl:attribute>Educational Content</A></td></tr>
+                <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=tutorials&amp;d2=index</xsl:attribute>Educational Content</A></td></tr>
 </xsl:template>
 
 <xsl:template name="dev_overview_row">
