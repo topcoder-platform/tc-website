@@ -117,7 +117,7 @@
       <tr><td>Company: <input type="text" name="company" size="15" value="<%=request.getParameter("company")%>"></td></tr>
       <tr><td>State: <select name="states" multiple size=5>
         <rsc:iterator list="<%=states%>" id="resultRow">
-          <option value="<rsc:item name="state_code" row="<%=resultRow%>"/>"<%=state.contains(resultRow.getStringItem("state_code")) ? " selected" : ""%><rsc:item name="state_code" row="<%=resultRow%>"/></option>
+          <option value="<rsc:item name="state_code" row="<%=resultRow%>"/>"<%=state.contains(resultRow.getStringItem("state_code")) ? " selected" : ""%>><rsc:item name="state_code" row="<%=resultRow%>"/></option>
         </rsc:iterator>
         </select>
         <a href="JavaScript:deselect('states')">Deselect</a>
@@ -141,7 +141,7 @@
             String countryCode = resultRow.getStringItem("country_code");
             if(countryCode == null || countryCode.equals("840") || countryCode.equals(""))continue;//put the US first for convenience 
           %>
-          <option value="<rsc:item name="country_code" row="<%=resultRow%>"/>"<%=coo.contains(resultRow.getStringItem("countryoforigin")) ? " selected" : ""%>><rsc:item name="country_name" row="<%=resultRow%>"/></option>
+          <option value="<rsc:item name="country_code" row="<%=resultRow%>"/>"<%=coo.contains(resultRow.getStringItem("country_code")) ? " selected" : ""%>><rsc:item name="country_name" row="<%=resultRow%>"/></option>
         </rsc:iterator>
         </select>
         <a href="JavaScript:deselect('countryoforigin')">Deselect</a>
