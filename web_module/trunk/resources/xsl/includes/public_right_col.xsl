@@ -25,7 +25,7 @@ function find(n) {
 ]]></script>
 
 <xsl:choose>
-    <xsl:when test="$sectionName='tourny'or$sectionName='statistics'">
+    <xsl:when test="$sectionName='tco03'or$sectionName='statistics'">
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
 
             <img src="/i/tournament/tco03/promo_tco_header.gif" alt="2003 TopCoder Open Sponsors" width="170" height="62" border="0" /><br />
@@ -39,6 +39,7 @@ function find(n) {
                 <xsl:otherwise>
 
             <A href="/?t=tournaments&amp;c=tco03_intel"><img src="/i/tournament/tco03/promo_sm_intel.gif" alt="Intel Developer Services" width="171" height="104" border="0" /></A><br />
+            
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
 
                 </xsl:otherwise>
@@ -46,7 +47,7 @@ function find(n) {
 
             <A href="" name="changerHref"><img src="" name="changerImg" width="170" height="84" border="0" /></A><br />
 
-            <img alt="" width="1" height="10" src="/i/clear.gif" border="0"/><br/>
+            <img alt="" width="1" height="10" src="/i/clear.gif" border="0"/><br />
 
             <xsl:call-template name="calendar"/>
 
@@ -54,7 +55,7 @@ function find(n) {
     </xsl:when>
 
     <xsl:otherwise>
-            <img alt="" width="1" height="10" src="/i/clear.gif" border="0"/><br/>
+            <img alt="" width="1" height="10" src="/i/clear.gif" border="0"/><br />
 
             <xsl:call-template name="calendar"/>
 
