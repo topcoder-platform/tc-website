@@ -245,6 +245,21 @@
             </tr>
 
             <tr>
+                <td colspan="2">
+                    <tc-webtag:errorIterator id="err" name="<%=Constants.STATE_CODE%>"><%=err%><br/></tc-webtag:errorIterator>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    State
+                </td>
+                <td align="left">
+                    <% ResultSetContainer stateRsc = (ResultSetContainer)request.getAttribute("stateList"); %>
+                    <tc-webtag:rscSelect name="<%=Constants.STATE_CODE%>" list="<%=stateRsc%>" fieldText="state_name" fieldValue="state_code"/>
+                </td>
+            </tr>
+
+            <tr>
                 <td colspan="2" class="errorText">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.ZIP%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
