@@ -9,6 +9,7 @@ import com.topcoder.web.query.ejb.QueryServices.CommandGroup;
 import com.topcoder.web.common.BaseProcessor;
 
 import java.util.Enumeration;
+import java.util.Iterator;
 
 /**
  * @author Greg Paul
@@ -100,12 +101,24 @@ public class ModifyCommand extends BaseProcessor {
         }
     }
 
-    private void checkCommandDesc(String command) {
+    private void checkCommandDesc(String command, Command c) throws Exception {
         if (isEmpty(command)) {
             addError(Constants.COMMAND_DESC_PARAM, "You must specify a command name");
         } else if (command.length() > 100) {
             addError(Constants.COMMAND_DESC_PARAM, "Invalid Command Name, too long");
+        } else {
+            ResultSetContainer list = c.getCommandList(getDb());
+            ResultSetContainer.ResultSetRow row = null;
+            boolean found = false;
+            for (Iterator it = list.iterator(); it.hasNext()&&!found;) {
+                row = (ResultSetContainer.ResultSetRow)it.next();
+                found=row.getItem("command_desc").toString().equals(command);
+            }
+            if (found) {
+                addError(Constants.COMMAND_DESC_PARAM, "Command already exists.");
+            }
         }
+
     }
 
     private void checkGroupId(int groupId, CommandGroup cg) throws Exception {
