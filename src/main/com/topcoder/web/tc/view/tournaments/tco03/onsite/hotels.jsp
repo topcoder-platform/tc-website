@@ -49,28 +49,34 @@
             <h2>Hotels Near Mohegan Sun</h2>
             
             <p><strong>Hotel at Mohegan Sun</strong><br/>
-            There is a 34-story luxury hotel at Mohegan Sun. Find out <a href="http://www.mohegansun.com/plan_visit/faq_accomodations.jsp" target="_blank">more info</a> 
-            or make a <a href="http://www.mohegansun.com/hotel_spa/hotel_reservations.jsp" target="_blank">reservation</a> on the Mohegan Sun web site.</p>
+            There is a 34-story luxury hotel at Mohegan Sun. You can make a <a href="http://www.mohegansun.com/hotel_spa/hotel_reservations.jsp" target="_blank">reservation</a> 
+            on the Mohegan Sun web site.</p>
             
             <p>Several other hotels are located only a short drive away from Mohegan Sun. We have included a representative sampling for your convenience:</p>
             
+            <p><strong>Microtel Uncasville-Montville</strong><br/>
+            1954 Norwich-New London Turnpike (Rte. 32)<br/>
+            Uncasville, CT 06382<br/>
+            860.367-0880<br/>
+            <a href="http://www.microtelinn.com/reservations/locationdetail.asp?facid=577" target="_blank">www.microtelinn.com</a></p>
+
             <p><strong>Courtyard Norwich</strong><br/>
             181 West Town Street<br/>
             Norwich, CT 06360<br/>
             860.886.2600<br/>
-            <a href="http://www.marriott.com/courtyard/toc/" target="_blank">http://www.marriott.com/courtyard/toc/</a></p>
+            <a href="http://marriott.com/dpp/PropertyPage.asp?MarshaCode=GONCY&EPCEC=InProcess&EPNAVCEC=InProcess" target="_blank">www.marriott.com</a></p>
 
             <p><strong>Comfort Suites Norwich</strong><br/>
             275 Otrobando Avenue<br/>
             Norwich, CT 06360<br/>
             860.892.9292<br/>
-            <a href="http://www.comfortsuites.com/" target="_blank">http://www.comfortsuites.com/</a></p>
+            <a href="http://www1.choicehotels.com/ires/en-US/html/HotelInfo?sid=g7wR.2bANHJdyxi.1&hotel=CT006" target="_blank">www.comfortsuites.com</a></p>
 
             <p><strong>Hilton Mystic</strong><br/>
             20 Coogan Blvd.<br/>
             Mystic, CT 06355<br/>
             860.572.0731<br/>
-            <a href="http://www.hilton.com/" target="_blank">http://www.hilton.com/</a></p>
+            <a href="http://www.hilton.com/en/hi/hotels/index.jhtml;jsessionid=HKTRRGY13YHNUCSGBIWMVCQKIYFC5UUC?ctyhocn=MYSMHHF" target="_blank">www.hilton.com</a></p>
 
             <p><br/></p>
             
