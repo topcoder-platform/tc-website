@@ -3,7 +3,8 @@
   <xsl:template name="calendar_view_pulldown">
   <BR/><BR/>
 <DIV ALIGN="right"><form name="selectform">
-<select name="quickstat" size="1" class="dropdown" onchange="goTo(this)">
+<!--<select name="quickstat" size="1" class="dropdown" onchange="goTo(this)">-->
+<select name="quickstat" size="1" class="dropdown" onchange="window.location='/index?t=schedule&amp;c='+this.options[this.selectedIndex].value">
               <OPTION value="SELECTED">&#160;Choose Monthly View</OPTION>
              <!-- <OPTION>2002:</OPTION>           
               <OPTION Value="#">&#160;January</OPTION>              
