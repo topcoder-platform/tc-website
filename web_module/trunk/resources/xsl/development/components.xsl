@@ -203,7 +203,7 @@
                             <tr valign="top">
                                 <td class="statText">Rating:</td>
                                 <td class="statText" align="right">1455</td>
-                                <td class="statText">&#160;&#160;<a href="/stat?c=ratings_history&amp;cr=2058651" class="statText">[ ratings history ]</a></td>
+                                <td class="statText">&#160;&#160;<a href="/stat?c=ratings_history&amp;cr=157582" class="statText">[ ratings history ]</a></td>
                             </tr>
 
                             <tr valign="top">
