@@ -6,6 +6,17 @@
                  com.topcoder.web.tc.Constants" %>
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%
+  String nextpage = (String)request.getAttribute(BaseServlet.NEXT_PAGE_KEY);
+  if(nextpage==null) nextpage = request.getParameter(BaseServlet.NEXT_PAGE_KEY);
+  if(nextpage==null) nextpage = request.getHeader("Referer");
+  if(nextpage==null) nextpage = "http://"+request.getServerName();
+  String message = (String)request.getAttribute("message");
+  if(message==null) message = "";
+  String username = request.getParameter(Login.USER_NAME);
+  if(username==null) username = "";
+%>
+
 <html>
 <head>
 <title>TopCoder | Login</title>
@@ -44,32 +55,12 @@
            <jsp:param name="image1" value="white"/>
            <jsp:param name="title" value="Login"/>
         </jsp:include>
-            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#001B35">
                 <tr valign="top">
                     <td class="bodyText" width="100%">
-
-                        <%
-                            String nextpage = (String)request.getAttribute(BaseServlet.NEXT_PAGE_KEY);
-                            if(nextpage==null) nextpage = request.getParameter(BaseServlet.NEXT_PAGE_KEY);
-                            if(nextpage==null) nextpage = request.getHeader("Referer");
-                            if(nextpage==null) nextpage = "http://"+request.getServerName();
-                            String message = (String)request.getAttribute("message");
-                            if(message==null) message = "";
-                            String username = request.getParameter(Login.USER_NAME);
-                            if(username==null) username = "";
-                        %>
-
                         <p><%= message %></p>
-                        <% if (sessionInfo.isAnonymous()) { %>
-                            <p>New to TopCoder? <a href="/?module=Registration" class="bodyText">Register</a> today!</p>
-                        <% } else { %>
-                            <p>If you are not <%=sessionInfo.getHandle()%>, and would like to create a new account <a href="/?module=Logout&<%=BaseServlet.NEXT_PAGE_KEY%>=/?<%=Constants.MODULE_KEY+"=Registration"%>" class="bodyText">click here</a>.
-                        <% } %>
-
                     </td>
                 </tr>
-
-
                <tr valign="top">
                     <td class="statText" width="100%">
                         <img src="/i/clear.gif" alt="" width="380" height="1" border="0"/><br/>
@@ -80,18 +71,15 @@
                         <p><span class="statTextBig">New to TopCoder?</span><br/>
                         <A class="statText" href="https://<jsp:getProperty name="sessionInfo" property="ServerName"/>/reg/index.jsp">Register now.</A>
                         After you complete the registration process, we will send your account activation code via email.</p>
-
-
                     </td>
                 </tr>
-
             </table>
 
             <div align="center">
 
             <p><br></p>
 
-            <table width="350" border="0" cellpadding="3" cellspacing="0" class="loginForm">
+            <table width="350" border="0" cellpadding="3" cellspacing="0" bgcolor="#001B35">
                 <tr><td class="testTableTitle">Login</td></tr>
                 <tr valign="middle">
                   <form method="post" name="frmLogin" action="/">
