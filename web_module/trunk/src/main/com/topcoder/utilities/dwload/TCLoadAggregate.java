@@ -23,9 +23,11 @@ package com.topcoder.utilities.dwload;
 
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 import java.sql.*;
 import java.util.Hashtable;
+import java.util.Iterator;
 
 public class TCLoadAggregate extends TCLoad {
     private static Logger log = Logger.getLogger(TCLoadAggregate.class);
@@ -185,6 +187,8 @@ public class TCLoadAggregate extends TCLoad {
             loadRoundProblem();
 
             loadProblemLanguage();
+
+            loadCoderProblem();
 
             log.info("SUCCESS: Aggregate load ran successfully.");
         } catch (Exception ex) {
@@ -1902,6 +1906,102 @@ public class TCLoadAggregate extends TCLoad {
             close(psUpd);
         }
     }
+
+
+
+    private static final String PROBLEM_QUERY =
+            " select problem_id, division_id" +
+              " from problem" +
+             " where round_id = ?";
+
+
+    private static final String POINT_QUERY =
+            " select coder_id, round_id, division_id, problem_id, final_points" +
+              " from coder_problem" +
+             " where round_id = ?" +
+               " and problem_id = ?" +
+               " and division_id = ?" +
+             " order by final_points desc";
+
+    private static final String PROBLEM_RANK_UPDATE =
+            "update coder_problem set place = ? " +
+            " where round_id = ? and coder_id = ? and division_id = ? and problem_id = ?";
+
+
+    /**
+     * This populates the 'coder_problem' table
+     */
+    private void loadCoderProblem() throws Exception {
+        int retVal = 0;
+        int count = 0;
+        PreparedStatement psSel = null;
+        PreparedStatement psUpd = null;
+        ResultSet rs = null;
+
+        try {
+            psSel = prepareStatement(PROBLEM_QUERY, TARGET_DB);
+            psSel.setLong(1, fRoundId);
+            rs = psSel.executeQuery();
+
+            ResultSetContainer problems = new ResultSetContainer(rs);
+
+            rs.close();
+            psSel.close();
+            psSel = prepareStatement(POINT_QUERY, TARGET_DB);
+
+            psUpd = prepareStatement(PROBLEM_RANK_UPDATE, TARGET_DB);
+
+            ResultSetContainer rankList = null;
+            ResultSetContainer.ResultSetRow row = null;
+            ResultSetContainer.ResultSetRow innerRow = null;
+            for(Iterator it = problems.iterator(); it.hasNext();) {
+                row = (ResultSetContainer.ResultSetRow)it.next();
+                psSel.setLong(1, row.getLongItem("round_id"));
+                psSel.setLong(2, row.getLongItem("problem_id"));
+                psSel.setInt(3, row.getIntItem("division_id"));
+                rs = psSel.executeQuery();
+                rankList = new ResultSetContainer(rs, 0, Integer.MAX_VALUE, 4);
+
+                for (Iterator it1 = rankList.iterator(); it1.hasNext();) {
+                    innerRow = (ResultSetContainer.ResultSetRow)it1.next();
+                    psUpd.setInt(1, innerRow.getIntItem("rank"));
+                    psUpd.setLong(2, innerRow.getLongItem("round_id"));
+                    psUpd.setLong(3, innerRow.getLongItem("coder_id"));
+                    psUpd.setInt(4, innerRow.getIntItem("division_id"));
+                    psUpd.setLong(5, innerRow.getLongItem("problem_id"));
+                    retVal = psUpd.executeUpdate();
+                    count += retVal;
+                    if (retVal != 1) {
+                        throw new SQLException("TCLoadAggregate: Insert for round_id " +
+                                fRoundId +
+                                ", problem_id " + innerRow.getLongItem("round_id") +
+                                ", division_id " + innerRow.getLongItem("division_id") +
+                                ", coder" + innerRow.getLongItem("coder_id") +
+                                " modified " + retVal + " rows, not one.");
+                    }
+                    printLoadProgress(count, "coder_problem");
+                    psUpd.clearParameters();
+                }
+
+                rs.close();
+                psSel.clearParameters();
+            }
+
+
+
+            log.info("coder_problem records copied = " + count);
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw new Exception("Load of 'coder_problem' table failed.\n" +
+                    sqle.getMessage());
+        } finally {
+            close(rs);
+            close(psSel);
+            close(psUpd);
+        }
+    }
+
+
 
 
 }
