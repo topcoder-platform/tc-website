@@ -112,7 +112,7 @@
                  
                 <xsl:variable name="priceFormat" select="'$###,###.00'" />
                 <xsl:for-each select="/TC/DEVELOPMENT/projects/project">
-                    <xsl:if test="./phase_id='112'"/>
+                    <xsl:if test="./phase_id='112'">
                         <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
                         <xsl:variable name="price" select="./price"/>
                         <xsl:variable name="comp" select="./component_id"/>
