@@ -5,7 +5,7 @@
 %>
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
-
+<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
 
 <HTML>
  <HEAD>
@@ -42,6 +42,7 @@ pageContext.setAttribute("pm", srb.getProperty("pm",""));
 //get the Header info 
 
 ResultSetContainer rscHdr = (ResultSetContainer) queryEntries.get("Room_Header_Information");
+ResultSetContainer image = (ResultSetContainer) queryEntries.get("Round_Sponsor_Image");
 
 ResultSetContainer.ResultSetRow resultRowHdr = rscHdr.isValidRow(0)? rscHdr.getRow(0) : null;
 
@@ -329,15 +330,15 @@ if (rscSysTest.size() > 0) {
                    <TD COLSPAN="9"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
                </TABLE>
-<% } %>   
-<!-- End System Testing -->         
+<% } %>
+<!-- End System Testing -->
              </TD>
            </TR>
            <TR>
              <TD WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-           </TR>     
+           </TR>
          </TABLE>
-         
+
          <p><br></p>
 
          <!-- END BODY -->
@@ -345,6 +346,9 @@ if (rscSysTest.size() > 0) {
        </TD>
        <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
        <TD WIDTH="180" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="180" HEIGHT="1" BORDER="0">
+       <rsc:iterator list="<%=image%>" id="resultRow">
+        <CENTER><A HREF="<rsc:item name="link" row="<%=resultRow%>"/>"><img src="<rsc:item name="file" row="<%=resultRow%>"/>" ALT="" WIDTH="<rsc:item name="width" row="<%=resultRow%>"/>" HEIGHT="<rsc:item name="height" row="<%=resultRow%>"/>" BORDER="0"/></A></CENTER>
+       </rsc:iterator>
        <jsp:include page="../public_right.jsp" />
      </TD>
     <!-- Gutter -->

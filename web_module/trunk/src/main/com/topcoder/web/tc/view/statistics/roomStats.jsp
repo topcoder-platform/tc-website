@@ -6,13 +6,14 @@
 
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
 
 <HTML>
  <HEAD>
    <TITLE>TopCoder Statistics - Room Statistics</TITLE>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-<jsp:include page="baseHRef.jsp" />   
+<jsp:include page="baseHRef.jsp" />
    <jsp:include page="../script.jsp" />
 <script language="JavaScript">
 <!--
@@ -66,6 +67,7 @@ pageContext.setAttribute("resultSetDates", rsc);
 ResultSetContainer rscRoomList = (ResultSetContainer) queryEntries.get("Rooms_For_Round");
 pageContext.setAttribute("resultSetRooms", rscRoomList);
 pageContext.setAttribute("cr", srb.getProperty("cr", ""));
+ResultSetContainer image = (ResultSetContainer) queryEntries.get("Round_Sponsor_Image");
 
 ResultSetContainer rsc2 = (ResultSetContainer) queryEntries.get("Room_Summary_Data");
 pageContext.setAttribute("resultSet", rsc2);
@@ -431,9 +433,9 @@ pageContext.setAttribute("resultSet", rscDefense);
            </TR>
            <TR>
              <TD VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-           </TR>     
+           </TR>
          </TABLE>
-         
+
          <p><br></p>
          <!-- END BODY -->
 
@@ -441,6 +443,9 @@ pageContext.setAttribute("resultSet", rscDefense);
        </TD>
        <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
        <TD WIDTH="180" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="180" HEIGHT="1" BORDER="0">
+       <rsc:iterator list="<%=image%>" id="resultRow">
+        <CENTER><A HREF="<rsc:item name="link" row="<%=resultRow%>"/>"><img src="<rsc:item name="file" row="<%=resultRow%>"/>" ALT="" WIDTH="<rsc:item name="width" row="<%=resultRow%>"/>" HEIGHT="<rsc:item name="height" row="<%=resultRow%>"/>" BORDER="0"/></A></CENTER>
+       </rsc:iterator>
          <jsp:include page="../public_right.jsp" />
        </TD>
     <!-- Gutter -->
