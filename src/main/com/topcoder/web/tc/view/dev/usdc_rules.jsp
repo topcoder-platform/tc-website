@@ -43,7 +43,7 @@
 
 <h2>Official Rules</h2>
 
-<p>Compliance: by participating in the Ultimate Software Development Contest (the "USDC" or the "Contest") you hereby 
+<p>By participating in the Ultimate Software Development Contest (the "USDC" or the "Contest") you hereby 
 agree to comply with the following rules and regulations of the Contest.</p>
 
 <h3>Eligibility</h3>
