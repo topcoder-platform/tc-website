@@ -152,7 +152,7 @@
                         <TR><TD CLASS="bodyText"><A NAME="35"><B>Why doesn't TopCoder allow citizens of all countries to participate in TopCoder competitions for prize money?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">TopCoder is currently permitted to distribute prize money for our
 competitions in the following countries:  Australia, Canada (excluding
-Quebec), India, Ireland, the United Kingdom, and the United States,
+Quebec), China, India, Ireland, New Zealand, the United Kingdom, and the United States,
 including the U.S. territories of Guam, Puerto Rico, and the U.S. Virgin
 Islands.  In order to include additional countries, TopCoder must first
 perform a thorough review of the gaming laws in each country to
