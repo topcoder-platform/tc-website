@@ -4,6 +4,7 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <jsp:usebean id="memberSearch" class="com.topcoder.web.tc.model.MemberSearch" scope="request" />
 <% ResultSetContainer results = memberSearch.getResults();%>
+          <a name="data"/>
           <table border="0" cellspacing="0" cellpadding="3" width="100%">
               <tr valign="middle">
                   <td background="/i/steel_gray_bg.gif" colspan="8" class="statTextBig">Search Results:
