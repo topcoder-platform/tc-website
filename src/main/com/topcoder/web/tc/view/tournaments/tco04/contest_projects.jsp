@@ -12,19 +12,37 @@
 </head>
 <body>
 <a name="top">
-<!-- Tab barlinks-->
-<jsp:include page="links.jsp" >
-<jsp:param name="tabLev1" value="component"/>
-<jsp:param name="tabLev2" value="details"/>
-<jsp:param name="tabLev3" value="rules"/>
-</jsp:include>
-
-<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
-<%@ taglib uri="tc.tld" prefix="tc" %>
-
 
 <% ResultSetContainer rscContest = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("contest_details"); %>
 <% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("contest_projects"); %>
+
+<%
+if( rscContest.getIntItem(0, "phase_id") == 112)
+{
+%>
+<!-- Tab barlinks-->
+<jsp:include page="links.jsp" >
+<jsp:param name="tabLev1" value="component"/>
+<jsp:param name="tabLev2" value="design"/>
+<jsp:param name="tabLev3" value="results"/>
+</jsp:include>
+<%
+}
+else
+{
+%>
+<!-- Tab barlinks-->
+<jsp:include page="links.jsp" >
+<jsp:param name="tabLev1" value="component"/>
+<jsp:param name="tabLev2" value="development"/>
+<jsp:param name="tabLev3" value="results"/>
+</jsp:include>
+<%
+}
+%>
+
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
 
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
 <!-- Body-->
