@@ -3,6 +3,7 @@ package com.topcoder.web.servlet;
 import com.topcoder.common.web.data.report.*;
 import com.topcoder.common.web.util.Conversion;
 import com.topcoder.shared.dataAccess.*;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpUtils;
+import javax.naming.InitialContext;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -231,36 +233,25 @@ public final class ReportServlet extends HttpServlet {
 
     private void getProfile(HttpServletRequest request) throws Exception {
         log.debug("getProfile called...");
-        String handle = Conversion.checkNull(request.getParameter(Constants.REPORT_HANDLE_KEY));
-        String firstName = Conversion.checkNull(request.getParameter(Constants.REPORT_FIRST_NAME_KEY));
-        String lastName = Conversion.checkNull(request.getParameter(Constants.REPORT_LAST_NAME_KEY));
-        String email = Conversion.checkNull(request.getParameter(Constants.REPORT_EMAIL_KEY));
-        if (handle.equals("")) handle = "%";
-        if (firstName.equals("")) firstName = "%";
-        if (lastName.equals("")) lastName = "%";
-        if (email.equals("")) email = "%";
-        Query profileListQuery = new Query(PROFILE_LIST, PROFILE_LIST_TYPES);
-        profileListQuery.setValue(handle);
-        profileListQuery.setValue(firstName);
-        profileListQuery.setValue(lastName);
-        profileListQuery.setValue(email);
-        ArrayList a = profileListQuery.execute();
-        ArrayList result = new ArrayList();
-        Profile p = null;
-        for (int i = 0; i < a.size() && i < 100; i++) { //let then have 100 records back max.
-            p = new Profile(
-                    ((ResultItem[]) a.get(i))[0].toString(),
-                    ((ResultItem[]) a.get(i))[1].toString(),
-                    ((ResultItem[]) a.get(i))[2].toString(),
-                    ((ResultItem[]) a.get(i))[3].toString());
-            try {
-                p.execute();
-                result.add(p);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        Request mainRequest = new Request();
+        mainRequest.setContentHandle("profile_lookup");
+        mainRequest.setProperties(HttpUtils.parseQueryString(request.getQueryString()));
+
+        InitialContext context = new InitialContext();
+        DataAccessInt dai = new DataAccess((javax.sql.DataSource) context.lookup(DBMS.OLTP_DATASOURCE_NAME));
+        Map mainMap = dai.getData(mainRequest);
+        ResultSetContainer profileList = (ResultSetContainer)mainMap.get("main_profile_info");
+
+        ArrayList result = new ArrayList(profileList.size());
+
+        Request detailRequest = new Request();
+        detailRequest.setContentHandle("profile_lookup_detail");
+        for (int i = 0; i < profileList.size() && i < 100; i++) { //let then have 100 records back max.
+            detailRequest.setProperty(Constants.REPORT_CODER_ID_KEY, profileList.getItem(i, "user_id").toString());
+            result.add(dai.getData(detailRequest));
         }
-        request.setAttribute(Constants.REPORT_PROFILE_KEY, result);
+        request.setAttribute(Constants.REPORT_PROFILE_LIST_KEY, profileList);
+        request.setAttribute(Constants.REPORT_PROFILE_DETAIL_KEY, result);
     }
 
 
