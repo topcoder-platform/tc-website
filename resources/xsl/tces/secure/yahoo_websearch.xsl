@@ -59,29 +59,53 @@
 <!--body contextual links-->
                         <table width="100%" cellpadding="3" cellspacing="0" border="0">
                             <tr><td valign="middle" bgcolor="#43515E" class="statText"><b>&#160;Yahoo! Jobs</b></td></tr>
+                            <tr><td valign="middle" class="bodyText"><A href="/?&amp;t=tces&amp;c=yahoo_openings&amp;a=secure" class="bodyText">Jobs</A></td></tr>
                         </table>
 
 <!-- Client Job List begins -->
                         <p><A href="/?&amp;t=tces&amp;c=yahoo" class="bodyText"><img src="/i/es/yahoo/yahoo_logo.gif" width="137" height="35" alt="Yahoo!" border="0" /></A></p>
-                        <p>All positions located in Sunnyvale, CA</p>
+
+                        <h3>Technical Yahoo! Software Engineer (Web Search Crawling)</h3>
                         
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_softeng&amp;a=secure" class="bodyText">Software Engineer</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_antispam&amp;a=secure" class="bodyText">Technical Yahoo! AntiSpam Architect</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_datareport&amp;a=secure" class="bodyText">Technical Yahoo! Software Engineer (Data Reporting Team)</A></p> 
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_srsofteng&amp;a=secure" class="bodyText">Sr. Software Engineer</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_datamining&amp;a=secure" class="bodyText">Data Mining Software Engineer</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_websearch&amp;a=secure" class="bodyText">Technical Yahoo! Software Engineer (Web Search Crawling)</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_searchtech&amp;a=secure" class="bodyText">Technical Yahoo! Software Engineer (Search Technologies)</A>&#42;</p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_adsystems&amp;a=secure" class="bodyText">Technical Yahoo! Software Engineer (AdSystems)</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_login&amp;a=secure" class="bodyText">Technical Yahoo! Software Engineer (Login/Registration Abuse Prevention)</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_sports&amp;a=secure" class="bodyText">Technical Yahoo! Sports Engineer</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_movies&amp;a=secure" class="bodyText">Technical Yahoo! Movies Engineer</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_photos&amp;a=secure" class="bodyText">Technical Yahoo! Photo Engineer</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_tiger&amp;a=secure" class="bodyText">Technical Yahoo! Tiger Team</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_myyahoo&amp;a=secure" class="bodyText">Technical Yahoo! Software Engineer (My Yahoo!)</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_intern&amp;a=secure" class="bodyText">Technical Yahoo! Intern</A></p>
+                       <p>In the Yahoo! Web Search Crawl team we build scalable systems to discover, retrieve, archive, and analyze billions of documents 
+                       accessible on the Web. This comprehensive index of document content and metadata contains the information that is the basis for 
+                       our search engine.</p>
+                       
+                       <p>As a member of our team you will build software to intelligently recognize and navigate increasingly dynamic and personalized 
+                       Web content. This content often resides on websites such as online stores, discussion forums, and blogs. Client software must 
+                       be able to create logins, store and return HTTP cookies, support secure network connections, and run client-side scripting to 
+                       access and discover content on systems such as these. Your challenge will be to create scalable, adaptable, and robust software 
+                       to extract the necessary data, recognize server configurations, and to perform the correct set of actions to explore and archive 
+                       millions of websites and billions of unique pages.</p>
+                       
+						<p>You will utilize knowledge of C/C++, network protocols, and system programming to make an immediate contribution to the 
+						Yahoo Web crawl team. You will design, develop, and enhance scalable systems and modular software; measure, optimize, and 
+						tune system performance; ensure that the software will run reliably and be fault-tolerant in a 24/7 production environment.</p>
+						
+						<p>Yahoo! Web Search, is passionate about building the best search engine on the planet! As Inktomi, Altavista and All the 
+						Web we have powered the largest portals on the Web since 1996. Search is one of the most vital and dynamic technologies 
+						behind the Internet! It is full of new challenges and opportunities for innovation. We're looking for world-class, 
+						fun-loving engineers to join our team!</p>
+						
+						
+						<p>Experience should include:</p>
+						
+						<ul>
+						<li>C/C++</li></br>
+						<li>TCP/IP network programming</li></br>
+						<li>Web protocols such HTTP, DNS, and SSL</li></br>
+						<li>Data analysis and pattern recognition algorithms</li></br>
+						<li>Multi-threaded and asynchronous programming</li></br>
+						<li>Unix tools and scripting languages</li>
+						</ul>
+
                         
-                        <p>&#42;Position located in either Sunnyvale, CA or New York, NY</p>
+                       
+                        <p><strong>Job Location</strong><br/>
+                        Sunnyvale, CA</p>
+                        
+                        <p align="center"><a href="#" class="bodyText">Apply now!</a> | <a href="/?&amp;t=tces&amp;c=yahoo_openings&amp;a=secure" class="bodyText">Back to Jobs</a></p>
+
 <!-- Client Job List ends -->
 
                         <p><br/></p>

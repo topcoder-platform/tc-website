@@ -59,29 +59,40 @@
 <!--body contextual links-->
                         <table width="100%" cellpadding="3" cellspacing="0" border="0">
                             <tr><td valign="middle" bgcolor="#43515E" class="statText"><b>&#160;Yahoo! Jobs</b></td></tr>
+                            <tr><td valign="middle" class="bodyText"><A href="/?&amp;t=tces&amp;c=yahoo_openings&amp;a=secure" class="bodyText">Jobs</A></td></tr>
                         </table>
 
 <!-- Client Job List begins -->
                         <p><A href="/?&amp;t=tces&amp;c=yahoo" class="bodyText"><img src="/i/es/yahoo/yahoo_logo.gif" width="137" height="35" alt="Yahoo!" border="0" /></A></p>
-                        <p>All positions located in Sunnyvale, CA</p>
+
+                        <h3>Technical Yahoo! Software Engineer (Search Technologies)</h3>
                         
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_softeng&amp;a=secure" class="bodyText">Software Engineer</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_antispam&amp;a=secure" class="bodyText">Technical Yahoo! AntiSpam Architect</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_datareport&amp;a=secure" class="bodyText">Technical Yahoo! Software Engineer (Data Reporting Team)</A></p> 
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_srsofteng&amp;a=secure" class="bodyText">Sr. Software Engineer</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_datamining&amp;a=secure" class="bodyText">Data Mining Software Engineer</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_websearch&amp;a=secure" class="bodyText">Technical Yahoo! Software Engineer (Web Search Crawling)</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_searchtech&amp;a=secure" class="bodyText">Technical Yahoo! Software Engineer (Search Technologies)</A>&#42;</p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_adsystems&amp;a=secure" class="bodyText">Technical Yahoo! Software Engineer (AdSystems)</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_login&amp;a=secure" class="bodyText">Technical Yahoo! Software Engineer (Login/Registration Abuse Prevention)</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_sports&amp;a=secure" class="bodyText">Technical Yahoo! Sports Engineer</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_movies&amp;a=secure" class="bodyText">Technical Yahoo! Movies Engineer</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_photos&amp;a=secure" class="bodyText">Technical Yahoo! Photo Engineer</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_tiger&amp;a=secure" class="bodyText">Technical Yahoo! Tiger Team</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_myyahoo&amp;a=secure" class="bodyText">Technical Yahoo! Software Engineer (My Yahoo!)</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_intern&amp;a=secure" class="bodyText">Technical Yahoo! Intern</A></p>
+                       <p>Yahoo! HotJobs is currently looking for a Software Engineer to design and develop HotJobs' current and future products in 
+                       the Sunnyvale or NYC office. A successful candidate for this position will set the technology direction for projects and 
+                       directly impact the delivery of products that drive HotJobs' business success! </p>
+                       
+                       						
+						<p>Specific requirements include:</p>
+						
+						<ul>
+						<li>M.S. in Computer Science or equivalent</li>
+						<li>5+ years developing high-quality high-performance Internet-based services including extensive track record of launching industry-leading applications</li>
+						<li>Ability to be hands-on in all phases of software development including design, implementation, testing, and deployment</li>
+						<li>Outstanding implementation skills in C/C++ or Java on Unix platforms</li>
+						<li>Ability to influence strategic technical decisions, including 3rd party vendor selection, and ensure that technical decisions are made according to HotJobs business needs</li>
+						<li>Ability to effectively communicate with all participants in the development lifecycle including Marketing, Product Management, and Operations teams</li>
+						<li>Ability to mentor junior engineers and define best practices within the development team</li>
+						</ul>
+
+                        <p>Preferred Skills:</p>
                         
-                        <p>&#42;Position located in either Sunnyvale, CA or New York, NY</p>
+                        <p>Experience with database schema design and query tuning is a plus and familiarity with search engine technologies is a strong plus!</p>
+                       
+                        <p><strong>Job Location</strong><br/>
+                        Sunnyvale, CA or New York, NY</p>
+                        
+                        <p align="center"><a href="#" class="bodyText">Apply now!</a> | <a href="/?&amp;t=tces&amp;c=yahoo_openings&amp;a=secure" class="bodyText">Back to Jobs</a></p>
+
 <!-- Client Job List ends -->
 
                         <p><br/></p>

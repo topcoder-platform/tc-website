@@ -59,29 +59,25 @@
 <!--body contextual links-->
                         <table width="100%" cellpadding="3" cellspacing="0" border="0">
                             <tr><td valign="middle" bgcolor="#43515E" class="statText"><b>&#160;Yahoo! Jobs</b></td></tr>
+                            <tr><td valign="middle" class="bodyText"><A href="/?&amp;t=tces&amp;c=yahoo_openings&amp;a=secure" class="bodyText">Jobs</A></td></tr>
                         </table>
 
 <!-- Client Job List begins -->
                         <p><A href="/?&amp;t=tces&amp;c=yahoo" class="bodyText"><img src="/i/es/yahoo/yahoo_logo.gif" width="137" height="35" alt="Yahoo!" border="0" /></A></p>
-                        <p>All positions located in Sunnyvale, CA</p>
+
+                        <h3>Technical Yahoo! Movies Engineer</h3>
                         
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_softeng&amp;a=secure" class="bodyText">Software Engineer</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_antispam&amp;a=secure" class="bodyText">Technical Yahoo! AntiSpam Architect</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_datareport&amp;a=secure" class="bodyText">Technical Yahoo! Software Engineer (Data Reporting Team)</A></p> 
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_srsofteng&amp;a=secure" class="bodyText">Sr. Software Engineer</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_datamining&amp;a=secure" class="bodyText">Data Mining Software Engineer</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_websearch&amp;a=secure" class="bodyText">Technical Yahoo! Software Engineer (Web Search Crawling)</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_searchtech&amp;a=secure" class="bodyText">Technical Yahoo! Software Engineer (Search Technologies)</A>&#42;</p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_adsystems&amp;a=secure" class="bodyText">Technical Yahoo! Software Engineer (AdSystems)</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_login&amp;a=secure" class="bodyText">Technical Yahoo! Software Engineer (Login/Registration Abuse Prevention)</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_sports&amp;a=secure" class="bodyText">Technical Yahoo! Sports Engineer</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_movies&amp;a=secure" class="bodyText">Technical Yahoo! Movies Engineer</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_photos&amp;a=secure" class="bodyText">Technical Yahoo! Photo Engineer</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_tiger&amp;a=secure" class="bodyText">Technical Yahoo! Tiger Team</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_myyahoo&amp;a=secure" class="bodyText">Technical Yahoo! Software Engineer (My Yahoo!)</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_intern&amp;a=secure" class="bodyText">Technical Yahoo! Intern</A></p>
+                       <p>Do you like Movies? Interested in working on one of the most popular movies sites on the Internet? We are looking for a smart, 
+                       experienced and innovative engineer to join the Yahoo! Movies engineering group. The team is small. So you must enjoy doing a wide 
+                       range of tasks. This includes everything from research, design, and development through maintenance and some system operations. Good 
+                       communication skills are a must as well as a strong foundation in systems design and experience building high traffic websites. 
+                       Candidate should also have a BSCS or BSEE and a thorough knowledge of developing on UNIX platforms using C++, XML, PHP, Perl and databases.</p>
+                       
+                        <p><strong>Job Location</strong><br/>
+                        Sunnyvale, CA</p>
                         
-                        <p>&#42;Position located in either Sunnyvale, CA or New York, NY</p>
+                        <p align="center"><a href="#" class="bodyText">Apply now!</a> | <a href="/?&amp;t=tces&amp;c=yahoo_openings&amp;a=secure" class="bodyText">Back to Jobs</a></p>
+
 <!-- Client Job List ends -->
 
                         <p><br/></p>

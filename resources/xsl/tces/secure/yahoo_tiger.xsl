@@ -59,29 +59,29 @@
 <!--body contextual links-->
                         <table width="100%" cellpadding="3" cellspacing="0" border="0">
                             <tr><td valign="middle" bgcolor="#43515E" class="statText"><b>&#160;Yahoo! Jobs</b></td></tr>
+                            <tr><td valign="middle" class="bodyText"><A href="/?&amp;t=tces&amp;c=yahoo_openings&amp;a=secure" class="bodyText">Jobs</A></td></tr>
                         </table>
 
 <!-- Client Job List begins -->
                         <p><A href="/?&amp;t=tces&amp;c=yahoo" class="bodyText"><img src="/i/es/yahoo/yahoo_logo.gif" width="137" height="35" alt="Yahoo!" border="0" /></A></p>
-                        <p>All positions located in Sunnyvale, CA</p>
+
+                        <h3>Technical Yahoo! Tiger Team</h3>
                         
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_softeng&amp;a=secure" class="bodyText">Software Engineer</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_antispam&amp;a=secure" class="bodyText">Technical Yahoo! AntiSpam Architect</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_datareport&amp;a=secure" class="bodyText">Technical Yahoo! Software Engineer (Data Reporting Team)</A></p> 
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_srsofteng&amp;a=secure" class="bodyText">Sr. Software Engineer</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_datamining&amp;a=secure" class="bodyText">Data Mining Software Engineer</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_websearch&amp;a=secure" class="bodyText">Technical Yahoo! Software Engineer (Web Search Crawling)</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_searchtech&amp;a=secure" class="bodyText">Technical Yahoo! Software Engineer (Search Technologies)</A>&#42;</p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_adsystems&amp;a=secure" class="bodyText">Technical Yahoo! Software Engineer (AdSystems)</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_login&amp;a=secure" class="bodyText">Technical Yahoo! Software Engineer (Login/Registration Abuse Prevention)</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_sports&amp;a=secure" class="bodyText">Technical Yahoo! Sports Engineer</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_movies&amp;a=secure" class="bodyText">Technical Yahoo! Movies Engineer</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_photos&amp;a=secure" class="bodyText">Technical Yahoo! Photo Engineer</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_tiger&amp;a=secure" class="bodyText">Technical Yahoo! Tiger Team</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_myyahoo&amp;a=secure" class="bodyText">Technical Yahoo! Software Engineer (My Yahoo!)</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_intern&amp;a=secure" class="bodyText">Technical Yahoo! Intern</A></p>
+                       <p>Come join the Yahoo! Tiger Team. Work on a variety of strategic engineering projects that are currently critical within Yahoo! 
+                       Are you a senior engineer who wants to make a difference and are up to the challenge of working on key Engineering problems? You 
+                       must have a BSCS/MSCS or equivalent with 5+ years of relevant web application or server software engineering experience. You should 
+                       be able to make significant contributions to all aspects Yahoo!'s systems, from architecture, to analysis and design, to coding, 
+                       to the testing/release process. You must have a solid background in object-oriented programming using C/C++ and be ready to learn 
+                       and apply new technology in a flash. Experience with Apache, HTTP, HTML, as well as Unix, C/C++/Java, Perl, and shell scripting is 
+                       essential. Experience with databases, SQL, PHP, xml, and Internet security would be a major plus. Candidate should possess excellent 
+                       communication, interpersonal and problem-solving skills, in order to work effectively in the team and with other Yahoo! teams, as well 
+                       as with third parties. Candidate should also be flexible and comfortable with the ups and downs of project cycles.</p>
+                       
+                        <p><strong>Job Location</strong><br/>
+                        Sunnyvale, CA</p>
                         
-                        <p>&#42;Position located in either Sunnyvale, CA or New York, NY</p>
+                        <p align="center"><a href="#" class="bodyText">Apply now!</a> | <a href="/?&amp;t=tces&amp;c=yahoo_openings&amp;a=secure" class="bodyText">Back to Jobs</a></p>
+
 <!-- Client Job List ends -->
 
                         <p><br/></p>
