@@ -104,7 +104,7 @@ function openWin(url, name, w, h) {
                         </tr>
                         <tr valign="top">
                            <td class="google_round_id" >Online Round 1</td>
-                           <td class="sidebarText" align="right"><a href="/pl/?&module=Static&d1=google&d2=google_adv_online_1">500</a></td>
+                           <td class="sidebarText" align="right"><a href="/pl/?&module=Static&d1=google&d2=google_adv_online_1">250</a></td>
                         </tr>
                         <tr valign="top">
                            <td class="google_round_id" >Online Round 2</td>
