@@ -69,7 +69,7 @@ body,td,font,p,a
                         <b><font size="+1">Registration</font></b>
                         <img hspace="10" vspace="5" src="/i/events/google2003/codejam_info.gif" width="150" height="390" border="0" align="right" valign="top">
 
-                        <p><font size="-1"><br/>Registration will open on Wednesday, October 1 at 8:00AM EDT and will close on Wednesday, October 15 at 5:00PM EDT.  Registration is unlimited.  Individuals are permitted to register for and compete in the competition only once.</font></p>
+                        <p><font size="-1"><br/>Registration for the Google Code Jam 2003 is officially closed. The qualification round begins on 8:00 AM Friday, October 17 and ends at 8:00 AM Monday, October 20.</font></p>
 
                         </td>
                      </tr>

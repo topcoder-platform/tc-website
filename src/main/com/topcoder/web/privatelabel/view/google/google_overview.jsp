@@ -65,7 +65,7 @@ function openWin(url, name, w, h) {
                      <font color="006633">Overview</font> &nbsp;|&nbsp; 
                      <a href="/pl/?&module=Static&d1=google&d2=google_sched">Schedule</a> &nbsp;|&nbsp; 
                      <a href="/pl/?&module=Static&d1=google&d2=google_rules_overview">Rules</a> &nbsp;|&nbsp; 
-                     <a href="/pl/?&module=Static&d1=google&d2=googleLogin">Registration</a> &nbsp;|&nbsp;
+                     <a href="/pl/?&module=Static&d1=google&d2=google_registration">Registration</a> &nbsp;|&nbsp;
                      <a href="/pl/?&module=Static&d1=google&d2=google_faq">FAQ</a> &nbsp;|&nbsp; 
                      <a href="/pl/?&module=Static&d1=google&d2=google_practice">Practice Arena</a>
                   </font>
