@@ -62,11 +62,7 @@
             <TABLE WIDTH="100%" BORDER="0">
             <TR>
             <TD class="statText" ALIGN="right">
-            <% if (MemberProfileTask.getImagePath().length() > 0) { %>
-                <IMG SRC="<%=MemberProfileTask.getImagePath()%>"/>
-            <% } else { %>
                 <IMG SRC="/i/clear.gif" ALT="" WIDTH="126" HEIGHT="140" BORDER="0">
-            <% } %>
             </TD>
             <TD WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
             <TD class="statText" ALIGN="left">
