@@ -23,6 +23,7 @@ else{if (is_nav){
 		style+="ns6"
 	else
 		style+="ns4"}}
+        alert(finalstyle);
 var finalstyle = '<link rel="stylesheet" type="text/css" href="/css/verizon/vcc_' + style + '.css">'
 document.write(finalstyle);
 </script>
@@ -59,7 +60,7 @@ document.write(finalstyle);
         </table>
       </td>
    </tr>
-   
+
 <!-- Top Bar -->
     <tr>
         <td width="147" class="black"><img src="/i/clear.gif" alt="" width="18" height="1"><br/></td>
