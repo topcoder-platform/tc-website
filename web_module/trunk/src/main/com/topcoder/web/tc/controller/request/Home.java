@@ -92,17 +92,8 @@ public class Home extends Base {
             algoTerms.setResponse(getResponse());
             algoTerms.setAuthentication(getAuthentication());
 
-            Calendar now = Calendar.getInstance();
-            now.setTime(new Date());
-            if (now.before(compTerms.getEnd())&&now.after(compTerms.getBeginning())) {
-                getRequest().setAttribute("isEligibleComp", String.valueOf(compTerms.isEligible()));
-                getRequest().setAttribute("isRegisteredComp", String.valueOf(compTerms.isRegistered()));
-            }
-
-            if (now.before(algoTerms.getEnd())&&now.after(algoTerms.getBeginning())) {
-                getRequest().setAttribute("isEligibleAlgo", String.valueOf(algoTerms.isEligible()));
-                getRequest().setAttribute("isRegisteredAlgo", String.valueOf(algoTerms.isRegistered()));
-            }
+            getRequest().setAttribute("compTerms", compTerms);
+            getRequest().setAttribute("algoTerms", algoTerms);
 
 
 
