@@ -44,18 +44,6 @@ public abstract class Base extends BaseProcessor {
 
     }
 
-    protected void useSessionForErrors() {
-        log.debug("setting up session errors");
-        getRequest().getSession().setAttribute(ERRORS_KEY+messageId, errors);
-        getRequest().removeAttribute(ERRORS_KEY);
-    }
-
-    protected void useSessionForDefaults() {
-        log.debug("setting up session defaults");
-        getRequest().getSession().setAttribute(DEFAULTS_KEY+messageId, defaults);
-        getRequest().removeAttribute(DEFAULTS_KEY);
-    }
-
     public String getMessageId() {
         return messageId;
     }
@@ -155,6 +143,14 @@ public abstract class Base extends BaseProcessor {
     }
 
     protected Message receive(int waitTime) throws TimeOutException {
+
+        log.debug("setting up session errors");
+        getRequest().getSession().setAttribute(ERRORS_KEY+messageId, errors);
+        getRequest().removeAttribute(ERRORS_KEY);
+        log.debug("setting up session defaults");
+        getRequest().getSession().setAttribute(DEFAULTS_KEY+messageId, defaults);
+        getRequest().removeAttribute(DEFAULTS_KEY);
+
         return (Message)receiver.receive(waitTime, messageId, getResponse());
     }
 
