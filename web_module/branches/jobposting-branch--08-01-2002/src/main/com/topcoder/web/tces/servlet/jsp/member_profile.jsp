@@ -59,7 +59,7 @@
             
             <P align="center">
             <% if (MemberProfileTask.getImagePath().length() > 0) { %>
-            <TABLE WIDTH=100%>
+            <TABLE WIDTH="100%">
             <TD class="statText" ALIGN="right">
                 <IMG SRC="<%=MemberProfileTask.getImagePath()%>"/>
             </TD>
