@@ -12,12 +12,15 @@
   <xsl:param name="sectionName"></xsl:param>
   <xsl:param name="level1"></xsl:param>
 
-<table width="100%" border="0" cellpadding="3" cellspacing="0" class="search">
-    <tr valign="middle">
-        <td><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
-        <td nowrap="0" class="registerToday"><span class="time">Current Member Count</span>&#160;:&#160; <xsl:value-of select="format-number(/TC/MemberCount,'#,##0')"/> - <span class="time"><xsl:call-template name="DateTime"/></span>&#160;<a href="Javascript:tcTime()" class="statText">[Get Time]</a></td>
-        <td width="99%" align="right" class="login" nowrap="0">
-
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td class="homeTopBar">
+			<span class="time">Current Member Count</span>
+			&#160;:&#160; <xsl:value-of select="format-number(/TC/MemberCount,'#,##0')"/> - 
+			<span class="time"><xsl:call-template name="DateTime"/></span>&#160;
+			<a href="Javascript:tcTime()" class="statText"><strong>[Get Time]</strong></a>
+		</td>
+        <td class="homeTopBar" width="100%" align="right">
             <xsl:choose>
                 <xsl:when test="/TC/LoggedIn='true'">
                     <strong>Hello, </strong>
@@ -25,18 +28,16 @@
                     <xsl:attribute name="class"><xsl:call-template name="GetRatingClass"><xsl:with-param name="rating"><xsl:value-of select="/TC/Rating"/></xsl:with-param></xsl:call-template></xsl:attribute>
                     <xsl:value-of select="/TC/Handle"/>
                     </A>
-                    &#160;&#160;|&#160;&#160;<A class="loginLinks" target="_parent"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?&amp;module=Logout</xsl:attribute>Logout</A>
-                    &#160;&#160;|&#160;&#160;<A class="loginLinks" target="_parent"><xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/Registration</xsl:attribute>Update Profile</A>
+                    &#160;&#160;|&#160;&#160;<A class="loginLinks"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?&amp;module=Logout</xsl:attribute>Logout</A>
+                    &#160;&#160;|&#160;&#160;<A class="loginLinks"><xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/Registration</xsl:attribute>Update Profile</A>
                 </xsl:when>
                 <xsl:otherwise>
-                    <A class="loginLinks" target="_parent"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?&amp;module=Login</xsl:attribute>Login</A>
-                    &#160;&#160;|&#160;&#160;<A class="loginLinks" target="_parent"><xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/Registration</xsl:attribute>Register</A>
+                    <A class="loginLinks"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?&amp;module=Login</xsl:attribute>Login</A>
+                    &#160;&#160;|&#160;&#160;<A class="loginLinks"><xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/Registration</xsl:attribute>Register</A>
                 </xsl:otherwise>
             </xsl:choose>
-
-            &#160;&#160;|&#160;&#160;<A target="_parent" class="loginLinks"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/></xsl:attribute>Home</A>
+            &#160;&#160;|&#160;&#160;<A class="loginLinks"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/></xsl:attribute>Home</A>
         </td>
-        <td><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
     </tr>
 </table>
 
@@ -49,7 +50,7 @@
     <tr valign="middle">
         <td width="15"><a name="top"></a><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
         <td width="206">
-          <A target="_parent">
+          <A>
             <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/</xsl:attribute>
                         <xsl:choose>
                             <xsl:when test="$level1='development'">
