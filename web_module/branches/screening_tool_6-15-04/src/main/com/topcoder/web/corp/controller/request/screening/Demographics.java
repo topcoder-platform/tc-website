@@ -64,6 +64,7 @@ public class Demographics extends BaseScreeningProcessor {
                 rsc = (ResultSetContainer) resultMap.get("campaign_coders_by_type");
                 ResultSetContainer.ResultSetRow coderCountRow = rsc.getRow(0);
                 
+                log.info("CODER TYPE: " + types[typeI]);
                 log.info("COUNT: " +coderCountRow.getItem("coder_type_count").toString());
                 
                 if (types[typeI] == com.topcoder.web.privatelabel.Constants.STUDENT)
