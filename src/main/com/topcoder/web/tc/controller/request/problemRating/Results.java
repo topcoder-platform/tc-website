@@ -16,8 +16,6 @@ public class Results extends Base {
     protected void businessProcessing() throws TCWebException {
         try{
             processResults();
-            setNextPage(Constants.PROBLEM_RATING_RESULTS);
-            setIsNextPageInContext(true);
         }catch(Exception e){
             e.printStackTrace();
         }
