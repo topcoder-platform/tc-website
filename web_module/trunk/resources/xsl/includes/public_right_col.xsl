@@ -7,7 +7,7 @@
   <xsl:param name="sectionName"></xsl:param>
 
 <xsl:choose>
-    <xsl:when test="$sectionName='tco03'">
+    <xsl:when test="$sectionName='tourny'">
             <img alt="" width="1" height="10" src="/i/clear.gif" border="0"/><br/>
             
             <xsl:call-template name="calendar"/>
