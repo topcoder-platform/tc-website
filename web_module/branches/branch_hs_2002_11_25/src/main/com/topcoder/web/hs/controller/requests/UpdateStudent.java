@@ -1,5 +1,6 @@
 package com.topcoder.web.hs.controller.requests;
 
+import com.topcoder.shared.security.*;
 import com.topcoder.web.hs.common.*;
 import com.topcoder.web.hs.model.*;
 
@@ -33,6 +34,10 @@ public class UpdateStudent extends Base {
 
   private final static String MISSING_SESSION="Cannot update information "+
                                               "without logging in";
+
+  protected User getAuthUser() {
+    return(auth.getUser());
+  }
 
   protected void businessProcessing() throws Exception {
 
