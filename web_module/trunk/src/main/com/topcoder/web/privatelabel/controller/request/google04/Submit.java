@@ -21,7 +21,7 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
-
+import com.topcoder.web.ejb.resume.ResumeServices;
 import javax.transaction.UserTransaction;
 import javax.transaction.Status;
 
