@@ -26,6 +26,15 @@
 	DecimalFormat df = new DecimalFormat(PactsConstants.DECIMAL_FORMAT_STRING);
 %>
 
+<script type="text/javascript">
+<!--
+  function checkAll(check) {
+    var table = document.getElementById("datatable");
+    alert(table.CheckBoxes);
+  }
+-->
+</script>
+
 <h1>PACTS</h1>
 <h2>Payment List</h2>
 <%
@@ -38,7 +47,7 @@
 		out.print("<input type=hidden name=\"query\" value=\""+(String) request.getAttribute("query")+"\">");
 %>
 
-		<table border="0" cellpadding="5" cellspacing="0">
+		<table id="datatable" border="0" cellpadding="5" cellspacing="0">
 		<tr>
 		<td></td>
 		<td><b>ID</b></td>
