@@ -29,7 +29,7 @@
             <a class="smallFoot" target="_parent"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=contacts&amp;c=index</xsl:attribute>Contacts</a>&#160;&#160;|&#160;&#160;
             <a class="smallFoot" target="_parent"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=&amp;c=privacy</xsl:attribute>Privacy</a>&#160;&#160;|&#160;&#160;
             <a class="smallFoot" target="_parent"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=&amp;c=terms</xsl:attribute>Terms</a><br /><br />
-            Copyright &#169; 2001-2003, TopCoder, Inc. All rights reserved.
+            Copyright &#169; 2000-2003, TopCoder, Inc. All rights reserved.
             </div>
             <br/><br/>
         </td>
