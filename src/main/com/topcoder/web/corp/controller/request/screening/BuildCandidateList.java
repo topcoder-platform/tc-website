@@ -56,7 +56,7 @@ public class BuildCandidateList extends BaseScreeningProcessor {
             String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
             if(sortCol.equals(""))
             {
-                sortCol = "handle";
+                sortCol = "6";
             }
             dataRequest.setProperty(DataAccessConstants.SORT_COLUMN, sortCol);
             
