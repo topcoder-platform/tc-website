@@ -5,7 +5,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
-import javax.ejb.EJBException;
+import java.rmi.RemoteException;
 import javax.naming.InitialContext;
 import javax.naming.Context;
 import javax.sql.DataSource;
@@ -48,9 +48,9 @@ public class QueryAuthenticationBean extends BaseEJB {
             rsc = new ResultSetContainer(rs);
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException getting login information for " + handle);
+            throw new RemoteException("SQLException getting login information for " + handle);
         } catch (Exception e) {
-            throw new EJBException("Exception getting login information for " + handle + "\n " + e.getMessage());
+            throw new RemoteException("Exception getting login information for " + handle + "\n " + e.getMessage());
         } finally {
             if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet");}}
             if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement");}}
