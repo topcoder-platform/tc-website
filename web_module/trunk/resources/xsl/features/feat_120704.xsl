@@ -92,7 +92,10 @@ With all the fancy mathematical terms thrown around in describing modern compute
 <br/><br/>
 Some classical encryptions, like the simple substitution ciphers (where each letter is replaced by some other letter universally) that are found in the newspaper as a game, are certainly very weak, cryptographically speaking.  On the other extreme, sitting in the courtyard of the CIA headquarters stands a sculpture known as Kryptos, which contains on it a message written in encrypted text.  The secret message is divided into four parts.  The first three parts have been cracked, but the fourth and final part, composed of a mere 97 characters, has eluded many, including the author of this article:
 <br/><br/>
-?OBKRUOXOGHULBSOLIFBBWFLRVQQPRNGKSSOTWTQSJQSSEKZZWATJKLUDIAWINFBNYPVTTMZFPKWGDKZXTJCDIGKUHUAUEKCAR
+?OBKR<br/>
+UOXOGHULBSOLIFBBWFLRVQQPRNGKSSO<br/>
+TWTQSJQSSEKZZWATJKLUDIAWINFBNYP<br/>
+VTTMZFPKWGDKZXTJCDIGKUHUAUEKCAR
 <br/><br/>
 While this is more for entertainment than anything else, it does show just how hard it can be to reverse engineer an encryption scheme when you know very little about the method of encryption, the key used for encryption, or what the resultant message should look like.
 <br/><br/>
