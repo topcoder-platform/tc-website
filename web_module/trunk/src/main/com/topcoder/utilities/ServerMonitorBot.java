@@ -174,6 +174,8 @@ public class ServerMonitorBot {
                 em.setSubject("Server Error");
                 em.setBody(errorTextLarge);
                 em.setFromAddress("rfairfax@topcoder.com");
+		
+		EmailEngine.send(em);
             } catch (Exception e) {
                 System.out.println("HERE" + e.getClass());
                 e.printStackTrace();
