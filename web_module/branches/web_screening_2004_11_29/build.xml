@@ -95,6 +95,18 @@
          </javac>
      </target>
 
+     <target name="compile_techassess" depends="init">
+         <javac
+             srcdir="${java}"
+             destdir="${classes}"
+             classpathref="class.path"
+             deprecation="${deprecation}"
+             debug="${debug}"
+             >
+             <include name="com/topcoder/web/codinginterface/techassess/**"/>
+         </javac>
+     </target>
+
 
     <target name="compile" depends="init,compile_shared">
         <available property="jdk1.4+" classname="java.nio.ByteBuffer" />
