@@ -82,47 +82,63 @@
 
                 <tr><td class="compDocsSmall">Documentation</td></tr>
 
+                <tr><td class="compDocsSmall">Source</td></tr>
+
     <% } else if (time.equals("900")) { %>
                 <tr><td class="compDocsSmall">Design Diagrams</td></tr>
 
                 <tr><td class="compDocsSmall">Documentation</td></tr>
+
+                <tr><td class="compDocsSmall">Source</td></tr>
 
     <% } else if (time.equals("930")) { %>
                 <tr><td class="compDocsSmall">Design Diagrams</td></tr>
 
                 <tr><td class="compDocsSmall">Documentation</td></tr>
 
+                <tr><td class="compDocsSmall">Source</td></tr>
+
     <% } else if (time.equals("1000")) { %>
                 <tr><td class="compDocsSmall">Design Diagrams</td></tr>
 
                 <tr><td class="compDocsSmall">Documentation</td></tr>
+
+                <tr><td class="compDocsSmall">Source</td></tr>
 
     <% } else if (time.equals("1030")) { %>
                 <tr><td class="compDocsSmall">Design Diagrams</td></tr>
 
                 <tr><td class="compDocsSmall">Documentation</td></tr>
 
+                <tr><td class="compDocsSmall">Source</td></tr>
+
     <% } else if (time.equals("1100")) { %>
                 <tr><td class="compDocsSmall">Design Diagrams</td></tr>
 
                 <tr><td class="compDocsSmall">Documentation</td></tr>
+
+                <tr><td class="compDocsSmall">Source</td></tr>
 
     <% } else if (time.equals("1130")) { %>
                 <tr><td class="compDocsSmall">Design Diagrams</td></tr>
 
                 <tr><td class="compDocsSmall">Documentation</td></tr>
 
+                <tr><td class="compDocsSmall">Source</td></tr>
+
     <% } else if (time.equals("final")) { %>
                 <tr><td class="compDocsSmall">Design Diagrams</td></tr>
 
                 <tr><td class="compDocsSmall">Documentation</td></tr>
+
+                <tr><td class="compDocsSmall">Source</td></tr>
 
     <% } %>
 
                 <tr><td class="compDocsTabOff"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"></td></tr>
                 
                 <tr><td class="compDocsSmall">Review Board Scorecards</td></tr>
-                <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/aksonov_aop_design_review_ken_vogel.htm" target="_blank"><strong>Ken Vogel</strong></a></td></tr>
-                <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/aksonov_aop_design_review_srowen.htm" target="_blank"><strong>srowen</strong></a></td></tr>
-                <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/aksonov_aop_design_review_valeriy.htm" target="_blank"><strong>valeriy</strong></a></td></tr>
+                <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/aksonov_aop_design_review_lkw.htm" target="_blank"><strong>lkw</strong></a></td></tr>
+                <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/aksonov_aop_design_review_bryanchen.htm" target="_blank"><strong>BryanChen</strong></a></td></tr>
+                <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/aksonov_aop_design_review_mishagam.htm" target="_blank"><strong>mishagam</strong></a></td></tr>
            </table>
