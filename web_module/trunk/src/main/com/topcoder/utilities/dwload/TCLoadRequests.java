@@ -414,9 +414,11 @@ public class TCLoadRequests extends TCLoad {
         pageNameMap.put("round_stats_sorted", "Round Statistics");
         pageNameMap.put("last_match_sorted", "Last Match Results");
         pageNameMap.put("round_overview", "Round Overview");
+/*
         pageNameMap.put("", "Home Page");
         pageNameMap.put("/", "Home Page");
         pageNameMap.put("/tc", "Member Home Page");
+*/
         pageNameMap.put("LegacyReport", "TopCoder Reporting");
     }
 
