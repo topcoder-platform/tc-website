@@ -74,7 +74,7 @@ public class CachedDataAccess implements DataAccessInt {
     public Map getData(RequestInt request) throws Exception {
         Connection conn = null;
         try {
-            boolean cached = true;
+            boolean hasCacheConnection = true;
             String key = ((Request)request).getCacheKey();
             Map map = null;
             DataRetriever dr = null;
@@ -82,20 +82,20 @@ public class CachedDataAccess implements DataAccessInt {
                 map = (Map) (CacheClientPool.getPool().getClient().get(key));
             } catch (Exception e) {
                 log.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: " + e.getMessage());
-                cached = false;
+                hasCacheConnection = false;
             }
             /* if it was not found in the cache */
             if (map == null) {
                 conn = dataSource.getConnection();
                 dr = new DataRetriever(conn);
                 map = dr.executeCommand(request.getProperties());
-            }
-            /* attempt to add this object to the cache */
-            if (cached) {
-                try {
-                    CacheClientPool.getPool().getClient().set(key, map, expireTime);
-                } catch (Exception e) {
-                    log.error("UNABLE TO INSERT INTO CACHE: " + e.getMessage());
+                /* attempt to add this object to the cache */
+                if (hasCacheConnection) {
+                    try {
+                        CacheClientPool.getPool().getClient().set(key, map, expireTime);
+                    } catch (Exception e) {
+                        log.error("UNABLE TO INSERT INTO CACHE: " + e.getMessage());
+                    }
                 }
             }
             return map;
