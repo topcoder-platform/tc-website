@@ -23,8 +23,8 @@ import java.sql.SQLException;
  * @version $Revision$
  */
 public class ProductUnitBean extends BaseEJB {
-    private static final String DATA_SOURCE = "java:comp/env/datasource";
-    private static final String JTS_DATA_SOURCE = "java:comp/env/jts_datasource";
+    private static final String DATA_SOURCE = "java:comp/env/datasource_name";
+    private static final String JTS_DATA_SOURCE = "java:comp/env/jts_datasource_name";
     private static Logger log = Logger.getLogger(ProductUnitBean.class);
 
     /**

@@ -22,8 +22,8 @@ import java.sql.*;
  */
 public class UnitBean extends BaseEJB {
     private static Logger log = Logger.getLogger(UnitBean.class);
-    private static final String DATA_SOURCE = "java:comp/env/datasource";
-    private static final String JTS_DATA_SOURCE = "java:comp/env/jts_datasource";
+    private static final String DATA_SOURCE = "java:comp/env/datasource_name";
+    private static final String JTS_DATA_SOURCE = "java:comp/env/jts_datasource_name";
 
     public long createUnit(int unitTypeId) {
         log.debug("createUnit called...");
