@@ -47,7 +47,7 @@
                         <p><span class="testHead">Campaign Results</span><br/>
                         Company Name: <%=row.getStringItem("company_name")%><br/>
                         <%
-                            info = (List) request.getAttribute(Constants.COMPANY_INFO);
+                            info = (List) request.getAttribute(Constants.CAMPAIGN_INFO);
                             row = (ResultSetContainer.ResultSetRow) info.get(0);
                         %>
                         Campaign Name: <%=row.getStringItem("campaign_name")%><br/>
