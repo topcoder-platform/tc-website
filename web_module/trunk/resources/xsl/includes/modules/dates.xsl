@@ -24,7 +24,7 @@
           <A>
             <xsl:attribute name="CLASS"><xsl:value-of select="$class"/></xsl:attribute>
             <xsl:choose>
-              <xsl:when test="ContestId='62' or ContestId='63'">
+              <xsl:when test="ContestId='62' or ContestId='63' or ContestId='64' or ContestId='65'">
                 <xsl:attribute name="href">/?t=schedule&amp;c=tourny_sched</xsl:attribute>
               </xsl:when>
               <xsl:otherwise>
@@ -42,10 +42,23 @@
                 Register: 7:30 PM<br/>
                 Compete: 9:00 PM<br/>
               </xsl:when>
+              <xsl:when test="ContestId='4125'">
+                <b>04/15/2002</b><br/>
+                Register: 7:30 PM<br/>
+                Compete: 9:00 PM<br/>
+              </xsl:when>
               <xsl:when test="ContestId='4165'">
                 <b>05/18/2002</b><br/>
                 Register: 11:30 AM<br/>
                 Compete: 1:00 PM<br/>
+              </xsl:when>
+              <xsl:when test="ContestId='64'">
+                <b>Sun Microsystems TopCoder Collegiate Challenge Semifinals</b><br/>
+                <b>04/19/2002</b><br/>
+              </xsl:when>
+              <xsl:when test="ContestId='65'">
+                <b>Sun Microsystems TopCoder Collegiate Challenge Championship</b><br/>
+                <b>04/20/2002</b><br/>
               </xsl:when>
               <xsl:otherwise>
                 <b><xsl:value-of select="substring(ContestStartTimestamp,0,11)"/></b><br/>
