@@ -104,7 +104,8 @@ public class LoginTask extends BaseTask implements Task, Serializable {
             request.getParameter(TCESConstants.STEP_PARAM).equals(TCESConstants.LOGIN_TASK_STEP_AUTH)) {
             HttpSession session = request.getSession(true);
 
-            if (Authentication.attemptLogin( getHandleInput(), getPasswordInput(), getInitialContext(), session, "")) {
+            if (Authentication.isLoggedIn(session) || 
+                Authentication.attemptLogin( getHandleInput(), getPasswordInput(), getInitialContext(), session, "")) {
                 if (!customRedir)
                     setNextPage(TCESConstants.LOGIN_OK_PAGE );
             }
