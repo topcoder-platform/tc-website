@@ -124,7 +124,7 @@
             <xsl:variable name="numericFirstPayment" select="substring(/TC/DEVELOPMENT/first_payment, '8')" />  
             <xsl:variable name="numericSecondPayment" select="substring(/TC/DEVELOPMENT/second_payment, '8')" />  
             
-                        <p>Total Payment - $<xsl:value-of select="$numericPayment"/><br/>
+                        <p>Total Payment - <xsl:value-of select="/TC/DEVELOPMENT/payment"/><br/>
                            First Deliverable - $<xsl:value-of select="$numericFirstPayment"/><br/>
                                Project Completion - $<xsl:value-of select="$numericSecondPayment"/></p>
 
