@@ -23,7 +23,7 @@ public class Controller
     public static final String ALIAS = "/Resume";
     public static final String RESUME_UPLOAD_TASK = "ResumeUploadTask";
     public static final String RESUME_DOWNLOAD_TASK = "ResumeDownloadTask";
-    public static final String CONTROLLER_ERROR_URL = "/errorPage.jsp";
+    public static final String CONTROLLER_ERROR_URL = "/reg/error.jsp";
     static final String TASK_PACKAGE = "com.topcoder.web.resume.bean";
 
     public void init(Servlet servletConfig)
