@@ -78,7 +78,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="demoRegQuestion"><span class="demoErrorText">*</span> Phone Number</td>
+                            <td class="demoRegQuestion">Phone Number</td>
                             <td class="demoRegAnswer"><tc-webtag:textInput name="<%=Constants.PHONE_NUMBER%>"  size="15" maxlength="50"/></td>
                         </tr>
                         <tr>
@@ -96,7 +96,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="demoRegQuestion"><span class="demoErrorText">*</span> Address1</td>
+                            <td class="demoRegQuestion">Address1</td>
                             <td class="demoRegAnswer"><tc-webtag:textInput name="<%=Constants.ADDRESS1%>"  size="30" maxlength="50"/></td>
                         </tr>
                         <tr>
@@ -123,7 +123,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="demoRegQuestion"><span class="demoErrorText">*</span> City</td>
+                            <td class="demoRegQuestion">City</td>
                             <td class="demoRegAnswer"><tc-webtag:textInput name="<%=Constants.CITY%>"  size="15" maxlength="50"/></td>
                         </tr>
                         <tr>
@@ -153,7 +153,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="demoRegQuestion"><span class="demoErrorText">*</span> Country</td>
+                            <td class="demoRegQuestion">Country</td>
                             <td class="demoRegAnswer">
                                 <% ResultSetContainer countryRsc = (ResultSetContainer)request.getAttribute("countryList"); %>
                                 <tc-webtag:rscSelect name="<%=Constants.COUNTRY_CODE%>" list="<%=countryRsc%>" fieldText="country_name" fieldValue="country_code"/>
