@@ -13,7 +13,7 @@ public class TCCC05ComponentTerms extends TCCC05AlgorithmTerms {
 
     public Calendar getEnd() {
         Calendar end = Calendar.getInstance();
-        end.set(2005, Calendar.JANUARY, 3, 9, 0);
+        end.set(2005, Calendar.JANUARY, 3, 18, 0);
         return end;
     }
 
