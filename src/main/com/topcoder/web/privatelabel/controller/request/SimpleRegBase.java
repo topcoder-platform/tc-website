@@ -6,6 +6,8 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 import java.util.StringTokenizer;
 
@@ -102,12 +104,9 @@ abstract class SimpleRegBase extends RegistrationBase {
                     "Please limit the characters in your handle to letter, numbers and common punctuation symbols.");
         }
         try {
-            if (info.isNew()) {
-                getPrincipalManager().getUser(info.getHandle());
+            if (info.isNew() && userExists(info.getHandle())) {
                 addError(Constants.HANDLE, "Please choose another handle.");
             }
-        } catch (NoSuchUserException ne) {
-            //ignore, this just means they user doesn't exist, so this is good.
         } catch (Exception e) {
             throw new TCWebException(e);
         }
@@ -182,5 +181,15 @@ abstract class SimpleRegBase extends RegistrationBase {
         }
     }
 
+
+    protected boolean userExists(String handle) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("user exists");
+        r.setProperty("hn", handle);
+
+        ResultSetContainer rsc = (ResultSetContainer)getDataAccess(db).getData(r).get("user exists");
+        return !rsc.isEmpty();
+
+    }
 
 }
