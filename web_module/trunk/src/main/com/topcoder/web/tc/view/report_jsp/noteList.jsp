@@ -29,7 +29,7 @@
 
         <rsc:iterator list="<%=note_list%>" id="resultRow">
             <tr>
-                <td><%=StringUtils.htmlEncode(resultRow.getItem("text"))%></td>
+                <td><%=StringUtils.htmlEncode(resultRow.getStringItem("text"))%></td>
                 <td><rsc:item row="<%=resultRow%>" name="submitted_by"/><td>
                 <td><rsc:item row="<%=resultRow%>" name="date"/><td>
 
