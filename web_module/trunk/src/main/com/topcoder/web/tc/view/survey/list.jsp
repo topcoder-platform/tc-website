@@ -47,20 +47,20 @@
              
             <table border="0" cellpadding="5" cellspacing="0"width="100%">
                <tr><td class="header">Archive</td></tr>
-            </table>
-            <img src="/i/clear.gif" width="400" height="10" border="0"><br> 
+            </table><br/>
 
             <table border="0" cellpadding="5" cellspacing="0" class="bodyText" width="500" align="center">
             <% boolean even = false; %>
                <rsc:iterator list="<%=surveyList%>" id="survey">
                <tr class="<%=even?"formTextOdd":"formTextEven"%>">
+                  <td>DateHere</td>
                   <td>
                      <rsc:item row="<%=survey%>" name="question_text"/>
                   </td>
-                  <td nowrap valign="middle">
+                  <td nowrap valign="top">
                      <a href="?&module=SurveyResults&sid=<rsc:item row="<%=survey%>" name="survey_id"/>"><img src="/i/results.gif" width="60" height="18" border="0"></a>
                   </td>
-                  <td nowrap valign="middle">
+                  <td nowrap valign="top">
                      <% if (survey.getIntItem("answered_flag")==0) { %>
                         <a href="?&module=ViewSurvey&sid=<rsc:item row="<%=survey%>" name="survey_id"/>"><img src="/i/answer.gif" width="60" height="18" border="0"></a>
                      <% } %>
