@@ -129,17 +129,19 @@ public final class TaskDevelopment {
                 
                 SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                 Date initialDate = df.parse(date);
-                devTag.addTag(new ValueTag("date", df.format(initalDate)));
+                devTag.addTag(new ValueTag("date", df.format(initialDate)));
                 cal.setTime(initialDate);
                 cal.add(Calendar.DATE, 4);
                 
-                cal.setTime(initialDate);
-                devTag.addTag(new ValueTag("DesWinner", df.format(newDate)));    
-                devTag.addTag(new ValueTag("DesFinal", df.format(newDate)));    
-                devTag.addTag(new ValueTag("DesDevFinal", df.format(newDate)));    
+                
+                devTag.addTag(new ValueTag("DesWinner", df.format(cal.getTime())));    
+                devTag.addTag(new ValueTag("DesFinal", df.format(cal.getTime())));    
+                devTag.addTag(new ValueTag("DesDevFinal", df.format(cal.getTime())));    
 
-                devTag.addTag(new ValueTag("DevWinner", df.format(newDate)));    
-                devTag.addTag(new ValueTag("DevFinal", df.format(newDate)));    
+
+                cal.setTime(initialDate);
+                devTag.addTag(new ValueTag("DevWinner", df.format(cal.getTime())));    
+                devTag.addTag(new ValueTag("DevFinal", df.format(cal.getTime())));    
 
 
             }
