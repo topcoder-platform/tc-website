@@ -2,7 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder | Private Label Registration</title>
+<title>TopCoder Charity Challenge</title>
 
 <jsp:include page="../script.jsp" />
 
@@ -16,11 +16,6 @@
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
-
-<!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1"></td>
-<!-- Gutter Ends -->
-
 <!-- Left Column Begins-->
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
@@ -34,13 +29,18 @@
         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
-<!-- Center Column Begins -->  
-        <td class="bodyText" width="100%">
+<!-- Center Column Begins --> 
+<td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
+        <jsp:include page="../body_top.jsp" >
+           <jsp:param name="image" value="events"/>  
+           <jsp:param name="image1" value="white"/>  
+           <jsp:param name="title" value="TopCoder Charity Challenge"/>  
+        </jsp:include>
 
 <!--CRPF Header-->
             <table align="center">
                <tr>
-                  <td><img src="/i/tournament/crpf03/crpf_banner.gif" width="601" height="152" border="0" /></td>
+                  <td><img src="/i/tournament/crpf03/crpf_banner.gif" width="601" height="152" border="0"  vspace="15"/></td>
                </tr>
             </table>
 
@@ -92,84 +92,33 @@
             compete for the large cash prizes onsite at VDSI Chennai on August 29th.
             </p>
             
-            <a name="sched"></a>
-            <table width="450" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align="center">
-                <tr>
-                    <td class="sidebarTitle" width="25%">Date</td>
-                    <td class="sidebarTitle" width="20%">Time</td>
-                    <td class="sidebarTitle" width="40%">Status</td>
-                </tr>
-                <tr valign="top">
-                    <td class="sidebarText">Monday, August 4</td>
-                    <td class="sidebarText">XXX</td>
-                    <td class="sidebarText">Registration Opens</td>
-                </tr>
-
-                <tr valign="top">
-                    <td class="sidebarText">Friday, August 15</td>
-                    <td class="sidebarText">XXX</td>
-                    <td class="sidebarText">Registration Closes</td>
-                </tr>
-                
-                <tr valign="top">
-                    <td class="sidebarText">Wednesday, August 20</td>
-                    <td class="sidebarText">XXX</td>
-                    <td class="sidebarText">Round 1 - 500 participants</td>
-                </tr>
-
-                <tr valign="top">
-                    <td class="sidebarText">Monday, August 25</td>
-                    <td class="sidebarText">XXX</td>
-                    <td class="sidebarText">Round 2 - 250 participants</td>
-                </tr>
-
-                <tr valign="top">
-                    <td class="sidebarText">Friday, August 29</td>
-                    <td class="sidebarText">XXX</td>
-                    <td class="sidebarText">Championship - 25 participants</td>
-                </tr>
-            </table>
-            
-            <p><span class="bodySubtitle">Prizes</span><br />
-            The 500 participants in Round 1 will receive a "Verizon Coding Challenge" t-shirt to wear with pride. The shirt will be a symbol 
-            of your competitive spirit. You will be recognized as leaders in Chennai's software development community. Verizon will present 
-            the top 25 finishers with a Certificate of Merit for outstanding performance in the tournament. The top four scorers 
-            will receive the following cash prizes:
-            </p>
-            <p>
-            1st Place - $1,000 USD<br />
-            2nd Place - $500 USD<br  />
-            3rd Place - $300 USD<br />
-            4th Place - $100 USD</p>
-
-            <p>To find out more detailed information about the Verizon Coding Challenge, including a list of the prizes, please read the <a href="/index?t=tournaments&amp;c=vcc03_rules_conditions">Terms and Conditions</a>. 
-            </p>
-
             </blockquote>
             
             <p><br /></p>
                         
-        </td>
 <!-- Center Column Ends -->
 
-<!-- Gutter Begins -->
-        <td width="15"><img src="/i/clear.gif" width="15" height="1" alt="" border="0" /></td>
+<!-- Gutter -->
+      <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
+       <td width="170">
+            <jsp:include page="../public_right.jsp">
+                <jsp:param name="level1" value="review_board"/>
+                <jsp:param name="level2" value="competition"/> 
+            </jsp:include>
+        </td>
 <!-- Right Column Ends -->
 
-<!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/>
-        </td>
+<!-- Gutter -->
+      <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
 <!-- Gutter Ends -->
-
     </tr>
 </table>
 
-<!-- Footer Begins -->
-<jsp:include page="verizon_foot.jsp" />
-<!-- Footer Ends -->
+<jsp:include page="../foot.jsp" />
 
 </body>
+
 </html>
