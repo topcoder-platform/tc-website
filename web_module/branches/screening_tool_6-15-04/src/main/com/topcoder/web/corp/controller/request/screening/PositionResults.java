@@ -83,6 +83,12 @@ public class PositionResults extends BaseScreeningProcessor {
             ResultSetContainer result = (ResultSetContainer) map.get(Constants.POSITION_INFO);
             request.setAttribute(Constants.POSITION_INFO, result);
 
+            // Notify the user if there is an empty result
+            if (result.size() == 0) {
+                log.info("The details retrieval for position " + positionId + " failed." );
+                throw new ScreeningException("Position details retrieval error for position : " + positionId);
+            }
+
             // Get the company and campaign IDs from the positions details to be used further
             ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) result.get(0);
             String companyId = row.getStringItem("company_id");
