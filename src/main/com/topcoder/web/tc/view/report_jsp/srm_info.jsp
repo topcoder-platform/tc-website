@@ -7,38 +7,26 @@
 		  com.topcoder.shared.dataAccess.*,
 		  com.topcoder.shared.dataAccess.resultSet.*,
 		  com.topcoder.shared.util.TCContext,
-		  java.text.DecimalFormat,
-		  java.math.BigInteger
-
 		  "
-
 %>
 <%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
 <%
                 com.topcoder.shared.dataAccess.Request dataRequest = new com.topcoder.shared.dataAccess.Request();
-				dataRequest.setContentHandle("srm_drop_down");
-								
+				dataRequest.setContentHandle("srm_match_info");
+				dataRequest.setProperty("rd", request.getParameter("rd")==null?"4445":request.getParameter("rd"));
+				
 				           DataAccessInt dai = new DataAccess(
                                     dataRequest.getProperty(Constants.DB_KEY, Query.TRANSACTIONAL));
                     Map dataMap = null;
                     dataMap = dai.getData(dataRequest);
 					
-					ResultSetContainer rsc = (ResultSetContainer)dataMap.get("srm_qry_chooser");
-					String link=request.getParameter("link")==null?"srm_index":request.getParameter("link");
-			%>	
-			
-
-
-
-<table width="100%">	
-<tr><td>
-<select name="round" onChange="goTo(this)">
-	<option value='#'>Select SRM to view...</option>
-		<rsc:iterator list="<%=rsc%>" id="Row" >
-				<option value='<%=link%>.jsp?&rd=<rsc:item name="id" row='<%=Row%>'/>'>
-		<rsc:item name="contest_name" row='<%=Row%>'/></option>
-	</rsc:iterator>
- </select></td>
- 
- </tr>
-  </table>
+					ResultSetContainer rsc = (ResultSetContainer)dataMap.get("srm_match_info");
+					
+					
+					
+			%>		
+<table>
+  <tr>
+    <td class=sectionTitle><%= rsc.getItem(0,"contest_name") %> on <%= rsc.getItem(0,"contest_date") %></td>
+  </tr>
+</table>			

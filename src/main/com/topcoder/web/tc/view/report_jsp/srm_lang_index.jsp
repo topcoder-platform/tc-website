@@ -24,23 +24,27 @@
 
 <html>
   <head>
+  <script language="JavaScript">
+  <!--
+    function goTo(selection){
+      sel = selection.options[selection.selectedIndex].value;
+      if (sel && sel != '#'){
+        window.location=sel;
+      }
+    }
+  // -->
+  </script> 
+  
+  
+  
     <title>TopCoder SRM Reports</title>
-	<script language="JavaScript">
-<!--
-function goTo(selection){
-  sel = selection.options[selection.selectedIndex].value;
-  if (sel && sel != '#'){
-    window.location=sel;
-  }
-}
-// -->
-</script>  
+
   </head>
   <body>
-  <table>
+  <table width=100%>
     <tr valign="top">
       <td width="170"><jsp:include page="srm_nav.jsp" /></td>
-	  <td colspan="3">
+  	  <td>
 	  <table>
 	    <tr>
 		  <td><jsp:include page="srm_info.jsp" /></td>
@@ -49,10 +53,11 @@ function goTo(selection){
 		  <td><jsp:include page="srm_chooser.jsp" /><jsp:param name="link" value="srm_lang_index"/></jsp:include></td>
 		</tr>
 		<tr>
-		  <td><jsp:include page="srm_survey.jsp" /></td>
+		  <td><jsp:include page="srm_demo_language_stats.jsp" /></td>
 		</tr>
 	  </table>
-	</tr>
-  </table>
+	  </td>
+    </tr>
+ <table>
 </body>
 </html>

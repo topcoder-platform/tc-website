@@ -1,4 +1,3 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <%@  page
   language="java"
   import="java.util.*,
@@ -14,24 +13,15 @@
 <%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
 <%
                 com.topcoder.shared.dataAccess.Request dataRequest = new com.topcoder.shared.dataAccess.Request();
-				dataRequest.setContentHandle("srm_demographic");
+				dataRequest.setContentHandle("srm_demo_logged_in");
 				dataRequest.setProperty("rd", request.getParameter("rd")==null?"4445":request.getParameter("rd"));
-				
-				           DataAccessInt dai = new DataAccess((javax.sql.DataSource)
-                            TCContext.getInitial().lookup(
-                                    dataRequest.getProperty(Constants.DB_KEY, Query.TRANSACTIONAL)));
+				           DataAccessInt dai = new DataAccess(
+                                    dataRequest.getProperty(Constants.DB_KEY, Query.TRANSACTIONAL));
                     Map dataMap = null;
                     dataMap = dai.getData(dataRequest);
-					
 					ResultSetContainer rsc = (ResultSetContainer)dataMap.get("srm_demo_logged_in");
-					
-					
-			%>	
 
-
-
-
-
+%>	
 <table width="100%" class="srmFrame">
 <tr><td colspan="2" class="srmQuestion">People Logged In</td></tr>
 <tr>
