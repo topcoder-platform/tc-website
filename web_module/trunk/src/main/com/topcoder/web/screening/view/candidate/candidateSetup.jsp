@@ -86,9 +86,9 @@ function back() {
                     
             <table border="0" cellspacing="10" cellpadding="0" width="70%">
                 <% if (candidateInfo.isNew()) { %>
-                 <tr><td><div align="center"><a href="JavaScript:document.candidateSetupForm.submit()" class="button">Save</a></div></td></tr>
+                 <tr><td><div align="center"><p class="button"><a href="JavaScript:document.candidateSetupForm.submit()" class="button">Save</a></p></div></td></tr>
                     <% } else { %>
-                 <tr><td><div align="center"><a href="JavaScript:back()" class="button">Go Back</a></div></td></tr>
+                 <tr><td><div align="center"><p class="button"><a href="JavaScript:back()" class="button">Go Back</a></p></div></td></tr>
                     <% } %>
             
                 <%
