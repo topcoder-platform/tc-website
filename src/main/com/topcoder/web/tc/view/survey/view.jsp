@@ -55,10 +55,14 @@
                   <tc:questionIterator list="<%=questionInfo%>" id="question">
                      <table width="510" border="0" cellpadding="3" cellspacing="0" class="formFrame">
                         <tr>
-                           <td colspan="2" class="bodySubtitle">
+                           <td class="bodySubtitle">
                               <jsp:getProperty name="question" property="text"/><br/><br/>
                               <hr width="100%" size="1" noshade/>
                            </td>
+                        <td class="bodySubtitle" valign="top">
+                           <img src="<jsp:getProperty name="question" property="imagePath"/>" alt="survey logo" width="100" height="70" align="left" border="0"/>
+                        </td>
+
                            </tr>
                            <tr>
                               <td colspan="2" class="errorText">
@@ -79,7 +83,7 @@
                         </tc:answerInput>
                      </table>
                      <p><br/></p>
-                  </tc:questionIterator> 
+                  </tc:questionIterator>
                      <table class="bodyText" align="center">
                         <tr><td><a href="?<%=Constants.MODULE_KEY%>=SurveyResults&<%=Constants.SURVEY_ID%>=<%=surveyInfo.getId()%>"><img src="/i/results.gif" width="60" height="18" border="0"/></a>
                                      <img src="/i/clear.gif" width="10" height="18" border="0"/>

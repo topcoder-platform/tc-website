@@ -15,6 +15,7 @@ public class Question implements Serializable {
     private String text;
     private boolean isRequired;
     private List answerInfo;
+    private String imagePath;
 
     public Question() {}
 
@@ -72,6 +73,14 @@ public class Question implements Serializable {
 
     public static boolean isFreeForm(int styleId) {
         return (styleId==Question.LONG_ANSWER||styleId==Question.SHORT_ANSWER);
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 
 }

@@ -94,6 +94,7 @@ public abstract class SurveyData extends Base {
         q.setTypeId(row.getIntItem("question_type_id"));
         q.setText(row.getStringItem("question_text"));
         q.setRequired(row.getIntItem("is_required") == 1);
+        q.setImagePath(row.getStringItem("image"));
         q.setAnswerInfo(makeAnswerInfo(q.getId()));
         return q;
     }
