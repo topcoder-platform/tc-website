@@ -75,10 +75,10 @@
                 </A>
               </B>
               
-<%--              <% if (MemberProfileTask.getImagePath().length() > 0) { %>
+              <% if (MemberProfileTask.getImagePath().length() > 0) { %>
               </TD></TR></TABLE>
               <% } %>
---%>              </P>                            
+              </P>                            
               
               
               <P align="center">
