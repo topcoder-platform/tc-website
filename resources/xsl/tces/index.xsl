@@ -168,6 +168,12 @@
                             <tr><td colspan="2" bgcolor="#43515E" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
  <!--Vertex ends -->
 
+<!-- TopCoder begins-->
+                            <tr valign="top">
+                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=nvidia"><img src="/i/es/topcoder/topcoder_logo.gif" width="160" height="31" border="0"/></a></td>
+                                <td width="99%" class="bodyText">TopCoder<a href="/?&amp;t=tces&amp;c=nvidia" class="bodyText">Click here</a><br /><br /></td>
+                            </tr>
+<!-- Topcoder ends -->
 
 <!-- GE begins
  <TR>
