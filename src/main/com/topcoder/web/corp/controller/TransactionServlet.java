@@ -531,9 +531,9 @@ public class TransactionServlet extends HttpServlet {
             if (startsWithContextPath) {
                 dest = dest.substring(contextPrefix.length());
             }
-            getServletContext().getRequestDispatcher(dest).forward(req, resp);
+            getServletContext().getRequestDispatcher(resp.encodeURL(dest)).forward(req, resp);
         } else {
-            resp.sendRedirect(dest);
+            resp.sendRedirect(resp.encodeRedirectURL(dest));
         }
     }
 
@@ -594,7 +594,7 @@ public class TransactionServlet extends HttpServlet {
         loginPageDest
                 .append(loginApplicationPage).append('?')
                 .append(Login.KEY_DESTINATION_PAGE).append('=')
-                .append(URLEncoder.encode(originatingPage));
+                .append(originatingPage);
         fetchRegularPage(req, resp, loginPageDest.toString(), true);
     }
 
