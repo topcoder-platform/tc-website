@@ -93,7 +93,7 @@ public class AuthenticationServicesBean extends BaseEJB {
      * @param userId the user's id.
      * @return boolean true for a sector agreement
      */
-    public boolean agreed(int sectorId, int userId) throws RemoteException {
+    public boolean agreed(int sectorId, long userId) throws RemoteException {
         if (VERBOSE) System.out.println("ejb.AuthenticationServices.agreed() called...");
         boolean result = false;
         Connection conn = null;
@@ -107,7 +107,7 @@ public class AuthenticationServicesBean extends BaseEJB {
             conn = DBMS.getConnection(getDS());
             ps = conn.prepareStatement(query);
             ps.setInt(1, sectorId);
-            ps.setInt(2, userId);
+            ps.setLong(2, userId);
             rs = ps.executeQuery();
             if (rs.next()) {
                 result = true;
@@ -289,7 +289,7 @@ public class AuthenticationServicesBean extends BaseEJB {
      * @param coderId the user's id.
      * @return an Authentication object representing the coder's credentials
      */
-    public Authentication getActivation(int coderId)
+    public Authentication getActivation(long coderId)
             throws RemoteException {
         if (VERBOSE) System.out.println("ejb.AuthenticationServices.getActivation() called...");
         Authentication result = new Authentication();
@@ -450,7 +450,7 @@ public class AuthenticationServicesBean extends BaseEJB {
      * @param userId the user's id.
      * @param authorized the authorized status of the sector access.
      */
-    public void insertSectorAccess(int sectorId, int userId, String authorized)
+    public void insertSectorAccess(int sectorId, long userId, String authorized)
             throws RemoteException {
         if (VERBOSE) System.out.println("ejb.AuthenticationServices.insertSectorAccess() called...");
         java.sql.Connection conn = null;
@@ -473,7 +473,7 @@ public class AuthenticationServicesBean extends BaseEJB {
             /*************************************************************************************/
             ps = conn.prepareStatement(query.toString());
             ps.setInt(1, sectorId);
-            ps.setInt(2, userId);
+            ps.setLong(2, userId);
             ps.setString(3, authorized);
             ps.executeUpdate();
         } catch (Exception e) {
@@ -525,7 +525,7 @@ public class AuthenticationServicesBean extends BaseEJB {
      * @param sectorId the secured area.
      * @param userId the user's id.
      */
-    public void insertSectorAgreement(int sectorId, int userId)
+    public void insertSectorAgreement(int sectorId, long userId)
             throws RemoteException {
         if (VERBOSE) System.out.println("ejb.AuthenticationServices.insertSectorAgreement() called...");
         java.sql.Connection conn = null;
@@ -547,7 +547,7 @@ public class AuthenticationServicesBean extends BaseEJB {
             /*************************************************************************************/
             ps = conn.prepareStatement(query.toString());
             ps.setInt(1, sectorId);
-            ps.setInt(2, userId);
+            ps.setLong(2, userId);
             ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -621,7 +621,7 @@ public class AuthenticationServicesBean extends BaseEJB {
      * @param userId a valid user id.
      * @return a populated user object.
      */
-    public User loadUser(int userId) throws RemoteException {
+    public User loadUser(long userId) throws RemoteException {
         User result = new User();
         result.setUserId(userId);
         Connection conn = null;

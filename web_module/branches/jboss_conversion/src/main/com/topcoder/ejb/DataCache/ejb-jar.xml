@@ -13,7 +13,7 @@
             <display-name>Contest Admin Services EJB</display-name>
             <ejb-name>DataCache</ejb-name>
             <home>com.topcoder.ejb.DataCache.DataCacheHome</home>
-            <remote>com.topcod  er.ejb.DataCache.DataCache</remote>
+            <remote>com.topcoder.ejb.DataCache.DataCache</remote>
 <!--
             <local-home>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome</local-home>
             <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
