@@ -38,8 +38,6 @@
 <% 
 Request srb = (Request) request.getAttribute("REQUEST_BEAN");
 pageContext.setAttribute("coder_id", srb.getProperty("cr","0000"));
-ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Basic_Coder_Information");
-boolean bEmpty = (rsc == null || rsc.size()!=1);
 %>
 
 <!-- Center column begins -->
@@ -59,7 +57,7 @@ boolean bEmpty = (rsc == null || rsc.size()!=1);
 
 <%
    }
-%>History&#160;&#160;</TD>
+%> History&#160;&#160;</TD>
                     <TD VALIGN="top" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"></TD>
                 </TR>
             </TABLE>
@@ -72,6 +70,8 @@ boolean bEmpty = (rsc == null || rsc.size()!=1);
 
 
 <%
+ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Basic_Coder_Information");
+boolean bEmpty = (rsc == null || rsc.size()!=1);
 if (!bEmpty) {
   ResultSetContainer.ResultSetRow rsr = rsc.getRow(0);
   pageContext.setAttribute("resultRow", rsr);
@@ -96,17 +96,17 @@ if (!bEmpty) {
    if(srb.getProperty("pi").equals("113"))
    {
 %>
-                     <A HREF="/stat?c=component_history&pi=112&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Design Ratings History</A>
+                     <A HREF="/stat?c=component_history&pi=112&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Design History</A>
 <%
    }
    else{
 %>
-                     <A HREF="/stat?c=component_history&pi=113&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Development Ratings History</A>
+                     <A HREF="/stat?c=component_history&pi=113&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Development History</A>
 <%}%>
 
 
-                             | <A HREF="/stat?pi=112&c=tcs_ratings_history&pi=112&&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Design Ratings History</A> 
-                             | <A HREF="/stat?pi=113&c=tcs_ratings_history&pi=113&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Development Ratings History</A> 
+                             | <A HREF="/stat?pi=112&c=tcs_ratings_history&pi=112&&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Design Rating History</A> 
+                             | <A HREF="/stat?pi=113&c=tcs_ratings_history&pi=113&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Development Rating History</A> 
                                 </TD>
                             </TR>
                             

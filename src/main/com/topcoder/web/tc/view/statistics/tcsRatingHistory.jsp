@@ -9,7 +9,7 @@
 
 <HTML>
  <HEAD>
-   <TITLE>TopCoder Statistics - Component Ratings History</TITLE>
+   <TITLE>TopCoder Statistics - Component Rating History</TITLE>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
    <jsp:include page="baseHRef.jsp" />   
@@ -50,7 +50,7 @@ pageContext.setAttribute("coder_id", srb.getProperty("cr","0000"));
 <%
    }
 %>
-Ratings History&#160;&#160;</SPAN>
+Rating History&#160;&#160;</SPAN>
             </TD>
             <TD VALIGN="top" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"></TD>
           </TR>
@@ -93,12 +93,12 @@ pageContext.setAttribute("resultRow", rsr);
    if(srb.getProperty("pi").equals("113"))
    {
 %>
-                     <A HREF="/stat?c=tcs_ratings_history&pi=112&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Design Ratings History</A>
+                     <A HREF="/stat?c=tcs_ratings_history&pi=112&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Design Rating History</A>
 <%
    }
    else{
 %>
-                     <A HREF="/stat?c=tcs_ratings_history&pi=113&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Development Ratings History</A>
+                     <A HREF="/stat?c=tcs_ratings_history&pi=113&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Development Rating History</A>
 <%}%>
                    </TD>
                  </TR>
