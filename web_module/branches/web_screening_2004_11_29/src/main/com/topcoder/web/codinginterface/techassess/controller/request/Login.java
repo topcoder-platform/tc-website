@@ -7,7 +7,6 @@ import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.shared.netCommon.screening.request.ScreeningLoginRequest;
 import com.topcoder.shared.netCommon.screening.response.ScreeningLoginResponse;
 import com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemSet;
-import com.topcoder.shared.netCommon.messages.Message;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.language.JavaLanguage;
@@ -56,38 +55,35 @@ public class Login extends Base {
             } else {
                 ScreeningLoginRequest request = new ScreeningLoginRequest(handle, password, companyId);
                 request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
-                String messageId = send(request);
+                send(request);
 
                 SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
-                log.debug("go to " + info.getServletPath() + " after login");
-                setNextPage(info.getServletPath());
+                showProcessingPage(info.getServletPath());
 
-                receive(5000, messageId);
+                ScreeningLoginResponse response = (ScreeningLoginResponse)receive(5000);
+
+                if (response.isSuccess()) {
+                    getAuthentication().login(new SimpleUser(response.getUserID(), "", ""));
+                    ScreeningProblemSet[] problemSets = response.getProblemSets();
+                    ArrayList sets = new ArrayList();
+                    for (int i=0; i<problemSets.length; i++) {
+                        sets.add(problemSets[i]);
+                    }
+                    getRequest().getSession().setAttribute(Constants.PROBLEM_SETS, sets);
+                    getRequest().getSession().setAttribute(Constants.LANGUAGES, getLanguages(response));
+
+                } else {
+                    addError(Constants.HANDLE, response.getMessage());
+                }
+
+                closeProcessingPage();
+
             }
         } else {
             setNextPage(Constants.PAGE_LOGIN);
             setIsNextPageInContext(true);
         }
 
-    }
-
-    protected void postProcessing(Message resp) throws Exception {
-        ScreeningLoginResponse response = (ScreeningLoginResponse)resp;
-        if (response.isSuccess()) {
-            getAuthentication().login(new SimpleUser(response.getUserID(), "", ""));
-            ScreeningProblemSet[] problemSets = response.getProblemSets();
-            ArrayList sets = new ArrayList();
-            for (int i=0; i<problemSets.length; i++) {
-                sets.add(problemSets[i]);
-            }
-            getRequest().getSession().setAttribute(Constants.PROBLEM_SETS, sets);
-            getRequest().getSession().setAttribute(Constants.LANGUAGES, getLanguages(response));
-
-        } else {
-            addError(Constants.HANDLE, response.getMessage());
-            setNextPage(Constants.PAGE_LOGIN);
-            setIsNextPageInContext(true);
-        }
     }
 
     private ArrayList getLanguages(ScreeningLoginResponse response) {
