@@ -6,7 +6,7 @@
             </table>
 
             <table width="530" border="0" cellspacing="0" cellpadding="4">   
-                <tr><td class="prHead"><A href="http://www.tmcnet.com/usubmit/2004/Apr/1033792.htm" target="_blank">Java Technology Spreads Like Wildfire at JavaOne</A> [April 21 - BusinessWeek]</td></tr>  
+                <tr><td class="prHead"><A href="http://www.tmcnet.com/usubmit/2004/Apr/1033792.htm" target="_blank">Java Technology Spreads Like Wildfire at JavaOne</A> [April 21 - TMCNET]</td></tr>  
 
                 <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_04_19b_04">Champions Announced In 2004 TCCC Sponsored by Yahoo!&#174;</A> [April 21]</td></tr>  
 
