@@ -146,7 +146,11 @@ function changeField() {
                         <%=question.getText()%>
                     </td>
                     <td class="dc_regTableAnswer">
-                        <pl:demographicInput question="<%=question%>"/>
+                        <%if(question.getId() == 1) {%>
+                        <pl:demographicInput question="<%=question%>" onchange="javascript:changeField"/>
+                        <%} else {%>
+                        <pl:demographicInput question="<%=question%>" />
+                        <% } %>
                     </td>
                 </tr>
                 </pl:questionIterator>

@@ -17,6 +17,7 @@ public class DemographicInput extends BaseTag {
     private String cssclass;
     private DemographicQuestion question;
     private boolean showMulti;
+    private String onchange;
 
     public DemographicInput() {
         super();
@@ -24,6 +25,14 @@ public class DemographicInput extends BaseTag {
         showMulti = true;
     }
 
+    public void setOnchange(String s) {
+        onchange = s;
+    }
+    
+    public String getOnchange() {
+        return onchange;
+    }
+    
     public void setShowMulti(boolean b) {
         showMulti = b;
     }
@@ -81,6 +90,9 @@ public class DemographicInput extends BaseTag {
         if (cssclass != null) {
             s.append(" class=\"" + cssclass + "\"");
         }
+        if (onchange != null) {
+            s.append(" onchange=\"" + onchange + "\"");
+        }
         s.append(" value=\"");
         s.append(getDefaultValue() == null ? "" : getDefaultValue());
         s.append("\"");
@@ -99,6 +111,9 @@ public class DemographicInput extends BaseTag {
             s.append(" class=\"");
             s.append(cssclass);
             s.append("\"");
+        }
+        if (onchange != null) {
+            s.append(" onchange=\"" + onchange + "\"");
         }
         if (multiple) {
             s.append(" size=\"4\" multiple");
