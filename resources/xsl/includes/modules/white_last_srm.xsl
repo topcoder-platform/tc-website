@@ -26,14 +26,18 @@
 		<TD CLASS="bodyText" VALIGN="top">
 		
 <P>
-<SPAN CLASS="bodyTextBold">Single Round Match 79</SPAN><BR/>
-Wednesday, April 10, 2002<BR/>
+<SPAN CLASS="bodyTextBold">Single Round Match 80</SPAN><BR/>
+Monday, April 15, 2002<BR/>
 By Adam Loss, <I>TopCoder Staff Writer</I><BR CLEAR="all"/>
 </P>
 					
 <P><B>Division-I</B><BR/>
-<A HREF="/stat?c=last_match&amp;rd=4120&amp;dn=1" CLASS="bodyGeneric">Logan</A> was the winner in Room 3 with 1357.58 final points.  <A HREF="/stat?c=last_match&amp;rd=4120&amp;dn=1" CLASS="bodyGeneric">Logan</A> earned 275.90 points on the Level One problem, 
-367.53 on the Level Two problem, and 664.15 on the Level Three problem for 1307.58 points during the "Coding Phase".</P>
+Four Division-I coders used two challenges for come-from-behind room wins.
+</P>
+<P>
+In Room 12, <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=1" CLASS="bodyGeneric">kdby</A> coded the Level One and Level Two problems during the "Coding Phase" for 423.85 points.  That total placed him seventh in the room.  In the "Challenge Phase", <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=1" CLASS="bodyGeneric">kdby</A> successfully challenged the Level One submission of <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=1" CLASS="bodyGeneric">turian</A>, who was the room leader with 1169.14 points, as well as the Level One submission of <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=1" CLASS="bodyGeneric">mmsa</A>.  Those challenges added 100 points to the total of <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=1" CLASS="bodyGeneric">kdby</A>, producing a final point total of 523.85. 
+</P>
+       
        </TD>
 	</TR>
 	<TR>
@@ -48,9 +52,7 @@ By Adam Loss, <I>TopCoder Staff Writer</I><BR CLEAR="all"/>
  	<TR>
 		<TD CLASS="bodyText" VALIGN="top">
 <P>
-The top-point total in Division-II was earned by <A HREF="/stat?c=last_match&amp;rd=4120&amp;dn=2" CLASS="bodyGeneric">cd21</A> in Room 30 with 1385.81 final points.  <A HREF="/stat?c=last_match&amp;rd=4120&amp;dn=2" CLASS="bodyGeneric">cd21</A> earned 291.99 points 
-on the Level One problem, 414.81 on the Level Two problem, and 629.01 on the Level Three problem for a total of 1335.81
- points in the "Coding Phase"
+<A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=2" CLASS="bodyGeneric">b0b0b0b</A> was the top-scorer in Division-II, earning 1522.93 final points to win Room 33.  <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=2" CLASS="bodyGeneric">b0b0b0b</A> earned 248.17 points on the Level One problem, 543.28 on the Level Two problem, and 731.48 on the Level Three problem
 
 ...&#160;<A HREF="/index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">full&#160;story</A>.
 </P>
