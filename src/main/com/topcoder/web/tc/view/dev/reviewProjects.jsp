@@ -7,7 +7,7 @@
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <% ResultSetContainer projectList = (ResultSetContainer)request.getAttribute("projectList");%>
 <head>
-<title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
+<title>Open Component Projects Available for Review</title>
 
 <jsp:include page="../script.jsp" />
 
@@ -55,6 +55,9 @@
             
             <table border="0" cellspacing="0" width="100%" class="formFrame">
                 <tr>
+                    <td class="projectTitles" colspan="8">Open Components</td>
+                </tr>
+                <tr>
                     <td class="projectHeaders">Component Name</td>
                     <td class="projectHeaders" align="center">Catalog</td>
                     <td class="projectHeaders" align="center">Phase</td>
@@ -62,19 +65,20 @@
                     <td class="projectHeaders" align="center">Review<br/>Start</td>
                     <td class="projectHeaders" align="center">Review<br/>End</td>
                     <td class="projectHeaders" align="center">Positions<br/>Available</td>
-                    <td class="projectHeaders" align="center"></td>
+                    <td class="projectHeaders" align="center">Details</td>
                 </tr>
 
                 <rsc:iterator list="<%=projectList%>" id="resultRow">
                     <tr>
-                        <td class="projectCells"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ReviewProjectDetail&<%=Constants.PROJECT_ID%>=<rsc:item row="<%=resultRow%>" name="project_id"/>&<%=Constants.PHASE_ID%>=<rsc:item row="<%=resultRow%>" name="phase_id"/>"><rsc:item row="<%=resultRow%>" name="component_name"/></a></td>
+                        <%-- <a> should link to project description page like the Open Projects page does --%>
+                        <td class="projectCells"><a href=""><rsc:item row="<%=resultRow%>" name="component_name"/></a></td>
                         <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="catalog"/></td>
                         <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="phase_desc"/></td>
                         <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="submission_count"/></td>
                         <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_start" format="MM.dd.yyyy"/></td>
                         <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_end" format="MM.dd.yyyy"/></td>
                         <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="available_spots"/></td>
-                        <td class="projectCells" align="center"><a href="/">details</a></td>
+                        <td class="projectCells" align="center"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ReviewProjectDetail&<%=Constants.PROJECT_ID%>=<rsc:item row="<%=resultRow%>" name="project_id"/>&<%=Constants.PHASE_ID%>=<rsc:item row="<%=resultRow%>" name="phase_id"/>">details</a></td>
                     </tr>
                 </rsc:iterator>
                 
