@@ -430,6 +430,6 @@ function goTo(selection)
   {}
 }
 // -->
-]]></script>
+]]></SCRIPT>
   </xsl:template>
 </xsl:stylesheet>
