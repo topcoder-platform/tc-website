@@ -61,6 +61,10 @@
 <!-- 2003 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2004</font></td></tr>
 
+                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_04_19b_04">Champions Announced In 2004 TCCC Sponsored by Yahoo!&#174;</A> [April 19]<br/></td></tr>
+
+                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_04_19_04">Custom Web Application Enables Online Gift Card Service</A> [April 19]<br/></td></tr>
+
                             <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_04_06_04">TopCoder&#174; Announces 32 Semifinalists for 2004 TCCC Sponsored by Yahoo!&#174;</A> [April 6]<br/></td></tr>
 
                             <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_03_08_04">NVIDIA Sponsors 2004 TopCoder Collegiate Challenge</A> [March 8]<br/></td></tr>
