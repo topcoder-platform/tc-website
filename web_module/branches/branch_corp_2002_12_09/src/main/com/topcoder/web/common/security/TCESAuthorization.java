@@ -1,21 +1,17 @@
 package com.topcoder.web.common.security;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
-
+import java.rmi.RemoteException;
+import javax.ejb.CreateException;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.sql.DataSource;
 
+import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.TCSubject;
-import com.topcoder.shared.dataAccess.DataAccess;
-import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.security.policy.GenericPermission;
+import com.topcoder.security.policy.PolicyRemote;
+import com.topcoder.security.policy.PolicyRemoteHome;
 import com.topcoder.shared.security.Authorization;
 import com.topcoder.shared.security.Resource;
-import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.web.corp.Constants;
 import com.topcoder.web.corp.Util;
 
@@ -32,50 +28,16 @@ import com.topcoder.web.corp.Util;
  *
  */
 public class TCESAuthorization implements Authorization {
-    private HashSet permissions;
+    private TCSubject tcUser;
 
     /**
      * Creates Authorization token for given user.
      * 
      * @param user
      */    
-    public TCESAuthorization(TCSubject user) 
-    throws NamingException, Exception
-    {
-        permissions = new HashSet();
-        
-        InitialContext ic = null;
-        try {
-            ic = new InitialContext( Constants.NDS_CONTEXT_ENVIRONMENT );
-            Request cmd = new Request();
-            cmd.setContentHandle("cmd-TCSubject-permissions");
-            cmd.setProperty("uid", Long.toString(user.getUserId()) );
-            DataAccessInt da = new DataAccess(
-                (DataSource)ic.lookup(Constants.NDS_DATA_SOURCE)
-            );
-            Map resultMap = da.getData(cmd);
-            ResultSetContainer permSet = (ResultSetContainer)
-                resultMap.get("qry-permissions-for-user");
-
-            Iterator permIter = permSet.iterator();
-            while( permIter.hasNext() ) {
-                ResultSetContainer.ResultSetRow row;
-                row = (ResultSetContainer.ResultSetRow)permIter.next();
-                permissions.add(row.getItem("permission").toString());
-            }
-        }
-        catch( NamingException ne ) {
-            ne.printStackTrace();
-            throw ne;
-        }
-        catch(Exception e) {
-            e.printStackTrace();
-            throw e;
-        }
-        finally {
-            Util.closeIC(ic);
-        }
-    }
+    public TCESAuthorization(TCSubject user) {
+        tcUser = user;
+    } 
     
     /**
      * There will be TCESAuthorization token for every user, so this method will
@@ -84,46 +46,35 @@ public class TCESAuthorization implements Authorization {
      * 
      * @see com.topcoder.shared.security.Authorization#hasPermission(com.topcoder.shared.security.Resource)
      */
-    public boolean hasPermission(Resource r) {
-        return permissions.contains(r.getName());
-    }
-    
-    /**
-     * Returns Iterator of the all accessible resources. Objects received from
-     * the next() metod of iterator implement Resource interface
-     * 
-     * @return Iterator
-     */
-    public Iterator allPermissions() {
-        return new rc_iter(permissions.iterator());
-    }
-    
-    private static class rc_iter implements Iterator {
-        private Iterator iter; 
-        private rc_iter(Iterator i) {
-            iter = i;
+    public boolean hasPermission(Resource rc) throws Exception {
+        InitialContext ic = null;
+        try {
+            ic = new InitialContext(Constants.SECURITY_CONTEXT_ENVIRONMENT);
+            PolicyRemoteHome pHome;
+            pHome = (PolicyRemoteHome)ic.lookup(PolicyRemoteHome.EJB_REF_NAME);
+            
+            PolicyRemote policy = pHome.create();
+            return policy.checkPermission(
+                tcUser, 
+                new GenericPermission(rc.getName())
+            );
         }
-        
-        /**
-         * @see java.util.Iterator#hasNext()
-         */
-        public boolean hasNext() {
-            return iter.hasNext();
+        // catches are there with only goal - to show what exceptions 
+        // are expected from underlying software
+        catch(NamingException ne) {
+            throw ne;
         }
-
-        /**
-         * @see java.util.Iterator#next()
-         */
-        public Object next() {
-            return new SimpleResource((String)iter.next());
+        catch(GeneralSecurityException gse) {
+            throw gse;
         }
-
-        /**
-         * @see java.util.Iterator#remove()
-         */
-        public void remove() {
-            iter.remove();
+        catch(CreateException ce) {
+            throw ce;
         }
-
+        catch(RemoteException re) {
+            throw re;
+        }
+        finally {
+            Util.closeIC(ic);
+        }
     }
 }

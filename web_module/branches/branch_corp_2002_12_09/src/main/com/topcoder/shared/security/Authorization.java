@@ -14,8 +14,16 @@ package com.topcoder.shared.security;
 public interface Authorization {
     
     /**
+     * Checks if there is permissionn for given resource.
+     * @param rc resource to be checked
      * 
-     * @return boolean
+     * @return boolean true there is permission for this resource, false
+     * otherwise
+     * @throws Exception when some tech problems have occured (i.e. security
+     * server is not answering, network error etc), this means that there are
+     * some tech problems and required information cant be retrieved at the
+     * moment.
+     * 
      */
-    boolean hasPermission(Resource r);
+    boolean hasPermission(Resource rc) throws Exception;
 }
