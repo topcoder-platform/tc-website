@@ -4,6 +4,7 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import junit.framework.Assert;
+import java.util.*;
 //import com.mockobjects.*;
 
 public class ServletResponseHelper implements HttpServletResponse {
@@ -12,6 +13,8 @@ public class ServletResponseHelper implements HttpServletResponse {
 	public int myErrorCode = 0;
 	public String myErrorMessage="";
 	public String myRedirects = "";
+	public List myCookies = new ArrayList();
+	int nCookies = 0;
 	
     /**
      * MockHttpServletResponse constructor comment.
@@ -21,7 +24,8 @@ public class ServletResponseHelper implements HttpServletResponse {
     }
 
     public void addCookie(javax.servlet.http.Cookie arg1) {
-        //fail("Not implemented");
+        myCookies.add(nCookies, arg1);
+        nCookies++;
     }
 
     /**
@@ -48,18 +52,15 @@ public class ServletResponseHelper implements HttpServletResponse {
     }
 
     public String encodeRedirectUrl(String arg1) {
-        //fail("Not implemented");
-        return null;
+        return arg1;
     }
 
     public String encodeRedirectURL(String arg1) {
-        //fail("Not implemented");
-        return null;
+        return arg1;
     }
 
     public String encodeUrl(String arg1) {
-        //fail("Not implemented");
-        return null;
+        return arg1;
     }
 
     public String encodeURL(String arg1) {

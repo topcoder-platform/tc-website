@@ -9,10 +9,12 @@ import java.security.*;
 public class HttpServletRequestHelper
 	extends ServletRequestHelper
 	implements HttpServletRequest {
+		
+	public HttpSession mySession = null;
+	public Cookie[] myCookies = null;
 	/**
 	* Returns the name of the authentication scheme used to protect the servlet.
 	* */
-
 	public String getAuthType() {
 		return "BASIC"; //HttpServletRequest.BASIC_AUTH;
 	}
@@ -27,7 +29,7 @@ public class HttpServletRequestHelper
 	 * Returns an array containing all of the Cookie objects the client sent with this request.
 	 * */
 	public Cookie[] getCookies() {
-		return null;
+		return myCookies;
 	}
 	/**
 	 * Returns the value of the specified request header as a long value 
@@ -131,7 +133,7 @@ public class HttpServletRequestHelper
 	 * 					creates one
 	 **/	
 	public HttpSession getSession() {
-		return null;
+		return mySession;
 	}
 	/**
 	 * Returns the current HttpSession associated with this request or,
