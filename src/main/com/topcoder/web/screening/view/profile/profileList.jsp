@@ -42,7 +42,7 @@ function getProblemDetail(id) {
 
 <!-- Middle column begins -->
         <td width="100%" align="center"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
-            <table border="0" cellspacing="0" cellpadding="0" width="70%">
+            <table border="0" cellspacing="0" cellpadding="0" width="10%">
                 <tr valign="top">
                     <td class="bodyText">
                         <h1 class="testHead">Test Profile List</h1>
@@ -58,14 +58,14 @@ function getProblemDetail(id) {
                 ResultSetContainer.ResultSetRow first = (ResultSetContainer.ResultSetRow)profile.get(0);
             %>
 
-            <table cellspacing="1" cellpadding="3" width="100%">
-                <tr><td colspan="6"><h2 class="testHead"><screen:resultSetItem row="<%=first%>" name="session_profile_desc" /></h2></td></tr>
+            <table cellspacing="1" cellpadding="0" width="100%">
+                <tr><td class="testHeadSmall"><screen:resultSetItem row="<%=first%>" name="session_profile_desc" /></td></tr>
             </table>
 
             <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
                 <tr>
                     <td colspan="2" class="testTableTitle">&#160;</td>
-                    <td colspan="4" class="testTableTitle" align="center">Candidates</td>
+                    <td colspan="4" align="center" class="testTableTitle" align="center">Candidates</td>
                 </tr>
                 
                 <tr>
@@ -113,18 +113,17 @@ function getProblemDetail(id) {
                 %>
                 <tr>
                     <td width="20%" class="bodyText" <%=color%>><screen:servletLink processor="PopulateCandidate" param="<%=cparam%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="user_name" /></screen:servletLink></td>
-                    <td width="16%" class="bodyText" <%=color%>><screen:resultSetItem row="<%=row%>" name="status" /></td>               
-                    <td width="16%" class="bodyText" <%=color%>><%=String.valueOf(((Long)row.getItem("set_a_count").getResultData()).longValue()+((Long)row.getItem("set_b_count").getResultData()).longValue())%></td>
-                    <td width="16%" class="bodyText" <%=color%>><screen:resultSetItem row="<%=row%>" name="submitted" /></td>
-                    <td width="16%" class="bodyText" <%=color%>><screen:resultSetItem row="<%=row%>" name="passed" /></td>               
-                    <td width="16%" class="bodyText" <%=color%>><screen:servletLink processor="TestResults" param="<%=sparam%>"><screen:resultSetItem row="<%=row%>" name="results_label" /></screen:servletLink></td>               
+                    <td width="16%" align="center" class="bodyText" <%=color%>><screen:resultSetItem row="<%=row%>" name="status" /></td>               
+                    <td width="16%" align="center" class="bodyText" <%=color%>><%=String.valueOf(((Long)row.getItem("set_a_count").getResultData()).longValue()+((Long)row.getItem("set_b_count").getResultData()).longValue())%></td>
+                    <td width="16%" align="center" class="bodyText" <%=color%>><screen:resultSetItem row="<%=row%>" name="submitted" /></td>
+                    <td width="16%" align="center" class="bodyText" <%=color%>><screen:resultSetItem row="<%=row%>" name="passed" /></td>               
+                    <td width="16%" align="center" class="bodyText" <%=color%>><screen:servletLink processor="TestResults" param="<%=sparam%>"><screen:resultSetItem row="<%=row%>" name="results_label" /></screen:servletLink></td>               
                 </tr>
                 <% } %>
                 <% even = !even; %>
                 </screen:resultSetRowIterator>
-
-                <tr><td colspan="6"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
             </table>                
+            <p><br></p>
             </screen:nestedListIterator>
 
             <% if(profileList.isEmpty()){ %>
