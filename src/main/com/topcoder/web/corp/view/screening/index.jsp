@@ -48,12 +48,6 @@ olor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tinci
 </P>
 
 <P>
-Oem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
-                       ut laoreet dolore magna aliquam erat voctetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
-                       Rt wisi enim adminim veniam, quis nostrud exerci.lutpat. Ut wisi enim adminim veniam, quis nostrud exerci.
-</P>
-
-<P>
                        Dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
                        ut laoreet dolore magna aliquam erat volutpased diam nonummy nibh euismod tincidunt
                        Nagna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci.
