@@ -185,7 +185,7 @@
                                 -->
                                 <a class="statText" target="_new">  
                                     <xsl:attribute name="href"> 
-                                        <xsl:value-of select="concat('http://software.topcoder.com/pages/s_upload_submission.jsp?version=', $version, '&amp;phase=',
+                                        <xsl:value-of select="concat('http://software.topcoder.com/components/s_upload_submission.jsp?version=', $version, '&amp;phase=',
  $phase, '&amp;compvers=', /TC/DEVELOPMENT/compvers, '&amp;comp_id=', $componentId, '&amp;Project=', $formattedName)"/>
 
                                     </xsl:attribute>
