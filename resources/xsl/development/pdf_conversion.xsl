@@ -60,81 +60,71 @@
                                     <a href="Javascript:document.frmInquire.Project.value='PDF Conversion Component Design';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>
                                     <BR/>
                                     <BR/>
-                                    <b>Purpose</b>
+                                    <b>Overview</b>
                                     <BR/>
                                     <BR/>            
 The PDF Conversion component will transform standard files (i.e. Microsoft Word, Microsoft Excel, GIF, JPG) into Portable Document Format (PDF) files.
                                     <BR/>
                                     <BR/>
-                                    <b>Development</b>
+                                    <b>Functional Overview</b>
                                     <BR/>
                                     <BR/>
-All of the development and system testing will happen on TopCoder designated servers. Team members may develop locally, however, during pre-scheduled milestones they will need to deliver their code to the specified servers. At the point of integration and system testing, all code must be on the TopCoder development servers. The team members will have access to previously written software by the current TopCoder development staff as a source of reference, if needed. TopCoder will supply any software tools that are required to facilitate the development process. 
-                                    <BR/>
-                                    <BR/>
-                                    <b>Provisions</b>
-                                    <BR/>
-                                    <BR/>
-The TopCoder project manager will set project dates, milestones, goals, and deliverables prior to the project's start date. Any member that is chosen to join the PDF Conversion Component Design Project will have to agree to the specified tasks and dates. If at any point the TopCoder project manager feels that any team member is not accomplishing their task in a timely and acceptable manner they will be removed from the team and a new member will be assigned. In order to join the PDF Conversion Component Design Project team all members will need to sign a contract agreeing to the specified terms. 
-                                    <BR/>
-                                    <BR/>
-                                    <b>Project Details</b>
-                                    <ul>
-                                        <li>
+The component is outlined as follows:
+<ul>
+<li>Accept a file or file reference for conversion.</li>
+<li>Convert the file to PDF format.</li>
+<li>Return the converted file or file reference to the calling client.</li>
+</ul>
+Implementation details for this component are not designed.  It is the responsibility of the developer to design this component to meet the required functionality, including business logic and interfaces.
+<br/><br/>
+
                                             <b>Staffing</b>
                                             <BR/>
-One rated TopCoder Member.
+The component team will consist of 1 rated TopCoder Member.
                                             <ul>
                                                 <li>
-                                                    Architect
-                                                    <ul>
-                                                      <li>
-Design a PDF Conversion component to convert standard files to PDF.
-                                                      </li>
-                                                      <li>
-Document proposed solutions to convert documents to PDF.  This document should address the following:
-                                                        <ul>
-                                                          <li>
-List potential solutions and a brief overview of each
-                                                          </li>
-                                                          <li>
-Detailed overview of the recommended solution
-                                                          </li>
-                                                        </ul>
-                                                      </li>
-                                                      <li>
-Object Model (Class &amp; Interaction diagrams)
-                                                      </li>
-                                                      <li>
-General Architecture diagram
-                                                      </li>
-                                                      <li>
-Component Dependencies.  Will this solution rely on 3rd party software or other components?
-                                                      </li>
-                                                    </ul>
+                                                    <b>Architect</b><br/>
+The architect will be responsible for the design of software and test cases that meet all requirements as defined in the requirements documentation and as described by the product manager.  The architect will design the solution such that component reuse is maximized.  The architect will be responsible for testing the functionality of the component, reviewing the deliverables (source code, documentation, schema, etc.) and giving final approval to the Product Manager that the component satisfies the requirements and is implemented correctly.  
                                                 </li>
                                             </ul>
-                                         </li>
-                                      </ul>
-
-
+                                            <b>Technology</b>
+                                            <BR/>
+                                            <ul>
+                                              <li>
+Java 1.3
+                                              </li>
+                                            </ul>
 
                                     <b>Payment</b>
                                     <BR/>
                                     <BR/>
-TopCoder will compensate all team members for their work on the project.  
+TopCoder will compensate all team members for their work on the project.  Compensation will consist of both initial payments and royalties on the sale of the component.  The initial payment will be distributed at the completion of the project.  
                                     <BR/>
                                     <BR/>
-The architect will get paid a total of $600.00 
-                                    <ul>
-                                        <li>$600.00 at the completion of the project* </li>
-                                    </ul>
+Members will also collect royalties on the revenue generated from the sale of the component.  This amount is determined using the company royalty pool percentage, currently set as 5% of the component's revenue, and the percentage of the developer's contribution to the total contribution for the development of the component.  For example if a developer contributes 50% of the work effort for a component (is paid 50% of the total member cost of developing the component) that developer will receive 50% of the royalty pool for that component.  Royalties may be diluted if additional work is done to the component, as the total cost of the component will increase. 
+                                    <BR/>
+                                    <BR/>
+<TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" >
+  <TR>
+    <TD class="statTextBig" colspan="2">Architect</TD>
+  </TR>
+  <TR>
+    <TD class="statTextBig">Royalty Percentage</TD>
+    <TD class="statTextBig" align="left">100.00%</TD>
+  </TR>
+  <TR>
+    <TD class="statTextBig">Total Payment</TD>
+    <TD class="statTextBig" align="left">$600.00</TD>
+  </TR>
+</TABLE>
+
+
 *Completion of the project is defined as follows: 
                                     <ul>
                                         <li>All tasks assigned by the project manager have been completed. </li>
                                         <li>The deliverables are functioning properly and integrated within the other project software deliverables. </li>
                                         <li>The project manager has signed off on all delivered components. </li>
-                                        <li>Project/task completion is not defined by the timeline listed above.  The dates are to be used as guidelines and may change throughout the project.  Final payment is conditional on the fully functional component as defined in the requirements and by the project manager.</li>
+                                        <li>Project/task completion is not defined by the timeline listed below.  The dates are to be used as guidelines and may change throughout the project.  Final payment is conditional on the fully functional component as defined in the requirements and by the project manager.</li>
                                     </ul>
                                     <b>Eligibility</b>
                                     <BR/>
@@ -148,10 +138,10 @@ You must be a rated TopCoder member, meeting all of the membership requirements 
                                     <b>Time Line</b>
                                     <BR/>
                                     <BR/>            
-The project will begin on the 2nd of April. There will be a Kick-Off conference call to address the following: introduction of all team members, design considerations for the new systems, specific time lines, deliverables, development, and any outstanding issues. The Calendar Component Project is scheduled for completion by April 8th. The April 8th deadline entails integration of the developed components with one another, along with system testing. The total time to deliver will be 2 weeks. 
+There will be a Kick-Off conference call to address the following: introduction of all team members, design considerations for the new systems, specific time lines, deliverables, development, and any outstanding issues. The deadline entails integration of the developed components with one another, along with system testing.
                                     <ul>
-                                        <li>Project Start Date:    April 2, 2002</li>
-                                        <li>Project End Date:      April 8, 2002</li>
+                                        <li>Project Start Date:    April 16, 2002</li>
+                                        <li>Project End Date:      April 23, 2002</li>
                                     </ul>
                                     <a href="Javascript:document.frmInquire.Project.value='PDF Conversion Component Design';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>
           <P><br/></P>

@@ -57,87 +57,153 @@
                                         <span class="statTextBig">File Upload Component Project</span>
                                     </font>
                                     <BR/>
-                                    <a href="Javascript:document.frmInquire.Project.value='File Upload';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>
+                                    <a href="Javascript:document.frmInquire.Project.value='File Upload Component';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>
                                     <BR/>
                                     <BR/>
-                                    <b>Purpose</b>
+                                    <b>Overview</b>
                                     <BR/>
                                     <BR/>            
 The File Upload component will support web-based file uploads.  Files will be received via HTTP requests and will be temporarily saved to the local file system.
                                     <BR/>
                                     <BR/>
-                                    <b>Development</b>
+                                    <b>Functional Overview</b>
                                     <BR/>
                                     <BR/>
-All of the development and system testing will happen on TopCoder designated servers. Team members may develop locally, however, during pre-scheduled milestones they will need to deliver their code to the specified servers. At the point of integration and system testing, all code must be on the TopCoder development servers. The team members will have access to previously written software by the current TopCoder development staff as a source of reference, if needed. TopCoder will supply any software tools that are required to facilitate the development process. 
-                                    <BR/>
-                                    <BR/>
-                                    <b>Provisions</b>
-                                    <BR/>
-                                    <BR/>
-The TopCoder project manager will set project dates, milestones, goals, and deliverables prior to the project's start date. Any member that is chosen to join the File Upload Component Project will have to agree to the specified tasks and dates. If at any point the TopCoder project manager feels that any team member is not accomplishing their task in a timely and acceptable manner they will be removed from the team and a new member will be assigned. In order to join the File Upload Component Project team all members will need to sign a contract agreeing to the specified terms. 
-                                    <BR/>
-                                    <BR/>
-                                    <b>Project Details</b>
-                                    <ul>
-                                        <li>
+There are various file upload utilities that parse an HTTP request object for Multipart data.  (For more information on Multipart data and HTTP see RFC 2616.)  Most of these offerings are limited in their functionality and flexibility.  The File Upload component should meet the following requirements:
+<ul>
+<li>Accept an HTTP request object.</li>
+<li>Parse Multipart data and persist to the file system.</li>
+<li>Provide client access to uploaded documents.</li>
+</ul>
+
                                             <b>Staffing</b>
                                             <BR/>
-Two rated TopCoder Members.
+The component team will consist of 3 rated TopCoder Members.
                                             <ul>
                                                 <li>
-                                                    Developer
-                                                    <ul>
-                                                      <li>
-Component design and development
-                                                      </li>
-                                                    </ul>
+                                                    <b>Architect</b><br/>
+The architect will be responsible for the design of software and test cases that meet all requirements as defined in the requirements documentation and as described by the product manager.  The architect will design the solution such that component reuse is maximized.  The architect will be responsible for testing the functionality of the component, reviewing the deliverables (source code, documentation, schema, etc.) and giving final approval to the Product Manager that the component satisfies the requirements and is implemented correctly.  
                                                 </li>
                                                 <li>
-                                                    QA Developer
-                                                    <ul> 
-                                                      <li>
-Design Beta and QA scripts
-                                                      </li>
-                                                      <li>
-Beta and QA testing
-                                                      </li>
-                                                      <li>
-While the QA Developer is responsible for testing, they will participate in the project in its entirety.
-                                                      </li>
-                                                    </ul>
+                                                    <b>Developer</b><br/>
+The developer will be responsible for developing a solution that meets all requirements detailed in this specification and as specified by the product manager.  The developer's responsibility will begin on the project start date and extend through to Production Deployment.  The majority of the workload will occur between the project Start Date and completion of Beta Testing.  Continued support and component modifications may be required through deployment.
+                                                </li>
+                                                <li>
+                                                    <b>QA Developer</b><br/>
+The QA Developer is responsible for testing the completed component.  Tests should involve both normal and extreme scenarios to simulate production usage.  The developer's responsibility will begin on the project Start Date and extend through to Production Deployment.  The majority of the workload will occur during Beta and QA testing.  In addition to implementing component testing, it is also the QA Developer's responsibility to stay abreast of component design and progress.  In the event the lead Developer cannot complete the project, TopCoder Software fully expects the QA developer to have sufficient knowledge of the component so as to continue and complete development.  
                                                 </li>
                                             </ul>
-                                         </li>
-                                      </ul>
+                                            <b>Technology</b>
+                                            <BR/>
+                                            <ul>
+                                              <li>
+Java 1.3
+                                              </li>
+                                              <li>
+XML, XSL/XSLT
+                                              </li>
+                                              <li>
+HTTP
+                                              </li>
+                                              <li>
+Javascript
+                                              </li>
+                                            </ul>
 
 
 
                                     <b>Payment</b>
                                     <BR/>
                                     <BR/>
-TopCoder will compensate all team members for their work on the project.  
+TopCoder will compensate all team members for their work on the project.  Compensation will consist of both initial payments and royalties on the sale of the component.  The initial payment will be distributed in three installments: at the start of the project; at the completion of the second milestone; and at the completion of the project.  
                                     <BR/>
-                                    Developer
                                     <BR/>
-The developer will get paid a total of $2,100.00 
-                                    <ul>
-                                        <li>$210.00 at the start of the project </li>
-                                        <li>$1,890.00 at the completion of the project* </li>
-                                    </ul>
-                                    QA Developer
+Members will also collect royalties on the revenue generated from the sale of the component.  This amount is determined using the company royalty pool percentage, currently set as 5% of the component's revenue, and the percentage of the developer's contribution to the total contribution for the development of the component.  For example if a developer contributes 50% of the work effort for a component (is paid 50% of the total member cost of developing the component) that developer will receive 50% of the royalty pool for that component.  Royalties may be diluted if additional work is done to the component, as the total cost of the component will increase. 
                                     <BR/>
-The QA developer will get paid a total of $630.00
-                                    <ul>
-                                        <li>$100.00 at the start of the project </li>
-                                        <li>$530.00 at the completion of the project* </li>
-                                    </ul>
+                                    <BR/>
+<TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" >
+  <TR>
+    <TD class="statTextBig" colspan="2">Architect</TD>
+  </TR>
+  <TR>
+    <TD class="statTextBig">Royalty Percentage</TD>
+    <TD class="statTextBig" align="left">19.35%</TD>
+  </TR>
+  <TR>
+    <TD class="statTextBig">Total Payment</TD>
+    <TD class="statTextBig" align="left">$525.00</TD>
+  </TR>
+  <TR>
+    <TD class="statText">First Payment</TD>
+    <TD class="statText" align="left">$52.50</TD>
+  </TR>
+  <TR>
+    <TD class="statText">Second Payment</TD>
+    <TD class="statText" align="left">$210.00</TD>
+  </TR>
+  <TR>
+    <TD class="statText">Final Payment</TD>
+    <TD class="statText" align="left">$262.50</TD>
+  </TR>
+  <TR><TD colspan="2"><BR/></TD></TR>
+  <TR>
+    <TD class="statTextBig" colspan="2">Developer</TD>
+  </TR>
+  <TR>
+    <TD class="statTextBig">Royalty Percentage</TD>
+    <TD class="statTextBig" align="left">64.52%</TD>
+  </TR>
+  <TR>
+    <TD class="statTextBig">Total Payment</TD>
+    <TD class="statTextBig" align="left">$1,750.00</TD>
+  </TR>
+  <TR>
+    <TD class="statText">First Payment</TD>
+    <TD class="statText" align="left">$175.00</TD>
+  </TR>
+  <TR>
+    <TD class="statText">Second Payment</TD>
+    <TD class="statText" align="left">$700.00</TD>
+  </TR>
+  <TR>
+    <TD class="statText">Final Payment</TD>
+    <TD class="statText" align="left">$875.00</TD>
+  </TR>
+  <TR><TD colspan="2"><BR/></TD></TR>
+  <TR>
+    <TD class="statTextBig" colspan="2">Quality Assurance</TD>
+  </TR>
+  <TR>
+    <TD class="statTextBig">Royalty Percentage</TD>
+    <TD class="statTextBig" align="left">16.13%</TD>
+  </TR>
+  <TR>
+    <TD class="statTextBig">Total Payment</TD>
+    <TD class="statTextBig" align="left">$437.00</TD>
+  </TR>
+  <TR>
+    <TD class="statText">First Payment</TD>
+    <TD class="statText" align="left">$43.75</TD>
+  </TR>
+  <TR>
+    <TD class="statText">Second Payment</TD>
+    <TD class="statText" align="left">$175.00</TD>
+  </TR>
+  <TR>
+    <TD class="statText">Final Payment</TD>
+    <TD class="statText" align="left">$218.75</TD>
+  </TR>
+  <TR><TD colspan="2"><BR/></TD></TR>
+
+</TABLE>
+
+
 *Completion of the project is defined as follows: 
                                     <ul>
                                         <li>All tasks assigned by the project manager have been completed. </li>
                                         <li>The deliverables are functioning properly and integrated within the other project software deliverables. </li>
                                         <li>The project manager has signed off on all delivered components. </li>
-                                        <li>Project/task completion is not defined by the timeline listed above.  The dates are to be used as guidelines and may change throughout the project.  Final payment is conditional on the fully functional component as defined in the requirements and by the project manager.</li>
+                                        <li>Project/task completion is not defined by the timeline listed below.  The dates are to be used as guidelines and may change throughout the project.  Final payment is conditional on the fully functional component as defined in the requirements and by the project manager.</li>
                                     </ul>
                                     <b>Eligibility</b>
                                     <BR/>
@@ -151,12 +217,12 @@ You must be a rated TopCoder member, meeting all of the membership requirements 
                                     <b>Time Line</b>
                                     <BR/>
                                     <BR/>            
-The project will begin on the 2nd of April. There will be a Kick-Off conference call to address the following: introduction of all team members, design considerations for the new systems, specific time lines, deliverables, development, and any outstanding issues. The Calendar Component Project is scheduled for completion by April 25th. The April 25th deadline entails integration of the developed components with one another, along with system testing. The total time to deliver will be 2 weeks. 
+There will be a Kick-Off conference call to address the following: introduction of all team members, design considerations for the new systems, specific time lines, deliverables, development, and any outstanding issues. The deadline entails integration of the developed components with one another, along with system testing.
                                     <ul>
-                                        <li>Project Start Date:    April 2, 2002</li>
-                                        <li>Project End Date:      April 25, 2002</li>
+                                        <li>Project Start Date:    April 16, 2002</li>
+                                        <li>Project End Date:      May 9, 2002</li>
                                     </ul>
-                                    <a href="Javascript:document.frmInquire.Project.value='File Upload';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>
+                                    <a href="Javascript:document.frmInquire.Project.value='File Upload Component';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>
           <P><br/></P>
     </TD>
     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

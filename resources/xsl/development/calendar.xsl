@@ -69,45 +69,29 @@ The Calendar component will provide a graphical user interface for navigating a 
                                     <b>Functional Overview</b>
                                     <BR/>
                                     <BR/>
-This component will dynamically build a calendar interface that looks much like a standard monthly calendar.  The end-user will have the ability to navigate across months and years to select a specific date.  
-The component must reference a customizable data source to manage holidays and limit date selection.  The data source is not yet designed; some potential solutions include a relational database or an XML document.  Finally, an HTML interface must be created to administer this data.
+This component will dynamically build a calendar interface that looks much like a standard monthly calendar.  The end-user will have the ability to navigate across months and years to select a specific date.  The component must reference a customizable data source to manage holidays and limit date selection.  The data source is not yet designed; some potential solutions include a relational database or an XML document.  Finally, an HTML interface must be created to administer this data.
                                     <BR/>
                                     <BR/>
 The graphical interface for this implementation for the Calendar component will be an HTML "pop-up" window.
                                     <BR/>
                                     <BR/>
-                                    <b>Project Details</b>
-                                    <ul>
-                                        <li>
                                             <b>Staffing</b>
                                             <BR/>
-Two rated TopCoder Members
+The component team will consist of 3 rated TopCoder Members.
                                             <ul>
                                                 <li>
-                                                    Developer
-                                                    <ul>
-                                                      <li>
-Component design, developement, documentation
-                                                      </li>
-                                                    </ul>
+                                                    <b>Architect</b><br/>
+The architect will be responsible for the design of software and test cases that meet all requirements as defined in the requirements documentation and as described by the product manager.  The architect will design the solution such that component reuse is maximized.  The architect will be responsible for testing the functionality of the component, reviewing the deliverables (source code, documentation, schema, etc.) and giving final approval to the Product Manager that the component satisfies the requirements and is implemented correctly.  
                                                 </li>
                                                 <li>
-                                                    QA Developer
-                                                    <ul> 
-                                                      <li>
-Design Bean and QA scripts
-                                                      </li>
-                                                      <li>
-Beta and QA testing
-                                                      </li>
-                                                      <li>
-While the QA Developer is responsible for testing, they will participate in the project in its entirety.
-                                                      </li>
-                                                    </ul>
+                                                    <b>Developer</b><br/>
+The developer will be responsible for developing a solution that meets all requirements detailed in this specification and as specified by the product manager.  The developer's responsibility will begin on the project start date and extend through to Production Deployment.  The majority of the workload will occur between the project Start Date and completion of Beta Testing.  Continued support and component modifications may be required through deployment.
+                                                </li>
+                                                <li>
+                                                    <b>QA Developer</b><br/>
+The QA Developer is responsible for testing the completed component.  Tests should involve both normal and extreme scenarios to simulate production usage.  The developer's responsibility will begin on the project Start Date and extend through to Production Deployment.  The majority of the workload will occur during Beta and QA testing.  In addition to implementing component testing, it is also the QA Developer's responsibility to stay abreast of component design and progress.  In the event the lead Developer cannot complete the project, TopCoder Software fully expects the QA developer to have sufficient knowledge of the component so as to continue and complete development.  
                                                 </li>
                                             </ul>
-                                         </li>
-                                         <li>
                                             <b>Technology</b>
                                             <BR/>
                                             <ul>
@@ -124,31 +108,95 @@ HTTP
 Javascript
                                               </li>
                                             </ul>
-                                         </li>
-                                      </ul>
 
 
 
                                     <b>Payment</b>
                                     <BR/>
                                     <BR/>
-TopCoder will compensate all team members for their work on the Calendar Component Project.
+TopCoder will compensate all team members for their work on the project.  Compensation will consist of both initial payments and royalties on the sale of the component.  The initial payment will be distributed in three installments: at the start of the project; at the completion of the second milestone; and at the completion of the project.  
                                     <BR/>
                                     <BR/>
-                                    Developer
+Members will also collect royalties on the revenue generated from the sale of the component.  This amount is determined using the company royalty pool percentage, currently set as 5% of the component's revenue, and the percentage of the developer's contribution to the total contribution for the development of the component.  For example if a developer contributes 50% of the work effort for a component (is paid 50% of the total member cost of developing the component) that developer will receive 50% of the royalty pool for that component.  Royalties may be diluted if additional work is done to the component, as the total cost of the component will increase. 
                                     <BR/>
-                                    The developer will get paid a total of $1200.00 
-                                    <ul>
-                                        <li>$150.00 at the start of the project</li>
-                                        <li>$1050.00 at the completion of the project* </li>
-                                    </ul>
-                                    QA Developer
                                     <BR/>
-                                    The QA Developer will get paid a total of $240.00
-                                    <ul>
-                                        <li>$100.00 at the start of the project </li>
-                                        <li>$140.00 at the completion of project* </li>
-                                    </ul>
+<TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" >
+  <TR>
+    <TD class="statTextBig" colspan="2">Architect</TD>
+  </TR>
+  <TR>
+    <TD class="statTextBig">Royalty Percentage</TD>
+    <TD class="statTextBig" align="left">19.35%</TD>
+  </TR>
+  <TR>
+    <TD class="statTextBig">Total Payment</TD>
+    <TD class="statTextBig" align="left">$150.00</TD>
+  </TR>
+  <TR>
+    <TD class="statText">First Payment</TD>
+    <TD class="statText" align="left">$15.00</TD>
+  </TR>
+  <TR>
+    <TD class="statText">Second Payment</TD>
+    <TD class="statText" align="left">$60.00</TD>
+  </TR>
+  <TR>
+    <TD class="statText">Final Payment</TD>
+    <TD class="statText" align="left">$75.00</TD>
+  </TR>
+  <TR><TD colspan="2"><BR/></TD></TR>
+  <TR>
+    <TD class="statTextBig" colspan="2">Developer</TD>
+  </TR>
+  <TR>
+    <TD class="statTextBig">Royalty Percentage</TD>
+    <TD class="statTextBig" align="left">64.52%</TD>
+  </TR>
+  <TR>
+    <TD class="statTextBig">Total Payment</TD>
+    <TD class="statTextBig" align="left">$500.00</TD>
+  </TR>
+  <TR>
+    <TD class="statText">First Payment</TD>
+    <TD class="statText" align="left">$50.00</TD>
+  </TR>
+  <TR>
+    <TD class="statText">Second Payment</TD>
+    <TD class="statText" align="left">$200.00</TD>
+  </TR>
+  <TR>
+    <TD class="statText">Final Payment</TD>
+    <TD class="statText" align="left">$250.00</TD>
+  </TR>
+  <TR><TD colspan="2"><BR/></TD></TR>
+  <TR>
+    <TD class="statTextBig" colspan="2">Quality Assurance</TD>
+  </TR>
+  <TR>
+    <TD class="statTextBig">Royalty Percentage</TD>
+    <TD class="statTextBig" align="left">16.13%</TD>
+  </TR>
+  <TR>
+    <TD class="statTextBig">Total Payment</TD>
+    <TD class="statTextBig" align="left">$125.00</TD>
+  </TR>
+  <TR>
+    <TD class="statText">First Payment</TD>
+    <TD class="statText" align="left">$12.50</TD>
+  </TR>
+  <TR>
+    <TD class="statText">Second Payment</TD>
+    <TD class="statText" align="left">$50.00</TD>
+  </TR>
+  <TR>
+    <TD class="statText">Final Payment</TD>
+    <TD class="statText" align="left">$62.50</TD>
+  </TR>
+  <TR><TD colspan="2"><BR/></TD></TR>
+
+</TABLE>
+
+
 *Completion of the project is defined as follows: 
                                     <ul>
                                         <li>All tasks assigned by the project manager have been completed. </li>
@@ -168,10 +216,10 @@ You must be a rated TopCoder member, meeting all of the membership requirements 
                                     <b>Time Line</b>
                                     <BR/>
                                     <BR/>            
-The project will begin on the 2nd of April. There will be a Kick-Off conference call to address the following: introduction of all team members, design considerations for the new systems, specific time lines, deliverables, development, and any outstanding issues. The Calendar Component Project is scheduled for completion by April 15th. The April 15th deadline entails integration of the developed components with one another, along with system testing. The total time to deliver will be 2 weeks. 
+There will be a Kick-Off conference call to address the following: introduction of all team members, design considerations for the new systems, specific time lines, deliverables, development, and any outstanding issues. The deadline entails integration of the developed components with one another, along with system testing.
                                     <ul>
-                                        <li>Project Start Date:    April 2, 2002</li>
-                                        <li>Project End Date:      April 15, 2002</li>
+                                        <li>Project Start Date:    April 16, 2002</li>
+                                        <li>Project End Date:      April 30, 2002</li>
                                     </ul>
                                     <a href="Javascript:document.frmInquire.Project.value='Calendar';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>
           <P><br/></P>
