@@ -49,10 +49,10 @@
 			- <A HREF="/index?t=tournament&amp;c=invit02_semiroom4#photo" CLASS="bodyText">Photos</A><BR/>
 			</TD>									
 			<TD VALIGN="top" CLASS="bodyText" NOWRAP="0">&#160;&#160;<B>Championship:</B><BR/>
-			- <A HREF="/index?t=tournament&amp;c=invit02_champ" CLASS="bodyText"></A>Summary<BR/>
-			- <A HREF="/index?t=tournament&amp;c=invit02_champprob" CLASS="bodyText"></A>Problems<BR/>			
-			- <A HREF="/index?t=tournament&amp;c=invit02_champprob#log" CLASS="bodyText"></A>Log<BR/>
-			- <A HREF="/index?t=tournament&amp;c=invit02_champ#photo" CLASS="bodyText"></A>Photos<BR/>
+			- <A HREF="/index?t=tournament&amp;c=invit02_champ" CLASS="bodyText">Summary</A><BR/>
+			- <A HREF="/index?t=tournament&amp;c=invit02_champprob" CLASS="bodyText">Problems</A><BR/>			
+			- <A HREF="/index?t=tournament&amp;c=invit02_champprob#log" CLASS="bodyText">Log</A><BR/>
+			- <A HREF="/index?t=tournament&amp;c=invit02_champ#photo" CLASS="bodyText">Photos</A><BR/>
 			</TD>						
         </TR>
 		<TR><TD VALIGN="top" COLSPAN="3" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>    		
