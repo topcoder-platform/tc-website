@@ -42,8 +42,9 @@
      <br><br>
    </DIV>
 
-   <!-- web-app debug time stack trace  BEGIN -->
 
+   <!-- web-app debug time stack trace  BEGIN -->
+<%--
    <br><hr><b><i>Trace information is provided for web application debug time only</i></b><br>
    <pre>
    <% Exception excCaught = (Exception)request.getAttribute("caught-exception");
@@ -52,6 +53,7 @@
       }
    %>
    </pre><hr>
+--%>
 
    <!-- web-app debug time stack trace END -->
  </TD>
