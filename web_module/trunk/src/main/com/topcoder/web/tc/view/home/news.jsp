@@ -6,6 +6,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.30.05<br>11:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">TCCC05 <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_des_finals">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_dev_finals">Development</A> Finals details available.</span><br><br>
+      This includes submissions, scores, reviews, and tests.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_des_finals">Design</A>&#160;|&#160;<A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_dev_finals">Development</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.28.05<br>9:50 AM</td>
       <td class="newsTextCell"><span class="newsTitle">Steven Skiena's TCCC05 Presentation: <A href="/i/tournament/tccc05/onsite_movies/skiena1.mov">Part 1</A>&#160;|&#160;<A href="/i/tournament/tccc05/onsite_movies/skiena2.mov">Part 2</A>&#160;|&#160;<A href="/i/tournament/tccc05/onsite_movies/skiena3.mov">Part 3</A>&#160;|&#160;<A href="/i/tournament/tccc05/onsite_movies/skiena4.mov">Part 4</A></span><br><br>
       Listen to the entire presentation by TCCC05 speaker, Steven Skiena.
@@ -235,18 +247,6 @@
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_room2_analysis">full story</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.10.05<br>3:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_room1_analysis">tomek takes Room 1</A></span><br><br>
-      In the end, tomek won as expected, and misof and ante moved on to the wildcard round.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_room1_analysis">full story</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
