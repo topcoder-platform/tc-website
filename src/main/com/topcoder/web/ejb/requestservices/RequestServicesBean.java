@@ -14,8 +14,7 @@ public class RequestServicesBean extends BaseEJB {
 
     private final static Logger log = Logger.getLogger(RequestServicesBean.class);
 
-    public void createRequest(long userId, String url, String dataSource)
-            throws EJBException {
+    public void createRequest(long userId, String url, String dataSource) {
         log.debug("createRequest called. url: " + url
                 + " userId: " + userId);
         int ret = insert("request",
@@ -29,8 +28,7 @@ public class RequestServicesBean extends BaseEJB {
         }
     }
 
-    public void createRequest(String url, String dataSource)
-            throws EJBException {
+    public void createRequest(String url, String dataSource) {
         log.debug("createRequest called. url: " + url);
         int ret = insert("request",
                 new String[] {"url"},
