@@ -63,10 +63,8 @@
                         <p>For the Reps who get over 30 people to register at TopCoder and compete in the Qualifying Round of the 2004 TCCC, we will also 
                         send a $50 gift certificate to be used at the TopCoder Online Store, which will feature exclusive TopCoder apparel.</p>
                         
-                        <p>If you are interested in being a Student Rep, here's what you need to do:</br>
-                            1.  <a href="mailto:mluce@topcoder.com?subject=TopCoder Student Reps">Contact us</a> that you're willing to take the position for your campus.</br>
-                            2.  Include your mailing address in the e-mail.  This will be the address where the posters are sent.</br>
-                            3.  Include how many posters you want - they come in packages of 10.</p>
+                        <p><a href="mailto:mluce@topcoder.com?subject=TopCoder Student Reps">Contact us</a> to become a Student Rep for your College now!</p>
+                          
                     </td>
                         
 
