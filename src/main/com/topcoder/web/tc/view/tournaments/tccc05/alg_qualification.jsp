@@ -1,3 +1,6 @@
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 java.util.Map,
+                 com.topcoder.shared.dataAccess.DataAccessConstants"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
