@@ -13,6 +13,7 @@ import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.shared.util.*;
+import com.topcoder.web.corp.ejb.coder.*;
 
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -53,6 +54,14 @@ public class Submit extends FullRegSubmit {
     
     protected UserPrincipal store(SimpleRegInfo regInfo, UserPrincipal newUser) throws Exception {
         UserPrincipal ret = super.storeWithoutCoder(regInfo, newUser);
+        
+        //need to add coder record to avoid breaking a bunch of foreign keys
+        CoderHome cHome = (CoderHome)
+                PortableRemoteObject.narrow(
+                        getInitialContext().lookup(CoderHome.class.getName()), CoderHome.class);
+        Coder coder = cHome.create();
+        coder.createCoder(newUser.getId(), 1);
+        
         ret = super.storeQuestions(regInfo, ret);
         
         //check for resume save
