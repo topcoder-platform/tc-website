@@ -450,7 +450,6 @@ public class Registration
             if (isRegister()) {
                 this.schoolState = state;
                 this.referralSchoolState = state;
-                this.compCountry = country;
             } else {
                 if (isEmpty(this.compCountry)) addError(COMP_COUNTRY, "Please fill in the country you would like to represen.");
             }
@@ -656,9 +655,10 @@ public class Registration
                 setState(value);
             else if (name.equalsIgnoreCase(ZIP))
                 setZip(value);
-            else if (name.equalsIgnoreCase(COUNTRY))
+            else if (name.equalsIgnoreCase(COUNTRY)) {
                 setCountry(value);
-            else if (name.equalsIgnoreCase(COMP_COUNTRY))
+                if (isRegister()) setCompCountry(value);
+            }else if (name.equalsIgnoreCase(COMP_COUNTRY))
                 setCompCountry(value);
             else if (name.equalsIgnoreCase(PHONE))
                 setPhone(value);
