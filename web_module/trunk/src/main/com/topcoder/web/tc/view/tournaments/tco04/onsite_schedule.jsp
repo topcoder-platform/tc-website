@@ -98,12 +98,18 @@
                 </tr>
                 
                 <tr>
+                    <td class="bodyText" bgcolor="#EEEEEE">9:00am - 3:30pm</td>
+                    <td class="bodyText" bgcolor="#EEEEEE">TCO Spectator Showdown</td>
+                </tr>
+                
+                <tr>
                     <td class="bodyText">10:00am - 11:45am</td>
                     <td class="bodyText">Algorithm Wildcard Round</td>
                 </tr>
                 
+                
                 <tr>
-                    <td class="bodyText" bgcolor="#EEEEEE">12:00pm - 1:00pm</td>
+                    <td class="bodyText" bgcolor="#EEEEEE">11:45am - 1:00pm</td>
                     <td class="bodyText" bgcolor="#EEEEEE">Lunch </td>
                 </tr>
                 
@@ -124,7 +130,7 @@
                 
                 <tr>
                     <td class="bodyText" bgcolor="#FF5F00"><strong><font color="#FFFFFF">4:45pm - 5:00pm</font></strong></td>
-                    <td class="bodyText" bgcolor="#FF5F00"><strong><font color="#FFFFFF">All Champion Announcements</font></strong></td>
+                    <td class="bodyText" bgcolor="#FF5F00"><strong><font color="#FFFFFF">All Champion Announcements - Spectator Showdown, <br/>Component Competition, Algorithm Competition</font></strong></td>
                 </tr>
                 
                 <tr>
