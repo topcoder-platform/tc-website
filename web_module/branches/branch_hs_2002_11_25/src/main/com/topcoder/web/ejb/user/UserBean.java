@@ -63,7 +63,7 @@ public class UserBean implements SessionBean {
       ps=con.prepareStatement(query.toString());
       ps.setLong(1,_user_id);
       ps.setString(2,_handle);
-      ps.setString(3,Character.toString(_status));
+      ps.setString(3,""+_status);
 
       int rc=ps.executeUpdate();
       if (rc!=1) {
