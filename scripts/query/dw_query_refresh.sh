@@ -275,7 +275,10 @@ p.path || i.file_name as image_path,
    AND cix.coder_id = @cr@
    AND cix.display_flag = 1
    AND i.image_type_id = 1) as has_image,
-TO_CHAR(c.member_since, '%iY-%m-%d') as member_since_date
+TO_CHAR(c.member_since, '%iY-%m-%d') as member_since_date,
+(SELECT SUM(CASE WHEN payment_type_id = 5 THEN 1 ELSE 0 END)
+ FROM room_result
+ WHERE coder_id = @cr@) AS charity_payments
 FROM coder_problem_summary cps JOIN coder c ON cps.coder_id = c.coder_id
                                 AND cps.coder_id = @cr@
                                JOIN rating r ON c.coder_id = r.coder_id
@@ -486,7 +489,8 @@ cal.date,
 c.name,
 rr.room_placed, 
 rr.paid,
-rr.room_id
+rr.room_id,
+rr.payment_type_desc
 FROM contest c, round r, calendar cal, room_result rr
 WHERE rr.coder_id = @cr@
 AND rr.paid > 0.0
@@ -871,4 +875,62 @@ SELECT p.class_name as class_name
    AND cp.round_id = rr.round_id
    AND cp.division_id = rr.division_id
  GROUP BY cp.level_id, p.class_name, cp.level_desc
+"
+
+
+java com.topcoder.utilities.QueryLoader "DW" 50 "Rating_History_Graph" 0 0 "
+ SELECT c.name as contest_name
+ ,c.contest_id as contest_id
+ ,r.name as round_name
+ ,r.round_id as round_id
+ ,rr.new_rating as rating
+ ,cal.date as date
+ FROM room_result rr
+ ,contest c
+ ,round r
+ ,calendar cal
+ WHERE rr.coder_id = @cr@
+ AND rr.round_id = r.round_id
+ AND c.contest_id = r.contest_id
+ AND r.calendar_id = cal.calendar_id
+ ORDER BY cal.date
+"
+
+java com.topcoder.utilities.QueryLoader "DW" 51 "Rating_Distribution_Graph" 0 0 "
+SELECT sum(case when rating between 0000 and 0099 then 1 else 0 end) as group01
+ ,sum(case when rating between 0100 and 0199 then 1 else 0 end) as group02
+ ,sum(case when rating between 0200 and 0299 then 1 else 0 end) as group03
+ ,sum(case when rating between 0300 and 0399 then 1 else 0 end) as group04
+ ,sum(case when rating between 0400 and 0499 then 1 else 0 end) as group05
+ ,sum(case when rating between 0500 and 0599 then 1 else 0 end) as group06
+ ,sum(case when rating between 0600 and 0699 then 1 else 0 end) as group07
+ ,sum(case when rating between 0700 and 0799 then 1 else 0 end) as group08
+ ,sum(case when rating between 0800 and 0899 then 1 else 0 end) as group09
+ ,sum(case when rating between 0900 and 0999 then 1 else 0 end) as group10
+ ,sum(case when rating between 1000 and 1099 then 1 else 0 end) as group11
+ ,sum(case when rating between 1100 and 1199 then 1 else 0 end) as group12
+ ,sum(case when rating between 1200 and 1299 then 1 else 0 end) as group13
+ ,sum(case when rating between 1300 and 1399 then 1 else 0 end) as group14
+ ,sum(case when rating between 1400 and 1499 then 1 else 0 end) as group15
+ ,sum(case when rating between 1500 and 1599 then 1 else 0 end) as group16
+ ,sum(case when rating between 1600 and 1699 then 1 else 0 end) as group17
+ ,sum(case when rating between 1700 and 1799 then 1 else 0 end) as group18
+ ,sum(case when rating between 1800 and 1899 then 1 else 0 end) as group19
+ ,sum(case when rating between 1900 and 1999 then 1 else 0 end) as group20
+ ,sum(case when rating between 2000 and 2099 then 1 else 0 end) as group21
+ ,sum(case when rating between 2100 and 2199 then 1 else 0 end) as group22
+ ,sum(case when rating between 2200 and 2299 then 1 else 0 end) as group23
+ ,sum(case when rating between 2300 and 2399 then 1 else 0 end) as group24
+ ,sum(case when rating between 2400 and 2499 then 1 else 0 end) as group25
+ ,sum(case when rating between 2500 and 2599 then 1 else 0 end) as group26
+ ,sum(case when rating between 2600 and 2699 then 1 else 0 end) as group27
+ ,sum(case when rating between 2700 and 2799 then 1 else 0 end) as group28
+ ,sum(case when rating between 2800 and 2899 then 1 else 0 end) as group29
+ ,sum(case when rating >2899 then 1 else 0 end) as group30
+ FROM coder c
+ ,rating r
+ WHERE c.coder_id = r.coder_id
+ AND status = 'A'
+ AND num_ratings > 0
+ AND rating > 0
 "

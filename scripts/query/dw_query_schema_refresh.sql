@@ -29,6 +29,8 @@ INSERT INTO command VALUES(22,"top_room_winners");
 INSERT INTO command VALUES(23,"top_ranked_div_1");
 INSERT INTO command VALUES(24,"top_ranked_div_2");
 INSERT INTO command VALUES(25,"div_2_problem_level_stats");
+INSERT INTO command VALUES(26,"rating_history_graph");
+INSERT INTO command VALUES(27,"rating_distribution_graph");
 
 INSERT INTO command_query_xref VALUES(1, 1, 1);
 INSERT INTO command_query_xref VALUES(1, 2, 2);
@@ -82,6 +84,8 @@ INSERT INTO command_query_xref VALUES(22, 46, 1);
 INSERT INTO command_query_xref VALUES(23, 47, 1);
 INSERT INTO command_query_xref VALUES(24, 48, 1);
 INSERT INTO command_query_xref VALUES(25, 49, 1);
+INSERT INTO command_query_xref VALUES(26, 50, 1);
+INSERT INTO command_query_xref VALUES(27, 51, 1);
 
 INSERT INTO input_lu VALUES(1, "rd", 1001, "Round ID");
 INSERT INTO input_lu VALUES(2, "rm", 1001, "Room ID");
@@ -100,6 +104,7 @@ INSERT INTO input_lu VALUES(14, "em", 1001, "End room");
 INSERT INTO input_lu VALUES(15, "sc", 1001, "Sort column");
 INSERT INTO input_lu VALUES(16, "sd", 1004, "Sort direction");
 INSERT INTO input_lu VALUES(17, "cu", 1001, "Current User ID");
+INSERT INTO input_lu VALUES(18, "ra", 1001, "Rating");
 
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (1, "Y", "$26", 1, 1);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (1, "Y", "1", 11, 2);
@@ -203,4 +208,6 @@ INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (48, "Y", 1, 8, 1);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (48, "Y", 10, 9, 2);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (49, "Y", "$26", 1, 1);
+INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (50, "N", null, 3, 1);
+INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (51, "Y", 0, 18, 1);
 
