@@ -214,6 +214,7 @@ public abstract class Base extends BaseProcessor {
         out.println("            <td><img src=\"/i/corp/screening/bodyTR.gif\" alt=\"\"/></td>");
         out.println("         </tr>");
         out.println("         <tr>");
+        out.println("            <td class=bodyL>&#160;</td>");
         out.println("            <td class=bodyContent>");
         out.println("            <br /><br />");
         out.println("               <table cellspacing=0 cellpadding=5 border=0 class=processingTable>");
@@ -222,7 +223,9 @@ public abstract class Base extends BaseProcessor {
         out.println("                     <td><img src=\"/i/corp/screening/processing.gif\" alt=\"\"/></td>");
         out.println("                  </tr>");
         out.println("               </table>");
+        out.println("            <br /><br />");
         out.println("            </td>");
+        out.println("            <td class=bodyR>&#160;</td>");
         out.println("         </tr>");
         out.println("         <tr>");
         out.println("            <td><img src=\"/i/corp/screening/bodyBL.gif\" alt=\"\"/></td>");
