@@ -2,6 +2,7 @@ package com.topcoder.web.corp.controller;
 
 import java.io.IOException;
 
+import javax.naming.InitialContext;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.AppContext;
 import com.topcoder.web.common.RequestProcessor;
 
 /**
@@ -36,12 +38,14 @@ public class MainServlet extends HttpServlet {
     
     private static final String KEY_MODULE      = "module";
     private static final String KEY_ERRPAGE     = "generic-error";
+	private static final String KEY_CFG_CONTEXT = "config-context";
     private static final String KEY_EXCEPTION   = "caught-exception";
-    
+
     private static final String PFX_PROCMODULE  = "processor-";
     private static final String PFX_PAGE        = "page-";
     
     private ServletConfig servletConfig;
+    private InitialContext jndiInitialContext = null;
     
     /**
      * Initializes the servlet. What content will be feed is defined from
@@ -51,6 +55,14 @@ public class MainServlet extends HttpServlet {
      * */
     public void init() throws ServletException {
     	servletConfig = getServletConfig();
+    	String propsFileName = servletConfig.getServletContext().getRealPath(servletConfig.getInitParameter(KEY_CFG_CONTEXT));
+    	
+    	try {
+	    	jndiInitialContext = AppContext.getInstance(propsFileName).getJndiInitialContext();
+    	}
+    	catch(Exception e) {
+    		log.error("can't get initial context", e);
+    	}
         //com.topcoder.web.query.common.Constants.init(getServletConfig());
     }
 

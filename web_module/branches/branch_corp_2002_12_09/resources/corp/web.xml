@@ -11,6 +11,14 @@
   <description>Main Controller of Topcoder Corporate</description>
   <servlet-class>com.topcoder.web.corp.controller.MainServlet</servlet-class>
 
+  <!---
+     |
+     | Reqests' processors descriptors
+     | Name must be <prefix><name> where prefix == 'processor-'
+     | and name it that will be specified in target url as 'module=<name>' parameter.
+     | Value is class name for RequestProcessor implementor
+     |
+  -->
   <init-param>
     <param-name>processor-static</param-name>
     <param-value>com.topcoder.web.corp.request.Static</param-value>
@@ -29,6 +37,23 @@
     <description>handles user list page</description>
   </init-param>
 
+  <init-param>
+    <param-name>processor-try</param-name>
+    <param-value>com.topcoder.web.corp.request.TrySecurity</param-value>
+    <description>handles user list page</description>
+  </init-param>
+
+  <!---
+     |
+     |
+     |
+  -->
+  <init-param>
+    <param-name>config-context</param-name>
+    <param-value>/WEB-INF/app-context.properties</param-value>
+    <description>configures some general things for application: jndi, etc</description>
+  </init-param>
+  
   <init-param>
     <!--
          this page will be accessed via forward only, so it must be specified

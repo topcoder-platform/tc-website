@@ -63,7 +63,7 @@ public class Registration extends BaseProcessor {
     		nextPage = "/reg/prim-reg.jsp";
     		return;
     	}
-    		
+    	
     	//log.debug("business processing ("+request.getMethod()+")");
     	// well, user filled the form
     	// and possible he thinks that it is allright

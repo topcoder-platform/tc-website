@@ -551,6 +551,7 @@
             </lib>
             <webinf dir="${resources}/corp">
                 <include name="tc-webtags.tld"/>
+                <include name="*.properties"/>
             </webinf>
             <zipfileset dir="${java}/com/topcoder/web/corp/view/" includes="**/*" prefix=""/>
             <zipfileset dir="${ejb_jars}" includes="*.jar" prefix="WEB-INF/ejb"/>
@@ -594,11 +595,12 @@
     
     <target name="corp-ejb-all" depends="compile">
         <!-- Company ejb -->
+<!--
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="company"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/company"/>
         </antcall>
-        
+-->        
         
     </target>
     
