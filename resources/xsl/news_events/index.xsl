@@ -55,7 +55,7 @@
 						<TR><TD VALIGN="middle" CLASS="smallText" COLSPAN="2" HEIGHT="18">&#160;<!--<A HREF="/index?t=news_events&amp;c=index" CLASS="smallText">&#160;Press Release 2002</A>--></TD></TR>
 						<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="2" BGCOLOR="#333333" HEIGHT="18">&#160;LATEST NEWS</TD></TR>
 						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
-        <TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;05.28.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_05_28_02" CLASS="bodyText">TopCoder Adds China, New Zealand and Ireland To Its Developer Community</A></TD></TR>
+        <TR><TD VALIGN="top" CLASS="bodyText" HEIGHT="14">&#160;05.28.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_05_28_02" CLASS="bodyText">TopCoder Adds China, New Zealand and Ireland To Its Developer Community</A></TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;05.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=article_drdobbs2" CLASS="bodyText">And the winner is...</A></TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.11.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_04_11_02" CLASS="bodyText">Student seeks top computer title</A></TD></TR>		
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.11.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_04_11_02b" CLASS="bodyText">BHS grad has shot at winning $100,000 in computer contest</A></TD></TR>		

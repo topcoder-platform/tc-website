@@ -73,11 +73,10 @@ Inquiry Deadline: TBD<BR/>
 </P>
 
 <P>
-Project: <A HREF="/index?t=development&amp;c=calendar_comp" CLASS="statTextBig">Calendar Component</A><BR/>
+Project: <A HREF="/index?t=development&amp;c=calendar_comp" CLASS="statText">Calendar Component</A><BR/>
 Start Date: June 5, 2002<BR/>
 End Date: June 28, 2002<BR/>
-Member Selection: <b>Open</b><BR/>
-Inquiry Deadline: June 4, 2002<BR/>
+Member Selection: Closed<BR/>
 </P>
 
 <P>
