@@ -90,7 +90,7 @@ The Problems
 
 <font size="+2"> 
 <b>TireRotation</b> 
-</font><br /> 
+</font><A href="Javascript:openProblemRating(1791)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division Two - Level One: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
@@ -159,7 +159,7 @@ int getCycle(string initial, string current)
 
 <font size="+2"> 
 <b>BaseMystery</b> 
-</font><br /> 
+</font><A href="Javascript:openProblemRating(1789)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division Two - Level Two: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
@@ -302,7 +302,7 @@ bases.
 
 <font size="+2"> 
 <b>Gems</b> 
-</font><br /> 
+</font><A href="Javascript:openProblemRating(1767)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division Two - Level Three: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
@@ -365,7 +365,7 @@ ones just above or to the left of the lower right corner.
 
 <font size="+2"> 
 <b>StampPads</b> 
-</font><br /> 
+</font><A href="Javascript:openProblemRating(1676)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division One - Level Two: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
@@ -430,7 +430,7 @@ bits, then we must return -1.
 
 <font size="+2"> 
 <b>Jumper</b> 
-</font><br /> 
+</font><A href="Javascript:openProblemRating(1157)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division One - Level Three: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 

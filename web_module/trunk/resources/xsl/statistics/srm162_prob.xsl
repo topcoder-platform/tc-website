@@ -95,7 +95,7 @@ The Problems
 
 <font size="+2"> 
 <b>LCMRange</b> 
-</font><br/> 
+</font><A href="Javascript:openProblemRating(1792)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division Two - Level One: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
@@ -176,7 +176,7 @@ return ret;
 
 <font size="+2"> 
 <b>PaperFold</b> 
-</font><br/> 
+</font><A href="Javascript:openProblemRating(1846)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division Two - Level Two: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
@@ -289,7 +289,7 @@ instead of dividing the paper by 2 for each fold.
 
 <font size="+2"> 
 <b>SMBus</b> 
-</font><br/> 
+</font><A href="Javascript:openProblemRating(1841)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division Two - Level Three: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
@@ -350,7 +350,7 @@ transmitted their messages.
 
 <font size="+2"> 
 <b>JarBox</b> 
-</font><br/> 
+</font><A href="Javascript:openProblemRating(1586)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division One - Level Two: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
@@ -452,7 +452,7 @@ We then take the maximum of these values.
 
 <font size="+2"> 
 <b>PermutationCounter</b> 
-</font><br/> 
+</font><A href="Javascript:openProblemRating(1752)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division One - Level Three: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 

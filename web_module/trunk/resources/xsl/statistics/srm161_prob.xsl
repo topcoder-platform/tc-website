@@ -86,8 +86,9 @@ position as the highest rated coder ever. In Division 2, Javaholic finished all
 of the problems well before anyone else, but his medium failed systests allowing 
 Chaotica to take the top spot. </P>
 <H1>The Problems </H1>
-<P></P><FONT size="+2"><B>CardCount</B> </FONT><br />Used as: Division Two - Level 
-One: 
+<P></P><FONT size="+2"><B>CardCount</B> 
+</FONT><A href="Javascript:openProblemRating(1800)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
+Used as: Division Two - Level One: 
 <BLOCKQUOTE>
   <TABLE cellSpacing="2">
     <TBODY>
@@ -133,7 +134,9 @@ information, is to check whether to deal another round. Java code follows:
     return players;
 }
 </PRE>
-<P></P><FONT size="+2"><B>StringTrain</B> </FONT><br />Used as: Division Two - Level 
+<P></P><FONT size="+2"><B>StringTrain</B> 
+</FONT><A href="Javascript:openProblemRating(1801)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
+Used as: Division Two - Level 
 Two: 
 <BLOCKQUOTE>
   <TABLE cellSpacing="2">
@@ -181,7 +184,9 @@ follows:
     return Train.length()+" "+ret;
 }
 </PRE>
-<P></P><FONT size="+2"><B>TennisRallies</B> </FONT><br />Used as: Division Two - 
+<P></P><FONT size="+2"><B>TennisRallies</B> 
+</FONT><A href="Javascript:openProblemRating(1802)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
+Used as: Division Two - 
 Level Three: 
 <BLOCKQUOTE>
   <TABLE cellSpacing="2">
@@ -320,7 +325,9 @@ index is k, it considers strings that have either 'c' or 'd' in position k. The
 concept lurking between the lines of code states that all strings can be divided 
 in to 2 groups. Strings with 'c' in position k, and strings with 'd' in position 
 k. 
-<P></P><FONT size="+2"><B>IsHomomorphism</B> </FONT><br />Used as: Division One - 
+<P></P><FONT size="+2"><B>IsHomomorphism</B> 
+</FONT><A href="Javascript:openProblemRating(1807)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
+Used as: Division One - 
 Level One: 
 <BLOCKQUOTE>
   <TABLE cellSpacing="2">
@@ -382,7 +389,9 @@ target matrix. Java code follows: <PRE>public String[] numBad(String[] source, S
 }
 </PRE>
 </P>
-<P></P><FONT size="+2"><B>PermutationValues</B> </FONT><br />Used as: Division One - 
+<P></P><FONT size="+2"><B>PermutationValues</B> 
+</FONT><A href="Javascript:openProblemRating(1752)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
+Used as: Division One - 
 Level Three: 
 <BLOCKQUOTE>
   <TABLE cellSpacing="2">

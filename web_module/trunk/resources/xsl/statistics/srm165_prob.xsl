@@ -109,7 +109,7 @@ The Problems
 
 <font size="+2"> 
 <b>BritishCoins</b>
-</font><A href="Javascript:openProblemRating(1246)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
+</font><A href="Javascript:openProblemRating(1862)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division Two - Level One: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
@@ -189,7 +189,7 @@ Alternatively, we can write all the math in a single line as
 
 <font size="+2"> 
 <b>ParallelSpeedup</b> 
-</font><A href="Javascript:openProblemRating(1247)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
+</font><A href="Javascript:openProblemRating(1866)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division Two - Level Two: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
@@ -332,7 +332,7 @@ See, for example, <b>Yarin</b>'s and <b>ChristopherH</b>'s solutions.
 
 <font size="+2"> 
 <b>ShortPalindromes</b> 
-</font><A href="Javascript:openProblemRating(1248)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
+</font><A href="Javascript:openProblemRating(1861)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division Two - Level Three: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
@@ -437,7 +437,7 @@ See newcomer <b>moggy</b>'s solution for a nice example of this approach.
 
 <font size="+2"> 
 <b>ContinuedFractions</b> 
-</font><A href="Javascript:openProblemRating(1255)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
+</font><A href="Javascript:openProblemRating(1630)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division One - Level Two: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
@@ -590,7 +590,7 @@ the remaining elements
 
 <font size="+2"> 
 <b>Scheduling</b> 
-</font><A href="Javascript:openProblemRating(1255)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
+</font><A href="Javascript:openProblemRating(1879)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division One - Level Three: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 

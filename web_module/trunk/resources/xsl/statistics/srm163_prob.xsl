@@ -105,7 +105,7 @@ The Problems
 
 <font size="+2">
 <b>Inchworm</b>
-</font><br/>
+</font><A href="Javascript:openProblemRating(1799)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division Two - Level One: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
@@ -203,7 +203,7 @@ by <i>leaf</i>.
 
 <font size="+2">
 <b>CalendarRecycle</b>
-</font><br/>
+</font><A href="Javascript:openProblemRating(1847)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division Two - Level Two: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
@@ -304,7 +304,7 @@ By sheer coincidence, this pseudocode will run on a Python interpreter.
 
 <font size="+2">
 <b>Pool</b>
-</font><br/>
+</font><A href="Javascript:openProblemRating(1809)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
@@ -427,7 +427,7 @@ to rack any triangle.
 
 <font size="+2">
 <b>Rochambo</b>
-</font><br/>
+</font><A href="Javascript:openProblemRating(1810)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division One - Level One: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
@@ -490,7 +490,7 @@ than 99%.
 
 <font size="+2">
 <b>CalendarISO</b>
-</font><br/>
+</font><A href="Javascript:openProblemRating(1811)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division One - Level Three: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
