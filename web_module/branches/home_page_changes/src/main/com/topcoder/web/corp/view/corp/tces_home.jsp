@@ -5,7 +5,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>Recruiting, Testing and User Management at TopCoder Employment Services</title>
+<title>Recruiting, Screening and User Management at TopCoder Employment Services</title>
 
 <jsp:include page="includes/css.jsp" />
 
@@ -61,16 +61,19 @@
                       of proven and recognizable software developers.  Whether you want to hire developers at the professional or college 
                       level, sponsoring TopCoder tournaments is the most effective way to reach the development community.</p>
                       
-                      <p><img src="/i/corp/quote_nvidia.gif" width="273" height="170" alt="" border="0" align="right"><span class="bodySubtitle">
-                      <a href="/corp/?module=Static&d1=corp&d2=private_label&d3=index">Private Label Events</a></span><br>
+                      <p><span class="bodySubtitle">
+                      <a href="/corp/?module=Static&d1=corp&d2=private_label&d3=index">Sourcing</a></span><br>
                       Whether your company seeks to identify and recruit the best talent or develop and recognize employees, TopCoder can provide 
                       expertise and experience in executing online and onsite events.</p>
 
-                        <p><span class="bodySubtitle"><a href="/corp/?module=Static&d1=corp&d2=testing&d3=index">Testing</a></span><br>
-                        The TopCoder Testing Program allows companies to test the technical abilities of candidates during the interview 
+                        <p><img src="/i/corp/quote_nvidia.gif" width="273" height="170" alt="" border="0" align="right"><span class="bodySubtitle"><a href="/corp/?module=Static&d1=corp&d2=testing&d3=index">Screening</a></span><br>
+                        The TopCoder Screening Program allows companies to test the technical abilities of candidates during the interview 
                         process, thereby reducing the time incurred by in-house engineers. Employers can choose problem sets to test candidates' 
                         problem solving skills with scenarios that mirror on-the-job issues.</p>
 	
+                        <p><span class="bodySubtitle"><a href="/tc?module=Static&d1=contracting&d2=index">Placement</a></span><br>
+                        TopCoder works with companies to fill both full-time and contract positions. Clients provide us with a description of the position they need filled and we locate the most qualified members. TopCoder will contact the candidates and handle the logistics of interviews and provide the hiring company with a resume and TopCoder rating.</p>
+
                         <p><span class="bodySubtitle">Client list</span><br></p>
                         
                         <table width="100%" border="0" cellpadding="5" cellspacing="0">
