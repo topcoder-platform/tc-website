@@ -61,7 +61,7 @@
 							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Heartbeat:%20Design&amp;comp=4201389&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 <!-- Overview -->
-                        <INPUT TYPE="hidden" NAME="comp">
+                        <INPUT TYPE="hidden" NAME="DesInitialSub">
                             <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/DesInitialSub"/></xsl:attribute>
                         </INPUT>
 							<p><strong>Overview</strong><br />
