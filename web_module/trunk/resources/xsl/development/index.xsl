@@ -78,8 +78,7 @@ Inquiry Deadline: TBD<BR/>
 Project: <A HREF="/index?t=development&amp;c=tces1" CLASS="statTextBig">TCES Extension Part One</A><BR/>
 Start Date: May 15, 2002<BR/>
 End Date: June 17, 2002<BR/>
-Member Selection: <b>Open</b><BR/>
-Inquiry Deadline: May 14, 2002 12:00 PM EDT<BR/>
+Member Selection: Closed<BR/>
 </P>
 
 <P>
