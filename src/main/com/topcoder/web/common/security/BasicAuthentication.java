@@ -42,16 +42,12 @@ public class BasicAuthentication implements WebAuthentication {
     public static final PathResource HS_SITE = new PathResource("/hs");
     public static final PathResource PRIVATE_LABEL_SITE = new PathResource("/pl");
 
-    private BasicAuthentication() {
-        this.defaultCookiePath = MAIN_SITE;
-    }
-
     /**
      * Construct an authentication instance backed by the given persistor
      * and HTTP request and response.
      */
     public BasicAuthentication(Persistor userPersistor, ServletRequest request, ServletResponse response) throws Exception {
-        this();
+        this.defaultCookiePath = MAIN_SITE;
         this.persistor = userPersistor;
         this.request = (HttpServletRequest) request;
         this.response = (HttpServletResponse) response;
