@@ -8,6 +8,7 @@ import com.topcoder.shared.util.logging.Logger;
 import javax.ejb.EJBException;
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.rmi.RemoteException;
 import java.sql.Connection;
@@ -54,9 +55,12 @@ public class CommandBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException creating command desc: " +
                     commandDesc + " group: " + commandGroupId);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception creating command desc: " +
                     commandDesc + " group: " + commandGroupId + "\n " + e.getMessage());
+
         } finally {
             if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement");}}
             if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection");}}
@@ -90,6 +94,8 @@ public class CommandBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating command desc: " + commandId + " desc: " + commandDesc);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception updating command desc: " + commandId + " desc: " + commandDesc +
                     "\n " + e.getMessage());
@@ -125,6 +131,8 @@ public class CommandBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating command group: " + commandId + " group: " + commandGroupId);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception updating command group: " + commandId + " group: " + commandGroupId +
                     "\n " + e.getMessage());
@@ -162,8 +170,9 @@ public class CommandBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting command desc: " + commandId);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
-            e.printStackTrace();
             throw new EJBException("Exception getting command desc: " + commandId + "\n " + e.getMessage());
         } finally {
             if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet");}}
@@ -200,6 +209,8 @@ public class CommandBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting command group: " + commandId);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception getting command group: " + commandId + "\n " + e.getMessage());
         } finally {
@@ -245,6 +256,8 @@ public class CommandBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting command list");
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception getting command list\n " + e.getMessage());
         } finally {
@@ -280,6 +293,8 @@ public class CommandBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting sequence");
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception getting sequence\n " + e.getMessage());
         } finally {

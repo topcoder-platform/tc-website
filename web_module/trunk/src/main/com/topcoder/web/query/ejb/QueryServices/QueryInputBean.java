@@ -8,6 +8,7 @@ import com.topcoder.shared.util.logging.Logger;
 import javax.ejb.EJBException;
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.rmi.RemoteException;
 import java.sql.Connection;
@@ -53,6 +54,8 @@ public class QueryInputBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException creating query input, query: " + queryId + " input: " +
                     inputId);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception creating query input, query: " + queryId + " input: " + inputId
                     + "\n " + e.getMessage());
@@ -92,6 +95,8 @@ public class QueryInputBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating query: " +
                     queryId + " input: " + inputId + " optional: " + optional);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception updating query: " +
                     queryId + " input: " + inputId + " optional: " + optional +
@@ -132,6 +137,8 @@ public class QueryInputBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating query: " + queryId + " input: " + inputId +
                     " default value: " + defaultValue);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception updating query: " + queryId + " input: " + inputId +
                     " default value: " + defaultValue + "\n " + e.getMessage());
@@ -170,6 +177,8 @@ public class QueryInputBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating query: " + queryId + " input: " + inputId +
                     " sort order: " + sortOrder);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception updating query: " + queryId + " input: " + inputId +
                     " sort order: " + sortOrder + "\n " + e.getMessage());
@@ -208,6 +217,8 @@ public class QueryInputBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting optional for query: " + queryId + " input: " + inputId);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception getting optional for query: " + queryId + " input: " +
                     inputId + "\n " + e.getMessage());
@@ -248,6 +259,8 @@ public class QueryInputBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting default value for query: " + queryId + " input: " + inputId);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception getting default value for query: " + queryId + " input: " + inputId +
                     "\n " + e.getMessage());
@@ -288,6 +301,8 @@ public class QueryInputBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting sort order for query: " + queryId + " input: " + inputId);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception getting sort order for query: " + queryId + " input: " + inputId +
                     "\n " + e.getMessage());
@@ -327,6 +342,8 @@ public class QueryInputBean extends BaseEJB {
              DBMS.printSqlException(true, sqe);
              throw new EJBException("SQLException deleting query input, query: " +
                      queryId + " input: " + inputId);
+         } catch (NamingException e) {
+             throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
          } catch (Exception e) {
              throw new EJBException("Exception deleting query input, query: " +
                      queryId + " input: " + inputId + "\n " + e.getMessage());
@@ -370,6 +387,8 @@ public class QueryInputBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting inputs for command: " +commandId);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception getting inputs for command: " +
                     commandId + "\n " + e.getMessage());
@@ -416,6 +435,8 @@ public class QueryInputBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting inputs for query: " +queryId);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception getting inputs for query: " +
                     queryId + "\n " + e.getMessage());

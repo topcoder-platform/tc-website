@@ -8,6 +8,7 @@ import com.topcoder.shared.util.logging.Logger;
 import javax.ejb.EJBException;
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.rmi.RemoteException;
 import java.sql.Connection;
@@ -52,6 +53,8 @@ public class CommandGroupBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException creating command group: " + commandGroupName);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception creating command group: " + commandGroupName +
                     "\n " + e.getMessage());
@@ -87,6 +90,8 @@ public class CommandGroupBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating command name, command: " + commandGroupId + " name: " + commandGroupName);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception updating command name, command: " + commandGroupId + " name: " + commandGroupName +
                     "\n " + e.getMessage());
@@ -124,6 +129,8 @@ public class CommandGroupBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting group name for command: " + commandGroupId);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception getting group name for command: " + commandGroupId + "\n " + e.getMessage());
         } finally {
@@ -159,6 +166,8 @@ public class CommandGroupBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting all command groups");
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception getting all command groups\n " + e.getMessage());
         } finally {
@@ -194,6 +203,8 @@ public class CommandGroupBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting sequence");
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception getting sequence\n " + e.getMessage());
         } finally {
