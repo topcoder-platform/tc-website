@@ -328,13 +328,13 @@
                                         </p>
                                         <pre>
 
-                                               2x2      4x4 (diagram 1)   4x4 (diagram 2)     4x4 (diagram 3)
-                                                --        ----               ----                ----
-                                               |AB|      |AAAA|             |AABB|              |AABB|
-                                               |AA|      |ABBA|             |AEEB|              |AEEB|
-                                                --       |ABBA|             |DEFC|              |DECC|
-                                                         |AAAA|             |DDCC|              |DDCF|
-                                                          ----               ----                ----
+2x2      4x4 (diagram 1)   4x4 (diagram 2)     4x4 (diagram 3)
+ --        ----               ----                ----
+|AB|      |AAAA|             |AABB|              |AABB|
+|AA|      |ABBA|             |AEEB|              |AEEB|
+ --       |ABBA|             |DEFC|              |DECC|
+          |AAAA|             |DDCC|              |DDCF|
+           ----               ----                ----
                                         </pre>
                                         <p>
                                             The moral of this story is, you never need to use more than a single square in
