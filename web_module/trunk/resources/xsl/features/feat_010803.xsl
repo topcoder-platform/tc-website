@@ -12,7 +12,7 @@
   <xsl:template match="/">
     <HTML>
       <HEAD>
-        <xsl:call-template name="Preload"/>      
+        <xsl:call-template name="Preload"/>       
         <TITLE>TopCoder :: Features</TITLE>
         <xsl:call-template name="CSS"/>      
         <!--<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
