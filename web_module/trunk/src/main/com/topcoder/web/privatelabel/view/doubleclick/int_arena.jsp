@@ -33,7 +33,7 @@
                         <br/><br/>
                         Note:  If you wish to install Java Web Start click <a class="bodyText_link" href="http://java.sun.com/products/javawebstart/index.html" target="_blank">here</a>.
                         <br/><br/>
-                        If you experience problems loading or running the Competition Arena please contact  <A class="bodyText_link" href="mailto:service@topcoder.com">service@topcoder.com</A>.
+                        If you experience problems loading or running the Competition Arena please contact  <A class="bodyText_link" href="mailto:dccc@topcoder.com">dccc@topcoder.com</A>.
                         </p>
 
 		</td>
