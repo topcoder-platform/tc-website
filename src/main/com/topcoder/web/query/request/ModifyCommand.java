@@ -79,7 +79,7 @@ public class ModifyCommand extends BaseProcessor {
             }
         }
 
-        request.setAttribute(this.getClass().getName(), this);
+        request.setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".")+1), this);
         setNextPage(Constants.MODIFY_COMMAND_PAGE);
         setIsNextPageInContext(true);
     }
