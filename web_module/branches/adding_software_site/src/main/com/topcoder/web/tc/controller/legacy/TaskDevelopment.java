@@ -111,9 +111,11 @@ public final class TaskDevelopment {
             RecordTag devTag = new RecordTag("DEVELOPMENT");
             String comp = Conversion.checkNull(request.getParameter("comp"));
             devTag.addTag(new ValueTag("comp", comp));
+/*   don't need this stuff, we don't have a max inquiry..at least for now
             devTag.addTag(new ValueTag("MaxInquiries", Constants.MAX_RATED_INQUIRIES+Constants.MAX_UNRATED_INQUIRIES));
             devTag.addTag(new ValueTag("MaxRatedInquiries", Constants.MAX_RATED_INQUIRIES));
             devTag.addTag(new ValueTag("MaxUnratedInquiries", Constants.MAX_UNRATED_INQUIRIES));
+*/
             String date = Conversion.checkNull(request.getParameter("date"));
             String payment = Conversion.checkNull(request.getParameter("payment"));
 
@@ -144,7 +146,7 @@ public final class TaskDevelopment {
             devTag.addTag(new ValueTag("estimated_dev", request.getParameter("estimated_dev")));
             devTag.addTag(new ValueTag("compvers", request.getParameter("compvers")));
             devTag.addTag(new ValueTag("projectId", request.getParameter("projectId")));
-            
+
             log.info("PROJECT IS: " + request.getParameter("projectId"));
 
 
@@ -186,7 +188,7 @@ public final class TaskDevelopment {
                     devTag.addTag(new ValueTag("ProjectName", project));
                     devTag.addTag(new ValueTag("Project", project));
                     devTag.addTag(new ValueTag("To", to));
-                    
+
                     devTag.addTag(new ValueTag("projectId", request.getParameter("projectId")));
                     xsldocURLString = XSL_DIR + command + ".xsl";
                 } else {
@@ -495,9 +497,9 @@ public final class TaskDevelopment {
 
                                     log.debug("phase: " + phase);
                                     log.debug("version: " + version);
-                                    
+
                                     long projectId = Long.parseLong(request.getParameter("projectId"));
-                                    
+
                                     USER_MANAGER.registerInquiry(userId, componentId, rating, (new Integer(nav.getUser().getUserId())).longValue(), comment, agreedToTerms, phase, version, projectId);
 
 
@@ -638,6 +640,7 @@ public final class TaskDevelopment {
     }
 
     public static boolean isProjectLockedOut(long componentId, long version, long phase, long userId) throws Exception {
+/*
         DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
         Request inquiryRequest = new Request();
         inquiryRequest.setContentHandle("inquiry_count");
@@ -667,7 +670,9 @@ public final class TaskDevelopment {
             //without this case, an urated spot frees up
             ret = true;
         }
-
+*/
+        //it's never locked up, we took that out (at least for now)
+        boolean ret = false;
 
         return ret;
 
