@@ -46,19 +46,19 @@ function back() {
                         <%} else if("BuildCandidateList".equals(candidateInfo.getReferrer())) {%>
                           <h1 class="testHead">Candidate List -
                         <%}%>
-                        <FONT COLOR="#000000">
+                        <span class=bodyText>
                           <%if(candidateInfo.isNew()) { %>
                             Set up a Candidate
                           <%} else {%>
                             Candidate Info
                           <%}%>
-                        </FONT>
+                        </span>
                         </h1>
                     </td>
                 </tr>
             </table>
 
-             <table border="0" cellspacing="0" cellpadding="0" width="50%">
+             <table border="0" cellspacing="0" cellpadding="0" width="600">
                 <tr><screen:form name="candidateSetupForm" action="<%=sessionInfo.getServletPath()%>" method="GET">
                     <INPUT type="hidden" name="<%=Constants.MODULE_KEY%>" value="UpdateCandidate" />
                     <INPUT type="hidden" name="referrer" value="<jsp:getProperty name="candidateInfo" property="referrer" />" />
@@ -66,32 +66,97 @@ function back() {
                 </tr>
             </table>
  
-            <table cellspacing="0" cellpadding="3" width="50%" class="testFrame">
+            <table cellspacing="0" cellpadding="0" width="600" class="testFrame">
                 <tr>
-                    <td class="testTableTitle" colspan="3">Candidate</td>
+                    <td class="screeningTitle" colspan="2">Candidate Info</td>
                 </tr>
-                    
+
                 <tr>
-                    <td class="testTableSubtitleOdd">Email Address:</td>
-                        <% if (candidateInfo.isNew()) { %>
-                    <td class="testTableOdd"><input type="text" name="emailAddress" size="30" maxlength="50" value="<jsp:getProperty name="candidateInfo" property="userName" />"></td>
-                        <% } else { %>
-                    <td class="testTableOdd"><jsp:getProperty name="candidateInfo" property="userName" /></td>
-                        <% } %>
-                    <td class="errorTextOdd"><screen:errors id="err" name="emailAddress" ><%=err%></screen:errors></td>
+                    <td class="screeningHeader" width="50%">Personal Info</td>
+                    <td class="screeningHeader" width="50%">Demographic Info</td>
                 </tr>
+                <tr>
+                <td width="50%" valign=top class="screeningCell">
                 
-                    <% if (!candidateInfo.isNew()) { %>
-                <tr>
-                    <td class="testTableSubtitleEven">Password:</td>
-                    <td class="testTableEven"><jsp:getProperty name="candidateInfo" property="password" /></td>
-                    <td class="errorTextEven" align="left" valign="middle"></td>
+                    <table cellspacing="0" cellpadding="0" border=0 class=bodyText width="100%">
+                        <tr>
+                            <td class="screeningCell" align=right nowrap=nowrap>First Name:</td>
+                            <td class="screeningCell" width="100%"></td>
+                            <td class="screeningCell" align="left" valign="middle"></td>
+                        </tr>
+                        <tr>
+                            <td class="screeningCell" align=right nowrap=nowrap>Middle Initial:</td>
+                            <td class="screeningCell"></td>
+                            <td class="screeningCell" align="left" valign="middle"></td>
+                        </tr>
+                        <tr>
+                            <td class="screeningCell" align=right nowrap=nowrap>Last Name:</td>
+                            <td class="screeningCell"></td>
+                            <td class="screeningCell" align="left" valign="middle"></td>
+                        </tr>
+                        <tr>
+                            <td class="screeningCell" align=right nowrap=nowrap>Email Address:</td>
+                                <% if (candidateInfo.isNew()) { %>
+                            <td class="screeningCell"><input type="text" name="emailAddress" size="30" maxlength="50" value="<jsp:getProperty name="candidateInfo" property="userName" />"></td>
+                                <% } else { %>
+                            <td class="screeningCell"><jsp:getProperty name="candidateInfo" property="userName" /></td>
+                                <% } %>
+                            <td class="screeningCell"><screen:errors id="err" name="emailAddress" ><%=err%></screen:errors></td>
+                        </tr>
+                            <% if (!candidateInfo.isNew()) { %>
+                        <tr>
+                            <td class="screeningCell" align=right nowrap=nowrap>Password:</td>
+                            <td class="screeningCell"><jsp:getProperty name="candidateInfo" property="password" /></td>
+                            <td class="screeningCell" align="left" valign="middle"></td>
+                        </tr>
+                            <% } %>
+                        <tr>
+                            <td class="screeningCell" align=right>Address 1:</td>
+                            <td class="screeningCell"></td>
+                            <td class="screeningCell" align="left" valign="middle"></td>
+                        </tr>
+                        <tr>
+                            <td class="screeningCell" align=right>Address 2:</td>
+                            <td class="screeningCell"></td>
+                            <td class="screeningCell" align="left" valign="middle"></td>
+                        </tr>
+                        <tr>
+                            <td class="screeningCell" align=right>Address 3:</td>
+                            <td class="screeningCell"></td>
+                            <td class="screeningCell" align="left" valign="middle"></td>
+                        </tr>
+                        <tr>
+                            <td class="screeningCell" align=right>City:</td>
+                            <td class="screeningCell"></td>
+                            <td class="screeningCell" align="left" valign="middle"></td>
+                        </tr>
+                        <tr>
+                            <td class="screeningCell" align=right>State:</td>
+                            <td class="screeningCell"></td>
+                            <td class="screeningCell" align="left" valign="middle"></td>
+                        </tr>
+                        <tr>
+                            <td class="screeningCell" align=right>Zip Code:</td>
+                            <td class="screeningCell"></td>
+                            <td class="screeningCell" align="left" valign="middle"></td>
+                        </tr>
+                        <tr>
+                            <td class="screeningCell" align=right>Country:</td>
+                            <td class="screeningCell"></td>
+                            <td class="screeningCell" align="left" valign="middle"></td>
+                        </tr>
+                    </table>
+                    </td>
+                <td width="50%" valign=top class="screeningCell">
+                    <table cellspacing="0" cellpadding="0" border=0 class=bodyText width="100%">
+                        <tr>
+                            <td class="screeningCell">This is where some question would go like "do you say 'nu-cle-ar' or 'nu-qu-lar'?</td>
+                            <td class="screeningCell" width="50%">Nu-cle-ar dumbass, look how it's spelled</td>
+                            <td class="screeningCell" align="left" valign="middle"></td>
+                        </tr>
+                    </table>
+                    </td>
                 </tr>
-                    <% } %>
-                    
-                <tr><td colspan="3"><img src="/i/corp/clear.gif" width="1" height="10" border="0" /></td></tr>
-            </table>
-                    
             <table border="0" cellspacing="10" cellpadding="0" width="50%">
 
                 <% if (candidateInfo.isNew()) { %>
@@ -103,21 +168,21 @@ function back() {
 
             <p></p>
             <%if(!candidateInfo.isNew()) { %>
-            <table cellspacing="0" cellpadding="3" width="70%" class="testFrame">
+            <table cellspacing="0" cellpadding="3" width="600" class="formFrame">
                 <tr>
-                    <td width="70%" class="testTableTitleSmall">Notes</td>
-                    <td width="15%" align="center" class="testTableTitleSmall">Author</td>
-                    <td width="15%" align="center" class="testTableTitleSmall">Date Created</td>
+                    <td width="70%" class="screeningHeader">Notes</td>
+                    <td width="15%" align="center" class="screeningHeader">Author</td>
+                    <td width="15%" align="center" class="screeningHeader">Date Created</td>
                 </tr>
 
                 <% if (candidateInfo.getNoteList().isEmpty()) { %>
-                  <td colspan="3" align="center" class="testTableOdd">There are currently no notes for this candidate.</td>
+                  <td colspan="3" align="center" class="screeningCell">There are currently no notes for this candidate.</td>
                 <% } else { boolean even = true; %>
                 <screen:resultSetRowIterator id="row" list="<%=candidateInfo.getNoteList()%>">
                 <tr>
-                    <td <% if(even){ %>class="testTableEven"<% } else { %>class="testTableOdd"<% } %>><%=StringUtils.htmlEncode((String)row.getItem("text").getResultData())%></td>
-                    <td align="center" <% if(even){ %>class="testTableEven"<% } else { %>class="testTableOdd"<% } %>><screen:resultSetItem row="<%=row%>" name="created_by" /></td>
-                    <td align="center" <% if(even){ %>class="testTableEven"<% } else { %>class="testTableOdd"<% } %>><strong><screen:resultSetItem row="<%=row%>" name="create_date" /></strong></td>
+                    <td valign=top width="70%"<% if(even){ %>class="screeningCell"<% } else { %>class="screeningCell"<% } %>><strong><%=StringUtils.htmlEncode((String)row.getItem("text").getResultData())%></strong></td>
+                    <td valign=top width="15%" align="center" <% if(even){ %>class="screeningCell"<% } else { %>class="screeningCell"<% } %>><screen:resultSetItem row="<%=row%>" name="created_by" /></td>
+                    <td valign=top width="15%" align="center" <% if(even){ %>class="screeningCell"<% } else { %>class="screeningCell"<% } %>><strong><screen:resultSetItem row="<%=row%>" name="create_date" /></strong></td>
                 </tr>
                 <% even = !even; %>
                 </screen:resultSetRowIterator>
