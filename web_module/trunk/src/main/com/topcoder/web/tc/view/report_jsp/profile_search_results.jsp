@@ -15,12 +15,12 @@
 </script>
   </head>
   <body>
-  <table>
+  <pre>
 <%
     String s = (String)request.getAttribute("QUERY");
     out.print(s);
 %>
-</table>
+</pre>
   </body>
 </html>
 
