@@ -246,17 +246,17 @@ public abstract class BaseServlet extends HttpServlet {
             if (((NavigationException)e).hasUrl())
                 request.setAttribute(URL_KEY, ((NavigationException)e).getUrl());
         } else {
-//            request.setAttribute(MESSAGE_KEY, "An error has occurred when attempting to process your request.");
+            request.setAttribute(MESSAGE_KEY, "An error has occurred when attempting to process your request.");
 
             // A code to be removed once the application is tested
-            StringBuffer buf = new StringBuffer();
-            buf.append("An error has occurred when attempting to process your request.<BR>");
-            buf.append(e.toString() + "<BR> Stack trace follows: <BR>");
-            StackTraceElement[] stackTrace = e.getStackTrace();
-            for (int i = 0; i < stackTrace.length; i++) {
-                buf.append(stackTrace[i].toString() + "<BR>");
-            }
-            request.setAttribute(MESSAGE_KEY, buf.toString());
+//            StringBuffer buf = new StringBuffer();
+//            buf.append("An error has occurred when attempting to process your request.<BR>");
+//            buf.append(e.toString() + "<BR> Stack trace follows: <BR>");
+//            StackTraceElement[] stackTrace = e.getStackTrace();
+//            for (int i = 0; i < stackTrace.length; i++) {
+//                buf.append(stackTrace[i].toString() + "<BR>");
+//            }
+//            request.setAttribute(MESSAGE_KEY, buf.toString());
         }
         request.setAttribute("exception", e);
         fetchRegularPage(request, response, ERROR_PAGE, true);
