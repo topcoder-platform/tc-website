@@ -45,6 +45,7 @@
 <jsp:useBean id="SessionInfo" class="com.topcoder.web.hs.model.SessionInfoBean" scope="request" />
 <%
 String nextpage = (String)request.getAttribute("nextpage");
+if(nextpage==null) nextpage = request.getParameter("nextpage");
 if(nextpage==null) nextpage = "";
 String message = (String)request.getAttribute("message");
 if(message==null) message = "";
