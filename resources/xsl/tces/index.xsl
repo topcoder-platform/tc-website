@@ -155,17 +155,18 @@ Cryptic ends -->
                         
                             <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
 
-<!-- Vertex begins -->
-<!--<script>                            <tr valign="top">
-                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=vertex" target="_top"><img src="/i/es/vertex/vertex_logo.gif" width="76" height="52" alt="" border="0" /></a></td>
-                                <td width="99%" class="bodyText">Vertex Pharmaceuticals Incorporated is a global biotechnology company focused on the 
-                                discovery, development and commercialization of breakthrough drugs for a range of serious diseases. We are looking for an 
-                                expert Java &amp; Oracle developer to fill a newly created position.  See all the <A href="/?&amp;t=tces&amp;c=vertex" class="bodyText" target="_top">details</A>.<br/><br/></td>
+<!-- PayPal begins-->
+                            <tr valign="top">
+                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=paypal"><img src="/i/es/paypal/paypal_logo.gif" width="150" height="50" alt="PayPal" border="0" /></a></td>
+                                <td width="99%" class="bodyText">PayPal is looking for talented professionals who thrive in a fast paced, exciting environment, and want to constantly 
+                                improve a service used by millions each month. PayPal careers offer competitive salary and benefits, an exciting and high-profile product, outstanding 
+                                career and growth opportunities and an energetic, team-oriented atmosphere. <a href="/?&amp;t=tces&amp;c=paypal" class="bodyText">Join</a> the online payments revolution!<br /><br /></td>
                             </tr>
-                            
-                            <tr><td colspan="2" bgcolor="#43515E" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
-</script>-->
- <!--Vertex ends -->
+<!-- PayPal ends -->
+                        
+                            <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
+
+
 
 <!-- TopCoder begins -->
                             <tr valign="top">
