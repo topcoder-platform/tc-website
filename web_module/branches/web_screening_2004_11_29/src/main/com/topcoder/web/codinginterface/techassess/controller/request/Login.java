@@ -60,6 +60,8 @@ public class Login extends BaseProcessor {
 
         QueueMessageReceiver qmr = new QueueMessageReceiver(jmsFactory,
                 ScreeningApplicationServer.RESPONSE_QUEUE, context, request.getSelector());
+        qmr.setPersistent(false);
+        qmr.setFaultTolerant(false);
         ObjectMessage response = qmr.getMessage(2000);
         log.debug("response " + response);
 
