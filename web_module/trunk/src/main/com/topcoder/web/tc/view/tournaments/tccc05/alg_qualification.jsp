@@ -39,27 +39,27 @@
                </tr>
                 <tr class="advHeader">
                    <td width="10%" align="center">
-                       <a href="/">
+                       <a href="/tc?module=SimpleStats&d1=tournaments&d2=tccc05&d3=alg_qualification&c=tccc05_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=seed&<%=DataAccessConstants.SORT_DIRECTION%>=asc">
                            Seed
                        </a>
                    </td>
                    <td width="30%" align="left">
-                       <a href="/">
+                       <a href="/tc?module=SimpleStats&d1=tournaments&d2=tccc05&d3=alg_qualification&c=tccc05_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=handle_sort&<%=DataAccessConstants.SORT_DIRECTION%>=asc">
                            Handle
                        </a>
                    </td>
                    <td width="30%" align="center">
-                       <a href="/">
+                       <a href="/tc?module=SimpleStats&d1=tournaments&d2=tccc05&d3=alg_qualification&c=tccc05_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=round_name&<%=DataAccessConstants.SORT_DIRECTION%>=asc">
                            Problem Set
                        </a>
                    </td>
                    <td width="15%" align="right">
-                       <a href="/">
+                       <a href="/tc?module=SimpleStats&d1=tournaments&d2=tccc05&d3=alg_qualification&c=tccc05_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=rating&<%=DataAccessConstants.SORT_DIRECTION%>=desc">
                            Rating
                        </a>
                    </td>
                    <td width="15%" align="right">
-                       <a href="/">
+                       <a href="/tc?module=SimpleStats&d1=tournaments&d2=tccc05&d3=alg_qualification&c=tccc05_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=points&<%=DataAccessConstants.SORT_DIRECTION%>=desc">
                            Points
                        </a>
                    </td>
