@@ -60,7 +60,7 @@
                 <xsl:with-param name="title">2003 TopCoder Open</xsl:with-param>
             </xsl:call-template>
         
-<!-- TCO Header -->
+<!-- TCO Header 
              <div align="center">
             <img src="/i/tournament/tco03/tco_promo_big2.gif" alt="2003 TopCoder Open" width="550" height="160" border="0" vspace="15" usemap="#tco_links" />
             <map name="tco_links">
@@ -68,7 +68,18 @@
             <area shape="rect" coords="355,100,545,155" href="/index?t=tournaments&amp;c=tco03_comp_overview" />            
             </map>
             </div>
-
+-->
+            <table border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr>
+                     <td align="center" colspan="3"><img src="/i/tournament/tco03/tco_promo_big.gif" alt="Save the date!" width="503" height="170" border="0" vspace="5
+"/></td>
+                </tr>
+                <tr>
+                    <td height="42" align="center"><A href="/index?t=tournaments&amp;c=tco03_overview"  target="_top"><img src="/i/tournament/tco03/tco_promo_coding_small.gif" alt="Coding Competition" width="263" height="86" border="0" vspace="10"/></A></td>
+                    <td width="50"><img src="/i/clear.gif" alt="" width="50" height="1" border="0" /></td>
+                    <td height="64" align="center"><A href="/index?t=tournaments&amp;c=tco03_comp_overview" target="_top"><img src="/i/tournament/tco03/tco_promo_component_small.gif" alt="Component Contest" width="263" height="86" border="0" vspace="10"/></A></td>
+                </tr>
+            </table>
 <!-- Tab bar suplinks
             <xsl:call-template name="tco03_suplinks">
                 <xsl:with-param name="selectedTab">components</xsl:with-param>
@@ -88,7 +99,7 @@
             <blockquote>
             <h2>About the Prizes</h2>
             
-            <p>The tournament will award $20,000 in cash prizes.  $10,000 will be awarded for each the design and development competitions.  
+            <p>The tournament will award $30,000 in cash prizes.  $15,000 will be awarded for each of the design and development competitions.  
             Any and all applicable taxes on prizes, including the cost of a guest attending the onsite rounds, are the sole responsibility of the 
             prizewinner.  Prizes will be distributed as follows:</p>
             
@@ -103,7 +114,7 @@
                 </tr>
 
                 <tr>
-                    <td width="50%" class="sidebarText">1<span class="super">st</span> place finisher* - CDC Champion</td>
+                    <td width="50%" class="sidebarText">1<span class="super">st</span> place finisher* - Component Design/Development Champion</td>
                     <td width="50%" class="sidebarText" align="right">$10,000</td>
                 </tr>
 
