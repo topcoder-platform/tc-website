@@ -53,15 +53,15 @@
 <!-- Gutter 1 ends -->
 
 <!-- Middle Column begins -->
-        <td width="99%">
+        <td width="99%" height=800>
             <img src="/images/clear.gif" width="1" height="15" alt="" border="0"><br>
             <div align="center">
             
 <object
 classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
 codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
-width="800"
-height="450"
+width="100%"
+height="100%"
 id="appSuite"
 align="top"
 <param name="allowScriptAccess" value="sameDomain" />
@@ -76,8 +76,8 @@ src="http://172.16.210.55:8080/images/flash/appSuiteDetails.swf"
 menu="false"
 quality="high"
 bgcolor="#ffffff"
-width="800"
-height="450"
+width="100%"
+height="100%"
 name="appSuite"
 align="top"
 allowScriptAccess="sameDomain"

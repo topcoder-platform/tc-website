@@ -53,13 +53,15 @@
 <!-- Gutter 1 ends -->
 
 <!-- Middle Column begins -->
-        <td width="99%">
+        <td width="99%" align=center>
             <img src="/images/clear.gif" width="1" height="15" alt="" border="0"><br>
-            <div align="center">
             
-<h3><font color="#999999" face="Arial, Helvetica, sans-serif">You don't have the latest version of Macromedia Flash Player.</font></h3>
-<font face="Arial, Helvetica, sans-serif">
 <table width="60%">
+  <tr>
+    <td colspan="2">
+        <h2>You don't have the latest version of Macromedia Flash Player.</h2>
+    </td>
+  </tr>
   <tr>
     <td colspan="2">
       <p />
@@ -70,19 +72,19 @@
     <td>
       <a href="http://www.macromedia.com/go/getflashplayer"><img src="http://172.16.210.55:8080/images/flash/getFlash.gif" border="0" width="88" height="31" /></a>
     </td>
-    <td>
-      <p />
+    <td width="100%">
       Why not download and install the latest version now? It will only take a moment.
     </td>
   </tr>
+  <tr>
+    <td colspan="2">
+        <br/>Macromedia and Flash are trademarks of Macromedia, Inc.
+    </td>
+  </tr>
 </table>
-</font>
-<p />
-<font face="Verdana, Arial, Helvetica, sans-serif" SIZE="-2">Macromedia and Flash are trademarks of Macromedia, Inc.</font>
 
             <p><br></p>
 
-            </div>
         </td>
 <!-- Middle Column ends -->
 
