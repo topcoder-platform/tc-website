@@ -1,4 +1,4 @@
-java QueryLoader 1 "Round_Statistics_Data" 0 0 "
+java com.topcoder.utilities.QueryLoader 1 "Round_Statistics_Data" 0 0 "
 SELECT c.handle,
 c.coder_id,
 con.name,
@@ -26,7 +26,7 @@ AND con.contest_id = r.contest_id
 AND room.room_id = rr.room_id
 ORDER BY rr.room_id, rr.final_points DESC, rr.new_rating DESC, c.handle
 "
-java QueryLoader 2 "Rounds_By_Date" 0 0 "
+java com.topcoder.utilities.QueryLoader 2 "Rounds_By_Date" 0 0 "
 SELECT r.round_id,
 r.name,
 c.contest_id,
@@ -39,7 +39,7 @@ WHERE cal.calendar_id = r.calendar_id
 AND c.contest_id = r.contest_id
 ORDER BY cal.date DESC
 "
-java QueryLoader 3 "Rooms_For_Round" 0 0 "
+java com.topcoder.utilities.QueryLoader 3 "Rooms_For_Round" 0 0 "
 SELECT room_id,
 name,
 division_desc
@@ -47,7 +47,7 @@ FROM room
 WHERE room.round_id = @rd@
 ORDER BY room_id ASC
 "
-java QueryLoader 4 "Room_Summary_Data" 0 0 "
+java com.topcoder.utilities.QueryLoader 4 "Room_Summary_Data" 0 0 "
 SELECT c.handle,
 c.coder_id,
 con.name,
@@ -75,7 +75,7 @@ AND round.round_id = @rd@
 AND con.contest_id = round.contest_id
 ORDER BY rr.final_points DESC, rr.new_rating DESC, c.handle
 "
-java QueryLoader 5 "Coder_Ratings" 1 3 "
+java com.topcoder.utilities.QueryLoader 5 "Coder_Ratings" 1 3 "
 SELECT c.coder_id,
 c.handle,
 r.rating
@@ -85,7 +85,7 @@ AND c.status = 'A'
 AND r.rating > 0
 ORDER BY r.rating DESC
 "
-java QueryLoader 6 "Coder_Problems" 0 0 "
+java com.topcoder.utilities.QueryLoader 6 "Coder_Problems" 0 0 "
 SELECT p.class_name,
 p.method_name,
 p.problem_id,
@@ -102,7 +102,7 @@ AND p.round_id = cp.round_id
 AND p.division_id = cp.division_id
 ORDER BY p.level_id ASC
 "
-java QueryLoader 7 "Coder_Challenges" 0 0 "
+java com.topcoder.utilities.QueryLoader 7 "Coder_Challenges" 0 0 "
 SELECT 
 (SELECT coder.handle FROM coder
  WHERE coder.coder_id = c.challenger_id) AS challenger_name,
@@ -134,7 +134,7 @@ AND p.division_id =
     WHERE coder_id = @cr@ AND round_id = @rd@)
 ORDER BY c.submit_time ASC
 "
-java QueryLoader 8 "Coder_Defenses" 0 0 "
+java com.topcoder.utilities.QueryLoader 8 "Coder_Defenses" 0 0 "
 SELECT 
 (SELECT coder.handle FROM coder
  WHERE coder.coder_id = c.challenger_id) AS challenger_name,
@@ -166,7 +166,7 @@ AND p.division_id =
     WHERE coder_id = @cr@ AND round_id = @rd@)
 ORDER BY c.submit_time ASC
 "
-java QueryLoader 9 "Problem_Data" 0 0 "
+java com.topcoder.utilities.QueryLoader 9 "Problem_Data" 0 0 "
 SELECT p.class_name,
 p.method_name,
 p.level_desc,
@@ -180,7 +180,7 @@ AND p.problem_id = cp.problem_id
 AND p.round_id = cp.round_id
 AND p.division_id = cp.division_id
 "
-java QueryLoader 10 "Problem_Defenses" 0 0 "
+java com.topcoder.utilities.QueryLoader 10 "Problem_Defenses" 0 0 "
 SELECT 
 (SELECT coder.handle FROM coder
  WHERE coder.coder_id = challenger_id) AS challenger_name,
@@ -202,7 +202,7 @@ AND round_id = @rd@
 AND problem_id = @pm@
 ORDER BY submit_time ASC
 "
-java QueryLoader 11 "System_Tests" 0 0 "
+java com.topcoder.utilities.QueryLoader 11 "System_Tests" 0 0 "
 SELECT stc.args,
 stc.expected_result,
 str.received,
@@ -214,7 +214,7 @@ AND str.problem_id = @pm@
 AND stc.test_case_id = str.test_case_id
 ORDER BY str.test_case_id ASC
 "
-java QueryLoader 12 "Problem_Statement" 0 0 "
+java com.topcoder.utilities.QueryLoader 12 "Problem_Statement" 0 0 "
 SELECT problem_text,
 method_name,
 class_name
@@ -225,14 +225,14 @@ AND division_id =
  (SELECT MIN(division_id) FROM problem
   WHERE problem_id = @pm@ AND round_id = @rd@)
 "
-java QueryLoader 13 "Problem_Submission" 0 0 "
+java com.topcoder.utilities.QueryLoader 13 "Problem_Submission" 0 0 "
 SELECT submission_text
 FROM problem_submission
 WHERE round_id = @rd@
 AND coder_id = @cr@
 AND problem_id = @pm@
 "
-java QueryLoader 14 "Coder_Data" 0 0 "
+java com.topcoder.utilities.QueryLoader 14 "Coder_Data" 0 0 "
 SELECT c.handle,
 c.coder_id,
 c.quote,
@@ -285,7 +285,7 @@ FROM coder_problem_summary cps JOIN coder c ON cps.coder_id = c.coder_id
       AND i.image_type_id = 1
      LEFT OUTER JOIN path p ON p.path_id = i.path_id
 "
-java QueryLoader 15 "Coder_Submission_Summary" 0 0 "
+java com.topcoder.utilities.QueryLoader 15 "Coder_Submission_Summary" 0 0 "
 SELECT l.level_desc,
 l.level_id,
 SUM(cl.problems_submitted) AS problems_submitted,
@@ -302,7 +302,7 @@ AND l.level_id = cl.level_id
 GROUP by l.level_desc, l.level_id
 ORDER by l.level_id
 "
-java QueryLoader 16 "Winning_Debuts" 0 0 "
+java com.topcoder.utilities.QueryLoader 16 "Winning_Debuts" 0 0 "
 SELECT c.handle, 
 c.coder_id,
 con.name,
@@ -323,7 +323,7 @@ AND con.contest_id = r.contest_id
 AND cal.calendar_id = r.calendar_id
 ORDER BY cal.date DESC, rr.final_points DESC, rr.new_rating DESC, c.handle
 "
-java QueryLoader 17 "All_Time_Wins" 1 6 "
+java com.topcoder.utilities.QueryLoader 17 "All_Time_Wins" 1 6 "
 SELECT c.handle,
 c.coder_id,
 r.rating,
@@ -349,7 +349,7 @@ AND round.round_type_id = 1
 GROUP BY c.handle, c.coder_id, r.rating 
 ORDER BY total_wins DESC, r.rating DESC, c.handle
 "
-java QueryLoader 18 "Highest_Totals" 1 3 "
+java com.topcoder.utilities.QueryLoader 18 "Highest_Totals" 1 3 "
 SELECT c.handle,
 c.coder_id,
 rr.final_points,
@@ -369,7 +369,7 @@ AND rr.division_id = @dn@
 AND rr.final_points >= 500.0
 ORDER BY rr.final_points DESC, rr.new_rating DESC, c.handle
 "
-java QueryLoader 19 "Highest_Rating_Gains" 1 3 "
+java com.topcoder.utilities.QueryLoader 19 "Highest_Rating_Gains" 1 3 "
 SELECT c.handle, 
 c.coder_id,
 (rr.new_rating - rr.old_rating) AS rating_gain,
@@ -388,7 +388,7 @@ AND r.round_type_id = 1
 AND con.contest_id = r.contest_id
 ORDER BY rating_gain DESC, rr.new_rating DESC, c.handle
 "
-java QueryLoader 20 "Highest_Submission_Accuracy" 1 7 "
+java com.topcoder.utilities.QueryLoader 20 "Highest_Submission_Accuracy" 1 7 "
 SELECT c.handle,
 c.coder_id,
 count(*),
@@ -409,7 +409,7 @@ GROUP BY c.handle, c.coder_id, r.rating
 HAVING SUM(rr.problems_submitted) >= 50
 ORDER BY success_percent DESC, r.rating DESC, c.handle
 "
-java QueryLoader 21 "Impressive_Debuts" 1 3 "
+java com.topcoder.utilities.QueryLoader 21 "Impressive_Debuts" 1 3 "
 SELECT c.handle, 
 c.coder_id,
 rr.final_points, 
@@ -429,7 +429,7 @@ AND con.contest_id = r.contest_id
 AND cal.calendar_id = r.calendar_id
 ORDER BY rr.new_rating DESC, c.handle
 "
-java QueryLoader 22 "Most_Consecutive_Wins" 1 3 "
+java com.topcoder.utilities.QueryLoader 22 "Most_Consecutive_Wins" 1 3 "
 SELECT c.handle,
 c.coder_id,
 ws.length,
@@ -457,7 +457,7 @@ AND ws.streak_type_id = @dn@
 AND r.coder_id = c.coder_id
 ORDER BY ws.length DESC, start_date DESC, r.rating DESC, c.handle
 "
-java QueryLoader 23 "Highest_Challenge_Success" 1 7 "
+java com.topcoder.utilities.QueryLoader 23 "Highest_Challenge_Success" 1 7 "
 SELECT c.handle,
 c.coder_id,
 r.rating, 
@@ -478,7 +478,7 @@ GROUP BY c.handle, c.coder_id, r.rating
 HAVING SUM(rr.challenge_attempts_made) >= 20
 ORDER BY success_percent DESC, r.rating DESC, c.handle
 "
-java QueryLoader 24 "Earnings_History" 0 0 "
+java com.topcoder.utilities.QueryLoader 24 "Earnings_History" 0 0 "
 SELECT rr.round_id, 
 r.name,
 r.contest_id,
@@ -495,7 +495,7 @@ AND c.contest_id = r.contest_id
 AND cal.calendar_id = r.calendar_id
 ORDER BY @sc@ @sd@
 "
-java QueryLoader 25 "Ratings_History" 0 0 "
+java com.topcoder.utilities.QueryLoader 25 "Ratings_History" 0 0 "
 SELECT rr.round_id,
 r.name,
 r.contest_id,
@@ -510,19 +510,19 @@ AND c.contest_id = r.contest_id
 AND cal.calendar_id = r.calendar_id
 ORDER BY @sc@ @sd@
 "
-java QueryLoader 26 "Most_Recent_Round" 0 0 "
+java com.topcoder.utilities.QueryLoader 26 "Most_Recent_Round" 0 0 "
 SELECT MAX(round_id) AS round_id
 FROM round
 WHERE calendar_id =
 (SELECT MAX(calendar_id)
  FROM round)
 "
-java QueryLoader 27 "First_Room_For_Round" 0 0 "
+java com.topcoder.utilities.QueryLoader 27 "First_Room_For_Round" 0 0 "
 SELECT MIN(room_id)
 FROM room
 WHERE room.round_id = @rd@
 "
-java QueryLoader 28 "Rooms_For_Round" 0 0 "
+java com.topcoder.utilities.QueryLoader 28 "Rooms_For_Round" 0 0 "
 SELECT room_id,
 name,
 division_desc
@@ -530,7 +530,7 @@ FROM room
 WHERE room.round_id = @rd@
 ORDER BY room_id ASC
 "
-java QueryLoader 29 "Room_Summary_Data" 0 0 "
+java com.topcoder.utilities.QueryLoader 29 "Room_Summary_Data" 0 0 "
 SELECT c.handle,
 c.coder_id,
 con.name,
@@ -558,14 +558,14 @@ AND round.round_id = @rd@
 AND con.contest_id = round.contest_id
 ORDER BY rr.final_points DESC, rr.new_rating DESC, c.handle
 "
-java QueryLoader 30 "Basic_Coder_Information" 0 0 "
+java com.topcoder.utilities.QueryLoader 30 "Basic_Coder_Information" 0 0 "
 SELECT c.handle,
 r.rating
 FROM coder c, rating r
 WHERE c.coder_id = @cr@
 AND r.coder_id = @cr@
 "
-java QueryLoader 31 "Coder_Challenge_Summary" 0 0 "
+java com.topcoder.utilities.QueryLoader 31 "Coder_Challenge_Summary" 0 0 "
 SELECT l.level_desc,
 l.level_id,
 SUM(cl.challenge_attempts_made) AS challenge_attempts_made,
@@ -581,7 +581,7 @@ AND l.level_id = cl.level_id
 GROUP by l.level_desc, l.level_id
 ORDER by l.level_id
 "
-java QueryLoader 32 "All_Time_Wins_By_Division" 1 4 "
+java com.topcoder.utilities.QueryLoader 32 "All_Time_Wins_By_Division" 1 4 "
 SELECT c.handle,
 c.coder_id,
 r.rating,
@@ -599,7 +599,7 @@ AND round.round_type_id = 1
 GROUP BY c.handle, c.coder_id, r.rating 
 ORDER BY division_wins DESC, r.rating DESC, c.handle
 "
-java QueryLoader 33 "Room_Header_Information" 0 0 "
+java com.topcoder.utilities.QueryLoader 33 "Room_Header_Information" 0 0 "
 SELECT con.name,
 round.name,
 r.name,
@@ -610,13 +610,13 @@ AND c.coder_id = @cr@
 AND round.round_id = @rd@
 AND con.contest_id = round.contest_id
 "
-java QueryLoader 34 "Base_Room_ID" 0 0 "
+java com.topcoder.utilities.QueryLoader 34 "Base_Room_ID" 0 0 "
 SELECT NVL(MIN(room_id), 0)
     FROM room
     WHERE round_id = @rd@
     AND division_id = @dn@
 "
-java QueryLoader 35 "Round_Statistics_Data" 0 0 "
+java com.topcoder.utilities.QueryLoader 35 "Round_Statistics_Data" 0 0 "
 SELECT c.handle,
 c.coder_id,
 con.name,
@@ -641,7 +641,7 @@ AND con.contest_id = r.contest_id
 AND room.room_id = rr.room_id
 ORDER BY @sc@ @sd@
 "
-java QueryLoader 36 "Round_Statistics_Data" 0 0 "
+java com.topcoder.utilities.QueryLoader 36 "Round_Statistics_Data" 0 0 "
 SELECT c.handle,
 c.coder_id,
 con.name,
@@ -674,7 +674,7 @@ AND con.contest_id = r.contest_id
 AND room.room_id = rr.room_id
 ORDER BY rr.room_id, rr.final_points DESC, rr.new_rating DESC, c.handle
 "
-java QueryLoader 37 "Round_Statistics_Data" 0 0 "
+java com.topcoder.utilities.QueryLoader 37 "Round_Statistics_Data" 0 0 "
 SELECT c.handle,
 c.coder_id,
 con.name,
@@ -704,7 +704,7 @@ AND con.contest_id = r.contest_id
 AND room.room_id = rr.room_id
 ORDER BY @sc@ @sd@
 "
-java QueryLoader 38 "Base_Room_ID" 0 0 "
+java com.topcoder.utilities.QueryLoader 38 "Base_Room_ID" 0 0 "
 SELECT NVL(MIN(room_id), 0)
     FROM room
     WHERE round_id =
@@ -715,13 +715,13 @@ SELECT NVL(MIN(room_id), 0)
         FROM round))
     AND division_id = @dn@
 "
-java QueryLoader 39 "Division_Room_Count" 0 0 "
+java com.topcoder.utilities.QueryLoader 39 "Division_Room_Count" 0 0 "
 SELECT NVL(RANGE(room_id) + 1, 0)
     FROM room
     WHERE round_id = @rd@
     AND division_id = @dn@
 "
-java QueryLoader 40 "Division_Room_Count" 0 0 "
+java com.topcoder.utilities.QueryLoader 40 "Division_Room_Count" 0 0 "
 SELECT NVL(RANGE(room_id) + 1, 0)
     FROM room
     WHERE round_id = 
@@ -732,7 +732,7 @@ SELECT NVL(RANGE(room_id) + 1, 0)
       FROM round))
     AND division_id = @dn@
 "
-java QueryLoader 41 "Current_User_Info" 0 0 "
+java com.topcoder.utilities.QueryLoader 41 "Current_User_Info" 0 0 "
 SELECT (SELECT count(*)
           FROM coder_image_xref cix
                ,image i
@@ -745,7 +745,7 @@ SELECT (SELECT count(*)
   FROM coder c
  WHERE c.coder_id = @cu@
 "
-java QueryLoader 42 "Most_Recent_Round_For_Coder" 0 0 "
+java com.topcoder.utilities.QueryLoader 42 "Most_Recent_Round_For_Coder" 0 0 "
 SELECT NVL(MAX(rr.round_id), 0)
 FROM room_result rr, round r
 WHERE rr.coder_id = @cr@
@@ -756,13 +756,13 @@ AND r.calendar_id =
   WHERE coder_id = @cr@
   AND room_result.round_id = round.round_id)
 "
-java QueryLoader 43 "Room_For_Coder_Round" 0 0 "
+java com.topcoder.utilities.QueryLoader 43 "Room_For_Coder_Round" 0 0 "
 SELECT NVL(MAX(room_id), 0)
 FROM room_result
 WHERE round_id = @rd@
 AND coder_id = @cr@
 "
-java QueryLoader 44 "Coder_Problems" 0 0 "
+java com.topcoder.utilities.QueryLoader 44 "Coder_Problems" 0 0 "
 SELECT p.class_name,
 p.method_name,
 p.problem_id,
@@ -779,7 +779,7 @@ AND p.round_id = cp.round_id
 AND p.division_id = cp.division_id
 ORDER BY p.level_id ASC
 "
-java QueryLoader 45 "Round_Sponsor_Image" 0 0 "
+java com.topcoder.utilities.QueryLoader 45 "Round_Sponsor_Image" 0 0 "
 SELECT p.path || i.file_name, link, width, height
   FROM round_image_xref rix
        ,image i
@@ -790,7 +790,7 @@ SELECT p.path || i.file_name, link, width, height
    AND rix.display_flag = 1
    AND rix.round_id = @rd@
 "
-java QueryLoader 46 "Top_Room_Winners" 1 7 "
+java com.topcoder.utilities.QueryLoader 46 "Top_Room_Winners" 1 7 "
 SELECT ro.name as round_name
        ,ro.round_id as round_id
        ,r.name as room_name
@@ -819,7 +819,7 @@ SELECT ro.name as round_name
                           WHERE r.round_type_id = 1)
  ORDER BY final_points desc
 "
-java QueryLoader 47 "Top_Ranked_Div_1" 1 3 "
+java com.topcoder.utilities.QueryLoader 47 "Top_Ranked_Div_1" 1 3 "
 SELECT c.coder_id
        ,c.handle
        ,r.rating
@@ -829,7 +829,7 @@ SELECT c.coder_id
    AND r.rating > 1199
  ORDER BY r.rating DESC
 "
-java QueryLoader 48 "Top_Ranked_Div_2" 1 3 "
+java com.topcoder.utilities.QueryLoader 48 "Top_Ranked_Div_2" 1 3 "
 SELECT c.coder_id
        ,c.handle
        ,r.rating
@@ -841,7 +841,7 @@ SELECT c.coder_id
  ORDER BY r.rating DESC
 "
 
-java QueryLoader 49 "Div2_Problem_Level_Stats" 0 0 "
+java com.topcoder.utilities.QueryLoader 49 "Div2_Problem_Level_Stats" 0 0 "
 SELECT p.class_name as class_name
        ,cp.level_desc as level
        ,SUM(CASE WHEN cp.end_status_id = 150 THEN 1 ELSE 0 END) as passed_sys_test
