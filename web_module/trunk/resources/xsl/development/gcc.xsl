@@ -93,18 +93,21 @@ The following section describes the tasks required by the Architect.
   <li>
     <b>Evaluation of Modifications</b><br/>  Evaluate and document what changes need to be made to the current C++ engine in order to run correctly with the new compiler. Develop a timeline and specifications for a project involving the implementation of the modifications that need to take place.
   </li>
+  <li>
+    <b>Deliver a Scope Document</b><br/>  A scope document must be delivered to TopCoder by the project completion date.
+  </li>
 </ul>
                                     <b>Payment</b>
                                     <BR/>
                                     <BR/>
 <ul>
   <b>Architect</b><br/>
-  The architect will get paid a total of $600.00 at the completion of the project*
+  The architect will get paid a total of $600.00 at the completion of the project.*
 *Completion of the project is defined as follows: 
    <ul>
      <li>All tasks assigned by the project manager have been completed. </li>
      <li>The deliverables are functioning properly and integrated within the other project software deliverables. </li>
-     <li>The project manager has signed off on all delivered components. </li>
+     <li>The project manager has signed off on the scope document. </li>
    </ul>
 </ul>
                                     <b>Eligibility</b>
@@ -119,7 +122,7 @@ You must be a rated TopCoder member, at least 18 years of age, meeting all of th
                                     <b>Time Line</b>
                                     <BR/>
                                     <BR/>            
-The project will begin on the 19th of June. There will be a Kick-Off conference call to address the following: introduction of all team members, design considerations for the new systems, specific time lines, deliverables, development, and any outstanding issues. The project is scheduled to be complete by June 25th. 
+The project will begin on the 19th of June. There will be a Kick-Off conference call to address the following: introduction of all team members, design considerations for the new systems, specific time lines, deliverables, development, and any outstanding issues. The project is scheduled to be completed by June 25th. 
                                     <ul>
                                         <li>Project Start Date:    June 19, 2002</li>
                                         <li>Project End Date:      June 25, 2002</li>
