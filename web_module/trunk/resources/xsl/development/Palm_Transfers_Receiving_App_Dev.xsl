@@ -329,8 +329,7 @@
                                                     <p>
                                                         <strong> Registration </strong>
                                                         <br/>
-                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Palm%20Transfers%20and%20Receiving%20Application%20Dev">here</a> to get selected as a developer and to obtain the information necessary to submit a solution.
-                                                        Once you have registered for the project you will be given more information on the project including the requirements specification and other additional information.  After viewing this information, you will have 12 hours to accept the position.
+                                                        Closed
                                                     </p>
                                                 </td>
                                             </tr>
