@@ -119,11 +119,8 @@
             <table border="0" cellspacing="0" cellpadding="0" width="534">
                 <tr valign="top">
                     <td class="bodyText">
-                        <p align="left"><A href="http://software.topcoder.com/components/subscriptions.jsp">Subscribe</A> to a TopCoder Software Component Catalog. 
-                        Learn more about components by downloading exclusive documentation. Now available at introductory pricing for as little as $12.95 a month.</p>
+                        <p align="left">Get unlimited access to our component catalog with a <A href="http://software.topcoder.com/components/subscriptions.jsp">FREE Developer subscription</A> or go for our <A href="http://software.topcoder.com/components/subscriptions.jsp">Enterprise subscription</A> for commercial usage.</p>
                     </td>
-                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
-                    <td width="10"><A href="http://software.topcoder.com/components/subscriptions.jsp"><img src="/i/development/buy_now.gif" alt="Buy Now" width="170" height="50" border="0" /></A></td>
                 </tr>
             </table>
 <!-- Subscribe to catalog ends -->
