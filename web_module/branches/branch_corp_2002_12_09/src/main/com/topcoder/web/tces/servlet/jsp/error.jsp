@@ -59,18 +59,19 @@
                         We are sorry for any inconveniences caused by this<br>
                         site administration<br><br>
                    </DIV CLASS="headerWhite">
-                       <!-- web-app debug time stack trace  BEGIN -->
 
-                        <hr><b><i>Trace information is provided for web application debug time only</i></b><br>
-                       <pre><br>
-                       <% Exception excCaught = (Exception)request.getAttribute("caught-exception");
-                          if( excCaught != null ) {
-                             excCaught.printStackTrace(new java.io.PrintWriter(out));
-                          }
-                       %><br>
-                       </pre><hr>
 
-                       <!-- web-app debug time stack trace END -->
+<!-- web-app debug time stack trace  BEGIN -->
+<hr><b><i>Trace information is provided for web application debug time only</i></b><br>
+<pre>
+<% 
+Exception excCaught = (Exception)request.getAttribute("caught-exception");
+if( excCaught != null ) { excCaught.printStackTrace(new java.io.PrintWriter(out)); }
+%>
+</pre>
+<hr>
+<!-- web-app debug time stack trace END -->
+
 
                   </TD>
                 </TR>
