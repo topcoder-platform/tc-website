@@ -385,10 +385,21 @@ Why would we want to do something like that...<a class="bodyGeneric"><xsl:attrib
 				<tr valign="top">
 					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 					<td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296145">srowen</a></td>
-					<td class="statText" align="right">89.46</td>
+					<td class="statText" align="right">90.28</td>
 					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 				</tr>             
 							
+				<tr valign="top">
+					<td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
+				</tr>                             
+							
+				<tr valign="top">
+					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+					<td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=299180">isv</a></td>
+					<td class="statText" align="right">84.26</td>
+					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+				</tr>             
+											
 				<tr valign="top">
 					<td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
 				</tr>                             
@@ -406,19 +417,8 @@ Why would we want to do something like that...<a class="bodyGeneric"><xsl:attrib
 							
 				<tr valign="top">
 					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-					<td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=285960">jkang</a></td>
-					<td class="statText" align="right">82.40</td>
-					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-				</tr>             
-
-				<tr valign="top">
-					<td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
-				</tr>                             
-							
-				<tr valign="top">
-					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-					<td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=141163">darkstalker</a></td>
-					<td class="statText" align="right">81.89</td>
+					<td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=267860">atdiehm</a></td>
+					<td class="statText" align="right">83.39</td>
 					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 				</tr>     
 											
@@ -428,11 +428,11 @@ Why would we want to do something like that...<a class="bodyGeneric"><xsl:attrib
 							
 				<tr valign="top">
 					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-					<td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=299180">isv</a></td>
-					<td class="statText" align="right">81.52</td>
+					<td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=285960">jkang</a></td>
+					<td class="statText" align="right">82.40</td>
 					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 				</tr>             
-											
+
 				<tr>
 					<td colspan="4"><img src="/i/clear.gif" width="1" height="10" border="0"/></td>
 				</tr>                       
