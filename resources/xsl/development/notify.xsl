@@ -57,7 +57,7 @@
                                         <span class="statTextBig">Notification Component Project</span>
                                     </font>
                                     <BR/>
-                                    <a href="Javascript:document.frmInquire.Project.value='Notification Component';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>
+                                    <!--<a href="Javascript:document.frmInquire.Project.value='Notification Component';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>-->
                                     <BR/>
                                     <BR/>
                                     <b>Overview</b>
@@ -254,7 +254,7 @@ There will be a Kick-Off conference call to address the following: introduction 
                                         <li>Project Start Date:    May 7, 2002</li>
                                         <li>Project End Date:      May 28, 2002</li>
                                     </ul>
-                                    <a href="Javascript:document.frmInquire.Project.value='Notification Component';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>
+                                    <!--<a href="Javascript:document.frmInquire.Project.value='Notification Component';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>-->
           <P><br/></P>
     </TD>
     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
