@@ -1,37 +1,21 @@
-</HEAD>
-<BODY BGCOLOR="#001934" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
+</head>
+
+<body>
+
 <jsp:include page="../includes/top.jsp" />
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000000" WIDTH="100%">
-<TR><TD>
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
-    <TR VALIGN="top">
-		<TD WIDTH="170" BGCOLOR="#001934">
+
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+    <tr valign="top">
+        <td width="170" bgcolor="#001934">
         <jsp:include page="../includes/left_nav.jsp" />
-<jsp:include page="../includes/left_calendar.jsp" />
-        </TD>
+        <jsp:include page="../includes/left_calendar.jsp" />
+        </td>
         
-        
-        <TD VALIGN="top" BACKGROUND="/i/bluegradiant_stats_bg.gif" BGCOLOR="#001934">
-            <TABLE CELLSPACING="0" CELLPADDING="0" BORDER="0" WIDTH="100%">
-    <TR>
-        <TD>
-            <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-             <TR><TD ALIGN="left" HEIGHT="44" WIDTH="348"><IMG SRC="/i/headinginside_stats.gif" WIDTH="348" HEIGHT="44" BORDER="0"></TD>
-             <TD BACKGROUND="/i/headinginside_1pix_bg.gif" ALIGN="left" HEIGHT="44" WIDTH="4096">&nbsp;
-             </TD></TR>
-            </TABLE>
-        </TD>
-    </TR>
-    <TR>
-        <TD>
-        <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-        <TR>
-            <TD>
-                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-                <TR>
-                    <TD WIDTH="10"><IMG SRC="/i/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                </TR>
-                </TABLE>
-            </TD>
-            <TD class="statText">
-            <!-- Start Body-->
+        <td width="99%">
+            <table cellspacing="0" cellpadding="10" border="0"  width="100%">
+                
+                <tr valign="top">
+                    <td align="left" width="99%" class="statText">
+                        <img src="/i/headinginside_stats.gif" width="348" height="44" border="0">
+
+<!-- Start Body-->
