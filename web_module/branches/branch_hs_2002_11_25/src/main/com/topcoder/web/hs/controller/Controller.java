@@ -17,7 +17,7 @@ import com.topcoder.shared.util.logging.Logger;
  * @author Greg Paul, Ambrose Feinstein
  * @version $Revision$
  */
-public final class Controller extends HttpServlet {
+public class Controller extends HttpServlet {
 
     private static Logger log = Logger.getLogger(Controller.class);
 
@@ -30,7 +30,7 @@ public final class Controller extends HttpServlet {
         Constants.init(getServletConfig());
     }
 
-    public final void doGet(HttpServletRequest request, HttpServletResponse response)
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         doPost(request, response);
     }
@@ -134,6 +134,7 @@ public final class Controller extends HttpServlet {
             out.println("<html><head><title>Internal Error</title></head>");
             out.println("<body><h3>Error: "+e.getMessage()+"</h3>");
             out.println("</body></html>");
+            out.flush();
         }
     }
 
