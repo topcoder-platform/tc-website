@@ -157,9 +157,9 @@ public class CampaignDetailTask extends BaseTask implements Task, Serializable {
             posListRow = rsc.getRow(rowI);
             HashMap position = new HashMap();
             position.put("job_desc", TCData.getTCString(posListRow, "job_desc") );
-            position.put("hit_count", TCData.getTCString(posListRow, "hit_count") );
-            position.put("most_recent",TCData.getTCString(posListRow, "most_recent") );
-            position.put("job_id", TCData.getTCString(posListRow, "job_id") );
+            position.put("hit_count", Long.toString(TCData.getTCLong(posListRow, "hit_count")) );
+            position.put("most_recent",TCData.getTCDate(posListRow, "most_recent") );
+            position.put("job_id", Long.toString(TCData.getTCLong(posListRow, "job_id")) );
             positionList.add(position);
         }
         setPositionList( positionList );
