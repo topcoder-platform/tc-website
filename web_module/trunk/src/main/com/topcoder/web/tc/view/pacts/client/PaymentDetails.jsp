@@ -2,9 +2,8 @@
 
 
 
-<%@ page 
+<%@ page
   language="java"
-  errorPage="/errorPage.jsp"
   import="java.text.DecimalFormat"
 %>
 
@@ -23,9 +22,9 @@ function goTo(selection){
   }
 }
 // -->
-</script>   
+</script>
  </HEAD>
- <BODY BGCOLOR="#CCCCCC" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
+ <BODY>
    <jsp:include page="../../top.jsp" />
    <TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
      <TR>
@@ -34,10 +33,10 @@ function goTo(selection){
        </TD>
        <TD WIDTH="4" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8" BORDER="0"></TD>
        <TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="1" VSPACE="5" BORDER="0"><BR/>
-        <jsp:include page="/body_top.jsp" >  
-           <jsp:param name="image" value="pacts"/>  
-           <jsp:param name="image1" value="steelblue"/>  
-           <jsp:param name="title" value="Payment Detail"/>  
+        <jsp:include page="/body_top.jsp" >
+           <jsp:param name="image" value="pacts"/>
+           <jsp:param name="image1" value="steelblue"/>
+           <jsp:param name="title" value="Payment Detail"/>
         </jsp:include>
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
 	<TR>
@@ -51,16 +50,16 @@ function goTo(selection){
 
     Payment payment=null;
     try {
-        payment = (Payment) 
+        payment = (Payment)
 	    request.getAttribute(PactsConstants.PACTS_MEMBER_RESULT);
     } catch (Exception e) {
 	out.println("We caught an exception " + e);
 	payment = null;
     }
-    
+
     if(payment!=null) {
 	PactsMemberTableModel tableData = new PactsMemberTableModel(6,2);
-	
+
 	// fill in the data
 	// row 0
 	tableData.setElement(0,0,"handle");
@@ -80,7 +79,7 @@ function goTo(selection){
 	tableData.setElement(3,1,"$" + decf.format(payment._netAmount));
 
 	// row 4
-	tableData.setElement(4,0,"Gross Amount");	
+	tableData.setElement(4,0,"Gross Amount");
 	tableData.setElement(4,1,"$" + decf.format(payment._grossAmount));
 
 	// row 5
@@ -93,12 +92,12 @@ function goTo(selection){
  	table.setCellSpacing("2");
  	table.setCellPadding("2");
  	table.setBorder("0");
- 	table.setWidth("100%");	
+ 	table.setWidth("100%");
  	table.setColumnWidth(0, "40%");
- 	table.setColumnWidth(1, "60%");				
- 	table.setRowColor(0,"\"#093158\"");	
+ 	table.setColumnWidth(1, "60%");
+ 	table.setRowColor(0,"\"#093158\"");
  	table.setClassName("statText");
- 	table.setRowBold(0,true);	
+ 	table.setRowBold(0,true);
 
 	out.print(table.getHtml());
     } else {
@@ -115,13 +114,13 @@ no payment info
 	</TR>
 	<TR>
 		<TD COLSPAN="4" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-	</TR>   	
+	</TR>
 	<TR>
 		<TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
 		<TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" BGCOLOR="#000033" WIDTH="14"><IMG SRC="/i/table_mid_left2x.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
 		<TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" BGCOLOR="#000033" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
 		<TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-	</TR>	
+	</TR>
 	<TR>
 		<TD VALIGN="top" BACKGROUND="" WIDTH="11" ALIGN="right" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
 		<TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
@@ -136,9 +135,9 @@ no payment info
        </TD>
     <!-- Gutter -->
     <TD WIDTH="25" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->       
+    <!-- Gutter Ends -->
      </TR>
    </TABLE>
-   <jsp:include page="/foot.jsp" /> 
+   <jsp:include page="/foot.jsp" />
  </BODY>
 </HTML>

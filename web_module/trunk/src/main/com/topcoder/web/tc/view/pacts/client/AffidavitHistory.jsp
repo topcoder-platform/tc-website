@@ -1,8 +1,7 @@
 <!doctype html public "-//w3c//dtd html 4.0 transitional//en">
 
-<%@ page 
+<%@ page
   language="java"
-  errorPage="/errorPage.jsp"
 %>
 
 <HTML>
@@ -20,9 +19,9 @@ function goTo(selection){
   }
 }
 // -->
-</script>   
+</script>
  </HEAD>
- <BODY BGCOLOR="#CCCCCC" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
+ <BODY>
    <jsp:include page="../../top.jsp" />
    <TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
      <TR>
@@ -31,10 +30,10 @@ function goTo(selection){
        </TD>
        <TD WIDTH="4" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8" BORDER="0"></TD>
        <TD CLASS="statText" WIDTH="100%" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="1" VSPACE="5" BORDER="0"><BR/>
-        <jsp:include page="/body_top.jsp" >  
-           <jsp:param name="image" value="pacts"/>  
-           <jsp:param name="image1" value="steelblue"/>  
-           <jsp:param name="title" value="Affidavits"/>  
+        <jsp:include page="/body_top.jsp" >
+           <jsp:param name="image" value="pacts"/>
+           <jsp:param name="image1" value="steelblue"/>
+           <jsp:param name="title" value="Affidavits"/>
         </jsp:include>
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
 	<TR>
@@ -47,11 +46,11 @@ function goTo(selection){
 <%
     Affidavit[] affidavits = null;
     try {
-        affidavits = (Affidavit[]) 
+        affidavits = (Affidavit[])
 	    request.getAttribute(PactsConstants.PACTS_MEMBER_RESULT);
     } catch (Exception e) {
 	// there must have been a type problem
-	affidavits = null;    
+	affidavits = null;
 	System.out.println("We got excepted");
     }
 
@@ -67,12 +66,12 @@ function goTo(selection){
 		str = "click here to see a complete list of affidavits";
 	    	href = PactsHtmlHelpers.createPactsHtmlHref(
 	            PactsConstants.MEMBER_SERVLET_URL,
-	            vec, PactsConstants.AFFIDAVIT_TASK, 
+	            vec, PactsConstants.AFFIDAVIT_TASK,
 	            PactsConstants.AFFIDAVIT_HISTORY_CMD, str, "statText");
 		out.print(href);
 	}
 	out.print("</p>");
-	
+
 	// build the table
 	PactsMemberTableModel tableData = new PactsMemberTableModel(
 	                                        affidavits.length+1,5);
@@ -94,21 +93,21 @@ function goTo(selection){
 	    if(affidavits[i-1]._header._affirmed) {
 	        str = "affirmed on " + affidavits[i-1]._affirmationDate ;
 	    } else if(affidavits[i-1]._daysLeftToAffirm>0) {
-	      	str = "click to affirm, " + affidavits[i-1]._daysLeftToAffirm +  
+	      	str = "click to affirm, " + affidavits[i-1]._daysLeftToAffirm +
 	               " days left";
 	    } else {
 		str = "expired, click here to view";
 	    }
 
-	    vec.add(new String(PactsConstants.AFFIDAVIT_ID + "=" + 
+	    vec.add(new String(PactsConstants.AFFIDAVIT_ID + "=" +
 	            affidavits[i-1]._header._id));
 
 	    href = PactsHtmlHelpers.createPactsHtmlHref(
 	            PactsConstants.MEMBER_SERVLET_URL,
-	            vec, PactsConstants.AFFIDAVIT_TASK, 
+	            vec, PactsConstants.AFFIDAVIT_TASK,
 	            PactsConstants.AFFIDAVIT_DETAILS_CMD, str, "statText");
 	    tableData.setElement(i,1,href);
-	    
+
 	    // payment
             vec.clear();
 	    DecimalFormat decf = new DecimalFormat("0.00");
@@ -117,7 +116,7 @@ function goTo(selection){
 	            affidavits[i-1]._payment._id));
 	    href = PactsHtmlHelpers.createPactsHtmlHref(
 	            PactsConstants.MEMBER_SERVLET_URL,
-	            vec, PactsConstants.PAYMENT_TASK, 
+	            vec, PactsConstants.PAYMENT_TASK,
 	            PactsConstants.PAYMENT_DETAILS_CMD, str, "statText");
 	    tableData.setElement(i,2,href);
 
@@ -127,23 +126,23 @@ function goTo(selection){
 
 	    // status
 	    tableData.setElement(i,4,affidavits[i-1]._header._status);
-	    
-	}	
+
+	}
 
 	PactsHtmlTable table = new PactsHtmlTable(tableData);
 	table.setBgcolor("\"#001935\"");
 	table.setCellSpacing("2");
 	table.setCellPadding("2");
 	table.setBorder("0");
-	table.setRowColor(0,"\"#093158\"");	
+	table.setRowColor(0,"\"#093158\"");
 	table.setClassName("statText");
-	table.setRowBold(0,true);	
-    table.setWidth("100%");	
+	table.setRowBold(0,true);
+    table.setWidth("100%");
  	table.setColumnWidth(0, "35%");
  	table.setColumnWidth(1, "25%");
  	table.setColumnWidth(2, "20%");
  	table.setColumnWidth(3, "10%");
- 	table.setColumnWidth(4, "10%");		
+ 	table.setColumnWidth(4, "10%");
 	out.print(table.getHtml());
     }
 %>
@@ -154,13 +153,13 @@ function goTo(selection){
 	</TR>
 	<TR>
 		<TD COLSPAN="4" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-	</TR>   	
+	</TR>
 	<TR>
 		<TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
 		<TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" BGCOLOR="#000033" WIDTH="14"><IMG SRC="/i/table_mid_left2x.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
 		<TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" BGCOLOR="#000033" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
 		<TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-	</TR>	
+	</TR>
 	<TR>
 		<TD VALIGN="top" BACKGROUND="" WIDTH="11" ALIGN="right" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
 		<TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
@@ -175,10 +174,10 @@ function goTo(selection){
        </TD>
     <!-- Gutter -->
     <TD WIDTH="25" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->       
+    <!-- Gutter Ends -->
      </TR>
    </TABLE>
-   <jsp:include page="/foot.jsp" /> 
+   <jsp:include page="/foot.jsp" />
  </BODY>
 </HTML>
 

@@ -1,8 +1,7 @@
 <!doctype html public "-//w3c//dtd html 4.0 transitional//en">
 
-<%@ page 
+<%@ page
   language="java"
-  errorPage="/errorPage.jsp"
 %>
 
 <HTML>
@@ -20,9 +19,9 @@ function goTo(selection){
   }
 }
 // -->
-</script>   
+</script>
  </HEAD>
- <BODY BGCOLOR="#CCCCCC" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
+ <BODY>
    <jsp:include page="../../top.jsp" />
    <TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
      <TR>
@@ -31,10 +30,10 @@ function goTo(selection){
        </TD>
        <TD WIDTH="4" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8" BORDER="0"></TD>
        <TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="1" VSPACE="5" BORDER="0"><BR/>
-        <jsp:include page="/body_top.jsp" >  
-           <jsp:param name="image" value="pacts"/>  
-           <jsp:param name="image1" value="steelblue"/>  
-           <jsp:param name="title" value="Affidavit Detail"/>  
+        <jsp:include page="/body_top.jsp" >
+           <jsp:param name="image" value="pacts"/>
+           <jsp:param name="image1" value="steelblue"/>
+           <jsp:param name="title" value="Affidavit Detail"/>
         </jsp:include>
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
 	<TR>
@@ -48,15 +47,15 @@ function goTo(selection){
 
     AffidavitWithText a=null;
     try {
-        a = (AffidavitWithText) 
+        a = (AffidavitWithText)
 	    request.getAttribute(PactsConstants.PACTS_MEMBER_RESULT);
     } catch (Exception e) {
 	out.println("We caught an exception " + e);
 	a = null;
     }
-    
+
     if(a!=null) {
-	if(!a.affidavit._header._affirmed) {	
+	if(!a.affidavit._header._affirmed) {
 %>
 
 <P><B>Prize Payment Requirements:</B><P>
@@ -65,7 +64,7 @@ All four requirements must be met for TopCoder to release payment.
 We will mail the check to the address in your TopCoder profile,
 so please make sure that this information is current.
                         </LI><LI><B>A Completed Affidavit of Eligibility, Liability, and Publicity Release.</B><BR>
-You must fill out, sign, and return an affidavit of eligibility before we can pay out prize money.  The affidavit is a verification of your eligibility to participate in the match, 
+You must fill out, sign, and return an affidavit of eligibility before we can pay out prize money.  The affidavit is a verification of your eligibility to participate in the match,
 as well as a publicity release.  The affidavit must be postmarked no later than 60 days after the competition date - otherwise, you forfeit your prize for this competition.
                         </LI><LI><B>
                               One notarized affidavit on file with TopCoder.
@@ -75,8 +74,8 @@ as well as a publicity release.  The affidavit must be postmarked no later than 
 ll be paid upon receipt of a signed TopCoder affidavit.</I></LI><LI><B>One completed tax form on file with TopCoder.</B><BR><A class="statText" href="/?t=support&amp;c=form_faq">TopCoder FAQ regarding these forms >></A><BR>
 The <B>W-9 form</B> should be filled out by all U.S. Citizens, including U.S resident aliens.<BR><A class="statText" href="/contest/iw9.pdf">Click here for W-9 form instructions >></A><BR><A class="statText" href="/contest/fw9.pdf">Click here for the W-9 form >></A><BR>
 The <B>W-8BEN form</B> should be filled out by all non-U.S. Citizens.<BR><A class="statText" href="/contest/iw8ben.pdf">Click here for W-8BEN form instructions >></A><BR><A class="statText" href="/contest/fw8ben.pdf">Click here for the W-8BEN form >></A><BR></LI></UL>
-                      
-                        
+
+
                     Mailing address for forms and affidavits:  TopCoder, 703 Hebron Avenue, Glastonbury, CT 06033
 
 <p><a href=PactsMemberServlet?t=affidavit&c=render_affidavit&affidavit_id=<%
@@ -87,11 +86,11 @@ out.print(new String(a.affidavit._header._id + ""));
 
 <%
 	}
-	
+
 	// check the state
 	if(!a.canAffirmOnline) {
 		out.print("<p>" + a.affidavitText + "</p>");
-	
+
 		out.print("<b><p>You cannot affirm this affidavit online, please " +
 			"answer all demographic questions and make sure you have " +
 			"mailed in an affidavit that has been notarized.  Also, make sure you have filled out a tax form and mailed it in (see the links above). </p></b>");
@@ -110,7 +109,7 @@ out.print("<input type=hidden name=" + PactsConstants.AFFIDAVIT_ID);
 out.print(" value=" + a.affidavit._header._id + ">");
 if(a.affidavit._birthday.length() <= 0) {
 	out.print("Enter your birthday (MM/dd/YYYY): <input type=\"text\" name=\"date_of_birth\" size=15 maxlength=15>");
-} 
+}
 out.print("<input type=\"submit\" value=\"affirm affidavit\">");
 out.print("</form>");
 out.print("</td><td>");
@@ -124,7 +123,7 @@ out.print("</td></tr></table></center>");
 	}
 
     } else {
-	
+
 %>
 
 did not get affidavit
@@ -138,13 +137,13 @@ did not get affidavit
 	</TR>
 	<TR>
 		<TD COLSPAN="4" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-	</TR>   	
+	</TR>
 	<TR>
 		<TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
 		<TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" BGCOLOR="#000033" WIDTH="14"><IMG SRC="/i/table_mid_left2x.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
 		<TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" BGCOLOR="#000033" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
 		<TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-	</TR>	
+	</TR>
 	<TR>
 		<TD VALIGN="top" BACKGROUND="" WIDTH="11" ALIGN="right" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
 		<TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
@@ -159,9 +158,9 @@ did not get affidavit
        </TD>
     <!-- Gutter -->
     <TD WIDTH="25" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->       
+    <!-- Gutter Ends -->
      </TR>
    </TABLE>
-   <jsp:include page="/foot.jsp" /> 
+   <jsp:include page="/foot.jsp" />
  </BODY>
 </HTML>
