@@ -7,21 +7,28 @@
 <jsp:usebean id="fileTypes" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request" />
 <HTML>
 <HEAD><TITLE>Resume Upload</TITLE></HEAD>
-  <BODY BGCOLOR="#CCCCCC">
-    <TABLE WIDTH="100%" HEIGHT="100%"  CLASS="bodyText">
+  <BODY BGCOLOR="#FFFFFF">
+    <TABLE WIDTH="100%" CLASS="bodyText" border="1">
       <TR>
-        <TD class="statText">
+        <TD class="bodyText" nowrap>
           <form name="upload_form" enctype="multipart/form-data" method="POST" action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="UploadResume">
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<%=request.getParameter(Constants.COMPANY_ID)%>">
             <tc-webtag:errorIterator id="err" name="<%=Constants.FILE%>"><%=err%><br/></tc-webtag:errorIterator>
-            <br/>Resume: <input type="file" name="<%=Constants.FILE%>">
-            <br/>File Type: <select name="fileType" class="dropdown">
+            Resume: </TD><TD><input type="file" name="<%=Constants.FILE%>"></TD>
+      </TR>
+      <TR>
+            <TD class="bodyText" nowrap>File Type: </TD><TD><select name="fileType" class="dropdown">
             <rsc:iterator list="<%=fileTypes%>" id="fileType">
               <option value="<rsc:item name="file_type_id" row="<%=fileType%>"/>"><rsc:item name="file_type_desc" row="<%=fileType%>"/></option>
             </rsc:iterator>
             </select>
-            <br/><input type="submit" value="Upload">
+            </TD>
+      </TR>
+      <TR>
+            <TD></TD>
+            <TD>
+            <input type="submit" value="Upload">
             </form>
         </TD>
       </TR>
