@@ -60,20 +60,17 @@
                   </TABLE>
 <IMG SRC="/i/es/topcoder/topcoder_logo.gif" WIDTH="160" HEIGHT="31" VSPACE="10" BORDER="0"/><BR/>
 <P>
-<B>Developer</B>
+<B>Internal TopCoder Developer</B>
 </P>
 
 <p>
-TopCoder is looking to hire a full-time software developer to administer, enhance, and maintain the TopCoder
-competition engine. Candidates must work well under pressure in a high-risk environment and must
-have excellent communication skills.
+TopCoder is looking to hire a full-time software developer to administer, enhance, and maintain the TopCoder competition engine. Candidates must work well under pressure in a high-risk environment and must have good communication skills. 
 </p>
-
 <p><b>Responsibilities</b></p>
 <ul>
 <li>Setup and administration of TopCoder competitions</li>
-<li>Provide enhancements to the TopCoder competition engine</li>
-<li>Provide enhancements to the TopCoder website</li>
+<li>Implement enhancements to the TopCoder competition engine and TopCoder website</li>
+<li>Design and develop new functionality to compliment TopCoder's internal systems and private label software offerings</li>
 </ul>
 
 <p><b>Environment</b></p>
@@ -84,14 +81,16 @@ have excellent communication skills.
 
 <p><b>Requirements</b></p>
 <ul>
-<li>You must have knowledge of Java and C++  -  knowledge of C# and VB.NET a plus</li>
+<li>You must have knowledge of Java and C++ - knowledge of C# and VB.NET a plus</li>
+<li>You must have some experience with relational databases</li>
 <li>You must be a logical thinker and a fast learner</li>
-<li>You must be willing to relocate to the Connecticut area </li>
+<li>You must be willing to relocate to the Hartford, CT area</li>
 </ul>
 
 <p>Check out what <b><font color="#FF9900">veredox</font></b>, newly hired TC member, has to say about <a href="/?&amp;t=tces&amp;c=topcoder_veredox">working at TopCoder</a>.</p>
 
 <p ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=169&amp;jt=2" CLASS="bodyText">Apply now!</A></p>
+
 <br/><br/>
 
                         </TD>

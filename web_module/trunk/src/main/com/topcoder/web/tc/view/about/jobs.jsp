@@ -61,8 +61,9 @@
                         <ul>
                             <li><a href="/tc?module=Static&d1=about&d2=placement_agent">Placement Agent</a></li>
                             <li><a href="/tc?module=Static&d1=about&d2=project_manager">Project Manager</a></li>
+                            <li><a href="/tc?module=Static&d1=about&d2=int_project_manager">Internal TopCoder Project Manager</a></li>
+                            <li><A HREF="/?t=tces&c=topcoder_developer&a=secure">Internal TopCoder Developer</A></li>
                             <li><a href="/?t=about_tc&c=tc_salesperson">Salesperson</a></li>
-                            <li><A HREF="/?t=tces&c=topcoder_developer&a=secure">Developer</A></li>
                         </ul>
                     </td>
                 </tr>
