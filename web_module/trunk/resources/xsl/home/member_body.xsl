@@ -623,22 +623,29 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
              <table border="0" cellspacing="0" cellpadding="3" width="100%">
                 <tr valign="top">
                     <td width="55" class="bodyText">
-                        <img src="/i/m/lbackstrom_mug.jpg" alt="" width="55" height="61" border="0" vspace="5"/><br />
-                        By&#160;<strong>lbackstrom</strong><br/>
-                        <span class="smallText"><em>TopCoder Member</em></span></td>
-                    <td width="8"><img src="/i/clear.gif" alt="" width="8" height="1" border="0" /></td>
-                    <td width="99%" class="bodyText">
-                        <p><font size="4"><strong>Single Round Match 141</strong></font><br />
-                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm141_prob</xsl:attribute><font size="4"><strong>Problem Set Analysis &amp; Opinion</strong></font></a></p>
 
-                        <p>SnapDragon brought his A game to this match, beating everyone by over 200 points. 
-						Most people were able to get the first two problems, but dynamic programming is 
-						always a little tricky, and after solving the first two problems, few people had 
-						time to finish the third. sjelkjd also showed why he made it to the CC finals, 
-						taking second overall, helped largely by his 4 successful challenges. Over in 
-						Division 2, first timer dary also won by over 200 points, with three fast 
-						submissions, and a challenge.
-						<a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm141_prob</xsl:attribute><strong>full&#160;story</strong></a></p>
+<!--                        <img src="/i/m/lbackstrom_mug.jpg" alt="" width="55" height="61" border="0" vspace="5"/><br />
+                        By&#160;<strong>lbackstrom</strong><br/>
+                        <span class="smallText"><em>TopCoder Member</em></span> -->
+                        
+                        <img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" vspace="5" align="left" /><br />
+                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=269554"><strong>Yarin</strong></a><br/>
+                        <span class="smallText"><em>TopCoder Member</em></span>
+                        
+                    </td>
+                    <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="4"><strong>Single Round Match 142</strong></font><br />
+                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm142_prob</xsl:attribute><font size="4"><strong>Problem Set Analysis &amp; Opinion</strong></font></a></p>
+
+                        <p>Since the area of the rectangular area must match crops exactly, we will have to loop through all possible rectangles of 
+                        integral size. We only need to loop one side of the rectangle; the other side can be calculated by taking crops/first_side, 
+                        assuming this value is an integer. This is true if crops%first_side==0 (if you're unsure about the % operator, you should 
+                        check this out more carefully as it's a very useful operator!).</p>
+                        
+                        <p>It's possible to loop first_side from 1 to crops, but we actually only have to loop it to sqrt(crops). The reason is that once first_side is greater
+                        than sqrt(crops), the second side of the rectangle will be less than the first_side, and those rectangles we have already checked! 
+                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm142_prob</xsl:attribute><strong>full&#160;story</strong></a></p>
                     </td>
                 </tr>
                 <tr><td colspan="3"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>
