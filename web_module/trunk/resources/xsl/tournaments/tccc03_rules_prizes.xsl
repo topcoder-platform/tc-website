@@ -103,7 +103,9 @@ Prizes will be awarded to a total of 200 competitors.  Prize money will be distr
 						</TR>																										
 						</TABLE></DIV><BR/>
 <P CLASS="statText">
-** All prizes will be awarded at the conclusion of the final onsite round of competition. All winners must be present at the onsite rounds to receive their prizes. Any and all applicable taxes on prizes including bringing a guest to the onsite rounds are the sole responsibility of the prizewinner.						
+** All prizes will be awarded at the conclusion of the final onsite round of competition. Any and all 
+applicable taxes on prizes including bringing a guest to the onsite rounds are the sole 
+responsibility of the prizewinner.						
 </P>
 
 					<P><BR/></P>

@@ -411,8 +411,8 @@ for more information.<BR/><BR/>
 <tr>
     <td valign="top" width="4"><img src="/i/clear.gif" alt="" width="4" height="1" border="0"/></td>
     <td valign="top" colspan="3" class="bodyText"><a class="bodyGeneric">
-        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><b>Single Round Match 128</b></a><br/>
-Monday, January 6, 2003<br/><br/>
+        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><b>Single Round Match 129</b></a><br/>
+Tuesday, January 14, 2003<br/><br/>
 
 
     </td>
@@ -499,53 +499,50 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><BR/>
 <!-- Summary/Best/Worst Ends -->
 
 <!-- Coder Point of View Begins -->
-<table border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#FFFFFF">
+<table border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#FFFFFF">  
   <tr><td valign="top" width="8"><img src="/i/clear.gif" alt="" width="8" height="8" border="0"/></td>
-      <td valign="top" colspan="7"><img src="/i/label_coder_view.gif" alt="Coder's Point of View" width="148" height="26" border="0"/></td>
-      <td valign="top" width="8"><img src="/i/clear.gif" alt="" width="8" height="1" border="0"/></td>
-  </tr>
+      <td valign="top" colspan="7"><img src="/i/label_coder_view.gif" alt="Coder's Point of View" width="148" height="26" border="0"/></td>   
+      <td valign="top" width="8"><img src="/i/clear.gif" alt="" width="8" height="1" border="0"/></td>    
+  </tr>  
   <tr>
-    <td valign="top" width="8" rowspan="2"><img src="/i/clear.gif" alt="" width="8" height="1" border="0"/></td>
-    <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/brett1479_mug.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br/>
-    By&#160;brett1479<br/><i>[TC]&#160;Member</i><br/></td>
-    <td valign="top" width="8" rowspan="2"><img src="/i/clear.gif" alt="" width="8" height="1" border="0"/></td>
+    <td valign="top" width="8" rowspan="2"><img src="/i/clear.gif" alt="" width="8" height="1" border="0"/></td>  
+    <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br/> 
+    By&#160;Yarin<br/><i>[TC]&#160;Member</i><br/></td>
+    <td valign="top" width="8" rowspan="2"><img src="/i/clear.gif" alt="" width="8" height="1" border="0"/></td> 
     <td valign="top" width="100%" align="left" class="bodyText" colspan="2">
-    <font size="2" color="#000000" face="tahoma, verdana"><b>SRM 128</b></font>
+    <font size="2" color="#000000" face="tahoma, verdana"><b>SRM 129</b></font>
     </td>
-  </tr>
+  </tr>      
   <tr>
     <td valign="top" class="bodyText" width="100%">
-    <a class="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm128_prob</xsl:attribute>
+	<a class="bodyGeneric">
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm129_prob</xsl:attribute>
         <b>Problem Set Analysis &amp; Opinion</b>
       </a><br/>
-<P>
-Over 350 competitors registered for Single Round Match 128, one of the largest turnouts in
-months.  The match's problem writer awarded them for their attendance with problems both
-beautifully worded and interesting to solve.
-</P>
+<p>It was a long time since it last happened, but last night it happened again - a cancelled SRM! 
+Many people (including me) had serious connection problems starting just a few minutes before the 
+SRM was about to begin. The contest was postponed 20 minutes, but even then not everyone who had 
+registered could login to the arena. The admins quickly realized this couldn't be a fair contest, 
+so they decided to cancel it but still let those who wished work on the problems. 
+A good decision as the problem set was a nice one!</p>
 
 <p>
-<B>Ambrose</B>, who claimed the Division-I crown, has been leaping up and down since, stopping
-every 10 minutes to catch his breath.  "This was the best competition ever" is what he
-probably would have said had I asked.  <B>Coshx</B>, who had the highest score in Division-II,
-would be ecstatic but he is a hyperbolic trig function, and thus has no emotions.
-Perhaps, due to the occasion, he will take his own derivative.  <B>WishingBone</B>, who had
-the second highest score in Division-I, is now broken in two.  Hopefully he will be back
-in one piece by next competition.  <B>HappyMutant</B>, one of the top scoring Division-II competitors,
-is both happy since he did so well, and sad since he is a mutant
-...<a class="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm128_prob</xsl:attribute>Get the analysis</a>
+I guess it was my usual luck that I, <b>Yarin</b>, should do one of my best performances ever when 
+it didn't count, winning Division-I with <b>1656.91</b> points. In Division-II, another impressive 
+score was seen: <b>1601.35</b> by first timer <b>Yi Zhang</b>. The runner ups in Division-I was 
+<b>radeye</b> and in Division-II <b>Karshikinpa</b>
+...<a class="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm129_prob</xsl:attribute>Get the analysis</a>
 </p>
     </td>
-    <td valign="top" width="8"><img src="/i/clear.gif" alt="" width="8" height="1" border="0"/></td>
+    <td valign="top" width="8"><img src="/i/clear.gif" alt="" width="8" height="1" border="0"/></td>     
   </tr>
-  <tr><td valign="top" colspan="9"><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
-  <tr>
+  <tr><td valign="top" colspan="9"><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>  
+  <tr>  
     <td valign="top" width="8"><img src="/i/clear.gif" alt="" width="8" height="1" border="0"/></td>
-    <td valign="top" width="100%" colspan="7" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>
+    <td valign="top" width="100%" colspan="7" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>    
     <td valign="top" width="8"><img src="/i/clear.gif" alt="" width="8" height="1" border="0"/></td>
-  </tr>
-  <tr><td valign="top" colspan="8"><img src="/i/clear.gif" alt="" width="1" height="4" border="0"/></td></tr>
+  </tr> 
+  <tr><td valign="top" colspan="8"><img src="/i/clear.gif" alt="" width="1" height="4" border="0"/></td></tr>   
 </table>
 <!-- End of Point of View -->
 
@@ -566,8 +563,8 @@ is both happy since he did so well, and sad since he is a mutant
 					<map name="artifact_home">
 						<area alt="TCES" shape="poly" coords="17,33,17,60,141,60,141,92,228,92,228,25,17,25" href="/?&amp;t=schedule&amp;c=srm_spon_artifact"/>					
 						<!-- <area alt="TCES" shape="poly" coords="17,33,17,60,141,60,141,92,228,92,228,25,17,25" href="/?&amp;t=tces&amp;c=artifact"/> -->
-						<area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/?RoundId=4440&amp;t=schedule&amp;c=srm"/>
-						<!-- <area alt="" SHAPE="poly" COORDS="229,104,120,105,105,94,11,95,10,120,36,146,229,148" HREF="/stat?&amp;c=last_match"/> --> 
+						<!-- <area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/?RoundId=4440&amp;t=schedule&amp;c=srm"/> --> 
+						<area alt="" SHAPE="poly" COORDS="229,104,120,105,105,94,11,95,10,120,36,146,229,148" HREF="/stat?&amp;c=last_match"/>
 					</map>
 <!--SRM Sponsor Ends-->
 
