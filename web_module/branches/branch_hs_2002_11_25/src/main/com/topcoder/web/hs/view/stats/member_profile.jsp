@@ -100,7 +100,11 @@ if (!bEmpty) {
                 </TR>
         <% } else { %>
         <TR>
+            <% if((""+SessionInfo.getUserId()).equals(request.getParameter("cr"))) { %>
+                  <TD COLSPAN="5" CLASS="statText">You have not yet been rated in a competition.</TD>
+            <% } else { %>
                   <TD COLSPAN="5" CLASS="statText">This member has not yet been rated in a competition.</TD>
+            <% } %>
                 </TR>
         <% } %>
                 <TR>

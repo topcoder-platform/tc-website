@@ -81,7 +81,6 @@ String sSortUrl = "?module=Statistics&c=ratings_history&cr="+srb.getProperty("cr
                  <TR>
                    <TD BGCOLOR="#1B2E5D" COLSPAN="6"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>    
                  </TR>
-<%-- someone else can decide how to make this match the color scheme
 			<% if (rsc2.croppedDataBefore() ||  rsc2.croppedDataAfter()) { %>
 				 <TR><TD CLASS="statText" COLSPAN="6" HEIGHT="16" align="center">
 				<% if (rsc2.croppedDataBefore()) { %>
@@ -98,7 +97,6 @@ String sSortUrl = "?module=Statistics&c=ratings_history&cr="+srb.getProperty("cr
                     </TD>
                  </TR> 
 			<% } %> 
---%>
                  <TR>
                    <TD BACKGROUND="/i/hs/blue_heading_bg.gif" VALIGN="middle" WIDTH="10"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                    <TD BACKGROUND="/i/hs/blue_heading_bg.gif" CLASS="statText" VALIGN="middle" WIDTH="20%" HEIGHT="18"><a href="<%=sSortUrl%>&sc=3&sd=<%= "3".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" class="statText">Date</a></TD>  
@@ -132,7 +130,11 @@ String sSortUrl = "?module=Statistics&c=ratings_history&cr="+srb.getProperty("cr
                   <TD COLSPAN="7"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>    
                 </TR>
 				<TR>
+            <% if((""+SessionInfo.getUserId()).equals(request.getParameter("cr"))) { %>
+                  <TD COLSPAN="7" CLASS="statText">You have no ratings history.</TD>
+            <% } else { %>
                   <TD COLSPAN="7" CLASS="statText">This member has no ratings history.</TD>
+            <% } %>
                 </TR>				
          <% } %>
                </TABLE>
