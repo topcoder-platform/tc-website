@@ -151,8 +151,9 @@ public abstract class FullRegBase extends SimpleRegBase {
             if (questions==null)
                 questions=getQuestions(transDb, ((FullRegInfo)regInfo).getCoderType(), Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)));
         } catch (Exception e) {
-            throw e;
-            //throw new RuntimeException("failed to get the questions \n" + e.getMessage());
+            e.printStackTrace();
+            
+            throw new RuntimeException("failed to get the questions \n" + e.getMessage());
         }
         return questions;
     }
