@@ -1,3 +1,5 @@
+package com.topcoder.common;
+
 import java.util.Properties;
 /**
 * A subclass of Properties that allows recursive
