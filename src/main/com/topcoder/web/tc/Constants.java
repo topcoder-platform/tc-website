@@ -141,6 +141,9 @@ public class Constants {
     public static String DIV1_LEVEL;
     public static String DIV2_LEVEL;
 
+    /* Contract Constants */
+    public static String CONTRACTING_INFO;
+    public static String CONTRACTING_PREFERENCES_PAGE;
 
 
     static {
