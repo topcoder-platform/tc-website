@@ -69,8 +69,8 @@
    <TR>
       <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
        <P>
-       <A HREF="/?&amp;t=tces&amp;c=nvidia_softeng01&amp;a=secure" CLASS="bodyText">SOFTWARE ENGINEER</A></B><BR/>
-       <A HREF="/?&amp;t=tces&amp;c=nvidia_syssofteng01&amp;a=secure" CLASS="bodyText">SYSTEMS SOFTWARE ENGINEER</A></B><BR/> 
+       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_softeng01&amp;a=secure" CLASS="bodyText">SOFTWARE ENGINEER</A></B><BR/>
+       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_syssofteng01&amp;a=secure" CLASS="bodyText">SYSTEMS SOFTWARE ENGINEER</A></B><BR/></P>
         <!--<B><A HREF="/?&amp;t=tces&amp;c=nvidia_3dgrapharch&amp;a=secure" CLASS="bodyText">3D GRAPHIC ARCHITECT</A></B><BR/>
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_softqaeng_intern&amp;a=secure" CLASS="bodyText">SOFTWARE QA ENGINEER INTERN/CO-OP</A></B><BR/>
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_platverarch&amp;a=secure" CLASS="bodyText">PLATFORM VERIFICATION ARCHITECT</A></B><BR/>
@@ -86,12 +86,12 @@
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_sysbioseng&amp;a=secure" CLASS="bodyText">SYSTEM BIOS ENGINEER</A></B><BR/>
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_oemtechprogmang&amp;a=secure" CLASS="bodyText">OEM TECHNICAL PROGRAM MANAGER</A></B><BR/>
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_fieldappeng&amp;a=secure" CLASS="bodyText">FIELD APPLICATION ENGINEER (Seoul, Korea)</A></B><BR/>-->
-       </P>
+      
       </TD>
       <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
        <P>       
-       <A HREF="/?&amp;t=tces&amp;c=nvidia_archeng01&amp;a=secure" CLASS="bodyText">ARCHITECTURE ENGINEER</A></B><BR/>  
-       <A HREF="/?&amp;t=tces&amp;c=nvidia_platarcheng01&amp;a=secure" CLASS="bodyText">PLATFORM ARCHITECTURE ENGINEER</A></B><BR/> 
+       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_archeng01&amp;a=secure" CLASS="bodyText">ARCHITECTURE ENGINEER</A></B><BR/>  
+       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_platarcheng01&amp;a=secure" CLASS="bodyText">PLATFORM ARCHITECTURE ENGINEER</A></B><BR/></P> 
         <!--<B><A HREF="/?&amp;t=tces&amp;c=nvidia_3dpertooleng&amp;a=secure" CLASS="bodyText">3D PERFORMANCE TOOLS ENGINEER</A></B><BR/>
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_3dappsweng&amp;a=secure" CLASS="bodyText">3D APPLICATION SW ENGINEER</A></B><BR/>
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_cusqeng&amp;a=secure" CLASS="bodyText">CUSTOMER QUALITY ENGINEER (Taipei, Taiwan)</A></B><BR/>
@@ -107,7 +107,7 @@
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_srsignalinteng&amp;a=secure" CLASS="bodyText">SR. SIGNAL INTEGRITY ENGINEER</A></B><BR/>
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_appeng_intern&amp;a=secure" CLASS="bodyText">APPLICATIONS ENGINEER INTERN/CO-OP</A></B><BR/>
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_memarch&amp;a=secure" CLASS="bodyText">MEMORY ARCHITECT</A></B><BR/>-->
-      </P>
+      
     </TD>
   </TR>
 </TABLE> 
