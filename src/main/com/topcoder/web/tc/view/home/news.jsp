@@ -6,6 +6,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>03.09.05<br>1:45 PM</td>
+     <td class="newsTextCell"><span class="newsTitle"><A href="/i/tournament/tco04/onsite_movies/marybeth.mov">Event Manger MaryBeth Luce</A></span><br><br>
+      MaryBeth Luce on finding the best.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/i/tournament/tco04/onsite_movies/marybeth.mov">watch movie</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>03.04.05<br>10:00 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -245,18 +257,6 @@
    <tr><td class="newsLinksCell">
          <A href="/index?t=statistics&c=srm230_prob">full story</A>&#160;|&#160;
          <A href="/?t=statistics&c=editorial_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General TopCoder News" border="0" /><br>02.09.05<br>9:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="http://software.topcoder.com/components/subscriptions.jsp">Developer Subscriptions just became FREE</A></span><br><br>
-      We're now offering out Developer Subscription (formerly the Personal Subscription) for <strong>FREE</strong> instead of $12.95/month.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="http://software.topcoder.com/components/subscriptions.jsp">register</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
 </table>
