@@ -71,7 +71,7 @@
                <td width=15>&nbsp;</td>
                <td id=0 bgcolor=#3366cc align=center width=95 nowrap><font color=#ffffff size=-1><b>Rules</b></font></td>
                <td width=15>&nbsp;</td>
-               <td id=1 bgcolor=#efefef align=center width=95 nowrap onClick="return c('www.google.com/imghp','wi',event);" style=cursor:pointer;cursor:hand;><a href="/pl/?&module=Static&d1=google&d2=google_rules_overview"><font size=-1>Register Now</font></a></td>
+               <td id=1 bgcolor=#efefef align=center width=95 nowrap onClick="return c('www.google.com/imghp','wi',event);" style=cursor:pointer;cursor:hand;><a href="/pl/?&module=Static&d1=google&d2=google_registration"><font size=-1>Register Now</font></a></td>
                <td width=15>&nbsp;</td>
             </tr>
          </table>
@@ -86,12 +86,14 @@
             
             <h3><font color="#CC0000">No purchase necessary to enter or win</font></h3>
 
-            <p>The 2003 Verizon Coding Challenge is being offered by Verizon Communications ("Verizon") and TopCoder, Inc. ("TopCoder").  Verizon is 
-            using the results of the Coding Challenge to identify possible employees for their Chennai VDSI center.  The Coding Challenge will take place between 
-            Monday, August 4 and Friday, August 29, 2003.  It begins with a 2-week online registration, after which up to 500 eligible individuals will be 
-            invited to compete in the programming tournament.  The tournament consists of two (2) online elimination rounds and one (1) onsite final round.  
-            All participants who compete in Round #1 will receive a Verizon Coding Challenge t-shirt.  In addition, Verizon will award $1,900 USD in cash prizes 
-            to the top 4 finalists in the tournament.</p>
+           <p><span class="bodySubtitle">Overview of the Tournament</span><br />
+            The 2003 Google Extreme Challenge is being offered by Google, Inc. ("Google") and TopCoder, Inc. ("TopCoder").  Google 
+            is using the results of the Extreme Challenge to identify possible employees for their company.  The Extreme Challenge will 
+            take place between Wednesday, October 1 and Friday, November 14, 2003.  It begins with a 2-week online registration, 
+            after which all registered individuals will compete in a Qualification Round to determine who will compete in the 
+            programming tournament.  The tournament consists of three (3) days of qualification, two (2) online elimination rounds 
+            and one (1) onsite final round.  All participants who compete in Round 1 will receive a Google Extreme Challenge t-shirt.  
+            In addition, Google will award $25,000 in cash prizes to the 25 finalists in the tournament.</p>
 
             <p><br /></p>
                         
