@@ -85,7 +85,7 @@ function openWin(url, name, w, h) {
 
 <p>
 
-TopCoder presented a gamblers' special on the weekend as, improbably
+TopCoder served up a gamblers' special on the weekend as, improbably
 enough, every Division One problem dealt with chance. The horse to back
 was <b>SnapDragon</b>, who galloped across the finish line after less than
 thirty minutes' coding. <b>Yarin</b> would have been another good bet,
@@ -293,7 +293,7 @@ a room, we are to calculate the probability that at least two of them
 share a birthday. Oops! That's not exactly what the problem says. It
 asks us to calculate the number of people such that the probability of
 a shared birthday reaches a given threshold. But the required number
-of people in the room will not exceed the number of days in a year,
+of people in the room will not exceed the number of days in a year by more than one,
 so we can start with an empty room and add people to it, calculating
 the probability at each increment until we cross the threshold.
 
@@ -546,11 +546,11 @@ when her initial choice is a door concealing a goat.
 </p><p>
 
 In the RangeGame problem, however, if the prize patterns are {"10", "20",
-"30"} and the hint history is {"20"}, the answer is not {10, 20} but {10,
+"30"} and the hint history is {"20"}, the answer is not {10, 30} but {10,
 10}. Why the discrepancy? Note that on Monty Hall's game show, the host
-will never open the door that is the contestant's initial choice. In
-RangeGame, however, the host is as likely to open the contestant's
-first choice as any other non-winning door. This changes the event
+will never open the door that is the contestant's initial choice. In RangeGame, 
+on the other hand, the host is as likely to open the contestant's first choice as 
+any other non-winning door. This changes the event
 space in such a way that there is no longer any advantage to pursuing
 the switching strategy.
 

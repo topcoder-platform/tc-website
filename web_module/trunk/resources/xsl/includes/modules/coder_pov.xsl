@@ -26,7 +26,7 @@
                         Saturday, December 13, 2003</p>
 
 <p> 
-TopCoder presented a gamblers' special on the weekend as, improbably
+TopCoder served up a gamblers' special on the weekend as, improbably
 enough, every Division One problem dealt with chance. The horse to back
 was <b>SnapDragon</b>, who galloped across the finish line after less than
 thirty minutes' coding. <b>Yarin</b> would have been another good bet,
