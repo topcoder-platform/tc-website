@@ -33,10 +33,12 @@ public class TCLoadRequests extends TCLoad {
     private static final int REQUEST_LOAD = 3;
     private static final String[] CODER_ID_KEYS = {"cr", "uid", "mid"};
     private static final String[] ROUND_ID_KEYS = {"rd", "RoundId"};
-    private static final String[] CONTENT_IDS = {"module", "c", "task"};
+    //since t is after c, it'll choose c over t if they're both in the query string
+    private static final String[] CONTENT_IDS = {"module", "c", "task", "t"};
     private HashMap sessionMap = new HashMap();
     private HashMap calendarMap = new HashMap();
     private PreparedStatement getUrlPs = null;
+    private PreparedStatement getNamePs = null;
     private PreparedStatement addSiteHitPs = null;
     private PreparedStatement createUrlPs = null;
 
@@ -44,6 +46,11 @@ public class TCLoadRequests extends TCLoad {
             " select url_id" +
             " from url" +
             " where url = ?";
+
+    private final static String GET_NAME =
+            " select page_name" +
+              " from url " +
+             " where url = ?";
 
     private final static String REQUEST_LIST =
             " select user_id" +
@@ -109,6 +116,7 @@ public class TCLoadRequests extends TCLoad {
 
             //creating this one ahead of time so that we can reuse it.
             getUrlPs = prepareStatement(GET_URL, TARGET_DB);
+            getNamePs = prepareStatement(GET_NAME, TARGET_DB);
             addSiteHitPs = prepareStatement(ADD_SITE_HIT, TARGET_DB);
             createUrlPs = prepareStatement(CREATE_URL, TARGET_DB);
 
@@ -125,6 +133,7 @@ public class TCLoadRequests extends TCLoad {
             close(getUrlPs);
             close(addSiteHitPs);
             close(createUrlPs);
+            close(getNamePs);
         }
     }
 
@@ -414,12 +423,22 @@ public class TCLoadRequests extends TCLoad {
         pageNameMap.put("round_stats_sorted", "Round Statistics");
         pageNameMap.put("last_match_sorted", "Last Match Results");
         pageNameMap.put("round_overview", "Round Overview");
-/*
-        pageNameMap.put("", "Home Page");
-        pageNameMap.put("/", "Home Page");
-        pageNameMap.put("/tc", "Member Home Page");
-*/
         pageNameMap.put("LegacyReport", "TopCoder Reporting");
+
+    }
+
+    //this stuff is generally for other servlets and stuff like that
+    //stuff that isn't acccessed by a content id
+    private static HashMap otherPageNameMap = new HashMap();
+
+    static {
+        otherPageNameMap.put("", "Home Page");
+        otherPageNameMap.put("/", "Home Page");
+        otherPageNameMap.put("/tc", "Member Home Page");
+        otherPageNameMap.put("/query/query", "Query Tool");
+        otherPageNameMap.put("/Registration", "Registration");
+        otherPageNameMap.put("/corp/", "Corporate Home Page");
+        otherPageNameMap.put("/corp/testing/", "Corporate Home Page");
     }
 
 
@@ -565,7 +584,7 @@ public class TCLoadRequests extends TCLoad {
             boolean found = false;
             for (int i = 0; i < CONTENT_IDS.length & !found; i++) {
                 //returning the first found, so if there are more
-                //than one round_id key in the query, then we'll be
+                //than one content_id in the query, then we'll be
                 //returning the first one
                 ret = (String) paramMap.get(CONTENT_IDS[i]);
                 if (ret != null)
@@ -576,11 +595,44 @@ public class TCLoadRequests extends TCLoad {
 
         public String getPageName() {
             String contentId = getContentId();
+            String ret = contentId;
             if (pageNameMap.containsKey(contentId)) {
-                return (String) pageNameMap.get(contentId);
+                ret = (String) pageNameMap.get(contentId);
             } else {
-                return contentId;
+                //look through the other stuff that might indicate what page name to use
+                Map.Entry me = null;
+                String url = getUrl();
+                if (url==null) url = "";
+                boolean found = false;
+                for (Iterator it = otherPageNameMap.entrySet().iterator(); it.hasNext()&&!found;) {
+                    me = (Map.Entry)it.next();
+                    if (url.equals(me.getKey()) || url.startsWith((String)me.getKey())) {
+                        ret = (String)me.getKey();
+                        found = true;
+                    }
+                }
+                if (!found) {
+                    //perhaps we've seen this before and it's got a name in the database
+                    ResultSet rs = null;
+
+                    try {
+                        getNamePs.clearParameters();
+                        getNamePs.setString(1, url);
+                        rs = getNamePs.executeQuery();
+                        if (rs.next()) {
+                            ret = rs.getString("page_name");
+                            otherPageNameMap.put(url, ret);
+                        }
+
+                    } catch (SQLException sqle) {
+                        DBMS.printSqlException(true, sqle);
+                        //ignore otherwise...we'll just have to use our default page name
+                    } finally {
+                        close(rs);
+                    }
+                }
             }
+            return ret;
         }
 
         public String toString() {
