@@ -4,6 +4,7 @@
 <jsp:usebean id="NavZone" class="com.topcoder.web.hs.model.NavZoneBean" scope="request" />
 <jsp:setproperty name="NavZone" property="Level0" value="stats" />
 <jsp:setproperty name="NavZone" property="Level1" value="advanced_search" />
+<jsp:usebean id="ratingStyle" type="com.topcoder.web.hs.model.CoderRatingStyleBean" scope="request" />
 
 <html>
 <head>
@@ -160,7 +161,7 @@
         
                             <tr>
                                 <td><img src="/i/clear.gif" height="1" width="3" alt="" border="0"></td>
-                                <td><a href="?module=Statistics&c=member_profile&cr=<adv:resultSetItem row='<%=member%>' name="user_id"/>"><adv:resultSetItem row="<%=member%>" name="handle"/></a></td>
+                                <td><a href="?module=Statistics&c=member_profile&cr=<adv:resultSetItem row='<%=member%>' name="user_id"/>" class="<%=ratingStyle.getStyle(((Integer)member.getItem("rating").getResultData()).intValue())%>"><adv:resultSetItem row="<%=member%>" name="handle"/></a></td>
                                 <td><adv:resultSetItem row="<%=member%>" name="rating"/></td>
                                 <td><adv:resultSetItem row="<%=member%>" name="state_code"/></td>
                                 <td><adv:resultSetItem row="<%=member%>" name="school_name"/></td>
