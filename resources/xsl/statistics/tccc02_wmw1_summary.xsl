@@ -53,26 +53,7 @@
 					<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
 						<TR>
 							<TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
-						</TR>					
-						<TR>
-							<TD VALIGN="middle" COLSPAN="3" HEIGHT="18" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig">&#160;The next TopCoder competition:</TD>
-						</TR>
-						<TR>
-							<TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-						</TR>						
-						<TR>
-							<TD VALIGN="middle" HEIGHT="15" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" WIDTH="40%">&#160;Match</TD>						
-							<TD VALIGN="middle" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" WIDTH="40%">&#160;Date</TD>
-							<TD VALIGN="middle" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" WIDTH="20%">&#160;Time</TD>
-						</TR>
-						<TR>
-							<TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-						</TR>												
-						<TR>
-							<TD VALIGN="middle" HEIGHT="13" CLASS="statText"><A HREF="/?ContestId=4070&amp;t=schedule&amp;c=srm" CLASS="statText">Single Round Match 68<!-- 2002 TCCC First Round W/MW --></A></TD>						
-							<TD VALIGN="middle" CLASS="statText">Thursday, February 27</TD>
-							<TD VALIGN="middle" CLASS="statText">9:00pm EST</TD>
-						</TR>						
+						</TR>											
 						<!-- <TR>
 							<TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="22" BORDER="0"/></TD>
 						</TR> -->
