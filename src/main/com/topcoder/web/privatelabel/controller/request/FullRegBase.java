@@ -1,12 +1,11 @@
 package com.topcoder.web.privatelabel.controller.request;
 
 import com.topcoder.web.privatelabel.model.FullRegInfo;
+import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.servlet.request.FileUpload;
 import com.topcoder.shared.util.logging.Logger;
-
-import java.util.Iterator;
 
 
 /**
@@ -51,11 +50,8 @@ abstract class FullRegBase extends SimpleRegBase {
         return ret;
     }
 
-    protected boolean hasDemogPageError() {
-        boolean ret = false;
-        ret |= hasError(Constants.FILE_TYPE);
-        ret |= hasError(Constants.CODER_TYPE);
-        ret |= hasError(Constants.RESUME);
-        return ret;
+    protected SimpleRegInfo makeRegInfo() throws Exception {
+        return new FullRegInfo(super.makeRegInfo());
     }
+
 }
