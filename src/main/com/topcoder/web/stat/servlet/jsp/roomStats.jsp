@@ -62,8 +62,8 @@ com.topcoder.web.stat.common.ResultSetContainer rsc = (com.topcoder.web.stat.com
 pageContext.setAttribute("resultSetDates", rsc);
 com.topcoder.web.stat.common.ResultSetContainer rscRoomList = (com.topcoder.web.stat.common.ResultSetContainer) queryEntries.get("Rooms_For_Round");
 pageContext.setAttribute("resultSetRooms", rscRoomList);
-pageContext.setAttribute("rd", srb.getProperty("rd"));
-pageContext.setAttribute("rm", srb.getProperty("rm"));
+pageContext.setAttribute("rd", srb.getProperty("rd", ""));
+pageContext.setAttribute("rm", srb.getProperty("rm", ""));
 pageContext.setAttribute("cr", srb.getProperty("cr", ""));
 %>           
                 <TR>

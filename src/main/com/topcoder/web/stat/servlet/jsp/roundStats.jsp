@@ -129,7 +129,7 @@ if (!bRequireLogin){
 com.topcoder.web.stat.common.ResultSetContainer rscRound = (com.topcoder.web.stat.common.ResultSetContainer) queryEntries.get("Most_Recent_Round");
 pageContext.setAttribute("rd",rscRound.getRow(0).getItem(0).toString());
 }else {
-pageContext.setAttribute("rd",srb.getProperty("rd"));
+pageContext.setAttribute("rd",srb.getProperty("rd", ""));
 com.topcoder.web.stat.common.ResultSetContainer rsc = (com.topcoder.web.stat.common.ResultSetContainer) queryEntries.get("Rounds_By_Date");
 pageContext.setAttribute("resultSetDates", rsc);
 %>           
