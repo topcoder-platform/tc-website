@@ -54,35 +54,39 @@ public abstract class Base extends BaseProcessor {
 
     protected void businessProcessing() throws Exception {
         try {
-            //figure out the sponsor image
-            Request dataRequest = new Request();
-            dataRequest.setContentHandle("sponsor_image");
-            try {
-                dataRequest.setProperty(Constants.COMPANY_ID, String.valueOf(getCompanyId()));
-                dataRequest.setProperty(Constants.IMAGE_TYPE, String.valueOf(Constants.TEST_IMAGE_TYPE));
-                DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
-                Map resultMap = dai.getData(dataRequest);
-                ResultSetContainer rsc = (ResultSetContainer) resultMap.get("Sponsor_Image");
-                if (rsc==null||rsc.isEmpty()) {
-                    sponsorImage = BLANK;
-                } else {
-                    sponsorImage = new ImageInfo();
-                    sponsorImage.setSrc(rsc.getStringItem(0, "file_path"));
-                    sponsorImage.setHeight(rsc.getIntItem(0, "height"));
-                    sponsorImage.setWidth(rsc.getIntItem(0, "width"));
-                    sponsorImage.setLink(rsc.getStringItem(0, "link"));
-                }
-            } catch (TCWebException e) {
-                log.warn("company id not set, using default image");
-                sponsorImage = BLANK;
-            }
-            getRequest().setAttribute(Constants.SPONSOR_IMAGE, sponsorImage);
+            loadSponsorImage();
             techAssessProcessing();
             getRequest().setAttribute(Constants.CURRENT_TIME, String.valueOf(System.currentTimeMillis()));
         } catch (TimeOutException e) {
             unlock();
             closeProcessingPage(buildProcessorRequestString(Constants.RP_TIMEOUT, null, null));
         }
+    }
+
+    protected void loadSponsorImage() throws Exception {
+        Request dataRequest = new Request();
+        dataRequest.setContentHandle("sponsor_image");
+        try {
+            dataRequest.setProperty(Constants.COMPANY_ID, String.valueOf(getCompanyId()));
+            dataRequest.setProperty(Constants.IMAGE_TYPE, String.valueOf(Constants.TEST_IMAGE_TYPE));
+            DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
+            Map resultMap = dai.getData(dataRequest);
+            ResultSetContainer rsc = (ResultSetContainer) resultMap.get("Sponsor_Image");
+            if (rsc==null||rsc.isEmpty()) {
+                sponsorImage = BLANK;
+            } else {
+                sponsorImage = new ImageInfo();
+                sponsorImage.setSrc(rsc.getStringItem(0, "file_path"));
+                sponsorImage.setHeight(rsc.getIntItem(0, "height"));
+                sponsorImage.setWidth(rsc.getIntItem(0, "width"));
+                sponsorImage.setLink(rsc.getStringItem(0, "link"));
+            }
+        } catch (TCWebException e) {
+            log.warn("company id not set, using default image");
+            sponsorImage = BLANK;
+        }
+        getRequest().setAttribute(Constants.SPONSOR_IMAGE, sponsorImage);
+
     }
 
     protected abstract void techAssessProcessing() throws Exception;

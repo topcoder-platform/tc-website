@@ -27,6 +27,7 @@ public class Login extends Base {
             companyId = Long.parseLong(getRequest().getParameter(Constants.COMPANY_ID));
             setDefault(Constants.COMPANY_ID, new Long(companyId));
             setCompanyId(companyId);
+            loadSponsorImage();
         } else {
             throw new NavigationException("Invalid request, missing required parameter.");
         }
