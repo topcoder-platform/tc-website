@@ -16,7 +16,7 @@ import java.util.StringTokenizer;
  * involved in a simple registration process.
  * @author gpaul 06.26.2003
  */
-abstract class SimpleRegBase extends RegistrationBase {
+public abstract class SimpleRegBase extends RegistrationBase {
     protected static Logger log = Logger.getLogger(SimpleRegBase.class);
 
     protected abstract void registrationProcessing() throws TCWebException;
