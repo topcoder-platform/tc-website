@@ -8,7 +8,6 @@
   <xsl:import href="../includes/modules/calendar.xsl"/>
   <xsl:import href="../includes/global_left.xsl"/>
   <xsl:import href="../includes/public_right_col.xsl"/>
-  <xsl:import href="../authentication/form.xsl"/>
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
     <HTML>
