@@ -32,13 +32,13 @@ import com.topcoder.web.screening.model.RequestInfo;
  * version 1.0.2 -- 29-Dec-2002 -- fixed RequestProcessor usage. - Porgery
  * version 1.0.3 -- 02-Jan-2003 -- fixed RequestProcessor usage again :). - Porgery
  */
- 
+
 public class MainServlet extends HttpServlet {
 
     /**
      * Init() is run the moment that the servlet is loaded into the web server.
      * Initializes the static variables.
-     * 
+     *
      * @throws ServletException
      */
     public void init() throws ServletException {
@@ -57,11 +57,11 @@ public class MainServlet extends HttpServlet {
     }
 
     /**
-     * all GET requests are redirected to the doPost handler, and POST 
+     * all GET requests are redirected to the doPost handler, and POST
      * should always be used anyway.
-     * 
-     * @param request 
-     * @param response 
+     *
+     * @param request
+     * @param response
      * @throws ServletException
      * @throws IOException
      */
@@ -71,15 +71,15 @@ public class MainServlet extends HttpServlet {
     }
 
     /**
-     * This method takes the request and locates the appropriate 
-     * RequestProcessor, instantiates it, and then creates a forward call 
+     * This method takes the request and locates the appropriate
+     * RequestProcessor, instantiates it, and then creates a forward call
      * to the view (JSPs).
-     * 
-     * @param request 
+     *
+     * @param request
      * @param response
-     * @throws ServletException 
-     * @throws IOException 
-     * @throws Exception 
+     * @throws ServletException
+     * @throws IOException
+     * @throws Exception
      */
     public void doPost(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
@@ -94,7 +94,7 @@ public class MainServlet extends HttpServlet {
             rInfo.setUser(authen.getActiveUser());
             request.setAttribute(Constants.REQUEST_INFO, rInfo);
 
-            String procParam = 
+            String procParam =
                 request.getParameter(Constants.REQUEST_PROCESSOR);
 
             //redirect to some default page
@@ -117,11 +117,11 @@ public class MainServlet extends HttpServlet {
             }
             Class procClass = Class.forName(className);
             Resource r = new ClassResource(procClass);
-            
+
             PrincipalMgr pm = new PrincipalMgr();
             TCSubject sub = pm.getUserSubject(userId);
             Authorization author = new TCSAuthorization(sub);
-            
+
             if(!author.hasPermission(r)){
                 String redirect;
                 if(request.getMethod().equals("POST")){
@@ -138,7 +138,7 @@ public class MainServlet extends HttpServlet {
                     throw new PermissionDeniedException("Access denied for "+r.getName());
                 }
             }
-            
+
             RequestProcessor rp = (RequestProcessor)procClass.newInstance();
 
             rp.setRequest(request);
@@ -149,8 +149,10 @@ public class MainServlet extends HttpServlet {
 
             sendToPage(request, response, wherenow, forward);
         } catch (AnonymousUserException e) {
+            e.printStackTrace();
             sendToPage(request, response, Constants.LOGIN_PAGE, true);
         } catch (PermissionDeniedException e) {
+            e.printStackTrace();
             sendToErrorPage(request, response, e);
         } catch (Exception e) {
 //            if("true".equalsIgnoreCase(Constants.DEBUG)) {
@@ -162,17 +164,17 @@ public class MainServlet extends HttpServlet {
 
     /**
      * this function actually handles the redirect/forward, as dictated by the request processor
-     * 
-     * @param request 
-     * @param response 
+     *
+     * @param request
+     * @param response
      * @param page where to redirect/forward
      * @param forward true==forward, false==redirect
-     * @throws ServletException 
-     * @throws IOException 
+     * @throws ServletException
+     * @throws IOException
      */
-    private void sendToPage(HttpServletRequest request, 
-                            HttpServletResponse response, 
-                            String page, 
+    private void sendToPage(HttpServletRequest request,
+                            HttpServletResponse response,
+                            String page,
                             boolean forward)
                      throws ServletException, IOException {
         if (forward) {
@@ -184,7 +186,7 @@ public class MainServlet extends HttpServlet {
                     new ScreeningException("Resource '" + page + "' not found."));
             }
             disp.forward(request, response);
-        } 
+        }
         else {
             String redirectPage = null;
             //do this so people can redirect to internal pages as well
@@ -201,15 +203,15 @@ public class MainServlet extends HttpServlet {
 
     /**
      * If an error occurs, redirects to an error-handling jsp (called error.jsp for a default).
-     * 
-     * @param request 
-     * @param response 
+     *
+     * @param request
+     * @param response
      * @param exception exception thrown during request processing.
      * @throws ServletException
      * @throws IOException
      */
-    private void sendToErrorPage(HttpServletRequest request, 
-                                 HttpServletResponse response, 
+    private void sendToErrorPage(HttpServletRequest request,
+                                 HttpServletResponse response,
                                  Throwable exception)
                           throws ServletException, IOException {
         request.setAttribute("Exception", exception);
@@ -218,7 +220,7 @@ public class MainServlet extends HttpServlet {
 
     /**
      * Basic function to assure legality of request parameters
-     * 
+     *
      * @param s String to check
      * @return true==string is okay, false==string is bad
      */
