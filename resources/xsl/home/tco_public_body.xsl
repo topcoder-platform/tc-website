@@ -61,6 +61,7 @@
                     <td class="bodyText">
 
                         <div class="leadPhoto">
+                            <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=summary&amp;d4=final_video"><img src="/i/tournament/tco03/final/video.jpg" alt="" width="200" height="25" class="photoFrameBig" /></A><br/>
                             <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=summary&amp;d4=final"><img src="/i/tournament/tco03/final/summary_home.jpg" alt="" width="200" height="250" class="photoFrameBig" /></A><br/>
                             <span class="leadPhotoCaption">tomek poses for the crowd.<br/><br/></span>
                         </div>
