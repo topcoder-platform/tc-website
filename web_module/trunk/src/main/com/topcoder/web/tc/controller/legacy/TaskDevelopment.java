@@ -342,6 +342,40 @@ public final class TaskDevelopment {
                 devTag.addTag(rscStatus.getTag("reviews", "status"));
                 xsldocURLString = XSL_DIR + command + ".xsl";
 
+            } else if (command.equals("components")) {
+                Request dataRequest = null;
+                ResultSetContainer rsc = null;
+                Map resultMap = null;
+                log.debug("getting dai");
+                dataRequest = new Request();
+                dataRequest.setContentHandle("open_projects");
+
+                DataAccessInt dai = new DataAccess(
+                                dataRequest.getProperty(Constants.DB_KEY, Query.TCS_CATALOG));
+                log.debug("got dai");
+
+                resultMap = dai.getData(dataRequest);
+                log.debug("got map");
+                rsc = (ResultSetContainer) resultMap.get("Retrieve open projects");
+
+
+                ResultSetContainer rscStatus = null;
+                resultMap = null;
+                dataRequest = new Request();
+                dataRequest.setContentHandle("component_winners");
+
+                dai = new DataAccess(
+                                dataRequest.getProperty(Constants.DB_KEY, Query.TCS_CATALOG));
+
+                resultMap = dai.getData(dataRequest);
+                log.debug("got map");
+                rscStatus = (ResultSetContainer) resultMap.get("winners");
+
+                devTag.addTag(rsc.getTag("projects", "project"));
+                devTag.addTag(rscStatus.getTag("component_winners", "winner"));
+                xsldocURLString = XSL_DIR + command + ".xsl";
+
+
             }
             /********************** tcs_send *******************/
             else if (command.equals("tcs_send")) {
