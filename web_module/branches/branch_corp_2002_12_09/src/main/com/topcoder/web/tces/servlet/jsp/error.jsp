@@ -26,11 +26,14 @@
 	<!-- Body Area -->
     <!-- Center Column Begins -->
       <TD class="statText" width="100%" bgcolor="#001935" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-        <jsp:include page="/body_top.jsp" >
+
+		<jsp:include page="/body_top.jsp" >
            <jsp:param name="image" value="tces"/>
            <jsp:param name="image1" value="steelblue"/>
-           <jsp:param name="title" value="<%=MainTask.getCompanyName()%>"/>
-        </jsp:include><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"><BR>
+           <jsp:param name="title" value="error"/>
+        </jsp:include>
+		
+		<IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"><BR>
         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
           <TR>
             <TD BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
@@ -40,7 +43,7 @@
 		</TABLE>
     </TD>
 
- <TD valign="top" bgcolor="#CCCCCC" width="100%" class="bodyText">
+   <TD valign="top" bgcolor="#CCCCCC" width="100%" class="bodyText">
    <IMG BORDER="0" VSPACE="5" HEIGHT="1" width="400" src="/i/clear.gif"><BR>
    <DIV CLASS="header">
 
@@ -64,7 +67,7 @@
    </pre><hr>
 
    <!-- web-app debug time stack trace END -->
- </TD>
+   </TD>
 
 <!-- Body Area Ends -->
 
