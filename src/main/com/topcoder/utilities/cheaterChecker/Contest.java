@@ -6,8 +6,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.utilities.CommentStripper;
 
 import javax.sql.DataSource;
-import java.util.List;
-import java.util.ArrayList;
+import java.util.*;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
@@ -31,6 +30,7 @@ public class Contest {
         try {
             Fraud fraud = null;
             List submissions = getSubmissions(dataSourceName, roundId, componentId);
+            ArrayList allPotentialViolators = new ArrayList();
             log.debug("got submissions");
             if (submissions != null && submissions.size() > 0) {
                 Submission temp = (Submission) submissions.get(0);
@@ -60,42 +60,68 @@ public class Contest {
                 fraud.execute();
                 log.info(fraud.getReport());
                 log.info("**********************************************************");
+                allPotentialViolators.addAll(fraud.getPotentialViolators());
 */
                 fraud = new SimilarSourceSubsequences(normalizedSource, submissions);
                 log.info("****************** SIMILAR SUBSEQUENCES **************************");
                 fraud.execute();
                 log.info(fraud.getReport());
                 log.info("**********************************************************");
+                allPotentialViolators.addAll(fraud.getPotentialViolators());
 
                 fraud = new EditDistance(normalizedSource, submissions);
                 log.info("****************** EDIT DISTANCE **************************");
                 fraud.execute();
                 log.info(fraud.getReport());
                 log.info("**********************************************************");
+                allPotentialViolators.addAll(fraud.getPotentialViolators());
 
                 fraud = new SimilarHistogram(nonNormalizedSource, submissions);
                 log.info("****************** SIMILAR HISTOGRAM **************************");
                 fraud.execute();
                 log.info(fraud.getReport());
                 log.info("**********************************************************");
+                allPotentialViolators.addAll(fraud.getPotentialViolators());
 
                 fraud = new Similar(nonNormalizedSource, submissions);
                 log.info("****************** SIMILAR SOURCE **************************");
                 fraud.execute();
                 log.info(fraud.getReport());
                 log.info("**********************************************************");
+                allPotentialViolators.addAll(fraud.getPotentialViolators());
 
                 fraud = new Same(normalizedSource, submissions);
                 log.info("****************** SAME NORMALIZED SOURCE**************************");
                 fraud.execute();
                 log.info(fraud.getReport());
                 log.info("**********************************************************");
+                allPotentialViolators.addAll(fraud.getPotentialViolators());
 
                 fraud = new CPS(submissions);
                 log.info("****************** CPS **************************");
                 fraud.execute();
                 log.info(fraud.getReport());
                 log.info("**********************************************************");
+                allPotentialViolators.addAll(fraud.getPotentialViolators());
+
+                Histogram h = new Histogram(allPotentialViolators);
+                Set worst = h.getSortedSet();
+                StringBuffer worstBuf = new StringBuffer(1000);
+                int i=0;
+                Map.Entry me = null;
+                for (Iterator it = worst.iterator(); it.hasNext()&&i<Fraud.MAX_REPORT; i++) {
+                    me = (Map.Entry)it.next();
+                    worstBuf.append(((User)me.getKey()).getHandle());
+                    worstBuf.append("(");
+                    worstBuf.append(((User)me.getKey()).getUserId());
+                    worstBuf.append(")");
+                    worstBuf.append(" showed up ").append(me.getValue()).append(" times");
+                    worstBuf.append("\n");
+                }
+                log.info("****************** Aggregate **************************");
+                log.info(worstBuf);
+                log.info("**********************************************************");
+
 
             }
 

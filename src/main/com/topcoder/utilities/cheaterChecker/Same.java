@@ -3,12 +3,14 @@ package com.topcoder.utilities.cheaterChecker;
 import com.topcoder.shared.util.logging.Logger;
 
 import java.util.List;
+import java.util.ArrayList;
 
 public class Same implements Fraud {
     private static Logger log = Logger.getLogger(Same.class);
     private StringBuffer report = null;
     private List tokens = null;
     private List submissions = null;
+    private ArrayList potentialViolators = new ArrayList();
 
     public Same(List tokens, List submissions) {
         report = new StringBuffer(submissions.size() * 10);
@@ -40,6 +42,9 @@ public class Same implements Fraud {
                         report.append(s2.getCoderId());
                         report.append(")");
                         report.append("\n");
+                        potentialViolators.add(new User(s1.getCoderId(), s1.getHandle()));
+                        potentialViolators.add(new User(s2.getCoderId(), s2.getHandle()));
+
                     }
                 }
 //                if (count%10==0) log.debug(""+ count + " comparisons made");
@@ -51,4 +56,9 @@ public class Same implements Fraud {
     public String getReport() {
         return report.toString();
     }
+
+    public List getPotentialViolators() {
+        return potentialViolators;
+    }
+
 }

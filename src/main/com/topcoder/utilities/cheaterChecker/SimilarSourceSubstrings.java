@@ -12,6 +12,7 @@ public class SimilarSourceSubstrings implements Fraud {
     private List tokens = null;
     private List submissions = null;
     private static final double STD_DEV_THRESHHOLD = 3.0D;
+    private ArrayList potentialViolators = new ArrayList();
 
     public SimilarSourceSubstrings(List tokens, List submissions) {
         report = new StringBuffer(submissions.size() * 10);
@@ -60,12 +61,19 @@ public class SimilarSourceSubstrings implements Fraud {
                 report.append(s2.getCoderId());
                 report.append(")");
                 report.append("\n");
+                potentialViolators.add(new User(s1.getCoderId(), s1.getHandle()));
+                potentialViolators.add(new User(s2.getCoderId(), s2.getHandle()));
+
             }
         }
     }
 
     public String getReport() {
         return report.toString();
+    }
+
+    public List getPotentialViolators() {
+        return potentialViolators;
     }
 
 
