@@ -457,7 +457,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public Map getNote(long noteId) throws SQLException {
         StringBuffer selectNoteHeader = new StringBuffer(300);
-        selectNoteHeader.append("SELECT n.note_id, n.date_created, n.note_type_id, nt.note_type_desc, ");
+        selectNoteHeader.append("SELECT n.note_id, n.create_date, n.note_type_id, nt.note_type_desc, ");
         selectNoteHeader.append("n.submitted_by, u.handle, n.user_id ");
         selectNoteHeader.append("FROM note n, note_type_lu nt, user u ");
         selectNoteHeader.append("WHERE n.note_id = " + noteId + " ");
@@ -920,7 +920,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
 
         StringBuffer selectNoteHeaders = new StringBuffer(300);
-        selectNoteHeaders.append("SELECT n.note_id, n.date_created, n.note_type_id, nt.note_type_desc, ");
+        selectNoteHeaders.append("SELECT n.note_id, n.create_date, n.note_type_id, nt.note_type_desc, ");
         selectNoteHeaders.append("n.submitted_by, u.handle, n.user_id ");
         selectNoteHeaders.append("FROM " + tableName + ", note n, note_type_lu nt, user u ");
         selectNoteHeaders.append(whereClause + " ");
@@ -1391,7 +1391,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public Map findNotes(Map searchCriteria) throws SQLException {
         StringBuffer selectNoteHeaders = new StringBuffer(300);
-        selectNoteHeaders.append("SELECT n.note_id, n.date_created, n.note_type_id, nt.note_type_desc, ");
+        selectNoteHeaders.append("SELECT n.note_id, n.create_date, n.note_type_id, nt.note_type_desc, ");
         selectNoteHeaders.append("n.submitted_by, u.handle ");
 
         StringBuffer from = new StringBuffer(300);
@@ -1411,10 +1411,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 String key = (String) i.next();
                 String value = ((String) searchCriteria.get(key)).toUpperCase();
                 if (key.equals(EARLIEST_CREATION_DATE)) {
-                    whereClauses.append(" AND n.date_created >= ?");
+                    whereClauses.append(" AND n.create_date >= ?");
                     objects.add(makeTimestamp(value, false, false));
                 } else if (key.equals(LATEST_CREATION_DATE)) {
-                    whereClauses.append(" AND n.date_created <= ?");
+                    whereClauses.append(" AND n.create_date <= ?");
                     objects.add(makeTimestamp(value, false, true));
                 } else if (key.equals(CONTRACT_ID)) {
                     from.append(", contract_note_xref cnx");
@@ -2533,15 +2533,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             // Add the note, then add to the appropriate xref table
             StringBuffer insertNote = new StringBuffer(300);
             insertNote.append("INSERT INTO note ");
-            insertNote.append(" (text, note_type_id, note_id, submitted_by, date_created, user_id) ");
+            insertNote.append(" (text, note_type_id, note_id, submitted_by, user_id) ");
             insertNote.append(" VALUES(?,?,?,?,?,?)");
             ps = c.prepareStatement(insertNote.toString());
             ps.setBytes(1, DBMS.serializeTextString(n._text));
             ps.setInt(2, n._header._typeId);
             ps.setLong(3, noteId);
             ps.setLong(4, n._header._user._id);
-            ps.setTimestamp(5, new Timestamp(System.currentTimeMillis()));
-            ps.setLong(6, n._header._userId);
+            ps.setLong(5, n._header._userId);
             ps.executeUpdate();
             ps.close();
             ps = null;
