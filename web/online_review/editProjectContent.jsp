@@ -83,6 +83,15 @@
 <% 
    int startColumns[] = {0, 4, 7}; 
    int endColumns[] = {3, 6, 9}; 
+
+
+   int phaseCount = theProject.getTimeline().length;
+   if (phaseCount != 10) {
+       startColumns = new int[] {0, phaseCount / 3, (2 * phaseCount) / 3};
+       endColumns = new int[] {phaseCount / 3 - 1, (2 * phaseCount) / 3 - 1, phaseCount - 1};
+   }
+   
+   
    int column = 0;
    
 %>
