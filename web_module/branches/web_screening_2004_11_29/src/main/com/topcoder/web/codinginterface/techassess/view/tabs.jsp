@@ -1,9 +1,17 @@
-<%@ page import="com.topcoder.web.codinginterface.techassess.Constants"%>
+<%@ page import="com.topcoder.web.codinginterface.techassess.Constants,
+                 com.topcoder.web.common.BaseServlet,
+                 com.topcoder.web.common.SessionInfo"%>
 <%
     String tabLev1 = request.getParameter("tabLev1")==null?"":request.getParameter("tabLev1");
 %>
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+
+<%
+    System.out.println("path: " + ((SessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY)).getServletPath());
+%>
+
+
 <table cellspacing=0 cellpadding=0 class=tabTable>
    <tr>
       <td class=logoBox rowspan=2><img src="/i/corp/screening/clientLogo.gif" alt=""/></td>
