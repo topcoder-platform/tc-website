@@ -236,7 +236,7 @@ Many solutions timed out - the wrong data structure was selected to represent a 
 I think this problem was the hardest one in SRM 103 and has biggest rate of failed solutions. There were 65 submissions overall for this problem and only 27 of them have passed the system test.
 </P>
 
-<!-- room	pass	Failed 	Challenged	
+<!-- 	pass	Failed 	Challenged	
 1	5	7	1	
 2	7	2	3	
 3	5	5	2	
@@ -245,6 +245,56 @@ I think this problem was the hardest one in SRM 103 and has biggest rate of fail
 6	2	2	0	
 total:	27	29	9	-->  
 
+<TABLE BORDER="1" CELLSPACING="0" CELLPADDING="0" WIDTH="80%" ALIGN="center">
+	<TR>
+		<TD CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><B>Room</B></TD>
+		<TD CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><B>Pass</B></TD>
+		<TD CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><B>Failed</B></TD>
+		<TD CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><B>Challenged</B></TD>
+	</TR>
+	<TR>
+		<TD CLASS="bodyText" ALIGN="center">1</TD>
+		<TD CLASS="bodyText" ALIGN="center">5</TD>
+		<TD CLASS="bodyText" ALIGN="center">7</TD>
+		<TD CLASS="bodyText" ALIGN="center">1</TD>
+	</TR>
+	<TR>
+		<TD CLASS="bodyText" ALIGN="center">2</TD>
+		<TD CLASS="bodyText" ALIGN="center">7</TD>
+		<TD CLASS="bodyText" ALIGN="center">2</TD>
+		<TD CLASS="bodyText" ALIGN="center">3</TD>
+	</TR>	
+	<TR>
+		<TD CLASS="bodyText" ALIGN="center">3</TD>
+		<TD CLASS="bodyText" ALIGN="center">5</TD>
+		<TD CLASS="bodyText" ALIGN="center">5</TD>
+		<TD CLASS="bodyText" ALIGN="center">2</TD>
+	</TR>	
+	<TR>
+		<TD CLASS="bodyText" ALIGN="center">4</TD>
+		<TD CLASS="bodyText" ALIGN="center">6</TD>
+		<TD CLASS="bodyText" ALIGN="center">7</TD>
+		<TD CLASS="bodyText" ALIGN="center">0</TD>
+	</TR>	
+	<TR>
+		<TD CLASS="bodyText" ALIGN="center">5</TD>
+		<TD CLASS="bodyText" ALIGN="center">2</TD>
+		<TD CLASS="bodyText" ALIGN="center">6</TD>
+		<TD CLASS="bodyText" ALIGN="center">3</TD>
+	</TR>	
+	<TR>
+		<TD CLASS="bodyText" ALIGN="center">5</TD>
+		<TD CLASS="bodyText" ALIGN="center">2</TD>
+		<TD CLASS="bodyText" ALIGN="center">2</TD>
+		<TD CLASS="bodyText" ALIGN="center">0</TD>
+	</TR>	
+	<TR>
+		<TD CLASS="bodyText" ALIGN="center"><B>Total</B></TD>
+		<TD CLASS="bodyText" ALIGN="center"><B>27</B></TD>
+		<TD CLASS="bodyText" ALIGN="center"><B>29</B></TD>
+		<TD CLASS="bodyText" ALIGN="center"><B>9</B></TD>
+	</TR>		
+</TABLE>
 
 <P>
 <B>Division-I - Level 3 - CostlyOnes</B> (reference SnapDragon solution)
@@ -302,7 +352,6 @@ The only thing left to do is to return count of numbers which cannot be represen
 There were only 23 submissions for this problem and only 7 of them have failed challenges or system tests.
 </P>
 
-<P><BR/></P>
 <IMG SRC="/i/m/slavik_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
 By&#160;slavik<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=160082" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
