@@ -3,6 +3,7 @@ package com.topcoder.web.privatelabel.controller.request;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.privatelabel.Constants;
+import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 import java.util.Collections;
 import java.util.List;
@@ -32,6 +33,14 @@ abstract class FullRegDemog extends FullRegBase {
         }
         setDefaults(regInfo);
         setNextPage();
+    }
+
+    protected void checkRegInfo(SimpleRegInfo info) throws TCWebException {
+        super.checkRegInfo(info);
+        //in case the person chose the US, the basic registration
+        //requires them to choose a state, but we don't have
+        //state input for the verizon reg process.
+        removeError(Constants.STATE_CODE);
     }
 
 }
