@@ -11,6 +11,12 @@ import com.topcoder.web.tc.controller.legacy.reg.bean.TaskException;
 import com.topcoder.web.tc.model.CoderSessionInfo;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.security.Constants;
+import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.TCSubject;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
@@ -44,8 +50,21 @@ public class Controller
             session = request.getSession(true);
             nav = (Navigation)session.getAttribute("navigation");
             if (nav == null) nav = new Navigation(request, response);
+
+            /* we're doing this basically just so that we can get the right page for redirect if
+             * they are asked to log in.  if we don't do this, we get the wrong info for the
+             * request cuz it's stored in the session from some old request.
+             */
+            WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(request.getSession()), request, response);
+            PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
+            TCSubject user = pmgr.getUserSubject(authentication.getActiveUser().getId());
+            CoderSessionInfo info = new CoderSessionInfo(request, authentication, user.getPrincipals());
+            nav.setCoderSessionInfo(info);
+
             if (!nav.isLoggedIn())
                 throw new PermissionException(new SimpleUser(nav.getUserId(), "", ""), new ClassResource(this.getClass()));
+
+
             if (request.getContentType() == null || request.getContentType().indexOf(MULTIPART_FORM_DATA) < 0) {
                 String taskName = request.getParameter(TASK);
                 if (taskName == null) {
