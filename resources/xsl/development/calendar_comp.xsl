@@ -273,13 +273,13 @@ outstanding issues. The deadline entails integration of the developed components
 <P>
 Architect:<BR/>
 Project Start Date: June 5,2002<BR/>
-Project End Date: June 29, 2002<BR/>
+Project End Date: June 28, 2002<BR/>
 </P>
 
 <P>
 Developer / QA Developer<BR/>
 Project Start Date: June 10, 2002<BR/>
-Project End Date: June 29, 2002<BR/>
+Project End Date: June 28, 2002<BR/>
 </P>
 
 
