@@ -121,9 +121,11 @@ List industryList = (List)request.getAttribute("industrySkills");
                 <td valign=top><%=((ContractingResponse)tech).getVal()%></td>
             </tr>
             </tc:listIterator>
+            <% if (request.getAttribute("techNote")!=null && !request.getAttribute("techNote").equals("")) { %>
             <tr>
                 <td align=left colspan=2 class=contractNote><strong>Comment:</strong><br/><%=StringUtils.htmlEncode((String)request.getAttribute("techNote"))%></td>
             </tr>
+            <% } %>
 
 
 			<tr><td>&#160;</td></tr>
@@ -138,10 +140,11 @@ List industryList = (List)request.getAttribute("industrySkills");
                 <td valign=top><%=((ContractingResponse)db).getVal()%></td>
             </tr>
             </tc:listIterator>
+            <% if (request.getAttribute("dbNote")!=null && !request.getAttribute("dbNote").equals("")) { %>
             <tr>
                 <td align=left colspan=2 class=contractNote><strong>Comment:</strong><br/><%=StringUtils.htmlEncode((String)request.getAttribute("dbNote"))%></td>
             </tr>
-
+            <% } %>
 		</table>
 		</td>
 		<td valign=top width="50%">
@@ -156,9 +159,11 @@ List industryList = (List)request.getAttribute("industrySkills");
                 <td valign=top><%=((ContractingResponse)lang).getVal()%></td>
             </tr>
             </tc:listIterator>
+            <% if (request.getAttribute("langNote")!=null && !request.getAttribute("langNote").equals("")) { %>
             <tr>
                 <td align=left colspan=2 class=contractNote><strong>Comment:</strong><br/><%=StringUtils.htmlEncode((String)request.getAttribute("langNote"))%></td>
             </tr>
+            <% } %>
 
 			<tr><td>&#160;</td></tr>
 
@@ -172,9 +177,11 @@ List industryList = (List)request.getAttribute("industrySkills");
                 <td valign=top><%=((ContractingResponse)os).getVal()%></td>
             </tr>
             </tc:listIterator>
+            <% if (request.getAttribute("osNote")!=null && !request.getAttribute("osNote").equals("")) { %>
             <tr>
                 <td align=left colspan=2 class=contractNote><strong>Comment:</strong><br/><%=StringUtils.htmlEncode((String)request.getAttribute("osNote"))%></td>
             </tr>
+            <% } %>
 
             <tr><td>&#160;</td></tr>
 
@@ -188,9 +195,11 @@ List industryList = (List)request.getAttribute("industrySkills");
                 <td valign=top><%=((ContractingResponse)industry).getVal()%></td>
             </tr>
             </tc:listIterator>
+            <% if (request.getAttribute("industryNote")!=null && !request.getAttribute("industryNote").equals("")) { %>
             <tr>
                 <td align=left colspan=2 class=contractNote><strong>Comment:</strong><br/><%=StringUtils.htmlEncode((String)request.getAttribute("industryNote"))%></td>
             </tr>
+            <% } %>
 		</table>
 		</tr>
 		<tr><td colspan=2 align=center><br/><br/><a href="javascript:goToPage('ContractingSubmit');"><img src="/i/submit.jpg" border=0/></a></td></tr>
