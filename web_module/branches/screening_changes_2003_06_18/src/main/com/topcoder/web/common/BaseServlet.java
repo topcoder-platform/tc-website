@@ -31,6 +31,7 @@ public abstract class BaseServlet extends HttpServlet {
     private String LOGIN_SERVLET = null;
     public static final String MESSAGE_KEY = "message";
     public static final String NEXT_PAGE_KEY = "nextpage";
+    public static final String SESSION_INFO_KEY = "SessionInfo";
 
     private static Logger log = Logger.getLogger(BaseServlet.class);
 
@@ -92,7 +93,7 @@ public abstract class BaseServlet extends HttpServlet {
             PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
             TCSubject user = pmgr.getUserSubject(authentication.getActiveUser().getId());
             info = createSessionInfo(request, authentication, user.getPrincipals());
-            request.setAttribute("SessionInformation", info);
+            request.setAttribute(SESSION_INFO_KEY, info);
             authorization = createAuthorization(authentication.getActiveUser());
 
             StringBuffer loginfo = new StringBuffer(100);
