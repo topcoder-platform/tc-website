@@ -62,14 +62,14 @@
                         <img src="/i/sponser/northface/northface_vertical_graphic.gif" alt="Northface" width="148" height="492" border="0" />
                         </td></tr>
                         
-                        <tr valign="top"> <td align="left">
+               	<tr valign="top"> <td align="left">
                         <img src="/i/sponser/northface/northface_title_1.gif" alt="Northface" width="360" height="42" border="0" />
                         </td></tr>
                         
                         
                         
                         
-
+		<tr valign="top"> <td align="left">
                         <p><A href="http://www.northface.edu" target="_blank">Northface University's</A> students are mentored by some of the most well-respected thought leaders in the software industry. The Northface University programs 
                         provide:</p>
                         
