@@ -60,6 +60,7 @@
     DecimalFormat dfp = new DecimalFormat("0.00%");
     ResultSetContainer leaders = (ResultSetContainer) queryEntries.get("High_Scorers");
     ResultSetContainer percents = (ResultSetContainer) queryEntries.get("Round_Percentages");
+
     ResultSetContainer.ResultSetRow currentRow = null;
     int topN = 5;
     try{
@@ -134,10 +135,26 @@
   </TR>
 </TABLE> -->
  	<IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/><BR/>
-
-   <A class="statTextBig" href="/stat?c=<%= ("round_stats&amp;rd="+roundID) %>"><B><%= contestName %></B></A><BR/>
+<%
+String currRound = roundID+"";
+ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Rounds_By_Date");
+pageContext.setAttribute("resultSetDates", rsc);
+%>
+<!--   <A class="statTextBig" href="/stat?c=<%= ("round_stats&amp;rd="+roundID) %>"><B><%= contestName %></B></A><BR/>-->
 <!--DATE <BR/>-->
+    <SPAN CLASS="statTextBig"><B>Please select a round:</B><BR/></SPAN>
+    <SELECT NAME="Contest" onchange="goTo(this)">
+        <OPTION value="#">Select a Round:</OPTION>
+        <logic:iterate name="resultSetDates" id="resultRow" type="ResultSetContainer.ResultSetRow">
+         <% if (resultRow.getItem(0).toString().equals(currRound)) { %>
+           <OPTION value="/stat?c=round_stats&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>" selected><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></OPTION>
+               <% } else { %>
+           <OPTION value="/stat?c=round_stats&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></OPTION>
+        <% } %>
+        </logic:iterate>
+    </SELECT>
     <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/><BR/><A NAME="leaders"></A>
+
 <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif">
 
   <TR>
