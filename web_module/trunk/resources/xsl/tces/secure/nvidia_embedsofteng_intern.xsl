@@ -61,39 +61,19 @@
       <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText"><A HREF="/?&amp;t=tces&amp;c=nvidia_openings&amp;a=secure" CLASS="bodyText">Full Time Positions</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_openings_intern&amp;a=secure" CLASS="bodyText">Intern/Co-op Positions</A> | <A HREF="http://www.nvidia.com/view.asp?PAGE=products" CLASS="bodyText" TARGET="_blank">Products</A> | <A HREF="http://www.nvidia.com/view.asp?PAGE=benefits" CLASS="bodyText" TARGET="_blank">Benefits</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia" CLASS="bodyText">NVIDIA Main Page</A></TD>
   </TR>
 </TABLE>
-<IMG SRC="/i/es/nvidia/nvidia_logo.gif" WIDTH="120" HEIGHT="83" ALT="" BORDER="0" VSPACE="10"/><BR/>       
-<P>
-<B>Intern/Co-op Positions</B><BR/> 
-NVIDIA's Intern &amp; Co-op Program is a year-round program offering work
-terms ranging from 3 to 6 months. In addition to a competitive salary, we
-provide relocation assistance and housing assistance for those that do not
-reside or attend a university in the Bay Area. For more information, check out
-<A HREF="http://www.nvidia.com" CLASS="bodyText" TARGET="_blank">www.nvidia.com</A>.
-</P>
-<P> 
-Below is the current listing of intern and co-op positions within
-NVIDIA.  All positions are available in Santa Clara, CA, Austin, TX, and
-Durham, NC unless otherwise noted. All resumes will be considered for
-Santa Clara, and if you are interested in another location, please
-indicate your location preference on your resume.  Click on the job
-title for the position description and requirements.
-</P>
+<IMG SRC="/i/es/nvidia/nvidia_logo.gif" WIDTH="120" HEIGHT="83" ALT="" BORDER="0" VSPACE="10"/>    
 
-<TABLE WIDTH="100%" CELLPADDING="5" CELLSPACING="5" BORDER="0">
-   <TR>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
-       <P>
-       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_embedsofteng_intern&amp;a=secure" CLASS="bodyText">EMBEDDED SOFTWARE ENGINEER INTERN</A></B><BR/><BR/>
-       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_softeng01_intern&amp;a=secure" CLASS="bodyText">SOFTWARE ENGINEER INTERN/CO-OP</A></B><BR/><BR/>
-       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_syssofteng01_intern&amp;a=secure" CLASS="bodyText">SYSTEMS SOFTWARE ENGINEER INTERN/CO-OP</A></B><BR/><BR/></P>      
-      </TD>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
-       <P>       
-       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_archeng01_intern&amp;a=secure" CLASS="bodyText">ARCHITECT INTERN/CO-OP</A></B><BR/><BR/>  
-       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_platarcheng01_intern&amp;a=secure" CLASS="bodyText">PLATFORM ARCHITECT INTERN/CO-OP</A></B><BR/><BR/></P> 
-    </TD>
-  </TR>
-</TABLE> 
+
+
+<P><B>EMBEDDED SOFTWARE ENGINEER INTERN</B></P>
+<P>Engineers design, implement, and optimize display and system software for embedded applications ranging from handheld wireless devices 
+up to high end entertainment systems. We work closely with hardware engineers and customers to provide customized hardware/software solutions 
+to bring embedded graphics to the next level. Specific areas include device drivers, 3D graphics libraries, graphics content toolchains, bootloader 
+and kernel hacker for a number of different embedded OS's, including Linux. We are looking for college students who are excited about introducing 
+3D graphics into embedded devices that have never had high quality 3D before, and who love coding graphics and system software down to the metal.</P>
+
+<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=125&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_openings_intern&amp;a=secure" CLASS="bodyText">more Intern/Co-op Positions</A></P>
+
 <!--end contextual links-->
           
           <P><BR/></P>
@@ -117,7 +97,7 @@ title for the position description and requirements.
 				</TR>
 			</TABLE>
 		</TD>
-  <!-- Center Column Ends -->
+	<!-- Center Column Ends -->
 <!-- Body Area Ends -->
 
 	<!-- Gutter -->
