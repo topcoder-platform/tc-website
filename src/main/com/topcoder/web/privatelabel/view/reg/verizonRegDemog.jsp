@@ -70,7 +70,7 @@
       <td class="bodyText"valign="top">
             <img src="/i/clear.gif" width="100%" height="10" border="0"/><br />
       <h2>Registration</h2>
-      <table cellpadding="1" cellspacing="3" class="bodyText" align="center">
+        <table cellpadding="0" cellspacing="3" class="bodyText" align="center" border="0" width="100%" >
         <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.VERIZON_REG_CONFIRM%>"/>
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
@@ -81,10 +81,10 @@
                 </td>
             </tr>
             <tr>
-                <td align="right" width="49%">
+                <td align="right" nowrap>
                     Student/Professional
                 </td>
-                <td align="left" width="49%">
+                <td align="left" width="100%">
                     Student: <input type="radio" name="<%=Constants.CODER_TYPE%>" value ="<%=Constants.STUDENT%>" <%=regInfo.isStudent()?"checked":""%>>
                     Professional: <input type="radio" name="<%=Constants.CODER_TYPE%>" value ="<%=Constants.PROFESSIONAL%>" <%=regInfo.isProfessional()?"checked":""%>>
                 </td>
@@ -97,7 +97,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td align="right">
+                    <td align="right" nowrap>
                         <%=question.getText()%>
                     </td>
                     <td align="left">
