@@ -13,7 +13,7 @@
 <%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
 <%
                 com.topcoder.shared.dataAccess.Request dataRequest = new com.topcoder.shared.dataAccess.Request();
-				dataRequest.setContentHandle("srm_demographic");
+				dataRequest.setContentHandle("srm_demo_last_match");
 				dataRequest.setProperty("rd", request.getParameter("rd")==null?"4445":request.getParameter("rd"));
 				
 				           DataAccessInt dai = new DataAccess(
