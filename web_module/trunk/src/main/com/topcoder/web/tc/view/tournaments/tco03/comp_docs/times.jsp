@@ -21,7 +21,7 @@
                     <td class="compDocsTimeOff"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"></td>
                     <td class="<%=time.equals("initial")?"compDocsTimeOn":"compDocsTimeOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_initial_doc1">Initial Submission</a></td>
                     <td class="<%=time.equals("830")?"compDocsTimeOn":"compDocsTimeOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_830_doc1">8:30 AM</a></td> 
-<!--                    <td class="<%=time.equals("900")?"compDocsTimeOn":"compDocsTimeOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_900_doc1">9:00 AM</a></td> -->
+                    <td class="<%=time.equals("900")?"compDocsTimeOn":"compDocsTimeOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_900_doc1">9:00 AM</a></td> 
 <!--                    <td class="<%=time.equals("930")?"compDocsTimeOn":"compDocsTimeOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_930_doc1">9:30 AM</a></td> -->
 <!--                    <td class="<%=time.equals("1000")?"compDocsTimeOn":"compDocsTimeOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1000_doc1">10:00 AM</a></td> -->
 <!--                    <td class="<%=time.equals("1030")?"compDocsTimeOn":"compDocsTimeOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1030_doc1">10:30 AM</a></td> -->
@@ -40,7 +40,7 @@
                     <td class="compDocsTimeOff"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"></td>
                     <td class="<%=time.equals("initial")?"compDocsTimeOn":"compDocsTimeOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=kyky_initial_doc1">Initial Submission</a></td>
                     <td class="<%=time.equals("830")?"compDocsTimeOn":"compDocsTimeOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=kyky_830_doc1">8:30 AM</a></td> 
-<!--                    <td class="<%=time.equals("900")?"compDocsTimeOn":"compDocsTimeOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=kyky_900_doc1">9:00 AM</a></td> -->
+                    <td class="<%=time.equals("900")?"compDocsTimeOn":"compDocsTimeOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=kyky_900_doc1">9:00 AM</a></td>
 <!--                    <td class="<%=time.equals("930")?"compDocsTimeOn":"compDocsTimeOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=kyky_930_doc1">9:30 AM</a></td> -->
 <!--                    <td class="<%=time.equals("1000")?"compDocsTimeOn":"compDocsTimeOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=kyky_1000_doc1">10:00 AM</a></td> -->
 <!--                    <td class="<%=time.equals("1030")?"compDocsTimeOn":"compDocsTimeOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=kyky_1030_doc1">10:30 AM</a></td> -->
@@ -59,7 +59,7 @@
                     <td class="compDocsTimeOff"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"></td>
                     <td class="<%=time.equals("initial")?"compDocsTimeOn":"compDocsTimeOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=aksonov_initial_doc1">Initial Submission</a></td>
                     <td class="<%=time.equals("830")?"compDocsTimeOn":"compDocsTimeOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=aksonov_830_doc1">8:30 AM</a></td> 
-<!--                    <td class="<%=time.equals("900")?"compDocsTimeOn":"compDocsTimeOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=aksonov_900_doc1">9:00 AM</a></td> -->
+                    <td class="<%=time.equals("900")?"compDocsTimeOn":"compDocsTimeOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=aksonov_900_doc1">9:00 AM</a></td> 
 <!--                    <td class="<%=time.equals("930")?"compDocsTimeOn":"compDocsTimeOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=aksonov_930_doc1">9:30 AM</a></td> -->
 <!--                    <td class="<%=time.equals("1000")?"compDocsTimeOn":"compDocsTimeOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=aksonov_1000_doc1">10:00 AM</a></td> -->
 <!--                    <td class="<%=time.equals("1030")?"compDocsTimeOn":"compDocsTimeOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=aksonov_1030_doc1">10:30 AM</a></td> -->
@@ -78,7 +78,7 @@
                     <td class="compDocsTimeOff"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"></td>
                     <td class="<%=time.equals("initial")?"compDocsTimeOn":"compDocsTimeOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=rneilsen_initial_doc1">Initial Submission</a></td>
                     <td class="<%=time.equals("830")?"compDocsTimeOn":"compDocsTimeOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=rneilsen_830_doc1">8:30 AM</a></td>
-<!--                    <td class="<%=time.equals("900")?"compDocsTimeOn":"compDocsTimeOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=rneilsen_900_doc1">9:00 AM</a></td> -->
+                    <td class="<%=time.equals("900")?"compDocsTimeOn":"compDocsTimeOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=rneilsen_900_doc1">9:00 AM</a></td> 
 <!--                    <td class="<%=time.equals("930")?"compDocsTimeOn":"compDocsTimeOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=rneilsen_930_doc1">9:30 AM</a></td> -->
 <!--                    <td class="<%=time.equals("1000")?"compDocsTimeOn":"compDocsTimeOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=rneilsen_1000_doc1">10:00 AM</a></td> -->
 <!--                    <td class="<%=time.equals("1030")?"compDocsTimeOn":"compDocsTimeOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=rneilsen_1030_doc1">10:30 AM</a></td> -->
