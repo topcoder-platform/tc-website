@@ -125,8 +125,8 @@
                       <td align="right" class="statText">Room Winners<br/>Wildcards</td>
                       <td align="center" class="statText"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4462&amp;rc=N">20</a><br/>80</td>
                       <td align="center" class="statText"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4462&amp;rc=STH">20</a><br/>80</td>
-                      <td align="center" class="statText">20<br/>80</td>
-                      <td align="center" class="statText">20<br/>80</td>
+                      <td align="center" class="statText"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4464&amp;rc=W">20</a><br/>80</td>
+                      <td align="center" class="statText"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4464&amp;rc=MW">20</a><br/>80</td>
                       <td align="center" class="statText">20<br/>80</td>
                     </tr>
                     
