@@ -30,7 +30,7 @@ public class PreferenceInput extends BaseTag {
         super();
         cssclass = null;
     }
-    
+
     public void setClass(String cssclass) {
         this.cssclass = cssclass;
     }
@@ -43,7 +43,7 @@ public class PreferenceInput extends BaseTag {
             throws JspException {
         if (preference != null) {
             StringBuffer output = new StringBuffer(400);
-            setName(Constants.PREFERENCE_PREFIX+preference.getID()); 
+            setName(Constants.PREFERENCE_PREFIX+preference.getID());
             if(preference.getType() == Constants.PREFERENCE_MULTIPLE_ANSWER) {
                 output.append(buildSelect());
             } else if (preference.getType() == Constants.PREFERENCE_TEXT_ANSWER) {
@@ -51,7 +51,7 @@ public class PreferenceInput extends BaseTag {
             } else {
                 output.append(buildCheckbox());
             }
-            
+
             try {
                 pageContext.getOut().print(output.toString());
             } catch (IOException e) {
@@ -60,7 +60,7 @@ public class PreferenceInput extends BaseTag {
         }
         return SKIP_BODY;
     }
-    
+
     private String buildText() {
         StringBuffer s = new StringBuffer(500);
         s.append("<input type=\"text\" size=50 ");
@@ -95,7 +95,7 @@ public class PreferenceInput extends BaseTag {
         if(getDefaultValue() != null && getDefaultValue().equals(getTrueValue())) {
             s.append("checked ");
         }
-        
+
         s.append("/>");
         return s.toString();
     }
@@ -146,6 +146,11 @@ public class PreferenceInput extends BaseTag {
         return s.toString();
     }
 
+    protected void init() {
+        this.cssclass=null;
+        this.preference=null;
+
+    }
 
 
 }

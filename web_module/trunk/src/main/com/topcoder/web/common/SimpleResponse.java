@@ -54,9 +54,13 @@ public class SimpleResponse implements TCResponse {
     public void flushBuffer() throws IOException {
         response.flushBuffer();
     }
-    
+
     public void addHeader(String header, String val) {
         response.addHeader(header, val);
     }
-    
+
+    public void setStatus(int i) {
+        response.setStatus(i);
+    }
+
 }

@@ -7,10 +7,6 @@ import java.lang.reflect.Field;
 
 /**
  * Contains constants for the private label web application.
- * Classes outside this web application should not use constants
- * in this class that are initialized in the initialize
- * method becuase one can not be sure it has already been
- * initialized.
  * @author gpaul 06.26.2003
  */
 public class Constants {
@@ -184,7 +180,6 @@ public class Constants {
     public static String AMAZON_REG_DEMOG;
     public static String AMAZON_REG_CONFIRM;
     public static String AMAZON_REG_SUBMIT;
-
 
     //various constants
     public static int STUDENT;

@@ -15,80 +15,78 @@ public class RewriteTag extends TagSupport {
     /**
      * Sets the value of <code>page</code>.
      *
-     * @param page
+     * @param val
      */
-    public void setPage( String val )
-    {
+    public void setPage(String val) {
         page = val;
     }
 
     /**
      * Gets the value of <code>page</code>.
      *
-     * @return 
+     * @return
      */
-    public String getPage()
-    {
+    public String getPage() {
         return page;
     }
 
     /**
      * Sets the value of <code>href</code>.
      *
-     * @param href
+     * @param val
      */
-    public void setHref( String val )
-    {
+    public void setHref(String val) {
         href = val;
     }
 
     /**
      * Gets the value of <code>href</code>.
      *
-     * @return 
+     * @return
      */
-    public String getHref()
-    {
+    public String getHref() {
         return href;
     }
 
     public int doStartTag() throws JspException {
-        if(href == null && page == null)
+        if (href == null && page == null)
             throw new JspException("href or page must be set");
 
-        if(href != null && page != null)
+        if (href != null && page != null)
             throw new JspException(
                     "href and page cannot both be set. Set one or the other");
 
         return SKIP_BODY;
     }
 
+    /**
+     * Just in case the app server is caching tag (jboss!!!)
+     * we have to clear out all the instance variables at the
+     * end of execution
+     */
     public int doEndTag() throws JspException {
-        HttpServletResponse response = 
-            (HttpServletResponse)pageContext.getResponse();
+        HttpServletResponse response =
+                (HttpServletResponse) pageContext.getResponse();
 
         StringBuffer buffer = new StringBuffer();
         String url = null;
-        if(href != null)
-        {
+        if (href != null) {
             url = href;
-        }
-        else
-        {
-            HttpServletRequest request = 
-                (HttpServletRequest)pageContext.getRequest();
+        } else {
+            HttpServletRequest request =
+                    (HttpServletRequest) pageContext.getRequest();
             url = request.getContextPath() + page;
         }
         buffer.append(response.encodeURL(url));
-        try
-        {
+        try {
             pageContext.getOut().print(buffer.toString());
-        }
-        catch(IOException e)
-        {
+        } catch (IOException e) {
             throw new JspException(e.getMessage());
         }
 
-        return EVAL_PAGE;
+        this.page=null;
+        this.href = null;
+
+        return super.doEndTag();
     }
 }

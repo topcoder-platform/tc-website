@@ -81,4 +81,7 @@ public class SimpleRequest implements TCRequest {
         return request.getRemoteHost();
     }
 
+    public void removeAttribute(String name) {
+        request.removeAttribute(name);
+    }
 }
