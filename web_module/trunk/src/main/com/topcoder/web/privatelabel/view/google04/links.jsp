@@ -32,6 +32,13 @@
             <% } else { %>
                   <a href="/pl/?&module=Static&d1=google04&d2=login">Registration</a> &nbsp;|&nbsp; 
             <% } %>
+
+<!-- FAQ tab -->
+            <% if (selectedTab.equals("faq")) {%>
+                 <font color="006633">FAQ</font> &nbsp;|&nbsp; 
+            <% } else { %>
+                  <a href="/pl/?&module=Static&d1=google04&d2=faq">FAQ</a> &nbsp;|&nbsp; 
+            <% } %>
 <%--
 <!-- Advancers tab -->
             <% if (selectedTab.equals("advancers")) {%>
