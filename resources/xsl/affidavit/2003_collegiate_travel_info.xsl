@@ -65,10 +65,10 @@
 
         <p>
         <CENTER>
-            2032 Sun Microsystems and <BR/>
+            2003 Sun Microsystems and <BR/>
             TopCoder Collegiate Challenge<BR/>
             April 4 - 5, 2003<BR/><BR/><BR/>
-            Travel Information
+            <H1>Travel Information</H1>
         </CENTER>
         <BR/><BR/> <BR/><BR/>
         <B><U>HOTEL INFORMATION:</U></B><BR/>
