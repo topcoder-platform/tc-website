@@ -253,7 +253,7 @@
             tournament yet!  For a cost of $495pp, the spectator package includes 2 nights at the hotel, 2 meals with
             the competitors, attendance at all onsite events (competitions, technical presentations, etc.) and an
             assortment of TopCoder Gear.  The package does not include any travel to the event.
-
+            <br/><br/>
         For more details, click <a href="http://www.topcoder.com/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=spectator_package">here</a>
         </p>
 
