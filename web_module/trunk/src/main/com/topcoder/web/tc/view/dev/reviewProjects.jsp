@@ -14,7 +14,7 @@
 
 <%--<% ResultSetContainer tournamentProjectList = (ResultSetContainer)request.getAttribute("tournamentProjectList");%>--%>
 <head>
-<title>Open Component Projects Available for Review</title>
+<title>Component Project Review</title>
 
 <jsp:include page="../script.jsp" />
 <link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>
@@ -105,7 +105,7 @@
 
             <table border="0" cellspacing="0" width="100%" class="formFrame">
                 <tr>
-                    <td class="projectTitles" colspan="9">Open Design Components</td>
+                    <td class="projectTitles" colspan="9">Design Components</td>
                 </tr>
                 <tr>
                     <td class="projectHeaders" align="center">Catalog</td>
@@ -162,7 +162,7 @@
 
             <table border="0" cellspacing="0" width="100%" class="formFrame">
                 <tr>
-                    <td class="projectTitles" colspan="9">Open Development Components</td>
+                    <td class="projectTitles" colspan="9">Development Components</td>
                 </tr>
                 <tr>
                     <td class="projectHeaders" align="center">Catalog</td>
