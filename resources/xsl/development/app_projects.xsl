@@ -61,15 +61,16 @@
 
 				<tr><td class="statText" colspan="2"><h1 class="devSubhead">Open Application Projects</h1></td></tr>
 				
-				<!-- <tr valign="top">
+				<tr valign="top">
 					<td class="statText" colspan="2">
 						<p>
 						Check here next week for an exciting new project!<br/>
-						</p>   
+						</p> 
+						<P><BR/></P>  
 					</td>
-				</tr> -->
+				</tr>
 							
-				<tr>
+				<!-- <tr>
 					<td valign="top" class="statText" width="50%">
 						<p>
 						Project: <a class="statText" href="/index?t=development&amp;c=screening">Candidate Screening Tool</a><br/>
@@ -81,7 +82,7 @@
 
 					<td valign="top" class="statText" width="50%">&#160;   
 					</td>
-				</tr>				
+				</tr> -->				
 				
 														
 			</table>
