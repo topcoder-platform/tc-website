@@ -9,7 +9,7 @@
 <%@ taglib uri="/tces-taglib.tld" prefix="tces"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<HTML>
+<HTML id="tces">
 <HEAD>
 
 <TITLE>TopCoder | Employment Services</TITLE>
