@@ -27,11 +27,20 @@ public class Controller
     public void init(Servlet servletConfig)
             throws ServletException {
     }
+    public void service(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException {
+        service(request,response);
+    }
+    public void service(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException {
+        service(request,response);
+    }
 
     public void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
         HttpSession session = null;
         try {
+            log.debug("In com.topcoder.web.resume.servlet.Controller.service()");
             if (request.getContentType() == null || request.getContentType().indexOf(MULTIPART_FORM_DATA) < 0) {
                 String taskName = request.getParameter(TASK);
                 if (taskName == null || !isWord(taskName)) {
