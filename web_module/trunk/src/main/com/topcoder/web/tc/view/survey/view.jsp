@@ -53,10 +53,10 @@
                   <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="SubmitSurvey"/>
                   <input type="hidden" name="<%=Constants.SURVEY_ID%>" value="<%=surveyInfo.getId()%>"/>
                   <tc:questionIterator list="<%=questionInfo%>" id="question">
-                     <table width="100%" border="0" cellpadding="3" cellspacing="0">
+                     <table width="100%" border="0" cellpadding="3" cellspacing="0" class="bodyText">
                         <tr>
                            <td colspan="2" class="bodySubtitle">
-                              <jsp:getProperty name="question" property="text"/><br/>
+                              <jsp:getProperty name="question" property="text"/><br/><br/>
                               <hr width="100%" size="1" noshade/>
                            </td>
                            </tr>
