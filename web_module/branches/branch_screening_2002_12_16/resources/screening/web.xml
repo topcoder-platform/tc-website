@@ -514,13 +514,13 @@
 
   <init-param>
     <param-name>preview_email_page</param-name>
-    <param-value>session/previewEmail.jsp</param-value>
+    <param-value>/session/previewEmail.jsp</param-value>
     <description></description>
   </init-param>
 
   <init-param>
     <param-name>session_setup_page</param-name>
-    <param-value>session/sessionSetup.jsp</param-value>
+    <param-value>/session/sessionSetup.jsp</param-value>
     <description></description>
   </init-param>
 
