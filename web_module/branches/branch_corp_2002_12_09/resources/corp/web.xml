@@ -12,16 +12,28 @@
   <servlet-class>com.topcoder.web.corp.controller.MainServlet</servlet-class>
 
   <init-param>
-    <param-name>static</param-name>
+    <param-name>processor-static</param-name>
     <param-value>com.topcoder.web.corp.request.Static</param-value>
     <description>handles primary registration page</description>
   </init-param>
 
   <init-param>
-    <param-name>prim-reg</param-name>
+    <param-name>processor-prim-reg</param-name>
     <param-value>com.topcoder.web.corp.request.Registration</param-value>
     <description>handles primary registration page</description>
   </init-param>
+
+  <init-param>
+    <!--
+         this page will be accessed via forward only, so it must be specified
+         from application root, servlet context path is not allowed. First slash
+         is required
+    -->
+    <param-name>page-generic-error</param-name>
+    <param-value>/error.jsp</param-value>
+    <description>All of the controller exceptions will return this to user</description>
+  </init-param>
+
 </servlet>
 
 
