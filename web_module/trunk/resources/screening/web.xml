@@ -760,7 +760,7 @@
 
     <servlet-mapping>
         <servlet-name>JNLPServlet</servlet-name>
-        <url-pattern>/JNLPServlet/</url-pattern>
+        <url-pattern>/JNLPServlet</url-pattern>
     </servlet-mapping>
 
     <taglib>
