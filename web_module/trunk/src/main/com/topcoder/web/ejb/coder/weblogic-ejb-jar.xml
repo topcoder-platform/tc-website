@@ -10,4 +10,11 @@
         </caching-descriptor>
         <jndi-name>com.topcoder.web.ejb.coder.CoderHome</jndi-name>
     </weblogic-enterprise-bean>
+    <weblogic-enterprise-bean>
+        <ejb-name>CoderImage</ejb-name>
+        <caching-descriptor>
+            <max-beans-in-free-pool>20</max-beans-in-free-pool>
+        </caching-descriptor>
+        <jndi-name>com.topcoder.web.ejb.coder.CoderImageHome</jndi-name>
+    </weblogic-enterprise-bean>
 </weblogic-ejb-jar>
