@@ -36,6 +36,7 @@ import com.topcoder.dde.catalog.Technology;
 import com.topcoder.dde.user.UserManagerRemoteHome;
 import com.topcoder.dde.user.UserManagerRemote;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.tc.controller.request.development.Base;
 
 import javax.rmi.PortableRemoteObject;
 import javax.servlet.http.HttpServletRequest;
@@ -593,34 +594,8 @@ public final class TaskDevelopment {
                 }
             } else if (command.length() > 0 && !request.getParameter("t").equals("app")) {
                 /********** SHOULD BE A FUNCTION ****************/
-                Request dataRequest = null;
-                ResultSetContainer rsc = null;
-                Map resultMap = null;
-                log.debug("getting dai");
-                dataRequest = new Request();
-                dataRequest.setContentHandle("open_projects");
-
-                DataAccessInt dai = new DataAccess(
-                                dataRequest.getProperty(Constants.DB_KEY, Query.TCS_CATALOG));
-                log.debug("got dai");
-
-                resultMap = dai.getData(dataRequest);
-                log.debug("got map");
-                rsc = (ResultSetContainer) resultMap.get("Retrieve open projects");
-
-                log.debug("got rsc");
-                if (rsc == null)
-                    log.debug("rsc is null");
-                devTag.addTag(rsc.getTag("projects", "project"));
-
-                DataAccessInt tcsDai = new CachedDataAccess(Query.TCS_CATALOG);
-                dataRequest = new Request();
-                dataRequest.setContentHandle("project_totals");
-                resultMap = tcsDai.getData(dataRequest);
-                rsc = (ResultSetContainer) resultMap.get("total_component_prices");
-                devTag.addTag(rsc.getTag("Project", "Total"));
-
-
+                devTag.addTag(Base.getOpenProjects().getTag("projects", "project"));
+                devTag.addTag(Base.getProjectTotals().getTag("Project", "Total"));
                 xsldocURLString = XSL_DIR + command + ".xsl";
             } else {
                 throw new Exception("Invalid command: " + command);
