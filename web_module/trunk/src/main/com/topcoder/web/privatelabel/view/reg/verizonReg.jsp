@@ -11,7 +11,33 @@
 </head>
 
 <body>
-    <table cellpadding="1" cellspacing="3">
+
+<jsp:include page="../top.jsp" >
+    <jsp:param name="level1" value="review_board"/>
+</jsp:include>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+   <tr valign="top">
+   
+
+
+
+<!-- Left Column Begins -->
+        <td width="180">
+            <jsp:include page="../../../includes/global_left.jsp">
+                <jsp:param name="level1" value="review_board"/>
+                <jsp:param name="level2" value="competition"/> 
+            </jsp:include>
+        </td>
+<!-- Left Column Ends -->
+  
+<!-- Gutter Begins -->
+        <td width="10"><img src="/i/clear.gif" width="10" height="1"></td>
+<!-- Gutter Ends -->
+
+<!-- Center Column Begins -->    
+         <td>  
+         <table cellpadding="1" cellspacing="3">
         <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.FULL_REG_DEMOG%>"/>
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
@@ -234,10 +260,12 @@
                 </td>
             </tr>
 
-        </form>
+            </form>
 
-    </table>
-
+         </table>
+      </td>
+   </tr>
+</table>
 
 </body>
 
