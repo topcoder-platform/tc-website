@@ -51,11 +51,11 @@
             </p>
             
             <div class="leadPhoto">
-            <img src="/i/clear.gif" alt="" width="200" height="350" class="photoFrameBig" /><br/>
+            <img src="/i/tournament/tco03/comp_final/summary_des.jpg" alt="" width="200" height="350" class="photoFrameBig" /><br/>
             <span class="leadPhotoCaption">Photo caption.<br/><br/></span>
             </div>
             
-            <h2>Component Final Round</h2>
+            <h2>Pops is tops!</h2>
 
             <p>by <A href="/stat?c=member_profile&amp;cr=296145">srowen</A>, <em>TopCoder Member</em><br />
             Friday, December 5, 2003</p> 
@@ -213,7 +213,7 @@ round and the reviewers unanimously named him the winner.</p>
             <a name="dev"> </a>
 
             <div class="leadPhoto">
-            <img src="/i/clear.gif" alt="" width="200" height="350" class="photoFrameBig" /><br/>
+            <img src="/i/tournament/tco03/comp_final/summary_dev.jpg" alt="" width="200" height="350" class="photoFrameBig" /><br/>
             <span class="leadPhotoCaption">Photo caption.<br/><br/></span>
             </div>
             
