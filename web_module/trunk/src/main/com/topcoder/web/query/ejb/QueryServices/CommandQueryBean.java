@@ -231,6 +231,59 @@ public class CommandQueryBean extends BaseEJB {
         return ret;
     }
 
+    public ResultSetContainer getCommandsForQuery(long queryId, String dataSourceName) throws RemoteException, EJBException {
+        log.debug("getCommandsForQuery called...command: " + queryId);
+
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        Connection conn = null;
+        Context ctx = null;
+        DataSource ds = null;
+        ResultSetContainer ret = null;
+        try {
+            StringBuffer query = new StringBuffer();
+            query.append(" SELECT c.command_id");
+            query.append(" , c.command_desc");
+            query.append(" , c.command_group_id");
+            query.append(" , cg.command_group_name");
+            query.append(" , cg.command_group_id");
+            query.append(" , LOWER(c.command_desc)");
+            query.append(" FROM command c");
+            query.append(" , command_group_lu cg");
+            query.append(" , command_query_xref cqx");
+            query.append(" WHERE c.command_group_id = cg.command_group_id");
+            query.append("   AND cqx.query_id = ?");
+            query.append("   AND cqx.command_id = c.command_id");
+            query.append(" ORDER BY 6 ASC");
+
+            ctx = new InitialContext();
+            if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
+            ds = (DataSource)ctx.lookup(dataSourceName);
+            conn = ds.getConnection();
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, queryId);
+            rs = ps.executeQuery();
+            ret = new ResultSetContainer(rs);
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
+            throw new EJBException("SQLException getting commands for query: " +queryId);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
+        } catch (Exception e) {
+            throw new EJBException("Exception getting commands for query: " +
+                    queryId + "\n " + e.getMessage());
+        } finally {
+            if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet");}}
+            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement");}}
+            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection");}}
+            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context");}}
+        }
+        return ret;
+    }
+
+
+
+
 
 }
 
