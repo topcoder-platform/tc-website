@@ -16,7 +16,7 @@
 
     <xsl:call-template name="Preload"/>      
 
-<title>TopCoder :: Development</title>
+<title>TopCoder | Development</title>
 
     <xsl:call-template name="CSS"/>      
 
@@ -31,7 +31,7 @@
     <xsl:call-template name="Top"/>
 <!-- Header Begins -->
 
-<table width="100%" height="69%" border="0" cellpadding="0" cellspacing="0" bgcolor="#CCCCCC">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr>
 <!-- Left Column Begins -->
         <td width="170" bgcolor="#CCCCCC" valign="top">
@@ -40,11 +40,11 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="4" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="4" height="8" alt="" border="0"/></td>
+        <td width="6" valign="top"><img src="/i/clear.gif" width="6" height="8" alt="" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->  
-        <td class="bodyText" width="100%" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="240" height="1" vspace="5" alt="" border="0"/><br/>
+        <td class="bodyText" width="100%" valign="top"><img src="/i/clear.gif" width="240" height="1" vspace="5" alt="" border="0"/><br/>
 <xsl:call-template name="BodyTop">
     <xsl:with-param name="image1">steelblue</xsl:with-param>
     <xsl:with-param name="image">development</xsl:with-param>
@@ -158,11 +158,11 @@
 <!-- Center Column Ends -->
 
 <!-- Gutter begins -->
-        <td width="1" bgcolor="#CCCCCC"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td>
+        <td width="6"><img src="/i/clear.gif" width="6" height="1" alt="" border="0" /></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-        <td width="244" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="170" height="1" alt="" border="0" /><br/>
+        <td width="244" valign="top">
             <xsl:call-template name="public_dev_right" />        
         </td>
 <!-- Right Column Ends -->

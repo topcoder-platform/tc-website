@@ -16,7 +16,7 @@
 
 	<xsl:call-template name="Preload"/>      
 
-<title>TopCoder :: Development</title>
+<title>TopCoder | Development</title>
 
 	<xsl:call-template name="CSS"/>      
 
@@ -31,7 +31,7 @@
 	<xsl:call-template name="Top"/>
 <!-- Header Begins -->
 
-<table width="100%" height="69%" border="0" cellpadding="0" cellspacing="0" bgcolor="#CCCCCC">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
 	<tr>
 <!-- Left Column Begins -->
 		<td width="170" bgcolor="#CCCCCC" valign="top">
@@ -40,11 +40,11 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-		<td width="4" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="4" height="8" alt="" border="0"/></td>
+		<td width="6" valign="top"><img src="/i/clear.gif" width="6" height="8" alt="" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->  
-		<td class="bodyText" width="100%" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="240" height="1" vspace="5" alt="" border="0"/><br/>
+		<td class="bodyText" width="100%" valign="top"><img src="/i/clear.gif" width="240" height="1" vspace="5" alt="" border="0"/><br/>
 <xsl:call-template name="BodyTop">
 	<xsl:with-param name="image1">steelblue</xsl:with-param>
 	<xsl:with-param name="image">development</xsl:with-param>
@@ -66,6 +66,8 @@
 <!-- Overview -->
 						<p><strong>Overview</strong><br />
 						The Jar Compressor component allows developers to easily integrate compression functionality into the building of jar files.  The component is designed to take out all classes that are not referenced within a particular jar file.  The API takes a target jar file location, a compressed jar file location and parameters.
+
+
 
 For example, the TopCoder Competition Arena is an applet used for online software competitions between developers.  The Jar Compressor would be used to shrink the size of the applet, which would speed up the downloading of the Competition Arena.  
 						</p>
@@ -159,28 +161,28 @@ For example, the TopCoder Competition Arena is an applet used for online softwar
 				<tr><td colspan="4" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>     
 
 				<tr>
-					<td valign="top" background="" bgcolor="#CCCCCC" width="11" align="right"><img src="/i/clear.gif" alt="" width="11" height="8" border="0" /></td>
+					<td valign="top" background="" bgcolor="#FFFFFF" width="11" align="right"><img src="/i/clear.gif" alt="" width="11" height="8" border="0" /></td>
 					<td background="/i/steel_darkblue_bg.gif" valign="top" bgcolor="#000033" width="14"><img src="/i/table_mid_left2x.gif" alt="" width="14" height="8" border="0" /></td>
 					<td background="/i/steel_darkblue_bg.gif" valign="top" bgcolor="#000033" width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
-					<td valign="top" background="" bgcolor="#CCCCCC" width="10"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
+					<td valign="top" background="" bgcolor="#FFFFFF" width="10"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
 				</tr>  
 
 				<tr>
-					<td valign="top" background="" width="11" align="right" bgcolor="#CCCCCC"><img src="/i/clear.gif" alt="" width="11" height="8" border="0" /></td>
-					<td valign="top" background="" bgcolor="#CCCCCC" width="14"><img src="/i/table_btm_left2.gif" alt="" width="14" height="8" border="0" /></td>
-					<td valign="top" background="" bgcolor="#CCCCCC" width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
-					<td valign="top" background="" bgcolor="#CCCCCC" width="10"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
+					<td valign="top" background="" width="11" align="right" bgcolor="#FFFFFF"><img src="/i/clear.gif" alt="" width="11" height="8" border="0" /></td>
+					<td valign="top" background="" bgcolor="#FFFFFF" width="14"><img src="/i/table_btm_left2.gif" alt="" width="14" height="8" border="0" /></td>
+					<td valign="top" background="" bgcolor="#FFFFFF" width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
+					<td valign="top" background="" bgcolor="#FFFFFF" width="10"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
 				</tr>
 			</table>
 		</td>
 <!-- Center Column Ends -->
 
 <!-- Gutter begins -->
-		<td width="1" bgcolor="#CCCCCC"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td>
+		<td width="6"><img src="/i/clear.gif" width="6" height="1" alt="" border="0" /></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-		<td width="244" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="170" height="1" alt="" border="0" /><br/>
+		<td width="244" valign="top">
 			<xsl:call-template name="public_dev_right" />        
 		</td>
 <!-- Right Column Ends -->

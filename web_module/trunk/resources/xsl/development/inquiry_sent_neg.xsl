@@ -15,7 +15,7 @@
 
 	<xsl:call-template name="Preload" />      
 
-<title>TopCoder :: Development</title>
+<title>TopCoder | Development</title>
 
 	<xsl:call-template name="CSS" />      
 
@@ -24,7 +24,7 @@
 
 </head>
 
-<BODY BGCOLOR="#CCCCCC" topmargin="0" marginheight="0" leftmargin="0" marginwidth="0">
+<BODY>
 
 	<xsl:call-template name="Top" />
 

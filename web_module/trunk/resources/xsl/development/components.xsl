@@ -15,7 +15,7 @@
 
     <xsl:call-template name="Preload" />      
 
- <title>TopCoder :: Component Development</title>
+ <title>TopCoder | Development</title>
 
     <xsl:call-template name="CSS" />      
 
@@ -24,10 +24,10 @@
 
 </head>
 
-<body bgcolor="#CCCCCC" topmargin="0" marginheight="0" leftmargin="0" marginwidth="0">
+<body>
     <xsl:call-template name="Top" />
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#CCCCCC">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
 <!-- Left Column Begins -->
         <td width="170" bgcolor="#CCCCCC">
@@ -36,11 +36,11 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="4" bgcolor="#CCCCCC"><img src="/i/clear.gif" width="4" height="5" alt="" border="0" /></td>
+        <td width="6"><img src="/i/clear.gif" width="6" height="5" alt="" border="0" /></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-            <td class="bodyText" width="100%" bgcolor="#CCCCCC">
+            <td class="bodyText" width="100%">
             <xsl:call-template name="BodyTop">
             <xsl:with-param name="image1">steelblue</xsl:with-param>
             <xsl:with-param name="image">development</xsl:with-param>
@@ -49,11 +49,123 @@
             <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
                 <tr valign="top">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td colspan="4"><img src="/i/clear.gif" alt="" width="240" height="10" border="0" /></td>
+                    <td colspan="3"><img src="/i/clear.gif" alt="" width="240" height="10" border="0" /></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
 
-    <!-- Featured Winner Begins -->
+<!-- Royalty Payments Begins -->
+                <tr valign="top">
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="captionText" width="49%"><img src="/i/development/royalty_payments.gif" alt="Royalty Payments" width="276" height="49" border="0" /><br />
+                        We're proud to announce our first round of royalty payments totaling $3500. The TopCoder members to the right 
+                        developed the components that make up the <a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=600191" class="statText">Rules Engine Tool.</a> 
+                        Inquire about <a href="?t=development&amp;c=comp_projects" class="statText">open projects</a> so you can earn royalties too.</td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="49%">
+                        <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                            <tr valign="middle">
+                                <td width="10" background="/i/steel_gray_bg.gif"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                                <td background="/i/steel_gray_bg.gif" class="registerNav" height="18" colspan="2">Royalties Paid</td>
+                                <td width="10" background="/i/steel_gray_bg.gif"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                            </tr>
+
+                            <tr>
+                                <td width="10" background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                                <td background="/i/steel_bluebv_bg.gif" class="statText" height="18">Developer&#160;</td>
+                                <td width="1%" background="/i/steel_bluebv_bg.gif" class="statText" height="18" align="right">&#160;Total&#160;Royalties</td>
+                                <td width="10" background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                            </tr>
+
+                            <tr><td height="3" colspan="4"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
+
+                            <tr valign="middle">
+                                <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                                <td class="statText" height="15"><a href="/stat?c=member_profile&amp;cr=265522" class="coderTextBlue"><strong>Veredox</strong></a></td>
+                                <td class="statText" height="15" align="right">$1,708.07&#160;&#160;</td>
+                                <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                            </tr>
+
+                            <tr><td height="3" colspan="4"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
+
+                            <tr valign="middle">
+                                <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                                <td class="statText" height="15"><a href="/stat?c=member_profile&amp;cr=119676" class="coderTextBlue"><strong>Pops</strong></a></td>
+                                <td class="statText" height="15" align="right">$1,111.17&#160;&#160;</td>
+                                <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                            </tr>
+
+                            <tr><td height="3" colspan="4"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
+
+                            <tr valign="middle">
+                                <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                                <td class="statText" height="15"><a href="/stat?c=member_profile&amp;cr=271008" class="coderTextBlue"><strong>Ilya</strong></a></td>
+                                <td class="statText" height="15" align="right">$283.65&#160;&#160;</td>
+                                <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                            </tr>
+
+                            <tr><td height="3" colspan="4"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
+
+                            <tr valign="middle">
+                                <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                                <td class="statText" height="15"><a href="/stat?c=member_profile&amp;cr=112655" class="coderTextGray"><strong>Timur</strong></a></td>
+                                <td class="statText" height="15" align="right">$133.19&#160;&#160;</td>
+                                <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                            </tr>
+
+                            <tr><td height="3" colspan="4"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
+
+                            <tr valign="middle">
+                                <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                                <td class="statText" height="15"><a href="/stat?c=member_profile&amp;cr=260578" class="coderTextGreen"><strong>danno</strong></a></td>
+                                <td class="statText" height="15" align="right">$74.00&#160;&#160;</td>
+                                <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                            </tr>
+ 
+                            <tr><td height="3" colspan="4"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
+
+                            <tr valign="middle">
+                                <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                                <td class="statText" height="15"><a href="/stat?c=member_profile&amp;cr=142986" class="coderTextGreen"><strong>dcros</strong></a></td>
+                                <td class="statText" height="15" align="right">$55.50&#160;&#160;</td>
+                                <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                            </tr>
+
+                            <tr><td height="3" colspan="4"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
+
+                            <tr valign="middle">
+                                <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                                <td class="statText" height="15"><a href="/stat?c=member_profile&amp;cr=150498" class="coderTextYellow"><strong>Thinman</strong></a></td>
+                                <td class="statText" height="15" align="right">$55.50&#160;&#160;</td>
+                                <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                            </tr>
+
+                            <tr><td height="3" colspan="4"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
+
+                            <tr valign="middle">
+                                <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                                <td class="statText" height="15"><a href="/stat?c=member_profile&amp;cr=267275" class="coderTextYellow"><strong>magead7</strong></a></td>
+                                <td class="statText" height="15" align="right">$49.33&#160;&#160;</td>
+                                <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                            </tr>
+
+                            <tr><td height="3" colspan="4"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
+
+                            <tr valign="middle">
+                                <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                                <td class="statText" height="15"><a href="/stat?c=member_profile&amp;cr=128873" class="coderTextBlue"><strong>DEBEdb</strong></a></td>
+                                <td class="statText" height="15" align="right">$29.60&#160;&#160;</td>
+                                <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+                <tr><td height="10" colspan="5"><img src="/i/clear.gif" alt="" height="10" border="0" /></td></tr>
+            </table>
+<!-- Royalty Payments Ends -->
+
+<!-- Featured Winner Begins -->
+            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
                 <tr valign="top">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td class="statText" width="100%" colspan="4"><strong><img src="/i/development/title_weekly_comp_winners.gif" alt="This Week's Component Project Winners" width="346" height="26" border="0" /></strong></td>
@@ -109,8 +221,8 @@
                                 <td class="statText" align="right">1</td>
                                 <td class="statText"></td>
                             </tr>
-
-                            <tr><td height="5" colspan="4"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr></table></td>
+                        </table>
+                    </td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
             </table>
@@ -157,7 +269,7 @@
                     <td class="statText" height="15" align="center">1</td>
                     <td class="statText" height="15"><a href="/stat?c=member_profile&amp;cr=281876" class="coderTextGreen"><strong>garyk</strong></a></td>
                     <td class="statText" height="15" align="center">73.98</td>
-                    <td class="statText" height="15" align="right">$345.00&#160;&#160;&#160;&#160;</td>
+                    <td class="statText" height="15" align="right">$345.00&#160;&#160;</td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
 
@@ -169,7 +281,7 @@
                     <td class="statText" height="15" align="center">2</td>
                     <td class="statText" height="15"><a href="/stat?c=member_profile&amp;cr=281975" class="coderTextGray"><strong>keithnigh</strong></a></td>
                     <td class="statText" height="15" align="center">82.55</td>
-                    <td class="statText" height="15" align="right">$280.00&#160;&#160;&#160;&#160;</td>
+                    <td class="statText" height="15" align="right">$280.00&#160;&#160;</td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
 
@@ -181,7 +293,7 @@
                     <td class="statText" height="15" align="center">1</td>
                     <td class="statText" height="15"><a href="/stat?c=member_profile&amp;cr=299180" class="coderTextGray"><strong>isv</strong></a></td>
                     <td class="statText" height="15" align="center">86.36</td>
-                    <td class="statText" height="15" align="right">$945.00&#160;&#160;&#160;&#160;</td>
+                    <td class="statText" height="15" align="right">$945.00&#160;&#160;</td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
 
@@ -193,7 +305,7 @@
                     <td class="statText" height="15" align="center">2</td>
                     <td class="statText" height="15"><a href="/stat?c=member_profile&amp;cr=299180" class="coderTextGray"><strong>isv</strong></a></td>
                     <td class="statText" height="15" align="center">96.30</td>
-                    <td class="statText" height="15" align="right">$945.00&#160;&#160;&#160;&#160;</td>
+                    <td class="statText" height="15" align="right">$945.00&#160;&#160;</td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
 
@@ -205,7 +317,7 @@
                     <td class="statText" height="15" align="center">1</td>
                     <td class="statText" height="15"><a href="/stat?c=member_profile&amp;cr=136305" class="coderTextGray"><strong>HuskerFan</strong></a></td>
                     <td class="statText" height="15" align="center">82.48</td>
-                    <td class="statText" height="15" align="right">$210.00&#160;&#160;&#160;&#160;</td>
+                    <td class="statText" height="15" align="right">$210.00&#160;&#160;</td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
 
@@ -217,7 +329,7 @@
                     <td class="statText" height="15" align="center">1</td>
                     <td class="statText" height="15"><a href="/stat?c=member_profile&amp;cr=157174" class="coderTextGreen"><strong>preetham</strong></a></td>
                     <td class="statText" height="15" align="center">79.62</td>
-                    <td class="statText" height="15" align="right">$140.00&#160;&#160;&#160;&#160;</td>
+                    <td class="statText" height="15" align="right">$140.00&#160;&#160;</td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
 
@@ -229,7 +341,7 @@
                     <td class="statText" height="15" align="center">1</td>
                     <td class="statText" height="15"><a href="/stat?c=member_profile&amp;cr=277356" class="coderTextYellow"><strong>aksonov</strong></a></td>
                     <td class="statText" height="15" align="center">71.88</td>
-                    <td class="statText" height="15" align="right">$105.00&#160;&#160;&#160;&#160;</td>
+                    <td class="statText" height="15" align="right">$105.00&#160;&#160;</td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
 
@@ -241,7 +353,7 @@
                     <td class="statText" height="15" align="center">1</td>
                     <td class="statText" height="15"><a href="/stat?c=member_profile&amp;cr=287614" class="coderTextGreen"><strong>argolite</strong></a></td>
                     <td class="statText" height="15" align="center">84.05</td>
-                    <td class="statText" height="15" align="right">$385.00&#160;&#160;&#160;&#160;</td>
+                    <td class="statText" height="15" align="right">$385.00&#160;&#160;</td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
 
@@ -253,7 +365,7 @@
                     <td class="statText" height="15" align="center">1</td>
                     <td class="statText" height="15"><a href="/stat?c=member_profile&amp;cr=155381" class="coderTextBlue"><strong>djFD</strong></a></td>
                     <td class="statText" height="15" align="center">97.50</td>
-                    <td class="statText" height="15" align="right">$385.00&#160;&#160;&#160;&#160;</td>
+                    <td class="statText" height="15" align="right">$385.00&#160;&#160;</td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
 
@@ -285,7 +397,7 @@
                     <td class="statText" height="15" align="center">1</td>
                         <td class="statText" height="15"><a href="/stat?c=member_profile&amp;cr=266149" class="coderTextGreen"><strong>akhil_bansal</strong></a></td>
                     <td class="statText" height="15" align="center">72.50</td>
-                    <td class="statText" height="15" align="right">$590.00&#160;&#160;&#160;&#160;</td>
+                    <td class="statText" height="15" align="right">$590.00&#160;&#160;</td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
 
@@ -303,28 +415,28 @@
 
             <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
                 <tr valign="top">
-                    <td background="" bgcolor="#CCCCCC" width="10" align="right"><img src="/i/clear.gif" alt="" width="10" height="8" border="0" /></td>
+                    <td background="" bgcolor="#FFFFFF" width="10" align="right"><img src="/i/clear.gif" alt="" width="10" height="8" border="0" /></td>
                     <td width="14"><img src="/i/table_mid_left2x.gif" alt="" width="14" height="8" border="0" /></td>
                     <td width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
-                    <td background="" bgcolor="#CCCCCC" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" bgcolor="#FFFFFF" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>    
     
                 <tr valign="top">
-                    <td background="" bgcolor="#CCCCCC" width="10" align="right"><img src="/i/clear.gif" alt="" width="10" height="8" border="0" /></td>
-                    <td background="" bgcolor="#CCCCCC" width="14"><img src="/i/table_btm_left2.gif" alt="" width="14" height="8" border="0" /></td>
-                    <td background="" bgcolor="#CCCCCC" width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
-                    <td background="" bgcolor="#CCCCCC" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" bgcolor="#FFFFFF" width="10" align="right"><img src="/i/clear.gif" alt="" width="10" height="8" border="0" /></td>
+                    <td background="" bgcolor="#FFFFFF" width="14"><img src="/i/table_btm_left2.gif" alt="" width="14" height="8" border="0" /></td>
+                    <td background="" bgcolor="#FFFFFF" width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
+                    <td background="" bgcolor="#FFFFFF" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
             </table>
         </td>
 <!-- Center Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="1" bgcolor="#CCCCCC"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td>
+        <td width="6"><img src="/i/clear.gif" width="6" height="1" alt="" border="0" /></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-        <td width="244" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="244" height="1" alt="" border="0" /><br/>
+        <td width="244">
             <xsl:call-template name="public_dev_right" />        
         </td>
 <!-- Right Column Ends -->
