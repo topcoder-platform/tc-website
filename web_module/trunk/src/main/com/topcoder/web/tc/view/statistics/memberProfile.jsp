@@ -316,19 +316,19 @@ if (!rsc.isEmpty()) {
                             </TR>
 
                             <TR>
-                                <TD CLASS="statText">&#160;&#160;Algorithm Earnings:</TD>
+                                <TD CLASS="statText">&#160;&#160;Algorithm:</TD>
                                 <TD CLASS="statText" ALIGN="right"><rsc:item set="<%=rsc%>" name="total_earnings" format="$0.00" ifNull="$0.00"/><%=hasCharity?"*":""%></TD>
                                 <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                                 <TD CLASS="statText" ALIGN="left"><A HREF="/stat?c=earnings_history&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /*"id"*/ + "]" %>'/>" CLASS="statText">[ history ]</A></TD>
                             </TR>
                             <TR>
-                                <TD CLASS="statText">&#160;&#160;Design Earnings:</TD>
+                                <TD CLASS="statText">&#160;&#160;Design:</TD>
                                 <TD CLASS="statText" ALIGN="right">$<bean:write format="0.00" name="resultRow" property='<%= "item[" + 28 /*"component earnings"*/ + "].resultData" %>'/></TD>
                                 <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                                 <TD CLASS="statText" ALIGN="left"><A HREF="/stat?pi=112&c=component_history&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /*"id"*/ + "]" %>'/>" CLASS="statText">[ history ]</A></TD>
                             </TR>
                             <TR>
-                                <TD CLASS="statText">&#160;&#160;Development Earnings:</TD>
+                                <TD CLASS="statText">&#160;&#160;Development:</TD>
                                 <TD CLASS="statText" ALIGN="right">$<bean:write format="0.00" name="resultRow" property='<%= "item[" + 32 /*"component earnings"*/ + "].resultData" %>'/></TD>
                                 <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                                 <TD CLASS="statText" ALIGN="left"><A HREF="/stat?pi=113&c=component_history&pi=113&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /*"id"*/ + "]" %>'/>" CLASS="statText">[ history ]</A></TD>
