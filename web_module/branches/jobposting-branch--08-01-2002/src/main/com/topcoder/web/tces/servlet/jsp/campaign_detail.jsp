@@ -9,6 +9,7 @@
           weblogic.common.T3Services,
           com.topcoder.common.web.data.Navigation,
           com.topcoder.common.*,
+          com.topcoder.web.tces.common.*,
           com.topcoder.web.tces.bean.*" %>
 
 <%@ taglib uri="/tces-taglib.tld" prefix="tces"%>

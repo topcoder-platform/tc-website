@@ -25,7 +25,7 @@
   <%@ include file="/top.jsp" %>
 
 
-<jsp:useBean id="MainTask" scope="request" class="com.topcoder.web.tces.servlet.MainTask" />
+<jsp:useBean id="MainTask" scope="request" class="com.topcoder.web.tces.bean.MainTask" />
 
 
   <TABLE WIDTH="100%" HEIGHT="50%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
