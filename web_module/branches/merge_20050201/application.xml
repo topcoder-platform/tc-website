@@ -56,6 +56,9 @@
         <java>upload.jar</java>
     </module>
     <module>
+            <java>math_matrix.jar</java>
+    </module>
+    <module>
         <ejb>auto_pilot_timer.sar</ejb>
     </module>
     <module>
