@@ -69,9 +69,9 @@
                             </tr>
                             
                             <tr valign="top">
-                                <td class="bodyText" width="259">That's an additional price of <strong>$250 per candidate.</strong> Additional candidates can be added for only <strong>$150 each</strong></td>
+                                <td class="bodyText" width="259">That's an initial price of <strong>$250 per candidate.</strong> Additional candidates can be added for only <strong>$150 each.</strong></td>
                                 <td class="bodyText" width="10"><img src="/i/spacer.gif" alt="" width="10" height="1" border="0"></td>
-                                <td class="bodyText" width="259">That's an additional price of <strong>$230 per candidate.</strong> Additional candidates can be added for only <strong>$150 each</strong></td>
+                                <td class="bodyText" width="259">That's an initial price of <strong>$230 per candidate.</strong> Additional candidates can be added for only <strong>$150 each.</strong></td>
                             </tr>
                         </table><br>
                         
