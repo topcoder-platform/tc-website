@@ -58,7 +58,7 @@
 
 <!--body contextual links-->
                         <table width="100%" cellpadding="3" cellspacing="0" border="0">
-                            <tr><td valign="middle" bgcolor="#43515E" class="statText"><b>&#160;PayPal Data Jobs</b></td></tr>
+                            <tr><td valign="middle" bgcolor="#43515E" class="statText"><b>&#160;PayPal Jobs</b></td></tr>
                             <tr><td valign="middle" class="bodyText"></td></tr>
                         </table>
 
