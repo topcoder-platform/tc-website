@@ -78,7 +78,7 @@
                             <li>Negotiate contracts and agreements with interested parties.</li>
                             <li>Ensure the collection of any outstanding payments due to TopCoder.</li>
                         </ul>
-                        No telecommuting options available. <a class="bodyText" href="mailto:tces@topcoder.com?subject=TopCoder Employment Services Salesperson">Apply for this job</a> by email.
+                        This position is at our Glastonbury, CT offices. No telecommuting options are available. <a class="bodyText" href="mailto:tces@topcoder.com?subject=TopCoder Employment Services Salesperson">Apply for this job</a> by email.
                         
                         <hr width="100%" noshade="noshade" />
                         
@@ -110,7 +110,7 @@
                             <li>Design and produce internal promotions for our web sites. </li>
                             <li>Design and produce marketing / sales collateral materials. </li>
                         </ul>
-                        No telecommuting options available. <a class="bodyText" href="mailto:tces@topcoder.com?subject=TopCoder Graphic Designer">Apply for this job</a> by email.
+                        This position is at our Glastonbury, CT offices. No telecommuting options are available. <a class="bodyText" href="mailto:tces@topcoder.com?subject=TopCoder Graphic Designer">Apply for this job</a> by email.
                         
                         <hr width="100%" noshade="noshade" />
                     </td>
