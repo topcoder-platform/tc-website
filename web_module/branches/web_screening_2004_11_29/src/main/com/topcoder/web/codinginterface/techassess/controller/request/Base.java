@@ -12,7 +12,6 @@ import com.topcoder.shared.netCommon.messages.Message;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.language.*;
-import com.topcoder.shared.problem.Problem;
 
 import java.util.*;
 import java.io.IOException;
@@ -29,7 +28,6 @@ public abstract class Base extends BaseProcessor {
     private WebQueueResponseManager receiver = null;
     private String messageId = null;
     private long sessionId = -1;
-    private Problem problem = null;
     private long companyId = -1;
     private List languages = null;
 
@@ -96,24 +94,6 @@ public abstract class Base extends BaseProcessor {
         }
         return sessionId;
     }
-
-    public void setProblem(Problem problem) {
-        this.problem = problem;
-        getRequest().getSession().setAttribute(Constants.PROBLEM, problem);
-    }
-
-    public Problem getProblem() throws TCWebException {
-        if (problem == null) {
-            Problem temp = (Problem) getRequest().getSession().getAttribute(Constants.PROBLEM);
-            if (temp == null)
-                throw new TCWebException("problem has not been set");
-            else {
-                problem = temp;
-            }
-        }
-        return problem;
-    }
-
 
 
     public void setCompanyId(long companyId) {

@@ -6,6 +6,7 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.shared.netCommon.screening.request.ScreeningSaveRequest;
 import com.topcoder.shared.netCommon.screening.response.ScreeningSaveResponse;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
+import com.topcoder.shared.problem.Problem;
 
 /**
  * User: dok
@@ -63,7 +64,8 @@ public class Save extends Base {
             ScreeningSaveResponse response = (ScreeningSaveResponse)receive(5000);
 
             addError(Constants.CODE, response.getMessage());
-            setDefault(Constants.PROBLEM, new ProblemInfo(code, componentId, languageId, getProblem(), problemTypeId));
+            //todo pull problem from response
+            setDefault(Constants.PROBLEM, new ProblemInfo(code, componentId, languageId, new Problem(), problemTypeId));
 
             closeProcessingPage();
 
