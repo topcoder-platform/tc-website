@@ -16,6 +16,8 @@ import com.topcoder.apps.review.document.AbstractSubmission;
 import com.topcoder.apps.review.document.FinalFixSubmission;
 import com.topcoder.apps.review.document.ScorecardTemplate;
 import com.topcoder.apps.review.document.TestCase;
+
+import com.topcoder.apps.review.document.ScreeningScorecard;
 import com.topcoder.util.log.Level;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,6 +30,8 @@ import org.apache.struts.action.ActionForwards;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ArrayList;
+
+import java.util.Collections;
 
 /**
  * <p>
@@ -174,6 +178,55 @@ public final class ProjectDetailAction extends ReviewAction {
                 }
             } else if (phaseId == Constants.PHASE_SCREENING) {
                 if (isAdmin || isPM) {
+                    //hork up scorecards by setting advanced to review flag
+                    //flag is set if scorecard isn't PM reviewed, and it in top 5 overall scores
+                    
+                    //get top 5 scores first
+                    ArrayList scores = new ArrayList();
+                    
+                    AbstractScorecard[] scorecards = pr.getScorecards();
+                    
+                    double minscore;
+                    try {
+                        minscore = ConfigHelper.getMinimumScore();
+                    } catch(Exception e) {
+                        minscore = 75;
+                    }
+                
+                    for(int i = 0; i < submissions.length; i++) {
+                        if (!submissions[i].isRemoved()) {
+                            for (int j = 0; j < scorecards.length; j++) {
+                                if (scorecards[j].getSubmission().equals(submissions[i]) && scorecards[j].isCompleted()) {
+                                    if (((ScreeningScorecard)scorecards[j]).getPassed() && scorecards[j].getScore() >= minscore) {
+                                        scores.add(new Double(scorecards[j].getScore()));
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    //sort list
+                    Collections.sort(scores);
+                    Collections.reverse(scores);
+                    //remove all but top five scores.  No need to check ties, this will gaurentee they advance
+                    while(scores.size() > 5) {                
+                        scores.remove(5);
+                    }
+                    
+                    for(int i = 0; i < submissions.length; i++) {
+                        if (!submissions[i].isRemoved()) {
+                            for (int j = 0; j < scorecards.length; j++) {
+                                if (scorecards[j].getSubmission().equals(submissions[i]) && scorecards[j].isCompleted() && !scorecards[j].isPMReviewed()) {
+                                    if (((ScreeningScorecard)scorecards[j]).getPassed() && scores.contains(new Double(scorecards[j].getScore()))) {
+                                        ((InitialSubmission)submissions[i]).setAdvancedToReview(true);
+                                    } else {
+                                        ((InitialSubmission)submissions[i]).setAdvancedToReview(false);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
                     AdminScreeningScorecardBean[] beans =
                         new AdminScreeningScorecardBean[submissions.length];
                     for (int i = 0; i < submissions.length; i++) {
@@ -199,7 +252,8 @@ public final class ProjectDetailAction extends ReviewAction {
                 if (isAdmin || isPM) {
                     List beansList = new LinkedList();
                     for (int i = 0; i < submissions.length; i++) {
-                        if (((InitialSubmission)submissions[i]).isPassedScreening()) {
+                        //added advanced to review - rfairfax 10-26
+                        if (((InitialSubmission)submissions[i]).isAdvancedToReview()) {
                             AdminReviewScorecardBean adminBean =
                                 new AdminReviewScorecardBean(pr.getProject(),
                                                              submissions[i],

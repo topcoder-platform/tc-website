@@ -1,5 +1,5 @@
 <%@ page language="java" %>
-<%@ page import="com.topcoder.apps.review.projecttracker.ProjectType" %> 
+<%@ page import="com.topcoder.apps.review.projecttracker.ProjectType, com.topcoder.apps.review.AdminScreeningScorecardBean" %> 
 <%@ taglib uri="/WEB-INF/review.tld" prefix="review" %>
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
@@ -154,11 +154,12 @@
 <logic:present name="screenings">
             <table border="0" cellpadding="0" cellspacing="1" class="forumBkgd" width="100%">
                 <tr>
-                    <td colspan="3" class="forumTextEven"><strong><bean:message key="prompt.screeningAdmin" /></strong></td>
+                    <td colspan="4" class="forumTextEven"><strong><bean:message key="prompt.screeningAdmin" /></strong></td>
                 </tr>
                 <tr>
                     <td class="forumTitleCenter"><bean:message key="prompt.submission" /></td>
                     <td class="forumTitleCenter"><bean:message key="prompt.screening" /></td>
+                    <td class="forumTitleCenter"><bean:message key="prompt.advancedToReview" /></td>
                     <td class="forumTitleCenter"><bean:message key="prompt.pmReview" /></td>
                 </tr>
     <logic:iterate id="adminBean" indexId="aIdx" name="screenings">
@@ -188,6 +189,15 @@
             </logic:equal>
                         </review:linkScorecard>
         </logic:equal>                
+                    </td>
+                    <td class="<%=rowClass2%>">
+        <logic:equal name="adminBean" property="scorecardExists" value="true">
+                   <bean:define id="completed" value="<%=((AdminScreeningScorecardBean)adminBean).getAdvancedToReview()%>" />
+                   <bean:write name="completed" /> 
+        </logic:equal>
+		<logic:equal name="adminBean" property="scorecardExists" value="false">
+                        <bean:message key="prompt.nonAvailable" />
+        </logic:equal>                    
                     </td>
                     <td class="<%=rowClass2%>">
         <logic:equal name="adminBean" property="scorecardExists" value="true">
