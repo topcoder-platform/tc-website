@@ -72,7 +72,7 @@
                </ul>
                </p>
 
-               <p>Click here for more information on the tournament, how to donate, and
+               <p><A href="/tc/?&module=Static&d1=crpf&d2=crpf_overview">Click here</A> for more information on the tournament, how to donate, and
                who the top fund raisers are.  As always, best of luck to you in the
                Arena!</p>
                </td>
