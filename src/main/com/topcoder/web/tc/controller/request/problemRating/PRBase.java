@@ -1,17 +1,16 @@
 package com.topcoder.web.tc.controller.request.problemRating;
 
 import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.web.tc.model.ProblemRatingQuestion;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
-import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.tc.model.ProblemRatingQuestion;
 
-import java.util.List;
 import java.util.ArrayList;
-import java.util.Map;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 abstract public class PRBase extends Base {
 
@@ -20,7 +19,7 @@ abstract public class PRBase extends Base {
         Request r = new Request();
         String pid = getRequest().getParameter(Constants.PROBLEM_ID);
         if(pid==null) 
-            throw new NavigationException("There was an error with your problem.");
+            throw new Exception("pid was null");
         r.setContentHandle("Problem Rating Results");
         r.setProperty("pm", pid);
         //response data has to be live, no cache
@@ -29,7 +28,7 @@ abstract public class PRBase extends Base {
         ResultSetContainer questions = (ResultSetContainer) qMap.get("problem rating results");
         ResultSetContainer problemName = (ResultSetContainer) qMap.get("problem name");
         if(problemName.size()==0){
-            throw new NavigationException("There was an error with your problem.");
+            throw new Exception("Problem not yet used, or non-existent.");
         }
         getRequest().setAttribute("problemRatingResults",questions);
         getRequest().setAttribute("problemName",problemName.getRow(0).getStringItem("name"));
@@ -43,7 +42,7 @@ abstract public class PRBase extends Base {
         r.setContentHandle("Problem Rating Questions");
         String pid = getRequest().getParameter(Constants.PROBLEM_ID);
         if(pid==null) 
-            throw new NavigationException("Invalid Request.");
+            throw new Exception("pid was null");
         r.setProperty("pm", pid);
         r.setProperty("cr", String.valueOf(userID));
         //response data has to be live, no cache
@@ -67,7 +66,7 @@ abstract public class PRBase extends Base {
         }
         getRequest().setAttribute("problemRatingQuestions",questions);
         if(problemName.size()==0){
-            throw new NavigationException("There was an error with your problem.");
+            throw new Exception("Problem not yet used, or non-existent.");
         }
         getRequest().setAttribute("problemName",problemName.getRow(0).getStringItem("name"));
         setNextPage(Constants.PROBLEM_RATING_QUESTIONS);
