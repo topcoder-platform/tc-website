@@ -8,36 +8,36 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<title>TopCoder Corporate</title>
+<title>TopCoder Corporate Services</title>
 <script language="JavaScript" src="/js/script.js"></script>
 </head>
 <body bgcolor="#FFFFFF" topmargin="0" marginheight="0" leftmargin="0" marginwidth="0">
 <jsp:include page="includes/top.jsp"/>
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr>
-    <!-- Left Column Begins -->
-      <td width="170" valign="top">
+
+<!-- Left Column Begins -->
+        <td width="170" valign="top">
 
         <jsp:include page="includes/left.jsp"/>
 
-      </td>
-      <!-- Left Column Ends -->
+        </td>
+<!-- Left Column Ends -->
 
-      <!-- Gutter Begins -->
-      <td valign="top"><img src="/i/clear.gif" width="10" height="1"></td>
-      <!-- Gutter Ends -->
+<!-- Gutter Begins -->
+        <td valign="top"><img src="/i/clear.gif" width="10" height="1"></td>
+<!-- Gutter Ends -->
 
 <!-- Body Area -->
-
         <td class="statTextBig" width="100%" valign="top"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
             <table border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" width="100%">
                 <tr>
                     <td valign="top" width="50%" class="bodyText">
-                        <p><font size="3" color="#666666"><strong><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=screening&d2=index">Candidate Testing</a></strong></font><br />
-                        TopCoder's Candidate Testing Application allows companies to <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=screening&d2=index">test the technical abilities</a> 
+                        <p><font size="3" color="#666666"><strong><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=screening&d2=index" class="corp">Candidate Testing</a></strong></font><br />
+                        TopCoder's Candidate Testing Application allows companies to <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=screening&d2=index" class="corp">test the technical abilities</a> 
                         of candidates during the interview process, thereby reducing the time
                         incurred by in-house engineers.  Employers can choose problem sets to test candidates' problem solving skills with scenarios that <strong>mirror
-                        on-the-job issues.</strong>  Instead of only assessing an employee's skills months after the hire date, <strong>detailed statistics</strong> and all submitted code
+                        on-the-job issues.</strong>  Instead of only assessing an employee's skills months after the hire date, <strong>detailed statistics</strong> and <strong>all submitted code</strong>
                         are released to the employers during the interview process as a way to measure and compare candidates.  This information drastically reduces
                         the time and effort it takes to identify proven developers.</p>
                        </td>
@@ -45,8 +45,8 @@
                        <td valign="top" bgcolor="#CCCCCC"><img src="/i/clear.gif" width="1" height="1"></td>
                        <td valign="top"><img src="/i/clear.gif" width="8" height="1"></td>
                        <td valign="top" width="50%" class="bodyText">
-                       <p><font size="3" color="#666666"><strong><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=tces&d2=index">Recruiting</a></strong></font><br />
-                        TopCoder Recruiting provides employers with innovative programs designed to <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=tces&d2=index">attract, identify, and evaluate</a> 
+                       <p><font size="3" color="#666666"><strong><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=tces&d2=index" class="corp">Recruiting</a></strong></font><br />
+                        TopCoder Recruiting provides employers with innovative programs designed to <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=tces&d2=index" class="corp">attract, identify, and evaluate</a> 
                         collegiate candidates and experienced professionals for full time employment consideration.  With a <strong>member base in excess of 24,000</strong>&#151;including more than 12,000 students from over 
                         750 schools&#151;employers obtain objective measurement detail about candidates, including code samples and statistics, that is not found elsewhere.</p>
                        </td>
