@@ -6,19 +6,19 @@ import javax.ejb.EJBObject;
 
 public interface TermsOfUse extends EJBObject {
 
-  public long createTermsOfUse() throws EJBException, RemoteException;
+    public long createTermsOfUse() throws EJBException, RemoteException;
 
-  public long getTermsOfUseTypeId(long _terms_of_use_id)
+    public long getTermsOfUseTypeId(long termsOfUseId)
                                            throws EJBException, RemoteException;
   
-  public void setTermsOfUseTypeId(long _terms_of_use_id,
-                                  long _terms_of_use_type_id)
+    public void setTermsOfUseTypeId(long termsOfUseId,
+                                  long termsOfUseTypeId)
                                            throws EJBException, RemoteException;
 
-  public String getText(long _terms_of_use_id)
+    public String getText(long termsOfUseId)
                                            throws EJBException, RemoteException;
 
-  public void setText(long _terms_of_use_id,String _text)
+    public void setText(long termsOfUseId, String text)
                                            throws EJBException, RemoteException;
 
 };
