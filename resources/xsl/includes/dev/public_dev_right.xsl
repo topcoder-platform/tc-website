@@ -53,7 +53,7 @@
 
                             <tr>
                                 <td class="devProjectSecond">Second Place:</td>
-                                <td class="devProjectSecondMoney">$202.50</td>
+                                <td class="devProjectSecondMoney">$225.00</td>
                             </tr>
                         </table>
                     </td>

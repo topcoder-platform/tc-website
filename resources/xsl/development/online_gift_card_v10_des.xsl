@@ -150,7 +150,7 @@
                                             <br/>
                                             First Payment - $608.00
                                             <br/>
-                                            Second Payment - $203.00
+                                            Second Payment - $202.00
                                         </p>
 
                                         <p>
