@@ -3,6 +3,8 @@
    <property name="Name"     value="TopCoder" />
    <property name="version"     value="0.0.1" />
    <property name="build"       value="build" />
+   <property name="war.dir"     value="${build}/wars" />
+   <property name="war.name"    value="email.war"/>
    <property name="ejb_jars"    value="${build}/ejb_jars" />
    <property name="classes"     value="${build}/classes" />
    <property name="testclasses" value="${build}/testcases" />
@@ -23,6 +25,8 @@
    <property name="deprecation"   value="false" />
    <property name="debug"   value="true" />
 
+
+
    <path id="class.path">
       <pathelement location="${classes}" />
       <pathelement location="${testclasses}" />
@@ -38,7 +42,8 @@
       <mkdir dir="${classes}" />
       <mkdir dir="${testclasses}" />
       <mkdir dir="${bin}" />
-	  <mkdir dir="${ejb_jars}" />
+      <mkdir dir="${ejb_jars}" />
+      <mkdir dir="${war.dir}" />
    </target>
 
     <target name="check_java_version">
@@ -305,6 +310,25 @@
       <echo message="Ant build of ${bean.jar.name} EJB completed successfully."/>
 
    </target>
+
+    <target name="war.email" depends="compile">
+        <delete dir="${war.dir}"/>
+        <mkdir  dir="${war.dir}"/>
+        <war warfile="${war.dir}/${war.name}" webxml="${resources}/email/web.xml">
+            <fileset dir="${java}/com/topcoder/web/email/servlet/jsp">
+                <include name="**/*.jsp"/>
+            </fileset>
+            <classes dir="${classes}">
+                <include name="com/topcoder/web/email/**"/>
+            </classes>
+            <webinf dir="${resources}/email">
+                <include name="email-taglib.tld"/>
+            </webinf>
+            <zipfileset dir="${java}/com/topcoder/web/email/servlet/jsp">
+                <include name="**/*.jpg"/>
+            </zipfileset>
+        </war>
+    </target>
 
 
 </project>
