@@ -254,9 +254,12 @@
 
 <!-- Right Column Begins -->
         <td width="170"><img src="/i/clear.gif" width="170" height="1" border="0"/><br/>
+            <xsl:call-template name="public_right_col"/>
+            <!--
             <xsl:call-template name="public_right_col">
                 <xsl:with-param name="sectionName">statistics</xsl:with-param>
             </xsl:call-template>
+            -->
         </td>
 <!-- Right Column Ends -->
 
