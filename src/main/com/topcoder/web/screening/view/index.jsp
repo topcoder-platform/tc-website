@@ -29,7 +29,7 @@
             <h1 class="testHead">Welcome!</h1>
             <p>TopCoder Testing allows companies to test the technical abilities of candidates during the interview process, thereby reducing 
             the time incurred by in-house engineers.  This administration tool allows you to set up candidates to be tested, as well as review 
-            each candidate’s results.  Follow the steps below to begin.</p>
+            each candidate's results.  Follow the steps below to begin.</p>
                             
             <table border="0" cellspacing="1" cellpadding="0" bgcolor="#FFFFFF" width="95%">
                 <tr><td colspan="3" valign="top"><font size="3" color="#666666"><b>Create a New Session:</b></font></td></tr>
