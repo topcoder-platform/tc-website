@@ -7,7 +7,7 @@
     <title>TopCoder Reporting II</title>
   </head>
   <body>
-    <a href=<%=Constants.SERVLET_ADDR+"?"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY%>><< back to main menu<a><br/><br/>
+   <a href=<%=Constants.SERVLET_ADDR%>><< back to main menu<a><br/><br/>
     <br/><pre>
 <%
 Throwable requestException = null;
