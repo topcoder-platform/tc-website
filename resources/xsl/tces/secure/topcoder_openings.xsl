@@ -2,20 +2,19 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:import href="../../top.xsl"/>
   <xsl:import href="../../script.xsl"/>
-  <xsl:import href="../../includes/body_top.xsl"/>  
+  <xsl:import href="../../includes/body_top.xsl"/>
   <xsl:import href="../../foot.xsl"/>
   <xsl:import href="../../includes/modules/practice_room.xsl"/>
-  <xsl:import href="../../includes/modules/module_login.xsl"/>  
   <xsl:import href="../../includes/modules/calendar.xsl"/>
-  <xsl:import href="../../includes/global_left.xsl"/> 
-  <xsl:import href="../../includes/public_right_col.xsl"/>     
+  <xsl:import href="../../includes/global_left.xsl"/>
+  <xsl:import href="../../includes/public_right_col.xsl"/>
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
     <HTML>
       <HEAD>
-        <xsl:call-template name="Preload"/>      
+        <xsl:call-template name="Preload"/>
         <TITLE>TopCoder :: Employment Services</TITLE>
-        <xsl:call-template name="CSS"/>      
+        <xsl:call-template name="CSS"/>
         <!--<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
         <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>-->
         <META NAME="description" CONTENT="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
@@ -28,11 +27,11 @@
   <TR>
     <!-- Left Column Begins -->
     <TD WIDTH="180" VALIGN="top">
-  <!-- Global Seconday Nav Begins -->    
-<!-- Left Column Include Begins -->  
-    <!-- Global Seconday Nav Begins -->  
+  <!-- Global Seconday Nav Begins -->
+<!-- Left Column Include Begins -->
+    <!-- Global Seconday Nav Begins -->
         <xsl:call-template name="global_left"/>
-  <!-- Global Seconday Nav Ends -->  
+  <!-- Global Seconday Nav Ends -->
 <!-- Left Column Include Ends -->
       </TD>
   <!-- Left Column Ends -->
@@ -41,7 +40,7 @@
     <!-- Gutter Ends -->
 
 <!-- Body Area -->
-  <!-- Center Column Begins -->  
+  <!-- Center Column Begins -->
 		<TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#FFFFFF" VALIGN="top">
 <xsl:call-template name="BodyTop">
   <xsl:with-param name="image1">white</xsl:with-param>
@@ -79,13 +78,13 @@
 </P>
 
 <P>
-We are currently looking for a strong Web Designer to join our friendly, busy team. 
-Candidate must have penchant for detail and design, enjoy working under pressure and deadlines, 
-a solid knowledge of Mac and PC operating systems. Candidate must demonstrate proficiency with 
-HTML tools (BBEdit/HomeSite, no WYSIWYG) JavaScript, Photoshop, Illustrator/Freehand, Flash and 
-QuarkPress. Candidate must have a solid understanding of user interface issues to better 
-conceptualize mockups during design phase as well as provide and receive constructive 
-performance feedback. The ideal candidate should supply samples or urls. Only qualified 
+We are currently looking for a strong Web Designer to join our friendly, busy team.
+Candidate must have penchant for detail and design, enjoy working under pressure and deadlines,
+a solid knowledge of Mac and PC operating systems. Candidate must demonstrate proficiency with
+HTML tools (BBEdit/HomeSite, no WYSIWYG) JavaScript, Photoshop, Illustrator/Freehand, Flash and
+QuarkPress. Candidate must have a solid understanding of user interface issues to better
+conceptualize mockups during design phase as well as provide and receive constructive
+performance feedback. The ideal candidate should supply samples or urls. Only qualified
 applicants with in-demand skills will be contacted. Salary range is $40k to $50k.
 </P>
 
@@ -104,20 +103,20 @@ Responsibilities:
 
 </FORM>
 <!--end contextual links-->
-          
+
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 				</TR>
 				<TR>
 					<TD COLSPAN="4" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-				</TR>   	
+				</TR>
 				<TR>
 					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
 					<TD VALIGN="top" WIDTH="75"><IMG SRC="/i/table_mid_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
 					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
 					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-				</TR>	
+				</TR>
 				<TR>
 					<TD VALIGN="top" WIDTH="11" ALIGN="right" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
 					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
@@ -134,9 +133,9 @@ Responsibilities:
     <!-- Gutter Ends -->
 	<!-- Right Column Begins -->
 		<TD WIDTH="170" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><br/>
-<!-- Right Column Include Begins --> 
-        <xsl:call-template name="public_right_col"/>       
-<!-- Right Column Include Ends -->        
+<!-- Right Column Include Begins -->
+        <xsl:call-template name="public_right_col"/>
+<!-- Right Column Include Ends -->
         </TD>
 	<!-- Right Column Ends -->
 	<!-- Gutter -->

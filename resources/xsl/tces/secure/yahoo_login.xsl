@@ -2,13 +2,12 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:import href="../../top.xsl"/>
   <xsl:import href="../../script.xsl"/>
-  <xsl:import href="../../includes/body_top.xsl"/>  
+  <xsl:import href="../../includes/body_top.xsl"/>
   <xsl:import href="../../foot.xsl"/>
   <xsl:import href="../../includes/modules/practice_room.xsl"/>
-  <xsl:import href="../../includes/modules/module_login.xsl"/>  
   <xsl:import href="../../includes/modules/calendar.xsl"/>
-  <xsl:import href="../../includes/global_left.xsl"/> 
-  <xsl:import href="../../includes/public_right_col.xsl"/>     
+  <xsl:import href="../../includes/global_left.xsl"/>
+  <xsl:import href="../../includes/public_right_col.xsl"/>
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
 
@@ -16,11 +15,11 @@
 
 <head>
 
-<xsl:call-template name="Preload"/>      
+<xsl:call-template name="Preload"/>
 
 <title>TopCoder | Employment Services</title>
 
-<xsl:call-template name="CSS"/>      
+<xsl:call-template name="CSS"/>
 
 <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
 <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
@@ -44,7 +43,7 @@
         <td width="4"><img src="/i/table_top_fill.gif" width="4" height="26" border="0"/></td>
 <!-- Gutter Ends -->
 
-<!-- Center Column Begins -->  
+<!-- Center Column Begins -->
         <td class="bodyText" width="100%">
             <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1">white</xsl:with-param>
@@ -66,27 +65,27 @@
                         <p><A href="/?&amp;t=tces&amp;c=yahoo" class="bodyText"><img src="/i/es/yahoo/yahoo_logo.gif" width="137" height="35" alt="Yahoo!" border="0" /></A></p>
 
                         <h3>Technical Yahoo! Software Engineer (Login/Registration Abuse Prevention)</h3>
-                        
+
                        <p>We are looking for a motivated senior software engineer who will be responsible for detecting and preventing abuse on login and registration property.</p>
-                       
-                       <p>Login and Registration properties are critical for Yahoo. This position requires that the engineer work with the abuse team to create and 
-                       deploy innovative solutions to detect and combat abuse for login and registration. This requires a solid understanding of the login and 
+
+                       <p>Login and Registration properties are critical for Yahoo. This position requires that the engineer work with the abuse team to create and
+                       deploy innovative solutions to detect and combat abuse for login and registration. This requires a solid understanding of the login and
                        registration system. The engineer will also work on new login projects.</p>
-                       
-                       <p>This position requires a fast-learner with a solid foundation in OO design, C/C++ and good knowledge of the web protocols. The ideal candidate 
-                       is self-motivated, detail oriented and works well independently and in a team with a 3-7 years of C/C++ development in a Unix environment and a 
+
+                       <p>This position requires a fast-learner with a solid foundation in OO design, C/C++ and good knowledge of the web protocols. The ideal candidate
+                       is self-motivated, detail oriented and works well independently and in a team with a 3-7 years of C/C++ development in a Unix environment and a
                        BSCS/MSCS degree. Experience with Apache and high availability systems background is a plus.</p>
-                       						
-                       
+
+
                         <p><strong>Job Location</strong><br/>
                         Sunnyvale, CA</p>
-                        
+
                         <p align="center"><a href="/jobposting?&amp;t=JobHitTask&amp;jid=187&amp;jt=2" class="bodyText">Apply now!</a> | <a href="/?&amp;t=tces&amp;c=yahoo_openings&amp;a=secure" class="bodyText">Back to Jobs</a></p>
 
 <!-- Client Job List ends -->
 
                         <p><br/></p>
-                        
+
                     </td>
                 </tr>
             </table>
@@ -99,7 +98,7 @@
 
 <!-- Right Column Begins -->
         <td width="170"><img src="/i/clear.gif" width="170" height="1" border="0"/><br/>
-            <xsl:call-template name="public_right_col"/>       
+            <xsl:call-template name="public_right_col"/>
         </td>
 <!-- Right Column Ends -->
 
