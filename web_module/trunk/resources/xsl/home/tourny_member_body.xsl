@@ -556,7 +556,7 @@ new lobbies and list sorting....
     </TD>
   <!-- Center Column Ends -->    
     <TD BGCOLOR="#001935" VALIGN="top" CLASS="bodyText" WIDTH="244">
-    <IMG SRC="/i/jack_chat_promo3.gif" alt="" width="244" height="181" border="0"/><BR/><BR/>
+    <IMG SRC="/i/jack_chat_promo3.gif" alt="" width="244" height="201" border="0"/><BR/><BR/>
 <!--
       <A>
         <xsl:attribute name="">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=sponsor&amp;c=link&amp;link=http://idenphones.motorola.com/iden/developer/developer_home.jsp&amp;refer=srm98</xsl:attribute>

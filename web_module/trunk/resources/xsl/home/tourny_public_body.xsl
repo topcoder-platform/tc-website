@@ -349,7 +349,7 @@ new lobbies and list sorting....
     </TD>
   <!-- Center Column Ends -->    
     <TD BGCOLOR="#001935" VALIGN="top" CLASS="bodyText" WIDTH="244"><IMG SRC="/i/clear.gif" ALT="" WIDTH="244" HEIGHT="1" BORDER="0"/>
-    <IMG SRC="/i/jack_chat_promo3.gif" alt="" width="244" height="181" border="0"/><BR/><BR/>
+    <IMG SRC="/i/jack_chat_promo3.gif" alt="" width="244" height="201" border="0"/><BR/><BR/>
 <!-- 
 <IMG SRC="/i/sponspostmatch_citrix.gif" WIDTH="244" HEIGHT="172" BORDER="0" USEMAP="#sponspromo_citrix_Map"/>
 <MAP NAME="sponspromo_citrix_Map">
