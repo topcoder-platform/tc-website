@@ -88,7 +88,6 @@ public class TransactionServlet extends HttpServlet {
     private static final String KEY_TRANSACTION_INFO = "TransactionInfo";
 
     public static final String KEY_PRODUCT_ID = "pid";
-    public static final String KEY_RETPAGE = "back-to";      //TODO wack
     public static final String KEY_EXCEPTION = "caught-exception";
 
     public static final String OP_TX_BEGIN = "begin";
