@@ -64,9 +64,9 @@ public class MainServlet extends HttpServlet {
     public void init() throws ServletException {
         servletConfig = getServletConfig();
         Constants.init(servletConfig);
-        errorPageNavigation = Constants.JSP_ROOT+servletConfig.getInitParameter("page-error-navigation");
-        errorPageSecurity = Constants.JSP_ROOT+servletConfig.getInitParameter("page-error-security");
-        errorPageInternal = Constants.JSP_ROOT+servletConfig.getInitParameter("page-error-internal");
+        errorPageNavigation = Constants.JSP_ROOT + servletConfig.getInitParameter("page-error-navigation");
+        errorPageSecurity = Constants.JSP_ROOT + servletConfig.getInitParameter("page-error-security");
+        errorPageInternal = Constants.JSP_ROOT + servletConfig.getInitParameter("page-error-internal");
     }
 
     /**
@@ -86,38 +86,34 @@ public class MainServlet extends HttpServlet {
         request.setAttribute(Constants.KEY_INTERNAL_EXC_PAGE, errorPageInternal);
 
         String processorName = request.getParameter(Constants.KEY_MODULE);
-        if (processorName == null) {
-            log.warn("processing module not specified");
-            fetchRegularPage(request, response, Constants.WELCOME_PAGE, true);
-            return;
-        }
-
-        // prefixed to allow different resource kinds to share same name
-        String processorClassName = servletConfig.getInitParameter(
-                "processor-" + processorName
-        );
-
-        // first of all, to check, if it is allower to run that processor at all
-        SessionPersistor persistor = new SessionPersistor(
-                request.getSession(true)
-        );
         WebAuthentication authToken = null;
         RequestProcessor processorModule = null;
         SessionInfo info = null;
         try {
             TCSubject tcUser;
+            SessionPersistor persistor = new SessionPersistor(request.getSession(true));
             authToken = new BasicAuthentication(persistor, request, response);
             tcUser = Util.retrieveTCSubject(authToken.getActiveUser().getId());
-            log.info(new StringBuffer(100).append("[**** ").append(processorClassName).append(" **** ").
-                    append(authToken.getActiveUser().getUserName()).append(" **** ").
-                    append(request.getRemoteHost() + " ****]"));
             Authorization authorization = new TCSAuthorization(tcUser);
 
             info = new SessionInfo();
             request.setAttribute("SessionInfo", info);
-            Set groups = ((TCSAuthorization)authorization).getGroups();
-            log.debug("groups: " + groups.toString());
+            Set groups = ((TCSAuthorization) authorization).getGroups();
             info.setAll(authToken.getActiveUser(), groups);
+
+            if (processorName == null) {
+                log.warn("processing module not specified");
+                fetchRegularPage(request, response, Constants.WELCOME_PAGE, true);
+                return;
+            }
+
+            // prefixed to allow different resource kinds to share same name
+            String processorClassName = servletConfig.getInitParameter("processor-" + processorName);
+
+            log.info(new StringBuffer(100).append("[**** ").append(processorClassName).append(" **** ").
+                    append(authToken.getActiveUser().getUserName()).append(" **** ").
+                    append(request.getRemoteHost() + " ****]"));
+
 
             boolean allowedToRun = false;
             allowedToRun = authorization.hasPermission(
@@ -274,7 +270,7 @@ public class MainServlet extends HttpServlet {
                 .append(Constants.LOGIN_PAGE).append('?')
                 .append(Login.KEY_DESTINATION_PAGE).append('=')
                 .append(URLEncoder.encode(originatingPage));
-            fetchRegularPage(req, resp, loginPageDest.toString(), true);
+        fetchRegularPage(req, resp, loginPageDest.toString(), true);
     }
 
 
