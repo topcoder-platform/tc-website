@@ -7,8 +7,8 @@
 <FORM METHOD="get" name="advForm">
  <INPUT TYPE="hidden" NAME="module" VALUE="Search">
  <INPUT TYPE="hidden" NAME="cmd" VALUE="adv">
- <INPUT TYPE="hidden" NAME="next" VALUE="">
- <INPUT TYPE="hidden" NAME="prev" VALUE="">
+ <INPUT TYPE="hidden" NAME="prev" VALUE="<jsp:getProperty name="search" property="Prev"/>">
+ <INPUT TYPE="hidden" NAME="next" VALUE="<jsp:getProperty name="search" property="Next"/>">
  <TABLE WIDTH="100%" CELLPADDING="0" CELLSPACING="0" BORDER="0">
   <TR>
    <TD COLSPAN="4" BACKGROUND="/i/steel_darkblue_bg.gif"><IMG SRC="/i/hs/clear.gif" HEIGHT="4" WIDTH="1" BORDER="0"></TD>
@@ -38,7 +38,7 @@
   </TR>
   <TR>
    <TD COLSPAN="2" WIDTH="50%" HEIGHT="15" VALIGN="middle" CLASS="bodyText">
-    Handle&nbsp;<INPUT TYPE="text" NAME="handle" VALUE="" MAXLENGTH="20" SIZE="15" ONKEYPRESS="submitEnter(event);">
+    Handle&nbsp;<INPUT TYPE="text" NAME="handle" VALUE="<jsp:getProperty name="search" property="Handle"/>" MAXLENGTH="20" SIZE="15" ONKEYPRESS="submitEnter(event);">
    </TD>
    <TD CLASS="bodyText">&nbsp;</TD>
    <TD COLSPAN="1" CLASS="bodyText" ALIGN="left" VALIGN="middle">
@@ -65,10 +65,10 @@
   </TR>
   <TR>
    <TD WIDTH="25%" VALIGN="middle" CLASS="bodyText">
-    &nbsp;Min&nbsp;<INPUT TYPE="text" NAME="min_rating" VALUE="" MAXLENGTH="6" SIZE="6" ONKEYPRESS="submitEnter(event);">
+    &nbsp;Min&nbsp;<INPUT TYPE="text" NAME="min_rating" VALUE="<jsp:getProperty name="search" property="MinRating"/>" MAXLENGTH="6" SIZE="6" ONKEYPRESS="submitEnter(event);">
    </TD>
    <TD WIDTH="25%" VALIGN="middle" CLASS="bodyText">
-    &nbsp;Max&nbsp;<INPUT TYPE="text" NAME="max_rating" VALUE="" MAXLENGTH="6" SIZE="6" ONKEYPRESS="submitEnter(event);">
+    &nbsp;Max&nbsp;<INPUT TYPE="text" NAME="max_rating" VALUE="<jsp:getProperty name="search" property="MaxRating"/>" MAXLENGTH="6" SIZE="6" ONKEYPRESS="submitEnter(event);">
    </TD>
    <TD CLASS="bodyText">&nbsp;</TD>
    <TD COLSPAN="1" CLASS="bodyText" VALIGN="center" ALIGN="left">
