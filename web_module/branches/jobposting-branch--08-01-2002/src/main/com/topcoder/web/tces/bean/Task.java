@@ -59,8 +59,5 @@ public interface Task {
      */
     void setAttributes(String paramName, String paramValues[]);
 
-    void setTrail(List trail);
-
-    List getTrail();
 }
 
