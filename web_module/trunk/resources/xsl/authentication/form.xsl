@@ -4,7 +4,7 @@
 <xsl:template name="Form">
 
               <FORM NAME="frmLogin" METHOD="post" onSubmit="return doCheckLogin()">
-                <xsl:attribute name="action">/</xsl:attribute>
+                <xsl:attribute name="action">https://<xsl:value-of select="/TC/Host"/></xsl:attribute>
                 <INPUT TYPE="hidden" NAME="t" VALUE="authentication"/>
                 <INPUT TYPE="hidden" NAME="c" VALUE="submit_login"/>
                 <xsl:if test="not(/TC/ErrorURL='')">
