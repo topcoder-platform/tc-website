@@ -33,7 +33,7 @@
 
 <!-- Center Column Begins -->
          <td class="bodyText" width="100%">
-         <p><textarea name="terms" rows="10" cols="70" readonly class="bodyText"><%=request.getAttribute("terms")%></textarea></p>
+         <p><textarea name="terms" rows="20" cols="80" readonly class="bodyText"><%=request.getAttribute("terms")%></textarea></p>
 
          <a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=TCCC04TermsAgree">Click here if you agree to the terms</a>
 
