@@ -315,7 +315,7 @@ public class TCLoadRound extends TCLoad {
             query.append("       (SELECT 'pops' ");
             query.append("          FROM group_user gu ");
             query.append("         WHERE gu.user_id = rr.coder_id ");
-            query.append("           AND gu.group_id IN (13,14)");
+            query.append("           AND gu.group_id IN (13,14))");
 
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
