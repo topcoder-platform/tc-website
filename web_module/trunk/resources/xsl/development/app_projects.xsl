@@ -103,7 +103,14 @@
                                     <td class="projectHeaders" align="center" nowrap="nowrap">Winning Designer</td>
                                     <td class="projectHeaders" align="center" nowrap="nowrap">Second Place</td>
                                     <td class="projectHeaders" align="right" nowrap="nowrap" width="25%">Register By</td>
-
+                                </tr>
+                                <tr valign="middle">
+                                    <td class="projectCells">
+                                        <a href="?t=development&amp;c=Palm_StockCount_App_Dev">Seat Service User Interface Application Design</a>
+                                    </td>
+                                    <td class="projectCells" align="right">$4,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$1,800 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">10.21.2004</td>
                                 </tr>
                             </table>
 

@@ -86,24 +86,19 @@ a
                                                 <td class="bodyText">
                                                     <!-- Overview -->
                                                     <p>
-                                                        The seat service is broken up in to multiple modules for design.  The Seat Service Shell
-                                                        module receives and parses all consumer XML requests and then makes the appropriate call
-                                                        to either the Scheduling module or Admin module to execute business logic.  When the call
-                                                        returns, the Shell module constructs an XML response and sends it to the consumer.  The
-                                                        Scheduling module handles all core business logic related to scheduling functionality.  The
-                                                        Admin module handles all core business logic related to inventory management (list, retrieve,
-                                                        add, update, delete).  The final module is the Seat Service Persistence module.  The Persistence
-                                                        layer handles all database transactions for both scheduling and inventory management.
+                                                        A user interface is to be developed to interact with the seat service to perform
+                                                        administrative functions through the functionality implemented by the Seat Service
+                                                        Inventory core and some scheduling functions through the functionality implemented
+                                                        by the Seat Service Scheduling core.  The user interface will implement its
+                                                        functionality through the html application prototype.
                                                     </p>
                                                     <p>
                                                         <strong>Business Requirement Specification </strong>
                                                         <br/>
                                                         View the
-                                                        <a target="_new" class="bodyText" href="/i/development/downloads/Seat_Service_Shell_Spec.pdf">Requirement Specification</a> for this application project.<br/>
+                                                        <a target="_new" class="bodyText" href="/i/development/downloads/Seat_Service_UI.pdf">Requirement Specification</a> for this application project.<br/>
                                                         View the
-                                                        <a target="_new" class="bodyText" href="/i/development/downloads/Seat_Service_Data_Classes_Spec.pdf">Requirement Specification</a> for the Seat Service Data Classes application project.<br/>
-                                                        View the
-                                                        <a target="_new" class="bodyText" href="/i/development/downloads/Seat_Service_Scheduling_Spec.pdf">Requirement Specification</a> for the Seat Service Scheduling application project.<br/>
+                                                        <a target="_new" class="bodyText" href="/i/development/downloads/Seat_Service_Shell_Spec.pdf">Requirement Specification</a> for the Seat Service Shell application project.<br/>
                                                         View the
                                                         <a target="_new" class="bodyText" href="/i/development/downloads/Seat_Service_Inventory_Spec.pdf">Requirement Specification</a> for the Seat Service Inventory application project.<br/>
                                                     </p>
@@ -274,55 +269,55 @@ a
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="400">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Application Project Posting:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">10.06.2004</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">10.19.2004</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Register By:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">10.13.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">10.21.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Member Acceptance:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">10.13.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">10.21.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Design Start:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">10.13.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">10.21.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Design Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">10.22.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">11.04.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Reviewer Screening Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">10.22.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">11.05.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Review Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">10.28.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">11.08.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Appeals Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">10.29.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">11.11.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Appeal Responses Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">10.29.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">11.12.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Winner Announced:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">10.29.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">11.12.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Final Fixes Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">11.03.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">11.18.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Reviewer Final Review Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">11.04.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">11.19.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Design Complete:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">11.04.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">11.19.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                     </table>
 
@@ -340,7 +335,7 @@ a
                                                     <p>
                                                         <strong> Registration </strong>
                                                         <br/>
-                                                        Closed.
+                                                        Click <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Seat%20Service%20UI&amp;phase=112">here</a> to obtain the information necessary to submit a solution.
                                                     </p>
                                                 </td>
                                             </tr>
