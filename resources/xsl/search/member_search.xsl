@@ -65,7 +65,7 @@
                         <input type="hidden" name="c" value="member_search"/>
                         <input type="hidden" name="Next" value=""/>
 
-<script language="JavaScript" type="text/javascript"><![CDATA[
+<SCRIPT type="text/javascript"><![CDATA[
             var search=document.searchForm;
             function submitEnter(e) {
               var keycode;
@@ -138,7 +138,8 @@
                 return false;
               }
               return true;
-]]></script>
+            }
+]]></SCRIPT>
 
                         <table border="0" cellspacing="0" cellpadding="3" width="100%">
                             <tr><td background="/i/steel_gray_bg.gif" class="statTextBig">Member Search: Search by handle, rating or state.</td></tr>
@@ -299,12 +300,9 @@
                             
                 <tr>
                     <td colspan="2" class="statText" align="center">
-                        <A href="javascript:submitSearch()"><xsl:attribute name="CLASS">statText</xsl:attribute>&#160;[ Submit ]</A>
+                        <A href="javascript:submitSearch()"><xsl:attribute name="CLASS">statText</xsl:attribute>[ Submit ]</A><br /><br />
                     </td>
                 </tr>
-
-                <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
-                  
             </form>
             </table>
             
@@ -413,6 +411,8 @@
             </table>
 
             </xsl:if>
+            
+            <p><br /></p>
 
         </td>
 <!-- Center Column Ends -->
