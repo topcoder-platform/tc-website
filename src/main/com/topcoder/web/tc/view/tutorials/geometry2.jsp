@@ -69,7 +69,7 @@ intersection, and then apply line intersection to a couple of other problems.
 <span class="bodySubtitle">Line-Line Intersection</span><br/>
 One of the most
 common tasks you will find in geometry problems is line intersection.  Despite
-the fact that it is so common, a lot of coders still have a lot of trouble with
+the fact that it is so common, a lot of coders still have trouble with
 it.  The first question is, what form are we given our lines in, and what form
 would we like them in?  Ideally, each of our lines will be in the form
 <tt>Ax+By=C</tt>, where A, B and C are the numbers which define the line.
@@ -80,9 +80,9 @@ find A, B and C for the equation above.  We can do so by setting <br/>
 <tt>A = x<sub>1</sub>-x<sub>2</sub><br/>
 B = y<sub>2</sub>-y<sub>1</sub><br/>
 C = A*x<sub>1</sub>+B*y<sub>1</sub><br/></tt>
-Regardless of how the lines is specified, you should be able to generate two
+Regardless of how the lines are specified, you should be able to generate two
 different points along the line, and then generate A, B and C.  Now, lets say
-that you have lines, given by the equations<br/>
+that you have lines, given by the equations:<br/>
 <tt>A<sub>1</sub>x + B<sub>1</sub>y = C<sub>1</sub><br/>
     A<sub>2</sub>x + B<sub>2</sub>y = C<sub>2</sub><br/> </tt>
 To find the point at which the two lines intersect, we simply need to solve the
@@ -171,7 +171,7 @@ of the other algorithms.
 First, loop through all of your points and find the leftmost point.  If there is
 a tie, pick the highest point.  You know for certain that this point will be on
 the convex hull, so we'll start with it.  From here, we are going to move
-clockwise around the edge of the hull, picking the next point on the hull, one
+clockwise around the edge of the hull, picking the points on the hull, one
 at a time.  Eventually, we will get back to the start point.  In order to find
 the next point around the hull, we will make use of <a
     href="/tc?module=Static&d1=tutorials&d2=geometry1#cross_product">cross products</a>.  First, we will pick
@@ -190,7 +190,7 @@ However, we aren't done yet because there is still another point that will make 
 cross product negative, as shown in the final frame.
 <div align=center><img src="/i/education/geometry09.png"/></div>
 The basic idea here is that we are using the cross product to find the point
-which is furthest counter clockwise from our current position at P.  While this
+which is furthest counterclockwise from our current position at P.  While this
 may seem fairly straightforward, it becomes a little bit tricky when dealing
 with colinear points.  If you have no colinear points on the hull, then the code is very
 straightforward.

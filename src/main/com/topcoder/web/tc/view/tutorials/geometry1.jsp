@@ -75,10 +75,10 @@ Vectors are the basis of a lot of methods for solving geometry problems.
 Formally, a vector is defined by a direction and a
 magnitude.  In the case of two-dimension geometry, a vector can be represented
 as pair of numbers, x and y, which gives both a direction and a magnitude.  For
-example, the a line segment from (1,3) to (5,1) can be represented by the
+example, the line segment from (1,3) to (5,1) can be represented by the
 vector (4,-2).  It's important to understand, however, that the vector defines
 only the direction and magnitude of the segment in this case, and does not
-define the starting or ending location of the vector.<br/><br/>
+define the starting or ending locations of the vector.<br/><br/>
 
 <br/><a name="vector_addition"></a>
 <span class="bodySubtitle">Vector Addition</span><br/>
@@ -86,8 +86,8 @@ There are a number of mathematical operations that can be performed on vectors.
 The simplest of these is addition: you can add two vectors together and the
 result is a new vector.  If you have two vectors <tt>(x<sub>1</sub>, y<sub>1</sub>)</tt>
 and <tt>(x<sub>2</sub>, y<sub>2</sub>)</tt>, then the sum of the two vectors is simply
-<tt>(x<sub>1</sub>+x<sub>2</sub>, y<sub>1</sub>+y<sub>2</sub>)</tt>.  The image on the
-left shows the sum of four vectors.  Note that it doesn't matter which order you
+<tt>(x<sub>1</sub>+x<sub>2</sub>, y<sub>1</sub>+y<sub>2</sub>)</tt>.  The image 
+below shows the sum of four vectors.  Note that it doesn't matter which order you
 add them up in - just like regular addition.  Throughout these articles, we will
 use plus and minus signs to denote vector addition and subtraction, where each is
 simply the piecewise addition or subtraction of the components of the vector.
@@ -207,7 +207,7 @@ segment.  (There is another way to do this, which I'll discuss <a href="/tc?modu
     }
 </pre>
 That probably seems like a lot of code, but lets see the same thing with a point
-class and some operator overloading in C++.  The * operator is the dot product,
+class and some operator overloading in C++ or C#.  The * operator is the dot product,
 while ^ is cross product, while + and - do what you would expect.
 <pre class="code">
     <font color="blue">//Compute the distance from AB to C</font>
@@ -224,16 +224,16 @@ while ^ is cross product, while + and - do what you would expect.
     }
 </pre>
 Operator overloading is beyond the scope of this article, but I suggest that you
-look up how to do it if you are a C++ coder, and write your own 2-D point class
-with some handy operator overloading.  It will make things a lot of geometry
+look up how to do it if you are a C# or C++ coder, and write your own 2-D point class
+with some handy operator overloading.  It will make a lot of geometry
 problems a lot simpler.<br/>
 
 <br/><a name="polygon_area"></a>
 <span class="bodySubtitle">Polygon Area</span><br/>
 Another common task is to find the area of a polygon, given the points around
-its perimeter.  Consider the non-convex polygon to the left, with 5 points.  To
+its perimeter.  Consider the non-convex polygon below, with 5 points.  To
 find its area we are going to start by triangulating it.  That is, we are going
-to divide it up into a number of triangles.  In the polygon to the left, the
+to divide it up into a number of triangles.  In this polygon, the
 triangles are ABC, ACD, and ADE.  But wait, you protest, not all of those
 triangles are part of the polygon!  We are going to take advantage of the signed
 area given by the cross product, which will make everything work out nicely.  First,
