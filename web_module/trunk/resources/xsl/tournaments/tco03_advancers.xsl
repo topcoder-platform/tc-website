@@ -74,7 +74,7 @@
             <blockquote>
             <h2>Advancers</h2>
             
-            <p>Click any of the category names to sort the list of advancers by that category.</p>
+            <p>Click any of the column names to sort the list of advancers by that column.</p>
 
             <table width="400" align="center" border="0" cellpadding="6" cellspacing="0" class="formFrame">
                 <tr>
@@ -86,12 +86,27 @@
                    <td class="testTableTitle_off" width="30%" align="right"><a href="sort" class="statTextBig">Rating</a></td>
                    <td class="testTableTitle_off" width="30%" align="right"><a href="sort" class="statTextBig">Points</a></td>
                 </tr>
-                <tr>
-                   <td class="formHandleEven" align="center">n/a</td>
-                   <td class="formHandleEven" align="left">SomeDude</td>
-                   <td class="formHandleEven" align="right">1000</td>
-                   <td class="formHandleEven" align="right">1000</td>
-               </tr>
+
+
+                <xsl:for-each select="/TC/TOURNAMENTS/Competitors/Competitor">
+                    <tr>
+                       <td class="formHandleEven" align="right"><xsl:value-of select="handle"/></td>
+                       <td class="formHandleEven" align="left">
+                           <a>
+                                    <xsl:attribute name="HREF">/stat?c=member_profile&amp;cr=<xsl:value-of select="user_id"/></xsl:attribute>
+                                    <xsl:attribute name="CLASS">
+                                        <xsl:call-template name="GetRatingClass"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template>
+                                      </xsl:attribute>
+                                      <xsl:value-of select="handle"/>
+                                  </a>
+                       </td>
+                       <td class="formHandleEven" align="right"><xsl:value-of select="rating"/></td>
+                       <td class="formHandleEven" align="right"><xsl:value-of select="points"/></td>
+                   </tr>
+                </xsl:for-each>
+
+
+
              </table>
 
             </blockquote>

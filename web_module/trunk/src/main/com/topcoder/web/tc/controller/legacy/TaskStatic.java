@@ -172,17 +172,6 @@ public final class TaskStatic {
                             rsc.sortByColumn(sortCol, sortDir.trim().toLowerCase().equals("asc"));
                         tournamentTag.addTag(rsc.getTag(regionCode + "_Competitors", "Competitor"));
                     }
-                    if (requestCommand.equals("tco03_top100")) {
-                        log.debug("in here");
-                        dataRequest = new Request();
-                        dataRequest.setContentHandle(requestCommand);
-                        DataAccessInt dwdai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.DW_DATASOURCE_NAME));
-
-                        Map top100Map = dwdai.getData(dataRequest);
-                        ResultSetContainer top100Rsc = (ResultSetContainer) top100Map.get(requestCommand);
-                        tournamentTag.addTag(top100Rsc.getTag("Competitors", "Competitor"));
-
-                    }
                     document.addTag(tournamentTag);
                 }
             } catch (NamingException e) {
@@ -198,7 +187,6 @@ public final class TaskStatic {
         try {
             if (requestCommand.equals("tco03_top100")) {
                 ctx = TCContext.getInitial();
-                log.debug("in here");
                 dataRequest = new Request();
                 dataRequest.setContentHandle(requestCommand);
                 DataAccessInt dwdai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.DW_DATASOURCE_NAME));
@@ -213,6 +201,34 @@ public final class TaskStatic {
             log.error("failed to get tco03 top 100 from db");
             e.printStackTrace();
         }
+
+        try {
+            if (requestCommand.equals("tco03_advancers")) {
+                ctx = TCContext.getInitial();
+                dataRequest = new Request();
+                dataRequest.setContentHandle(requestCommand);
+                String roundId = Conversion.checkNull(request.getParameter("rd"));
+                dataRequest.setProperty("rd", roundId);
+                dai = dai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
+                Map advMap = dai.getData(dataRequest);
+                ResultSetContainer advRsc = (ResultSetContainer) advMap.get(requestCommand);
+                ResultSetContainer contestName = (ResultSetContainer) advMap.get(requestCommand);
+
+                String sortCol = request.getParameter("sc");
+                String sortDir = request.getParameter("sdir");
+                if (sortCol != null && sortDir != null)
+                    advRsc.sortByColumn(sortCol, sortDir.trim().toLowerCase().equals("asc"));
+                tournamentTag.addTag(advRsc.getTag("Competitors", "Competitor"));
+                tournamentTag.addTag(contestName.getTag("Contest", "Item"));
+
+
+            }
+            document.addTag(tournamentTag);
+        } catch (Exception e) {
+            log.error("failed to get tco03 top 100 from db");
+            e.printStackTrace();
+        }
+
 
         /* getting this here for the tces/hiring page */
         try {
