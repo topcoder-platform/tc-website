@@ -198,7 +198,7 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total - </td>
-                                                            <td class="bodyText" align="right">$3,170.00</td>
+                                                            <td class="bodyText" align="right">$3,470.00</td>
                                                         </tr>
                                                     </table>
 
