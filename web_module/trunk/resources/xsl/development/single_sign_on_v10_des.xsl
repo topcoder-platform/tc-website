@@ -53,7 +53,7 @@
 
                             <xsl:call-template name="BodyTop">
                                 <xsl:with-param name="image1">white</xsl:with-param>
-                                <xsl:with-param name="image">development</xsl:with-param>
+                                <xsl:with-param name="image">design</xsl:with-param>
                                 <xsl:with-param name="title">&#160;Application Development</xsl:with-param>
                             </xsl:call-template>
 
@@ -96,6 +96,12 @@
                                             must get in touch with support staff to reset their profiles.  The client wishes to provide SSO functionality 
                                             for this group of applications.  This involves allowing a user to have a single identity that allows them to 
                                             seamlessly access any one of these applications without logging in.</p>
+
+                                        <p>
+                                            <strong>View the
+                                                <a target="_new" class="bodyText" href="/i/development/downloads/SingleSignOn_v10-web.pdf">Business Requirement Specification</a> for this application project.
+                                            </strong>
+                                        </p>
 
                                         <!-- Project Type -->
                                         <p>
@@ -307,7 +313,7 @@
                                             </tr>
 
                                             <tr>
-                                                <td class="sidebarText">Estimated Design End Date:</td>
+                                                <td class="sidebarText">Estimated Development End Date:</td>
                                                 <td class="sidebarText" align="right">02.12.2004</td>
                                             </tr>
                                         </table>
@@ -316,14 +322,13 @@
                                         <p>
                                             <a name="requirementspecification"></a>
                                             <strong>View the
-                                                <a target="_new" class="bodyText" href="/i/development/downloads/AdminToolRequirementsSpecification-web.pdf">Requirement Specification</a> for this application project &gt;&gt;
+                                                <a target="_new" class="bodyText" href="/i/development/downloads/SingleSignOn_v10-web.pdf">Requirement Specification</a> for this application project &gt;&gt;
                                             </strong>
                                         </p>
 
                                         <p>
                                             <strong>
                                                 <!--<a href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Admin%20Tool%20Enhancements%20Group1">Inquire for the Group 1 Development Tasks of the Application Project</a> to get selected as a developer and to obtain the information necessary to submit a solution.-->
-                                                Inquiry is closed.
                                             </strong>
                                         </p>
                                         <!--
