@@ -124,8 +124,16 @@ public class SimpleSearch extends Base {
         } else {
             queryBottom.append(" , outer (school s, current_school cs)");
         }
-        queryBottom.append(", outer (tcs_dw:user_rating desr)");
-        queryBottom.append(", outer (tcs_dw:user_rating devr)");
+        if (m.getMinDesignRating()==null&&m.getMaxDesignRating()==null) {
+            queryBottom.append(", outer (tcs_dw:user_rating desr)");
+        } else {
+            queryBottom.append(", tcs_dw:user_rating desr");
+        }
+        if (m.getMinDevRating()==null&&m.getMinDesignRating()==null) {
+            queryBottom.append(", outer (tcs_dw:user_rating devr)");
+        } else {
+            queryBottom.append(", tcs_dw:user_rating devr");
+        }
         queryBottom.append(" WHERE c.coder_id = r.coder_id");
         queryBottom.append(" AND c.status = 'A'");
         if (m.getStateCode() != null)
