@@ -16,6 +16,9 @@
 <% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("tco04_contest_results_monthly"); %>
 
 <%
+    boolean isComplete = true;
+%>
+<%
 if( rscContest.getIntItem(0, "phase_id") == 112)
 {
 %>
@@ -68,14 +71,25 @@ else
                             </tr>
                             <rsc:iterator list="<%=rsc%>" id="resultRow">
                             <tr>
-                                <td class="sidebarText" ><a href="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>"><rsc:item name="handle" row="<%=resultRow%>"/></a></td>
+                                <td class="sidebarText" ><a href="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>"><rsc:item name="handle" row="<%=resultRow%>"/></a>
+                                <% if(resultRow.getIntItem("is_complete") == 0)  { 
+                                    isComplete = false;%>
+                                    *
+                                <% } %>
+                                </td>
                                 <td class="sidebarText" align=center ><rsc:item name="position_points" format="0" row="<%=resultRow%>"/></td>
                                 <td class="sidebarText" align=right>$<rsc:item name="prize_payment" format="#,##0" row="<%=resultRow%>"/></td>
                                 <td class="sidebarText" align=center><a href="/tc?module=TCO04MemberResults&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>">results</a></td>
                             </tr>
                             </rsc:iterator>
                         </table>
-                        
+                        <%if(!isComplete) {%>
+                        <table width="510" align="center" border="0" cellpadding="5" cellspacing="0" class="bodyText">
+                            <tr>
+                              <td class="bodyText">* Contains results from projects still in progress, results subject to change</td>
+                            </tr>
+                        </table>
+                        <% } %>
                         <br/>
 
         </div>
