@@ -21,7 +21,7 @@
             <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="development"/>
                 <jsp:param name="level2" value="components"/>
-                <jsp:param name="level3" value="reviews"/>
+                <jsp:param name="level3" value="samples"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
