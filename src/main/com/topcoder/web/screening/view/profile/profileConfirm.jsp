@@ -2,11 +2,14 @@
 <%@ page errorPage="/errorPage.jsp" %>
 <%@ page import="com.topcoder.web.screening.common.Constants" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
-<HTML>
-<HEAD>
-<title>Topcoder&#160;&#160;|&#160;&#160;Testing Application Management Tool</title>
-<jsp:include page="/script.jsp"/>
-<SCRIPT TYPE="text/javascript">
+<html>
+<head>
+<title>Topcoder | Testing Application Management Tool</title>
+
+<jsp:include page="/script.jsp" />
+
+<script type="text/javascript" language="Javascript">
+<!--
 function getProblemDetail(id) {
     var width = screen.availWidth * 2 / 3;
     var height = screen.availHeight / 2;
@@ -30,156 +33,162 @@ function submitUpdate() {
     document.profileConfirmForm.submit();
     return;
 }
-</SCRIPT>
-</HEAD>
+// -->
+</script>
 
-<BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
-<jsp:include page="/includes/top.jsp"/>
-<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-   <TR>
-    <!-- Left Column Begins -->
-      <TD WIDTH="22" VALIGN="top" BGCOLOR="#000000">
-        <!-- Left Column Include Begins -->
-        <!-- Global Seconday Nav Begins -->
-        <jsp:include page="/includes/left.jsp"/>
-        <!-- Global Seconday Nav Ends -->
-        <!-- Left Column Include Ends -->
-      </TD>
-      <!-- Left Column Ends -->
-      <!-- Gutter Begins -->
-      <TD VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1"></TD>
-        <!-- Gutter Ends -->
-        <!-- Body Area -->
-      <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-            <h1 class="testHead">Create a New Session - <FONT COLOR="#000000">New Test Profile Confirmation</FONT></h1>
-            <P>Review the information below for correctness.  If the information is correct, click "Submit".  If changes need to be made, click "Edit" 
-            to return to the previous page.</P>
-<jsp:useBean id="profile" class="com.topcoder.web.screening.model.ProfileInfo" scope="request" />
-<screen:form name="profileConfirmForm" method="GET" action="<%=Constants.CONTROLLER_URL%>">
-        <INPUT TYPE="HIDDEN" NAME="rp" VALUE="" >
-        <% if(!profile.isNew()) { %>
-        <INPUT TYPE="HIDDEN" NAME="profileId" VALUE="<jsp:getProperty name="profile" property="profileId" />" >
-        <% } %>
-         <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="50%">
-           <TR>
-              <TD CLASS="bodyText" ALIGN="right" VALIGN="middle"><b>Name:</b>&#160;</TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-              <INPUT TYPE="HIDDEN" name="profileName" value="<jsp:getProperty name="profile" property="profileName" />" >
-              <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><jsp:getProperty name="profile" property="profileName" /></TD>
-           </TR>
-           <TR>
-              <TD></TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
-           </TR>
-           <TR align="right" valign="middle">
-              <TD CLASS="bodyText" ALIGN="right" VALIGN="middle"><b>Problem Set:</b>&#160;</TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+</head>
+
+<body>
+
+<!-- Header begins -->
+<jsp:include page="/includes/top.jsp" />
+<!-- Header ends -->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr valign="top">
+
+<!-- gutter begins -->
+        <td width="25"><img src="/i/clear.gif" width="25" height="1" alt="" border="0"></td>
+<!-- gutter ends -->
+
+<!-- Middle column begins -->
+        <td width="100%" align="center"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
+            <table border="0" cellspacing="0" cellpadding="0" width="70%">
+                <tr valign="top">
+                    <td class="bodyText">
+                        <h1 class="testHead">Create a New Session - <font color="#000000">New Test Profile Confirmation</font></h1>
+                        <p>Review the information below for correctness.  If the information is correct, click <strong>Submit</strong>.  If changes need to be made, 
+                        click <strong>Edit</strong> to return to the previous page.</p>
+                    </td>
+                </tr>
+            </table>
+
+            <jsp:useBean id="profile" class="com.topcoder.web.screening.model.ProfileInfo" scope="request" />
+            
+             <table border="0" cellspacing="0" cellpadding="0" width="70%">
+                <tr><screen:form name="profileConfirmForm" method="GET" action="<%=Constants.CONTROLLER_URL%>">
+                    <INPUT TYPE="HIDDEN" NAME="rp" VALUE="" >
+                    <% if(!profile.isNew()) { %>
+                        <INPUT TYPE="HIDDEN" NAME="profileId" VALUE="<jsp:getProperty name="profile" property="profileId" />" >
+                    <% } %>
+                    <td width="100%"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"></td>
+                </tr>
+            </table>
+ 
+            <table cellspacing="0" cellpadding="3" width="70%" class="testFrame">
+                <tr><td class="testTableTitle" colspan="3">Test Profile</td></tr>
+
+                <tr>
+                    <td class="testTableSubtitleOdd">Name</td>
+                    <INPUT TYPE="HIDDEN" name="profileName" value="<jsp:getProperty name="profile" property="profileName" />" >
+                    <td class="testTableOdd"><jsp:getProperty name="profile" property="profileName" /></td>
+                    <td class="errorTextOdd">&#160;</td>
+                </tr>
+
+                <tr>
+                    <td class="testTableSubtitleEven">Problem Set</td>
                 <screen:resultSetRowIterator id="row" list="<%=profile.getProblemSetList()%>"><% 
                 if(profile.isSelectedTestSetA(row.getItem("round_id").toString())) { 
-                 %><INPUT type="HIDDEN" name="testSetA" value="<screen:resultSetItem row="<%=row%>" name="round_id" />" >
-                  <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><screen:resultSetItem row="<%=row%>" name="name" /></TD><% 
-                } 
-              %></screen:resultSetRowIterator>
-           </TR>
-           <TR>
-              <TD></TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
-           </TR>
-         </TABLE>
+                    %><INPUT type="HIDDEN" name="testSetA" value="<screen:resultSetItem row="<%=row%>" name="round_id" />" >
+                    <td class="testTableEven"><screen:resultSetItem row="<%=row%>" name="name" /></td><% 
+                } %>
+                </screen:resultSetRowIterator>
+                    <td class="errorTextEven">&#160;</td>
+                </tr>
+            </table>
+            
+             <table border="0" cellspacing="0" cellpadding="0" width="70%">
+                <tr><td width="100%"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
+            </table>
+ 
+            <table cellspacing="0" cellpadding="3" width="70%" class="testFrame">
+                <tr><td class="testTableTitle" colspan="6">Test Set A</td></tr>
 
-         <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="95%">
-           <TR>
-              <TD COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-           </TR>
-           <TR>
-              <TD COLSPAN="4" CLASS="bodyText"><B>Test Set A</B></TD>
-           </TR>
-            <TR>
-               <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Name</B></TD>
-               <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Division</B></TD>
-               <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Difficulty</B></TD>
-               <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Algorithmic Categories</B></TD>
-<%--               <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Business Categories</B></TD> --%>
-            </TR>
-           <TR>
-              <TD COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-           </TR>
-            <screen:listIterator id="testA" list="<%=profile.getTestSetAList()%>">
-            <TR>
-               <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="JavaScript:getProblemDetail('<screen:beanWrite name="testA" property="roundId" />,<screen:beanWrite name="testA" property="problemId"/>')" class="bodyText"><screen:beanWrite name="testA" property="problemName"/></a></TD>
-               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name="testA" property="divisionDesc" /></TD>
-               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name="testA" property="difficultyDesc" /></TD>
-               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name="testA" property="algorithmicCategoryList" /></TD>
-<%--               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name="testA" property="businessCategoryList" /></TD> --%>
-            </TR>
-            </screen:listIterator>
-           <TR>
-              <TD COLSPAN="5"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-           </TR>
-         </TABLE>
+                <tr>
+                    <td width="10" class="testFormHeader"><img src="/i/clear.gif" width="10" height="1" alt="" border="0" /></td>
+                    <td width="20%" class="testFormHeader">Name</td>
+                    <td width="20%" align="center" class="testFormHeader">Division</td>
+                    <td width="20%" align="center" class="testFormHeader">Difficulty</td>
+                    <td width="40%" align="center" class="testFormHeader">Algorithmic Categories</td>
+ <%--               <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Business Categories</B></TD> --%>
+                    <td width="10" class="testFormHeader"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+                 </tr>
+            
+                <screen:listIterator id="testA" list="<%=profile.getTestSetAList()%>">
+                <tr>
+                    <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+                    <td class="testTableOdd"><a href="JavaScript:getProblemDetail('<screen:beanWrite name="testA" property="roundId" />,<screen:beanWrite name="testA" property="problemId"/>')" class="bodyText"><screen:beanWrite name="testA" property="problemName"/></a></td>
+                    <td align="center" class="testTableOdd"><screen:beanWrite name="testA" property="divisionDesc" /></td>
+                    <td align="center" class="testTableOdd"><screen:beanWrite name="testA" property="difficultyDesc" /></td>
+                    <td align="center" class="testTableOdd"><screen:beanWrite name="testA" property="algorithmicCategoryList" /></td>
+ <%--               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name="testA" property="businessCategoryList" /></TD> --%>
+                    <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+                </tr>
+                </screen:listIterator>
 
-         <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="95%">
-           <TR>
-              <TD COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-           </TR>
-           <TR>
-              <TD COLSPAN="4" CLASS="bodyText"><B>Test Set B</B></TD>
-           </TR>
-            <TR>
-               <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Name</B></TD>
-               <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Division</B></TD>
-               <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Difficulty</B></TD>
-               <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Algorithmic Categories</B></TD>
-<%--               <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Business Categories</B></TD> --%>
-            </TR>
-           <TR>
-              <TD COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-           </TR>
-            <screen:listIterator id="testB" list="<%=profile.getTestSetBList()%>">
-            <INPUT TYPE="HIDDEN" name="testSetB" value="<screen:beanWrite name="testB" property="roundId" />,<screen:beanWrite name="testB" property="problemId"/>" >
-            <TR>
-               <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="JavaScript:getProblemDetail('<screen:beanWrite name="testB" property="roundId" />,<screen:beanWrite name="testB" property="problemId"/>')" class="bodyText"><screen:beanWrite name="testB" property="problemName"/></a></TD>
-               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name="testB" property="divisionDesc" /></TD>
-               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name="testB" property="difficultyDesc" /></TD>
-               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name="testB" property="algorithmicCategoryList" /></TD>
-<%--               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name="testB" property="businessCategoryList" /></TD> --%>
-            </TR>
-            </screen:listIterator>
-           <TR>
-              <TD COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-           </TR>
-         </TABLE>
+                <tr><td colspan="6"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
+            
+                <tr><td class="testTableTitle" colspan="6">Test Set B</td></tr>
 
-         <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="95%">
-           <TR>
-              <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-           </TR>
-           <TR>
-              <TD CLASS="bodyText"><B>Available Languages</B></TD>
-           </TR>
-<screen:resultSetRowIterator id="row" list="<%=profile.getLanguageList()%>">
-            <% if(profile.hasLanguage(row.getItem("language_id").toString())) { %>
-            <input type="HIDDEN" name="language" value="<screen:resultSetItem row="<%=row%>" name="language_id" />">
-            <TR>
-               <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="language_name" /></TD>
-            </TR>
-            <% } %>
-</screen:resultSetRowIterator>
-           <TR>
-              <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-           </TR>
-           <TR>
-              <TD ALIGN="center"><a HREF="JavaScript:submitEdit()" CLASS="bodyText">Edit</A> | <A HREF="JavaScript:submitUpdate()" CLASS="bodyText">Submit</A></TD>
-           </TR>
-         </TABLE>
-</screen:form>
-<P><BR/></P>
-     </TD>
-<!-- Body Area Ends -->
-      <!-- Gutter -->
-      <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-      <!-- Gutter Ends -->
-   </TR>
-</TABLE>
-  <!-- Body Ends -->
+                <tr>
+                    <td width="10" class="testFormHeader"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+                    <td width="20%" class="testFormHeader">Name</td>
+                    <td width="20%" align="center" class="testFormHeader">Division</td>
+                    <td width="20%" align="center" class="testFormHeader">Difficulty</td>
+                    <td width="40%" align="center" class="testFormHeader">Algorithmic Categories</td>
+ <%--               <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Business Categories</B></TD> --%>
+                    <td width="10" class="testFormHeader"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+                 </tr>
 
-  <jsp:include page="/includes/foot.jsp"/>
+                <screen:listIterator id="testB" list="<%=profile.getTestSetBList()%>">
+                <input type="hidden" name="testSetB" value="<screen:beanWrite name="testB" property="roundId" />,<screen:beanWrite name="testB" property="problemId"/>" >
+                <tr>
+                    <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+                    <td class="testTableOdd"><a href="JavaScript:getProblemDetail('<screen:beanWrite name="testB" property="roundId" />,<screen:beanWrite name="testB" property="problemId"/>')" class="bodyText"><screen:beanWrite name="testB" property="problemName"/></a></td>
+                    <td align="center" class="testTableOdd"><screen:beanWrite name="testB" property="divisionDesc" /></td>
+                    <td align="center" class="testTableOdd"><screen:beanWrite name="testB" property="difficultyDesc" /></td>
+                    <td align="center" class="testTableOdd"><screen:beanWrite name="testB" property="algorithmicCategoryList" /></td>
+ <%--               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name="testB" property="businessCategoryList" /></TD> --%>
+                    <td align="center" class="testTableOdd"><a href="JavaScript:submitRemove('<screen:beanWrite name="testB" property="roundId" />,<screen:beanWrite name="testB" property="problemId"/>')" CLASS="bodyText">Remove</a></td>
+                    <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+                </tr>
+                </screen:listIterator>
 
-</BODY>
-</HTML>
+                <tr><td colspan="6"><img src="/i/clear.gif" width="1" height="20" alt="" border="0"></td></tr>
+
+                <tr>
+                    <td class="testTableTitle" colspan="7">Available Languages</td>
+                </tr>
+
+                <screen:resultSetRowIterator id="row" list="<%=profile.getLanguageList()%>">
+                <% if(profile.hasLanguage(row.getItem("language_id").toString())) { %>
+                    <input type="HIDDEN" name="language" value="<screen:resultSetItem row="<%=row%>" name="language_id" />">
+                <tr>
+                    <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+                    <td class="testTableOdd" colspan="5"><screen:resultSetItem row="<%=row%>" name="language_name" /></td>
+                    <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+                </tr>
+                <% } %>
+                </screen:resultSetRowIterator>
+            </table>
+
+            <table border="0" cellspacing="10" cellpadding="0" width="70%">
+                 <tr>
+                    <td><div align="center"><p class="button"><a href="JavaScript:submitEdit()" CLASS="bodyText">Edit</a>&#160;&#160;<a href="JavaScript:submitUpdate()" class="bodyText">Submit</a></p></div></td>
+                </screen:form></tr>
+            </table>
+            <p><br></p>
+        </td>
+<!-- Middle Column ends -->
+
+<!-- Gutter -->
+        <td width="25"><img src="/i/clear.gif" width="25" height="1" alt="" border="0"></td>
+<!-- Gutter Ends -->
+
+    </tr>
+</table>
+
+  <jsp:include page="/includes/foot.jsp" />
+
+</body>
+</html>
