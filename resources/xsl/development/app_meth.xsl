@@ -141,7 +141,7 @@
 
                         <ol>
                             <li>Eligible TopCoder members inquire to be selected for the design phase of the application.</li>
-                            <li>TopCoder Software selects 2 members to work independantky during the design phase of the application.</li>
+                            <li>TopCoder Software selects 2 members to work independently during the design phase of the application.</li>
                                         <!--<li>Designers must submit a completed Application Design Specification on the Specification Submission Due
                             Date as stated in the Application Project Posting page.</li>
                             -->
@@ -150,7 +150,7 @@
                                 <li>Updated Application Specification Document if required</li>
                                 <li>Updated Use Case Diagrams if required</li>
                                 <li>Sequence Diagrams - Interactions between application classes and components</li>
-                                <li>Class Diagrams - Intrerfaces between application level interaction</li>
+                                <li>Class Diagrams - Interfaces  between application level interaction</li>
                                 <li>Application Design Specification Document</li>
                                 <li>Test Plan</li>
                                 <li>Development Plan</li>
