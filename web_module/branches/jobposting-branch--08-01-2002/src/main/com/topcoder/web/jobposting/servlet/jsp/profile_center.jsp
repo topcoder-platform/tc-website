@@ -84,7 +84,6 @@
         <td class="statText">School:</td>
         <td class="statText">
             <tc:getProperty id="school" name="JobHitTask" property="School" />
-            <tc:schoolSelect name="school" selectedValue="<%=school%>" selectedOnly="true" /><br>
       </td>
     </tr>
 <%}%>
