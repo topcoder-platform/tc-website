@@ -1,8 +1,7 @@
 <!doctype html public "-//w3c//dtd html 4.0 transitional//en">
 
-<%@ page
-  language="java"
-%>
+<%@ page language="java"%>
+<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*" %>
 
 <HTML>
  <HEAD>
@@ -44,7 +43,7 @@ function goTo(selection){
 		<TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
 		<TD CLASS="bodyText" COLSPAN="2" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
 
-<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*" %>
+
 
 <%
 
@@ -53,7 +52,7 @@ function goTo(selection){
         a = (AffidavitWithText)
 	    request.getAttribute(PactsConstants.PACTS_MEMBER_RESULT);
     } catch (Exception e) {
-	out.println("We caught an exception " + e);
+	System.out.println("We caught an exception " + e);
 	a = null;
     }
 
