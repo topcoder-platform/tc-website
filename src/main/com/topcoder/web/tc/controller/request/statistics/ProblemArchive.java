@@ -86,7 +86,6 @@ public class ProblemArchive extends Base {
 
             if (filters.size()>0) {
                 rsc = new ResultSetContainer(rsc, (ResultFilter[])filters.toArray(new ResultFilter[0]));
-                result.put("problem_list", rsc);
             }
 
             String start = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
@@ -105,6 +104,8 @@ public class ProblemArchive extends Base {
             }
 
             rsc = new ResultSetContainer(rsc, Integer.parseInt(start), Integer.parseInt(end));
+
+            result.put("problem_list", rsc);
 
             SortInfo s = new SortInfo();
             s.addDefault(rsc.getColumnIndex("problem_name"), "asc");
