@@ -155,7 +155,12 @@ public class ReliabilityRating {
                 sqlStr += " WHERE project_id = ? and user_id = ? ";
                 
                 ps2 = conn.prepareStatement(sqlStr);
-                ps2.setDouble(1, oldRating);
+                if(oldRating == -1)
+                {
+                    ps2.setNull(1, Types.DOUBLE);
+                }
+                else
+                    ps2.setDouble(1, oldRating);
                 ps2.setDouble(2, r.reliability());
                 ps2.setLong(3, rs.getLong("project_id"));
                 ps2.setLong(4, rs.getLong("user_id"));
@@ -241,7 +246,7 @@ public class ReliabilityRating {
         public double reliability()
         {
             if(num_components == 0)
-                return 1;
+                return -1;
             else
                 return (double)successful / (double)num_components;
         }
