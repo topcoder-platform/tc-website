@@ -81,7 +81,7 @@ competition, earned a Division-II record 1935.74 final points.  That point total
  broke the Division-II record of <A HREF="/stat?c=member_profile&amp;cr=155069" CLASS="bodyGeneric">chi</A>,
   who earned 1898.64 final points in Single Round Match 67 in February.
 </P>
-<A HREF="/stat?c=highest_totals&amp;dn=2"><IMG SRC="/i/f/feat_051502_tn2.gif" HSPACE="10" VSPACE="5" ALT="" BORDER="0"/></A>
+<A HREF="/stat?c=highest_totals&amp;dn=2"><IMG SRC="/i/f/feat_051502_tn3.gif" HSPACE="10" VSPACE="5" ALT="" BORDER="0"/></A>
 <P>
 The final point total of <B>kpsmith</B> is also TopCoder's all-time point record, 8.35 
 more than the 1927.39 total of <A HREF="/stat?c=member_profile&amp;cr=109965" CLASS="bodyGeneric">vulture</A>
