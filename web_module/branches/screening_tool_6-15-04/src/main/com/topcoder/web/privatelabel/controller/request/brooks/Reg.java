@@ -41,7 +41,7 @@ public class Reg extends FullReg {
 */
         if (!hasError(Constants.COUNTRY_CODE)) {
             if (ret.getCountryCode()==null || ret.getCountryCode().length()==0)
-                ret.setCountryCode("840");
+                ret.setCountryCode("356");
         }
 
         return ret;

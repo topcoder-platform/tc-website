@@ -32,6 +32,8 @@ public class Demog extends FullRegDemog {
         }
         //remove handle error
         removeError(Constants.HANDLE);
+        //state is not required
+        removeError(Constants.STATE_CODE);
         
         //generate handle
         String handle = "";
