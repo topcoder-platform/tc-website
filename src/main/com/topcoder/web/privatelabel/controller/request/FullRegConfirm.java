@@ -47,13 +47,9 @@ public class FullRegConfirm extends FullRegBase {
         if (info==null) {
             throw new Exception("Registration info not found in persistor");
         }
-
-        //get the rest from the request
-        String sCoderType = getRequestParameter(Constants.CODER_TYPE);
-        info.setCoderType(Integer.parseInt(sCoderType==null?"-1":sCoderType));
-
+        //gotta create the fileupload object before we can start pulling stuff from the request
         try {
-            fu = new FileUpload(getRequest(), false);
+              fu = new FileUpload(getRequest(), false);
         } catch (InvalidContentTypeException ignore) {
             //that's ok, we'll just procede with out
         }
@@ -73,6 +69,11 @@ public class FullRegConfirm extends FullRegBase {
                 }
             }
         }
+
+        //get the rest from the request
+        String sCoderType = getRequestParameter(Constants.CODER_TYPE);
+        info.setCoderType(Integer.parseInt(sCoderType==null?"-1":sCoderType));
+
         return info;
     }
 
