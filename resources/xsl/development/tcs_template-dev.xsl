@@ -118,7 +118,7 @@
 						All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.</p>
 							
 						<p>Component Posting: <<<POSTING_DATE>>><br/>
-						Initial Submission Due Date: <<<INITIAL_DUE_DATE>>><br/>
+						Initial Submission Due Date: <<<MONTH>>>/<<<DAY>>><br/>
 						Winner Announced: <<<WINNER_DATE>>><br/>
 						Final Submission Due Date: <<<FINAL_SUBMISSION_DATE>>></p>
 
