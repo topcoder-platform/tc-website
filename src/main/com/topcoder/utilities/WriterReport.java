@@ -6,6 +6,7 @@ import java.sql.*;
 import com.topcoder.common.*;
 import java.text.DateFormat;
 import java.text.*;
+import com.topcoder.server.util.TCResourceBundle;
 
 public class WriterReport {
 
@@ -29,7 +30,12 @@ public class WriterReport {
     ArrayList div2Counts = null;
   
     try {
-      conn = DBMS.getConnection();
+      TCResourceBundle bundle = new TCResourceBundle("DBMS");  
+      
+      conn = DriverManager.getConnection(bundle.getProperty("INFORMIX_CONNECT_STRING", ""));
+
+
+
       query = new StringBuffer(300);
       
       query = new StringBuffer(300);
