@@ -1,4 +1,4 @@
-package com.topcoder.web.query.bean.task;
+package com.topcoder.web.query.request;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.ApplicationServer;

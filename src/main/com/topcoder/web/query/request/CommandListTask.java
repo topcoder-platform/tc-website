@@ -1,12 +1,13 @@
-package com.topcoder.web.query.bean.task;
+package com.topcoder.web.query.request;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.query.common.AuthenticationException;
 import com.topcoder.web.query.common.Constants;
-import com.topcoder.web.query.ejb.QueryServices.Query;
+import com.topcoder.web.query.ejb.QueryServices.Command;
+import com.topcoder.web.query.ejb.QueryServices.CommandHome;
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.query.common.Util;
 
 import java.util.Enumeration;
 
@@ -15,19 +16,18 @@ import java.util.Enumeration;
  *
  */
 
-public class QueryListTask extends BaseProcessor {
+public class CommandListTask extends BaseProcessor {
 
-    private static Logger log = Logger.getLogger(QueryListTask.class);
+    private static Logger log = Logger.getLogger(CommandListTask.class);
 
-    private ResultSetContainer queryList;
+    private ResultSetContainer commandList;
     private String db;
 
     /* Creates a new LoginTask */
-    public QueryListTask() {
+    public CommandListTask() {
         super();
         db = "";
     }
-
 
 	protected void baseProcessing() throws Exception {
         if (userIdentified()) {
@@ -44,9 +44,10 @@ public class QueryListTask extends BaseProcessor {
  	}
 
     protected void businessProcessing() throws Exception {
-        Query q = (Query)Util.createEJB(getInitialContext(), Query.class);
-        setQueryList(q.getAllQueries(false, getDb()));
-        super.setNextPage(Constants.QUERY_LIST_PAGE);
+        CommandHome cHome = (CommandHome) getInitialContext().lookup(ApplicationServer.Q_COMMAND);
+        Command c = cHome.create();
+        setCommandList(c.getCommandList(getDb()));
+        super.setNextPage(Constants.COMMAND_LIST_PAGE);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {
@@ -65,13 +66,15 @@ public class QueryListTask extends BaseProcessor {
         this.db = db;
     }
 
-    public ResultSetContainer getQueryList() {
-        return queryList;
+    public ResultSetContainer getCommandList() {
+        return commandList;
     }
 
-    public void setQueryList(ResultSetContainer queryList) {
-        this.queryList = queryList;
+    public void setCommandList(ResultSetContainer commandList) {
+        this.commandList = commandList;
     }
+
+
 
 }
 
