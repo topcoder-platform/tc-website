@@ -10,7 +10,8 @@
 function getProblemDetail(id) {
     var size = "top=2,left=2,width=600,height=549,status=0";
     var name="graph";
-    window.open('<%=Constants.CONTROLLER_URL%>?<%=Constants.REQUEST_PROCESSOR%>=<%=Constants.POPULATE_PROBLEM_DETAIL_PROCESSOR%>&<%=Constants.PROBLEM_ID%>='+id,name,size);
+    <% String url = Constants.CONTROLLER_URL + "?" + Constants.REQUEST_PROCESSOR + "=PopulateProblemDetail"; %>
+    window.open('<screen:rewrite page="<%=url%>" />&<%=Constants.ROUND_PROBLEM_ID%>='+id,name,size);
     return;
   }
 

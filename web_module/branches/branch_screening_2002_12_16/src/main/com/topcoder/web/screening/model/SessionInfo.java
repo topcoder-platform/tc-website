@@ -298,6 +298,14 @@ public class SessionInfo extends BaseModel {
         return repEmail;
     }
 
+    public boolean isSelectedProfile(String profileId) {
+        return this.profileId != null && this.profileId.equals(profileId);
+    }
+
+    public boolean isSelectedCandidate(String candidateId) {
+        return this.candidateId != null && this.candidateId.equals(candidateId);
+    }
+
     /*
     private Date formDate(String day,String month,String year,String tod) {
          GregorianCalendar gc = new GregorianCalendar();

@@ -122,6 +122,25 @@
   </tag>
 
   <tag>
+    <name>rewrite</name>
+    <tagclass>com.topcoder.web.common.tag.RewriteTag</tagclass>
+    <bodycontent>empty</bodycontent>
+    <info>
+      Tag to write out urls smartly (i.e. using webapp context)
+    </info>
+    <attribute>
+      <name>page</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>href</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
     <name>servletLink</name>
     <tagclass>com.topcoder.web.screening.view.tag.ServletLinkTag</tagclass>
     <bodycontent>JSP</bodycontent>
@@ -157,7 +176,7 @@
 
   <tag>
     <name>listIterator</name>
-    <tagclass>com.topcoder.web.jsp.tag.ListIteratorTag</tagclass>
+    <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
     <bodycontent>JSP</bodycontent>
     <info>
       Tag to iterate through a List
@@ -175,8 +194,8 @@
   </tag>
   <tag>
     <name>resultSetRowIterator</name>
-    <tagclass>com.topcoder.web.jsp.tag.ListIteratorTag</tagclass>
-    <teiclass>com.topcoder.web.jsp.tag.ResultSetRowIteratorTagInfo</teiclass>
+    <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
+    <teiclass>com.topcoder.web.common.tag.ResultSetRowIteratorTagInfo</teiclass>
     <bodycontent>JSP</bodycontent>
     <info>
       Tag to iterate through a ResultSetContainer
@@ -195,7 +214,7 @@
 
   <tag>
     <name>resultSetItem</name>
-    <tagclass>com.topcoder.web.jsp.tag.ResultSetItemTag</tagclass>
+    <tagclass>com.topcoder.web.common.tag.ResultSetItemTag</tagclass>
     <bodycontent>empty</bodycontent>
     <info>
       Tag to get the value of a ResultSetContainer.ResultSetRow

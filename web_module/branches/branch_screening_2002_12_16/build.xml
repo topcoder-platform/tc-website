@@ -782,7 +782,6 @@
             <classes dir="${classes}">
                 <include name="com/topcoder/web/screening/"/>
                 <include name="com/topcoder/web/common/"/>
-                <include name="com/topcoder/web/jsp/tag/"/>
                 <include name="com/topcoder/shared/util/"/>
                 <include name="com/topcoder/shared/docGen/"/>
                 <include name="com/topcoder/shared/dataAccess/"/>

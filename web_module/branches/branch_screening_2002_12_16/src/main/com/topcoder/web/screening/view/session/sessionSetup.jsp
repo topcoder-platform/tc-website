@@ -12,7 +12,8 @@ function showEmail() {
     var size = "top=2,left=2,width=600,height=549,status=0";
     var name="graph";
     var id = document.sessionSetupForm.userId.options[sessionSetupForm.userId.selectedIndex].value;
-    window.open('<%=Constants.CONTROLLER_URL%>?<%=Constants.REQUEST_PROCESSOR%>=PreviewEmail&<%=Constants.CANDIDATE_ID%>='+id,name,size);
+    <% String url = Constants.CONTROLLER_URL + "?" + Constants.REQUEST_PROCESSOR + "=PreviewEmail"; %>
+    window.open('<screen:rewrite page="<%=url%>" />&<%=Constants.CANDIDATE_ID%>='+id,name,size);
     return;
   }
 
@@ -65,7 +66,7 @@ function submitSession() {
               <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
               <select value ="profileId">
                 <screen:resultSetRowIterator id="row" list="<%=sessionInfo.getProfileList()%>">
-                <% if(profile.isSelectedProfile(row.getItem("session_profile_id").toString())) { %>
+                <% if(sessionInfo.isSelectedProfile(row.getItem("session_profile_id").toString())) { %>
               	<option value="<screen:resultSetItem row="<%=row%>" name="session_profile_id" />" SELECTED><screen:resultSetItem row="<%=row%>" name="name" /></option>
                 <% } else { %>
               	<option value="<screen:resultSetItem row="<%=row%>" name="session_profile_id" />"><screen:resultSetItem row="<%=row%>" name="name" /></option>
@@ -80,7 +81,7 @@ function submitSession() {
               <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
               <select name="userId">
                 <screen:resultSetRowIterator id="row" list="<%=sessionInfo.getCandidateList()%>">
-                <% if(profile.isSelectedProfile(row.getItem("user_id").toString())) { %>
+                <% if(sessionInfo.isSelectedCandidate(row.getItem("user_id").toString())) { %>
               	<option value="<screen:resultSetItem row="<%=row%>" name="user_id" />" SELECTED><screen:resultSetItem row="<%=row%>" name="handle" /></option>
                 <% } else { %>
               	<option value="<screen:resultSetItem row="<%=row%>" name="user_id" />"><screen:resultSetItem row="<%=row%>" name="handle" /></option>
