@@ -494,7 +494,6 @@ Cb -&gt; Cb Db Eb Fb Gb Ab Bb Cb
                 we store the floor information (e.g., marking with 'T' as in the examples
                 given in the problem statement).
             </P>
-<P>&nbsp;</P>
 <A NAME="RadioTower"></A>
 <FONT SIZE="+2">
   <B>RadioTower</B>
