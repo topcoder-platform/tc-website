@@ -194,15 +194,6 @@
 
             <tr>
                 <td align="right">
-                    State
-                </td>
-                <td align="left">
-                    <jsp:getProperty name="regInfo" property="StateName"/>
-                </td>
-            </tr>
-
-            <tr>
-                <td align="right">
                     Country
                 </td>
                 <td align="left">
