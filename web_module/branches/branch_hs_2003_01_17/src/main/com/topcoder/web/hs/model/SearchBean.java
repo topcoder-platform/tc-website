@@ -26,6 +26,8 @@ public class SearchBean {
 
   private List member_list=null;
 
+  private Long total_members=null;
+
   public static int getMaxResultsPerPage() {
     return(MAX_RESULTS_PER_PAGE);
   }
@@ -108,5 +110,13 @@ public class SearchBean {
 
   public void setMemberList(List _member_list) {
     member_list=_member_list;
+  }
+
+  public Long getTotalMembers() {
+    return(total_members);
+  }
+
+  public void setTotalMembers(Long _total_members) {
+    total_members=_total_members;
   }
 };
