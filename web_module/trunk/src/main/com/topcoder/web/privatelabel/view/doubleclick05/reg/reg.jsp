@@ -25,7 +25,45 @@
     <jsp:param name="tabLev1" value="internal"/>
    <jsp:param name="tabLev2" value="registration"/>
 </jsp:include>
+<script language="javascript">
+var assignmentArray = new Array();
+assignmentArray[1] = 26 // 'Beijing'
+assignmentArray[2] = 26 // 'Birmingham'
+assignmentArray[3] = 27 // 'Broomfield'
+assignmentArray[4] = 24 // 'Chicago'
+assignmentArray[5] = 26 // 'Dublin'
+assignmentArray[6] = 26 // 'Dusseldorf'
+assignmentArray[7] = 26 // 'Frankfurt'
+assignmentArray[8] = 26 // 'Hong Kong'
+assignmentArray[9] = 26 // 'Levallois (Paris)'
+assignmentArray[10] = 26 // 'London'
+assignmentArray[11] = 26 // 'Madrid'
+assignmentArray[12] = 26 // 'Morrisville'
+assignmentArray[13] = 25 // 'New York'
+assignmentArray[14] = 27 // 'San Diego'
+assignmentArray[15] = 27 // 'San Mateo'
+assignmentArray[16] = 24 // 'Schaumberg'
+assignmentArray[17] = 26 // 'Seoul'
+assignmentArray[18] = 26 // 'Sydney'
+assignmentArray[19] = 26 // 'Teddington'
+assignmentArray[20] = 27 // 'Thornton'
+assignmentArray[21] = 26 // 'Tokyo'
+assignmentArray[22] = 24 // 'Toronto'
+assignmentArray[23] = 28 // 'Other'
 
+function changeField() {
+    alert(document.regForm.demog_1[document.regForm.demog_1.selectedIndex].value);
+    
+    var newVal = assignmentArray[document.regForm.demog_1[document.regForm.demog_1.selectedIndex].value];
+    for(var i =0; i < document.regForm.demog_1.length; i++) {
+        if(document.regForm.demog_2[i].value == newVal) {
+            document.regForm.demog_2[i].selected = true;
+            return;
+        }
+    }
+}
+
+</script>
 <table width="750" align="center" valign="top" cellpadding="0" cellspacing="0">
 	<tr>
 		<td class="dc_headerPic">
