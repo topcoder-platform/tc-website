@@ -162,6 +162,7 @@ public class TCLoadAggregate extends TCLoad {
     public void performLoad() throws Exception {
         try {
 
+/*
             loadRoomResult2();
 
             loadCoderDivision();
@@ -187,6 +188,7 @@ public class TCLoadAggregate extends TCLoad {
             loadRoundProblem();
 
             loadProblemLanguage();
+*/
 
             loadCoderProblem();
 
@@ -1924,7 +1926,7 @@ public class TCLoadAggregate extends TCLoad {
              " order by final_points desc";
 
     private static final String PROBLEM_RANK_UPDATE =
-            "update coder_problem set place = ? " +
+            "update coder_problem set placed = ? " +
             " where round_id = ? and coder_id = ? and division_id = ? and problem_id = ?";
 
 

@@ -1910,6 +1910,11 @@ public class TCLoadRound extends TCLoad {
             query.append("          WHERE rs.round_id = cs.round_id");
             query.append("            AND rs.segment_id = 2)");                  // coding segment...need constant
             query.append("       ,cs.component_id ");
+            query.append("       ,(select sum(processing_time) ");
+            query.append("           from system_test_result str ");
+            query.append("          where str.coder_id = cs.coder_id");
+            query.append("            and str.round_id = cs.round_id");
+            query.append("            and str.component_id = cs.component_id)");
             query.append(" FROM component_state cs");
             query.append(" LEFT OUTER JOIN submission s ");
             query.append(" ON cs.component_state_id = s.component_state_id");
@@ -1970,10 +1975,11 @@ public class TCLoadRound extends TCLoad {
             query.append("       ,open_order ");          // 16
             query.append("       ,submit_order ");        // 17
             query.append("       ,level_id ");            // 18
-            query.append("       ,level_desc) ");         // 19
+            query.append("       ,level_desc ");          // 19
+            query.append("       ,total_execution_time) ");//20
             query.append("VALUES (");
             query.append("?,?,?,?,?,?,?,?,?,?,");  // 10 values
-            query.append("?,?,?,?,?,?,?,?,?)");    // 19 total values
+            query.append("?,?,?,?,?,?,?,?,?,?)");    // 20 total values
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
@@ -2065,6 +2071,7 @@ public class TCLoadRound extends TCLoad {
                 psIns.setInt(17, submit_order);  // submit_order
                 psIns.setInt(18, level_id);
                 psIns.setString(19, level_desc);
+                psIns.setInt(20, rs.getInt(17)); //processing time
 
                 retVal = psIns.executeUpdate();
                 count += retVal;
