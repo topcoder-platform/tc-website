@@ -81,7 +81,25 @@ Further, I represent that the following information contained in TopCoder's memb
 Demographic Information<BR/>
 <BR/>
 
-<TABLE>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0">
+  <TR>
+    <TD>
+      Coder Type
+    </TD>
+    <TD>
+      &#160;&#160;<xsl:value-of select="/TC/AFFIDAVIT/Member/Profile/coder_type_desc"/> 
+    </TD>
+  </TR>
+  <xsl:if test="/TC/AFFIDAVIT/Member/Profile/coder_type_desc='Student'">
+    <TR>
+      <TD>
+        School
+      </TD>
+      <TD>
+        &#160;&#160;<xsl:value-of select="/TC/AFFIDAVIT/Member/Profile/school_name"/> 
+      </TD>
+    </TR>
+  </xsl:if>
 <xsl:for-each select="/TC/AFFIDAVIT/Demographics/Demographic">
   <TR>
     <TD>
