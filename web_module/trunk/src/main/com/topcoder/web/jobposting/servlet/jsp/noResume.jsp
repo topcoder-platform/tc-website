@@ -32,9 +32,11 @@
                 <BR/>
                 <BR/>
                 <BR/>
-                Applying for a job through TopCoder requires an uploaded resume.  Currently, you do not have a
-                resume uploaded.  In order for your information to be viewed by employers, you must <A HREF="JavaScript:void window.open('/Resume?&t=ViewUploadTask','Resume_Upload','top=2,left=2,width=300,height=300,status=0');" CLASS="statTextBig">upload</A> your
-                resume now.  Thank you.
+                Applying for a job through TopCoder requires an <A HREF="JavaScript:void window.open('/Resume?&t=ViewUploadTask','Resume_Upload','top=2,left=2,width=300,height=300,status=0'); window.location='/?&t=tces&c=index';" CLASS="statTextBig">uploaded</A> resume.
+                Currently, you do not have a resume <A HREF="JavaScript:void window.open('/Resume?&t=ViewUploadTask','Resume_Upload','top=2,left=2,width=300,height=300,status=0'); window.location='/?&t=tces&c=index';" CLASS="statTextBig">uploaded</A>.  In
+                order for your information to be viewed by employers, you must <A HREF="JavaScript:void window.open('/Resume?&t=ViewUploadTask','Resume_Upload','top=2,left=2,width=300,height=300,status=0'); window.location='/?&t=tces&c=index';" CLASS="statTextBig">upload your resume now</A>.
+                Once you have added your resume, you will need to reapply for the job in
+                which you are interested.  Thank you.
                 <BR/>
                 <BR/>
                 <BR/>
