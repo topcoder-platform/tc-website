@@ -397,10 +397,11 @@ pageContext.setAttribute("resultSet", rscChallenge);
               <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 4 /*"defendent Rank"*/ + "]" %>'/>         
                  <TR VALIGN="middle">
                    <TD  WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>  
-                   <TD CLASS="statText" ALIGN="left"><%=pageContext.getAttribute("coderHandle").toString() %></TD>
-                   <TD CLASS="statText">
+                   <TD CLASS="statText" nowrap=nowrap>
+					<tc:ratingImage link='<%=sLink+resultRow.getIntItem(1)%>' bg='B' cid='<%=resultRow.getIntItem(1)%>' />
+                   </TD>
+                   <TD CLASS="statText" nowrap=nowrap>
 					<tc:ratingImage link='<%=sLink+resultRow.getIntItem(5)%>' bg='B' cid='<%=resultRow.getIntItem(5)%>' />
-                     <A HREF="/stat?c=member_profile&cr=<bean:write name="resultRow" property='<%= "item[" + 5 /* defendent id */ + "]" %>'/>" CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 3 /* defendent name */ + "]" %>'/></A>
                    </TD>
                    <TD CLASS="statText"><bean:write name="resultRow" property='<%= "item[" + 6 /* class name */ + "]" %>'/></TD>
                    <TD CLASS="statText"><%= resultRow.getItem(8).toString().equals("Y")?"Yes":"No"%></TD>    
