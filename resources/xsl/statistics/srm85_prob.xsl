@@ -66,11 +66,11 @@
 		<TABLE BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#CCCCCC">
 		<TR>
 			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm85_room1" CLASS="bodyText">&#160;&#160;Room 1 Review</A></TD>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com">Want to write?</A></TD>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm85_lessons">Lessons Learned</A></TD>
 		</TR>
 		<TR>
 			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm85_rookie" CLASS="bodyText">&#160;&#160;Rookie Review</A></TD>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com">Comments?</A></TD>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com">Comments? Ideas?</A></TD>
 		</TR>
 		<TR>
 			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm85_prob" CLASS="bodyText">&#160;&#160;Problem Set</A></TD>
