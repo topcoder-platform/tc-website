@@ -27,7 +27,7 @@ public class ProblemResults {
                 System.out.println("gimme a real number, fool!");
                 System.exit(1);
             }
-            if (args[1] != null && args[1].length() > 0) {
+            if (args.length > 1 && args[1] != null && args[1].length() > 0) {
                 fileName = args[1];
             }
         }
