@@ -75,6 +75,7 @@
 
 <!-- Tab bar sub links-->
             <xsl:call-template name="tco03_sublinks">
+                <xsl:with-param name="selectedList">coding_rules</xsl:with-param>
                 <xsl:with-param name="selectedTab">eligibility</xsl:with-param>
             </xsl:call-template>
     
