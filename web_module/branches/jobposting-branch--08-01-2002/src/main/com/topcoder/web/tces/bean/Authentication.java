@@ -21,6 +21,8 @@ public class Authentication implements Serializable {
         try {
             Authentication auth = new Authentication();
 
+            session.setAttribute("tces_auth", auth);
+
             auth.setUserId(USER_NOT_LOGGED_IN);
 
             Request dataRequest = new Request();

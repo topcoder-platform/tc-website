@@ -62,26 +62,22 @@ public class LoginTask extends BaseTask implements Task, Serializable {
 
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response) throws Exception
     {
-        HttpSession session = request.getSession(true);
+        if (step.equals(TCESConstants.LOGIN_TASK_STEP_AUTH)) {
+            HttpSession session = request.getSession(true);
 
-        if (Authentication.attemptLogin( getHandleInput(), getPasswordInput(), getInitialContext(), session)) {
-            setNextPage(TCESConstants.LOGIN_OK_PAGE );
-        }
-        else {
-            setMessage(Authentication.getErrorMessage(session));
-            setNextPage(TCESConstants.LOGIN_OK_PAGE );
+            if (Authentication.attemptLogin( getHandleInput(), getPasswordInput(), getInitialContext(), session)) {
+                setNextPage(TCESConstants.LOGIN_OK_PAGE );
+            }
+            else {
+                setMessage(Authentication.getErrorMessage(session));
+                setNextPage(TCESConstants.LOGIN_PAGE );
+            }
         }
     }
 
     public void processStep(String step)
         throws Exception
     {
-    }
-
-
-    private void viewLogin() throws Exception
-    {
-        setNextPage(TCESConstants.LOGIN_PAGE);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {
