@@ -174,8 +174,8 @@ tasks will bring back unwelcome memories of a 300-baud modem...<A CLASS="bodyGen
   <TR> 
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" COLSPAN="4" CLASS="bodyText"><A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><B>Single Round Match 109</B></A><BR/>
-Wednesday, August 21, 2002<BR/><BR/> 
+        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><B>Single Round Match 110</B></A><BR/>
+Tuesday, August 27, 2002<BR/><BR/> 
     </TD>    
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
   </TR> 
@@ -217,29 +217,29 @@ Wednesday, August 21, 2002<BR/><BR/>
           <TR>
              <TD VALIGN="middle" ROWSPAN="2" WIDTH="20%" ALIGN="center" CLASS="bodyText" BGCOLOR="#FFFF66" NOWRAP="0"><B>Div-I</B></TD>
              <TD VALIGN="middle" HEIGHT="16" WIDTH="10%" CLASS="bodyText">&#160;&#160;Best:</TD> 
-             <TD VALIGN="middle" WIDTH="35%" CLASS="bodyText" NOWRAP="0">&#160;&#160;pernick</TD>
-             <TD VALIGN="middle" WIDTH="15%" CLASS="bodyText" ALIGN="center">254</TD>
+             <TD VALIGN="middle" WIDTH="35%" CLASS="bodyText" NOWRAP="0">&#160;&#160;Oblok</TD>
+             <TD VALIGN="middle" WIDTH="15%" CLASS="bodyText" ALIGN="center">244</TD>
              <TD VALIGN="middle" WIDTH="20%" CLASS="bodyText" NOWRAP="0">&#160;Room 4</TD>
           </TR>
           <TR>
              <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">&#160;&#160;Worst:</TD> 
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;animus</TD>
-             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">-224</TD>
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 4&#160;</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;LiquidSquid96</TD>
+             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">-333</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 1&#160;</TD>
           </TR>
           <TR><TD COLSPAN="5" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>          
           <TR>
              <TD VALIGN="middle" ROWSPAN="2" ALIGN="center" CLASS="bodyText" BGCOLOR="#FFFF66" NOWRAP="0">&#160;<B>Div-II</B></TD>
              <TD VALIGN="middle" HEIGHT="16" CLASS="bodyText">&#160;&#160;Best:</TD> 
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;centipede80</TD>
-             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">217</TD>
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 6</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;alanyu</TD>
+             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">214</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 15</TD>
           </TR>
           <TR>
              <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">&#160;&#160;Worst:</TD> 
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;sphere<BR/>&#160;&#160;datakix<BR/>&#160;&#160;daily10</TD>
-             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">-259</TD>
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 12<BR/>&#160;Room 7<BR/>&#160;Room 8</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;ksdaya</TD>
+             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">-328</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 7</TD>
           </TR>                                
        </TABLE>
     </TD>
@@ -255,10 +255,10 @@ Wednesday, August 21, 2002<BR/><BR/>
   </TR>  
   <TR>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
-    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/slavik_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> By&#160;slavik<BR/><I>[TC]&#160;Member</I><BR/></TD>
+    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/Penwiper_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> By&#160;Penwiper<BR/><I>[TC]&#160;Member</I><BR/></TD>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText" COLSPAN="2">
-    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>SRM 109</B></FONT>
+    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>SRM 110</B></FONT>
     </TD>
   </TR>      
   <TR>    
@@ -275,22 +275,27 @@ Wednesday, August 21, 2002<BR/><BR/>
     <TD VALIGN="top"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD> -->
     <TD VALIGN="top" CLASS="bodyText" WIDTH="100%">
       <A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm109_prob</xsl:attribute>
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm110_prob</xsl:attribute>
         <B>Problem Set Analysis &amp; Opinion</B>
       </A><BR/>
 <P>
-SRM109 was unusually easy of both divisions. All problems were clearly stated with no hidden cases or 
-ambiguities. There were 29 out of 184 (15.76%) coders who have submitted all the problems correctly in 
-Division-II. Division-I had 99 coders participating and there were 12 coders who have submitted correct 
-solutions for all three problems. 
+This last SRM of the summer had a mix of some easy and some fairly tricky problems.  The first two problems in 
+Division-II were quite simple and were solved by nearly everyone. The last problem however proved much more 
+difficult, but still allowed for the possibility of a brute force solution if one was so inclined. The first 
+Division-I problem was identical to the second Division-II problem and was similarly solved by nearly everyone 
+in Division-I. The second problem required some careful attention to detail, but was still solved by a majority 
+of the coders. The third problem required some dynamic programming, and as is often the case with such problems, 
+was only solved by a small percentage of coders.
 </P>
 
-<P><B>ZorbaTHut</B> was Division-I leader with impressive 1611.91 points. It took him only 31 minutes to complete 
-all problems and become a Division-I winner. It took 14:27 minutes for <B>javaisthe_unwin</B> to complete all 
-problems in Division-II to become a division leader with impressive 1676.42 points. This victory places him 
-well into Div-I with 1826 rating points (1826 rating counts as 21st impressive debut overall)
+<P>
+The overall winner of Division-I was <B>radeye</B> with 1354.59 points. The overall winner of Division-II was <B>drcode</B> 
+with a score of 1511.28 points. Notable performance improvements came from <B>Oblok</B> and <B>Goron</B> in Division-I who 
+were able to increase their ratings by 244 and 242 points respectively. <B>alanyu</B> was able to climb 214 points in 
+Division-II.  <B>Lawrence444</B>, <B>twf</B>, and <B>FatClimber</B> all had very impressive rookie debuts; each of them solved all 
+three problems correctly and moved up to the yellow level after their first match
 ...<A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm109_prob</xsl:attribute>get&#160;analysis
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm110_prob</xsl:attribute>get&#160;analysis
       </A></P>
     </TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>     
