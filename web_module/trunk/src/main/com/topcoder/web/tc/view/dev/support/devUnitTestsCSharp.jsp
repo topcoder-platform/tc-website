@@ -38,7 +38,7 @@
 <!-- Center Column Begins -->
 <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br />
 			
-			<p><A href="/tc?module=Static&d1=dev&d2=devTutorial">Back to tutorial</A></p>
+			<p><A href="/tc?module=Static&d1=dev&d2=support&d3=devTutorial">Back to tutorial</A></p>
 
 			<h2>Unit Tests - C#</h2>
 
@@ -47,7 +47,7 @@
 		<p>First, you'll need to create the directory for your Unit Tests.&nbsp; The root for your tests will be<font face="Courier New" size="2">src/csharp/tests/</font>. After that, you'll add the namespace path.&nbsp; For our example package, <font face="Courier New" size="2"> TopCoder.Util.Tutorial</font>, the directory would be <font face="Courier New" size="2"> TopCoder/Util/Tutorial/</font>. For those in the back of the classroom, the full path to your unit tests will be <font face="Courier New" size="2">src/csharp/tests/TopCoder/Util/Tutorial/</font>.</p>
 		<span class=bodySubtitle>Creating Tests</span>
 		<p>Unit tests test units of code. In TopCoder components, units are generally classes. To this end, you'll need to create a separate test class for each class in your main source tree.</p>
-		<p>Let's walk through an example test case. We'll test the SaveAs function in <a href="/tc?module=Static&d1=dev&d2=devTutorial#sectionV">Section V</a>. Let's say the function exists in an arbitrary class, TutorialLayout.</p>
+		<p>Let's walk through an example test case. We'll test the SaveAs function in <a href="/tc?module=Static&d1=dev&d2=support&d3=devTutorial#sectionV">Section V</a>. Let's say the function exists in an arbitrary class, TutorialLayout.</p>
 		<p>First, we'll need to create a&nbsp;C# source file for this unit test, TutorialLayoutTest.cs.</p>
 <pre>/**
  * TutorialLayoutTest.cs
@@ -121,7 +121,7 @@ public void SaveAsComplex()
 
 		<p>Note the ease with which we can create another test. Many tests will lend themselves to a simple copy. Assert is not the only assert function available to us. We can also test equality, sameness, null values, and so forth. For more information, see the <a href="http://www.nunit.org/assertions.html#comparisons">NUnit documentation</a>.</p>
 		<span class=bodySubtitle>Failure Tests</span>
-		<p>Now we have some tests that test valid input, but what about invalid input? As we can tell from the <a href="/tc?module=Static&d1=dev&d2=devTutorial#sectionV">XML doc from Section V</a>, the SaveAs function should fail if we pass in a null reference.</p>
+		<p>Now we have some tests that test valid input, but what about invalid input? As we can tell from the <a href="/tc?module=Static&d1=dev&d2=support&d3=devTutorial#sectionV">XML doc from Section V</a>, the SaveAs function should fail if we pass in a null reference.</p>
 
 <pre>/// &lt;summary&gt;
 /// Tests SaveAs for failure with null input.
@@ -173,7 +173,7 @@ public void TestTearDown()
 		<pre>nant test</pre>
 		<p>If all your tests compile, they'll run. The results will be logged in the <font face="Courier New" size="2">log/</font> directory, in a text file.  You can read the log to find which tests passed, which tests failed, and the reasons for failure.</p>
 
-			<p><A href="/tc?module=Static&d1=dev&d2=devTutorial">Back to tutorial</A></p>
+			<p><A href="/tc?module=Static&d1=dev&d2=support&d3=devTutorial">Back to tutorial</A></p>
 			<p><br/></p>
         </td>
 <!-- Center Column Ends -->

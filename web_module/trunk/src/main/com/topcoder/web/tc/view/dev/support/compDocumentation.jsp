@@ -71,8 +71,8 @@
 					06.30.2004
 					</td>
 					<td class="projectCells" valign="top" align="right" nowrap="nowrap">
-					<A href="/tc?module=Static&d1=dev&d2=desScreeningSample">Sample Design Screening Scorecard</A><br/>
-					<A href="/tc?module=Static&d1=dev&d2=desReviewSample">Sample Design Review Scorecard</A><br/>
+					<A href="/tc?module=Static&d1=dev&d2=support&d3=desScreeningSample">Sample Design Screening Scorecard</A><br/>
+					<A href="/tc?module=Static&d1=dev&d2=support&d3=desReviewSample">Sample Design Review Scorecard</A><br/>
 					</td>
 				</tr>
                 <tr>
@@ -89,12 +89,12 @@
 					08.03.2004
 					</td>
 					<td class="projectCells" valign="top" align="right" nowrap="nowrap">
-					<A href="/tc?module=Static&d1=dev&d2=diag_netClass">.net Class Diagram</A><br/>
-					<A href="/tc?module=Static&d1=dev&d2=diag_netSequence">.net Sequence Diagram</A><br/>
-					<A href="/tc?module=Static&d1=dev&d2=diag_netUseCase">.net Use Case Diagram</A><br/>
-					<A href="/tc?module=Static&d1=dev&d2=diag_javaClass">Java Class Diagram</A><br/>
-					<A href="/tc?module=Static&d1=dev&d2=diag_javaSequence">Java Sequence Diagram</A><br/>
-					<A href="/tc?module=Static&d1=dev&d2=diag_javaUseCase">Java Use Case Diagram</A>
+					<A href="/tc?module=Static&d1=dev&d2=support&d3=diag_netClass">.net Class Diagram</A><br/>
+					<A href="/tc?module=Static&d1=dev&d2=support&d3=diag_netSequence">.net Sequence Diagram</A><br/>
+					<A href="/tc?module=Static&d1=dev&d2=support&d3=diag_netUseCase">.net Use Case Diagram</A><br/>
+					<A href="/tc?module=Static&d1=dev&d2=support&d3=diag_javaClass">Java Class Diagram</A><br/>
+					<A href="/tc?module=Static&d1=dev&d2=support&d3=diag_javaSequence">Java Sequence Diagram</A><br/>
+					<A href="/tc?module=Static&d1=dev&d2=support&d3=diag_javaUseCase">Java Use Case Diagram</A>
 					</td>
 				</tr>
 			</table>
@@ -129,7 +129,7 @@
 					</td>
 					<td class="projectCells" valign="top" align="right" nowrap="nowrap">
 					<A href="/i/development/downloads/Sample_Development_Screening_Scorecard.pdf">Sample Development Screening Scorecard</A><br/>
-					<A href="/tc?module=Static&d1=dev&d2=devScoreSheet">Sample Development Review Scorecard</A><br/>
+					<A href="/tc?module=Static&d1=dev&d2=support&d3=devScoreSheet">Sample Development Review Scorecard</A><br/>
 					</td>
 				</tr>
                 <tr>
