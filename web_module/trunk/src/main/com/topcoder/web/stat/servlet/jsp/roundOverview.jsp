@@ -27,6 +27,18 @@
        <TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
 
          <!-- BEGIN BODY -->
+         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
+           <TR>
+             <TD WIDTH="11" HEIGHT="26" ALIGN="left" VALIGN="bottom"><IMG WIDTH="11" HEIGHT="26" BORDER="0" SRC="/i/steelblue_top_left1.gif"></TD>
+             <TD VALIGN="bottom" BGCOLOR="#CCCCCC" WIDTH="180" ALIGN="left"><IMG WIDTH="180" HEIGHT="26" BORDER="0" SRC="/i/header_statistics.gif"></TD>
+             <TD CLASS="bodyTextBold" VALIGN="middle" BGCOLOR="#CCCCCC" WIDTH="100%">
+               &#160;<SPAN CLASS="bodySubhead">&#160;&#160;<%= "Round Overview"%>&#160;&#160;</SPAN>
+             </TD>
+             <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"></TD>
+           </TR>
+         </TABLE>
+
+
 <% //common code that pulls out the request bean.
     Request srb = (Request) request.getAttribute("REQUEST_BEAN");
 %>
@@ -121,7 +133,7 @@
       <TR>
         <%for(int j = 0; j<divisions;j++){%>
             <TD VALIGN="middle" NOWRAP="0" WIDTH="30%" HEIGHT="15" CLASS="bodyText">
-              <A HREF="/stat?c=member_profile&cr=<%= coderIDs[j][i] %>'" CLASS="<bean:write name="nameColor" property='<%= "style[" + ratings[j][i] + "]" %>'/>"><%= coders[j][i] %></A>
+              <A HREF="/stat?c=member_profile&cr=<%= coderIDs[j][i] %>" CLASS="<bean:write name="nameColor" property='<%= "style[" + ratings[j][i] + "]" %>'/>"><%= coders[j][i] %></A>
             </TD>
             <TD VALIGN="middle" NOWRAP="0" WIDTH="10%" HEIGHT="15" CLASS="bodyText" ALIGN="right"><%= scores[j][i] %> &#160;&#160;</TD>
             <TD VALIGN="middle" NOWRAP="0" WIDTH="10%" HEIGHT="15" CLASS="bodyText">&#160;<%= rooms[j][i] %></TD>
