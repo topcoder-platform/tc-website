@@ -6,9 +6,9 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>02.14.05<br>5:14 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>02.23.05<br>12:45 PM</td>
       <td class="newsTextCell"><span class="newsTitle">SRM calendar updated for <A href="/index?t=schedule&c=may_05">May</A>, <A href="/index?t=schedule&c=jun_05">June</A>, and <A href="/index?t=schedule&c=jul_05">July</A></span><br><br>
-      Also, there will be no more 9am, 8pm, or 10pm matches.
+      Also, there will be no more 9am, 8pm, or 10pm matches. The reasoning behind this is simply participation analysis.  We are trying to maximize participation while at the same time providing timeslots that everyone in the world can participate in.
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/?&t=schedule&c=index">match dates</A>&#160;|&#160;
@@ -490,31 +490,31 @@
    <tr>
       <td class="sidebarTitle" colspan="4">News Archives</td>
    </tr>
-   <tr class="sidebarText">
+   <tr class="bodyText">
       <td><A href="/tc?module=Static&d1=home&d2=news_archive_tc"><img src="/i/home/icons/tc.gif" alt="General TopCoder News" border="0" /></A></td>
       <td width="50%"><A href="/tc?module=Static&d1=home&d2=news_archive_tc">General TopCoder News</A></td>
       <td><A href="/?t=news_events&c=index"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /></A></td>
       <td width="50%"><A href="/?t=news_events&c=index">Press Releases & Articles</A></td>
    </tr>
-   <tr class="sidebarText">
+   <tr class="bodyText">
       <td><A href="/tc?module=Static&d1=home&d2=news_archive_alg"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /></A></td>
       <td><A href="/tc?module=Static&d1=home&d2=news_archive_alg">Algorithm Competition News</A></td>
       <td><A href="/tc?module=Static&d1=home&d2=news_archive_comp"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /></A></td>
       <td><A href="/tc?module=Static&d1=home&d2=news_archive_comp">Component Competition News</A></td>
    </tr>
-   <tr class="sidebarText">
+   <tr class="bodyText">
       <td><A href="/tc?&module=SurveyList"><img src="/i/home/icons/survey.gif" alt="Surveys" border="0" /></A></td>
       <td><A href="/tc?&module=SurveyList">Surveys</A></td>
       <td><A href="/?t=statistics&c=editorial_archive"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /></A></td>
       <td><A href="/?t=statistics&c=editorial_archive">Problem Sets & Analyses</A></td>
    </tr>
-   <tr class="sidebarText">
+   <tr class="bodyText">
       <td><A href="/tc?module=Static&d1=home&d2=news_archive_tournie"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /></A></td>
       <td><A href="/tc?module=Static&d1=home&d2=news_archive_tournie">Tournament News</A></td>
       <td><A href="/tc?module=Static&d1=home&d2=news_archive_employment"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /></A></td>
       <td><A href="/tc?module=Static&d1=home&d2=news_archive_employment">Employment Opportunities</A></td>
    </tr>
-   <tr class="sidebarText">
+   <tr class="bodyText">
       <td><A href="/tc?module=Static&d1=tutorials&d2=index"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /></A></td>
       <td><A href="/tc?module=Static&d1=tutorials&d2=index">Educational Content</A></td>
       <td><A href="/tc?module=Static&d1=home&d2=news_archive_movies"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /></A></td>
