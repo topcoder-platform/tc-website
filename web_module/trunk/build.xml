@@ -43,7 +43,7 @@
    </path>
 
    <target name="init">
-<!--      <property name="statservlets"  value="com/topcoder/web/stat/servlet" /> -->
+      <property name="statservlets"  value="com/topcoder/web/stat/servlet" />
       <property name="webservlets"   value="com/topcoder/web/servlet" />
       <property name="pactsservlets" value="com/topcoder/web/pacts/servlet" />
       <mkdir dir="${classes}" />
@@ -51,7 +51,7 @@
       <mkdir dir="${bin}" />
       <mkdir dir="${ejb_jars}" />
       <mkdir dir="${war.dir}" />
-<!--      <mkdir dir="${servlets}/${statservlets}" /> -->
+      <mkdir dir="${servlets}/${statservlets}" />
       <mkdir dir="${servlets}/${webservlets}" />
       <mkdir dir="${servlets}/${pactsservlets}" />
       <mkdir dir="${public_html}/WEB-INF/lib" />
@@ -81,18 +81,15 @@
    <target name="full_deploy" depends="build_ejbs,deploy">
    </target>
 
-<!--   <target name="deploy" depends="build.wars,servlets,jsp,moveStruts,moveReg,moveStats"> -->
-   <target name="deploy" depends="build_wars,servlets,jsp,moveStruts,moveReg">
+   <target name="deploy" depends="build.wars,servlets,jsp,moveStruts,moveReg,moveStats">
    </target>
 
    <target name="servlets" depends="compile">
-<!--
       <move todir="${servlets}/${statservlets}">
          <fileset dir="${classes}/${statservlets}" >
                  <include name="**/*.class" />
          </fileset>
       </move>
--->
       <move todir="${servlets}/${webservlets}">
          <fileset dir="${classes}/${webservlets}" >
                  <include name="**/*.class" />
@@ -118,7 +115,6 @@
       </copy>
    </target>
 
-<!--
    <target name="moveStats" depends="check_java_version">
       <copy todir="${public_html}/WEB-INF">
          <fileset dir="resources/stat" >
@@ -126,7 +122,6 @@
          </fileset>
       </copy>
    </target>
--->
 
    <target name="moveReg" depends="check_java_version">
       <copy todir="${public_html}/WEB-INF">
@@ -137,8 +132,8 @@
    </target>
 
    <target name="jsp" depends="check_java_version">
-<!--      <property name="stat.trgt"     value="${public_html}/stat_jsp" /> -->
-<!--      <property name="stat.src"      value="${web}/stat/servlet/jsp" /> -->
+      <property name="stat.trgt"     value="${public_html}/stat_jsp" />
+      <property name="stat.src"      value="${web}/stat/servlet/jsp" />
       <property name="root.trgt"     value="${public_html}" />
       <property name="root.src"      value="${web}/jsp" />
       <property name="pacts.trgt"    value="${public_html}/pacts" />
@@ -150,20 +145,18 @@
       <property name="render.trgt"   value="${public_html}/cm" />
       <property name="render.src"    value="${web}/render/servlet/jsp" />
 
-<!--      <mkdir dir="${stat.trgt}" /> -->
+      <mkdir dir="${stat.trgt}" /> 
       <mkdir dir="${root.trgt}" />
       <mkdir dir="${pacts.trgt}" />
       <mkdir dir="${project.trgt}" />
       <mkdir dir="${reg.trgt}" />
       <mkdir dir="${render.trgt}" />
 
-<!--
       <copy todir="${stat.trgt}">
          <fileset dir="${stat.src}" >
                  <include name="**/*.*" />
          </fileset>
       </copy>
--->
       <copy todir="${root.trgt}">
          <fileset dir="${root.src}" >
                  <include name="**/*.*" />
@@ -459,7 +452,10 @@
         <antcall target="war_jobPosting"/>
         <antcall target="war_stat"/>
     </target>
-
+    
+    <!-- i'll leave this in for now, but it can't be deployed because WL 5.1
+         doesn't see the jars in WEB-INF/lib 
+    -->
     <target name="war_stat" depends="compile">
         <war warfile="${war.dir}/${stat.war.name}" webxml="${resources}/stat/web.xml">
             <fileset dir="${java}/com/topcoder/web/stat/servlet/jsp">
