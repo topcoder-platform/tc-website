@@ -872,7 +872,6 @@ public class PDFGenerator extends BaseProcessor {
                     cb.showText("-" + writer.getPageNumber() + "-");
                     cb.endText();
 
-                    cb = writer.getDirectContent();
                     cb.addImage(footerimg);
                 }
             
