@@ -131,17 +131,12 @@ public class Static extends BaseProcessor {
      * @return String containing loginPage for user to go to next.
      */
     private String getLoginPage() {
-        String originatingPage = request.getRequestURI();
-        if( request.getQueryString() != null ) {
-            originatingPage += "?"+request.getQueryString();
-        }
-
         String destParam = 
             com.topcoder.web.corp.request.Login.KEY_DESTINATION_PAGE;
         String loginPage = (String)request.getAttribute("loginPage"); 
 
         return loginPage + "&" + destParam + "=" +
-            java.net.URLEncoder.encode(originatingPage);
+            java.net.URLEncoder.encode(nextPage);
     }
 
    /** If parameter is valid return -1, otherwise returns the index 
