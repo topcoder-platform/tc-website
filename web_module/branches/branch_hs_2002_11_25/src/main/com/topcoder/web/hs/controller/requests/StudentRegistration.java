@@ -77,6 +77,10 @@ public class StudentRegistration extends Base {
   private final static String HANDLE_TAKEN="This handle is already in use by "+
                                            "another user";
 
+  private final static String TECHNICAL_PROBLEMS="Technical problems are "+
+                                                 "preventing further "+
+                                                 "processing, try again later";
+
   private final static String PASSWORD_NOT_EMPTY="Ensure that the password "+
                                                  "field is not empty";
 
@@ -144,7 +148,20 @@ public class StudentRegistration extends Base {
      * validation again, and commit it to the database
      */
     else if (cmd.equals(CONFIRM_CMD)) {
+      StudentRegistrationBean srb=new StudentRegistrationBean();
+      populateStudentRegistrationBean(srb);
 
+      request.setAttribute("student",srb);
+
+      if (isValidStudent(srb)) {
+        commitStudent(srb);
+        setNextPage(REGISTRATION_BASE+THANK_YOU_PAGE);
+      }
+      else {
+        setNextPage(REGISTRATION_BASE+REGISTRATION_PAGE);
+      }
+
+      setIsNextPageInContext(true);
     }
 
     /* If any other command is given, redirect to the errorPage and display a
@@ -267,6 +284,28 @@ public class StudentRegistration extends Base {
     return(value);
   }
 
+  private boolean isValidListValue(Object _value,List _list) {
+    if (_value==null) {
+      return(false);
+    }
+    for (Iterator iterator=_list.iterator();iterator.hasNext();) {
+      ListPairBean lpb=(ListPairBean)iterator.next();
+      if (_value.equals(lpb.getValue())) {
+        return(true);
+      }
+    }
+    return(false);
+  }
+
+  private void addErrorMessage(HashMap _errors,String _key,String _message) {
+    List msgs=(List)_errors.get(_key);
+    if (msgs==null) {
+      msgs=new ArrayList();
+      _errors.put(_key,msgs);
+    }
+    msgs.add(_message);
+  }
+
   private boolean isValidStudent(StudentRegistrationBean _srb) {
     HashMap errors=new HashMap();
     boolean is_valid=true;
@@ -338,8 +377,10 @@ public class StudentRegistration extends Base {
         is_valid=false;
       }
       else {
+        boolean technical_problems=false;
         try {
-          Context ctx=TCContext.getInitial();
+          Context ctx=TCContext.getContext(ApplicationServer.JBOSS_JNDI_FACTORY,
+                                           ApplicationServer.SECURITY_HOST);
           PrincipalMgrRemoteHome pmrh=(PrincipalMgrRemoteHome)
                                 ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
           PrincipalMgrRemote pmr=pmrh.create();
@@ -354,15 +395,23 @@ public class StudentRegistration extends Base {
         }
         catch (RemoteException _re) {
           _re.printStackTrace();
+          technical_problems=true;
         }
         catch (CreateException _ce) {
           _ce.printStackTrace();
+          technical_problems=true;
         }
         catch (NamingException _ne) {
           _ne.printStackTrace();
+          technical_problems=true;
         }
         catch (GeneralSecurityException _gse) {
           _gse.printStackTrace();
+          technical_problems=true;
+        }
+        if (technical_problems) {
+          addErrorMessage(errors,"Handle",TECHNICAL_PROBLEMS);
+          is_valid=false;
         }
       }
     }
@@ -393,6 +442,7 @@ public class StudentRegistration extends Base {
      */
     String email=_srb.getEmail();
     String confirm_email=_srb.getConfirmEmail();
+
     if (email==null||email.length()==0) {
       addErrorMessage(errors,"Email",EMAIL_NOT_EMPTY);
       is_valid=false;
@@ -436,26 +486,40 @@ public class StudentRegistration extends Base {
     return(is_valid);
   }
 
-  private boolean isValidListValue(Object _value,List _list) {
-    if (_value==null) {
-      return(false);
-    }
-    for (Iterator iterator=_list.iterator();iterator.hasNext();) {
-      ListPairBean lpb=(ListPairBean)iterator.next();
-      if (_value.equals(lpb.getValue())) {
-        return(true);
-      }
-    }
-    return(false);
-  }
+  private void commitStudent(StudentRegistrationBean _srb) throws Exception {
+    try {
+      Context ctx=TCContext.getContext(ApplicationServer.JBOSS_JNDI_FACTORY,
+                                       ApplicationServer.SECURITY_HOST);
+      PrincipalMgrRemoteHome pmrh=(PrincipalMgrRemoteHome)
+                                ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+      PrincipalMgrRemote pmr=pmrh.create();
 
-  private void addErrorMessage(HashMap _errors,String _key,String _message) {
-    List msgs=(List)_errors.get(_key);
-    if (msgs==null) {
-      msgs=new ArrayList();
-      _errors.put(_key,msgs);
+      TCSubject tcs=new TCSubject(0);
+      UserPrincipal up=pmr.createUser(_srb.getHandle(),_srb.getPassword(),tcs);
+      long user_id=up.getId();
+
+      ctx=TCContext.getIntial();
+
+      UserHome uh=(UserHome)ctx.lookup(UserHome.EJB_REF_NAME);
+      User user=uh.create(user_id,_srb.getHandle(),'1');
+
     }
-    msgs.add(_message);
+    catch (RemoteException _re) {
+      _re.printStackTrace();
+      throw(new Exception(_re.getMessage()));
+    }
+    catch (CreateException _ce) {
+      _ce.printStackTrace();
+      throw(new Exception(_ce.getMessage()));
+    }
+    catch (NamingException _ne) {
+      _ne.printStackTrace();
+      throw(new Exception(_ne.getMessage()));
+    }
+    catch (GeneralSecurityException _gse) {
+      _gse.printStackTrace();
+      throw(new Exception(_gse.getMessage()));
+    }
   }
 
 };
