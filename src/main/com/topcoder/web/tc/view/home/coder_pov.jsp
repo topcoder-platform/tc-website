@@ -24,9 +24,10 @@
 
                         <p>
 <p>
-This match had the overall theme of graph theory and dynamic programming.  The writer of the match was yours truly,
-and it should be no surprise that these two topics are some of my most favorite.  Division 1 coders flew through the
-easy problem, only to be surprised by an unusual medium and hard problems.
+Well, SRM198 was an easy one for Division-II and a hard one for Division-I.
+The first two problems in Division-I went quickly, with 13 coders submitting
+both only 30 minutes into the match. But with all that time left, no one was 
+able to come up with a working solution to the 1200, although pparys and Yarin were "only one bug away".
 
                         <a href="/?t=statistics&amp;c=srm197_prob" class="bodyText"><strong>full&#160;story</strong></a>
                         </p>
