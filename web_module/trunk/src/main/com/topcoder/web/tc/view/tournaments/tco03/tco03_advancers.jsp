@@ -1,10 +1,15 @@
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 java.util.Map"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
 <html>
 <head>
 <title>2003 TopCoder Open sponsored by Intel&#174;  - Computer Programming Tournament - Advancers</title>
 
 <jsp:include page="../script.jsp" />
+<% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("tco03_advancers"); %>
 
 </head>
 
@@ -77,14 +82,14 @@
                    </td>
                 </tr>
 
-
+                <rsc:iterator list="<%=rsc%>" id="resultRow">
                     <tr class="advancers_list">
-                       <td class="advancers_list" align="right">1</td>
-                       <td class="advancers_list" align="left">ntrefz</td>
-                       <td class="advancers_list" align="right">5000</td>
-                       <td class="advancers_list" align="right">5000</td>
+                       <td class="advancers_list" align="right"><rsc:item name="seed" row="<%=resultRow%>"/></td>
+                       <td class="advancers_list" align="left"><rsc:item name="handle" row="<%=resultRow%>"/></td>
+                       <td class="advancers_list" align="right"><rsc:item name="rating" row="<%=resultRow%>"/></td>
+                       <td class="advancers_list" align="right"><rsc:item name="points" row="<%=resultRow%>"/></td>
                    </tr>
-                </xsl:for-each>
+                </rsc:iterator>
 
 
 
