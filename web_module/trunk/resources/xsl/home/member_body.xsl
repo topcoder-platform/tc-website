@@ -393,8 +393,8 @@
                 <table border="0" cellspacing="1" cellpadding="0" width="100%" bgcolor="#FFFFFF">
                     <tr>
                         <td valign="top" colspan="3" class="bodyText"><a class="bodyGeneric">
-                            <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><strong>TCCC 03 Regional Finals</strong></a><br />
-                            Wednesday, March 12, 2003<br /><br />
+                             <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><strong>Single Round Match 139</strong></a><br />
+                            Tuesday, March 18, 2003<br /><br />
                         </td>
                     </tr>
 
@@ -481,20 +481,20 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
                         By&#160;brett1479<br/><i>[TC]&#160;Member</i><br /></td>
                     <td valign="top" width="8" rowspan="2"><img src="/i/clear.gif" alt="" width="8" height="1" border="0" /></td>
                     <td valign="top" width="100%" align="left" class="bodyText" colspan="2">
-                        <font size="2" color="#000000" face="arial, verdana"><strong>TCCC 03 Regional Finals</strong></font></td>
+                        <font size="2" color="#000000" face="arial, verdana"><strong>Single Round Match 139</strong></font></td>
                 </tr>
 
                 <tr>
                     <td valign="top" class="bodyText" width="100%">
                         <a class="bodyGeneric">
-                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=tccc03_regfinal_prob</xsl:attribute><strong>Problem Set Analysis &amp; Opinion</strong></a><br />
+                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm139_prob</xsl:attribute><strong>Problem Set Analysis &amp; Opinion</strong></a><br />
 
-                        <p>This round of the Collegiate Championship was clearly a notch more difficult than all previous rounds. bstanescu, 
-                        the only competitor to sucessfully complete the hard problem, received the highest score for the round. Along with 
-                        the the challenging hard, coders were faced with an incredibly tricky medium problem. The 550 caught many competitors 
-                        by surprise with its unusual style. The easy problem, a relatively simple dynamic programming exercise, would have 
-                        been a medium had it been a normal SRM. If this round is any indication of the future, competitors will need to be 
-                        in top form to score above 1000 in the upcoming rounds.</p>
+                        <p>This SRM featured a set of unique problems that gave many coders a hard time. The division 1 medium, a numerical 
+                        analysis problem, had a few tricks that caught many competitors. The division 1 hard asked coders to embed a path on 
+                        the surface of a rectangular solid. At first glance, the problem seems trivial, but rectangular solids aren't as simple 
+                        as they look. As a result, few coders solved all of the problems correctly. Once the challenge phase was over, 
+                        antimatter led the pack with SnapDragon close behind. In division 2, a newcomer by the name of aneubeck beat 
+                        all competitors with an impressive 1673.43.</p>
                     </td>
                 </tr>
             </table>
@@ -518,11 +518,12 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
 <!--SRM Sponsor Starts-->
             <img usemap="#srmanimation_home" src="/i/es/srmanimation_home.gif" alt="" width="244" height="160" border="0" /><br />
             <map name="srmanimation_home">
-               <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="javascript:void window.open('http://www.gentleware.com')" />
-<!--                 <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="/?&amp;t=tces&amp;c=index" /> -->
-                <area shape="poly" alt="SRM Match 139" coords="0,93, 107,93, 120,106, 238,106, 238,155, 19,155, 0,137" href="/?RoundId=4485&amp;t=schedule&amp;c=srm" />
+              <!--   <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="javascript:void window.open('http://www.gentleware.com')" /> -->
+               <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="/?&amp;t=tces&amp;c=index" /> 
+                <area shape="poly" alt="SRM Match 139" coords="0,93, 107,93, 120,106, 238,106, 238,155, 19,155, 0,137" href="/?RoundId=4490&amp;t=schedule&amp;c=srm" />
             </map>
 <!--SRM Sponsor Ends-->
+
 
 <!-- TCES Quote Begins
             <map name="tcesMap">
