@@ -2,6 +2,7 @@ package com.topcoder.web.ejb.requestservices;
 
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
+import java.sql.Timestamp;
 
 /**
  * User: dok
@@ -10,7 +11,7 @@ import java.rmi.RemoteException;
  */
 public interface RequestServices extends EJBObject {
 
-    void createRequest(long userId, String url, String dataSource) throws RemoteException;
-    void createRequest(String url, String dataSource) throws RemoteException;
+    void createRequest(long userId, String url, Timestamp time, String dataSource) throws RemoteException;
+    void createRequest(String url, Timestamp time, String dataSource) throws RemoteException;
 
 }
