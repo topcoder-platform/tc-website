@@ -24,11 +24,11 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
     private static Logger log = Logger.getLogger(JobHitTask.class);
 
     public static final String CODER_TYPE_STUDENT = "1";
-    private int jobId;
+    private long jobId;
     private int hitType;
     private ArrayList jobHits;
 
-    private int userId;
+    private long userId;
     private String firstName;
     private String lastName;
     private String address1;
@@ -49,6 +49,11 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
     private String gpaScale;
     private Map demographics;
     private boolean hasResume;
+    private boolean newbie;
+    private long nextRoundId;
+    private long nextContestId;
+    private String nextRoundName;
+    private String nextContestName;
 
 
     /** Creates new JobHitTask */
@@ -76,6 +81,11 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         setGpaScale("");
         setDemographics(new TreeMap());
         setHasResume(false);
+        setNewbie(false);
+        setNextRoundId(0);
+        setNextContestId(0);
+        setNextRoundName("");
+        setNextContestName("");
     }
 
     public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
@@ -103,7 +113,7 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
             jpServices = jpHome.create();
             if (jobHits.size() > 0) {
                 for (int i = 0; i < jobHits.size(); i++) {
-                    int currJob = ((Integer) jobHits.get(i)).intValue();
+                    long currJob = ((Long) jobHits.get(i)).intValue();
                     try {
                         if (jpServices.jobExists(currJob)) {
                             jpServices.addJobHit(userId, currJob, Constants.JOB_POSTING_ID);
@@ -151,9 +161,9 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         if (paramName.equalsIgnoreCase(Constants.JOB_HIT_TYPE_PARAM)) {
             setHitType(Integer.parseInt(value));
         } else if (paramName.equalsIgnoreCase(Constants.JOB_ID_PARAM)) {
-            setJobId(Integer.parseInt(value));
+            setJobId(Long.parseLong(value));
         } else if (paramName.startsWith(Constants.JOB_HIT_PREFIX)) {
-            jobHits.add(new Integer(paramName.substring(Constants.JOB_HIT_PREFIX.length())));
+            jobHits.add(new Long(paramName.substring(Constants.JOB_HIT_PREFIX.length())));
         }
     }
 
@@ -165,7 +175,8 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         dataRequest.setProperty("mid", ""+getUserId());
         DataAccess data = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
         Map oltpMap = data.getData(dataRequest);
-        ResultSetContainer oltpResult = (ResultSetContainer)oltpMap.get("TCES_Member_Profile");
+        ResultSetContainer profileInfo = (ResultSetContainer)oltpMap.get("TCES_Member_Profile");
+        ResultSetContainer nextMatch = (ResultSetContainer)oltpMap.get("Next_SRM");
 
         data = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.DW_DATASOURCE_NAME));
         Map dwMap = data.getData(dataRequest);
@@ -173,7 +184,6 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         if (!dwResult.isEmpty()) {
             setMostRecentEvent(dwResult.getItem(0, "last_rated_event").toString());
         }
-
 
         CoderRegistration coder = (CoderRegistration) user.getUserTypeDetails().get("Coder");
         setUserId(user.getUserId());
@@ -193,15 +203,20 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         if (coder.getCurrentSchool().getGpa() > 0 && coder.getCurrentSchool().getGpaScale() > 0) {
             setGpa(String.valueOf(coder.getCurrentSchool().getGpa()));
             setGpaScale(String.valueOf(coder.getCurrentSchool().getGpaScale()));
-        } else { 
+        } else {
             setGpa("");
             setGpaScale("");
         }
-        if (!oltpResult.isEmpty()) {
-            setSchool(oltpResult.getItem(0, "school_name").toString());
-            setMemberSince(oltpResult.getItem(0, "member_since_date").toString());
+        if (!profileInfo.isEmpty()) {
+            setSchool(profileInfo.getItem(0, "school_name").toString());
+            setMemberSince(profileInfo.getItem(0, "member_since_date").toString());
         }
-
+        if (!nextMatch.isEmpty()) {
+            setNextRoundId(((Long)nextMatch.getItem(0, "round_id").getResultData()).intValue());
+            setNextRoundName(nextMatch.getItem(0, "round_name").toString());
+            setNextContestId(((Long)nextMatch.getItem(0, "contest_id").getResultData()).intValue());
+            setNextContestName(nextMatch.getItem(0, "contest_name").toString());
+        }
 
         dataRequest = new Request();
         dataRequest.setContentHandle("member_demographics");
@@ -240,6 +255,14 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         this.hasResume = hasResume;
     }
 
+    public boolean isNewbie() {
+        return newbie;
+    }
+
+    public void setNewbie(boolean newbie) {
+        this.newbie = newbie;
+    }
+
     public ArrayList getJobHits() {
         return jobHits;
     }
@@ -256,19 +279,19 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         this.hitType = hitType;
     }
 
-    public int getJobId() {
+    public long getJobId() {
         return jobId;
     }
 
-    public void setJobId(int jobId) {
+    public void setJobId(long jobId) {
         this.jobId = jobId;
     }
 
-    public int getUserId() {
+    public long getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(long userId) {
         this.userId = userId;
     }
 
@@ -411,7 +434,7 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
     public String getGpa() {
         return gpa;
     }
-  
+
     public void setGpa(String gpa) {
         this.gpa = gpa;
     }
@@ -419,9 +442,42 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
     public String getGpaScale() {
         return gpaScale;
     }
-  
+
     public void setGpaScale(String gpaScale) {
         this.gpaScale = gpaScale;
     }
+
+    public long getNextRoundId() {
+        return nextRoundId;
+    }
+
+    public void setNextRoundId(long nextRoundId) {
+        this.nextRoundId = nextRoundId;
+    }
+
+    public long getNextContestId() {
+        return nextContestId;
+    }
+
+    public void setNextContestId(long nextContestId) {
+        this.nextContestId = nextContestId;
+    }
+
+    public String getNextRoundName() {
+        return nextRoundName;
+    }
+
+    public void setNextRoundName(String nextRoundName) {
+        this.nextRoundName = nextRoundName;
+    }
+
+    public String getNextContestName() {
+        return nextContestName;
+    }
+
+    public void setNextContestName(String nextContestName) {
+        this.nextContestName = nextContestName;
+    }
+
 
 }

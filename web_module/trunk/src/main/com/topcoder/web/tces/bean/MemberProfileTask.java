@@ -13,9 +13,6 @@ import com.topcoder.shared.util.ApplicationServer;
 
 import javax.servlet.http.*;
 import java.io.Serializable;
-import java.math.BigInteger;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.*;
 
 /**
@@ -401,10 +398,10 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
                 setDivIStats(dwRSC.getRow(0));
 
                 dwRSC = (ResultSetContainer) dwResultMap.get("TCES_Coder_Stats_by_Level_D1");
-                setDivIStatsByLevel((List) dwRSC);
+                setDivIStatsByLevel(dwRSC);
 
                 dwRSC = (ResultSetContainer) dwResultMap.get("TCES_Coder_Stats_by_Language_D1");
-                setDivIStatsByLang((List) dwRSC);
+                setDivIStatsByLang(dwRSC);
                 if (!getDivIStatsByLevel().isEmpty() && !getDivIStatsByLang().isEmpty()) {
                     setHasDivisionI(true);
                 }
@@ -416,10 +413,10 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
                 setDivIIStats(dwRSC.getRow(0));
 
                 dwRSC = (ResultSetContainer) dwResultMap.get("TCES_Coder_Stats_by_Level_D2");
-                setDivIIStatsByLevel((List) dwRSC);
+                setDivIIStatsByLevel(dwRSC);
 
                 dwRSC = (ResultSetContainer) dwResultMap.get("TCES_Coder_Stats_by_Language_D2");
-                setDivIIStatsByLang((List) dwRSC);
+                setDivIIStatsByLang(dwRSC);
                 if (!getDivIIStatsByLevel().isEmpty() && !getDivIIStatsByLang().isEmpty()) {
                     setHasDivisionII(true);
                 }

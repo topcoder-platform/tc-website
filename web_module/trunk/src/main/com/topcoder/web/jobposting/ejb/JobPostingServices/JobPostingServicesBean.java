@@ -27,7 +27,7 @@ public class JobPostingServicesBean extends BaseEJB {
      * @throws RemoteException if the wrong number of rows were inserted (most likely 0).
      * or if there was an issue with query execution.
      */
-    public void addJobHit(int userId, int jobId, int hitTypeId) throws RemoteException {
+    public void addJobHit(long userId, long jobId, int hitTypeId) throws RemoteException {
         log.debug("addJobHit called...");
         StringBuffer query = null;
         Connection conn = null;
@@ -47,8 +47,8 @@ public class JobPostingServicesBean extends BaseEJB {
             query.append(" AND hit_type_id = ?");
 
             ps = conn.prepareStatement(query.toString());
-            ps.setInt(1, jobId);
-            ps.setInt(2, userId);
+            ps.setLong(1, jobId);
+            ps.setLong(2, userId);
             ps.setInt(3, hitTypeId);
             rs = ps.executeQuery();
             boolean hasHit = rs.next();
@@ -61,8 +61,8 @@ public class JobPostingServicesBean extends BaseEJB {
                 query.append(" INTO job_hit (job_id, user_id, hit_type_id, timestamp)");
                 query.append(" VALUES (?, ?, ?, CURRENT)");
                 ps = conn.prepareStatement(query.toString());
-                ps.setInt(1, jobId);
-                ps.setInt(2, userId);
+                ps.setLong(1, jobId);
+                ps.setLong(2, userId);
                 ps.setInt(3, hitTypeId);
                 int rowCount = ps.executeUpdate();
                 if (rowCount != 1) {
@@ -104,7 +104,7 @@ public class JobPostingServicesBean extends BaseEJB {
      * @return
      * @throws RemoteException
      */
-    public String getLink(int jobId) throws RemoteException {
+    public String getLink(long jobId) throws RemoteException {
         log.debug("getLink called...");
         StringBuffer query = null;
         Connection conn = null;
@@ -120,7 +120,7 @@ public class JobPostingServicesBean extends BaseEJB {
         try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(query.toString());
-            ps.setInt(1, jobId);
+            ps.setLong(1, jobId);
             rs = ps.executeQuery();
 
             if (rs.next()) {
@@ -164,7 +164,7 @@ public class JobPostingServicesBean extends BaseEJB {
      * @param jobId the particular job
      * @throws RemoteException if there was a problem with the database
      */
-    public boolean jobExists(int jobId) throws RemoteException {
+    public boolean jobExists(long jobId) throws RemoteException {
         log.debug("addJobHit called...");
         StringBuffer query = null;
         Connection conn = null;
@@ -179,9 +179,9 @@ public class JobPostingServicesBean extends BaseEJB {
             query.append( " WHERE job_id = ?");
             query.append(   " AND status_id = 1");
             ps = conn.prepareStatement(query.toString());
-            ps.setInt(1, jobId);
+            ps.setLong(1, jobId);
             rs = ps.executeQuery();
-         
+
             return rs.next();
         } catch (SQLException se) {
             log.error("job_id: " + jobId);
