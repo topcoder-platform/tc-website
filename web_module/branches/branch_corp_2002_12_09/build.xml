@@ -599,6 +599,7 @@
         <!-- libraries to be included in weblogic classpath -->
         <copy todir="${public_html}/../ext-lib">
             <fileset dir="${jars.dir}">
+                <include name="idgenerator.jar"/>
                 <include name="security.jar"/>
                 <include name="jbossall-client.jar"/>
                 <include name="log4j-boot.jar"/>
