@@ -35,10 +35,10 @@ else if (navigator.userAgent && navigator.userAgent.indexOf("MSIE")>=0
                 <!--
                      if (MM_FlashCanPlay){
                              document.write('<object type="application/x-shockwave-flash" data="/i/promos/software_dev_promo.swf" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="170" height=120 border="0" salign="Top" id="myFlash" >');
-                             document.write('<PARAM NAME=movie VALUE="/i/promos/software_dev_promo.swf?currentTotal=<rsc:item row="<%=info%>" name="amount" format="0.00"/>">');
+                             document.write('<PARAM NAME=movie VALUE=/i/promos/software_dev_promo.swf?currentTotal=1,234');
                              document.write('<PARAM NAME=quality VALUE="high">');
                              document.write('<PARAM NAME=bgcolor VALUE="#FFFFFF">');
-                             document.write('<embed src="/i/promos/software_dev_promo.swf?currentTotal=<rsc:item row="<%=info%>" name="amount" format="0.00"/>&flashContentURL=flash_content/flash_content.html&altContentURL=upgrade_flash/upgrade_flash.html&contentVersion=6&contentMajorRevision=0&contentMinorRevision=79&allowFlashAutoInstall=false" quality=high width=170 height=120 border="0" salign="Top" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" name="myFlash" swLiveConnect="true" ></embed>');
+                             document.write('<embed src=/i/promos/software_dev_promo.swf?currentTotal=1,234 quality=high width=170 height=120 border="0" salign="Top" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" name="myFlash" swLiveConnect="true" ></embed>');
                              document.write('</object>');
                      }
                      // -->
