@@ -33,7 +33,7 @@
 </jsp:include>
 <!-- Top ends -->
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<table width="100%" border="1" cellpadding="0" cellspacing="0">
     <tr valign="top">
 
 <!-- Left Column Begins -->
@@ -52,24 +52,24 @@
         <td width="100%"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
         <jsp:include page="../body_top.jsp" >
            <jsp:param name="image" value="login"/>
-           <jsp:param name="image1" value="steelblue"/>
+           <jsp:param name="image1" value="white"/>
            <jsp:param name="title" value="Login"/>
         </jsp:include>
-            <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#001B35">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td class="bodyText" width="100%">
                         <p><%= message %></p>
                     </td>
                 </tr>
                <tr valign="top">
-                    <td class="statText" width="100%">
+                    <td class="bodyText" width="100%">
                         <img src="/i/clear.gif" alt="" width="380" height="1" border="0"/><br/>
-                        <p><span class="statTextBig">Forgot your password?</span><br/>
-                        If you cannot remember your password <A href="index?t=authentication&amp;c=recover_password" class="statText">click here</A>
+                        <p><b>Forgot your password?</b><br/>
+                        If you cannot remember your password <A href="index?t=authentication&amp;c=recover_password" class="bodyText">click here</A>
                         and we can send it to you via email.</p>
 
-                        <p><span class="statTextBig">New to TopCoder?</span><br/>
-                        <A class="statText" href="https://<jsp:getProperty name="sessionInfo" property="ServerName"/>/reg/index.jsp">Register now.</A>
+                        <p><b>New to TopCoder?</b><br/>
+                        <A class="bodyText" href="https://<jsp:getProperty name="sessionInfo" property="ServerName"/>/reg/index.jsp">Register now.</A>
                         After you complete the registration process, we will send your account activation code via email.</p>
                     </td>
                 </tr>
@@ -78,7 +78,7 @@
                   <form method="post" name="frmLogin" action="/">
                     <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= nextpage %>">
                     <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="Login">
-                    <td class="statText" align="center">
+                    <td class="bodyText" align="center">
                         <table border="0" cellpadding="3" cellspacing="0">
                            <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
 
