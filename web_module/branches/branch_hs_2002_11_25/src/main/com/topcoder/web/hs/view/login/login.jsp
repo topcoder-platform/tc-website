@@ -69,7 +69,7 @@ if(username==null) username = "";
     <TD CLASS="bodyText"><B>Handle</B><BR/><INPUT TYPE="text" NAME="username" VALUE="<%= username %>" SIZE="25"></TD>
 </TR>
 <TR>
-    <TD CLASS="bodyText"><B>Password</B><BR/><INPUT TYPE="password" NAME="password" SIZE="25"><BR/><INPUT TYPE="submit" VALUE="submit"><B><A HREF="javascript:document.loginform.submit()" CLASS="statTextBig">Login>></A></B></TD>
+    <TD CLASS="bodyText"><B>Password</B><BR/><INPUT TYPE="password" NAME="password" SIZE="25"><BR/><B><A HREF="javascript:document.loginform.submit()" CLASS="statTextBig">Login>></A></B></TD>
 </TR>
 </TABLE>
 </form>        <script> document.loginform.<%=username.equals("")?"username":"password"%>.focus(); </script>

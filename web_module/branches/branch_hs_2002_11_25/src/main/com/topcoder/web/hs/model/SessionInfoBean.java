@@ -63,7 +63,10 @@ public class SessionInfoBean implements Serializable {
         if(groups.contains("Admin")) setGroup('A');
         else if(groups.contains("Student")) setGroup('S');
         else if(groups.contains("Coach")) setGroup('C');
-        else setGroup('G');
+        else {
+            setGroup('G');
+            setHandle("");  // anonymous looks nameless to the jsps
+        }
 
         setSchoolId(-1);
         setRating(0);
