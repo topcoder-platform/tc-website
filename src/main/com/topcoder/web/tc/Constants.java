@@ -43,6 +43,9 @@ public class Constants {
     public static String PRIMARY_FLAG;
     public static String REVIEWER_TYPE_ID;
 
+    public static String TERMS;
+    public static String TERMS_AGREE;
+
     /* pages */
     public static String SURVEY_RESULTS;
     public static String SURVEY_VIEW;
@@ -80,6 +83,7 @@ public class Constants {
     public static String REVIEW_PROJECTS;
     public static String DESIGN_DETAIL;
     public static String DEVELOPMENT_DETAIL;
+    public static String REVIEWER_TERMS;
 
     /* misc constants */
     public static int SRM_SURVEY_QUESTION;
@@ -92,6 +96,7 @@ public class Constants {
     public static int DOT_NET_CATALOG_ID;
     public static int FLASH_CATALOG_ID;
     public static int MAX_INQUIRIES;
+    public static int REVIEWER_TERMS_ID;
 
 
     static {
