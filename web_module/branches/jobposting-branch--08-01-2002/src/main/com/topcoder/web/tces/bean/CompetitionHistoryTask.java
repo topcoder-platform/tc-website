@@ -140,6 +140,48 @@ public class CompetitionHistoryTask extends BaseTask implements Task, Serializab
             setMemberID(Integer.parseInt(value));
     }
     
+    /** Getter for property campaignID.
+     * @return Value of property campaignID.
+     */
+    public int getCampaignID() {
+        return cid;
+    }
+    
+    /** Setter for property campaignID.
+     * @param campaignID New value of property campaignID.
+     */
+    public void setCampaignID(int campaignID) {
+        cid = campaignID;
+    }
+    
+    /** Getter for property jobID.
+     * @return Value of property jobID.
+     */
+    public int getJobID() {
+        return jid;
+    }
+    
+    /** Setter for property jobID.
+     * @param jobID New value of property jobID.
+     */
+    public void setJobID(int jobID) {
+        jid = jobID;
+    }
+    
+    /** Getter for property memberID.
+     * @return Value of property memberID.
+     */
+    public int getMemberID() {
+        return mid;
+    }
+    
+    /** Setter for property memberID.
+     * @param memberID New value of property memberID.
+     */
+    public void setMemberID(int memberID) {
+        mid = memberID;
+    }
+    
     /** Getter for property competitionList.
      * @return Value of property competitionList.
      */
