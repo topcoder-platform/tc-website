@@ -93,7 +93,8 @@
                                                         the client would like to begin storing transfers and receipts in a
                                                         corporate database on a real-time basis as they are being scanned on
                                                         the Palm at the store.
-
+                                                        <br/>
+                                                        <br/>
                                                         In order to continue to support the current batch mode for some of their
                                                         stores while doing a staggering roll-out of the real-time applications,
                                                         the consolidated batch file that is currently processed by jobs into a
