@@ -68,7 +68,7 @@
             </table>
 
             <table border="0" cellspacing="0" cellpadding="3" width="100%">
-                <tr><td class="formHandleEven" colspan="4"><strong>Coder: </strong><A class="coderTextYellow" href="/stat?c=member_profile&amp;cr=309381"><font size="3"><strong>esessoms</strong></font></A></td></tr>
+                <tr><td class="formHandleEven" colspan="4"><strong>Coder: </strong><A class="coderTextYellow" href="/stat?c=member_profile&amp;cr=302018"><font size="3"><strong>Tomson</strong></font></A></td></tr>
 
                 <tr valign="top"><td class="bodyText" colspan="4"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td></tr>
 
@@ -82,38 +82,38 @@
 
                 <tr valign="top">
                     <td class="bodyText">Rating:</td>
-                    <td class="bodyText" align="right"><A href="/stat?c=ratings_history&amp;cr=309381"><strong>1664</strong></A></td>
+                    <td class="bodyText" align="right"><A href="/stat?c=ratings_history&amp;cr=302018"><strong>1638</strong></A></td>
                     <td class="bodyText"></td>
                 </tr>
 
                 <tr valign="top">
                     <td class="bodyText">Total Earnings for All Component Projects*:</td>
-                    <td class="bodyText" align="right"><strong>$0.00</strong></td>
+                    <td class="bodyText" align="right"><strong>$726.50</strong></td>
                     <td class="bodyText"></td>
                 </tr>
 
                  <tr valign="top">
                     <td class="bodyText">Project Name:</td>
-                    <td class="bodyText" align="right"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7311989"><strong>Priority Queue</strong></A></td>
+                    <td class="bodyText" align="right"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7324513"><strong>CSS Style Object</strong></A></td>
                     <td class="bodyText"></td>
                 </tr>
 
                 <tr valign="top">
                     <td class="bodyText">Total Submissions for this Project:</td>
-                    <td class="bodyText" align="right"><strong>3</strong></td>
+                    <td class="bodyText" align="right"><strong>1</strong></td>
                     <td class="bodyText"></td>
                 </tr>
 
                <tr valign="top">
                     <td class="bodyText">Review Board Score for this Project:</td>
-                    <td class="bodyText" align="right"><strong>89.88</strong></td>
+                    <td class="bodyText" align="right"><strong>86.7</strong></td>
                     <td class="bodyText"></td>
                 </tr>
 
                 <tr valign="top">
                     <td class="bodyText" colspan="3">
                         <p><strong>Review Board Comment:</strong><br />
-                        "Excellent submission that improves upon the original design, by abstracting common algorithms between queue implementations."&#151;<A href="/stat?c=member_profile&amp;cr=157582">msuhocki</A></p></td>
+                        "Overall it's a quality and clear design."&#151;<A href="/stat?c=member_profile&amp;cr=278595">seaniswise</A></p></td>
                 </tr>
                 
                 <tr valign="top"><td class="bodyText" colspan="4"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td></tr>
@@ -140,12 +140,28 @@
                 </tr>
                 
                 <tr valign="middle">
-                    <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=7338805" class="statText">Chart Rendering</a></td>
+                    <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=7351856" class="statText">.NET Simple Cache</a></td>
                     <td class="formHandleOdd" align="center">1</td>
+                    <td class="formHandleOdd" align="center"></td>
+                    <td class="formHandleOdd"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=304976"><strong>giginim</strong></a></td>
+                    <td class="formHandleOdd" align="center">75.3</td>
+                    <td class="formHandleOdd" align="right">$455.00&#160;&#160;</td>
+                </tr>
+                <tr valign="middle">
+                    <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=7324513" class="statText">CSS Style Object</a></td>
                     <td class="formHandleOdd" align="center">1</td>
-                    <td class="formHandleOdd"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=261390"><strong>Sharakan</strong></a></td>
-                    <td class="formHandleOdd" align="center">79.23</td>
-                    <td class="formHandleOdd" align="right">$0.00&#160;&#160;</td>
+                    <td class="formHandleOdd" align="center"></td>
+                    <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=302018"><strong>Tomson</strong></a></td>
+                    <td class="formHandleOdd" align="center">86.7</td>
+                    <td class="formHandleOdd" align="right">$726.50&#160;&#160;</td>
+                </tr>
+                <tr valign="middle">
+                    <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=5904558" class="statText">Generic Service</a></td>
+                    <td class="formHandleOdd" align="center">1</td>
+                    <td class="formHandleOdd" align="center"></td>
+                    <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=277356"><strong>aksonov</strong></a></td>
+                    <td class="formHandleOdd" align="center">90.73</td>
+                    <td class="formHandleOdd" align="right">$1,944.80&#160;&#160;</td>
                 </tr>
 
             </table>
@@ -169,83 +185,20 @@
                 </tr>
 
                 <tr valign="middle">
-                    <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=6529097" class="statText">Exif Image Utility</a></td>
-                    <td class="formHandleOdd" align="center">2</td>
-                    <td class="formHandleOdd" align="center">1</td>
-                    <td class="formHandleOdd"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=301504"><strong>opi</strong></a></td>
-                    <td class="formHandleOdd" align="center">83.72</td>
-                    <td class="formHandleOdd" align="right">$240.00&#160;&#160;</td>
-                </tr>
-
-                <tr valign="middle">
-                    <td class="formHandleEven"></td>
-                    <td class="formHandleEven" align="center"></td>
-                    <td class="formHandleEven" align="center">2</td>
-                    <td class="formHandleEven"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=000000"><strong>Tomson</strong></a></td>
-                    <td class="formHandleEven" align="center">82.98</td>
-                    <td class="formHandleEven" align="right">$571.50&#160;&#160;</td>
-                </tr>
-
-                <tr valign="middle">
-                    <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=5501537" class="statText">Java FTP</a></td>
+                    <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=7213295" class="statText">File Replace</a></td>
                     <td class="formHandleOdd" align="center">1</td>
                     <td class="formHandleOdd" align="center"></td>
-                    <td class="formHandleOdd"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=7218889"><strong>dbeutner</strong></a></td>
-                    <td class="formHandleOdd" align="center">86.49</td>
+                    <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=309786"><strong>Yi_Zhang</strong></a></td>
+                    <td class="formHandleOdd" align="center">81.96</td>
                     <td class="formHandleOdd" align="right">$0.00&#160;&#160;</td>
                 </tr>
 
                 <tr valign="middle">
-                    <td class="formHandleEven"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=5904397" class="statText">Spreadsheet Engine</a></td>
-                    <td class="formHandleEven" align="center">1</td>
-                    <td class="formHandleEven" align="center"></td>
-                    <td class="formHandleEven"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=299904"><strong>mishagam</strong></a></td>
-                    <td class="formHandleEven" align="center">88.98</td>
-                    <td class="formHandleEven" align="right">$0.00&#160;&#160;</td>
-                </tr>
-
-                <tr valign="middle">
-                    <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=7311989" class="statText">Priority Queue</a></td>
-                    <td class="formHandleOdd" align="center">3</td>
-                    <td class="formHandleOdd" align="center"></td>
-                    <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=309381"><strong>esessoms</strong></a></td>
-                    <td class="formHandleOdd" align="center">89.88</td>
-                    <td class="formHandleOdd" align="right">$0.00&#160;&#160;</td>
-                </tr>
-
-                <tr valign="middle">
-                    <td class="formHandleEven"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=4313168" class="statText">Data Access Object Generator</a></td>
-                    <td class="formHandleEven" align="center">1</td>
-                    <td class="formHandleEven" align="center"></td>
-                    <td class="formHandleEven"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=287614"><strong>argolite</strong></a></td>
-                    <td class="formHandleEven" align="center">84.79</td>
-                    <td class="formHandleEven" align="right">$1282.50&#160;&#160;</td>
-                </tr>
-
-                <tr valign="middle">
-                    <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=7323105" class="statText">Asynchronous Processing Wrapper</a></td>
-                    <td class="formHandleOdd" align="center">9</td>
+                    <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=3201991" class="statText">Socket Server Manager</a></td>
                     <td class="formHandleOdd" align="center">1</td>
-                    <td class="formHandleOdd"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=112438"><strong>PabloGilberto</strong></a></td>
-                    <td class="formHandleOdd" align="center">99.06</td>
-                    <td class="formHandleOdd" align="right">$60.00&#160;&#160;</td>
-                </tr>
-
-                <tr valign="middle">
-                    <td class="formHandleEven"></td>
-                    <td class="formHandleEven" align="center"></td>
-                    <td class="formHandleEven" align="center">2</td>
-                    <td class="formHandleEven"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=264803"><strong>Zimmy</strong></a></td>
-                    <td class="formHandleEven" align="center">93.60</td>
-                    <td class="formHandleEven" align="right">$120.00&#160;&#160;</td>
-                </tr>
-
-                <tr valign="middle">
-                    <td class="formHandleOdd"></td>
                     <td class="formHandleOdd" align="center"></td>
-                    <td class="formHandleOdd" align="center">3</td>
-                    <td class="formHandleOdd"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=154307"><strong>holmana</strong></a></td>
-                    <td class="formHandleOdd" align="center">92.01</td>
+                    <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=299904"><strong>opi</strong></a></td>
+                    <td class="formHandleOdd" align="center">94.83</td>
                     <td class="formHandleOdd" align="right">$0.00&#160;&#160;</td>
                 </tr>
 
