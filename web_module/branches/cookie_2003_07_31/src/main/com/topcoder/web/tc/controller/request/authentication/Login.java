@@ -59,6 +59,7 @@ public class Login extends Base {
                             } else if (Arrays.binarySearch(Activate.UNACTIVE_STATI, status)>0) {
                                 setNextPage(Constants.UNACTIVE);
                                 setIsNextPageInContext(true);
+                                return;
                             } else {
                                 throw new NavigationException("Invalid account status");
                             }

@@ -108,7 +108,7 @@
             <description></description>
         </init-param>
         <init-param>
-            <param-name>activate</param-name>
+            <param-name>unactive</param-name>
             <param-value>/authentication/unactive.jsp</param-value>
             <description></description>
         </init-param>
@@ -241,17 +241,6 @@
             <description></description>
         </init-param>
 
-        <!-- misc constants -->
-        <init-param>
-            <param-name>active_status</param-name>
-            <param-value>A</param-value>
-            <description></description>
-        </init-param>
-        <init-param>
-            <param-name>unactive_status</param-name>
-            <param-value>U</param-value>
-            <description></description>
-        </init-param>
     </servlet>
 
     <servlet>
