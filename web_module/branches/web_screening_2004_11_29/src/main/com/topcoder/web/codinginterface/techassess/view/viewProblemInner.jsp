@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.web.codinginterface.techassess.Constants,
-                 com.topcoder.web.common.StringUtils"%>
+                 com.topcoder.web.common.StringUtils,
+                 com.topcoder.web.codinginterface.CodingInterfaceConstants"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="/WEB-INF/tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="/WEB-INF/codinginterface.tld" prefix="ci" %>
@@ -78,7 +79,7 @@
                     <tc-webtag:hiddenInput name="<%=Constants.COMPONENT_ID%>" value="<%=String.valueOf(problemInfo.getComponentId())%>"/>
                     <tc-webtag:hiddenInput name="<%=Constants.PROBLEM_TYPE_ID%>" value="<%=String.valueOf(problemInfo.getProblemTypeId())%>"/>
                     <ci:argumentIterator problem="prob" language="language">
-                        <input type="hidden" name="arg<%=argumentIndex%>" value="" />
+                        <input type="hidden" name="<%=CodingInterfaceConstants.TEST_ARGUMENT_PREFIX+argumentIndex%>" value="" />
                     </ci:argumentIterator>
 
                     <table cellspacing=0 cellpadding=0 border=0 width="100%">

@@ -39,7 +39,7 @@ public class ArgumentIterator extends BodyTagSupport {
 
     public void setProblem(String problem) {
         this.problem = (Problem) pageContext.findAttribute(problem);
-        log.debug("problem set to " + this.problem);
+        //log.debug("problem set to " + this.problem);
         setArguments(this.problem);
     }
 
