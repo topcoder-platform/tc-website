@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ? 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
@@ -97,6 +97,16 @@ public class ScreenProject implements Model {
                     }
                 }
                 documentManager.saveScreeningScorecard(scorecard, user.getTCSubject());
+                
+                //needs to happen after the save so that the auto pilot sees the correct data
+                if(scorecard.isCompleted()) {
+                    //check autopilot logic - sending emails
+                    ResultData result = AutoPilot.screeningEmail(screeningData);
+                    if(!(result instanceof SuccessResult)) {
+                        return result;
+                    }
+                }
+                
                 return new SuccessResult();
             }
 
