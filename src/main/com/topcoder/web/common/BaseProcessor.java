@@ -19,6 +19,7 @@ public abstract class BaseProcessor implements RequestProcessor {
     protected static Logger log = Logger.getLogger(BaseProcessor.class);
     /* set by the creator */
     private TCRequest request;
+    private TCResponse response;
     private WebAuthentication auth;
 
     private InitialContext ctx;
@@ -42,6 +43,10 @@ public abstract class BaseProcessor implements RequestProcessor {
 
     public void setRequest(TCRequest request) {
         this.request = request;
+    }
+
+    public void setResponse(TCResponse response) {
+        this.response = response;
     }
 
     public void setAuthentication(WebAuthentication auth) {
@@ -198,11 +203,11 @@ public abstract class BaseProcessor implements RequestProcessor {
         return s == null ? "" : s;
     }
 
-    public WebAuthentication getAuthentication() {
+    protected WebAuthentication getAuthentication() {
         return auth;
     }
 
-    public TCRequest getRequest() {
+    protected TCRequest getRequest() {
         return request;
     }
 

@@ -8,7 +8,8 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.common.web.error.TCException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.common.TCRequestFactory;
+import com.topcoder.web.common.HttpObjectFactory;
+import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
@@ -94,9 +95,10 @@ public final class Navigation
     public Navigation(HttpServletRequest request, HttpServletResponse response) throws TCException {
         this();
         try {
-            TCRequest tcRequest = TCRequestFactory.createRequest(request);
+            TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+            TCResponse tcResponse = HttpObjectFactory.createResponse(response);
             WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(tcRequest.getSession()),
-                    tcRequest, response, BasicAuthentication.MAIN_SITE);
+                    tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
             PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
             TCSubject user = pmgr.getUserSubject(authentication.getActiveUser().getId());
             info = new CoderSessionInfo(tcRequest, authentication, user.getPrincipals());
@@ -108,8 +110,9 @@ public final class Navigation
     public Navigation(TCRequest request, HttpServletResponse response) throws TCException {
         this();
         try {
+            TCResponse tcResponse = HttpObjectFactory.createResponse(response);
             WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(request.getSession()),
-                    request, response, BasicAuthentication.MAIN_SITE);
+                    request, tcResponse, BasicAuthentication.MAIN_SITE);
             PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
             TCSubject user = pmgr.getUserSubject(authentication.getActiveUser().getId());
             info = new CoderSessionInfo(request, authentication, user.getPrincipals());

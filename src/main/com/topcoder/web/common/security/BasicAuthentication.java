@@ -2,7 +2,6 @@ package com.topcoder.web.common.security;
 
 import java.util.*;
 import java.security.*;
-import javax.servlet.*;
 import javax.servlet.http.*;
 import com.topcoder.security.*;
 import com.topcoder.security.admin.*;
@@ -13,12 +12,9 @@ import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.*;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCResponse;
 
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
 import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * Uses the TCS security component to process login requests, and HTTP cookies or a Persistor to store a User.
@@ -34,7 +30,7 @@ public class BasicAuthentication implements WebAuthentication {
 
     private Persistor persistor;
     private TCRequest request;
-    private HttpServletResponse response;
+    private TCResponse response;
     private User guest = SimpleUser.createGuest();
     private Resource defaultCookiePath;
 
@@ -47,11 +43,11 @@ public class BasicAuthentication implements WebAuthentication {
      * Construct an authentication instance backed by the given persistor
      * and HTTP request and response.
      */
-    public BasicAuthentication(Persistor userPersistor, TCRequest request, ServletResponse response) throws Exception {
+    public BasicAuthentication(Persistor userPersistor, TCRequest request, TCResponse response) throws Exception {
         this.defaultCookiePath = MAIN_SITE;
         this.persistor = userPersistor;
         this.request = request;
-        this.response = (HttpServletResponse) response;
+        this.response = response;
         log.debug("cookie path: " + defaultCookiePath.getName());
     }
 
@@ -59,10 +55,10 @@ public class BasicAuthentication implements WebAuthentication {
      * Construct an authentication instance backed by the given persistor
      * and HTTP request, response and cookie path resource.
      */
-    public BasicAuthentication(Persistor userPersistor, TCRequest request, ServletResponse response, Resource r) throws Exception {
+    public BasicAuthentication(Persistor userPersistor, TCRequest request, TCResponse response, Resource r) throws Exception {
         this.persistor = userPersistor;
         this.request = request;
-        this.response = (HttpServletResponse) response;
+        this.response = response;
         this.defaultCookiePath = r;
     }
 

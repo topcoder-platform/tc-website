@@ -4,14 +4,13 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.corp.Constants;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletConfig;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 
 public class MainServlet extends BaseServlet {
@@ -30,7 +29,7 @@ public class MainServlet extends BaseServlet {
     }
 
     protected WebAuthentication createAuthentication(TCRequest request,
-                                                     HttpServletResponse response) throws Exception {
+                                                     TCResponse response) throws Exception {
         return new BasicAuthentication(new SessionPersistor(request.getSession()), request, response, BasicAuthentication.CORP_SITE);
     }
 

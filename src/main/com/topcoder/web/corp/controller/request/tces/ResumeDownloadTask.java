@@ -4,7 +4,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.TCRequestFactory;
+import com.topcoder.web.common.HttpObjectFactory;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
@@ -36,7 +36,9 @@ public class ResumeDownloadTask extends BaseTask {
 
         /* User authorization checking */
         SessionPersistor persistor = new SessionPersistor(request.getSession(true));
-        WebAuthentication authToken = new BasicAuthentication(persistor, TCRequestFactory.createRequest(request), response, BasicAuthentication.CORP_SITE);
+        WebAuthentication authToken = new BasicAuthentication(persistor,
+                HttpObjectFactory.createRequest(request),
+                HttpObjectFactory.createResponse(response), BasicAuthentication.CORP_SITE);
 
         if (authToken.getActiveUser().isAnonymous()) {
             log.debug("User not logged in, can't download a file.");

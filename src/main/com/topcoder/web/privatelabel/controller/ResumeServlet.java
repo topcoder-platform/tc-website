@@ -56,7 +56,7 @@ public class ResumeServlet extends BaseServlet {
                     String processorName = PATH + (PATH.endsWith(".") ? "" : ".") + getProcessor(cmd);
 
                     log.debug("creating request processor for " + processorName);
-                    TCRequest tcRequest = TCRequestFactory.createRequest(request);
+                    TCRequest tcRequest = HttpObjectFactory.createRequest(request);
                     try {
                         SimpleResource resource = new SimpleResource(processorName);
                         if (hasPermission(null, resource)) { //not handing over an authentication object
@@ -73,8 +73,10 @@ public class ResumeServlet extends BaseServlet {
                 } catch (PermissionException pe) {
                     throw pe;
                 }
-                fetchRegularPage(request, response, rp.getNextPage(), rp.isNextPageInContext());
-                return;
+                if (!response.isCommitted()) {
+                    fetchRegularPage(request, response, rp.getNextPage(), rp.isNextPageInContext());
+                    return;
+                }
             } catch (Exception e) {
                 handleException(request, response, e);
             }

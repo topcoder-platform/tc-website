@@ -26,10 +26,7 @@ import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.common.TCRequestFactory;
+import com.topcoder.web.common.*;
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.NoSuchUserException;
 import com.topcoder.security.RolePrincipal;
@@ -141,7 +138,8 @@ public class TransactionServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        TCRequest tcRequest = TCRequestFactory.createRequest(req);
+        TCRequest tcRequest = HttpObjectFactory.createRequest(req);
+        TCResponse tcResponse = HttpObjectFactory.createResponse(resp);
         String op = req.getParameter(KEY_OPERATION);
         req.setAttribute(Constants.KEY_LINK_PREFIX, Util.appRootPage());
         WebAuthentication auth = null;
@@ -149,7 +147,7 @@ public class TransactionServlet extends HttpServlet {
         if (OP_TX_STATUS.equals(op)) {
             try {
                 SessionPersistor store = new SessionPersistor(req.getSession(true));
-                auth = new BasicAuthentication(store, tcRequest, resp, BasicAuthentication.CORP_SITE);
+                auth = new BasicAuthentication(store, tcRequest, tcResponse, BasicAuthentication.CORP_SITE);
                 String retPage = txStatus(req,auth);
                 req.getRequestDispatcher(retPage).forward(req, resp);
             } catch (Exception e) {
@@ -160,7 +158,7 @@ public class TransactionServlet extends HttpServlet {
         } else if (OP_TERMS.equals(op)) {
             try {
                 SessionPersistor store = new SessionPersistor(req.getSession(true));
-                auth = new BasicAuthentication(store, tcRequest, resp, BasicAuthentication.CORP_SITE);
+                auth = new BasicAuthentication(store, tcRequest, tcResponse, BasicAuthentication.CORP_SITE);
                 TCSubject tcUser = Util.retrieveTCSubject(auth.getActiveUser().getId());
                 Authorization authorization = new TCSAuthorization(tcUser);
 
@@ -232,14 +230,15 @@ public class TransactionServlet extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        TCRequest tcRequest = TCRequestFactory.createRequest(request);
+        TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+        TCResponse tcResponse = HttpObjectFactory.createResponse(response);
         String op = request.getParameter(KEY_OPERATION);
         request.setAttribute(Constants.KEY_LINK_PREFIX, Util.appRootPage());
         WebAuthentication auth = null;
         if (OP_TX_STATUS.equals(op)) {
             try {
                 SessionPersistor store = new SessionPersistor(request.getSession(true));
-                auth = new BasicAuthentication(store, tcRequest, response, BasicAuthentication.CORP_SITE);
+                auth = new BasicAuthentication(store, tcRequest, tcResponse, BasicAuthentication.CORP_SITE);
                 String retPage = txStatus(request,auth);
                 response.sendRedirect(retPage);
             } catch (Exception e) {
@@ -250,7 +249,7 @@ public class TransactionServlet extends HttpServlet {
         } else if (OP_TX_BEGIN.equals(op)) {
             try {
                 SessionPersistor store = new SessionPersistor(request.getSession(true));
-                auth = new BasicAuthentication(store, tcRequest, response, BasicAuthentication.CORP_SITE);
+                auth = new BasicAuthentication(store, tcRequest, tcResponse, BasicAuthentication.CORP_SITE);
                 TCSubject tcUser = Util.retrieveTCSubject(auth.getActiveUser().getId());
                 Authorization authorization = new TCSAuthorization(tcUser);
 

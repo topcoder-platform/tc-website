@@ -13,10 +13,7 @@ import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.corp.Util;
-import com.topcoder.web.common.SessionInfo;
-import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.common.TCRequestFactory;
+import com.topcoder.web.common.*;
 import com.topcoder.web.corp.controller.request.tces.Task;
 import com.topcoder.web.corp.common.TCESAuthenticationException;
 import com.topcoder.web.corp.common.TCESConstants;
@@ -91,7 +88,7 @@ public class TCESServlet extends HttpServlet {
         InitialContext ctx = null;
         SessionInfo info = null;
         try {
-            ctx = (InitialContext) TCContext.getInitial();
+            ctx = TCContext.getInitial();
 
             if (taskName != null && taskName.trim().length() > 0) {
 
@@ -102,9 +99,10 @@ public class TCESServlet extends HttpServlet {
                 SessionPersistor persistor = new SessionPersistor(
                         request.getSession(true)
                 );
-                TCRequest tcRequest = TCRequestFactory.createRequest(request);
+                TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+                TCResponse tcResponse = HttpObjectFactory.createResponse(response);
                 WebAuthentication authToken
-                        = new BasicAuthentication(persistor, tcRequest, response, BasicAuthentication.CORP_SITE);
+                        = new BasicAuthentication(persistor, tcRequest, tcResponse, BasicAuthentication.CORP_SITE);
 
                 TCSubject tcUser = Util.retrieveTCSubject(
                         authToken.getActiveUser().getId()

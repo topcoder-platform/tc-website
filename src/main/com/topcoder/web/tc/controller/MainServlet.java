@@ -3,7 +3,6 @@ package com.topcoder.web.tc.controller;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.common.TCRequestFactory;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.CoderSessionInfo;
@@ -14,7 +13,6 @@ import com.topcoder.common.web.data.Navigation;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
 import java.util.Set;
 import java.util.MissingResourceException;
 
