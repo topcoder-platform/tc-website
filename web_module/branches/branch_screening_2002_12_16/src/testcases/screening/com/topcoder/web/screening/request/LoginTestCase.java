@@ -12,6 +12,9 @@ import java.net.*;
 import java.io.*;
 import java.util.regex.*;
 
+import com.meterware.httpunit.*;
+import org.xml.sax.*;
+import org.w3c.dom.*;
 
 /**
  * @author Misha
@@ -22,6 +25,7 @@ public class LoginTestCase extends TestCase {
 	ServletRequestHelper request;
 	ServletResponse response;
 	User u;	
+	String loginStrUrl = "http://65.112.118.205/screening/screening?rp=Login&handle=&password=password&firstVisit=false";
  
 	public LoginTestCase(String name) {
 		super(name);
@@ -106,10 +110,9 @@ public class LoginTestCase extends TestCase {
 	}
 	
 	public void testLoginOverHttp() {
-		String strUrl = "http://65.112.118.205/screening/screening?rp=Login&handle=&password=password&firstVisit=false";
 		URL url;
 		try {
-			url = new URL(strUrl);
+			url = new URL(loginStrUrl);
 			HttpURLConnection con = (HttpURLConnection)url.openConnection();			
 			con.connect();
 			
@@ -126,9 +129,20 @@ public class LoginTestCase extends TestCase {
 			assertTrue(b);			
 		} catch (Exception e) {
 			System.out.println(e);
-			fail("Failed with exception: " +e);
+			fail("testLoginOverHttp() Failed with exception: " +e);
 		}
 		
+	}
+	public void testLoginHttpUnit() {
+		WebConversation con = new WebConversation();
+        WebRequest request = new GetMethodWebRequest(loginStrUrl);
+        
+        try {
+        	WebResponse response = con.getResponse( request );
+        	// checking that this is Login page
+        } catch (Exception e) {
+        	fail("There was exception " + e);
+        }		
 	}
 
 }
