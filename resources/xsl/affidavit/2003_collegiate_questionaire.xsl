@@ -16,7 +16,7 @@ Programmer Questionnaire</CENTER><BR/>
 <B><U>Career Questions</U></B><BR/><BR/>
     <FORM name="questForm" method="POST" action="/">
         <INPUT TYPE="hidden" NAME="t" VALUE="affidavit"/>
-        <INPUT TYPE="hidden" NAME="c" VALUE="submit_questions"/>
+        <INPUT TYPE="hidden" NAME="c" VALUE="2003_collegiate_submit_questions"/>
         <INPUT TYPE="hidden" NAME="q1" VALUE="What is your perception of the current job market for software developers/engineers?"/>
         &#160;&#160;1.&#160;&#160;
         What is your perception of the current job market for software developers/engineers? <BR/>
