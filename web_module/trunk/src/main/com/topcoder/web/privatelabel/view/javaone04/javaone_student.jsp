@@ -89,10 +89,7 @@
 
 						<p class="regmiddle">This offer is not valid for Web-based registration. Offer expires June 26, 2004. </p>
 
-						<p class="regmiddle">&#169;2004 Sun Microsystems, Inc. All rights reserved. Sun, Sun Microsystems, the Sun logo, Solaris, 
-						Java, the Java Coffee Cup logo, JavaOne, the JavaOne logo, Java Developer Conference, Java Community Process, J2EE, J2ME, 
-						J2SE, Java Compatible, Write Once, Run Anywhere, and all Java based marks and logos are trademarks or registered trademarks 
-						of Sun Microsystems, Inc. in the United States and other countries.</p>
+
 					
 					
 					</td>

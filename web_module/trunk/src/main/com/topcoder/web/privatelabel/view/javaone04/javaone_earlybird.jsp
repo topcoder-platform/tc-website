@@ -77,11 +77,6 @@
 
 						<p class="regmiddle">We look forward to seeing you in San Francisco this June! </p>
 
-						<p class="regmiddle">&#169;2004 Sun Microsystems, Inc. All rights reserved. Sun, Sun Microsystems, the Sun logo, Java, 
-						the Java Coffee Cup logo, JavaOne, the JavaOne logo, Java Developer Conference, Java Community Process, Java 2, 
-						EmbeddedJava, PersonalJava, 100% Pure Java, J2EE, J2ME, J2SE, Jini, Jiro, Solaris, Write Once, Run Anywhere, 
-						and all Java-based marks and logos are trademarks or registered trademarks of Sun Microsystems, Inc. in the 
-						United States and other countries.</p>
 						
 					
 					

@@ -18,7 +18,7 @@
  		</td>
  		
 		<td width="480" height="100">
- 		<font size="2" face="FONT-FAMILY: Arial, Geneva, Verdana, Helvetica, sans-serif;"><A HREF="http://www.sun.com/share/text/SMICopyright.html" target="_new" class="footerLink">Copyright</A> &#169; 1996-2004 
+ 		<font size="1" face="FONT-FAMILY: Arial, Geneva, Verdana, Helvetica, sans-serif;"><A HREF="http://www.sun.com/share/text/SMICopyright.html" target="_new" class="footerLink">Copyright</A> &#169; 1996-2004 
  		<A HREF="http://www.sun.com/" target="_new" class="footerLink">Sun Microsystems Inc.</A>&nbsp;&nbsp;All Rights Reserved.&nbsp;&nbsp;
  		<A HREF="http://www.sun.com/share/text/termsofuse.html" target="_new" class="footerLink">Terms of Use</A>.&nbsp;&nbsp;
  		<A HREF="http://www.sun.com/privacy/" target="_new" class="footerLink">Privacy Policy</A>.
@@ -36,9 +36,9 @@
     	MediaLive International is a trademark owned or used under license by MediaLive International, Inc.<br/></font>
  		</td>
  		
- 		 <td width="144" height="100" valign="TOP"> 
-  		<a href="http://www.medialiveinternational.com" target="_new"><img src="/i/events/javaone04/logo_medialive.gif" alt="MediaLive International" width="122" height="50" border="0" vspace="5"></a><br><br>
-  		<a href="http://www.pedersen.com" target="_new"><img src="/i/events/javaone04/logo_pedersen.gif" alt="Pedersen Media Group" width="122" height="57" border="0"></a>
+ 		 <td width="144" height="100" valign="middle"> 
+  		<a href="http://www.medialiveinternational.com" target="_new"><img src="/i/events/javaone04/logo_medialive.gif" alt="MediaLive International" width="122" height="50" border="0" vspace="5"></a>
+  		
  		</td>
 	</tr>
 </table>
