@@ -736,7 +736,7 @@
 
         <init-param>
             <param-name>candidate_email</param-name>
-            <param-value>candidateEmail</param-value>
+            <param-value>candidateEmailInfo</param-value>
             <description></description>
         </init-param>
 
