@@ -91,6 +91,10 @@
 		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>		
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.24.02</TD><TD VALIGN="middle" CLASS="bodyText">TopCoder Staff</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=statistics&amp;c=2002tccc_feature" CLASS="bodyGeneric">A Matter of Time</A></TD></TR>
             </TABLE>
+<P>
+Have an interesting human interest story idea for the weekly feature?  Please send to <A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">editorial@topcoder.com</A>
+</P>
+            
 <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
