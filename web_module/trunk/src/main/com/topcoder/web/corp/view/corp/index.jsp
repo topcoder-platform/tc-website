@@ -12,7 +12,7 @@
 <jsp:include page="includes/css.jsp" />
 
 <script language="JavaScript" type="text/javascript" src="/js/script.js"></script>
-<jsp:getProperty name="sessionInfo" property="ServletPath"/>
+<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" />
 </head>
 
 <body>
