@@ -78,7 +78,7 @@ public class UpdateSession extends BaseSessionProcessor {
                 Constants.SESSION_SEGMENT_COMMAND);
         dataRequest.setProperty("sid", String.valueOf(sessionId));
 
-        DataAccessInt access = getDataAccess();
+        DataAccessInt access = getDataAccess(Constants.TX_DATA_SOURCE, false);
 
         Map map = access.getData(dataRequest);
 
