@@ -46,8 +46,8 @@
             <P>Welcome to TopCoder High School, a site developed for high school students who are already interested in computer science.</P>
             <P><B>There is no cost to sign up or compete.</B></P>
   <FORM ACTION="http://highschool.topcoder.com" METHOD="post" NAME="regForm" >
-  <table width="400" border="0" cellspacing="0" cellpadding="5" align="center">
     <INPUT TYPE="hidden" NAME="c" VALUE="hs_reg_email"/>
+  <table width="400" border="0" cellspacing="0" cellpadding="5" align="center">
     <tr>
         <td colspan="2" class="bodyText" align="center" valign="middle"><B>All fields are required</B></td>
     </tr>
@@ -93,7 +93,7 @@
     </tr>
     <tr  valign="middle">
         <td colspan="2" align="center" valign="middle" class="bodyText" ALIGN="center">
-        <input type="button" onClick="Javascript:submitForm();" name="submit" value="Submit">
+        <input type="button" onClick="Javascript:submitForm();" name="go" value="Submit">
         </td>
     </tr>
   </table>
