@@ -276,7 +276,7 @@
             <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
                 <tr valign="middle">
                     <td class="statText">
-                        <p><strong>Lightweigh Model View Controller</strong><br />
+                        <p><strong>Lightweight Model View Controller</strong><br />
                          Framework to facilitate the Model-View-Controller design paradigmn.  Check out <a href="http://software.topcoder.com/pages/c_component.jsp?comp=3300831" target="parent" class="statText">Lightweight Model View controller</a> on the TopCoder Software web site.</p>
 
 
