@@ -11,7 +11,7 @@
             <img src="/i/left_nav_top.gif" width="170" height="11" border="0" alt=""><br>
 
             <table width="170" cellspacing="0" cellpadding="0" border="0">
-                <tr><td id="myServicesTitle">My Services</td></tr>
+                <tr><td id="myServicesTitle">Corporate Services</td></tr>
 
 
 <!-- Candidate Testing begins-->
@@ -62,7 +62,7 @@
                 <tr><td id="myServicesTitle">Company Information</td></tr>
 
 <!-- About Corporate Services begins -->
-                <tr><td id="<%=level1.equals("about")?(level2.equals("index")?"myServicesNavSelect":"myServicesNavOn"):"myServicesNav"%>"><img src="/i/nav_arrow_<%=level1.equals("about")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=about&d3=index" class="corpLeft">About Corporate Services</a></td></tr>
+                <tr><td id="<%=level1.equals("about")?(level2.equals("index")?"myServicesNavSelect":"myServicesNavOn"):"myServicesNav"%>"><img src="/i/nav_arrow_<%=level1.equals("about")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=about&d3=index" class="corpLeft">About TopCoder</a></td></tr>
 <% if (level1.equals("about")) { %>
                 <tr><td id="<%=level2.equals("privacy")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=about&d3=privacy" target="_parent" class="corpLeft">Privacy</a></td></tr>
                 <tr><td id="<%=level2.equals("terms")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=about&d3=terms" target="_parent" class="corpLeft">Terms</a></td></tr>
