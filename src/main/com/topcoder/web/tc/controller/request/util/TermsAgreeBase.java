@@ -34,7 +34,7 @@ abstract class TermsAgreeBase extends TermsBase {
                     if (!isRegistered()) {
                         if (isEligible()) {
                             log.info("registering " + getUser().getId() + " for the " + getEventName());
-                            userTerms.createUserTermsOfUse(getUser().getId(), Constants.TCCC04_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME);
+                            userTerms.createUserTermsOfUse(getUser().getId(), getTermsId(), DBMS.OLTP_DATASOURCE_NAME);
                         } else {
                             throw new NavigationException("You are not eligible to register for the " + getEventName());
                         }
