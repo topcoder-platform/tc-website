@@ -6,12 +6,10 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.web.tc.model.ProblemRatingQuestion;
+import com.topcoder.web.tc.model.ProblemRatingDistribution;
 import com.topcoder.web.tc.model.ProblemRatingResult;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 abstract public class PRBase extends Base {
 
@@ -31,7 +29,7 @@ abstract public class PRBase extends Base {
         if(problemName.size()==0){
             throw new Exception("Problem not yet used, or non-existent.");
         }
-        getRequest().setAttribute("problemRatingResults",questions);
+        getRequest().setAttribute("problemRatingResults",buildResultList(questions));
         getRequest().setAttribute("problemName",problemName.getRow(0).getStringItem("name"));
 
         //get the info for the distribution graphs
@@ -39,9 +37,9 @@ abstract public class PRBase extends Base {
         List div1 = getDistributionList(getDataAccess().getData(r), "div1_problem_rating_distribution");
         List div2 = getDistributionList(getDataAccess().getData(r), "div2_problem_rating_distribution");
 
-        ProblemRatingResult overallAvg = avg(overall);
-        ProblemRatingResult div1Avg = avg(div1);
-        ProblemRatingResult div2Avg = avg(div2);
+        ProblemRatingDistribution overallAvg = avg(overall);
+        ProblemRatingDistribution div1Avg = avg(div1);
+        ProblemRatingDistribution div2Avg = avg(div2);
 
         overallAvg.setName("overallAll");
         div1Avg.setName("overallDiv1");
@@ -109,10 +107,10 @@ abstract public class PRBase extends Base {
         ResultSetContainer.ResultSetRow row = null;
 
         List ret = new ArrayList(rsc.size());
-        ProblemRatingResult result = null;
+        ProblemRatingDistribution result = null;
         for (Iterator it = rsc.iterator(); it.hasNext();) {
             row = (ResultSetContainer.ResultSetRow)it.next();
-            result = new ProblemRatingResult();
+            result = new ProblemRatingDistribution();
             result.setName(row.getStringItem("name"));
             ArrayList frequencies = new ArrayList(10);
             for (int i=1; i<11; i++) {
@@ -125,21 +123,26 @@ abstract public class PRBase extends Base {
     }
 
 
-    protected static ProblemRatingResult avg(List list) {
+    /**
+     * figure out the average distribution given a list
+     * @param list
+     * @return
+     */
+    protected static ProblemRatingDistribution avg(List list) {
         int[] sums;
         if (!list.isEmpty())
-            sums =  new int[((ProblemRatingResult)list.get(0)).getFrequencies().size()];
+            sums =  new int[((ProblemRatingDistribution)list.get(0)).getFrequencies().size()];
         else sums = new int[0];
-        ProblemRatingResult pr = null;
+        ProblemRatingDistribution pr = null;
         //go through each question
         for (int k=list.size(); --k>=0;) {
-            pr = (ProblemRatingResult) list.get(k);
+            pr = (ProblemRatingDistribution) list.get(k);
             //go through each question's distribution of responses
             for (int i=pr.getFrequencies().size(); --i>=0;) {
                 sums[i]+=((Number)pr.getFrequencies().get(i)).intValue();
             }
         }
-        ProblemRatingResult ret = new ProblemRatingResult();
+        ProblemRatingDistribution ret = new ProblemRatingDistribution();
         List freqs = new ArrayList(sums.length);
         //generate an average of the distributions
         for (int i=0; i<sums.length; i++) {
@@ -149,5 +152,49 @@ abstract public class PRBase extends Base {
         return ret;
     }
 
+    protected static List buildResultList(ResultSetContainer rsc) {
+        ResultSetContainer.ResultSetRow row = null;
+        ArrayList ret = new ArrayList(rsc.size()+1);
+        int[] counts = new int[rsc.size()];
+        float[] avgs = new float[rsc.size()];
+        Arrays.fill(counts, 0);
+        Arrays.fill(avgs, 0.0f);
+        ProblemRatingResult prr = null;
+        //build the data up to take a weighted average of the ratings
+        //weighted by number of responses per question
+        for (Iterator it = rsc.iterator(); it.hasNext();) {
+            row = (ResultSetContainer.ResultSetRow)it.next();
+            prr = makeResult(row);
+            ret.add(prr);
+            counts[0]+=prr.getOverallCount().intValue();
+            counts[1]+=prr.getDiv1Count().intValue();
+            counts[2]+=prr.getDiv2Count().intValue();
+            avgs[0]+=prr.getOverallAverage().floatValue()*prr.getOverallCount().intValue();
+            avgs[1]+=prr.getDiv1Average().floatValue()*prr.getDiv1Count().intValue();
+            avgs[2]+=prr.getDiv2Average().floatValue()*prr.getDiv2Count().intValue();
+        }
+        ProblemRatingResult overall = new ProblemRatingResult();
+        overall.setOverallCount(counts[0]);
+        overall.setDiv1Count(counts[1]);
+        overall.setDiv2Count(counts[2]);
+        overall.setOverallAverage(avgs[0]/counts[0]);
+        overall.setDiv1Average(avgs[1]/counts[1]);
+        overall.setDiv2Average(avgs[2]/counts[2]);
+        overall.setQuestion("Overall");
+        ret.add(overall);
+        return ret;
+    }
+
+    protected static ProblemRatingResult makeResult(ResultSetContainer.ResultSetRow row) {
+        ProblemRatingResult ret = new ProblemRatingResult();
+        ret.setDiv1Average(row.getFloatItem("div1_average"));
+        ret.setDiv1Count(row.getIntItem("div1_count"));
+        ret.setDiv2Average(row.getFloatItem("div2_average"));
+        ret.setDiv2Count(row.getIntItem("div2_count"));
+        ret.setOverallCount(row.getIntItem("count"));
+        ret.setOverallAverage(row.getFloatItem("average"));
+        ret.setQuestion(row.getStringItem("question"));
+        return ret;
+    }
 
 }
