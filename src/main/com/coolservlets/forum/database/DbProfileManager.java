@@ -82,7 +82,7 @@ public class DbProfileManager implements ProfileManager {
 
     private static final boolean cacheEnabled = true;
 
-    private Cache userCache = new Cache();
+    private Cache userCache = new Cache(true);
     private Map userIDMap = Collections.synchronizedMap(new HashMap());
     private User anonymousUser = null;
     private User specialUser = null;
