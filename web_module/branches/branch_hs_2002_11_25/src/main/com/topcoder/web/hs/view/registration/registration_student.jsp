@@ -38,7 +38,7 @@
   <TR>
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">First Name&nbsp;</TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><INPUT TYPE="text" NAME="firstName" VALUE="<jsp:getProperty name="student" property="FirstName"/>" SIZE="30" MAXLENGTH="30"></TD>
+   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><INPUT TYPE="text" NAME="first_name" VALUE="<jsp:getProperty name="student" property="FirstName"/>" SIZE="30" MAXLENGTH="30"></TD>
   </TR>
   <TR>
    <TD></TD>
@@ -48,7 +48,7 @@
   <TR ALIGN="right" VALIGN="middle">
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Last Name&nbsp;</TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><INPUT TYPE="text" NAME="lastName" VALUE="<jsp:getProperty name="student" property="LastName"/>" SIZE="30" MAXLENGTH="30"></TD>
+   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><INPUT TYPE="text" NAME="last_name" VALUE="<jsp:getProperty name="student" property="LastName"/>" SIZE="30" MAXLENGTH="30"></TD>
   </TR>
   <TR>
    <TD></TD>
