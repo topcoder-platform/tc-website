@@ -61,6 +61,10 @@
 <!-- 2004 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2004</font></td></tr>
 
+                            <tr><td class="newsText"><A href="/?&amp;t=news_events&amp;c=art_10_19_04">Google holds coding contest</A> [October 19 - SJ Mercury]</td></tr>
+
+                            <tr><td class="newsText"><A href="/i/pressroom/tendances_tomek.pdf">Dream Job and Juicy Premiums for Young, Crackshot Programmers</A> [Translation] [October]</td></tr>
+
                             <tr><td class="newsText"><A href="http://www.newsforge.com/article.pl?sid=04/09/30/187225" target="_blank">Coders win, winners code</A> [October 5 - NewsForge]</td></tr>
 
                             <tr><td class="newsText"><A href="/?&amp;t=news_events&amp;c=art_10_03_04">Triple Threat</A> [October - Software Development Magazine]</td></tr>
