@@ -85,12 +85,14 @@
                         <A HREF="<jsp:getProperty name="CompetitionHistoryTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_SUBMISSIONS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CompetitionHistoryTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=CompetitionHistoryTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=CompetitionHistoryTask.getMemberID()%>" class="bodyText">Coder Problem Submissions</A>
                     </td>
                 </tr>
-            </table>             
-             
+            </table>
+
             <h2>Coder Competition History</h2>
-                        
+
             <p>
+                <% if (!CompetitionHistoryTask.isRestrictedCampaign(CompetitionHistoryTask.getCampaignID())) {%>
                 <A HREF="JavaScript:getGraph('/corp/graph/?c=rating_history_graph&cr=<jsp:getProperty name="CompetitionHistoryTask" property="MemberID"/>&cm=<jsp:getProperty name="CompetitionHistoryTask" property="CompanyId"/>','800','600','history')" class="bodyText">Rating History Graph</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+                <% } %>
                 <A HREF="JavaScript:getGraph('/corp/graph/?c=rating_distribution_graph&cm=<jsp:getProperty name="CompetitionHistoryTask" property="CompanyId"/>','600','400','distribution')" class="bodyText">Overall Rating Distribution Graph</a>
             </p>
              
