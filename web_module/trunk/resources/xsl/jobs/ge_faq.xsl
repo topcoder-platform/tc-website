@@ -262,7 +262,6 @@
 <P><B>What benefits does GE offer?</B></P>
 <A HREF="http://www.gecareers.com/AboutGE/e_ben.cfm">GE Benefits </A>
 
-<A HREF="#top" CLASS="bodyText">top of page</A>
 
 <!--end contextual links-->
 
