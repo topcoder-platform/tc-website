@@ -4,7 +4,7 @@
           java.text.*,
           com.coolservlets.forum.*,
           com.coolservlets.forum.util.*"
-  errorPage="error.jsp"
+  errorPage="errorPage.jsp"
 %>
 
 <%  ////////////////

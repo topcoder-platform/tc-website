@@ -1,11 +1,6 @@
 <%@  page   
-
   contentType="text/html"
-
   buffer="512"
-
-  autoflush="true"
-
 %>
 
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">

@@ -311,7 +311,7 @@
         + "administrator and bug him/her.";
     }
     request.setAttribute("message",errorMessage);
-    response.sendRedirect("error.jsp");
+    response.sendRedirect("errorPage.jsp");
     return;
   }
 %>

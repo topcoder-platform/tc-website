@@ -170,7 +170,7 @@
         errorMessage = "General error occured. Please contact the "
           + "administrator and bug him/her.";
       }
-      response.sendRedirect("error.jsp?msg="+ URLEncoder.encode(errorMessage));
+      response.sendRedirect("errorPage.jsp?msg="+ URLEncoder.encode(errorMessage));
     }
     boolean doCreate = ParamUtils.getBooleanParameter(request, "doCreate");
     //Check to see if we're actually submitting a message.
@@ -180,14 +180,14 @@
         currentUser = forumFactory.getProfileManager().getUser(authToken.getUserID());
       } catch( UserNotFoundException unfe ) {
         unfe.printStackTrace();
-        response.sendRedirect("error.jsp?msg="+ URLEncoder.encode("User not found"));
+        response.sendRedirect("errorPage.jsp?msg="+ URLEncoder.encode("User not found"));
       }
       ForumMessage newMessage = null;
       try {
         newMessage = forum.createMessage(currentUser);
       } catch( UnauthorizedException ue ) {
         ue.printStackTrace();
-        response.sendRedirect("error.jsp?msg="+ URLEncoder.encode("User not authorized to create message."));
+        response.sendRedirect("errorPage.jsp?msg="+ URLEncoder.encode("User not authorized to create message."));
       }
       String newSubject = ParamUtils.getParameter(request, "subject");
       String newBody = ParamUtils.getParameter(request, "body");
@@ -196,7 +196,7 @@
         newMessage.setBody(newBody);
       } catch( UnauthorizedException ue ) {
         ue.printStackTrace();
-        response.sendRedirect("error.jsp?msg="+ URLEncoder.encode("User not authorized to create message."));
+        response.sendRedirect("errorPage.jsp?msg="+ URLEncoder.encode("User not authorized to create message."));
       }
 
       // check again to make sure they are logged in before posting a message

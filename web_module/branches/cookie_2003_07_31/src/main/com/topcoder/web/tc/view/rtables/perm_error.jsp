@@ -1,10 +1,4 @@
-<%-- 
-/**
- *  perm_error.jsp
- */
---%>
-
-<%@  page 
+<%@  page
   language="java"
   import="com.coolservlets.forum.*,
           com.coolservlets.forum.util.*"%>
