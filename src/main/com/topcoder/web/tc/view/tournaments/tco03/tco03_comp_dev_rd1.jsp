@@ -47,9 +47,9 @@
 </jsp:include>
 
             <h2>Advancers</h2>
-            <div align="right" class="bodyText"><A href="/tc?module=Static&d1=tco03&d2=tco03_comp_des_rd1">Design</A>&#160;&#160;|&#160;&#160;Development</div>
+            <div align="right" class="bodyText"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_comp_des_rd1">Design</A>&#160;&#160;|&#160;&#160;Development</div>
             <br/>
-            
+
     <!-- Design Winners Begins -->
             <table border="0" cellspacing="0" cellpadding="3" width="500" align="center">
                 <tr valign="middle">
@@ -65,7 +65,7 @@
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="30%" align="right">Round Scores</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="15%" align="right">Tournament Earnings</td>
                 </tr>
-                
+
                 <tr valign="middle">
                     <td class="formHandleOdd" align="center">1</td>
                     <td class="formHandleOdd" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=154579">Altrag</a></td>
@@ -117,9 +117,9 @@
                 <tr valign="middle"><td background="/i/graybv_bg.gif" class="statTextLarge" width="20%" align="left" colspan="5">*the average of the two highest scores, including at least one level II score</td></tr>
 
             </table>
-           
+
            <br/><br/>
-            
+
             <table border="0" cellspacing="0" cellpadding="3" width="500" align="center">
                 <tr valign="middle">
                     <td class="statTextLarge" bgcolor="#999999"><font size="3">Development Wild Card Pool</font></td>
@@ -134,7 +134,7 @@
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="30%" align="right">Round Scores</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="15%" align="right">Tournament Earnings</td>
                 </tr>
-                
+
                 <tr valign="middle">
                     <td class="formHandleOdd" align="center">1</td>
                     <td class="formHandleOdd" align="left"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=154307">holmana</a></td>
@@ -281,7 +281,7 @@
 
                 <tr valign="middle"><td background="/i/graybv_bg.gif" class="statTextLarge" width="20%" align="left" colspan="5">*the average of the two highest scores, including at least one level II score</td></tr>
 
-            </table>            
+            </table>
 
 
            <br/><br/>
@@ -300,7 +300,7 @@
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="20%">Winner(s)</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="15%" align="right">Board&#160;Score</td>
                 </tr>
-                
+
                 <tr valign="middle">
                     <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=6526755" class="statText" target="_blank">.NET Command Line Utility</a></td>
                     <td class="formHandleOdd" align="center">3</td>
@@ -322,7 +322,7 @@
                     <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=302018">Tomson</a></td>
                     <td class="formHandleOdd" align="right">74.39</td>
                 </tr>
-            
+
                 <tr valign="middle">
                     <td class="formHandleEven"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=4312547" class="statText" target="_blank">API Version Compatibility</a></td>
                     <td class="formHandleEven" align="center">1</td>
@@ -330,7 +330,7 @@
                     <td class="formHandleEven"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=273428">rbnn</a></td>
                     <td class="formHandleEven" align="right">71.91</td>
                 </tr>
-            
+
                 <tr valign="middle">
                     <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=7289752" class="statText" target="_blank">Complex Number</a></td>
                     <td class="formHandleOdd" align="center">10</td>
@@ -401,7 +401,7 @@
                     <td class="formHandleEven"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7398059">Jiggly</a></td>
                     <td class="formHandleEven" align="right">76.50</td>
                 </tr>
-            
+
                 <tr valign="middle">
                     <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=6401733" class="statText" target="_blank">Date Utility</a></td>
                     <td class="formHandleOdd" align="center">1</td>
@@ -409,7 +409,7 @@
                     <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=277356">aksonov</a></td>
                     <td class="formHandleOdd" align="right">86.78</td>
                 </tr>
-            
+
                 <tr valign="middle">
                     <td class="formHandleEven"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=5903352" class="statText" target="_blank">HTTP Listener</a></td>
                     <td class="formHandleEven" align="center">1</td>
@@ -417,7 +417,7 @@
                     <td class="formHandleEven"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=151920">Khristopher</a></td>
                     <td class="formHandleEven" align="right">84.12</td>
                 </tr>
-            
+
                 <tr valign="middle">
                     <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=5800322" class="statText" target="_blank">NNTP Client</a></td>
                     <td class="formHandleOdd" align="center">4</td>

@@ -53,13 +53,13 @@
             A total of 500 TopCoder members will compete in Online Round 1.  The field will be comprised of 100 automatic
             berths and 400 qualification spots.</p>
 
-            <p>Click <a href="/tc?module=Static&d1=tco03&d2=tco03_schedule#berths">here</a> for more details regarding the automatic berths
+            <p>Click <a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_schedule#berths">here</a> for more details regarding the automatic berths
             and qualification spots.</p><br />
 
 <!-- Online Elimination Rounds -->
             <p><span class="bodySubtitle">Online Elimination Rounds</span><br />
             Everyone who competes in an online round must log on to the TopCoder Competition Arena no later than ten minutes prior to
-            the start of the online round. (Click <a href="/tc?module=Static&d1=tco03&d2=tco03_schedule#sched">here</a> for competition dates and times.)
+            the start of the online round. (Click <a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_schedule#sched">here</a> for competition dates and times.)
             TopCoder members from around the world may be
             participating in these rounds, but all start times will be communicated as Eastern Time, so contestants in different time zones
             must adjust accordingly. If a coder does not participate, for any reason, in an online round they have advanced to, it will be
@@ -103,28 +103,28 @@
             </ul>
 
             <p><span class="bodySubtitle">Onsite Semifinal and Championship Rounds</span><br/>
-            The sixteen (16) advancers from Online Round #4 will travel to Mohegan Sun on Wednesday, December 3rd to compete 
-            in the Semifinal round of the tournament being held on Thursday, December 4th.  All contestants must arrive at Mohegan 
-            Sun no later than 4:00 PM on Wednesday, December 3rd.  If a contestant is unable to attend the onsite rounds, he/she will 
-            forfeit his/her eligibility to receive a prize, and his/her spot in the tournament will be given to the next highest overall 
-            scorer from Online Round #4.  
+            The sixteen (16) advancers from Online Round #4 will travel to Mohegan Sun on Wednesday, December 3rd to compete
+            in the Semifinal round of the tournament being held on Thursday, December 4th.  All contestants must arrive at Mohegan
+            Sun no later than 4:00 PM on Wednesday, December 3rd.  If a contestant is unable to attend the onsite rounds, he/she will
+            forfeit his/her eligibility to receive a prize, and his/her spot in the tournament will be given to the next highest overall
+            scorer from Online Round #4.
             <br/><br/>
-            TopCoder will provide travel arrangements for each competitor and a guest of his/her choice, up to a cost of $1,000 per 
-            person.  (That is, if a contestant's airfare is greater than $1,000, the contestant will be responsible for the difference 
-            between the cost of the airfare and $1,000.)  In addition, TopCoder will also provide travel arrangements to and from the 
-            airport to the Mohegan Sun Casino and accommodations and certain meals for each contestant and his/her guest.  All other 
-            expenses are the responsibility of the contestant and his/her guest.  
+            TopCoder will provide travel arrangements for each competitor and a guest of his/her choice, up to a cost of $1,000 per
+            person.  (That is, if a contestant's airfare is greater than $1,000, the contestant will be responsible for the difference
+            between the cost of the airfare and $1,000.)  In addition, TopCoder will also provide travel arrangements to and from the
+            airport to the Mohegan Sun Casino and accommodations and certain meals for each contestant and his/her guest.  All other
+            expenses are the responsibility of the contestant and his/her guest.
             <br/><br/>
-            TopCoder will determine the room assignments for the Semifinal rooms prior to the start of each Semifinal round, in a 
+            TopCoder will determine the room assignments for the Semifinal rooms prior to the start of each Semifinal round, in a
             manner such that the average competitor rating (as of October 6th) for each room will be similar.  Click
-            <A href="/tc?module=Static&d1=tco03&d2=tco03_schedule">here</A> for the schedule.
+            <A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_schedule">here</A> for the schedule.
             <br/><br/>
-            The Semifinal Round will consist of four (4) rooms of four (4) coders each. The winner in each room will advance to the 
+            The Semifinal Round will consist of four (4) rooms of four (4) coders each. The winner in each room will advance to the
             Championship Round.
             <br/><br/>
-            The Championship Round will be a single round of four (4) coders. First, second, third and fourth place in the Championship 
-            round are determined by comparing the total points of each coder, with the highest point value placing first. The winner of 
-            the Championship Round will be the coder with the highest point total for the round. In the event of a tie in the Semifinal 
+            The Championship Round will be a single round of four (4) coders. First, second, third and fourth place in the Championship
+            round are determined by comparing the total points of each coder, with the highest point value placing first. The winner of
+            the Championship Round will be the coder with the highest point total for the round. In the event of a tie in the Semifinal
             and/or Championship rounds, the tie will be resolved in the following manner (in order):
             <ul>
             <li>Total points acquired (higher is better) during Online Rounds #1, #2, #3 and #4 of the 2003 TopCoder Open</li>
@@ -135,7 +135,7 @@
             </ul>
             </ul>
             </p>
-            
+
             <p><strong>NOTE:</strong>  In the event of a tie for any advancing position (i.e. room winner or
             wildcard spot), the tie will be resolved in the following manner:</p>
 
@@ -179,7 +179,7 @@
             displayed for at least 3 months after the end of the tournament.</p>
 
             <p>Any appeals as to the outcome of a round of competition must be submitted via email to <A href="mailto:service@topcoder.com" class="bodyText">service@topcoder.com</A> by no later than 11:00 AM Eastern Time on the date following the round for which the appeal is being addressed.</p>
-            
+
             <p>This tournament is brought to you by TopCoder, Inc. (http://www.topcoder.com/) 703 Hebron Avenue, Glastonbury, CT 06033.</p>
 
          <p><br/></p>
