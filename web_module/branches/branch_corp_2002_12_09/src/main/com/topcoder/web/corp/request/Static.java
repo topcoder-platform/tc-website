@@ -5,6 +5,8 @@ import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.Authorization;
 import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.security.TCESAuthorization;
+import com.topcoder.web.corp.Util;
 
 /**
 * <p> Title: Static </p>
@@ -21,6 +23,7 @@ public class Static extends BaseProcessor {
     private static final String STATIC_PREFIX = "d";  // Prefix for parameters
     private static final String VALID_PARAMETER_CHARS = 
         "_-ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    private final static Logger log = Logger.getLogger(Static.class);
 
     /** Constructor sets pageInContext to true since all Static pages are in
      *  the same context 
@@ -35,7 +38,7 @@ public class Static extends BaseProcessor {
      */
     void businessProcessing() throws Exception {
         nextPage = requestProcessor();
-        logger.debug("Static processor nextPage = "+nextPage);
+        log.debug("Static processor nextPage = "+nextPage);
 
         if (!havePermission()) { 
              log.debug(
