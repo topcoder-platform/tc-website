@@ -59,6 +59,11 @@
                 </td>
             </tr>
 
+            <tr>
+                <td colspan="2">
+                    <a href="javascript: document.regForm.submit();">submit</a>
+                </td>
+            </tr>
 
 
         </form>

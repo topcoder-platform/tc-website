@@ -11,7 +11,7 @@ import javax.naming.InitialContext;
  *
  * @author gpaul 07.02.2003
  */
-public class FullRegDemog extends SimpleRegBase {
+public class FullRegDemog extends FullRegBase {
     protected void registrationProcessing() throws TCWebException {
         try {
             getRequest().setAttribute("fileTypeList", getFileTypes());
