@@ -130,7 +130,7 @@ public class ProfileSearch extends Base {
         query.append("    AND cry.country_code = c.country_code\n");
         query.append("    AND st.state_code = NVL(c.state_code,'')\n");
         if(comp != null && comp.length() > 0){
-            query.append("    AND src.coder_id = c.coder_id\n");
+            query.append("    AND drc.coder_id = c.coder_id\n");
             query.append("    AND drc.demographic_question_id = 15\n");
             query.append(stringMatcher(comp,"drc.demographic_response",cs));
         }
