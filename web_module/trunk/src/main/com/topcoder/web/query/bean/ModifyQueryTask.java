@@ -125,7 +125,7 @@ public class ModifyQueryTask extends BaseTask implements Task, Serializable {
         } else if (paramName.equalsIgnoreCase(Constants.QUERY_NAME_PARAM)) {
             setName(value);
         } else if (paramName.equalsIgnoreCase(Constants.RANKING_PARAM)) {
-            setRanking(Boolean.getBoolean(value));
+            setRanking(value.equals("on"));
         } else if (paramName.equalsIgnoreCase(Constants.COLUMN_INDEX_PARAM)) {
             try {
                 setColumnIndex(Integer.parseInt(value));
