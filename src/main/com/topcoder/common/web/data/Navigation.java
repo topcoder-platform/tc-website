@@ -88,6 +88,17 @@ public final class Navigation
 
 
   //get
+
+
+  public String getServletURL(HttpServletRequest request, HttpServletResponse response, String servlet) {
+  ///////////////////////////////////////////////////////////////
+    StringBuffer url = new StringBuffer(100);
+    url.append("://");
+    url.append(request.getServerName());
+    url.append("/"+servlet);
+    return response.encodeURL(url.toString());
+  }
+
   ///////////////////////////////////////////////////////////////
   public String getPostURL(HttpServletRequest request, HttpServletResponse response) {
   ///////////////////////////////////////////////////////////////
@@ -161,6 +172,14 @@ public final class Navigation
     url.append(request.getServerName());
     url.append("/rtables/viewForum.jsp");
     return response.encodeURL(url.toString());
+  }
+
+  public String getServletCookieEnabledURL(HttpServletRequest request, String servlet) {
+    StringBuffer url = new StringBuffer(100);
+    url.append("://");
+    url.append(request.getServerName());
+    url.append("/"+servlet);
+    return url.toString();
   }
 
   ///////////////////////////////////////////////////////////////
