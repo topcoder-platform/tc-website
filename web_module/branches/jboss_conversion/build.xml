@@ -626,7 +626,7 @@
          <antcall target="move-libs"/>
          <antcall target="move-conf"/>
 
-
+         <antcall target="deploy-security"/>
      </target>
 
      <target name="move-conf">
