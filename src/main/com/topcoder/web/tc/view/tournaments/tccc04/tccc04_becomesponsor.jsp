@@ -43,17 +43,17 @@
                                                           <A href="/i/downlaods/tccc04_binder.pdf"><img src="/i/tournament/tccc04/download_sponsor_pdf.gif" alt="Download the TCCC PDF" width="288" height="117" border="0" />
                 </td></tr>
                                                           
-                <tr><td class="bodyText" valign="center"><p><img src="/i/tournament/tccc04/sponsor_intel.jpg" alt="Intel" width="152" height="153" border="0" align="left"/><strong>Intel - Drive Traffic</strong></p>
+                <tr><td class="bodyText" valign="center"><p><img src="/i/tournament/tccc04/sponsor_intel.jpg" alt="Intel" width="152" height="153" border="0" align="left" style="margin-left: 0px; margin-top: 0px; margin-right: 7px; margin-bottom: 7px;"/><strong>Intel - Drive Traffic</strong></p>
                 <p>Intel sponsored the 
                 2003 TopCoder Open in order to drive a qualified audience of developers to the Intel Developer Services website. By working together with TopCoder, Intel and its developer network, 
                 Intel Developer Services, will continue to educate programmers on current and next-generation computing initiatives and technologies.</p></td></tr>
                 
-                <tr><td class="bodyText" valign="center"><p><img src="/i/tournament/tccc04/sponsor_nvidia.jpg" alt="NVIDIA" width="152" height="153" border="0" align="right"/><strong>NVIDIA - Recruit</strong></p>
+                <tr><td class="bodyText" valign="center"><p><img src="/i/tournament/tccc04/sponsor_nvidia.jpg" alt="NVIDIA" width="152" height="153" border="0" align="right" style="margin-left: 0px; margin-top: 0px; margin-right: 7px; margin-bottom: 7px;"/><strong>NVIDIA - Recruit</strong></p>
                 <p>NVIDIA has sponsored both the 2003 TopCoder Collegiate Challenge and the 2003 TopCoder Open in order to identify and recruit some of the world's top engineering talent. 
                 TopCoder has built a community of top notch talent where the competitions drive the engineers to excel. There is a great deal of synergy between the TopCoder community and 
                 the engineering community at NVIDIA.</p></td></tr>
                 
-                <tr><td class="bodyText" valign="center"><p><img src="/i/tournament/tccc04/sponsor_sun.jpg" alt="Sun Microsystems" width="152" height="153" border="0" align="left"/><strong>Sun - Call to Action</strong></p>
+                <tr><td class="bodyText" valign="center"><p><img src="/i/tournament/tccc04/sponsor_sun.jpg" alt="Sun Microsystems" width="152" height="153" border="0" align="left" style="margin-left: 0px; margin-top: 0px; margin-right: 7px; margin-bottom: 7px;"/><strong>Sun - Call to Action</strong></p>
                 <p>Sun Microsystems has been the title sponsor of both the 2002 and 2003 TopCoder Collegiate Challenge tournaments. Thousands of collegiate developers worldwide 
                 spend hours using Java (TM) technology in order to qualify and excel in these tournaments. TopCoder provides a unique environment for capturing the technical discipline of 
                 developing software into an exciting and competitive event for developers and spectators. </p> </td></tr>
