@@ -1150,7 +1150,7 @@ java com.topcoder.utilities.QueryLoader "DW" 58 "Top_Scorers" 1 4 "
 "
 
 java com.topcoder.utilities.QueryLoader "DW" 1000 "TCES_Coder_Stats" 0 0 "
-SELECT r.rating
+SELECT (CASE WHEN r.num_ratings = 0 THEN 'Not Rated' ELSE ''||r.rating END) AS rating
      , r.highest_rating
      , r.lowest_rating
      , cr.percentile

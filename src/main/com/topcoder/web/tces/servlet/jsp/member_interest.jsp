@@ -50,10 +50,31 @@
                   <A HREF="<jsp:getProperty name="trailItem" property="href"/>" class="statText"><jsp:getProperty name="trailItem" property="name"/></A> &gt;
                 </tces:trailIterator>
               </P>
-              <P><B>Member Interest</B></P>
+        <p>
+        <b>
+        <FONT SIZE="5" COLOR="#FFFFFF" FACE="arial, verdana, tahoma">Member Profile: <jsp:getProperty name="MemberInterestTask" property="Handle"/></FONT>
+        </b>
+        </p>                                    
+                  <TABLE ID="linksTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BORDER="0">
+                    <TR>
+                        <TD class="statText" ALIGN="center" WIDTH="33%">
+                          <A HREF="<jsp:getProperty name="MemberInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CODER_DEMOGRAPHICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberInterestTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberInterestTask.getMemberID()%>" class="statText">
+                            Coder Demographic Info</A>                          
+                        </TD>
+                        <TD class="statText" ALIGN="center" WIDTH="33%">
+                          <A HREF="<jsp:getProperty name="MemberInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_HISTORY_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberInterestTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberInterestTask.getMemberID()%>" class="statText">
+                            Coder Competition History</A>
+                        </TD>
+                        <TD class="statText" ALIGN="center" WIDTH="33%">
+                          <A HREF="<jsp:getProperty name="MemberInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_SUBMISSIONS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberInterestTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberInterestTask.getMemberID()%>" class="statText">
+                            Coder Problem Submissions</A>                          
+                        </TD>
+                    </TR>
+                  </TABLE>               
               
               <P>
-              <B>Handle:</B> <%=MemberInterestTask.getHandle()%><BR>
+              <FONT SIZE="5" COLOR="#FFFFFF" FACE="arial, verdana, tahoma">Member Interest</FONT>
+              <BR/>
               <B>Campaign:</B> <%=MemberInterestTask.getCampaignName()%><BR>
               </P>
               <TABLE ID="dataTable" WIDTH="50%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">               
