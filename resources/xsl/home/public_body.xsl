@@ -466,7 +466,7 @@ Software Promo Ends -->
 
 <!-- Coder of the Month Begins -->
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                <tr><td><a href="/stat?c=member_profile&amp;cr=304168"><img src="/i/codermonth_dec.gif" alt="Coder of the Month" width="244" height="116" vspace="10" border="0" /></a></td></tr>
+                <tr><td><a href="/stat?c=member_profile&amp;cr=308953"><img src="/i/codermonth_jan03.gif" alt="Coder of the Month" width="244" height="116" vspace="10" border="0" /></a></td></tr>
             </table>
 <!-- Coder of the Month ends -->
         </td>
