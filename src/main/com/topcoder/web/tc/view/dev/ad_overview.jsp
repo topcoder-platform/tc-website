@@ -43,7 +43,7 @@
 
 				</tr>
 				<tr>
-					<td><a href="/?t=development&c=comp_projects"><img src="/i/development/ad_component.gif" width="197" height="134" border="0"></a></td>
+					<td><img src="/i/clear.gif" width="10" height="1" vspace="5" border="0"></td>
 					<td class="smallText">If you're a TopCoder member, you can submit <a href="/?t=development&c=comp_projects">design and development solutions</a> for these projects. You will 
 					be paid cash for each winning solution you submit. Every solution becomes part of a TopCoder Software Catalog, 
 					now available for sale online. For every commercial sale of a catalog, TopCoder will pay the members who designed 
@@ -52,16 +52,7 @@
 					<td><img src="/i/clear.gif" width="10" height="1" vspace="5" border="0"></td>
 				</tr>
 				<tr>
-					<td><a href="/?t=development&c=app_projects"><img src="/i/development/ad_application.gif" width="197" height="134" border="0"></a></td>
-					<td class="smallText">Rated members with a winning track record of Software Component solutions attain Level II TopCoder Developer 
-					status, and become eligible for <a href="/?t=development&c=app_projects">TopCoder Application Development teams</a>. As part of a team, you will customize and 
-					integrate components for specific applications, both internal to TopCoder and for commercial sale. These projects 
-					pay out higher cash amounts than Component projects, and royalties are paid to team members for every commercial 
-					sale of the application.</td>
 					<td><img src="/i/clear.gif" width="10" height="1" vspace="5" border="0"></td>
-				</tr>
-				<tr>
-					<td><a href="/tc?module=ViewReviewProjects"><img src="/i/development/ad_review.gif" width="197" height="134" border="0"></a></td>
 					<td class="smallText">Highly rated and experienced TopCoder members fill the ranks of the <a href="/tc?module=ViewReviewProjects">Architecture and Development Review 
 					Board</a>. The Architecture Review Board members screen and review all design submissions to ensure the components 
 					meet the functional requirements, are documented properly and contain the appropriate sequence, use case and class 
