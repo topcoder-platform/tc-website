@@ -9,7 +9,7 @@
 
 <HTML>
  <HEAD>
-   <TITLE>TopCoder Statistics - Earnings History</TITLE>
+   <TITLE>TopCoder Statistics - Component History</TITLE>
    <jsp:include page="baseHRef.jsp" />   
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
@@ -34,7 +34,7 @@
              <TD WIDTH="11" HEIGHT="26" ALIGN="left" VALIGN="bottom"><IMG WIDTH="11" HEIGHT="26" BORDER="0" SRC="/i/steelblue_top_left1.gif"></TD>
              <TD VALIGN="bottom" WIDTH="180" ALIGN="left"><IMG WIDTH="180" HEIGHT="26" BORDER="0" SRC="/i/header_statistics.gif"></TD>
              <TD CLASS="bodyTextBold" VALIGN="middle" WIDTH="100%">
-               &#160;<SPAN CLASS="bodySubhead">&#160;&#160;Earnings History&#160;&#160;</SPAN>
+               &#160;<SPAN CLASS="bodySubhead">&#160;&#160;Component History&#160;&#160;</SPAN>
              </TD>
              <TD VALIGN="top" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"></TD>
            </TR>
@@ -68,7 +68,9 @@ if (!bEmpty) {
                 <TR>
                   <TD COLSPAN="4" CLASS="statText" VALIGN="middle" HEIGHT="16">
                     <A HREF="/stat?c=member_profile&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Profile</A>
-<!--                    |   
+                    |   
+                    <A HREF="mailto:davem@topcoder.com?subject=ComponentScores" CLASS="statText">Contact TopCoder with Scoring Problems</A> 
+<!--
                     <A HREF="/stat?c=ratings_history&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Ratings History</A> -->
                   </TD>
                 </TR>
@@ -113,7 +115,7 @@ String sSortUrl = "/stat?c=component_history&cr="+srb.getProperty("cr")+"&sq=com
               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
 		  		<% if (!bEmpty) { %>	
                 <TR>
-                  <TD BACKGROUND="/i/steel_gray_bg3.gif" CLASS="statTextBig" COLSPAN="8" HEIGHT="18">&#160;Earnings History</TD>		
+                  <TD BACKGROUND="/i/steel_gray_bg3.gif" CLASS="statTextBig" COLSPAN="8" HEIGHT="18">&#160;Component History</TD>		
                 </TR>   
                 <TR>
                   <TD COLSPAN="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>    
@@ -121,13 +123,13 @@ String sSortUrl = "/stat?c=component_history&cr="+srb.getProperty("cr")+"&sq=com
 			<% if (rsc2.croppedDataBefore() ||  rsc2.croppedDataAfter()) { %>
 				 <TR><TD CLASS="statText" BACKGROUND="/i/steel_blue_bg.gif" COLSPAN="8" HEIGHT="16" align="center">
 				<% if (rsc2.croppedDataBefore()) { %>
-					<a href="/stat?c=earnings_history&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("prev_sr").toString() %>&er=<%=pageContext.getAttribute("prev_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="statText">&lt;&lt; previous</a>   
+					<a href="/stat?c=component_history&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("prev_sr").toString() %>&er=<%=pageContext.getAttribute("prev_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="statText">&lt;&lt; previous</a>   
 				<% } else { %>
 					&lt;&lt; previous	
 				<% } %>
 					&nbsp;|&nbsp;
 				<% if (rsc2.croppedDataAfter()) { %>
-					<a href="/stat?c=earnings_history&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("next_sr").toString() %>&er=<%=pageContext.getAttribute("next_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="statText">next &gt;&gt;</a>
+					<a href="/stat?c=component_history&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("next_sr").toString() %>&er=<%=pageContext.getAttribute("next_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="statText">next &gt;&gt;</a>
 				<% } else { %>
 					 next &gt;&gt;					 
 				<% } %>
@@ -139,7 +141,7 @@ String sSortUrl = "/stat?c=component_history&cr="+srb.getProperty("cr")+"&sq=com
                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" WIDTH="15%" HEIGHT="18"><a href="<%=sSortUrl%>&sc=3&sd=<%= "3".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" class="statText">Date</a></TD>  
                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" ALIGN="left" WIDTH="32%"><a href="<%=sSortUrl%>&sc=4&sd=<%= "4".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" class="statText">Contest</a></TD>
                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" ALIGN="center" WIDTH="18%"><a href="<%=sSortUrl%>&sc=1&sd=<%= "1".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" class="statText">Competition Type</a></TD>
-                  <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" ALIGN="center" WIDTH="5%"><a href="<%=sSortUrl%>&sc=5&sd=<%= "5".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" class="statText">Place</a></TD>
+<!--                  <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" ALIGN="center" WIDTH="5%"><a href="<%=sSortUrl%>&sc=5&sd=<%= "5".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" class="statText">Place</a></TD>-->
                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" ALIGN="right" WIDTH="10%"><a href="<%=sSortUrl%>&sc=6&sd=<%= "6".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" class="statText">Amount</a></TD>      
                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" ALIGN="right" WIDTH="20%"><a href="<%=sSortUrl%>&sc=8&sd=<%= "8".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" class="statText">Score</a></TD>      
                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
@@ -154,7 +156,7 @@ String sSortUrl = "/stat?c=component_history&cr="+srb.getProperty("cr")+"&sq=com
                   <TD CLASS="statText" ALIGN="center">
                      <bean:write name="resultRow2" property='<%= "item[" + 1 /* round name */ + "]" %>'/>
                   </TD>
-                  <TD CLASS="statText" ALIGN="center"><bean:write name="resultRow2" property='<%= "item[" + 5 /* finish place */ + "]" %>'/></TD>
+<!--                  <TD CLASS="statText" ALIGN="center"><bean:write name="resultRow2" property='<%= "item[" + 5 /* finish place */ + "]" %>'/></TD>-->
                   <TD CLASS="statText" ALIGN="right">$&nbsp;<bean:write format="0.00" name="resultRow2" property='<%= "item[" + 6 /* money */ + "].resultData" %>'/></TD>
                   <TD CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow2" property='<%= "item[" + 8 /* score */ + "]" %>'/></TD>
                   <TD WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>        
@@ -165,7 +167,7 @@ String sSortUrl = "/stat?c=component_history&cr="+srb.getProperty("cr")+"&sq=com
                   <TD COLSPAN="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>    
                 </TR>
 				<TR>
-                  <TD COLSPAN="8" CLASS="statText">This member has no earnings history.</TD>
+                  <TD COLSPAN="8" CLASS="statText">This member has no component history.</TD>
                 </TR>				
          <% } %>
                 <TR>
@@ -179,13 +181,13 @@ String sSortUrl = "/stat?c=component_history&cr="+srb.getProperty("cr")+"&sq=com
 			<% if (rsc2.croppedDataBefore() ||  rsc2.croppedDataAfter()) { %>
     		 <TR><TD CLASS="statText" BACKGROUND="/i/steel_blue_bg.gif" COLSPAN="8" HEIGHT="16" align="center">
 				<% if (rsc2.croppedDataBefore()) { %>
-					<a href="/stat?c=earnings_history&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("prev_sr").toString() %>&er=<%=pageContext.getAttribute("prev_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="statText">&lt;&lt; previous</a>   
+					<a href="/stat?c=component_history&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("prev_sr").toString() %>&er=<%=pageContext.getAttribute("prev_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="statText">&lt;&lt; previous</a>   
 				<% } else { %>
 					&lt;&lt; previous	
 				<% } %>
 					&nbsp;|&nbsp;
 				<% if (rsc2.croppedDataAfter()) { %>
-					<a href="/stat?c=earnings_history&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("next_sr").toString() %>&er=<%=pageContext.getAttribute("next_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="statText">next &gt;&gt;</a>
+					<a href="/stat?c=component_history&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("next_sr").toString() %>&er=<%=pageContext.getAttribute("next_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="statText">next &gt;&gt;</a>
 				<% } else { %>
 					 next &gt;&gt;					 
 				<% } %>
