@@ -81,6 +81,50 @@
 <!--end contextual links-->
           
 <P>
+COMING SOON - TCES CANDIDATE RECRUITING PROGRAM
+</P>
+
+<P>
+In an effort to greater assist members in finding employment, TopCoder Employment Services 
+(TCES) will be rolling out its Candidate Recruiting Program in September.  
+Through this program, TCES is actively soliciting companies who are looking to 
+hire software engineers and developers.  The targeted companies value programming 
+talent and are interested in hiring TopCoder members.  All TopCoder members will have 
+the ability to express interest in open positions at these top companies through job 
+postings on TopCoder's website.  Members will have an opportunity to showcase their 
+competition achievements and be able to upload resumes as part of the process.
+</P>
+
+<P>
+TCES will provide employers with innovative programs designed to attract, identify, 
+evaluate and package collegiate candidates, as well as experienced professionals, 
+for full-time employment consideration.  <A HREF="/?&amp;t=about_tc&amp;c=empl_tces" CLASS="bodyText">Employers</A> will have the opportunity to 
+introduce their company, the benefits of working in their organization and display 
+a list of job openings.  TopCoder members will be notified via email of new job postings 
+to the site and will have the option to indicate interest in a particular open position 
+via links on the employer's page.
+</P>
+
+<P>
+While the program is open to all members, regardless of rating status, rated members 
+will have a distinct advantage over non-rated members since potential employers will 
+be able to view their competition statistics and code samples, in addition to any 
+uploaded resume information.  In line with TopCoder's overall philosophy, this will 
+allow companies to differentiate coders who would otherwise look the same on paper.  
+Non-rated members wishing to obtain a rating should review the <A HREF="/?&amp;t=schedule&amp;c=index" CLASS="bodyText">competition calendar</A> 
+for the next Single Round Match date.
+</P>
+
+<P>
+If you would like more information about the TCES Candidate Recruiting Program, please 
+contact us at <A HREF="mailto:tces@topcoder.com" CLASS="bodyText">tces@topcoder.com</A>.
+</P>
+
+
+
+
+
+<!-- <P>
 TopCoder Employment Services (TCES) is actively and selectively targeting companies that can provide TopCoder members with exciting, full-time employment opportunities. We are pursuing top quality employers with the ability and desire to provide challenging and rewarding opportunities to top rated members.
 </P>
 
@@ -97,7 +141,7 @@ We will present our partner employers with TopCoder members for full-time employ
 We will be requesting your help and involvement in our efforts!  If you're looking for a job and your rating is over 1000, TCES would like to know who you are, where you're located and what you're looking for in the ideal position.  Please email TCES with your resume and other pertinent information. 
 </P>
        
-          <!-- <P>TopCoder is pleased to announce employment opportunities being made available to the TopCoder membership.
+          <P>TopCoder is pleased to announce employment opportunities being made available to the TopCoder membership.
           TopCoder Employment Services (TCES) is providing placement services for members with companies from different parts of the United States.
           The following descriptions reflect open positions. These positions are being made available to TopCoder's rated membership.</P>
           <DIV ALIGN="center">
