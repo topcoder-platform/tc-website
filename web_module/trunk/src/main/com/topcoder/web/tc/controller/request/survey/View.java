@@ -1,9 +1,6 @@
 package com.topcoder.web.tc.controller.request.survey;
 
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.SessionInfo;
-import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.*;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.Answer;
 import com.topcoder.web.tc.model.Question;
@@ -27,6 +24,8 @@ public class View extends SurveyData {
                 SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
                 setNextPage(info.getServletPath() + "?" + Constants.MODULE_KEY + "=SurveyResults&" + Constants.SURVEY_ID + "=" + survey.getId());
                 setIsNextPageInContext(false);
+            } else if (isSRMSurvey() && !hasSurveyClosed()) {
+                throw new NavigationException("Sorry, you can not answer this survey at this time.");
             } else {
                 setNextPage(Constants.SURVEY_VIEW);
             }
@@ -64,19 +63,46 @@ public class View extends SurveyData {
         return ret;
     }
 
+    protected final boolean isSRMSurvey() {
+        Question q = null;
+        boolean found = false;
+        for (Iterator it = questionInfo.iterator(); it.hasNext()&&!found;) {
+            q = (Question) it.next();
+            found |= q.getTypeId() == Constants.SRM_SURVEY_QUESTION;
+        }
+        return found;
+    }
+
+    protected final boolean hasSurveyClosed() throws TCWebException {
+        boolean found = false;
+
+        try {
+            Request r = new Request();
+            //we're assuming that the survey_list command only includes surveys that have closed
+            //as far as round registration is concerned.
+            r.setContentHandle("survey_list");
+            r.setProperty("cr", String.valueOf(getUser().getId()));
+            ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("survey_list");
+            ResultSetContainer.ResultSetRow row = null;
+            for (Iterator it = rsc.iterator(); it.hasNext()&&!found;) {
+                row = (ResultSetContainer.ResultSetRow) it.next();
+                found |= row.getLongItem("survey_id") == survey.getId();
+            }
+        } catch (Exception e) {
+            throw new TCWebException(e);
+        }
+
+        return found;
+    }
+
+
     protected final boolean alreadyResponded() throws Exception {
         boolean ret = false;
         Question q = null;
-        InitialContext ctx = null;
-        try {
-            ctx = new InitialContext();
-            Response response = (Response) createEJB(ctx, Response.class);
-            for (Iterator it = questionInfo.iterator(); it.hasNext();) {
-                q = (Question) it.next();
-                ret |= response.exists(getUser().getId(), q.getId());
-            }
-        } finally {
-            close(ctx);
+        Response response = (Response) createEJB(getInitialContext(), Response.class);
+        for (Iterator it = questionInfo.iterator(); it.hasNext();) {
+            q = (Question) it.next();
+            ret |= response.exists(getUser().getId(), q.getId());
         }
         return ret;
     }
