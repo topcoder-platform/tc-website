@@ -73,10 +73,35 @@
         </init-param>
     </servlet>
 
+    <servlet>
+        <servlet-name>TransactionServlet</servlet-name>
+        <display-name>TransactionServlet</display-name>
+        <description>VeriSign's feedback processor</description>
+        <servlet-class>com.topcoder.web.corp.controller.TransactionServlet</servlet-class>
+
+        <init-param>
+            <param-name>page-success</param-name>
+            <param-value>/TxSuccess.jsp</param-value>
+            <description>Transaction success page</description>
+        </init-param>
+
+        <init-param>
+            <param-name>page-failure</param-name>
+            <param-value>/TxFailure.jsp</param-value>
+            <description>Transaction failure page</description>
+        </init-param>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>MainServlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>TransactionServlet</servlet-name>
+        <url-pattern>/Tx/</url-pattern>
+    </servlet-mapping>
+
     <taglib>
         <taglib-uri>tc-webtags.tld</taglib-uri>
         <taglib-location>/WEB-INF/classes</taglib-location>
