@@ -138,6 +138,19 @@
     <param-value>LoginTask</param-value>
     <description></description>
   </init-param>
+
+  <init-param>
+    <param-name>login_task</param-name>
+    <param-value>LoginTask</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>db_task</param-name>
+    <param-value>LoginTask</param-value>
+    <description></description>
+  </init-param>
+
 </servlet>
 
 
