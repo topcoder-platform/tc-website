@@ -29,9 +29,21 @@
 <body>
 
 <a name="top_page"></a>
-<!-- Top Begins 
-<xsl:call-template name="Top"/>
-Top Ends -->
+<table valign="top" width="100%" cellpadding="0" cellspacing="0">
+   <tr valign="top" width="100%">
+      <td align="center" width="100%">
+         <div align="center"><object 
+            type="application/x-shockwave-flash"
+            data="/i/tournament/vcc03/vcc03_still.swf"
+            width="100%"
+            height="125"
+            valign="top">
+            <param name="movie" value="/i/tournament/vcc03/vcc03_still.swf" />
+            <param name="quality" value="high" />
+         </object></div>
+      </td>
+   </tr>
+</table>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
@@ -42,11 +54,9 @@ Top Ends -->
 <!-- Gutter Ends -->
     
 
-<!-- Left Column Begins -->
+<!-- Left Column Begins-->
          <td>
-         <p><img src="/i/clear.gif" width="180" height="60" border="0"/><br />
-         <a href="/" ><img src="/i/tournament/vcc03/vcc03_left.gif" width="180" height="74" border="0"/></a><br />
-         <img src="/i/clear.gif" width="180" height="60" border="0"/><br />
+         <p><img src="/i/clear.gif" width="180" height="10" border="0"/><br />
          <img src="/i/tournament/vcc03/vcc03_right.gif" width="180" height="400" border="0"/><br />
          <img src="/i/clear.gif" width="180" height="40" border="0"/>
          </p>
@@ -60,10 +70,6 @@ Top Ends -->
 <!-- Center Column Begins -->
         <td class="bodyText" width="100%">
 <!-- TCO Header -->
-   <p><br /></p>
-   <div align="center"><img src="/i/tournament/vcc03/vcc03.gif" alt="Verizon Coding Challenge" width="500" height="120" border="0" vspace="0" /></div>
-   <p><br /></p>
-
 <!-- Tab bar links-->
             <xsl:call-template name="vcc03_links">
                 <xsl:with-param name="selectedTab">schedule</xsl:with-param>
@@ -118,13 +124,13 @@ Top Ends -->
                 </tr>
 
                 <tr valign="top">
-                    <td class="sidebarText">Round #3 - Championship Round</td>
-                    <td class="sidebarText">
+                    <td class="bodyText" bgcolor="#FFCC33"><strong>Round #3 - Championship Round</strong></td>
+                    <td class="bodyText" bgcolor="#FFCC33"><strong>
                         Friday, August 29th<br />
-                        START: 9:30 PM<br />
+                        START: 9:30 PM<br /></strong>
                     </td>
-                    <td class="sidebarText" align="center">25</td>
-                    <td class="sidebarText" align="center">4 Prize  Winners</td>
+                    <td class="bodyText" align="center" bgcolor="#FFCC33"><strong>25</strong></td>
+                    <td class="bodyText" align="center" bgcolor="#FFCC33"><strong>4 Prize  Winners</strong></td>
                 </tr>
 
                 <tr valign="top">

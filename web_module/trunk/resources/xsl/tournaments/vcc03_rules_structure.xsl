@@ -29,6 +29,24 @@
 <body>
 
 <a name="top_page"></a>
+<table valign="top" width="100%" cellpadding="0" cellspacing="0">
+   <tr valign="top" width="100%">
+      <td align="center" width="100%">
+         <div align="center"><object 
+            type="application/x-shockwave-flash"
+            data="/i/tournament/vcc03/vcc03_still.swf"
+            width="100%"
+            height="125"
+            valign="top">
+            <param name="movie" value="/i/tournament/vcc03/vcc03_still.swf" />
+            <param name="quality" value="high" />
+         </object></div>
+      </td>
+   </tr>
+</table>
+<xsl:variable name="contestId">
+    <xsl:value-of select="/TC/SCHEDULE/ContestId"/>
+</xsl:variable>
 
 <xsl:variable name="contestId">
     <xsl:value-of select="/TC/SCHEDULE/ContestId"/>
@@ -46,11 +64,9 @@ Top Ends -->
         </td>
 <!-- Gutter Ends -->
 
-<!-- Left Column Begins -->
+<!-- Left Column Begins-->
          <td>
-         <p><img src="/i/clear.gif" width="180" height="60" border="0"/><br />
-         <a href="/" ><img src="/i/tournament/vcc03/vcc03_left.gif" width="180" height="74" border="0"/></a><br />
-         <img src="/i/clear.gif" width="180" height="60" border="0"/><br />
+         <p><img src="/i/clear.gif" width="180" height="10" border="0"/><br />
          <img src="/i/tournament/vcc03/vcc03_right.gif" width="180" height="400" border="0"/><br />
          <img src="/i/clear.gif" width="180" height="40" border="0"/>
          </p>
@@ -64,10 +80,6 @@ Top Ends -->
 <!-- Center Column Begins -->  
         <td class="bodyText" width="100%">
 <!-- TCO Header -->
-   <p><br /></p>
-   <div align="center"><img src="/i/tournament/vcc03/vcc03.gif" alt="Verizon Coding Challenge" width="500" height="120" border="0" vspace="0" /></div>
-   <p><br /></p>
-
 <!-- Tab bar links-->
             <xsl:call-template name="vcc03_links">
                 <xsl:with-param name="selectedTab">rules</xsl:with-param>
