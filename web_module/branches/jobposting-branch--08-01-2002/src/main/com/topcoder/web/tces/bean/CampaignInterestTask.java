@@ -61,7 +61,7 @@ public class CampaignInterestTask extends BaseTask implements Task, Serializable
         this.hitList=hitList;
     }
 
-    public String getHitList() {
+    public List getHitList() {
         return hitList;
     }
 

@@ -15,7 +15,7 @@ import java.util.List;
 
 public class MapIteratorTag
         extends IteratorTag {
-    private static Logger log = Logger.getLogger(CampaignInfoIteratorTag.class);
+    private static Logger log = Logger.getLogger(MapIteratorTag.class);
 
     List CampaignInfoList;
 

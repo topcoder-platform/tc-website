@@ -536,8 +536,9 @@
               <include name="**/*.jsp"/>
             </fileset>        
             <classes dir="${classes}">
-                <include name="com/topcoder/web/tces/common/*"/>
-                <include name="com/topcoder/web/tces/servlet/*"/>
+                <include name="com/topcoder/web/tces/common/**"/>
+                <include name="com/topcoder/web/tces/servlet/**"/>
+                <include name="com/topcoder/web/tces/bean/**"/>
             </classes>
         </war>
     </target>
