@@ -8,13 +8,19 @@ import com.topcoder.shared.util.logging.Logger;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import java.util.HashMap;
 
-public abstract class BaseProcessor implements RequestProcessor{
+public abstract class BaseProcessor implements RequestProcessor {
 
     protected static Logger log = Logger.getLogger(BaseProcessor.class);
     /* set by the creator */
     protected ServletRequest request;
     protected WebAuthentication auth;
+
+    private InitialContext ctx;
+    private HashMap errors;
 
     /* return values */
     private String nextPage = "";
@@ -22,6 +28,7 @@ public abstract class BaseProcessor implements RequestProcessor{
 
     public BaseProcessor() {
         log.debug("constructing " + this.getClass().getName());
+        errors = new HashMap();
     }
 
     public void setRequest(ServletRequest request) {
@@ -46,8 +53,8 @@ public abstract class BaseProcessor implements RequestProcessor{
      */
     protected void reissueCookie() {
         try {
-            ((BasicAuthentication)auth).setCookie(getUser().getId());
-        } catch(Exception e) {
+            ((BasicAuthentication) auth).setCookie(getUser().getId());
+        } catch (Exception e) {
             /* this should not happen, but is not a big deal if it does... they just have to login again later */
             log.warn("caught exception reissuing cookie", e);
         }
@@ -69,9 +76,20 @@ public abstract class BaseProcessor implements RequestProcessor{
      * This is final to discourage overriding it.  Instead subclasses should implement businessProcessing().
      */
     public final void process() throws Exception {
-        baseProcessing();
-        log.debug("calling businessProcessing");
-        businessProcessing();
+        try {
+            baseProcessing();
+            log.debug("calling businessProcessing");
+            businessProcessing();
+        } finally {
+            try {
+                if (ctx != null) {
+                    ctx.close();
+                }
+            } catch (Exception e) {
+                log.error("Couldn't close context");
+                e.printStackTrace();
+            }
+        }
     }
 
     public String getNextPage() {
@@ -87,13 +105,82 @@ public abstract class BaseProcessor implements RequestProcessor{
      * An empty string is magical, and means the same servlet with an empty query.
      */
     protected void setNextPage(String page) {
-        if(page.equals(""))
-            page = ((HttpServletRequest)request).getContextPath()+((HttpServletRequest)request).getServletPath();
+        if (page == null || page.equals(""))
+            page = ((HttpServletRequest) request).getContextPath() + ((HttpServletRequest) request).getServletPath();
         nextPage = page;
     }
 
-    /** False if a redirect is necessary, ie you need the URL in the browser to change.  True otherwise. */
+    /** False if a redirect is necessary, ie you need the URL
+     * in the browser to change.  True otherwise.
+     */
     protected void setIsNextPageInContext(boolean flag) {
         nextPageInContext = flag;
     }
+
+    /**
+     * Returns true iff the user has an active logged in session.
+     * @return
+     */
+    protected boolean userLoggedIn() {
+        return !auth.getUser().isAnonymous();
+    }
+
+    /**
+     * Returns true iff we can identify the user.  Basically, if the user
+     * has a cookie, or an active logged in session.
+     * @return
+     */
+    protected boolean userIdentified() {
+        return !auth.getActiveUser().isAnonymous();
+    }
+
+    protected InitialContext getInitialContext() throws NamingException {
+        if (ctx == null) {
+            ctx = new InitialContext();
+        }
+        return ctx;
+    }
+
+    protected void addError(String key, Object error) {
+        if (!hasError(key)) {
+            errors.put(key, error);
+        }
+    }
+
+    public String getError(String key) {
+        if (errors.containsKey(key) && errors.get(key) != null) {
+            return errors.get(key).toString();
+        }
+        return "";
+    }
+
+    protected boolean hasError(String key) {
+        return errors.containsKey(key);
+    }
+
+    protected void removeError(String key) {
+        if (hasError(key)) {
+            errors.remove(key);
+        }
+    }
+
+    protected void clearErrors() {
+        errors.clear();
+    }
+
+    public boolean hasErrors() {
+        return !errors.isEmpty();
+    }
+
+    /* some utility methods */
+
+    protected boolean isEmpty(String s) {
+        return !(s != null && s.trim().length() > 0);
+    }
+
+    protected String checkNull(String s) {
+        return s == null ? "" : s;
+    }
+
 }
+
