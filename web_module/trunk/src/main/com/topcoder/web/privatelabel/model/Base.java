@@ -28,12 +28,13 @@ public class Base {
         for (int i = 0; i < m.length; i++) {
             try {
                 methodName = m[i].getName();
-                if (methodName.startsWith("get")) {
+                if (methodName.startsWith("get") && m[i].isAccessible()) {
                     buf.append(m[i].getName().substring(3) + " = " + m[i].invoke(this, null).toString());
                     if (i<m.length-1) buf.append(", ");
                 }
             } catch (Exception e) {
-                buf.append(m[i].getName() + " is not accessible");
+                buf.append(m[i].getName().substring(3) + " = ?????");
+                if (i<m.length-1) buf.append(", ");
             }
         }
         return buf.toString();
