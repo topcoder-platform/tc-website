@@ -77,12 +77,14 @@
             <description></description>
         </init-param>
 
-
+        <!-- request parameters -->
         <init-param>
-            <param-name>static_prefix</param-name>
-            <param-value>d</param-value>
+            <param-name>survey_id</param-name>
+            <param-value>sid</param-value>
             <description></description>
         </init-param>
+
+
 
     </servlet>
 

@@ -258,6 +258,7 @@ public abstract class BaseServlet extends HttpServlet {
 
     protected String getProcessor(String key ) {
         String ret = null;
+        log.debug("key: " + key + " test " + getServletConfig().getInitParameter("survey_id"));
         if (ret == null) {
             ret = getServletConfig().getInitParameter(key);
         }
