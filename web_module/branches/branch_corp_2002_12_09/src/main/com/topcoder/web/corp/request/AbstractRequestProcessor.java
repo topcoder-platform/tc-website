@@ -24,8 +24,8 @@ public abstract class AbstractRequestProcessor implements RequestProcessor {
      * Stores given request inside for further processing
      * @see com.topcoder.web.common.RequestProcessor#setRequest(javax.servlet.http.HttpServletRequest)
      */
-    public void setRequest(HttpServletRequest req) {
-        request = req;
+    public void setRequest(ServletRequest req) {
+        request = (HttpServletRequest)req;
     }
 
 
