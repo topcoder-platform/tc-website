@@ -51,21 +51,23 @@
             <table border="0" cellpadding="10" cellspacing="0" width="534">
                 <tr>
                     <td align="center" class="bodyText">
-                        <img src="/i/development/homePromo.gif" width="506" height="211" alt="" border="0" usemap="#dev_promos"/>
+                    	<img src="/i/development/dev_header.gif" width="500" height="47" alt="" border="0"/>	
+                        <img src="/i/development/main_promo.jpg" width="500" height="148" alt="" border="0" usemap="#dev_promos"/>
+                
+                        
                         <map name="dev_promos">
-                        <area shape="rect" alt="" coords="40,55,225,240" href="/?t=development&amp;c=comp_projects" />
-                        <area shape="rect" alt="" coords="300,55,435,240" href="/tc?module=ViewReviewProjects " />
-                        </map>
+                        <area shape="poly" alt="" coords="24,0, 24,46, 435,46, 480,0" href="/?t=development&amp;c=comp_projects" />
+                        <area shape="poly" alt="" coords="25,148, 25,102, 378,102, 332,148" href="/tc?module=ViewReviewProjects " />
+                        <area shape="poly" alt="" coords="25,96, 25,52, 434,52, 383,96" href="/?t=development&amp;c=app_projects " />
+                        <area shape="poly" alt="" coords="358,143, 487,143, 487,28" href="/?t=development&amp;c=getting_started " />
+                        </map>                        
                     </td>
                 </tr>
                 <tr>
                     <td align="left" class="bodyText">Winning solutions are rewarded with cash payouts and royalites. Whether you're looking for a small project for yourself, or if you want to be part of a team, TopCoder Software Projects provide opportunities for you to put your skills to good use.
                     </td>
                 </tr>
-                <tr>
-                    <td align="center" class="bodyText"><a href="/?t=development&amp;c=getting_started"><img src="/i/development/getting_started.gif" border="0" width="534" height="35"/></a>
-                    </td>
-                </tr>
+
             </table>
 
 		<br/>
@@ -108,8 +110,30 @@
                 </tr>
             </table>
 <!--Application Development ends -->
+
+            <hr width="534" size="1px" noshade="noshade"/>
+
+<!--Review begins -->
+            <table border="0" cellspacing="0" cellpadding="0" width="534">
+                <tr valign="top">
+                    <td class="bodyText">
+                        <p align="left"><font size="3"><strong>Review Boards</strong></font><br/>
+                        <a href="/tc?module=Static&amp;d1=review_board&amp;d2=design"><img src="/i/development/review.gif" alt="" width="165" height="95" border="0" align="right" /></a>
+                       	Highly rated and experienced TopCoder members fill the ranks of the Architecture and Development Review Board. 
+                       	The Architecture Review Board members screen and review all design submissions to ensure the components meet 
+                       	the functional requirements, are documented properly and contain the appropriate sequence, use case and class 
+                       	diagrams. The Development Review Board members verify that each development submission meets the required 
+                       	functionality, coding style, adheres to the component design and contains a suitable test suite.</p>
+                        
+                        <p><a href="/tc?module=Static&amp;d1=review_board&amp;d2=design">Meet</a> the TopCoder Review Board members.</p>
+                    </td>
+                </tr>
+            </table>
+<!--Review ends -->
             
             <hr width="534" size="1px" noshade="noshade"/>
+            
+
             
 <!-- Subscribe to catalog begins -->
             <table border="0" cellspacing="0" cellpadding="0" width="534">
