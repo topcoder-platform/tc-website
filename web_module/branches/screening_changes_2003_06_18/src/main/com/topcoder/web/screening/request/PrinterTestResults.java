@@ -29,6 +29,9 @@ public class PrinterTestResults extends TestResults {
         getRequest().setAttribute("problemSolutionBList", getSubmissions(problemSetBList, sessionId,
                 Constants.PROBLEM_TYPE_TEST_SET_B_ID));
 
+
+
+
         //get notes
         Request dr = new Request();
         dr.setProperties(HttpUtils.parseQueryString(getRequest().getQueryString()));

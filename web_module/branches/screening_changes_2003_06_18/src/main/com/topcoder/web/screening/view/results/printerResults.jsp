@@ -69,11 +69,13 @@
                     </td>
                 </tr>
 
+             <% if (profileInfo.hasTestSetA()) { %>
                 <tr>
                     <td class="bodyText">
                         <strong>Problem Set:</strong> <jsp:getProperty name='profileInfo' property='testSetAName'/>
                     </td>
 	        </tr>
+            <% } %>
                 <tr>
                     <td class="bodyText">
                         <strong>Begin:</strong> <screen:beanWrite name='testSessionInfo' property='beginDate' format='MM/dd/yyyy hh:mm a'/>
@@ -90,6 +92,7 @@
 
    <% if(testResultsInfo.isSessionComplete()) { %>
 
+     <% if (profileInfo.hasTestSetA()) { %>
             <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
 	        <tr>
 		       <td colspan="8" class="testTableTitle">Test Set A Results:</td>
@@ -163,6 +166,7 @@
                 <% } %>
          </table>
          <p></p>
+     <% } //has test set a %>
     <% if(testResultsInfo.getProblemSetBCount() > 0){ %>
             <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
 	        <TR>
@@ -222,24 +226,20 @@
             <% } %>
 
 
-            <%-- TODO this is terrible, get this java could OUTTA here --%>
-            <% List solutionA = (List)request.getAttribute("problemSolutionAList"); %>
-            <% List solutionB = (List)request.getAttribute("problemSolutionBList"); %>
-            <% List[] solutions = {solutionA, solutionB}; %>
-            <% List statementsA = profileInfo.getTestSetAList(); %>
-            <% List statementsB = profileInfo.getTestSetBList(); %>
-            <% List[] statements = {statementsA, statementsB}; %>
-            <% ProblemInfo problem = null; %>
-            <% SubmissionInfo solution = null; %>
+            <%-- TODO this is terrible, get this java code OUTTA here --%>
+            <% List solutionA = (List)request.getAttribute("problemSolutionAList");
+               List solutionB = (List)request.getAttribute("problemSolutionBList");
+               List statementsA = profileInfo.getTestSetAList();
+               List statementsB = profileInfo.getTestSetBList();
+               ProblemInfo problem = null;
+               SubmissionInfo solution = null; %>
 
-              <% for (int j=0; j<statements.length; j++) { %>
-                <% for (int i=0; i<statements[j].size(); i++) { %>
-                    <% problem = (ProblemInfo)statements[j].get(i); %>
-                    <% solution = (SubmissionInfo)solutions[j].get(i); %>
-                    <% if (!solution.isSubmitted()) continue; %>
-                    <div style="page-break-before:always"/>
-                    <%=j==0&&i==0&&solution.isSubmitted()?"<h3>Test Set A</h3>":""%>
-                    <%=j==1&&i==0&&solution.isSubmitted()?"<h3>Test Set B</h3>":""%>
+              <% for (int j=0; j<statementsA.size(); j++) { %>
+                  <% problem = (ProblemInfo)statementsA.get(j); %>
+                  <% solution = (SubmissionInfo)solutionA.get(j); %>
+                  <% if (!solution.isSubmitted()) continue; %>
+                  <div style="page-break-before:always"/>
+                  <%=j==0&&solution.isSubmitted()?"<h3>Test Set A</h3>":""%>
                   <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
                   <tr>
 		            <td class="bodyText"><screen:problemStatement text="<%=problem.getProblemStatement()%>" language="Java" class="bodyText"/></td>
@@ -254,7 +254,28 @@
                   </tr>
                   <tr><td><br/></td></tr>
                   </table>
-                <% } %>
+              <% } %>
+
+              <% for (int j=0; j<statementsB.size(); j++) { %>
+                  <% problem = (ProblemInfo)statementsB.get(j); %>
+                  <% solution = (SubmissionInfo)solutionB.get(j); %>
+                  <% if (!solution.isSubmitted()) continue; %>
+                  <div style="page-break-before:always"/>
+                  <%=j==0&&solution.isSubmitted()?"<h3>Test Set B</h3>":""%>
+                  <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
+                  <tr>
+		            <td class="bodyText"><screen:problemStatement text="<%=problem.getProblemStatement()%>" language="Java" class="bodyText"/></td>
+                  </tr>
+                  <tr><td><br/></td></tr>
+                  <tr>
+		            <td class="bodyText">
+                     <h3>Solution</h3><br/>
+                     <%--this should really get plugged into the formatter object --%>
+                     <PRE><%=StringUtils.htmlEncode(solution.getCode())%></PRE>
+                    </td>
+                  </tr>
+                  <tr><td><br/></td></tr>
+                  </table>
               <% } %>
               </table>
 
