@@ -46,6 +46,10 @@
                             <tr valign="middle"><td class="statTextLarge" bgcolor="#999999" colspan="2"><font size="3">Match Editorial Archive - 2004</font></td></tr>
 
                             <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
+                            <tr><td valign="middle" class="bodyText" colspan="2">&#160;<strong>April</strong></td></tr>
+                            <tr><td class="bodyText">&#160;04.06.04</td><td class="bodyText" nowrap="0">&#160;SRM 190 - <a href="/index?t=statistics&amp;c=srm190_prob">Problem Set &amp; Analysis</a></td></tr>
+
+                            <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
                             <tr><td valign="middle" class="bodyText" colspan="2">&#160;<strong>March</strong></td></tr>
                             <tr><td class="bodyText">&#160;03.31.04</td><td class="bodyText" nowrap="0">&#160;SRM 189 - <a href="/index?t=statistics&amp;c=srm189_prob">Problem Set &amp; Analysis</a></td></tr>
                             <tr><td class="bodyText">&#160;03.25.04</td><td class="bodyText" nowrap="0">&#160;SRM 188 - <a href="/index?t=statistics&amp;c=srm188_prob">Problem Set &amp; Analysis</a></td></tr>
