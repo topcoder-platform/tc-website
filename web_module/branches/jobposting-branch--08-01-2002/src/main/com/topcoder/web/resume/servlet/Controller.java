@@ -43,8 +43,10 @@ public class Controller
 //            if (request.getContentType() == null || request.getContentType().indexOf(MULTIPART_FORM_DATA) < 0) {
                 Enumeration en = request.getParameterNames();
                 log.debug(request.getQueryString());
-                while(en.hasMoreElements())
-                    log.debug(en.nextElement());
+                while(en.hasMoreElements()){
+                    String param = (String)en.nextElement();
+                    log.debug(param+" = "+request.getParameter(param));
+                }
                 String taskName = request.getParameter(TASK);
                 if (taskName == null || !isWord(taskName)) {
                     log.debug(TASK + " not found in request. - "+taskName);
