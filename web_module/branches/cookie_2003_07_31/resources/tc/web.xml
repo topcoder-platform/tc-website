@@ -112,6 +112,11 @@
             <param-value>/authentication/recoverPassword.jsp</param-value>
             <description></description>
         </init-param>
+        <init-param>
+            <param-name>email_sent</param-name>
+            <param-value>/authentication/emailSent.jsp</param-value>
+            <description></description>
+        </init-param>
 
 
         <!-- processor mappings -->
@@ -194,6 +199,25 @@
             <param-value>sid</param-value>
             <description></description>
         </init-param>
+
+        <init-param>
+            <param-name>first_name</param-name>
+            <param-value>fn</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>last_name</param-name>
+            <param-value>ln</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>email</param-name>
+            <param-value>email</param-value>
+            <description></description>
+        </init-param>
+
     </servlet>
 
     <servlet>
