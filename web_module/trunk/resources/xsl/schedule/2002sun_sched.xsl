@@ -91,7 +91,7 @@
                       <TD HEIGHT="18" ALIGN="left" WIDTH="30%" CLASS="statTextBig" BACKGROUND="/i/orangebv_bg.gif">
                         &#160;&#160;Qualification Round
                       </TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="70%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=2002sun_qual" CLASS="statTextBig">Updates</A></TD>
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="70%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=2002sun_qual" CLASS="statTextBig">Updates/Advancers</A></TD>
                     </TR>
                     <TR>
                       <TD COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
