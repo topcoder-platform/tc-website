@@ -71,8 +71,8 @@
                 <table border="0" cellspacing="1" cellpadding="0" width="100%" bgcolor="#FFFFFF">
                     <tr>
                         <td valign="top" colspan="3" class="bodyText"><a class="bodyGeneric">
-                            <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><strong>TCCC '03 Regional Semifinals</strong></a><br />
-                            Wednesday, March 5, 2003<br /><br />
+                            <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><strong>Single Round Match 137</strong></a><br />
+                            Thursday, March 6, 2003<br /><br />
                         </td>
                     </tr>
 
@@ -149,7 +149,7 @@
                 <tr>
                     <td valign="top" class="bodyText" width="100%">
                         <a class="bodyGeneric">
-                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm137_prob.xsl</xsl:attribute><strong>Problem Set Analysis &amp; Opinion</strong></a><br />
+                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm137_prob</xsl:attribute><strong>Problem Set Analysis &amp; Opinion</strong></a><br />
 
                         <p>The phrase "March Madness" best describes the last SRM.  Over 15% of the division 1 competitors
                             submitted the hard problem, but only 2 passed systests.  SnapDragon, who won the competition,
