@@ -30,9 +30,9 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
             if ("on".equalsIgnoreCase(getRequest().getParameter(Constants.TERMS_AGREE))) {
                 UserTermsOfUse userTerms = ((UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class));
                 if (!userTerms.hasTermsOfUse(getUser().getId(),
-                        Constants.REVIEWER_TERMS_ID, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME)) {
+                        Constants.REVIEWER_TERMS_ID, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME)) {
                     userTerms.createUserTermsOfUse(getUser().getId(),
-                            Constants.REVIEWER_TERMS_ID, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+                            Constants.REVIEWER_TERMS_ID, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
                 }
 
                 apply();

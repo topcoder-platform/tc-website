@@ -186,7 +186,7 @@ public class ProjectReviewApply extends Base {
             UserTermsOfUse userTerms = ((UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class));
 
             boolean agreed = userTerms.hasTermsOfUse(getUser().getId(),
-                    Constants.REVIEWER_TERMS_ID, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+                    Constants.REVIEWER_TERMS_ID, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
 
             setDefault(Constants.TERMS_AGREE, String.valueOf(agreed));
 
