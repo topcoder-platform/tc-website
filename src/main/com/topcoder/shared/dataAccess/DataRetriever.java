@@ -334,7 +334,7 @@ public class DataRetriever implements DataRetrieverInt {
      */
     public Map executeCommand(Map inputMap) throws Exception {
         //create a new map to avoid mutating the passed in version.
-        log.debug("input: " + inputMap.toString());
+        //log.debug("input: " + inputMap.toString());
         Map inputs = new HashMap(inputMap);
         String commandDesc = (String) inputs.get(DataAccessConstants.COMMAND);
         if (commandDesc == null)
