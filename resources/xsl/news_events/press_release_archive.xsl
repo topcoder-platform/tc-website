@@ -61,6 +61,8 @@
 <!-- 2003 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2003</font></td></tr>
 
+                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_11_12_03">TopCoder Announces Finalists in International Programming Tournament</A> [November 12]</td></tr>
+                            
                             <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_11_06_03">AT&amp;T Foundation to Sponsor TopCoder Charity Tournament</A> [November 6]</td></tr>
                             
                             <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_11_03_03">TopCoder Teams with Telecom Leaders in OSS through Java&#153; Initiative</A> [November 3]</td></tr>
