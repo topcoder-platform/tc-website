@@ -9,6 +9,7 @@ public class MemberSearch {
     private int total = 0;
     private String handle = null;
     private String stateCode = null;
+    private String countryCode = null;
     private Integer minRating = null;
     private Integer maxRating = null;
     private Integer minNumRatings = null;
@@ -122,4 +123,11 @@ public class MemberSearch {
         this.maxDaysSinceLastComp = maxDaysSinceLastComp;
     }
 
+    public String getCountryCode() {
+        return countryCode;
+    }
+
+    public void setCountryCode(String countryCode) {
+        this.countryCode = countryCode;
+    }
 }

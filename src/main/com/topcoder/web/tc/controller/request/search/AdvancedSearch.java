@@ -42,6 +42,10 @@ public class AdvancedSearch extends SimpleSearch {
         if (!stateCode.equals(""))
             ret.setStateCode(stateCode);
 
+        String countryCode = StringUtils.checkNull(getRequest().getParameter(Constants.COUNTRY_CODE));
+        if (!countryCode.equals(""))
+            ret.setCountryCode(countryCode);
+
         String minRating = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_RATING));
         if (!minRating.equals(""))
             ret.setMinRating(new Integer(minRating));
@@ -73,6 +77,7 @@ public class AdvancedSearch extends SimpleSearch {
         r.setProperty(DataAccessConstants.END_RANK, m.getEnd().toString());
         if (m.getHandle()!=null) r.setProperty(Constants.HANDLE, m.getHandle());
         if (m.getStateCode()!=null) r.setProperty(Constants.STATE_CODE, m.getStateCode());
+        if (m.getCountryCode()!=null) r.setProperty(Constants.COUNTRY_CODE, m.getCountryCode());
         if (m.getMinRating()!=null) r.setProperty(Constants.MIN_RATING, m.getMinRating().toString());
         if (m.getMaxRating()!=null) r.setProperty(Constants.MAX_RATING, m.getMaxRating().toString());
         if (m.getMinNumRatings()!=null) r.setProperty(Constants.MIN_NUM_RATINGS, m.getMinNumRatings().toString());
