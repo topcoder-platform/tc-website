@@ -306,13 +306,6 @@
             <TR><TD COLSPAN="2" ALIGN="center"><input type="submit" name="submit" value=" Submit "/></TD></TR>
             </FORM>
         </TABLE>
-          <BR/>
-          <BR/>
-          <BR/>
-          <BR/>
-          <BR/>
-
-                        <p><br/></p>
                     </td>
                     <td valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
                 </tr>
