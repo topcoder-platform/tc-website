@@ -6,7 +6,6 @@
 <%@  page 
   language="java"
   import="java.util.*,
-          weblogic.security.acl.Security,
           com.topcoder.common.web.data.report.*"
 
 %>
@@ -84,16 +83,10 @@
       <br/>
       <a href=<%=Constants.SERVLET_ADDR+"?"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY%>>Additional Reports<a><br/><br/>
 
-<%
-     if (Security.getCurrentUser().toString().equals("report")) {
-%>
       <b>Profile Information<b><br/>
       <ul><li><a href=<%=Constants.SERVLET_ADDR + "?" + Constants.TASK_NAME_KEY + "=" + Constants.REPORT_PROFILE_LIST_MENU_KEY%>>Profile List<a></li></ul>
       <ul><li><a href=<%=Constants.JSP_ADDR + Constants.REPORT_PROFILE_ADDR%>>Profile Look Up<a></li></ul>
      <!-- <ul><li><a href=<%=Constants.JSP_ADDR + "?"+Constants.TASK_NAME_KEY+"=" + Constants.REPORT_PROFILE_LIST_MENU_KEY%>>Profile List<a></li></ul>-->
-<%
-   }
-%>
 
 <%=  
        printTree(reportList, new StringBuffer())
