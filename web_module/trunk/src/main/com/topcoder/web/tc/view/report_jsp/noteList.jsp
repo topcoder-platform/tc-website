@@ -29,6 +29,8 @@
         <rsc:iterator list="<%=note_list%>" id="resultRow">
             <tr>
                 <td><rsc:item list="<%=note_list%>" name="text"/></td>
+                <td><rsc:item list="<%=note_list%>" name="submitted_by"/><td>
+                <td><rsc:item list="<%=note_list%>" name="date"/><td>
 
             </tr>
 
