@@ -289,6 +289,7 @@ public class TCLoadCoders extends TCLoad {
             query.append("      ,u.status ");                    // 11
             query.append("      ,e.address ");                   // 12
             query.append("      ,u.last_login ");                // 13
+            query.append("      ,s.school_id ");                 // 14
             query.append("  FROM coder c ");
             query.append("      ,user u ");
             query.append("      ,email e ");
@@ -328,10 +329,11 @@ public class TCLoadCoders extends TCLoad {
             query.append("       ,handle ");                    // 10
             query.append("       ,status ");                    // 11
             query.append("       ,email ");                     // 12
-            query.append("       ,last_login) ");               // 13
+            query.append("       ,last_login ");                // 13
+            query.append("       ,school_id) ");                // 14
             query.append("VALUES (");
             query.append("?,?,?,?,?,?,?,?,?,?,");  // 10
-            query.append("?,?,?)");                // 13 total values
+            query.append("?,?,?,?)");              // 14 total values
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             // Our update statement
@@ -349,6 +351,7 @@ public class TCLoadCoders extends TCLoad {
             query.append("       ,status = ? ");                    // 11
             query.append("       ,email = ? ");                     // 12
             query.append("       ,last_login = ? ");                // 13
+            query.append("       ,school_id = ? ");                 // 14
             query.append("WHERE coder_id = ?");                     // 1
             psUpd = prepareStatement(query.toString(), TARGET_DB);
 
@@ -387,7 +390,8 @@ public class TCLoadCoders extends TCLoad {
                     psUpd.setString(10, rs.getString(11));       // status
                     psUpd.setString(11, rs.getString(12));       // email
                     psUpd.setTimestamp(12, rs.getTimestamp(13)); // last_login
-                    psUpd.setInt(13, coder_id);                  // coder_id
+                    psUpd.setInt(13, rs.getInt(14));             // school_id
+                    psUpd.setInt(14, coder_id);                  // coder_id
 
                     // Now, execute the insert of the new row
                     retVal = psUpd.executeUpdate();
@@ -413,6 +417,7 @@ public class TCLoadCoders extends TCLoad {
                     psIns.setString(11, rs.getString(11));       // status
                     psIns.setString(12, rs.getString(12));       // email
                     psIns.setTimestamp(13, rs.getTimestamp(13)); // last_login
+                    psUpd.setInt(14, rs.getInt(14));             // school_id
 
                     // Now, execute the insert of the new row
                     retVal = psIns.executeUpdate();
