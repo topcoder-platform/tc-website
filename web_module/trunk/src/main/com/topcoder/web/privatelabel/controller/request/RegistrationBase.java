@@ -39,7 +39,7 @@ abstract class RegistrationBase extends BaseProcessor {
         try {
             p = new SessionPersistor(getRequest().getSession(true));
             regInfo = makeRegInfo();
-            storeRegInfo(p, regInfo);
+            p.setObject(Constants.REGISTRATION_INFO, regInfo);
             db = getCompanyDb(regInfo.getCompanyId());
             registrationProcessing();
         } catch (Exception e) {
@@ -50,10 +50,6 @@ abstract class RegistrationBase extends BaseProcessor {
     protected void clearRegInfo() {
         regInfo = null;
         p.removeObject(Constants.REGISTRATION_INFO);
-    }
-
-    protected void storeRegInfo(Persistor p, SimpleRegInfo info) {
-        p.setObject(Constants.REGISTRATION_INFO, info);
     }
 
     /**
