@@ -90,11 +90,10 @@ function submitSession() {
             <screen:form name="sessionSetupForm" action="<%=Constants.CONTROLLER_URL%>" method="GET">
             <input type="HIDDEN" name="rp" value="" >
 
-            <div id="testTableBorder">
-            <table border="0" cellspacing="0" cellpadding="3" width="70%" align="left">
+            <table cellspacing="0" cellpadding="3" width="70%" align="left" class="testFrame">
                 <tr><td class="testTableTitle" colspan="3">Test Profile</td></tr>
                 <tr>
-                    <td class="testTableOdd">&#160;</td>
+                    <td class="testTableOdd" width="60"><img src="/i/ev/clear.gif" width="60" height="1" alt="" border="0"></td>
                     <td class="testTableOdd">
                         <select name ="profileId">
                         <screen:resultSetRowIterator id="row" list="<%=sessionInfo.getProfileList()%>">
@@ -232,12 +231,13 @@ function submitSession() {
                     <td class="testTableOdd" colspan="3"><img src="/i/ev/clear.gif" width="1" height="10" alt="" border="0"></td>
                 </tr>
             </table>
-            </div>
 
-            <table border="0" cellspacing="0" cellpadding="3" width="30%">
+           </screen:form>
+ 
+             <table border="0" cellspacing="0" cellpadding="3" width="30%">
                 <tr><td width="100%"><img src="/i/ev/clear.gif" width="1" height="1" alt="" border="0"></td></tr>
             </table>
-            </screen:form>
+ 
             <p><br></p>
         </td>
 <!-- Middle Column ends -->
