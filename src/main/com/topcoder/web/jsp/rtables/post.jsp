@@ -28,6 +28,8 @@
     if (n==null) {
       session = request.getSession(true);
       response.sendRedirect(timeoutURL);
+      return;
+      System.out.println("still executing this damn thing");
     }
     try {
       n = (Navigation) session.getAttribute("navigation"); 
