@@ -100,10 +100,10 @@ public class RBoardUserBean extends BaseEJB {
 
     }
 
-    public void setCanReviewApplications(String dataSource, long userId, int phaseId, boolean canReviewApplications) {
+    public void setCanReviewApplication(String dataSource, long userId, int phaseId, boolean canReviewApplication) {
         int ret = update("rboard_user",
-                new String[]{"applications_ind"},
-                new String[]{canReviewApplications ? "1" : "0"},
+                new String[]{"application_ind"},
+                new String[]{canReviewApplication ? "1" : "0"},
                 new String[]{"user_id", "phase_id"},
                 new String[]{String.valueOf(userId), String.valueOf(phaseId)},
                 dataSource);
@@ -158,9 +158,9 @@ public class RBoardUserBean extends BaseEJB {
 
     }
 
-    public boolean canReviewApplications(String dataSource, long userId, int phaseId) {
+    public boolean canReviewApplication(String dataSource, long userId, int phaseId) {
         return selectInt("rboard_user",
-                "applications_ind",
+                "application_ind",
                 new String[]{"user_id", "phase_id"},
                 new String[]{String.valueOf(userId), String.valueOf(phaseId)},
                 dataSource).intValue() == 1;
