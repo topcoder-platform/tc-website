@@ -1,6 +1,6 @@
 <%@ page import="com.topcoder.web.privatelabel.Constants"%><html>
 <head>
-<title>Verizon Coding Contest Powered by TopCoder - Registration</title>
+<title>Verizon Coding Challenge Powered by TopCoder - Registration</title>
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <jsp:include page="../nocache.jsp"/>
