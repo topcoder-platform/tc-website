@@ -36,6 +36,7 @@ public class SimpleSearch extends Base {
 
             ResultSetContainer rsc = (ResultSetContainer)res.get("member_search");
             m.setResults(rsc);
+            m.setTotal(rsc.getIntItem(0, "total"));
             getRequest().setAttribute("memberSearch", m);
 
             setNextPage(Constants.SIMPLE_SEARCH_RESULTS);

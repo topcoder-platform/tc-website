@@ -74,6 +74,8 @@
                           &#160;&#160;<%=results.getStartRow()%>
                           to
                           <%=results.getEndRow()%>
+                          of
+                          <jsp:getProperty name="memberSearch" property="total"/>
                   </td>
               </tr>
 
