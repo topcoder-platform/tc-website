@@ -17,6 +17,6 @@ public interface UserPreference extends EJBObject  {
     void setValue(long userId, int preferenceId, String value, String dataSource) throws EJBException,RemoteException;
     String getValue(long userId, int preferenceId, String dataSource) throws EJBException,RemoteException;
     void setPreferenceValueID(long userId, int preferenceId, int valueId, String dataSource) throws EJBException,RemoteException;
-    int getPreferenceValueID(long userId, int preferenceId, String dataSource) throws EJBException,RemoteException;
+    int getPreferenceValueID(long userId, int preferenceId, String dataSource) throws EJBException,RemoteException; 
     ResultSetContainer getPreferencesByGroup(long userId, int groupId, String dataSource) throws EJBException,RemoteException;
 }
