@@ -42,7 +42,9 @@
 							<jsp:useBean id="Registration" scope="session" class="com.topcoder.web.tces.bean.Registration" />
 							<jsp:useBean id="navigation" scope="session" class="com.topcoder.common.web.data.Navigation" />
 							<tc:getProperty id="user" name="navigation" property="user" type="com.topcoder.common.web.data.User" />
+							<BR><BR>
 							User is <%= user %><BR>
+							<%= user.getHandle %> (<%= user.getUserId() %>)
 		    		</TD>
 		    		<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 			  	</TR>
