@@ -12,50 +12,57 @@ isErrorPage="true"
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
    <jsp:include page="/script.jsp" />
 </HEAD>
-<BODY BGCOLOR="#CCCCCC" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
 
-<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#000000">
- <TR>
-    <TD WIDTH="15" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="15" HEIGHT="1" BORDER="0"/></TD>
-    <TD WIDTH="206" BGCOLOR="#000000"><A HREF="/?t=index" TARGET="_parent"><IMG SRC="/i/logo.gif" WIDTH="206" HEIGHT="49" BORDER="0" VSPACE="10"/></A></TD>
-    <TD WIDTH="20" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0" HSPACE="35"/></TD>
-    <TD WIDTH="100%" BGCOLOR="#000000" ALIGN="right" VALIGN="top">
-      <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
-        <TR>
-          <TD VALIGN="middle" BGCOLOR="#43515E" BACKGROUND="/i/steel_gray_bg.gif"><IMG SRC="/i/top_back_tab.gif" ALT="" WIDTH="19" HEIGHT="17" BORDER="0"/></TD>
-          <TD VALIGN="middle" BGCOLOR="#43515E" WIDTH="100%" BACKGROUND="/i/steel_gray_bg.gif" ALIGN="right" CLASS="globalNavSmall"><A HREF="/?t=authentication&amp;c=login" CLASS="globalNavSmall" TARGET="_parent">Login</A>&#160;&#160;&#160;:&#160;&#160;&#160;<A HREF="/?t=contacts&amp;c=index" CLASS="globalNavSmall" TARGET="_parent">Contacts</A>&#160;&#160;&#160;:&#160;&#160;&#160;<A HREF="/?t=index" CLASS="globalNavSmall" TARGET="_parent">Home</A></TD>
-          <TD WIDTH="50" BGCOLOR="#43515E" BACKGROUND="/i/steel_gray_bg.gif"><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0" VSPACE="8"/></TD>
-        </TR>
-        <TR>
-          <TD VALIGN="middle" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-          <TD><IMG SRC="/i/clear.gif" WIDTH="72" HEIGHT="1" BORDER="0" VSPACE="20"/></TD>
-          <TD CLASS="time" VALIGN="middle" NOWRAP="" ALIGN="right"><BR CLEAR="all"/><BR/><SPAN CLASS="smallBrackets">[ </SPAN> <A HREF="<%="https://"+request.getServerName()+"/reg/index.jsp"%>" CLASS="registerToday" TARGET="_parent">Register Today</A> :<span class="time"><jsp:include page="date_time.jsp" /></span><SPAN CLASS="smallBrackets">]</SPAN><BR CLEAR="ALL"/><BR CLEAR="ALL"/></TD><TD WIDTH="50" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/></TD>
+<body>
 
-        </TR>
-      </TABLE>
-    </TD>
-  </TR>
-  <TR>
-    <TD COLSPAN="2" BGCOLOR="#000000" VALIGN="bottom"><IMG SRC="/i/logo_btm_tab.gif" ALT="" WIDTH="187" HEIGHT="6" BORDER="0"/></TD>
-    <TD COLSPAN="2" BGCOLOR="#000000" ALIGN="right"><A HREF="Javascript:arena()" CLASS="registerNav"><IMG SRC="/i/label_download_applet.gif" ALT="Download the Applet" WIDTH="134" HEIGHT="17" BORDER="0"/></A><A HREF="/index?t=schedule&amp;c=practice_room" CLASS="registerNav"><IMG SRC="/i/label_visit_practice_room.gif" ALT="Visit the Practice Room" WIDTH="141" HEIGHT="17" BORDER="0"/></A><IMG SRC="/i/clear.gif" ALT="" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
-  </TR>
-</TABLE>
+<table width="100%" border="0" cellpadding="3" cellspacing="0" class="search">    
+    <tr>
+        <td width="100% class="login" nowrap="0">&nbsp;</td>
+    </tr>
+</table> 
 
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">    
+    <tr><td width="100%"><img src="/i/clear.gif" width="1" height="1" border="0"/></td></tr>                
+</table> 
 
+<!-- Logo Bar Include Begins -->       
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">            
+    <tr valign="middle">
+        <td width="15"><a name="top"></a><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
+        <td width="206"><a href="/?&amp;t=home&amp;c=public_home" target="_parent"><img src="/i/logo.gif" width="206" height="49" border="0" vspace="5"/></a></td>
+        <td width="99%"><img src="/i/clear.gif" width="1" height="75" border="0" hspace="15"/></td>
+    </tr>
+</table>
 
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr><td height="4" class="headStripe"><img src="/images/clear.gif" alt="" height="4" border="0" /></td></tr>
+</table>
 
- <TABLE BGCOLOR="#CCCCCC" CELLSPACING="0" CELLPADDING="0" BORDER="0" HEIGHT="69%" WIDTH="100%">
- <TR>
- <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="170"> <IMG ALT="" BORDER="0" HEIGHT="1" WIDTH="10" SRC="/i/clear.gif"></TD>
- <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="10"><IMG BORDER="0" HEIGHT="8" WIDTH="10" SRC="/i/clear.gif"></TD>
- <TD valign="top" bgcolor="#CCCCCC" width="100%" class="bodyText"><IMG BORDER="0" VSPACE="5" HEIGHT="1" width="400" src="/i/clear.gif"><BR><DIV CLASS="header"><%=message==null?"Navigation Error":message%></DIV></TD>
- <TD BGCOLOR="#CCCCCC" WIDTH="10"><IMG BORDER="0" HEIGHT="1" WIDTH="10" SRC="/i/clear.gif"></TD>
- <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="170"><IMG BORDER="0" HEIGHT="1" WIDTH="170" SRC="/i/clear.gif"><BR></TD>
- <TD BGCOLOR="#CCCCCC" WIDTH="10"><IMG HEIGHT="1" WIDTH="10" SRC="/i/clear.gif"></TD>
- <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="100%"><IMG HEIGHT="1" WIDTH="170" SRC="/i/clear.gif"><BR></TD>
- <TD BGCOLOR="#CCCCCC" WIDTH="25"><IMG BORDER="0" HEIGHT="1" WIDTH="25" SRC="/i/clear.gif"></TD>
- </TR>
- </TABLE>
-   <jsp:include page="/foot.jsp" /> 
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#CC0000">
+    <tr valign="middle">
+        <td class="topNav" width="100%">&#160;</td>
+    </tr>
+</table>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr><td width="100%" height="2" class="nonBreadcrumb"><img src="/images/clear.gif" alt="" width="10" height="2" border="0" /></td></tr>
+</table>
+
+<table cellspacing="0" cellpadding="0" border="0" width="100%" height="99%">
+    <tr valign="top">
+        <td width="180"><img src="/i/clear.gif" alt="" border="0" height="1" width="170"></td>
+        <td width="10"><img border="0" height="1" width="10" src="/i/clear.gif"></td>
+        <td width="100%" class="bodytext">
+            <img border="0" vspace="5" height="1" width="400" src="/i/clear.gif"><br>
+            <div class="header"><%=message==null?"navigation error":message%></div>
+        </td>
+        <td width="10"><img border="0" height="1" width="10" src="/i/clear.gif"></td>
+        <td width="170"><img border="0" height="1" width="170" src="/i/clear.gif"></td>
+        <td width="10"><img height="1" width="10" src="/i/clear.gif"></td>
+ </tr>
+ </table>
+
+<jsp:include page="/foot.jsp" /> 
+
 </body>
 </html>
