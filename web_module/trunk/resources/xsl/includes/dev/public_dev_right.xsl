@@ -100,6 +100,26 @@
                     </xsl:if>
                 </xsl:for-each>
 
+               <xsl:variable name="designtco" select="//TC/DEVELOPMENT/projects/project[phase_id=$design-phase
+                                                   and status_id=303]"/>
+               <xsl:if test="not($designtco)">
+               <tr valign="middle">
+                   <td background="/i/development/tco_sidebar_side.gif" width="11"><img src="/i/clear.gif" alt=""
+                         width="11" height="10" border="0" /></td>
+
+                   <td bgcolor="#004B33">
+                       <table border="0" cellspacing="3" cellpadding="0">
+                           <tr valign="middle">
+                               <td width="99%" class="statText">
+                             The Design TCO begins on 9/4/2003
+                               </td>
+                               <td width="1%" class="statText" align="center"></td>
+                           </tr>
+                       </table>
+                   </td>
+               </tr>
+               </xsl:if>
+
             </table>
 
             <table width="238" border="0" cellspacing="0" cellpadding="0" bgcolor="#999999">
@@ -175,6 +195,26 @@
 
                     </xsl:if>
                 </xsl:for-each>
+
+               <xsl:variable name="devtco" select="//TC/DEVELOPMENT/projects/project[phase_id=$dev-phase
+                                                   and status_id=303]"/>
+               <xsl:if test="not($devtco)">
+               <tr valign="middle">
+                   <td background="/i/development/tco_sidebar_side.gif" width="11"><img src="/i/clear.gif" alt=""
+                         width="11" height="10" border="0" /></td>
+
+                   <td bgcolor="#004B33">
+                       <table border="0" cellspacing="3" cellpadding="0">
+                           <tr valign="middle">
+                               <td width="99%" class="statText">
+                             The Development TCO begins on 9/2/2003
+                               </td>
+                               <td width="1%" class="statText" align="center"></td>
+                           </tr>
+                       </table>
+                   </td>
+               </tr>
+               </xsl:if>
 
             </table>
 
