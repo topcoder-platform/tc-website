@@ -35,7 +35,7 @@ abstract class FullRegBase extends SimpleRegBase {
             log.debug("trans database set to: " + transDb);
             log.debug("database set to: " + db);
 
-            questions = getQuestions(transDb);
+            questions = getQuestions(transDb, companyId);
             regInfo = makeRegInfo();
             p.setObject(Constants.REGISTRATION_INFO, regInfo);
             registrationProcessing();
@@ -96,9 +96,10 @@ abstract class FullRegBase extends SimpleRegBase {
      * @return
      * @throws Exception
      */
-    protected static Map getQuestions(String db) throws Exception {
+    protected static Map getQuestions(String db, long companyId) throws Exception {
         Request r = new Request();
         r.setContentHandle("demographic_question_list");
+        r.setProperty("cm", String.valueOf(companyId));
         Map qMap = getDataAccess(db, true).getData(r);
         ResultSetContainer questions = (ResultSetContainer) qMap.get("demographic_question_list");
         ResultSetContainer.ResultSetRow row = null;
@@ -107,13 +108,13 @@ abstract class FullRegBase extends SimpleRegBase {
         DemographicQuestion q = null;
         for (Iterator it = questions.iterator(); it.hasNext();) {
             row = (ResultSetContainer.ResultSetRow) it.next();
-            q = makeQuestion(row, db);
+            q = makeQuestion(row, db, companyId);
             ret.put(new Long(q.getId()), q);
         }
         return ret;
     }
 
-    private static DemographicQuestion makeQuestion(ResultSetContainer.ResultSetRow row, String db) throws Exception {
+    private static DemographicQuestion makeQuestion(ResultSetContainer.ResultSetRow row, String db, long companyId) throws Exception {
         DemographicQuestion ret = new DemographicQuestion();
         ret.setId(row.getLongItem("demographic_question_id"));
         ret.setDesc(row.getStringItem("demographic_question_desc"));
@@ -126,6 +127,7 @@ abstract class FullRegBase extends SimpleRegBase {
         Request r = new Request();
         r.setContentHandle("demographic_answer_list");
         r.setProperty("dq", String.valueOf(ret.getId()));
+        r.setProperty("cm", String.valueOf(companyId));
         Map aMap = dataAccess.getData(r);
         ResultSetContainer answers = (ResultSetContainer) aMap.get("demographic_answer_list");
 
