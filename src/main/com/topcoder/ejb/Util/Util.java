@@ -5,7 +5,7 @@ import java.rmi.RemoteException;
 
 public interface Util extends EJBObject {
 
-    public void registerForTourny(int coderId)
+    public void registerForTourny(int coderId, int roundId, int contestId)
             throws RemoteException;
 
     public void addResponse(int coderId, int answerId, int questionId)
