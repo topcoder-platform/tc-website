@@ -198,7 +198,7 @@ public class ProjectAdministration implements Model {
                             if (scorecards[j].getSubmission().equals(submissions[i]) && scorecards[j].isCompleted()) {
                                 ok = true;
                                 double minscore = ConfigHelper.getMinimumScore();
-                                if (scorecards[j].getPassed() && scorecards[j].getScore() >= minscore ) {
+                                if ((scorecards[j].getPassed() && scorecards[j].getScore() >= minscore) || ((InitialSubmission)submissions[i]).isAdvancedToReview() ) {
                                     InitialSubmission sub = scorecards[j].getSubmission();
                                     sub.setPassedScreening(true);
                                     //sub.setAdvancedToReview(true);
