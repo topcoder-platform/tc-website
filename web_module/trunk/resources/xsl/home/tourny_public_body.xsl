@@ -287,6 +287,9 @@ Tuesday, September 24, 2002<BR/><BR/>
 	  <P>
 Someone to watch for in upcoming matches will be <B>vorthys.</B> In his debut match, he was able to beat all other Division II coders, and was one of only three people to solve the Division II, level 3 problem. He also successfully challenged two problems for a total of 1404.82 points, giving him an initial ranking of 1861. That ranks him 11th on the Impressive Rating Debuts list.
 	  </P>
+	  <P>
+This problem set was probably a little bit easy for most of the Division I coders, as was evidenced by the high success percentages on the first and second problems. Even I was actually able to solve the first two Division I problems this time. I can't remember the last time I did that! Oh well, nothing like a little confidence booster before the big Invitational next month.
+	  </P>
     </TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>     
   </TR>
