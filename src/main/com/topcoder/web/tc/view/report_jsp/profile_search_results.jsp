@@ -8,10 +8,12 @@
 %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
 <%
     Map m = (Map)request.getAttribute(Constants.REPORT_PROFILE_SEARCH_RESULTS_KEY);
     ResultSetContainer results = (ResultSetContainer)m.get("results");
     List headers = (List)request.getAttribute("column_headers");
+    Enumeration e = request.getParameterNames();
 %>
 
 
@@ -38,6 +40,14 @@
             </tc:counter>
         </tr>
     </rsc:iterator>
+    </table>
+    <form name="revise" action="tc" method="get">
+        <logic:iterate name="<%=e%>" id="key">
+            <logic:iterate name="<%=Arrays.asList(request.getParameterValues(key))%>" id="val">
+                <input type="hidden" name="<%=e%>" value="<%=val%>">
+            </logic:iterate>
+        </logic:iterate>
+    </form>
   </body>
 </html>
 
