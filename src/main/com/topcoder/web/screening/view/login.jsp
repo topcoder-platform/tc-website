@@ -55,7 +55,7 @@
         <td width="100%" align="center"><img src="/i/ev/clear.gif" width="400" height="11" alt="" border="0"><br>
             <p><br></p>
             <p><br></p>
-            <table width="250" border="0" cellpadding="0" cellspacing="0" class="loginForm">
+            <table width="350" border="0" cellpadding="0" cellspacing="0" class="loginForm">
                 <tr><td class="testTableTitle">Testing Application</td></tr>
                 <tr valign="middle">
                     <td class="statText" align="center">&#160;
