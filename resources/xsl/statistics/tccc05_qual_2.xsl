@@ -115,7 +115,7 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
       <b>Submission Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      156 / 173 (90.17%)
+      154 / 171 (90.06%)
     </td>
   </tr>
   <tr>
@@ -123,7 +123,7 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
       <b>Success Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      140 / 156 (89.74%)
+      134 / 154 (87.01%)
     </td>
   </tr>
   <tr>
@@ -139,7 +139,7 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
       <b>Average Score</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      198.71 (for 140 correct submissions)
+      198.23 (for 134 correct submissions)
     </td>
   </tr>
 </table></blockquote>
@@ -191,7 +191,7 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
       <b>Submission Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      113 / 173 (65.32%)
+      112 / 171 (65.50%)
     </td>
   </tr>
   <tr>
@@ -199,7 +199,7 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
       <b>Success Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      41 / 113 (36.28%)
+      40 / 112 (35.71%)
     </td>
   </tr>
   <tr>
@@ -207,7 +207,7 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
       <b>High Score</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      <b>MikeMirzayanov</b> for 898.83 points (7 mins 48 secs)
+      <b>kalinov</b> for 869.10 points (9 mins 6 secs)
     </td>
   </tr>
   <tr>
@@ -215,7 +215,7 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
       <b>Average Score</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      604.19 (for 41 correct submissions)
+      596.83 (for 40 correct submissions)
     </td>
   </tr>
 </table></blockquote>
