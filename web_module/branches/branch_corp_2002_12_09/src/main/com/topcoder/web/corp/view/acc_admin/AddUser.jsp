@@ -12,18 +12,6 @@
 <HEAD>
 <TITLE>TopCoder Corporate</TITLE>
 <script language="JavaScript" src="<%=request.getContextPath()%>/script.js"></script>
-<%--
-<script TYPE="text/javascript">
-function getPermissions(url,wd,ht) {
-    var last=0;
-    var daHt = parseInt(ht) + parseInt('49');
-    var size = "top=2,left=2,width="+wd+",height="+daHt+"status=0";
-    var name="graph";
-    window.open(url,name,size);
-    return;
-  }
-</SCRIPT>
---%>
 </HEAD>
 
 <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
