@@ -1259,7 +1259,7 @@ public final class ReportServlet extends HttpServlet {
              " ,country co "+
             " ,coder_referral cr" +
              " WHERE u.user_id = c.coder_id "+
-             " and c.coder = cr.coder_id" +
+             " and c.coder_id = cr.coder_id" +
              " AND c.coder_type_id = 2 "+
              " AND DATE(member_since) >= today-7 "+
              " AND handle NOT LIKE 'guest%' "+
