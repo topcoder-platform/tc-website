@@ -149,6 +149,8 @@ public class PrincipalMgrBean extends BaseEJB {
                 pl.add(rp);
             }
 
+        } catch (NoSuchUserException e) {
+            throw e;
         } catch (Exception e) {
             throw new GeneralSecurityException(e);
         } finally {
