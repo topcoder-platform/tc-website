@@ -34,7 +34,11 @@
                     <rsc:item row="<%=info%>" name="rank"/>
                 </td>
                 <td>
-                    <a href="/stat?c=member_profile&cr=<rsc:item row="<%=info%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=info.getIntItem("rating")%>'/>"><rsc:item row="<%=info%>" name="handle"/></a>
+                    <% if (info.getIntItem("rating")>0) { %>
+                        <a href="/stat?c=member_profile&cr=<rsc:item row="<%=info%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=info.getIntItem("rating")%>'/>"><rsc:item row="<%=info%>" name="handle"/></a>
+                    <% } else { %>
+                        <rsc:item row="<%=info%>" name="handle"/>
+                    <% } %>
                 </td>
                 <td>
                     <rsc:item row="<%=info%>" name="rating"/>
