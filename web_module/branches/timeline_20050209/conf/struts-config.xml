@@ -344,7 +344,7 @@
         <!-- Edit Timeline-->
         <action 
                 path="/editTimeline"
-                type="com.topcoder.apps.review.EditProjectAction"
+                type="com.topcoder.apps.review.EditTimelineAction"
                 name="projectForm"
                 validate="false"
                 scope="session">

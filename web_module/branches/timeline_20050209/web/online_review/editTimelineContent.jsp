@@ -95,12 +95,10 @@
                         <bean:define id="phaseName" name="phaseInstance" property="phase.name" />
                         <bean:write name="phaseName" /></td>
                     <td class="forumTextCenterOdd">
-                        <!-- html:text property='<%="phaseStart["+pIdx+"]"%>' size="20" / -->
                         <bean:write name="projectForm" property='<%="phaseStart["+pIdx+"]"%>' />
                         
                         </td>
                     <td class="forumTextCenterOdd">
-                        <!-- html:text property='<%="phaseEnd["+pIdx+"]"%>' size="20" / -->
                         <bean:write name="projectForm" property='<%="phaseEnd["+pIdx+"]"%>' />
                         </td>
                         
@@ -108,19 +106,19 @@
 			    <table border="0" width="100%">
 				    <tr>
 					<td width="50%" align="left">
-					<input name="'<%="adjustStartDate["+pIdx+"]"%>'" checked="checked" type="radio" value="true">
+		                        <html:radio property='<%="adjustStartDate["+pIdx+"]"%>' value="true" />
 						When previous phase ends
 					</td>
 					<td width="50%">
-						<input name='<%="adjustStartDate["+pIdx+"]"%>' type="radio" value="false">Other
-						<input name='<%="phaseStart["+pIdx+"]"%>' size="20" value="" type="text">
+			                        <html:radio property='<%="adjustStartDate["+pIdx+"]"%>' value="false" />
+			                        <html:text property='<%="phaseStart["+pIdx+"]"%>' size="20" />
 					</td>
 				    </tr>
 			    </table>
 
 		    </td>
                     <td class="forumTextCenterOdd">
-                          <input name='<%="phaseLength["+pIdx+"]"%>' size="3" value="40" type="text"> hours
+                          <html:text property='<%="phaseLength["+pIdx+"]"%>' size="3" />
                     </td>
                         
                 </tr>

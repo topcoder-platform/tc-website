@@ -83,10 +83,11 @@ log(Level.INFO, "timelineAction="+timelineAction);
 
                 if (Constants.ACTION_REFRESH.equals(timelineAction)) {
                     log(Level.INFO, "refresh_timeline");
-                    request.getSession().setAttribute(mapping.getAttribute(), form);
 
                     // test!!
                     ((ProjectForm) form).setPhaseLength(0,((ProjectForm) form).getPhaseLength(0)+1);
+
+                    request.getSession().setAttribute(mapping.getAttribute(), form);
 
                     forwards.removeForward(mapping.findForward(Constants.SUCCESS_KEY));
                     forwards.addForward(mapping.findForward("refresh"));
@@ -105,6 +106,7 @@ log(Level.INFO, "timelineAction="+timelineAction);
                     ProjectRetrieval pr = (ProjectRetrieval) result;
                     ((ProjectForm) form).timeLineFromProject(pr.getProject());
                     request.getSession().setAttribute(mapping.getAttribute(), form);
+                    forwards.addForward(mapping.findForward("cancel"));
                     return result;
                 }
 
