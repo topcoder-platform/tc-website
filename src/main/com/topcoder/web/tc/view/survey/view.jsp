@@ -21,7 +21,7 @@
                     <tc:answerInput question="<%=question%>" answer="<%=answer%>"/>
                 </td>
             </tr>
-            </rsc:iterator>
+            </tc:answerIterator>
         </table>
     </tc:questionIterator>
 </body>
