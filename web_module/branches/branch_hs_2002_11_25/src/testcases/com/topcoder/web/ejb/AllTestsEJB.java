@@ -15,7 +15,7 @@ public class AllTestsEJB {
   }
 
   public static void main(String _argv[]) {
-    Test t=EJBTests.suite();
+    Test t=AllTestsEJB.suite();
     TestResult tr=new TestResult();
     t.run(tr);
     System.out.println("Number of test cases run: "+tr.runCount());
