@@ -49,7 +49,7 @@
 	</TR>
 
 	<tc-webtag:iterator id="resultRow" collection="<%=rsc%>">
-	<% ResultSetRow RSR = (ResultSetRow)resultRow; %>
+	<% ResultSetContainer.ResultSetRow RSR = (ResultSetContainer.ResultSetRow)resultRow; %>
 	  <TR>
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC">&#160;
 			<tc-webtag:item row="<%=RSR%>" name="user_id"/></TD>
