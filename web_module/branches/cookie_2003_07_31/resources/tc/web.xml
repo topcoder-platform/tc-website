@@ -29,7 +29,7 @@
 
         <init-param>
             <param-name>login_servlet</param-name>
-            <param-value>/index</param-value>
+            <param-value>/tc</param-value>
             <description>the servlet path to use when we need to direct the user to login</description>
         </init-param>
 
@@ -97,6 +97,21 @@
             <param-value>/statistics/highestRating.jsp</param-value>
             <description></description>
         </init-param>
+        <init-param>
+            <param-name>login</param-name>
+            <param-value>/authentication/login.jsp</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>activate</param-name>
+            <param-value>/authentication/activate.jsp</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>recover_password</param-name>
+            <param-value>/authentication/recoverPassword.jsp</param-value>
+            <description></description>
+        </init-param>
 
 
         <!-- processor mappings -->
@@ -151,6 +166,18 @@
         <init-param>
             <param-name>HighestRating</param-name>
             <param-value>statistics.HighestRating</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>Login</param-name>
+            <param-value>authentication.Login</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>Logout</param-name>
+            <param-value>authentication.Logout</param-value>
             <description></description>
         </init-param>
 
