@@ -1,7 +1,8 @@
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 com.topcoder.web.tc.model.ReviewBoardApplication"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <% ResultSetContainer projectDetail= (ResultSetContainer)request.getAttribute("projectDetail");%>
@@ -105,7 +106,7 @@
                             <tc:beanWrite name="reviewer" property="reviewerType"/>
                         </td>
                         <td class="bodyText">
-                            <% if (reviewer.isSpotFilled()) { %>
+                            <% if (((ReviewBoardApplication)reviewer).isSpotFilled()) { %>
                                 <tc:beanWrite name="reviewer" property="handle"/>
                             <% } else { %>
                                 link here
