@@ -74,32 +74,32 @@
 						<table border="0" cellspacing="0" cellpadding="0" width="100%">
 							<tr><td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" height="5" colspan="4"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
 
-							<tr valign="top"><td class="statText" colspan="4">&#160;&#160;<strong>Coder: </strong><span class="coderTextYellow"><a href="/stat?c=member_profile&amp;cr=296145" class="coderTextYellow"><strong>srowen</strong></a></span></td></tr>
+							<tr valign="top"><td class="statText" colspan="4">&#160;&#160;<strong>Coder: </strong><span class="coderTextYellow"><a href="/stat?c=member_profile&amp;cr=302729" class="coderTextGray"><strong>kislookhin</strong></a></span></td></tr>
 
 							<tr><td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" height="5" colspan="4"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
 
 							<tr valign="top">
-								<td class="statText" rowspan="5" width="55"><a href="/stat?c=member_profile&amp;cr=296145" class="coderTextYellow"><img src="/i/m/nophoto_dev.gif" alt="" width="55" height="61" border="0" hspace="5" vspace="5" /></a></td>
+								<td class="statText" rowspan="5" width="55"><a href="/stat?c=member_profile&amp;cr=302729" class="coderTextYellow"><img src="/i/m/nophoto_dev.gif" alt="" width="55" height="61" border="0" hspace="5" vspace="5" /></a></td>
 								<td class="statText" width="65%">Developer Level:</td>
-								<td class="statText" align="right" width="10%">II</td>
+								<td class="statText" align="right" width="10%">I</td>
 								<td class="statText" width="25%"></td>
 							</tr>
 
 							<tr valign="top">
 								<td class="statText">Review Board Score for this Project:</td>
-								<td class="statText" align="right">94.39</td>
+								<td class="statText" align="right">81.38</td>
 								<td class="statText"></td>
 							</tr>
 
 							<tr valign="top">
 								<td class="statText">Rating:</td>
-								<td class="statText" align="right">1682</td>
-								<td class="statText">&#160;&#160;<a href="/stat?c=ratings_history&amp;cr=296145" class="statText">[ ratings history ]</a></td>
+								<td class="statText" align="right">659</td>
+								<td class="statText">&#160;&#160;<a href="/stat?c=ratings_history&amp;cr=302729" class="statText">[ ratings history ]</a></td>
 							</tr>
 
 							<tr valign="top">
 								<td class="statText">Total Earnings for All Component Projects*:</td>
-								<td class="statText" align="right">$936.00</td>
+								<td class="statText" align="right">$210.00</td>
 								<td class="statText"></td>
 							</tr>
 
@@ -111,13 +111,15 @@
 			<table border="0" cellspacing="0" cellpadding="10" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
 				<tr valign="middle">
 					<td class="statText" background="/i/steel_darkblue_bg.gif">
-						<p><strong>Simple Cache:&#160;Design</strong><br />
-						<a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2804505" class="statText">Simple Cache</a> provides the ability to quickly and effectively implement a caching strategy. For more details, check out Simple Cache at <a href="http://www.topcodersoftware.com" class="statText">topcodersoftware.com</a>.</p>
+						<p><strong>Email Address Validator:&#160;Design</strong><br />
+						<a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2804393" class="statText">Email Address Validator</a> 
+						is designed to validate the authenticity of an email address. This validation extends beyond simple string validation to ensure that the address is well-formed. It communicates over the network with the host SMTP domain, validating its existence, and ultimately the validity of the target email address. An email address is considered valid if an email message can successfully be sent to it the target SMTP server returning an error message.
+						<br/>For more details, check out Email Address Validator at <a href="http://www.topcodersoftware.com" class="statText">topcodersoftware.com</a>.</p>
 						
 						<p><strong>Review Board Comments</strong><br />
-						"Great job overall.  Very thorough."<a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=271008">&#160;&#151;ilya</a></p>
+						"Kislookhin has a good grasp of SMTP."<a class="coderTextRed" href="/stat?c=member_profile&amp;cr=152073">&#160;&#151;NDBronson</a></p>
 
-						<p><strong>Total Submissions for this Project:</strong> 2</p></td>
+						<p><strong>Total Submissions for this Project:</strong> 3</p></td>
 				</tr>
 			</table>
 	<!-- Featured Winner Ends -->
@@ -144,11 +146,11 @@
 
 				<tr valign="middle">
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_darkblue_bg.gif" class="statText" height="18">&#160;&#160;<a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2804505" class="statText">Simple Cache:&#160;Design</a></td>
-					<td background="/i/steel_darkblue_bg.gif" class="statText" height="18" align="center">2</td>
-					<td background="/i/steel_darkblue_bg.gif" class="statText" height="18"><a href="/stat?c=member_profile&amp;cr=296145" class="coderTextYellow"><strong>srowen</strong></a> ****</td>
-					<td background="/i/steel_darkblue_bg.gif" class="statText" height="18" align="center">94.39</td>
-					<td background="/i/steel_darkblue_bg.gif" class="statText" height="18" align="center">$936.00</td>
+					<td background="/i/steel_darkblue_bg.gif" class="statText" height="18">&#160;&#160;<a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2804393" class="statText">Email Address Validator:&#160;Design</a></td>
+					<td background="/i/steel_darkblue_bg.gif" class="statText" height="18" align="center">3</td>
+					<td background="/i/steel_darkblue_bg.gif" class="statText" height="18"><a href="/stat?c=member_profile&amp;cr=302729" class="coderTextGray"><strong>kislookhin</strong></a></td>
+					<td background="/i/steel_darkblue_bg.gif" class="statText" height="18" align="center">81.38</td>
+					<td background="/i/steel_darkblue_bg.gif" class="statText" height="18" align="center">$210.00</td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
 
@@ -156,7 +158,7 @@
 
 				<tr valign="middle">
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_darkblue_bg.gif" class="statTextSmall" height="18" colspan="5">&#160;&#160;* Total Earnings for all Component Projects (before royalties)<br />&#160;&#160;**** Our first 4x winner!</td>
+					<td background="/i/steel_darkblue_bg.gif" class="statTextSmall" height="18" colspan="5">&#160;&#160;* Total Earnings for all Component Projects (before royalties)<br />&#160;&#160;</td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
 
