@@ -1,9 +1,9 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <html>
   <head>
     <title></title>
-    <META HTTP-EQUIV=Refresh CONTENT="600; URL=?module=CurrentTime"> 
+    <META HTTP-EQUIV=Refresh CONTENT="600; URL=<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>?module=CurrentTime"> 
   </head>
   <body>
     <script language="javascript">
