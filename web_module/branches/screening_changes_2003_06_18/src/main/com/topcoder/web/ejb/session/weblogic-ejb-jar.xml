@@ -14,7 +14,7 @@
                 <jndi-name>SCREENING_OLTP</jndi-name>
             </resource-description>
             <resource-description>
-                <res-ref-name>txdatasource</res-ref-name>
+                <res-ref-name>jts_datasource_name</res-ref-name>
                 <jndi-name>JTS_SCREENING_OLTP</jndi-name>
             </resource-description>
         </reference-descriptor>
@@ -32,7 +32,7 @@
                 <jndi-name>SCREENING_OLTP</jndi-name>
             </resource-description>
             <resource-description>
-                <res-ref-name>txdatasource</res-ref-name>
+                <res-ref-name>jts_datasource_name</res-ref-name>
                 <jndi-name>JTS_SCREENING_OLTP</jndi-name>
             </resource-description>
         </reference-descriptor>
