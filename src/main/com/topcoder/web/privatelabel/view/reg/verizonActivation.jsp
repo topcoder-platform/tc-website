@@ -66,7 +66,7 @@
 
                             Good luck to you in the Arena!<br/><br/><br/>
 
-                            <font size="-1">If you have any questions about how to participate, please email them
+                            <font size="-3">If you have any questions about how to participate, please email them
                             to <a class="bodyCopy" href="mailto:service@topcoder.com">service@topcoder.com</a></font>
 
                         <p><img src="/i/clear.gif" width="427" height="20" border="0"/></p>
