@@ -304,7 +304,7 @@ function submitEnter(e) {
 
     <%    ForumMessage message = (ForumMessage)searchResults.next(); %>
 
-    <li><a class="statText" href="/rtables/viewThread.jsp?&forum=<%=forumID%>&thread=<%=message.getForumThread().getID()%>&message=<%=message.getID()%>#<%=message.getID()%>">
+    <li><a class="statText" href="/rtables/viewThread.jsp?&forum=<%=message.getForumThread().getForum().getID()%>&thread=<%=message.getForumThread().getID()%>&message=<%=message.getID()%>#<%=message.getID()%>">
 
     <%= message.getSubject() %></a> by <%= message.getUser().getUsername() %>
 
