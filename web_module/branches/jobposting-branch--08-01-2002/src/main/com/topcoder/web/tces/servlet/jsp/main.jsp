@@ -67,7 +67,7 @@
                   <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><b>Status</b></TD>
                 </TR>
     
-                <tces:mapIterator id="campaignInfo" MapList="<jsp:getProperty name="MainTask" property="CampaignInfoList"/>">
+                <tces:mapIterator id="campaignInfo" MapList="<%=MainTask.getCampaignInfoList()%>">
 
                 <TR>
                   <TD class="statText" HEIGHT="18">&#160;
