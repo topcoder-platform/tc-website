@@ -35,8 +35,10 @@ abstract class RegistrationBase extends BaseProcessor {
         p = new SessionPersistor(getRequest().getSession(true));
         SimpleRegInfo temp = (SimpleRegInfo)p.getObject(Constants.REGISTRATION_INFO);
         if (temp==null) {
+            log.debug("reg info not found in persistor, generating a new one");
             regInfo = makeRegInfo();
         } else {
+            log.debug("reg info found in persistor");
             regInfo = temp;
         }
         db = getCompanyDb(regInfo.getCompanyId());
