@@ -138,7 +138,7 @@ abstract public class ContractingBase extends BaseProcessor {
                 }
             }
 
-            if (!good) {
+            if (!good && !info.isEdit()) {
                 addError(Constants.PREFERENCE_PREFIX + Constants.PREFERENCE_CONTRACTING, "Please indicate interest in either contract or permanent positions.");
             }
 
