@@ -43,7 +43,7 @@
                 <td>
             </tr>
         </table>
-        <script language="javascript" src="lib.js"></script>
+        <script language="javascript" src="/js/techassess.js"></script>
         <script language="javascript">
             //written to page by backend
             var numArgs = 2;

@@ -15,6 +15,19 @@
     function clear(inputItem) {
       inputItem.value='';
     }
+    var windowHandle = null;
+
+    function openTestingWindow() {
+      if(windowHandle && !windowHandle.closed) {
+        windowHandle.focus();
+        return;
+      }
+      var w = 500;
+      var h = 300;
+      var left = (screen.availWidth - w) / 2;
+      var top = (screen.availHeight - h) / 2;
+      windowHandle = window.open("testwindow.jsp?componentId=" + document.problemForm.componentId.value, "", "statusbar=no,menubar=no,status=no,toolbar=no,width=" + w + ",height=" + h + ",screenX=" + left + ",screenY=" + top);
+    }
 </SCRIPT>
 <jsp:include page="problemTimer.jsp">
   <jsp:param name="countDown" value="true"/>
@@ -59,6 +72,11 @@
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE%>"/>
                     <tc-webtag:hiddenInput name="<%=Constants.COMPONENT_ID%>" value="<%=String.valueOf(problemInfo.getComponentId())%>"/>
                     <tc-webtag:hiddenInput name="<%=Constants.PROBLEM_TYPE_ID%>" value="<%=String.valueOf(problemInfo.getProblemTypeId())%>"/>
+
+                    <input type=hidden name="arg0" value=""/>
+                    <input type=hidden name="arg1" value=""/>
+
+
 
                     <table cellspacing=0 cellpadding=0 border=0 width="100%">
                        <tr>
@@ -107,7 +125,7 @@
 --%>
                           <td><a href="JavaScript:doSubmit('<%=Constants.RP_SAVE%>')"><img src="/i/corp/screening/buttonSave.gif" alt="" /></a></td>
                           <td><a href="JavaScript:doSubmit('<%=Constants.RP_COMPILE%>')"><img src="/i/corp/screening/buttonCompile.gif" alt="" /></a></td>
-                          <td><a href="testWindow.jsp" target="_blank"><img src="/i/corp/screening/buttonTest.gif" alt="" /></a></td>
+                          <td><a href="JavaScript:openTestingWindow();"><img src="/i/corp/screening/buttonTest.gif" alt="" /></a></td>
                           <td><a href="JavaScript:clear(document.problemForm.<%=Constants.CODE%>);"><img src="/i/corp/screening/buttonClear.gif" alt="" /></a></td>
                           <td><a href="JavaScript:doSubmit('<%=Constants.RP_VIEW_PROBLEM_SET%>')"><img src="/i/corp/screening/buttonClose.gif" alt="" /></a></td>
                           <td><a href="JavaScript:doSubmit('<%=Constants.RP_SUBMIT%>')"><img src="/i/corp/screening/buttonSubmit.gif" alt="" /></a></td>

@@ -48,7 +48,7 @@
             </tr>
         </table>
         <!-- this will be dynamically written out by the backend for this page -->
-        <script language="javascript" src="lib.js"></script>
+        <script language="javascript" src="/js/techassess.js"></script>
         <script language="javascript">
             var arg = 0;
             var argType = "";
