@@ -100,7 +100,7 @@ public class UserListTest extends BaseProcessor {
             // Test query until security_user table access works.
             query.append( "SELECT u.user_id, u.user_id AS handle," );
             query.append( " u.first_name, u.last_name" );
-            query.append( " FROM user u, contact c" );
+            query.append( " FROM contact c, user u" );
             query.append( " WHERE u.user_id = c.contact_id" );
             query.append( " AND c.company_id = " );
             query.append(companyId);
