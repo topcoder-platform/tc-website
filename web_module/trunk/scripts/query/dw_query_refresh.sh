@@ -1122,3 +1122,30 @@ java com.topcoder.utilities.QueryLoader "DW" 57 "School_Avg_Rating" 1 2 "
   WHERE rated_count >= @nrn@
   ORDER BY 2 DESC
 "
+
+java com.topcoder.utilities.QueryLoader "DW" 58 "Top_Scorers" 1 4 "
+ SELECT r.name AS room_name
+        ,c.handle
+        ,c.coder_id
+        ,TRUNC(rr.final_points, 2) as final_points
+        ,co.name AS contest_name
+        ,ro.name AS round_name
+        ,ra.rating
+        ,r.room_id
+        ,ro.round_id
+   FROM room_result rr
+        ,room r
+        ,coder c
+        ,contest co
+        ,round ro
+        ,rating ra
+  WHERE rr.round_id = r.round_id
+    AND rr.room_id = r.room_id
+    AND rr.coder_id = c.coder_id
+    AND rr.division_id = @dn@ 
+    AND rr.round_id = ro.round_id
+    AND ro.contest_id = co.contest_id
+    AND c.coder_id = ra.coder_id
+    AND rr.round_id = @rd@
+  ORDER BY final_points DESC
+"
