@@ -146,4 +146,9 @@ public class SimpleCacheClientImpl implements CacheClient {
             throws RemoteException {
         return _cache.size();
     }
+
+    public boolean containsKey(String key)
+            throws RemoteException {
+        return _cache.exists(key);
+    }
 }

@@ -150,4 +150,9 @@ public class CacheClientImpl
             throws RemoteException {
         return _cache.size();
     }
+
+    public boolean containsKey(String key)
+            throws RemoteException {
+        return _cache.exists(key);
+    }
 }
