@@ -121,7 +121,7 @@ public class Controller extends HttpServlet {
         } else {
             sendToPage(request,
                     response,
-                    request.getContextPath() + request.getServletPath() + "?" +
+                    "http://" + request.getServerName() + request.getContextPath() + request.getServletPath() + "?" +
                     Constants.TASK_PARAM + "=" + Constants.LOGIN_TASK,
                     false);
         }
