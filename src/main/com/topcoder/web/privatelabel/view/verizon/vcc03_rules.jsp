@@ -94,28 +94,28 @@
                         October 31, 2003.  Individuals are permitted to register only once for the Contest.</p>
                         
                         <p><strong>The Competition Field:</strong><br/>
-                        A total of 500 individuals will be invited to compete in Round #1.  The top 250 scorers will advance to Round 2.  The top 25 scorers from Round 2 
+                        A total of 500 individuals will be invited to compete in Round #1.  The top 250 scorers will advance to Round #2.  The top 25 scorers from Round #2 
                         will advance to Round #3 (the Championship Round), which will be held onsite at Verizon's Chennai VDSI facility on November 7, 2003.</p>
                         
                         <table border="0" cellpadding="5" cellspacing="2" class="sidebarBox" align="center">
                             <tr>
                                 <td width="50%" class="sidebarTitle">Round</td>
-                                <td width="50%" class="sidebarTitle" align="right">Date and Time*(all Chennai Time)</td>
+                                <td width="50%" class="sidebarTitle" align="right">Date and Time*(IST)</td>
                             </tr>
 
                             <tr>
                                 <td width="50%" class="sidebarText">Round #1</td>
-                                <td width="50%" class="sidebarText" align="right">Friday, October 31, 2003 at 8:00PM</td>
+                                <td width="50%" class="sidebarText" align="right">Friday, October 31, 2003 at 7:00PM</td>
                             </tr>
 
                             <tr>
                                 <td width="50%" class="sidebarText">Round #2</td>
-                                <td width="50%" class="sidebarText" align="right">Monday, November 3, 2003 at 8:00Pm</td>
+                                <td width="50%" class="sidebarText" align="right">Monday, November 3, 2003 at 7:00Pm</td>
                             </tr>
 
                             <tr>
                                 <td width="50%" class="sidebarText">Round #3 - Championship</td>
-                                <td width="50%" class="sidebarText" align="right">Friday, November 7, 2003 at 7:00PM</td>
+                                <td width="50%" class="sidebarText" align="right">Friday, November 7, 2003 at 6:00PM</td>
                             </tr>
 
 
@@ -134,7 +134,7 @@
             
                         <p><strong>Online Elimination Rounds</strong><br/>
                         Everyone who competes in Round #1 must log in to the TopCoder Competition Arena no later than ten minutes prior to the start 
-                        of the online round.  <strong><em>All start times will be communicated as Chennai Time.</em></strong>  If a coder does not participate, for any reason, in an 
+                        of the online round.  <strong><em>All start times will be communicated in IST.</em></strong>  If a coder does not participate, for any reason, in an 
                         online round he/she has advanced to, it will be treated as an automatic loss in that round of competition, and that coder will be 
                         disqualified from the Contest. </p>
                         
@@ -144,7 +144,7 @@
                       <p><strong>Scoring and Advancing During Online Rounds</strong><br/>
                         After each round of competition, the top scorers will be identified and will advance to the next round.  Coder advancement in 
                         all rounds is determined by comparing the total point values from all three phases of the round (see Competition Round Structure) 
-                        for each coder. In order to advance, a coder must finish each round with a greater-than-zero point total. The structure of the 
+                        for each coder. In order to advance, a coder must finish each round with a greater-than-zero (i.e. point total. The structure of the 
                         online rounds is as follows:</p>
                         
                         <p><strong>Round #1</strong>
