@@ -136,10 +136,10 @@
 <!-- VB.NET Added to Competitions -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_07_21_03"><img src="/i/pressroom/dotnet_added_arena.gif" alt="Microsoft VB.NET Added" width="135" height="52" border="0" /></A></td>
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_07_22_03"><img src="/i/pressroom/dotnet_added_arena.gif" alt="Microsoft VB.NET Added" width="135" height="52" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_07_21_03">I want my VB.NET</A></strong></font><br />
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_07_22_03">I want my VB.NET</A></strong></font><br />
                         "TopCoder is a company created by programmers for programmers, and the addition of VB.NET is yet another validation," said Jack Hughes, founder 
                         and chairman of TopCoder. "Our members have assisted in the design and development of this addition to the competition engine." <span class="prHead">[July 21]</span></p>
                         
