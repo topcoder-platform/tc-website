@@ -142,6 +142,7 @@ abstract class FullRegBase extends SimpleRegBase {
         ret.setAnswerId(row.getLongItem("demographic_answer_id"));
         ret.setText(row.getStringItem("demographic_answer_text"));
         ret.setQuestionId(row.getLongItem("demographic_question_id"));
+        ret.setSort(row.getIntItem("sort"));
         return ret;
     }
 
