@@ -25,7 +25,7 @@
       <TD WIDTH="1" BACKGROUND=""><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
     </TR>
 		<%
-			TCESNav navs[] = TCES.navs.getTCESNavs();
+			TCESNav navs[] = tces.navs.getTCESNavs();
 			for (int i=0; i < navs.length; i++) { %>
 		<% if (navs[i].isVisible()) { %>
     <TR>

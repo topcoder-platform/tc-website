@@ -64,7 +64,7 @@ public class TCESController extends HttpServlet {
                 forwardToError(request,response,new TaskException(TASK+": " + te.getMessage()));
 							}
 							
-            	forward(request,response, TCES.navs.getTCESNav(taskName).getFullPageName());
+            	forward(request,response, tces.getNextNav().getFullPageName());
 						}
          } 
       } catch ( ServletException se ) {
