@@ -73,9 +73,9 @@
 
                         <table width="100%" border="0" cellpadding="3" cellspacing="1">
                           <tr>
-                            <td align="left" class="testFormHeader" width="34%">Handle</td>
-                            <td align="right" class="testFormHeader" width="33%">Points</td>
-                            <td align="right" class="testFormHeader" width="33%">Tourney Seed</td>
+                            <td align="left" class="tourney_subhead1" width="34%">Handle</td>
+                            <td align="right" class="tourney_subhead1" width="33%">Points</td>
+                            <td align="right" class="tourney_subhead1" width="33%">Tourney Seed</td>
                           </tr>
                           <xsl:for-each select="/TC/TOURNAMENTS/Advancers/Advancer">
                             <tr>
