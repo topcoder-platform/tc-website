@@ -991,7 +991,7 @@ public final class ReportServlet extends HttpServlet {
     private static final Integer MEMBER_COUNTS_DAILY_ID = new Integer(7);
     private static final String MEMBER_COUNTS_DAILY_TITLE = "Member Counts By Day";
     private static final int[] MEMBER_COUNTS_DAILY_TYPES = {ResultItem.STRING, ResultItem.STRING, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT};
-    private static final String[] MEMBER_COUNTS_DAILY_HEADINGS = {"Date", "Day", "Studnt", "Pro", "Total", "Actv", "USA", "AUS", "CAN", "IND", "UK", "IRE!", "NZ", "CHINA"};
+    private static final String[] MEMBER_COUNTS_DAILY_HEADINGS = {"Date", "Day", "Studnt", "Pro", "Total", "Actv", "USA", "AUS", "CAN", "IND", "Ukraine", "Romania", "Poland", "CHINA"};
     private static final String MEMBER_COUNTS_DAILY =
             " SELECT TO_CHAR(member_since, '%iY-%m-%d') AS reg_date" +
             " ,MIN(TO_CHAR(member_since, '%a')) AS day_of_week" +
@@ -1003,9 +1003,9 @@ public final class ReportServlet extends HttpServlet {
             " ,SUM(CASE WHEN c.country_code = 036 AND status='A' THEN 1 ELSE 0 END) AS austrailia_count" +
             " ,SUM(CASE WHEN c.country_code = 124 AND status='A' THEN 1 ELSE 0 END) AS canada_count" +
             " ,SUM(CASE WHEN c.country_code = 356 AND status='A' THEN 1 ELSE 0 END) AS india_count" +
-            " ,SUM(CASE WHEN c.country_code = 826 AND status='A' THEN 1 ELSE 0 END) AS uk_count" +
-            " ,SUM(CASE WHEN c.country_code = 372 AND status='A' THEN 1 ELSE 0 END) AS ire_count" +
-            " ,SUM(CASE WHEN c.country_code = 554 AND status='A' THEN 1 ELSE 0 END) AS nz_count" +
+            " ,SUM(CASE WHEN c.country_code = 804 AND status='A' THEN 1 ELSE 0 END) AS ukraine_count" +
+            " ,SUM(CASE WHEN c.country_code = 642 AND status='A' THEN 1 ELSE 0 END) AS romania_count" +
+            " ,SUM(CASE WHEN c.country_code = 616 AND status='A' THEN 1 ELSE 0 END) AS poland_count" +
             " ,SUM(CASE WHEN c.country_code = 156 AND status='A' THEN 1 ELSE 0 END) AS china_count" +
             " FROM user u" +
             " ,coder c" +
