@@ -5,7 +5,7 @@
     <title></title>
   </head>
   <body>
-        <form name=frmTesting>
+        <form name="frmArray">
         <table border=0 width="100%">
             <tr>
                 <td>
@@ -60,7 +60,7 @@
 
             //load data
             var tmpVal = getValue("window.opener.document.forms[0]", "arg" + arg);
-            document.frmTesting.inputText.value = tmpVal;
+            document.frmArray.inputText.value = tmpVal;
             addBrackets();
 
             //updateCountSpan();
@@ -69,8 +69,8 @@
                 //build string from array
                 var arr = "";
 
-                for(var i = 0; i < getLength("document.frmTesting", "listBox.options") ; i++) {
-                    var val = getOption("document.frmTesting", "listBox", i).text;
+                for(var i = 0; i < getLength("document.frmArray", "listBox.options") ; i++) {
+                    var val = getOption("document.frmArray", "listBox", i).text;
                     val = replace(val, "\\", "\\\\");
                     val = replace(val, "\"", "\\\"");
                     arr = arr + "\"" + val + "\",";
@@ -91,7 +91,7 @@
             }
 
             function addBrackets() {
-                var val = getValue("document.frmTesting", "inputText");
+                var val = getValue("document.frmArray", "inputText");
                 val = trim(val);
 
                 if (val.length > 0 && val.charAt(0) == '{') val = val.substr(1);
@@ -135,7 +135,7 @@
 
                                 if(validateArg(buf)) {
                                     //valid, now add
-                                    putOption("document.frmTesting", "listBox", getLength("document.frmTesting", "listBox.options"), new Option(buf));
+                                    putOption("document.frmArray", "listBox", getLength("document.frmArray", "listBox.options"), new Option(buf));
                                 } else {
                                     return;
                                 }
@@ -157,7 +157,7 @@
                                     }
                                     if(validateArg(buf)) {
                                         //valid, now add
-                                        putOption("document.frmTesting", "listBox", getLength("document.frmTesting", "listBox.options"), new Option(buf));
+                                        putOption("document.frmArray", "listBox", getLength("document.frmArray", "listBox.options"), new Option(buf));
                                     } else {
                                         return;
                                     }
@@ -183,7 +183,7 @@
                                     }
                                     if(validateArg(buf)) {
                                         //valid, now add
-                                        putOption("document.frmTesting", "listBox", getLength("document.frmTesting", "listBox.options"), new Option(buf));
+                                        putOption("document.frmArray", "listBox", getLength("document.frmArray", "listBox.options"), new Option(buf));
                                     } else {
                                         return;
                                     }
@@ -203,7 +203,7 @@
                         } else {
                             if(validateArg(buf)) {
                                 //valid, now add
-                                putOption("document.frmTesting", "listBox", getLength("document.frmTesting", "listBox.options"), new Option(buf));
+                                putOption("document.frmArray", "listBox", getLength("document.frmArray", "listBox.options"), new Option(buf));
                             } else {
                                 return;
                             }
@@ -221,11 +221,11 @@
             }
 
             function addPlusPlus() {
-                var val = getValue("document.frmTesting", "inputText").split(",");
+                var val = getValue("document.frmArray", "inputText").split(",");
                 for(var i = 0; i < val.length; i++) {
                     if(validateArg(val[i])) {
                         //valid, now add
-                        putOption("document.frmTesting", "listBox", getLength("document.frmTesting", "listBox.options"), new Option(val[i]));
+                        putOption("document.frmArray", "listBox", getLength("document.frmArray", "listBox.options"), new Option(val[i]));
                     } else {
                         return;
                     }
@@ -239,22 +239,22 @@
             function moveDown() {
                 //special case: if index n is selected, must wait for break
                 var foundBreak = true;
-                for(var i = getLength("document.frmTesting", "listBox.options") - 1; i >= 0; i--) {
-                    if(getSelected("document.frmTesting", "listBox", i)) {
-                        if(i == (getLength("document.frmTesting", "listBox.options")-1)) {
+                for(var i = getLength("document.frmArray", "listBox.options") - 1; i >= 0; i--) {
+                    if(getSelected("document.frmArray", "listBox", i)) {
+                        if(i == (getLength("document.frmArray", "listBox.options")-1)) {
                             //special case, look for break;
                             foundBreak = false;
                         } else {
                             if(foundBreak) {
                                 //move up
-                                var temp = getOption("document.frmTesting", "listBox", i+1).text;
-                                var tempSelected = getOption("document.frmTesting", "listBox", i+1).selected;
+                                var temp = getOption("document.frmArray", "listBox", i+1).text;
+                                var tempSelected = getOption("document.frmArray", "listBox", i+1).selected;
 
-                                var newVal = getOption("document.frmTesting", "listBox", i).text;
-                                var newSelected = getOption("document.frmTesting", "listBox", i).selected;
+                                var newVal = getOption("document.frmArray", "listBox", i).text;
+                                var newSelected = getOption("document.frmArray", "listBox", i).selected;
 
-                                putOption("document.frmTesting", "listBox", i+1, new Option(newVal, newVal, newSelected,newSelected));
-                                putOption("document.frmTesting", "listBox", i, new Option(temp, temp, tempSelected,tempSelected));
+                                putOption("document.frmArray", "listBox", i+1, new Option(newVal, newVal, newSelected,newSelected));
+                                putOption("document.frmArray", "listBox", i, new Option(temp, temp, tempSelected,tempSelected));
                             }
                         }
                     } else {
@@ -267,22 +267,22 @@
             function moveUp() {
                 //special case: if index 0 is selected, must wait for break
                 var foundBreak = true;
-                for(var i = 0; i < getLength("document.frmTesting", "listBox.options"); i++) {
-                    if(getSelected("document.frmTesting", "listBox", i)) {
+                for(var i = 0; i < getLength("document.frmArray", "listBox.options"); i++) {
+                    if(getSelected("document.frmArray", "listBox", i)) {
                         if(i == 0) {
                             //special case, look for break;
                             foundBreak = false;
                         } else {
                             if(foundBreak) {
                                 //move up
-                                var temp = getOption("document.frmTesting", "listBox", i-1).text;
-                                var tempSelected = getOption("document.frmTesting", "listBox", i-1).selected;
+                                var temp = getOption("document.frmArray", "listBox", i-1).text;
+                                var tempSelected = getOption("document.frmArray", "listBox", i-1).selected;
 
-                                var newVal = getOption("document.frmTesting", "listBox", i).text;
-                                var newSelected = getOption("document.frmTesting", "listBox", i).selected;
+                                var newVal = getOption("document.frmArray", "listBox", i).text;
+                                var newSelected = getOption("document.frmArray", "listBox", i).selected;
 
-                                putOption("document.frmTesting", "listBox", i-1, new Option(newVal, newVal, newSelected,newSelected));
-                                putOption("document.frmTesting", "listBox", i, new Option(temp, temp, tempSelected,tempSelected));
+                                putOption("document.frmArray", "listBox", i-1, new Option(newVal, newVal, newSelected,newSelected));
+                                putOption("document.frmArray", "listBox", i, new Option(temp, temp, tempSelected,tempSelected));
                             }
                         }
                     } else {
@@ -294,9 +294,9 @@
 
             function doDelete() {
                 var i = 0;
-                while(i < getLength("document.frmTesting", "listBox.options")) {
-                    if(getSelected("document.frmTesting", "listBox", i)) {
-                        putOption("document.frmTesting", "listBox", i, null);
+                while(i < getLength("document.frmArray", "listBox.options")) {
+                    if(getSelected("document.frmArray", "listBox", i)) {
+                        putOption("document.frmArray", "listBox", i, null);
                     } else {
                         i++;
                     }
@@ -306,18 +306,18 @@
             }
 
             function clearList() {
-                for(var i = getLength("document.frmTesting", "listBox.options") -1 ; i >= 0; i--) {
-                    putOption("document.frmTesting", "listBox", i, null);
+                for(var i = getLength("document.frmArray", "listBox.options") -1 ; i >= 0; i--) {
+                    putOption("document.frmArray", "listBox", i, null);
                 }
                 clearInput();
                 updateCountSpan();
             }
 
             function addSingle() {
-                var val = getValue("document.frmTesting", "inputText");
+                var val = getValue("document.frmArray", "inputText");
                 if(validateArg(val)) {
                     //valid, now add
-                    putOption("document.frmTesting", "listBox", getLength("document.frmTesting", "listBox.options"), new Option(val));
+                    putOption("document.frmArray", "listBox", getLength("document.frmArray", "listBox.options"), new Option(val));
 
                     clearInput();
                     updateCountSpan();
@@ -325,7 +325,7 @@
             }
 
             function clearInput() {
-                putValue("document.frmTesting", "inputText", "");
+                putValue("document.frmArray", "inputText", "");
             }
 
             function validateArg(val) {
@@ -355,7 +355,7 @@
             }
 
             function updateCountSpan() {
-                putInnerHTML("document", "countSpan", displayArgType + " -- " + getLength("document.frmTesting", "listBox.options"));
+                putInnerHTML("document", "countSpan", displayArgType + " -- " + getLength("document.frmArray", "listBox.options"));
             }
 
         </script>

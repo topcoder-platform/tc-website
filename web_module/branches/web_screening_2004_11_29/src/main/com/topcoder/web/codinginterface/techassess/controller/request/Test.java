@@ -45,14 +45,12 @@ public class Test extends Base {
             }
 
             ArrayList arguments = new ArrayList();
-            String arg = null;
             int i=0;
-            do {
-                arg = getRequest().getParameter(CodingInterfaceConstants.TEST_ARGUMENT_PREFIX+i);
+            String arg = getRequest().getParameter(CodingInterfaceConstants.TEST_ARGUMENT_PREFIX+i);
+            for (; arg!=null; i++) {
                 log.debug("arg " + i + " is " + arg);
                 arguments.add(arg);
-                i++;
-            } while (arg!=null);
+            }
 
             ScreeningTestRequest request = new ScreeningTestRequest(arguments, componentId, problemTypeId);
             request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
