@@ -55,7 +55,7 @@
                         <jsp:param name="selectedSubtab" value="general"/>
                      </jsp:include>
             </tr>
-            <tr><td class="bodyText" bgcolor="#ffffff"><img src="/i/events/verizon2003/vcc03_right.gif" width="114" height="253" border="0"/></td></tr>
+            <tr><td class="bodyText" bgcolor="#ffffff"><img src="/i/events/verizon2003/vcc03_right.gif" width="127" height="300" border="0"/></td></tr>
          </table><br />
        </td>
       <td width="10" bgcolor="#666666"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>

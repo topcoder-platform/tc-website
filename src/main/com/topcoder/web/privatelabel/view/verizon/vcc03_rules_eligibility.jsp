@@ -55,7 +55,7 @@
                         <jsp:param name="selectedSubtab" value="eligibility"/>
                      </jsp:include>
             </tr>
-            <tr><td class="bodyText" bgcolor="#ffffff"><img src="/i/events/verizon2003/vcc03_right.gif" width="114" height="253" border="0"/></td></tr>
+            <tr><td class="bodyText" bgcolor="#ffffff"><img src="/i/events/verizon2003/vcc03_right.gif" width="127" height="300" border="0"/></td></tr>
          </table><br />
        </td>
       <td width="10" bgcolor="#666666"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
@@ -67,7 +67,7 @@
 <!-- Center Column -->
       <td class="bodyText" valign="top">
             <img src="/i/clear.gif" width="100%" height="10" border="0"/><br />
-            <h2>Registration</h2>
+            <h2>Eligibility</h2>
             
             <p>
             Registration will open on Monday, August 4th and will close on Friday, August 15th.  Registration is unlimited, however only the first 
