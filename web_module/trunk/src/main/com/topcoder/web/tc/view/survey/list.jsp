@@ -48,7 +48,7 @@
                   <td>
                      <rsc:item row="<%=survey%>" name="question_text"/>
                   </td>
-                  <td>
+                  <td nowrap>
                      <a href="?&module=SurveyResults&sid=<rsc:item row="<%=survey%>" name="survey_id"/>">view results</a>
                   </td>
                </tr>
