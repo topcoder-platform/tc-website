@@ -10,6 +10,7 @@ import com.topcoder.web.ejb.demographic.Response;
 import com.topcoder.web.ejb.school.CurrentSchool;
 import com.topcoder.web.ejb.school.School;
 import com.topcoder.web.ejb.user.User;
+import com.topcoder.web.ejb.jobposting.JobPostingServices;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.DemographicQuestion;
 import com.topcoder.web.privatelabel.model.DemographicResponse;
@@ -19,12 +20,14 @@ import com.topcoder.shared.security.SimpleUser;
 
 import java.util.Iterator;
 import java.util.Map;
+import java.util.List;
 
 /**
  *
  * @author gpaul 06.26.2003
  */
 public class FullRegSubmit extends SimpleRegSubmit {
+    private static final int HIT_TYPE = 3; //private label reg hit type
 
     protected void registrationProcessing() throws TCWebException {
 
@@ -77,13 +80,24 @@ public class FullRegSubmit extends SimpleRegSubmit {
             }
         }
 
+        //todo abstract out the verizon specific stuff
         if (isEligible()) {
+            long jobId = getJobId();
+            if (jobId > 0) {
+                JobPostingServices jp = (JobPostingServices)createEJB(getInitialContext(), JobPostingServices.class);
+                if (jp.jobExists(jobId, transDb)) {
+                    jp.addJobHit(newUser.getId(), jobId, HIT_TYPE, transDb);
+                } else {
+                    throw new Exception ("Invalid or inactive job " + jobId);
+                }
+            }
             //log them is so that they can upload a resume
             //this is really sketchy if they we are requiring an activation email to activate their account
             getAuthentication().login(new SimpleUser(ret.getId(), regInfo.getHandle(), regInfo.getPassword()));
         } else {
             User user = (User) createEJB(getInitialContext(), User.class, "main:");
-            user.setStatus(ret.getId(), 'U');  //they're not eligible so override whatever we had set their status to be unactive
+            //they're not eligible so override whatever we had set their status to be private label ineligible
+            user.setStatus(ret.getId(), '3');
         }
 
         return ret;
@@ -108,7 +122,25 @@ public class FullRegSubmit extends SimpleRegSubmit {
         boolean ret = true;
         ret &= regInfo.getCity().toLowerCase().equals("chennai");
         ret &= regInfo.getCountryCode().equals("356"); //india
+        ret &= hasDegree();
         return ret;
+    }
+
+    /**
+     * check if they've chosen a demographic answer that suggests they have
+     * not gotten a degree.
+     * @return
+     */
+    private boolean hasDegree() {
+        boolean hasDegree = true;
+        List l = ((FullRegInfo)regInfo).getResponses();
+        DemographicResponse dr = null;
+        for (Iterator it = l.iterator(); hasDegree&&it.hasNext();) {
+            dr = (DemographicResponse)it.next();
+            //we're assuming that no other question has this as a valid answer.
+            hasDegree = dr.getAnswerId()!=Constants.NO_DEGREE_ANSWER;
+        }
+        return hasDegree;
     }
 
 }

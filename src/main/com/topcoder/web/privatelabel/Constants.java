@@ -21,7 +21,7 @@ public class Constants {
     /**
      *  variables that shouldn't be initialized
      */
-    private static String[] ignoreList = {"log", "isInitialized", "ignoreList", "STUDENT", "PROFESSIONAL", "JTS_TRANSACTIONAL", "TRANSACTIONAL"};
+    private static String[] ignoreList = {"log", "isInitialized", "ignoreList"};
 
     //pages
     public static String SIMPLE_REG_PAGE;
@@ -85,12 +85,13 @@ public class Constants {
     public static String REGISTRATION_DB;
 
     //various constants
-    public static final int STUDENT = 1;
-    public static final int PROFESSIONAL = 2;
-    public static final int JTS_TRANSACTIONAL = 1;
-    public static final int TRANSACTIONAL = 2;
+    public static int STUDENT;
+    public static int PROFESSIONAL;
+    public static int JTS_TRANSACTIONAL;
+    public static int TRANSACTIONAL;
 
     public static int SCHOOL_QUESTION;
+    public static int NO_DEGREE_ANSWER;
 
     private Constants() {
     }

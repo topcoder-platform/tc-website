@@ -290,8 +290,33 @@
 
         <!-- other -->
         <init-param>
+            <param-name>student</param-name>
+            <param-value>1</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>professional</param-name>
+            <param-value>2</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>jts_transactional</param-name>
+            <param-value>1</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>transactional</param-name>
+            <param-value>2</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
             <param-name>school_question</param-name>
             <param-value>102</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>no_degree_answer</param-name>
+            <param-value>197</param-value>
             <description></description>
         </init-param>
 

@@ -31,7 +31,6 @@ public class SimpleRegSubmit extends SimpleRegBase {
     private static final String SOFTWARE_GROUP = "Users";
     private static final long ADDRESS_TYPE = 2; //2 is home address
     private static final long EMAIL_TYPE = 1; //1 is "primary"
-    private static final int HIT_TYPE = 3; //private label reg hit type
     private static final int DEFAULT_EDITOR = 0;  //standard editor
     private static final int DEFAULT_LANGUAGE = 1;  //java
     private static final String US = "840";
@@ -159,15 +158,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
         //create rating
         rating.createRating(newUser.getId(), transDb);
 
-        long jobId = getJobId();
-        if (jobId > 0) {
-            JobPostingServices jp = (JobPostingServices)createEJB(getInitialContext(), JobPostingServices.class);
-            if (jp.jobExists(jobId, transDb)) {
-                jp.addJobHit(newUser.getId(), jobId, HIT_TYPE, transDb);
-            } else {
-                throw new Exception ("Invalid or inactive job " + jobId);
-            }
-        }
+
 
         return newUser;
 
