@@ -28,11 +28,12 @@
          <p>Qualification Round - Session #2</p>
 
                       <table class="formFrame" cellpadding=5 cellspacing=2 width="400">
-                        <tr>
-                           <td class="sidebarTitle" width="40%">Handle</td>
-                           <td class="sidebarTitle" width="30%">Problem Set</td> 
-                           <td class="sidebarTitle" width="30%">Score</td>
-                        </tr>
+<tr><td class="sidebarTitle" width="40%">ad490</td><td class="sidebarTitle" width="30%" nowrap>Qualification Problem 4</td><td class="sidebarTitle" width="30%">92.24</td></tr>
+<tr><td class="sidebarTitle" width="40%">cbnyc</td><td class="sidebarTitle" width="30%" nowrap>Qualification Problem 4</td><td class="sidebarTitle" width="30%">169.93</td></tr>
+<tr><td class="sidebarTitle" width="40%">kebrahim</td><td class="sidebarTitle" width="30%" nowrap>Qualification Problem 4</td><td class="sidebarTitle" width="30%">100.70</td></tr>
+<tr><td class="sidebarTitle" width="40%">liquidicecube</td><td class="sidebarTitle" width="30%" nowrap>Qualification Problem 4</td><td class="sidebarTitle" width="30%">114.60</td></tr>
+<tr><td class="sidebarTitle" width="40%">schillerville</td><td class="sidebarTitle" width="30%" nowrap>Qualification Problem 4</td><td class="sidebarTitle" width="30%">130.73</td></tr>
+<tr><td class="sidebarTitle" width="40%">spincyc</td><td class="sidebarTitle" width="30%" nowrap>Qualification Problem 4</td><td class="sidebarTitle" width="30%">128.70</td></tr>
                         <tr><td class="sidebarText"></td><td class="sidebarText"></td><td class="sidebarText"></td></tr>
                      </table>
 
