@@ -6,6 +6,17 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>02.14.05<br>5:14 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">SRM calendar updated for <A href="/index?t=schedule&c=may_05">May</A>, <A href="/index?t=schedule&c=jun_05">June</A>, and <A href="/index?t=schedule&c=jul_05">July</A></span><br><br>
+      Also, there will be no more 9am, 8pm, or 10pm matches.
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/?&t=schedule&c=index">match dates</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>02.22.05<br>12:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/?&t=news_events&c=pr_02_22_05">Semifinalists Announced for 2005 TCCC Sponsored by Yahoo!&#174;</A></span><br><br>
       TopCoder today announced the 31 International onsite semifinalists who have advanced to the Championship rounds of the 2005 TopCoder Collegiate Challenge sponsored by Yahoo!
@@ -470,18 +481,6 @@
    <tr><td class="newsLinksCell">
          <A href="/index?t=features&c=feat_010505">full article</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=tutorials&d2=index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>01.04.05<br>5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/i/tournament/tco04/onsite_movies/rhughes.mov">President/COO Rob Hughes</A></span><br><br>
-      Rob Hughes discusses "Performance & Credibility".
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/i/tournament/tco04/onsite_movies/rhughes.mov">watch movie</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
    </td></tr>
 
 </table>
