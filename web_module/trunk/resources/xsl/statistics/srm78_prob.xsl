@@ -65,7 +65,7 @@ submission rate, but only a 52% success rate.  The key points to remember were t
 a game until a new game starts.  Other than that, it was just a matter of looping through all the characters in the input and performing the appropriate operations.  See <A HREF="/stat?c=last_match" CLASS="bodyGeneric">John Dethridge's</A> 
 solution for a good, short implementation.</P>
 <P>CleanupCrew - 1050<BR/>
-No matter how many toys your opponent picks up, you can always pick up a number of toys such that there are k+1 less toys in that pile than there were in the pile before your opponents turn.  
+No matter how many toys your opponent picks up, you can always pick up a number of toys such that there are k+1 less toys in that pile than there were in the pile before your opponent's turn.  
 This can easily be seen by noting that player A must first pick up k+1-n toys, for some n between 1 and k.  Player B may then pick up n toys so that a total of k+1 toys have been picked up.  
 If player B does not pick up n toys, but picks up m toys instead, then player A can pick up k+1-n-m or 2k+2-n-m toys (whichever one is between 1 and k).  Thus either player can force the game 
 to come down to the point where the sizes of the piles are all the input size modulo k + 1.  At this point the problem can be solved easily with dynamic programming by working backwards 
