@@ -76,7 +76,7 @@
                                     <td class="projectCells">
                                         <a href="?t=development&amp;c=Order_Fulfillment_Design">Order Fulfillment Design</a>
                                     </td>
-                                    <td class="projectCells" align="right">$2880 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$2900 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$ 900 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">05/18/2004 9:00AM ET</td>
                                 </tr>

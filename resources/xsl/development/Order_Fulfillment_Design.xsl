@@ -120,8 +120,9 @@
                                                         <strong>Technical Architecture Requirements</strong>
                                                     </p>
                                                     <ul class="noSpList">
-                                                        <li>Palm OS 3.5.2</li>
-                                                        <li>C++</li>
+                                                        <li>Windows Server 2003</li>
+                                                        <li>SQL Server 2000</li>
+                                                        <li>Microsoft .NET Framework Version 1.1</li>
                                                     </ul>
 
                                                     <!-- Payment -->
@@ -164,15 +165,15 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total Payment -</td>
-                                                            <td class="bodyText" align="right">$800.00</td>
+                                                            <td class="bodyText" align="right">$2900.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">First Payment -</td>
-                                                            <td class="bodyText" align="right">$600.00</td>
+                                                            <td class="bodyText" align="right">$2000.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Second Payment - </td>
-                                                            <td class="bodyText" align="right">$200.00</td>
+                                                            <td class="bodyText" align="right">$900.00</td>
                                                         </tr>
                                                     </table>
 
@@ -182,7 +183,7 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total Payment -</td>
-                                                            <td class="bodyText" align="right">$225.00</td>
+                                                            <td class="bodyText" align="right">$900.00</td>
                                                         </tr>
                                                     </table>
 
@@ -192,15 +193,15 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Primary Design Reviewer -</td>
-                                                            <td class="bodyText" align="right">$260.00</td>
+                                                            <td class="bodyText" align="right">$500.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Design Reviewer -</td>
-                                                            <td class="bodyText" align="right">$235.00</td>
+                                                            <td class="bodyText" align="right">$400.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Design Reviewer - </td>
-                                                            <td class="bodyText" align="right">$235.00</td>
+                                                            <td class="bodyText" align="right">$400.00</td>
                                                         </tr>
                                                     </table>
 
@@ -209,7 +210,7 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total - </td>
-                                                            <td class="bodyText" align="right">$1,755.00</td>
+                                                            <td class="bodyText" align="right">$5,900.00</td>
                                                         </tr>
                                                     </table>
 
