@@ -240,6 +240,8 @@ public class NotificationBean implements SessionBean {
                     "     user u, notification_mail_type_lu nmt "+
                     "WHERE ne. notification_event_id = ue. notification_event_id AND "+
                     "      ue.user_id = e.user_id AND "+
+                    "      e.primary_ind = 1 AND"+
+                    "      e.status_id = 1 AND"+
                     "      u.user_id = e.user_id AND "+
                     "      nmt. notification_mail_type_id=ne.notification_mail_type_id AND "+
                     "      ne.event = ? ");
