@@ -104,10 +104,12 @@
                 <tc:listIterator id="reviewer" list="<%=reviewerList%>">
                     <tr>
                         <td class="bodyText">
+                            <% if (((ReviewBoardApplication)reviewer).isPrimary()) { %>
+                              Primary
+                            <% } %>
                             <tc:beanWrite name="reviewer" property="reviewerType"/>
                         </td>
                         <td class="bodyText">
-
                             <% if (((ReviewBoardApplication)reviewer).isSpotFilled()) { %>
                                 <tc:beanWrite name="reviewer" property="handle"/>
                             <% } else { %>

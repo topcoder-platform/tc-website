@@ -19,11 +19,11 @@ import java.util.Iterator;
 public class ReviewProjectDetail extends Base {
 
     protected void developmentProcessing() throws TCWebException {
-        Request r = new Request();
-        r.setContentHandle("review_project_detail");
-        r.setProperty("pj", StringUtils.checkNull(getRequest().getParameter("pj")));
-        r.setProperty("ph", StringUtils.checkNull(getRequest().getParameter("ph")));
         try {
+            Request r = new Request();
+            r.setContentHandle("review_project_detail");
+            r.setProperty("pj", StringUtils.checkNull(getRequest().getParameter("pj")));
+            r.setProperty("ph", StringUtils.checkNull(getRequest().getParameter("ph")));
             Map results = getDataAccess().getData(r);
             ResultSetContainer detail = (ResultSetContainer)results.get("review_project_detail");
             getRequest().setAttribute("projectDetail", detail);
