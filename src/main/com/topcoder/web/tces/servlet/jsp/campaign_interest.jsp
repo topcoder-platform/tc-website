@@ -10,163 +10,140 @@
 <jsp:useBean id="CampaignInterestTask" scope="request" class="com.topcoder.web.tces.bean.CampaignInterestTask" />          
           
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<HTML>
-  <HEAD>
-    <TITLE>TopCoder | Recruiting Reports</TITLE>
-    <jsp:include page="script.jsp" />
+<html>
+
+<head>
+
+<title>TopCoder | Recruiting Reports</title>
+
+<!-- JavaScript begins -->
+<jsp:include page="script.jsp" />
+<!-- JavaScript ends -->
     
-  </HEAD>
-  <body>
-  <jsp:include page="top.jsp" />             
-  
-  <TABLE WIDTH="100%" HEIGHT="50%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-    <TR valign="top">
+</head>
+
+<body>
+
+<!-- Top begins -->
+<jsp:include page="top.jsp" />             
+<!-- Top ends -->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr valign="top">
+
 <!-- Left Column Begins -->
-      <TD WIDTH="25"><img src="/i/clear.gif" width="25" HEIGHT="11" alt="" BORDER="0"></TD>
+      <td WIDTH="25"><img src="/i/clear.gif" width="25" HEIGHT="11" alt="" BORDER="0"></td>
 <!-- Left Column Ends -->
 
-      <!-- Gutter Begins -->
-      <TD WIDTH="6"><IMG SRC="/i/clear.gif" WIDTH="6" HEIGHT="8"></TD>
-        <!-- Gutter Ends -->
-        <!-- Body Area -->
-        <!-- Center Column Begins -->
-      <TD class="bodyText" width="100%"><img src="/i/clear.gif" width="400" HEIGHT="11" BORDER="0"><BR>
+<!-- Gutter begins -->
+        <td width="6"><img src="/i/clear.gif" width="6" height="8" alt="" border="0"></td>
+<!-- Gutter ends -->
 
-        <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-          <TR>
-            <TD WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-            <TD class="bodyText" COLSPAN="2" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
-              <P ALIGN="center">
-                <tces:trailIterator id="trailItem" trailList="<%=CampaignInterestTask.getTrail()%>">
-                  <A HREF="<jsp:getProperty name="trailItem" property="href"/>" class="bodyText"><jsp:getProperty name="trailItem" property="name"/></A> &gt;
-                </tces:trailIterator>
-              </P>
-              <P><FONT SIZE="5" COLOR="#FFFFFF" FACE="arial, verdana, tahoma">Campaign Interest</FONT></P>
+<!-- Center Column begins -->
+        <td width="100%" align="center">
+        
+            <table border="0" cellspacing="10" cellpadding="0" width="100%">
+                <tr valign="top">
+                    <td align="center">
+                        <p>
+                        <tces:trailIterator id="trailItem" trailList="<%=CampaignInterestTask.getTrail()%>">
+                            <a href="<jsp:getProperty name="trailItem" property="href" />" class="bodyText"><jsp:getProperty name="trailItem" property="name" /></a> &gt;
+                        </tces:trailIterator>
+                        </p>    
+                    </td>
+                </tr>
+            </table>
+
+            <table border="0" cellspacing="10" cellpadding="0">
+                <tr valign="top">
+                    <td class="bodyText"><img src="/i/clear.gif" alt="" width="400" height="1" border="0">
+                        <h2>Campaign Interest</h2>
               
-              <P>
-              <B><%=CampaignInterestTask.getCampaignName()%></B><BR>
-              <a href="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.DEMOGRAPHIC_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CampaignInterestTask.getCampaignID()%>" class="bodyText">View collective demographic info</A><BR>
-              </P>
-              <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BORDER="0">               
-                <TR>
-                  <TD class="testTableTitle" HEIGHT="18">&#160;
-                  <A HREF="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.SORT_PARAM%>=handle&<%=TCESConstants.SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_ASC%>" class="statTextBig">
-                  <b>Handle</b></A></TD>
-                  <TD class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="testTableTitle">
-                  <A HREF="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.SORT_PARAM%>=rating_sort&<%=TCESConstants.SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_DES%>" class="statTextBig">                  
-                  <b>Rating</b></A></TD>
-                  <TD class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="testTableTitle">
-                  <A HREF="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.SORT_PARAM%>=state_code_sort" class="statTextBig">                  
-                  <b>State</b></A></TD>
-                  <TD class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="testTableTitle">
-                  <A HREF="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.SORT_PARAM%>=country" class="statTextBig">                                    
-                  <b>Country</b></A></TD>                  
-                  <TD class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="testTableTitle">
-                  <A HREF="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.SORT_PARAM%>=coder_type_desc" class="statTextBig">                  
-                  <b>Type</b></A></TD>                  
-                  <TD class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="testTableTitle">
-                  <A HREF="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.SORT_PARAM%>=coder_type_desc&<%=TCESConstants.SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_DES%>&<%=TCESConstants.BACK_SORT_PARAM%>=school_name_sort&<%=TCESConstants.BACK_SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_ASC%>" class="statTextBig">                  
-                  <b>School</b></A></TD>
-                  <TD class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="testTableTitle">
-                  <A HREF="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.SORT_PARAM%>=job_desc&<%=TCESConstants.SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_ASC%>" class="statTextBig">
-                  <b>Position</b></A></TD>                  
-                  <TD class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="testTableTitle">
-                  <A HREF="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.SORT_PARAM%>=hit_date_sort&<%=TCESConstants.SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_DES%>" class="statTextBig">
-                  <b>Hit Date</b></A></TD>                                    
-                </TR>
+                        <p>
+                            <strong><%=CampaignInterestTask.getCampaignName()%></strong><br>
+                            <a href="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.DEMOGRAPHIC_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CampaignInterestTask.getCampaignID()%>" class="bodyText">View collective demographic info</a><BR>
+                        </p>
+                        
+                        <table id="datatable" cellspacing="0" cellpadding="3" border="0">               
+                            <tr>
+                                <td class="testTableTitle"><A HREF="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.SORT_PARAM%>=handle&<%=TCESConstants.SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_ASC%>" class="testTableTitle"><strong>Handle</strong></a></td>
+                                <td class="testTableTitle">&#160;&#160;</td>
+                                <td class="testTableTitle"><a href="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.SORT_PARAM%>=rating_sort&<%=TCESConstants.SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_DES%>" class="testTableTitle"><strong>Rating</strong></a></td>
+                                <td class="testTableTitle">&#160;&#160;</td>
+                                <td class="testTableTitle"><a href="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.SORT_PARAM%>=state_code_sort" class="testTableTitle"><strong>State</strong></a></td>
+                                <td class="testTableTitle">&#160;&#160;</td>
+                                <td class="testTableTitle"><a href="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.SORT_PARAM%>=country" class="testTableTitle"><strong>Country</strong></a></td>                  
+                                <td class="testTableTitle">&#160;&#160;</td>
+                                <td class="testTableTitle"><a href="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.SORT_PARAM%>=coder_type_desc" class="testTableTitle"><strong>Type</strong></a></td>                  
+                                <td class="testTableTitle">&#160;&#160;</td>
+                                <td class="testTableTitle"><a href="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.SORT_PARAM%>=coder_type_desc&<%=TCESConstants.SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_DES%>&<%=TCESConstants.BACK_SORT_PARAM%>=school_name_sort&<%=TCESConstants.BACK_SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_ASC%>" class="testTableTitle"><strong>School</strong></a></td>
+                                <td class="testTableTitle">&#160;&#160;</td>
+                                <td class="testTableTitle"><a href="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.SORT_PARAM%>=job_desc&<%=TCESConstants.SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_ASC%>" class="testTableTitle"><strong>Position</strong></a></td>                  
+                                <td class="testTableTitle">&#160;&#160;</td>
+                                <td class="testTableTitle"><a href="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.SORT_PARAM%>=hit_date_sort&<%=TCESConstants.SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_DES%>" class="testTableTitle"><strong>Hit Date</strong></a></td>                                    
+                            </tr>
 
-
-                <% int i=0; %>
-                <tces:rowIterator id="hit" rowList="<%=CampaignInterestTask.getHitList()%>">
-                <% i++; %>
-                <TR>
-                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>" HEIGHT="18">&#160;
-                  <A HREF="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.MEMBER_PROFILE_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<%=hit.getItem("job_id").toString()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=hit.getItem("coder_id").toString()%>" class="bodyText">
-                    <%= hit.getItem("handle").toString() %>
-                  </A></TD>
-                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>" NOWRAP>
-                    <%= hit.getItem("rating").toString() %>
-                  </TD>
-                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
-                    <%= hit.getItem("state_code").toString() %>
-                  </TD>
-                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
-                    <%= hit.getItem("country").toString() %>
-                  </TD>                  
-                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
-                    <%= hit.getItem("coder_type_desc").toString() %>
-                  </TD>                  
-                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
-                    <%= hit.getItem("school_name").toString() %>
-                  </TD> 
-                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><A HREF="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<%=hit.getItem("job_id").toString()%>" class="bodyText">
-                    <%= hit.getItem("job_desc").toString() %>
-                  </A></TD>                                   
-                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
-                    <%= hit.getItem("hit_date").toString() %>
-                  </TD>
-                </TR>
+                            <% int i=0; %>
+                            <tces:rowIterator id="hit" rowList="<%=CampaignInterestTask.getHitList()%>">
+                            <% i++; %>
                 
-                </tces:rowIterator>
+                            <tr>
+                                <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><a href="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.MEMBER_PROFILE_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<%=hit.getItem("job_id").toString()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=hit.getItem("coder_id").toString()%>" class="bodyText"><%= hit.getItem("handle").toString() %></a></td>
+                                <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;&#160;</td>
+                                <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= hit.getItem("rating").toString() %></td>
+                                <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;&#160;</td>
+                                <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= hit.getItem("state_code").toString() %></td>
+                                <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;&#160;</td>
+                                <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= hit.getItem("country").toString() %></td>                  
+                                <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;&#160;</td>
+                                <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= hit.getItem("coder_type_desc").toString() %></td>                  
+                                <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;&#160;</td>
+                                <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= hit.getItem("school_name").toString() %></td> 
+                                <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;&#160;</td>
+                                <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><A HREF="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<%=hit.getItem("job_id").toString()%>" class="bodyText"><%= hit.getItem("job_desc").toString() %></a></td>                                   
+                                <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;&#160;</td>
+                                <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= hit.getItem("hit_date").toString() %></td>
+                            </tr>
+                
+                            </tces:rowIterator>
 
-                <% if(CampaignInterestTask.getHitList().isEmpty()){ %>
-                <TR>
-                  <TD class="bodyText" HEIGHT="18" COLSPAN="20"><BR></TD>                  
-                </TR>                
-                <TR>
-                  <TD class="bodyText" HEIGHT="18" align="center" colspan='20'>
-                    No hits available.
-                  </TD>
-                </TR>
-                <% } %>
+                            <% if(CampaignInterestTask.getHitList().isEmpty()){ %>
+                            
+                            <tr><td class="bodyText" HEIGHT="18" COLSPAN="20"><BR></td></tr>                
+                            
+                            <tr><td class="bodyText" HEIGHT="18" align="center" colspan="20">No hits available.</td></tr>
+                            
+                            <% } %>
 
+                            </table>
+                            
+                            <p><br></p>
+                            
+                        </td>
+                    </tr>
+            </table>
+        </td>
+<!-- Center Column Ends -->
 
-              </TABLE>
-              <P><BR></P>
-    </TD>
-    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-  </TR>
-  <TR>
-    <TD COLSPAN="4" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-  </TR>     
+<!-- Gutter -->
+        <td width="6"><img src="/i/clear.gif" width="6" height="1" alt="" border="0"></td>
+<!-- Gutter Ends -->
 
-</TABLE>
-    </TD>
-  <!-- Center Column Ends -->
-<!-- Body Area Ends -->
-      <!-- Gutter -->
-      <TD WIDTH="6"><IMG SRC="/i/clear.gif" WIDTH="6" HEIGHT="1" BORDER="0"></TD>
-      <!-- Gutter Ends -->
-      <!-- Right Column Begins -->
-      <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"><BR>
-        <!-- Right Column Include Begins -->
-        <!--include virtual="/includes/public_right_col.shtml"-->
-        <!-- Right Column Include Ends -->
-      </TD>
-      <!-- Right Column Ends -->
-      <!-- Gutter -->
-      <TD WIDTH="25"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"></TD>
-      <!-- Gutter Ends -->
-    </TR>
-</TABLE>
+<!-- Right Column Begins -->
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"><br>
+        </td>
+<!-- Right Column Ends -->
+
+<!-- Gutter -->
+        <td width="25"><img src="/i/clear.gif" width="25" height="1" alt="" border="0"></td>
+<!-- Gutter Ends -->
+
+    </tr>
+</table>
 
 <!-- Footer begins -->
 <jsp:include page="foot.jsp" />             
 <!-- Footer ends -->
 
-</BODY>
-</HTML>
+</body>
+</html>
