@@ -4,7 +4,7 @@
 String sDivision = srb.getProperty("dn","1");
 
 String sContentHandle = srb.getContentHandle();
-boolean bSchool = sContentHandle.startsWith("_school");
+boolean bSchool = sContentHandle.startsWith("school_");
 boolean bSorted = sContentHandle.endsWith("_sorted");
 if (bSorted) 
   sContentHandle = sContentHandle.substring(0, sContentHandle.indexOf("_sorted"));
