@@ -1,7 +1,10 @@
 <%@  page language="java"  %>
 <%@ page import="com.topcoder.web.tc.Constants,
                  com.topcoder.web.tc.model.PreferenceGroup,
-                 java.util.List" %>
+                 java.util.List,
+                 com.topcoder.web.tc.model.CoderSessionInfo,
+                 com.topcoder.web.common.BaseServlet,
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -10,6 +13,8 @@
 <title>TopCoder Placement Registration</title>
 
 <jsp:include page="../../../script.jsp" />
+
+<% CoderSessionInfo info = (CoderSessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);%>
 
 <%
 List prefList = (List)request.getAttribute("groups");
@@ -89,6 +94,20 @@ return false;
 				</td>
 			</tr>
 		</table>
+
+        <% if (request.getAttribute("isRated").equals("true")) { %>
+            <table border=0 cellpadding=0 cellspacing=0 width="100%" class=bodyText>
+                <tr>
+                    <td class=oppDesc width="100%" valign=top>
+                        <% ResultSetContainer nextSRM= (ResultSetContainer)request.getAttribute("Next_SRM");%>
+                        You currently do not have a TopCoder rating.  Establishing a TopCoder rating will significantly increase your chance of being contacted for potential employment positions.  <br /><br />
+                        Your next chance to become rated in an algorithm competition is <rsc:item set="<%=nextSRM%>" name="registration_start" format="EEEE, MMMM d"/>
+                        - check <A href="/?t=schedule&c=srm&RoundId=<rsc:item set="<%=nextSRM%>" name="round_id"/>">here</A> for details.<br />
+                        Check <a href="/?t=development&c=comp_projects">here</a> for information on becoming rated in the component competition.
+                    </td>
+                </tr>
+            </table>
+        <% } %>
 
 
 		<tc:preferenceGroupIterator id="prefGroup" list="<%=prefList%>">
