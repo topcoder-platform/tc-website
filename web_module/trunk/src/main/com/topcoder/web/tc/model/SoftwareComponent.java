@@ -31,17 +31,21 @@ public class SoftwareComponent {
     private final static int LEVEL2 = 200;
 
     private int phaseId;
-    private int levelId;
+    private int level;
     private int submissionCount;
     private int submissionsPassedScreening;
 
     private SoftwareComponent() {}
 
-    public SoftwareComponent(int level, int submissionCount, int submissionsPassedScreening, int phaseId) {
+    public SoftwareComponent(int levelId, int submissionCount, int submissionsPassedScreening, int phaseId) {
         log.debug("level: " + level + " submissionCount: " + submissionCount + " submissionPassedScreening: " +
                 submissionsPassedScreening + " phaseId: " + phaseId);
         this.phaseId = phaseId;
-        this.levelId = level;
+        if (levelId==LEVEL1) {
+            this.level = 1;
+        } else if (levelId==LEVEL2) {
+            this.level = 2;
+        } else throw new IllegalArgumentException("invalid level provided " + levelId);
         this.submissionCount = submissionCount;
         this.submissionsPassedScreening = submissionsPassedScreening;
     }
@@ -88,7 +92,7 @@ public class SoftwareComponent {
      * @return
      */
     private float getDevCost() {
-        return DEV_PRICE_LOOKUP[levelId];
+        return DEV_PRICE_LOOKUP[level];
     }
 
     /**
@@ -96,7 +100,7 @@ public class SoftwareComponent {
      * @return
      */
     private float getDesignCost() {
-        return DESIGN_PRICE_LOOKUP[levelId];
+        return DESIGN_PRICE_LOOKUP[level];
     }
 
     /**
@@ -119,7 +123,7 @@ public class SoftwareComponent {
      * @return
      */
     private float getCoreDevReviewCost() {
-        float reviewTime = DEV_EFFORT_LOOKUP[levelId] * DEV_HOUR_LOOKUP[levelId] * (float)submissionsPassedScreening;
+        float reviewTime = DEV_EFFORT_LOOKUP[level] * DEV_HOUR_LOOKUP[level] * (float)submissionsPassedScreening;
         if (reviewTime < 2) reviewTime = 2f;  //give them a minimum of 2 hours to review
         float reviewCost = reviewTime*DEV_REVIEW_RATE;
         float startupCost = DEV_REVIEW_RATE / 2; //30 minutes to "start up"
@@ -172,7 +176,7 @@ public class SoftwareComponent {
      * @return
      */
     private float getCoreDesignReviewCost() {
-        float reviewTime = DESIGN_EFFORT_LOOKUP[levelId] * DESIGN_HOUR_LOOKUP[levelId] * (float)submissionsPassedScreening;
+        float reviewTime = DESIGN_EFFORT_LOOKUP[level] * DESIGN_HOUR_LOOKUP[level] * (float)submissionsPassedScreening;
         if (reviewTime < 1) reviewTime = 1f;  //give them a minimum of 1 hours to review
         float reviewCost = reviewTime*DESIGN_REVIEW_RATE;
         float startupCost = (1f/2f) * DESIGN_REVIEW_RATE; //30 minutes to "start up"
@@ -194,9 +198,6 @@ public class SoftwareComponent {
                 level = LEVEL1;
             } else if (args[0].equals("2")) {
                 level = LEVEL2;
-            } else {
-                System.out.println("invalid level");
-                return;
             }
             SoftwareComponent sc = new SoftwareComponent(level, Integer.parseInt(args[1]),
                     Integer.parseInt(args[2]), Integer.parseInt(args[3]));
