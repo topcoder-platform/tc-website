@@ -30,6 +30,7 @@ public class Constants {
     public static String PAGE_VIEW_PROBLEM_SET;
     public static String PAGE_VIEW_PROBLEM_SET_INNER;
     public static String PAGE_PROBLEM_STATEMENT;
+    public static String PAGE_SUBMIT_CONFIRM;
 
     //parameters
     public static String HANDLE;
@@ -63,6 +64,8 @@ public class Constants {
     public static String RP_COMPILE;
     public static String RP_TIMEOUT;
     public static String RP_SUBMIT;
+    public static String RP_RESUBMIT;
+    public static String RP_SUBMIT_RESPONSE;
 
     //session keys
     public static String TEST_SET_A;

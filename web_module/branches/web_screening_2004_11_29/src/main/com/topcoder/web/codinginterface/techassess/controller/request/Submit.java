@@ -58,9 +58,9 @@ public class Submit extends Base {
                         new String[] {Constants.PROBLEM_TYPE_ID, Constants.COMPONENT_ID},
                         new String[] {String.valueOf(problemTypeId), String.valueOf(componentId)}));
             } else if (response.getStatus()==ScreeningSubmitResponse.RESUBMIT) {
-                //ask them if they really want to resubmit
-                //todo
-
+                closeProcessingPage(buildProcessorRequestString(Constants.RP_SUBMIT_RESPONSE,
+                        new String[] {Constants.PROBLEM_TYPE_ID, Constants.COMPONENT_ID},
+                        new String[] {String.valueOf(problemTypeId), String.valueOf(componentId)}));
             }
         }
     }
