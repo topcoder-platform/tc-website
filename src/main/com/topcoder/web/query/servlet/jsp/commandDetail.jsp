@@ -21,65 +21,73 @@
       <TD WIDTH="170" bgcolor="#001935" VALIGN="top">
       </TD>
       <TD WIDTH="4" BGCOLOR="#001935" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
-      <TD class="statText" width="100%" bgcolor="#001935" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-        <TABLE WIDTH="100%" HEIGHT="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-          <TR><TD class="statText" COLSPAN="2">Command Detail</TD></TR>
-          <TR><TD class="statTextBig" COLSPAN="2"><jsp:getProperty name="CommandDetailTask" property="CommandDesc"/></TD></TR>
-          <TR><TD class="statTextBig" COLSPAN="2"><jsp:getProperty name="CommandDetailTask" property="GroupDesc"/></TD></TR>
+      <TD CLASS="statText" WIDTH="100%" BGCOLOR="#001935" VALIGN="top">
+        <TABLE WIDTH="60%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+          <TR><TD CLASS="statTextBig" COLSPAN="2">Command Detail</TD></TR>
+          <TR><TD CLASS="statText" COLSPAN="2" ALIGN="center">Command: <jsp:getProperty name="CommandDetailTask" property="CommandDesc"/></TD></TR>
+          <TR><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
+          <TR><TD CLASS="statText" COLSPAN="2" ALIGN="center">Group: <jsp:getProperty name="CommandDetailTask" property="GroupDesc"/></TD></TR>
+          <TR><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
           <TR>
-            <TD>
-              <TABLE WIDTH="100%" HEIGHT="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+            <TD VALIGN="top" WIDTH="50%">
+              <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+                <TR>
+                  <TD CLASS="statText"></TD>
+                  <TD CLASS="statText" ALIGN="left">Query Name</TD>
+                </TR>
+                <TR><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
                 <query:resultSetRowIterator id="query" rowList="<%=CommandDetailTask.getQueryList()%>">
                   <TR>
-                    <TD class="statText">
-                      <query:resultSetItem row="<%=query%>" name="name"/>
-                    </TD>
-                    <TD class="statText">
+                    <TD CLASS="statText" ALIGN="right">
                       <A HREF="<jsp:getProperty name="CommandDetailTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_QUERY_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandDetailTask" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<query:resultSetItem row="<%=query%>" name="query_id"/>" class="statText">
                         [edit]
                       </A>
+                      &#160;&#160;
                     </TD>
-                  </TR>
-                </query:resultSetRowIterator>
-                <TR>
-                  <TD class="statText">
-                    <A HREF="<jsp:getProperty name="CommandDetailTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_QUERY_TASK%>" class="statText">
-                      [new]
-                    </A>
-                  </TD>
-                </TR>
-              </TABLE>
-            </TD>
-            <TD>
-              <TABLE WIDTH="100%" HEIGHT="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-                <query:resultSetRowIterator id="input" rowList="<%=CommandDetailTask.getInputList()%>">
-                  <TR>
-                    <TD class="statText">
-                      <query:resultSetItem row="<%=input%>" name="input_code"/> - <query:resultSetItem row="<%=input%> name="input_desc"/>
-                    </TD>
-                    <TD class="statText">
-                      <A HREF="<jsp:getProperty name="CommandDetailTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_INPUT_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandDetailTask" property="Db"/>&<%=Constants.INPUT_ID_PARAM%>=<query:resultSetItem row="<%=input%>" name="input_id"/>" class="statText">
-                        [edit]
+                    <TD CLASS="statText" ALIGN="left">
+                      <A HREF="<jsp:getProperty name="CommandDetailTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.QUERY_DETAIL_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandDetailTask" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<query:resultSetItem row="<%=query%>" name="query_id"/>" class="statText">
+                        <query:resultSetItem row="<%=query%>" name="name"/>
                       </A>
                     </TD>
                   </TR>
                 </query:resultSetRowIterator>
+                <TR><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
+              </TABLE>
+            </TD>
+            <TD VALIGN="top" WIDTH="50%">
+              <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
                 <TR>
-                  <TD class="statText">
-                    <A HREF="<jsp:getProperty name="CommandDetailTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_INPUT_TASK%>" class="statText">
-                      [new]
-                    </A>
-                  </TD>
+                  <TD CLASS="statText"></TD>
+                  <TD CLASS="statText" ALIGN="left">Input Code</TD>
+                  <TD CLASS="statText" ALIGN="left">Input Description</TD>
                 </TR>
+                <TR><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
+                <query:resultSetRowIterator id="input" rowList="<%=CommandDetailTask.getInputList()%>">
+                  <TR>
+                    <TD CLASS="statText" ALIGN="right">
+                      <A HREF="<jsp:getProperty name="CommandDetailTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_INPUT_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandDetailTask" property="Db"/>&<%=Constants.INPUT_ID_PARAM%>=<query:resultSetItem row="<%=input%>" name="input_id"/>" class="statText">
+                        [edit]
+                      </A>
+                      &#160;&#160;
+                    </TD>
+                    <TD CLASS="statText" ALIGN="left">
+                      <query:resultSetItem row="<%=input%>" name="input_code"/>
+                    </TD>
+                    <TD CLASS="statText" ALIGN="left">
+                      <query:resultSetItem row="<%=input%>" name="input_desc"/>
+                    </TD>
+                  </TR>
+                </query:resultSetRowIterator>
+                <TR><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
               </TABLE>
             </TD>
           </TR>
         </TABLE>
       </TD>
-      <TD WIDTH="4" bgcolor="#001935"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"></TD>
-      <TD WIDTH="10" bgcolor="#001935" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"><BR>
+      <TD WIDTH="4" BGCOLOR="#001935"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"></TD>
+      <TD WIDTH="10" BGCOLOR="#001935" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"><BR>
       </TD>
-      <TD WIDTH="25" bgcolor="#001935"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"></TD>
+      <TD WIDTH="25" BGCOLOR="#001935"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"></TD>
     </TR>
   </TABLE>
   </BODY>
