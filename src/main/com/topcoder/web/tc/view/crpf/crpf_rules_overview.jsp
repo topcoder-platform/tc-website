@@ -45,12 +45,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins --> 
-         <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
-               <jsp:include page="../body_top.jsp" >
-                  <jsp:param name="image" value="events"/>  
-                  <jsp:param name="image1" value="white"/>  
-                  <jsp:param name="title" value="TopCoder Charity Challenge"/>  
-               </jsp:include>
+         <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br />
 
 <!--CRPF Header-->
                <table align="center">
