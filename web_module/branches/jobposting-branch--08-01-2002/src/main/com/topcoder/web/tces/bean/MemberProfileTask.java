@@ -136,8 +136,8 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
 
     private void viewMemberProfile() throws Exception
     {
-        NumberFormat pctFmt = NumberFormat.getPercentInstance();
-        NumberFormat decFmt = new DecimalFormat("#.##");
+        NumberFormat pctFmt = new DecimalFormat("#.#0%");
+        NumberFormat decFmt = new DecimalFormat("#.#0");
 
         Map memberInfo = new HashMap();
         ArrayList statsByLevel = new ArrayList();
