@@ -1,4 +1,3 @@
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
     <xsl:import href="../top.xsl"/>
@@ -116,8 +115,8 @@ TopCoder Software has engaged with a client to build and deploy a custom Project
                                                 <a name="projecttype">Project Type</a>
                                             </strong>
                                             <br/>
-                                            Application Design Project: Provide a complete design for the Project Management Dashboard Service project or the 
-                                            Project Management Dashboard Reports project.  Each project will be designed and reviewed separately, 
+                                            Application Design Project: Provide a complete design for the Project Management Dashboard Service project or the
+                                            Project Management Dashboard Reports project.  Each project will be designed and reviewed separately,
                                             the dependencies will be defined in the Specification documentation.  Please review the TopCoder Software
                                             <a href="/?t=development&amp;c=app_meth">Application Development Methodology</a> before you submit a solution.
                                         </p>
@@ -127,7 +126,7 @@ TopCoder Software has engaged with a client to build and deploy a custom Project
                                             <strong>Technologies</strong>
                                         </p>
                                         <ul>
-					    <li>.NET 1.1</li>
+                        <li>.NET 1.1</li>
                                             <li>C#</li>
                                             <li>ADO</li>
                                             <li>SQL</li>
@@ -146,11 +145,11 @@ TopCoder Software has engaged with a client to build and deploy a custom Project
                                              <br/><br/>
                                             <strong>First Payment:</strong>
                                             <br/>
-                                             When the winning solution is submitted and review board suggestions are integrated. 
+                                             When the winning solution is submitted and review board suggestions are integrated.
                                              <br/><br/>
                                             <strong>Second Payment:</strong>
                                             <br/>
-                                             At the completion of the development project*. 
+                                             At the completion of the development project*.
                                              <br/><br/>
                                              Compensation for the second place designer will be paid in one installment following the completion of the design project.
                                         </p>
