@@ -1,11 +1,9 @@
 package com.topcoder.web.query.servlet.jsp.tag;
 
-
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.BodyTagSupport;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-
 
 public class ResultSetItemTag extends BodyTagSupport {
 
@@ -20,17 +18,14 @@ public class ResultSetItemTag extends BodyTagSupport {
         this.name = name;
     }
 
-    public void doInitBody() throws JspException {
+    public int doStartTag() throws JspException {
         pageContext.setAttribute(getId(), row.getItem(name));
-    }
-
-    public int doAfterBody() throws JspException {
-        pageContext.setAttribute(getId(), row.getItem(name));
-        return EVAL_BODY_TAG;
+        return SKIP_BODY;
     }
 
     public void release() {
         row = null;
+        name = null;
     }
 
 }
