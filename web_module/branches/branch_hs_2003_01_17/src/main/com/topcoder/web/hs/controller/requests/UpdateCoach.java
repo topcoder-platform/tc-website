@@ -136,6 +136,7 @@ public class UpdateCoach extends Base {
 
                     if (RegistrationHelper.isValidCoach(errors, crb)) {
                         RegistrationHelper.updateCoach(crb);
+                        if(crb.getChangePassword()) reissueCookie();
                         setNextPage(HOME_PAGE);
                     }
                     else {

@@ -51,6 +51,19 @@ public abstract class Base implements RequestProcessor {
     }
 
     /**
+     * call this to send the browser a new cookie when the user updates their password;
+     * probably ought to use auth.login() instead
+     */
+    protected void reissueCookie() {
+        try {
+            ((BasicAuthentication)auth).setCookie(user.getId());
+        } catch(Exception e) {
+            /* this should not happen, but is not a big deal if it does... they just have to login again later */
+            log.warn("caught exception reissuing cookie", e);
+        }
+    }
+
+    /**
      * Some things we want to do for most subclassed request processors.
      * Override this to disable auth setup and adding default beans.
      */

@@ -1,4 +1,3 @@
-<%@ page errorPage="../home/error.jsp" %>
 <%@ taglib uri="/search-taglib.tld" prefix="adv" %>
 <%@ page import="com.topcoder.web.hs.model.*","java.util.*" %>
 <jsp:useBean id="search" type="com.topcoder.web.hs.model.SearchBean" scope="request"/>

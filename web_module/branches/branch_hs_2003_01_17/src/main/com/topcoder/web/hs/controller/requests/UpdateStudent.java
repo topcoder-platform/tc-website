@@ -133,6 +133,7 @@ public class UpdateStudent extends Base {
 
                     if (RegistrationHelper.isValidStudent(errors, srb)) {
                         RegistrationHelper.updateStudent(srb);
+                        if(srb.getChangePassword()) reissueCookie();
                         setNextPage(HOME_PAGE);
                     }
                     else {
