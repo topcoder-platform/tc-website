@@ -20,9 +20,9 @@
     <% boolean even= true; %>
     <rsc:iterator list="<%=coders%>" id="resultRow">
         <tr>
-            <td align="right" class="<%=even?"formHandleEven":"formHandleOdd"%>"><rsc:item name="rank" row="<%=resultRow%>"/>&#160;&#160;&#160;</td>
-            <td align="left" class="<%=even?"formHandleEven":"formHandleOdd"%>" nowrap="nowrap"><tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>' context="algorithm"/></td>
-            <td align="right" class="<%=even?"formHandleEven":"formHandleOdd"%>" nowrap="nowrap"><rsc:item name="rating" row="<%=resultRow%>"/></td>
+            <td align="right" class="formHandleEven"><rsc:item name="rank" row="<%=resultRow%>"/>&#160;&#160;&#160;</td>
+            <td align="left" class="formHandleEven" nowrap="nowrap"><tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>' context="algorithm"/></td>
+            <td align="right" class="formHandleEven" nowrap="nowrap"><rsc:item name="rating" row="<%=resultRow%>"/></td>
         </tr>
         <% even = !even;%>
     </rsc:iterator>
