@@ -74,7 +74,7 @@ public class DemographicInput extends BaseTag {
     }
 
 
-    private String buildSelect() {
+    private String buildSelect(boolean multiple) {
         StringBuffer s = new StringBuffer(2000);
         s.append("<select");
         s.append(" name=\"");
@@ -85,7 +85,9 @@ public class DemographicInput extends BaseTag {
             s.append(cssclass);
             s.append("\"");
         }
-
+        if (multiple) {
+            s.append(" size=\"4\" multiple");
+        }
         s.append(">\n");
         List answers = question.getAnswers();
         if (answers != null) {
