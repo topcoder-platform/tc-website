@@ -88,6 +88,7 @@ public class TCLoadRequests extends TCLoad {
             " where log_type_id = ?)";
 
     private Timestamp getLastUpdateTime(int type) throws Exception {
+        log.debug("getLastUpdateTime called");
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
