@@ -37,6 +37,7 @@
         for(i = 0; i<document.search[a].length; i++){
             if(document.search[a].options[i].selected){
                 document.search[a].options[i] = null;
+                i--;
             }
         }
     }
@@ -66,8 +67,8 @@
         }
         </rsc:iterator>
         <rsc:iterator list="<%=skill_types%>" id="resultRow">
-        deselect(skilllevel<rsc:item name="skill_type_id" row="<%=resultRow%>"/>);
-        deselect(skilltype<rsc:item name="skill_type_id" row="<%=resultRow%>"/>);
+        deselect('skilllevel<rsc:item name="skill_type_id" row="<%=resultRow%>"/>');
+        deselect('skilltype<rsc:item name="skill_type_id" row="<%=resultRow%>"/>');
         </rsc:iterator>
         document.search.submit();
     }
@@ -159,7 +160,7 @@
         }
         %>
         </select>
-        <a href="JavaScript:deselect('demographic_question_text')">Deselect</a>
+        <a href="JavaScript:deselect('demo_<rsc:item name="demographic_question_id" row="<%=resultRow%>"/>')">Deselect</a>
         </td></tr>
       </rsc:iterator>
       <%idx=0;%>
