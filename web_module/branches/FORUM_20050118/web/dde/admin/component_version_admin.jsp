@@ -17,11 +17,6 @@
 <%@ page import = "com.topcoder.util.config.*" %>
 <%@ page import = "com.topcoder.servlet.request.*" %>
 
-<%@ page import="com.topcoder.dde.notification.Notification" %>
-<%@ page import="com.topcoder.dde.notification.NotificationHome" %>
-
-<%@ page import="com.topcoder.apps.review.projecttracker.Project" %>
-
 <%@ include file="/includes/util.jsp" %>
 <%@ include file="session.jsp" %>
 <%@ include file="/includes/formclasses.jsp" %>
@@ -444,32 +439,7 @@ if (action != null) {
         ver.setPhaseDate(gcDate.getTime());
         ver.setPhase(Long.parseLong(phase));
 
-	// qq verify that it was not in dev before
-	debug.addMsg("component version admin", "qq phase = "+Long.parseLong(phase) );
-/*	if (Long.parseLong(phase) == 113) {
-	    try {
-	        Project project =  componentManager.getProject(tcSubject);
-	        
-
-		debug.addMsg("component version admin","winnerId = "+ project.getWinner().getId());
-		
-                NotificationHome notificationHome = (NotificationHome)
-                            PortableRemoteObject.narrow(
-                            CONTEXT.lookup(NotificationHome.EJB_REF_NAME),
-                            NotificationHome.class);
-
-                Notification notification = notificationHome.create();
-
-                notification.createNotification("forum post " + project.getForumId(), 
-                		project.getWinner().getId(), notification.FORUM_POST_TYPE_ID);
-	    	
-	    } catch (Exception e) {
-	        // can't get winner
-	        debug.addMsg("component version admin",e.toString());
-	    }
-	}
-*/
-	try {
+        try {
             if (colTechnology != null) {
                 Iterator iter = colTechnology.iterator();
                 while (iter.hasNext()) {
