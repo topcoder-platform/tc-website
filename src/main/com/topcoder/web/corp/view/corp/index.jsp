@@ -50,7 +50,7 @@
                         submitted code are available to you during the interview process as a way to measure and compare candidates.  This information drastically reduces the time and
                         effort it takes to identify proven developers.</p>
 
-                        <p><a href="<jsp:getProperty name='sessionInfo' property='ServletPath'/>/testing/">Go to Testing Application Management Tool now</a></p>
+                        <p><a href="<jsp:getProperty name='sessionInfo' property='ServletPath'/>testing/">Go to Testing Application Management Tool now</a></p>
                     </td>
 
                     <td><img src="/i/corp/clear.gif" width="8" height="1" alt="" border="0"></td>
