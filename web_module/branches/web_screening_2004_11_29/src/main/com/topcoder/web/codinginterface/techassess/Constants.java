@@ -24,7 +24,7 @@ public class Constants {
     public static String HANDLE;
     public static String PASSWORD;
     public static String COMPANY_ID;
-    public static String SERVER_ID;
+    public static int SERVER_ID;
 
 
     static {

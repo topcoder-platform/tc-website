@@ -43,7 +43,7 @@ public class Login extends Base {
         }
 
         ScreeningLoginRequest request = new ScreeningLoginRequest(handle, password, companyId);
-        request.setServerID(993);
+        request.setServerID(Constants.SERVER_ID);
         log.debug("send message");
         String messageId = send(request);
         log.debug("sent message " + messageId);
