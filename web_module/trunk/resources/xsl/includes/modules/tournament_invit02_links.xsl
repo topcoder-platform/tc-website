@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-  <xsl:template name="invit02_links">
+  <xsl:template name="tournament_invit02_links">
 	<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="1">
 	  <TR><TD COLSPAN="4"><DIV ALIGN="center"><A HREF="/index?t=schedule&amp;c=invit02_sched"><IMG SRC="/i/invit02_logob.gif" ALT="" WIDTH="155" HEIGHT="105" VSPACE="5" BORDER="0"/></A></DIV></TD></TR>  
       <TR>
