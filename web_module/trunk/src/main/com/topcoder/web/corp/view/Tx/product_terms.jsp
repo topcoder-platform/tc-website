@@ -41,11 +41,8 @@
 <!-- Center Column begins -->
         <td width="99%" class="bodyText"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
 
-            <h3><strong>Customer Terms</strong></h3>
-                        
-            <p>In order to process your order, you must agree to the Customer Terms below.  Please read the Customer Terms, and click "I Agree to the 
-            Customer Terms and Conditions stated above" to finalize your purchase.  If you do not agree to these Customer Terms and Conditions, 
-            click <a href="/">here</a> to go back.</p>
+            <p>In order to process your order, you must agree to the Customer Terms below. Please read the Terms and select the checkbox next to "I Agree to the 
+            Customer Terms and Conditions stated above" to continue.</p>
             
             <div align="center">
             
@@ -61,7 +58,7 @@
                         <input type="hidden" name="module" value="Registration">
                         <input type="hidden" name="back-to" value="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>">
                         <input type="hidden" name="prod-id" value="<jsp:getProperty name="TransactionInfo" property="productID" />">
-                        <input type="submit" onClick="" name="submit" value=" Submit">
+                        <input type="submit" onClick="" name="submit" value=" Continue">
                     </td>
                 </tr>
             </table>
