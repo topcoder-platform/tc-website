@@ -284,8 +284,9 @@ private void processContact() throws SQLException, TaskException {
         try {
             coderObject = beanCoder.request(com.topcoder.web.TCES.ejb.Coder.UPDATE, coderObject);
         } catch (Exception e) {
-            error.add("Problem updating CoderObject.");
+            error.add("Problem updating CoderObject: " + e.getMessage());
             Log.msg("Problem with updating CoderObject: " + e.getMessage());
+            isTaskValidated = false;
             //throw new TaskException("TCES.processEmployment(): Exception: " + e.getMessage());
         }
         try {
@@ -294,6 +295,7 @@ private void processContact() throws SQLException, TaskException {
         } catch (Exception e) {
             error.add("Problem updating UserObject.");
             Log.msg("Problem with updating UserObject: " + e.getMessage());
+            isTaskValidated = false;
             //throw new TaskException ("TCES.processEmployment(): Exception: " + e.getMessage());
         }
 
