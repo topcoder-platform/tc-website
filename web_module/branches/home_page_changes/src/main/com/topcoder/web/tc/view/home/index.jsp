@@ -84,7 +84,7 @@
 			</tr>
 			<tr>
 				<td class=homeArrow>&#160;</td>
-				<td class=homeText>Developers from all over the world are competing to build your next application. Learn how TopCoder delivers high-quality <A href="http://software.topcoder.com">software</A> at a lower cost than the competition.</td>
+				<td class=homeText>Developers from all over the world are competing to build your next application. Learn how TopCoder delivers high-quality <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>">software</A> at a lower cost than the competition.</td>
 			</tr>
 
 			<tr>
