@@ -6,6 +6,18 @@
 
 <jsp:include page="../../script.jsp" />
 
+<SCRIPT type="text/javascript">
+    function doSubmit(selection) {
+      sel = selection.options[selection.selectedIndex].value;
+      if (sel == "#") {
+        alert("Please choose a size from the menu.");
+        selection.focus();
+      } else {
+        window.open(sel, 'buyWindow');
+      }
+    }
+</SCRIPT>
+
 </head>
 
 <body>
@@ -48,10 +60,17 @@
                                  <table width="100%" border="0" cellpadding="5" cellspacing="0">
                                     <tr><td colspan="3" class="bodyText"> The computer backpack, is pewter and has the TopCoder logo embroidered on it. </td></tr>
                                     <tr>
+                                        <form name="sizeSelect">
                                         <td valign="middle" nowrap>$34.95</td>
-                                        <td valign="middle" width="100%" nowrap>
-                                        <button type="submit" onClick="window.open(http://promo.askallied.com/topcoder/index.cfm?nav=proddet&CatID=69450&PID=309541&name=Go%20Shopping, 'buyWindow');" value="Buy Now" class="bodyText">Buy Now</button>
-                                        </td>
+                                        <td valign="middle" class="bodyText">
+                                          <select name="menu" size="1" class="dropdown">
+                                             <option SELECTED VALUE="http://promo.askallied.com/topcoder/index.cfm?nav=proddet&CatID=69450&PID=309541&name=Go%20Shopping">One size fits all</option>
+                                          </select>
+                                          </td>
+                                          <td valign="middle" class="bodyText" width="100%">
+                                          <input type="button" onClick="doSubmit(document.sizeSelect.menu);" value="Buy Now" class="bodyText">
+                                          </td>
+                                        </form>
                                     </tr>
                                 </table>
                     </td>

@@ -43,14 +43,26 @@
    <jsp:param name="tabLev3" value="schedule"/> 
 </jsp:include>
 
-            <h2>Schedule</h2>
+            <h2>Schedule and Advancement</h2>
             
             <p><span class="bodySubtitle">Registration</span><br/>
             In order to be eligible to compete in the Algorithm Competition, each competitor must be a registered TopCoder member 
             and have registered separately for the Algorithm Competition.  Registration for the competition is unlimited, 
             however each individual may only register once. Registration for the 2004 TopCoder Collegiate Challenge Algorithm Competition is scheduled as follows:</p>
 
+            <p>NOTE: All times are EST.</p>
+            
             <p>
+            <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+                <tr valign="top">
+                    <td class="sidebarText" width="25%">Registration</td>
+                    <td class="sidebarText" width="75%">
+                        OPENS: Monday, February 1 at 9:00 AM EST<br /><br/>
+                        CLOSES: Monday, February 23 at 9:00 AM EST
+                    </td>
+                </tr>
+            </table><br />
+            
             OPENS: Monday, February 1 at 9:00 AM<br/>
             CLOSES: Monday, February 23 at 9:00 AM</p>
 
