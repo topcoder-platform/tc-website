@@ -48,7 +48,7 @@
                             </tr>
 
                             <tr>
-                                <td class="devProjectWinner">Winning Developer:</td>
+                                <td class="devProjectWinner">Winning Designer:</td>
                                 <td class="devProjectWinnerMoney">$1,050.00</td>
                             </tr>
                             <tr>
