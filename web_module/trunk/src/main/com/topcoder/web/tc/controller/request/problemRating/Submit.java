@@ -8,6 +8,8 @@ import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.security.TCSubject;
 import com.topcoder.web.ejb.ProblemRatingServices.ProblemRatingServices;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.shared.security.ClassResource;
 
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
@@ -16,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Iterator;
 import java.util.Enumeration;
 import java.util.ArrayList;
+
 
 /**
  * This puts the results of a problem rating into the DB
@@ -26,6 +29,9 @@ public class Submit extends Base {
     protected static final TCSubject CREATE_USER = new TCSubject(100000);
 
     protected void businessProcessing() throws TCWebException{
+        if(getUser().isAnonymous()){
+            throw new PermissionException(getUser(),new ClassResource(this.getClass()));
+        }
         long userID = getUser().getId();
         InitialContext ctx = null;
         HttpServletRequest request = null;

@@ -78,7 +78,6 @@ public class ProblemRatingServicesBean implements SessionBean {
                     log.error("cx NOT closed...");
                 }
             }
-            return false;
         }
     }
     //*************************************************************************
