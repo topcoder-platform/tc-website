@@ -1,5 +1,7 @@
 package com.topcoder.shared.security;
 
+import com.topcoder.web.common.security.AuthorizationException;
+
 /**
  * classes that implement Authorization will determine if a particular user has
  * access to a particular resource this could range from simple if "logged in
@@ -19,5 +21,5 @@ public interface Authorization {
      * @param r
      * @return boolean flag indication if permission is set
      */
-    public boolean hasPermission(Resource r);
+    public boolean hasPermission(Resource r) throws AuthorizationException;
 }
