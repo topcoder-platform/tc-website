@@ -120,7 +120,7 @@
                                     </tr>
                                         <tr valign="top">
                                         <td align="left" valign="middle">
-                                            <h2>Intel<sup>&#174;</sup> Centrino&#153; Mobile Technology-based Tablet PC Quick Specs</h2>
+                                            <h2>Intel<sup>&#174;</sup><br/>Centrino&#153;<br/>Mobile<br/>Technology-<br/>based Tablet<br/>PC Quick<br/>Specs</h2>
                                         </td>
                                         <td align="left" valign="middle">
                                             <img src="/i/tournament/tco04/intel_tablet.jpg" width="216" height="167" border="0"/>
