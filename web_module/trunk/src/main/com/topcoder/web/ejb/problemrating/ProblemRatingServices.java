@@ -1,4 +1,4 @@
-package com.topcoder.web.ejb.ProblemRatingServices;
+package com.topcoder.web.ejb.problemrating;
 
 
 import javax.ejb.EJBObject;

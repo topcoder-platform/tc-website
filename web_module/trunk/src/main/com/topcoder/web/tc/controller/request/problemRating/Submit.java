@@ -7,7 +7,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.ejb.ProblemRatingServices.ProblemRatingServices;
+import com.topcoder.web.ejb.problemrating.ProblemRatingServices;
 
 import javax.naming.InitialContext;
 import javax.servlet.http.HttpServletRequest;
