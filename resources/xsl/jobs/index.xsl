@@ -79,10 +79,29 @@
    <TR><TD COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>                
 </TABLE>
 <!--end contextual links-->
-          <P>TopCoder is pleased to announce employment opportunities being made available to the TopCoder membership.
+          
+<P>
+TopCoder Employment Services (TCES) is actively and selectively targeting companies that can provide TopCoder members with exciting, full-time employment opportunities. We are pursuing top quality employers with the ability and desire to provide challenging and rewarding opportunities to top rated members.
+</P>
+
+<P>
+We will present our partner employers with TopCoder members for full-time employment consideration.  Certain members will be contacted by TCES about these exciting opportunities via email.  Our notification process and selection criteria will be based on the following:
+<OL>
+	<LI> A member's rating and consistent competition participation</LI>
+	<LI> A member's indication of interest in notification of employment opportunities</LI>
+	<LI> A member's current location or desire to relocate to a particular location</LI>
+</OL>
+</P>
+
+<P>
+We will be requesting your help and involvement in our efforts!  If you're looking for a job and your rating is over 1000, TCES would like to know who you are, where you're located and what you're looking for in the ideal position.  Please email TCES with your resume and other pertinent information. 
+</P>
+       
+          <!-- <P>TopCoder is pleased to announce employment opportunities being made available to the TopCoder membership.
           TopCoder Employment Services (TCES) is providing placement services for members with companies from different parts of the United States.
           The following descriptions reflect open positions. These positions are being made available to TopCoder's rated membership.</P>
-          <DIV ALIGN="center"><TABLE WIDTH="100%" BORDER="0" CELLPADDING="2" CELLSPACING="0">
+          <DIV ALIGN="center">
+          <TABLE WIDTH="100%" BORDER="0" CELLPADDING="2" CELLSPACING="0">
           <TR>
             <TD WIDTH="48%" ALIGN="left" VALIGN="top" CLASS="bodyText">
             <B>C++ Game Programmer</B><BR/>
@@ -106,7 +125,7 @@
 		  <TR>
 			<TD WIDTH="48%" ALIGN="left" VALIGN="top" CLASS="bodyText"><A HREF="/?t=jobs&amp;c=inquire&amp;Job=SD-C02251&amp;JobDesc=C%2B%2B%20Game%20Programmer&amp;To=tcesr@topcoder.com" CLASS="bodyText">Feel qualified and are interested?</A></TD>
             <TD WIDTH="2%">&#160;</TD>
-			<TD WIDTH="48%" ALIGN="left" VALIGN="top" CLASS="bodyText"><!-- <A HREF="/?t=jobs&amp;c=inquire&amp;Job=CA-J02271&amp;JobDesc=Entry%20Level%20Java%20Programmers&amp;To=tcesr@topcoder.com" CLASS="bodyText">Feel qualified and are interested?</A> --></TD>
+			<TD WIDTH="48%" ALIGN="left" VALIGN="top" CLASS="bodyText"><A HREF="/?t=jobs&amp;c=inquire&amp;Job=CA-J02271&amp;JobDesc=Entry%20Level%20Java%20Programmers&amp;To=tcesr@topcoder.com" CLASS="bodyText">Feel qualified and are interested?</A></TD>
 		  </TR>
           <TR><TD COLSPAN="3" HEIGHT="18"><HR SIZE="1" WIDTH="100%"/></TD></TR>
           <TR>
@@ -129,9 +148,9 @@
             </TD>
           </TR>
 		  <TR>
-			<TD WIDTH="48%" ALIGN="left" VALIGN="top" CLASS="bodyText">&#160;<!--<A HREF="/?t=jobs&amp;c=inquire&amp;Job=CA-J02273&amp;JobDesc=Java%20Architect%20Team%20Leader&amp;To=tcesr@topcoder.com" CLASS="bodyText">Feel qualified and are interested?</A> --></TD>
+			<TD WIDTH="48%" ALIGN="left" VALIGN="top" CLASS="bodyText">&#160;<A HREF="/?t=jobs&amp;c=inquire&amp;Job=CA-J02273&amp;JobDesc=Java%20Architect%20Team%20Leader&amp;To=tcesr@topcoder.com" CLASS="bodyText">Feel qualified and are interested?</A></TD>
             <TD WIDTH="2%">&#160;</TD>
-			<TD WIDTH="48%" ALIGN="left" VALIGN="top" CLASS="bodyText"><!--<A HREF="/?t=jobs&amp;c=inquire&amp;Job=CA-J02272&amp;JobDesc=Experienced%20Java%20Programmer&amp;To=tcesr@topcoder.com" CLASS="bodyText">Feel qualified and are interested?</A> --></TD>
+			<TD WIDTH="48%" ALIGN="left" VALIGN="top" CLASS="bodyText"><A HREF="/?t=jobs&amp;c=inquire&amp;Job=CA-J02272&amp;JobDesc=Experienced%20Java%20Programmer&amp;To=tcesr@topcoder.com" CLASS="bodyText">Feel qualified and are interested?</A></TD>
 		  </TR>
           <TR><TD COLSPAN="3" HEIGHT="18"><HR SIZE="1" WIDTH="100%"/></TD></TR>
           <TR>
@@ -203,7 +222,7 @@
             <TD WIDTH="2%">&#160;</TD>
 			<TD WIDTH="48%" ALIGN="left" VALIGN="top" CLASS="bodyText">&#160;</TD>
 		  </TR>          
-          </TABLE></DIV>
+          </TABLE></DIV> -->
           <P><BR/></P>
           </TD>
           <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
