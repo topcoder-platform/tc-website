@@ -44,6 +44,7 @@ INSERT INTO command VALUES(1014,"tces_competition_statistics", 8);
 INSERT INTO command VALUES(1015,"tces_problem_statistics", 8);
 INSERT INTO command VALUES(1016,"tces_problem_statement", 8);
 INSERT INTO command VALUES(1500,"member_profile_info", 9);
+INSERT INTO command VALUES(1501,"top_rating_gainer_loser", 0);
 
 
 
@@ -126,6 +127,7 @@ INSERT INTO command_query_xref VALUES(1015, 1008, 1);
 INSERT INTO command_query_xref VALUES(1015, 1009, 2);
 INSERT INTO command_query_xref VALUES(1016, 1010, 1);
 INSERT INTO command_query_xref VALUES(1500, 1000, 1);
+INSERT INTO command_query_xref VALUES(1501, 1015, 1);
 
 INSERT INTO input_lu VALUES(1, "rd", 1001, "Round ID");
 INSERT INTO input_lu VALUES(2, "rm", 1001, "Room ID");
@@ -261,7 +263,7 @@ INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (56, "Y", 1, 11, 2);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (57, "Y", 10, 20, 1);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (57, "Y", 1, 8, 2);
-INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (57, "Y", 50, 9, 3);
+INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (57, "Y", 200, 9, 3);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (58, "Y", 1, 8, 1);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (58, "Y", 10, 9, 2);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (58, "Y", 1, 11, 3);
@@ -287,3 +289,4 @@ INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (1012, "N", null, 1000, 1);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (1013, "N", null, 1000, 1);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (1014, "N", null, 1000, 1);
+INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (1015, "Y", "$26", 1, 1);

@@ -1091,7 +1091,7 @@ java com.topcoder.utilities.QueryLoader "OLTP" 84 "Invitational_Eligibility" 0 0
 SELECT CASE WHEN r.num_ratings > 2 THEN 'true' ELSE 'false' END AS has_enough_ratings
      , CASE WHEN r.last_rated_event > '2002-03-30 00:00:00.000' THEN 'true' ELSE 'false' END AS has_recent_competition
      , CASE WHEN c.country_code in ('036','124','372','356','826','840','156','554') THEN 'true' ELSE 'false' END AS in_eligible_country
-     , CASE WHEN r.num_ratings > 2 AND r.last_rated_event > '2002-03-30 00:00:00.000' AND r.last_rated_event > '2002-03-30 00:00:00.000' THEN 'true' ELSE 'false' END AS is_eligible
+     , CASE WHEN r.num_ratings > 2 AND r.last_rated_event > '2002-03-30 00:00:00.000' AND c.country_code in ('036','124','372','356','826','840','156','554') THEN 'true' ELSE 'false' END AS is_eligible
   FROM coder c
      , rating r
  WHERE c.coder_id = @cr@
@@ -1125,7 +1125,7 @@ where
   u.status = 'A' and
   coder_type_id = 1 and
   s.school_id in
-  (1386,513,1038,
+  (1038,
   959,1475,1002,
   147,475,1433,
   1401,606,1054,
@@ -1173,4 +1173,64 @@ where
   rr.old_rating is not null and
   r.num_ratings = 3 and
   u.status = 'A'
+"
+
+
+java com.topcoder.utilities.QueryLoader "OLTP" 90 "Final Invitational Sign Up List 1001" 0 0 "
+select
+  handle, email as email_address
+from
+  coder c,
+  user u,
+  rating r
+where
+  u.user_id = r.coder_id and
+  c.coder_id = r.coder_id and
+  rating > 0 and
+  u.status = 'A' and
+  num_ratings > 2 and
+  date(last_rated_event) >= mdy(4,1,2002) and
+  lower(email) not like '%topcoder.com' and
+  handle not like 'guest%' and
+  country_code in ('036','124','372','356','826','840','156','554') and
+  u.user_id not in (select user_id from group_user where group_id = 13) and
+  u.user_id not in 
+  (
+    select
+      c.coder_id
+    from 
+      coder c,
+      invite_list l
+    where 
+      l.round_id = 4320 and
+      l.coder_id = c.coder_id
+  )
+  and exists
+    (select 1 from coder_notify cn where cn.coder_id = c.coder_id and cn.notify_id in (1, 5))
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 91 "Invitational Invitations - 1008" 0 0 "
+select
+  handle,
+  email as email_address
+from
+  user u,
+  invite_list l
+where
+  u.user_id = l.coder_id and
+  contest_id = 4320 and
+  mod(seed,2) = 0
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 92 "Invitational Invitations - 1010" 0 0 "
+select
+  handle,
+  email as email_address
+from
+  user u,
+  invite_list l
+where
+  u.user_id = l.coder_id and
+  contest_id = 4320 and
+  mod(seed,2) > 0
 "

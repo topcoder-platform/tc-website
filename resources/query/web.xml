@@ -135,7 +135,7 @@
 
   <init-param>
     <param-name>login_task</param-name>
-    <param-value>login</param-value>
+    <param-value>loginTask</param-value>
     <description></description>
   </init-param>
 </servlet>

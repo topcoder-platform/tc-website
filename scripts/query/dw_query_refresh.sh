@@ -227,14 +227,21 @@ class_name
 FROM problem
 WHERE problem_id = @pm@
 AND round_id = @rd@
+AND viewable = 1
 AND division_id =
  (SELECT MIN(division_id) FROM problem
   WHERE problem_id = @pm@ AND round_id = @rd@)
 "
 java com.topcoder.utilities.QueryLoader 13 "Problem_Submission" 0 0 "
 SELECT ps.submission_text
-FROM problem_submission ps
+FROM problem_submission ps, problem p
 WHERE ps.round_id = @rd@
+AND ps.problem_id = p.problem_id
+AND ps.round_id = p.round_id
+AND p.division_id =
+ (SELECT MIN(division_id) FROM problem
+  WHERE problem_id = @pm@ AND round_id = @rd@)
+AND p.viewable = 1
 AND ps.coder_id = @cr@
 AND ps.problem_id = @pm@
 AND ps.submission_number= (SELECT MAX(submission_number)
@@ -1631,4 +1638,59 @@ SELECT cp.language_id
      , llu.language_name
      , cd.problems_presented
  ORDER BY cp.language_id
+"
+
+java com.topcoder.utilities.QueryLoader "DW" 1015 "Top_Rating_Gainers_And_Losers" 0 0 "
+SELECT 'Best' AS change_type
+     , c.handle
+     , best.change
+     , r.name AS room_name
+     , r.division_desc AS division
+     , c.coder_id
+     , ra.rating
+  FROM room_result rr
+     , room r
+     , coder c
+     , rating ra
+     , TABLE(MULTISET(
+           SELECT MAX(rr.new_rating-rr.old_rating) AS change
+                , rr.division_id
+             FROM room_result rr
+            WHERE rr.round_id = @rd@
+              AND rr.old_rating <> 0
+            GROUP BY rr.division_id)) AS best
+ WHERE rr.coder_id = c.coder_id
+   AND rr.round_id = r.round_id
+   AND rr.room_id = r.room_id
+   AND rr.division_id = r.division_id
+   AND (rr.new_rating-rr.old_rating) = best.change
+   AND ra.coder_id = c.coder_id
+   AND rr.round_id = @rd@
+UNION
+SELECT 'Worst' AS change_type
+     , c.handle
+     , inner.change
+     , r.name AS room_name
+     , r.division_desc AS division
+     , c.coder_id
+     , ra.rating
+  FROM room_result rr
+     , room r
+     , coder c
+     , rating ra
+     , TABLE(MULTISET(
+           SELECT MIN(rr.new_rating-rr.old_rating) AS change
+                , rr.division_id
+             FROM room_result rr
+            WHERE rr.round_id = @rd@
+              AND rr.old_rating <> 0
+            GROUP BY rr.division_id)) AS inner
+ WHERE rr.coder_id = c.coder_id
+   AND rr.round_id = r.round_id
+   AND rr.room_id = r.room_id
+   AND rr.division_id = r.division_id
+   AND (rr.new_rating-rr.old_rating) = inner.change
+   AND rr.round_id = @rd@
+   AND ra.coder_id = c.coder_id
+ ORDER BY 5
 "
