@@ -62,7 +62,7 @@
           <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="1">
             <TR>
                <TD COLSPAN="4" VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif">&#160;&#160;<xsl:value-of select="/TC/SCHEDULE/Advancers/Advancer/contest_name"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Advancers/Advancer/round_name"/></TD>
-               <TD COLSPAN="2" ALIGN="right" VALIGN="middle" HEIGHT="18" CLASS="statTextBig"></TD>
+               <TD COLSPAN="3" ALIGN="right" VALIGN="middle" HEIGHT="18" CLASS="statTextBig"></TD>
             </TR>
             <TR>
               <TD WIDTH="15%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
@@ -76,6 +76,9 @@
               </TD>
               <TD WIDTH="15%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
                 <A HREF="/index?t=schedule&amp;c=tourney_advancers&amp;rds=4345" CLASS="statTextBig">Round 3</A>
+              </TD>
+              <TD WIDTH="15%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
+                <A HREF="/index?t=schedule&amp;c=tourney_advancers&amp;rds=4355" CLASS="statTextBig">Round 4</A>
               </TD>
               <TD WIDTH="15%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
                 <A HREF="/index?t=schedule&amp;c=invit02_semi" CLASS="statTextBig"></A>Semi
@@ -134,8 +137,8 @@
             </xsl:for-each>
           </TABLE><BR/>
             <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="1">
-                        <TR><TD VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">&#160;&#160;<A HREF="#top" CLASS="statText">Back to top</A></TD></TR>
-                    </TABLE>
+              <TR><TD VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">&#160;&#160;<A HREF="#top" CLASS="statText">Back to top</A></TD></TR>
+            </TABLE>
                     
           <P><BR/></P>
     </TD>
@@ -163,7 +166,7 @@
             <!-- Gutter -->
             <TD WIDTH="4" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
             <!-- Gutter Ends -->
-            <!-- Right Column Begins -->
+            3!-- Right Column Begins -->
             <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
               <!-- Right Column Include Begins --> 
               <xsl:call-template name="public_right_col"/>       
