@@ -67,7 +67,7 @@ public class Controller
                     log.debug("about to process task: "+taskName);
                     task.process();
                 } catch (Exception e) {
-                    log.error(e.getMessage());
+                    e.printStackTrace();
                     forwardToError(request, response, e);
                     return;
                 }
