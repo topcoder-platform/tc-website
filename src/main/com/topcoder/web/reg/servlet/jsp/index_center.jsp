@@ -332,7 +332,7 @@ Founder and Chairman, TopCoder, Inc.
   </tr>
 
 
-  <tc:notification selectedValues="<%=Registration.getNotifications()%>" class="statText">
+  <tc:notification selectedValues="<%=Registration.getNotifications()%>" class="bodyText">
     <tr>
       <td></td>
       <td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
