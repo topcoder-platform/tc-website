@@ -31,10 +31,10 @@ function find(n) {
             
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
 
-            <A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_intel"><img src="/i/tournament/tco03/promo_sm_intel.gif" alt="Intel Developer Services" width="171" height="104" border="0" /></A><br />
+            <A href="/?t=tournaments&amp;c=tco03_intel"><img src="/i/tournament/tco03/promo_sm_intel.gif" alt="Intel Developer Services" width="171" height="104" border="0" /></A><br />
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             
-            <A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_nvidia"><img src="/i/tournament/tco03/promo_sm_nvidia.gif" alt="NVIDIA" width="170" height="95" border="0" /></A><br />
+            <A href="/?t=tournaments&amp;c=tco03_nvidia"><img src="/i/tournament/tco03/promo_sm_nvidia.gif" alt="NVIDIA" width="170" height="95" border="0" /></A><br />
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
 
             <A href="" name="changerHref"><img src="" name="changerImg" width="170" height="84" border="0" /></A><br />
