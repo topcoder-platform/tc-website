@@ -9,7 +9,7 @@
 		   </map>
 		</td>
 		<td width="10"><IMG src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-		<td height="150" align="center"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=spectator_package"  target="_top"><img src="/i/promos/tccc04_onsite_package.gif" width="170" height="150" border="0" alt="TCCC04 Onsite Package" /></A></td>
+		<td height="150" align="center"><A href="/?t=development&c=index"  target="_top"><img src="/i/promos/component_royalties.gif" width="170" height="150" border="0" alt="Component Royalties" /></A></td>
 	</tr>
 </table>
             
