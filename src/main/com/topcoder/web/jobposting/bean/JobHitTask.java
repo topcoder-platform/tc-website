@@ -8,7 +8,7 @@ import com.topcoder.web.jobposting.common.Constants;
 import com.topcoder.web.jobposting.ejb.JobPostingServices.JobPostingServicesHome;
 import com.topcoder.web.jobposting.ejb.JobPostingServices.JobPostingServices;
 import com.topcoder.web.resume.ejb.ResumeServices.ResumeServices;
-import com.topcoder.web.resume.ejb.ResumeServices.ResumeServicesHome;
+import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.common.web.data.*;
 
 import javax.servlet.http.*;
@@ -250,11 +250,9 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         }
 
 
-        ResumeServicesHome rHome = null;
         ResumeServices rServices = null;
         try {
-            rHome = (ResumeServicesHome) getInitialContext().lookup(ApplicationServer.RESUME_SERVICES);
-            rServices = rHome.create();
+            rServices = (ResumeServices)BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
             setHasResume(rServices.hasResume(getUserId()));
         } catch (Exception e) {
             log.error("could not determine if user has a resume or not");

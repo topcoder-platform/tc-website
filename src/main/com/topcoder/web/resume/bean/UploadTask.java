@@ -1,15 +1,13 @@
 package com.topcoder.web.resume.bean;
 
-import com.topcoder.web.resume.ejb.ResumeServices.ResumeServicesHome;
 import com.topcoder.web.resume.ejb.ResumeServices.ResumeServices;
 import com.topcoder.servlet.request.UploadedFile;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.web.resume.common.Constants;
+import com.topcoder.web.common.BaseProcessor;
 
 import javax.servlet.http.*;
-import javax.naming.Context;
 import java.util.Iterator;
 
 public class UploadTask extends ResumeTask{
@@ -20,12 +18,8 @@ public class UploadTask extends ResumeTask{
     private static Logger log = Logger.getLogger(UploadTask.class);
 
     public void process() throws ResumeTaskException{
-        Context context = null;
         try{
-            context = super.getInitialContext();
-            ResumeServicesHome resumeServicesHome = (ResumeServicesHome)
-                    context.lookup(ApplicationServer.RESUME_SERVICES);
-            ResumeServices resumeServices = resumeServicesHome.create();
+            ResumeServices resumeServices = (ResumeServices)BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
             resumeServices.putResume(userId,fileType, fileName, file);
         }catch(Exception e){
             throw new ResumeTaskException(e);
@@ -77,11 +71,8 @@ public class UploadTask extends ResumeTask{
     }
 
     public void processStep(String step) throws Exception {
-        Context context = null;
         try{
-            context = super.getInitialContext();
-            ResumeServicesHome resumeServicesHome = (ResumeServicesHome) context.lookup(ApplicationServer.RESUME_SERVICES);
-            ResumeServices resumeServices = resumeServicesHome.create();
+            ResumeServices resumeServices = (ResumeServices)BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
             resumeServices.putResume(userId,fileType, fileName, file);
             super.setNextPage(Constants.SUCCESS_PAGE);
         }catch(Exception e){

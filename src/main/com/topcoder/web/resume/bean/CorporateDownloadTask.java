@@ -1,8 +1,6 @@
 package com.topcoder.web.resume.bean;
 
-import com.topcoder.web.resume.ejb.ResumeServices.ResumeServicesHome;
 import com.topcoder.web.resume.ejb.ResumeServices.ResumeServices;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -12,10 +10,10 @@ import com.topcoder.web.tces.common.TCESConstants;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.BaseProcessor;
 
 import javax.servlet.http.*;
 import javax.servlet.ServletOutputStream;
-import javax.naming.Context;
 import java.util.Map;
 
 /**
@@ -85,12 +83,8 @@ public class CorporateDownloadTask extends ResumeTask{
     }
 
     public void processStep(String step) throws Exception {
-        Context context = null;
         try{
-            context = super.getInitialContext();
-            ResumeServicesHome resumeServicesHome =
-                    (ResumeServicesHome) context.lookup(ApplicationServer.RESUME_SERVICES);
-            ResumeServices resumeServices = resumeServicesHome.create();
+            ResumeServices resumeServices = (ResumeServices)BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
             resume = resumeServices.getResume(getMemberId());
         }catch(Exception e){
             throw new ResumeTaskException(e);
