@@ -84,11 +84,24 @@ public class GoogleRegSubmit extends FullRegSubmit {
 
     protected void setNextPage() {
         if (isEligible()) {
-            setNextPage(Constants.GOOGLE_REG_SUCCESS_PAGE);
+            SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
+            StringBuffer buf = new StringBuffer(150);
+            buf.append("http://");
+            buf.append(ApplicationServer.SERVER_NAME);
+            buf.append(info.getServletPath());
+            buf.append("?");
+            buf.append(Constants.MODULE_KEY);
+            buf.append("=");
+            buf.append(Constants.STATIC);
+            buf.append("&");
+            buf.append(Constants.STATIC_PREFIX);
+            buf.append("1=");
+            buf.append(Constants.GOOGLE_REG_SUCCESS_PAGE);
+            setNextPage(buf.toString());
+            setIsNextPageInContext(false);
         } else {
             throw new RuntimeException("impossible, isEligible returned false, fix the code");
         }
-        setIsNextPageInContext(true);
     }
 
     protected void handleActivation(SimpleRegInfo info, UserPrincipal newUser) throws TCWebException {
