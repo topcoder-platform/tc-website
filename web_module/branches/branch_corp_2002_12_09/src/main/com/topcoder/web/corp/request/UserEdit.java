@@ -328,8 +328,6 @@ public class UserEdit extends BaseProcessor {
         if( targetUserID >= 0 ) {
             request.setAttribute(KEY_TARGET_USER_ID, ""+targetUserID);
         }
-        boolean editable = secTok.loggedAsPrimary || secTok.loggedUserID < 0;
-        request.setAttribute("ext-fields-editable", ""+editable);
     } 
 
     /**
@@ -785,6 +783,19 @@ public class UserEdit extends BaseProcessor {
                 targetUserCompanyID = -1;
                 targetUser = null;
             }
+        }
+        public String toString() {
+            return "\ncontactTable="+contactTable+
+            "\nloggedAsPrimary="+loggedAsPrimary+
+            "\nrequestor="+requestor+
+            "\nprimaryUserID="+primaryUserID+
+            "\nloggedUserID="+loggedUserID+
+            "\nprimaryUserCompanyID="+primaryUserCompanyID+
+            "\ntargetUserCompanyID="+targetUserCompanyID+
+            "\nloggedUserCompanyID="+loggedUserCompanyID+
+            "\ntargetUser="+targetUser+
+            "\nman="+man+
+            "\ncreateNew="+createNew;
         }
     }
 }

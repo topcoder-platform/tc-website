@@ -35,7 +35,7 @@
 </P><BR>
 <FORM action="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>" method="POST" name="frmPrimReg">
 <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
-<% boolean extFieldsEditable = Boolean.getBoolean(""+request.getAttribute("ext-fields-editable")); %>
+<% boolean extFieldsEditable = "true".equalsIgnoreCase((String)request.getAttribute("ext-fields-editable")); %>
 <% String _extFieldsEditable = ""+extFieldsEditable; %>
 <!-- FIRST NAME -->
     <TR>

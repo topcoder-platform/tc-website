@@ -56,6 +56,10 @@ public final class Registration extends UserEdit {
     private String zip;
     private String country;
     
+    /**
+     * 
+     * 
+     */
     public Registration() {
         pageInContext = true;
         formPage = Constants.REGISTRATION_PAGE_RETRY;
@@ -90,12 +94,24 @@ public final class Registration extends UserEdit {
         setFormFieldDefault(KEY_ZIP, zip);
         setFormFieldDefault(KEY_COUNTRY, country);
         super.setFormFieldsDefaults();
+        request.setAttribute("ext-fields-editable", ""+isExtFieldsEditable());
+    }
+    
+    /**
+     * 
+     * @return boolean
+     */
+    private boolean isExtFieldsEditable() {
+        return
+            (secTok.loggedAsPrimary && ! secTok.createNew) ||
+            (secTok.loggedUserID < 0 && secTok.createNew );
     }
     
     /**
      * @see com.topcoder.web.corp.request.UserEdit#verifyFormFieldsValidity(boolean)
      */
     protected boolean verifyFormFieldsValidity() {
+        System.err.println(secTok);
         boolean valid = super.verifyFormFieldsValidity();
         valid &= // title name validity
         checkItemValidity(KEY_TITLE, title,
@@ -104,9 +120,7 @@ public final class Registration extends UserEdit {
             "signs only"
         );
 
-        if( !(secTok.loggedAsPrimary || secTok.loggedUserID < 0) ) {
-            return valid;
-        }
+        if( !isExtFieldsEditable() ) return valid;
         
         // checks below make sense only when registering new primary contact
         // or modifying existant one    
