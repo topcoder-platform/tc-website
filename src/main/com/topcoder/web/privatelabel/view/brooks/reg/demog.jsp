@@ -18,6 +18,14 @@
 </head>
 <body>
 
+<%
+//hack for extra question, id 61
+boolean extra = false;
+if(request.getAttribute("extraquestion") != null && request.getAttribute("extraquestion").equals("true")) {
+    extra = true;
+}
+%>
+
 <table width="770" align="left" valign="top" cellpadding=0 cellspacing=0 border=0>
 	<tr><td><img src="/i/events/brooks/brooks_logo.gif" border="0" width="122" height="66"/><img src="/i/events/brooks/header.gif" border="0" width="409" height="66"/></td></tr>
 	<tr><td><div class=brHead><img src="/i/clear.gif" height="23" width="1"></div></td></tr>
@@ -42,6 +50,7 @@
                                 </td>
                            </tr>
                         <pl:questionIterator id="question" list="<%=questionList%>">
+                            <%if(!extra || question.getId() != 61) {%>
                             <tr>
                                 <td class="brErrorText" colspan="2">
                                     <tc-webtag:errorIterator id="err" name="<%=Constants.DEMOG_PREFIX+question.getId()%>"><%=err%><br/></tc-webtag:errorIterator>
@@ -58,6 +67,7 @@
                                     <pl:demographicInput question="<%=question%>"/>
                                 </td>
                            </tr>
+                           <% }%>
                         </pl:questionIterator>
                             <tr>
                                 <td class="brErrorText" colspan="2">

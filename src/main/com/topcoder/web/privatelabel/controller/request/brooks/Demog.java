@@ -100,6 +100,19 @@ public class Demog extends FullRegDemog {
         
         //we're not bothering with an email confirmation field, so don't require it 
         removeError(Constants.EMAIL_CONFIRM);
+        
+        try {
+            if(!hasErrors()) {
+                //lookup if email is an existing one
+                if(emailExists(info.getEmail())) {
+                    getRequest().setAttribute("extraquestion", "true");
+                } else {
+                    getRequest().setAttribute("extraquestion", "false");
+                }
+            }
+        } catch (Exception e) {
+            throw new TCWebException(e);
+        }
     }
     
     private String generatePassword() {
