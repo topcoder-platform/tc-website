@@ -263,7 +263,9 @@ choose the company that best suits your current requirements.  Ask vendors for r
 previous customers, and validate the vendor claims by checking with those references.  In addition, 
 previous customers are a valuable source of information in providing tips, hints or advice on how 
 best to use and integrate the services offered by a particular vendor.  Searches on sites like 
-http://www.deja.com,  http://www.cnet .com or http://www.sys-con.com/java/ frequently provide 
+<A HREF="http://www.deja.com" TARGET="_blank" CLASS="bodyGeneric">http://www.deja.com</A>,  
+<A HREF="http://www.cnet.com/" TARGET="_blank" CLASS="bodyGeneric">http://www.cnet.com</A> 
+or <A HREF="http://www.sys-con.com/java/" TARGET="_blank" CLASS="bodyGeneric">http://www.sys-con.com/java/</A> frequently provide 
 beneficial guidance in terms of evaluating a vendor.</LI>
 </P>
 
