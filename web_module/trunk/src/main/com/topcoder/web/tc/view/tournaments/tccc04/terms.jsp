@@ -38,7 +38,7 @@
          
          <p align="center"><textarea name="terms" rows="20" cols="80" readonly class="bodyText"><%=request.getAttribute("terms")%></textarea></p>
 
-         <a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=TCCC04TermsAgree">Click here if you would like to participate in the tournament and make the implication that you agree to the rules as stated above</a>
+         <p align="center">Click <a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=TCCC04TermsAgree">here</a> 
 
 
          <p><br/></p>
