@@ -5,7 +5,7 @@
            com.topcoder.web.query.bean.*"
 %>
 <%@ taglib uri="/query-taglib.tld" prefix="query"%>
-<jsp:useBean id="DBSelectionTask" scope="request" class="com.topcoder.web.query.bean.DBSelectionTask" />
+<jsp:useBean id="ModifyCommandTask" scope="request" class="com.topcoder.web.query.bean.ModifyCommandTask" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
   <HEAD>
@@ -20,7 +20,7 @@
     <TR>
       <TD WIDTH="170" bgcolor="#001935" VALIGN="top">
         <TABLE WIDTH="170" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-          <query:linkIterator id="link" list="<%=DBSelectionTask.getNavLinks()%>">
+          <query:linkIterator id="link" list="<%=ModifyCommandTask.getNavLinks()%>">
             <TR>
               <TD CLASS="statText">
                   <A HREF="<jsp:getProperty name="link" property="href"/>" class="statText"><jsp:getProperty name="link" property="name"/></A>
@@ -30,17 +30,21 @@
         </TABLE>
       </TD>
       <TD WIDTH="4" BGCOLOR="#001935" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
-      <TD CLASS="statText" WIDTH="100%" BGCOLOR="#001935" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-        <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-          <TR><TD CLASS="statText"><%=Constants.DB_SELECTION_NAME%></TD></TR>
-          <TR><TD CLASS="statText">Select a Database</TD></TR>
-          <query:listIterator id="db" list="<%=DBSelectionTask.getDbList()%>">
-            <TR><TD>
-             <A HREF="<jsp:getProperty name="DBSelectionTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.COMMAND_LIST_TASK%>&<%=Constants.DB_PARAM%>=<%=db%>" class="statText">
-                <%=db%>
-              </A>
-            </TD></TR>
-          </query:listIterator>
+      <TD CLASS="statText" WIDTH="100%" BGCOLOR="#001935" VALIGN="top">
+        <TABLE WIDTH="60%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+          <TR><TD CLASS="statTextBig" COLSPAN="2"><%=Constants.MODIFY_COMMAND_NAME%></TD></TR>
+          <TR>
+            <TD CLASS="statText" ALIGN="right">Name: </TD>
+            <TD CLASS="statText" ALIGN="left">
+              <input type="text" name="<%=Constants.COMMAND_DESC_PARAM%>" value ="<jsp:getProperty name="ModifyCommandTask" property="CommandDesc" />" size="30" maxlength="100">
+            </TD>
+          </TR>
+          <TR>
+            <TD CLASS="statText" ALIGN="right">Group: </TD>
+            <TD CLASS="statText" ALIGN="left">
+              <query:commandGroupSelect name="<%=Constants.GROUP_ID_PARAM%>" class="dropdown" list="<%=ModifyCommandTask.getGroups()%>" selectedValue="<%=ModifyCommandTask.getGroupId()%>"/></td>
+            </TD>
+          </TR>
         </TABLE>
       </TD>
       <TD WIDTH="4" BGCOLOR="#001935"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"></TD>

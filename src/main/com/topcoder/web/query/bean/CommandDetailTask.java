@@ -58,7 +58,6 @@ public class CommandDetailTask extends BaseTask implements Task, Serializable {
         buf.append("=");
         buf.append(getDb());
         super.getNavLinks().add(new Link(buf.toString(), Constants.COMMAND_LIST_NAME));
-        super.getNavLinks().add(new Link("","")); //spacer
         buf.setLength(0);
         buf.append(begin);
         buf.append(Constants.MODIFY_COMMAND_TASK);
