@@ -320,9 +320,7 @@ public class UserEdit extends BaseProcessor {
             try {
                 embedPermissions();
             } catch (Exception ignore) {
-                log.error(
-                        "Cant get user permissions. Only default ones will be available"
-                );
+                log.error("Cant get user permissions. Only default ones will be available");
                 ignore.printStackTrace();
             }
         }
@@ -760,7 +758,7 @@ public class UserEdit extends BaseProcessor {
         Request dataRequest = new Request();
         dataRequest.setContentHandle("cmd-TCSubject-permissions");
         dataRequest.setProperty("uid", "" + targetUserID);
-        dataRequest.setProperty("puid", "" + secTok.primaryUserID);
+        dataRequest.setProperty("puid", "" + getAuthentication().getUser().getId());
 
         InitialContext ic = null;
         ResultSetContainer rsc = null;
