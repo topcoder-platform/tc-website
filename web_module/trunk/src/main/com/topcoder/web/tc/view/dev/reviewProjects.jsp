@@ -122,7 +122,7 @@
                             <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="catalog"/></td>
                         <% } %>
 
-                        <td class="projectCells"><rsc:item row="<%=resultRow%>" name="component_name"/></td>
+                        <td class="projectCells"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ProjectDetail&<%=Constants.PROJECT_ID%>=<rsc:item row="<%=resultRow%>" name="project_id"/>"><rsc:item row="<%=resultRow%>" name="component_name"/></a></td>
                         <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="phase_desc"/></td>
                         <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="submission_count"/></td>
                         <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_start" format="MM.dd.yyyy"/></td>

@@ -127,7 +127,7 @@
                                     <A>
 
                     <xsl:attribute name="href">
-                        <xsl:value-of select="concat('/tc?module=ProjectDetail&amp;pj='./project_id)"/>
+                        <xsl:value-of select="concat('/tc?module=ProjectDetail&amp;pj=',./project_id)"/>
                     </xsl:attribute><xsl:value-of select="./component_name"/>
 
                     <xsl:if test="number(./version) &gt;  number('1')">
@@ -204,7 +204,7 @@
                                     <A>
 
                         <xsl:attribute name="href">
-                            <xsl:value-of select="concat('/tc?module=ProjectDetail&amp;pj='./project_id)"/>
+                            <xsl:value-of select="concat('/tc?module=ProjectDetail&amp;pj=',./project_id)"/>
                         </xsl:attribute><xsl:value-of select="./component_name"/>
 
                         <xsl:if test="number(./version) &gt;  number('1')">
