@@ -114,7 +114,7 @@ public class Controller extends HttpServlet {
 
     private void forwardToLoginPage(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        getServletContext().getRequestDispatcher(response.encodeURL(Constants.LOGIN_PAGE)).forward(request, response);
+        getServletContext().getRequestDispatcher(response.encodeURL("/"+Constants.LOGIN_PAGE)).forward(request, response);
     }
 
     private void forwardToErrorPage(HttpServletRequest request, HttpServletResponse response,
@@ -126,7 +126,7 @@ public class Controller extends HttpServlet {
            one within this web application
          */
         getServletContext().getContext("/").getRequestDispatcher(
-                response.encodeURL(Constants.ERROR_PAGE)).forward(request, response);
+                response.encodeURL("/"+Constants.ERROR_PAGE)).forward(request, response);
     }
 }
 
