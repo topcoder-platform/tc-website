@@ -72,6 +72,7 @@ public class Constants {
     public static String EVENT_ID;
     public static String REGISTRATION_INFO;
     public static String USER_ID;
+    public static String FILE;
 
 
     //rules

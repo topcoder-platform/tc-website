@@ -34,7 +34,7 @@ public class UploadResume extends Base {
                 uf = (UploadedFile)it.next();
                 log.debug(uf.getContentType());
                 if (uf == null) {
-                    throw new NavigationException("Sorry, the file you attempted to upload was empty.");
+                    addError(Constants.FILE, "Sorry, the file you attempted to upload was empty.");
                 } else {
                     fileBytes = new byte[(int)uf.getSize()];
                     uf.getInputStream().read(fileBytes);
@@ -47,6 +47,12 @@ public class UploadResume extends Base {
             }else{
                 throw new Exception("No files uploaded");
             }
+            if (hasErrors()) {
+                setNextPage(Constants.RESUME_PAGE);
+            } else {
+                setNextPage(Constants.RESUME_THANK_YOU_PAGE);
+            }
+            setIsNextPageInContext(true);
         } catch (Exception e){
             throw new TCWebException(e);
         }
