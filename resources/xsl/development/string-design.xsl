@@ -56,18 +56,18 @@
 						<td bgcolor="#000033" background="/i/steel_darkblue_bg.gif" valign="top" width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
 						<td class="statText" colspan="2" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
 							
-							<h1 class="devSubhead"><strong>String: Design</strong></h1>
+							<h1 class="devSubhead"><strong>String Class: Design</strong></h1>
                                     
-							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=String: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=String Class: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 							<p><strong>Overview</strong><br />
-							The String Component is designed to extend the functionality of the string manipulation methods available in Java. While Java does provide some useful string manipulation methods, there are additional convenience methods that would aide the development process.
+							The String Class Component is designed to extend the functionality of the String Class manipulation methods available in Java. While Java does provide some useful String Class manipulation methods, there are additional convenience methods that would aide the development process.
                             </p><p>
-                            Examples of additional String functionality include switching case from uppercase to lowercase, checking if the object is null, setting only the first character of the string to uppercase.
+                            Examples of additional String Class functionality include switching case from uppercase to lowercase, checking if the object is null, setting only the first character of the String Class to uppercase.
 							</p>
 
 							<p><strong>Project Type</strong><br />
-							Component Design Project: Provide a complete design for the String component.<br />
+							Component Design Project: Provide a complete design for the String Class component.<br />
 							Please review the TopCoder Software <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_meth" class="statText">Component Development Methodology</a> before you submit a solution. 
 							If you're not sure what to submit, go to <a href="/?&amp;t=development&amp;c=tcs_sample_docs" class="statText">Documentation and Sample Submissions</a> for more information.
                             </p>
@@ -121,7 +121,7 @@
 
 							<p>After inquiring for this project please make sure you are registered at <a href="http://www.topcodersoftware.com" class="statText">TopCoder Software</a>.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=String: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=String Class: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>
 					</td>
 
