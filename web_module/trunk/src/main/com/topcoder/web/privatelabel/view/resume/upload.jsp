@@ -13,7 +13,7 @@
           <form name="upload_form" enctype="multipart/form-data" method="POST" action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="UploadResume">
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<%=request.getParameter(Constants.COMPANY_ID)%>">
-            <br/>Resume: <input type=file name=file1>
+            <br/>Resume: <input type="file" name="<%=Constants.FILE%>">
             <br/>File Type: <select name="fileType" class="dropdown">
             <rsc:iterator list="<%=fileTypes%>" id="fileType">
               <option value="<rsc:item name="file_type_id" row="<%=fileType%>"/>"><rsc:item name="file_type_desc" row="<%=fileType%>"/></option>

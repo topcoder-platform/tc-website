@@ -38,11 +38,14 @@ public class UploadResume extends Base {
                 } else {
                     fileBytes = new byte[(int)uf.getSize()];
                     uf.getInputStream().read(fileBytes);
-                    fileType = Integer.parseInt(file.getParameter("fileType"));
-                    fileName = uf.getRemoteFileName();
-                    ResumeServices resumeServices = (ResumeServices)createEJB(getInitialContext(), ResumeServices.class);
-                    resumeServices.putResume(userId, fileType, fileName, fileBytes, getDb());
-
+                    if (fileBytes==null||fileBytes.length==0)
+                        addError(Constants.FILE, "Sorry, the file you attempted to upload was empty.");
+                    else {
+                        fileType = Integer.parseInt(file.getParameter("fileType"));
+                        fileName = uf.getRemoteFileName();
+                        ResumeServices resumeServices = (ResumeServices)createEJB(getInitialContext(), ResumeServices.class);
+                        resumeServices.putResume(userId, fileType, fileName, fileBytes, getDb());
+                    }
                 }
             }else{
                 throw new Exception("No files uploaded");
