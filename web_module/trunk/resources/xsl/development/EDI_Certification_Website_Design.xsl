@@ -156,15 +156,15 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total Payment -</td>
-                                                            <td class="bodyText" align="right">$2,800.00</td>
+                                                            <td class="bodyText" align="right">$3,200.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">First Payment -</td>
-                                                            <td class="bodyText" align="right">$1,200.00</td>
+                                                            <td class="bodyText" align="right">$2,400.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Second Payment - </td>
-                                                            <td class="bodyText" align="right">$600.00</td>
+                                                            <td class="bodyText" align="right">$800.00</td>
                                                         </tr>
                                                     </table>
 
@@ -201,7 +201,7 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total - </td>
-                                                            <td class="bodyText" align="right">$5,560.00</td>
+                                                            <td class="bodyText" align="right">$5,960.00</td>
                                                         </tr>
                                                     </table>
 
@@ -319,7 +319,7 @@
                                                     <p>
                                                         <strong> Registration </strong>
                                                         <br/>
-                                                        Closed
+                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=EDI%20Certification%20Website%20Design&amp;phase=112">here</a> to get selected as a developer and to obtain the information necessary to submit a solution.
                                                     </p>
                                                 </td>
                                             </tr>
