@@ -112,26 +112,14 @@ function getProblemDetail(id) {
                     String sparam = Constants.SESSION_ID + '=' + row.getItem("session_id");
 
                     String color = (even) ? "bgcolor='#EEEEEE'" : "";
-
-                    int statusFlag = SessionInfo.sessionStatus((Date)row.getItem("current_time").getResultData(),
-                                                               (Date)row.getItem("begin_time").getResultData(),
-                                                               (Date)row.getItem("max_end_time").getResultData(),
-                                                               (Date)row.getItem("end_time").getResultData());
-                    String linkName = statusFlag>0?"Results":"Details";
-                    String status = "";
-                    switch (statusFlag) {
-                        case -1: status="Future"; break;
-                        case 0: status="In Progress"; break;
-                        case 1: status="Ended"; break;
-                    }
                 %>
                 <tr>
                     <td width="20%" class="bodyText" <%=color%>><screen:servletLink processor="PopulateCandidate" param="<%=cparam%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="user_name" /></screen:servletLink></td>
-                    <td width="16%" align="center" class="bodyText" <%=color%>><%=status%></td>
+                    <td width="16%" align="center" class="bodyText" <%=color%>><screen:sessionStatus row="<%=row%>" />></td>
                     <td width="16%" align="center" class="bodyText" <%=color%>><%=String.valueOf(((Long)row.getItem("set_a_count").getResultData()).longValue()+((Long)row.getItem("set_b_count").getResultData()).longValue())%></td>
                     <td width="16%" align="center" class="bodyText" <%=color%>><screen:resultSetItem row="<%=row%>" name="submitted" /></td>
                     <td width="16%" align="center" class="bodyText" <%=color%>><screen:resultSetItem row="<%=row%>" name="passed" /></td>
-                    <td width="16%" align="center" class="bodyText" <%=color%>><screen:servletLink processor="TestResults" param="<%=sparam%>"><%=linkName%></screen:servletLink></td>
+                    <td width="16%" align="center" class="bodyText" <%=color%>><screen:servletLink processor="TestResults" param="<%=sparam%>"><screen:sessionStatusLink row="<%=row%>" /></screen:servletLink></td>
                 </tr>
                 <% } %>
                 <% even = !even; %>
