@@ -145,7 +145,7 @@ public class ProblemSubmissionsTask extends BaseTask implements Task, Serializab
         resultMap = dai.getData(dataRequest);
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Problem_Submissions");
-        setSubmissionList((List) rsc);
+        setSubmissionList(rsc);
 
         setNextPage(TCESConstants.PROBLEM_SUBMISSIONS_PAGE);
     }
