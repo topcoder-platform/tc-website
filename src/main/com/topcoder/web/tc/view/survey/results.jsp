@@ -13,16 +13,18 @@
 
 <script language = "JavaScript">
 <!--
-function PassFlash(graphNums){
-   var test = graphNums;
-    window.document.myFlash.SetVariable("answers", test);
-}
-//--> 
-</script> 
+  function runFlash(){
+<tc:questionIterator list="<%=questionInfo%>" id="question">
+    var test<%=question.getId()%> = "<rsc:iterator list="<%=question.getAnswerInfo()%>" id="answer"><rsc:item row="<%=answer%>" name="percentage" format="#.##"/>,</rsc:iterator>";
+    window.document.myFlash<%=question.getId()%>.SetVariable("answers", test<%=question.getId()%>.substring(0, test<%=question.getId()%>.length-2)); //wack that extra comma
+</tc:questionIterator>
+  }
+//-->
+</script>
 
 </head>
 
-<body>
+<body onLoad="runFlash()">
 
 <jsp:include page="../top.jsp" >
     <jsp:param name="level1" value="review_board"/>
@@ -72,40 +74,38 @@ function PassFlash(graphNums){
                      </tr>
                      <% even = !even; %>
                   </rsc:iterator>
+                     <tr>
+                        <td>
+                            <p>
+                            <object
+                                  type="application/x-shockwave-flash"
+                                  data="/i/barGraph.swf"
+                            classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+                            codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"
+                            width=400
+                            height=400
+                            id="myFlash<%=question.getId()%>" >
+                            <PARAM  NAME=movie  VALUE="/i/barGraph.swf">
+                            <PARAM NAME=quality VALUE="high">
+                            <PARAM NAME=bgcolor VALUE="#FFFFFF">
+                            <embed
+                            src="/i/barGraph.swf"
+                            quality=high
+                            width=400
+                            height=400
+                            type="application/x-shockwave-flash"
+                            pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"
+                            name="myFlash"
+                            swLiveConnect="true" >
+                            </embed>
+                            </object>
+                            </p>
+                        </td>
+                     </tr>
+
                </table>
              </tc:questionIterator>
             </p>
-            <p>
-               <a href="#" onClick="PassFlash('1,1,1,1,1,1,1,1,1')">zero</a>
-               <a href="#" onClick="PassFlash('50,40,30,20')">String1</a>
-               <a href="#" onClick="PassFlash('20,30,40,50,10,4,24,17')">String1</a>
-               <a href="#" onClick="PassFlash('90,20,15,55,23,1,43')">String1</a>
-               <a href="#" onClick="PassFlash('60,70,40,30')">String1</a>
-            </p>
-            <p>
-            <object
-                  type="application/x-shockwave-flash"
-                  data="/i/barGraph.swf"
-            classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
-            codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"
-            width=400 
-            height=400 
-            id="myFlash" >
-            <PARAM  NAME=movie  VALUE="/i/barGraph.swf"> 
-            <PARAM NAME=quality VALUE="high"> 
-            <PARAM NAME=bgcolor VALUE="#FFFFFF"> 
-            <embed 
-            src="/i/barGraph.swf" 
-            quality=high 
-            width=400 
-            height=400
-            type="application/x-shockwave-flash" 
-            pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" 
-            name="myFlash" 
-            swLiveConnect="true" >
-            </embed> 
-            </object> 
-            </p> 
          </td>
 <!-- Center Column Ends -->
 
