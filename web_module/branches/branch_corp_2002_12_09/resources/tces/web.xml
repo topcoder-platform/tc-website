@@ -15,7 +15,7 @@
 
   <init-param>
     <param-name>error_page</param-name>
-    <param-value>/errorPage.jsp</param-value>
+    <param-value>/corp/error.jsp</param-value>
     <description>
       The error page we'll be using.
     </description>
