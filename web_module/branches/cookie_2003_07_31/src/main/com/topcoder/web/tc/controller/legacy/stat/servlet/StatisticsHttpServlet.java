@@ -1,6 +1,7 @@
 package com.topcoder.web.tc.controller.legacy.stat.servlet;
 
 import com.topcoder.common.web.data.Navigation;
+import com.topcoder.common.web.util.Data;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
@@ -11,7 +12,7 @@ import com.topcoder.web.tc.controller.legacy.stat.bean.QuickStatListBean;
 import com.topcoder.web.tc.controller.legacy.stat.common.StatXMLParser;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
-import com.topcoder.common.web.util.Data;
+
 
 import org.w3c.dom.Document;
 
@@ -137,11 +138,9 @@ public class StatisticsHttpServlet extends HttpServlet {
                 session.setAttribute("navigation", nav);;
 
                 if (nav.isIdentified())
-                    com.topcoder.common.web.util.Data.loadUser(nav);
-                if (nav.getUser() == null)
-                    log.info("[**** stats **** " + dataRequest.getContentHandle() + " ****  **** " + request.getRemoteHost() + " ****]");
+                    log.info("[**** stats **** " + dataRequest.getContentHandle() + " **** " + nav.getAuthentication().getActiveUser().getUserName() + " **** " + request.getRemoteHost() + " ****]");
                 else
-                    log.info("[**** stats **** " + dataRequest.getContentHandle() + " **** " + nav.getUser().getHandle() + " **** " + request.getRemoteHost() + " ****]");
+                    log.info("[**** stats **** " + dataRequest.getContentHandle() + " ****  **** " + request.getRemoteHost() + " ****]");
 
                 //hoke so that we can reload the properties file on the fly
                 if (dataRequest.getContentHandle().equals("reload")) {

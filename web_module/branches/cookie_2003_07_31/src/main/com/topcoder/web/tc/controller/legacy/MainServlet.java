@@ -497,8 +497,9 @@ public final class MainServlet extends HttpServlet {
             DataCache cache = Cache.get();
             document.addTag(new ValueTag("MemberCount", cache.getMemberCount()));
             if (nav.isIdentified()) {
-                document.addTag(new ValueTag("UserId", nav.getUser().getUserId()));
-                document.addTag(new ValueTag("Handle", nav.getUser().getHandle()));
+                document.addTag(new ValueTag("UserId", nav.getAuthentication().getUser().getId()));
+                document.addTag(new ValueTag("Handle", nav.getAuthentication().getUser().getUserName()));
+                //todo get this stuff from the session info or something
                 HashMap userTypeDetails = nav.getUser().getUserTypeDetails();
                 CoderRegistration reg = null;
                 if (userTypeDetails.containsKey("Coder")) {

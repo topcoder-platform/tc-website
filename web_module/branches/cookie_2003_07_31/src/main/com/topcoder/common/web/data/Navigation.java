@@ -223,7 +223,7 @@ public final class Navigation
         return result;
     }
 
-    public Authentication getAuthentication() {
+    public WebAuthentication getAuthentication() {
         return authentication;
     }
 
