@@ -427,7 +427,7 @@
                     <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=6401733" class="statText" target="_blank">Date Utility</a></td>
                     <td class="formHandleOdd" align="center">1</td>
                     <td class="formHandleOdd" align="center"></td>
-                    <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=302018"><strong>aksonov</strong></a></td>
+                    <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=277356"><strong>aksonov</strong></a></td>
                     <td class="formHandleOdd" align="right">86.78</td>
                 </tr>
             
@@ -559,7 +559,7 @@
                     <td class="formHandleOdd"></td>
                     <td class="formHandleOdd" align="center"></td>
                     <td class="formHandleOdd" align="center">3</td>
-                    <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=302018"><strong>aksonov</strong></a></td>
+                    <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=277356"><strong>aksonov</strong></a></td>
                     <td class="formHandleOdd" align="right">97.04</td>
                 </tr>
                 <tr valign="middle">
