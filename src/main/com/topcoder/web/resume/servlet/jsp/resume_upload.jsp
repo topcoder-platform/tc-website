@@ -18,7 +18,7 @@
             <br/>Resume: <input type=file name=file1>
             <br/>File Type: <select name="fileType" class="dropdown">
             <rsc:iterator list="<%=ViewUploadTask.getFileTypes()%>" id="fileType">
-              <option value="<rsc:item name="file_type_id" row="fileType"/>"><rsc:item name="file_type_desc" row="fileType"/></option>
+              <option value="<rsc:item name="file_type_id" row="<%=fileType%>"/>"><rsc:item name="file_type_desc" row="<%=fileType%>"/></option>
             </rsc:iterator>
             </select>
             <br/><input type="submit" value="Upload">
