@@ -35,12 +35,14 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins --> 
-<td CLASS="bodyText" WIDTH="100%">
+
+<td CLASS="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
+        <jsp:include page="../body_top.jsp" >
+           <jsp:param name="image" value="review_boards"/>  
+           <jsp:param name="image1" value="white"/>  
+           <jsp:param name="title" value="Competition"/>  
+        </jsp:include>
 <table BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-      <tr>
-         <td width="274" class="bodyText"><img src="/i/header_review_boards.gif" alt="review" width="180" height="26" border="0" />Competition
-         </td>
-      </tr>
       <tr>
          <td>
             <p align="right" >
