@@ -178,9 +178,6 @@ public class TermsOfUseBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } catch (Exception _e) {
             _e.printStackTrace();
             throw(new EJBException(_e.getMessage()));
@@ -222,9 +219,6 @@ public class TermsOfUseBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } catch (Exception _e) {
             _e.printStackTrace();
             throw(new EJBException(_e.getMessage()));

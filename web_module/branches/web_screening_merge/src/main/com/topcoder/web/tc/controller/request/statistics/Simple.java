@@ -1,6 +1,5 @@
 package com.topcoder.web.tc.controller.request.statistics;
 
-import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Static;
@@ -21,39 +20,33 @@ public class Simple extends Static {
 
     public static final String TRANS_FLAG = "trans";
 
-    protected void businessProcessing() throws TCWebException {
+    protected void businessProcessing() throws Exception {
         Request dataRequest = new Request();
         Map map = HttpUtils.parseQueryString(getRequest().getQueryString());
         map.remove(Constants.MODULE_KEY); //no need to include this one
         map.remove(DataAccessConstants.SORT_COLUMN);
         map.remove(DataAccessConstants.SORT_DIRECTION);
 
+        dataRequest.setProperties(map);
+        DataAccessInt dai = getDataAccess(getDb(), true);
+        Map result = dai.getData(dataRequest);
+
+        ResultSetContainer rsc = (ResultSetContainer) result.get(dataRequest.getContentHandle());
+        String sortCol = getRequest().getParameter(DataAccessConstants.SORT_COLUMN);
+        String sortDir = getRequest().getParameter(DataAccessConstants.SORT_DIRECTION);
+        if (sortCol != null && sortDir != null && rsc != null)
+            rsc.sortByColumn(sortCol, sortDir.trim().toLowerCase().equals("asc"));
+
+        getRequest().setAttribute("resultMap", result);
+
         try {
-            dataRequest.setProperties(map);
-            DataAccessInt dai = getDataAccess(getDb(), true);
-            Map result = dai.getData(dataRequest);
-
-            ResultSetContainer rsc = (ResultSetContainer)result.get(dataRequest.getContentHandle());
-            String sortCol = getRequest().getParameter(DataAccessConstants.SORT_COLUMN);
-            String sortDir = getRequest().getParameter(DataAccessConstants.SORT_DIRECTION);
-            if (sortCol != null && sortDir != null && rsc != null)
-                rsc.sortByColumn(sortCol, sortDir.trim().toLowerCase().equals("asc"));
-
-            getRequest().setAttribute("resultMap", result);
-
-            try {
-                String nextPage = bundle.getProperty(dataRequest.getContentHandle());
-                setNextPage(nextPage);
-                setIsNextPageInContext(true);
-            } catch (MissingResourceException e) {
-                super.businessProcessing();
-            }
-
-        } catch (TCWebException e) {
-            throw e;
-        } catch (Exception e) {
-            throw new TCWebException(e);
+            String nextPage = bundle.getProperty(dataRequest.getContentHandle());
+            setNextPage(nextPage);
+            setIsNextPageInContext(true);
+        } catch (MissingResourceException e) {
+            super.businessProcessing();
         }
+
 
     }
 

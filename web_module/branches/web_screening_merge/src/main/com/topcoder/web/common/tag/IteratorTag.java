@@ -22,6 +22,8 @@ public class IteratorTag extends BodyTagSupport {
     // index of current element
     protected int index;
 
+    protected String type;
+
     /**
      * Returns the element at the specified index.  Override
      * this function if you need to retrieve something outside
@@ -48,6 +50,10 @@ public class IteratorTag extends BodyTagSupport {
         if (collection == null) collection = new ArrayList();
         this.collection = collection;
         elementArray = collection.toArray();
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public int doStartTag() throws JspException {
@@ -79,9 +85,17 @@ public class IteratorTag extends BodyTagSupport {
         }
     }
 
-    public void release() {
-        collection = null;
-        index = 0;
+    /**
+     * Just in case the app server is caching tag (jboss!!!)
+     * we have to clear out all the instance variables at the
+     * end of execution
+     */
+    public int doEndTag() throws JspException {
+        this.collection = null;
+        this.index = 0;
+        this.elementArray = null;
+        this.type = null;
+        return super.doEndTag();
     }
 }
 

@@ -18,39 +18,32 @@ import java.util.Date;
  */
 abstract class TermsAgreeBase extends TermsBase {
 
-    protected void businessProcessing() throws TCWebException {
-        try {
-            if (getUser().isAnonymous()) {
-                throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+    protected void businessProcessing() throws Exception {
+        if (getUser().isAnonymous()) {
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        } else {
+            Calendar now = Calendar.getInstance();
+            now.setTime(new Date());
+            if (now.after(getEnd())) {
+                throw new NavigationException("The registration period for the " + getEventName() + " is over.");
+            } else if (now.before(getBeginning())) {
+                throw new NavigationException("The registration period for the " + getEventName() + " has not yet begun.");
             } else {
-                Calendar now = Calendar.getInstance();
-                now.setTime(new Date());
-                if (now.after(getEnd())) {
-                    throw new NavigationException("The registration period for the " + getEventName() + " is over.");
-                } else if (now.before(getBeginning())) {
-                    throw new NavigationException("The registration period for the " + getEventName() + " has not yet begun.");
-                } else {
-                    UserTermsOfUse userTerms = (UserTermsOfUse)createEJB(getInitialContext(), UserTermsOfUse.class);
-                    if (!isRegistered()) {
-                        if (isEligible()) {
-                            log.info("registering " + getUser().getId() + " for the " + getEventName());
-                            userTerms.createUserTermsOfUse(getUser().getId(), getTermsId(), DBMS.OLTP_DATASOURCE_NAME);
-                        } else {
-                            throw new NavigationException("You are not eligible to register for the " + getEventName());
-                        }
+                UserTermsOfUse userTerms = (UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class);
+                if (!isRegistered()) {
+                    if (isEligible()) {
+                        log.info("registering " + getUser().getId() + " for the " + getEventName());
+                        userTerms.createUserTermsOfUse(getUser().getId(), getTermsId(), DBMS.OLTP_DATASOURCE_NAME);
                     } else {
-                        //dont' have anything to do really
+                        throw new NavigationException("You are not eligible to register for the " + getEventName());
                     }
+                } else {
+                    //dont' have anything to do really
                 }
-                setSuccessPage();
             }
-        } catch (TCWebException e) {
-            throw e;
-        } catch (Exception e) {
-            throw new TCWebException(e);
+            setSuccessPage();
         }
     }
-
 
 
 }

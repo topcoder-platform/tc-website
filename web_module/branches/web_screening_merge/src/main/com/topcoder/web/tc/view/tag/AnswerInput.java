@@ -160,6 +160,12 @@ public class AnswerInput extends BaseTag {
 
     }
 
+    protected void init() {
+        this.cssclass=null;
+        this.question=null;
+        this.answers=null;
+        this.processed = false;
+    }
 }
 
 

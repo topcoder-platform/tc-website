@@ -74,4 +74,10 @@ public class RSCSelectTag extends SelectTag {
         return super.getSelected();
     }
 
+    protected void init() {
+        this.fieldValue = null;
+        this.fieldText = null;
+        this.list = null;
+    }
+
 }

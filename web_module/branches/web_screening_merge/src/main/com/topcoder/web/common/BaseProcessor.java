@@ -6,6 +6,7 @@ import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.TCException;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -23,10 +24,10 @@ public abstract class BaseProcessor implements RequestProcessor {
     private WebAuthentication auth;
 
     private InitialContext ctx;
-    private HashMap errors;
-    private HashMap defaults;
+    protected HashMap errors;
+    protected HashMap defaults;
 
-    private User user;
+    protected User user;
 
     public static final String ERRORS_KEY = "processor_errors";
     public static final String DEFAULTS_KEY = "processor_defaults";
@@ -92,7 +93,7 @@ public abstract class BaseProcessor implements RequestProcessor {
     /**
      * Subclasses should do their work by implementing this method.
      */
-    abstract protected void businessProcessing() throws TCWebException;
+    abstract protected void businessProcessing() throws Exception;
 
     /**
      * This is final to discourage overriding it.  Instead subclasses should implement businessProcessing().
@@ -101,7 +102,13 @@ public abstract class BaseProcessor implements RequestProcessor {
         try {
             baseProcessing();
             log.debug("calling businessProcessing");
-            businessProcessing();
+            try {
+                businessProcessing();
+            } catch (TCException e) {
+                throw e;
+            } catch (Exception e) {
+                throw new TCException(e);
+            }
         } finally {
             close(ctx);
         }
@@ -157,7 +164,7 @@ public abstract class BaseProcessor implements RequestProcessor {
     }
 
     protected void addError(String key, Object error) {
-        log.debug("adding error on " + key);
+        log.debug("adding error on " + key + " " + error.toString());
         ArrayList errs = (ArrayList) errors.get(key);
         if (errs == null) {
             errs = new ArrayList();
@@ -194,6 +201,7 @@ public abstract class BaseProcessor implements RequestProcessor {
     }
 
     protected void setDefault(String key, Object o) {
+        //log.debug("setting " + key + " to " + o);
         defaults.put(key, o);
     }
 
@@ -216,6 +224,10 @@ public abstract class BaseProcessor implements RequestProcessor {
 
     protected TCResponse getResponse() {
         return response;
+    }
+
+    protected boolean hasParameter(String param) {
+        return !"".equals(StringUtils.checkNull(getRequest().getParameter(param)));
     }
 
 

@@ -10,7 +10,7 @@ import com.topcoder.web.tc.Constants;
  */
 public class Static extends Base {
 
-    protected void businessProcessing() throws TCWebException {
+    protected void businessProcessing() throws Exception {
 
         StringBuffer path = new StringBuffer(100);
         for(int i=1; ; i++) {
