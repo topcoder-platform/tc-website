@@ -952,6 +952,7 @@ public final class GraphServlet extends HttpServlet {
             out.setMargin(10, 10, 10, 10);
             out.setColor(GREEN);
             out.line(111,0,111,400);
+            out.line(125,0,125,400);
             out.render(g);
             return baos.toByteArray();
 
