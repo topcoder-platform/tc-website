@@ -56,6 +56,7 @@
         <pathelement location="${jars.dir}/tcs/catalog.jar"/>
         <pathelement location="${jars.dir}/tcs/user.jar"/>
         <pathelement location="${jars.dir}/tcs/persistance.jar"/>
+        <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
 
     </path>
 
