@@ -122,7 +122,7 @@ List industryList = (List)request.getAttribute("industrySkills");
             </tr>
             </tc:listIterator>
             <tr>
-                <td align=left colspan=2 class=contractNote><%=StringUtils.htmlEncode((String)request.getAttribute("techNote"))%></td>
+                <td align=left colspan=2 class=contractNote><strong>Comment:</strong><br/><%=StringUtils.htmlEncode((String)request.getAttribute("techNote"))%></td>
             </tr>
 
 
@@ -139,7 +139,7 @@ List industryList = (List)request.getAttribute("industrySkills");
             </tr>
             </tc:listIterator>
             <tr>
-                <td align=left colspan=2 class=contractNote><%=StringUtils.htmlEncode((String)request.getAttribute("dbNote"))%></td>
+                <td align=left colspan=2 class=contractNote><strong>Comment:</strong><br/><%=StringUtils.htmlEncode((String)request.getAttribute("dbNote"))%></td>
             </tr>
 
 		</table>
@@ -157,7 +157,7 @@ List industryList = (List)request.getAttribute("industrySkills");
             </tr>
             </tc:listIterator>
             <tr>
-                <td align=left colspan=2 class=contractNote><%=StringUtils.htmlEncode((String)request.getAttribute("langNote"))%></td>
+                <td align=left colspan=2 class=contractNote><strong>Comment:</strong><br/><%=StringUtils.htmlEncode((String)request.getAttribute("langNote"))%></td>
             </tr>
 
 			<tr><td>&#160;</td></tr>
@@ -173,7 +173,7 @@ List industryList = (List)request.getAttribute("industrySkills");
             </tr>
             </tc:listIterator>
             <tr>
-                <td align=left colspan=2 class=contractNote><%=StringUtils.htmlEncode((String)request.getAttribute("osNote"))%></td>
+                <td align=left colspan=2 class=contractNote><strong>Comment:</strong><br/><%=StringUtils.htmlEncode((String)request.getAttribute("osNote"))%></td>
             </tr>
 
             <tr><td>&#160;</td></tr>
@@ -189,7 +189,7 @@ List industryList = (List)request.getAttribute("industrySkills");
             </tr>
             </tc:listIterator>
             <tr>
-                <td align=left colspan=2 class=contractNote><%=StringUtils.htmlEncode((String)request.getAttribute("industryNote"))%></td>
+                <td align=left colspan=2 class=contractNote><strong>Comment:</strong><br/><%=StringUtils.htmlEncode((String)request.getAttribute("industryNote"))%></td>
             </tr>
 		</table>
 		</tr>
