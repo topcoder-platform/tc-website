@@ -42,9 +42,9 @@
             
             <table cellspacing="0" cellpadding="3" width="100%" class="testFrame">
                 <tr>
-                    <td align="center" class="testTableTitleSmall">Notes</td>
-                    <td align="center" class="testTableTitleSmall">Author</td>
-                    <td align="center" class="testTableTitleSmall">Date Created</td>
+                    <td width="60%" class="testTableTitleSmall">Notes</td>
+                    <td width="25%" align="center" class="testTableTitleSmall">Author</td>
+                    <td width="15%" align="center" class="testTableTitleSmall">Date Created</td>
                 </tr>
                 
                 <% { boolean even = true; %>
