@@ -145,7 +145,16 @@ BORDER="0"></TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD
   </TR>
   <TR VALIGN="middle">
     <TD COLSPAN="4" CLASS="statText" VALIGN="middle">&nbsp;</TD>
-  </TR>    
+  </TR>   
+  <TR VALIGN="middle">
+    <TD COLSPAN="4" CLASS="statText" VALIGN="middle">
+<%
+ArrayList errors = tces.getErrors();
+for (int i = 0; i < errors.size(); i++) {
+    out.print(((String)errors.get(i)) + "<br>");
+}
+%></TD>
+  </TR>   
   <TR VALIGN="middle">
     <TD COLSPAN="4" CLASS="statTextBig" VALIGN="middle" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="16">&nbsp;User
 Information</TD>
