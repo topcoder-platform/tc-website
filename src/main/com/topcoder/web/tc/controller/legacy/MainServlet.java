@@ -114,8 +114,10 @@ public final class MainServlet extends HttpServlet {
             //just trying to protect against invalid requests getting to the
             //app server.  currently, we don't have a way to stop this ad the web
             //server layer.
-            if (!request.getServerName().startsWith(ApplicationServer.SERVER_NAME))
+            if (!request.getServerName().startsWith(ApplicationServer.SERVER_NAME)) {
+                log.error(request.getRemoteHost() + " Made an Invalid Request - Wrong Server Name " + request.getServerName());
                 throw new NavigationException("Invalid Request - Wrong Server Name", TCServlet.NAVIGATION_ERROR_PAGE);
+            }
 
             // CHECK FOR SESSION TIMEOUT
             if (request.isRequestedSessionIdValid() == false && request.getRequestedSessionId() != null) {

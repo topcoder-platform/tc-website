@@ -44,9 +44,10 @@ public class MainServlet extends BaseServlet {
         if (request.getServerName().startsWith(ApplicationServer.SERVER_NAME))
             super.process(request, response);
         else {
+            log.error("Invalid Request - Wrong Server Name " + request.getServerName());
             response.setStatus(400);
             PrintWriter out = response.getWriter();
-            out.println("<html><head><title>Invalid Request</title></head>");
+            out.println("<html><head><title>IInvalid Request - Wrong Server Name</title></head>");
             out.println("<body><h4>Your request was invalid for this server.</h4>");
             out.println("</body></html>");
             out.flush();
