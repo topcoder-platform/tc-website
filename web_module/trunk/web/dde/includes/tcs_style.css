@@ -240,11 +240,17 @@ A:active
 	text-decoration: none;
 }
 
-.appSuiteBody
+.appSuiteIndexBody
 {
 	width:510px;
 	margin-top:10px;
 	text-align:left;
+}
+.appSuiteBody
+{
+	width:100%;
+	margin:10px 0px 10px 0px;
+	text-align:center;
 }
 .body
 {
