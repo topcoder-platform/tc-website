@@ -61,6 +61,8 @@
 <!-- 2005 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2005</font></td></tr>
                             
+                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_01_25_05">TCS Delivers for International Consortium of Spinal Cord Injury Researchers</A> [January 25]<br/></td></tr>
+
                             <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_01_18_05">TopCoder&#174; Announces Motorola as Premier Sponsor of 2005 TopCoder Collegiate Challenge</A> [January 18]<br/><br/></td></tr>
 
 <!-- 2004 -->
