@@ -25,7 +25,7 @@
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="development"/>
-                <jsp:param name="level2" value=""/>
+                <jsp:param name="level2" value="reviews"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -39,26 +39,26 @@
             <img src="/i/clear.gif" alt="" width="1" height="15" border="0" /><br/>
 
 
-            <table border="0" cellspacing="3" cellpadding="0" width="530">
+            <table border="0" cellspacing="0" width="530" class="formFrame">
                 <tr>
-                    <td class="bodyText">Component Name</td>
-                    <td class="bodyText">Catalog</td>
-                    <td class="bodyText">Phase</td>
-                    <td class="bodyText"># of Submissions</td>
-                    <td class="bodyText">Review Start</td>
-                    <td class="bodyText">Review End</td>
-                    <td class="bodyText"># Review Positions Available</td>
+                    <td class="projectHeaders">Component Name</td>
+                    <td class="projectHeaders" align="center">Catalog</td>
+                    <td class="projectHeaders" align="center">Phase</td>
+                    <td class="projectHeaders" align="center">Submissions</td>
+                    <td class="projectHeaders" align="center">Review<br/>Start</td>
+                    <td class="projectHeaders" align="center">Review<br/>End</td>
+                    <td class="projectHeaders" align="center">Positions<br/>Available</td>
                 </tr>
 
                 <rsc:iterator list="<%=projectList%>" id="resultRow">
                     <tr>
-                        <td class="bodyText"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ReviewProjectDetail&<%=Constants.PROJECT_ID%>=<rsc:item row="<%=resultRow%>" name="project_id"/>&<%=Constants.PHASE_ID%>=<rsc:item row="<%=resultRow%>" name="phase_id"/>"><rsc:item row="<%=resultRow%>" name="component_name"/></a></td>
-                        <td class="bodyText"><rsc:item row="<%=resultRow%>" name="catalog"/></td>
-                        <td class="bodyText"><rsc:item row="<%=resultRow%>" name="phase_desc"/></td>
-                        <td class="bodyText"><rsc:item row="<%=resultRow%>" name="submission_count"/></td>
-                        <td class="bodyText"><rsc:item row="<%=resultRow%>" name="review_start" format="MM.dd.yyyy"/></td>
-                        <td class="bodyText"><rsc:item row="<%=resultRow%>" name="review_end" format="MM.dd.yyyy"/></td>
-                        <td class="bodyText"><rsc:item row="<%=resultRow%>" name="available_spots"/></td>
+                        <td class="projectCells"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ReviewProjectDetail&<%=Constants.PROJECT_ID%>=<rsc:item row="<%=resultRow%>" name="project_id"/>&<%=Constants.PHASE_ID%>=<rsc:item row="<%=resultRow%>" name="phase_id"/>"><rsc:item row="<%=resultRow%>" name="component_name"/></a></td>
+                        <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="catalog"/></td>
+                        <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="phase_desc"/></td>
+                        <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="submission_count"/></td>
+                        <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_start" format="MM.dd.yyyy"/></td>
+                        <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_end" format="MM.dd.yyyy"/></td>
+                        <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="available_spots"/></td>
                     </tr>
                 </rsc:iterator>
 
