@@ -15,9 +15,9 @@ import java.util.Enumeration;
  *
  */
 
-public class ModifyQueryTask extends BaseProcessor {
+public class ModifyQuery extends BaseProcessor {
 
-    private static Logger log = Logger.getLogger(ModifyQueryTask.class);
+    private static Logger log = Logger.getLogger(ModifyQuery.class);
 
     private String db;
     private long queryId;
@@ -26,8 +26,8 @@ public class ModifyQueryTask extends BaseProcessor {
     private String text;
     private String name;
 
-    /* Creates a new LoginTask */
-    public ModifyQueryTask() {
+    /* Creates a new Login */
+    public ModifyQuery() {
         super();
         db = "";
         queryId = 0;

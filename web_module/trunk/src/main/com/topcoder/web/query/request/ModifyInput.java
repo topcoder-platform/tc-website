@@ -15,9 +15,9 @@ import java.util.Enumeration;
  *
  */
 
-public class ModifyInputTask extends BaseProcessor {
+public class ModifyInput extends BaseProcessor {
 
-    private static Logger log = Logger.getLogger(ModifyInputTask.class);
+    private static Logger log = Logger.getLogger(ModifyInput.class);
 
     private String db;
     private long inputId;
@@ -25,8 +25,8 @@ public class ModifyInputTask extends BaseProcessor {
     private String inputDesc;
     private int dataTypeId;
 
-    /* Creates a new LoginTask */
-    public ModifyInputTask() {
+    /* Creates a new Login */
+    public ModifyInput() {
         super();
         db = "";
         inputId = 0;

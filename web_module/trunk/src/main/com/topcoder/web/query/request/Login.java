@@ -12,9 +12,9 @@ import com.topcoder.web.common.BaseProcessor;
  *
  */
 
-public class LoginTask extends BaseProcessor {
+public class Login extends BaseProcessor {
 
-    private static Logger log = Logger.getLogger(LoginTask.class);
+    private static Logger log = Logger.getLogger(Login.class);
 
 
     protected void businessProcessing() throws Exception {

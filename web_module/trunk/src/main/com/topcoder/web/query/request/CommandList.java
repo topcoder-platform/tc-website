@@ -16,15 +16,15 @@ import java.util.Enumeration;
  *
  */
 
-public class CommandListTask extends BaseProcessor {
+public class CommandList extends BaseProcessor {
 
-    private static Logger log = Logger.getLogger(CommandListTask.class);
+    private static Logger log = Logger.getLogger(CommandList.class);
 
     private ResultSetContainer commandList;
     private String db;
 
-    /* Creates a new LoginTask */
-    public CommandListTask() {
+    /* Creates a new Login */
+    public CommandList() {
         super();
         db = "";
     }

@@ -17,9 +17,9 @@ import java.util.*;
  *
  */
 
-public class ModifyCommandQueryTask extends BaseProcessor {
+public class ModifyCommandQuery extends BaseProcessor {
 
-    private static Logger log = Logger.getLogger(ModifyCommandQueryTask.class);
+    private static Logger log = Logger.getLogger(ModifyCommandQuery.class);
 
     private String db;
     private ArrayList currentQueryList;
@@ -33,8 +33,8 @@ public class ModifyCommandQueryTask extends BaseProcessor {
     private String commandDesc;
     private HashMap attributeQueue;
 
-    /* Creates a new LoginTask */
-    public ModifyCommandQueryTask() {
+    /* Creates a new Login */
+    public ModifyCommandQuery() {
         super();
         db = "";
         currentQueryList = null;

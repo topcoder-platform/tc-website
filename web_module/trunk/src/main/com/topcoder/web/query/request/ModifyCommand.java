@@ -18,9 +18,9 @@ import java.util.Enumeration;
  *
  */
 
-public class ModifyCommandTask extends BaseProcessor {
+public class ModifyCommand extends BaseProcessor {
 
-    private static Logger log = Logger.getLogger(ModifyCommandTask.class);
+    private static Logger log = Logger.getLogger(ModifyCommand.class);
 
     private String db;
     private String commandDesc;
@@ -28,8 +28,8 @@ public class ModifyCommandTask extends BaseProcessor {
     private long commandId;
     private ResultSetContainer groups;
 
-    /* Creates a new LoginTask */
-    public ModifyCommandTask() {
+    /* Creates a new Login */
+    public ModifyCommand() {
         super();
         db = "";
         commandDesc = "";
