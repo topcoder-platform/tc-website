@@ -156,7 +156,7 @@ the characters were the same.</p>
 <pre>
 public int simpleDifference (String a, String b) {
 	int ret = 0;
-	for (int i = 0; i < Math.min(a.length(), b.length()); i++)
+	for (int i = 0; i &lt; Math.min(a.length(), b.length()); i++)
 		if (a.charAt(i) == b.charAt(i))
 			ret++;
 	return ret;
@@ -266,8 +266,8 @@ just fine!)  Finally, it puts everyone's names into the required "First Last" fo
 
 <pre>
 public String[] dataCleanup(String[] names) {
-	for (int i = 0; i < names.length; i++) {
-		if (names[i].indexOf(',') > -1)
+	for (int i = 0; i &lt; names.length; i++) {
+		if (names[i].indexOf(',') &gt; -1)
 			names[i] = names[i].replaceAll(",", "");
 		else {
 			String[] s = names[i].split(" ");
@@ -275,7 +275,7 @@ public String[] dataCleanup(String[] names) {
 		};
 	};
 	Arrays.sort(names);
-	for (int i = 0; i < names.length; i++) {
+	for (int i = 0; i &lt; names.length; i++) {
 		String[] s = names[i].split(" ");
 		names[i] = s[1] + " " + s[0];
 	};
@@ -351,11 +351,11 @@ public long countArrangements(int total, int fancy) {
 	long[][] count = new long[total + 1][fancy + 1];
 	count[0][0] = 1;
 	count[1][1] = 1;
-	for (int i = 0; i <= total; i++) 
-		for (int j = 0; j <= fancy; j++) {
-			if (i > 0)
+	for (int i = 0; i &lt; = total; i++) 
+		for (int j = 0; j &lt; = fancy; j++) {
+			if (i &gt; 0)
 				count[i][j] += count[i - 1][j];
-			if (i > 1 && j > 0)
+			if (i &gt; 1 &amp;&amp; j &gt; 0)
 				count[i][j] += count[i - 2][j - 1];
 		};
 	return count[total][fancy];
@@ -427,25 +427,25 @@ cleaner.</p>
 
 <pre>
 public long countArrangements(int a, int b, int c, int d) {
-  if (a == 0 && b == 0 && c == 0 && d == 0)
+  if (a == 0 &amp;&amp; b == 0 &amp;&amp; c == 0 &amp;&amp; d == 0)
     return 1;
   long[][][][][] count = new long[21][21][21][21][4];
   count[1][0][0][0][0] = 1;
   count[0][1][0][0][1] = 1;
   count[0][0][1][0][2] = 1;
   count[0][0][0][1][3] = 1;
-  for (int w = 0; w <= 20; w++)
-    for (int x = 0; x <= 20; x++)
-      for (int y = 0; y <= 20; y++)
-        for (int z = 0; z <= 20; z++) 
-          for (int i = 0; i <= 3; i++) {
-            if (w > 0 && i != 0)
+  for (int w = 0; w &lt; = 20; w++)
+    for (int x = 0; x &lt; = 20; x++)
+      for (int y = 0; y &lt; = 20; y++)
+        for (int z = 0; z &lt; = 20; z++) 
+          for (int i = 0; i &lt; = 3; i++) {
+            if (w &gt; 0 &amp;&amp; i != 0)
               count[w][x][y][z][0] += count[w - 1][x][y][z][i];
-            if (x > 0 && i != 1)
+            if (x &gt; 0 &amp;&amp; i != 1)
               count[w][x][y][z][1] += count[w][x - 1][y][z][i];
-            if (y > 0 && i != 2)
+            if (y &gt; 0 &amp;&amp; i != 2)
               count[w][x][y][z][2] += count[w][x][y - 1][z][i];
-            if (z > 0 && i != 3)
+            if (z &gt; 0 &amp;&amp; i != 3)
               count[w][x][y][z][3] += count[w][x][y][z - 1][i];
           };
   return count[a][b][c][d][0] + count[a][b][c][d][1] + count[a][b][c][d][2] + count[a][b][c][d][3];
