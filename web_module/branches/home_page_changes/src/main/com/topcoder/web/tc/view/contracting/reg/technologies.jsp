@@ -92,9 +92,8 @@ return false;
 		</table>
 		
         <table border=0 cellpadding=3 cellspacing=0 width="100%" class=bodyText>
-			<tr><td>&#160;</td><td class=bodyText colspan=5><span class=bodySubtitle>No experience</span></td><td class=bodyText colspan=6 align=right><span class=bodySubtitle>Expert</span></td>
         	<tr><td class=bodyText valign=top width="100%">&#160;</td>
-            <% for(int i = 0; i<=10; i++){ %>
+            <% for(int i = 0; i<=5; i++){ %>
                 <td class=bodyText align=center valign=top>
                     <span class=bodySubtitle><%=i%></span>
                 </td>
@@ -110,11 +109,11 @@ return false;
                 </tc:skillIterator>
 			<tr>
 	            <td class=bodyText valign=middle>Additional Comments:</td>
-				<td class=bodyText colspan=11>
+				<td class=bodyText colspan=6>
 				<tc-webtag:textArea name="<%=Constants.NOTE_PREFIX + Constants.NOTE_TECHNOLOGIES%>" rows="3" cols="40"/>
 				</td>
 			</tr>
-			<tr><td colspan=12 align=center><br/><br/><a href="javascript:goToPage('ContractingOS');"><img src="/i/submit.jpg" border=0/></a>
+			<tr><td colspan=7 align=center><br/><br/><a href="javascript:goToPage('ContractingOS');"><img src="/i/submit.jpg" border=0/></a>
 			<%if(isEdit) {%><a href="javascript:goToPage('ContractingConfirm');"><img src="/i/jumpToEnd.jpg" border=0/></a><%}%></td></tr>
 		</table>
 		</FORM>

@@ -101,9 +101,8 @@ return false;
 
 		<FORM ACTION="" METHOD=POST onSubmit="">
         <table border=0 cellpadding=3 cellspacing=0 width="100%" class=bodyText>
-			<tr><td>&#160;</td><td class=bodyText colspan=5><span class=bodySubtitle>No experience</span></td><td class=bodyText colspan=6 align=right><span class=bodySubtitle>Expert</span></td>
         	<tr><td class=bodyText valign=top width="100%">&#160;</td>
-            <% for(int i = 0; i<=10; i++){ %>
+            <% for(int i = 0; i<=5; i++){ %>
                 <td class=bodyText align=center valign=top>
                     <span class=bodySubtitle><%=i%></span>
                 </td>
@@ -119,7 +118,7 @@ return false;
                 </tc:skillIterator>
 			<tr>
 	            <td class=bodyText valign=middle>Additional Comments:</td>
-				<td class=bodyText colspan=11>
+				<td class=bodyText colspan=6>
 				<tc-webtag:textArea name="<%=Constants.NOTE_PREFIX + Constants.NOTE_LANGUAGES%>" rows="3" cols="40"/>
 				</td>
 			</tr>
