@@ -205,7 +205,8 @@ Business leaders have limited time, and so try to tailor presentations to focus 
 key points, rather than a lengthy discussion of the problem and potential solutions.  
 Presentation software like Presentation (Corel), Power Point (Microsoft) or Presentation 
 (Astound) as well as storyboards have the capacity to be very effective, since they convey 
-large amounts of information in a relatively quick and easy fashion.  (See http://www.dilbert.com. 
+large amounts of information in a relatively quick and easy fashion.  
+(See <A HREF="http://www.dilbert.com" TARGET="_blank" CLASS="bodyGeneric">http://www.dilbert.com</A> 
 for effectiveness of some of these strategies)
 </P>
 
