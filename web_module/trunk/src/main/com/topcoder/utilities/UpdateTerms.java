@@ -30,7 +30,7 @@ public class UpdateTerms {
 
         try {
             ctx = TCContext.getInitial();
-            DataSource ds = (DataSource)ctx.lookup("SCREENING_OLTP");
+            DataSource ds = (DataSource)ctx.lookup("DS");
             conn = ds.getConnection();
 
             StringBuffer query = new StringBuffer(200);
