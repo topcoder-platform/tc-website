@@ -16,7 +16,7 @@
 
                 <xsl:call-template name="Preload"/>
 
-                <title>Order Fulfillment - Data Access Layer Development Project at TopCoder</title>
+                <title>Order Fulfillment - Front End Development Project at TopCoder</title>
 
                 <xsl:call-template name="CSS"/>
 
@@ -71,7 +71,7 @@
                                         <!-- Title -->
                                         <table cellspacing="0" class="formFrame" align="center" width="530">
                                             <tr>
-                                                <td class="projectTitles" nowrap="nowrap">Development Application Project - Order Fulfillment - Data Access Layer</td>
+                                                <td class="projectTitles" nowrap="nowrap">Development Application Project - Order Fulfillment - Front End</td>
                                             </tr>
                                             <tr>
                                                 <td class="projectHeaders" align="left">Overview</td>
@@ -110,12 +110,11 @@
                                                         Communication between the system and the factories is not in scope for this application.
                                                         <br/>
                                                         <br/>
-                                                        The developer of this project is responsible for creating all of the business objects.  The
-                                                        business objects handle all of the rules and logic of the system.  This layer will be utilized 
-                                                        by the front end and will call the data access layer to handle all persistence.
+                                                        The developer of this project is responsible for creating all of the data access layer object
+                                                        to handle all persistence.  This layer will be utilized by the business object layer.  The 
+                                                        developer must be comfortable with SQL Server 2000 and stored procedures.
                                                         <br/>
                                                         <br/>
-                                                        
                                                     </p>
                                                     <p class="noSpListTitle">
                                                         <strong>Objectives</strong>
@@ -329,7 +328,6 @@
                                                             <td class="bodyText" nowrap="nowrap">Certification End:</td>
                                                             <td class="bodyText" nowrap="nowrap" align="left">07.26.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
-
                                                     </table>
 
                                                     <!-- Register at TCS -->
@@ -345,7 +343,7 @@
                                                     <p>
                                                         <strong> Registration </strong>
                                                         <br/>
-                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Order%20Fulfillment%20DAO%20Development">here</a> to get selected as a development and to obtain the information necessary to submit a solution.
+                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Order%20Fulfillment%20FE%20Development">here</a> to get selected as a development and to obtain the information necessary to submit a solution.
                                                     </p>
                                                 </td>
                                             </tr>
