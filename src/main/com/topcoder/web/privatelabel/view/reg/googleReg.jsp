@@ -35,7 +35,7 @@ body,td,font,p,a
 //-->
 </style>
 
-<jsp:include page="../script.jsp" />
+<jsp:include page="../script.jsp" /> 
 
 <script>
 function openWin(url, name, w, h) {
