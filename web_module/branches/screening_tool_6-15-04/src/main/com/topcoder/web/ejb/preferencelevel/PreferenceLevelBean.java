@@ -47,7 +47,7 @@ public class PreferenceLevelBean extends BaseEJB {
      * A <code>String</code> name of table column containing the IDs of a users creating/updating the preference levels
      * of a candidates.
      */
-    private final static String USER_MODIFY_ID = "user_modify_id";
+    private final static String USER_MODIFY_ID = "modify_user";
 
     /**
      * Creates a preference level for specified candidate relevant to specified company. This method must be used only
