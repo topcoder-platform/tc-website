@@ -30,16 +30,13 @@
         </TABLE>
       </TD>
       <TD WIDTH="4" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
-      <TD CLASS="statText" WIDTH="100%" BGCOLOR="#000000" VALIGN="top">
+      <TD CLASS="statText" WIDTH="100%" BGCOLOR="#000000" VALIGN="top" ALIGN="left">
         <TABLE WIDTH="60%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
           <FORM ACTION="<jsp:getProperty name="ModifyCommandTask" property="ServletPath"/>" method="post" name="ModCommandForm" >
             <INPUT TYPE="hidden" NAME="<%=Constants.TASK_PARAM%>" VALUE="<%=Constants.MODIFY_COMMAND_TASK%>">
             <INPUT TYPE="hidden" NAME="<%=Constants.COMMAND_ID_PARAM%>" VALUE="<jsp:getProperty name="ModifyCommandTask" property="CommandId"/>">
             <INPUT TYPE="hidden" NAME="<%=Constants.STEP_PARAM%>" VALUE="<%=Constants.SAVE_STEP%>">
             <TR><TD CLASS="statTextBig" COLSPAN="2"><%=Constants.MODIFY_COMMAND_NAME%></TD></TR>
-<%
-    System.out.println("haserrors: " + ModifyCommandTask.hasErrors());
-%>
             <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyCommandTask%>" key="<%=Constants.COMMAND_ID_PARAM%>"/></TD></TR>
             <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyCommandTask%>" key="<%=Constants.COMMAND_DESC_PARAM%>"/></TD></TR>
             <TR>
