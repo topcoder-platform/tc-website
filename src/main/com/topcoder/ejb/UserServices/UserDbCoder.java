@@ -81,7 +81,12 @@ final class UserDbCoder {
             ps.setString(5, coder.getHomeAddress1());
             ps.setString(6, coder.getHomeAddress2());
             ps.setString(7, coder.getHomeCity());
-            ps.setString(8, states.getStateCode());
+            if (country.getCountryCode().equals("840")) {
+                ps.setString(8, states.getStateCode());
+            } else {
+                ps.setNull(8, java.sql.Types.VARCHAR);
+            }
+
             ps.setString(9, country.getCountryCode());
             ps.setString(10, coder.getHomeZip());
             ps.setString(11, coder.getHomePhone());
@@ -542,7 +547,11 @@ final class UserDbCoder {
                     ps.setString(4, coder.getHomeAddress1());
                     ps.setString(5, coder.getHomeAddress2());
                     ps.setString(6, coder.getHomeCity());
-                    ps.setString(7, state.getStateCode());
+                    if (country.getCountryCode().equals("840")) {
+                        ps.setString(7, state.getStateCode());
+                    } else {
+                        ps.setNull(7, java.sql.Types.VARCHAR);
+                    }
                     ps.setString(8, country.getCountryCode());
                     ps.setString(9, coder.getHomeZip());
                     ps.setString(10, coder.getWorkPhone());
