@@ -83,17 +83,14 @@
             
             <ul>
                 <li><strong>Dates: </strong><br />
-                    October 7th through December 5th, 2003</li>
+                    September 2nd through December 5th, 2003</li>
                 <li><strong>Rounds: </strong><br />
-                    Two qualification rounds - online<br />
-                    Four elimination rounds - online<br />
-                    The Semifinal and Championship rounds will be held at the Mohegan Sun Casino and Resort in Uncasville, CT on December 4th and 5th</li>
+                    Two elimination rounds - online<br />
+                    The Championship round will be held at the Mohegan Sun Casino and Resort in Uncasville, CT on December 5th.</li>
                 <li><strong>Prizes: </strong><br />
-                    Total Prize Purse: $100,000 in cash<br />
-                    Up to 500 competitors will receive a prize just for competing in Online Round #1<br />
-                    Up to 200 eligible competitors will receive cash prizes</li>
+                    Total Prize Purse: $100,000 in cash</li>
                 <li><strong>Finalists: </strong><br />
-                    The top 16 finishers in the online rounds will advance to the onsite Semifinal and Championship rounds</li>
+                    The top 2 finishers in the online rounds will advance to the onsite Championship rounds</li>
             </ul>
             </blockquote>
 
