@@ -108,11 +108,6 @@
             <description></description>
         </init-param>
         <init-param>
-            <param-name>unactive</param-name>
-            <param-value>/authentication/unactivated.jsp</param-value>
-            <description></description>
-        </init-param>
-        <init-param>
             <param-name>recover_password</param-name>
             <param-value>/authentication/recoverPassword.jsp</param-value>
             <description></description>
@@ -269,6 +264,19 @@
         <description>The jobposting controller servlet</description>
         <servlet-class>com.topcoder.web.tc.controller.legacy.jobposting.servlet.Controller</servlet-class>
     </servlet>
+
+    <servlet>
+        <servlet-name>graph</servlet-name>
+        <display-name>graph</display-name>
+        <description>The graph controller servlet</description>
+        <servlet-class>com.topcoder.web.tc.controller.legacy.GraphServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+      <servlet-name>graph</servlet-name>
+      <url-pattern>/graph</url-pattern>
+    </servlet-mapping>
+
 
     <servlet-mapping>
       <servlet-name>stat</servlet-name>
