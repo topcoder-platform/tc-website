@@ -63,7 +63,7 @@
                             <TD VALIGN="TOP" HEIGHT="20">
                                <tc-webtag:textInput name="passw" passw="true" maxlength="15" size="12" class="dropdown"/>
                             </TD>
-                            <TD VALIGN="top" CLASS="statTextBig">&nbsp;&nbsp;<A CLASS="statTextBig" HREF="Javascript:frmLogin.submit()">Login &gt;</A></TD>
+                            <TD VALIGN="top" CLASS="statTextBig">&nbsp;&nbsp;<A CLASS="statTextBig" HREF="Javascript:document.frmLogin.submit()">Login &gt;</A></TD>
                         </TR>
                     </TABLE>
                 </FORM>
