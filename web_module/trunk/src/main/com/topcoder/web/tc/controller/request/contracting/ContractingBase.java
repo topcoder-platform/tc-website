@@ -22,6 +22,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 
 import java.util.Enumeration;
+import java.util.Iterator;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.tc.model.ContractingInfo;
 /**
@@ -70,7 +71,12 @@ abstract public class ContractingBase extends BaseProcessor {
     }
     
     protected void setDefaults(ContractingInfo info) {
-        
+        //load preference defaults
+        Iterator i = info.getPreferenceNames();     
+        while(i.hasNext()) {
+            String s = (String)i.next();
+            setDefault(Constants.PREFERENCE_PREFIX + s, info.getPreference(s)); 
+        }
         
     };
     

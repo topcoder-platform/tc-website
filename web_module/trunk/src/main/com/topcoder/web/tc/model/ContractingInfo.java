@@ -31,8 +31,16 @@ public class ContractingInfo implements Serializable {
         preferences.clear();
     }
     
+    public Iterator getPreferenceNames() {
+        return preferences.keySet().iterator();
+    }
+    
     public void setPreference(String pref, String val) {
         preferences.put(pref, val);
+    }
+    
+    public String getPreference(String pref) {
+        return (String)preferences.get(pref);
     }
     
     public long getUserID() {
