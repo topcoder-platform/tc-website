@@ -5,8 +5,6 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.controller.request.util.TCCC05AlgorithmTerms;
-import com.topcoder.web.tc.controller.request.util.TCCC05ComponentTerms;
 
 public class Home extends Base {
 
