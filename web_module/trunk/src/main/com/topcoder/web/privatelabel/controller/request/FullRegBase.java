@@ -40,7 +40,6 @@ abstract class FullRegBase extends SimpleRegBase {
     }
 
     protected String getRequestParameter(String name) throws Exception {
-        log.debug("getRequestParameter: " + name);
         String ret = null;
         if (fu==null) {
             ret = getRequest().getParameter(name);
