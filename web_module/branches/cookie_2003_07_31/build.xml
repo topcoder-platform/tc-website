@@ -176,7 +176,7 @@
             <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/report/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/Logger.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
         </jar>
     </target>
 
@@ -199,7 +199,7 @@
             <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/stat/coder/Coder.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/Logger.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
         </jar>
     </target>
 
@@ -246,7 +246,7 @@
             <zipfileset dir="${classes}" includes="com/topcoder/common/web/util/DateTime.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/Logger.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
         </jar>
     </target>
 
@@ -259,7 +259,7 @@
             <zipfileset dir="${classes}" includes="com/topcoder/ejb/AuthenticationServices/User.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/common/web/util/DateTime.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging.Logger.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/TCContext.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
         </jar>
@@ -272,7 +272,7 @@
         </antcall>
         <jar jarfile="${ejb_jars}/UserServices.jar" update="true">
             <zipfileset dir="${classes}" includes="com/topcoder/ejb/AuthenticationServices/User.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/Logger.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/common/web/error/TCException.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/ejb/AuthenticationServices/User.class"/>
@@ -280,7 +280,6 @@
             <zipfileset dir="${classes}" includes="com/topcoder/shared/docGen/xml/XMLDocument.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/TCContext.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/Logger.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared.util.ApplicationServer.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/password/PasswordRemoteHome.class"/>
@@ -641,7 +640,7 @@
             <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/Group.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/Logger.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
         </jar>
         <war warfile="${war.dir}/admin.war" webxml="${resources}/admin/web.xml">
             <fileset dir="${java}/com/topcoder/web/admin/view">
