@@ -65,8 +65,8 @@
 				<td class=catalogIndexHeader colspan=2>Find Components</td>
 			</tr>
 			<tr valign=top>
-				<td class=catalogIndexCell><A href="/applications/appSuiteIndex.jsp"><img src="/images/catalog/appSuiteBtn.jpg" border=0/></A></td>
-				<td class=catalogIndexCell width=100%><A href="/applications/appSuiteIndex.jsp"><b>Browse Application Suites</b></A><br/>Application Suites are multi-purpose tools to solve a variety of software needs in one package. Thinking of adding an E-commerce section to your site? Our E-commerce Application Suite has everything you will need from a shopping cart to security.</td>
+				<td class=catalogIndexCell><A href="/components/appSuiteIndex.jsp"><img src="/images/catalog/appSuiteBtn.jpg" border=0/></A></td>
+				<td class=catalogIndexCell width=100%><A href="/components/appSuiteIndex.jsp"><b>Browse Application Suites</b></A><br/>Application Suites are multi-purpose tools to solve a variety of software needs in one package. Thinking of adding an E-commerce section to your site? Our E-commerce Application Suite has everything you will need from a shopping cart to security.</td>
 			</tr>
 			<tr valign=top>
 				<td class=catalogIndexCell><A href="/catalog/c_showroom.jsp"><img src="/images/catalog/categoryBtn.jpg" border=0/></A></td>
