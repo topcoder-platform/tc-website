@@ -153,7 +153,13 @@ Founder and Chairman, TopCoder, Inc.
       </td>
     </tr>
    <% } %>
-
+     <tr><td colspan="4"><img src="/i/clear.gif" width="1" height="1" border="0"></td></tr>
+     <tr>
+       <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif"><b>Resume</b>&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+       <td colspan="2" class="statTextBig" align="left" valign="middle">
+         <a href="JavaScript:void window.open('../includes/modules/resume_upload.jsp','Resume_Upload','top=2,left=2,width=300,height=300,status=0');" class="statText">Resume Upload</a>
+       </td>
+     </tr>
     <tr>
         <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" align="left" valign="middle"><jsp:getProperty name="Registration" property="FirstNameError" /></td>
     </tr>

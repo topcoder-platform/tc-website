@@ -65,6 +65,7 @@ public class DBMS {
     public static final int PAYMENT_ADDRESS_SEQ = getIntProperty("PAYMENT_ADDRESS_SEQ", 54);
     public static final int PAYMENT_DETAIL_SEQ = getIntProperty("PAYMENT_DETAIL_SEQ", 55);
     public static final int TAX_FORM_SEQ = getIntProperty("TAX_FORM_SEQ", 56);
+    public static final int RESUME_SEQ = getIntProperty("RESUME_SEQ", 81);
 
     private static final String getProperty(String key, String defaultValue) {
         return bundle.getProperty(key, defaultValue);
@@ -262,6 +263,8 @@ public class DBMS {
             query = " execute procedure nextval(" + PAYMENT_DETAIL_SEQ + ") ";
         else if (sequence == TAX_FORM_SEQ)
             query = " execute procedure nextval(" + TAX_FORM_SEQ + ") ";
+        else if (sequence == RESUME_SEQ)
+            query = " execute procedure nextval(" + RESUME_SEQ + ") ";
         else
             getSeqId = false;
 

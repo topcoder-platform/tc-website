@@ -40,6 +40,7 @@ public class ApplicationServer {
     public static String PACTS_SERVICES = bundle.getProperty("PACTS_SERVICES", "com.topcoder.web.pacts.ejb.PactsServicesHome");
     public static String PROJECT_SERVICES = bundle.getProperty("PROJECT_SERVICES", "tc.ProjectServicesHome");
     public static String TCES_SERVICES = bundle.getProperty("TCES_SERVICES", "com.topcoder.web.tces.ejb.TCESServicesHome");
+    public static String RESUME_SERVICES = bundle.getProperty("RESUME_SERVICES", "com.topcoder.ejb.ResumeServicesHome");
 
     private static String[] getClusterArray(String s) {
         StringTokenizer st = new StringTokenizer(s, ",");

@@ -1,16 +1,18 @@
-package com.topcoder.web.reg.servlet;
+package com.topcoder.web.resume.servlet;
 
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.ejb.AuthenticationServices.User;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.reg.bean.Task;
-import com.topcoder.web.reg.bean.TaskException;
+import com.topcoder.web.resume.bean.ResumeTask;
+import com.topcoder.servlet.request.FileUpload;
+import com.topcoder.servlet.request.UploadedFile;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.Enumeration;
+import java.util.Iterator;
 
 public class Controller
         extends HttpServlet {
@@ -20,10 +22,9 @@ public class Controller
     public static final String EXCEPTION = "exception";
     public static final String NAVIGATION = "navigation";
     public static final String TASK = "task";
-    public static final String STEP = "step";
-    public static final String RESUME = "ResumeUpload";
+    public static final String RESUME = "ResumeUploadTask";
     static final String CONTROLLER_ERROR_URL = "error.jsp";
-    static final String TASK_PACKAGE = "com.topcoder.web.reg.bean";
+    static final String TASK_PACKAGE = "com.topcoder.web.resume.bean";
 
     public void init(Servlet servletConfig)
             throws ServletException {
@@ -37,12 +38,11 @@ public class Controller
                 String taskName = request.getParameter(TASK);
                 if (taskName == null || !isWord(taskName)) {
                     log.debug(TASK + " not found in request.");
-                    forwardToError(request, response, new TaskException(TASK + " not found in request."));
+                    forwardToError(request, response, new Exception(TASK + " not found in request."));
                     return;
                 }
-                session = request.getSession(true); // for now create a new session, later this'll be done in the front page
-                Object taskObject = session.getAttribute(taskName);
-                Task task = null;
+                session = request.getSession();
+                ResumeTask task = null;
                 Class taskClass = null;
                 try {
                     taskClass = Class.forName(TASK_PACKAGE + "." + taskName);
@@ -51,51 +51,14 @@ public class Controller
                     forwardToError(request, response, e);
                     return;
                 }
-                if (taskObject == null) {
-                    try {
-                        task = (Task) taskClass.newInstance();
-                    } catch (Exception e) {
-                        log.error(e.getMessage());
-                        forwardToError(request, response, e);
-                        return;
-                    }
-                    session.setAttribute(taskName, task);
-                } else {
-                    try {
-                        task = (Task) taskObject;
-                    } catch (ClassCastException e) {
-                        log.error(e.getMessage());
-                        forwardToError(request, response, e);
-                        return;
-                    }
-                }
-                task.setUser(getUser(session));
-                task.setStep(request.getParameter(STEP));
-                Enumeration parameterNames = request.getParameterNames();
-                while (parameterNames.hasMoreElements()) {
-                    String parameterName = parameterNames.nextElement().toString();
-                    String[] parameterValues = request.getParameterValues(parameterName);
-                    if (parameterValues != null) {
-                        //if (parameterValues.length == 1)
-                        //{
-                        //task.setAttribute(parameterName,request.getParameter(parameterName));
-                        //}
-                        //else if (parameterValues.length > 1)
-                        //{
-
-                        task.setAttributes(parameterName, parameterValues);
-
-                        //}
-                    }
-                }
-
                 try {
+                    task = (ResumeTask) taskClass.getConstructor(new Class[]{HttpServletRequest.class}).newInstance(new Object[]{request});
                     task.process();
-                } catch (TaskException e) {
+                } catch (Exception e) {
                     log.error(e.getMessage());
                     forwardToError(request, response, e);
+                    return;
                 }
-
                 forward(request, response, task.getNextPage());
             }
         } catch (ServletException se) {
