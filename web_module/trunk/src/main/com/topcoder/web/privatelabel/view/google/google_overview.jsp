@@ -104,58 +104,58 @@ The competitors with the top 250 scores from Round 1 will advance to Round 2 on 
 <ul>
                           <table width="450" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr>
-                    <td class="sidebarTitle" width="30%"><strong><font size="-1">Date</font></strong></td>
-                    <td class="sidebarTitle" width="20%"><strong><font size="-1">Time*</font></strong></td>
+                    <td class="sidebarTitle" width="30%">Date</td>
+                    <td class="sidebarTitle" width="20%">Time*</td>
 
-                    <td class="sidebarTitle" width="50%"><strong><font size="-1">Status</font></strong></td>
+                    <td class="sidebarTitle" width="50%">Status</td>
                 </tr>
                 <tr valign="top">
-                    <td class="sidebarText"><font size="-1">Wednesday, October 1</font></td>
-                    <td class="sidebarText"><font size="-1">8:00 AM</font></td>
-                    <td class="sidebarText"><font size="-1">Registration Opens</font></td>
-                </tr>
-
-                <tr valign="top">
-                    <td class="sidebarText" nowrap><font size="-1">Wednesday, October 15</font></td>
-                    <td class="sidebarText"><font size="-1">5:00 PM</font></td>
-                    <td class="sidebarText"><font size="-1">Registration Closes</font></td>
-                </tr>
-                
-                <tr valign="top">
-                    <td class="sidebarText"><font size="-1">Friday, October 17</font></td>
-
-                    <td class="sidebarText"><font size="-1">8:00 AM</font></td>
-                    <td class="sidebarText"><font size="-1">Qualification Round begins</font></td>
+                    <td class="sidebarText">Wednesday, October 1</td>
+                    <td class="sidebarText">8:00 AM</td>
+                    <td class="sidebarText">Registration Opens</td>
                 </tr>
 
                 <tr valign="top">
-                    <td class="sidebarText"><font size="-1">Monday, October 20</font></td>
-                    <td class="sidebarText"><font size="-1">8:00 AM</font></td>
-
-                    <td class="sidebarText"><font size="-1">Qualification Round ends</font></td>
-                </tr>
-
-                <tr valign="top">
-                    <td class="sidebarText"><font size="-1">Friday, October 24</font></td>
-                    <td class="sidebarText"><font size="-1">9:00 PM</font></td>
-                    <td class="sidebarText"><font size="-1">Round 1 - 500 participants</font></td>
-
-                </tr>
-
-                <tr valign="top">
-                    <td class="sidebarText"><font size="-1">Monday, October 27</font></td>
-                    <td class="sidebarText"><font size="-1">9:00 PM</font></td>
-                    <td class="sidebarText"><font size="-1">Round 2 - 250 participants</font></td>
-                </tr>
-
-                <tr valign="top">
-                    <td class="sidebarText"><font size="-1">Friday, November 14</font></td>
-                    <td class="sidebarText"><font size="-1">3:00 PM</font></td>
-                    <td class="sidebarText"><font size="-1">Championship Round - 25 participants</font></td>
+                    <td class="sidebarText" nowrap>Wednesday, October 15</td>
+                    <td class="sidebarText">5:00 PM</td>
+                    <td class="sidebarText">Registration Closes</td>
                 </tr>
                 
                 <tr valign="top">
-                  <td class="sidebarText" colspan="3"><font size="-2">*All times are Eastern Time</font></td>
+                    <td class="sidebarText">Friday, October 17</td>
+
+                    <td class="sidebarText">8:00 AM</td>
+                    <td class="sidebarText">Qualification Round begins</td>
+                </tr>
+
+                <tr valign="top">
+                    <td class="sidebarText">Monday, October 20</td>
+                    <td class="sidebarText">8:00 AM</td>
+
+                    <td class="sidebarText">Qualification Round ends</td>
+                </tr>
+
+                <tr valign="top">
+                    <td class="sidebarText">Friday, October 24</td>
+                    <td class="sidebarText">9:00 PM</td>
+                    <td class="sidebarText">Round 1 - 500 participants</td>
+
+                </tr>
+
+                <tr valign="top">
+                    <td class="sidebarText">Monday, October 27</td>
+                    <td class="sidebarText">9:00 PM</td>
+                    <td class="sidebarText">Round 2 - 250 participants</td>
+                </tr>
+
+                <tr valign="top">
+                    <td class="sidebarText">Friday, November 14</td>
+                    <td class="sidebarText">3:00 PM</td>
+                    <td class="sidebarText">Championship Round - 25 participants</td>
+                </tr>
+                
+                <tr valign="top">
+                  <td class="sidebarText" colspan="3">*All times are Eastern Time</td>
 
                 </tr>
             </table>
