@@ -412,11 +412,15 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
                                 memStatsRow.getItem("num_ratings").toString() );
             memberInfo.put(TCESConstants.MEM_RATING_MOSTRECENT_KEY,
                                 getDate(memStatsRow,"last_rated_event") );
-            memberInfo.put(TCESConstants.MEM_RATING_AVGPOINTS_KEY,
-                                decFmt.format(Double.parseDouble(memStatsRow.getItem("avg_final_points").toString())) );
+            
+            dwRSC = (ResultSetContainer) dwResultMap.get("TCES_Coder_Stats_D1");
+            if (dwRSC.getRowCount() > 0) {
+                memberInfo.put(TCESConstants.MEM_RATING_AVGPOINTS_KEY,
+                                decFmt.format(Double.parseDouble(memStatsRow.getItem("avg_contest_points").toString())) );
+            }
 
 
-            dwRSC = (ResultSetContainer) dwResultMap.get("TCES_Coder_Stats_by_Level");
+            dwRSC = (ResultSetContainer) dwResultMap.get("TCES_Coder_Stats_by_Level_D1");
             ResultSetContainer.ResultSetRow memStatLvlRow = null;
             for (int rowI=0;rowI<dwRSC.getRowCount();rowI++) {
                 memStatLvlRow = dwRSC.getRow(rowI);
@@ -450,7 +454,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
             totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[0],
                             "All" );
 
-            dwRSC = (ResultSetContainer) dwResultMap.get("TCES_Coder_Stats");
+            dwRSC = (ResultSetContainer) dwResultMap.get("TCES_Coder_Stats_D1");
             ResultSetContainer.ResultSetRow memStatRow = dwRSC.getRow(0);
 
             totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[1],
@@ -468,7 +472,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
             totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[7],
                        decFmt.format( Double.parseDouble(memStatRow.getItem("avg_submission_points").toString()) ) );
             totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[8],
-                       decFmt.format( Double.parseDouble(memStatRow.getItem("avg_final_points").toString()) ) );
+                       decFmt.format( Double.parseDouble(memStatRow.getItem("avg_overall_points").toString()) ) );
             totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[9],
                        JSPUtils.timeFormat(memStatRow.getItem("avg_time_elapsed")) );
 
