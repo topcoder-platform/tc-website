@@ -188,34 +188,14 @@ public final class TaskDevelopment {
 
 
             } else if (command.equals("comp_archive")) {
-                Request dataRequest = null;
-                ResultSetContainer rsc = null;
-                Map resultMap = null;
-                log.debug("getting dai");
-                dataRequest = new Request();
-                dataRequest.setContentHandle("open_projects");
-
-                DataAccessInt dai = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
-                log.debug("got dai");
-
-                resultMap = dai.getData(dataRequest);
-                log.debug("got map");
-                rsc = (ResultSetContainer) resultMap.get("Retrieve open projects");
-
-
-                ResultSetContainer rscStatus = null;
-                resultMap = null;
-                dataRequest = new Request();
+                Request dataRequest = new Request();
                 dataRequest.setContentHandle("project_status");
 
-                dai = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
+                DataAccessInt dai = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
 
-                resultMap = dai.getData(dataRequest);
-                log.debug("got map");
-                rscStatus = (ResultSetContainer) resultMap.get("project_status");
-
-                devTag.addTag(rsc.getTag("projects", "project"));
+                ResultSetContainer rscStatus = (ResultSetContainer)dai.getData(dataRequest).get("project_status");
                 devTag.addTag(rscStatus.getTag("reviews", "status"));
+
                 xsldocURLString = XSL_DIR + command + ".xsl";
 
             } else if (command.equals("components")) {
