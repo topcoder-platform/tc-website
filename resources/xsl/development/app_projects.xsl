@@ -106,7 +106,7 @@
                                 </tr>
                                 <tr valign="middle">
                                     <td class="projectCells">
-                                        <a href="?t=development&amp;c=Palm_StockCount_App_Dev">Seat Service User Interface Application Design</a>
+                                        <a href="?t=development&amp;c=Seat_Service_UI_Design">Seat Service User Interface Application Design</a>
                                     </td>
                                     <td class="projectCells" align="right">$4,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$1,800 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
