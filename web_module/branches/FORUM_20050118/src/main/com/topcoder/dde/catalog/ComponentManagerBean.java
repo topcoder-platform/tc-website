@@ -887,13 +887,13 @@ public class ComponentManagerBean
                         ProjectTrackerHome.class);
                 ProjectTracker pt = ptHome.create();
 
+                Notification notification = null;
 
                 // if component went to dev, get the winner from design to add to forum post notification.
                 if ((versionBean.getPhaseId() != ComponentVersionInfo.DEVELOPMENT) &&
                     (info.getPhase() == ComponentVersionInfo.DEVELOPMENT)) {
                     log.debug("Project went to development. Winner of desing will be added to notification");
 
-                    Notification notification = null;
 
                     Project project = pt.getProjectById(
                         pt.getProjectIdByComponentVersionId(getVersionInfo().getVersionId(), ProjectType.ID_DEVELOPMENT), requestor);
@@ -907,7 +907,7 @@ public class ComponentManagerBean
                                 homeBindings.lookup(NotificationHome.EJB_REF_NAME),
                                 NotificationHome.class);
 
-                        Notification notification = notificationHome.create();
+                        notification = notificationHome.create();
 
                         notification.createNotification("forum post " + project.getForumId(),
                                 project.getWinner().getId(),
