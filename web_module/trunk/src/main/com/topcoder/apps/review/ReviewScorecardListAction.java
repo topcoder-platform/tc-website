@@ -31,14 +31,14 @@ import java.util.ArrayList;
  * @version 1.0
  */
 public final class ReviewScorecardListAction extends ReviewAction {
-    
+
     /**
      * <p>
      * Call the business logic layer and set session if possible.
      * </p>
      *
      * @return the result data.
-     * 
+     *
      * @param mapping The ActionMapping used to select this instance
      * @param form The optional ActionForm bean for this request (if any)
      * @param request The HTTP request we are processing
@@ -53,19 +53,19 @@ public final class ReviewScorecardListAction extends ReviewAction {
                                    HttpServletResponse response,
                                    ActionErrors errors,
                                    ActionForwards forwards,
-                                   OnlineReviewProjectData orpd) {        
-        log(Level.INFO, "ReviewScorecardListAction: User '" 
-                        + orpd.getUser().getHandle() + "' in session " 
+                                   OnlineReviewProjectData orpd) {
+        log(Level.INFO, "ReviewScorecardListAction: User '"
+                        + orpd.getUser().getHandle() + "' in session "
                         + request.getSession().getId());
-        
+
         // Call the business logic
-        ResultData result = 
+        ResultData result =
             new BusinessDelegate().getReviewList(new ReviewScorecardsData(orpd));
         String action = Constants.ACTION_EDIT;
         if (request.getParameter(Constants.ACTION_KEY) != null) {
             action = request.getParameter(Constants.ACTION_KEY).toString();
         }
-        
+
         if (result instanceof ReviewScorecardsRetrieval) {
             ReviewScorecardsRetrieval rsr = (ReviewScorecardsRetrieval) result;
             List list = new ArrayList();
@@ -82,9 +82,16 @@ public final class ReviewScorecardListAction extends ReviewAction {
             }
             // Get the scorecard list
             for (int i = 0; i < rsr.getScorecards().length; i++) {
+/* by cucu
                 if (rsr.getScorecards()[i].getAuthor().getId() == orpd.getUser().getId()
                         || rsr.getScorecards()[i].getSubmission().getSubmitter().getId() == orpd.getUser().getId()
-						|| (isSubmitter & orpd.getProject().getCurrentPhaseInstance().getPhase().getId() == Phase.ID_APPEALS)) {
+                        || (isSubmitter & orpd.getProject().getCurrentPhaseInstance().getPhase().getId() == Phase.ID_APPEALS)) {
+*/
+                if (rsr.getScorecards()[i].getAuthor().getId() == orpd.getUser().getId()
+                        || rsr.getScorecards()[i].getSubmission().getSubmitter().getId() == orpd.getUser().getId()
+                        || (isSubmitter && (
+                            (orpd.getProject().getCurrentPhaseInstance().getPhase().getId() == Phase.ID_APPEALS) ||
+                            (orpd.getProject().getCurrentPhaseInstance().getPhase().getId() == Phase.ID_APPEALS_RESPONSE)))) {
                     list.add(rsr.getScorecards()[i]);
                 }
             }
@@ -94,14 +101,14 @@ public final class ReviewScorecardListAction extends ReviewAction {
             // Populate the session
             request.setAttribute(Constants.ACTION_KEY, action);
             request.setAttribute(Constants.SCORECARD_LIST_KEY, scorecards);
-            
+
             if (orpd.getProject().getProjectType().getId() == ProjectType.ID_DEVELOPMENT &&
-            		orpd.getProject().getCurrentPhaseInstance().getPhase().getId() == Phase.ID_REVIEW &&
-            		isReviewer) {
+                    orpd.getProject().getCurrentPhaseInstance().getPhase().getId() == Phase.ID_REVIEW &&
+                    isReviewer) {
                 request.setAttribute(Constants.UPLOAD_TESTCASES_KEY, new Boolean(true));
             }
         }
-        
+
         return result;
     }
 }

@@ -29,14 +29,14 @@ import org.apache.struts.action.ActionForwards;
  * @version 1.0
  */
 public final class ReviewScorecardAction extends ReviewAction {
-    
+
     /**
      * <p>
      * Call the business logic layer and set session if possible.
      * </p>
      *
      * @return the result data.
-     * 
+     *
      * @param mapping The ActionMapping used to select this instance
      * @param form The optional ActionForm bean for this request (if any)
      * @param request The HTTP request we are processing
@@ -51,11 +51,11 @@ public final class ReviewScorecardAction extends ReviewAction {
                                    HttpServletResponse response,
                                    ActionErrors errors,
                                    ActionForwards forwards,
-                                   OnlineReviewProjectData orpd) {        
-        log(Level.INFO, "EditReviewScorecardAction: User '" 
-                        + orpd.getUser().getHandle() + "' in session " 
+                                   OnlineReviewProjectData orpd) {
+        log(Level.INFO, "EditReviewScorecardAction: User '"
+                        + orpd.getUser().getHandle() + "' in session "
                         + request.getSession().getId());
-        
+
         String action = Constants.ACTION_VIEW;
         if (request.getParameter(Constants.ACTION_KEY) != null) {
             action = request.getParameter(Constants.ACTION_KEY).toString();
@@ -71,11 +71,11 @@ public final class ReviewScorecardAction extends ReviewAction {
             rid = -1;
             sid = -1;
         }
-        
+
         // Call the business layer
         ReviewData data = new ReviewData(orpd, sid, rid, null);
         ResultData result = new BusinessDelegate().reviewScorecard(data);
-        
+
         if (result instanceof ReviewScorecardRetrieval)  {
             ReviewScorecardRetrieval rsr = (ReviewScorecardRetrieval) result;
             // Populate the form
@@ -85,9 +85,9 @@ public final class ReviewScorecardAction extends ReviewAction {
                 action = Constants.ACTION_VIEW;
             }
             ((ReviewScorecardForm) form).setAction(action);
-            
+
             forwards.removeForward(mapping.findForward(Constants.SUCCESS_KEY));
-            if (Constants.ACTION_EDIT.equals(action) 
+            if (Constants.ACTION_EDIT.equals(action)
                     || Constants.ACTION_ADMIN.equals(action)) {
                 forwards.addForward(mapping.findForward(Constants.EDIT_KEY));
                 request.getSession().setAttribute(mapping.getAttribute(), form);
@@ -106,9 +106,15 @@ public final class ReviewScorecardAction extends ReviewAction {
                 isSubmitter |= roles[i].getRole().getId() == Role.ID_DESIGNER_DEVELOPER;
             }
         }
+/*   by cucu
         if (Constants.ACTION_VIEW.equals(action) &&
-        		orpd.getProject().getCurrentPhaseInstance().getPhase().getId() == Phase.ID_APPEALS &&
-				isSubmitter) {
+                orpd.getProject().getCurrentPhaseInstance().getPhase().getId() == Phase.ID_APPEALS &&
+                isSubmitter) {*/
+
+        long phase = orpd.getProject().getCurrentPhaseInstance().getPhase().getId();
+        if (Constants.ACTION_VIEW.equals(action) &&
+                 (phase == Phase.ID_APPEALS || phase == Phase.ID_APPEALS_RESPONSE) &&
+                isSubmitter) {
             AppealData aData = new AppealData(orpd, null, -1, -1);
             ResultData rData = new BusinessDelegate().appealProject(aData);
             Appeal[] appealArr = ((AppealsRetrieval)rData).getAppeals();

@@ -25,6 +25,7 @@ public class Phase implements Serializable {
     public static final long ID_FINAL_REVIEW = 7;
     public static final long ID_COMPONENT_PREPARATION = 8;
     public static final long ID_APPEALS = 9;
+    public static final long ID_APPEALS_RESPONSE = 10;
 
     private String name;
     private long id;
@@ -47,7 +48,7 @@ public class Phase implements Serializable {
      * <p>
      * Return the name of this phase.
      * </p>
-     * 
+     *
      * @return a String with the name of this phase.
      */
     public String getName() {
@@ -58,24 +59,24 @@ public class Phase implements Serializable {
      * <p>
      * Return the id of this phase.
      * </p>
-     * 
+     *
      * @return the id of this phase.
      */
     public long getId() {
         return id;
     }
-    
+
     /**
      * <p>
      * Return the order of this phase.
      * </p>
-     * 
+     *
      * @return the order of this phase.
      */
     public long getOrder() {
         return order;
     }
-    
+
     /* (non-Javadoc)
      * @see java.lang.Object#equals(java.lang.Object)
      */
