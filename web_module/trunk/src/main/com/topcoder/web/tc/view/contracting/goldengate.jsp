@@ -58,7 +58,6 @@
       <strong>Skills Required</strong><br>
       The right candidate must have:
       <ul>
-      <li>10+ years experience developing C/C++ programs</li>
       <li>expert-level experience with databases and database programming, including dynamic SQL programming and familiarity with database APIs</li>
       <li>the ability to write highly-modular and encapsulated code</li>
       <li>an understanding and appreciation of software performance principles</li>
@@ -111,7 +110,6 @@
       <strong>Skills Required</strong><br>
       The right developer must have:
       <ul>
-      <li>5+ years experience developing C/C++ programs</li>
       <li>expert-level experience with databases and database programming, including dynamic SQL programming and familiarity with database APIs</li>
       <li>the ability to write highly-modular and encapsulated code</li>
       <li>an understanding and appreciation of software performance principles</li>
