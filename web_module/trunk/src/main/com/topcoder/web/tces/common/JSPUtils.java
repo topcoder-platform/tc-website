@@ -78,7 +78,10 @@ public class JSPUtils {
      * @return The time value expressed as minutes and seconds.
      */
     public static String timeFormat(TCResultItem result) {
-        double millisec = Double.parseDouble(result.toString());
+        double millisec = 0.0D;
+        if (result.getResultData()!=null) {
+            millisec = Double.parseDouble(result.toString());
+        }
         int sec = (int) (millisec / 1000);
         int min = sec / 60;
         sec %= 60;
