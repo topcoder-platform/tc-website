@@ -5,8 +5,6 @@ package com.topcoder.server.docGen.xml.xsl;
  * XSLTransformerCache.java
  *
  * Description: A Singleton Cache for XSLTransformerWrappers
- * Changable strategy for converting name of xsl stylesheet cacheKey 
- * into InputStream.
  *
  * @author      Steve Burrows (chuck)
  * @version     1.0
@@ -16,7 +14,6 @@ package com.topcoder.server.docGen.xml.xsl;
 public class XSLTransformerCache {
 
   private static java.util.HashMap cache = null;
-  private static XSLStrategy strategy = null;
   private static XSLTransformerCache xslTransformerCache = null;
 
 
@@ -31,23 +28,12 @@ public class XSLTransformerCache {
    */
 
   //////////////////////////////////////////////////////////////
-  public XSLTransformerCache getInstance () {
+  public XSLTransformerCache getInstance() {
   //////////////////////////////////////////////////////////////
     if ( xslTransformerCache == null ) xslTransformerCache = new XSLTransformerCache ();
     return xslTransformerCache;
   }
 
-  /**
-   * Set the strategy implementation to convert the cacheKey into an InputStream of the XSL stylesheet.
-   *
-   * @param strategy        the XSLStrategy implementation to convert the cacheKey into an InputStream of the XSL stylesheet.
-   */
-  
-  //////////////////////////////////////////////////////////////
-  public void setStrategy ( XSLStrategy strategy ) {
-  //////////////////////////////////////////////////////////////
-    this.strategy = strategy;
-  }
 
   /**
    * Get the XSLTransformerWrapper indicated by the cacheKey.
@@ -73,7 +59,8 @@ public class XSLTransformerCache {
       }
       else
       {
-        java.io.InputStream iStream = strategy.getStream ( cacheKey );    
+        java.net.URL url = new URL ( cacheKey );
+        java.io.InputStream iStream = url.openStream();
         if ( iStream == null ) throw new XSLTransformerWrapperException ( "Unable to getStream from XSLStrategy." );
         cache.put ( cacheKey, new XSLTransformerWrapper(iStream) );
       }
