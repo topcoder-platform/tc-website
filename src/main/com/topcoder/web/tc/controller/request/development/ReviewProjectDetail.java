@@ -34,6 +34,11 @@ public class ReviewProjectDetail extends Base {
             if (detail.isEmpty()) {
                 throw new NavigationException("Could not find information on the project selected.");
             } else {
+                //set submission count to 1 for zero submissions
+                int submission_count = detail.getIntItem(0, "submission_count");
+                if(submission_count == 0)
+                    submission_count = 1;
+                
                 if (detail.getLongItem(0, "phase_id") == SoftwareComponent.DEV_PHASE) {
                     ResultSetContainer reviewers = (ResultSetContainer) results.get("development_reviewers");
                     ResultSetContainer.ResultSetRow row = null;
@@ -43,7 +48,7 @@ public class ReviewProjectDetail extends Base {
                         //this one has not been assigned yet
                         if (row.getStringItem("handle") == null) {
                             reviewerList.add(makeApp(row.getStringItem("reviewer_type"),
-                                    detail.getIntItem(0, "submission_count"),
+                                    submission_count,
                                     detail.getIntItem(0, "phase_id"),
                                     detail.getIntItem(0, "level_id"),
                                     detail.getLongItem(0, "project_id"),
@@ -51,7 +56,7 @@ public class ReviewProjectDetail extends Base {
                         } else {
                             //this one has been assigned
                             reviewerList.add(makeApp(row.getStringItem("reviewer_type"),
-                                    detail.getIntItem(0, "submission_count"),
+                                    submission_count,
                                     detail.getIntItem(0, "phase_id"),
                                     detail.getIntItem(0, "level_id"),
                                     row.getLongItem("user_id"),
@@ -92,7 +97,7 @@ public class ReviewProjectDetail extends Base {
                         count++;
                         row = (ResultSetContainer.ResultSetRow) it.next();
                         reviewerList.add(makeApp("Reviewer",
-                                detail.getIntItem(0, "submission_count"),
+                                submission_count,
                                 detail.getIntItem(0, "phase_id"),
                                 detail.getIntItem(0, "level_id"),
                                 row.getLongItem("user_id"),
@@ -104,7 +109,7 @@ public class ReviewProjectDetail extends Base {
                     for (int i = count; i < 3; i++) {
                         //add empty positions until the list is 3 long
                         reviewerList.add(makeApp("Reviewer",
-                                detail.getIntItem(0, "submission_count"),
+                                submission_count,
                                 detail.getIntItem(0, "phase_id"),
                                 detail.getIntItem(0, "level_id"),
                                 detail.getLongItem(0, "project_id"),
