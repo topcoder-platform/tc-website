@@ -38,9 +38,9 @@
 					<span class=testHead>Competition Statistics: <jsp:getProperty name="CompetitionStatisticsTask" property="Handle"/></span>
 
 
-				<br>
+				<br/><br/>
 				<B>Competition:</B> <%= CompetitionStatisticsTask.getStatistic("contest_name") %>
-				<br>
+				<br/>
 				<B>Division:</B> <%= CompetitionStatisticsTask.getStatistic("division_desc") %>
 				</p>
 					</td>
@@ -52,27 +52,27 @@
 					<TD width='50%'>
 					<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
 					<TR>
-						<TD class=bodyText colspan='2'><b>Overall</b></TD>
+						<TD class=screeningHeader colspan='2'><b>Overall</b></TD>
 					</TR>
 					<TR>
-						<TD class=bodyText><b># of Competitors</b></TD>
-						<TD class=bodyText align=right><%= CompetitionStatisticsTask.getStatistic("num_competitors") %></TD>
+						<TD class=screeningCellOdd><b># of Competitors</b></TD>
+						<TD class=screeningCellOdd align=right><%= CompetitionStatisticsTask.getStatistic("num_competitors") %></TD>
 					</TR>
 					<TR>
-						<TD class=bodyText><b>Average Score</b></TD>
-						<TD class=bodyText align=right><%= CompetitionStatisticsTask.getStatistic("overall_avg_points") %></TD>
+						<TD class=screeningCellOdd><b>Average Score</b></TD>
+						<TD class=screeningCellOdd align=right><%= CompetitionStatisticsTask.getStatistic("overall_avg_points") %></TD>
 					</TR>
 					<TR>
-						<TD class=bodyText><b>Std. Deviation</b></TD>
-						<TD class=bodyText align=right><%= CompetitionStatisticsTask.getStatistic("overall_std_dev") %></TD>
+						<TD class=screeningCellOdd><b>Std. Deviation</b></TD>
+						<TD class=screeningCellOdd align=right><%= CompetitionStatisticsTask.getStatistic("overall_std_dev") %></TD>
 					</TR>
 					<TR>
-						<TD class=bodyText><b># Submissions</b></TD>
-						<TD class=bodyText align=right><%= CompetitionStatisticsTask.getStatistic("overall_problems_submitted") %></TD>
+						<TD class=screeningCellOdd><b># Submissions</b></TD>
+						<TD class=screeningCellOdd align=right><%= CompetitionStatisticsTask.getStatistic("overall_problems_submitted") %></TD>
 					</TR>
 					<TR>
-						<TD class=bodyText><b>Percent Correct</b></TD>
-						<TD class=bodyText align=right><%= CompetitionStatisticsTask.getStatistic("overall_submission_accuracy") %>%</TD>
+						<TD class=screeningCellOdd><b>Percent Correct</b></TD>
+						<TD class=screeningCellOdd align=right><%= CompetitionStatisticsTask.getStatistic("overall_submission_accuracy") %>%</TD>
 					</TR>
 				</TABLE>
 				</TD>
@@ -80,23 +80,23 @@
 				<TD width='50%'>
 				<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
 					<TR>
-						<TD class=bodyText colspan=2><b>Individual [ <jsp:getProperty name="CompetitionStatisticsTask" property="Handle"/> ]</b></TD>
+						<TD class=screeningHeader colspan=2><b>Individual [ <jsp:getProperty name="CompetitionStatisticsTask" property="Handle"/> ]</b></TD>
 					</TR>
 					<TR>
-						<TD class=bodyText><B>Score</B></TD>
-						<TD class=bodyText align=right><%= CompetitionStatisticsTask.getStatistic("final_points") %></TD>
+						<TD class=screeningCellOdd><B>Score</B></TD>
+						<TD class=screeningCellOdd align=right><%= CompetitionStatisticsTask.getStatistic("final_points") %></TD>
 					</TR>
 					<TR>
-						<TD class=bodyText><B># Std. Deviations</B></TD>
-						<TD class=bodyText align=right><%= CompetitionStatisticsTask.getStatistic("point_standard_deviation") %></TD>
+						<TD class=screeningCellOdd><B># Std. Deviations</B></TD>
+						<TD class=screeningCellOdd align=right><%= CompetitionStatisticsTask.getStatistic("point_standard_deviation") %></TD>
 					</TR>
 					<TR>
-						<TD class=bodyText><B># Submissions</B></TD>
-						<TD class=bodyText align=right><%= CompetitionStatisticsTask.getStatistic("problems_submitted") %></TD>
+						<TD class=screeningCellOdd><B># Submissions</B></TD>
+						<TD class=screeningCellOdd align=right><%= CompetitionStatisticsTask.getStatistic("problems_submitted") %></TD>
 					</TR>
 					<TR>
-						<TD class=bodyText><B># Correct</B></TD>
-						<TD class=bodyText align=right><%= CompetitionStatisticsTask.getStatistic("problems_correct") %></TD>
+						<TD class=screeningCellOdd><B># Correct</B></TD>
+						<TD class=screeningCellOdd align=right><%= CompetitionStatisticsTask.getStatistic("problems_correct") %></TD>
 					</TR>
 				</TABLE>
 				</TD>
@@ -105,8 +105,8 @@
 
 			<p align=left><b>Competition Stats by Level</B></P>
 
-			<p align=left><B>Coder Stats</B></P>
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
+				<tr><td class=screeningTitle colspan=5>Coder Stats</td></tr>
 				<TR>
 					<TD class="screeningHeader">&#160;<b></b></TD>
 					<TD class="screeningHeader"><b>Status</b></TD>
@@ -137,21 +137,20 @@
 				</TR>
 				</tces:rowIterator>
 			</TABLE>
-			<p align=left><BR></P>
 
-			<p align=left><B>Overall Stats</B></P>
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
+				<tr><td class=screeningTitle colspan=10>Overall Stats</td></tr>
 				<TR>
 					<TD class="screeningHeader" width="7%">&#160;</TD>
 					<TD class="screeningHeader" width="7%"><b>Presented</b></TD>
 					<TD class="screeningHeader" width="7%"><b>Submitted</b></TD>
 					<TD class="screeningHeader" width="7%"><b>Submit %</b></TD>
 					<TD class="screeningHeader" width="7%"><b>Correct</b></TD>
-					<TD class="screeningHeader" width="13%"><b>Submission<br>Accuracy</b></TD>
-					<TD class="screeningHeader" width="13%"><b>Overall<br>Accuracy</b></TD>
-					<TD class="screeningHeader" width="13%"><b>Avg Points for<br>Submissions</b></TD>
-					<TD class="screeningHeader" width="13%"><b>Avg Points<br>Overall</b></TD>
-					<TD class="screeningHeader" width="13%"><b>Avg Time<br>to Submit</b></TD>
+					<TD class="screeningHeader" width="13%"><b>Submission<br/>Accuracy</b></TD>
+					<TD class="screeningHeader" width="13%"><b>Overall<br/>Accuracy</b></TD>
+					<TD class="screeningHeader" width="13%"><b>Avg Points for<br/>Submissions</b></TD>
+					<TD class="screeningHeader" width="13%"><b>Avg Points<br/>Overall</b></TD>
+					<TD class="screeningHeader" width="13%"><b>Avg Time<br/>to Submit</b></TD>
 				</TR>
 				<%
 				i=0;
@@ -189,7 +188,7 @@
 					<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" nowrap=nowrap><%= JSPUtils.timeFormat(CompetitionStatisticsTask.getCompetitionStats().getItem("overall_time_per_problem")) %></TD>
 				</TR>
 			</TABLE>
-			<p align=left><BR></P>
+			<p align=left><br/></P>
 			</TD>
 		</TR>
 	</TABLE>
