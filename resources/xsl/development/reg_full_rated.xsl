@@ -53,6 +53,7 @@
             <table border="0" cellspacing="0" cellpadding="10" width="100%"><img src="/i/clear.gif" width="10" height="10" alt="" border="0" /><br />
                 <tr valign="top">
                     <td class="bodyText" width="100%">
+                    <xsl:value-of select="/TC/DEVELOPMENT/max_reg"/>
                     <xsl:choose>
                         <xsl:when test="/TC/DEVELOPMENT/max_reg = 0">
                             <p>Rated members are not allowed to register for this component.</p>
