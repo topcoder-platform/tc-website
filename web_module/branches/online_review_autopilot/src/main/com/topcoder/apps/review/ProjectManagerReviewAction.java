@@ -127,7 +127,7 @@ public final class ProjectManagerReviewAction extends ReviewAction {
                     
                     for (int i = 0; i < ((SubmissionForm) form).getScorecards().length; i++) {
                         AbstractScorecard scorecard = ((SubmissionForm) form).getScorecards()[i];
-                        if (scorecard.getSubmission().getSubmitter().getId() == sid) {
+                        if (scorecard.getSubmission().getSubmitter().getId() == sid && scorecard.isPMReviewed() == false) {
                             if(scores.contains(new Double(scorecard.getScore()))) {
                                 ((SubmissionForm) form).setAdvanced(true);
                             } else {
