@@ -291,17 +291,16 @@
 
                                         <p>
                                             It remains to calculate the area of the <i>n</i> sides. Each side is
-                                            a parallelogram with coordinates in 3D. The coordinates for the parallelogram are
+                                            a trapezoid with coordinates in 3D. The coordinates for the trapezoid are
                                             (x<sub>i</sub>,y<sub>i</sub>,0),(x<sub>i+1</sub>,y<sub>i+1</sub>,0),(x<sub>i</sub>*f,y<sub>i</sub>*f,s),(x<sub>i+1</sub>*f,y<sub>i+1</sub>*f,s)
                                             where x<sub>i</sub>,y<sub>i</sub> are the original coordinates for the polygon,
                                             f is the enlargement factor and s is the shift value (how much the polygon is moved up along the z-axis).
                                         </p>
 
                                         <p>
-                                            <img align="left" src="/contest/problem/SolidArea/cc3_2.gif"></img>Now, calculating the area of a parallelogram is fairly
-                                            simple - multiply the base with the height. The problem here is that the parallelogram is in 3D
+                                            <img align="left" src="/contest/problem/SolidArea/cc3_2.gif"></img>Now, calculating the area of a parallelogram is fairly simple - multiply the average base with the height.  The problem here is that the trapezoid is in 3D
                                             and calculating the height requires some elementary knowledge in linear algebra. Instead I went
-                                            for a different approach: I divided the parallelogram into two triangles and calculated the area
+                                            for a different approach: I divided the trapezoid into two triangles and calculated the area
                                             of those using Herons formula:
                                         </p>
 
