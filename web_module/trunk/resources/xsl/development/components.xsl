@@ -193,7 +193,7 @@
                             <tr><td height="5" colspan="4"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
 
                             <tr valign="top">
-                                <td class="statText" rowspan="5" width="55"><a href="/stat?c=member_profile&amp;cr=268546" class="coderTextRed"><img src="/i/m/TangentZ.jpg" alt="TangentZ" width="55" height="61" border="0" hspace="5" vspace="5" /></a></td>
+                                <td class="statText" rowspan="5" width="55"><a href="/stat?c=member_profile&amp;cr=268546" class="coderTextRed"><img src="/i/m/tangentz_big.jpg" alt="TangentZ" width="62" height="70" border="0" hspace="5" vspace="5" /></a></td>
                                 <td class="statText" rowspan="5" width="5"><img src="/i/clear.gif" alt="" width="5" height="61" border="0" vspace="5" /></td>
                                 <td class="statText" width="65%">Designer Level:</td>
                                 <td class="statText" align="right" width="10%">II</td>
