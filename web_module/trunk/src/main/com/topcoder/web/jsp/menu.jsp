@@ -19,7 +19,7 @@
     <tr valign="middle">
         <td class="topNav" width="49%">&#160;</td>
 
-        <td class="topNav" nowrap><A href="Javascript:arena()" class="topLink">Competition Applet</A></td> 
+        <td class="topNav" nowrap><A href="/" class="topLink">Competition</A></td> 
 
         <td class="topNav" nowrap><A href="/?t=development&c=index" class="topLink" target="_blank">Development</A></td>
 
@@ -27,7 +27,7 @@
 
         <td class="topNav" nowrap><A href="http://software.topcoder.com" class="topLink" target="_blank">Software</A></td>
         
-        <td class="topNav" nowrap><A href="http://corporate.topcoder.com/?module=Static&d1=corp&d2=tces_home" class="topLink" target="_blank">Employment Services</A></td>
+        <td class="topNav" nowrap><A href="http://corporate.topcoder.com/?module=Static&d1=corp&d2=recruiting&d3=index" class="topLink" target="_blank">Employment Services</A></td>
 
         <td class="topNav" nowrap><A href="http://corporate.topcoder.com/?module=Static&d1=corp&d2=spon_prog&d3=index" class="topLink" target="_blank">Sponsorship</A></td>
 
