@@ -18,4 +18,5 @@ public interface TCRequest {
     HttpSession getSession(boolean create);
     String getServerName();
     Cookie[] getCookies();
+    String getProtocol();
 }
