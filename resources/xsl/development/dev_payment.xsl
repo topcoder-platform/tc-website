@@ -32,11 +32,15 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
 <!-- Left Column Begins -->
+<!-- Left Column Begins -->
         <td width="180">
             <xsl:call-template name="global_left">
-                <xsl:with-param name="level1">dev_payment</xsl:with-param>
+                <xsl:with-param name="level1">development</xsl:with-param>
+                <xsl:with-param name="level2">support</xsl:with-param>
+                <xsl:with-param name="level3">getPaid</xsl:with-param>
             </xsl:call-template>
           </td>
+<!-- Left Column Ends -->
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
