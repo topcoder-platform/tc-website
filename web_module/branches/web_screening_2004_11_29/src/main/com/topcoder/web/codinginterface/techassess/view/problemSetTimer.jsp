@@ -11,13 +11,13 @@ if (o!=null) {
             List problems = (List)o;
         %>
 
-                var times= new Array(<%=problems.size()%>);
+                var endTimes= new Array(<%=problems.size()%>);
                 var ids = new Array(<%=problems.size()%>);
                 var types = new Array(<%=problems.size()%>);
                 var startTimes = new Array(<%=problems.size()%>);
         <%
                 for (int i=0; i<problems.size(); i++) {
-                    %> times[<%=i%>] = <%=((ProblemSetInfo)problems.get(i)).getTime()+((ProblemSetInfo)problems.get(i)).getStartTime()%>; <%
+                    %> endTimes[<%=i%>] = <%=((ProblemSetInfo)problems.get(i)).getTime()+((ProblemSetInfo)problems.get(i)).getStartTime()%>; <%
                     %> ids[<%=i%>] = 'problemTimer<%=((ProblemSetInfo)problems.get(i)).getProblems()[0].getComponentID()%>'; <%
                     %> types[<%=i%>] = <%=((ProblemSetInfo)problems.get(i)).getTypeId()%>; <%
                     %> startTimes[<%=i%>] = <%=((ProblemSetInfo)problems.get(i)).getStartTime()%>; <%
@@ -34,25 +34,24 @@ if (o!=null) {
         problemOffset = problemOffset / 60;
         problemOffset = problemOffset * -1
 
-        //make problemServerTime UTC
         problemServerTime = new Date(problemServerTime.getTime() - ((problemServerOffset - problemOffset) * 60 * 60 * 1000));
 
         var problemSyncedOffset = problemLocalTime.getTime() - problemServerTime.getTime();
 
-        for (i=0;i<times.length; i++) {
-          times[i]=times[i] - ((problemServerOffset - problemOffset) * 60 * 60 * 1000);
+        for (i=0;i<endTimes.length; i++) {
+          endTimes[i]=endTimes[i] - ((problemServerOffset - problemOffset) * 60 * 60 * 1000);
         }
 
         function problemUpdate() {
             var d = new Date();
             var correctedLocalTime = new Date(d.getTime() - problemSyncedOffset);
 
-            for (i=0; i<times.length;i++) {
+            for (i=0; i<endTimes.length;i++) {
                 var timeLeft
                 if (startTimes[i]==0) {
-                  timeLeft = times[i];
+                  timeLeft = endTimes[i];
                 } else {
-                  timeLeft = times[i] - correctedLocalTime.getTime();
+                  timeLeft = endTimes[i] - correctedLocalTime.getTime();
                 }
                 if (types[i]==EXAMPLE_SET) {
                     text = "N/A";

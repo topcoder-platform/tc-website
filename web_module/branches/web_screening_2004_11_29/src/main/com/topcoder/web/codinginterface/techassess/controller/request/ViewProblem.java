@@ -50,7 +50,8 @@ public class ViewProblem extends Base {
 
             ProblemInfo problem = new ProblemInfo(response.getCode(), componentId,
                     response.getLanguageID().intValue(), response.getProblem(), problemTypeId);
-            problem.setOpenTime(response.getOpenTime());
+            problem.setStartTime(response.getOpenTime());
+            problem.setTime(response.getCodingTime());
 
             setDefault(Constants.PROBLEM, problem);
 

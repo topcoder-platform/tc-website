@@ -20,12 +20,17 @@ if (o!=null) {
     List problems = (List)o;
         %>
 
+                var endTimes= new Array(<%=problems.size()%>);
                 var ids = new Array(<%=problems.size()%>);
+                var types = new Array(<%=problems.size()%>);
                 var startTimes = new Array(<%=problems.size()%>);
+
         <%
                 for (int i=0; i<problems.size(); i++) {
+                    %> endTimes[<%=i%>] = <%=((ProblemInfo)problems.get(i)).getTime()+((ProblemInfo)problems.get(i)).getStartTime()%>; <%
                     %> ids[<%=i%>] = 'problemTimer<%=((ProblemInfo)problems.get(i)).getComponentId()%>'; <%
-                    %> startTimes[<%=i%>] = <%=((ProblemInfo)problems.get(i)).getOpenTime()%>; <%
+                    %> types[<%=i%>] = <%=((ProblemInfo)problems.get(i)).getProblemTypeId()%>; <%
+                    %> startTimes[<%=i%>] = <%=((ProblemInfo)problems.get(i)).getStartTime()%>; <%
                 }
         %>
         var EXAMPLE_SET = <%=Constants.EXAMPLE_ID%>;

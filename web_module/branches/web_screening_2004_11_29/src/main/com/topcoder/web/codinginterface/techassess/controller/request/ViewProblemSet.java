@@ -63,7 +63,7 @@ public class ViewProblemSet extends Base {
                         info.setComponentId(labels[j].getComponentID().longValue());
                         info.setStatusDesc(labels[j].getStatusDesc());
                         info.setClassName(labels[j].getClassName());
-                        info.setOpenTime(labels[j].getOpenTime().longValue());
+                        info.setStartTime(labels[j].getOpenTime().longValue());
                         problemList.add(info);
                     }
 

@@ -18,9 +18,10 @@ public class ProblemInfo implements Serializable {
     private Language language = null;
     private Problem problem = null;
     private int problemTypeId = 0;
-    private long openTime = 0;
+    private long startTime = 0;
     private String statusDesc = null;
     private String className = null;
+    private int time = 0;
 
     public ProblemInfo() {
 
@@ -74,12 +75,12 @@ public class ProblemInfo implements Serializable {
         this.problemTypeId = problemTypeId;
     }
 
-    public long getOpenTime() {
-        return openTime;
+    public long getStartTime() {
+        return startTime;
     }
 
-    public void setOpenTime(long openTime) {
-        this.openTime = openTime;
+    public void setStartTime(long startTime) {
+        this.startTime = startTime;
     }
 
     public String getStatusDesc() {
@@ -96,6 +97,24 @@ public class ProblemInfo implements Serializable {
 
     public void setClassName(String className) {
         this.className = className;
+    }
+
+    public int getTime() {
+        return time;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
+    }
+
+    public long getTimeRemaining() {
+        long ret = 0;
+        if (startTime>0) {
+            ret = System.currentTimeMillis()+time-startTime;
+        } else {
+            ret = time;
+        }
+        return ret;
     }
 
 }
