@@ -1,16 +1,11 @@
 package com.topcoder.web.tces.common;
 
-import com.topcoder.shared.util.TCResourceBundle;
-
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
-
-/////////////// jk: todo: place all string literal constants in web.xml
-////////////////////// and update code to load them ...
 
 public class TCESConstants {
 
@@ -158,10 +153,9 @@ public class TCESConstants {
     public static DateFormat DATE_FORMAT = new SimpleDateFormat("MM/dd/yyyy");
     public static NumberFormat NUMBER_FORMAT = new DecimalFormat("####0.00");
 
-    private static TCResourceBundle bundle = null;
-
     public static void init(ServletConfig servletConfig) throws ServletException {
 
+/*
         bundle = new TCResourceBundle("TCES");
 
         JSP_ROOT = bundle.getProperty("jsp_root", "");
@@ -185,7 +179,6 @@ public class TCESConstants {
         PROBLEM_STATISTICS_PAGE = bundle.getProperty("problem_statistics_page", "");
         PROBLEM_STATEMENT_PAGE = bundle.getProperty("problem_statement_page", "");
         MEMBER_INTEREST_PAGE = bundle.getProperty("member_interest_page", "");
-
         LOGIN_TASK = bundle.getProperty("login_task", "");
         LOGIN_TASK_STEP_VIEW = bundle.getProperty("login_task_step_view", "");
         LOGIN_TASK_STEP_AUTH = bundle.getProperty("login_task_step_auth", "");
@@ -235,32 +228,29 @@ public class TCESConstants {
 
         JSP_ROOT = bundle.getProperty("jsp_root", "");
         ERROR_PAGE = bundle.getProperty("error_page", "");
+*/
 
-
-
-
-/*   can't use the war deployment descriptor cuz we're not using a war for session issues
         JSP_ROOT = servletConfig.getInitParameter("jsp_root");
         TCES_PACKAGE = servletConfig.getInitParameter("tces_package");
-        ERROR_PAGE = servletConfig.getInitParameter("error_page");
+        ERROR_PAGE = JSP_ROOT+servletConfig.getInitParameter("error_page");
 
-        AUTH_FAILED_PAGE = servletConfig.getInitParameter("auth_failed_page");
+        AUTH_FAILED_PAGE = JSP_ROOT+servletConfig.getInitParameter("auth_failed_page");
         LOGIN_PAGE = servletConfig.getInitParameter("login_page");
         LOGIN_OK_PAGE = servletConfig.getInitParameter("login_ok_page");
-        MAIN_PAGE = servletConfig.getInitParameter("main_page");
+        MAIN_PAGE = JSP_ROOT+servletConfig.getInitParameter("main_page");
         MAIN_GODETAIL_PAGE = servletConfig.getInitParameter("main_godetail_page");
-        CAMPAIGN_DETAIL_PAGE = servletConfig.getInitParameter("campaign_detail_page");
-        POSITION_INTEREST_PAGE = servletConfig.getInitParameter("position_interest_page");
-        CAMPAIGN_INTEREST_PAGE = servletConfig.getInitParameter("campaign_interest_page");
-        DEMOGRAPHIC_PAGE = servletConfig.getInitParameter("demographic_page");
-        MEMBER_PROFILE_PAGE = servletConfig.getInitParameter("member_profile_page");
-        CODER_DEMOGRAPHICS_PAGE = servletConfig.getInitParameter("coder_demographics_page");
-        COMPETITION_HISTORY_PAGE = servletConfig.getInitParameter("competition_history_page");
-        COMPETITION_STATISTICS_PAGE = servletConfig.getInitParameter("competition_statistics_page");
-        PROBLEM_SUBMISSIONS_PAGE = servletConfig.getInitParameter("problem_submissions_page");
-        PROBLEM_STATISTICS_PAGE = servletConfig.getInitParameter("problem_statistics_page");
-        PROBLEM_STATEMENT_PAGE = servletConfig.getInitParameter("problem_statement_page");
-        MEMBER_INTEREST_PAGE = servletConfig.getInitParameter("member_interest_page");
+        CAMPAIGN_DETAIL_PAGE = JSP_ROOT+servletConfig.getInitParameter("campaign_detail_page");
+        POSITION_INTEREST_PAGE = JSP_ROOT+servletConfig.getInitParameter("position_interest_page");
+        CAMPAIGN_INTEREST_PAGE = JSP_ROOT+servletConfig.getInitParameter("campaign_interest_page");
+        DEMOGRAPHIC_PAGE = JSP_ROOT+servletConfig.getInitParameter("demographic_page");
+        MEMBER_PROFILE_PAGE = JSP_ROOT+servletConfig.getInitParameter("member_profile_page");
+        CODER_DEMOGRAPHICS_PAGE = JSP_ROOT+servletConfig.getInitParameter("coder_demographics_page");
+        COMPETITION_HISTORY_PAGE = JSP_ROOT+servletConfig.getInitParameter("competition_history_page");
+        COMPETITION_STATISTICS_PAGE = JSP_ROOT+servletConfig.getInitParameter("competition_statistics_page");
+        PROBLEM_SUBMISSIONS_PAGE = JSP_ROOT+servletConfig.getInitParameter("problem_submissions_page");
+        PROBLEM_STATISTICS_PAGE = JSP_ROOT+servletConfig.getInitParameter("problem_statistics_page");
+        PROBLEM_STATEMENT_PAGE = JSP_ROOT+servletConfig.getInitParameter("problem_statement_page");
+        MEMBER_INTEREST_PAGE = JSP_ROOT+servletConfig.getInitParameter("member_interest_page");
 
         LOGIN_TASK = servletConfig.getInitParameter("login_task");
         LOGIN_TASK_STEP_VIEW = servletConfig.getInitParameter("login_task_step_view");
@@ -278,6 +268,7 @@ public class TCESConstants {
         PROBLEM_STATISTICS_TASK = servletConfig.getInitParameter("problem_statistics_task");
         PROBLEM_STATEMENT_TASK = servletConfig.getInitParameter("problem_statement_task");
         MEMBER_INTEREST_TASK = servletConfig.getInitParameter("member_interest_task");
+        RESUME_DOWNLOAD_TASK = servletConfig.getInitParameter("resume_download_task");
 
         SORT_ORDER_ASC = servletConfig.getInitParameter("sort_order_asc");
         SORT_ORDER_DES = servletConfig.getInitParameter("sort_order_des");
@@ -286,6 +277,8 @@ public class TCESConstants {
         STEP_PARAM = servletConfig.getInitParameter("step_param");
         SORT_PARAM = servletConfig.getInitParameter("sort_param");
         SORT_ORDER_PARAM = servletConfig.getInitParameter("sort_order_param");
+        BACK_SORT_PARAM = servletConfig.getInitParameter("back_sort_param");
+        BACK_SORT_ORDER_PARAM = servletConfig.getInitParameter("back_sort_order_param");
         USER_ID_PARAM = servletConfig.getInitParameter("user_id_param");
         HANDLE_PARAM = servletConfig.getInitParameter("handle_param");
         PASSWORD_PARAM = servletConfig.getInitParameter("password_param");
@@ -295,17 +288,19 @@ public class TCESConstants {
         ROUND_ID_PARAM = servletConfig.getInitParameter("round_id_param");
         PROBLEM_ID_PARAM = servletConfig.getInitParameter("problem_id_param");
 
-        PRO_CODER_TYPE = getIntParameter(servletConfig,"pro_coder_type");
-        STUDENT_CODER_TYPE = getIntParameter(servletConfig,"student_coder_type");
-        PROBLEM_STATUS_OPEN = getIntParameter(servletConfig,"problem_status_open");
-        PROBLEM_STATUS_COMPILED = getIntParameter(servletConfig,"problem_status_compiled");
+        PRO_CODER_TYPE = getIntParameter(servletConfig, "pro_coder_type");
+        STUDENT_CODER_TYPE = getIntParameter(servletConfig, "student_coder_type");
+        PROBLEM_STATUS_OPEN = getIntParameter(servletConfig, "problem_status_open");
+        PROBLEM_STATUS_COMPILED = getIntParameter(servletConfig, "problem_status_compiled");
 
-        JSP_ROOT = servletConfig.getInitParameter("jsp_root");
-        ERROR_PAGE = servletConfig.getInitParameter("error_page");
-*/
+        MAIN_NAME = servletConfig.getInitParameter("main_name");
+        CAMPAIGN_DETAIL_NAME = servletConfig.getInitParameter("campaign_detail_name");
+        CAMPAIGN_INTEREST_NAME = servletConfig.getInitParameter("campaign_interest_name");
+        POSITION_INTEREST_NAME = servletConfig.getInitParameter("position_interest_name");
+        MEMBER_PROFILE_NAME = servletConfig.getInitParameter("member_profile_name");
     }
 
-/*
+
     private static int getIntParameter(ServletConfig servletConfig, String key)
             throws ServletException {
         int ret = -1;
@@ -316,7 +311,7 @@ public class TCESConstants {
         }
         return ret;
     }
-*/
+
 
 }
 
