@@ -47,7 +47,9 @@
                 
                 <tr valign="top">
                     <td class="bodyText" width="99%">
-                        <img src="/i/corp/clear.gif" width="1" height="10" alt="" border="0"><br>
+                        <img src="/i/corp/clear.gif" width="1" height="10" alt="" border="0">
+                        <div align="center"> <img src="/i/corp/quote_employer2.gif" width="510" height="90" alt="" border="0"> </div>
+                        <br>
                         
                         <p><span class="bodySubtitle"><a href="?module=Static&d1=corp&d2=recruiting&d3=index">Recruiting</a></span><br>
                         We provide employers with innovative programs designed to attract, identify, and evaluate collegiate candidates and 
