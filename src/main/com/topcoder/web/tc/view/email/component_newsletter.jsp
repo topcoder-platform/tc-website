@@ -191,16 +191,16 @@
                     		<td class="bodyText" bgcolor="#FFFFFF" valign="top" width="20%"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
                     		<td class="bodyText" bgcolor="#FFFFFF" width="80%">
                     			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=9899637&ver=1" target="blank">Data Access Socket Server</A><br/>
-                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=2804393&ver=1" target="blank">Email Address Validator 1.1</A><br/>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=2804393&ver=2" target="blank">Email Address Validator 1.1</A><br/>
                     			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8357861&ver=3" target="blank">SAML Schema 1.1</A><br/>
                     			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8594269&ver=1" target="blank">Status Tracker</A><br/>
                     			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8540094&ver=1" target="blank">Address Book</A><br/>
                     			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8566897&ver=1" target="blank">Catalog</A><br/>
                     			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7338805&ver=2" target="blank">Chart Rendering Engine 1.1</A><br/>
                     			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8595304&ver=1" target="blank">LDAP SDK Interface</A><br/>
-                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=2300015&ver=2" target="blank">Logging Wrapper 1.2</A><br/>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=2300015&ver=3" target="blank">Logging Wrapper 1.2</A><br/>
                     			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8593287&ver=1" target="blank">MultiMap</A><br/>
-                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=600215&ver=1" target="blank">Security Manager 1.1</A>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=600215&ver=2" target="blank">Security Manager 1.1</A>
                     		</td>
                 		</tr>
 					</table>
@@ -222,7 +222,7 @@
                 		<tr>
                     		<td class="bodyText" bgcolor="#FFFFFF" valign="top" width="20%"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
                     		<td class="bodyText" bgcolor="#FFFFFF" width="80%">
-                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8567592&ver=1" target="blank">Document Generator</A><br/>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8567592&ver=2" target="blank">Document Generator 2.0</A><br/>
                     			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8447769&ver=1" target="blank">File Upload</A><br/>
                     			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7387570&ver=1" target="blank">Phonetic Pattern Matching</A><br/>
                     			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7408797&ver=1" target="blank">SVG Generator</A><br/>
@@ -245,7 +245,7 @@
                     			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7339708&ver=1" target="blank">Data Paging Tag</A><br/>
                     			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=600038&ver=1" target="blank">Document Generator 2.0</A><br/>
                     			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8541877&ver=1" target="blank">Email Confirmation</A><br/>
-                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=5501523&ver=1" target="blank">Generic Parser 1.1</A><br/>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=5501523&ver=2" target="blank">Generic Parser 1.1</A><br/>
                     			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=6500731&ver=1" target="blank">Object XML Validation</A>
                     		</td>
                 		</tr>
@@ -272,7 +272,7 @@
                     
                     <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
                                         
-                    <A href="/?t=sponsor&c=link&link=/i/downloads/cbdi_journal.pdf&refer=homepage" target="blank"><img src="/i/promos/cbdi_journal.gif" alt="CBDI Journal" width="170" height="150" border="0" /></A><br/>
+                    <A href="http://www.topcoder.com/?t=sponsor&c=link&link=/i/downloads/cbdi_journal.pdf&refer=homepage" target="blank"><img src="/i/promos/cbdi_journal.gif" alt="CBDI Journal" width="170" height="150" border="0" /></A><br/>
 
                     <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
                                         
