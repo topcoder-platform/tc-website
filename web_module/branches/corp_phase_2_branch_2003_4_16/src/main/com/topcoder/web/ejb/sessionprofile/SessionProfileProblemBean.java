@@ -84,7 +84,7 @@ public class SessionProfileProblemBean extends BaseEJB {
             pstmt.setLong(5,sessionRoundId);
 
             pstmt.executeUpdate();
-            
+
         } catch (SQLException sqe) {
             DBMS.printSqlException(true,sqe);
             StringBuffer exceptionBuf = new StringBuffer(200);
@@ -594,6 +594,7 @@ public class SessionProfileProblemBean extends BaseEJB {
             StringBuffer query = new StringBuffer(180);
             query.append(" SELECT problem_id");
             query.append(" , session_round_id");
+            query.append(" , problem_type_id");
             query.append(" FROM session_profile_problem_xref");
             query.append(" WHERE session_profile_id = ?");
 
