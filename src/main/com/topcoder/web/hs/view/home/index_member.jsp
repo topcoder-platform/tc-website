@@ -61,8 +61,8 @@
 
 <!-- Right Column begins -->
         <td width="200" bgcolor="#001934" align="center">
-            <jsp:include page="../includes/sponsor_right.jsp" /><br>
-            <jsp:include page="../includes/right_resources.jsp" /><br>
+            <jsp:include page="../includes/sponsor_right.jsp" />
+            <jsp:include page="../includes/right_resources.jsp" /><br><br>
         </td>
 <!-- Right Column ends -->        
         
