@@ -79,13 +79,13 @@
                     <tr><td id="<%=level3.equals("samples")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=tcs_sample_docs">Documentation and Sample Submissions</A></td></tr>
                     <tr><td id="<%=level3.equals("gettingStarted")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=getting_started">Getting Started</A></td></tr>
                 <% } %>
-                <tr><td id="<%=level2.equals("applications")?"leftNavOn":"leftNav"%>"><a href="/?t=development&c=comp_projects" class="<%=level2.equals("applications")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level2.equals("applications")?"bottom":"right"%>.gif" alt="" border="0"/>Applications</a></td></tr>
+                <tr><td id="<%=level2.equals("applications")?"leftNavOn":"leftNav"%>"><a href="/?t=development&c=app_projects" class="<%=level2.equals("applications")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level2.equals("applications")?"bottom":"right"%>.gif" alt="" border="0"/>Applications</a></td></tr>
                 <% if (level2.equals("applications")) { %>
                     <tr><td id="<%=level3.equals("open")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=app_projects">Open Projects</A></td></tr>
                     <tr><td id="<%=level3.equals("method")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=app_meth">Development Methodology</A></td></tr>
                     <tr><td id="<%=level3.equals("documentation")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=app_sample_docs">Documentation</A></td></tr>
                 <% } %>
-                <tr><td id="<%=level2.equals("contests")?"leftNavOn":"leftNav"%>"><a href="/?t=development&c=comp_projects" class="<%=level2.equals("contests")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level2.equals("contests")?"bottom":"right"%>.gif" alt="" border="0"/>Contests</a></td></tr>
+                <tr><td id="<%=level2.equals("contests")?"leftNavOn":"leftNav"%>"><a href="/?t=development&c=des_bonus_contest_2" class="<%=level2.equals("contests")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level2.equals("contests")?"bottom":"right"%>.gif" alt="" border="0"/>Contests</a></td></tr>
                 <% if (level2.equals("contests")) { %>
                     <tr><td id="<%=level3.equals("open")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_comp_overview">TCO Component Contest</A></td></tr>
                     <tr><td id="<%=level3.equals("descontest2")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=des_bonus_contest_2">Design Bonus Contest 2</A></td></tr>
