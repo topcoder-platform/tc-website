@@ -141,7 +141,7 @@
                                     &#160;<br />
                                     &#160;<br />
                                     <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
-                                    <A class="topLink" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_about">Details</A>
+                                    <A class="statText" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_about">Details</A>
                                     </td>
                                 <td id="calendarTCCC04">
                                     <span id="calendarTCCC04Date">24</span><br/>
@@ -151,7 +151,7 @@
                                     &#160;<br />
                                     &#160;<br />
                                     <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
-                                    <A class="topLink" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_about">Details</A>
+                                    <A class="statText" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_about">Details</A>
                                     </td>
                                 <td id="calendar">25</td>
                                 <td id="calendar">26</td>
@@ -164,7 +164,7 @@
                                     &#160;<br />
                                     &#160;<br />
                                     <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
-                                    <A class="topLink" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_about">Details</A>
+                                    <A class="statText" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_about">Details</A>
                                     </td>
                             </tr>
                             
