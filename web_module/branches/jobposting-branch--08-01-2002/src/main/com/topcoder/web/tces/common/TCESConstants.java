@@ -4,6 +4,9 @@ import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import java.text.DateFormat;
 
+/////////////// jk: todo: place all string literal constants in web.xml
+////////////////////// and update code to load them ...
+
 public class TCESConstants {
 
     // jsp-related
@@ -76,6 +79,27 @@ public class TCESConstants {
     public static String MEM_RATING_MOSTRECENT_KEY = "mostrecent";
     public static String MEM_RATING_AVGPOINTS_KEY = "avgpoints";
 
+    public static String[] MEM_RATING_STATSBYLEVEL_KEYS = {"level_desc",
+                                                           "num_presented",
+                                                           "num_submitted",
+                                                           "pct_submitted",
+                                                           "num_correct",
+                                                           "pct_accuracy",
+                                                           "pct_overall",
+                                                           "avg_ptspersub",
+                                                           "avg_ptsoverall",
+                                                           "avg_timetosubmit" };
+    public static String[] MEM_RATING_STATSBYLEVEL_TITLES = {"",
+                                                             "Presented",
+                                                             "Submitted",
+                                                             "Submit &percnt;",
+                                                             "Correct",
+                                                             "Submission Accuracy",
+                                                             "Overall Accuracy",
+                                                             "Avg Points for Submissions",
+                                                             "Avg Points Overall",
+                                                             "Avg Time to Submit" };
+
     public static String JOB_HIT_PREFIX = null;
 
     public static int PRO_CODER_TYPE  = 2;
@@ -83,7 +107,7 @@ public class TCESConstants {
 
     public static int CLICK_THRU_ID = -1;
     public static int JOB_POSTING_ID = -1;
-    
+
     public static DateFormat DATE_FORMAT = new java.text.SimpleDateFormat("MM/dd/yyyy");
 
     public static void init(ServletConfig servletConfig) throws ServletException {
