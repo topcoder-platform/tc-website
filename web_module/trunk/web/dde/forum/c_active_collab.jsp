@@ -191,13 +191,13 @@
                                 else if( Catalog.JAVA_CUSTOM_CATALOG == forum.getRootCategory( ) )
                                 {
 				%>
-				<img src="/images/javaCustomSm.gif" width="33" height="17" alt="Java Custom Catalog" border="0" />
+				<img src="/images/javaCustomSm.gif" alt="Java Custom Catalog" border="0" />
 				<%
 				}
                                 else if( Catalog.NET_CUSTOM_CATALOG == forum.getRootCategory( ) )
                                 {
 				%>
-				<img src="/images/netCustomSm.gif" width="33" height="17" alt=".NET Custom Catalog" border="0" />
+				<img src="/images/netCustomSm.gif" alt=".NET Custom Catalog" border="0" />
 				<%
                                 }
                                 else
