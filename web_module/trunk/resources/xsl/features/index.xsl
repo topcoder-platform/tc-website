@@ -68,6 +68,12 @@
                             </tr>
                             
                             <tr>
+                                <td valign="middle" class="bodyText" height="14">August 3</td>
+                                <td valign="middle" class="bodyText">ivern</td>
+                                <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_080304" class="bodyText">Reviewing Software for Fun and Profit</A></td>
+                            </tr>
+
+                            <tr>
                                 <td valign="middle" class="bodyText" height="14">July 7</td>
                                 <td valign="middle" class="bodyText">dimkadimon</td>
                                 <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_070704" class="bodyText">Healthy Computing</A></td>
