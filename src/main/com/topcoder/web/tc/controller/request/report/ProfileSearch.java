@@ -80,7 +80,7 @@ public class ProfileSearch extends Base {
             query.append("  JOIN resume res ON res.coder_id = c.coder_id\n");
         }
         for(int i = 0; i<tables.size(); i++){
-            String tab = tables.get(i);
+            String tab = (String)tables.get(i);
             query.append("  JOIN ");
             query.append(tab);
             query.append(" ON ");
