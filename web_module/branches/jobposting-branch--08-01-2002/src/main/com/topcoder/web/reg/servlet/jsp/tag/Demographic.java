@@ -15,6 +15,7 @@ public class Demographic
     public static final String QUESTION_ID = "demographicQuestionId";
     public static final String QUESTION = "demographicQuestion";
     public static final String ANSWER = "demographicAnswer";
+    public static final String DESCRIPTION = "demographicDescription";
     public static final String PREFIX = "demo_";
     public static final String DESC_PREFIX = "desc_";
     public static final int DEFAULT_CODER_TYPE = 1;
@@ -92,6 +93,10 @@ public class Demographic
             ArrayList answers = new ArrayList();
             answers.addAll(question.getDemographicAnswers());
             String answer = "";
+            String description = "";
+            if (question.getDemographicQuestionDesc() != null) {
+              description = question.getDemographicQuestionDesc();
+            } 
             if (question.getSelectable().equals("N")) {
                 answer = buildText(questionId);
                 answer += buildDesc(question);
@@ -110,6 +115,7 @@ public class Demographic
             pageContext.setAttribute(QUESTION_ID, Integer.toString(question.getDemographicQuestionId()), PageContext.PAGE_SCOPE);
             pageContext.setAttribute(QUESTION, question.getDemographicQuestionText(), PageContext.PAGE_SCOPE);
             pageContext.setAttribute(ANSWER, answer, PageContext.PAGE_SCOPE);
+            pageContext.setAttribute(DESCRIPTION, description, PageContext.PAGE_SCOPE);
             return EVAL_BODY_TAG;
         } else {
             if (bodyContent != null && bodyContent.getEnclosingWriter() != null) {

@@ -29,7 +29,7 @@ function checkInputs(){
           ||(q.type=="select-multiple"&&q.selectedIndex==-1)
         )
       ){
-        alert("Please choose a value for '"+qName+"'.");
+        alert("Please choose a value for '"+qName.replace(/<br\/>/i, "\n")+"'.");
         q.focus();
         return false;
       }
@@ -209,8 +209,7 @@ function lookupText(qId){
 
   <tr>
     <td class="statText" align="right" valign="middle" background="/i/steel_gray_bg.gif" nowrap=""><%=demographicQuestion%>&nbsp;</td>
-    <td colspan="2" class="statText" align="left" valign="middle">
-    <%=demographicAnswer%></td>
+    <td colspan="2" class="statText" align="left" valign="middle"><%=demographicAnswer%>&#160;<%=demographicDescription%></td>
   </tr>
   <tr valign="middle">
     <td colspan="3"><img src="/i/clear.gif" width="1" height="1" border="0"></td>
