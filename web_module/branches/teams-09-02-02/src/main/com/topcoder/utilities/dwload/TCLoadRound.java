@@ -1739,7 +1739,7 @@ public class TCLoadRound extends TCLoad {
             query.append("            AND rr.round_id = cs.round_id ");
             query.append("            AND r.room_type_id = " + CONTEST_ROOM);
             query.append("            AND r.room_id = rr.room_id) ");
-            query.append("       ,comp.problem_id ");                              // 4
+            query.append("       ,(SELECT comp.problem_id FROM component comp WHERE cs.component_id = comp.component_id)");                              // 4
             query.append("       ,s.submission_points ");                        // 5
             query.append("       ,cs.points ");                                  // 6
             query.append("       ,cs.status_id ");                               // 7
@@ -1775,7 +1775,7 @@ public class TCLoadRound extends TCLoad {
             query.append("           FROM round_segment rs");
             query.append("          WHERE rs.round_id = cs.round_id");
             query.append("            AND rs.segment_id = 2)");                  // coding segment...need constant
-            query.append(" FROM component_state cs, component comp ");
+            query.append(" FROM component_state cs");
             query.append(" LEFT OUTER JOIN submission s ");
             query.append(" ON cs.component_state_id = s.component_state_id");
             query.append(" AND s.submission_number = cs.submission_number");
@@ -1785,7 +1785,6 @@ public class TCLoadRound extends TCLoad {
             query.append(" ON rr.round_id = cs.round_id");
             query.append(" AND rr.coder_id = cs.coder_id");
             query.append(" WHERE cs.round_id = ?");
-            query.append("   AND cs.component_id = comp.component_id");
             query.append("   AND rr.attended = 'Y'");
             query.append("   AND NOT EXISTS ");
             query.append("       (SELECT 'pops' ");
