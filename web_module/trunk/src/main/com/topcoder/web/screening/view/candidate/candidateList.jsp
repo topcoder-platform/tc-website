@@ -65,22 +65,18 @@
                     boolean hasSession = !row.getItem("has_session").toString().equals("0");
                     boolean hasNotes = ((Long)row.getItem("note_count").getResultData()).longValue()>0;
                     boolean hasResults = row.getItem("has_results").getResultData().equals("1");
-
                 %>
-<%--                    String color = (even) ? "class='testTableEven'" : "class='testTableOdd'"; --%>
-            
+
                 <tr>
-                   <td align="center" <%=color%>>&#160;</TD>
-                   <td align="center" <%=color%>><screen:servletLink processor="PopulateCandidate" param="<%=params%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="handle" /></screen:servletLink></TD>               
-                   <td align="center" <%=color%>><% if(hasSession){ %><screen:servletLink processor="TestResults" param="<%=trparams%>" styleClass="bodyText"><%=hasResults?"Results":"Details"%></screen:servletLink><% } %></TD>
-                   <td align="center" <%=color%>><screen:resultSetItem row="<%=row%>" name="begin_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></TD>
-                   <td align="center" <%=color%>><screen:resultSetItem row="<%=row%>" name="end_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></TD>
-                   <td align="center" <%=color%>><screen:resultSetItem row="<%=row%>" name="status" /></TD>
-                   <td align="center" <%=color%>><screen:servletLink processor="NoteList" param="<%=params%>" styleClass="bodyText"><%=hasNotes?"View":"None"%></screen:servletLink></TD>
+                   <td align="center" class="testFormOdd">&#160;</TD>
+                   <td align="center" class="testFormOdd"><screen:servletLink processor="PopulateCandidate" param="<%=params%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="handle" /></screen:servletLink></TD>               
+                   <td align="center" class="testFormOdd"><% if(hasSession){ %><screen:servletLink processor="TestResults" param="<%=trparams%>" styleClass="bodyText"><%=hasResults?"Results":"Details"%></screen:servletLink><% } %></TD>
+                   <td align="center" class="testFormOdd"><screen:resultSetItem row="<%=row%>" name="begin_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></TD>
+                   <td align="center" class="testFormOdd"><screen:resultSetItem row="<%=row%>" name="end_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></TD>
+                   <td align="center" class="testFormOdd"><screen:resultSetItem row="<%=row%>" name="status" /></TD>
+                   <td align="center" class="testFormOdd"><screen:servletLink processor="NoteList" param="<%=params%>" styleClass="bodyText"><%=hasNotes?"View":"None"%></screen:servletLink></TD>
                 </tr>
 
-<%--                <% even = !even; %> --%>
-                
             </screen:resultSetRowIterator>
             </table>
              
