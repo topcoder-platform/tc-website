@@ -1,13 +1,13 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-            <table width="100%" border="0" cellspacing="0" cellpadding="3">                     
+            <table width="530" border="0" cellspacing="0" cellpadding="3">                     
                 <tr valign="middle">
                     <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Press Room Highlights</font></td>
                     <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/?t=news_events&amp;c=index" class="bodyText"><strong>View All</strong></a></td>
                 </tr>
             </table>
 
-            <table width="100%" border="0" cellspacing="0" cellpadding="4">   
+            <table width="530" border="0" cellspacing="0" cellpadding="4">   
                 <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_12_08_03">Winners Announced in 2003 TopCoder Open sponsored by Intel&#174;</A> [December 8]</td></tr>  
 
                 <tr><td class="prHead"><A href="http://archives.seattletimes.nwsource.com/cgi-bin/texis.cgi/web/vortex/display?c=1&amp;slug=btdownload08&amp;date=20031208&amp;query=geek+olympics" target="_blank">'Geek Olympics' features 2 locals</A> [December 8 - Seattle Times]</td></tr>  

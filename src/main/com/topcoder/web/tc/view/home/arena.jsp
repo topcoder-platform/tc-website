@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-            <table width="100%" cellspacing="0" cellpadding="3" border="0">
+            <table width="530" cellspacing="0" cellpadding="3" border="0">
                 <tr valign="middle"><td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Getting started in the Competition Arena</font></td></tr>
                 <tr> 
                     <td class="bodyText"> 
