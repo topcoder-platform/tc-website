@@ -12,6 +12,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 import java.util.Map;
+import java.rmi.RemoteException;
 
 /**
  * @author dok
@@ -46,29 +47,36 @@ public class ProjectReviewApply extends Base {
                 if (rba.exists(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId, phaseId)) {
                     throw new NavigationException("You have already applied to review this project.");
                 } else {
-                    if (catalog == Constants.JAVA_CATALOG_ID) {
-                        if (rbu.canReviewJava(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId(), phaseId)) {
-                            applicationProcessing();
+                    try {
+                        if (catalog == Constants.JAVA_CATALOG_ID) {
+                            if (rbu.canReviewJava(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId(), phaseId)) {
+                                applicationProcessing();
+                            } else {
+                                throw new NavigationException("Sorry, you can not review this project because " +
+                                        "you are not a Java reviewer");
+                            }
+                        } else if (catalog == Constants.DOT_NET_CATALOG_ID) {
+                            if (rbu.canReviewDotNet(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId(), phaseId)) {
+                                applicationProcessing();
+                            } else {
+                                throw new NavigationException("Sorry, you can not review this project because " +
+                                        "you are not a .Net reviewer");
+                            }
+                        } else if (catalog == Constants.FLASH_CATALOG_ID) {
+                            if (rbu.canReviewFlash(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId(), phaseId)) {
+                                applicationProcessing();
+                            } else {
+                                throw new NavigationException("Sorry, you can not review this project because " +
+                                        "you are not a Flash reviewer");
+                            }
                         } else {
-                            throw new NavigationException("Sorry, you can not review this project because " +
-                                    "you are not a Java reviewer");
+                            throw new TCWebException("unknown catalog found " + catalog);
                         }
-                    } else if (catalog == Constants.DOT_NET_CATALOG_ID) {
-                        if (rbu.canReviewDotNet(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId(), phaseId)) {
-                            applicationProcessing();
-                        } else {
-                            throw new NavigationException("Sorry, you can not review this project because " +
-                                    "you are not a .Net reviewer");
-                        }
-                    } else if (catalog == Constants.FLASH_CATALOG_ID) {
-                        if (rbu.canReviewFlash(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId(), phaseId)) {
-                            applicationProcessing();
-                        } else {
-                            throw new NavigationException("Sorry, you can not review this project because " +
-                                    "you are not a Flash reviewer");
-                        }
-                    } else {
-                        throw new TCWebException("unknown catalog found " + catalog);
+                    } catch (RemoteException e) {
+                        if (e.detail instanceof RowNotFoundException)
+                            throw new NavigationException("Sorry, you are not a reviewer.  Please contact TopCoder if you would like to become one.");
+                        else
+                            throw e;
                     }
 
                     //put the terms text in the request
