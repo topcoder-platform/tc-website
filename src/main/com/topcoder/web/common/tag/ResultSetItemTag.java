@@ -6,7 +6,7 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 import java.io.IOException;
 
-public class ResultSetItemTag extends TagSupport {
+public class ResultSetItemTag extends FormatTag {
 
     private ResultSetContainer.ResultSetRow row;
     private String name;
@@ -20,12 +20,8 @@ public class ResultSetItemTag extends TagSupport {
     }
 
     public int doStartTag() throws JspException {
-        try {
-            pageContext.getOut().print(row.getItem(name).toString());
-        } catch (IOException e) {
-            throw new JspException(e.getMessage());
-        }
-        return SKIP_BODY;
+        setObject(row.getItem(name).getResultData());
+        return super.doStartTag();
     }
 
 }
