@@ -35,6 +35,7 @@ final class UserDbCoder {
     //ArrayList texts       = null;
     //ArrayList jobPrefs    = null;
     ArrayList demographicResponses = null;
+    ArrayList coderConfirmations = null;
     StringBuffer query = new StringBuffer(500);
     query.append ( " INSERT INTO"                                          );
     query.append (   " coder ("                                            );
@@ -136,6 +137,7 @@ final class UserDbCoder {
       coder.getCurrentSchool().setUserId ( coder.getCoderId() );
       insertCurrentSchool ( conn, coder.getCurrentSchool() );
       demographicResponses = coder.getDemographicResponses();
+      coderConfirmations = coder.getCoderConfirmations();
       HashSet qIdsForCoderType = getDemographicQuestionIds ( conn, coder.getCoderType().getCoderTypeId() );
       demogError = true;
       //int inserted = 0;
@@ -151,6 +153,11 @@ final class UserDbCoder {
             i--;
           } 
         }
+      }
+      for (int i=0; i<coderConfirmations.size(); i++) {
+        CoderConfirmation cc = (CoderConfirmation)coderConfirmations.get(i);
+        cc.setCoderId(coder.getCoderId());
+        insertCoderConfirmation(conn, (CoderConfirmation)coderConfirmations.get(i));
       }
       //if ( inserted != qIdsForCoderType.size() ) throw new TCException ( "INCORRECT NUMBER OF DEMOG INFO INSERTED!!!" );
     } catch (SQLException sqe) {
@@ -379,6 +386,46 @@ final class UserDbCoder {
       if (ps != null) { try { ps.close(); } catch(Exception ignore){} }
     }
   }
+
+
+  /**
+    * Method to add a confirmation codes for this coder.
+    * @author Greg Paul
+    */
+  private static void insertCoderConfirmation(Connection conn, CoderConfirmation coderConfirmation)  
+    throws TCException {
+    log.debug("ejb.User.UserDbCoder:insertCoderConfirmation() called ...");
+    PreparedStatement ps = null;
+    StringBuffer query = new StringBuffer(250);
+    query.append(" INSERT");
+    query.append(  " INTO coder_confirmation (");
+    query.append(      " coder_id");
+    query.append(      " ,contest_id");
+    query.append(      " ,code)");
+    query.append(" VALUES (?,?,?)");
+    try {
+      ps = conn.prepareStatement ( query.toString() );
+      ps.setInt(1, coderConfirmation.getCoderId());
+      ps.setInt(2, coderConfirmation.getContestId());
+      ps.setString(3, coderConfirmation.getCode());
+      int RetVal = ps.executeUpdate();
+      if (RetVal != 1) {
+        throw new TCException ( "ejb.User.UserDbCoder:insertRating():failed." );
+      }
+    } catch (SQLException sqe) {
+      DBMS.printSqlException ( true, sqe );
+      throw new TCException ( sqe.getMessage() );
+    } catch (Exception ex) {
+      StringBuffer msg = new StringBuffer(300);
+      msg.append("ejb.User.UserDbCoder:insertCoderConfirmation:");
+      msg.append("coderId=" + coderConfirmation.getCoderId());
+      msg.append(":failed:\n" + ex.getMessage());
+      throw new TCException(msg.toString());
+    } finally {
+      if (ps != null) { try { ps.close(); } catch (Exception ignore){} }
+    }
+  }
+
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -752,6 +799,50 @@ final class UserDbCoder {
     }
   }
 
+  /**
+   * Update coder_confirmation table for this user.
+   * @author Greg Paul
+   */
+  private static void updateCoderConfirmation(Connection conn, ArrayList coderConfirmations)
+    throws TCException {
+    log.debug("ejb.User.UserDbCoder:updateCoderConfirmations():called." );
+    PreparedStatement ps = null;
+    try { 
+      for (int i = 0; i < coderConfirmations.size(); i++) {
+        CoderConfirmation coderConfirmation = (CoderConfirmation) coderConfirmations.get(i);
+        String modifiedFlag = coderConfirmation.getModified();
+        if ( modifiedFlag.compareToIgnoreCase("A") == 0) {
+          insertCoderConfirmation(conn, coderConfirmation);
+        } else if (modifiedFlag.compareToIgnoreCase("U") == 0) {
+          StringBuffer query = new StringBuffer(200);
+          query.append(" UPDATE coder_confirmation");
+          query.append(   " SET code = ?");
+          query.append( " WHERE coder_id = ?");
+          query.append(   " AND contest_id = ?");
+          ps = conn.prepareStatement(query.toString());
+          ps.setString(1, coderConfirmation.getCode());
+          ps.setInt(2, coderConfirmation.getCoderId());
+          ps.setInt(3, coderConfirmation.getContestId());
+          int RetVal = ps.executeUpdate();
+          if (RetVal != 1)  {
+            log.error("ejb.User.UserDbCoder:updateCoderConfirmation():update:failed");
+          }
+        }
+      }
+    } catch (SQLException sqe) {
+      DBMS.printSqlException ( true, sqe );
+      throw new TCException ( sqe.getMessage() );
+    } catch ( Exception ex ) {
+      throw new TCException (
+        "ejb.User.UserDbCoder:updateDemographicResponses:ERROR:"+ex
+      );
+    } finally {
+      if (ps != null) { try { ps.close(); } catch ( Exception ignore ) {} }
+    }
+  }
+
+
+
 
 
 
@@ -899,6 +990,7 @@ final class UserDbCoder {
         loadRanking                  ( conn, coder      );
         loadDemographicResponses     ( conn, coder      );
         loadCurrentSchool            ( conn, coder      );
+        loadCoderConfirmations       ( conn, coder      );
       }
     } catch (SQLException sqe) {
       DBMS.printSqlException ( true, sqe );
@@ -1203,4 +1295,46 @@ final class UserDbCoder {
     return result;
   }
 
+  /**
+    * Load up information from coder_confirmation for this coder.
+    * @author Greg Paul
+    */
+  private static void loadCoderConfirmations(Connection conn, CoderRegistration coder)
+    throws TCException {
+    log.debug("ejb.User.UserDbCoder:loadCoderConfirmations():called." );
+    PreparedStatement ps = null;
+    ResultSet         rs = null;
+    StringBuffer query = new StringBuffer(200);
+    query.append( " SELECT coder_id");
+    query.append(        " ,contest_id");
+    query.append(        " ,code");
+    query.append(   " FROM coder_confirmation");
+    query.append(  " WHERE coder_id = ?");
+    try {
+      ArrayList coderConfirmations = coder.getCoderConfirmations();
+      coderConfirmations.clear();
+      ps = conn.prepareStatement(query.toString());
+      ps.setInt(1, coder.getCoderId());
+      rs = ps.executeQuery();
+      while ( rs.next() ) {
+        CoderConfirmation coderConfirmation = new CoderConfirmation();
+        coderConfirmation.setCoderId(coder.getCoderId());
+        coderConfirmation.setContestId(rs.getInt(2));
+        coderConfirmation.setCode(rs.getString(3));
+        coderConfirmation.setModified("S");
+        coderConfirmations.add(coderConfirmation);
+      }
+    } catch (SQLException sqe) { 
+      DBMS.printSqlException ( true, sqe );
+      throw new TCException ( sqe.getMessage() );
+    } catch ( Exception ex )  {
+      ex.printStackTrace();
+      throw new TCException (
+        "ejb.User.UserDbCoder:loadCoderConfirmations:"+coder.getCoderId()+":failed:\n"+ex
+      );
+    } finally {
+      if (rs != null) { try { rs.close(); } catch ( Exception ignore ) {} }
+      if (ps != null) { try { ps.close(); } catch ( Exception ignore ) {} }
+    }
+  }
 }
