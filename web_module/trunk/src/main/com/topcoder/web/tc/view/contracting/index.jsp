@@ -58,8 +58,6 @@ return false;
                <td align="center" class="bodyText">
                <i>Click one of the<br>companies below for more info<br>on their job openings</i>
                <hr noshade="noshade" size="1" />
-               <A href="/tc?module=Static&d1=contracting&d2=akamai"><img src="/i/contracting/akamai_logo.gif" border=0/></A>
-               <hr noshade="noshade" size="1" />
                <A href="/tc?module=Static&d1=contracting&d2=csfb"><img src="/i/contracting/csfb_logo.gif" border=0/></A>
                <hr noshade="noshade" size="1" />
                <A href="/tc?module=Static&d1=contracting&d2=goldengate"><img src="/i/contracting/goldengate_logo.gif" border=0/></A>
@@ -67,8 +65,6 @@ return false;
                <A href="/tc?module=Static&d1=contracting&d2=limegroup"><img src="/i/contracting/limegroup_logo.gif" border=0/></A>
                <hr noshade="noshade" size="1" />
                <A href="/tc?module=Static&d1=contracting&d2=oreilly"><img src="/i/contracting/oreilly_logo.gif" border=0/></A>
-               <hr noshade="noshade" size="1" />
-               <A href="/tc?module=Static&d1=contracting&d2=vertex"><img src="/i/contracting/vertex_logo.gif" border=0/></A>
                <hr noshade="noshade" size="1" />
                <A href="/tc?module=ContractingPreferences"><img src="/i/contracting/register.gif" border=0/></A>
                <hr noshade="noshade" size="1" />
