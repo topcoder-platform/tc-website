@@ -65,7 +65,7 @@ do not activate your account.
 
 <br/><br/>
 
-<b>OPTIONAL:</b> If you would like to upload a resume, click <a href="JavaScript:void window.open('<jsp:getProperty name="sessionInfo" property="ServletPath"/>resume?&<%=Constants.MODULE_KEY%>=ViewUpload&<%=Constants.COMPANY_ID%>=1747','Resume_Upload','top=2,left=2,width=350,height=300,status=0');">here</a><br/><br/>
+<span class="redsubhead">OPTIONAL:</subhead> If you would like to upload a resume, click <a href="JavaScript:void window.open('<jsp:getProperty name="sessionInfo" property="ServletPath"/>resume?&<%=Constants.MODULE_KEY%>=ViewUpload&<%=Constants.COMPANY_ID%>=1747','Resume_Upload','top=2,left=2,width=350,height=300,status=0');">here</a><br/><br/>
 
 <br/><br/>
 

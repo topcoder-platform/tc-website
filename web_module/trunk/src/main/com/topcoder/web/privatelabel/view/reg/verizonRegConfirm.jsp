@@ -248,7 +248,7 @@
                </td>
                <td align="right">
                   <p><br /></p>
-                  <p><a href="javascript: document.regForm.submit();"><img src="/i/events/verizon2003/button_finish.gif" alt="finish" width="56" height="23" align="right"></a></p>
+                  <p><a href="javascript: document.regForm.submit();"><img src="/i/events/verizon2003/button_finish.gif" alt="finish" width="56" height="23" align="right" border="0"></a></p>
                   <p><br /></p>
                                 </td>
                             </form></tr>
