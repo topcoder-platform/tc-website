@@ -111,8 +111,8 @@
                      </tr>
                      <tr>
                         <td class="header">Answer</td>
-                        <td class="header">Responses</td>
-                        <td class="header">Percentage</td>
+                        <td class="header" align="right">Responses</td>
+                        <td class="header" align="right">Percentage</td>
                         <td class="header"></td>
                      </tr>
                      <% boolean even = false; %>
@@ -156,10 +156,11 @@
                             <SCRIPT LANGUAGE="JavaScript">
                             <!--
                             if (flashinstalled<2){
-                               document.write('<a href="http://www.macromedia.com/go/getflashplayer"><img src="/i/getflash.gif" width="15" heigh="15" border="0"></a>');
+                               document.write('<a href="http://www.macromedia.com/go/getflashplayer"><img src="/i/getflash.gif" width="15" heigh="15" border="0" hspace="2"></a>To view the graphical analysis, please install the latest Macromedia Flash <a href="http://www.macromedia.com/go/getflashplayer">plugin</a>.');
                             }
                             // -->
                             </SCRIPT>
+                            <br/><br/>
                         </td>
                     </tr>
                   </table>
