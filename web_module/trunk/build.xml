@@ -658,6 +658,12 @@
                 <include name="tces-taglib.tld"/>
             </webinf>
 
+            <fileset dir="${java}/com/topcoder/web/jsp">
+                <include name="errorPage.jsp"/>
+                <include name="foot.jsp"/>
+                <include name="menu.jsp"/>
+            </fileset>
+
             <zipfileset dir="${java}/com/topcoder/web/corp/view/" includes="*, **/*" prefix="corp"/>
             <zipfileset dir="${java}/com/topcoder/web/screening/view/" includes="*.jsp, **/*.jsp" prefix="testing"/>
             <zipfileset dir="${java}/com/topcoder/web/tces/servlet/jsp/" includes="*.jsp, **/*.jsp" prefix="tces"/>
