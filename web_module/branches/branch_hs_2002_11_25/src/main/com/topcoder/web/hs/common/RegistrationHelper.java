@@ -433,10 +433,10 @@ public class RegistrationHelper {
                                         ctx.lookup(UserSchoolHome.EJB_REF_NAME);
       UserSchool user_school=ush.create();
       long school_id=_srb.getSchoolId().longValue();
-      try {
+      if (user_school.existsUserSchoolId(user_id,school_id)) {
         user_school.setCurrentUserSchoolId(user_id,school_id);
       }
-      catch (Exception _e) {
+      else {
         user_school.createUserSchool(user_id,school_id);
         user_school.setCurrentUserSchoolId(user_id,school_id);
       }
