@@ -14,16 +14,6 @@
 
 <title>TopCoder Polls</title>
 
-<SCRIPT type="text/javascript">
-if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
-  // Linux Stylesheets
-  document.write('<link type="text/css" rel="stylesheet" href="/css/corpStyle_linux.css"/>');
-} else {
-  // NonLinux Stylesheets
-  document.write('<link type="text/css" rel="stylesheet" href="/css/corpStyle.css"/>');
-}
-</SCRIPT>
-
 <jsp:include page="../script.jsp" />
 
 </head>
@@ -39,7 +29,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 
 <!-- Left Column Begins -->
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
+            <jsp:include page="../../includes/global_left.jsp">
                 <jsp:param name="level1" value="review_board"/>
                 <jsp:param name="level2" value="competition"/> 
             </jsp:include>
@@ -75,10 +65,10 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                            <% boolean even = false; %>
                         <tc:answerInput id="answerInput" question="<%=question%>">
                            <tr class="<%=even?"formTextOdd":"formTextEven"%>">
-                              <td width="100%">
+                              <td>
                                  <%=answerText%>
                               </td>
-                              <td>                                 
+                              <td align="left">                                 
                                  <%=answerInput%>
                               </td>
                            </tr>
