@@ -37,7 +37,7 @@ public class MainServlet extends BaseServlet {
         try {
             InitialContext ctx = new InitialContext();
             log.debug(ctx.getEnvironment().toString());
-            log.debug(TCContext.getInitial().toString());
+            log.debug(TCContext.getInitial().getEnvironment().toString());
         } catch (Exception e) {
             e.printStackTrace();
         }
