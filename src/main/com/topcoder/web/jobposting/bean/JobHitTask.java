@@ -29,6 +29,7 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
     private ArrayList jobHits;
 
     private long userId;
+    private int rating;
     private String firstName;
     private String lastName;
     private String address1;
@@ -61,6 +62,7 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         super();
         setJobHits(new ArrayList());
         setUserId(-1);
+        setRating(0);
         setFirstName("");
         setLastName("");
         setAddress1("");
@@ -109,44 +111,50 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         JobPostingServicesHome jpHome = null;
         JobPostingServices jpServices = null;
         try {
-            jpHome = (JobPostingServicesHome) getInitialContext().lookup(ApplicationServer.JOB_POSTING_SERVICES);
-            jpServices = jpHome.create();
-            if (jobHits.size() > 0) {
-                for (int i = 0; i < jobHits.size(); i++) {
-                    long currJob = ((Long) jobHits.get(i)).intValue();
+            log.debug("user rating: " + getRating());
+            if (getRating() > 0) {
+                jpHome = (JobPostingServicesHome) getInitialContext().lookup(ApplicationServer.JOB_POSTING_SERVICES);
+                jpServices = jpHome.create();
+                if (jobHits.size() > 0) {
+                    for (int i = 0; i < jobHits.size(); i++) {
+                        long currJob = ((Long) jobHits.get(i)).intValue();
+                        try {
+                            if (jpServices.jobExists(currJob)) {
+                                jpServices.addJobHit(userId, currJob, Constants.JOB_POSTING_ID);
+                            } else {
+                                throw new Exception("job: " + currJob + " either doesn't exist or isn't active");
+                            }
+                        } catch (Exception e) {
+                            throw new Exception("failed to add job hit for user: " + userId +
+                                    " job: " + jobHits.get(i) +
+                                    " hit type: " + Constants.JOB_POSTING_ID);
+                        }
+                    }
+                    setNextPage(Constants.PROFILE_PAGE);
+                    setNextPageInternal(true);
+                } else {
                     try {
-                        if (jpServices.jobExists(currJob)) {
-                            jpServices.addJobHit(userId, currJob, Constants.JOB_POSTING_ID);
+                        if (jpServices.jobExists(jobId)) {
+                            jpServices.addJobHit(userId, jobId, hitType);
+                            if (hitType==Constants.CLICK_THRU_ID) {
+                                setNextPage(jpServices.getLink(jobId));
+                                setNextPageInternal(false);
+                            } else {
+                                setNextPage(Constants.PROFILE_PAGE);
+                                setNextPageInternal(true);
+                            }
                         } else {
-                            throw new Exception("job: " + currJob + " either doesn't exist or isn't active");
+                            throw new Exception("job: " + jobId + " either doesn't exist or isn't active");
                         }
                     } catch (Exception e) {
                         throw new Exception("failed to add job hit for user: " + userId +
-                                " job: " + jobHits.get(i) +
-                                " hit type: " + Constants.JOB_POSTING_ID);
+                                " job: " + jobId +
+                                " hit type: " + Constants.JOB_POSTING_ID + "\n" + e.getMessage());
                     }
                 }
-                setNextPage(Constants.PROFILE_PAGE);
-                setNextPageInternal(true);
             } else {
-                try {
-                    if (jpServices.jobExists(jobId)) {
-                        jpServices.addJobHit(userId, jobId, hitType);
-                        if (hitType==Constants.CLICK_THRU_ID) {
-                            setNextPage(jpServices.getLink(jobId));
-                            setNextPageInternal(false);
-                        } else {
-                            setNextPage(Constants.PROFILE_PAGE);
-                            setNextPageInternal(true);
-                        }
-                    } else {
-                        throw new Exception("job: " + jobId + " either doesn't exist or isn't active");
-                    }
-                } catch (Exception e) {
-                    throw new Exception("failed to add job hit for user: " + userId +
-                            " job: " + jobId +
-                            " hit type: " + Constants.JOB_POSTING_ID + "\n" + e.getMessage());
-                }
+                setNextPage(Constants.UNRATED_PAGE);
+                setNextPageInternal(true);
             }
         } catch (Exception e) {
             throw e;
@@ -168,7 +176,6 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
     }
 
     private void loadUserInfo(com.topcoder.ejb.AuthenticationServices.User user) throws Exception {
-        setUserId(user.getUserId());
 
         Request dataRequest = new Request();
         dataRequest.setContentHandle("member_profile_info");
@@ -187,6 +194,7 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
 
         CoderRegistration coder = (CoderRegistration) user.getUserTypeDetails().get("Coder");
         setUserId(user.getUserId());
+        setRating(coder.getRating().getRating());
         setFirstName(coder.getFirstName());
         setLastName(coder.getLastName());
         setAddress1(coder.getHomeAddress1());
@@ -295,6 +303,15 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
     public void setUserId(long userId) {
         this.userId = userId;
     }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
 
     public String getFirstName() {
         return firstName;

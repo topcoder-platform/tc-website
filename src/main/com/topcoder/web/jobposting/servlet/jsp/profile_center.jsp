@@ -32,14 +32,6 @@
     </TD>
   </TR>
   <TR><TD><IMG SRC="/i/spacer.gif" WIDTH="1" HEIGHT="10"/></TD></TR>
-  <TR valign="middle">
-    <TD CLASS="statText" ALIGN="left" VALIGN="middle" COLSPAN="2">
-      <% if (JobHitTask.isNewbie()) { %>
-<B>IMPORTANT NOTE:</B>  Rated members have a distinct advantage over non-rated members as potential employers are able to view competition statistics and code samples.  This allows companies to differentiate coders who would otherwise look the same on paper. Non-rated members should compete in the <A HREF="/?&t=schedule&c=srm&RoundId=<jsp:getProperty name="JobHitTask" property="NextRoundId"/>" CLASS="statTextBig">next Single Round Match</A>.  Click <A HREF="/?&t=schedule&c=index" class="statTextBig">here</A> for a complete list of upcoming Single Round Matches.
-      <% } %>
-    </TD>
-  </TR>
-  <TR><TD><IMG SRC="/i/spacer.gif" WIDTH="1" HEIGHT="10"/></TD></TR>
 
 
   <tr valign="middle">
