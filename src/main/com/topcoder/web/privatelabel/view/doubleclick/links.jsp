@@ -4,8 +4,8 @@
 %>
 
 <table width="750" cellpadding="0" cellspacing="7" border="0" align="center">
-   <tr><td align="left" valign="bottom"><a href="http://www.doubleclick.com/us/"><img src="/i/events/doubleclick/dc_home.gif" width="179" height="38" alt="DoubleClick" border="0"/></a></td>
-   <td align="right" valign="bottom"><a href="/"><img src="/i/events/doubleclick/pbtc.gif" width="100" height="33" alt="TopCoder" border="0"/></a></td>
+   <tr><td align="left" valign="bottom"><a href="http://www.doubleclick.com/us/"><img src="/i/events/doubleclick/dccc_logo.gif" width="200" height="100" alt="DoubleClick" border="0"/></a></td>
+   <td align="right" valign="bottom"><a href="/"><img src="/i/events/doubleclick/pbtc.gif" width="220" height="70" alt="TopCoder" border="0"/></a></td>
    </tr>
 </table>
 
@@ -26,9 +26,9 @@
 <% } %>
 
 <% if (tabLev2.equals("registration")) {%>
-                 <td align="center" class="dc_subnav_on"><a class="dc_subnav_on_link" href="/pl/?&module=Static&d1=doubleclick&d2=col_registration">Registration</a></td>
+                 <td align="center" class="dc_subnav_on"><a class="dc_subnav_on_link" href="/pl/?module=DCReg&cid=2998&eid=1">Registration</a></td>
 <% } else { %>
-                 <td align="center" class="dc_subnav"><a class="dc_subnav_link" href="/pl/?&module=Static&d1=doubleclick&d2=col_registration">Registration</a></td>
+                 <td align="center" class="dc_subnav"><a class="dc_subnav_link" href="/pl/?module=DCReg&cid=2998&eid=1">Registration</a></td>
 <% } %>
 
 <% if (tabLev2.equals("rules")) {%>
@@ -61,6 +61,12 @@
                  <td align="center" class="dc_subnav_on"><a class="dc_subnav_on_link" href="/pl/?&module=Static&d1=doubleclick&d2=int_schedule" class="dc_subnav_on_link">Schedule</a></td>
 <% } else { %>
                  <td align="center" class="dc_subnav"><a class="dc_subnav_link" href="/pl/?&module=Static&d1=doubleclick&d2=int_schedule" class="dc_subnav_link">Schedule</a></td>
+<% } %>
+
+<% if (tabLev2.equals("registration")) {%>
+                 <td align="center" class="dc_subnav_on"><a class="dc_subnav_on_link" href="/pl/?module=DCReg&cid=2998&eid=2">Registration</a></td>
+<% } else { %>
+                 <td align="center" class="dc_subnav"><a class="dc_subnav_link" href="/pl/?module=DCReg&cid=2998&eid=2">Registration</a></td>
 <% } %>
 
 <% if (tabLev2.equals("rules")) {%>
