@@ -10,10 +10,10 @@ import javax.servlet.jsp.JspException;
  * Time: 12:59:20 PM
  */
 public class UseBeanTag extends BodyTagSupport {
-    private static final String DEFAULT_TYPE = "java.lang.String";
+    private static final String DEFAULT_CLASS= "java.lang.String";
     private static final int DEFAULT_SCOPE = PageContext.PAGE_SCOPE;
 
-    private String clazz = DEFAULT_TYPE;
+    private String clazz = DEFAULT_CLASS;
     private int scope = DEFAULT_SCOPE;
     private String id = null;
     private String name = null;
