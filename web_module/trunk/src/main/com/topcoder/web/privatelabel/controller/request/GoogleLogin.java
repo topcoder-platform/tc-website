@@ -151,6 +151,8 @@ public class GoogleLogin extends FullLogin {
             Response response = (Response) createEJB(getInitialContext(), Response.class);
             ResultSetContainer responses = response.getResponses(userId, DBMS.OLTP_DATASOURCE_NAME);
 
+            log.debug(responses.toString());
+
             ResultSetContainer.ResultSetRow row = null;
             DemographicQuestion question = null;
 
