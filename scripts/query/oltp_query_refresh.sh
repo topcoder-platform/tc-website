@@ -262,47 +262,75 @@ SELECT u.user_id
        ,ct.coder_type_desc
        ,r.rating
        ,r.num_ratings
-       ,da1.demographic_answer_text as grad_year
+       ,(SELECT demographic_answer_text
+           FROM demographic_response dr1 
+                ,demographic_answer da1
+          WHERE dr1.coder_id = c.coder_id
+            AND dr1.coder_id = u.user_id
+            AND dr1.demographic_question_id = 18
+            AND dr1.demographic_answer_id = da1.demographic_answer_id
+            AND dr1.demographic_question_id = da1.demographic_question_id
+            AND da1.demographic_answer_text::DECIMAL >= @gn@
+            AND da1.demographic_answer_text::DECIMAL <= @gx@) as grad_year
+       ,(SELECT demographic_answer_text
+           FROM demographic_response dr6
+                ,demographic_answer da6
+          WHERE dr6.coder_id = c.coder_id
+            AND dr6.coder_id = u.user_id
+            AND dr6.demographic_question_id = 4
+            AND dr6.demographic_answer_id = da6.demographic_answer_id
+            AND dr6.demographic_question_id = da6.demographic_question_id
+            AND da6.demographic_answer_id IN (@ais@)) as relocate
        ,dr2.demographic_response as company
-       ,rs.start_time as last_rated_event
        ,da3.demographic_answer_text as looking_for_job
        ,cs.school_name as known_school_name
        ,da4.demographic_answer_text as other_school_name
        ,da5.demographic_answer_text as degree
+       ,rs.start_time as last_rated_event
+       ,LOWER(u.handle)
   FROM user u
-  JOIN coder c ON u.user_id = c.coder_id
-  JOIN coder_type ct ON c.coder_type_id = ct.coder_type_id
+       ,coder c    
+       ,coder_type ct
+       ,rating r
+       ,country co 
+       ,round_segment rs
+       ,OUTER demographic_response dr2 
+       ,OUTER (demographic_response dr3, OUTER demographic_answer da3)
+       ,OUTER (demographic_response dr4, OUTER demographic_answer da4)
+       ,OUTER (demographic_response dr5, OUTER demographic_answer da5)
+       ,OUTER current_school cs 
+ WHERE c.coder_id = u.user_id
+   AND ct.coder_type_id = c.coder_type_id
    AND ct.coder_type_id in (@cts@)
-  JOIN country co ON c.country_code = co.country_code
-  LEFT OUTER JOIN demographic_response dr1 ON dr1.coder_id = c.coder_id
-   AND dr1.demographic_question_id = 18
-  LEFT OUTER JOIN demographic_answer da1 ON dr1.demographic_answer_id = da1.demographic_answer_id
-   AND da1.demographic_answer_text::DECIMAL >= @gn@
-   AND da1.demographic_answer_text::DECIMAL <= @gx@
-  LEFT OUTER JOIN demographic_response dr2 ON dr2.coder_id = c.coder_id 
-   AND dr2.demographic_question_id = 15
-  LEFT OUTER JOIN demographic_response dr3 ON dr3.coder_id = c.coder_id
-   AND dr3.demographic_question_id = 3
-  LEFT OUTER JOIN demographic_answer da3 ON dr3.demographic_answer_id = da3.demographic_answer_id
-  LEFT OUTER JOIN demographic_response dr4 ON dr4.coder_id = c.coder_id
-   AND dr4.demographic_question_id = 20
-   AND dr4.demographic_answer_id <> 0 
-  LEFT OUTER JOIN demographic_answer da4 ON dr4.demographic_answer_id = da4.demographic_answer_id
-  LEFT OUTER JOIN demographic_response dr5 ON dr5.coder_id = c.coder_id
-   AND dr5.demographic_question_id = 16
-  LEFT OUTER JOIN demographic_answer da5 ON dr5.demographic_answer_id = da5.demographic_answer_id
-  JOIN rating r ON r.coder_id = c.coder_id
-  JOIN round_segment rs ON r.round_id = rs.round_id
+   AND r.coder_id = u.user_id
+   AND r.round_id = rs.round_id
    AND rs.segment_id = 2
-  LEFT OUTER JOIN current_school cs ON cs.coder_id = c.coder_id
- WHERE u.handle like '@ha@'
-   AND c.first_name like '@fn@'
-   AND c.last_name like '@ln@'
+   AND co.country_code = c.country_code
+   AND dr2.coder_id = c.coder_id
+   AND dr2.demographic_question_id = 15
+   AND dr3.coder_id = c.coder_id
+   AND dr3.demographic_question_id = 3
+   AND dr3.demographic_answer_id = da3.demographic_answer_id
+   AND dr3.demographic_question_id = da3.demographic_question_id
+   AND dr4.coder_id = c.coder_id
+   AND dr4.demographic_question_id = 20
+   AND dr4.demographic_answer_id <> 0
+   AND dr4.demographic_answer_id = da4.demographic_answer_id
+   AND dr4.demographic_question_id = da4.demographic_question_id
+   AND dr5.coder_id = c.coder_id
+   AND dr5.demographic_question_id = 16
+   AND dr5.demographic_answer_id = da5.demographic_answer_id
+   AND dr5.demographic_question_id = da5.demographic_question_id
+   AND cs.coder_id = c.coder_id
+   AND LOWER(u.handle) like LOWER('@ha@')
+   AND LOWER(c.first_name) like LOWER('@fn@')
+   AND LOWER(c.last_name) like LOWER('@ln@')
    AND c.state_code in (@scs@)
    AND r.rating >= @rn@
    AND r.rating <= @rx@
    AND r.num_ratings >= @nrn@
    AND r.num_ratings <= @nrx@
+ ORDER BY 24 ASC
 "
 
 java com.topcoder.utilities.QueryLoader "OLTP" 70 "Top Input Rated" 0 0 "
@@ -319,3 +347,51 @@ ORDER BY
   3 DESC
 "
 
+java com.topcoder.utilities.QueryLoader "OLTP" 71 "Profile_Detail" 0 0 "
+ SELECT u.user_id
+ ,r.rating
+ ,r.num_ratings
+ ,c.member_since
+ ,c.first_name
+ ,c.middle_name
+ ,c.last_name
+ ,u.email
+ ,c.address1
+ ,c.address2
+ ,c.city
+ ,c.state_code
+ ,c.zip
+ ,c.home_phone
+ ,c.work_phone
+ ,re.referral_desc
+ ,ct.coder_type_desc
+ ,u.handle
+ ,rs.start_time
+ ,c.notify
+ ,CASE WHEN cref.referral_id = 6 THEN (SELECT name 
+                                         FROM school
+                                        WHERE school_id = cref.reference_id)
+       WHEN cref.referral_id = 10 THEN cref.other
+       WHEN cref.referral_id = 40 THEN (SELECT handle
+                                          FROM user
+                                         WHERE user_id = cref.reference_id)
+       ELSE '' END
+ ,us.user_status_desc
+ FROM user u
+ JOIN coder c ON u.user_id = c.coder_id
+ JOIN rating r ON r.coder_id = c.coder_id  
+ JOIN coder_referral cref ON cref.coder_id = c.coder_id
+ JOIN referral re ON re.referral_id = cref.referral_id
+ JOIN coder_type ct ON c.coder_type_id = ct.coder_type_id
+ JOIN user_status_lu us ON u.status = us.user_status_id
+ JOIN round_segment rs ON rs.round_id = r.round_id
+  AND rs.segment_id = 2
+WHERE u.user_id = @cr@
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 72 "Relocate_Answers" 0 0 "
+SELECT demographic_answer_id as answer_id
+       ,demographic_answer_text as answer_text
+  FROM demographic_answer 
+ WHERE demographic_question_id = 4
+"
