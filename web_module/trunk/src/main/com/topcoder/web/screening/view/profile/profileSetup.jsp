@@ -77,8 +77,8 @@ function submitConfirm() {
                         <p>To set up a new Test Profile, follow these steps:</p>
                         <ol>
                             <li>Choose an appropriate name for the Test Profile.</li>
-                            <li>Assign a Problem Set to Test Set A.  Further information on each Problem Set can be found by clicking <strong>Problem Sets</strong> at the top
-                            of the page.  Once a Problem Set is selected, the Test Set A table will be automatically populated.</li>
+                            <li>Assign a Problem Set to Test Set A.  Once a Problem Set is selected, the Test Set A table will be automatically populated. Further information on each Problem Set can be found by clicking <strong>Problem Sets</strong> at the top
+                            of the page.</li>
                             <li>Assign a Problem or Problems to Test Set B by choosing a Problem from the list and clicking <strong>Add to Test Set B</strong>.  Clicking on the Problem
                             Name once the table has been populated will open a window that displays statistical information about the Problem, as well as the
                             Problem Statement.</li>
