@@ -72,7 +72,7 @@
 
 <!-- Project Type -->
 						<p><strong>Project Type</strong><br />
-						Application Design Project: Provide a complete design for the Online Review application.   Please review the TopCoder Software Application Development Methodology before you submit a solution. 
+						Application Design Project: Provide a complete design for the Online Review application.   Please review the TopCoder Software <a class="statText" href="/?&t=development&c=app_meth">Application Development Methodology</a> before you submit a solution. 
                         </p>
                             
 <!-- Technologies -->
