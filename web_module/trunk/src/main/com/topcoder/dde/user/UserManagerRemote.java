@@ -14,7 +14,7 @@ public interface UserManagerRemote extends javax.ejb.EJBObject {
 
 
     User register(RegistrationInfo info)
-        throws RemoteException, DDEException, DuplicateUsernameException, 
+        throws RemoteException, DDEException, DuplicateUsernameException,
                InvalidRegistrationException, EJBException;
 
     User register(RegistrationInfo info, boolean sendActivationCode)
@@ -25,7 +25,7 @@ public interface UserManagerRemote extends javax.ejb.EJBObject {
         throws RemoteException, DDEException, NoSuchUserException, EJBException;
 
     void updateUser(User user)
-        throws RemoteException, DDEException, NoSuchUserException, 
+        throws RemoteException, DDEException, NoSuchUserException,
                InvalidRegistrationException, EJBException;
 
     void removeUser(User user)
@@ -49,8 +49,10 @@ public interface UserManagerRemote extends javax.ejb.EJBObject {
     void sendPasswordEmail(String username)
         throws RemoteException, DDEException, NoSuchUserException, EJBException;
 
+/*
     void registerInquiry(long userId, long componentId, long rating, long tcUserId, String Comments, boolean agreeToTerms, long phase, long version, long projectId)
         throws RemoteException, DDEException, NoSuchUserException, EJBException;
+*/
     long getRatingForInquiry(long userId, long version, long componentId)
         throws RemoteException, DDEException, NoSuchUserException, EJBException;
 
