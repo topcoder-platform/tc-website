@@ -26,7 +26,7 @@ public class InputBean extends BaseEJB {
     private static Logger log = Logger.getLogger(InputBean.class);
     private String dataSourceName;
 
-    public void createInput(String inputCode, int dataTypeId, String inputDesc)
+    public long createInput(String inputCode, int dataTypeId, String inputDesc)
             throws RemoteException, EJBException {
         log.debug("createInput called...input code: " + inputCode + " data type: " +
                 dataTypeId + " desc: " + inputDesc);
@@ -35,6 +35,7 @@ public class InputBean extends BaseEJB {
         Connection conn = null;
         Context ctx = null;
         DataSource ds = null;
+        long ret = 0;
 
         try {
             StringBuffer query = new StringBuffer();
@@ -46,7 +47,8 @@ public class InputBean extends BaseEJB {
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
-            ps.setLong(1, getNextValue());
+            ret = getNextValue();
+            ps.setLong(1, ret);
             ps.setString(2, inputCode);
             ps.setInt(3, dataTypeId);
             ps.setString(4, inputDesc);
@@ -54,6 +56,7 @@ public class InputBean extends BaseEJB {
             if (rows!=1) throw new EJBException("Wrong number of rows in insert: " + rows +
                     " code: " + inputCode + " data type: " + dataTypeId +
                     " desc: " + inputDesc);
+            return ret;
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException creating input, code: " + inputCode +

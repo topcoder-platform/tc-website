@@ -27,13 +27,14 @@ public class CommandGroupBean extends BaseEJB {
     private static Logger log = Logger.getLogger(CommandGroupBean.class);
     private String dataSourceName;
 
-    public void createCommandGroup(String commandGroupName) throws RemoteException, EJBException {
+    public int createCommandGroup(String commandGroupName) throws RemoteException, EJBException {
         log.debug("createCommandGroup called...name: " + commandGroupName);
 
         PreparedStatement ps = null;
         Connection conn = null;
         Context ctx = null;
         DataSource ds = null;
+        int ret = 0;
 
         try {
             StringBuffer query = new StringBuffer();
@@ -45,11 +46,13 @@ public class CommandGroupBean extends BaseEJB {
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
-            ps.setInt(1, getNextValue());
+            ret = getNextValue();
+            ps.setInt(1, ret);
             ps.setString(2, commandGroupName);
             int rows = ps.executeUpdate();
             if (rows!=1) throw new EJBException("Wrong number of rows in insert: " + rows +
                     " name: " + commandGroupName);
+            return ret;
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException creating command group: " + commandGroupName);

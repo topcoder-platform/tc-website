@@ -13,7 +13,7 @@ import java.rmi.RemoteException;
  */
 public interface Input extends EJBObject {
 
-    void createInput(String inputCode, int dataTypeId, String inputDesc) throws RemoteException, EJBException;
+    long createInput(String inputCode, int dataTypeId, String inputDesc) throws RemoteException, EJBException;
 
     void setInputCode(long inputId, String inputCode) throws RemoteException, EJBException;
     void setDataTypeId(long inputId, int dataTypeId) throws RemoteException, EJBException;

@@ -64,7 +64,7 @@ public class ModifyQueryTask extends BaseTask implements Task, Serializable {
             checkQueryId(getQueryId(), q);
             if (!super.hasErrors()) {
                 if (isNewQuery()) {
-                    q.createQuery(getText(), getName(), isRanking()?1:0);
+                    setQueryId(q.createQuery(getText(), getName(), isRanking()?1:0));
                     if (isRanking()) {
                         q.setColumnIndex(getQueryId(), getColumnIndex());
                     }
