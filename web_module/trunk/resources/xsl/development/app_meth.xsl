@@ -209,7 +209,6 @@
                                                     <li>Sequence Diagrams - Scope of Sequence Diagrams extends from system entry point to component entry point</li>
                                                     <li>Component Diagram - Interactions between components</li>
                                                     <li>Component Class Diagrams - Outline of all interfaces between components and application interaction</li>
-                                                    <li>Application Design Specification Document</li>
                                                     <li>Development Scope Document - Describes the recommended development strategy and effort</li>
                                                 </ul>
                                             </li>
