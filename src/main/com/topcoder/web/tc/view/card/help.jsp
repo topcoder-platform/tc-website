@@ -55,7 +55,10 @@ if ( plugin ) {
          <td class="cardCell" width="100%" align="center">
 
          <div class="cardBody">
-         <div class="pageTitle"><img src="/i/card/title.gif" border=0/></div>
+        <jsp:include page="../page_title.jsp" >
+            <jsp:param name="image" value="cards"/>  
+            <jsp:param name="title" value="Help"/>  
+        </jsp:include>
             
             <p class="bodyText">Move your mouse over any statistic in the card to read a description of what that statistic represents.</p>
             

@@ -31,8 +31,10 @@
          <td class="cardCell" WIDTH="100%" align="center">
 
          <div class="cardBody">
-
-            <div class="pageTitle"><img src="/i/card/title.gif" border=0 vspace=0/></div>
+        <jsp:include page="../page_title.jsp" >
+            <jsp:param name="image" value="cards"/>  
+            <jsp:param name="title" value="Downloads"/>  
+        </jsp:include>
             
          <p>You can download any of the badges listed below in various sizes.  Feel free to place them on your personal website or on your resume</p>
 

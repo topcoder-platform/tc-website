@@ -31,7 +31,10 @@
 <!-- Center Column Begins -->
          <td class="cardCell" WIDTH="100%">
 
-            <div class="pageTitle"><img src="/i/card/title.gif" border=0/></div>
+        <jsp:include page="../page_title.jsp" >
+            <jsp:param name="image" value="cards"/>  
+            <jsp:param name="title" value="Instructions"/>  
+        </jsp:include>
 
             <div class="bodyText">
 

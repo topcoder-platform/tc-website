@@ -59,7 +59,11 @@ if ( plugin ) {
 
          <div class="cardBody">
 
-            <div class="pageTitle"><img src="/i/card/title.gif" border=0/></div>
+            <table border=2 cellspacing=0 cellpaddin=0 width="100%">
+                <tr>
+                    <td><img src="/i/card/title.gif" border="1"/></td>
+                </tr>
+            </table>
 
                     <p>This is a preview of what your card will look like. It will always accurately portray your algorithm, design, and development statistics. Before you can post your TopCoder Member Card to your site you will have to "unlock" it by clicking the link below.</p>
 
