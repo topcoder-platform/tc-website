@@ -108,6 +108,8 @@ public class Data extends Base {
             hd.endElement("","","memberStats");
             hd.endDocument();
 
+            getResponse().flushBuffer();
+
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
