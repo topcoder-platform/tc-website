@@ -111,19 +111,16 @@
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText">
 <!-- <IMG SRC="/i/f/feat_050102_tn2.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/> -->   
 	<P>
-	<A HREF="/index?t=news_events&amp;c=feat_050802" CLASS="bodyGeneric"><B>Working Their Way Up</B></A><BR/>
-	<I>A LooK at Division-II Veterans and Their Dedication to Coding</I><BR/><BR/>
-	Wednesday, May 8, 2002<BR/>
+	<A HREF="/index?t=news_events&amp;c=feat_051502" CLASS="bodyGeneric"><B>First-Time Phenomenal</B></A><BR/>
+	<I>kpsmith Makes TopCoder History In Debut Match</I><BR/><BR/>
+	Wednesday, May 15, 2002<BR/>
 	By&#160;Adam Loss,<I>TopCoder Staff Writer</I><BR/>
 	</P>
 <P>
-Everyone remembers the 1980's don't they?  The big hair, the Members Only jackets, 
-the leg warmers, carrying "Boom-boxes" on your shoulder, Molly Ringwald in every movie, and 
-those stupid Rubik's Cubes.  The challenge was to try and return the six-sided cube to its original 
-form by having all of the like-colored squares on the same side.  These little cubes had the whole 
-world, from infants to grandparents, captivated.  While solving the Rubik's Cube provided one with 
-a God-like mystique, some who consistently failed grew frustrated and quit, while others just keep 
-trying for the fun of it...<A HREF="/index?t=news_events&amp;c=feat_050802" CLASS="bodyGeneric">full&#160;story</A></P>
+Rookies.  Showing up as a rookie can sometimes be tough.  Sure, there are those 
+well-known rookies who come along with a big reputation, and are able to succeed 
+right from the start of their careers.  Most, however, must go through the growing 
+pains of their initial experience...<A HREF="/index?t=news_events&amp;c=feat_051502" CLASS="bodyGeneric">full&#160;story</A></P>
 <P><A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">Have an idea for the weekly feature?</A></P>	
 	</TD>
     <TD VALIGN="top" WIDTH="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
