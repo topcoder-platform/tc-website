@@ -97,11 +97,13 @@ public final class TaskDevelopment {
             boolean requiresLogin = false;
             RecordTag devTag = new RecordTag("DEVELOPMENT");
             String comp = Conversion.checkNull(request.getParameter("comp"));
+            String date = Conversion.checkNull(request.getParameter("date"));
             devTag.addTag(new ValueTag("comp", comp));
+            devTag.addTag(new ValueTag("date", date));
             String xsldocURLString = null;
+            String project = Conversion.checkNull(request.getParameter("Project"));
             if (command.equals("inquire")) {
                 if (nav.getLoggedIn()) {
-                    String project = Conversion.checkNull(request.getParameter("Project"));
                     String to = Conversion.checkNull(request.getParameter("To"));
                     devTag.addTag(new ValueTag("ProjectName", project));
                     devTag.addTag(new ValueTag("Project", project));
@@ -114,7 +116,6 @@ public final class TaskDevelopment {
             /********************** tcs_inquire *******************/
             else if (command.equals("tcs_inquire")) {
                 if (nav.getLoggedIn()) {
-                    String project = Conversion.checkNull(request.getParameter("Project"));
                     String to = Conversion.checkNull(request.getParameter("To"));
                     String handle = nav.getUser().getHandle();
                     devTag.addTag(new ValueTag("ProjectName", project));
@@ -128,9 +129,9 @@ public final class TaskDevelopment {
             /********************** send *******************/
             else if (command.equals("send")) {
                 if (nav.getLoggedIn()) {
+                    devTag.addTag(new ValueTag("Project", project));
                     String handle = nav.getUser().getHandle();
                     String from = nav.getUser().getEmail();
-                    String project = Conversion.checkNull(request.getParameter("Project"));
                     String to = Conversion.checkNull(request.getParameter("To"));
                     String experience = Conversion.clean(request.getParameter("Experience"));
                     String workWeek = Conversion.checkNull(request.getParameter("WorkWeek"));
@@ -171,7 +172,6 @@ public final class TaskDevelopment {
 
                     String handle = nav.getUser().getHandle();
                     String from = nav.getUser().getEmail();
-                    String project = Conversion.checkNull(request.getParameter("Project"));
                     String to = Conversion.checkNull(request.getParameter("To"));
                     String comment = Conversion.clean(request.getParameter("Comment"));
                     String activeForumId = "";
@@ -343,6 +343,7 @@ public final class TaskDevelopment {
                                    log.debug("Role: " + roleName);
                                    log.debug("FormName:  FormUser " +activeForum.getId()); 
                                    activeForumId= Long.toString(activeForum.getId());
+                                   devTag.addTag(new ValueTag("forumId", activeForumId));
                                    if(roleName.equalsIgnoreCase("ForumUser " + activeForumId)){
                                       log.debug("--->got a match");
                                       notFound = false;
