@@ -10,60 +10,60 @@
 <HTML>
   <HEAD>
     <TITLE>Query Tool</TITLE>
-    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
+    <LINK REL="stylesheet" TYPE="text/css" href="/css/style.css"/>
+    <LINK REL="stylesheet" TYPE="text/css" href="/css/coders.css"/>
   </HEAD>
-  <BODY BGCOLOR="#000000" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0"">
+  <BODY bgcolor="#000000" topmargin="0" marginheight="0" LEFTMARGIN="0" marginwidth="0"">
   <jsp:include page="top.jsp" />
 
-  <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-    <TR><TD COLSPAN="6"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="16"></TD></TR>
-    <TR>
-      <TD WIDTH="170" BGCOLOR="#000000" VALIGN="top">
+  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr><td colspan="6"><img src="/i/clear.gif" width="4" height="16"></td></TR>
+    <tr>
+      <td width="170" bgcolor="#000000" valign="top">
         <jsp:include page="left.jsp" flush="true">
           <jsp:param name="<%=Constants.DB_PARAM%>" value="<%=QueryList.getDb()%>"/>
           <jsp:param name="<%=Constants.SERVLET_PATH_PARAM%>" value="<%=SessionInfo.getServletPath()%>"/>
         </jsp:include>
-      </TD>
-      <TD WIDTH="4" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
-      <TD CLASS="statText" WIDTH="100%" BGCOLOR="#000000" VALIGN="top">
-        <TABLE WIDTH="60%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-          <TR><TD CLASS="statTextBig" COLSPAN="4"><%=Constants.COMMAND_LIST_NAME%></TD></TR>
-          <TR>
-            <TD CLASS="statText" ALIGN="right" COLSPAN="2">DB:&#160;</TD>
-            <TD CLASS="statText" ALIGN="left" COLSPAN="2">
+      </td>
+      <td width="4" bgcolor="#000000" valign="top"><img src="/i/clear.gif" width="4" height="8"></td>
+      <td class="statText" width="100%" bgcolor="#000000" valign="top">
+        <table width="60%" border="0" cellpadding="0" cellspacing="0">
+          <tr><td class="statTextBig" colspan="4"><%=Constants.COMMAND_LIST_NAME%></td></TR>
+          <tr>
+            <td class="statText" ALIGN="right" colspan="2">DB:&#160;</td>
+            <td class="statText" ALIGN="left" colspan="2">
               <jsp:getProperty name="QueryList" property="Db"/>
-            </TD>
+            </td>
           </TR>
-          <TR><TD COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
-          <TR BGCOLOR="#333333">
-            <TD></TD>
-            <TD CLASS="statTextBig">Query Name</TD>
+          <tr><td colspan="4"><img src="/i/clear.gif" width="4" height="8"></td></TR>
+          <tr bgcolor="#333333">
+            <td></td>
+            <td class="statTextBig">Query Name</td>
           </TR>
-          <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
+          <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></TR>
           <query:resultSetRowIterator id="query" list="<%=QueryList.getQueryList()%>">
-            <TR>
-              <TD CLASS="statText" ALIGN="right">
-                <A HREF="<jsp:getProperty name="SessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_QUERY_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="QueryList" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<query:resultSetItem row="<%=query%>" name="query_id"/>" CLASS="statText">
+            <tr>
+              <td class="statText" ALIGN="right">
+                <A href="<jsp:getProperty name="SessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_QUERY_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="QueryList" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<query:resultSetItem row="<%=query%>" name="query_id"/>" class="statText">
                   [edit]
                 </A>
                 &#160;&#160;
-              </TD>
-              <TD CLASS="statText">
-                <A HREF="<jsp:getProperty name="SessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.QUERY_DETAIL_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="QueryList" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<query:resultSetItem row="<%=query%>" name="query_id"/>" CLASS="statText">
+              </td>
+              <td class="statText">
+                <A href="<jsp:getProperty name="SessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.QUERY_DETAIL_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="QueryList" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<query:resultSetItem row="<%=query%>" name="query_id"/>" class="statText">
                   <query:resultSetItem row="<%=query%>" name="name"/>
                 </A>
-              </TD>
+              </td>
             </TR>
           </query:resultSetRowIterator>
-        </TABLE>
-      </TD>
-      <TD WIDTH="4" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"></TD>
-      <TD WIDTH="10" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"><BR>
-      </TD>
-      <TD WIDTH="25" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"></TD>
+        </table>
+      </td>
+      <td width="4" bgcolor="#000000"><img src="/i/clear.gif" width="4" height="1" border="0"></td>
+      <td width="10" bgcolor="#000000" valign="top"><img src="/i/clear.gif" width="10" height="1" border="0"><BR>
+      </td>
+      <td width="25" bgcolor="#000000"><img src="/i/clear.gif" width="25" height="1" border="0"></td>
     </TR>
-  </TABLE>
+  </table>
   <jsp:include page="bottom.jsp" />
   </BODY>
 </HTML>

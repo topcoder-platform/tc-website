@@ -9,67 +9,67 @@
 <HTML>
   <HEAD>
     <TITLE>Query Tool</TITLE>
-    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
+    <LINK REL="stylesheet" TYPE="text/css" href="/css/style.css"/>
+    <LINK REL="stylesheet" TYPE="text/css" href="/css/coders.css"/>
   </HEAD>
-  <BODY BGCOLOR="#000000" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0" onLoad="self.focus();document.login.<%=Constants.HANDLE_PARAM%>.focus()">
+  <BODY bgcolor="#000000" topmargin="0" marginheight="0" LEFTMARGIN="0" marginwidth="0" onLoad="self.focus();document.login.<%=Constants.HANDLE_PARAM%>.focus()">
   <jsp:include page="top.jsp" />
 
-  <TABLE WIDTH="100%" HEIGHT="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-    <TR>
-      <TD WIDTH="170" bgcolor="#000000" VALIGN="top">
-      </TD>
-      <TD WIDTH="4" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
-      <TD CLASS="statText" width="100%" BGCOLOR="#000000" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-          <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-          <TR>
-            <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-            <TD CLASS="statText" COLSPAN="2" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
-              <p CLASS="statText">
+  <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+      <td width="170" bgcolor="#000000" valign="top">
+      </td>
+      <td width="4" bgcolor="#000000" valign="top"><img src="/i/clear.gif" width="4" height="8"></td>
+      <td class="statText" width="100%" bgcolor="#000000" valign="top"><img src="/i/clear.gif" width="400" height="1" VSPACE="5" border="0"><BR>
+          <table border="0" cellspacing="0" cellpadding="0" width="100%">
+          <tr>
+            <td valign="top" width="11"><img src="/i/clear.gif" ALT="" width="11" height="1" border="0"/></td>
+            <td class="statText" colspan="2" valign="top" width="100%"><img src="/i/clear.gif" ALT="" width="240" height="1" border="0"/>
+              <p class="statText">
                 <jsp:getProperty name="Login" property="ErrorMessage" />
               </p>
               <FORM NAME="login" METHOD="POST" ACTION="<jsp:getProperty name="SessionInfo" property="ServletPath"/>">
                 <INPUT TYPE="HIDDEN" NAME="<%= Constants.TASK_PARAM %>" VALUE="<%=Constants.LOGIN_TASK %>"/>
                 <INPUT TYPE="HIDDEN" NAME="<%= Constants.STEP_PARAM%>" VALUE="<%=Constants.NEW_STEP%>"/>
-                <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="132" ALIGN="center">
-                  <TR>
-                    <TD CLASS="statTextBig" VALIGN="top" HEIGHT="14">Handle:</TD>
+                <table border="0" cellpadding="0" cellspacing="0" width="132" ALIGN="center">
+                  <tr>
+                    <td class="statTextBig" valign="top" height="14">Handle:</td>
                   </TR>
-                  <TR>
-                    <TD HEIGHT="25" VALIGN="TOP">
+                  <tr>
+                    <td height="25" valign="TOP">
                       <INPUT MAXLENGTH="15" SIZE="15" NAME="<%=Constants.HANDLE_PARAM%>" TYPE="TEXT" VALUE="<jsp:getProperty name="Login" property="HandleInput" />">
-                    </TD>
+                    </td>
                   </TR>
-                  <TR>
-                    <TD CLASS="statTextBig" VALIGN="top" HEIGHT="14">Password:</TD>
+                  <tr>
+                    <td class="statTextBig" valign="top" height="14">Password:</td>
                   </TR>
-                  <TR>
-                    <TD HEIGHT="25" VALIGN="TOP">
+                  <tr>
+                    <td height="25" valign="TOP">
                       <INPUT MAXLENGTH="15" SIZE="15" NAME="<%=Constants.PASSWORD_PARAM%>" TYPE="Password" VALUE="">
-                    </TD>
+                    </td>
                   </TR>
-                  <TR>
-                    <TD CLASS="statTextBig" VALIGN="top">
-                      <A HREF="Javascript:void document.login.submit();" CLASS="statTextBig">Login &gt;&gt;</A>
-                    </TD>
+                  <tr>
+                    <td class="statTextBig" valign="top">
+                      <A href="Javascript:void document.login.submit();" class="statTextBig">Login &gt;&gt;</A>
+                    </td>
                   </TR>
-                </TABLE>
+                </table>
               </FORM>
               <P><BR></P>
-    </TD>
-    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+    </td>
+    <td valign="top" width="10"><img src="/i/clear.gif" ALT="" width="10" height="1" border="0"/></td>
   </TR>
-  <TR>
-    <TD COLSPAN="4" VALIGN="top" BGCOLOR="#000000" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
+  <tr>
+    <td colspan="4" valign="top" bgcolor="#000000" width="100%"><img src="/i/clear.gif" ALT="" width="1" height="10" border="0"/></td>
   </TR>
-</TABLE>
-    </TD>
-      <TD WIDTH="4" bgcolor="#000000"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"></TD>
-      <TD WIDTH="10" bgcolor="#000000" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"><BR>
-      </TD>
-      <TD WIDTH="25" bgcolor="#000000"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"></TD>
+</table>
+    </td>
+      <td width="4" bgcolor="#000000"><img src="/i/clear.gif" width="4" height="1" border="0"></td>
+      <td width="10" bgcolor="#000000" valign="top"><img src="/i/clear.gif" width="10" height="1" border="0"><BR>
+      </td>
+      <td width="25" bgcolor="#000000"><img src="/i/clear.gif" width="25" height="1" border="0"></td>
     </TR>
-  </TABLE>
+  </table>
   <jsp:include page="bottom.jsp" />
   </BODY>
 </HTML>

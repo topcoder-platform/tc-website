@@ -1,7 +1,7 @@
 <%@  page
   language="java"%>
-  <TABLE BGCOLOR="#000000" WIDTH="100%" HEIGHT="50" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-    <TR>
-      <TD></TD>
+  <table bgcolor="#000000" width="100%" height="50" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+      <td></td>
     </TR>
-  </TABLE>
+  </table>
