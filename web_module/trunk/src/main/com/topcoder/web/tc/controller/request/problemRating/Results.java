@@ -15,7 +15,7 @@ import java.util.Map;
 
 public class Results extends Base {
     protected void businessProcessing() throws TCWebException {
-        getRequest().getAttribute("problemRatingResults",getProblemResults(Integer.parseInt(getRequest().getParameter(Constants.PROBLEM_ID))));
+        getRequest().setAttribute("problemRatingResults",getProblemResults(Integer.parseInt(getRequest().getParameter(Constants.PROBLEM_ID))));
         setNextPage(Constants.PROBLEM_RATING_RESULTS);
         setIsNextPageInContext(true);
     }
