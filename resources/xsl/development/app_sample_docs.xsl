@@ -114,7 +114,7 @@
                                     <td class="bodyText" valign="top">
                                         <strong>Application Design Deliverables</strong>
                                         <br/>
-                                        The Design Deliverables document provides an overview of the design process including
+                                        The Design Deliverables provides an overview of the design process including
                                         the deliverables required of a complete submission and the responsibilities of a winning
                                         designer.  The Application Design Review Board will not review submissions that do not meet
                                         the screening requirements.
@@ -159,7 +159,7 @@
                                         <br/>
                                         The design review scorecard is completed by each member of the Application Design Review
                                         Board that is assigned to the application design project.  All members who submit a design
-                                        solution will receive the populated scorecards from the review boards.
+                                        solution will receive the populated scorecards from the review board members.
                                     </td>
                                     <td></td>
                                     <td class="bodyText" valign="top">
@@ -186,17 +186,17 @@
                                     <td class="bodyText" height="15" valign="top">
                                         <strong>Application Development Deliverables</strong>
                                         <br/>
-                                        The Application Development Deliverables document provides an overview of the development process including
+                                        The Application Development Deliverables provides an overview of the development process including
                                         the deliverables required of a complete submission and the responsibilities of a winning
                                         developer.  The Application Development Review Board will not review submissions that do not meet
                                         the screening requirements.
                                         <br/>
                                         <br/>
-                                        The Application Development Specification document is to be completed by the Developers as part of
+                                        The Application Development Specification is to be completed by the Developers as part of
                                         their submission for the design project.
                                         <br/>
                                         <br/>
-                                        The Application Development Scope document is to be completed by the Developers as part of
+                                        The Application Development Scopeis to be completed by the Developers as part of
                                         their submission for the design project.
                                     </td>
                                     <td></td>
@@ -245,7 +245,7 @@
                                         <br/>
                                         The application development review scorecard is completed by each member of the Application Development Review
                                         Board that is assigned to the application development project.  All members who submit a development
-                                        solution will receive the populated scorecards from the review boards.
+                                        solution will receive the populated scorecards from the review board member.
                                     </td>
                                     <td></td>
                                     <td class="bodyText" valign="top">
