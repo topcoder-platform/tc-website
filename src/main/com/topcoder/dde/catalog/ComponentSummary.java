@@ -27,7 +27,7 @@ import java.util.Date;
  * @see     Catalog
  * @see     ComponentManager
  */
-public class ComponentSummary implements java.io.Serializable {
+public class    ComponentSummary implements java.io.Serializable {
 
 
     private long componentId;

@@ -2,12 +2,12 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:import href="../top.xsl"/>
   <xsl:import href="../script.xsl"/>
-  <xsl:import href="../includes/body_top.xsl"/>  
+  <xsl:import href="../includes/body_top.xsl"/>
   <xsl:import href="../foot.xsl"/>
-  <xsl:import href="../includes/global_left.xsl"/> 
+  <xsl:import href="../includes/global_left.xsl"/>
   <xsl:import href="../includes/modules/practice_room.xsl"/>
-  <xsl:import href="../includes/modules/calendar.xsl"/>  
-  <xsl:import href="../includes/public_right_col.xsl"/> 
+  <xsl:import href="../includes/modules/calendar.xsl"/>
+  <xsl:import href="../includes/public_right_col.xsl"/>
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
 
@@ -15,11 +15,11 @@
 
 <head>
 
-<xsl:call-template name="Preload"/>      
+<xsl:call-template name="Preload"/>
 
 <title>Terms &amp; Revisions at TopCoder</title>
 
-<xsl:call-template name="CSS"/>      
+<xsl:call-template name="CSS"/>
 
 <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
 <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
@@ -42,7 +42,7 @@
         <td width="15"><img src="/i/table_top_fill.gif" width="15" height="26" border="0"/></td>
 <!-- Gutter Ends -->
 
-<!-- Center Column Begins -->    
+<!-- Center Column Begins -->
         <td class="bodyText" width="100%">
             <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1">white</xsl:with-param>
@@ -52,28 +52,28 @@
 
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr>
-                    <td class="bodyText" width="100%"><br/>  
+                    <td class="bodyText" width="100%"><br/>
                         <p><b>ACCEPTANCE OF TERMS AND REVISIONS</b><br/>
                         By using this Web site you are indicating your agreement to these Terms of Use ("Terms").  If you do not agree to these
                         Terms, please do not use the site and exit now.</p>
 
-                        <p>We may revise these Terms at any time without prior notice by updating this page and such revisions will be effective upon posting to this page.  
-                        Please check this page periodically for any changes.  Your continued use of this Web site following the posting of any revisions to these Terms will 
-                        mean you accept those changes.  We reserve the right to alter, suspend or discontinue any aspect of www.topcoder.com, including your access to it.  
+                        <p>We may revise these Terms at any time without prior notice by updating this page and such revisions will be effective upon posting to this page.
+                        Please check this page periodically for any changes.  Your continued use of this Web site following the posting of any revisions to these Terms will
+                        mean you accept those changes.  We reserve the right to alter, suspend or discontinue any aspect of www.topcoder.com, including your access to it.
                         Unless explicitly stated, any new features will be subject to these terms and conditions.</p>
 
                         <p><b>PRIVACY</b><br/>
-                        See our complete <A href="/?t=about_tc&amp;c=privacy" class="bodyText">privacy policy.</A></p>
+                        See our complete <A href="/tc?module=Static&amp;d1=about_tc&amp;d2=privacy" class="bodyText">privacy policy.</A></p>
 
 <b>PROVISIONS APPLICABLE TO CHINESE CITIZENS AND EXPATRIATES RESIDING IN CHINA</b><br/>
-TopCoder hereby incorporates into these Terms of Use and Privacy Policy the provisions of China's Decision on Safeguarding the Security of the Internet.  
+TopCoder hereby incorporates into these Terms of Use and Privacy Policy the provisions of China's Decision on Safeguarding the Security of the Internet.
 <br/>
 <br/>
 According to Section 1 of Decision on Safeguarding the Security of the Internet, "to ensure operational security of the Internet, the person or organization perpetrating any of the following acts in violation of the criminal law shall be penalized according to the criminal code:
 <ol>
     <li>Unauthorized penetration into the computer and information system of the state affair, national defense or high-tech departments of the state;</li>
     <li>Intentional composition or dissemination of computer virus or other destructive programs, or attacking the computer system or telecommunication network and resulting in damage or destruction of such computer systems or telecommunication network;</li>
-    <li>Unauthorized disruption of operation of the computer network or telecommunication service and resulting in malfunction of such network or telecommunication systems in violation of the laws or regulations of the state." </li> 
+    <li>Unauthorized disruption of operation of the computer network or telecommunication service and resulting in malfunction of such network or telecommunication systems in violation of the laws or regulations of the state." </li>
 </ol>
 <br/>
 <br/>
@@ -191,22 +191,22 @@ to this material. By posting, uploading or otherwise sending any source code to 
 site, you grant (or warrant that the owner of such rights has expressly
 granted) us a perpetual, royalty-free, irrevocable, non-exclusive right and
 license to use,  reproduce and publish such code into any form, medium or
-technology, including the right, at TopCoder's sole discretion, to distribute 
+technology, including the right, at TopCoder's sole discretion, to distribute
 such code to be published by third-parties.
 <br/><br/>
 With respect to any other material posted, uploaded or otherwise sent, you
 grant (or warrant that the owner of such rights has expressly granted) us
 the same license as pertains to source code with the additional license to
 modify, adapt, translate, create derivative works from, and distribute such
-materials or incorporate such materials into any form, medium or technology, 
-including the right, at TopCoder's sole discretion, to distribute such materials to 
+materials or incorporate such materials into any form, medium or technology,
+including the right, at TopCoder's sole discretion, to distribute such materials to
 be published by third-parties.
 <br/><br/>
-You waive any and all moral rights, including, without limitation, any rights arising under Chapter 7 of the Copyright and Related Rights 
-Act 2000 applicable to European Union residents, and all rights of a similar nature in any jurisdiction in any material, including source 
+You waive any and all moral rights, including, without limitation, any rights arising under Chapter 7 of the Copyright and Related Rights
+Act 2000 applicable to European Union residents, and all rights of a similar nature in any jurisdiction in any material, including source
 code, which you post, upload or otherwise send to TopCoder or it's website, such waivers being in favor of TopCoder.
 <br/><br/>
-You are allowed to register only once and you must provide true and accurate registration information. You are prohibited from misrepresenting 
+You are allowed to register only once and you must provide true and accurate registration information. You are prohibited from misrepresenting
 your registration information or tampering with the registration process.
 <br/><br/>
 You are also prohibited from posting or otherwise uploading to our Web site:  any material that infringes on any copyright,
@@ -230,7 +230,7 @@ defamation or to otherwise review or edit such materials as appropriate, in our 
 <b>OTHER RESTRICTIONS ON CONDUCT</b><br/>
 You agree not to disrupt, modify or interfere with the functioning of our Web site or any services provided on or through
 our Web site or with any associated software, hardware or servers in any way and you agree not to impede or interfere with
-others' use of our Web site. You also agree not to alter or tamper with any information or materials on, or 
+others' use of our Web site. You also agree not to alter or tamper with any information or materials on, or
 associated with our Web site or services provided on or through our Web site.
 <br/><br/>
 We do not necessarily endorse, support, sanction, encourage, verify or agree with the comments, opinions, or other
@@ -238,7 +238,7 @@ statements made public at our Web site by users through  our competition or Roun
 available at our Web site.  Any information or material sent by users to such forums, including advice and opinions,
 represents the views and is the responsibility of those users and does not necessarily represent our views.
 <br/><br/>
-You agree that no impediment exists to you joining the TopCoder website, and your participation in TopCoder's website and the competitions it 
+You agree that no impediment exists to you joining the TopCoder website, and your participation in TopCoder's website and the competitions it
 offers will not interfere with your performance of any other agreement or obligation which has been or will be made with any third party.
 <br/><br/>
 <b>CHOICE OF LAW AND FORUM</b>
@@ -255,7 +255,7 @@ If any provision or portion of these Terms is held illegal, invalid, or unenforc
 <br/>
 <b>TERMINATION/EXCLUSION</b>
 <br/>
-We reserve the right, in our sole discretion, to revoke any and all privileges associated with accessing and/or 
+We reserve the right, in our sole discretion, to revoke any and all privileges associated with accessing and/or
 competing on our web site, and to take any other action we deem appropriate including but not limited to terminating or suspending your use of www.topcoder.com, for no reason or any reason whatsoever, including improper use of this site or failure to comply with these Terms.
 <br/>
 <br/>
@@ -270,7 +270,7 @@ If you have any questions regarding these Terms, contact us at <a href="mailto:s
                     </td>
                 </tr>
             </table>
-            
+
             <p><br/></p>
         </td>
 <!-- Center Column Ends -->
@@ -281,7 +281,7 @@ If you have any questions regarding these Terms, contact us at <a href="mailto:s
 
 <!-- Right Column Begins -->
         <td width="170">
-        <xsl:call-template name="public_right_col"/>       
+        <xsl:call-template name="public_right_col"/>
         </td>
 <!-- Right Column Ends -->
 

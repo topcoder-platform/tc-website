@@ -133,7 +133,7 @@ body,td,font,p,a
 <small> &copy;2003 Google -
 <a href="http://www.google.com/">Home</a> -
 <a href="http://www.google.com/about.html">All About Google</a> -
-<a href="/?t=about_tc&c=index">About TopCoder</a> -
+<a href="/tc?module=Static&d1=about_tc&d2=index">About TopCoder</a> -
 <a href="http://www.google.com/jobs/">We're Hiring</a>
 </small>
 </p>

@@ -40,33 +40,33 @@ body,td,font,p,a
 </head>
 
     <body class=corporate bgcolor="#ffffff" text="#000000" link="#0000CC" vlink="#800080" alink="#ff0000" topmargin=2>
-	
+
 	<div align="center">
 <%-- Google Header--%>
 <img src="/i/events/google2003/codejam_logo.gif" alt="Google Code Jam logo">
 
 <table border=0 cellspacing=5 width="740">
-   <tr> 
+   <tr>
       <td style="background-color: #006633">
          <table class=sidebar bgcolor="#ffffff" cellpadding=15 cellspacing=0 border=0 width="100%">
             <tr>
                <td valign="top">
-                  <div class=content> 
+                  <div class=content>
                   <div align="center">
-                  
+
                   <!-- Tab bar links-->
                   <jsp:include page="googlelinks.jsp" >
                      <jsp:param name="selectedTab" value="schedule"/>
                   </jsp:include>
-                  
+
                   </div><br><br>
-                  
+
                   <table border=0 cellspacing=0 width="100%">
                      <tr>
                         <td valign="top">
                         <b><font size="+1">Schedule</font></b>
                         <img hspace="10" vspace="5" src="/i/events/google2003/codejam_info.gif" width="150" height="390" border="0" align="right" valign="top">
-                        
+
 <!-- Qualification Rounds begins -->
                   <p><font color="006633" size="3"><b>Qualification Rounds</b></font></p>
                   <p><font size="-1">The top 100 scorers from each problem presented during the Qualification Round will be eligible to compete in Round 1 of the Code Jam 2003.</font></p>
@@ -94,15 +94,15 @@ body,td,font,p,a
                            </td>
                         </tr>
                      </table>
-            
+
 <!-- Qualification Rounds ends -->
 
 <!-- Online Elimination Rounds begins -->
                   <p><A name="online"></A><font color="006633" size="3"><b>Online Elimination Rounds</b></font></p>
-                  <p><font size="-1">Everyone who competes in Round 1 must log in to the TopCoder Competition Arena no later than ten minutes prior to the start of 
-                  the online round.  All start times will be communicated as Eastern Time.  If a coder does not participate, for any reason, in an online 
+                  <p><font size="-1">Everyone who competes in Round 1 must log in to the TopCoder Competition Arena no later than ten minutes prior to the start of
+                  the online round.  All start times will be communicated as Eastern Time.  If a coder does not participate, for any reason, in an online
                   round he/she has advanced to, it will be treated as an automatic loss in that round of competition. </font></p>
-            
+
                   <table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                      <tr>
                         <td class="sidebarTitle" width="25%">Round</td>
@@ -134,24 +134,24 @@ body,td,font,p,a
 
                      <tr valign="top">
                         <td class="sidebarText" colspan="4">
-                           *NOTE: All times are Eastern Time. In the event that an online round must be cancelled for any reason, the "raindate" 
+                           *NOTE: All times are Eastern Time. In the event that an online round must be cancelled for any reason, the "raindate"
                            will be the following day at the same time.
                         </td>
                      </tr>
                   </table>
-            
+
 <!-- Online Elimination Rounds ends -->
 
 <!-- Onsite Championship Round begins -->
                   <p><font color="006633" size="3"><b>Onsite Championship Round</b></font></p>
                   <p><font size="-1">Up to 25 coders will compete in the Championship Round being held onsite at Google's headquarters.  Each finalist is responsible for arriving at Google's headquarters to compete.</font></p>
-            
+
                   <table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                      <tr>
                         <td class="sidebarTitle" width="25%">Round</td>
                         <td class="sidebarTitle" width="35%">Date and Time*</td>
                         <td class="sidebarTitle" width="21%" align="center"># of Participants</td>
-                        <td class="sidebarTitle" width="19%" align="center"># of Advancers</td> 
+                        <td class="sidebarTitle" width="19%" align="center"># of Advancers</td>
                      </tr>
                      <tr valign="top">
                         <td class="sidebarText">Championship Round</td>
@@ -169,7 +169,7 @@ body,td,font,p,a
                         </td>
                      </tr>
                   </table>
-            
+
                         </td>
                      </tr>
                      <tr>
@@ -188,12 +188,12 @@ body,td,font,p,a
    </tr>
 </table>
 </div>
-<p><div class=footer> 
-<small> &copy;2003 Google - 
-<a href="http://www.google.com/">Home</a> - 
-<a href="http://www.google.com/about.html">All About Google</a> - 
-<a href="/?t=about_tc&c=index">About TopCoder</a> -
-<a href="http://www.google.com/jobs/">We're Hiring</a> 
+<p><div class=footer>
+<small> &copy;2003 Google -
+<a href="http://www.google.com/">Home</a> -
+<a href="http://www.google.com/about.html">All About Google</a> -
+<a href="/tc?module=Static&d1=about_tc&d2=index">About TopCoder</a> -
+<a href="http://www.google.com/jobs/">We're Hiring</a>
 </small>
 </p>
 </div>

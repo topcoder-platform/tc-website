@@ -95,36 +95,36 @@ body,td,font,p,a
                            <td class="google_round_id" width="30%" align="right">Score</td>
                         </tr>
 
-<tr><td class="sidebarText" align="left" >ZorbaTHut</td><td class="sidebarText" align="right">1261.21</td></tr> 
-<tr><td class="sidebarText" align="left" >ChristopherH</td><td class="sidebarText" align="right">1161.37</td></tr> 
-<tr><td class="sidebarText" align="left" >Yarin</td><td class="sidebarText" align="right">1047.23</td></tr> 
-<tr><td class="sidebarText" align="left" >DjinnKahn</td><td class="sidebarText" align="right">1041.41</td></tr> 
-<tr><td class="sidebarText" align="left" >lars</td><td class="sidebarText" align="right">994.69</td></tr> 
-<tr><td class="sidebarText" align="left" >bstanescu</td><td class="sidebarText" align="right">969.08</td></tr> 
-<tr><td class="sidebarText" align="left" >SnapDragon</td><td class="sidebarText" align="right">713.71</td></tr> 
-<tr><td class="sidebarText" align="left" >dgarthur</td><td class="sidebarText" align="right">704.54</td></tr> 
-<tr><td class="sidebarText" align="left" >mathijs</td><td class="sidebarText" align="right">686.32</td></tr> 
-<tr><td class="sidebarText" align="left" >ssancho2</td><td class="sidebarText" align="right">671.01</td></tr> 
-<tr><td class="sidebarText" align="left" >snewman</td><td class="sidebarText" align="right">659.51</td></tr> 
-<tr><td class="sidebarText" align="left" >Ruberik</td><td class="sidebarText" align="right">659.23</td></tr> 
-<tr><td class="sidebarText" align="left" >venco</td><td class="sidebarText" align="right">657.47</td></tr> 
-<tr><td class="sidebarText" align="left" >Wasteland</td><td class="sidebarText" align="right">655.75</td></tr> 
-<tr><td class="sidebarText" align="left" >po</td><td class="sidebarText" align="right">654.34</td></tr> 
-<tr><td class="sidebarText" align="left" >bladerunner</td><td class="sidebarText" align="right">644.39</td></tr> 
-<tr><td class="sidebarText" align="left" >doeth</td><td class="sidebarText" align="right">635.04</td></tr> 
-<tr><td class="sidebarText" align="left" >antimatter</td><td class="sidebarText" align="right">634.45</td></tr> 
-<tr><td class="sidebarText" align="left" >gepa</td><td class="sidebarText" align="right">632.61</td></tr> 
-<tr><td class="sidebarText" align="left" >radeye</td><td class="sidebarText" align="right">630.92</td></tr> 
-<tr><td class="sidebarText" align="left" >tomek</td><td class="sidebarText" align="right">626.29</td></tr> 
-<tr><td class="sidebarText" align="left" >jcd1</td><td class="sidebarText" align="right">624.15</td></tr> 
-<tr><td class="sidebarText" align="left" >AdrianKuegel*</td><td class="sidebarText" align="right">623.41</td></tr> 
-<tr><td class="sidebarText" align="left" >ValD</td><td class="sidebarText" align="right">620.40</td></tr> 
+<tr><td class="sidebarText" align="left" >ZorbaTHut</td><td class="sidebarText" align="right">1261.21</td></tr>
+<tr><td class="sidebarText" align="left" >ChristopherH</td><td class="sidebarText" align="right">1161.37</td></tr>
+<tr><td class="sidebarText" align="left" >Yarin</td><td class="sidebarText" align="right">1047.23</td></tr>
+<tr><td class="sidebarText" align="left" >DjinnKahn</td><td class="sidebarText" align="right">1041.41</td></tr>
+<tr><td class="sidebarText" align="left" >lars</td><td class="sidebarText" align="right">994.69</td></tr>
+<tr><td class="sidebarText" align="left" >bstanescu</td><td class="sidebarText" align="right">969.08</td></tr>
+<tr><td class="sidebarText" align="left" >SnapDragon</td><td class="sidebarText" align="right">713.71</td></tr>
+<tr><td class="sidebarText" align="left" >dgarthur</td><td class="sidebarText" align="right">704.54</td></tr>
+<tr><td class="sidebarText" align="left" >mathijs</td><td class="sidebarText" align="right">686.32</td></tr>
+<tr><td class="sidebarText" align="left" >ssancho2</td><td class="sidebarText" align="right">671.01</td></tr>
+<tr><td class="sidebarText" align="left" >snewman</td><td class="sidebarText" align="right">659.51</td></tr>
+<tr><td class="sidebarText" align="left" >Ruberik</td><td class="sidebarText" align="right">659.23</td></tr>
+<tr><td class="sidebarText" align="left" >venco</td><td class="sidebarText" align="right">657.47</td></tr>
+<tr><td class="sidebarText" align="left" >Wasteland</td><td class="sidebarText" align="right">655.75</td></tr>
+<tr><td class="sidebarText" align="left" >po</td><td class="sidebarText" align="right">654.34</td></tr>
+<tr><td class="sidebarText" align="left" >bladerunner</td><td class="sidebarText" align="right">644.39</td></tr>
+<tr><td class="sidebarText" align="left" >doeth</td><td class="sidebarText" align="right">635.04</td></tr>
+<tr><td class="sidebarText" align="left" >antimatter</td><td class="sidebarText" align="right">634.45</td></tr>
+<tr><td class="sidebarText" align="left" >gepa</td><td class="sidebarText" align="right">632.61</td></tr>
+<tr><td class="sidebarText" align="left" >radeye</td><td class="sidebarText" align="right">630.92</td></tr>
+<tr><td class="sidebarText" align="left" >tomek</td><td class="sidebarText" align="right">626.29</td></tr>
+<tr><td class="sidebarText" align="left" >jcd1</td><td class="sidebarText" align="right">624.15</td></tr>
+<tr><td class="sidebarText" align="left" >AdrianKuegel*</td><td class="sidebarText" align="right">623.41</td></tr>
+<tr><td class="sidebarText" align="left" >ValD</td><td class="sidebarText" align="right">620.40</td></tr>
 <tr><td class="sidebarText" align="left" >dvickrey</td><td class="sidebarText" align="right">620.08</td></tr>
 
                      </table>
 
                         </font></p>
-                        
+
                         <p class="bodyText">* Due to a scheduling conflict, ante will be replacing AdrianKuegel for the final round</p>
 
                         </td>
@@ -149,7 +149,7 @@ body,td,font,p,a
 <small> &copy;2003 Google -
 <a href="http://www.google.com/">Home</a> -
 <a href="http://www.google.com/about.html">All About Google</a> -
-<a href="/?t=about_tc&c=index">About TopCoder</a> -
+<a href="/tc?module=Static&d1=about_tc&d2=index">About TopCoder</a> -
 <a href="http://www.google.com/jobs/">We're Hiring</a>
 </small>
 </p>

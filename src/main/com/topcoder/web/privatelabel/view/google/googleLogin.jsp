@@ -69,12 +69,12 @@ function submitEnter(e) {
                <td valign="top">
                   <div class=content>
                   <div align="center">
-                  
+
                   <!-- Tab bar links-->
                   <jsp:include page="googlelinks.jsp" >
                      <jsp:param name="selectedTab" value="registration"/>
                   </jsp:include>
-                  
+
                   </div><br><br>
                   <b><font size="+1">Registration</font></b>
 
@@ -147,7 +147,7 @@ function submitEnter(e) {
 <small> &copy;2003 Google -
 <a href="http://www.google.com/">Home</a> -
 <a href="http://www.google.com/about.html">All About Google</a> -
-<a href="/?t=about_tc&c=index">About TopCoder</a> -
+<a href="/tc?module=Static&d1=about_tc&d2=index">About TopCoder</a> -
 <a href="http://www.google.com/jobs/">We're Hiring</a>
 </small>
 </p>

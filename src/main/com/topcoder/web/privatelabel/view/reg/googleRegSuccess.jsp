@@ -58,7 +58,7 @@ body,td,font,p,a
                      <a href="/pl/?&module=Static&d1=google&d2=google_sched">Schedule</a> &nbsp;|&nbsp;
                      <a href="/pl/?&module=Static&d1=google&d2=google_rules_overview">Rules</a> &nbsp;|&nbsp;
                      <font color="006633">Registration</font> &nbsp;|&nbsp;
-                     <a href="/pl/?&module=Static&d1=google&d2=google_faq">FAQ</a> &nbsp;|&nbsp; 
+                     <a href="/pl/?&module=Static&d1=google&d2=google_faq">FAQ</a> &nbsp;|&nbsp;
                      <a href="/pl/?&module=Static&d1=google&d2=google_practice">Practice Arena</a>
                   </font>
                   </div><br><br>
@@ -104,7 +104,7 @@ Good luck to you in the Arena!
 <small> &copy;2003 Google -
 <a href="http://www.google.com/">Home</a> -
 <a href="http://www.google.com/about.html">All About Google</a> -
-<a href="http://www.topcoder.com/?t=about_tc&c=index">About TopCoder</a> -
+<a href="http://www.topcoder.com/tc?module=Static&d1=about_tc&d2=index">About TopCoder</a> -
 <a href="http://www.google.com/jobs/">We're Hiring</a>
 </small>
 </p>

@@ -427,7 +427,7 @@
 
                 <tr>
                     <td id="leftNavOn">
-                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=index</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>About TopCoder</A></td>
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=about&amp;d2=index</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>About TopCoder</A></td>
                 </tr>
 
 
@@ -440,7 +440,7 @@
                         <xsl:otherwise>leftSubnav</xsl:otherwise>
                         </xsl:choose>
                         </xsl:attribute>
-                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=index</xsl:attribute>Overview</A>
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=about&amp;d2=index</xsl:attribute>Overview</A>
                     </td>
                 </tr>
 
@@ -453,7 +453,7 @@
                         <xsl:otherwise>leftSubnav</xsl:otherwise>
                         </xsl:choose>
                         </xsl:attribute>
-                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=membr_whyjoin</xsl:attribute>Why Join TopCoder?</A>
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=about&amp;d2=whyjoin</xsl:attribute>Why Join TopCoder?</A>
                     </td>
                 </tr>
 
@@ -479,7 +479,7 @@
                         <xsl:otherwise>leftSubnav</xsl:otherwise>
                         </xsl:choose>
                         </xsl:attribute>
-                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=terms</xsl:attribute>Terms, Revisions</A>
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=about&amp;d2=whyjoin</xsl:attribute>Terms, Revisions</A>
                     </td>
                 </tr>
 
@@ -492,7 +492,7 @@
                         <xsl:otherwise>leftSubnav</xsl:otherwise>
                         </xsl:choose>
                         </xsl:attribute>
-                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=privacy</xsl:attribute>Privacy Policy</A>
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=about&amp;d2=privacy</xsl:attribute>Privacy Policy</A>
                     </td>
                 </tr>
 
@@ -710,7 +710,7 @@
 </xsl:template>
 
 <xsl:template name="about_row">
-                <tr><td id="leftNav" ><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=index</xsl:attribute>About TopCoder</A></td></tr>
+                <tr><td id="leftNav" ><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=about&amp;d2=index</xsl:attribute>About TopCoder</A></td></tr>
 </xsl:template>
 
 <xsl:template name="reviewboard_row">

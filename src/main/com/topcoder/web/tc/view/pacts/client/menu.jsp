@@ -14,7 +14,7 @@ contentType="text/html"
 <TD CLASS="globalNav" HEIGHT="21" BACKGROUND="/i/top_bar_bg.gif" BGCOLOR="#CC0000" VALIGN="middle">
 <!-- <IMG SRC="/i/clear.gif" WIDTH="500" HEIGHT="1" BORDER="0"/><BR/> -->
 <IMG SRC="/i/clear.gif" WIDTH="30" HEIGHT="1" BORDER="0"/></TD>
-<TD HEIGHT="21" BACKGROUND="/i/top_bar_bg.gif" BGCOLOR="#CC0000"><A HREF="/index?t=about_tc&amp;c=index" onMouseOver="changeImages('image1', 'image1on')" onMouseOut="changeImages('image1', 'image1off')"><IMG NAME="image1" SRC="/i/nav_about_off.gif" ALT="about TopCoder" WIDTH="104" HEIGHT="21" BORDER="0"/></A></TD>
+<TD HEIGHT="21" BACKGROUND="/i/top_bar_bg.gif" BGCOLOR="#CC0000"><A HREF="/tc?module=Static&d1=about_tc&d2=index" onMouseOver="changeImages('image1', 'image1on')" onMouseOut="changeImages('image1', 'image1off')"><IMG NAME="image1" SRC="/i/nav_about_off.gif" ALT="about TopCoder" WIDTH="104" HEIGHT="21" BORDER="0"/></A></TD>
 <TD HEIGHT="21" BACKGROUND="/i/top_bar_bg.gif" BGCOLOR="#CC0000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="21" BORDER="0"/></TD>
 <TD HEIGHT="21" BACKGROUND="/i/top_bar_bg.gif" BGCOLOR="#CC0000"><A HREF="/index?t=news_events&amp;c=index" onMouseOver="changeImages('image2', 'image2on')" onMouseOut="changeImages('image2', 'image2off')"><IMG NAME="image2" SRC="/i/nav_news_off.gif" ALT="News &amp; Events" WIDTH="82" HEIGHT="21" BORDER="0"/></A></TD>
 <TD HEIGHT="21" BACKGROUND="/i/top_bar_bg.gif" BGCOLOR="#CC0000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="21" BORDER="0"/></TD>

@@ -68,7 +68,7 @@
                     <p><span class="bodySubtitle">How Members Benefit</span></p>
 
                     <ul>
-                        <li><A href="/?t=about_tc&amp;c=membr_whyjoin"><strong>Competition</strong></A><br />
+                        <li><A href="/tc?module=Static&amp;d1=about_tc&amp;d2=whyjoin"><strong>Competition</strong></A><br />
                         Each Single Round Match offers a fun, time-based, and challenging set of problems that put a developer's skills to the test. This, coupled
                         with Divisions, offer a more level
                         field of competition for newer members in order to build ratings and move into potential
