@@ -176,6 +176,15 @@
 
             <tr>
                 <td align="right">
+                    Province
+                </td>
+                <td align="left">
+                    <jsp:getProperty name="regInfo" property="Province"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="right">
                     Zip Code
                 </td>
                 <td align="left">
