@@ -278,7 +278,7 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="400">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Application Project Posting:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">05.13.2004</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">06.10.2004</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Register By:</td>
