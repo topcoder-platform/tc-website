@@ -176,28 +176,48 @@ public class Submit extends FullRegSubmit {
                 long problemId = row.getLongItem("problem_id");
                 long roundId = row.getLongItem("round_id");
 
-                //create a session somehow
-                long spid = profile.createSessionProfile(info.getHandle(), companyId);
+                //lookup session profile id, check if it exists
+                //company_session_profile
+                long spid = 0;
+                
+                dataRequest = new Request();
+                dataRequest.setProperty(DataAccessConstants.COMMAND,
+                        "company_session_profile");
+                dataRequest.setProperty("cm", String.valueOf(companyId));
+                dataRequest.setProperty("pid", String.valueOf(problemId));
+                map = access.getData(dataRequest);
+                rsc = (ResultSetContainer)
+                        map.get("company_session_profile");
+                
+                if(rsc.getRowCount() != 0)
+                {
+                    spid = rsc.getIntItem(0, "session_profile_id");
+                }
+                else
+                {
+                    //create a session somehow
+                    spid = profile.createSessionProfile("Problem: " + problemId, companyId);
 
-                //now add in the example problem
-                int index = com.topcoder.web.corp.common.Constants.EXAMPLE_PROBLEM_ID.indexOf(",");
-                problem.createSessionProfileProblem(spid,
-                        Long.parseLong(com.topcoder.web.corp.common.Constants.EXAMPLE_PROBLEM_ID.substring(index + 1)),
-                        Integer.parseInt(com.topcoder.web.corp.common.Constants.PROBLEM_TYPE_EXAMPLE_ID),
-                        1,
-                        Long.parseLong(com.topcoder.web.corp.common.Constants.EXAMPLE_PROBLEM_ID.substring(0, index)));
+                    //now add in the example problem
+                    int index = com.topcoder.web.corp.common.Constants.EXAMPLE_PROBLEM_ID.indexOf(",");
+                    problem.createSessionProfileProblem(spid,
+                            Long.parseLong(com.topcoder.web.corp.common.Constants.EXAMPLE_PROBLEM_ID.substring(index + 1)),
+                            Integer.parseInt(com.topcoder.web.corp.common.Constants.PROBLEM_TYPE_EXAMPLE_ID),
+                            1,
+                            Long.parseLong(com.topcoder.web.corp.common.Constants.EXAMPLE_PROBLEM_ID.substring(0, index)));
 
-                //now do the test set b problem
-                problem.createSessionProfileProblem(spid,
-                        problemId,
-                        com.topcoder.web.corp.common.Constants.PROBLEM_TYPE_TEST_SET_B_ID,
-                        1,
-                        roundId);
+                    //now do the test set b problem
+                    problem.createSessionProfileProblem(spid,
+                            problemId,
+                            com.topcoder.web.corp.common.Constants.PROBLEM_TYPE_TEST_SET_B_ID,
+                            1,
+                            roundId);
 
-                //all languages
-                int[] languages = new int[] {1, 3, 4};
-                for (int i = 0; i < languages.length; ++i) {
-                    language.createProfileLanguage(spid, languages[i]);
+                    //all languages
+                    int[] languages = new int[] {1, 3, 4};
+                    for (int i = 0; i < languages.length; ++i) {
+                        language.createProfileLanguage(spid, languages[i]);
+                    }
                 }
 
                 //calc time
