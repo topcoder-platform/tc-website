@@ -54,12 +54,12 @@ function openWin(url, name, w, h) {
                                     <img src="/i/events/verizon2003/ccc.gif" width="110" height="1" alt="" ><br>
                                     <img src="/i/clear.gif" width="1" height="6" alt="" ><br>
 
-<!-- Advancers tab
+<!-- Advancers tab -->
                                     <img src="/i/clear.gif" width="1" height="6" alt="" ><br>
                                     <a class="leftnav" href="/pl/?&module=Static&d1=verizon&d2=vcc03_advancers" style="margin-left:1px;display:inline;">Advancers</a><br/>
                                     <img src="/i/clear.gif" width="1" height="6" alt="" ><br>
                                     <img src="/i/events/verizon2003/ccc.gif" width="110" height="1" alt="" ><br>
-                                    <img src="/i/clear.gif" width="1" height="6" alt="" ><br>-->
+                                    <img src="/i/clear.gif" width="1" height="6" alt="" ><br>
 
                                 </td>
                             </tr>
