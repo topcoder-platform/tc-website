@@ -1,4 +1,4 @@
-    <?xml version="1.0"?>
+<?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:import href="../top.xsl"/>
   <xsl:import href="../script.xsl"/>
@@ -62,7 +62,7 @@
 </P>
 
 <P>
-The Logging Interface component provides a standard logging API with support for pluggable back-end logging solutions. Components utilizing the Logging Interface are not tied to a specific logging solution.  A change to the pluggable back-end logging solution does not require a code change to the Logging Interface component.
+The Logging Wrapper component provides a standard logging API with support for pluggable back-end logging solutions. Components utilizing the Logging Wrapper are not tied to a specific logging solution.  A change to the pluggable back-end logging solution does not require a code change to the Logging Wrapper component.
 <BR/>
 For more details, check out the <A HREF="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2300015&amp;cat=14" CLASS="statText">Logging Wrapper Component</A> at <A HREF="http://www.topcodersoftware.com" CLASS="statText">topcodersoftware.com</A>.
 </P>

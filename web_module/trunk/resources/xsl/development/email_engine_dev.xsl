@@ -65,6 +65,8 @@
 The Email Engine component provides basic and advanced email functionality through Java API's.  As with any email software, the component supports one or more primary (TO), carbon copy (CC) and blind carbon copy (BCC) recipients, a subject line and file attachment capabilities.
 As its name suggests, the Email Engine is used to send email messages.  This is not a GUI-based component such as Outlook Express or Yahoo Mail that manages user email accounts.  Rather, the Email Engine is a set of Java API's that enables a developer to send emails directly from application code.
 <BR/>
+The existing Email Engine implementation needs to be enhanced to include the ability to attach files to email messages.
+<BR/>
 For more details, check out the <A HREF="http://www.topcodersoftware.com/pages/c_component.jsp?comp=600056&amp;cat=11" CLASS="statText">Email Engine Enhancement Component</A> at <A HREF="http://www.topcodersoftware.com" CLASS="statText">topcodersoftware.com</A>.
 </P>
 

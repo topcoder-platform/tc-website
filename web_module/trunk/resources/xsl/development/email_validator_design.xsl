@@ -62,9 +62,8 @@
 </P>
 
 <P>
-The Email Address Validator is designed to validate the authenticity of an email address. This validation extends beyond simple string validation to ensure that the address is well-formed. It communicates over the network with the host SMTP domain, validating its existence, and ultimately the validity of the target email address. An email address is considered valid if an email message can successfully be sent to it the target SMTP server returning an error message.
+The Email Address Validator is designed to validate the authenticity of an email address. This validation extends beyond simple string validation to ensure that the address is well-formed. It also communicates over the network with the host SMTP domain, validating its existence, and ultimately the existence of the target email address. An email address is considered valid if an email message can successfully be sent without the host SMTP server returning an error.
 <BR/>
-For more details, check out the <A HREF="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2804393&amp;cat=11" CLASS="statText">Email Address Validator Component</A> at <A HREF="http://www.topcodersoftware.com" CLASS="statText">topcodersoftware.com</A>.
 </P>
 
 <P>
