@@ -125,6 +125,7 @@ public class Controller
 
     User getUser(HttpSession session) {
         if (session != null) {
+            Object navigation = session.getAttribute(NAVIGATION);
             if (navigation instanceof Navigation) {
                 User user = ((Navigation) navigation).getUser();
                 if (user.getUserId() == 0) {
