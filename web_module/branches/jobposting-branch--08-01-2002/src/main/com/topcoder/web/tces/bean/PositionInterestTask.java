@@ -165,12 +165,13 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
             HashMap hit = new HashMap();
 
             hit.put("coder_id",
-                    ((Long)hitListRow.getItem("coder_id").getResultData()).toString() );
+                    ((Long)hitListRow.getItem("coder_id").getResultData()).toString().trim() );
             hit.put("handle",
-                    hitListRow.getItem("handle").toString() );
-            if (((Integer)hitListRow.getItem("rating").getResultData()).intValue() > 0) {
+                    hitListRow.getItem("handle").toString().trim() );
+            if (((Integer)hitistRow.getItem("rating").getResultData()).intValue() > 0) {
                 hit.put("rating",
                         ((Integer)hitListRow.getItem("rating").getResultData()).toString() );
+log.debug("rating_int inserted: "+hitListRow.getItem("rating").getResultData());
                 hit.put("rating_int",((Integer)hitListRow.getItem("rating").getResultData()));
             }
             else {
@@ -179,13 +180,13 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
                 hit.put("rating_int",new Integer(0));
             }
             hit.put("state",
-                    hitListRow.getItem("state_code").toString() );
+                    hitListRow.getItem("state_code").toString().trim() );
             hit.put("country",
-                    hitListRow.getItem("country_code").toString() );
+                    hitListRow.getItem("country_code").toString().trim() );
             hit.put("type",
-                    hitListRow.getItem("coder_type_desc").toString() );
+                    hitListRow.getItem("coder_type_desc").toString().trim() );
             hit.put("school",
-                    hitListRow.getItem("school_name").toString() );
+                    hitListRow.getItem("school_name").toString().trim() );
             hit.put("hit_date",
                     getDate(hitListRow, "timestamp"));
             hit.put("hd",
