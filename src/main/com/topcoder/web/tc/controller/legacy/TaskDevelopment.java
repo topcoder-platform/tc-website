@@ -10,6 +10,10 @@ import com.topcoder.common.web.util.Data;
 import com.topcoder.common.web.xml.HTMLRenderer;
 import com.topcoder.security.RolePrincipal;
 import com.topcoder.security.UserPrincipal;
+import com.topcoder.security.TCSubject;
+import com.topcoder.security.policy.PolicyRemote;
+import com.topcoder.security.policy.TCPermission;
+import com.topcoder.security.policy.GenericPermission;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.docGen.xml.RecordTag;
@@ -742,29 +746,31 @@ public final class TaskDevelopment {
     static void register(long userId, long componentId, long projectId, int rating, String comment, boolean agreedToTerms, int phase, int version) throws Exception {
         Context ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
 
-        //get principal manager
-        Object objPrincipalManager = ctx.lookup("security/PrincipalMgr");
-        PrincipalMgrRemoteHome principalManagerHome = (PrincipalMgrRemoteHome) PortableRemoteObject.narrow(objPrincipalManager, PrincipalMgrRemoteHome.class);
-        PrincipalMgrRemote principalMgr = principalManagerHome.create();
 
         log.debug("creating user");
         Object objUserManager = ctx.lookup("dde/UserManager");
         UserManagerRemoteHome userManagerHome = (UserManagerRemoteHome) PortableRemoteObject.narrow(objUserManager, UserManagerRemoteHome.class);
         UserManagerRemote USER_MANAGER = userManagerHome.create();
-        UserPrincipal up = principalMgr.getUser(userId);
 
         USER_MANAGER.registerInquiry(userId, componentId, rating, userId, comment, agreedToTerms, phase, version, projectId);
 
         //add the user to the appropriate role to view the forum
-        Collection roles = principalMgr.getRoles(null);
 
         String roleName = "ForumUser " + getActiveForumId(componentId);
-        RolePrincipal role = null;
-        for (Iterator it = roles.iterator(); it.hasNext(); ) {
-            role = (RolePrincipal)it.next();
-            if (role.getName().equalsIgnoreCase(roleName)) {
-                log.debug("--->got a match");
-                principalMgr.assignRole(up, role, null);
+        PolicyRemote policy = (PolicyRemote) com.topcoder.web.common.security.Constants.createEJB(PolicyRemote.class);
+        if (!policy.checkPermission(new TCSubject(userId), new GenericPermission(roleName))) {
+            Object objPrincipalManager = ctx.lookup("security/PrincipalMgr");
+            PrincipalMgrRemoteHome principalManagerHome = (PrincipalMgrRemoteHome) PortableRemoteObject.narrow(objPrincipalManager, PrincipalMgrRemoteHome.class);
+            PrincipalMgrRemote principalMgr = principalManagerHome.create();
+            Collection roles = principalMgr.getRoles(null);
+            RolePrincipal role = null;
+            for (Iterator it = roles.iterator(); it.hasNext(); ) {
+                role = (RolePrincipal)it.next();
+                if (role.getName().equalsIgnoreCase(roleName)) {
+                    log.debug("--->got a match");
+                    UserPrincipal up = principalMgr.getUser(userId);
+                    principalMgr.assignRole(up, role, null);
+                }
             }
         }
     }
