@@ -281,7 +281,7 @@
 
                 <tr valign="middle">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=6526755" class="statText" target="parent">.NET command Line</a></td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=6526755" class="statText" target="parent">.NET Command Line</a></td>
                     <td class="statText" height="15" align="center">1</td>
                     <td class="statText" height="15"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=304976"><strong>giginim</strong></a></td>
                     <td class="statText" height="15" align="center">85.55</td>
