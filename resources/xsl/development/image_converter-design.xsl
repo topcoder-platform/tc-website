@@ -50,7 +50,9 @@
 	<xsl:with-param name="image">development</xsl:with-param>
 	<xsl:with-param name="title">&#160;Component Development</xsl:with-param>
 </xsl:call-template>
-				
+				<xsl:variable name='month' select='/TC/DEVELOPMENT/month'/>
+		        <xsl:variable name='day' select='/TC/DEVELOPMENT/day'/>
+		        <xsl:variable name='year' select='/TC/DEVELOPMENT/year'/>				
 			<table border="0" cellspacing="0" cellpadding="0" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
 				<tr>
 					<td bgcolor="#000033" background="/i/steel_darkblue_bg.gif" valign="top" width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
@@ -59,11 +61,13 @@
 <!-- Title -->
 						<h1 class="devSubhead"><strong>Image Converter: Design</strong></h1>
                                     
-						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Image%20Converter:%20Design&amp;comp=5503427&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+
 
 <!-- Overview -->
 						<p><strong>Overview</strong><br />
 						The Image Converter component translates one image format to another format.  Conversion between different image types requires distinct decompression and compression algorithms defined by the Image Converter.  The initial conversion supports converting BMP to PNG.  Additional conversions may be added through a pluggable interface.
+
+A third party content management supplier provides images as BMP files.  An example usage of the Image Converter component is to decompress the BMP files and convert them to PNG for deployment to a website.
 						</p>
 
 <!-- Project Type -->
@@ -81,7 +85,7 @@
 
 <!-- Documentation -->
 						<p><strong>Documentation</strong><br />
-						All <a class="statText" href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=5503427">documentation</a> for this project is available on the TopCoder Software web site.</p>
+						All <a class="statText" target="_new" href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=5503427">documentation</a> for this project is available on the TopCoder Software web site.</p>
 
 <!-- Payment -->
 						<p><strong>Payment</strong><br />
@@ -94,9 +98,9 @@
 						<p><strong>Designer</strong><br />
 						Royalty Percentage - 25%</p>
 							
-						<p>Total Payment - $280.00<br/>
-						First Deliverable - $210.00<br/>
-						Project Completion - $70.00</p>
+						<p>Total Payment - <xsl:value-of select="/TC/DEVELOPMENT/payment"/><br/>
+						First Deliverable - <xsl:value-of select="/TC/DEVELOPMENT/first_payment"/><br/>
+					    Project Completion - <xsl:value-of select="/TC/DEVELOPMENT/second_payment"/></p>
 
 <!-- Definition of Completion -->
 						<p><sup>*</sup>Completion of the project is defined as follows:</p>
@@ -122,16 +126,30 @@
 						<p><strong>Time Line</strong><br/>
 						All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.</p>
 
-						<p>Component Posting: 1.30.2003<br/>
-						Initial Submission Due Date: 2.5.2003<br/>
-						Winner Announced: 2.13.2003<br/>
-						Final Submission Due Date: 2.17.2003<br/>
-						Estimated Development End Date: 3.26.2003</p>
+						<p><br/>
+						Initial Submission Due Date: <xsl:value-of select="/TC/DEVELOPMENT/date"/><br/>
+						Winner Announced: <xsl:value-of select="/TC/DEVELOPMENT/DesWinner"/><br/>
+						Final Submission Due Date: <xsl:value-of select="/TC/DEVELOPMENT/DesFinal"/><br/>
+						Estimated Development End Date: <xsl:value-of select="/TC/DEVELOPMENT/DesDevFinal"/></p>
+
 
 <!-- Register at TCS -->
+						   <p>
+        						<strong>View the <a class="statText" target="_new"  href= "http://www.topcodersoftware.com/catalog/document?id=5704909">Requirement Specification</a> for this component project &gt;&gt;</strong>
+                            </p>
 						
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Image%20Converter:%20Design&amp;comp=5503427&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+						   <p>
+						        <strong>
+        						<a class="statText">
+        						    <xsl:attribute name="href">
+        						        <xsl:value-of select="concat('/?&amp;t=development&amp;version=1&amp;phase=112&amp;comp=5503427&amp;c=tcs_inquire&amp;Project=Image%20Converter:%20Design&amp;date=', $month, '&#47;', $day, '&#47;', $year)"/>
+                                    </xsl:attribute>
+                                    Register for the Component Project
+        						</a>
+        						to get information necessary to submit a solution &gt;&gt;</strong>
+                            </p>
+
 						<p><br /></p>
 					</td>
 
