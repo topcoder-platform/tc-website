@@ -575,6 +575,16 @@ public final class TaskDevelopment {
                 if (rsc == null)
                     log.debug("rsc is null");
                 devTag.addTag(rsc.getTag("projects", "project"));
+
+                DataAccessInt tcsDai = new CachedDataAccess((javax.sql.DataSource)
+                        TCContext.getInitial().lookup(Query.TCS_CATALOG));
+                dataRequest = new Request();
+                dataRequest.setContentHandle("project_totals");
+                resultMap = tcsDai.getData(dataRequest);
+                rsc = (ResultSetContainer) resultMap.get("total_component_prices");
+                devTag.addTag(rsc.getTag("Project", "Total"));
+
+
                 xsldocURLString = XSL_DIR + command + ".xsl";
             } else {
                 throw new Exception("Invalid command: " + command);

@@ -47,7 +47,7 @@
 </head>
 
 <BODY>
-    
+
     <xsl:call-template name="Top" />
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -80,7 +80,7 @@
                 <tr>
                     <xsl:variable name="priceFormat" select="'$###,###.00'" />
                     <td class="bodyText" colspan="6">
-                        <p><strong>Only the projects below designated as TCO Component Projects qualify for the 2003 TCO Component Competition.</strong> 
+                        <p><strong>Only the projects below designated as TCO Component Projects qualify for the 2003 TCO Component Competition.</strong>
                         You must submit at least two projects, with at least one being a Level 2 project, to qualify. <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_overview">Click here</A>
                         for more information about the 2003 TCO Component Competition. At the <A href="#comp_des">bottom</A> of this page are regular component projects that do not qualify for the TCO.</p>
                     </td>
@@ -88,13 +88,13 @@
 
                 <tr><td><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr>
             </table>
-            
+
             <table border="0" cellspacing="0" cellpadding="3" width="100%">
 
                 <tr>
                     <xsl:variable name="priceFormat" select="'$###,###.00'" />
                     <td class="bodyText" colspan="6">
-                        <p>Currently open projects total <span id="totalMoney"><xsl:value-of select="format-number(sum(/TC/DEVELOPMENT/projects/project/price) * 1.75, $priceFormat)"/></span> 
+                        <p>Currently open projects total <span id="totalMoney"><xsl:value-of select="format-number(/TC/DEVELOPMENT/Project/Total/total, $priceFormat)"/></span>
                         in payments to the winning designers and developers. Send us your solutions today so you can start collecting your share.</p>
                     </td>
                 </tr>
@@ -111,7 +111,7 @@
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Complexity</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Submit by</td>
                 </tr>
-                 
+
                 <xsl:variable name="priceFormat" select="'$###,###.00'" />
                 <xsl:variable name="design-phase" select="'112'" />
                 <xsl:variable name="dev-phase" select="'113'" />
@@ -135,7 +135,7 @@
                         <tr valign="top">
                             <td class="formTextOdd">
                                 <a>
-                                    <xsl:attribute name="href"> 
+                                    <xsl:attribute name="href">
                                         <xsl:value-of select="concat('/index?tco=t&amp;t=development&amp;c=tcs_inquire-design&amp;comp=', ./component_id, '&amp;phase=', ./phase_id, '&amp;docId=', ./document_id, '&amp;version=', ./version, '&amp;payment=', ./price, '&amp;compvers=', ./comp_vers_id, '&amp;date=', $initial_submission, '&amp;final_submission=', $final_submission, '&amp;winner_announced=', $winner_announced, '&amp;posting_date=', $posting_date, '&amp;estimated_dev=', $estimated_dev)"/>
                                     </xsl:attribute><xsl:value-of select="./component_name"/>
                                     <xsl:if test="number(./version) &gt;  number('1')">
@@ -198,7 +198,7 @@
                         <tr valign="top">
                             <td class="formTextOdd">
                                 <a>
-                                    <xsl:attribute name="href"> 
+                                    <xsl:attribute name="href">
                                         <xsl:value-of select="concat('/index?tco=t&amp;t=development&amp;c=tcs_inquire-dev&amp;comp=', ./component_id, '&amp;docId=', ./document_id, '&amp;version=', ./version, '&amp;phase=', ./phase_id, '&amp;payment=', ./price, '&amp;compvers=', ./comp_vers_id, '&amp;date=', $initial_submission, '&amp;final_submission=', $final_submission, '&amp;winner_announced=', $winner_announced, '&amp;posting_date=', $posting_date)"/>
                                     </xsl:attribute><xsl:value-of select="./component_name"/>
                                     <xsl:if test="number(./version) &gt;  number('1')">
@@ -215,13 +215,13 @@
                     </xsl:if>
                 </xsl:for-each>
 
-                <xsl:variable name="devtco" select="//TC/DEVELOPMENT/projects/project[phase_id=$dev-phase 
+                <xsl:variable name="devtco" select="//TC/DEVELOPMENT/projects/project[phase_id=$dev-phase
                                                     and status_id=303]"/>
                 <xsl:if test="not($devtco)">
                         <tr valign="top">
                             <td class="formTextOdd" colspan="6"><strong>Round 3 of the 2003 TCO Component Development Competition begins on 11/6/2003</strong></td>
                         </tr>
-                </xsl:if> 
+                </xsl:if>
                 <tr>
                     <td class="bodyText" colspan="6">*Total Payment (before royalties) </td>
                 </tr>
@@ -232,7 +232,7 @@
 <!-- Open Component Design Projects begins -->
 
                 <tr><td><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr>
-                
+
                 <tr>
                     <td class="header" colspan="6">Component Design Projects</td>
                 </tr>
@@ -252,7 +252,7 @@
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Submit by</td>
                 </tr>
 
-                 
+
                 <xsl:variable name="priceFormat" select="'$###,###.00'" />
                 <xsl:variable name="design-phase" select="'112'" />
                 <xsl:variable name="dev-phase" select="'113'" />
@@ -276,7 +276,7 @@
                         <tr valign="top">
                             <td class="formTextOdd">
                                 <a>
-                                    <xsl:attribute name="href"> 
+                                    <xsl:attribute name="href">
                                         <xsl:value-of select="concat('/index?t=development&amp;c=tcs_inquire-design&amp;comp=', ./component_id, '&amp;phase=', ./phase_id, '&amp;docId=', ./document_id, '&amp;version=', ./version, '&amp;payment=', ./price, '&amp;compvers=', ./comp_vers_id, '&amp;date=', $initial_submission, '&amp;final_submission=', $final_submission, '&amp;winner_announced=', $winner_announced, '&amp;posting_date=', $posting_date, '&amp;estimated_dev=', $estimated_dev)"/>
                                     </xsl:attribute><xsl:value-of select="./component_name"/>
                                     <xsl:if test="number(./version) &gt;  number('1')">
@@ -338,7 +338,7 @@
                         <tr valign="top">
                             <td class="formTextOdd">
                                 <a>
-                                    <xsl:attribute name="href"> 
+                                    <xsl:attribute name="href">
                                         <xsl:value-of select="concat('/index?t=development&amp;c=tcs_inquire-dev&amp;comp=', ./component_id, '&amp;docId=', ./document_id, '&amp;version=', ./version, '&amp;phase=', ./phase_id, '&amp;payment=', ./price, '&amp;compvers=', ./comp_vers_id, '&amp;date=', $initial_submission, '&amp;final_submission=', $final_submission, '&amp;winner_announced=', $winner_announced, '&amp;posting_date=', $posting_date)"/>
                                     </xsl:attribute><xsl:value-of select="./component_name"/>
                                     <xsl:if test="number(./version) &gt;  number('1')">
@@ -359,8 +359,8 @@
                     <td class="bodyText" colspan="6">*Total Payment (before royalties)</td>
                 </tr>
             </table>
-            
-            <p>*And that's before royalty payments. The more Component <A href="http://software.topcoder.com/components/s_subscriptions.jsp">Subscriptions</A> 
+
+            <p>*And that's before royalty payments. The more Component <A href="http://software.topcoder.com/components/s_subscriptions.jsp">Subscriptions</A>
             we sell, the more royalties we pay out to our winners!</p>
 
             <p><br/></p>
