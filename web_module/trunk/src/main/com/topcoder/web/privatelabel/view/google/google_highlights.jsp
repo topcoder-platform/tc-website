@@ -103,15 +103,15 @@ function openWin(url, name, w, h) {
                            <td class="sidebarText" align="right"><a href="/pl/?&module=Static&d1=google&d2=google_adv_qual">500</a></td>
                         </tr>
                         <tr valign="top">
-                           <td class="google_round_id" ><a href="/pl/?&module=Static&d1=google&d2=google_advancers" class="topLink">Online Round 1</a></td>
+                           <td class="google_round_id" >Online Round 1</td>
                            <td class="sidebarText" align="right">TBA</td>
                         </tr>
                         <tr valign="top">
-                           <td class="google_round_id" ><a href="/pl/?&module=Static&d1=google&d2=google_advancers" class="topLink">Online Round 2</a></td>
+                           <td class="google_round_id" >Online Round 2</td>
                            <td class="sidebarText" align="right">TBA</td>
                         </tr>
                         <tr valign="top">
-                           <td class="google_round_id" ><a href="/pl/?&module=Static&d1=google&d2=google_advancers" class="topLink">Onsite Championship Round</a></td>
+                           <td class="google_round_id" >Onsite Championship Round</td>
                            <td class="sidebarText" align="right">n/a</td>
                         </tr>
 
