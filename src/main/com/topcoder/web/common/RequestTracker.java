@@ -8,7 +8,6 @@ import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.web.ejb.requestservices.RequestServices;
 
 import javax.naming.InitialContext;
-import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 
 /**
