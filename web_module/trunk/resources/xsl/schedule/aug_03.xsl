@@ -98,7 +98,7 @@
                                     <strong>Match 158</strong><br />
                                     Register: 6:00&#160;PM<br />
                                     Compete: 9:00&#160;PM<br />
-                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    Sponsor: <A href="/?t=tces&amp;c=index">Diversified Data</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4598&amp;t=schedule&amp;c=srm">Details</A></td>
                                 <td id="calendar">7</td>
@@ -135,7 +135,7 @@
                                     <strong>Match 160</strong><br />
                                     Register: 9:00&#160;AM<br />
                                     Compete: 12:00&#160;PM<br />
-                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
+<!--                                    Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4605&amp;t=schedule&amp;c=srm">Details</A></td>
                             </tr>
@@ -150,26 +150,26 @@
                                     <strong>Match 161</strong><br />
                                     Register: 7:00&#160;PM<br />
                                     Compete: 10:00&#160;PM<br />
-                                    <!-- Sponsored by: <br /> -->
+<!--                                    Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4610&amp;t=schedule&amp;c=srm">Details</A></td>
                                 <td id="calendar">29</td>
                                 <td id="calendar">30</td>
-                           </tr>
-
+                            </tr>
                             <tr> 
                                 <td id="calendar">31</td>
-                                <td id="calendarBlank">&#160;</td>
-                                <td id="calendarBlank">&#160;</td>
-                                <td id="calendarBlank">&#160;</td>
-                                <td id="calendarBlank">&#160;</td>
-                                <td id="calendarBlank">&#160;</td>
                                 <td id="calendarBlank">
-                                   &#160;<br />
-                                   &#160;<br />
-                                   &#160;<br />
-                                   &#160;<br />
-                                   &#160;<br /></td>
+                                    &#160;<br />
+                                    &#160;<br />
+                                    &#160;<br />
+                                    &#160;<br />
+                                    &#160;<br />
+                                </td>
+                                <td id="calendarBlank">&#160;</td>
+                                <td id="calendarBlank">&#160;</td>
+                                <td id="calendarBlank">&#160;</td>
+                                <td id="calendarBlank">&#160;</td>
+                                <td id="calendarBlank">&#160;</td>
                             </tr>
                             
                         </table>
