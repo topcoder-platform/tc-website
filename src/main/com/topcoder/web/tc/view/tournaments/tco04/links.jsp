@@ -97,14 +97,14 @@
                 <td class="nav" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=comp_register" class="statTextBig"><img src="/i/tournament/tco04/tab_register_off.gif" alt="registration" width="88" height="22" border="0" /></A></td>
 	<% } %>
 	<% if (tabLev2.equals("design")) {%>
-                <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=comp_des_editorial" class="statTextBig"><img src="/i/tournament/tco04/tab_design_on.gif" alt="design" width="88" height="22" border="0" /></A></td>
+                <td class="statTextBig" width="88"><A href="/tc?module=TCO04Results&ph=112" class="statTextBig"><img src="/i/tournament/tco04/tab_design_on.gif" alt="design" width="88" height="22" border="0" /></A></td>
 	<% } else { %>
-                <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=comp_des_editorial" class="statTextBig"><img src="/i/tournament/tco04/tab_design_off.gif" alt="design" width="88" height="22" border="0" /></A></td>
+                <td class="statTextBig" width="88"><A href="/tc?module=TCO04Results&ph=112" class="statTextBig"><img src="/i/tournament/tco04/tab_design_off.gif" alt="design" width="88" height="22" border="0" /></A></td>
 	<% } %>
 	<% if (tabLev2.equals("development")) {%>
-                <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=comp_dev_editorial" class="statTextBig"><img src="/i/tournament/tco04/tab_development_on.gif" alt="development" width="88" height="22" border="0" /></A></td>
+                <td class="statTextBig" width="88"><A href="/tc?module=TCO04Results&ph=113" class="statTextBig"><img src="/i/tournament/tco04/tab_development_on.gif" alt="development" width="88" height="22" border="0" /></A></td>
 	<% } else { %>
-                <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=comp_dev_editorial" class="statTextBig"><img src="/i/tournament/tco04/tab_development_off.gif" alt="development" width="88" height="22" border="0" /></A></td>
+                <td class="statTextBig" width="88"><A href="/tc?module=TCO04Results&ph=113" class="statTextBig"><img src="/i/tournament/tco04/tab_development_off.gif" alt="development" width="88" height="22" border="0" /></A></td>
 	<% } %>
 <% } else if (tabLev1.equals("overview")) { %>
 	<% if (tabLev2.equals("details")) {%>
@@ -170,9 +170,7 @@
 		<td class="<%=tabLev3.equals("schedule")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=comp_schedule" class="subNavLink">Schedule</a></td>
 		<td class="<%=tabLev3.equals("rules")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=comp_rules" class="subNavLink">Rules</a></td>
 	<% } else if (tabLev2.equals("design")) {%>
-		<td class="<%=tabLev3.equals("round1")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=comp_des_rd1" class="subNavLink">Round 1</a></td>
-		<td class="<%=tabLev3.equals("round2")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=comp_des_rd2" class="subNavLink">Round 2</a></td>
-		<td class="<%=tabLev3.equals("finals")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=comp_des_finals" class="subNavLink">Finals</a></td>
+		<td class="<%=tabLev3.equals("results")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=TCO04Results&ph=112" class="subNavLink">Results</a></td>
 		<td class="<%=tabLev3.equals("editorial")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=comp_des_editorial" class="subNavLink">Editorial</a></td>
 		<td class="<%=tabLev3.equals("bracket")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=comp_des_bracket" class="subNavLink">Bracket</a></td>
 	<% } else if (tabLev2.equals("development")) {%>

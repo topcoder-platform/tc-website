@@ -11,12 +11,32 @@
 </head>
 <body>
 <a name="top">
+
+<%
+if(Integer.parseInt(request.getParameter("ph")) == 112)
+{
+%>
 <!-- Tab barlinks-->
 <jsp:include page="links.jsp" >
 <jsp:param name="tabLev1" value="component"/>
-<jsp:param name="tabLev2" value="details"/>
-<jsp:param name="tabLev3" value="rules"/>
+<jsp:param name="tabLev2" value="design"/>
+<jsp:param name="tabLev3" value="results"/>
 </jsp:include>
+<%
+}
+else
+{
+%>
+<!-- Tab barlinks-->
+<jsp:include page="links.jsp" >
+<jsp:param name="tabLev1" value="component"/>
+<jsp:param name="tabLev2" value="development"/>
+<jsp:param name="tabLev3" value="results"/>
+</jsp:include>
+<%
+}
+%>
+
 
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
