@@ -87,10 +87,17 @@ return false;
                           int i = 0;%>
                         <tc:preferenceIterator id="pref" list="<%=prefGroup.getPrefs()%>">
                         <tr>
+                                <%if(pref.getType() == Constants.PREFERENCE_MULTIPLE_ANSWER) { %>
 				<td width="100%" class=<%=cssClasses[i % 2]%>><%=pref.getText()%>:</td>
 				<td class=<%=cssClasses[i++ % 2]%>>
                                         <tc:preferenceInput preference="<%=pref%>" />
 				</td>
+				<% } else { %>
+				<td width="100%" class=<%=cssClasses[i % 2]%>><tc:preferenceInput preference="<%=pref%>" /> <%=pref.getText()%></td>
+				<td class=<%=cssClasses[i++ % 2]%>>
+                                        &nbsp;
+				</td>
+				<% } %>
 			</tr>
                         </tc:preferenceIterator>
                     </table>
