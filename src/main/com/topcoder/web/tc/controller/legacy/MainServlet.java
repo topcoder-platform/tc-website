@@ -111,6 +111,9 @@ public final class MainServlet extends HttpServlet {
         String requestCommand = null;
         boolean responseWritten = false;
         try {
+            //just trying to protect against invalid requests getting to the
+            //app server.  currently, we don't have a way to stop this ad the web
+            //server layer.
             if (!request.getServerName().startsWith(ApplicationServer.SERVER_NAME))
                 throw new NavigationException("Invalid Request", TCServlet.NAVIGATION_ERROR_PAGE);
 
