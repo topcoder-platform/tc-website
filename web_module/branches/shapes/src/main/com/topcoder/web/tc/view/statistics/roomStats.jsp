@@ -27,7 +27,7 @@ function goTo(selection){
 // -->
 </script>   
  </HEAD>
- <BODY>
+ <BODY> 
    <jsp:include page="../top.jsp" />
 <bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request"/>
 <%
