@@ -25,7 +25,7 @@ public abstract class Select extends TagSupport {
     name=_name;
   }
 
-  public void setCSSClass(String _css_class) {
+  public void setClass(String _css_class) {
     css_class=_css_class;
   }
 
