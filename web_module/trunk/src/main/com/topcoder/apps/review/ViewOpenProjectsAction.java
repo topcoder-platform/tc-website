@@ -81,6 +81,7 @@ public final class ViewOpenProjectsAction extends BaseAction {
 
             // Get the project list and store them into session
             if (utility.getAdmin()) {
+                log(Level.DEBUG, "they're an admin");
                 if (request.getParameter(Constants.ALL_KEY) == null) {
                     result = businessDelegate.viewMyOpenProjects(data);
                     utility.setViewAllProjects(false);
