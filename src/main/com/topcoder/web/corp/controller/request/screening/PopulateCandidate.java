@@ -16,6 +16,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.resume.ResumeServices;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.tc.controller.legacy.resume.bean.Resume;
 
 import javax.servlet.http.HttpUtils;
@@ -226,7 +227,7 @@ public class PopulateCandidate extends BaseScreeningProcessor {
                     ResumeServices resumeServices = (ResumeServices)BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
                     Resume resume = resumeServices.getResume(Long.parseLong(cid), Constants.DATA_SOURCE); 
                     
-                    request.setAttribute("resume", resume.getFileName());
+                    request.setAttribute("resume", StringUtils.checkNull(resume.getFileName()));
                     
                     log.info("The problems info list contains : " + result.size() + " records");
 
