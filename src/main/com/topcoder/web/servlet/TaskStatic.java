@@ -16,7 +16,6 @@ import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.ejb.DataCache.DataCache;
 
 import javax.naming.Context;
 import javax.naming.NamingException;
@@ -134,22 +133,18 @@ public final class TaskStatic {
             String sortDir = request.getParameter("sdir");
 
             try {
-                if (!roundids.equals("")) {
-                    ctx = TCContext.getInitial();
-                    dai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
-                    dataRequest = new Request();
-                    dataRequest.setContentHandle("regional_tourney_advancers");
-                    if (roundids!=null)
-                        dataRequest.setProperty("rds", roundids.trim());
-                    if (region!=null)
-                        dataRequest.setProperty("rc", region);
-                    resultMap = dai.getData(dataRequest);
-                    rsc = (ResultSetContainer) resultMap.get("Regional_Tourney_Advancers");
-                    if (sortCol != null && sortDir != null)
-                        rsc.sortByColumn(sortCol, sortDir.trim().toLowerCase().equals("asc"));
-                    tournamentTag.addTag(rsc.getTag("Advancers", "Advancer"));
-                    document.addTag(tournamentTag);
-                }
+                ctx = TCContext.getInitial();
+                dai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
+                dataRequest = new Request();
+                dataRequest.setContentHandle("regional_tourney_advancers");
+                if (roundids!=null) dataRequest.setProperty("rds", roundids.trim());
+                if (region!=null) dataRequest.setProperty("rc", region);
+                resultMap = dai.getData(dataRequest);
+                rsc = (ResultSetContainer) resultMap.get("Regional_Tourney_Advancers");
+                if (sortCol != null && sortDir != null)
+                    rsc.sortByColumn(sortCol, sortDir.trim().toLowerCase().equals("asc"));
+                tournamentTag.addTag(rsc.getTag("Advancers", "Advancer"));
+                document.addTag(tournamentTag);
             } catch (NamingException e) {
                 log.error("failed to get next match from DB");
                 e.printStackTrace();
