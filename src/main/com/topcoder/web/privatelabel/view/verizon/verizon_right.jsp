@@ -12,11 +12,11 @@
                         <img alt="" src="/images/spacer.gif" height="3" width="138"><br/>
 
                         <table border="0" cellspacing="5" cellpadding="0" width="138" class="formFrame">
-                            <tr><td class="subBodyCopy">Registraton Starts<br/><strong>October 27th</strong></td></tr>
+                            <tr><td class="subBodyCopy">Registraton Starts<br/><strong>October 27th</strong><br/><strong>7:00 AM</strong></td></tr>
 
-                            <tr><td class="subBodyCopy">Round #1 - Online<br/><strong>October 31st</strong></td></tr>
+                            <tr><td class="subBodyCopy">Round #1 - Online<br/><strong>October 31st</strong><br/><strong>7:00 PM</strong></td></tr>
 
-                            <tr><td class="subBodyCopy">Championship Round<br/><span class="smallText">Live at the Verizon Chennai Facility</span><br/><strong>November 7th</strong></td></tr>
+                            <tr><td class="subBodyCopy">Championship Round<br/><span class="smallText">Live at the Verizon Chennai Facility</span><br/><strong>November 7th</strong><br/><strong>6:00 PM</strong></td></tr>
                         </table>
 
                         <img alt="" src="/images/spacer.gif" height="6" width="138"><br/>
@@ -32,22 +32,22 @@
                         <table border="0" cellspacing="5" cellpadding="0" width="138" class="formFrame">
                             <tr>
                                 <td class="smallText">1st Place</td>
-                                <td class="subBodyCopy" align="right"><strong>Rs. 50,000</strong></td>
+                                <td class="subBodyCopy" align="right"><strong>50,000 INR</strong></td>
                             </tr>
 
                             <tr>
                                 <td class="smallText">2nd Place</td>
-                                <td class="subBodyCopy" align="right"><strong>Rs. 30,000</strong></td>
+                                <td class="subBodyCopy" align="right"><strong>30,000 INR</strong></td>
                             </tr>
 
                             <tr>
                                 <td class="smallText">3rd Place</td>
-                                <td class="subBodyCopy" align="right"><strong>Rs. 20,000</strong></td>
+                                <td class="subBodyCopy" align="right"><strong>20,000 INR</strong></td>
                             </tr>
 
                             <tr>
                                 <td class="smallText">4th Place</td>
-                                <td class="subBodyCopy" align="right"><strong>Rs. 10,000</strong></td>
+                                <td class="subBodyCopy" align="right"><strong>10,000 INR</strong></td>
                             </tr>
                         </table>
 

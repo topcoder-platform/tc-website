@@ -27,7 +27,7 @@
         <td class="red"><img alt="" src="/images/spacer.gif" width="1" height="37"></td>
         <td valign="top" class="black" width="440"><img src="/i/events/verizon2003/vcc03_logo_secondary.gif" width="440" height="37" alt="Verizon Coding Challenge" border="0"></td>
         <td class="red"><img alt="" src="/images/spacer.gif" width="1" height="37"></td>
-        <td valign="top" class="black" width="99%"><img src="/i/events/verizon2003/pbtc_secondary.gif" width="134" height="37" alt="Contest Powered by TopCoder" border="0"></td>
+        <td valign="top" class="black" width="99%"><A href="http://www.topcoder.com"><img src="/i/events/verizon2003/pbtc_secondary2.gif" width="134" height="37" alt="Contest Powered by TopCoder" border="0"></A></td>
     </tr>
 
 <!-- Top Ad -->
@@ -100,7 +100,7 @@
                             <tr valign="top">
                                 <td class="sidebarText">Round #3 - Championship Round</td>
                                 <td class="sidebarText" nowrap="nowrap">
-                                    Friday, October 7th<br />
+                                    Friday, November 7th<br />
                                     START: 6:00 PM<br />
                                 </td>
                                 <td class="sidebarText" align="center">25</td>

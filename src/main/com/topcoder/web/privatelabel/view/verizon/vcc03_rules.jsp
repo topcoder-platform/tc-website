@@ -75,7 +75,7 @@
                         <p><strong>Overview of the Contest:</strong><br/>
                         The 2003 Verizon Coding Challenge is being offered by Verizon Communications ("Verizon") and TopCoder, Inc. ("TopCoder"). 
                         Verizon is using the results of the Contest to identify possible employees for their Chennai VDSI center.  The Contest will take place 
-                        between October 27 and November 7, 2003.  It begins with a 6-day online registration, after which up to 500 eligible individuals 
+                        between October 27 and November 7, 2003.  It begins with a 4-day online registration, after which up to 500 eligible individuals 
                         will be invited to compete in the Contest. The Contest consists of two (2) online elimination rounds and one (1) onsite final round.  
                         All participants who compete in Round #1 will receive a Verizon Coding Challenge t-shirt.  In addition, Verizon will award 110,000 
                         INR (Indian Rupees) in cash prizes to the top 4 finalists in the Contest.</p>
@@ -110,7 +110,7 @@
 
                             <tr>
                                 <td width="50%" class="sidebarText">Round #2</td>
-                                <td width="50%" class="sidebarText" align="right">Monday, November 3, 2003 at 7:00Pm</td>
+                                <td width="50%" class="sidebarText" align="right">Monday, November 3, 2003 at 7:00PM</td>
                             </tr>
 
                             <tr>
@@ -144,7 +144,7 @@
                       <p><strong>Scoring and Advancing During Online Rounds</strong><br/>
                         After each round of competition, the top scorers will be identified and will advance to the next round.  Coder advancement in 
                         all rounds is determined by comparing the total point values from all three phases of the round (see Competition Round Structure) 
-                        for each coder. In order to advance, a coder must finish each round with a greater-than-zero (i.e, positive) point total. The structure of the 
+                        for each coder. In order to advance, a coder must finish each round with a greater-than-zero (i.e., positive) point total. The structure of the 
                         online rounds is as follows:</p>
                         
                         <p><strong>Round #1</strong>
@@ -199,7 +199,7 @@
                         <p><strong>Onsite Championship Round</strong><br/>
                         The 25 advancers from Round #2 must travel to Verizon's Chennai VDSI facility to compete in the Championship Round of the Contest. 
                         Each finalist will be notified via email that he/she has advanced to the onsite final. Each finalist must confirm his/her attendance in 
-                        the Championship Round by Wednesday, November 5th at 9:00pm Eastern Time.  If a contestant does not confirm his/her attendance in 
+                        the Championship Round by Wednesday, November 5th at 9:00pm India Time.  If a contestant does not confirm his/her attendance in 
                         the Championship Round by said date, he/she will forfeit eligibility to receive a prize, and his/her spot in the Contest will be given to 
                         the next highest scorer from Round #2.  All finalists must arrive at Verizon's Chennai VDSI offices no later than 5:00pm India Time on 
                         Friday, November 7, 2003.  If a contestant who has confirmed his/her attendance in the Championship Round does not arrive at Verizon's 
@@ -303,7 +303,7 @@
                         Liability and Publicity Release (the "Affidavit"), and (ii) any applicable tax forms.  In completing the Affidavit, a winner (i) confirms his/her eligibility, (ii) 
                         represents and warrants that he/she has not cheated; that the idea for the code and/or challenge submitted is his/hers alone, (iii) verifies the accuracy of the 
                         information submitted in the Verizon Coding Challenge registration process, (iv) authorizes TopCoder and Verizon to publicize the Contest results, (v) agrees to 
-                        sign any applicable forms required by tax authorities, (vi) licenses to TopCoder and Verizon rights to all information submitted during the Contest(including rights 
+                        sign any applicable forms required by tax authorities, (vi) licenses to TopCoder and Verizon rights to all information submitted during the Contest (including rights 
                         to source code and other executables), and (vii) releases TopCoder and Verizon from liability arising out of any prize won. Verizon may require contestants to complete 
                         tax forms as applicable for tax reporting purposes. </p>
 
