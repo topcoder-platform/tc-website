@@ -68,6 +68,9 @@ public class Home extends Base {
         try {
             CachedDataAccess dwDai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
             Request dataRequest = new Request();
+            //we'll sacrifice here a little by using the same command as statistics.
+            //this gives us WAY more data than we need, but it means that we can
+            //use the cache both for the home page and the member profile page
             dataRequest.setContentHandle("member_profile");
             dataRequest.setProperty("cr", String.valueOf(getUser().getId()));
             getRequest().setAttribute("member_info",
