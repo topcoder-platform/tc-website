@@ -8,10 +8,10 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccess;
-import com.topcoder.common.web.data.Navigation;
-import com.topcoder.web.resume.common.Constants;
-//import com.topcoder.web.tces.bean.Authentication;
 import com.topcoder.web.tces.common.TCESConstants;
+import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.common.security.BasicAuthentication;
 
 import javax.servlet.http.*;
 import javax.servlet.ServletOutputStream;
@@ -32,14 +32,17 @@ public class CorporateDownloadTask extends ResumeTask{
 
     public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        HttpSession session = request.getSession(true);
 
-//        if (!Authentication.isLoggedIn(session)) {
-//            log.debug("User not logged in, can't download a file.");
-//            throw new Exception("User not logged in, can't download a file.");
-//        } else {
-//            userId = Authentication.userLoggedIn(session);
-//        }
+        /* User authorization checking */
+        SessionPersistor persistor = new SessionPersistor(request.getSession(true));
+        WebAuthentication authToken = new BasicAuthentication(persistor, request, response);
+
+        if (!authToken.getActiveUser().isAnonymous()) {
+            log.debug("User not logged in, can't download a file.");
+            throw new Exception("User not logged in, can't download a file.");
+        } else {
+            userId = (int)authToken.getActiveUser().getId();
+        }
 
        
         Request oltpDataRequest = new Request();
