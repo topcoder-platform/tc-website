@@ -57,7 +57,6 @@ public class DemographicInput extends BaseTag {
 
 
     private String buildText() {
-        log.debug("buildText called " + question.toString());
         StringBuffer s = new StringBuffer(500);
         s.append("<input type=\"text\" size=\"40\" maxlength=\"255\"");
         s.append(" name=\"");
@@ -75,7 +74,6 @@ public class DemographicInput extends BaseTag {
 
 
     private String buildSelect() {
-        log.debug("buildSelect called " + question.toString());
         StringBuffer s = new StringBuffer(2000);
         s.append("<select");
         s.append(" name=\"");

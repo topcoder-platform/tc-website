@@ -93,6 +93,7 @@ public class FullRegDemog extends FullRegBase {
             aRow = (ResultSetContainer.ResultSetRow)it.next();
             answerList.add(makeAnswer(aRow));
         }
+        ret.setDemographicAnswers(answerList);
         return ret;
     }
 
