@@ -47,7 +47,7 @@
         <td class="bodyText" width="100%"><img src="/i/clear.gif" width="240" height="1" vspace="5" border="0" /><br />
 
 <xsl:call-template name="BodyTop">
-  <xsl:with-param name="image1">steelblue</xsl:with-param>
+  <xsl:with-param name="image1">white</xsl:with-param>
   <xsl:with-param name="image">arena</xsl:with-param>
   <xsl:with-param name="title">&#160;Arena Applet Plugins</xsl:with-param>
 </xsl:call-template>
