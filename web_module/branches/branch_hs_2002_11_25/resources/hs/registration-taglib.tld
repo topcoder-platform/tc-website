@@ -35,4 +35,20 @@
    <rtexprvalue>true</rtexprvalue>
   </attribute>
  </tag>
+ <tag>
+  <name>errorIterator</name>
+  <info>Iterates over a List of error strings</info>
+  <tagclass>com.topcoder.web.hs.view.tag.ErrorIterator</tagclass>
+  <bodycontent>JSP</bodycontent>
+  <attribute>
+   <name>id</name>
+   <required>true</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <name>list</name>
+   <required>true</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+ </tag>
 </taglib>
