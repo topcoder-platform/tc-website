@@ -1,8 +1,6 @@
 package com.topcoder.web.ejb.user;
 
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.util.idgenerator.*;
-import com.topcoder.util.idgenerator.sql.InformixDB;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.rmi.RemoteException;
 import java.sql.*;
@@ -12,283 +10,364 @@ import javax.sql.*;
 
 public class UserBean implements SessionBean {
 
-  private transient InitialContext init_ctx=null;
+    private static Logger log = Logger.getLogger(UserBean.class);
+    private transient InitialContext init_ctx = null;
+    private DataSource ds = null;
+    private SessionContext ctx;
 
-  private SessionContext ctx;
-
-  public void ejbActivate() {
-    /* do nothing */
-  }
-
-  public void ejbPassivate() {
-    /* do nothing */
-  }
-
-  public void ejbCreate() throws CreateException {
-    try {
-      init_ctx=new InitialContext();
+    public void ejbActivate() {
+        /* do nothing */
     }
-    catch (NamingException _ne) {
-      _ne.printStackTrace();
+
+    public void ejbPassivate() {
+        /* do nothing */
     }
-  }
 
-  public void ejbRemove() {
-    /* do nothing */
-  }
-
-  public void setSessionContext(SessionContext _ctx) {
-    ctx=_ctx;
-  }
-
-  public void createUser(long _user_id) throws RemoteException {
-
-    try {
-
-      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
-
-      StringBuffer query=new StringBuffer(1024);
-      query.append("INSERT ");
-      query.append("INTO user (user_id) ");
-      query.append("VALUES (?)");
-
-      Connection con=ds.getConnection();
-      PreparedStatement ps=con.prepareStatement(query.toString());
-      ps.setLong(1,_user_id);
-
-      int rc=ps.executeUpdate();
-      if (rc!=1) {
-        throw(new RemoteException("Wrong number of rows inserted into 'user'. "+
-                                  "Inserted "+rc+", should have inserted 1."));
-      }
+    public void ejbCreate() throws CreateException {
+        try {
+            init_ctx = new InitialContext();
+            ds = (DataSource) init_ctx.lookup((String) init_ctx.lookup("java:comp/env/datasource_name"));
+        } catch (NamingException _ne) {
+            _ne.printStackTrace();
+        }
     }
-    catch (SQLException _sqle) {
-      _sqle.printStackTrace();
-      throw(new RemoteException(_sqle.getMessage()));
+
+    public void ejbRemove() {
+        /* do nothing */
     }
-    catch (NamingException _ne) {
-      _ne.printStackTrace();
-      throw(new RemoteException(_ne.getMessage()));
+
+    public void setSessionContext(SessionContext _ctx) {
+        ctx = _ctx;
     }
-  }
 
-  public void setFirstName(long _user_id,String _first_name)
-                                                        throws RemoteException {
-    try {
+    public void createUser(long _user_id) throws RemoteException, EJBException {
+        PreparedStatement ps = null;
+        Connection conn = null;
+        try {
 
-      /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
-       */
-      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
-      
-      StringBuffer query=new StringBuffer(1024);
-      query.append("UPDATE user ");
-      query.append("SET first_name=? ");
-      query.append("WHERE user_id=?");
+            StringBuffer query = new StringBuffer(1024);
+            query.append("INSERT ");
+            query.append("INTO user (user_id) ");
+            query.append("VALUES (?)");
 
-      Connection con=ds.getConnection();
-      PreparedStatement ps=con.prepareStatement(query.toString());
-      ps.setString(1,_first_name);
-      ps.setLong(2,_user_id);
+            conn = ds.getConnection();
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, _user_id);
 
-      int rc=ps.executeUpdate();
-      if (rc!=1) {
-        throw(new RemoteException("Wrong number of rows updated in 'user'. "+
-                                  "Updated "+rc+", should have updated 1."));
-      }
+            int rc = ps.executeUpdate();
+            if (rc != 1) {
+                throw(new RemoteException("Wrong number of rows inserted into 'user'. " +
+                        "Inserted " + rc + ", should have inserted 1."));
+            }
+        } catch (SQLException _sqle) {
+            _sqle.printStackTrace();
+            throw(new RemoteException(_sqle.getMessage()));
+        } finally {
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement");
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection");
+                }
+            }
+        }
     }
-    catch (SQLException _sqle) {
-      _sqle.printStackTrace();
-      throw(new RemoteException(_sqle.getMessage()));
+
+    public void setFirstName(long _user_id, String _first_name)
+            throws RemoteException, EJBException {
+        PreparedStatement ps = null;
+        Connection conn = null;
+        try {
+
+            StringBuffer query = new StringBuffer(1024);
+            query.append("UPDATE user ");
+            query.append("SET first_name=? ");
+            query.append("WHERE user_id=?");
+
+            conn = ds.getConnection();
+            ps = conn.prepareStatement(query.toString());
+            ps.setString(1, _first_name);
+            ps.setLong(2, _user_id);
+
+            int rc = ps.executeUpdate();
+            if (rc != 1) {
+                throw(new RemoteException("Wrong number of rows updated in 'user'. " +
+                        "Updated " + rc + ", should have updated 1."));
+            }
+        } catch (SQLException _sqle) {
+            _sqle.printStackTrace();
+            throw(new RemoteException(_sqle.getMessage()));
+        } finally {
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement");
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection");
+                }
+            }
+        }
     }
-    catch (NamingException _ne) {
-      _ne.printStackTrace();
-      throw(new RemoteException(_ne.getMessage()));
+
+    public void setLastName(long _user_id, String _last_name)
+            throws RemoteException, EJBException {
+        PreparedStatement ps = null;
+        Connection conn = null;
+        try {
+
+            StringBuffer query = new StringBuffer(1024);
+            query.append("UPDATE user ");
+            query.append("SET last_name=? ");
+            query.append("WHERE user_id=?");
+
+            conn = ds.getConnection();
+            ps = conn.prepareStatement(query.toString());
+            ps.setString(1, _last_name);
+            ps.setLong(2, _user_id);
+
+            int rc = ps.executeUpdate();
+            if (rc != 1) {
+                throw(new RemoteException("Wrong number of rows updated in 'user'. " +
+                        "Updated " + rc + ", should have updated 1."));
+            }
+        } catch (SQLException _sqle) {
+            _sqle.printStackTrace();
+            throw(new RemoteException(_sqle.getMessage()));
+        } finally {
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement");
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection");
+                }
+            }
+        }
     }
-  }
 
-  public void setLastName(long _user_id,String _last_name)
-                                                        throws RemoteException {
-    try {
+    public void setUserStatusId(long _user_id, long _user_status_id)
+            throws RemoteException, EJBException {
+        PreparedStatement ps = null;
+        Connection conn = null;
+        try {
 
-      /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
-       */
-      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
-      
-      StringBuffer query=new StringBuffer(1024);
-      query.append("UPDATE user ");
-      query.append("SET last_name=? ");
-      query.append("WHERE user_id=?");
+            StringBuffer query = new StringBuffer(1024);
+            query.append("UPDATE user ");
+            query.append("SET user_status_id=? ");
+            query.append("WHERE user_id=?");
 
-      Connection con=ds.getConnection();
-      PreparedStatement ps=con.prepareStatement(query.toString());
-      ps.setString(1,_last_name);
-      ps.setLong(2,_user_id);
+            conn = ds.getConnection();
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, _user_status_id);
+            ps.setLong(2, _user_id);
 
-      int rc=ps.executeUpdate();
-      if (rc!=1) {
-        throw(new RemoteException("Wrong number of rows updated in 'user'. "+
-                                  "Updated "+rc+", should have updated 1."));
-      }
+            int rc = ps.executeUpdate();
+            if (rc != 1) {
+                throw(new RemoteException("Wrong number of rows updated in 'user'. " +
+                        "Updated " + rc + ", should have updated 1."));
+            }
+        } catch (SQLException _sqle) {
+            _sqle.printStackTrace();
+            throw(new RemoteException(_sqle.getMessage()));
+        } finally {
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement");
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection");
+                }
+            }
+        }
     }
-    catch (SQLException _sqle) {
-      _sqle.printStackTrace();
-      throw(new RemoteException(_sqle.getMessage()));
+
+    public String getFirstName(long _user_id) throws RemoteException, EJBException {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conn = null;
+
+        String first_name = null;
+
+        try {
+
+            StringBuffer query = new StringBuffer(1024);
+            query.append("SELECT first_name ");
+            query.append("FROM user ");
+            query.append("WHERE user_id=?");
+
+            conn = ds.getConnection();
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, _user_id);
+
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                first_name = rs.getString(1);
+            } else {
+                throw(new RemoteException("No rows found when selecting from 'user' " +
+                        "with user_id=" + _user_id + "."));
+            }
+        } catch (SQLException _sqle) {
+            _sqle.printStackTrace();
+            throw(new RemoteException(_sqle.getMessage()));
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet");
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement");
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection");
+                }
+            }
+        }
+        return first_name;
     }
-    catch (NamingException _ne) {
-      _ne.printStackTrace();
-      throw(new RemoteException(_ne.getMessage()));
+
+    public String getLastName(long _user_id) throws RemoteException, EJBException {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conn = null;
+
+        String last_name = null;
+
+        try {
+
+            StringBuffer query = new StringBuffer(1024);
+            query.append("SELECT last_name ");
+            query.append("FROM user ");
+            query.append("WHERE user_id=?");
+
+            conn = ds.getConnection();
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, _user_id);
+
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                last_name = rs.getString(1);
+            } else {
+                throw(new RemoteException("No rows found when selecting from 'user' " +
+                        "with user_id=" + _user_id + "."));
+            }
+        } catch (SQLException _sqle) {
+            _sqle.printStackTrace();
+            throw(new RemoteException(_sqle.getMessage()));
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet");
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement");
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection");
+                }
+            }
+        }
+        return last_name;
     }
-  }
 
-  public void setUserStatusId(long _user_id,long _user_status_id)
-                                                        throws RemoteException {
-    try {
+    public long getUserStatusId(long _user_id) throws RemoteException, EJBException {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conn = null;
 
-      /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
-       */
-      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
-      
-      StringBuffer query=new StringBuffer(1024);
-      query.append("UPDATE user ");
-      query.append("SET user_status_id=? ");
-      query.append("WHERE user_id=?");
+        long user_status_id = 0;
 
-      Connection con=ds.getConnection();
-      PreparedStatement ps=con.prepareStatement(query.toString());
-      ps.setLong(1,_user_status_id);
-      ps.setLong(2,_user_id);
+        try {
 
-      int rc=ps.executeUpdate();
-      if (rc!=1) {
-        throw(new RemoteException("Wrong number of rows updated in 'user'. "+
-                                  "Updated "+rc+", should have updated 1."));
-      }
+            StringBuffer query = new StringBuffer(1024);
+            query.append("SELECT user_status_id ");
+            query.append("FROM user ");
+            query.append("WHERE user_id=?");
+
+            conn = ds.getConnection();
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, _user_id);
+
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                user_status_id = rs.getLong(1);
+            } else {
+                throw(new RemoteException("No rows found when selecting from 'user' " +
+                        "with user_id=" + _user_id + "."));
+            }
+        } catch (SQLException _sqle) {
+            _sqle.printStackTrace();
+            throw(new RemoteException(_sqle.getMessage()));
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet");
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement");
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection");
+                }
+            }
+        }
+        return user_status_id;
     }
-    catch (SQLException _sqle) {
-      _sqle.printStackTrace();
-      throw(new RemoteException(_sqle.getMessage()));
-    }
-    catch (NamingException _ne) {
-      _ne.printStackTrace();
-      throw(new RemoteException(_ne.getMessage()));
-    }
-  }
 
-  public String getFirstName(long _user_id) throws RemoteException {
+}
 
-    String first_name=null;
-
-    try {
-
-      /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
-       */
-      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
-
-      StringBuffer query=new StringBuffer(1024);
-      query.append("SELECT first_name ");
-      query.append("FROM user ");
-      query.append("WHERE user_id=?");
-
-      Connection con=ds.getConnection();
-      PreparedStatement ps=con.prepareStatement(query.toString());
-      ps.setLong(1,_user_id);
-
-      ResultSet rs=ps.executeQuery();
-      if (rs.next()) {
-        first_name=rs.getString(1);
-      }
-      else {
-        throw(new RemoteException("No rows found when selecting from 'user' "+
-                                  "with user_id="+_user_id+"."));
-      }
-    }
-    catch (SQLException _sqle) {
-      _sqle.printStackTrace();
-      throw(new RemoteException(_sqle.getMessage()));
-    }
-    catch (NamingException _ne) {
-      _ne.printStackTrace();
-      throw(new RemoteException(_ne.getMessage()));
-    }
-    return(first_name);  
-  }
-
-  public String getLastName(long _user_id) throws RemoteException {
-
-    String last_name=null;
-
-    try {
-
-      /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
-       */
-      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
-
-      StringBuffer query=new StringBuffer(1024);
-      query.append("SELECT last_name ");
-      query.append("FROM user ");
-      query.append("WHERE user_id=?");
-
-      Connection con=ds.getConnection();
-      PreparedStatement ps=con.prepareStatement(query.toString());
-      ps.setLong(1,_user_id);
-
-      ResultSet rs=ps.executeQuery();
-      if (rs.next()) {
-        last_name=rs.getString(1);
-      }
-      else {
-        throw(new RemoteException("No rows found when selecting from 'user' "+
-                                  "with user_id="+_user_id+"."));
-      }
-    }
-    catch (SQLException _sqle) {
-      _sqle.printStackTrace();
-      throw(new RemoteException(_sqle.getMessage()));
-    }
-    catch (NamingException _ne) {
-      _ne.printStackTrace();
-      throw(new RemoteException(_ne.getMessage()));
-    }
-    return(last_name);  
-  }
-
-  public long getUserStatusId(long _user_id) throws RemoteException {
-
-    long user_status_id=0;
-
-    try {
-
-      /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
-       */
-      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
-
-      StringBuffer query=new StringBuffer(1024);
-      query.append("SELECT user_status_id ");
-      query.append("FROM user ");
-      query.append("WHERE user_id=?");
-
-      Connection con=ds.getConnection();
-      PreparedStatement ps=con.prepareStatement(query.toString());
-      ps.setLong(1,_user_id);
-
-      ResultSet rs=ps.executeQuery();
-      if (rs.next()) {
-        user_status_id=rs.getLong(1);
-      }
-      else {
-        throw(new RemoteException("No rows found when selecting from 'user' "+
-                                  "with user_id="+_user_id+"."));
-      }
-    }
-    catch (SQLException _sqle) {
-      _sqle.printStackTrace();
-      throw(new RemoteException(_sqle.getMessage()));
-    }
-    catch (NamingException _ne) {
-      _ne.printStackTrace();
-      throw(new RemoteException(_ne.getMessage()));
-    }
-    return(user_status_id);  
-  }
-  
-};
+;

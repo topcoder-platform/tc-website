@@ -664,23 +664,6 @@
         </war>
     </target>
 
-    <target name="war_screening" depends="compile">
-        <war warfile="${war.dir}/${screening.war.name}.war" webxml="${resources}/screening/web.xml">
-            <fileset dir="${java}/com/topcoder/web/screening/view">
-                <include name="**/*.jsp"/>
-                <include name="**/*.jpg"/>
-                <include name="**/*.gif"/>
-            </fileset>
-            <classes dir="${classes}">
-                <include name="com/topcoder/web/screening/"/>
-                <include name="com/topcoder/web/common/tag/"/>
-            </classes>
-
-            <webinf dir="${resources}/screening">
-                <include name="screening.tld"/>
-            </webinf>
-        </war>
-    </target>
 
     <target name="compile_tests" depends="compile">
         <javac srcdir="${testjava}" destdir="${testclasses}"
@@ -708,6 +691,63 @@
             <report format="frames" todir="${testclasses}/html"/>
         </junitreport>
     </target>
+
+
+  <!-- screening application specific targets go here -->
+
+    <target name="deploy_screening" depends="compile">
+        <delete dir="${war.dir}"/>
+        <mkdir  dir="${war.dir}"/>
+        <antcall target="war_query"/>
+        <antcall target="war_screening"/>
+        <antcall target="package-EJB-User"/>
+        <antcall target="package-EJB-Email"/>
+    </target>
+
+
+    <target name="package-EJB-User" depends="compile,init-UserBean-properties,package-EJB-GenericBean"/>
+
+    <target name="init-UserBean-properties" >
+        <property name="bean.dir"          value="user" />
+         <property name="bean.jar.name"     value="user.jar" />
+         <property name="bean.pkg.dir"      value="com/topcoder/web/ejb/${bean.dir}" />
+         <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+         <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+         <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+    </target>
+
+    <target name="package-EJB-Email" depends="compile,init-EmailBean-properties,package-EJB-GenericBean"/>
+
+    <target name="init-EmailBean-properties" >
+        <property name="bean.dir"          value="email" />
+         <property name="bean.jar.name"     value="email.jar" />
+         <property name="bean.pkg.dir"      value="com/topcoder/web/ejb/${bean.dir}" />
+         <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+         <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+         <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+    </target>
+
+
+    <target name="war_screening" depends="compile">
+        <war warfile="${war.dir}/${screening.war.name}.war" webxml="${resources}/screening/web.xml">
+            <fileset dir="${java}/com/topcoder/web/screening/view">
+                <include name="**/*.jsp"/>
+                <include name="**/*.jpg"/>
+                <include name="**/*.gif"/>
+            </fileset>
+            <classes dir="${classes}">
+                <include name="com/topcoder/web/screening/"/>
+                <include name="com/topcoder/web/common/tag/"/>
+            </classes>
+
+            <webinf dir="${resources}/screening">
+                <include name="screening.tld"/>
+            </webinf>
+        </war>
+    </target>
+  <!-- end of screening application specific targets -->
+
+
 
 </project>
 
