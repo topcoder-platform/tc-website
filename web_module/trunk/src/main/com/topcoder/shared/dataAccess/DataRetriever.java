@@ -321,7 +321,7 @@ public class DataRetriever implements DataRetrieverInt {
      * a query name, and each value is a <tt>ResultSetContainer</tt> containing the
      * data returned by that query.
      *
-     * @param      inputs  A map of inputs to this command.  Each key in this map
+     * @param      inputMap  A map of inputs to this command.  Each key in this map
      *                     is a valid input code in DataAccess.properties, and
      *                     each value is a <tt>String</tt> containing the value passed in
      *                     for the given input code.  One key-value pair must
@@ -331,7 +331,9 @@ public class DataRetriever implements DataRetrieverInt {
      *                              the queries specified by the passed-in command.
      * @return      The statistical data requested by the command.
      */
-    public Map executeCommand(Map inputs) throws Exception {
+    public Map executeCommand(Map inputMap) throws Exception {
+        //create a new map to avoid mutating the passed in version.
+        Map inputs = new Hashtable(inputMap);
         String commandDesc = (String) inputs.get(DataAccessConstants.COMMAND);
         if (commandDesc == null)
             throw new Exception("Missing command description");
