@@ -2,7 +2,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 
   <xsl:template name="GetRatingColor">
-      <xsl:param name="rating></xsl:param>
+      <xsl:param name="rating"></xsl:param>
       <xsl:choose>
         <xsl:when test="number($rating)>2199">#ff0000</xsl:when>
         <xsl:when test="number($rating)>1499 and number($rating)&lt;2200">#ffff00</xsl:when>
