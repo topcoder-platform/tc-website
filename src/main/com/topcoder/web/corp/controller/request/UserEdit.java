@@ -77,6 +77,11 @@ public class UserEdit extends BaseProcessor {
         successPage = Constants.USEREDIT_PAGE_SUCCESS;
     }
 
+    protected void setNextPage() {
+        setIsNextPageInContext(true);
+        setNextPage(successPage);
+    }
+
     /**
      * @see com.topcoder.web.common.BaseProcessor#businessProcessing()
      */
@@ -133,8 +138,7 @@ public class UserEdit extends BaseProcessor {
             throw(new TCWebException(e));
         }
 
-        setIsNextPageInContext(true);
-        setNextPage(successPage);
+        setNextPage();
     }
 
     /**
