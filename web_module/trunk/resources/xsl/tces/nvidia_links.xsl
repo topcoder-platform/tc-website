@@ -8,7 +8,7 @@
   </tr>
   
   <tr>
-      <td valign="middle" height="18" class="bodyText"><a href="/?&amp;t=tces&amp;c=nvidia_openings&amp;a=secure" class="bodyText">Full Time Positions</a> | <a href="/?&amp;t=tces&amp;c=nvidia_openings_intern&amp;a=secure" class="bodyText">Intern/Co-op Positions</a> | <a href="http://www.nvidia.com/view.asp?PAGE=products" class="bodyText" target="_blank">Products</a> | <a href="http://www.nvidia.com/view.asp?PAGE=benefits" class="bodyText" target="_blank">Benefits</a> | <a href="/?&amp;t=tces&amp;c=nvidia" class="bodyText">NVIDIA Main Page</a></td>
+      <td valign="middle" height="18" class="bodyText"><a href="/?&amp;t=tces&amp;c=nvidia_openings_intern_soft&amp;a=secure" class="bodyText">Software &#38; Graphics Positions</a> | <a href="/?&amp;t=tces&amp;c=nvidia_openings_intern_hard&amp;a=secure" class="bodyText">Hardware &#38; Systems Engineering Positions</a> | <a href="http://www.nvidia.com/view.asp?PAGE=products" class="bodyText" target="_blank">Products</a> | <a href="http://www.nvidia.com/view.asp?PAGE=benefits" class="bodyText" target="_blank">Benefits</a> | <a href="/?&amp;t=tces&amp;c=nvidia" class="bodyText">NVIDIA Main Page</a></td>
   </tr>
 </table> 
 
