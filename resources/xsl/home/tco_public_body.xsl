@@ -67,7 +67,7 @@
 
                         <h2>tomek comes out on top</h2>
 
-                        <p>by Matt Murphy, <A href="/stat?c=member_profile&amp;cr=265522">veredox</A>, <em>TopCoder Member</em><br />
+                        <p>by Matt Murphy, <A href="/stat?c=member_profile&amp;cr=265522">veredox</A>, <em>TopCoder Staff</em><br />
                         Friday, December 5, 2003</p>
 
                         <p>Floats like a butterfly, codes in C. The crowd could not stop roaring as tomek, the new TopCoder Open Champion, bounced up to
