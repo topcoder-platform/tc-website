@@ -33,7 +33,7 @@
 
   <init-param>
     <param-name>processor-user-list</param-name>
-    <param-value>com.topcoder.web.corp.request.UserListTest</param-value>
+    <param-value>com.topcoder.web.corp.request.UserList</param-value>
     <description>handles user list page</description>
   </init-param>
 
