@@ -48,8 +48,9 @@
                                  <%= request.getParameter("msg") %>
                               </p>
                            <% } %>
-                           <screen:form NAME="login" METHOD="POST" ACTION="/screening">
+                           <screen:form NAME="login" METHOD="POST" ACTION="<%= request.getServletPath() %>">
                               <INPUT type="hidden" name='rp' value='Login'/>
+                              <INPUT type="hidden" name='firstVisit' value='false'/>
                               <% if((String)request.getParameter("redir") != null){ %>
                                  <INPUT type="hidden" name='redir' value='<%= request.getParameter("redir").toString() %>'/>
                               <% } %>
