@@ -170,14 +170,14 @@
 		<td class="<%=tabLev3.equals("results")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=TCO04Results&ph=112" class="subNavLink">Results</a></td>
 		<%--
 		<td class="<%=tabLev3.equals("editorial")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=comp_des_editorial" class="subNavLink">Editorial</a></td>
-		<td class="<%=tabLev3.equals("bracket")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=comp_des_bracket" class="subNavLink">Bracket</a></td>
 		--%>
+		<td class="<%=tabLev3.equals("bracket")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=comp_des_bracket" class="subNavLink">Bracket</a></td>
 	<% } else if (tabLev2.equals("development")) {%>
 		<td class="<%=tabLev3.equals("results")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=TCO04Results&ph=113" class="subNavLink">Results</a></td>
 		<%--
 		<td class="<%=tabLev3.equals("editorial")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=comp_dev_editorial" class="subNavLink">Editorial</a></td>
-		<td class="<%=tabLev3.equals("bracket")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=comp_dev_bracket" class="subNavLink">Bracket</a></td>
 		--%>
+		<td class="<%=tabLev3.equals("bracket")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=comp_dev_bracket" class="subNavLink">Bracket</a></td>
 	<% } else { %>
 		<td width="100%"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
 	<% } %>
