@@ -18,6 +18,9 @@ public class ProblemInfo implements Serializable {
     private Language language = null;
     private Problem problem = null;
     private int problemTypeId = 0;
+    private long openTime = 0;
+    private String statusDesc = null;
+    private String className = null;
 
     public ProblemInfo() {
 
@@ -71,5 +74,28 @@ public class ProblemInfo implements Serializable {
         this.problemTypeId = problemTypeId;
     }
 
+    public long getOpenTime() {
+        return openTime;
+    }
+
+    public void setOpenTime(long openTime) {
+        this.openTime = openTime;
+    }
+
+    public String getStatusDesc() {
+        return statusDesc;
+    }
+
+    public void setStatusDesc(String statusDesc) {
+        this.statusDesc = statusDesc;
+    }
+
+    public String getClassName() {
+        return className;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
+    }
 
 }

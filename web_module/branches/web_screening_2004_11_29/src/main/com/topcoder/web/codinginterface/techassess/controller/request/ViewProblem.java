@@ -48,8 +48,11 @@ public class ViewProblem extends Base {
 
             ScreeningOpenComponentResponse response = (ScreeningOpenComponentResponse)receive(5000);
 
-            setDefault(Constants.PROBLEM, new ProblemInfo(response.getCode(), componentId,
-                    response.getLanguageID().intValue(), response.getProblem(), problemTypeId));
+            ProblemInfo problem = new ProblemInfo(response.getCode(), componentId,
+                    response.getLanguageID().intValue(), response.getProblem(), problemTypeId);
+            problem.setOpenTime(response.getOpenTime());
+
+            setDefault(Constants.PROBLEM, problem);
 
             closeProcessingPage(buildProcessorRequestString(Constants.RP_VIEW_PROBLEM_RESPONSE,
                     new String[] {Constants.MESSAGE_ID, Constants.COMPONENT_ID, Constants.PROBLEM_TYPE_ID},
