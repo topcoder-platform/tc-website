@@ -202,8 +202,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
                 refRspRow = rsc.getRow(rowI);
                 Map referralItem = new HashMap();
 
-                double pct = ((double)((Integer)refRspRow.getItem("resp_count").getResultData()).intValue()) /
-                        ((double) getStudentCoderCount());
+                double pct = (((Long)refRspRow.getItem("resp_count").getResultData())).doubleValue() / ((double) getStudentCoderCount());
 
                 referralItem.put("title", refRspRow.getItem("referral_desc").toString() );
                 referralItem.put("count", refRspRow.getItem("resp_count").toString() );
@@ -223,8 +222,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
                 Map notifyItem = new HashMap();
 
                 double pct =
-                    ((double)((Integer)notifyRow.getItem("resp_count").getResultData()).intValue())
-                    / ((double) getStudentCoderCount());
+                    (((Long)notifyRow.getItem("resp_count").getResultData())).doubleValue() / ((double) getStudentCoderCount());
 
                 notifyItem.put("response", notifyRow.getItem("response").toString() );
                 notifyItem.put("percent", Double.toString(pct)+"%");
@@ -249,7 +247,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
                 ArrayList respList = (ArrayList)demoOtherMap.get(demoInfoRow.getItem("demographic_question_text").toString());
 
                 double pct =
-                    ((double)((Integer)demoInfoRow.getItem("resp_count").getResultData()).intValue())
+                    (((Long)demoInfoRow.getItem("resp_count").getResultData())).doubleValue()
                     / ((double) getStudentCoderCount());
 
                 HashMap respItem = new HashMap();
