@@ -25,7 +25,7 @@
 
 </head>
 
-<BODY>
+<body>
      <xsl:variable name='docId' select='/TC/DEVELOPMENT/documentId'/>
     <xsl:variable name='componentId' select='/TC/DEVELOPMENT/comp'/>
     <xsl:variable name='phase' select="/TC/DEVELOPMENT/phase"/>
@@ -36,35 +36,36 @@
     <xsl:call-template name="Top"/>
 <!-- Header Begins -->
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-    <tr>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#001B35">
+    <tr valign="top">
 <!-- Left Column Begins -->
-        <td width="170" bgcolor="#CCCCCC" valign="top">
+        <td width="170" bgcolor="#CCCCCC">
             <xsl:call-template name="global_left"/>
         </td>
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="6" valign="top"><img src="/i/clear.gif" width="6" height="8" alt="" border="0"/></td>
+        <td width="6"><img src="/i/clear.gif" width="6" height="8" alt="" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->  
-        <td class="bodyText" width="100%" valign="top"><img src="/i/clear.gif" width="240" height="1" vspace="5" alt="" border="0"/><br/>
-<xsl:call-template name="BodyTop">
-    <xsl:with-param name="image1">steelblue</xsl:with-param>
-    <xsl:with-param name="image">development</xsl:with-param>
-    <xsl:with-param name="title">&#160;Component Development</xsl:with-param>
-</xsl:call-template>
-                <xsl:variable name='month' select='/TC/DEVELOPMENT/month'/>
-                <xsl:variable name='day' select='/TC/DEVELOPMENT/day'/>
-                <xsl:variable name='year' select='/TC/DEVELOPMENT/year'/>                    
-            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
-                <tr>
-                    <td bgcolor="#000033" background="/i/steel_darkblue_bg.gif" valign="top" width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
-                    <td class="statText" colspan="2" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
+        <td class="bodyText" width="100%">
+            <xsl:call-template name="BodyTop">
+                <xsl:with-param name="image1">steelblue</xsl:with-param>
+                <xsl:with-param name="image">development</xsl:with-param>
+                <xsl:with-param name="title">&#160;Component Development</xsl:with-param>
+            </xsl:call-template>
+            
+            <xsl:variable name='month' select='/TC/DEVELOPMENT/month'/>
+            <xsl:variable name='day' select='/TC/DEVELOPMENT/day'/>
+            <xsl:variable name='year' select='/TC/DEVELOPMENT/year'/>                    
+          
+            <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
+                <tr valign="top">
+                    <td class="statText" width="100%"><img src="/i/clear.gif" alt="" width="240" height="10" border="0"/><br/>
                             
 <!-- Title -->
-                        <h1 class="devSubhead"><strong><xsl:value-of select="/TC/DEVELOPMENT/componentName"/>: Development</strong></h1>
+                        <h2 class="devSubhead"><strong><xsl:value-of select="/TC/DEVELOPMENT/componentName"/>: Development</strong></h2>
                                     
 <!-- Overview -->
                         <p><strong>Overview</strong><br />
@@ -170,6 +171,9 @@
                                 </a>
                                 to get information necessary to submit a solution &gt;&gt;</strong>
                             </p>
+                            
+                            <p><br /></p>
+                            
                            <p>
                                 <strong>
                                 <a class="statText">
@@ -182,25 +186,9 @@
                             </p>
                         <p><br /></p>
                     </td>
-
-                    <td valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
 
-                <tr><td colspan="4" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>     
-
-                <tr>
-                    <td valign="top" background="" bgcolor="#FFFFFF" width="11" align="right"><img src="/i/clear.gif" alt="" width="11" height="8" border="0" /></td>
-                    <td background="/i/steel_darkblue_bg.gif" valign="top" bgcolor="#000033" width="14"><img src="/i/table_mid_left2x.gif" alt="" width="14" height="8" border="0" /></td>
-                    <td background="/i/steel_darkblue_bg.gif" valign="top" bgcolor="#000033" width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
-                    <td valign="top" background="" bgcolor="#FFFFFF" width="10"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
-                </tr>  
-
-                <tr>
-                    <td valign="top" background="" width="11" align="right" bgcolor="#FFFFFF"><img src="/i/clear.gif" alt="" width="11" height="8" border="0" /></td>
-                    <td valign="top" background="" bgcolor="#FFFFFF" width="14"><img src="/i/table_btm_left2.gif" alt="" width="14" height="8" border="0" /></td>
-                    <td valign="top" background="" bgcolor="#FFFFFF" width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
-                    <td valign="top" background="" bgcolor="#FFFFFF" width="10"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
-                </tr>
+                <tr><td width="100%"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>     
             </table>
         </td>
 <!-- Center Column Ends -->
@@ -210,7 +198,7 @@
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-        <td width="244" bgcolor="#ffffff" valign="top">
+        <td width="244">
             <xsl:call-template name="public_dev_right" />        
         </td>
 <!-- Right Column Ends -->
@@ -222,7 +210,7 @@
     <xsl:call-template name="Foot" />
 <!-- Footer ends -->
 
-</BODY>
+</body>
 </html>
     </xsl:template>
 </xsl:stylesheet>

@@ -24,10 +24,10 @@
 
 </head>
 
-<BODY>
+<body>
     <xsl:call-template name="Top" />
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#001B35">
     <tr valign="top">
 <!-- Left Column Begins -->
         <td width="170" bgcolor="#CCCCCC">
@@ -53,7 +53,7 @@
                 </tr>
             </table>
                 
-            <table border="0" cellspacing="0" cellpadding="5" bgcolor="#001B35" width="100%">
+            <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
                 <tr valign="top">
                     <td class="statText"><div align="center"><h1 class="devSubhead"><strong>TopCoder Software Application Development Methodology</strong></h1></div></td>
                 </tr>
@@ -80,9 +80,7 @@
                         </table>        
                         </div></td>
                 </tr>
-            </table>
 
-            <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
                 <tr valign="top">
                     <td class="statText">
                         <p>The TopCoder Software Application Development Methodology utilizes the TopCoder Software Component Catalog and 
@@ -95,12 +93,11 @@
                     <td width="100%" background="/i/steel_darkblue_bg.gif"><a name="spec"></a>
                         <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
                             <tr valign="top">
-                                <td class="methNav" width="98%">
-                                    <span class="statText"><strong>Specification</strong></span>&#160;&#160;|&#160;&#160;<a class="methNav" href="#design">Architecture and Design</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#qa">QA</a>&#160;&#160;&#160;&#160;</td>
-                                <td class="statText" width="2%" nowrap="nowrap">
-                                    <div class="topPage"><a class="statText" href="#top">[Top of Page]</a></div></td>
+                                <td class="methNav" width="98%"><span class="statText"><strong>Specification</strong></span>&#160;&#160;|&#160;&#160;<a class="methNav" href="#design">Architecture and Design</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#qa">QA</a>&#160;&#160;&#160;&#160;</td>
+                                <td class="statText" width="2%" nowrap="nowrap"><div class="topPage"><a class="statText" href="#top">[Top of Page]</a></div></td>
                             </tr>
-                        </table></td>
+                        </table>
+                    </td>
                 </tr>
                 
                 <tr valign="top">
@@ -130,66 +127,63 @@
                     <td width="100%" background="/i/steel_darkblue_bg.gif"><a name="design"></a>
                         <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
                             <tr valign="top">
-                                <td class="methNav" width="98%">
-                                    <a class="methNav" href="#spec">Specification</a>&#160;&#160;|&#160;&#160;<span class="statText"><strong>Architecture and Design</strong></span>&#160;&#160;|&#160;&#160;<a class="methNav" href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#qa">QA</a>&#160;&#160;&#160;&#160;</td>
-                                <td class="statText" width="2%" nowrap="nowrap">
-                                    <div class="topPage"><a class="statText" href="#top">[Top of Page]</a></div></td>
+                                <td class="methNav" width="98%"><a class="methNav" href="#spec">Specification</a>&#160;&#160;|&#160;&#160;<span class="statText"><strong>Architecture and Design</strong></span>&#160;&#160;|&#160;&#160;<a class="methNav" href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#qa">QA</a>&#160;&#160;&#160;&#160;</td>
+                                <td class="statText" width="2%" nowrap="nowrap"><div class="topPage"><a class="statText" href="#top">[Top of Page]</a></div></td>
                             </tr>
-                        </table></td>
+                        </table>
+                    </td>
                 </tr>
                 
                 <tr valign="top">
                     <td class="statText">
-                   	<p><b>Architecture and Design Phase:</b>  Self-defined TopCoder Software Design teams of one or more members create and 
-                   	submit application designs to TopCoder Software.</p>
-                   	<p>
-                   	<ol>
-					<li>All eligible TopCoder members may submit completed designs for the application.</li>
-					<li>Designers must submit a completed Application Design Specification on the Specification Submission Due 
-					Date as stated in the Application Project Posting page.</li>
-					<li>Application Managers will provide functional feedback to designers via the TopCoder Software NewsGroups.</li>
-					<li>Designers must submit the following documents by the Design Submission Due Date:
-					<ul>
-					<li>Updated Application Specification Document</li>
-					<li>Updated Use Case Diagrams if required</li>
-					<li>Deployment Diagrams - Associations between application classes and components</li>
-					<li>Sequence Diagrams - Interactions between application classes and components</li>
-					<li>Persistence Diagrams - Data Definition Language (DDL), XML Schema, Document Type Definition (DTD)</li>
-					<li>Configuration Data - Explanation of configuration parameters</li>
-					<li>Static Data - Data required for the application to be used</li>
-					<li>Test Cases - Functional Test Cases that cover the public API of the application</li>
-					</ul></li>
-					<li>The Application Specification Document is expected to specify both generic components that can be mapped 
-					to the <a class="statText" href="http://software.topcoder.com/pages/c_showroom.jsp" target="_blank">TopCoder Software Component Catalog</a>, new components and component extensions necessary to implement 
-					functionality specific to the application.</li>
-					<li>An Architecture Review Board reviews and scores all design submissions. The Board will take several factors, 
-					including number of current TopCoder Software components used and new components identified into account when
-					scoring the submissions.</li>
-					<li>The Architecture Review Board selects a winning design submission and the top two entries are compensated.</li>
-					<li>If the new components are required for the application, they will be developed separately using the 
-					<a class="statText" href="index?t=development&amp;c=comp_meth">Component Development Methodology</a>.</li>
-					<li>The winning designer(s) incorporate Review Board suggestions into their design.</li>
-					<li>The Architecture Review Board performs a final review and accepts the application design.</li>
-					<li>The winning design is posted as an Application Development Project.</li>
-					</ol>
-					</p>
-            		</td>
+                        <p><b>Architecture and Design Phase:</b>  Self-defined TopCoder Software Design teams of one or more members create and 
+                        submit application designs to TopCoder Software.</p>
+
+                        <ol>
+                            <li>All eligible TopCoder members may submit completed designs for the application.</li>
+                            <li>Designers must submit a completed Application Design Specification on the Specification Submission Due 
+                            Date as stated in the Application Project Posting page.</li>
+                            <li>Application Managers will provide functional feedback to designers via the TopCoder Software NewsGroups.</li>
+                            <li>Designers must submit the following documents by the Design Submission Due Date:
+                            
+                            <ul>
+                                <li>Updated Application Specification Document</li>
+                                <li>Updated Use Case Diagrams if required</li>
+                                <li>Deployment Diagrams - Associations between application classes and components</li>
+                                <li>Sequence Diagrams - Interactions between application classes and components</li>
+                                <li>Persistence Diagrams - Data Definition Language (DDL), XML Schema, Document Type Definition (DTD)</li>
+                                <li>Configuration Data - Explanation of configuration parameters</li>
+                                <li>Static Data - Data required for the application to be used</li>
+                                <li>Test Cases - Functional Test Cases that cover the public API of the application</li>
+                            </ul></li>
+                            
+                            <li>The Application Specification Document is expected to specify both generic components that can be mapped 
+                            to the <a class="statText" href="http://software.topcoder.com/pages/c_showroom.jsp" target="_blank">TopCoder Software Component Catalog</a>, new components and component extensions necessary to implement 
+                            functionality specific to the application.</li>
+                            <li>An Architecture Review Board reviews and scores all design submissions. The Board will take several factors, 
+                             including number of current TopCoder Software components used and new components identified into account when
+                            scoring the submissions.</li>
+                            <li>The Architecture Review Board selects a winning design submission and the top two entries are compensated.</li>
+                            <li>If the new components are required for the application, they will be developed separately using the 
+                            <a class="statText" href="index?t=development&amp;c=comp_meth">Component Development Methodology</a>.</li>
+                            <li>The winning designer(s) incorporate Review Board suggestions into their design.</li>
+                            <li>The Architecture Review Board performs a final review and accepts the application design.</li>
+                            <li>The winning design is posted as an Application Development Project.</li>
+                        </ol>
+                    </td>
                 </tr>
 <!-- Design ends -->
-
-
 
 <!-- Development begins -->
                 <tr valign="top">
                     <td width="100%" background="/i/steel_darkblue_bg.gif"><a name="development"></a>
                         <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
                             <tr valign="top">
-                                <td class="methNav" width="98%">
-                                    <a class="methNav" href="#spec">Specification</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#design">Architecture and Design</a>&#160;&#160;|&#160;&#160;<span class="statText"><strong>Development and Testing</strong></span>&#160;&#160;|&#160;&#160;<a class="methNav" href="#qa">QA</a>&#160;&#160;&#160;&#160;</td>
-                                <td class="statText" width="2%" nowrap="nowrap">
-                                    <div class="topPage"><a class="statText" href="#top">[Top of Page]</a></div></td>
+                                <td class="methNav" width="98%"><a class="methNav" href="#spec">Specification</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#design">Architecture and Design</a>&#160;&#160;|&#160;&#160;<span class="statText"><strong>Development and Testing</strong></span>&#160;&#160;|&#160;&#160;<a class="methNav" href="#qa">QA</a>&#160;&#160;&#160;&#160;</td>
+                                <td class="statText" width="2%" nowrap="nowrap"><div class="topPage"><a class="statText" href="#top">[Top of Page]</a></div></td>
                             </tr>
-                        </table></td>
+                        </table>
+                    </td>
                 </tr>
                 
                 <tr valign="top">
@@ -199,7 +193,7 @@
                     are strongly encouraged to submit designs for all components.</p> 
                     <p>Self-defined TopCoder Software Development teams of one or more members integrate TopCoder Software components 
                     into application development solutions and submit them to TopCoder Software for review.</p>
-                    <p>
+
                     <ol>
                     <li>Teams submit development solutions in the same manner as design solutions.</li>  
                     <li>Although the application design is complete, not all components have completed development.  
@@ -218,7 +212,7 @@
                     <li>Scoring includes accuracy testing, negative testing, stress testing, User Interface testing and integration testing.</li>  
                     <li>Once all solutions are scored a winning solution is chosen and the runner-up development team is compensated.</li>
                     </ol>
-                    </p>  
+
                     </td>
                 </tr>
 <!-- Development ends -->
@@ -229,12 +223,11 @@
                     <td width="100%" background="/i/steel_darkblue_bg.gif"><a name="qa"></a>
                         <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
                             <tr valign="top">
-                                <td class="methNav" width="98%">
-                                    <a class="methNav" href="#spec">Specification</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#design">Architecture and Design</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;<span class="statText"><strong>QA</strong></span>&#160;&#160;&#160;&#160;</td>
-                                <td class="statText" width="2%" nowrap="nowrap">
-                                    <div class="topPage"><a class="statText" href="#top">[Top of Page]</a></div></td>
+                                <td class="methNav" width="98%"><a class="methNav" href="#spec">Specification</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#design">Architecture and Design</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;<span class="statText"><strong>QA</strong></span>&#160;&#160;&#160;&#160;</td>
+                                <td class="statText" width="2%" nowrap="nowrap"><div class="topPage"><a class="statText" href="#top">[Top of Page]</a></div></td>
                             </tr>
-                        </table></td>
+                        </table>
+                    </td>
                 </tr>
                 
                 <tr valign="top">
@@ -255,7 +248,7 @@
 
             <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
                 <tr valign="top">
-                    <td height="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0" /></td>
+                    <td height="10"><img src="/i/clear.gif" alt="" width="10" height="20" border="0" /></td>
                 </tr>    
             </table>
         </td>
@@ -278,7 +271,7 @@
         <xsl:call-template name="Foot" />
 <!-- Footer Endss -->
 
-</BODY>
+</body>
 </html>
     </xsl:template>
 </xsl:stylesheet>

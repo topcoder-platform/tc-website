@@ -9,79 +9,72 @@
   <xsl:import href="../includes/dev/public_dev_right.xsl"/>     
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
-    <HTML>
-      <HEAD>
+    <html>
+      <head>
         <xsl:call-template name="Preload"/>      
         <title>TopCoder | Development</title>
         <xsl:call-template name="CSS"/>      
         <!--<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
         <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>-->
-        <META NAME="description" CONTENT="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
-        <META NAME="keywords" CONTENT="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
-      </HEAD>
-      <BODY>
-        <xsl:call-template name="Top"/>
+        <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
+        <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
+      </head>
 
-<!-- Body Begins -->
-<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-  <TR valign="top">
-    <!-- Left Column Begins -->
-    <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
-<!-- Left Column Include Begins -->  
-    <!-- Global Seconday Nav Begins -->        
+<body>
+
+<xsl:call-template name="Top"/>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#001B35">
+    <tr valign="top">
+
+<!-- Left Column Begins -->
+    <td width="170" bgcolor="#CCCCCC">
         <xsl:call-template name="global_left"/>
-  <!-- Global Seconday Nav Ends -->      
-<!-- Left Column Include Ends -->              
-      </TD>
-  <!-- Left Column Ends -->
-  <!-- Gutter Begins -->
-    <TD WIDTH="6"><IMG SRC="/i/clear.gif" WIDTH="6" HEIGHT="8" BORDER="0"/></TD>
-    <!-- Gutter Ends -->
+        </td>
+<!-- Left Column Ends -->
 
-<!-- Body Area -->
-  <!-- Center Column Begins -->  
-    <TD CLASS="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="240" height="1" VSPACE="5" BORDER="0"/><BR/>
-<xsl:call-template name="BodyTop">
-  <xsl:with-param name="image1">steelblue</xsl:with-param>
-  <xsl:with-param name="image">development</xsl:with-param>
-  <xsl:with-param name="title">&#160;Overview</xsl:with-param>
-</xsl:call-template>
+<!-- Gutter Begins -->
+        <td width="6"><img src="/i/clear.gif" width="6" height="8" border="0"/></td>
+<!-- Gutter Ends -->
 
+<!-- Center Column Begins -->  
+        <td class="bodyText" width="100%">
+            <xsl:call-template name="BodyTop">
+                <xsl:with-param name="image1">steelblue</xsl:with-param>
+                <xsl:with-param name="image">development</xsl:with-param>
+                <xsl:with-param name="title">&#160;Overview</xsl:with-param>
+            </xsl:call-template>
 
+            <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
+                <tr valign="top">
+                    <td class="statText" width="100%"><img src="/i/clear.gif" alt="" width="240" height="10" border="0"/><br/>
 
-
-
-
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%" HEIGHT="69%">
-  <TR>
-    <TD CLASS="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
-
-            <FORM name="frmSend" method="POST" action="/">
-              <INPUT TYPE="hidden" NAME="t" VALUE="development"/>
-              <INPUT TYPE="hidden" NAME="c" VALUE="tcs_send"/>
+            <form name="frmSend" method="POST" action="/">
+              <input type="hidden" name="t" value="development"/>
+              <input type="hidden" name="c" value="tcs_send"/>
               
-              <INPUT TYPE="hidden" NAME="comp">
+              <input type="hidden" name="comp">
                 <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/comp"/></xsl:attribute>
-              </INPUT>
-              <INPUT TYPE="hidden" NAME="phase">
+              </input>
+              <input type="hidden" name="phase">
                 <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/phase"/></xsl:attribute>
-              </INPUT>
-              <INPUT TYPE="hidden" NAME="version">
+              </input>
+              <input type="hidden" name="version">
                 <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/version"/></xsl:attribute>
-              </INPUT>
+              </input>
               
-              <INPUT TYPE="hidden" NAME="date">
+              <input type="hidden" name="date">
                 <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/date"/></xsl:attribute>
-              </INPUT>
-              <INPUT TYPE="hidden" NAME="Project">
+              </input>
+              <input type="hidden" name="Project">
                 <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/Project"/></xsl:attribute>
-              </INPUT>
-              <INPUT TYPE="hidden" NAME="handle">
+              </input>
+              <input type="hidden" name="handle">
                 <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/handle"/></xsl:attribute>
-              </INPUT>
-              <INPUT TYPE="hidden" NAME="To">
+              </input>
+              <input type="hidden" name="To">
                 <xsl:attribute name="VALUE">development@topcoder.com</xsl:attribute>
-              </INPUT>
+              </input>
               <table width="100%" cellspacing="0" cellpadding="0" border="0">
                 <tr><td><img src="/i/clear.gif" width="1" height="10" alt="" /></td></tr>
                 <tr>
@@ -91,9 +84,9 @@
                   </td>
                 </tr>
                 <tr>
-                  <TD></TD>
+                  <td></td>
                   <td align="left" valign="top" class="statText">
-                    <TEXTAREA NAME="TermDesc" ROWS="10" COLS="80" READONLY="true" CLASS="bodyText" WRAP="VIRTUAL">
+                    <textarea name="TermDesc" rows="10" cols="80" readonly="true" class="bodyText" wrap="VIRTUAL">
 ACCEPTANCE OF TERMS OF WORK
 
 By inquiring about the opportunity to design and/or develop a software application listed on this Web site, you are indicating your agreement to these Terms of Work ("Terms"). If you do not agree to these Terms, please click on "I Do Not Accept These Terms" or exit the site now.  
@@ -145,7 +138,7 @@ We may assign, novate or subcontract any or all of our rights and obligations un
 
 If you have any questions regarding these Terms, contact us at service@topcodersoftware.com.
 
-                    </TEXTAREA>
+                    </textarea>
                   </td>
                 </tr>
                 <tr><td><img src="/i/clear.gif" width="1" height="10" alt="" /></td></tr>
@@ -154,7 +147,7 @@ If you have any questions regarding these Terms, contact us at service@topcoders
                     Agree to Terms:&#160;&#160;
                   </td>
                   <td align="left" valign="top">
-                    <INPUT TYPE="checkbox" NAME="terms"/>
+                    <input type="checkbox" name="terms"/>
                   </td>
                 </tr>
                 <tr><td><img src="/i/clear.gif" width="1" height="10" alt="" /></td></tr>
@@ -163,7 +156,7 @@ If you have any questions regarding these Terms, contact us at service@topcoders
                     Comment: &#160;&#160;
                   </td>
                   <td align="left" valign="top">
-                    <TEXTAREA NAME="Comment" Rows="5" COLS="40"/>
+                    <textarea name="Comment" rows="5" cols="40"/>
                   </td>
                 </tr>
                 <tr><td><img src="/i/clear.gif" width="1" height="10" alt="" /></td></tr>
@@ -174,58 +167,47 @@ If you have any questions regarding these Terms, contact us at service@topcoders
 <!--
                      <A CLASS="statTextBig" HREF="Javascript:if(document.frmSend.terms){document.frmSend.submit();}else{alert('You must agree to the terms to apply for this project.');}">
 -->
-                     <A CLASS="statTextBig" HREF="Javascript:submitForm();">
+                     <a class="statTextBig" href="Javascript:submitForm();">
                        <b>Click here to submit &gt;&gt;</b>
-                     </A>
+                     </a>
                   </td>
                 </tr>
               </table>
               
-              <SCRIPT type="text/javascript"><![CDATA[
+              <script type="text/javascript"><![CDATA[
                 function submitForm() {
                   if (document.frmSend.terms.checked) {document.frmSend.submit();}
                   else {alert("Please read and agree to terms to apply for this project.");}
                   return;
                 }
-              ]]></SCRIPT>
-            </FORM>
+              ]]></script>
+            </form>
 
-    </TD>
-    <TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-  </TR>
-</TABLE>
+                    </td>
+                </tr>
+            </table>
+        </td>
+<!-- Center Column Ends -->
 
+<!-- Gutter -->
+        <td width="6"><img src="/i/clear.gif" width="6" height="1" border="0"/></td>
+<!-- Gutter Ends -->
 
-
-
-
-
-
-
-
-    </TD>
-  <!-- Center Column Ends -->
-<!-- Body Area Ends -->
-
-  <!-- Gutter -->
-    <TD WIDTH="6"><IMG SRC="/i/clear.gif" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->
-  <!-- Right Column Begins -->
-    <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
-<!-- Right Column Include Begins -->        
+<!-- Right Column Begins -->
+        <td width="170"><img src="/i/clear.gif" width="170" height="1" border="0"/><br/>
         <xsl:call-template name="public_dev_right"/>        
-<!-- Right Column Include Ends -->        
-        </TD>
-  <!-- Right Column Ends -->
-  <!-- Gutter -->
-    <TD WIDTH="25" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->
-  </TR>
-</TABLE>
-<!-- Body Ends -->
-        <xsl:call-template name="Foot"/>
-      </BODY>
-    </HTML>
+        </td>
+<!-- Right Column Ends -->
+
+    </tr>
+</table>
+
+<xsl:call-template name="Foot"/>
+
+</body>
+
+</html>
+
   </xsl:template>
 </xsl:stylesheet>
 
