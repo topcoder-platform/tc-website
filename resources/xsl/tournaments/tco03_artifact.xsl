@@ -17,7 +17,7 @@
 
 <xsl:call-template name="Preload"/>      
 
-<title>Intel is a proud sponsor of TopCoder Coding Competitions</title>
+<title>Artifact Software is a proud sponsor of the TopCoder Open 2003</title>
 
 <xsl:call-template name="CSS"/>      
 
@@ -67,7 +67,7 @@
                         
                         <p class="promoText">At Artifact, we've created software products and an on-line developer network to help developers better manage their resources. </p>
                         
-                        <p class="promoText">The Artifact Network&#170;  is an on-line developer network that provides developers with an open forum to exchange code and development expertise. </p>
+                        <p class="promoText">The Artifact Network%AA is an on-line developer network that provides developers with an open forum to exchange code and development expertise. </p>
                         
                         <p class="promoText">The Artifact Desktop&#170; is a free .Net application that helps the individual developer to easily find, manage and share code, and collaborate with other 
                          developers in real-time. </p>
