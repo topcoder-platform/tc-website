@@ -118,10 +118,10 @@ function submitConfirm() {
            </TR>	        
             <screen:resultSetRowIterator id="row" list="<%=profile.getTestSetAList()%>">
 	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="JavaScript:getProblemDetail('/eval/prob_detail.jsp','600','500')" CLASS="bodyText">Problem A</A></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;I</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Level 1</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Category Name</TD>		       
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="name" /></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="division_desc" /></TD>		       
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="difficulty_desc" /></TD>		       
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="category_desc" /></TD>		       
 	        </TR>
             </screen:resultSetRowIterator>
            <TR>
@@ -150,10 +150,10 @@ function submitConfirm() {
             <screen:resultSetRowIterator id="row" list="<%=profile.getTestSetBList()%>">
             <INPUT TYPE="HIDDEN" name="testSetB" value="<screen:resultSetItem row="<%=row%>" name="problem_id" />" >
 	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="problem_name" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="division_name" /></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="difficulty" /></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="category_name" /></TD>		       
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="name" /></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="division_desc" /></TD>		       
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="difficulty_desc" /></TD>		       
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="category_desc" /></TD>		       
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<A HREF="#" CLASS="bodyText" onClick="submitRemove(<screen:resultSetItem row="<%=row%>" name="problem_id" />)" >Remove</A></TD>	        
 	        </TR>	        
             </screen:resultSetRowIterator>
