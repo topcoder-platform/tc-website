@@ -91,7 +91,7 @@
 						<p><strong>Developer</strong><br />
 						Royalty Percentage - 25%</p>
 							
-						<p>Total Payment - $120.00</p>
+						<p>Total Payment - 120 $<xsl:value-of select="/TC/DEVELOPMENT/payment"/></p>
 
 <!-- Definition of Completion -->
 						<p><sup>*</sup>Completion of the project is defined as follows:</p>
