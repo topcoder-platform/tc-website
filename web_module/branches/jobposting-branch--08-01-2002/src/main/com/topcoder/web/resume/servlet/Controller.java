@@ -51,8 +51,10 @@ public class Controller
                     forwardToError(request, response, e);
                     return;
                 }
+                log.debug("about to make task: "+taskName);
                 try {
                     task = (ResumeTask) taskClass.getConstructor(new Class[]{HttpServletRequest.class}).newInstance(new Object[]{request});
+                    log.debug("about to process task: "+taskName);
                     task.process();
                 } catch (Exception e) {
                     log.error(e.getMessage());

@@ -46,7 +46,9 @@ public class ResumeUploadTask extends ResumeTask{
             context = TCContext.getInitial();
             ResumeServicesHome resumeServicesHome = (ResumeServicesHome) context.lookup(ApplicationServer.RESUME_SERVICES);
             ResumeServices resumeServices = resumeServicesHome.create();
+            System.out.println("before put");
             resumeServices.putResume(user.getUserId(),contentType, fileName, file);
+            System.out.println("after put");
         }catch(Exception e){
             throw new ResumeTaskException(e);
         }
