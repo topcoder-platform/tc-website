@@ -8,6 +8,13 @@ import java.net.URL;
 import java.io.InputStream;
 import com.topcoder.web.test.RequestDispatcherHelper;
 
+/**
+ * Helper class implementing ServletContext interface
+ * functionality - allows setting and later retrieving parameters 
+ * 	   and attributes, simulates getRequestDispatcher(String path)
+ * 
+ * @author mishagam
+ */
 public class ServletContextHelper implements ServletContext {
     public Map attributes = new HashMap();
     public Map initParameters = new HashMap();

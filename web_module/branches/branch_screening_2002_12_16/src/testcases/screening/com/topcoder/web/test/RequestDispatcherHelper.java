@@ -5,6 +5,12 @@ import javax.servlet.http.*;
 import junit.framework.Assert;
 import java.util.*;
 
+/**
+ * Helper class implementing RequestDispatcher interface
+ * fuctionality - saves forwardString for testing purposes
+ * 
+ * @author - mishagam
+ * */
 public class RequestDispatcherHelper implements RequestDispatcher {
     public String forwardString = "";
     public String resource = "";

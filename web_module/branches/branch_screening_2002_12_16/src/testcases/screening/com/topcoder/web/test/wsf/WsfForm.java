@@ -1,7 +1,7 @@
 package com.topcoder.web.test.wsf;
 
 /**
- * Class for testing for in pages in Web Site Flow testing.
+ * Class for testing form in pages in Web Site Flow testing.
  * 
  * @author Misha
  *

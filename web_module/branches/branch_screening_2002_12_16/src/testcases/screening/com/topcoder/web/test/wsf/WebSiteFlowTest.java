@@ -16,7 +16,7 @@ import org.w3c.dom.*;
 import javax.xml.parsers.*;
 
 /**
- * class for testing Web flow for screening site
+ * class for testing Web site flow for screening site
  * using data from WebSiteFlowTest.xml
  * 
  * @author Mishagam
@@ -29,10 +29,17 @@ public class WebSiteFlowTest {
 	public WebSiteFlowTest() {
 	}
 	
+	/**
+	 * tests that we can open page using url from WebSiteFlowTest.xml
+	 * 
+	 * @param - String pageName - name of page used in WebSiteFlowTest.xml
+	 * @throws - Exception
+	 * @return - boolean, true - page OK, false - test failed
+	 * */
 	public boolean testPage(String pageName) throws Exception {
 		WsfPage page = info.getPageByName(pageName);
 		WebConversation con = new WebConversation();
-		String requestUrl = (String) info.parameters.get("common_url_base");
+		String requestUrl = (String) info.parameters.get("common-url-base");
 		requestUrl += page.url;
 		WebRequest request = new GetMethodWebRequest(requestUrl);
 
@@ -42,6 +49,13 @@ public class WebSiteFlowTest {
 		return testOk;
 	}
 	
+	/**
+	 * testing if thi is correct page using page text 
+	 * and identification from WebSiteFlowTest.xml
+	 * 
+	 * @return - boolean, true - page OK, false - test failed
+	 * @throws - Exception
+	 * */	
 	boolean isCorrectPage(WsfPage page, WebResponse resp) throws IOException {
 		// testing that it is correct page using all
 		// patterns
@@ -57,6 +71,13 @@ public class WebSiteFlowTest {
 		return testOk;
 	}
 	
+	/**
+	 * tests that page links are correct using url from WebSiteFlowTest.xml
+	 * 
+	 * @param - String pageName - name of page used in WebSiteFlowTest.xml
+	 * @throws - Exception
+	 * @return - boolean, true - page OK, false - test failed
+	 * */
 	public boolean testPageLinks(String pageName) throws Exception {
 		boolean testOk = true;
 		
@@ -69,7 +90,7 @@ public class WebSiteFlowTest {
 		// preparing page
 		WsfPage page = info.getPageByName(pageName);
 		WebConversation con = new WebConversation();
-		String requestUrl = (String) info.parameters.get("common_url_base");
+		String requestUrl = (String) info.parameters.get("common-url-base");
 		requestUrl += page.url;
 		WebRequest request = new GetMethodWebRequest(requestUrl);
 		// reading page from web site
@@ -89,13 +110,20 @@ public class WebSiteFlowTest {
 		return testOk;
 	}
 	
+	/**
+	 * tests that page forms are correct using url from WebSiteFlowTest.xml
+	 * 
+	 * @param - String pageName - name of page used in WebSiteFlowTest.xml
+	 * @throws - Exception
+	 * @return - boolean, true - page OK, false - test failed
+	 * */
 	public boolean testPageForms(String pageName) throws Exception {
 		boolean testOk = true;
 		
 		// preparing page
 		WsfPage page = info.getPageByName(pageName);
 		WebConversation con = new WebConversation();
-		String requestUrl = (String) info.parameters.get("common_url_base");
+		String requestUrl = (String) info.parameters.get("common-url-base");
 		requestUrl += page.url;
 		WebRequest request = new GetMethodWebRequest(requestUrl);
 		// reading page from web site
@@ -121,10 +149,17 @@ public class WebSiteFlowTest {
 		return testOk;		
 	}
 	
+	/**
+	 * tests that we can succesfully pass path from WebSiteFlowTest.xml
+	 * 
+	 * @param - String pathName - name of path used in WebSiteFlowTest.xml
+	 * @throws - Exception
+	 * @return - boolean, true - we succesfully passed path, false - test failed
+	 * */
 	public boolean testPath(String pathName) throws Exception {
 		WsfPath path = info.getPathByName(pathName);
 		WebConversation con = new WebConversation();
-		String baseUrl = (String) info.parameters.get("common_url_base");	
+		String baseUrl = (String) info.parameters.get("common-url-base");	
 		WsfPage page;
 		WebResponse resp=null;
 		WebRequest req;
@@ -174,11 +209,16 @@ public class WebSiteFlowTest {
 		
 		return testOk;		
 	}
-
-	public void init() throws DataFormatException {
+	
+	/**
+	 * reading WebSiteFlowTest.xml
+	 * */
+	public void init() throws DataFormatException, Exception {
 		if (info == null) {
 			info = new WebSiteFlowXmlInfo();
 		}
 		info.init();
+		this.testPage("Login");
+		this.testPageForms("Login");
 	}
 }

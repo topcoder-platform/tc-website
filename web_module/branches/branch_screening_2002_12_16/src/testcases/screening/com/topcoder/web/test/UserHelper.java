@@ -3,12 +3,10 @@ package com.topcoder.web.test;
 import com.topcoder.shared.security.User;
 
 /**
+ * Helper class implementing User interface.
+ * Allows to set id, name, password
+ * 
  * @author Misha
- *
- * To change this generated comment edit the template variable "typecomment":
- * Window>Preferences>Java>Templates.
- * To enable and disable the creation of type comments go to
- * Window>Preferences>Java>Code Generation.
  */
 public class UserHelper implements User {
 	public long myId;

@@ -9,6 +9,7 @@ import com.topcoder.web.common.security.*;
 /**
  * Helper class implementing RequestProcessor interface for
  * testing MainServlet
+ * 
  * @author Mishagam
  * @date 02-Jan-2003
  */

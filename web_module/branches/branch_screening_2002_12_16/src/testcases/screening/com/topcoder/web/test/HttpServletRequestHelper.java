@@ -6,6 +6,11 @@ import java.io.*;
 import java.util.*;
 import java.security.*;
 
+/**
+ * Helper class implementing HttpServletRequest interface
+ * 
+ * @author - mishagam
+ * */
 public class HttpServletRequestHelper
 	extends ServletRequestHelper
 	implements HttpServletRequest {

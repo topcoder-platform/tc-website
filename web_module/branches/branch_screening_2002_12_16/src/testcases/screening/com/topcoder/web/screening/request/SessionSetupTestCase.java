@@ -21,6 +21,9 @@ public class SessionSetupTestCase extends TestCase {
 		super(name);
 	}
 	
+	/**
+	 * testing that we can open Session setup page
+	 **/	
 	public void testCorrectPage() {
 		WebConversation con = new WebConversation();
         WebRequest request = new GetMethodWebRequest(sessionSetupStrUrl);
@@ -39,6 +42,9 @@ public class SessionSetupTestCase extends TestCase {
         }
 	}
 	
+	/**
+	 * testing that we can get to session confirmation page
+	 * */	
 	public void testSessionConfirmation() {
 		WebConversation con = new WebConversation();
         WebRequest request = new GetMethodWebRequest(sessionSetupStrUrl);
@@ -58,7 +64,10 @@ public class SessionSetupTestCase extends TestCase {
         	fail("testCorrectPage() failed with exception " + e);
         }		
 	}
-
+	
+	/**
+	 * testing link to new test profile
+	 * */
 	public void testLinkAddNewTestProfile() {
 		WebConversation con = new WebConversation();
         WebRequest request = new GetMethodWebRequest(sessionSetupStrUrl);
@@ -79,7 +88,10 @@ public class SessionSetupTestCase extends TestCase {
         	fail("testCorrectPage() failed with exception " + e);
         }		
 	}
-
+	
+	/**
+	 * testing link to candidate setup
+	 * */
 	public void testLinkCandidateSetup() {
 		WebConversation con = new WebConversation();
         WebRequest request = new GetMethodWebRequest(sessionSetupStrUrl);

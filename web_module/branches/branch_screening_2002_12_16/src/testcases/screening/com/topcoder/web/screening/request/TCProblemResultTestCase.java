@@ -5,19 +5,21 @@ import junit.framework.TestCase;
 import com.topcoder.web.test.wsf.WebSiteFlowTest;
 
 /**
+ * Class for testing TCProblemList class using WSF
+ * 
  * @author Misha
- *
- * To change this generated comment edit the template variable "typecomment":
- * Window>Preferences>Java>Templates.
- * To enable and disable the creation of type comments go to
- * Window>Preferences>Java>Code Generation.
  */
 public class TCProblemResultTestCase extends TestCase {
-	
+    /**
+     * constructor with name for JUnit framework
+     * */	
 	public TCProblemResultTestCase(String name) {
 		super(name);
 	}
-
+	
+	/**
+	 * Testing that we can open page TCProblemResult
+	 * */
 	public void testProblemListWSF() {
 		WebSiteFlowTest wsf = new WebSiteFlowTest();
 		boolean bOk;

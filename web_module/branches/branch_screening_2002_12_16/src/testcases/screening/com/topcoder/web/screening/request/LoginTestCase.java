@@ -21,6 +21,9 @@ import org.xml.sax.*;
 import org.w3c.dom.*;
 
 /**
+ * Testing login page using combination of direct testing of Login.java
+ * using helper classes, HTTP testing using HTTP directly, 
+ * HttpUnit and WSF
  * @author Misha
  * @version 1.0
  */
@@ -30,11 +33,17 @@ public class LoginTestCase extends TestCase {
 	ServletResponse response;
 	User u;	
 	String loginStrUrl = "http://65.112.118.205/screening/screening?rp=Login&handle=&password=password&firstVisit=false";
- 
+	
+	/**
+	 * constructor for TestCase
+	 * */ 
 	public LoginTestCase(String name) {
 		super(name);
 	}
 	
+	/**
+	 * seting up helper classes and logging
+	 * */	
 	public void setUp() {
 		// initializing constnts
 		if (Constants.isInitialized() == false) {
@@ -125,6 +134,10 @@ public class LoginTestCase extends TestCase {
 		
 	}
 	
+	/**
+	 * testing login page (that we can open login page)
+	 * using HTTP connection directly
+	 * */	
 	public void testLoginOverHttp() {
 		URL url;
 		try {
@@ -149,6 +162,10 @@ public class LoginTestCase extends TestCase {
 		}
 		
 	}
+	
+	/**
+	 * testing that we can open login page using HttpUnit
+	 * */
 	public void testLoginHttpUnit() {
 		WebConversation con = new WebConversation();
         WebRequest request = new GetMethodWebRequest(loginStrUrl);
@@ -156,11 +173,18 @@ public class LoginTestCase extends TestCase {
         try {
         	WebResponse response = con.getResponse( request );
         	// checking that this is Login page
+			String pageText = response.getText();
+			assertTrue("We failed to receive login page in testLoginHttpUnit()",
+				pageText.indexOf("Candidate Evaluation Application") >= 0);
         } catch (Exception e) {
         	fail("There was exception " + e);
         }		
 	}
 	
+	/**
+	 * testing that we can open login page using
+	 * WSF framework
+	 * */
 	public void testLoginWebSiteFlow() {
 		WebSiteFlowTest wsf = new WebSiteFlowTest();
 		boolean bOk;
@@ -177,6 +201,10 @@ public class LoginTestCase extends TestCase {
 		}		
 	}
 	
+	/**
+	 * Testing what would happen if we use bad/zero handle/password
+	 * using WSF framework
+	 * */	
 	public void testLoginPathsWSF() {
 		WebSiteFlowTest wsf = new WebSiteFlowTest();
 		boolean bOk;

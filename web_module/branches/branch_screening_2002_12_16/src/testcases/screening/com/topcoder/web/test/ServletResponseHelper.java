@@ -7,6 +7,11 @@ import junit.framework.Assert;
 import java.util.*;
 //import com.mockobjects.*;
 
+/** 
+ * Helper class implementing HttpServletResponse
+ * 
+ * @author - mishagam
+ * */
 public class ServletResponseHelper implements HttpServletResponse {
 
 	private ServletOutputStream myOutputStream = new ServletOutputStreamHelper();

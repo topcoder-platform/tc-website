@@ -5,6 +5,8 @@ import junit.framework.TestCase;
 import com.topcoder.web.test.wsf.WebSiteFlowTest;
 
 /**
+ * JUnit testing of ProblemResult class over http 
+ * using WSF
  * @author Misha
  */
 public class ProblemResultTestCase extends TestCase {
@@ -13,6 +15,10 @@ public class ProblemResultTestCase extends TestCase {
 		super(name);
 	}
 
+    /**
+     * testing that we can open ProblemResult page
+     * using Web Site Flow framework
+     * */
 	public void testProblemResultWSF() {
 		WebSiteFlowTest wsf = new WebSiteFlowTest();
 		boolean bOk;

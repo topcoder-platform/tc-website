@@ -11,7 +11,13 @@ import org.xml.sax.*;
 import javax.xml.parsers.*;
 import java.io.*;
 
-
+/**
+ * Helper class implementing ServletConfig interface
+ * functionality - for testing purposes can hold parameter map and context
+ * also reads web.xml file so I can use Constants class
+ * 
+ * @author - mishagam
+ * */
 public class ServletConfigHelper implements ServletConfig {
     public HashMap parameterMap;
     public ServletContext myContext;
@@ -70,8 +76,12 @@ public class ServletConfigHelper implements ServletConfig {
 			Element el = (Element)nlParms.item(i);
 			readOneParameter(el);
 		}
-	}	
-    
+	}
+	
+	/**
+	 * reads one parameter from web.xml 
+	 * and adds it to parameterMap
+	 * */    
     void readOneParameter(Element el) {
 		NodeList nl = el.getChildNodes();
 		String pName=null;

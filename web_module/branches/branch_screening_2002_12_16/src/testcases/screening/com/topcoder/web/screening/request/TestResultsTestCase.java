@@ -21,13 +21,23 @@ import com.meterware.httpunit.*;
 import org.xml.sax.*;
 import org.w3c.dom.*;
 
+/**
+ * class for testing TestResult page over http 
+ * using WSF framework
+ * 
+ * @author MishaGam
+ * */
 public class TestResultsTestCase extends TestCase {
-
+	/** 
+	 * constructor with name for JUnit framework
+	 * */
 	public TestResultsTestCase(String name) {
 		super(name);
 	}
 	
-	
+	/**
+	 * testing that we can open TestResults page
+	 * */
 	public void testTestResultsWebSiteFlow() {
 		WebSiteFlowTest wsf = new WebSiteFlowTest();
 		boolean bOk;
@@ -42,7 +52,10 @@ public class TestResultsTestCase extends TestCase {
 			fail("test" + name + "WebSiteFlow failed with Exception " + e);
 		}		
 	}
-
+	
+	/**
+	 * testing links on testresults page
+	 * */
 	public void testTestResultsLinksWebSiteFlow() {
 		WebSiteFlowTest wsf = new WebSiteFlowTest();
 		boolean bOk;

@@ -4,8 +4,9 @@ import com.topcoder.shared.security.*;
 import com.topcoder.web.common.security.*;
 
 /**
+ * Helper class implementing WebAuthentication interface
+ * 
  * @author Misha
- *
  */
 public class AuthenticationHelper implements WebAuthentication {
 	
@@ -13,6 +14,8 @@ public class AuthenticationHelper implements WebAuthentication {
 
     /** 
      * Attempts to log in the given user.
+     * for testing purposes tests that password == username + "123"
+     * 
      * @param u User object to be authenticated.
      * @throws AuthenticationException Thrown if the login does not succeed.
      */    

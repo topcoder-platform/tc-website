@@ -10,11 +10,17 @@ import com.topcoder.web.screening.common.Constants;
 
 import com.topcoder.web.test.ServletRequestHelper;
 
+/**
+ * JUnit class for testing PopulateCandidate class
+ * */
 public class PopulateCandidateTestCase extends TestCase {
 
     private PopulateCandidate pCand;
     private ServletRequestHelper helper;
-
+    
+    /**
+     * constructor with name for TestCase
+     * */
     public PopulateCandidateTestCase(String name) {
         super(name);
     }
@@ -62,7 +68,11 @@ public class PopulateCandidateTestCase extends TestCase {
             fail(e.getMessage());
         }
     }
-
+    
+    /**
+     * testing that we can open Populate Candidate page
+     * using Web Site Flow framework
+     * */
 	public void testPopulateCandidateWSF() {
 		WebSiteFlowTest wsf = new WebSiteFlowTest();
 		boolean bOk;

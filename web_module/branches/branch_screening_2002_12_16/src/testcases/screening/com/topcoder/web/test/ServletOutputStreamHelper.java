@@ -3,6 +3,13 @@ package com.topcoder.web.test;
 import javax.servlet.ServletOutputStream;
 import java.io.*;
 
+/**
+ * helper class implementing ServletOutputStream
+ * writes to "TestOutputStream.out"
+ * used in ServletResponseHelper
+ * 
+ * @author - mishagam
+ * */
 public class ServletOutputStreamHelper extends ServletOutputStream {
 	protected FileOutputStream file;
 	public ServletOutputStreamHelper() {
