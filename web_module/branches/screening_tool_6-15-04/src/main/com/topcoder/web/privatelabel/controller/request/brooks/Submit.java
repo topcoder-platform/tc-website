@@ -296,25 +296,17 @@ public class Submit extends FullRegSubmit {
                 buf.append("\n\n");
                 buf.append("PLEASE NOTE THAT YOU MUST COMPLETE ALL PORTIONS OF THE TECHNICAL ASSESSMENT TOOL PRIOR TO THE END TIME SHOWN ABOVE.  YOU SHOULD ALLOW APPROXIMATELY 1 HOUR TO COMPLETE ALL PORTIONS OF THE TEST.\n\n");
                 buf.append("Windows, Linux and Unix users need to have the Java 1.4.x runtime installed and can access the Technical Assessment Tool here:\n");
-                buf.append("<a href='http://");
+                buf.append("http://");
                 buf.append(ApplicationServer.SERVER_NAME);
                 buf.append("/corp/testing/testingApp.jsp?company=");
                 buf.append(companyId);
-                buf.append("'>http://");
-                buf.append(ApplicationServer.SERVER_NAME);
-                buf.append("/corp/testing/testingApp.jsp?company=");
-                buf.append(companyId);
-                buf.append("</a>\n\n");
+                buf.append("\n\n");
                 buf.append("Mac OS X users need to have the Java 1.4.x runtime installed, which requires OS X version 10.2.x.  Those users may access the Technical Assessment Tool here:\n");
-                buf.append("<a href='http://");
+                buf.append("http://");
                 buf.append(ApplicationServer.SERVER_NAME);
                 buf.append("/corp/testing/testingApp.jsp?company=");
                 buf.append(companyId);
-                buf.append("'>http://");
-                buf.append(ApplicationServer.SERVER_NAME);
-                buf.append("/corp/testing/testingApp.jsp?company=");
-                buf.append(companyId);
-                buf.append("</a>\n\n");
+                buf.append("\n\n");
                 buf.append("Thank you,\n\n");             
                 buf.append("Brooks Automation Private Limited\n");
                 buf.append("Chennai, India");
@@ -393,6 +385,8 @@ public class Submit extends FullRegSubmit {
         Date ret = new Date(d.getTime());
         
         //bring to GMT
+        log.info("EST: " + TimeZone.getTimeZone("EST").getOffset(1,  1900 + ret.getYear(), ret.getMonth(), ret.getDate(), ret.getDay(), 0));
+        log.info("IST: " + TimeZone.getTimeZone("IST").getOffset(1,  1900 + ret.getYear(), ret.getMonth(), ret.getDate(), ret.getDay(), 0));
         ret = new Date( ret.getTime() + TimeZone.getTimeZone("EST").getOffset(1,  1900 + ret.getYear(), ret.getMonth(), ret.getDate(), ret.getDay(), 0));
         ret = new Date( ret.getTime() + TimeZone.getTimeZone("IST").getOffset(1,  1900 + ret.getYear(), ret.getMonth(), ret.getDate(), ret.getDay(), 0));
         
