@@ -22,7 +22,7 @@ public class HttpServletRequestHelper
 	 * Returns the portion of the request URI that indicates the context of the request.
 	 * */
 	public String getContextPath() {
-		return null;
+		return "";
 	}
 
 	/**
@@ -42,7 +42,7 @@ public class HttpServletRequestHelper
 	 * Returns the value of the specified request header as a String.
 	 * */
 	public String getHeader(String name) {
-		return null;
+		return "";
 	}
 
 	/**

@@ -13,9 +13,12 @@ public class ServletConfigHelper implements ServletConfig {
     public ServletConfigHelper() {
         parameterMap = new HashMap();
         // myContext = 
+        parameterMap.put("error_page","/errorPage.jsp");
+        parameterMap.put("request_processor_parameter","rp");
+        parameterMap.put("valid_char_list","abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_");
+        parameterMap.put("processors_package","com.topcoder.web.screening.request");
     }
-    
-    /**
+     /**
      * Returns a String containing the value of the named initialization 
      * parameter, or null if the parameter does not exist.  
      */
