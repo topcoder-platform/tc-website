@@ -510,8 +510,11 @@ public final class TaskDevelopment {
                     mail.setBody(msgText.toString());
                     EmailEngine.send(mail);
 
-
-                    if (rating <= 0)
+                    if(comp.length() > 0){
+                         
+                        xsldocURLString = XSL_DIR + "inquiry_app.xsl";
+                    }
+                    else if (rating <= 0)
                         xsldocURLString = XSL_DIR + "inquiry_sent_neg.xsl";
                     else{
 
