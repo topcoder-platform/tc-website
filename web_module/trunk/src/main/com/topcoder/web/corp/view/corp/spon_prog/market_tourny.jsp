@@ -70,7 +70,7 @@
                             <li>TopCoder provides flexible competition platforms such as algorithm, software component 
                             design, and software component development.</li>
                             
-                            <li>TopCoder's global member base of over 40,000 developers generates significant word-of-mouth 
+                            <li>TopCoder's global member base of developers generates significant word-of-mouth 
                             momentum as registration spikes around the tournaments.  Over 30% of new members sign on due 
                             to referral from a TopCoder member.</li>
                         </ul>

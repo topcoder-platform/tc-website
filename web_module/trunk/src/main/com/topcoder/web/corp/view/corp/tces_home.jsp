@@ -51,7 +51,7 @@
                     <img src="/i/corp/tces_image.jpg" width="530" height="220" alt="" border="0"></div>
                       
                       <p>TopCoder has created an online venue that brings together some of the most talented developers from over 
-                      160 countries around the world.  This enterprising group of over 40,000 developers joins TopCoder to compete 
+                      160 countries around the world.  This enterprising group of developers joins TopCoder to compete 
                       against, learn from and interact with one another.  For those companies looking to hire developers, we offer 
                       a variety of employment services.  Our competition model ensures that the best candidates are separated from the rest.</p>
                       

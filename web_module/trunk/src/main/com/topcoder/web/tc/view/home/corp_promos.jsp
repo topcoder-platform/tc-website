@@ -21,7 +21,7 @@
                     <td height="42" align="center"><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/index.jsp"  target="_top"><IMG src="/i/header_software.gif" alt="Software" width="170" height="20" border="0" /></A><br/>
                         <table border="0" cellspacing="3" cellpadding="0" width="170">
                             <tr valign="top">
-                                <td class="promoCorp"><strong>Over 40,000 developers are competing to build your next application.</strong> Learn how TopCoder delivers 
+                                <td class="promoCorp"><strong>Some of the best developers in the world are competing to build your next application.</strong> Learn how TopCoder delivers 
                                 high-quality <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/index.jsp"  target="_top">software</A> at a lower cost than the competition.</td>
                             </tr>
                         </table>
