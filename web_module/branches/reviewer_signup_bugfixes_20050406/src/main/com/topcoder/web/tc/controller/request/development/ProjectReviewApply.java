@@ -92,6 +92,7 @@ public class ProjectReviewApply extends Base {
                             throw new NavigationException("Sorry, the project's review positions are already full.");
                         }
 
+                        /*
                         boolean primary = new Boolean(StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_FLAG))).booleanValue();
                         if (primary && rba.projectHasPrimaryReviewer(DBMS.TCS_OLTP_DATASOURCE_NAME, projectId)) {
                             throw new NavigationException("Sorry, this review position is already taken.");
@@ -103,6 +104,7 @@ public class ProjectReviewApply extends Base {
                                 throw new NavigationException("Sorry, this review position is already taken.");
                             }
                         }
+                        */
 
                         try {
                             if (catalog == Constants.JAVA_CATALOG_ID || catalog == Constants.CUSTOM_JAVA_CATALOG_ID) {

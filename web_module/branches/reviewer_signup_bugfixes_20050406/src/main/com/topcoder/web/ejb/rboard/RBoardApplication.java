@@ -26,10 +26,6 @@ public interface RBoardApplication extends EJBObject {
 
     ResultSetContainer getReviewers(String dataSource, long projectId, int phaseId) throws RemoteException;
 
-    public boolean projectHasPrimaryReviewer(String dataSource, long projectId) throws RemoteException;
-    
-    public boolean projectHasReviewType(String dataSource, long projectId, int reviewTypeId) throws RemoteException;
-    
     Timestamp getLatestReviewApplicationTimestamp(String dataSource, long userId) throws RemoteException;
 }
 

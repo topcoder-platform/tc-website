@@ -96,22 +96,6 @@ public class RBoardApplicationBean extends BaseEJB {
                 dataSource);
     }
 
-    public boolean projectHasPrimaryReviewer(String dataSource, long projectId) {
-        return selectSet("rboard_application",
-                new String[]{"user_id", "review_resp_id", "create_date"},
-                new String[]{"project_id", "primary_ind"},
-                new String[]{String.valueOf(projectId), "1"},
-                dataSource).size() > 0;
-    }
-    
-    public boolean projectHasReviewType(String dataSource, long projectId, int reviewTypeId) {
-        return selectSet("rboard_application",
-                new String[]{"user_id", "primary_ind", "create_date"},
-                new String[]{"project_id", "review_resp_id"},
-                new String[]{String.valueOf(projectId), String.valueOf(reviewTypeId)},
-                dataSource).size() > 0;
-    }
-    
     public Timestamp getLatestReviewApplicationTimestamp(String dataSource, long userId) {
         StringBuffer query = new StringBuffer(200);
         query.append("select create_date from rboard_application where user_id = ?");
