@@ -11,6 +11,11 @@ import com.topcoder.apps.review.projecttracker.UserRole;
 import com.topcoder.apps.review.projecttracker.User;
 import com.topcoder.apps.review.projecttracker.Phase;
 
+import com.topcoder.apps.review.document.DocumentManagerLocal;
+
+import com.topcoder.security.TCSubject;
+
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.jsp.JspException;
@@ -23,10 +28,10 @@ import java.util.Date;
 
 /**
  * <p>
- * Generate a URL-encoded hyperlink to the a URL according to the 
+ * Generate a URL-encoded hyperlink to the a URL according to the
  * current phase and user role, plus optional query parameters that
- * select the specified project object. If no body text provided, 
- * the project.getPhase() and project.getUserRoles() will be used 
+ * select the specified project object. If no body text provided,
+ * the project.getPhase() and project.getUserRoles() will be used
  * to generate the text.
  * </p>
  *
@@ -41,43 +46,43 @@ public class ShowDeliverableTag extends BaseTag {
      * The attribute name.
      */
     private String name = Constants.PROJECT_KEY;
-    
+
     /**
      * Name of the property to be accessed on the specified bean.
      */
     protected String property = null;
-    
+
     /**
      * The attribute link.
      */
     private boolean link = false;
-    
+
     /**
      * The attribute button.
      */
     private boolean button = false;
-    
+
     /**
      * The attribute date.
      */
     private boolean date = false;
-    
+
     /**
      * The attribute of CSS stylesheet class .
      */
     private String styleClass = null;
-    
+
     /**
      * The formater for the date.
      */
-    private DateFormatMethod dateFormatter = 
+    private DateFormatMethod dateFormatter =
         FormatMethodFactory.getDefaultDateFormatMethod(Constants.DATE_FORMAT);
-    
+
     // ------------------------------------------------------------- Properties
 
     /**
      * Return the attribute name.
-     * 
+     *
      * @return the attribute name.
      */
     public String getName() {
@@ -92,10 +97,10 @@ public class ShowDeliverableTag extends BaseTag {
     public void setName(String name) {
         this.name = name;
     }
-    
+
     /**
      * Return the attribute property.
-     * 
+     *
      * @return the attribute property.
      */
     public String getProperty() {
@@ -110,10 +115,10 @@ public class ShowDeliverableTag extends BaseTag {
     public void setProperty(String property) {
         this.property = property;
     }
-    
+
     /**
      * Return the attribute button.
-     * 
+     *
      * @return the attribute button.
      */
     public boolean getButton() {
@@ -128,10 +133,10 @@ public class ShowDeliverableTag extends BaseTag {
     public void setButton(boolean button) {
         this.button = button;
     }
-    
+
     /**
      * Return the attribute link.
-     * 
+     *
      * @return the attribute link.
      */
     public boolean getLink() {
@@ -146,10 +151,10 @@ public class ShowDeliverableTag extends BaseTag {
     public void setLink(boolean link) {
         this.link = link;
     }
-    
+
     /**
      * Return the attribute date.
-     * 
+     *
      * @return the attribute date.
      */
     public boolean getDate() {
@@ -164,10 +169,10 @@ public class ShowDeliverableTag extends BaseTag {
     public void setDate(boolean date) {
         this.date = date;
     }
-    
+
     /**
      * Return the attribute styleClass.
-     * 
+     *
      * @return the attribute styleClass.
      */
     public String getStyleClass() {
@@ -182,7 +187,7 @@ public class ShowDeliverableTag extends BaseTag {
     public void setStyleClass(String styleClass) {
         this.styleClass = styleClass;
     }
-    
+
     // --------------------------------------------------------- Public Methods
 
     /**
@@ -205,17 +210,18 @@ public class ShowDeliverableTag extends BaseTag {
 
         if (obj == null || user == null || utility == null) {
             // Nothing to output
-            return (SKIP_BODY);  
+            return (SKIP_BODY);
         } else {
             // Get the deliverables
             BusinessDelegate businessDelegate = new BusinessDelegate();
-            boolean isWinner = false;    
+            boolean isWinner = false;
             boolean isAdmin = utility.getAdmin();
             boolean isAggregator = false;
+            boolean isFinalFixAvailable = false;
             UserRole[] roles = null;
             Phase phase = null;
             long typeId;
-            
+
             // Find out the information
             if (obj instanceof Project) {
                 Project project = (Project) obj;
@@ -245,14 +251,39 @@ public class ShowDeliverableTag extends BaseTag {
                     isAggregator = true;
                 }
             }
-            
+
+            // If the project is in final fixes, it finds out whether this project has already been in final review in order
+            // to show the "final review" button
+            if (phase.getId() == Phase.ID_FINAL_FIXES) {
+                try {
+                    DocumentManagerLocal documentManager = EJBHelper.getDocumentManager();
+                    com.topcoder.apps.review.document.FinalReview finalReview = null;
+
+                    // Create a project to hold the projectId that will be used by getFinalReview
+                    Project project = new Project(projectId,0,0,0,null,null,null,null,null,null,
+                                                    roles,null,null,null,null,false,
+                                                    0,0,0,0,0,false);
+
+
+                    finalReview = documentManager.getFinalReview(project, false, new TCSubject(155846));
+
+                    // if the final review has a positive id, it's because it was retrieved from the db
+                    if (finalReview.getId() >= 0) isFinalFixAvailable = true;
+
+                } catch (Exception e) {
+                    // If a problem occurs when getting the documentManager, isFinalFixAvailable will remain false
+                }
+            }
+
+
             for (int i = 0; i < roles.length; i++) {
                 UserRole userRole = roles[i];
                 if (user.equals(userRole.getUser())) {
                     long roleId = userRole.getRole().getId();
-                    String[] deliverables = businessDelegate.getDeliverable(phase, roleId, isWinner, isAdmin, 
-                                                                            button || link, utility.getNotice() == null, 
-                                                                            typeId, isAggregator, utility.getSubmitted());
+                    String[] deliverables = businessDelegate.getDeliverable(phase, roleId, isWinner, isAdmin,
+                                                                            button || link, utility.getNotice() == null,
+                                                                            typeId, isAggregator, utility.getSubmitted(),
+                                                                            isFinalFixAvailable);
                     if (deliverables != null) {
                         for (int j = 0; j < deliverables.length; j += 2) {
                             texts.add(deliverables[j]);
@@ -263,9 +294,10 @@ public class ShowDeliverableTag extends BaseTag {
             }
 
             if (isAdmin && texts.size() == 0) {
-                String[] deliverables = 
-                    businessDelegate.getDeliverable(phase, 0, isWinner, isAdmin, button || link, 
-                                                    utility.getNotice() == null, typeId, isAggregator, false);
+                String[] deliverables =
+                    businessDelegate.getDeliverable(phase, 0, isWinner, isAdmin, button || link,
+                                                    utility.getNotice() == null, typeId, isAggregator, false,
+                                                    isFinalFixAvailable);
                 if (deliverables != null) {
                     for (int j = 0; j < deliverables.length; j += 2) {
                         texts.add(deliverables[j]);
@@ -274,11 +306,11 @@ public class ShowDeliverableTag extends BaseTag {
                 }
             }
         }
-        
+
         if (pages.size() == 0) {
             return (SKIP_BODY);  // Nothing to output
         }
-        
+
         for (int i = 0; i < pages.size(); i++) {
             // Generate the URL
             StringBuffer url = new StringBuffer(request.getContextPath());
@@ -290,7 +322,7 @@ public class ShowDeliverableTag extends BaseTag {
             }
             url.append(Constants.ID_KEY + "=");
             url.append(projectId);
-            
+
             if (link) {
                 // Generate the hyperlink element
                 result.append("<a href=\"");
@@ -323,10 +355,10 @@ public class ShowDeliverableTag extends BaseTag {
                 }
             }
         }
-        
+
         // Print this result to our output writer, no filtered
         ResponseUtils.write(pageContext, result.toString());
-        
+
         return (SKIP_BODY);
     }
 
