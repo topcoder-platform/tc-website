@@ -81,7 +81,8 @@
                                 <td class="sidebarText">Round #1</td>
                                 <td class="sidebarText" nowrap="nowrap">
                                     Friday, October 31st<br />
-                                    START: 7:00 PM<br />
+                                    REGISTER: 5:30 PM - 6:55 PM<br />
+                                    COMPETE: 7:00 PM<br />
                                 </td>
                                 <td class="sidebarText" align="center">500</td>
                                 <td class="sidebarText" align="center">250</td>
@@ -91,7 +92,7 @@
                                 <td class="sidebarText">Round #2</td>
                                 <td class="sidebarText" nowrap="nowrap">
                                     Monday, November 3rd<br />
-                                    START: 7:00 PM<br />
+                                    COMPETE: 7:00 PM<br />
                                 </td>
                                 <td class="sidebarText" align="center">250</td>
                                 <td class="sidebarText" align="center">25</td>
@@ -101,7 +102,7 @@
                                 <td class="sidebarText">Round #3 - Championship Round</td>
                                 <td class="sidebarText" nowrap="nowrap">
                                     Friday, November 7th<br />
-                                    START: 6:00 PM<br />
+                                    COMPETE: 6:00 PM<br />
                                 </td>
                                 <td class="sidebarText" align="center">25</td>
                                 <td class="sidebarText" align="center">4 Prize  Winners</td>
