@@ -16,15 +16,9 @@ public class DBSelectionTask extends BaseTask implements Task, Serializable {
 
     private static Logger log = Logger.getLogger(DBSelectionTask.class);
 
-    private ArrayList dbList;
-
     /* Creates a new LoginTask */
     public DBSelectionTask() {
         super();
-        dbList = new ArrayList();
-        for (int i=0; i<Constants.DB_LIST.length; i++) {
-            dbList.add(new DatabaseBean(Constants.DB_LIST[i][0], Constants.DB_LIST[i][1]));
-        }
     }
 
 
@@ -62,14 +56,6 @@ public class DBSelectionTask extends BaseTask implements Task, Serializable {
     }
 
     public void setAttributes(String paramName, String paramValues[]) {
-    }
-
-    public List getDbList() {
-        return dbList;
-    }
-
-    private void setDbList(ArrayList dbList) {
-        this.dbList = dbList;
     }
 
 }

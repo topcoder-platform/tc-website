@@ -1,6 +1,7 @@
 package com.topcoder.web.query.common;
 
 import javax.servlet.ServletConfig;
+import java.util.ArrayList;
 
 /**
  * Constants for the query tool
@@ -74,8 +75,8 @@ public class Constants {
     public static String REMOVE_STEP;
 
 
-    public static String[][] DB_LIST = {{"DW", "Data Warehouse"},
-                                        {"OLTP", "Transactional"}};
+    public static ArrayList DB_LIST;
+
 
     /* hard coding these two because they are not well defined in the db
      * and are hard coded in the query runners
@@ -150,6 +151,10 @@ public class Constants {
         NEW_STEP = servletConfig.getInitParameter("new_step");
         SAVE_STEP = servletConfig.getInitParameter("save_step");
         REMOVE_STEP = servletConfig.getInitParameter("remove_step");
+
+        DB_LIST = new ArrayList();
+        DB_LIST.add(new DatabaseBean("DW", "Data Warehouse"));
+        DB_LIST.add(new DatabaseBean("OLTP", "Transactional"));
 
     }
 }
