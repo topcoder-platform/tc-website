@@ -17,6 +17,7 @@ public class Constants {
     public static String LOGIN_PAGE;
     public static String DB_SELECTION_PAGE;
     public static String COMMAND_LIST_PAGE;
+    public static String QUERY_LIST_PAGE;
     public static String COMMAND_DETAIL_PAGE;
     public static String QUERY_DETAIL_PAGE;
     public static String MODIFY_GROUP_PAGE;
@@ -94,6 +95,7 @@ public class Constants {
         LOGIN_PAGE = servletConfig.getInitParameter("login_page");
         DB_SELECTION_PAGE = servletConfig.getInitParameter("db_selection_page");
         COMMAND_LIST_PAGE = servletConfig.getInitParameter("command_list_page");
+        QUERY_LIST_PAGE = servletConfig.getInitParameter("query_list_page");
         COMMAND_DETAIL_PAGE = servletConfig.getInitParameter("command_detail_page");
         QUERY_DETAIL_PAGE = servletConfig.getInitParameter("query_detail_page");
         MODIFY_GROUP_PAGE = servletConfig.getInitParameter("modify_group_page");
@@ -103,7 +105,7 @@ public class Constants {
         MODIFY_INPUT_PAGE = servletConfig.getInitParameter("modify_input_page");
         MODIFY_COMMAND_QUERY_PAGE = servletConfig.getInitParameter("modify_command_query_page");
 
-        TASK_PARAM = servletConfig.getInitParameter("task_param");
+        TASK_PARAM = servletConfig.getInitParameter("module_key");
         STEP_PARAM = servletConfig.getInitParameter("step_param");
         HANDLE_PARAM = servletConfig.getInitParameter("handle_param");
         PASSWORD_PARAM = servletConfig.getInitParameter("password_param");
