@@ -947,19 +947,19 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
         }
 
         public float getFloatItem(int index) throws NullPointerException {
-            return ((Float)getItem(index).getResultData()).floatValue();
+            return ((Number)getItem(index).getResultData()).floatValue();
         }
 
         public float getFloatItem(String col) throws NullPointerException {
-            return ((Float)getItem(col).getResultData()).floatValue();
+            return ((Number)getItem(col).getResultData()).floatValue();
         }
 
         public double getDoubleItem(int index) throws NullPointerException {
-            return ((Double)getItem(index).getResultData()).doubleValue();
+            return ((Number)getItem(index).getResultData()).doubleValue();
         }
 
         public double getDoubleItem(String col) throws NullPointerException {
-            return ((Double)getItem(col).getResultData()).doubleValue();
+            return ((Number)getItem(col).getResultData()).doubleValue();
         }
 
         /**
