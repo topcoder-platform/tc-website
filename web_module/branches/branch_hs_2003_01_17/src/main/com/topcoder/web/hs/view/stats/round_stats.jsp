@@ -93,7 +93,7 @@ if(bSchool) {
                      <SELECT NAME="Contest" onchange="goTo(this)" CLASS="dropdown">
                        <OPTION value="#">Select round:</OPTION>
                        <logic:iterate name="resultSetDates" id="resultRow" type="ResultSetContainer.ResultSetRow">
-                         <OPTION value="?module=Statistics&c=<%=sContentHandle%><%=bSchool?"&hs="+currSchool:""%>&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>" <%= (resultRow.getItem(0).toString().equals(currRound)) ? "SELECTED" : ""%> ><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></OPTION>
+                         <OPTION value="?module=Statistics&c=<%=sContentHandle%>&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/><%=bSchool?"&hs="+currSchool:""%>" <%= (resultRow.getItem(0).toString().equals(currRound)) ? "SELECTED" : ""%> ><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></OPTION>
                        </logic:iterate>
                      </SELECT>
                      </FORM>
