@@ -411,7 +411,7 @@ public final class TaskDevelopment {
 
 
                         Context ctx = TCContext.getInitial();
-                        DataAccessInt dai = new DataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
+                        dai = new DataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
 
                         String companyName = "";
                         //coder is a professional
