@@ -212,7 +212,7 @@
                                                     <li>Development Scope Document - Describes the recommended development strategy and effort</li>
                                                 </ul>
                                             </li>
-                                            <li>TopCoder members selected for the design are phase are required to submit incremental deliverables defined by the TopCoder Product Manager.</li>
+                                            <li>TopCoder members selected for the design phase are required to submit incremental deliverables defined by the TopCoder Product Manager.</li>
                                             <li>An Architecture Review Board reviews each incremental deliverable and provides feedback to the designers after each phase of the design.</li>
                                             <li>The Application Design Specification Document is expected to specify both generic components that can be mapped
                                                 to the
@@ -326,7 +326,7 @@
                                         <ol>
                                             <li>The Development Review Board and Designer perform several iterations of QA testing and provide feedback to the developers at specified milestones of the development phase.</li>
                                             <li>The Primary Development Review Board members and Designer team up with the TopCoder Software Project Manager to perform several iterations of QA testing with the winning developers at the completion of integration.</li>
-                                            <li>Once the TopCoder Software Project Manager is satisfied that the application meets the rigorous standards of TopCoder Software the application solution is accepted and the Development Integration Team is compensated.</li>
+                                            <li>Once the TopCoder Software Project Manager is satisfied that the application meets the rigorous standards of TopCoder Software, the application solution is accepted and the Development Integration Team is compensated.</li>
                                         </ol>
 
 
