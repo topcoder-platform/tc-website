@@ -42,6 +42,9 @@ public class Login extends Base {
             } else {
                 try {
                     try {
+                        long userId = getUserId(username);
+                        if (userId < 0)
+                            throw new LoginException("Incorrect handle");
                         char status = getStatus(getUserId(username));
                         log.debug("status: " + status);
                         if (Arrays.binarySearch(Activate.ACTIVE_STATI, status)>0) {
@@ -128,7 +131,9 @@ public class Login extends Base {
         r.setContentHandle("user_id_using_handle");
         r.setProperty("ha", handle);
         ResultSetContainer rsc = (ResultSetContainer)getDataAccess().getData(r).get("user_id");
-        return rsc.getLongItem(0, "user_id");
+        if (rsc.isEmpty())
+            return -1;
+        else return rsc.getLongItem(0, "user_id");
     }
 
 }
