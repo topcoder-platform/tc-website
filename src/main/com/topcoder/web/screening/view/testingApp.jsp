@@ -110,7 +110,7 @@
                         </OBJECT></p>
                         </div>
                         
-                        <p><strong>You may minimize this browser window, but do not close it.</strong>Doing so will close the applet.</p>
+                        <p><strong>You may minimize this browser window, but do not close it.</strong> Doing so will close the applet.</p>
                     </td>
                 </tr>
             </table>
