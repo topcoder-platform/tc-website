@@ -95,8 +95,8 @@ public final class Registration extends UserEdit {
     /**
      * @see com.topcoder.web.corp.request.UserEdit#verifyFormFieldsValidity(boolean)
      */
-    protected boolean verifyFormFieldsValidity(boolean createNew) {
-        boolean valid = super.verifyFormFieldsValidity(createNew);
+    protected boolean verifyFormFieldsValidity() {
+        boolean valid = super.verifyFormFieldsValidity();
         valid &= // title name validity
         checkItemValidity(KEY_TITLE, title,
             StringUtils.ALPHABET_ALPHA_PUNCT_EN, true, 5,
@@ -104,6 +104,12 @@ public final class Registration extends UserEdit {
             "signs only"
         );
 
+        if( !(secTok.loggedAsPrimary || secTok.loggedUserID < 0) ) {
+            return valid;
+        }
+        
+        // checks below make sense only when registering new primary contact
+        // or modifying existant one    
         valid &= // company name validity (required)
         checkItemValidity(KEY_COMPANY, company,
             StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, true, 7,
@@ -156,47 +162,39 @@ public final class Registration extends UserEdit {
     /**
      * @see com.topcoder.web.corp.request.UserEdit#verifyAllowed(com.topcoder.web.corp.request.UserEdit.SecurityInfo)
      */
-    protected void verifyAllowed(SecurityInfo secToken)
+    protected void verifyAllowed()
     throws NotAuthorizedException, Exception
     {
-        if( secToken.createNew ) { // every can register primary person
-            // if there is primary person logged in then switch into edit mode
-            if( secToken.loggedAsPrimary  ) { // primary user can create
-                // switch to edit self
-                targetUserID = secToken.loggedUserID;
-                secToken.createNew = false;
-                secToken.renewTargetUser();
-            }
-            else {
-                if( secToken.loggedUserID >= 0 ) { // logged is as regular user 
-                    throw new NotAuthorizedException(
-                        "You must be logged off, in order to register as primary"
-                    );
-                } 
+        if( secTok.createNew ) { // every can register primary person
+            if( secTok.loggedUserID >= 0 ) { // user is logged in
+                // switch to editind mode
+                targetUserID = secTok.loggedUserID;
+                secTok.createNew = false;
+                secTok.renewTargetUser(); 
             }
         }
-        else { // editing of primary contact requested
-            if( secToken.loggedAsPrimary ) {
-                if( secToken.loggedUserID != targetUserID ) {
+        else { // edit request
+            if( secTok.loggedUserID < 0 ) { // user is not logged in
+                throw new NotAuthorizedException(
+                    "You must be logged on, in order to continue"
+                );
+            }
+            // well, user is logged in
+            if( secTok.loggedAsPrimary ) {
+                if( secTok.loggedUserCompanyID != secTok.targetUserCompanyID ) {
                     throw new NotAuthorizedException(
-                        "You are not allowed edit other primary persons"
+                        "You are not allowed edit foreign users"
                     );
                 }
             }
-            else {
-                if( secToken.loggedUserID >= 0 ) { // logged in as regular user
-                    throw new NotAuthorizedException(
-                        "You are not allowed to edit that user"
-                    );
-                }
-                else { // not logged in - switch to creation modee
-                    secToken.createNew = true;
-                    targetUserID = -1;
-                }
+            else { // regular user tries edit foreign user. Force to edit himself
+                targetUserID = secTok.loggedUserID;
+                secTok.renewTargetUser();
             }
         }
         return;
     }
+
 
     /**
      * Verifies that state and country codes are valid (ie. there related
@@ -273,15 +271,12 @@ public final class Registration extends UserEdit {
      *  
      * @see com.topcoder.web.corp.request.UserEdit#storeUserDataIntoDB(InitialContext, SecurityInfo)
      */
-    protected void storeUserDataIntoDB(
-        InitialContext ic,
-        SecurityInfo secToken
-    )
+    protected void storeUserDataIntoDB(InitialContext ic)
     throws NamingException, CreateException, RemoteException,
             GeneralSecurityException
     {
-        PrincipalMgrRemote mgr = secToken.man;
-        commonFieldsStore(ic, secToken.createNew);
+        PrincipalMgrRemote mgr = secTok.man;
+        commonFieldsStore(ic, secTok.createNew);
         // company item for user
         Company companyTable = (
             (CompanyHome)ic.lookup(CompanyHome.EJB_REF_NAME)
@@ -294,7 +289,7 @@ public final class Registration extends UserEdit {
         long companyID = -1;
         long contactID = -1;
 
-        if( secToken.createNew ) {
+        if( secTok.createNew ) {
             companyID = companyTable.createCompany();
             companyTable.setPrimaryContactId(companyID, targetUserID);
             contactTable.createContact(companyID, targetUserID);
@@ -303,7 +298,12 @@ public final class Registration extends UserEdit {
             companyID = contactTable.getCompanyId(targetUserID);
         }
         contactTable.setTitle(targetUserID, title);
-        companyTable.setName(companyID, company);
+        if( secTok.loggedAsPrimary || secTok.loggedUserID < 0 ) {
+            companyTable.setName(companyID, company);
+        }
+        else {
+            return;
+        }
         
         // address items for user
         UserAddress xrefUserAddr = (
@@ -315,7 +315,7 @@ public final class Registration extends UserEdit {
         ).create();
 
         long addressID = -1;
-        if( secToken.createNew ) {
+        if( secTok.createNew ) {
             addressID = addrTable.createAddress();
             xrefUserAddr.createUserAddress(targetUserID, addressID);
             addrTable.setAddressTypeId(addressID, 1); // *HARDCODED*

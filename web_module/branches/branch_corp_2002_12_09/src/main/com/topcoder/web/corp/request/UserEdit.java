@@ -61,6 +61,7 @@ public class UserEdit extends BaseProcessor {
     protected long  targetUserID = -1;
     protected String formPage;
     protected String successPage;
+    protected SecurityInfo secTok = null;
     
     public UserEdit() {
         pageInContext = true;
@@ -72,24 +73,24 @@ public class UserEdit extends BaseProcessor {
      * @see com.topcoder.web.corp.request.BaseProcessor#businessProcessing()
      */
     final void businessProcessing() throws Exception {
-        SecurityInfo secToken = new SecurityInfo(getFormFields());
+//        SecurityInfo secToken = new SecurityInfo(getFormFields());
+        secTok = new SecurityInfo(getFormFields());
         log.debug(
-            secToken.createNew ?
+            secTok.createNew ?
             "user creation intiated" :
             "user modification initiated"
         );
 
-        verifyAllowed(secToken);  
+        verifyAllowed();  
         
         InitialContext icEJB = null;
-        PrincipalMgrRemote mgr = secToken.man;
+        PrincipalMgrRemote mgr = secTok.man;
         if( ! "POST".equalsIgnoreCase(request.getMethod()) ) {
-            if( ! secToken.createNew ) {
+            if( ! secTok.createNew ) {
                 try {
-//                    secToken.targetUser = mgr.getUser(targetUserID);
                     password = mgr.getPassword(targetUserID);
                     password2 = password;
-                    userName = secToken.targetUser.getName();
+                    userName = secTok.targetUser.getName();
                     icEJB = new InitialContext(Constants.EJB_CONTEXT_ENVIRONMENT);
                     retrieveUserDataFromDB(icEJB);
                     setFormFieldsDefaults();
@@ -102,10 +103,10 @@ public class UserEdit extends BaseProcessor {
             return;
         }
         
-        if( !secToken.createNew ) {
-            userName = secToken.targetUser.getName();
+        if( !secTok.createNew ) {
+            userName = secTok.targetUser.getName();
         }
-        boolean formValid = verifyFormFieldsValidity(secToken.createNew);
+        boolean formValid = verifyFormFieldsValidity();
         if( ! formValid ) {
             setFormFieldsDefaults();
             nextPage = formPage;
@@ -120,21 +121,21 @@ public class UserEdit extends BaseProcessor {
             // transaction boundary
             tx = Util.beginTransaction();
 
-            if( secToken.createNew ) {
-                secToken.targetUser = createUserPrincipal(mgr, secToken.requestor);
-                targetUserID = secToken.targetUser.getId();
+            if( secTok.createNew ) {
+                secTok.targetUser = createUserPrincipal();
+                targetUserID = secTok.targetUser.getId();
             }
             else {
-                mgr.editPassword(secToken.targetUser, password, secToken.requestor);
+                mgr.editPassword(secTok.targetUser, password, secTok.requestor);
             }
             
             icEJB = new InitialContext(Constants.EJB_CONTEXT_ENVIRONMENT);
-            storeUserDataIntoDB(icEJB, secToken);
+            storeUserDataIntoDB(icEJB);
             
             tx.commit();
         }
         catch(Exception exc) {
-            rollbackHelper(tx, secToken);
+            rollbackHelper(tx);
             throw exc;
         }
         finally {
@@ -143,7 +144,7 @@ public class UserEdit extends BaseProcessor {
         
         // for create operations will redirect to the page specified in web.xml
         // for edit ops just return to previous page
-        if( secToken.createNew ) {
+        if( secTok.createNew ) {
             nextPage = successPage;
         }
         else {
@@ -156,25 +157,25 @@ public class UserEdit extends BaseProcessor {
      * 
      * @param ic
      */
-    protected void storeUserDataIntoDB(InitialContext ic, SecurityInfo secToken)
+    protected void storeUserDataIntoDB(InitialContext ic)
     throws NamingException, CreateException, RemoteException,
             GeneralSecurityException
     {
-        PrincipalMgrRemote mgr = secToken.man;
-        commonFieldsStore(ic, secToken.createNew);
+        PrincipalMgrRemote mgr = secTok.man;
+        commonFieldsStore(ic, secTok.createNew);
         
         // associate with company        
-        if( secToken.createNew ) {
+        if( secTok.createNew ) {
             // find company item for user
             Contact contactTable = (
                 (ContactHome)ic.lookup(ContactHome.EJB_REF_NAME)
             ).create();
             // link user with company
-            contactTable.createContact(secToken.primaryUserCompanyID, targetUserID);
+            contactTable.createContact(secTok.primaryUserCompanyID, targetUserID);
         }
         
         
-        if( targetUserID == secToken.loggedUserID ) return;
+        if( targetUserID == secTok.loggedUserID ) return;
         
         // set up additional permissions for non primary users
         Enumeration e = request.getParameterNames();
@@ -193,10 +194,10 @@ public class UserEdit extends BaseProcessor {
             boolean set = "on".equalsIgnoreCase(pValue);
             RolePrincipal role = mgr.getRole(permID);
             if( set ) {
-                mgr.assignRole(secToken.targetUser, role, secToken.requestor);
+                mgr.assignRole(secTok.targetUser, role, secTok.requestor);
             }
             else {
-                mgr.unAssignRole(secToken.targetUser, role, secToken.requestor);
+                mgr.unAssignRole(secTok.targetUser, role, secTok.requestor);
             }
         }
     } 
@@ -239,40 +240,40 @@ public class UserEdit extends BaseProcessor {
      * @throws NotAuthorizedException
      * @throws Exception
      */
-    protected void verifyAllowed(SecurityInfo secToken)
+    protected void verifyAllowed()
     throws NotAuthorizedException, Exception
     {
-        if( secToken.createNew ) { // only primary persons are allowed to do it
+        if( secTok.createNew ) { // only primary persons are allowed to do it
             // so all others get switched into editor mode
-            if( secToken.loggedUserID < 0 ) { // not logged in
+            if( secTok.loggedUserID < 0 ) { // not logged in
                 throw new NotAuthorizedException(
                     "You must be logged in, in order to create new users"
                 );
             }
             
             // user is logged in 
-            if( ! secToken.loggedAsPrimary  ) { // primary user can create
+            if( ! secTok.loggedAsPrimary  ) { // primary user can create
                 // other are still able to edit themself
                 log.debug("switched to edit mode");
-                targetUserID = secToken.loggedUserID;
-                secToken.createNew = false;
-                secToken.renewTargetUser();
+                targetUserID = secTok.loggedUserID;
+                secTok.createNew = false;
+                secTok.renewTargetUser();
             }
         }
         
-        if( ! secToken.createNew ) { // edit mode
+        if( ! secTok.createNew ) { // edit mode
             // modifications is allowed if primary edits own group members
             // or regular user edits self
-            if( secToken.loggedAsPrimary ) {
+            if( secTok.loggedAsPrimary ) {
                 // check if user belongs same company
-                if( secToken.targetUserCompanyID != secToken.loggedUserCompanyID ) {
+                if( secTok.targetUserCompanyID != secTok.loggedUserCompanyID ) {
                     throw new NotAuthorizedException(
                         "You are allowed only edit of your company persons"
                     );
                 }
             }
             else { // regular member tries to edit user
-                if( targetUserID != secToken.loggedUserID ) {
+                if( targetUserID != secTok.loggedUserID ) {
                     throw new NotAuthorizedException(
                         "You are not allowed to modify other users"
                     );
@@ -327,6 +328,8 @@ public class UserEdit extends BaseProcessor {
         if( targetUserID >= 0 ) {
             request.setAttribute(KEY_TARGET_USER_ID, ""+targetUserID);
         }
+        boolean editable = secTok.loggedAsPrimary || secTok.loggedUserID < 0;
+        request.setAttribute("ext-fields-editable", ""+editable);
     } 
 
     /**
@@ -334,11 +337,11 @@ public class UserEdit extends BaseProcessor {
      * @param createNew
      * @return boolean
      */
-    protected boolean verifyFormFieldsValidity(boolean createNew) {
+    protected boolean verifyFormFieldsValidity() {
         // passwords validity
         boolean valid = true;
 
-        if( createNew ) {
+        if( secTok.createNew ) {
             valid &= // username validity
             verifyUsernameValidity();
         }
@@ -531,36 +534,13 @@ public class UserEdit extends BaseProcessor {
         return ret;
     }
 
-//    /**
-//     * Returns company ID for a given user
-//     *
-//     * @return boolean
-//     */
-//    private static final long getCompanyID(long userID) throws Exception {
-//        InitialContext icEJB = null;
-//        try {
-//            icEJB = new InitialContext(Constants.EJB_CONTEXT_ENVIRONMENT);
-//            Contact contactTable = (
-//                (ContactHome)icEJB.lookup(ContactHome.EJB_REF_NAME)
-//            ).create();
-//            return contactTable.getCompanyId(userID);
-//        }
-//        catch(Exception ex) {
-//            throw new Exception("Error accessing DB company tables");
-//        }
-//        finally {
-//            Util.closeIC(icEJB);
-//        }
-//    }
-
-
     /**
      * Performs transaction rollback
      * 
      * @param tx
      * @param secToken
      */    
-    private final void rollbackHelper(Transaction tx, SecurityInfo secToken) {
+    private final void rollbackHelper(Transaction tx) {
         if( tx != null ) {
             log.error("rolling transaction back "+tx);
             try {
@@ -571,12 +551,12 @@ public class UserEdit extends BaseProcessor {
                 log.error("tx.roolback(): op has failed");
             }
         }
-        if( secToken.targetUser != null ) {
+        if( secTok.targetUser != null ) {
             // security user creation is performed by the remote component
             // (thus, outside of transaction scope) so we have remove it
             // by hands
             try {
-                secToken.man.removeUser(secToken.targetUser, secToken.requestor);
+                secTok.man.removeUser(secTok.targetUser, secTok.requestor);
             }
             catch(Exception ignore) {
                 ignore.printStackTrace();
@@ -597,15 +577,12 @@ public class UserEdit extends BaseProcessor {
      * @throws GeneralSecurityException
      * @throws MisconfigurationException
      */
-    private final UserPrincipal createUserPrincipal(
-        PrincipalMgrRemote mgr,
-        TCSubject requestor
-    )
+    private final UserPrincipal createUserPrincipal()
     throws RemoteException, GeneralSecurityException, MisconfigurationException
     {
         UserPrincipal securityUser = null;
-        securityUser = mgr.createUser(userName, password, requestor);
-        Iterator groups = mgr.getGroups(requestor).iterator();
+        securityUser = secTok.man.createUser(userName, password, secTok.requestor);
+        Iterator groups = secTok.man.getGroups(secTok.requestor).iterator();
         GroupPrincipal group = null;
         while(groups.hasNext()) {
             group = (GroupPrincipal)groups.next();
@@ -618,10 +595,10 @@ public class UserEdit extends BaseProcessor {
         }
         
         log.debug("including to the corporate group");
-        mgr.addUserToGroup(group, securityUser, requestor);
+        secTok.man.addUserToGroup(group, securityUser, secTok.requestor);
 
         // as requested add user to the anonymous group
-        groups = mgr.getGroups(requestor).iterator();
+        groups = secTok.man.getGroups(secTok.requestor).iterator();
         group = null;
         while(groups.hasNext()) {
             group = (GroupPrincipal)groups.next();
@@ -635,7 +612,7 @@ public class UserEdit extends BaseProcessor {
             );
         }
         log.debug("including to the anonymous group");
-        mgr.addUserToGroup(group, securityUser, requestor);
+        secTok.man.addUserToGroup(group, securityUser, secTok.requestor);
         return securityUser;
     }
 
@@ -699,77 +676,38 @@ public class UserEdit extends BaseProcessor {
         }
     }
 
-    //    /**
-    //     * Fetches entire form field set. Base fiesld are quyeried here and
-    //     * additional will be populated in supplyed by subclass method
-    //     * retrieveAdditionalFields
-    //     *
-    //     * @param userID
-    //     * @throws Exception
-    //     */
-    //    protected void retrieveUserDataFromDB(long userID) throws Exception {
-    //        PrincipalMgrRemote mgr = null;
-    //        InitialContext icEJB = null;
-    //        Transaction tx = null;
-    //        UserPrincipal securityUser = null;
-    //        boolean createNewUser = userID < 0;
-    //        try {
-    //            mgr = Util.getPrincipalManager();
-    //            securityUser = mgr.getUser(userID);
-    //            String passw = mgr.getPassword(userID);
-    //
-    //            icEJB = new InitialContext(Constants.EJB_CONTEXT_ENVIRONMENT);
-    //
-    //            // user first, last names
-    //            User userTable = (
-    //                (UserHome)icEJB.lookup(UserHome.EJB_REF_NAME)
-    //            ).create();
-    //            firstName = userTable.getFirstName(userID);
-    //            lastName = userTable.getLastName(userID);
-    //            setFormFieldDefault(KEY_LASTNAME, lastName);
-    //
-    //            // email for user
-    //            Email emailTable = (
-    //                (EmailHome)icEJB.lookup(EmailHome.EJB_REF_NAME)
-    //            ).create();
-    //            long emailID = emailTable.getPrimaryEmailId(userID);
-    //            email = emailTable.getAddress(emailID);
-    //            email2 = email;
-    //
-    //            // phone
-    //            Phone phoneTable = (
-    //                (PhoneHome)icEJB.lookup(PhoneHome.EJB_REF_NAME)
-    //            ).create();
-    //            long phoneID = phoneTable.getPrimaryPhoneId(userID);
-    //            phone = phoneTable.getNumber(phoneID);
-    //        }
-    //        finally {
-    //            Util.closeIC(icEJB);
-    //        }
-    //    }
-
+    /**
+     * 
+     * Helper class contains a set of fields with various information useful
+     * when checking edit/create related permissions
+     * 
+     * @author djFD molc@mail.ru
+     * @version 1.02
+     *
+     */
     protected class SecurityInfo {
         private Contact contactTable;
         
-        boolean loggedAsPrimary;
+        boolean loggedAsPrimary = false;
         TCSubject requestor = null;
-        long primaryUserID;
-        long loggedUserID;
+        long primaryUserID = -1;
+        long loggedUserID = -1;
         
-        long primaryUserCompanyID;
-        long targetUserCompanyID;
-        long loggedUserCompanyID;
-        UserPrincipal targetUser;
-        PrincipalMgrRemote man;
-        boolean createNew;
+        long primaryUserCompanyID = -1;
+        long targetUserCompanyID = -1;
+        long loggedUserCompanyID = -1;
+        UserPrincipal targetUser = null;
+        PrincipalMgrRemote man = null;
+        boolean createNew = false;
         
         private SecurityInfo(boolean createNew)
         throws MisconfigurationException, Exception
         {
             this.createNew = createNew;
             man = Util.getPrincipalManager();
+            
+            InitialContext icEJB = null;
             if( authToken.getActiveUser().isAnonymous() ) {
-                loggedAsPrimary = false;
                 try {
                     requestor = Util.retrieveTCSubject(Constants.CORP_PRINCIPAL);
                 }
@@ -778,15 +716,10 @@ public class UserEdit extends BaseProcessor {
                         "Can't retrieve TCSubject for corp web application"
                     );
                 }
-                primaryUserID = -1;
-                primaryUserCompanyID = -1;
-                targetUserCompanyID = -1;
-                loggedUserCompanyID = -1;
                 return;
             }
             loggedUserID = authToken.getActiveUser().getId();
             
-            InitialContext icEJB = null;
             try {
                 icEJB = new InitialContext(Constants.EJB_CONTEXT_ENVIRONMENT);
                 contactTable = (
@@ -826,11 +759,27 @@ public class UserEdit extends BaseProcessor {
         }
         
         protected void renewTargetUser()
-        throws RemoteException, NoSuchUserException, GeneralSecurityException
+        throws RemoteException, NoSuchUserException, GeneralSecurityException,
+                NamingException, CreateException
         {
             if( targetUserID >= 0 ) {
-                targetUserCompanyID = contactTable.getCompanyId(targetUserID);
                 targetUser = man.getUser(targetUserID);
+                if( contactTable == null ) {
+                    InitialContext ic = null;
+                    
+                    try {
+                        ic = new InitialContext(
+                            Constants.EJB_CONTEXT_ENVIRONMENT
+                        );
+                        contactTable = (
+                            (ContactHome)ic.lookup(ContactHome.EJB_REF_NAME)
+                        ).create();
+                    }
+                    finally { 
+                        Util.closeIC(ic);
+                    }
+                }
+                targetUserCompanyID = contactTable.getCompanyId(targetUserID);
             }
             else {
                 targetUserCompanyID = -1;

@@ -35,7 +35,8 @@
 </P><BR>
 <FORM action="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>" method="POST" name="frmPrimReg">
 <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
-
+<% boolean extFieldsEditable = Boolean.getBoolean(""+request.getAttribute("ext-fields-editable")); %>
+<% String _extFieldsEditable = ""+extFieldsEditable; %>
 <!-- FIRST NAME -->
     <TR>
         <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
@@ -81,7 +82,7 @@
     </TR>
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Company</b>&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-company-name" size="30" maxlength="50"/></TD>
+    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-company-name" editable="<%=_extFieldsEditable%>" size="30" maxlength="50"/></TD>
   </TR>
 
 <!-- ADDR LINE1 -->
@@ -93,7 +94,7 @@
     </TR>
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Work Address</b>&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-company-address-1" size="30" maxlength="50"/></TD>
+    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-company-address-1" editable="<%=_extFieldsEditable%>" size="30" maxlength="50"/></TD>
   </TR>
 
 <!-- ADDR LINE2 -->
@@ -105,7 +106,7 @@
     </TR>
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-company-address-2" size="30" maxlength="50"/></TD>
+    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-company-address-2" editable="<%=_extFieldsEditable%>" size="30" maxlength="50"/></TD>
   </TR>
 
 <!-- CITY -->
@@ -117,7 +118,7 @@
     </TR>
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>City</b>&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-company-city" size="30" maxlength="30"/></TD>
+    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-company-city" editable="<%=_extFieldsEditable%>" size="30" maxlength="30"/></TD>
   </TR>
 
 <% HashMap defaults = (HashMap)request.getAttribute(BaseTag.CONTAINER_NAME_FOR_DEFAULTS);
@@ -135,6 +136,7 @@
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>State</b>&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
     <TD COLSPAN="2" ALIGN="left" VALIGN="middle" CLASS="bodyText">
+    <% if( extFieldsEditable ) { %>
         <select name="prim-company-state">
             <option value="-1"></option>
             <tc-webtag:queryIterator command="cmd-states-list" id="resultRow">
@@ -142,6 +144,17 @@
               <option value="<%=stateCode%>"<%=selected?"selected":""%>><%=resultRow.getItem("state_name")%></option>
             </tc-webtag:queryIterator>
         </select>
+    <% }
+       else { %>
+        <tc-webtag:queryIterator command="cmd-states-list" id="resultRow">
+          <% String stateCode = resultRow.getItem("state_code").toString(); selected = stateCode.equals(defaultState);
+             if( selected ) { %>
+               <%=resultRow.getItem("state_name")%>
+          <% }
+          %>
+        </tc-webtag:queryIterator>
+    <% }
+    %>
     </TD>
   </TR>
 
@@ -154,7 +167,7 @@
   </TR>
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Zip</b>&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-company-zip" size="10" maxlength="10"/></TD>
+    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-company-zip"  editable="<%=_extFieldsEditable%>"size="10" maxlength="10"/></TD>
   </TR>
 
 <!-- COUNTRY -->
@@ -168,14 +181,25 @@
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Country</b>&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
     <TD COLSPAN="2" ALIGN="left" VALIGN="middle" CLASS="bodyText">
+    <% if( extFieldsEditable ) { %>
         <select name="prim-company-country">
             <option value="-1"></option>
-
             <tc-webtag:queryIterator command="cmd-countries-list" id="resultRow">
               <% String countryCode = resultRow.getItem("country_code").toString(); selected = countryCode.equals(defaultCountry); %>
               <option value="<%=countryCode%>"<%=selected?"selected":""%>><%=resultRow.getItem("country_name")%></option>
             </tc-webtag:queryIterator>
         </select>
+    <% }
+       else { %>
+        <tc-webtag:queryIterator command="cmd-countries-list" id="resultRow">
+          <% String countryCode = resultRow.getItem("country_code").toString(); selected = countryCode.equals(defaultCountry);
+             if( selected ) { %>
+               <%=resultRow.getItem("country_name")%>
+          <% }
+          %>
+        </tc-webtag:queryIterator>
+    <% }
+    %>
     </TD>
   </TR>
 
