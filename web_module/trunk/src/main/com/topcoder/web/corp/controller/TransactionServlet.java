@@ -622,7 +622,7 @@ public class TransactionServlet extends HttpServlet {
     private void fetchLoginPage(HttpServletRequest request,HttpServletResponse response)
             throws ServletException, IOException {
         request.setAttribute("message", "In order to continue, you must provide your user name " +
-                "and password, even if you’ve logged in already.");
+                "and password, even if you've logged in already.");
         request.setAttribute(BaseServlet.NEXT_PAGE_KEY,
                 HttpUtils.getRequestURL(request) + "?" + request.getQueryString());
         request.setAttribute(Constants.KEY_MODULE, "Login");
