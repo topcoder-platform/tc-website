@@ -116,7 +116,7 @@
                             <tr valign="top">
                               <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=cryptic"><img src="/i/es/cryptic/cryptic_logo.gif" width="120" height="63" alt="" border="0"/></a></td>
                               <td width="99%" class="bodyText">Want to be a part of creating the world's first super powered MMP experience?  
-                              Cryptic Studios is an independent developer of massive multiplayer online games for the PC and next generation consoles.  We're looking for a Quality Assurance Engineer..            
+                              Cryptic Studios is an independent developer of massive multiplayer online games for the PC and next generation consoles.  We have several open positions.            
                               <a href="/?&amp;t=tces&amp;c=cryptic" class="bodyText">Click here</a> for more information.<br/><br/></td>
                               </tr>
 
