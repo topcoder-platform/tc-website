@@ -97,7 +97,7 @@ final class UserDb {
             ps1.setString(3, password);
             regVal = ps1.executeUpdate();
             if (regVal != 1) {
-                throw new TCException("ejb.User.UserDb:insertUser():did not update security user record:\n");
+                log.error("insertUser():did not update security user record");
             }
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
@@ -186,7 +186,7 @@ final class UserDb {
                 ps1.setLong(password!=null?3:2, user.getUserId());
                 regVal = ps1.executeUpdate();
                 if (regVal != 1) {
-                    throw new TCException("ejb.User.UserDb:updateUser():did not update security user record:\n");
+                    log.error("updateUser():did not update security user record:\n");
                 }
                 user.setModified("S");
 
