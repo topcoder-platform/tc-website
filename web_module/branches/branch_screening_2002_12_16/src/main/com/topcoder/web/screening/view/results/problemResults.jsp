@@ -27,6 +27,7 @@ function getTCProblemResult(coderId, roundId, problemId) {
 <jsp:useBean id="submissionInfo" class="com.topcoder.web.screening.model.SubmissionInfo" />
 <jsp:useBean id="candidateInfo" class="com.topcoder.web.screening.model.CandidateInfo" />
 <jsp:useBean id="profileInfo" class="com.topcoder.web.screening.model.ProfileInfo" />
+<jsp:useBean id="problemInfo" class="com.topcoder.web.screening.model.ProblemInfo" />
 
 <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
 <jsp:include page="/includes/top.jsp"/>
@@ -128,7 +129,8 @@ function getTCProblemResult(coderId, roundId, problemId) {
 		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Points</B></TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Division</B></TD>		       
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Difficulty</B></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Category</B></TD>		       
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Algorithmic Categories</B></TD>		       
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Business Categories</B></TD>		       
 	        </TR>
            <TR>
               <TD COLSPAN="4"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
@@ -142,7 +144,8 @@ function getTCProblemResult(coderId, roundId, problemId) {
                        </TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=solution%>" name="division_desc" /></TD>		       
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=solution%>" name="level_desc" /></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Category Name</TD>		       	        
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<jsp:getProperty name="problemInfo" property="algorithmicCategoryList" /></TD>		       	        
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<jsp:getProperty name="problemInfo" property="businessCategoryList" /></TD>		       	        
 	        </TR>	        
            <TR>
               <TD COLSPAN="4"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>

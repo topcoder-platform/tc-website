@@ -68,6 +68,11 @@ public class ProblemResult extends BaseProcessor {
         sinfo.setTopTCSolutions(((List)dwMap.get("topProblemSolutions")).subList(0,3));
         getRequest().setAttribute("submissionInfo",sinfo);
         
+        getRequest().setAttribute("problemInfo",
+            ProblemInfo.createProblemInfo(getAuthentication().getActiveUser(),
+                Long.parseLong(getRequest().getParameter(Constants.ROUND_ID)),
+                Long.parseLong(getRequest().getParameter(Constants.PROBLEM_ID))));
+        
         setNextPage(Constants.PROBLEM_RESULT_PAGE);
         setNextPageInContext(true);
     }
