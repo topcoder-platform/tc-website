@@ -107,12 +107,12 @@ public class LoginTask extends BaseTask implements Task, Serializable {
 
     public void processStep(String step) throws Exception {
         /* variable to hold requestedURL next page  */
-        String checkNextPage = ((String)session.getAttribute("requestedURL")).trim();
+        String checkNextPage = (String)session.getAttribute("requestedURL");
 
         if (step!=null && step.equals(TCESConstants.LOGIN_TASK_STEP_AUTH)) {
 
-            if (checkNextPage != null && checkNextPage.length() > 0) {
-                setNextPage(checkNextPage);
+            if (checkNextPage != null && checkNextPage.trim().length() > 0) {
+                setNextPage(checkNextPage.trim());
                 customRedir=true;
             }
             session.setAttribute("requestedURL","");
@@ -136,8 +136,8 @@ public class LoginTask extends BaseTask implements Task, Serializable {
                 setNextPage(TCESConstants.LOGIN_PAGE);
             }
         } else if (isUserLoggedIn()) {
-            if (checkNextPage != null && checkNextPage.length() > 0) {
-                setNextPage(checkNextPage);
+            if (checkNextPage != null && checkNextPage.trim().length() > 0) {
+                setNextPage(checkNextPage.trim());
                 customRedir=true;
                 session.setAttribute("requestedURL","");
             } else {
