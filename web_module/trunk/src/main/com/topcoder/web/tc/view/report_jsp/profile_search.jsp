@@ -17,7 +17,7 @@
     ResultSetContainer demographic_questions = (ResultSetContainer)m.get("demographics_questions");
     ResultSetContainer skill_types = (ResultSetContainer)m.get("skill_types");
     ResultSetContainer states = (ResultSetContainer)m.get("state_list");
-    ResultSetContainer country = (ResultSetContainer)m.get("country_list");
+    ResultSetContainer country = (ResultSetContainer)m.get("country_list_usa");
     Map selectedMap = (Map)request.getAttribute("selected");
     Map demoMap = (Map)request.getAttribute("demoMap");
     Map skillMap = (Map)request.getAttribute("skillMap");
@@ -103,15 +103,15 @@
       <tr><td>Zipcode: <tc-webtag:textInput name="zipcode" size="5"/></td></tr>
       <tr><td>City: <tc-webtag:textInput name="city" size="15"/></td></tr>
       <tr><td>Company: <tc-webtag:textInput name="company" size="15"/></td></tr>
-      <tr><td>State: <tc-webtag:multiRSCSelect fieldValue="state_code" fieldText="state_code" name="states" multiple="true" size="5" list="<%=states%>" selected='<%=(Set)selectedMap.get("states")%>'/><a href="JavaScript:deselect('states')">Deselect</a></td></tr>
-      <tr><td>Country: <tc-webtag:multiRSCSelect fieldValue="country_code" fieldText="country_name" name="country" multiple="true" size="5" list="<%=country%>" selected='<%=(Set)selectedMap.get("country")%>'/><a href="JavaScript:deselect('country')">Deselect</a></td></tr>
-      <tr><td>Country of origin: <tc-webtag:multiRSCSelect fieldValue="country_code" fieldText="country_name" name="countryoforigin" multiple="true" size="5" list="<%=country%>" selected='<%=(Set)selectedMap.get("countryoforigin")%>'/><a href="JavaScript:deselect('countryoforigin')">Deselect</a></td></tr>
+      <tr><td>State: <tc-webtag:multiRSCSelect fieldValue="state_code" fieldText="state_code" name="states" multiple="true" size="5" useTopValue="false" list="<%=states%>" selected='<%=(Set)selectedMap.get("states")%>'/><a href="JavaScript:deselect('states')">Deselect</a></td></tr>
+      <tr><td>Country: <tc-webtag:multiRSCSelect fieldValue="country_code" fieldText="country_name" name="country" multiple="true" size="5" useTopValue="false" list="<%=country%>" selected='<%=(Set)selectedMap.get("country")%>'/><a href="JavaScript:deselect('country')">Deselect</a></td></tr>
+      <tr><td>Country of origin: <tc-webtag:multiRSCSelect fieldValue="country_code" fieldText="country_name" name="countryoforigin" multiple="true" size="5" useTopValue="false" list="<%=country%>" selected='<%=(Set)selectedMap.get("countryoforigin")%>'/><a href="JavaScript:deselect('countryoforigin')">Deselect</a></td></tr>
       <tr><td>Professional: <tc-webtag:chkBox name="pro"/>
       Student: <tc-webtag:chkBox name="stud"/></td></tr>
       <tr><td>Languages: 
         <rsc:iterator list="<%=languages%>" id="resultRow">
           <rsc:item name="language_name" row="<%=resultRow%>"/>: 
-          <tc-webtag:chkBox name="lang_<rsc:item name="language_id" row="<%=resultRow%>"/>"/>
+          <tc-webtag:chkBox name='<%="lang_"+resultRow.getIntItem("language_id")%>'/>
         </rsc:iterator>
       </td></tr>
       <tr><td>Max days since last rating: <tc-webtag:textInput name="maxdayssincerating" size="5"/></td></tr>
@@ -123,7 +123,7 @@
         <tr><td>
         <rsc:item name="demographic_question_text" row="<%=resultRow%>"/>:
         <% int questionId = resultRow.getIntItem("demographic_question_id");%>
-        <tc-webtag:listSelect name='<%="demo_"+questionId%>' size="<%=String.valueOf(Math.min(5,((List)demoMap.get(new Integer(questionId))).size()))%>" list="<%=(List)demoMap.get(new Integer(questionId))%>"/>
+        <tc-webtag:listSelect name='<%="demo_"+questionId%>' size="<%=String.valueOf(Math.min(5,((List)demoMap.get(new Integer(questionId))).size()))%>" useTopValue="false" multiple="true" list="<%=(List)demoMap.get(new Integer(questionId))%>"/>
         <a href="JavaScript:deselect('demo_<rsc:item name="demographic_question_id" row="<%=resultRow%>"/>')">Deselect</a>
         </td></tr>
       </rsc:iterator>
@@ -146,7 +146,7 @@
         <tr><td>
         <rsc:item name="skill_type_desc" row="<%=resultRow%>"/>:<br/>
         <% int skillType = resultRow.getIntItem("skill_type_id");%>
-        <tc-webtag:listSelect name="<%="skills"+skillType%>" list="<%=skillMap.get(new Integer(skillType))%>"/>
+        <tc-webtag:listSelect name='<%="skilltype"+skillType%>' useTopValue="false" multiple="true" size="10" list="<%=(List)skillMap.get(new Integer(skillType))%>"/>
         <select size=10 name="skilllevel<rsc:item name="skill_type_id" row="<%=resultRow%>"/>">
         <option>1</option>
         <option>2</option>
@@ -154,7 +154,7 @@
         <option>4</option>
         <option>5</option>
         </select>
-        <tc-webtag:listSelect name="<%="skillset"+skillType%>" multiple="true" list="<%=skillSetMap.get(new Integer(skillType))%>"/>
+        <tc-webtag:listSelect name='<%="skillset"+skillType%>' multiple="true" useTopValue="false" multiple="true" size="10" list="<%=(List)skillSetMap.get(new Integer(skillType))%>"/>
         <a href="JavaScript:itemAdd('skilltype<rsc:item name="skill_type_id" row="<%=resultRow%>"/>','skilllevel<rsc:item name="skill_type_id" row="<%=resultRow%>"/>','skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Add skill</a><br/>
         <a href="JavaScript:remove('skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Remove skills</a>
         <a href="JavaScript:clear('skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Clear</a>
