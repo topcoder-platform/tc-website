@@ -56,7 +56,7 @@
 
                                         <!-- Title -->
                                         <h1 class="devSubhead">
-                                            <strong>Admin Tool Enhancements Application: Design</strong>
+                                            <strong>Admin Tool Enhancements Application: Development</strong>
                                         </h1>
                                         <!-- Overview -->
                                         <p>
@@ -79,7 +79,7 @@
                                         <p>
                                             <strong>Project Type</strong>
                                             <br/>
-                                            Application Design Project: Provide a complete design for the Online Review
+                                            Application Development Project: Provide a completed development solution for the Admin Tool
                                             application.   Please review the TopCoder Software
                                             <a href="/?&amp;t=development&amp;c=app_meth">Application Development Methodology</a> before you submit a solution.
                                         </p>
@@ -209,7 +209,7 @@
                                         </p>
                                         <p>
                                             <strong>
-                                                <a href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Admin%20Tool%20Enhancements">Inquire for the Application Project</a> to get selected as a designer and to obtain the information necessary to submit a solution &gt;&gt;
+                                                <a href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Admin%20Tool%20Enhancements">Inquire for the Application Project</a> to get selected as a developer and to obtain the information necessary to submit a solution &gt;&gt;
                                                 <!--Inquiry is closed. -->
                                             </strong>
                                         </p>
