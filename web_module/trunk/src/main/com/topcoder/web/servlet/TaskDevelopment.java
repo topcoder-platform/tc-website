@@ -72,7 +72,7 @@ public final class TaskDevelopment {
                     EmailEngine.send(mail);
                     xsldocURLString = XSL_DIR + "inquiry_sent.xsl";
                 /********************** tcs_send *******************/
-                else if (command.equals("tcs_send")) {
+                } else if (command.equals("tcs_send")) {
                     String handle = nav.getUser().getHandle();
                     String from = nav.getUser().getEmail();
                     String project = Conversion.checkNull(request.getParameter("Project"));
