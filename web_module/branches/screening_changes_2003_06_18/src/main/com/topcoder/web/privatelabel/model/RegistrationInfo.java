@@ -16,7 +16,9 @@ public class RegistrationInfo extends Base {
     private String address1;
     private String address2;
     private String countryCode;
+    private String countryName;
     private String stateCode;
+    private String stateName;
     private String city;
     private String state;
     private String zip;
@@ -162,4 +164,22 @@ public class RegistrationInfo extends Base {
     public void setCompanyId(long companyId) {
         this.companyId = companyId;
     }
+
+    public String getCountryName() {
+        return countryName;
+    }
+
+    public void setCountryName(String countryName) {
+        this.countryName = countryName;
+    }
+
+    public String getStateName() {
+        return stateName;
+    }
+
+    public void setStateName(String stateName) {
+        this.stateName = stateName;
+    }
+
 }
+

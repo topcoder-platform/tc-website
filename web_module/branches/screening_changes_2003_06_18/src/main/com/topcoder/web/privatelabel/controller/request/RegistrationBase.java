@@ -168,7 +168,7 @@ abstract class RegistrationBase extends BaseProcessor {
     }
 
     protected String findCountry(String countryCode) throws TCWebException {
-        ResultSetContainer list = getStateList();
+        ResultSetContainer list = getCountryList();
         ResultSetContainer.ResultSetRow row = null;
         for (Iterator it = list.iterator(); it.hasNext();) {
             row = (ResultSetContainer.ResultSetRow)it.next();

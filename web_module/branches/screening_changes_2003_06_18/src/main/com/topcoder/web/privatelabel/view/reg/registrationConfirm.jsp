@@ -25,6 +25,8 @@
             <input type="hidden" name="<%=Constants.ADDRESS2%>" value="<jsp:getProperty name="registrationInfo" property="Address2"/>"/>
             <input type="hidden" name="<%=Constants.CITY%>" value="<jsp:getProperty name="registrationInfo" property="City"/>"/>
             <input type="hidden" name="<%=Constants.ZIP%>" value="<jsp:getProperty name="registrationInfo" property="Zip"/>"/>
+            <input type="hidden" name="<%=Constants.STATE_CODE%>" value="<jsp:getProperty name="registrationInfo" property="StateCode"/>"/>
+            <input type="hidden" name="<%=Constants.COUNTRY_CODE%>" value="<jsp:getProperty name="registrationInfo" property="CountryCode"/>"/>
 
             <tr>
                 <td align="right">
@@ -122,6 +124,24 @@
                 </td>
                 <td align="left">
                     <jsp:getProperty name="registrationInfo" property="Zip"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="right">
+                    State
+                </td>
+                <td align="left">
+                    <jsp:getProperty name="registrationInfo" property="StateName"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="right">
+                    Country
+                </td>
+                <td align="left">
+                    <jsp:getProperty name="registrationInfo" property="CountryName"/>
                 </td>
             </tr>
 

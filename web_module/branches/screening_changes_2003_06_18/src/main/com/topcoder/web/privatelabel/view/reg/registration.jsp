@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
-<%@ page import="com.topcoder.web.privatelabel.Constants" %>
+<%@ page import="com.topcoder.web.privatelabel.Constants,
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <jsp:usebean id="registrationInfo" class="com.topcoder.web.privatelabel.model.RegistrationInfo" scope="request" />
@@ -167,6 +168,37 @@
                     <tc-webtag:textInput name="<%=Constants.ZIP%>"  size="10" maxlength="15"/>
                 </td>
             </tr>
+
+            <tr>
+                <td colspan="2">
+                    <tc-webtag:errorIterator id="err" name="<%=Constants.STATE_CODE%>"><%=err%><br/></tc-webtag:errorIterator>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    State
+                </td>
+                <td align="left">
+                    <% ResultSetContainer stateRsc = (ResultSetContainer)request.getAttribute("stateList"); %>
+                    <tc-webtag:rscSelect name="<%=Constants.STATE_CODE%>" list="<%=stateRsc%>" fieldText="state_name" fieldValue="state_code"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <tc-webtag:errorIterator id="err" name="<%=Constants.COUNTRY_CODE%>"><%=err%><br/></tc-webtag:errorIterator>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    Country
+                </td>
+                <td align="left">
+                    <% ResultSetContainer countryRsc = (ResultSetContainer)request.getAttribute("countryList"); %>
+                    <tc-webtag:rscSelect name="<%=Constants.COUNTRY_CODE%>" list="<%=countryRsc%>" fieldText="country_name" fieldValue="country_code"/>
+                </td>
+            </tr>
+
 
             <tr>
                 <td colspan="2">
