@@ -46,13 +46,13 @@
    <jsp:param name="selectedTab" value="schedule"/>
 </jsp:include>
 
-            <h2><img src="/i/tournament/tco03/onsite_crowd.jpg" alt="" width="301" height="200" border="0" align="right" hspace="8">Come to the Onsite Finals</h2>
+            <h2><img src="/i/tournament/tco03/onsite_crowd.jpg" alt="" width="301" height="200" border="0" align="right" hspace="8">Join Us at the Onsite Finals</h2>
             
-            <p><strong>The 2003 TopCoder Open sponsored by Intel&#174; is shaping up to be the largest, most exciting TopCoder event ever. On Thursday, the 
-            Coding Semi-final rounds will take place... Friday is going to be the BIG day: Component Finals in the morning and Coding Finals in the afternoon. 
-            In-between rounds, you can experience the Mohegan Sun, a huge complex with restaurants, shops and casinos.</strong></p>
+            <p><strong>The 2003 TopCoder Open sponsored by Intel&#174; is shaping up to be the largest, most exciting TopCoder event ever. Thursday 
+            brings 12 full hours of coding and presentations, while Friday promises to thrill with the Component and Coding Finals.</strong></p>
             
-            <p>Secondary paragraph: Add more interesting text here...</p>
+            <p>Attending the onsite portion of the TCO will allow you to meet face-to-face with other TopCoder members, talk with sponsor companies about 
+            technology, products and employment, and experience the excitement of Mohegan Sun. This is one technology gathering you don't want to miss!</p>
             
             <h3>Schedule of Events</h3>
             
@@ -77,7 +77,7 @@
                 
                 <tr>
                     <td class="bodyText">10:00am - 11:45am</td>
-                    <td class="bodyText">Semifinal Round 1</td>
+                    <td class="bodyText">Semifinal Room 1</td>
                 </tr>
                 
                 <tr>
@@ -87,7 +87,7 @@
                 
                 <tr>
                     <td class="bodyText">1:00pm - 2:45pm</td>
-                    <td class="bodyText">Semifinal Round 2</td>
+                    <td class="bodyText">Semifinal Room 2</td>
                 </tr>
                 <tr>
                     <td class="bodyText">2:45pm - 3:45pm</td>
@@ -96,7 +96,7 @@
                 
                 <tr>
                     <td class="bodyText">4:00pm - 5:45pm</td>
-                    <td class="bodyText">Semifinal Round 3</td>
+                    <td class="bodyText">Semifinal Room 3</td>
                 </tr>
                 
                 <tr>
@@ -106,12 +106,12 @@
                 
                 <tr>
                     <td class="bodyText">7:00pm - 8:45pm</td>
-                    <td class="bodyText">Semifinal Round 4</td>
+                    <td class="bodyText">Semifinal Room 4</td>
                 </tr>
                 
                 <tr>
                     <td class="bodyText">8:30pm - 10:00pm</td>
-                    <td class="bodyText">NVIDIA Gathering *</td>
+                    <td class="bodyText">NVIDIA Gathering **</td>
                 </tr>
 
                 <tr>
@@ -161,9 +161,14 @@
                     <td class="bodyText">7:00pm - 9:00pm</td>
                     <td class="bodyText">Dinner and Awards Presentation *</td>
                 </tr>
+
+                <tr>
+                    <td colspan="2" class="bodyText">&nbsp;</td>
+                </tr>
                 
                 <tr>
-                    <td colspan="2" class="bodyText">* Open to competitors, competitor guests and sponsors only</td>
+                    <td colspan="2" class="smallText">* Open to competitors, their guests, and sponsors only.<br />
+                    ** Open to competitors and their guests only.</td>
                 </tr>
                 
             </table>
