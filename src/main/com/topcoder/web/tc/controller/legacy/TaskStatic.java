@@ -212,7 +212,7 @@ public final class TaskStatic {
                 dai = dai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
                 Map advMap = dai.getData(dataRequest);
                 ResultSetContainer advRsc = (ResultSetContainer) advMap.get(requestCommand);
-                ResultSetContainer contestName = (ResultSetContainer) advMap.get(requestCommand);
+                ResultSetContainer contestName = (ResultSetContainer) advMap.get("contest info");
 
                 String sortCol = request.getParameter("sc");
                 String sortDir = request.getParameter("sdir");
@@ -223,7 +223,7 @@ public final class TaskStatic {
 
 
             }
-            document.addTag(tournamentTag);
+//            document.addTag(tournamentTag);
         } catch (Exception e) {
             log.error("failed to get tco03 top 100 from db");
             e.printStackTrace();
