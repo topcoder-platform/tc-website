@@ -37,8 +37,8 @@ function openWin(url, name, w, h) {
 <!-- Logo begins -->
 <table border="0" cellspacing="0" cellpadding="0" bgcolor="#000000" width="100%">
     <tr valign="middle">
-        <td width="40%" height="50"><a href="?module=Home"><img src="/i/hs/top_tchs_logo.gif" width="168" height="36" alt="TopCoder High School" hspace="10" border="0"></a></td>
-        <td width="60%" height="50" align="right"><img src="/i/hs/top_banner2.gif" width="500" height="50" alt="" border="0"></td>
+        <td width="40%" height="50"><a href="?module=Home"><img src="/i/top_tchs_logo.gif" width="168" height="36" alt="TopCoder High School" hspace="10" border="0"></a></td>
+        <td width="60%" height="50" align="right"><img src="/i/top_banner2.gif" width="500" height="50" alt="" border="0"></td>
     </tr>
 </table>
 <!-- Logo begins -->

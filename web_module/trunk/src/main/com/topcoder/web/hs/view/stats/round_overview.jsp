@@ -84,18 +84,18 @@ pageContext.setAttribute("resultSetDates", rsc);
   </TR>
   <TR>
     <TD   COLSPAN="16">
-      <IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/><BR><A NAME="leaders"></A>
+      <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/><BR><A NAME="leaders"></A>
     </TD>
   </TR>
   <TR>
 
-    <TD VALIGN="middle" BGCOLOR="#CCCCCC" WIDTH="25%" NOWRAP HEIGHT="16" class="statText" BACKGROUND="/i/hs/blue_heading_bg.gif">&nbsp;<B>Handle</B></TD>
-<TD VALIGN="middle" BGCOLOR="#CCCCCC" WIDTH="35%" NOWRAP HEIGHT="16" class="statText" BACKGROUND="/i/hs/blue_heading_bg.gif">&nbsp;&nbsp;<B>School</B></TD>
-    <TD VALIGN="middle" ALIGN="right" BGCOLOR="#CCCCCC" WIDTH="20%" NOWRAP HEIGHT="16" class="statText" BACKGROUND="/i/hs/blue_heading_bg.gif"><B>Points&nbsp;&nbsp;</B></TD>
-  <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="20%" NOWRAP HEIGHT="16" class="statText" BACKGROUND="/i/hs/blue_heading_bg.gif">&nbsp;&nbsp;<B>Room</B></TD>
+    <TD VALIGN="middle" BGCOLOR="#CCCCCC" WIDTH="25%" NOWRAP HEIGHT="16" class="statText" BACKGROUND="/i/blue_heading_bg.gif">&nbsp;<B>Handle</B></TD>
+<TD VALIGN="middle" BGCOLOR="#CCCCCC" WIDTH="35%" NOWRAP HEIGHT="16" class="statText" BACKGROUND="/i/blue_heading_bg.gif">&nbsp;&nbsp;<B>School</B></TD>
+    <TD VALIGN="middle" ALIGN="right" BGCOLOR="#CCCCCC" WIDTH="20%" NOWRAP HEIGHT="16" class="statText" BACKGROUND="/i/blue_heading_bg.gif"><B>Points&nbsp;&nbsp;</B></TD>
+  <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="20%" NOWRAP HEIGHT="16" class="statText" BACKGROUND="/i/blue_heading_bg.gif">&nbsp;&nbsp;<B>Room</B></TD>
   </TR>
   <TR>
-    <TD   COLSPAN="16"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"></TD>
+    <TD   COLSPAN="16"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"></TD>
   </TR>
 
 
@@ -127,16 +127,16 @@ pageContext.setAttribute("resultSetDates", rsc);
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
   <TR>
     <TD   COLSPAN="16">
-      <IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/><BR><A NAME="problem_stats"></A>
+      <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/><BR><A NAME="problem_stats"></A>
     </TD>
   </TR>
   <TR>
-    <TD VALIGN="middle" BGCOLOR="#CCCCCC" BACKGROUND="/i/hs/blue_heading_bg.gif" NOWRAP WIDTH="17%" HEIGHT="15" CLASS="statText">&nbsp;<B>Problem Stats</B></TD>
-    <TD VALIGN="middle" BGCOLOR="#CCCCCC" BACKGROUND="/i/hs/blue_heading_bg.gif" NOWRAP WIDTH="25%" HEIGHT="15" CLASS="statText">&nbsp;<B>Problem Name</B></TD>
-    <TD VALIGN="middle" BGCOLOR="#CCCCCC" BACKGROUND="/i/hs/blue_heading_bg.gif" NOWRAP WIDTH="9%" HEIGHT="15" CLASS="statText" ALIGN="right">&nbsp;<B>Submissions</B></TD>
-    <TD VALIGN="middle" BGCOLOR="#CCCCCC" BACKGROUND="/i/hs/blue_heading_bg.gif" NOWRAP WIDTH="17%" HEIGHT="15" CLASS="statText" ALIGN="right">&nbsp;<B>Correct %&nbsp;&nbsp;</B></TD>
-    <TD VALIGN="middle" BGCOLOR="#CCCCCC" BACKGROUND="/i/hs/blue_heading_bg.gif" NOWRAP WIDTH="17%" HEIGHT="15" CLASS="statText" ALIGN="right"><B>Average Pts.</B></TD>
-    <TD VALIGN="middle" BGCOLOR="#CCCCCC" BACKGROUND="/i/hs/blue_heading_bg.gif" NOWRAP WIDTH="15%" HEIGHT="15" CLASS="statText" ALIGN="right"></TD>
+    <TD VALIGN="middle" BGCOLOR="#CCCCCC" BACKGROUND="/i/blue_heading_bg.gif" NOWRAP WIDTH="17%" HEIGHT="15" CLASS="statText">&nbsp;<B>Problem Stats</B></TD>
+    <TD VALIGN="middle" BGCOLOR="#CCCCCC" BACKGROUND="/i/blue_heading_bg.gif" NOWRAP WIDTH="25%" HEIGHT="15" CLASS="statText">&nbsp;<B>Problem Name</B></TD>
+    <TD VALIGN="middle" BGCOLOR="#CCCCCC" BACKGROUND="/i/blue_heading_bg.gif" NOWRAP WIDTH="9%" HEIGHT="15" CLASS="statText" ALIGN="right">&nbsp;<B>Submissions</B></TD>
+    <TD VALIGN="middle" BGCOLOR="#CCCCCC" BACKGROUND="/i/blue_heading_bg.gif" NOWRAP WIDTH="17%" HEIGHT="15" CLASS="statText" ALIGN="right">&nbsp;<B>Correct %&nbsp;&nbsp;</B></TD>
+    <TD VALIGN="middle" BGCOLOR="#CCCCCC" BACKGROUND="/i/blue_heading_bg.gif" NOWRAP WIDTH="17%" HEIGHT="15" CLASS="statText" ALIGN="right"><B>Average Pts.</B></TD>
+    <TD VALIGN="middle" BGCOLOR="#CCCCCC" BACKGROUND="/i/blue_heading_bg.gif" NOWRAP WIDTH="15%" HEIGHT="15" CLASS="statText" ALIGN="right"></TD>
   </TR>
   <%
       currentRow = percents.getRow(currentRowPtr);
@@ -167,7 +167,7 @@ pageContext.setAttribute("resultSetDates", rsc);
     }%>
 
   <TR>
-    <TD VALIGN="middle" COLSPAN="6" BGCOLOR="#CCCCCC" WIDTH="100%" NOWRAP HEIGHT="16" CLASS="registerNav"  BACKGROUND="/i/hs/blue_heading_bg.gif">&nbsp;</TD>
+    <TD VALIGN="middle" COLSPAN="6" BGCOLOR="#CCCCCC" WIDTH="100%" NOWRAP HEIGHT="16" CLASS="registerNav"  BACKGROUND="/i/blue_heading_bg.gif">&nbsp;</TD>
   </TR>
   <TR>
     <TD BGCOLOR="#1B2E5D" COLSPAN="6" ALIGN="center" CLASS="statText">
@@ -186,7 +186,7 @@ pageContext.setAttribute("resultSetDates", rsc);
 
 
 </TD>
-<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 </TR>
 </TABLE>
          <!-- END BODY -->

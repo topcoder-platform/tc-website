@@ -1,16 +1,16 @@
-            <img src="/i/hs/clear.gif" width="200" height="17" alt="" border="0"><br>
+            <img src="/i/clear.gif" width="200" height="17" alt="" border="0"><br>
 
 <!--Participate Promo Starts-->
-            <a href="?module=Static&d1=registration&d2=registration"><img src="/i/hs/left_schools2.gif" width="200" height="64" alt="" border="0"></a><br>
+            <a href="?module=Static&d1=registration&d2=registration"><img src="/i/left_schools2.gif" width="200" height="64" alt="" border="0"></a><br>
 <!--Participate Promo Ends-->
 
 <!--Sponsorship Promo Starts-->
-            <a href="?module=Static&d1=about&d2=about_sponsor"><img src="/i/hs/tchs_sidebar.gif" width="200" height="84" alt="" border="0"></a><br>
+            <a href="?module=Static&d1=about&d2=about_sponsor"><img src="/i/tchs_sidebar.gif" width="200" height="84" alt="" border="0"></a><br>
 <!--Sponsorship Promo Ends-->
 
             <table cellspacing="0" cellpadding="0" border="0" width="200">
             <tr>
-                <td><img src="/i/hs/rl_heading.gif" width="200" height="28" alt="" border="0"></td>
+                <td><img src="/i/rl_heading.gif" width="200" height="28" alt="" border="0"></td>
             </tr>
             <tr>
                 <td bgcolor="#667585">

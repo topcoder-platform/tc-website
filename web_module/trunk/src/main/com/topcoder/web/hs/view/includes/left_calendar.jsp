@@ -87,5 +87,5 @@
 <!--Small Calendar ends-->
 
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                <tr valign="baseline"><td><br><img src="/i/hs/left_bottom_elements.gif" width="170" height="116" alt="" border="0"></td></tr>
+                <tr valign="baseline"><td><br><img src="/i/left_bottom_elements.gif" width="170" height="116" alt="" border="0"></td></tr>
             </table>

@@ -16,13 +16,13 @@ if ( window.navigator.appName.indexOf("Netscape")>-1 && window.navigator.appVers
 <body onLoad="focus()" leftmargin="0" topmargin="0" marginheight="0" marginwidth="0" bgcolor="#CCCCCC">
 <table align="center" width="290" cellspacing="0" cellpadding="0" border="0">
 <tr>
-<td><img src="/i/hs/spacer.gif" width="1" height="8" border="0"></td>
+<td><img src="/i/spacer.gif" width="1" height="8" border="0"></td>
 </tr>
 <tr>
 <td class="bodyText"><font size="3"><b>Competition Arena</b></font></td>
 </tr>
 <tr>
-<td><img src="/i/hs/spacer.gif" width="1" height="12" border="0"></td>
+<td><img src="/i/spacer.gif" width="1" height="12" border="0"></td>
 </tr>
 <tr>
 <td class="bodyText">
@@ -39,7 +39,7 @@ if ( window.navigator.appName.indexOf("Netscape")>-1 && window.navigator.appVers
               </a></td>
 </tr>
 <tr>
-<td valign="top"><img src="/i/hs/spacer.gif" width="1" height="20"></td>
+<td valign="top"><img src="/i/spacer.gif" width="1" height="20"></td>
 </tr>
 <tr>
 <td class="bodyText" align="center">
