@@ -1,4 +1,7 @@
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
+<%@ page import="com.topcoder.shared.util.ApplicationServer,
+                 java.text.DecimalFormat,
+                 com.topcoder.common.web.data.Navigation,
+                 com.topcoder.web.tc.model.CoderSessionInfo"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -6,6 +9,14 @@
 <title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
 <link type="text/css" rel="stylesheet" href="/css/home.css"/>
 </head>
+
+<%
+    Navigation nav = (Navigation)request.getSession(true).getAttribute("navigation");
+    if (nav==null) nav = new Navigation(request, response);
+    request.getSession(true).setAttribute("navigation", nav);
+    CoderSessionInfo sessionInfo = nav.getSessionInfo();
+%>
+
 <body>
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
 <%-- Header --%>
@@ -13,13 +24,16 @@
 		<td colspan=7>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
 			<tr>
+                <td class=homeTopBar align=left>
+                    <span class=time>Current Member Count</span>&#160;:&#160; <%=new DecimalFormat("#,##0").format(sessionInfo.getMemberCount())%>
+                </td>
 				<td class=homeTopBar align=right><A href="/?t=about_tc&c=index" class="loginLinks">About TopCoder</A></td>
 			</tr>
 			<tr>
-				<td class=homeLogo><img src="/i/logo_r.gif" border=0 /></td>
+				<td class=homeLogo colspan=2><img src="/i/logo_r.gif" border=0 /></td>
 			</tr>
 			<tr>
-				<td class=homeRedBar>&#160;</td>
+				<td class=homeRedBar colspan=2>&#160;</td>
 			</tr>
 		</table>
 		</td>
