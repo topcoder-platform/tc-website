@@ -37,12 +37,12 @@
     <tr valign="middle">
         <td width="15" bgcolor="#000000"><a name="top"></a><img src="/i/clear.gif" width="15" height="1" border="0" /></td>
         <td width="206" bgcolor="#000000">
-<% } %>
 <% if (isHomePage) { %>
-        <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=index" target="_parent"><img src="/i/logo.gif" width="206" height="49" border="0" vspace="13" /></a></td>
+        <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=index" target="_parent"><img src="/i/logo.gif" width="206" height="49" border="0" vspace="13" /></a>
 <% } else { %>
-        <img src="/i/logo.gif" width="206" height="49" border="0" vspace="13" /></td>
+        <img src="/i/logo.gif" width="206" height="49" border="0" vspace="13" />
 <%  } %>
+        </td>
         <td width="20" bgcolor="#000000"><img src="/i/clear.gif" width="1" height="1" border="0" hspace="15" /></td>
         <td width="100%" nowrap="nowrap" align="right" bgcolor="#000000">
 <% if( activeUser.isAnonymous() ) { %>
