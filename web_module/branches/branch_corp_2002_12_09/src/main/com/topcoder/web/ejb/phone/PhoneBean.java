@@ -220,7 +220,7 @@ public class PhoneBean implements SessionBean {
 
     public void setNumber(long userId, long phoneId, String number) {
 
-        log.debug("setName called...userId: " + userId + " phoneId: " + phoneId + " number: " + number);
+        log.debug("setNumber called...userId: " + userId + " phoneId: " + phoneId + " number: " + number);
 
         Context ctx = null;
         PreparedStatement ps = null;
