@@ -1,26 +1,16 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 
-
-
-  <xsl:template name="TCOCSS">
-    <SCRIPT type="text/javascript"><![CDATA[
-if ( window.navigator.appName.indexOf("Netscape")>-1 && window.navigator.appVersion.charAt(0)=='4') {
-  document.write('<link type="text/css" rel="stylesheet" href="/css/TCOstyle_linux.css"/>');
-} else {
-  document.write('<link type="text/css" rel="stylesheet" href="/css/TCOstyle.css"/>');
-}
-    ]]></SCRIPT>
-  </xsl:template>
-
   <xsl:template name="CSS">
     <SCRIPT type="text/javascript"><![CDATA[
 if ( window.navigator.appName.indexOf("Netscape")>-1 && window.navigator.appVersion.charAt(0)=='4') {
   document.write('<link type="text/css" rel="stylesheet" href="/css/style_linux.css"/>');
   document.write('<link type="text/css" rel="stylesheet" href="/css/coders_linux.css"/>');
+  document.write('<link type="text/css" rel="stylesheet" href="/css/TCOstyle_linux.css"/>');
 } else {
   document.write('<link type="text/css" rel="stylesheet" href="/css/style.css"/>');
   document.write('<link type="text/css" rel="stylesheet" href="/css/coders.css"/>');
+  document.write('<link type="text/css" rel="stylesheet" href="/css/TCOstyle.css"/>');
 }
     ]]></SCRIPT>
   </xsl:template>
