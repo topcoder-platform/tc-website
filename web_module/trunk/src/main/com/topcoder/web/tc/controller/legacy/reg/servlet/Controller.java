@@ -232,8 +232,6 @@ public class Controller
 //                ((Navigation) navigation).makeUserSerializable();
                 Data.loadUser((Navigation)navigation);
                 User user = ((Navigation) navigation).getUser();
-Coder c= (Coder)user.getUserTypeDetails().get("Coder");
-log.debug("coder activation code: " + c.getActivationCode());
                 log.debug("loaded user " + user.getUserId());
                 if (user.getUserId() == 0) {
                     log.debug("returning a null user");
