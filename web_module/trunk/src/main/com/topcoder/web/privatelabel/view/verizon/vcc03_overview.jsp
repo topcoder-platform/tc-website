@@ -131,7 +131,7 @@
                         </ul>
 
                         <p><span class="bodySubtitle">Can Your Skills Carry You to November 7th?</span><br />
-                        Registration for the Verizon Coding Challenge opens on October 15th and closes on October 22nd, 2003.  Be sure to register early, as only the first 500 eligible individuals to
+                        Registration for the Verizon Coding Challenge opens on October 22nd and closes on October 30th, 2003.  Be sure to register early, as only the first 500 eligible individuals to
                         register will be invited to compete in Round #1 which will be held at 8:00 pm IST (GMT + 5:30) on October 31st.</p>
 
                         <p>The competitors with the top 250 scores from the first round will advance to the second round on November 3rd. The top 25 performers in the second round will be invited to
