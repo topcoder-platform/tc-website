@@ -61,6 +61,7 @@ public class ModifyQueryTask extends BaseTask implements Task, Serializable {
             checkColumnIndex(getColumnIndex());
             checkText(getText());
             checkName(getName());
+            checkQueryId(getQueryId(), q);
             if (!super.hasErrors()) {
                 if (isNewQuery()) {
                     q.createQuery(getText(), getName(), isRanking()?1:0, getColumnIndex());
@@ -95,7 +96,7 @@ public class ModifyQueryTask extends BaseTask implements Task, Serializable {
             try {
                 setQueryId(Long.parseLong(value));
             } catch (NumberFormatException e) {
-                super.addError(Constants.QUERY_ID_PARAM, e);
+                super.addError(paramName, e);
             }
         } else if (paramName.equalsIgnoreCase(Constants.QUERY_NAME_PARAM)) {
             setName(value);
@@ -105,7 +106,7 @@ public class ModifyQueryTask extends BaseTask implements Task, Serializable {
             try {
                 setColumnIndex(Integer.parseInt(value));
             } catch (NumberFormatException e) {
-                super.addError(Constants.COLUMN_INDEX_PARAM, e);
+                super.addError(paramName, e);
             }
         } else if (paramName.equalsIgnoreCase(Constants.QUERY_TEXT_PARAM)) {
             setText(value);
@@ -115,21 +116,35 @@ public class ModifyQueryTask extends BaseTask implements Task, Serializable {
 
     private void checkName(String name) {
         if (super.isEmpty(name)) {
-            super.addError(Constants.QUERY_NAME_PARAM, "Invalid Query Name");
+            super.addError(Constants.QUERY_NAME_PARAM, "You must specify a query name");
+        } else if (name.length() > 100) {
+            super.addError(Constants.QUERY_NAME_PARAM, "Invalid Query Name, too long");
         }
     }
 
     private void checkColumnIndex(int columnIndex) {
-        if (columnIndex < 0) {
-            super.addError(Constants.COLUMN_INDEX_PARAM, "Invalid Query Name");
+        if (columnIndex < 1) {
+            super.addError(Constants.COLUMN_INDEX_PARAM, "Invalid column Index, must be greater than 0");
+        } else if (columnIndex > 999) {  //somewhat arbitrary, but i think reasonable
+            super.addError(Constants.COLUMN_INDEX_PARAM, "Invalid column Index, must be less than 1000");
         }
     }
 
     private void checkText(String text) {
         if (super.isEmpty(text)) {
-            super.addError(Constants.QUERY_TEXT_PARAM, "No text specified");
+            super.addError(Constants.QUERY_TEXT_PARAM, "No query specified");
         } else if (!text.trim().toLowerCase().startsWith("select")) {
-            super.addError(Constants.QUERY_TEXT_PARAM, "Invalild query entered");
+            super.addError(Constants.QUERY_TEXT_PARAM, "Invalid query entered");
+        } else if (!(text.toLowerCase().indexOf("from") > -1)) {
+            super.addError(Constants.QUERY_TEXT_PARAM, "Invalid query entered");
+        }
+    }
+
+    private void checkQueryId(long queryId, Query q) throws Exception {
+        if (!isNewQuery()) {
+            if (q.getName(queryId)==null) {
+                super.addError(Constants.QUERY_ID_PARAM, "Invalid query id");
+            }
         }
     }
 

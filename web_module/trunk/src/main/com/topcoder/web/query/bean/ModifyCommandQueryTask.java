@@ -12,10 +12,7 @@ import com.topcoder.web.query.ejb.QueryServices.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author Greg Paul
@@ -29,6 +26,10 @@ public class ModifyCommandQueryTask extends BaseTask implements Task, Serializab
     private String db;
     private ArrayList currentQueryList;
     private ArrayList otherQueryList;
+    /**
+     * used when created a new command query relation or removing one
+     * not used for modifying an existing relation
+     */
     private long commandId;
     private long queryId;
     private String commandDesc;
@@ -77,16 +78,32 @@ public class ModifyCommandQueryTask extends BaseTask implements Task, Serializab
 
         processAttributeQueue();
 
+        checkCommandId(getCommandId(), c);
         if (step!=null && step.equals(Constants.SAVE_STEP)) {
             CommandQueryBean cqb = null;
-            for (int j=0; j<getCurrentQueryList().size(); j++) {
-                cqb = (CommandQueryBean)getCurrentQueryList().get(j);
-                cq.setSortOrder(cqb.getCommandId(), cqb.getQueryId(), cqb.getSortOrder());
+            checkSortOrder(getCurrentQueryList());
+            if (!super.hasErrors()) {
+                for (int j=0; j<getCurrentQueryList().size(); j++) {
+                    cqb = (CommandQueryBean)getCurrentQueryList().get(j);
+                    cq.setSortOrder(cqb.getCommandId(), cqb.getQueryId(), cqb.getSortOrder());
+                }
             }
         } else if (step!=null && step.equals(Constants.NEW_STEP)) {
-            cq.createCommandQuery(getCommandId(), getQueryId());
+            checkQueryIds(getCurrentQueryList(), q);
+            if (isQueryAssociated(getCommandId(), getQueryId(), cq)) {
+                super.addError(Constants.QUERY_ID_PARAM+getQueryId(), "Query already associated with command");
+            }
+            if (!super.hasErrors()) {
+                cq.createCommandQuery(getCommandId(), getQueryId());
+            }
         } else if (step!=null && step.equals(Constants.REMOVE_STEP)) {
-            cq.removeCommandQuery(getCommandId(), getQueryId());
+            checkQueryIds(getCurrentQueryList(), q);
+            if (!isQueryAssociated(getCommandId(), getQueryId(), cq)) {
+                super.addError(Constants.QUERY_ID_PARAM+getQueryId(), "Query not associated with command");
+            }
+            if (!super.hasErrors()) {
+                cq.removeCommandQuery(getCommandId(), getQueryId());
+            }
         }
         setCurrentQueryList(cq.getQueriesForCommand(getCommandId()));
         setOtherQueryList(q.getAllQueries(false));
@@ -104,13 +121,13 @@ public class ModifyCommandQueryTask extends BaseTask implements Task, Serializab
             try {
                 setCommandId(Long.parseLong(value));
             } catch (NumberFormatException e) {
-                super.addError(Constants.COMMAND_ID_PARAM, e);
+                super.addError(paramName, e);
             }
         } else if (paramName.equalsIgnoreCase(Constants.QUERY_ID_PARAM)) {
             try {
                 setQueryId(Long.parseLong(value));
             } catch (NumberFormatException e) {
-                super.addError(Constants.QUERY_ID_PARAM, e);
+                super.addError(paramName, e);
             }
         } else {
             /*
@@ -138,10 +155,72 @@ public class ModifyCommandQueryTask extends BaseTask implements Task, Serializab
                     long queryId = Long.parseLong(paramName.substring(Constants.SORT_ORDER_PARAM.length()));
                     getCommandQuery(getCurrentQueryList(), queryId).setSortOrder(Integer.parseInt(value));
                 } catch (NumberFormatException e) {
-                    super.addError(Constants.SORT_ORDER_PARAM, e);
+                    super.addError(paramName, e);
                 } catch (Exception e) {
-                    super.addError(Constants.SORT_ORDER_PARAM, e);
+                    super.addError(paramName, e);
                 }
+            }
+        }
+    }
+
+    private void checkCommandId(long commandId, Command c) throws Exception {
+        if (c.getCommandDesc(commandId)==null) {
+            super.addError(Constants.COMMAND_ID_PARAM, "Invalid Command");
+        }
+    }
+
+    private void checkQueryIds(List list, Query q) throws Exception {
+        long queryId = 0;
+        for(int i=0; i<list.size(); i++) {
+            queryId = ((CommandQueryBean)list.get(i)).getQueryId();
+            if (q.getName(queryId)==null) {
+                super.addError(Constants.QUERY_ID_PARAM+queryId, "Invalid query id");
+            }
+        }
+    }
+
+    private boolean isQueryAssociated(long commandId, long queryId, CommandQuery cq) throws Exception {
+        return cq.getSortOrder(commandId, queryId)!=0;
+    }
+
+    /**
+     * check that no two queries have the same sort order value
+     * and check that no query has a sort order of 0 or greater
+     * than 999.
+     * @param list
+     */
+    private void checkSortOrder(List list) {
+        CommandQueryBean curr = null;
+        CommandQueryBean next = null;
+        Collections.sort(list, new Comparator() {
+            public int compare(Object o1, Object o2) {
+                return (new Integer(((CommandQueryBean)o1).getSortOrder()).compareTo(
+                        new Integer(((CommandQueryBean)o2).getSortOrder())));
+            }
+        });
+        boolean found = false;
+        for(int i=0; i<list.size()-1 && !found; i++) {
+            curr = (CommandQueryBean)list.get(i);
+            next = (CommandQueryBean)list.get(i+1);
+            found = (curr).getSortOrder() == (next).getSortOrder();
+            if (found) {
+                super.addError(Constants.SORT_ORDER_PARAM+curr.getQueryId(), "No two sort order entries may be the same");
+            } else {
+                if (curr.getSortOrder() == 0) {
+                    found = true;
+                    super.addError(Constants.SORT_ORDER_PARAM+curr.getQueryId(), "You must fill in a sort order");
+                } else if (next.getSortOrder() == 0) {
+                    found = true;
+                    super.addError(Constants.SORT_ORDER_PARAM+next.getQueryId(), "You must fill in a sort order");
+                } else if (curr.getSortOrder() > 999) {
+                    found = true;
+                    super.addError(Constants.SORT_ORDER_PARAM+curr.getQueryId(), "Invalid sortorder specified");
+                } else if (next.getSortOrder() > 999) {
+                    found = true;
+                    super.addError(Constants.SORT_ORDER_PARAM+next.getQueryId(), "Invalid sort order specified");
+                }
+
+
             }
         }
     }

@@ -67,6 +67,7 @@ public class ModifyCommandTask extends BaseTask implements Task, Serializable {
         if (step!=null && step.equals(Constants.SAVE_STEP)) {
             checkCommandDesc(getCommandDesc());
             checkGroupId(getGroupId(), cg);
+            checkCommandId(getCommandId(), c);
             if (!super.hasErrors()) {
                 if (isNewCommand()) {
                     c.createCommand(getCommandDesc(), getGroupId());
@@ -80,7 +81,6 @@ public class ModifyCommandTask extends BaseTask implements Task, Serializable {
                 setCommandDesc(c.getCommandDesc(getCommandId()));
                 setGroupId(c.getCommandGroupId(getCommandId()));
             }
-
         }
 
         super.setNextPage(Constants.MODIFY_COMMAND_PAGE);
@@ -101,22 +101,30 @@ public class ModifyCommandTask extends BaseTask implements Task, Serializable {
             try {
                 setGroupId(Integer.parseInt(value));
             } catch (NumberFormatException e) {
-                super.addError(Constants.GROUP_ID_PARAM, e);
+                super.addError(paramName, e);
             }
         }
-
-
     }
 
     private void checkCommandDesc(String command) {
         if (super.isEmpty(command)) {
-            super.addError(Constants.COMMAND_DESC_PARAM, "Invalid Command Name");
+            super.addError(Constants.COMMAND_DESC_PARAM, "You must specify a command name");
+        } else if (command.length() > 100) {
+            super.addError(Constants.COMMAND_DESC_PARAM, "Invalid Command Name, too long");
         }
     }
 
     private void checkGroupId(int groupId, CommandGroup cg) throws Exception {
         if (cg.getCommandGroupName(groupId)==null) {
             super.addError(Constants.GROUP_ID_PARAM, "Invalid Group");
+        }
+    }
+
+    private void checkCommandId(long commandId, Command c) throws Exception {
+        if (!isNewCommand()) {
+            if (c.getCommandDesc(commandId)==null) {
+                super.addError(Constants.COMMAND_ID_PARAM, "Invalid Command");
+            }
         }
     }
 

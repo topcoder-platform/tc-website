@@ -12,10 +12,7 @@ import com.topcoder.web.query.ejb.QueryServices.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author Greg Paul
@@ -81,6 +78,7 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
 
         setQueryName(q.getName(getQueryId()));
 
+        checkQueryId(getQueryId(), q);
         if (step!=null && step.equals(Constants.SAVE_STEP)) {
             QueryInputBean qib = null;
             for (int j=0; j<getCurrentInputList().size(); j++) {
@@ -90,8 +88,16 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
                 qi.setSortOrder(qib.getQueryId(), qib.getInputId(), qib.getSortOrder());
             }
         } else if (step!=null && step.equals(Constants.NEW_STEP)) {
+            checkInputId(getInputId(), i);
+            if (isInputAssociated(getQueryId(), getInputId(), qi)) {
+                super.addError(Constants.INPUT_ID_PARAM+getInputId(), "Input already associated with Query");
+            }
             qi.createQueryInput(getQueryId(), getInputId());
         } else if (step!=null && step.equals(Constants.REMOVE_STEP)) {
+            checkInputId(getInputId(), i);
+            if (!isInputAssociated(getQueryId(), getInputId(), qi)) {
+                super.addError(Constants.INPUT_ID_PARAM+getInputId(), "Input not associated with Query");
+            }
             qi.removeQueryInput(getQueryId(), getInputId());
         }
 
@@ -112,13 +118,13 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
             try {
                 setQueryId(Long.parseLong(value));
             } catch (NumberFormatException e) {
-                super.addError(Constants.QUERY_ID_PARAM, e);
+                super.addError(paramName, e);
             }
         } else if (paramName.equalsIgnoreCase(Constants.INPUT_ID_PARAM)) {
             try {
                 setInputId(Long.parseLong(value));
             } catch (NumberFormatException e) {
-                super.addError(Constants.INPUT_ID_PARAM, e);
+                super.addError(paramName, e);
             }
         } else {
             /*
@@ -145,28 +151,86 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
                     long inputId = Long.parseLong(paramName.substring(Constants.OPTIONAL_PARAM.length()));
                     getQueryInput(getCurrentInputList(), inputId).setOptional(value.equalsIgnoreCase("true"));
                 } catch (NumberFormatException e) {
-                    super.addError(Constants.OPTIONAL_PARAM, e);
+                    super.addError(paramName, e);
                 } catch (Exception e) {
-                    super.addError(Constants.OPTIONAL_PARAM, e);
+                    super.addError(paramName, e);
                 }
             } else if (paramName.startsWith(Constants.DEFAULT_VALUE_PARAM)) {
                 try {
                     long inputId = Long.parseLong(paramName.substring(Constants.DEFAULT_VALUE_PARAM.length()));
                     getQueryInput(getCurrentInputList(), inputId).setDefaultValue(value);
                 } catch (NumberFormatException e) {
-                    super.addError(Constants.DEFAULT_VALUE_PARAM, e);
+                    super.addError(paramName, e);
                 } catch (Exception e) {
-                    super.addError(Constants.DEFAULT_VALUE_PARAM, e);
+                    super.addError(paramName, e);
                 }
             } else if (paramName.startsWith(Constants.SORT_ORDER_PARAM)) {
                 try {
                     long inputId = Long.parseLong(paramName.substring(Constants.SORT_ORDER_PARAM.length()));
                     getQueryInput(getCurrentInputList(), inputId).setSortOrder(Integer.parseInt(value));
                 } catch (NumberFormatException e) {
-                    super.addError(Constants.SORT_ORDER_PARAM, e);
+                    super.addError(paramName, e);
                 } catch (Exception e) {
-                    super.addError(Constants.SORT_ORDER_PARAM, e);
+                    super.addError(paramName, e);
                 }
+            }
+        }
+    }
+
+    private void checkQueryId(long queryId, Query q) throws Exception {
+        if (q.getName(queryId)==null) {
+            super.addError(Constants.QUERY_ID_PARAM, "Invalid query id");
+        }
+    }
+
+    private void checkInputId(long inputId, Input i) throws Exception {
+        if (i.getInputCode(inputId)==null) {
+            super.addError(Constants.INPUT_ID_PARAM, "Invalid input id");
+        }
+    }
+
+    private boolean isInputAssociated(long queryId, long inputId, QueryInput qi) throws Exception {
+        return qi.getSortOrder(queryId, inputId)!=0;
+    }
+
+    /**
+     * check that no two inputs have the same sort order value
+     * and check that no input has a sort order of 0 or greater
+     * than 999.
+     * @param list
+     */
+    private void checkSortOrder(List list) {
+        QueryInputBean curr = null;
+        QueryInputBean next = null;
+        Collections.sort(list, new Comparator() {
+            public int compare(Object o1, Object o2) {
+                return (new Integer(((QueryInputBean) o1).getSortOrder()).compareTo(
+                        new Integer(((QueryInputBean) o2).getSortOrder())));
+            }
+        });
+        boolean found = false;
+        for (int i = 0; i < list.size() - 1 && !found; i++) {
+            curr = (QueryInputBean) list.get(i);
+            next = (QueryInputBean) list.get(i + 1);
+            found = (curr).getSortOrder() == (next).getSortOrder();
+            if (found) {
+                super.addError(Constants.SORT_ORDER_PARAM + curr.getInputId(), "No two sort order entries may be the same");
+            } else {
+                if (curr.getSortOrder() == 0) {
+                    found = true;
+                    super.addError(Constants.SORT_ORDER_PARAM + curr.getInputId(), "You must fill in a sort order");
+                } else if (next.getSortOrder() == 0) {
+                    found = true;
+                    super.addError(Constants.SORT_ORDER_PARAM + next.getInputId(), "You must fill in a sort order");
+                } else if (curr.getSortOrder() > 999) {
+                    found = true;
+                    super.addError(Constants.SORT_ORDER_PARAM + curr.getInputId(), "Invalid sortorder specified");
+                } else if (next.getSortOrder() > 999) {
+                    found = true;
+                    super.addError(Constants.SORT_ORDER_PARAM + next.getInputId(), "Invalid sortorder specified");
+                }
+
+
             }
         }
     }
