@@ -40,10 +40,15 @@
 <!-- Menu bar begins here -->
 <table width="100%" border="0" cellpadding="3" cellspacing="0">
     <tr valign="top">
+        <% if( request.getAttribute(Constants.USAGE_TYPE) == null || ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_TESTING) { %>
         <td class="testTop" width="49%">&#160;</td>
         <td nowrap class="testTop"><screen:servletLink processor="PopulateSession" styleclass="topLink">Create a New Session</screen:servletLink></td>
         <td width="1" class="testTop">&#160;</td>
         <td nowrap class="testTop"><screen:servletLink processor="ProfileList" styleclass="topLink">Test Profiles</screen:servletLink></td>
+        <% } else { %>
+        <td class="testTop" width="49%">&#160;</td>
+        <td nowrap class="testTop"><screen:servletLink processor="ProfileList" styleclass="topLink">Test Profiles</screen:servletLink></td>
+        <% } %>
         <td width="1" class="testTop">&#160;</td>
         <td nowrap class="testTop"><screen:servletLink processor="ProblemList" styleclass="topLink">Problem Sets</screen:servletLink></td>
         <td width="1" class="testTop">&#160;</td>
