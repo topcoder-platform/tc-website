@@ -166,7 +166,7 @@
                             <li>The Architecture Review Board selects a winning design submission and the top two entries are compensated.</li>
                             <li>If the new components are required for the application, they will be developed separately using the
                             <a class="statText" href="index?t=development&amp;c=comp_meth">Component Development Methodology</a>.</li>
-                            <li>The winning designer(s) incorporate Review Board suggestions into their final design.</li>
+                            <li>The winning designer incorporate Review Board suggestions into their final design.</li>
                             <li>The Architecture Review Board performs a final review and accepts the application design.</li>
                             <li>The winning design is posted as an Application Development Project.</li>
                         </ol>
