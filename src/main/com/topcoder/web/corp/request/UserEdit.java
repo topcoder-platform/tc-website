@@ -719,6 +719,7 @@ public class UserEdit extends BaseProcessor {
                 }
                 renewTargetUser();
             } catch (Exception ex) {
+                ex.printStackTrace();
                 throw new Exception(
                         "Error accessing DB company tables [" + ex.getMessage() + "]"
                 );
