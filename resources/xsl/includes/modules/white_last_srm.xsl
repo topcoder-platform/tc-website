@@ -9,16 +9,15 @@
 		<TD CLASS="bodyText" VALIGN="top">
 <!-- <A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">tck</A> -->	
 <P>
-<SPAN CLASS="bodyTextBold">Single Round Match 87</SPAN><BR/>
-Thursday, May 9, 2002<BR/>
+<SPAN CLASS="bodyTextBold">Single Round Match 88</SPAN><BR/>
+Wednesday, May 15, 2002<BR/>
 By Adam Loss, <I>TopCoder Staff Writer</I><BR/>
-In Room 3, <A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">wybili</A>, 
-the lowest ranked coder in the room, pulled off a big upset, 
-and won a close battle over <A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">KurtSteinkraus</A>,
- 1325.33 to 1310.91.  <B>wybili</B> earned 
-280.12 on the Level One problem, 354.49 on the Level Two problem, and 690.72 on 
-the Level Three problem, while <B>KurtSteinkraus</B> earned 264.03, 436.17, and 610.71 
-on the three problems, respectively....<A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">full&#160;story</A> 
+
+The closest match of the night took place in Room 5. <A HREF="/stat?c=member_profile&amp;cr=156804" CLASS="bodyGeneric">Zaen</A>
+ was a 1159.03 to 1157.61 winner 
+over <A HREF="/stat?c=member_profile&amp;cr=159052" CLASS="bodyGeneric">lbackstrom</A>.  
+That's a difference of just 1.42 points
+...<A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">full&#160;story</A> 
 </P>
 				
 <!-- <P><B>Division-I</B><BR/>
