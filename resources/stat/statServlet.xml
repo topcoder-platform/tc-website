@@ -61,6 +61,7 @@
 <ContentItem contentHandle="coder_room_stats" nextPage="/stat_jsp/roomStats.jsp" access="1"/>
 <ContentItem contentHandle="coder_ratings" nextPage="/stat_jsp/rankList.jsp" access="0"/>
 <ContentItem contentHandle="member_profile" nextPage="/stat_jsp/memberProfile.jsp" access="0"/>
+<ContentItem contentHandle="index" nextPage="/stat_jsp/roundOverview.jsp" access="0"/>
 </ContentList>
 <GlobalError nextPage="/errorPage.jsp"/>
 </StatServlet>
