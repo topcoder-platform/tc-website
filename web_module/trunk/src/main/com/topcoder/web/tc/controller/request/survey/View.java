@@ -16,7 +16,15 @@ import java.util.ArrayList;
 
 public class View extends SurveyData {
     protected void surveyProcessing() throws TCWebException {
-        setNextPage(Constants.SURVEY_VIEW);
+        try {
+            if (alreadyResponded()) {
+                setNextPage(Constants.SURVEY_RESULTS);
+            } else {
+                setNextPage(Constants.SURVEY_VIEW);
+            }
+        } catch (Exception e) {
+            throw new TCWebException(e);
+        }
         setIsNextPageInContext(true);
     }
 
