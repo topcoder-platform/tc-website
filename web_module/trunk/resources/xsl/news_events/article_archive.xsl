@@ -61,6 +61,8 @@
 <!-- 2003 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2003</font></td></tr> 
                             
+                            <tr><td class="newsText"><A href="http://www.masshightech.com/displayarticledetail.asp?Art_ID=63819" target="_blank">A Call for Leadership</A> [October 20 - MHT]</td></tr>
+
                             <tr><td class="newsText"><A href="http://www.cio.com/archive/101503/tl_winner.html" target="_blank">Winner's Circle for Sale</A> [October 15 - CIO]</td></tr>
 
                             <tr><td class="newsText"><A href="http://msn-cnet.com.com/2100-1032_3-5078400.html" target="_blank">Google seeking a few good code jockeys</A> [September 17 - CNET News.com]</td></tr>
