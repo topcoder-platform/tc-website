@@ -493,8 +493,8 @@ is slated to be the most exciting onsite event yet.  Join me as the scene unfold
 <TR> 
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" COLSPAN="3" CLASS="bodyText"><A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><B>Single Round Match 122</B></A><BR/>
-Wednesday, December 4, 2002<BR/><BR/>
+        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><B>Single Round Match 123</B></A><BR/>
+Tuesday, December 10, 2002<BR/><BR/>
 
 
     </TD>    
@@ -588,21 +588,35 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><BR/>
   </TR>  
   <TR>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
-    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/Logan_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> 
-    By&#160;Logan<BR/><I>[TC]&#160;Member</I><BR/></TD>
+    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/slavik_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> 
+    By&#160;slavik<BR/><I>[TC]&#160;Member</I><BR/></TD>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText" COLSPAN="2">
-    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>SRM 122</B></FONT>
+    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>SRM 123</B></FONT>
     </TD>
   </TR>      
   <TR>
     <TD VALIGN="top" CLASS="bodyText" WIDTH="100%">
 	<A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm122_prob</xsl:attribute>
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm123_prob</xsl:attribute>
         <B>Problem Set Analysis &amp; Opinion</B>
       </A><BR/>	  
 <P>
-The most interesting variation in this match's problem sets is how the problems were reused between divisions. Typically there are five or so unique problems, with some of the problems of middling difficulty shared between the two divisions. In this match, however, there were technically six unique problems. For each difficulty level there were two problems, each closely related to the other, with the more difficult variation being assigned to Division-I and the other to Division-II. This is quite fun because it makes writing this analysis much more easy and interesting, as the description of how to solve each Division-I problem can be stated in terms of modifying the solution to each Division-II problem...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm122_prob</xsl:attribute>Get the analysis</A>
+SRM 123 had a difficult but balanced problem set for Div-I. Only 3 Div-I coders successfully completed 
+all three problems. The Div-II problem set was exactly where it should be and had a good spread of results - 17 Div-II 
+coders successfully completed all three problems. SRM123 had 5 different unique problems. 
+</P>
+
+<P>
+The strongest Division-I performance of this match came from <B>SnapDragon</B> (1491.86 points, 48 rating points gain), 
+who beat the next runner up - <B>bstanescu</B> by 166 points who had 1325.41 points. After this SRM, <B>SnapDragon</B> again became the number one rated programmer with <B>John Dethridge</B> closely trailing. 
+There were 10 coders in Div-I who have moved to Div-II after this SRM and there were no new red coders.
+</P>
+ 
+<P>
+Division-II had three-rookie coders <B>hersco</B>, <B>AdrianKuegel</B> and <B>Hurd</B> who successfully completed all three problems and were placed in Div-I. 
+<B>Wolf7</B> lead Div-II with an impressive 1354.53 points which is only 6 points more 
+then the next runner up - <B>AdrianKuegel</B> (the best rookie in this SRM). SRM 123 placed 24 Div-II coders into Div-I...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm123_prob</xsl:attribute>Get the analysis</A>
 </P>
     </TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>     
@@ -634,8 +648,8 @@ The most interesting variation in this match's problem sets is how the problems 
       <BR/>
     <MAP NAME="srmanimation_home">
     <AREA ALT="TCES" SHAPE="poly" COORDS="17,33,17,60,141,60,141,92,228,92,228,25,17,25" HREF="/?&amp;t=tces&amp;c=index"/>
-     <AREA ALT="" SHAPE="poly" COORDS="229,104,120,105,105,94,11,95,10,120,36,146,229,148" HREF="/?RoundId=4405&amp;t=schedule&amp;c=srm"/> 
-    <!-- <AREA ALT="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?&amp;c=last_match"/> --> 
+     <!-- <AREA ALT="" SHAPE="poly" COORDS="229,104,120,105,105,94,11,95,10,120,36,146,229,148" HREF="/?RoundId=4405&amp;t=schedule&amp;c=srm"/> --> 
+    <AREA ALT="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?&amp;c=last_match"/> 
     </MAP>
 <!--SRM Sponsor Ends-->
 <!-- <A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
