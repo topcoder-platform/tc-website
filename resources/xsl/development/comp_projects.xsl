@@ -268,7 +268,7 @@
                 <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=parser_factory-design">Parser Factory</a></td>
-                    <td background="" class="statText" align="center">$210.00</td>
+                    <td background="" class="statText" align="center">$175.00</td>
                     <td background="" class="statText" align="center">2.5.2003</td>
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>

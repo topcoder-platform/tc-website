@@ -63,7 +63,7 @@
 
 <!-- Overview -->
 						<p><strong>Overview</strong><br />
-						<<<overview>>>
+						The File Parser Factory component supports a pluggable implementation of various parsing algorithms.  Each algorithm transforms diverse files into one specific format allowing clients to interact with data in one standardized form.  Supported parsing algorithms include delimited parsing based on any delimiter and fixed width parsing.
 						</p>
 
 <!-- Project Type -->
