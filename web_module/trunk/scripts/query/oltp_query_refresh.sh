@@ -416,3 +416,25 @@ SELECT p.path || i.file_name AS file_path
    AND cix.image_id = i.image_id
    AND cix.status = 1
 "
+
+java com.topcoder.utilities.QueryLoader "OLTP" 75 "Rated With Activation Code" 0 0 "
+SELECT
+  LOWER(u.email) AS email_address
+  ,u.handle
+  ,c.activation_code
+  ,u.user_id
+FROM
+  user u
+  ,coder_notify n
+  ,coder c
+  ,rating r
+WHERE
+  u.user_id = n.coder_id
+  AND u.status = 'A'
+  AND u.user_id = c.coder_id
+  AND u.user_id = r.coder_id
+  AND n.notify_id = 5
+  AND r.rating > 0
+ORDER BY
+  1
+"

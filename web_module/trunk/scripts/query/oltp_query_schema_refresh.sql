@@ -27,6 +27,7 @@ INSERT INTO command (command_id, command_desc, command_group_id) VALUES ( 47, 'T
 INSERT INTO command VALUES(48,'profile_detail',4);
 INSERT INTO command VALUES(49,'Email all TopCoder members',1);
 INSERT INTO command VALUES(50,'sponsor_image',7);
+INSERT INTO command VALUES(51,'Rated Members w/ Activation Code',7);
 
 INSERT INTO data_type VALUES (1001,'Integer Input');
 INSERT INTO data_type VALUES (1002,'Decimal Input');
@@ -67,6 +68,7 @@ INSERT INTO command_query_xref (command_id, query_id, sort_order) VALUES(47,70,1
 INSERT INTO command_query_xref (command_id, query_id, sort_order) VALUES(48,71,1);
 INSERT INTO command_query_xref (command_id, query_id, sort_order) VALUES(49,73,1);
 INSERT INTO command_query_xref (command_id, query_id, sort_order) VALUES(50,74,1);
+INSERT INTO command_query_xref (command_id, query_id, sort_order) VALUES(51,75,1);
 
 
 INSERT INTO input_lu (input_id, input_code, data_type_id, input_desc) VALUES(3,"cr",1001,"Coder ID");
