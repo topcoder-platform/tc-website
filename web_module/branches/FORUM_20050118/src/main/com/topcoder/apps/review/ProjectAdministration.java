@@ -719,6 +719,7 @@ public class ProjectAdministration implements Model {
                 }
             }
 
+/*
 LogHelper.log("qq before if ");
 LogHelper.log("qq closed ="+closed);
 LogHelper.log("qq typeId =" + newProject.getProjectType().getId());
@@ -746,6 +747,7 @@ LogHelper.log("qq typeId =" + newProject.getProjectType().getId());
 
 
 //            }
+*/
 
             // remove permission for old reviewers and remove all permission if project closes
             if (isRoleChange || closed) {

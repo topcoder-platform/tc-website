@@ -909,9 +909,16 @@ log.debug("qq5");
 
                     Notification notification = notificationHome.create();
 log.debug("qq6");
-                    notification.createNotification("forum post " + project.getForumId(),
-                            project.getWinner().getId(),
-                            notification.FORUM_POST_TYPE_ID);
+                    if (info.getPhase() == ComponentVersionInfo.DEVELOPMENT) {
+                        User winner = project.getWinner();
+                        if (winner == null) {
+                            log.debug("Can't get winner for project, no notification added.");
+                        } else {
+                            notification.createNotification("forum post " + project.getForumId(),
+                                    winner.getId(),
+                                    notification.FORUM_POST_TYPE_ID);
+                        }
+                    }
 
 
                     notification.createNotification("forum post "+ newForum,
