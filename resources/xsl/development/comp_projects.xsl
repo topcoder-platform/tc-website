@@ -78,13 +78,9 @@
             </xsl:call-template>
 
             <p><h2 align="left">Projects for Design and/or Development currently available!</h2></p>
-            <p>
-                <span class="bigRed">In order to participate in a component project, you MUST register for that project.</span>
-                Please note that by registering for the project, you are agreeing to the requirements and committing to
-                perform the work outlined in the requirement specifications.
-            </p>
 
 <!-- Open Component Design Projects begins -->
+            <p class="bigRed"><b>NOTE:</b> The following design projects are all eligible for the 2005 TopCoder Collegiate Challenge Component Design Competition.</p>
 
             <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
                 <tr>
@@ -187,7 +183,7 @@
 
 <!-- Open Component Development Projects begins -->
 
-            <p><b>NOTE:</b> The following development projects are all eligible for the 2005 TopCoder Collegiate Challenge Component Development Competition.</p>
+            <p class="bigRed"><b>NOTE:</b> The following development projects are all eligible for the 2005 TopCoder Collegiate Challenge Component Development Competition.</p>
 
             <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
                 <tr>
