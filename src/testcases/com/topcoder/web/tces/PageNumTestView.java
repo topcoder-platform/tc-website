@@ -1,3 +1,5 @@
+package com.topcoder.web.tces;
+
 import com.meterware.httpunit.*;
 import org.xml.sax.SAXException;
 import java.io.*;
