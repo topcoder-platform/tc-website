@@ -20,7 +20,7 @@
 <script language="JavaScript">
    function submitLogin() {
  	var frm = document.login;
- 	frm.action = "/tces/tces";
+ 	frm.action = "<jsp:getProperty name="LoginTask" property="ServletPath"/>";
     if (frm.handle.value=="") {
       alert("Please enter a handle.");
       frm.handle.focus();
