@@ -90,20 +90,20 @@ public class UserSchoolBean implements SessionBean {
             _ne.printStackTrace();
             throw(new EJBException(_ne.getMessage()));
         } finally {
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (Exception _e) {
-                    log.error("createUserSchool error. " +
-                            "Failed to close Connection");
-                }
-            }
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception _e) {
                     log.error("createUserSchool error. " +
                             "Failed to close PreparedStatement");
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (Exception _e) {
+                    log.error("createUserSchool error. " +
+                            "Failed to close Connection");
                 }
             }
         }
@@ -146,20 +146,20 @@ public class UserSchoolBean implements SessionBean {
             _ne.printStackTrace();
             throw(new EJBException(_ne.getMessage()));
         } finally {
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (Exception _e) {
-                    log.error("removeUserSchool error. " +
-                            "Failed to close Connection");
-                }
-            }
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception _e) {
                     log.error("removeUserSchool error. " +
                             "Failed to close PreparedStatement");
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (Exception _e) {
+                    log.error("removeUserSchool error. " +
+                            "Failed to close Connection");
                 }
             }
         }
@@ -217,20 +217,20 @@ public class UserSchoolBean implements SessionBean {
             _ne.printStackTrace();
             throw(new EJBException(_ne.getMessage()));
         } finally {
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (Exception _e) {
-                    log.error("setCurrentUserSchoolId error. " +
-                            "Failed to close Connection");
-                }
-            }
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception _e) {
                     log.error("setCurrentUserSchoolId error. " +
                             "Failed to close PreparedStatement");
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (Exception _e) {
+                    log.error("setCurrentUserSchoolId error. " +
+                            "Failed to close Connection");
                 }
             }
         }
@@ -275,20 +275,20 @@ public class UserSchoolBean implements SessionBean {
             _ne.printStackTrace();
             throw(new EJBException(_ne.getMessage()));
         } finally {
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (Exception _e) {
-                    log.error("getCurrentUserSchoolId error. " +
-                            "Failed to close Connection");
-                }
-            }
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception _e) {
                     log.error("getCurrentUserSchoolId error. " +
                             "Failed to close PreparedStatement");
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (Exception _e) {
+                    log.error("getCurrentUserSchoolId error. " +
+                            "Failed to close Connection");
                 }
             }
         }
@@ -336,20 +336,20 @@ public class UserSchoolBean implements SessionBean {
             _ne.printStackTrace();
             throw(new EJBException(_ne.getMessage()));
         } finally {
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (Exception _e) {
-                    log.error("isCurrentUserSchoolId error. " +
-                            "Failed to close Connection");
-                }
-            }
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception _e) {
                     log.error("isCurrentUserSchoolId error. " +
                             "Failed to close PreparedStatement");
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (Exception _e) {
+                    log.error("isCurrentUserSchoolId error. " +
+                            "Failed to close Connection");
                 }
             }
         }
@@ -393,20 +393,20 @@ public class UserSchoolBean implements SessionBean {
             _ne.printStackTrace();
             throw(new EJBException(_ne.getMessage()));
         } finally {
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (Exception _e) {
-                    log.error("existsUserSchoolId error. " +
-                            "Failed to close Connection");
-                }
-            }
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception _e) {
                     log.error("existsUserSchoolId error. " +
                             "Failed to close PreparedStatement");
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (Exception _e) {
+                    log.error("existsUserSchoolId error. " +
+                            "Failed to close Connection");
                 }
             }
         }
