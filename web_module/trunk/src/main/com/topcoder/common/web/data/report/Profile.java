@@ -60,9 +60,9 @@ public class Profile implements Serializable {
                  ", referral re " +
                  ", OUTER (current_school cs, OUTER school s) " +
              "WHERE u.user_id = c.coder_id " +
-               "AND LOWER(u.handle) like LOWER('%') " +
-               "AND LOWER(c.first_name) like LOWER('%') " +
-               "AND LOWER(c.last_name) like LOWER('%') " +
+               "AND LOWER(u.handle) like LOWER('?') " +
+               "AND LOWER(c.first_name) like LOWER('?') " +
+               "AND LOWER(c.last_name) like LOWER('?') " +
                "AND r.coder_id = c.coder_id   " +
                "AND cref.coder_id = c.coder_id " +
                "AND re.referral_id = cref.referral_id " +
