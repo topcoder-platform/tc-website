@@ -34,6 +34,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpUtils;
 import javax.transaction.Transaction;
 
 import java.io.IOException;
@@ -45,7 +46,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.Vector;
-import java.net.URLEncoder;
 
 /**
  * Credit card transaction servlet. Used for both client and VeriSign
@@ -174,7 +174,7 @@ public class TransactionServlet extends HttpServlet {
                        are not authorized to access, send them to login page.    */
                     log.debug("user unauthorized to access resource and user " +
                             "not logged in, forwarding to login page.");
-                    fetchLoginPage(req, resp);
+                    fetchLoginPage(req, resp, auth);
                     return;
                 } else {
                     /* If the user is logged-in and is not authorized to access
@@ -270,7 +270,7 @@ public class TransactionServlet extends HttpServlet {
                        are not authorized to access, send them to login page.    */
                     log.debug("user unauthorized to access resource and user " +
                             "not logged in, forwarding to login page.");
-                    fetchLoginPage(req, resp);
+                    fetchLoginPage(req, resp, auth);
                     return;
                 } else {
                     /* If the user is logged-in and is not authorized to access
@@ -591,28 +591,27 @@ public class TransactionServlet extends HttpServlet {
     /**
      * private method for sending user to login page.
      *
-     * @param req
-     * @param resp
      * @throws ServletException
      * @throws IOException
      */
-    private void fetchLoginPage(
-            HttpServletRequest req,
-            HttpServletResponse resp
-            )
+    private void fetchLoginPage(HttpServletRequest request,HttpServletResponse response,WebAuthentication authToken)
             throws ServletException, IOException {
-        String originatingPage = req.getRequestURI();
-        if (req.getQueryString() != null) {
-            originatingPage += "?" + req.getQueryString();
-        }
-        log.debug("fetchLoginPage request, orginatingPage = " + originatingPage);
 
-        StringBuffer loginPageDest = new StringBuffer(128);
-        loginPageDest
-                .append(loginApplicationPage).append('?')
-                .append(Login.KEY_DESTINATION_PAGE).append('=')
-                .append(URLEncoder.encode(originatingPage));
-        fetchRegularPage(req, resp, loginPageDest.toString(), true);
+        request.setAttribute("message", "You must login to view this page.");
+        log.debug("login nextpage will be: " + HttpUtils.getRequestURL(request) + "?" + request.getQueryString());
+        request.setAttribute("nextpage", HttpUtils.getRequestURL(request) + "?" + request.getQueryString());
+        Login l = new Login();
+        l.setRequest(request);
+        l.setAuthentication(authToken);
+        try {
+            l.process();
+        } catch (Exception e) {
+            fetchErrorPage(request, response, errorPageSecurity, e);
+        }
+        boolean forward = l.isNextPageInContext();
+        String destination = l.getNextPage();
+        fetchRegularPage(request, response, destination, forward);
+        return;
     }
 
     /**
