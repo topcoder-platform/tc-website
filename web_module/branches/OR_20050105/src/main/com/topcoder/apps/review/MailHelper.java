@@ -89,7 +89,7 @@ class MailHelper {
 
 
 
-        if (place == PLACE_SCREENING_FAIL) {
+        if (place != PLACE_SCREENING_FAIL) {
             PhaseInstance[] phases = project.getTimeline();
             for (int i = 0; i < phases.length; i++) {
                 if (phases[i].getPhase().getId() == Phase.ID_FINAL_FIXES) {
