@@ -60,7 +60,7 @@ public class Submit extends FullRegSubmit {
                     }
                     fileName = info.getUploadedFile().getRemoteFileName();
                     ResumeServices resumeServices = (ResumeServices) createEJB(getInitialContext(), ResumeServices.class);
-                    resumeServices.putResume(ret.getId(), fileType, fileName, fileBytes, transDb);
+                    resumeServices.putResume(newUser.getId(), fileType, fileName, fileBytes, transDb);
                 }
             }
 
