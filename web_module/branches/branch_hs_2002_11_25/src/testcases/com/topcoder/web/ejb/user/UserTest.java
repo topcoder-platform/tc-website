@@ -50,9 +50,9 @@ public class UserTest extends EJBTestCase {
         long id = u.createUser();
 
         assertTrue(id >= 0);
-        assertTrue(null == u.getFirstName());
-        assertTrue(null == u.getLastName());
-        assertEquals(0, u.getUserStatusId());
+        assertTrue(null == u.getFirstName(id));
+        assertTrue(null == u.getLastName(id));
+        assertEquals(0, u.getUserStatusId(id));
     }
 
 
@@ -145,7 +145,7 @@ public class UserTest extends EJBTestCase {
         }
 
         try {
-            u.setLastName(-1, status);
+            u.setUserStatusId(-1, status);
             fail("No exception thrown when id < 0");
         } catch (Exception e) {
             if (e instanceof RuntimeException) {
