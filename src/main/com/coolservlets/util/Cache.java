@@ -59,51 +59,9 @@ package com.coolservlets.util;
 import com.topcoder.shared.distCache.CacheClientPool;
 
 import java.util.*;
-//JDK1.1// import com.sun.java.util.collections.*;
 import java.io.*;
 import java.rmi.RemoteException;
 
-/**
- * Simple cache code. Note, this code has not been fully tested and optimized.
- * It also needs to be commented. :)
- */
-class CachedObject implements java.io.Serializable {
-	Object object;
-	Date timeStamp;
-	int size;
-
-	CachedObject(Object object, Date timeStamp, int size) {
-		this.object = object;
-		this.timeStamp = timeStamp;
-		this.size = size;
-	}
-		
-	void setObject(Object object) {
-		this.object = object;
-	}
-		
-	void setTimeStamp(Date timeStamp) {
-		this.timeStamp = timeStamp;
-	}
-		
-	void setSize(int size) {
-		this.size = size;
-	}
-		
-	Object getObject() {
-		return object;
-	}
-		
-	Date getTimeStamp() {
-		return timeStamp;
-	}
-		
-	int getSize() {
-		return size;
-	}
-}
- 
- 
 public class Cache {
 
     private com.topcoder.shared.distCache.CacheClient cache;
@@ -140,26 +98,18 @@ public class Cache {
     }
 
     public Object get(int uniqueID) {
-        CachedObject co = null;
+        Object ret = null;
         try {
-            co = (CachedObject)cache.get(String.valueOf(uniqueID));
+            ret = cache.get(String.valueOf(uniqueID));
         } catch (RemoteException e) {
             e.printStackTrace();  //To change body of catch statement use Options | File Templates.
         }
-        co.getTimeStamp().setTime(System.currentTimeMillis());
-        return co.getObject();
+        return ret;
     }
 
 	public void add(int uniqueID, Object object) {
-		Date date = new Date();
-
-		int objectSize = 0;
-		CachedObject cachedObject = new CachedObject(object, date, objectSize);
-		objectSize = getSize(cachedObject);
-		cachedObject.setSize(objectSize);
-
         try {
-            cache.set(String.valueOf(uniqueID), cachedObject, timeOut);
+            cache.set(String.valueOf(uniqueID), object, timeOut);
         } catch (RemoteException e) {
             e.printStackTrace();  //To change body of catch statement use Options | File Templates.
         }
