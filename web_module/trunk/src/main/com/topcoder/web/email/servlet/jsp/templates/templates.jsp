@@ -7,9 +7,9 @@
 </head>
 <body>
 
-<%@ include file="../js/task-js.jsp"%>
+<jsp:include page="../js/task-js.jsp"/>
 
-<%@ include file="../header.jsp" %>
+<jsp:include page="../header.jsp" />
 
 <p class="bodyTextBig"><b>E-mail Templates</b></p>
 
@@ -82,7 +82,7 @@
 		onMouseOut="window.status=''; return true;">
 [back to main menu]</a>
 </p>
-<%@ include file="../footer.jsp" %>
+<jsp:include page="../footer.jsp" />
 
 
 </body>

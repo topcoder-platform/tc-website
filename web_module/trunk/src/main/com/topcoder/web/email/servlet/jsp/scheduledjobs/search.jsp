@@ -14,7 +14,7 @@ function reload()
 
 //--> </SCRIPT>
 
-<%@ include file="../header.jsp" %>
+<jsp:include page="../header.jsp" />
 <%@ page import="com.topcoder.web.email.servlet.*, com.topcoder.web.email.bean.*, java.util.*" %>
 <%@ taglib uri="/email-taglib.tld" prefix="email"%>
 
@@ -129,7 +129,7 @@ function reload()
 	</table>
 </form>
 
-<%@ include file="../footer.jsp" %>
+<jsp:include page="../footer.jsp" />
 
 
 </body>

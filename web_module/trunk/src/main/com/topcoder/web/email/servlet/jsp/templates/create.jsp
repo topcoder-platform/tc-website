@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<%@ include file="../header.jsp" %>
+<jsp:include page="../header.jsp" />
 
 <p class="bodyTextBig"><b>New template</b></p>
 
@@ -15,12 +15,12 @@
 	<input type="hidden" name="<%=EmailConstants.TASK%>" value="<%=EmailConstants.EMAILTEMPLATE_TASK%>">
 	<input type="hidden" name="<%=EmailConstants.STEP%>" value="<%=EmailConstants.TEMPLATE_ADD%>">
 
-	<%@ include file="template-body.jsp" %>
+	<jsp:include page="template-body.jsp" />
 	<br>
 	<input type="submit" value="create">
 
 </form>
-<%@ include file="../footer.jsp" %>
+<jsp:include page="../footer.jsp" />
 
 </body>
 </html>

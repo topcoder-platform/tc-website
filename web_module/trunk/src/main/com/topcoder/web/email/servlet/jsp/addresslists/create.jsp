@@ -7,19 +7,19 @@
 </head>
 <body>
 
-<%@ include file="../header.jsp" %>
+<jsp:include page="../header.jsp" />
 
 <p class="bodyTextBig"><b>New list</b></p>
 <form name="frmList" method="post" onSubmit="validate(); return false;" action="<%=response.encodeURL(EmailConstants.ALIAS)%>">
 	<input type="hidden" name="<%=EmailConstants.TASK%>" value="<%=EmailConstants.ADDRESSLIST_TASK%>">
 	<input type="hidden" name="<%=EmailConstants.STEP%>" value="<%=EmailConstants.ADDRESSLIST_ADD%>">
 
-	<%@ include file="list-body.jsp" %>
+	<jsp:include page="list-body.jsp" />
 	<p>
 	<input type="submit" value="create &gt;&gt">
 
 </form>
-<%@ include file="../footer.jsp" %>
+<jsp:include page="../footer.jsp" />
 
 </body>
 </html>

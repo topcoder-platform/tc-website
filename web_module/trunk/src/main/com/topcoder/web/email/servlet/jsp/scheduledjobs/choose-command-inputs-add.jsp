@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<%@ include file="../header.jsp" %>
+<jsp:include page="../header.jsp" />
 <p class="bodyTextBig"><b>Enter query inputs</b></p>
 <p class="bodyText">
 <form action="<%=response.encodeURL(EmailConstants.ALIAS)%>" method="post" >
@@ -30,7 +30,7 @@
 
 </form>
 </p>
-<%@ include file="../footer.jsp" %>
+<jsp:include page="../footer.jsp" />
 
 
 </body>

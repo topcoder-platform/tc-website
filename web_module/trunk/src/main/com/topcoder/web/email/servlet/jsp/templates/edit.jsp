@@ -7,19 +7,19 @@
 </head>
 <body>
 
-<%@ include file="../header.jsp" %>
+<jsp:include page="../header.jsp" />
 
 <p class="bodyTextBig"><b>Editing template</b></p>
 <form name="frmTemplate" method="post" onSubmit="validate(); return false;" action="<%=response.encodeURL(EmailConstants.ALIAS)%>">
 	<input type="hidden" name="<%=EmailConstants.TASK%>" value="<%=EmailConstants.EMAILTEMPLATE_TASK%>">
 	<input type="hidden" name="<%=EmailConstants.STEP%>" value="<%=EmailConstants.TEMPLATE_SAVE%>">
 
-	<%@ include file="template-body.jsp" %>
+	<jsp:include page="template-body.jsp" />
 	<p>
 	<input type="submit" value="save">
 
 </form>
-<%@ include file="../footer.jsp" %>
+<jsp:include page="../footer.jsp" />
 
 </body>
 </html>

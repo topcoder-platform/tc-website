@@ -7,9 +7,9 @@
 </head>
 <body>
 
-<%@ include file="../js/task-js.jsp" %>
+<jsp:include page="../js/task-js.jsp" />
 
-<%@ include file="../header.jsp" %>
+<jsp:include page="../header.jsp" />
 <p class="bodyTextBig"><b>Choose test list</b></p>
 <form>
 <p class="bodyText">
@@ -21,7 +21,7 @@
 </email:addressListIterator>
 </p>
 
-<%@ include file="../footer.jsp" %>
+<jsp:include page="../footer.jsp" />
 
 </body>
 </html>

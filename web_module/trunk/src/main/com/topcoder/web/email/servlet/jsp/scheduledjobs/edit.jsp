@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<%@ include file="../header.jsp" %>
+<jsp:include page="../header.jsp" />
 
 <SCRIPT Language="javascript"> <!--
 
@@ -30,7 +30,7 @@ function jobTask(step)
 	<input type="hidden" name="<%=EmailConstants.TASK%>" value="<%=EmailConstants.SCHEDULEDJOB_TASK%>">
 	<input type="hidden" name="<%=EmailConstants.STEP%>" value="<%=EmailConstants.SCHEDULEDJOB_SAVE%>">
 
-	<%@ include file="job-body.jsp" %>
+	<jsp:include page="job-body.jsp" />
 	<p>
 
 	<%@ taglib uri="/email-taglib.tld" prefix="email"%>
@@ -94,7 +94,7 @@ function jobTask(step)
 
 	<input type="submit" value="save">
 </form>
-<%@ include file="../footer.jsp" %>
+<jsp:include page="../footer.jsp" />
 
 </body>
 </html>

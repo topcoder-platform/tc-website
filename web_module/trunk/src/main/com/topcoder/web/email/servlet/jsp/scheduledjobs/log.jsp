@@ -7,9 +7,9 @@
 </head>
 <body>
 
-<%@ include file="../header.jsp" %>
+<jsp:include page="../header.jsp" />
 
-<%@ include file="../js/task-js.jsp" %>
+<jsp:include page="../js/task-js.jsp" />
 
 <p class="bodyTextBig"><b>Job log</b></p>
 
@@ -89,7 +89,7 @@ function detail(detailId) {
 	</a>
 <% } %>
 </form>
-<%@ include file="../footer.jsp" %>
+<jsp:include page="../footer.jsp" />
 
 </body>
 </html>

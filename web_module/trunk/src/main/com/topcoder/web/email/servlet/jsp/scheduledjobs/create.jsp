@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<%@ include file="../header.jsp" %>
+<jsp:include page="../header.jsp" />
 
 <p class="bodyTextBig"><b>New job</b></p>
 
@@ -31,7 +31,7 @@ function formSubmit(step)
 <form name="frmJob" action="<%=response.encodeURL(EmailConstants.ALIAS)%>" method="post">
 	<input type="hidden" name="<%=EmailConstants.TASK%>" value="<%=EmailConstants.SCHEDULEDJOB_TASK%>">
 	<input type="hidden" name="<%=EmailConstants.STEP%>" value="<%=EmailConstants.SCHEDULEDJOB_CHOOSE_LIST_ADD%>">
-	<%@ include file="job-body.jsp" %>
+	<jsp:include page="job-body.jsp" />
 	<p class="bodyText">
 
 	<a href="javascript:formSubmit('<%=EmailConstants.SCHEDULEDJOB_CHOOSE_LIST_ADD%>');"
@@ -47,7 +47,7 @@ function formSubmit(step)
 <!--	<input type="submit" value="next &gt;&gt;"> -->
 
 </form>
-<%@ include file="../footer.jsp" %>
+<jsp:include page="../footer.jsp" />
 
 </body>
 </html>

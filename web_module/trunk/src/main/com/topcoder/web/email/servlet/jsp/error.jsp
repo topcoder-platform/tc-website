@@ -5,7 +5,7 @@
 	<title>TopCoder E-Mail System</title>
 </head>
 <body>
-<%@ include file="header.jsp" %>
+<jsp:include page="header.jsp" />
 
 <h1>Error!</h1>
 Sorry, but something went wrong.  Here's the exception:
@@ -27,7 +27,7 @@ if (requestException != null)
 %>
 </pre>
 <p>
-<%@ include file="footer.jsp" %>
+<jsp:include page="footer.jsp" />
 
 </body>
 </html>

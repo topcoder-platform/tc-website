@@ -1,6 +1,6 @@
 <%@ taglib uri="/email-taglib.tld" prefix="email"%>
 
-<%@ include file="../js/validate-js.jsp" %>
+<jsp:include page="../js/validate-js.jsp" />
 <%@ page import="java.util.*" %>
 
 <SCRIPT Language="javascript"> <!--

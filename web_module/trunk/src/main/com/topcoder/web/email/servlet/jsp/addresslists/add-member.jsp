@@ -8,14 +8,14 @@
 </head>
 <body>
 
-<%@ include file="../header.jsp" %>
-<%@ include file="../js/task-js.jsp" %>
+<jsp:include page="../header.jsp" />
+<jsp:include page="../js/task-js.jsp" />
 
 <p class="bodyTextBig"><b>Add new member</b></p>
 <form action="<%=response.encodeURL(EmailConstants.ALIAS)%>" method="post" >
 	<input type="hidden" name="<%=EmailConstants.STEP%>" value="<%=EmailConstants.ADDRESSLIST_ADD_MEMBER%>">
 
-	<%@ include file="member-form.jsp" %>
+	<jsp:include page="member-form.jsp" />
 	<p>
 	<input type="submit" value="add">
 
@@ -34,11 +34,11 @@
 <p>
 <hr>
 
-<%@ include file="member-list.jsp" %>
+<jsp:include page="member-list.jsp" />
 
 <p>
 
-<%@ include file="../footer.jsp" %>
+<jsp:include page="../footer.jsp" />
 
 </body>
 </html>
