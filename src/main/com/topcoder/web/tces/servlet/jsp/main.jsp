@@ -59,7 +59,14 @@
                   <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><b>End Date</b></TD>
                 </TR>
     
+                <%
+                int company = -1;
+                 %>
+ 
                 <tces:mapIterator id="campaignInfo" MapList="<%=MainTask.getCampaignInfoList()%>">
+                <% if (company != Integer.parseInt(campaignInfo.get("company_id").toString())) { %> 
+                  <BR/><BR/><%= campaignInfo.get("company_name") %><BR/><BR/>
+                <% } %>
 
                 <TR>
                   <TD class="statText" HEIGHT="18">&#160;

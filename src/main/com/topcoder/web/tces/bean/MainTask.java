@@ -114,6 +114,8 @@ public class MainTask extends BaseTask implements Task, Serializable {
             campaignInfo.put("start_date", TCData.getTCDate(rRow, "start_date") );
             campaignInfo.put("end_date", TCData.getTCDate(rRow, "end_date") );
             campaignInfo.put("campaign_id", Long.toString(TCData.getTCLong(rRow, "campaign_id")) );
+            campaignInfo.put("company_id", Long.toString(TCData.getTCLong(rRow, "company_id")) );
+            campaignInfo.put("company_name", Long.toString(TCData.getTCLong(rRow, "company_name")) );
 
             campaignInfoList.add(campaignInfo);
         }
