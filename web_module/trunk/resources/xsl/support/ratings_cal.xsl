@@ -171,43 +171,27 @@ Here is the psuedo-code function to estimate the probability of coder A beating 
 standard normal function):
                 <BR/>
                                     <BR/>
-WinProbability( SkillA, DeviationA, SkillB, DeviationB)
-                <BR/>
-         Set count, a, b to 0.
-                <BR/>
-         Set fa = SkillA + <!-- <SPAN STYLE="font-family:Symbol;">f</SPAN> -->f((a + .5)/100)*DeviationA
-                <BR/>
-         Set fb = SkillB + <!-- <SPAN STYLE="font-family:Symbol;">f</SPAN> -->f((b + .5)/100)*DeviationB
-                <BR/>
-         While (a&#60;100)
-                <BR/>
- &#160;&#160;        If fa&#60;fb:
-                <BR/>
- &#160;&#160;&#160;&#160;         Add 100-b to count
-                <BR/>
-  &#160;&#160;&#160;&#160;        Increment a
-                <BR/>
-&#160;&#160;&#160;&#160; Set fa = SkillA + <!-- <SPAN STYLE="font-family:Symbol;">f</SPAN> -->f((a + .5)/100)*DeviationA
-                <BR/>
-&#160;&#160;         If fa == fb:
-                <BR/>
-&#160;&#160;&#160;&#160;          Add 100-b-.5 to count
-                <BR/>
-&#160;&#160;&#160;&#160;          Increment a
-                <BR/>
-&#160;&#160;&#160;&#160;          Increment b
-                <BR/>
-&#160;&#160;&#160;&#160;         Set fa = SkillA + <!-- <SPAN STYLE="font-family:Symbol;">f</SPAN> -->f((a + .5)/100)*DeviationA
-                <BR/>
-&#160;&#160;&#160;&#160;         Set fb = SkillB + <!-- <SPAN STYLE="font-family:Symbol;">f</SPAN> -->f((b + .5)/100)*DeviationB
-                <BR/>
-&#160;&#160;         If fa&#62;fb:
-                <BR/>
-&#160;&#160;&#160;&#160;            Increment b
-                <BR/>
-&#160;&#160;&#160;&#160;            Set fb = SkillB + <!-- <SPAN STYLE="font-family:Symbol;">f</SPAN> -->f((b + .5)/100)*DeviationB
-                <BR/>
-            Return count  (count is the win probability)
+WinProbability( SkillA, DeviationA, SkillB, DeviationB)<br />
+Set count, a, b to 0. <br />
+Set fa = SkillA + f((a + .5)/100)*DeviationA <br />
+Set fb = SkillB + f((b + .5)/100)*DeviationB <br />
+While (a&lt;100) <br />
+&#160;&#160;&#160;&#160;If fa&lt;fb: <br />
+&#160;&#160;&#160;&#160;&#160;&#160;Add 100-b to count <br />
+&#160;&#160;&#160;&#160;&#160;&#160;Increment a <br />
+&#160;&#160;&#160;&#160;&#160;&#160;Set fa = SkillA + f((a + .5)/100)*DeviationA <br />
+&#160;&#160;&#160;&#160;If fa == fb: <br />
+&#160;&#160;&#160;&#160;&#160;&#160;Add 100-b-.5 to count <br />
+&#160;&#160;&#160;&#160;&#160;&#160;Increment a <br />
+&#160;&#160;&#160;&#160;&#160;&#160;Increment b <br />
+&#160;&#160;&#160;&#160;&#160;&#160;Set fa = SkillA + f((a + .5)/100)*DeviationA <br />
+&#160;&#160;&#160;&#160;&#160;&#160;Set fb = SkillB + f((b + .5)/100)*DeviationB <br />
+&#160;&#160;&#160;&#160;If fa&gt;fb: <br />
+&#160;&#160;&#160;&#160;&#160;&#160;Increment b <br />
+&#160;&#160;&#160;&#160;&#160;&#160;If b == 100: break<br />
+&#160;&#160;&#160;&#160;&#160;&#160;Set fb = SkillB + f((b + .5)/100)*DeviationB <br />
+Return count (count is the win probability) <br />
+
                 <BR/>
 <P><BR/></P>
 					</TD>
