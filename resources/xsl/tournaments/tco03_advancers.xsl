@@ -76,6 +76,7 @@
 
             <p>Click any of the column names to sort the list of advancers by that column.</p>
 
+            <a name="data"/>
             <table width="400" align="center" border="0" cellpadding="6" cellspacing="0" class="formFrame">
                 <tr>
                   <td class="header" width="100%" colspan="4"><xsl:value-of select="/TC/TOURNAMENTS/Contest/Item/name"/></td>
@@ -83,25 +84,25 @@
                 <tr>
                    <td class="testTableTitle_off" width="10%" align="center">
                        <a class="statTextBig">
-                           <xsl:attribute name="href">/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=<xsl:value-of select="/TC/TOURNAMENTS/Contest/Item/round_id"/>&amp;sc=seed&amp;sdir=asc</xsl:attribute>
+                           <xsl:attribute name="href">/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=<xsl:value-of select="/TC/TOURNAMENTS/Contest/Item/round_id"/>&amp;sc=seed&amp;sdir=asc#data</xsl:attribute>
                            Seed
                        </a>
                    </td>
                    <td class="testTableTitle_off" width="30%" align="left">
                        <a class="statTextBig">
-                           <xsl:attribute name="href">/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=<xsl:value-of select="/TC/TOURNAMENTS/Contest/Item/round_id"/>&amp;sc=handle_sort&amp;sdir=asc</xsl:attribute>
+                           <xsl:attribute name="href">/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=<xsl:value-of select="/TC/TOURNAMENTS/Contest/Item/round_id"/>&amp;sc=handle_sort&amp;sdir=asc#data</xsl:attribute>
                            Handle
                        </a>
                    </td>
                    <td class="testTableTitle_off" width="30%" align="right">
                        <a class="statTextBig">
-                           <xsl:attribute name="href">/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=<xsl:value-of select="/TC/TOURNAMENTS/Contest/Item/round_id"/>&amp;sc=rating&amp;sdir=desc</xsl:attribute>
+                           <xsl:attribute name="href">/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=<xsl:value-of select="/TC/TOURNAMENTS/Contest/Item/round_id"/>&amp;sc=rating&amp;sdir=desc#data</xsl:attribute>
                            Rating
                        </a>
                    </td>
                    <td class="testTableTitle_off" width="30%" align="right">
                        <a class="statTextBig">
-                           <xsl:attribute name="href">/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=<xsl:value-of select="/TC/TOURNAMENTS/Contest/Item/round_id"/>&amp;sc=points&amp;sdir=desc</xsl:attribute>
+                           <xsl:attribute name="href">/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=<xsl:value-of select="/TC/TOURNAMENTS/Contest/Item/round_id"/>&amp;sc=points&amp;sdir=desc#data</xsl:attribute>
                            Points
                        </a>
                    </td>
