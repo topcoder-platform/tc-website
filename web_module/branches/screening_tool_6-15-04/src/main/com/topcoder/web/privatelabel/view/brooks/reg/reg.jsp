@@ -36,7 +36,7 @@
                             <tr>
                                 <td class="brBodyTitle" align=left>Application Information
                                 </td>
-                                <td class="brBodyTitle" align=right width="50%" nowrap=nowrap><A href="http://www.brooks.com/pages/2730_software.cfm" class="brBodyTitle">Learn about Brooks Software</A>
+                                <td class="brBodyTitle" align=right width="50%" nowrap=nowrap><A href="http://www.brooks.com/pages/2730_software.cfm" target="_blank" class="brBodyTitle">Learn about Brooks Software</A>
                                 </td>
                            </tr>
                         <tr>
