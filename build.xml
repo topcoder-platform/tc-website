@@ -411,7 +411,7 @@
             <param name="unit-class-path" value="com/topcoder/web/ejb/email"/>
             <param name="deploy-desc-path" value="com/topcoder/web/ejb/email/screening"/>
         </antcall>
-        <jar jarfile="${ejb_jars}/CorpEmail.jar" update="true">
+        <jar jarfile="${ejb_jars}/ScreeningEmail.jar" update="true">
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
@@ -499,7 +499,7 @@
             <param name="unit-jar-name" value="Note"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/note"/>
         </antcall>
-        <jar jarfile="${ejb_jars}/Product.jar" update="true">
+        <jar jarfile="${ejb_jars}/Note.jar" update="true">
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
@@ -513,7 +513,7 @@
             <param name="unit-jar-name" value="Session"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/session"/>
         </antcall>
-        <jar jarfile="${ejb_jars}/Product.jar" update="true">
+        <jar jarfile="${ejb_jars}/Session.jar" update="true">
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
@@ -527,7 +527,7 @@
             <param name="unit-jar-name" value="SessionProfile"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/sessionprofile"/>
         </antcall>
-        <jar jarfile="${ejb_jars}/Product.jar" update="true">
+        <jar jarfile="${ejb_jars}/SessionProfile.jar" update="true">
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
@@ -541,7 +541,7 @@
             <param name="unit-jar-name" value="CorpTermsOfUse"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/termsofuse/corp"/>
         </antcall>
-        <jar jarfile="${ejb_jars}/Product.jar" update="true">
+        <jar jarfile="${ejb_jars}/CorpTermsOfUse.jar" update="true">
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
@@ -569,7 +569,7 @@
             <param name="unit-jar-name" value="ScreeningCoder"/>
             <param name="unit-class-path" value="com/topcoder/web/screening/ejb/coder"/>
         </antcall>
-        <jar jarfile="${ejb_jars}/Company.jar" update="true">
+        <jar jarfile="${ejb_jars}/ScreeningCoder.jar" update="true">
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
