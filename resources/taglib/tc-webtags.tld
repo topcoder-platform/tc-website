@@ -246,7 +246,7 @@
     <tag>
         <name>handle</name>
         <info>Generates an html select box for fiven ResultSetContainer</info>
-        <tagclass>com.topcoder.web.common.tag.RatingTag</tagclass>
+        <tagclass>com.topcoder.web.common.tag.HandleTag</tagclass>
         <attribute>
             <name>coderId</name>
             <required>true</required>
