@@ -352,14 +352,14 @@
         <!-- Add the TCPhase class to the project_phases.jar package -->
         <jar    jarfile="${dist.jars.dir}/${projectphases.jar.name}"
         	update="true"
-        	basedir="."
-        	includes="${build_classdir}/com/topcoder/project/phases/TCPhase.class" />
+        	basedir="${build_classdir}"
+        	includes="com/topcoder/project/phases/TCPhase.class" />
         
         <!-- Add the TCWorkdays class to the workdays.jar package -->
         <jar    jarfile="${dist.jars.dir}/${workdays.jar.name}"
         	update="true"
-        	basedir="."
-        	includes="${build_classdir}/com/topcoder/date/workdays/TCWorkdays.class" />
+        	basedir="${build_classdir}"
+        	includes="com/topcoder/date/workdays/TCWorkdays.class" />
         
         
     </target>
