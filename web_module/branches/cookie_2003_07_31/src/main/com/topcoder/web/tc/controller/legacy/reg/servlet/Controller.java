@@ -118,6 +118,7 @@ public class Controller
                     request.setAttribute(BaseServlet.MESSAGE_KEY, "In order to continue, you must provide your user name " +
                             "and password.");
                     request.setAttribute(BaseServlet.NEXT_PAGE_KEY, info.getRequestString());
+                    log.debug("after login go to: " + info.getRequestString());
 
                     request.setAttribute("module", "Login");
                     fetchRegularPage(request, response, "/tc", true);
