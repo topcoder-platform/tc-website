@@ -6,6 +6,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>03.09.05<br>9:25 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/i/tournament/tccc05/onsite_movies/gr_03.MPG">mathijs wins the TCCC05... poker tournament!</A></span><br><br>
+      Things are already heating up at the TCCC05.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/i/tournament/tccc05/onsite_movies/gr_03.MPG">watch movie</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=movies">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.09.05<br>5:45 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/i/tournament/tccc05/TCCC05_Program.pdf">TCCC05 Program</A></span><br><br>
       Read about the competitors and what they have to say.  Oh, and there's some stuff about the admins.
@@ -243,19 +255,6 @@
          <A href="/tc?module=Static&d1=tutorials&d2=complexity1">full article</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=tutorials&d2=index">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>02.09.05<br>10:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">New job openings at <A href="/tc?module=Static&d1=contracting&d2=akamai">Akamai</A> and <A href="/tc?module=Static&d1=contracting&d2=goldengate">GoldenGate</A></span><br><br>
-      <A href="/tc?module=Static&d1=contracting&d2=akamai">Akamai</A> is looking for several Engineers and <A href="/tc?module=Static&d1=contracting&d2=goldengate">GoldenGate</A> is looking for a Technical Lead and a Senior Software Developer, available to <strong>ALL</strong> TopCoder members.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=contracting&d2=index">see all available jobs</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
-   </td></tr>
-
 
 </table>
 <br><br>
