@@ -11,7 +11,7 @@
     <xsl:template name="formatmmddyyyy">
         <xsl:param name="DATE"/>
         <xsl:if test='boolean($DATE)'>
-            <xsl:value-of select="substring($DATE, 6,2)"/>.<xsl:value-of select="substring($DATE, 9,2)"/>.<xsl:value-of select="substring($DATE, 1,4)"/> -  <xsl:value-of select="substring($DATE, 9,8)"/> 
+            <xsl:value-of select="substring($DATE, 6,2)"/>.<xsl:value-of select="substring($DATE, 9,2)"/>.<xsl:value-of select="substring($DATE, 1,4)"/> <br/>  <xsl:value-of select="substring($DATE, 12,8)"/> ET
         </xsl:if>
     </xsl:template>
     <xsl:template name="urldate">
@@ -32,7 +32,7 @@
 <head>
     <xsl:call-template name="Preload" />
 
- <title>Component Project Status for TopCoder Software Development</title>
+ <title>Multiplier Status for TopCoder Software Development</title>
 
     <xsl:call-template name="CSS" />
 
@@ -84,7 +84,7 @@
 
 <!-- Component Design Projects begin -->
             <table border="0" cellspacing="0" cellpadding="3" width="100%">
-                <tr valign="middle"><td bgcolor="#999999" class="statText" colspan="6"><a name="design"></a><font size="3"><strong>Component Design Project Status</strong></font></td></tr>
+                <tr valign="middle"><td bgcolor="#999999" class="statText" colspan="6"><a name="design"></a><font size="3"><strong>Component Design Multiplier Status</strong></font></td></tr>
 
                 <tr valign="middle">
                     <td background="/i/graybv_bg.gif" width="35" class="statTextLarge" align="center">Catalog</td>
@@ -136,7 +136,7 @@
                                 <xsl:when test="./submission_date != ''"> 
                                     <xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="submission_date"/></xsl:call-template>
                                     <xsl:if test="./submission_date = ./min_sub_date">
-                                        MULTIPLIER 
+                                        <BR/>MULTIPLIER 
         			    </xsl:if>
                                 </xsl:when>
                                 <xsl:otherwise>
@@ -152,7 +152,7 @@
 <!-- Component Design Projects ends -->
 
 <!-- Component Dev Projects begin -->
-                <tr valign="middle"><td bgcolor="#999999" class="statText" colspan="6"><a name="development"></a><font size="3"><strong>Component Development Project Status</strong></font></td></tr>
+                <tr valign="middle"><td bgcolor="#999999" class="statText" colspan="6"><a name="development"></a><font size="3"><strong>Component Development Multiplier Status</strong></font></td></tr>
 
                 <tr valign="middle">
                     <td background="/i/graybv_bg.gif" width ="10%" class="statTextLarge" align="center">Catalog</td>
