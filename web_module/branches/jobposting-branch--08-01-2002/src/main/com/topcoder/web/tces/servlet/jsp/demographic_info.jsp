@@ -82,7 +82,7 @@
                       <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                     </TR>                
                     
-                    <tces:mapIterator id="response" MapList="ResponseList">                    
+                    <tces:mapIterator id="response" MapList="<%=(List)ResponseList%>">                    
                         <TR>
                           <TD class="statText" HEIGHT="18">
                             <%=(String)response.get("title")%>
@@ -108,7 +108,7 @@
                         List ResponseList = (List)QuestionMap.get(question);
                     %>
             
-                    <tces:mapIterator id="response" MapList="ResponseList">                                
+                    <tces:mapIterator id="response" MapList="<%=(List)ResponseList%>">                                
                         <TR>
                           <TD class="statText" HEIGHT="18">
                             <%=(String)response.get("response")%>
