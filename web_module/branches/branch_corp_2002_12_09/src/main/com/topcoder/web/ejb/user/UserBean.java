@@ -1,8 +1,6 @@
 package com.topcoder.web.ejb.user;
 
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.util.idgenerator.IdGenerator;
-import com.topcoder.util.idgenerator.sql.SimpleDB;
 import com.topcoder.shared.util.DBMS;
 
 import javax.ejb.SessionBean;
@@ -31,7 +29,6 @@ public class UserBean implements SessionBean {
     private SessionContext ctx;
     private static Logger log = Logger.getLogger(UserBean.class);
     private static final String dataSourceName = "CORP_OLTP";
-    private static final String idGenDataSourceName = "CORP_OLTP";
 
     //required ejb methods
 
@@ -56,9 +53,9 @@ public class UserBean implements SessionBean {
 
     //business methods
 
-    public long createUser() {
+    public void createUser(long userId) {
 
-        log.debug("createUser called...");
+        log.debug("createUser called...userId: " + userId);
 
         Context ctx = null;
         PreparedStatement ps = null; // could just use Statement
@@ -67,17 +64,12 @@ public class UserBean implements SessionBean {
         long ret = 0;
 
         try {
-            ctx = new InitialContext();
-            if (!IdGenerator.isInitialized()) {
-                IdGenerator.init(new SimpleDB(), (DataSource)ctx.lookup(idGenDataSourceName), "sequence_object", "name", "current_value", 9999999999L, 1, true);
-            }
-            ret = IdGenerator.nextId("USER_SEQ");
-
             StringBuffer query = new StringBuffer(100);
-            query.append("INSERT INTO user (user_id, create_date, modify_date) VALUES (");
-            query.append(Long.toString(ret));
-            query.append(",'now','now')");
+            query.append("INSERT INTO user (user_id) VALUES (");
+            query.append(Long.toString(userId));
+            query.append(")");
 
+            ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
@@ -96,7 +88,6 @@ public class UserBean implements SessionBean {
             if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in createUser");}}
             if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in createUser");}}
         }
-        return(ret);
     }
 
     public void setFirstName(long userId, String firstName) {
@@ -110,7 +101,7 @@ public class UserBean implements SessionBean {
 
         try {
             StringBuffer query = new StringBuffer(100);
-            query.append("UPDATE user SET first_name = '" + firstName + "', modify_date = 'now' WHERE user_id = ");
+            query.append("UPDATE user SET first_name = '" + firstName + "' WHERE user_id = ");
             query.append(Long.toString(userId));
 
             ctx = new InitialContext();
@@ -145,7 +136,7 @@ public class UserBean implements SessionBean {
 
         try {
             StringBuffer query = new StringBuffer(100);
-            query.append("UPDATE user SET last_name = '" + lastName + "', modify_date = 'now' WHERE user_id = ");
+            query.append("UPDATE user SET last_name = '" + lastName + "' WHERE user_id = ");
             query.append(Long.toString(userId));
 
             ctx = new InitialContext();
@@ -180,7 +171,7 @@ public class UserBean implements SessionBean {
 
         try {
             StringBuffer query = new StringBuffer(100);
-            query.append("UPDATE user SET user_status_id = " + userStatusId + ", modify_date = 'now' WHERE user_id = ");
+            query.append("UPDATE user SET user_status_id = " + userStatusId + " WHERE user_id = ");
             query.append(Long.toString(userId));
 
             ctx = new InitialContext();
