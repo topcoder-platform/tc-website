@@ -52,7 +52,7 @@
                </tr>
             </table>
 
-            <iframe src="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=<%=Constants.RP_PROBLEM_STATEMENT%>&<%=Constants.MESSAGE_ID%>=<%=request.getParameter(Constants.MESSAGE_ID)%>" width="100%" height="200px" scrolling="auto" frameborder="1">
+            <iframe src="<jsp:getProperty name="sessionInfo" property="absoluteServletPath"/>?module=<%=Constants.RP_PROBLEM_STATEMENT%>&<%=Constants.MESSAGE_ID%>=<%=request.getParameter(Constants.MESSAGE_ID)%>" width="100%" height="200px" scrolling="auto" frameborder="1">
             [Your user agent does not support frames or is currently configured not to display frames. However, you may visit <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=<%=Constants.RP_PROBLEM_STATEMENT%>&<%=Constants.MESSAGE_ID%>=<%=request.getParameter(Constants.MESSAGE_ID)%>" target="_top">the related document.</a>]
             </iframe>
 
