@@ -92,7 +92,7 @@
 <P><B>Official Rules</B></P>
 <P>The Referral Incentive Program will apply only to those referred members who have registered with TopCoder after August 1, 2001 and prior to January 1st, 2003.</P>
 <P>Any eligible TopCoder member whose TopCoder handle was provided in the "Referring Member" field of the TopCoder registration process after August 1, 2001 will be placed into the Referral Incentive Program.</P>
-<P>TopCoder will pay a referral commission equal to 10% of any cash prize (or 10% of the value of any non-cash prize) won by a referred member during the 365-day period following the initial registration date of the referred member.  No additional referral compensation will be paid for referred member's winnings following the one-year anniversary of the referred member’s registration. TopCoder and the donating sponsor will determine the value of any non-cash prize.</P>
+<P>TopCoder will pay a referral commission equal to 10% of any cash prize (or 10% of the value of any non-cash prize) won by a referred member during the 365-day period following the initial registration date of the referred member.  No additional referral compensation will be paid for referred member's winnings following the one-year anniversary of the referred member's registration. TopCoder and the donating sponsor will determine the value of any non-cash prize.</P>
 <P>Referral compensation will only be paid to TopCoder members who meet the following citizenship requirements:<UL>
 <LI>All US* Citizens</LI>
 <LI>All Lawful Permanent Residents of the US (i.e., Green Card Holders)</LI>
