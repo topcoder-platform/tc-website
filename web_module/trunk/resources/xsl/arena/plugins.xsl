@@ -60,7 +60,7 @@ Description: Plugin that will allow you to write pre/post processing source code
 Author: Pops<BR/>
 Date: 5/7/2002<BR/>
 Instructions: <A HREF="/contest/classes/CodeProcessor.htm" CLASS="statText">Documentation >></A><BR/>
-<!--Upgrade Release Notes: <A HREF="/contest/classes/PopsEdit_Upgrade_2_5.htm" CLASS="statText">Release Notes >></A><BR/>-->
+Upgrade Release Notes: <A HREF="/contest/classes/CodeProcessor_Upgrade_1_0_1.htm" CLASS="statText">Release Notes >></A><BR/>
 Version: 1.0<BR/>
 EntryPoint: codeprocessor.EntryPoint (case sensitive)<BR/>
 ClassPath: CodeProcessor.jar<BR/>
