@@ -48,6 +48,7 @@
       <property name="statservlets"  value="com/topcoder/web/stat/servlet" />
       <property name="webservlets"   value="com/topcoder/web/servlet" />
       <property name="pactsservlets" value="com/topcoder/web/pacts/servlet" />
+      <property name="regservlets" value="com/topcoder/web/reg/servlet" />
       <mkdir dir="${classes}" />
       <mkdir dir="${testclasses}" />
       <mkdir dir="${bin}" />
@@ -56,6 +57,8 @@
       <mkdir dir="${servlets}/${statservlets}" />
       <mkdir dir="${servlets}/${webservlets}" />
       <mkdir dir="${servlets}/${pactsservlets}" />
+      <mkdir dir="${servlets}/${regservlets}" />
+     
       <mkdir dir="${public_html}/WEB-INF/lib" />
    </target>
 
@@ -101,6 +104,11 @@
          <fileset dir="${classes}/${pactsservlets}" >
                  <include name="**/*.class" />
          </fileset>
+      </move>
+      <move todir="${servlets}/${regservlets}">
+        <fileset dir="${classes}/${regservlets}">
+          <include name="*.class"/>
+        </fileset>
       </move>
    </target>
 
