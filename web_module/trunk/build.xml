@@ -991,9 +991,10 @@
                 <pathelement path="${env.CLASSPATH}"/>
                 <pathelement location="${classes}"/>
                 <pathelement location="${resources}"/>
-                <fileset dir="${jars.dir}">
+<!--                <fileset dir="${jars.dir}">
                     <include name="**/*.jar"/>
                 </fileset>
+              -->
             </classpath>
         </java>
     </target>
