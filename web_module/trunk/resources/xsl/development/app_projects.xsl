@@ -79,7 +79,7 @@
                                     </td>
                                     <td class="projectCells" align="right">$1800 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$600 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">06/28/2004 9:00 AM ET</td>
+                                    <td class="projectCells" align="right">6/28/2004 9:00 AM ET</td>
                                 </tr>
 
 
@@ -146,6 +146,14 @@
                                     <td class="projectHeaders" align="center" nowrap="nowrap">Winning Developer</td>
                                     <td class="projectHeaders" align="center" nowrap="nowrap">Second Place</td>
                                     <td class="projectHeaders" align="right" nowrap="nowrap" width="25%">Register By</td>
+                                </tr>
+                                <tr valign="top">
+                                    <td class="projectCells">
+                                        <a href="?t=development&amp;c=Palm_Common_Connectivity_Dev">Palm Common Connectivity</a>
+                                    </td>
+                                    <td class="projectCells" align="right">$900 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$300 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">6/26/2004 9:00 AM</td>
                                 </tr>
                                 <tr valign="top">
                                     <td class="projectCells">
