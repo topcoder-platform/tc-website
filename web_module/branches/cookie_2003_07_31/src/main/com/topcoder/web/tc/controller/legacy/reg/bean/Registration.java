@@ -256,10 +256,6 @@ public class Registration
 
 
     public void setStep(String step) {
-        if (isStep(STEP_1) && step == null) {
-            notifications.clear();
-            log.debug("notifications cleared...");
-        }
         log.debug("previous step = " + getStep());
         super.setStep(step);
         log.debug("super.setStep(" + step + ") called...");
