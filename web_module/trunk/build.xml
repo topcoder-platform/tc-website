@@ -817,6 +817,26 @@
             <param name="unit-jar-name" value="Coder"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/coder"/>
         </antcall>
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="MainUser"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/user"/>
+            <param name="deploy-desc-path" value="com/topcoder/web/ejb/user/main"/>
+        </antcall>
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="Address"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/address"/>
+            <param name="deploy-desc-path" value="com/topcoder/web/ejb/address/main"/>
+        </antcall>
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="MainEmail"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/email"/>
+            <param name="deploy-desc-path" value="com/topcoder/web/ejb/email/main"/>
+        </antcall>
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="Company"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/company"/>
+        </antcall>
+
         <war warfile="${war.dir}/privatelabel.war" webxml="${resources}/privatelabel/web.xml">
             <fileset dir="${java}/com/topcoder/web/privatelabel/view">
                 <include name="**/*.jsp"/>
@@ -840,6 +860,7 @@
         <unwar src="${war.dir}/privatelabel.war" dest="${public_html}/privatelabel/" overwrite="yes"/>
         <delete dir="${public_html}/privatelabel/META-INF"/>
     </target>
+
 
     <target name="deploy-tc" depends="compile">
         <antcall target="build-ejb-unit">
