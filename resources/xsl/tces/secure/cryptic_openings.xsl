@@ -63,7 +63,7 @@
   </TR>
 </TABLE>
 <IMG SRC="/i/es/cryptic/cryptic_logo.gif" WIDTH="120" HEIGHT="63" ALT="" BORDER="0" VSPACE="10"/><BR/>
-<P>Below is a listing of current open positions within Cryptic Studios.  All jobs Positions are located in San Jose, CA. unless otherwise noted.  Click on the job title for the position description and requirements.
+<P>Below is a listing of current open positions within Cryptic Studios.  All jobs Positions are located in San Jose, CA unless otherwise noted.  Click on the job title for the position description and requirements.
 </P>
 <TABLE WIDTH="100%" CELLPADDING="5" CELLSPACING="5" BORDER="0">
    <TR>
