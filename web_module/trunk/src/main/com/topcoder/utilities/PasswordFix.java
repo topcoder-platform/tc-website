@@ -7,6 +7,7 @@ import com.topcoder.web.ejb.password.PasswordRemoteHome;
 import com.topcoder.web.ejb.password.PasswordRemote;
 
 import javax.naming.Context;
+import javax.naming.InitialContext;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -26,7 +27,7 @@ public class PasswordFix {
             PasswordFix um = new PasswordFix();
             try {
                 log.debug("first");
-                Context ctx = TCContext.getInitial();
+                InitialContext ctx = TCContext.getInitial();
                 log.debug("first");
                 long begin = System.currentTimeMillis();
                 log.debug("first");
