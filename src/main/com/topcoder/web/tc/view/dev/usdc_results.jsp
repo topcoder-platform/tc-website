@@ -79,6 +79,14 @@
                                 {
                                     sURL = "/tc?module=USDCContestDetails&type=1";
                                 }
+                                else if(resultRow.getIntItem("prize_type_id") == 2)
+                                {
+                                    sURL = "/tc?module=USDCContestDetails&type=2"; 
+                                }
+                                else if(resultRow.getIntItem("prize_type_id") == 3)
+                                {
+                                    sURL = "/tc?module=USDCContestDetails&type=2"; 
+                                }
                                 else
                                 {
                                     sURL = "/tc?module=USDCContestDetails";
