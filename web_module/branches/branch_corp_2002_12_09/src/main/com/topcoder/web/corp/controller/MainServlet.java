@@ -148,17 +148,12 @@ public class MainServlet extends HttpServlet {
                     try {
                         req.setRequest( request );
                         req.process();
+                        sendToPage( request, response, req.getNextPage(), req.isNextPageInContext() );
                         found = true;
                     }
                     catch( Exception e ) {
-                        try {
-                            sendToPage( request, response, req.getNextPage(), req.isNextPageInContext() );                            
-                        }
-                        catch( Exception e ) {
-                            /* Could not process module */
-                            log.debug( "doGet: unable to properly forward " );
-                            //sendToErrorPage( request, response, e );
-                        }
+                        /* Could not process module */
+                        log.debug( "doGet: unable to properly forward " );
                     }
                     break;
                 }
