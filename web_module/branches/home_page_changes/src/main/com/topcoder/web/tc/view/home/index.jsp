@@ -153,7 +153,7 @@
             <A href="/?t=about_tc&c=terms" class="footerLinks">Terms</A>
 			<br/>
             <A href="/tc" class="footerLinks">Developer Center</A>&#160;&#160;|&#160;&#160;
-            <A href="/" class="footerLinks">Corporate Services</A>
+            <A href="/corp/?module=Static&d1=corp&d2=index" class="footerLinks">Corporate Services</A>
     <tr><td width="100%" class="copyright" colspan=7>Copyright &#169; 2001-2004, TopCoder, Inc. All rights reserved.</td></tr>
 </table>
 
