@@ -76,7 +76,12 @@ We are looking for a member with specific experience in SSO to act as architect 
 	<LI>Assist in the development of the SSO requirements with a TopCoder Software Product Manager.</LI>
 	<LI>Design a component architecture diagram and a workflow diagram</LI>
 	<LI>Design class diagrams for each component</LI>
-	<LI>Recommended Skills</LI>
+</UL>	
+
+<P>
+<B>Recommended Skills</B>
+</P>
+<UL>
 	<LI>Experience with SSO</LI>
 	<LI>Experience with LDAP</LI>
 	<LI>Experience with J2EE</LI>
@@ -102,10 +107,7 @@ Sequence Diagram(s) - Show the interaction of classes for each component.
 <B>Payment</B>
 </P>
 <P>
-TopCoder will compensate all team members for their work on the project. Compensation will consist of both initial payments and royalties on the sale of the component. The initial payment will be distributed in three installments, as follows: (i) upon the successful completion of the Software Architecture and Design Phase, (ii) up the successful completion of the Development Phase and, (iii) upon successful Production Deployment<SUP>*</SUP>.
-</P> 
-<P>
-Members will also collect royalties on the revenue generated from the sale of the component. This amount is determined using the company royalty pool percentage, currently set as 5% of the component's revenue, and the percentage of the developer's contribution to the total contribution for the development of the component. For example if a developer contributes 50% of the work effort for a component (is paid 50% of the total member cost of developing the component) that developer will receive 50% of the royalty pool for that component. Royalties may be diluted if additional work is done to the component, as the total cost of the component will increase.
+TopCoder will compensate the team member for their work on the project.
 </P> 
 
 <P>
