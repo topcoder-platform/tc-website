@@ -60,7 +60,7 @@
 							<TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
 						</TR>					
 						<TR>
-							<TD VALIGN="middle" COLSPAN="3" HEIGHT="16" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig">&#160;May 6 - May 12, 2002</TD>
+							<TD VALIGN="middle" COLSPAN="3" HEIGHT="16" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig">&#160;May 13 - May 19, 2002</TD>
 						</TR>
 						<TR>
 							<TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
@@ -69,61 +69,21 @@
 							<TD VALIGN="top" COLSPAN="3" CLASS="statText">
 <!-- <A HREF="/stat?c=biggest_rating_gains&amp;dn=1" CLASS="statText">View the list of Division-I Rating Point Gain</A>
 <A HREF="/stat?c=impressive_debuts" CLASS="statText">View the list of Impressive Debuts</A> -->											
-<IMG SRC="/i/m/kpsmith_big.jpg" ALT="Coder of the Week" WIDTH="126" HEIGHT="140" ALIGN="left" HSPACE="10" VSPACE="10" BORDER="0"/>
+<IMG SRC="/i/m/Minsk_big.jpg" ALT="Coder of the Week" WIDTH="126" HEIGHT="140" ALIGN="left" HSPACE="10" VSPACE="10" BORDER="0"/>
 <P CLASS="statText">
-<b>Handle: </b><A HREF="/stat?c=member_profile&amp;cr=277956" CLASS="coderTextYellow">kpsmith</A><br/>
-<b>Rating: </b>1929<br/>
-<b>Member Since: </b>April&#160;20,&#160;2002<br/>
-<b>Total Competitions: </b>2<br/>
+<B>Handle: </B><A HREF="/stat?c=member_profile&amp;cr=283388" CLASS="coderTextYellow">Minsk</A><BR/>
+<B>Rating: </B>1888<BR/>
+<B>Member Since: </B>May&#160;9,&#160;2002<BR/>
+<B>Total Competitions: </B>1<BR/>
 </P>
-
-<P>
-TopCoder, Inc. announced today that <B>kpsmith</B> has been named the "Coder of the Week" for 
-Single Round Matches 86 and 87, which took place between May 6 and May 12, 2002.  
-</P>
-
-<P>
-In Single Round Match 86, <B>kpsmith</B>, in his initial TopCoder competition, earned a 
-Division-II record 1935.74 final points 
-(<A HREF="/stat?c=biggest_rating_gains&amp;dn=2" CLASS="statText">View the list of Division-II Rating Point Gain</A>).  
-That point total broke the Division-II record of <A HREF="/stat?c=member_profile&amp;cr=155069" CLASS="coderTextBlue">chi</A>, 
-who earned 1898.64 final points in 
-Single Round Match 67 in February.  The final point total of <B>kpsmith</B> is also TopCoder's 
-all-time point record, 8.35 more than the 1927.39 total of <A HREF="/stat?c=member_profile&amp;cr=109965" CLASS="coderTextYellow">vulture</A> in Single Round Match 1, 
-which strangely enough occurred exactly one year to the date (May 8, 2001).  <B>kpsmith</B> also 
-broke the record for the most points earned in a debut match, which was held by <A HREF="/stat?c=member_profile&amp;cr=112630" CLASS="coderTextYellow">Aleksey</A>, 
-who earned 1787.55 final points in the Second Round of the 2001 TopCoder Collegiate Challenge.  
-Lastly, <B>kpsmith</B> had a debut rating of 1894, which is the seventh highest ever 
-(<A HREF="/stat?c=impressive_debuts" CLASS="statText">View the list of Impressive Debuts</A>).
-</P>
-
-<P>
-"I knew I had a good chance to do well, but you never know when a particular problem will cause 
-you grief," said <B>kpsmith</B>.  I figured I had a 50/50 chance of winning $100.
-</P>
- 
-<P>
-<B>kpmsith</B> has been a TopCoder member since April 20, 2002, and is five-for-six in submissions and 
-a perfect five-for-five in challenges in two overall matches.   
-</P>
-
-<P>
-"I always loved both multi-player games as well as programming.  When I play other games on 
-the net, I find that I spend as much time hacking on a client for the game as playing 
-the game itself.  TopCoder seems to merge those two interests of mine really well"
-</P>
-
-<P>
-Other members nominated for "Coder of the Week" were: <A HREF="/stat?c=member_profile&amp;cr=281447" CLASS="coderTextYellow">Belle</A>, 
-who had a 1746.01 final 
-point total in Single Round Match 86, the fifth highest in Division-II; <A HREF="/stat?c=member_profile&amp;cr=275568" CLASS="coderTextBlue">stipe</A>, who had 
-a 1706.88 final point total in Single Round Match 86, the 10th highest in Division-II 
-debut rating of 1755, which is the 25th highest ever; and <A HREF="/stat?c=member_profile&amp;cr=277659" CLASS="coderTextYellow">radeye</A>, who had a 301-point 
-rating gain in Single Round Match 87, which is the 10th highest in Division-I 
-(<A HREF="/stat?c=biggest_rating_gains&amp;dn=1" CLASS="statText">View the list of Division-I Rating Point Gain</A>).
-</P>
-
-							</TD>						
+<P>TopCoder, Inc. announced today that <B>Minsk</B> has been named the "Coder of the Week" for Single Round Matches 88 and 89, which took place between May 13 and May 19, 2002.</P>
+<P>In Single Round Match 88, <B>Minsk</B>, in his initial TopCoder competition, earned the highest Division-II point total for the match (1370.61), producing a debut rating of 1888, the eighth highest ever (<A HREF="/stat?c=biggest_rating_gains&amp;dn=1" CLASS="statText">View Impressive Rating Point Gains</A>).  <B>Minsk</B> earned 275.77 points on the Level One problem, 423.47 on the Level Two problem, and 671.37 on the Level Three problem.</P>
+<P>"Over the past nine months, I spent a lot of time practicing with <A HREF="/stat?c=member_profile&amp;cr=268851" CLASS="coderTextBlue">gladius</A> and <A HREF="/stat?c=member_profile&amp;cr=269702" CLASS="coderTextYellow">coachbudka</A>," said <B>Minsk</B>.  "After the practices, problems from Division-II become typing contests.  Experience, being comfortable in both Java and C++, and a good typing speed gave me the edge I needed."</P>
+<P><B>Minsk</B> has been a TopCoder member since May 9, 2002, and has won $100.</P>
+<P>"TopCoder was originally proposed by one of my friends as a good way to focus on improving speed and reliability, as well as a fun experience.  Having the lobby available to chat with other contestants, plus the admins and question authors, creates a very enjoyable atmosphere.  Having had the experience, I am encouraging the rest of our group to join TopCoder as well.</P>
+<P>I have been very impressed both with the professionalism of TopCoder and the excellence of many of its members.  Being selected as Coder of the Week is an honor"</P>
+<P>Other members nominated for "Coder of the Week" were: <A HREF="/stat?c=member_profile&amp;cr=278938" CLASS="coderTextBlue">binaryni</A>, who had a Rating Point Gain of 460 in SRM 88, the second largest gain in Division-I (<A HREF="/stat?c=biggest_rating_gains&amp;dn=1" CLASS="statText">View the Division-I Rating Point Gain</A>); <A HREF="/stat?c=member_profile&amp;cr=263381" CLASS="coderTextBlue">fist</A>, who had a 350-point rating gain in SRM 88, the fifth largest gain in Division-I; <A HREF="/stat?c=member_profile&amp;cr=265504" CLASS="coderTextBlue">coderlemming</A>, who had a 343-point rating gain in SRM 88, which is the sixth largest in Division-I; <A HREF="/stat?c=member_profile&amp;cr=282718" CLASS="coderTextGray">rustyoldman</A>, who had a 506-point rating gain in SRM 88, the second largest in Division-II (<A HREF="/stat?c=biggest_rating_gains&amp;dn=2" CLASS="statText">View the Division-II Rating Point Gain</A>); jder, who had a 464-point rating gain in SRM 88, the fifth largest gain in Division-II; and <A HREF="/stat?c=member_profile&amp;cr=282715" CLASS="coderTextGray">The Llama</A>, who had a 450-point rating gain, which ties for the sixth largest gain in Division-II.</P>
+</TD>						
 						</TR>						
 					</TABLE>
 					<P><br/></P>

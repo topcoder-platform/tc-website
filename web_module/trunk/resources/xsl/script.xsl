@@ -418,6 +418,10 @@ function goTo(selection)
   {
     window.location = "/index?t=statistics&c=coder_of_week042902";
   }                                   
+   else if (sel == "may0602")
+  {
+    window.location = "/index?t=statistics&c=coder_of_week050602";
+  }                                   
   else
   {}
 }
