@@ -141,7 +141,6 @@
                 //put values in hidden fields
                 //we put it in the parent so that they can close the testing window and still have the values around.
                 for(var i = 0; i < numArgs; i++) {
-                    alert("put " + getValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i).toLowerCase() + " in for arg " + i);
                     switch(argTypes[i]) {
                         case "String[]":
                         case "int[]":
