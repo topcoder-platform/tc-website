@@ -96,7 +96,7 @@
 
                 <tr valign="middle">
                     <td class="projectHeaders" align="center">Catalog</td>
-                    <td width="15%" class="projectHeaders">Projects</td>
+                    <td width="15%" class="projectHeaders">Project</td>
                     <td class="projectHeaders" align="center">Registrants</td>
                     <td class="projectHeaders" align="center">Submissions</td>
                     <td class="projectHeaders" align="center">Payment*</td>
@@ -192,7 +192,7 @@
 
                 <tr valign="middle">
                     <td class="projectHeaders" align="center">Catalog</td>
-                    <td width="15%" class="projectHeaders">Projects</td>
+                    <td width="15%" class="projectHeaders">Project</td>
                     <td class="projectHeaders" align="center">Registrants</td>
                     <td class="projectHeaders" align="center">Submissions</td>
                     <td class="projectHeaders" align="center">Payment*</td>
@@ -286,7 +286,7 @@
                 </tr>
                 <tr valign="middle">
                     <td class="projectHeaders" align="center">Catalog</td>
-                    <td width="15%" class="projectHeaders">Projects</td>
+                    <td width="15%" class="projectHeaders">Project</td>
                     <td class="projectHeaders" align="center">Registrants</td>
                     <td class="projectHeaders" align="center">Submissions</td>
                     <td class="projectHeaders" align="center">Payment*</td>
@@ -376,7 +376,7 @@
 
                 <tr valign="middle">
                     <td class="projectHeaders" align="center">Catalog</td>
-                    <td width="15%" class="projectHeaders">Projects</td>
+                    <td width="15%" class="projectHeaders">Project</td>
                     <td class="projectHeaders" align="center">Registrants</td>
                     <td class="projectHeaders" align="center">Submissions</td>
                     <td class="projectHeaders" align="center">Payment*</td>
