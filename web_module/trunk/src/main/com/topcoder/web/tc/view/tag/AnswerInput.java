@@ -30,6 +30,10 @@ public class AnswerInput extends BaseTag {
         this.question = question;
     }
 
+    public void setAnswer(Answer answer) {
+        this.answer = answer;
+    }
+
     public int doStartTag() throws JspException {
         StringBuffer output = new StringBuffer(400);
         switch (question.getStyleId()) {
