@@ -55,7 +55,7 @@ Top Ends -->
         <td class="bodyText" width="100%">
 <!-- TCO Header -->
    <p><br /></p>
-   <div align="center"><img src="/i/tournament/vcc03/vcc03.jpg" alt="Verizon Coding Challenge" width="500" height="120" border="0" vspace="0" /></div>
+   <div align="center"><img src="/i/tournament/vcc03/vcc03.gif" alt="Verizon Coding Challenge" width="500" height="120" border="0" vspace="0" /></div>
    <p><br /></p>
 
 <!-- Tab bar links-->
