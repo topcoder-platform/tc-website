@@ -115,15 +115,15 @@ public abstract class BaseServlet extends HttpServlet {
                     if (cmd.equals(""))
                         cmd = DEFAULT_PROCESSOR;
                     if (!isLegalCommand(cmd))
-                        throw new NavigationException("Invalid module in request: " + cmd);
+                        throw new NavigationException("Invalid processorName in request: " + cmd);
 
-                    String module = PATH + (PATH.endsWith(".")?"":".") + cmd;
+                    String processorName = PATH + (PATH.endsWith(".")?"":".") + getProcessor(cmd);
 
-                    log.debug("creating request processor for " + module);
+                    log.debug("creating request processor for " + processorName);
                     try {
-                        SimpleResource resource = new SimpleResource(module);
+                        SimpleResource resource = new SimpleResource(processorName);
                         if (hasPermission(authentication, resource)) {
-                            rp = callProcess(getProcessor(module), request, authentication);
+                            rp = callProcess(processorName, request, authentication);
                         } else {
                             throw new PermissionException(authentication.getActiveUser(), resource);
                         }
@@ -258,7 +258,6 @@ public abstract class BaseServlet extends HttpServlet {
 
     protected String getProcessor(String key ) {
         String ret = null;
-        log.debug("key: " + key + " test " + getServletConfig().getInitParameter("survey_id"));
         if (ret == null) {
             ret = getServletConfig().getInitParameter(key);
         }

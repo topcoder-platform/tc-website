@@ -58,6 +58,17 @@
             <description></description>
         </init-param>
 
+        <init-param>
+            <param-name>survey_results</param-name>
+            <param-value>/survey/results.jsp</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>survey_view</param-name>
+            <param-value>/survey/view.jsp</param-value>
+            <description></description>
+        </init-param>
+
         <!-- processor mappings -->
         <init-param>
             <param-name>SurveyResults</param-name>
