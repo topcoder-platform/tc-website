@@ -55,13 +55,13 @@
                         <TR>
                             <TD ALIGN="right" HEIGHT="14" VALIGN="middle" CLASS="statTextBig">Handle:&nbsp;&nbsp;</TD>
                             <TD COLSPAN="2" VALIGN="TOP" HEIGHT="20">
-                               <tc-webtag:textInput name="handle" maxlength="15" size="12" class="dropdown" onKeyPress="submitEnter(event)"/>
+                               <tc-webtag:textInput name="handle" maxlength="15" size="12" class="dropdown"/>
                             </TD>
                         </TR>
                         <TR>
                             <TD ALIGN="right" HEIGHT="14" VALIGN="middle" CLASS="statTextBig">Password:&nbsp;&nbsp;</TD>
                             <TD VALIGN="TOP" HEIGHT="20">
-                               <tc-webtag:textInput name="passw" passw="true" maxlength="15" size="12" class="dropdown" onKeyPress="submitEnter(event)"/>
+                               <tc-webtag:textInput name="passw" passw="true" maxlength="15" size="12" class="dropdown"/>
                             </TD>
                             <TD VALIGN="top" CLASS="statTextBig">&nbsp;&nbsp;<A CLASS="statTextBig" HREF="Javascript:frmLogin.submit()">Login &gt;</A></TD>
                         </TR>
@@ -88,40 +88,6 @@
         </TR>
     </TABLE>
 </TD>
-<!--
- <TD valign="top" bgcolor="#CCCCCC" width="100%" class="bodyText">
-   <IMG BORDER="0" VSPACE="5" HEIGHT="1" width="400" src="/i/clear.gif"><BR>
-      <FORM NAME="login" METHOD="POST" action="<%=appContext%>/?module=Login">
-        <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="50%" ALIGN="left">
-           <TR>
-              <TD CLASS="statTextBig" VALIGN="middle" HEIGHT="14" ALIGN="right">User Name:&#160;&#160;</TD>
-              <TD HEIGHT="20" VALIGN="TOP">
-                <tc-webtag:textInput name="handle" maxlength="15" size="12"/>
-              </TD>
-              <TD>&#160;<b>
-                <tc-webtag:error refname="handle" text="Login name must not be empty"/>
-              </b><TD>
-           </TR>
-           <TR>
-              <TD CLASS="statTextBig" VALIGN="middle" HEIGHT="14" ALIGN="right">Password:&#160;&#160;</TD>
-              <TD HEIGHT="20" VALIGN="TOP">
-                 <tc-webtag:textInput name="passw" passw="true" maxlength="15" size="12"/>
-              </TD>
-              <TD>&#160;<b>
-               <tc-webtag:error refname="passw" text="Login/password combination entered is invalid"/>
-              </b></TD>
-           </TR>
-           <TR>
-              <TD>&#160;</TD>
-              <TD CLASS="statTextBig" VALIGN="top" colspan="2">&#160;
-                 <INPUT NAME="submit" TYPE="submit" VALUE="Log me in"/>
-              </TD>
-           </TR>
-        </TABLE>
-        <INPUT NAME="module" TYPE="hidden" VALUE="Login"/>
-     </FORM>
- </TD>
--->
 <!-- Body Area Ends -->
 
       <!-- Gutter -->
