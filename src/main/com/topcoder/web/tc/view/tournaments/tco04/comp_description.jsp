@@ -25,6 +25,9 @@
 
         <p>Eight Component finalists will be invited to attend the onsite finals in Santa Clara, CA, USA.</p>
             <ul>
+                <li><strong>Registration</strong><br />
+                    STARTS: Monday, August 9 at 9:00 AM ET<br/>
+                    ENDS: Tuesday, September 7 at 9:00 AM ET</li>
                 <li><strong>Competition Starts</strong><br />
                     August 10, 2004<br />
                 <li><strong>Onsite Review of Competition</strong><br />
