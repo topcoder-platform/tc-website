@@ -35,6 +35,9 @@ public class ProjectDetail extends Base {
                     details.getLongItem(0, "version_id"), details.getLongItem(0, "phase_id"), getUser().getId());
             getRequest().setAttribute("projectFull", String.valueOf(full));
 
+            //added rfairfax
+            getRequest().setAttribute("projectId", StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID)));
+            
             if (details.isEmpty()) {
                 throw new NavigationException("Could not find project information.");
             } else {

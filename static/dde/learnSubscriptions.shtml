@@ -1,0 +1,182 @@
+<html>
+<head>
+	<title>TopCoder Software</title>
+ 
+<script language="JavaScript" src="scripts/javascript.js">
+</script>
+
+</head>
+
+<link rel="stylesheet" type="text/css" href="tcs_style.css">
+
+<body class="body" marginheight="0" marginwidth="0">
+
+<form action="#" method="#">
+
+<!--#include virtual="includes/headerNotLogged.shtml" -->
+<!--#include virtual="includes/navLearn.shtml" -->
+
+<!-- breadcrumb begins -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td valign="middle" width="1%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+		<td valign="middle" width="1%" class="breadcrumb" nowrap><a href="learnIndex.shtml" class="breadcrumbLinks">Learn About Components</a> > <strong>Subscriptions</strong></td>
+		<td valign="middle" width="98%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+	</tr>
+</table>
+<!-- breadcrumb ends -->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="middle">
+	<tr valign="top">
+
+<!-- Left Column begins -->
+		<td width="165" class="leftColumn">
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
+<!-- About Us Catagories -->
+				<tr valign="top">
+					<td class="leftNav">
+						<table border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td width="5" class="leftHead"><img src="images/clear.gif" alt="" width="5" height="10" border="0"></td>
+								<td width="155" class="leftHead" colspan="2"></td>
+								<td width="10" class="leftHead" valign="top"><img src="images/leftNavHead.gif" alt="" width="10" height="22" border="0" /></td>
+							</tr>
+							<tr valign="top">
+								<td><img src="images/clear.gif" alt="" width="5" height="5" border="0"></td>
+								<td class="leftNavText">::&nbsp;</td>
+								<td class="leftNavText"><a class="leftNavLinks" href="learnIndex.shtml">How software will be built</a></td>
+								<td><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td>
+							</tr>
+							<tr valign="top">
+								<td><img src="images/clear.gif" alt="" width="5" height="5" border="0"></td>
+								<td class="leftNavText">::&nbsp;</td>
+								<td class="leftNavText"><a class="leftNavLinks" href="learnDefinition.shtml">Definition</a></td>
+								<td><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td>
+							</tr>
+							<tr valign="top">
+								<td><img src="images/clear.gif" alt="" width="5" height="5" border="0"></td>
+								<td class="leftNavText">::&nbsp;</td>
+								<td class="leftNavText"><a class="leftNavLinks" href="learnPurchasing.shtml">Purchasing</a></td>
+								<td><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td>
+							</tr>
+							<tr valign="top">
+								<td><img src="images/clear.gif" alt="" width="5" height="5" border="0"></td>
+								<td class="leftNavText">::&nbsp;</td>
+								<td class="leftNavText"><a class="leftNavLinks" href="learnSubscriptions.shtml">Subcriptions</a></td>
+								<td><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td>
+							</tr>
+							<tr valign="top">
+								<td><img src="images/clear.gif" alt="" width="5" height="5" border="0"></td>
+								<td class="leftNavText">::&nbsp;</td>
+								<td class="leftNavText"><a class="leftNavLinks" href="learnDistributed.shtml">Distributed Development</a></td>
+								<td><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td>
+							</tr>
+							<tr><td colspan="4"><img src="images/leftNavFooter.gif" alt="" width="165" height="11" border="0" /></td></tr>
+						</table>
+					</td>
+				</tr>
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
+<!-- Collaboration promo -->
+				<tr valign="top"><td><a href="collabEventEngine.shtml"><img src="images/promoCollaborate.gif" alt="Collaborate!" width="165" height="120" border="0"></a></td></tr>
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
+<!-- Viewpoint 
+				<tr valign="top"><td><img src="images/promoViewPlattner.gif" alt="Viewpoint" width="165" height="157" border="0" /></td></tr>
+				<tr><td height="20"><img src="images/clear.gif" alt="" width="10" height="20" border="0" /></td></tr> -->
+			</table>
+		</td>
+		<td width="5" class="leftColumn"><img src="images/clear.gif" alt="" width="5" height="10" border="0"></td>
+<!-- Left Column ends -->
+
+<!-- Gutter 1 begins -->
+		<td width="15"><img src="images/clear.gif" alt="" width="15" height="10" border="0"></td>
+<!-- Gutter 1 ends -->
+
+<!-- Middle Column begins -->
+		<td width="100%">
+			<table width="100%" border="0" cellpadding="0" cellspacing="0">
+				<tr><td height="15"><img src="images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
+				<tr><td class="normal"><img src="images/headLearnComponents.gif" alt="Learn About Components" width="545" height="32" border="0" /></td></tr>
+				<tr><td class="subhead">Affordable Software Solutions</td></tr>
+				<tr><td class="normal">
+						<p>TopCoder Software components are purchased through TopCoder Software Component Subscriptions. The Component 
+						Subscription model offers customers the flexibility to choose only those components that suit their needs. In addition, 
+						customers are encouraged to collaborate with TopCoder Software so that their requirements can be integrated into new 
+						components when they are added to the catalog. TopCoder Software Customer Collaboration ensures that the direction of 
+						TopCoder Software's component development pipeline meets the evolving needs of its customers. </p>
+
+						<p>Each component in the TopCoder Software <a href="catalogIndex.shtml">Component Catalog</a> is assigned a unit 
+						value that corresponds to the work effort required to develop the component. Customers have the flexibility to purchase 
+						subscriptions for the number of component units that they need. With a subscription they receive components equal to 
+						the number of units in their subscription cap, support hours equal to the number of components in their subscription 
+						cap and access to component upgrades. Volume discounts are provided for higher-level subscriptions.</p>
+
+						<p>Subscriptions, as of September 5, 2002 start at $5,000 for five units and five hours of support.  Volume discounts 
+						will apply at higher subscription levels.  Subscription prices may change without notice.</p>
+
+						<p><strong>The following table lists subscription prices as of October 1, 2002:</strong></p>
+  
+							<table border="0" cellspacing="1" cellpadding="5" width="80%">
+								<tr>
+									<td class="forumTitle" width="40%">Subscription Cost (included)</td>
+									<td class="forumTitle" width="30%">Component Units</td>
+									<td class="forumTitle" width="30%">Support Hours</td>
+								</tr>
+							
+								<tr>
+									<td class="forumUnits">$5,000</td>
+									<td class="forumUnits">5 Units</td>
+									<td class="forumUnits">5 Units</td>
+								</tr>
+								
+								<tr>
+									<td class="forumUnits">$18,000</td>
+									<td class="forumUnits">20 Units</td>
+									<td class="forumUnits">20 Units</td>
+								</tr>	
+							
+								<tr>
+									<td class="forumUnits">$28,000</td>
+									<td class="forumUnits">35 Units</td>
+									<td class="forumUnits">35 Units</td>
+								</tr>	
+							
+								<tr>
+									<td class="forumUnits">$35,000</td>
+									<td class="forumUnits">50 Units</td>
+									<td class="forumUnits">50 Units</td>
+								</tr>		
+							</table>
+							
+						<p>One of the reasons TopCoder Software components are such a great value is that we practice the re-use that we preach. 
+						Our components are typically developed using existing TopCoder Software base components. Customers are never charged 
+						for an individual base component more than once. The cost of the purchased component includes all base components it uses. 
+						For instance, a six CPU license for our file conversion component represents six component units. The file conversion 
+						component was developed using the configuration manager base component. The configuration manager base component 
+						is included with the file conversion component purchase. When that customer purchases the email engine component, 
+						which also uses the configuration manager base component, they pay only one unit (instead of three) since the 
+						configuration manager base component (two unit value) has already been purchased.</p>
+
+						<p>Visit our <a href="catalogIndex.shtml">Component Catalog</a> for a complete selection of components.</p>
+
+						<p><strong>Interested in components?</strong><br/>
+						Weigh in with ideas and suggestions by <a href="/login.shtml" class="bodyText">collaborating</a> with others.</p>
+				</tr>
+				<tr><td><img src="images/clear.gif" alt="" width="10" height="40" border="0"/></td></tr>
+			</table>
+		</td>
+
+<!-- Middle Column ends -->
+
+<!-- Gutter 3 begins -->
+		<td width="10"><img src="images/clear.gif" alt="" width="10" height="10" border="0"></td></form>
+<!-- Gutter 3 ends -->
+	</tr>
+</table>
+	
+<!-- Footer begins -->
+<!--#include virtual="includes/footer.shtml" -->
+<!-- Footer ends -->
+
+</body>
+</html>

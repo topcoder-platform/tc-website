@@ -1,0 +1,129 @@
+<html>
+<head>
+	<title>TopCoder Software</title>
+  
+<script language="JavaScript" src="scripts/javascript.js">
+</script>
+
+</head>
+<link rel="stylesheet" type="text/css" href="tcs_style.css">
+<body class="body" marginheight="0" marginwidth="0">
+<form action="#" method="#">
+
+<!--Header begins -->
+
+<!--#include virtual="includes/headerLogged.shtml" -->
+<!--#include virtual="includes/navCatalog.shtml" -->
+
+<!--Header ends -->
+
+<!-- breadcrumb 1 begins -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr valign="middle">
+		<td width="1%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+		<td width="1%" class="breadcrumb" nowrap><a href="catalogEventEngine.shtml" class="breadcrumbLinks">Event Engine</a> > <a href="adminCollabIndex.shtml" class="breadcrumbLinks">Topics</a> > <a href="adminCollabSubtopics.shtml" class="breadcrumbLinks">Business Logic Requirements</a> > <a href="adminCollabThreads.shtml" class="breadcrumbLinks">Bullet list of required business logic</a> > <a href="adminCollabMessages.shtml" class="breadcrumbLinks">Why have to download the applet every time?</a> > <strong>Post a Reply</strong></td>
+		<td width="98%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+	</tr>
+<table>
+<!-- breadcrumb 1 ends -->
+
+<!--Middle Column begins -->
+
+<!-- Forum Head begins -->
+<!--#include virtual="includes/collabHead.shtml" -->
+<!-- Forum Head ends -->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" class="middle">
+<!-- Column Titles -->
+	<tr valign="top">
+		<td width="1%" class="forumTitleCenter">New</td>
+		<td width="63%" class="forumTitle">Thread</td>
+		<td width="36%" class="forumTitle">Last Message</td>
+	</tr>
+
+<!-- Thread -->
+	<tr>
+		<td class="forumSubjectCenter"><img src="images/iconStatusCollabSm.gif" alt="*" width="17" height="12" border="0" /></td>
+		<td class="forumSubject"><strong>Why have to download the applet every time?</strong></td>
+		<td class="forumSubject">&nbsp;</td>
+	</tr>
+	<tr valign="top">
+		<td class="forumSubjectMessage">&nbsp;</td>
+		<td class="forumSubjectMessage" colspan="2">
+			<p>I'm just trying to put some sound to my own emulator, but I'm experiencing some really weird problems with 
+			javax.sound. I have now 2 soundchip emulators in my emulator, an AY-3-8910 and an SN76496, and they build the same way:</p>
+			<p>The soundchip emu is a class that feeds an audiostream, runs in a separate thread, and runs in a tight loop. Another 
+			class in the emulator feeds commands to the soundchip class. I was wondering how these delays can be prevented, or what 
+			should be a good way to emulate sound.</td>
+	</tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="middle">
+	<tr valign="top"><td class="forumTitle"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
+	<tr valign="top"><td height="10"><img src="images/clear.gif" alt="" width="10" height="10" border="0"/></td></tr>
+</table>
+
+<!-- Post a reply -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="middle">
+	<tr>
+		<td align="center">
+			<table width="800" cellpadding="0" cellspacing="0" border="0">
+				<tr><td width="800"><img src="images/messageReplyHead.gif" alt="Post a Reply" width="800" height="29" border="0" /></td></tr>
+			</table>
+			
+			<table width="800" cellpadding="0" cellspacing="10" border="0" class="compSearch">
+				<tr valign="top">
+					<td align="center">
+						<table cellpadding="0" cellspacing="10" border="0" class="compSearch">
+
+<!-- Message -->
+							<tr valign="top">
+								<td class="registerLabel">Message</td>
+								<td class="registerText"><textarea class="adminControlForm" name="reply" rows="24" cols="90">
+
+
+=====================================
+On June 21, 2002 at 4:40 PM kyled227 wrote:
+
+You also need Pops' codeprocessor.
+
+1. remove the Ron Proc classifiles from the correspondence.jar
+2. add a new editor to your contest applet
+3. call it anything
+4. add codeprocessor.jar to your classpath
+5. add popsedit.jar/filedit.jar to your classpath</textarea></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr><td class="adminControl" colspan="2"><input class="adminControlButton" type="submit" name="reply" value="&nbsp;Post Reply&nbsp;"></input></td></tr>
+			</table>
+			
+			<table width="800" cellpadding="0" cellspacing="0" border="0">
+				<tr><td width="800"><img src="images/messageReplyFoot.gif" alt="" width="800" height="11" border="0" /></td></tr>
+			</table></td>
+	</tr>
+</table>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="middle">
+	<tr><td height="15"><img src="images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
+</table>
+
+<!--Middle Column ends -->
+	
+<!-- breadcrumb 2 begins -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr valign="middle">
+		<td width="1%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+		<td width="1%" class="breadcrumb" nowrap><a href="catalogEventEngine.shtml" class="breadcrumbLinks">Event Engine</a> > <a href="adminCollabIndex.shtml" class="breadcrumbLinks">Topics</a> > <a href="adminCollabSubtopics.shtml" class="breadcrumbLinks">Business Logic Requirements</a> > <a href="adminCollabThreads.shtml" class="breadcrumbLinks">Bullet list of required business logic</a> > <a href="adminCollabMessages.shtml" class="breadcrumbLinks">Why have to download the applet every time?</a> > <strong>Post a Reply</strong></td>
+		<td width="98%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+	</tr>
+<table>
+<!-- breadcrumb 2 ends -->
+
+<!--Footer begins -->
+<!--#include virtual="includes/footer.shtml" -->
+<!--Footer ends --></form>
+
+</body>
+</html>

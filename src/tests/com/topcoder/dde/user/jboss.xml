@@ -1,0 +1,12 @@
+<jboss>
+    <enterprise-beans>
+        <session>
+            <ejb-name>UserManagerEJB</ejb-name>
+            <jndi-name>dde/UserManager</jndi-name>
+        </session>
+        <session>
+            <ejb-name>TCS_DDEUser_EJBTestRunnerEJB</ejb-name>
+            <jndi-name>user/EJBTestRunner</jndi-name>
+        </session>
+    </enterprise-beans>
+</jboss>

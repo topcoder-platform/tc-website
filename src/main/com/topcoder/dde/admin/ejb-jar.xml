@@ -1,0 +1,17 @@
+<!DOCTYPE ejb-jar PUBLIC "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN" "http://java.sun.com/dtd/ejb-jar_2_0.dtd">
+
+<ejb-jar>
+    <display-name>AdminLogin</display-name>
+    <enterprise-beans>
+
+        <session>
+            <ejb-name>AdminLoginEJB</ejb-name>
+            <home>com.topcoder.dde.admin.AdminLoginHome</home>
+            <remote>com.topcoder.dde.admin.AdminLogin</remote>
+            <ejb-class>com.topcoder.dde.admin.AdminLoginBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Container</transaction-type>
+        </session>
+
+    </enterprise-beans>
+</ejb-jar>

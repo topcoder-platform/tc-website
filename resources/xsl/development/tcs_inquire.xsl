@@ -76,6 +76,10 @@
                 <input type="hidden" name="handle">
                     <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/handle"/></xsl:attribute>
                 </input>
+		
+		<input type="hidden" name="projectId">
+                    <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/projectId"/></xsl:attribute>
+                </input>
               
                 <input type="hidden" name="To">
                     <xsl:attribute name="VALUE">service@topcodersoftware.com</xsl:attribute>
