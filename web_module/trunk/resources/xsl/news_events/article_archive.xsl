@@ -61,6 +61,10 @@
 <!-- 2002 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2003</font></td></tr>
                             
+                            <tr><td class="newsText"><A href="http://www.businessweek.com/technology/cnet/stories/5078400.htm" target="_blank">Google seeking a few good code jockeys</A> [September 24 - BusinessWeek Online]</td></tr>
+
+                            <tr><td class="newsText"><A href="http://www.cio.com/archive/091503/staffsurvey.html" target="_blank">What They're Saying About You</A> [September 15 - CIO]</td></tr>
+
                             <tr><td class="newsText"><A href="http://www.sdtimes.com/cols/industrywatch_078.htm" target="_blank">Battle royal for jobs</A> [May 15 - SD Times]</td></tr>
 
                             <tr><td class="newsText"><A href="http://www.devx.com/Java/Article/12009" target="_blank">International Collegiate Programming Champion talks shop</A> [April 23 - DevX]</td></tr>

@@ -71,7 +71,21 @@
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="http://www.businessweek.com/technology/cnet/stories/5078400.htm">Google seeking a few good code jockeys</A></strong></font><br />
                         "Google, one of the most aggressive staff recruiters in Silicon Valley, is putting on a programming contest worth up to $10,000 and a possible career at the search company. <span class="prHead">[September 24]</span></p>
-                        
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+<!-- NVIDIA TCO-->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_09_22_03"><img src="/i/pressroom/nvidia_badge.gif" alt="nvidia" width="135" height="117" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_09_22_03">NVIDIA Signs On To Sponsor 2003 TopCoder Open</A></strong></font><br />
+                        "TopCoder, Inc., the leader in on-line programming competition, skills assessment and competitive software development, today announced NVIDIA as a premier sponsor for its 
+                        2003 TopCoder Open.  NVIDIA is seeking exceptional candidates for their open programming positions while continuing to increase exposure of the NVIDIA suite of graphics cards. <span class="prHead">[September 22]</span></p>
                     </td>
                 </tr>
             </table>

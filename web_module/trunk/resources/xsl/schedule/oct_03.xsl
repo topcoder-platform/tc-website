@@ -152,7 +152,14 @@
                             <tr> 
                                 <td id="calendar">12</td>
                                 <td id="calendar">13</td>
-                                <td id="calendar">14</td>
+                                <td id="calendarSRM">
+                                    <span id="calendarSRMDate">14</span><br />
+                                    <strong>Match 167</strong><br />
+                                    Register: 6:00&#160;PM<br />
+                                    Compete: 9:00&#160;PM<br />
+                                    Sponsor: <A href="http://www.northface.edu">Northface</A><br />
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/?RoundId=4640&amp;t=schedule&amp;c=srm">Details</A></td>
                                 <td id="calendarTCO03">
                                     <span id="calendarTCO03Date">15</span><br />
                                     <strong>2003 TCO</strong><br />
@@ -170,14 +177,7 @@
                                     8:00 AM<br/>
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/pl/?&amp;module=Static&amp;d1=google&amp;d2=google_sched">Details</A></td>
-                                <td id="calendarSRM">
-                                    <span id="calendarSRMDate">18</span><br />
-                                    <strong>Match 167</strong><br />
-                                    Register: 9:00&#160;AM<br />
-                                    Compete: 12:00&#160;PM<br />
-                                    <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
-                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=4640&amp;t=schedule&amp;c=srm">Details</A></td>
+                                <td id="calendar">18</td>
                             </tr>
                             
                             <tr> 
