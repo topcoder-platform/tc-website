@@ -104,22 +104,32 @@ public class UserMover {
 
 
             int count = 0;
+            String firstName = null;
+            String lastName = null;
+            String email = null;
+            String address1 = null;
+            String address2 = null;
+            String city = null;
+            String state = null;
+            String country = null;
+            String zip = null;
+            String phone = null;
             while (rs.next()) {
 
                 try {
                     userId = rs.getLong(1);
                     handle = rs.getString(2);
                     char status = rs.getString(3).charAt(0);
-                    String firstName = rs.getString(7);
-                    String lastName = rs.getString(8);
-                    String email = rs.getString(4);
-                    String address1 = rs.getString(10);
-                    String address2 = rs.getString(11);
-                    String city = rs.getString(12);
-                    String state = rs.getString(5);
-                    String country = rs.getString(6);
-                    String zip = rs.getString(13);
-                    String phone = rs.getString(9);
+                    firstName = rs.getString(7);
+                    lastName = rs.getString(8);
+                    email = rs.getString(4);
+                    address1 = rs.getString(10);
+                    address2 = rs.getString(11);
+                    city = rs.getString(12);
+                    state = rs.getString(5);
+                    country = rs.getString(6);
+                    zip = rs.getString(13);
+                    phone = rs.getString(9);
 
 
                     userEJB.createUser(userId, handle, status);
@@ -157,6 +167,7 @@ public class UserMover {
 
                 count++;
                 if(count%100==0) log.info(""+count+" users processed");
+                if(count%200==0) System.gc();
             }
 
 
