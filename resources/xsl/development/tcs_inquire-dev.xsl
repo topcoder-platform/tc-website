@@ -91,7 +91,7 @@
                                 All
                         <a class="statText" target="_new">
                                 <xsl:attribute  name="href">
-                                    <xsl:value-of select="concat('http://www.topcodersoftware.com/pages/c_component.jsp?comp=', $componentId)"/>
+                                    <xsl:value-of select="concat('http://software.topcoder.com/pages/c_component.jsp?comp=', $componentId)"/>
                                 </xsl:attribute>documentation
                              </a> for this project is available on the TopCoder Software web site.</p>
 
@@ -142,7 +142,7 @@
                                 <strong>View the 
                                     <a class="statText" target="_new">
                                         <xsl:attribute name="href">
-                                            <xsl:value-of select="concat('http://www.topcodersoftware.com/catalog/document?id=', $docId)"/>
+                                            <xsl:value-of select="concat('http://software.topcoder.com/catalog/document?id=', $docId)"/>
                                         </xsl:attribute>
                                         Requirement Specification
                                     </a> for this component project &gt;&gt;</strong>

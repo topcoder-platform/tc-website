@@ -75,7 +75,7 @@
     						Thank you, <xsl:value-of select="/TC/DEVELOPMENT/handle"/>, for your interest in the <xsl:value-of select="/TC/DEVELOPMENT/Project"/> component.  You now have access to the
     						<a class="statText">
     						    <xsl:attribute name="href">
-    						        <xsl:value-of select="concat('http://www.topcodersoftware.com/pages/c_forum.jsp?f=',$FORUMID)"/>
+    						        <xsl:value-of select="concat('http://software.topcoder.com/pages/c_forum.jsp?f=',$FORUMID)"/>
                                 </xsl:attribute>
                                 Developer Forum
     						</a>.  
