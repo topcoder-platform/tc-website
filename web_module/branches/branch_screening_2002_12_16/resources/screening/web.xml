@@ -159,6 +159,12 @@
   </init-param>
 
   <init-param>
+    <param-name>problem_type_id_parameter</param-name>
+    <param-value>ptid</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
     <param-name>round_id_parameter</param-name>
     <param-value>rid</param-value>
     <description></description>
