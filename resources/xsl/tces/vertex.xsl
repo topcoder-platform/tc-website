@@ -59,86 +59,45 @@
 <!--body contextual links-->
                         <table width="100%" cellpadding="3" cellspacing="0" border="0">
                             <tr><td valign="middle" height="18" bgcolor="#43515E" class="statText"><strong>Great Jobs at Vertex</strong></td></tr>
-                            <tr><td valign="middle" height="18" class="bodyText"><A class="bodyText" href="/?t=tces&amp;c=vertex_contract&amp;a=secure" target="_top">Jobs</A></td></tr>
+                            <tr><td valign="middle" height="18" class="bodyText"><A class="bodyText" href="/?t=tces&amp;c=vertex_struct_prog&amp;a=secure" target="_top">Jobs</A></td></tr>
                         </table>
                         
 <!-- Client Message Begins -->
                         <p><img src="/i/es/vertex/vertex_logo.gif" width="76" height="52" border="0"/></p> 
                         
-                        <p><strong>A Leader in Small Molecule Drug Discovery...</strong></p>
+<p><b>Overview...</b><br/>
+Vertex Pharmaceuticals Incorporated is a global biotechnology company focused on the discovery, development 
+and commercialization of breakthrough drugs for a range of serious diseases. Our business strategy is to commercialize 
+major new drugs both independently and with pharmaceutical partners. Vertex co-promotes with GlaxoSmithKline the 
+new HIV protease inhibitor, Lexiva&#153; in the United States and Agenerase&#174; in Europe. Vertex and Aventis are collaborating 
+on the development of the oral cytokine inhibitor pralnacasan, which is being developed in parallel for rheumatoid arthritis, 
+osteoarthritis, and other inflammatory diseases. In addition, Vertex is independently driving forward the development of 
+several first-in-class drugs targeting psoriasis, inflammation, hepatitis C virus, and acute coronary syndromes.</p>
 
-                        <p>Founded in Cambridge, MA in 1989, Vertex Pharmaceuticals Incorporated discovers, develops and markets small 
-                        molecule drugs that address major unmet medical needs. We have more than 12 drug candidates in development to treat 
-                        viral diseases, inflammation, cancer, autoimmune diseases, neurological disorders and genetic disorders.</p>
+<p>Vertex's product pipeline is principally focused on viral diseases, inflammation, autoimmune diseases, and cancer. 
+The Company has more than $600 million in cash and cash equivalents to fund the discovery and development of its drug 
+candidates, and the Company has significant collaborations with a number of pharmaceutical companies including Aventis, 
+GlaxoSmithKline, Novartis and Serono. Vertex is headquartered in Cambridge, Massachusetts and has major research sites 
+in San Diego, California and Oxford, U.K. The company employs more than 700 people worldwide.</p>
 
-                        <p><strong><a class="bodyText" href="http://www.vpharm.com/PipelineChart.html" target="_blank">with a Proven Track Record...</a></strong></p>
+<p><b>Mission...</b><br/>
+Our vision is to be a major drug company, setting the standard for pharmaceutical research and development productivity 
+in the 21st century. A vision as great as this can only be achieved in an environment where creative and talented people can 
+thrive. Our progress toward that goal reflects the collective efforts of talented employees around the world.</p>
 
-                        <p>Vertex has created its pipeline using a proprietary, information-driven approach to drug design that integrates 
-                        multiple technologies in biology, chemistry and biophysics, aimed at increasing the speed and success rate of drug 
-                        discovery. Vertex's first approved product is Agenerase&#174; (amprenavir), an HIV protease inhibitor, which 
-                        Vertex co-promotes with GlaxoSmithKline. Vertex's goal is to develop and commercialize a range of products for 
-                        medically underserved diseases in the coming years.</p>
+<p><b>Environment...</b><br/>
+Vertex has developed an integrated team environment where employees set high goals and work together to accomplish them. 
+We provide our employees with tools that enable them to achieve, and we provide opportunities for professional development. 
+We encourage employees' participation in educational seminar series, and our scientists regularly publish their research in 
+peer-reviewed journals. Our extensive collaborations bring our employees together with their colleagues from leading research 
+centers and companies based in Cambridge, MA, San Diego, CA and Oxford, U.K., as well as throughout the world.</p>
 
-                        <p>Since 1991, Vertex has been traded on NASDAQ under the symbol VRTX.</p>
+<p><b>Employee Development...</b><br/>
+We encourage our employees to further their knowledge and skill base, and we support these efforts through trainings and tuition 
+reimbursement. In addition, Vertex is committed to supporting employee health and wellness. Our employee assistance program 
+provides diverse resources on parenting, elder care as well as financial planning and wellness programs.</p>
 
-                        <p><strong>Vision</strong></p>
-
-                        <p>A vision as great as this can only be achieved in an environment where creative and talented people can thrive.  </p>
-
-                        <p>As we have grown in size from 10 to more than 1,000 people in the last eleven years, we have worked to develop an 
-                        organizational structure that rewards collaborative effort and encourages interaction among people from across the 
-                        company. From the start of a research program at Vertex, an interdisciplinary team of people focuses on maximizing 
-                        the potential value of the final product in the medical marketplace. The free flow of information across disciplines, 
-                        and the insight that emerges through open exchange and interaction, accelerates the drug discovery and development 
-                        process and allows each product to reach its full commercial potential.</p>
-
-                        <p>We are now entering a new period of growth, during which we will expand our capabilities to take advantage of 
-                        the chemogenomics opportunity and commercialize a range of important new drugs.</p>
-
-                        <p>As we pursue our vision for the future, we will continue to recruit top industry talent, and foster an integrated, 
-                        team-oriented culture of innovation.</p>
-
-                        <p><strong>Environment</strong></p>
-
-                        <p>An Environment that Encourages Employees to Excel...</p>
-
-                        <p>Vertex has engineered an integrated team environment where employees set high goals and work together to 
-                        accomplish them. We provide our employees with tools that enable them to achieve, and provide opportunities for 
-                        professional development. We encourage employees' participation in educational seminar series. Our extensive 
-                        collaborations allow our employees to interact with colleagues from leading research centers and companies based 
-                        in Cambridge, MA and Oxford, U.K., as well as throughout the world.</p>
-
-                        <p>We encourage our employees to continue building their knowledge base and skills. Our scientists regularly 
-                        publish their research in peer-reviewed journals. Along with tuition reimbursement, we offer a home computer 
-                        reimbursement program for every employee. Vertex is committed to employee wellness and provides an on-site 
-                        fitness facility for its employees. Our employee assistance program offers resources and guidance on parenting, 
-                        elder care, financial planning and wellness. </p>
-
-                        <p>Vertex's success stems from the contributions of employees with diverse backgrounds and areas of expertise. 
-                        We are actively committed to maintaining a diverse workplace.</p>
-
-                        <p><strong>Benefits</strong></p>
-
-                        <ul>
-                            <li> Stock options </li>
-                            <li> 401K plan (company match) </li>
-                            <li> Health and dental insurance </li>
-                            <li> Eyewear reimbursement </li>
-                            <li> Employee Assistance Program (for wellness and prevention) </li>
-                            <li> Life insurance </li>
-                            <li> Tax-free dependent care </li>
-                            <li> Family leave </li>
-                            <li> Limited parking available </li>
-                            <li> Generous vacation policy </li>
-                            <li> Tuition reimbursement</li>
-                            <li> Home computer reimbursement </li>
-                            <li> Employee stock purchase plan </li>
-                            <li> On-site fitness center</li>
-                        </ul>
- 
-                        <p>We offer some of the best benefits in the industry.</p>
-
-                        <p><a href="/?t=tces&amp;c=vertex_contract&amp;a=secure" target="_top" class="bodyText">Click here</a> for jobs.</p>
+                        <p><a href="/?t=tces&amp;c=vertex_struct_prog&amp;a=secure" target="_top" class="bodyText">Click here</a> for jobs.</p>
 <!-- Client Message Ends -->
 
                         <p><br/></p>
