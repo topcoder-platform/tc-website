@@ -6,7 +6,7 @@
   <xsl:import href="../foot.xsl"/>
   <xsl:import href="../includes/modules/calendar.xsl"/>
   <xsl:import href="../includes/modules/spons_srm_intro.xsl"/>
-  <xsl:import href="../includes/about/public_about_left.xsl"/> 
+  <xsl:import href="../includes/global_left.xsl"/> 
   <xsl:import href="../includes/public_right_col.xsl"/>     
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
@@ -29,7 +29,7 @@
 	<!-- Global Seconday Nav Begins -->		
 <!-- Left Column Include Begins -->	
     <!-- Global Seconday Nav Begins -->	
-        <xsl:call-template name="public_about_left"/>
+        <xsl:call-template name="global_left"/>
 	<!-- Global Seconday Nav Ends -->	
 <!-- Left Column Include Ends -->
 	  	</TD>
@@ -56,27 +56,36 @@
 					Date: 00.00.00<BR/>
 					Subject Line: "Match Results"<BR/><BR/>
 					Hello Coders,<BR/><BR/>
-					Here are the winners from last night's match. Congratuluations to all. As always, results and a summary of events from the match are posted on <A HREF="http://www.topcoder.com" CLASS="bodyText">www.topcoder.com</A>.<BR/><BR/>
+					Here are the winners from last night's match. Congratuluations to all. As always, results and a summary of events from the match are posted on <A HREF="http://www.topcoder.com">www.topcoder.com</A>.<BR/><BR/>
 					====================================<BR/>
 					Thanks to the following sponsor(s):<BR/>
 					====================================<BR/>
 					.:: SPONSOR NAME<BR/>
 					<A HREF="#" CLASS="bodyText">http://www.sponsorcompany.com</A><BR/><BR/>
+					.:: SPONSOR NAME<BR/>
+					<A HREF="#" CLASS="bodyText">http://www.sponsorcompany.com</A><BR/><BR/>
+					.:: SPONSOR NAME<BR/>
+					<A HREF="#" CLASS="bodyText">http://www.sponsorcompany.com</A><BR/><BR/>
+					.:: SPONSOR NAME<BR/>
+					<A HREF="#" CLASS="bodyText">http://www.sponsorcompany.com</A><BR/><BR/>
 					====================================<BR/>
 					Division I:<BR/>
 					====================================<BR/>
-					Room 00: [handle], points<BR/>
-					Room 00: [handle], points<BR/>
-					Room 00: [handle], points<BR/><BR/>
+					Room 00: [handle], points, earnings<BR/>
+					Room 00: [handle], points, earnings<BR/>
+					Room 00: [handle], points, earnings<BR/><BR/>
 					====================================<BR/>
 					Division II:<BR/>
 					====================================<BR/>
-					Room 00: [handle], points<BR/>
-					Room 00: [handle], points<BR/>
-					Room 00: [handle], points<BR/>
+					Room 00: [handle], points, earnings<BR/>
+					Room 00: [handle], points, earnings<BR/>
+					Room 00: [handle], points, earnings<BR/>
 					<A HREF="#" CLASS="bodyText">More results and match summary</A><BR/><BR/>
-					Don't forget to try out the problems in the <A HREF="#" CLASS="bodyText">Practice Room!</A><BR/><BR/>
-					Best of luck to you in the next match!<BR/>
+					Don't forget to try out the problems new <A HREF="#" CLASS="bodyText">Practice Room!</A><BR/><BR/>
+					Best of luck in the next match!<BR/>
+					Tom Longo<BR/>
+					Vice President of Membership<BR/>
+					TopCoder, Inc.<BR/>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 				</TR>

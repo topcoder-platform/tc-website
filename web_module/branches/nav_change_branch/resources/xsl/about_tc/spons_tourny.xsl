@@ -6,7 +6,7 @@
   <xsl:import href="../foot.xsl"/>
   <xsl:import href="../includes/modules/calendar.xsl"/>
   <xsl:import href="../includes/modules/spons_tourny_intro.xsl"/>
-  <xsl:import href="../includes/about/public_about_left.xsl"/> 
+  <xsl:import href="../includes/global_left.xsl"/> 
   <xsl:import href="../includes/public_right_col.xsl"/>     
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
@@ -29,7 +29,7 @@
 	<!-- Global Seconday Nav Begins -->		
 <!-- Left Column Include Begins -->	
     <!-- Global Seconday Nav Begins -->	
-        <xsl:call-template name="public_about_left"/>
+        <xsl:call-template name="global_left"/>
 	<!-- Global Seconday Nav Ends -->	
 <!-- Left Column Include Ends -->
 	  	</TD>
@@ -105,7 +105,7 @@
  	<TR><TD COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>                
 </TABLE>
 <!--end contextual links-->
-					<P>Currently, TopCoder conducts a Collegiate Challenge and an Invitational. These two events draw both competitors and spectators over a two-month period (avg.) to see who will win the championship and the grand prize.</P>
+					<P>Currently, TopCoder conducts a Collegiate Challenge and an Invitational. These two events draw both competitors and spectators over a two-month period (avg.) to see who will win the championship and a $100,000 grand prize.</P>
 					<P>In addition to all of the Single Round Matches that coders compete in to build their rating in order to get seeded for a tournament, the tournaments themselves are comprised of:<UL>
 					<LI>Regional Quarter-Finals - conducted online</LI>
 					<LI>Regional Finals - conducted online</LI>

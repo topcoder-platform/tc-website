@@ -6,7 +6,7 @@
   <xsl:import href="../foot.xsl"/>
   <xsl:import href="../includes/modules/calendar.xsl"/>
   <xsl:import href="../includes/modules/spons_srm_intro.xsl"/>
-  <xsl:import href="../includes/about/public_about_left.xsl"/> 
+  <xsl:import href="../includes/global_left.xsl"/> 
   <xsl:import href="../includes/public_right_col.xsl"/>     
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
@@ -29,7 +29,7 @@
 	<!-- Global Seconday Nav Begins -->		
 <!-- Left Column Include Begins -->	
     <!-- Global Seconday Nav Begins -->	
-        <xsl:call-template name="public_about_left"/>
+        <xsl:call-template name="global_left"/>
 	<!-- Global Seconday Nav Ends -->	
 <!-- Left Column Include Ends -->
 	  	</TD>
@@ -56,21 +56,34 @@
 					Date: 00.00.00<BR/>
 					Subject Line: "Single Round Match"<BR/><BR/>
 					Hello Coders,<BR/><BR/>
-					The next Single Round Match will be held on {DATE GOES HERE}. As always, registration is open three hours before the competition begins. Registration closes five minutes before competition.<BR/><BR/>
+					The next Single Round Match will be held on {DATE GOES HERE}. As always, registration is open an hour and a half before the competition begins. Registration closes five minutes before competition.<BR/><BR/>
 					====================================<BR/>
 					Next match is sponsored by:<BR/>
 					====================================<BR/>
 					.:: SPONSOR NAME<BR/>
-					For more information about our developer services or to take part in the discussions, join up with the ABC Developer Network. Members have access to product updates, releases, bug reports, and much more.<BR/>
+					For more information about our developer services or to take part in the dicussions join up with the ABC Developer Network. Members have access to product updates, releases, bug reports, and much more.<BR/>
+					<A HREF="#" CLASS="bodyText">http://www.sponsorname.com</A><BR/><BR/>
+					.:: SPONSOR NAME<BR/>
+					For more information about our developer services or to take part in the dicussions join up with the ABC Developer Network. Members have access to product updates, releases, bug reports, and much more.<BR/>
+					<A HREF="#" CLASS="bodyText">http://www.sponsorname.com</A><BR/><BR/>
+					.:: SPONSOR NAME<BR/>
+					For more information about our developer services or to take part in the dicussions join up with the ABC Developer Network. Members have access to product updates, releases, bug reports, and much more.<BR/>
+					<A HREF="#" CLASS="bodyText">http://www.sponsorname.com</A><BR/><BR/>
+					.:: SPONSOR NAME<BR/>
+					For more information about our developer services or to take part in the dicussions join up with the ABC Developer Network. Members have access to product updates, releases, bug reports, and much more.<BR/>
 					<A HREF="#" CLASS="bodyText">http://www.sponsorname.com</A><BR/><BR/>
 					====================================<BR/>
 					Match Links:<BR/>
 					====================================<BR/>
+					<A HREF="#" CLASS="bodyText">Prizes Details</A><BR/>
 					<A HREF="#" CLASS="bodyText">Competition Format</A><BR/>
 					<A HREF="#" CLASS="bodyText">Eligibility</A><BR/>
 					<A HREF="#" CLASS="bodyText">Go directly to [TC] Arena Applet</A><BR/><BR/>
-					As always, you can compete in Java, C++ and/or C#. There will be TopCoder Administrators in the Lobby and available via AOL, MSN and Yahoo Instant Messaging under the screen name "TopCoder1."<BR/><BR/>
+					As always, you can compete in Java and/or C++. There will be TopCoder Administrators in the Lobby and available via AOL, MSN and Yahoo Instant Messaging under the screen name "TopCoder1."<BR/><BR/>
 					Best of luck to you in the Arena!<BR/>
+					Tom Longo<BR/>
+					Vice President of Membership<BR/>
+					TopCoder, Inc.<BR/>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 				</TR>
