@@ -4,39 +4,10 @@
     String tabLev3 = request.getParameter("tabLev3")==null?"":request.getParameter("tabLev3");
 %>
 
-<!-- LEVEL 1 TABS -->
 <table border="0" cellspacing="0" cellpadding="0" width="100%">
-    <tr>
-      <td width="49%" align="right"></td>
-<% if (tabLev1.equals("overview")) {%>
-                 <td align="center" width="239"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_about"><img src="/i/tournament/tccc04/tab_tournament_on.gif" alt="Tournament Overview Tab" width="182" height="23" border="0" vspace="0" hspace="0"/></A></td>
-<% } else { %>
-                 <td align="center" width="239"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_about"><img src="/i/tournament/tccc04/tab_tournament_off.gif" alt="Tournament Overview Tab" width="182" height="23" border="0" vspace="0" hspace="0"/></A></td>
-<% } %>
 
-<% if (tabLev1.equals("algorithm")) {%>
-                 <td align="center" width="239"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_description"><img src="/i/tournament/tccc04/tab_algorithm_on.gif" alt="Algorithm Tab" width="182" height="23" border="0" vspace="0" hspace="0"/></A></td>
-<% } else { %>
-                 <td align="center" width="239"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_description"><img src="/i/tournament/tccc04/tab_algorithm_off.gif" alt="Algorithm Tab" width="182" height="23" border="0" vspace="0" hspace="0"/></A></td>
-<% } %>
-
-<% if (tabLev1.equals("component")) {%>
-                 <td align="center" width="239"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_comp_description"><img src="/i/tournament/tccc04/tab_component_on.gif" alt="Component tab" width="176" height="23" border="0" vspace="0" hspace="0"/></A></td>
-<% } else {%>
-                 <td align="center" width="239"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_comp_description"><img src="/i/tournament/tccc04/tab_component_off.gif" alt="Component tab" width="176" height="23" border="0" vspace="0" hspace="0"/></A></td>
-<% } %>
-
-      <td width="49%" align="left"></td>
-   </tr>
-   
-      
-    <tr>
-      <td width="100%" align="center" colspan="5"><img src="/i/clear.gif" alt="" width="10" height="5" border="0"  vspace="0"/></td>
-   </tr>
-   
 <!-- Headlines -->
- 
-       <tr align="center">
+    <tr align="center">
       <td width="100%" align="center" colspan="5">
 <% if (tabLev1.equals("overview")) {%>
                  <img src="/i/tournament/tccc04/headline_tournament.gif" alt="Tournament Overview Headline" width="540" height="30" border="0" vspace="0" hspace="0"/>
@@ -59,9 +30,36 @@
       </td>
    </tr>
 
+    <tr>
+      <td width="100%" align="center" colspan="5"><img src="/i/clear.gif" alt="" width="10" height="5" border="0"  vspace="0"/></td>
+   </tr>
+   
+<!-- LEVEL 1 TABS -->
+    <tr>
+      <td width="49%" align="right">&#160;</td>
+<% if (tabLev1.equals("overview")) {%>
+                 <td align="center" width="239"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_about"><img src="/i/tournament/tccc04/tab_tournament_on.gif" alt="Tournament Overview Tab" width="182" height="23" border="0" vspace="0" hspace="0"/></A></td>
+<% } else { %>
+                 <td align="center" width="239"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_about"><img src="/i/tournament/tccc04/tab_tournament_off.gif" alt="Tournament Overview Tab" width="182" height="23" border="0" vspace="0" hspace="0"/></A></td>
+<% } %>
+
+<% if (tabLev1.equals("algorithm")) {%>
+                 <td align="center" width="239"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_description"><img src="/i/tournament/tccc04/tab_algorithm_on.gif" alt="Algorithm Tab" width="182" height="23" border="0" vspace="0" hspace="0"/></A></td>
+<% } else { %>
+                 <td align="center" width="239"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_description"><img src="/i/tournament/tccc04/tab_algorithm_off.gif" alt="Algorithm Tab" width="182" height="23" border="0" vspace="0" hspace="0"/></A></td>
+<% } %>
+
+<% if (tabLev1.equals("component")) {%>
+                 <td align="center" width="239"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_comp_description"><img src="/i/tournament/tccc04/tab_component_on.gif" alt="Component tab" width="176" height="23" border="0" vspace="0" hspace="0"/></A></td>
+<% } else {%>
+                 <td align="center" width="239"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_comp_description"><img src="/i/tournament/tccc04/tab_component_off.gif" alt="Component tab" width="176" height="23" border="0" vspace="0" hspace="0"/></A></td>
+<% } %>
+
+      <td width="49%" align="left">&#160;</td>
+   </tr>
    
     <tr>
-      <td width="100%" align="center" colspan="5"><img src="/i/clear.gif" alt="" width="10" height="7" border="0"  vspace="0"/></td>
+      <td width="100%" align="center" colspan="5"><img src="/i/clear.gif" alt="" width="10" height="15" border="0"/></td>
    </tr>
 </table>
 
