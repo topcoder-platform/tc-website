@@ -99,8 +99,8 @@
                                             <strong>Payment</strong>
                                             <br/>
                                         </p>
-                                        <p>TopCoder will compensate the member with the winning solution as well as the second place designer.
-                                            In order to be paid, both the winning submission and the second place designer must pass screening
+                                        <p>TopCoder will compensate the member with the winning solution as well as the second place developer.
+                                            In order to be paid, both the winning submission and the second place developer must pass screening
                                             and receive a review score above the minimum score.</p>
                                         Compensation for the winning solution is distributed in two installments.
                                         <br/>
@@ -108,9 +108,9 @@
                                         <br/>
                                         Final Payment: At the completion of the development project*.
                                         <br/>
-                                        <p>Compensation for the second place designer will be paid in one installment following the completion of the design project.</p>
+                                        <p>Compensation for the second place developer will be paid in one installment following the completion of the development project.</p>
                                         <p>
-                                            <strong>Winning Designer</strong>
+                                            <strong>Winning Developer</strong>
                                             <br/>
                                             Total Payment - $1,860.00
                                             <br/>
@@ -119,7 +119,7 @@
                                             Final Payment - $460.00
                                             <br/>
                                         </p>
-                                        <strong>Second Place Designer</strong>
+                                        <strong>Second Place Developer</strong>
                                         <br/>
                                         Total Payment - $690.00
                                         <!-- Definition of Completion -->
@@ -145,7 +145,7 @@
                                         <p>
                                             <strong>Time Line</strong>
                                             <br/>
-                                            The Design Submission must be submitted on time. All questions submitted prior to 6PM EDT on the Submission Due Dates will be
+                                            The Development Submission must be submitted on time. All questions submitted prior to 6PM EDT on the Submission Due Dates will be
                                             answered. Following review from the board the winning member is given until the Updated Submission Due Date to modify their submission.
                                         </p>
                                         <p>
