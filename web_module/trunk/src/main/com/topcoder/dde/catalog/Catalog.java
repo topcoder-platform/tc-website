@@ -123,6 +123,23 @@ public interface Catalog extends javax.ejb.EJBObject {
         throws RemoteException, CatalogException, SQLException, NamingException;
 
     /**
+     * Returns the summary information for the current version of each component
+     * with the specified status and catalog. The status constants are defined in {@link
+     * ComponentInfo ComponentInfo}. The summaries are returned in alphabetical
+     * order by component name.
+     *
+     * @param status the status value to obtain components for
+     * @param catalogId the catalog value to obtain components for
+     * @return a <code>Collection</code> of <code>ComponentSummary</code>
+     * objects
+     * @throws RemoteException if a system-level failure causes the remote
+     * method call to fail
+     * @throws CatalogException if the summary information cannot be retrieved
+     */
+    public Collection getComponentsByStatusAndCatalog(long status, long catalogId)
+            throws RemoteException, CatalogException, SQLException, NamingException;
+
+    /**
      * Returns the summary information for the current version of the specified
      * component.
      *
