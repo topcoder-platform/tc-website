@@ -83,6 +83,7 @@ function openWin(url, name, w, h) {
 <!--end contextual links-->
 
 <h2>Match summary</h2>
+
 <p> 
 With some of the fastest submission times, and some of the highest scores seen
 in recent times, the first round of the Collegiate Challenge 2004 proved to be
@@ -99,7 +100,7 @@ eligible contestants as it did for some of the qualification rounds.
 In just under 2 minutes, <b>antimatter</b> started off the match with a 199 point
 submission for the level 1.  After that, watching the scoreboard was like
 watching the lights in a house turn on after a loud noise woke everyone up.
-Within a few minutes, almost every room had a score on the board.  Oddly enough, very early on in the competition a green coder by the name of
+Within a few minutes, almost every room had a score on the board.  Oddly enough, very early on in the competition a green coder by the name of 
 <b>yuranlu</b>
 had submitted all three problems, making it clear that his only intention for
 participating was to receive a free t-shirt.  At the end of the coding phase, <b>antimatter</b> had edged
@@ -109,6 +110,7 @@ with his own.  But late in the challenge phase, <b>tomek</b> submitted another
 challenge against the same coder, propelling him to his first tournament round
 win.  Returning champion <b>dgarthur</b>, and tournament regulars <b>ZorbaTHut</b> and <b>reid</b> rounded out the top 5.</p>
 
+<p>
 <H1> 
 The Problems 
 </H1> 
@@ -117,7 +119,7 @@ The Problems
 <font size="+2"> 
 <b>Hawaiian</b> 
 </font> 
-<A href="_Javascript:openProblemRating(2358)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br> 
+<A href="_Javascript:openProblemRating(2358)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/> 
 
 Used as: Level One: <blockquote><table cellspacing="2"> 
   <tr> 
@@ -149,7 +151,7 @@ Used as: Level One: <blockquote><table cellspacing="2">
       <b>High Score</b> 
     </td> 
     <td class="bodyText" style="background: #eee;"> 
-      <a href=http://www.topcoder.com/stat?c=member_profile&cr=275071><b>antimatter</b></a> for 199.03 points (1 mins 59 secs) 
+      <b>antimatter</b> for 199.03 points (1 mins 59 secs) 
     </td> 
   </tr> 
   <tr> 
@@ -194,7 +196,7 @@ return that array.
 <font size="+2"> 
 <b>FlowerGarden</b> 
 </font> 
-<A href="_Javascript:openProblemRating(1918)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br> 
+<A href="_Javascript:openProblemRating(1918)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/> 
 
 Used as: Level Two: <blockquote><table cellspacing="2"> 
   <tr> 
@@ -226,7 +228,7 @@ Used as: Level Two: <blockquote><table cellspacing="2">
       <b>High Score</b> 
     </td> 
     <td class="bodyText" style="background: #eee;"> 
-      <a href=http://www.topcoder.com/stat?c=member_profile&cr=144400><b>tomek</b></a> for 469.94 points (7 mins 16 secs) 
+      <b>tomek</b> for 469.94 points (7 mins 16 secs) 
     </td> 
   </tr> 
   <tr> 
@@ -273,7 +275,7 @@ used to place the entire garden.
 <font size="+2"> 
 <b>RockSkipping</b> 
 </font> 
-<A href="_Javascript:openProblemRating(1954)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br> 
+<A href="_Javascript:openProblemRating(1954)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/> 
 
 Used as: Level Three: <blockquote><table cellspacing="2"> 
   <tr> 
@@ -305,7 +307,7 @@ Used as: Level Three: <blockquote><table cellspacing="2">
       <b>High Score</b> 
     </td> 
     <td class="bodyText" style="background: #eee;"> 
-      <a href=http://www.topcoder.com/stat?c=member_profile&cr=262056><b>mathijs</b></a> for 958.39 points (5 mins 58 secs) 
+      <b>mathijs</b> for 958.39 points (5 mins 58 secs) 
     </td> 
   </tr> 
   <tr> 
