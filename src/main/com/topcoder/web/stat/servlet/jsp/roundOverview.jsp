@@ -183,6 +183,7 @@
         String problemName = currentRow.getItem("problem_name").toString();
         int submissions =Integer.parseInt(currentRow.getItem("submissions").toString());
         int correct = Integer.parseInt(currentRow.getItem("successful_submissions").toString());
+        int problemID = Integer.parseInt(currentRow.getItem("problem_id").toString());
         double total = Double.parseDouble(currentRow.getItem("total_points").toString())/correct;
         String perCor = dfp.format((((double)correct)/submissions));
         String avgPoints = df.format(total);
@@ -190,7 +191,7 @@
 
   <TR>
     <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText">&#160;<%=problemLevel%></TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText">&#160;&#160;<%=problemName%></TD>
+    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText">&#160;&#160;<A HREF="JavaScript:getGraph('/graph?c=problem_distribution_graph&pm=<%= problemID %>&dn=<%= currentDivID %>','600','400')" class="statText"><%=problemName%></a></TD>
     <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText" ALIGN="right"><%=submissions%> &#160;&#160;</TD>
     <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText" ALIGN="right"><%=perCor%> &#160;&#160;</TD>
     <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText" ALIGN="right"><%=avgPoints%></TD>
