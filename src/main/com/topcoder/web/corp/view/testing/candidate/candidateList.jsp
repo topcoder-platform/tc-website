@@ -128,6 +128,7 @@
                 <%
                     String params = Constants.CANDIDATE_ID + "=" + row.getItem("user_id") + "&referrer=BuildCandidateList";
                     String trparams = Constants.SESSION_ID + "=" + row.getItem("session_id") + "&referrer=BuildCandidateList";
+                    String rparams = "userId=" + row.getItem("user_id");
                     boolean hasSession = !row.getItem("has_session").toString().equals("0");
                     boolean hasNotes = ((Long)row.getItem("note_count").getResultData()).longValue()>0;
 
@@ -140,7 +141,7 @@
                    <td width="20%" align="center" class="<%=cssClasses[counter % 2]%>" nowrap=nowrap><screen:resultSetItem row="<%=row%>" name="end_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></td> 
                    <td width="10%" align="center" class="<%=cssClasses[counter % 2]%>" nowrap=nowrap><screen:sessionStatus row="<%=row%>" /></td>
                    <% if( request.getAttribute(Constants.USAGE_TYPE) != null && ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
-                   <td width="10%" align="center" class="<%=cssClasses[counter % 2]%>" nowrap=nowrap>><screen:servletLink processor="DownloadResume" param="userId=<screen:resultSetItem row="<%=row%>" name="user_id"/>"> <screen:resultSetItem row="<%=row%>" name="resume_text" /> </screen:servletLink></td>
+                   <td width="10%" align="center" class="<%=cssClasses[counter % 2]%>" nowrap=nowrap>><screen:servletLink processor="DownloadResume" param="userId=<%=rparams%>"> <screen:resultSetItem row="<%=row%>" name="resume_text" /> </screen:servletLink></td>
                    <% }%>
                    <%--<% if( request.getAttribute(Constants.USAGE_TYPE) != null && ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
                    <td width="10%" align="center" class="<%=cssClasses[counter % 2]%>" nowrap=nowrap>
