@@ -3,7 +3,7 @@
 <html>
   <head>
     <title></title>
-    <META HTTP-EQUIV=Refresh CONTENT="600; URL=<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=CurrentTime">
+    <META HTTP-EQUIV=Refresh CONTENT="600; URL=<jsp:getProperty name="sessionInfo" property="absoluteServletPath"/>?module=CurrentTime">
   </head>
   <body>
     <script language="javascript">
