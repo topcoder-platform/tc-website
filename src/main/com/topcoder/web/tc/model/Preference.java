@@ -29,6 +29,11 @@ public class Preference implements Serializable, Comparable {
         type = 0;
     }
     
+    public void addPrefValue(PreferenceValue pv) {
+        options.add(pv);
+        options.sort();
+    }
+    
     public int getType() {
         return type;
     }
@@ -37,7 +42,7 @@ public class Preference implements Serializable, Comparable {
         this.type = t;
     }
     
-    public List getOptions() {
+    public List getPrefValues() {
         return options;
     }
     
