@@ -16,6 +16,9 @@ import com.topcoder.server.distCache.CacheClientFactory;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.2  2002/06/12 18:52:31  lbackstrom
+ *           distributed cache
+ *
  *           Revision 1.1  2002/06/12 18:04:16  lbackstrom
  *           cached version of DataRetrievalBean
  *
@@ -64,30 +67,59 @@ public class CachedDataRetrievalBean implements StatDataAccessInt {
      * @throws  DataRetrievalException if there was an error encountered while retrieving
      * the data from the EJB.
      */
-    static CacheClient client = CacheClientFactory.createCacheClient();
+    static CacheClient client;
+    public CachedDataRetrievalBean()
+    {
+        super();
+        try
+        {
+            if(client==null)
+                client = CacheClientFactory.createCacheClient();
+        }
+        catch(Exception e)
+        {
+            System.out.println("ERROR INITIALIZING CACHE CLIENT");
+            e.printStackTrace();
+        }
+    }
 
     public Map getData(StatRequestBean request) throws DataRetrievalException {
         try {
             boolean cached = true;
             String key = request.toString();
+            System.out.println(key);
             Map map = null;
             try
             {
                 map = (Map)(client.get(key));
             }
-            catch(RemoteException re)
+            catch(Exception e)
             {
-                System.out.println("UNABLE TO ESTABLISH A CONNECT TO THE CACHE");
+                System.out.println("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: "+e.getMessage());
                 cached = false;
             }
-            if(map!=null)return map;
+            if(map!=null)
+            {
+                System.out.println(request.getContentHandle()+" IS in the CACHE");
+                return map;
+            }
+            else System.out.println(request.getContentHandle()+" IS NOT in the CACHE");
             Context c = TCContext.getInitial();
             StatisticsHome sh = (StatisticsHome)
                 c.lookup("com.topcoder.web.stat.ejb.Statistics.StatisticsHome");
             Statistics s = sh.create();
             map = s.executeCommand(request.getProperties());
             if(cached)
-                client.set(key,map);
+            {
+                try
+                {
+                    client.set(key,map);
+                }
+                catch(Exception e)
+                {
+                    System.out.println("UNABLE TO INSERT INTO CACHE: "+e.getMessage());
+                }
+            }
             return map;
         } catch (Exception e) {
             throw new DataRetrievalException(e.getMessage());
