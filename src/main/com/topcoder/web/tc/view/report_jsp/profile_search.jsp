@@ -23,7 +23,7 @@
     ResultSetContainer.ResultSetRow skill;
     int idx = 0;
 %>
-  <FORM name="search" ACTION="/tc" METHOD="POST">
+  <FORM name="search" ACTION="/tc" METHOD="GET">
 
 
 <html>
@@ -117,7 +117,7 @@
       Student: <INPUT type="checkbox" name="stud" checked/></td></tr>
       <tr><td>Languages: 
         <rsc:iterator list="<%=languages%>" id="resultRow">
-          <rsc:item name="language_name" row="<%=resultRow%>"/>: <input type="checkbox" name="lang_lang_<rsc:item name="language_id" row="<%=resultRow%>"/>" checked>
+          <rsc:item name="language_name" row="<%=resultRow%>"/>: <input type="checkbox" name="lang_<rsc:item name="language_id" row="<%=resultRow%>"/>" checked>
         </rsc:iterator>
         </select>
       </td></tr>

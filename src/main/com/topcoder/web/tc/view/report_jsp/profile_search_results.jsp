@@ -17,20 +17,8 @@
   <body>
   <table>
 <%
-    Map m = (Map)request.getAttribute("XYZ");
-    Iterator it = m.keySet().iterator();
-    while(it.hasNext()){
-        String key = (String)it.next();
-        String[] s = (String[])m.get(key);
-        out.print("<tr><td>"+key+"</td><td>{");
-        for(int i = 0; i<s.length; i++){
-            if(i == 0)
-                out.print(s[i]);
-            else
-                out.print(", "+s[i]);
-        }
-        out.print("}</td></tr>\n");
-    }
+    String s = (String)request.getAttribute("XYZ");
+    out.print(s);
 %>
 </table>
   </body>
