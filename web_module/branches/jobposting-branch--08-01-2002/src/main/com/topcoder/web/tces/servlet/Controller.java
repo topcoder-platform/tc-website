@@ -85,6 +85,10 @@ if (task.getNextPage()==null)
 else
     log.debug(task.getNextPage());
 
+log.debug(response.toString());
+log.debug(getServletContext().toString());
+log.debug(getServletContext().getRequestDispatcher(response.encodeURL(task.getNextPage())).toString());
+
                 getServletContext().getRequestDispatcher( response.encodeURL(task.getNextPage()) ).forward(request, response);
 
             }
