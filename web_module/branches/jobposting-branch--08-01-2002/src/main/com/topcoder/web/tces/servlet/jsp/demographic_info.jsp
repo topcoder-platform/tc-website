@@ -82,16 +82,16 @@
                       <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                     </TR>                
                     
-                    <tces:mapIterator id="response" MapList="<%=(List)StudentResponseList%>">                    
+                    <tces:mapIterator id="responseRow" MapList="<%=(List)StudentResponseList%>">                    
                         <TR>
                           <TD class="statText" HEIGHT="18">
-                            <%=(String)response.get("title")%>
+                            <%=(String)responseRow.get("title")%>
                           </TD>
                           <TD class="statText">
-                            <%=(String)response.get("percent")%>
+                            <%=(String)responseRow.get("percent")%>
                           </TD>
                           <TD class="statText">
-                            <%=(String)response.get("count")%>
+                            <%=(String)responseRow.get("count")%>
                           </TD>                  
                           <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                         </TR>                     
@@ -131,7 +131,7 @@
                     <%
                       while (StudentQuestionIterator.hasNext()) {
                         String question = (String)StudentQuestionIterator.next();
-                        List StudentResponseList = (List)StudentQuestionMap.get(question);
+                        List StudentResponsesList = (List)StudentQuestionMap.get(question);
                     %>
             
                     <TR>
@@ -140,16 +140,16 @@
                     </TR>                
 
             
-                    <tces:mapIterator id="response" MapList="<%=(List)StudentResponseList%>">                                
+                    <tces:mapIterator id="resp" MapList="<%=(List)StudentResponsesList%>">                                
                         <TR>
                           <TD class="statText" HEIGHT="18">
-                            <%=(String)response.get("title")%>
+                            <%=(String)resp.get("title")%>
                           </TD>
                           <TD class="statText">
-                            <%=(String)response.get("percent")%>
+                            <%=(String)resp.get("percent")%>
                           </TD>
                           <TD class="statText">
-                            <%=(String)response.get("count")%>
+                            <%=(String)resp.get("count")%>
                           </TD>                  
                           <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                         </TR>                     
