@@ -10,7 +10,7 @@
 
 var imageDir = "/i/tournament/tccc05/onsite_photos/";
 var imageNum = 1;
-var totalImages = 176;
+var totalImages = 15;
 
 <%
     final String CURR_IMAGE_KEY = "currImage";
@@ -89,19 +89,19 @@ function changeImage(place, imageIndex) {
             <p class="terciary"><div align="center" nowrap=nowrap>
                 <a href="Javascript:void changeImage('slideImg', 1);">Game Room</a>
 <%--
-                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 22);">Room 1</a>
-                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 45);">Room 2</a>
-                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 69);">Room 3</a>
-                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 92);">WildCard</a>
-                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 114);">Algorithm Finals</a>
+                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 1);">Room 1</a>
+                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 1);">Room 2</a>
+                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 1);">Room 3</a>
+                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 1);">WildCard</a>
+                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 1);">Algorithm Finals</a>
 --%>
 
 <br/>
 
 <%--
-                <a href="Javascript:void changeImage('slideImg', 133);">Winners</a>
-                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 149);">Spectator Showdown</a>
-                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 162);">Press Conference</a>
+                <a href="Javascript:void changeImage('slideImg', 1);">Winners</a>
+                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 1);">Spectator Showdown</a>
+                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 1);">Press Conference</a>
 --%>                
             </div></p>
             

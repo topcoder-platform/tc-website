@@ -21,7 +21,12 @@
 		<td valign=top align=center>
 		<div class=bodySpacer>
             
-        <p class=bigTitle>2004 TopCoder Open - Overview</p>
+		<table cellspacing=0 cellpadding=5 class=bodyText width="100%">
+			<tr>
+				<td class=bodyText align=center valign=top><A href="/i/tournament/tccc05/onsite_movies/rm1_1.AVI"><img src="/i/tournament/tccc05/onsite_movies/rm1_1.jpg" border=0/></A>
+				<br/><A href="/i/tournament/tccc05/onsite_movies/rm1_1.AVI">RalphFurmaniak enters<br/>the battle (761 KB)</A><br/></td>
+            </tr>
+      </table>
 
         </div>
 		</td>
