@@ -54,12 +54,11 @@
                             if(username==null) username = "";
                         %>
 
-
                         <p><%= message %></p>
                         <% if (SessionInfo.isGuest()) { %>
-                            <p>New to TopCoder? Click <a href="/?module=Registration"><b>here</b></a> to register.</p>
+                            <p>New to TopCoder? <a href="/?module=Registration" class="bodyText">Register</a> today!</p>
                         <% } else { %>
-                            <p>If you are not <%=SessionInfo.getHandle()%>, and would like to create a new account click <a href="/?module=Logout&<%=Login.KEY_DESTINATION_PAGE%>=/?<%=Constants.KEY_MODULE+"=Registration"%>"><b>here</b></a>.
+                            <p>If you are not <%=SessionInfo.getHandle()%>, and would like to create a new account <a href="/?module=Logout&<%=Login.KEY_DESTINATION_PAGE%>=/?<%=Constants.KEY_MODULE+"=Registration"%>" class="bodyText">click here</a>.
                         <% } %>
 
                     </td>
