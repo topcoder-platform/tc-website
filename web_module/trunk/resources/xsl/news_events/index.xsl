@@ -63,21 +63,6 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
             
-<!-- CNN TC -->
-            <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                <tr valign="top">
-
-                    <td width="274"><A href="/?&amp;t=news_events&amp;c=art_02_02_05"><img src="/i/pressroom/cnn_logo.gif" alt="CNN" border="0" /></A></td>
-                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
-                    <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=art_02_02_05">TopCoder's Jack Hughes Appears on CNN's "Lou Dobbs Tonight"</A></strong></font><br />
-						TopCoder Founder and Chairman, Jack Hughes, was interviewed this week on CNN's Lou Dobbs Tonight. In the segment titled "Champion Coders", Hughes explained how proficiency with mathematical algorithms, as the underlying piece of logic in a computer program, is an extremely important skill for programmers.<span class="prHead"> [February 2 - CNN]</span></p>
-                    </td>
-                </tr>
-            </table>
-
-            <hr width="100%" size="1" noshade="noshade" />
-
 <!-- ADT -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">

@@ -18,7 +18,7 @@
     request.getSession(true).setAttribute("navigation", nav);
     CoderSessionInfo sessionInfo = nav.getSessionInfo();
 %>
-
+ 
 <body>
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
 <%-- Header --%>
