@@ -85,6 +85,9 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
 		} else if(c.equals(AFFIDAVIT_DETAILS_CMD)) {
 		    doAffidavitDetails(request, response);
 		    return;
+		} else if(c.equals(AFFIDAVIT_RENDER_CMD)) {
+		    doAffidavitRender(request, response);
+		    return;
 		}
 	    } else if(t.equals(CONTRACT_TASK)) {
 		// it is a contract task
@@ -405,6 +408,42 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
 	forward("/" + AFFIDAVIT_DETAILS_JSP,request, response);
     }
 
+    private void doAffidavitRender(HttpServletRequest request, 
+				    HttpServletResponse response){
+	HttpSession session = request.getSession();
+	Navigation nav = (Navigation) session.getAttribute(NAV_OBJECT_ATTR);
+	AffidavitBean bean = new AffidavitBean();
+	
+	// extract the affidavit id
+	long affidavitId = 0;
+	try {
+	    affidavitId = Long.parseLong( (String) 
+					  request.getParameter(AFFIDAVIT_ID));
+	} catch (Exception e) {
+	    log.error(AFFIDAVIT_ID + " is not in the request. error");
+	    return;
+	}
+	
+	AffidavitWithText a = bean.getAffidavitWithText(affidavitId);
+	
+	if( a == null ) {
+	    log.error("we got null from getAffidavitWithText");
+	} else {
+	    
+	    // check and make sure that the user id is the same for the
+	    // affiavid and member that is logged in
+	    if(nav.getUserId() != a.affidavit._header._user._id) {
+		log.error("the user id in the affidavit does not match the nav id");
+		return;
+	    }
+	}
+	
+	//if we got here, everything must by ok, pass the request to the jsp
+	request.setAttribute(PACTS_MEMBER_RESULT,a.affidavitText);	
+	
+	forward("/" + AFFIDAVIT_RENDER_JSP,request, response);
+    }
+    
     /**
      * Used to display a history of all payments made to a member.
      *
