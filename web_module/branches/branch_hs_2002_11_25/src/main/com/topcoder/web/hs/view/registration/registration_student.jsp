@@ -225,13 +225,6 @@
    <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle" HEIGHT="16">&nbsp;Terms</TD>
   </TR>
   <TR>
-   <TD></TD>
-   <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle">
-    <reg:errorIterator id="error" name="AgreeTerms"><%=error%><BR></reg:errorIterator>
-   </TD>
-  </TR>
-  <TR>
    <TD COLSPAN="4" CLASS="bodyText" ALIGN="center" VALIGN="middle">
     <TEXTAREA CLASS="bodyText" ROWS="10" COLS="80" READONLY>
 <%@ include file="terms.txt" %>
@@ -241,7 +234,9 @@
   <TR>
    <TD></TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle"></TD>
+   <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle">
+    <reg:errorIterator id="error" name="AgreeTerms"><%=error%><BR></reg:errorIterator>
+   </TD>
   </TR>
   <TR ALIGN="right" VALIGN="middle">
    <TD CLASS="bodyText" ALIGN="right" VALIGN="top"></TD>
