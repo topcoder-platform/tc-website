@@ -39,6 +39,7 @@ public class Constants {
     public static String GOOGLE_REG_CONFIRM_PAGE;
     public static String GOOGLE_REG_SUCCESS_PAGE;
     public static String GOOGLE_ACTIVATION_PAGE;
+    public static String GOOGLE_LOGIN_PAGE;
     public static String DEFAULT_PAGE;
     public static String RESUME_PAGE;
     public static String RESUME_THANK_YOU_PAGE;
