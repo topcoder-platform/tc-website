@@ -49,7 +49,7 @@
             The 2004 TopCoder Collegiate Challenge is bigger and better than ever! 24 Algorithm finalists will be invited to compete live at the onsite finals in Boston.</p>
             <ul>
                 <li><strong>Registration</strong><br />
-                    STARTS: Monday, February 1 at 9:00 AM<br/>
+                    STARTS: Sunday, February 1 at 9:00 AM<br/>
                     ENDS: Monday, February 23 at 9:00 AM</li>
                 <li><strong>Open Qualification Round</strong><br />
                     STARTS: Monday, February 23 at 12:00 PM (noon)<br/>

@@ -57,7 +57,7 @@
                 <tr valign="top">
                     <td class="sidebarText" width="25%">Registration</td>
                     <td class="sidebarText" width="75%">
-                        OPENS: Monday, February 1 at 9:00 AM EST<br /><br/>
+                        OPENS: Sunday, February 1 at 9:00 AM EST<br /><br/>
                         CLOSES: Monday, February 23 at 9:00 AM EST
                     </td>
                 </tr>

@@ -85,7 +85,7 @@
             </p>
             
             <p><span class="bodySubtitle">Registration</span><br/>
-            Registration for the 2004 TopCoder Collegiate Challenge will open at 9:00AM EST on Monday, February 1, and will close at 9:00AM EST on Monday, February 23.  In order to be eligible to compete in the Algorithm Competition, each competitor must be a registered TopCoder member and have registered separately for the Algorithm Competition.  Registration for the competition is unlimited, however each individual may only register once.</p>
+            Registration for the 2004 TopCoder Collegiate Challenge will open at 9:00AM EST on Sunday, February 1, and will close at 9:00AM EST on Monday, February 23.  In order to be eligible to compete in the Algorithm Competition, each competitor must be a registered TopCoder member and have registered separately for the Algorithm Competition.  Registration for the competition is unlimited, however each individual may only register once.</p>
 
             <p><span class="bodySubtitle">Qualification Round</span><br/>
             The Qualification Round will be open for 24 hours from 12:00PM EST on Monday, February 23 through 12:00PM EST on Tuesday, February 24.  Each competitor may attempt to qualify at any time during the 24 hours.  Competitors may only attempt to qualify one time during the 24 hours.</p>
