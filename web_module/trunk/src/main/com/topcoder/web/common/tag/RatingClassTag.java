@@ -11,7 +11,7 @@ public class RatingClassTag extends TagSupport {
             {"coderTextOrange", "coderTextWhite", "coderTextGray", "coderTextBlue", "coderTextYellow", "coderTexxtRed"};
 
 
-    public void setName(int rating) {
+    public void setRating(int rating) {
         this.rating = rating;
     }
 
