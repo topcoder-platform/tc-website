@@ -1,8 +1,7 @@
 package com.topcoder.ejb.MPSQASServices;
 
 import java.net.*;
-import com.topcoder.common.web.util.Mail;
-import com.topcoder.common.web.data.EMailMessage;
+import com.topcoder.shared.util.*;
 import com.topcoder.mpsqas.tester.TesterWaiter;
 import com.topcoder.mpsqas.compiler.CompilerWaiter;
 import javax.ejb.*;
@@ -16,8 +15,9 @@ import javax.naming.*;
 import javax.jms.*;
 import javax.transaction.*;
 import java.rmi.RemoteException;
-import com.topcoder.ejb.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.ejb.BaseEJB;
+import com.topcoder.shared.util.*;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * Bean to control all application server work for 
@@ -25,8 +25,8 @@ import com.topcoder.common.*;
  *
  * @author mitalub
  */
-public class MPSQASServicesBean extends BaseEJB 
-{
+public class MPSQASServicesBean extends BaseEJB {
+    private static Logger log = Logger.getLogger(MPSQASServicesBean.class);
 
 
 /******************************************************************************
@@ -46,8 +46,8 @@ public class MPSQASServicesBean extends BaseEJB
    */
   public ArrayList authenticateUser(String handle,String password)
   {
-    if (VERBOSE) Log.msg("In MPSQASServicesBean.authenticateUser() with handle "+handle);
-    Log.msg(handle+" logging into MPSQAS.");
+    log.debug("In MPSQASServicesBean.authenticateUser() with handle "+handle);
+    log.debug(handle+" logging into MPSQAS.");
     ArrayList retVal=new ArrayList(5);
     java.sql.Connection conn=null;
     PreparedStatement ps=null;
@@ -111,7 +111,7 @@ public class MPSQASServicesBean extends BaseEJB
     }
     catch(Exception e)
     {
-      Log.msg("Error authenticating user:");
+      log.debug("Error authenticating user:");
       e.printStackTrace();
       retVal=new ArrayList();
       retVal.add(new Boolean(false));
@@ -140,7 +140,7 @@ public class MPSQASServicesBean extends BaseEJB
    */
   public boolean sendCorrespondence(Correspondence message, int problemId, int userId)
   {
-    if (VERBOSE) Log.msg("In MPSQASServicesBean.sendCorrespondence()...");
+    log.debug("In MPSQASServicesBean.sendCorrespondence()...");
     java.sql.Connection conn=null;
     PreparedStatement ps=null;
 
@@ -208,7 +208,7 @@ public class MPSQASServicesBean extends BaseEJB
         ps.setInt(2,userId);
         rs=ps.executeQuery();
 
-        EMailMessage email=new EMailMessage();
+        TCSEmailMessage email=new TCSEmailMessage();
         StringBuffer emailBody=new StringBuffer(256);
         while(rs.next())
         {
@@ -226,18 +226,16 @@ public class MPSQASServicesBean extends BaseEJB
           emailBody.append("\nLog into the applet to work on the problem further.\n\n");
           emailBody.append("-mpsqas\n\n");
           emailBody.append("This is an automated message from MPSQAS.\n");
-          email.setMailSubject("New Correspondence For "+className);
-          email.setMailSentDate(new java.sql.Date(System.currentTimeMillis()));
-          email.setMailText(emailBody.toString());
-          email.setMailFromAddress(ApplicationConstants.FROM_EMAIL_ADDRESS);
-          email.setMode("S");
-          email.setMailToAddress(rs.getString(2));
-          Mail.sendMail(email);
+          email.setSubject("New Correspondence For "+className);
+          email.setBody(emailBody.toString());
+          email.setFromAddress(ApplicationConstants.FROM_EMAIL_ADDRESS);
+          email.addToAddress(rs.getString(2), TCSEmailMessage.TO);
+          EmailEngine.send(email);
         }
       }
       catch(Exception e)
       {
-        Log.msg("Error sending email.");
+        log.debug("Error sending email.");
         e.printStackTrace();
       }
 
@@ -268,14 +266,14 @@ public class MPSQASServicesBean extends BaseEJB
       }
       catch(Exception e1)
       {
-        Log.msg("Error broadcasting new correspondence.");
+        log.debug("Error broadcasting new correspondence.");
         e1.printStackTrace();
       }
       
     }
     catch(Exception e)
     {
-      Log.msg("Error inserting correspondence:");
+      log.debug("Error inserting correspondence:");
       e.printStackTrace(); 
       return false;
     } 
@@ -334,7 +332,7 @@ public class MPSQASServicesBean extends BaseEJB
     }
     catch(Exception e)
     {
-      Log.msg("Error getting unread messages for " + userId);
+      log.debug("Error getting unread messages for " + userId);
       e.printStackTrace();
     }
     finally
@@ -373,7 +371,7 @@ public class MPSQASServicesBean extends BaseEJB
    */
   public ArrayList getProblems(int forType, int id)
   {
-    if (VERBOSE) Log.msg("In MPSQASServicesBean.getAvailableProblems()...");
+    log.debug("In MPSQASServicesBean.getAvailableProblems()...");
     java.sql.Connection conn = null;
     PreparedStatement ps = null;
     ArrayList problems = new ArrayList();
@@ -513,7 +511,7 @@ public class MPSQASServicesBean extends BaseEJB
     }
     catch(Exception e)
     {
-      Log.msg("Error getting available problems: ");
+      log.debug("Error getting available problems: ");
       e.printStackTrace();
       problems=null;
     }
@@ -530,7 +528,7 @@ public class MPSQASServicesBean extends BaseEJB
    */
   public ProblemInformation getProblemInformation(int problemId, int userId)
   {
-    if (VERBOSE) Log.msg("In MPSQASServicesBean.getProblemInformation()...");
+    log.debug("In MPSQASServicesBean.getProblemInformation()...");
     ProblemInformation problemInformation;
     java.sql.Connection conn=null;
     PreparedStatement ps=null;
@@ -722,7 +720,7 @@ public class MPSQASServicesBean extends BaseEJB
    }
    catch(Exception e)
    {
-     Log.msg("Error getting problem information for problem:");
+     log.debug("Error getting problem information for problem:");
      e.printStackTrace();
      problemInformation = null;
    }
@@ -742,7 +740,7 @@ public class MPSQASServicesBean extends BaseEJB
    */
   public ArrayList saveProposal(ProblemInformation info, int userId)
   {
-    if (VERBOSE) Log.msg("In MPSQASServices.saveProposal()");
+    log.debug("In MPSQASServices.saveProposal()");
     ArrayList proposalResults=new ArrayList();
     java.sql.Connection conn=null;
     PreparedStatement ps=null;
@@ -822,7 +820,7 @@ public class MPSQASServicesBean extends BaseEJB
         }
         catch(Exception e1)
         {
-          Log.msg("Error broadcasting proposal for problem " + problemId);
+          log.debug("Error broadcasting proposal for problem " + problemId);
           e1.printStackTrace();
         }
         proposalResults.add(new Boolean(true)); 
@@ -835,7 +833,7 @@ public class MPSQASServicesBean extends BaseEJB
     }
     catch(Exception e)
     {
-      Log.msg("Error inserting problem: ");
+      log.debug("Error inserting problem: ");
       e.printStackTrace();
       proposalResults = new ArrayList(2);
       proposalResults.add(new Boolean(false));
@@ -862,7 +860,7 @@ public class MPSQASServicesBean extends BaseEJB
   public ArrayList saveProblem(ProblemInformation info, int problemId, int userId,
                                  int connectionId)
   {
-    if (VERBOSE) Log.msg("In MPSQASServicesBean.saveProblem()...");
+    log.debug("In MPSQASServicesBean.saveProblem()...");
     ArrayList submitInfo=new ArrayList(2);
     java.sql.Connection conn=null;
     PreparedStatement ps=null;
@@ -988,7 +986,7 @@ public class MPSQASServicesBean extends BaseEJB
           ps=conn.prepareStatement(sqlStr.toString());
           ps.setInt(1,problemId);
           numUpdates = ps.executeUpdate();
-          Log.msg(numUpdates + " test cases deleted due to change in param types.");
+          log.debug(numUpdates + " test cases deleted due to change in param types.");
         }
 
         //get the primary solution
@@ -1162,7 +1160,7 @@ public class MPSQASServicesBean extends BaseEJB
           ps.setInt(1, rs.getInt(1));
           ps.setInt(2, problemId);
           numUpdates = ps.executeUpdate();
-          Log.msg(numUpdates+" rows delete from system_test_case");
+          log.debug(numUpdates+" rows delete from system_test_case");
         } 
       }
 
@@ -1212,7 +1210,7 @@ public class MPSQASServicesBean extends BaseEJB
         }
         catch(Exception e1)
         {
-          Log.msg("Error broadcast status change for problem "+problemId);
+          log.debug("Error broadcast status change for problem "+problemId);
           e1.printStackTrace();
         }
       }
@@ -1223,7 +1221,7 @@ public class MPSQASServicesBean extends BaseEJB
     }
     catch(Exception e)
     {
-      Log.msg("Error in submitProblem:");
+      log.debug("Error in submitProblem:");
       e.printStackTrace();
       submitInfo.add(new Boolean(false));
       submitInfo.add(ApplicationConstants.SERVER_ERROR);      
@@ -1248,7 +1246,7 @@ public class MPSQASServicesBean extends BaseEJB
   public String saveProblemStatement(String statement, int problemId, int userId,
                                        int connectionId)
   {
-    if (VERBOSE) Log.msg("Updating problem statement for problemId = " + problemId);
+    log.debug("Updating problem statement for problemId = " + problemId);
     String result;
     java.sql.Connection conn = null;
     PreparedStatement ps = null;
@@ -1282,7 +1280,7 @@ public class MPSQASServicesBean extends BaseEJB
     }
     catch(Exception e)
     {
-      Log.msg("Error saving problem statement for problemId " + problemId);
+      log.debug("Error saving problem statement for problemId " + problemId);
       e.printStackTrace();
       result = ApplicationConstants.SERVER_ERROR;
     }
@@ -1307,7 +1305,7 @@ public class MPSQASServicesBean extends BaseEJB
   public ArrayList processPendingReply(int problemId, boolean approved, 
                                         String message, int userId)
   {
-    if (VERBOSE) Log.msg("In MPSQASServicesBean.processPendingReply()..");
+    log.debug("In MPSQASServicesBean.processPendingReply()..");
     java.sql.Connection conn = null;
     PreparedStatement ps = null;
     ArrayList replyInfo=new ArrayList(2);
@@ -1406,7 +1404,7 @@ public class MPSQASServicesBean extends BaseEJB
           try
           {
             //send an email to the user
-            EMailMessage email=new EMailMessage();
+            TCSEmailMessage email=new TCSEmailMessage();
             String type = (status == MessageTypes.PROPOSAL_PENDING_APPROVAL)
                           ? "Proposal" 
                           : "Submission";
@@ -1439,17 +1437,15 @@ public class MPSQASServicesBean extends BaseEJB
             emailBody.append("further.\n\n");
             emailBody.append("-mpsqas\n\n");
             emailBody.append("This is an automated message from MPSQAS.\n");
-            email.setMailSubject("TopCoder Problem "+type+" "+statusS);
-            email.setMailSentDate(new java.sql.Date(System.currentTimeMillis()));
-            email.setMailText(emailBody.toString());
-            email.setMailFromAddress(ApplicationConstants.FROM_EMAIL_ADDRESS);
-            email.setMode("S");
-            email.setMailToAddress(emailAddy);
-            Mail.sendMail(email);
+            email.setSubject("TopCoder Problem "+type+" "+statusS);
+            email.setBody(emailBody.toString());
+            email.setFromAddress(ApplicationConstants.FROM_EMAIL_ADDRESS);
+            email.addToAddress(emailAddy, TCSEmailMessage.TO);
+            EmailEngine.send(email);
           }
           catch(Exception e)
           {
-            Log.msg("Error sending email.");
+            log.debug("Error sending email.");
             e.printStackTrace();
           }
        
@@ -1476,7 +1472,7 @@ public class MPSQASServicesBean extends BaseEJB
           }
           catch(Exception e1)
           {
-            Log.msg("Error broadcast status change for problem "+problemId);
+            log.debug("Error broadcast status change for problem "+problemId);
             e1.printStackTrace();
           }
           replyInfo.add(new Boolean(true));
@@ -1498,7 +1494,7 @@ public class MPSQASServicesBean extends BaseEJB
       replyInfo=new ArrayList(2);
       replyInfo.add(new Boolean(false));
       replyInfo.add(ApplicationConstants.SERVER_ERROR);
-      Log.msg("Error inserting reply to problem proposal: ");
+      log.debug("Error inserting reply to problem proposal: ");
       e.printStackTrace();
     }
     finally
@@ -1517,7 +1513,7 @@ public class MPSQASServicesBean extends BaseEJB
    */
   public boolean saveAdminProblemInformation(ProblemInformation problemInfo, int problemId)
   {
-    if(VERBOSE) Log.msg("In MPSQASServicesBean.adminSaveProblem()");
+    log.debug("In MPSQASServicesBean.adminSaveProblem()");
 
     java.sql.Connection conn=null;
     PreparedStatement ps=null;
@@ -1583,7 +1579,7 @@ public class MPSQASServicesBean extends BaseEJB
     }
     catch(Exception e)
     {
-      Log.msg("Error doing admin problem save: ");
+      log.debug("Error doing admin problem save: ");
       e.printStackTrace();
       ok = false;
     }  
@@ -1607,7 +1603,7 @@ public class MPSQASServicesBean extends BaseEJB
    */
   public ArrayList compile(ProblemInformation info, int problemId, int userId)
   {
-    if (VERBOSE) Log.msg("In MPSQASServicesBean.compile");
+    log.debug("In MPSQASServicesBean.compile");
     ArrayList results=new ArrayList(2);
     java.sql.Connection conn=null;
     PreparedStatement ps=null;
@@ -1654,7 +1650,7 @@ public class MPSQASServicesBean extends BaseEJB
     }
     catch(Exception e)
     {
-     Log.msg("Error compiling:");
+     log.debug("Error compiling:");
      e.printStackTrace();
      results=new ArrayList();
      results.add(new Boolean(false));
@@ -1677,7 +1673,7 @@ public class MPSQASServicesBean extends BaseEJB
    */
   public String test(Object[]args, int problemId, int userId, int type)
   {
-    if (VERBOSE) Log.msg("In MPSQASServicesBean.test()..");
+    log.debug("In MPSQASServicesBean.test()..");
     java.sql.Connection conn=null;
     PreparedStatement ps=null;
     StringBuffer testResults = new StringBuffer(256); 
@@ -1768,7 +1764,7 @@ public class MPSQASServicesBean extends BaseEJB
     }
     catch(Exception e)
     {
-      Log.msg("Error processing test:");
+      log.debug("Error processing test:");
       e.printStackTrace();
       testResults.replace(0, testResults.length(), 
                           ApplicationConstants.SERVER_ERROR);
@@ -1934,7 +1930,7 @@ public class MPSQASServicesBean extends BaseEJB
     }
     catch(Exception e)
     {
-      Log.msg("Error comparing results for problem "+problemId);
+      log.debug("Error comparing results for problem "+problemId);
       e.printStackTrace();
       results.add(new Boolean(false));
       compareResults.insert(0,ApplicationConstants.SERVER_ERROR);
@@ -1958,7 +1954,7 @@ public class MPSQASServicesBean extends BaseEJB
    */
   public ArrayList getContests(int userId)
   {
-    if (VERBOSE) Log.msg("In MPSQASServicesBean.getUpcomingContests()..");
+    log.debug("In MPSQASServicesBean.getUpcomingContests()..");
     ArrayList contestTable = new ArrayList();
 
     java.sql.Connection conn=null;
@@ -2086,7 +2082,7 @@ public class MPSQASServicesBean extends BaseEJB
     }
     catch(Exception e)
     {
-      Log.msg("Error getting contest table:");
+      log.debug("Error getting contest table:");
       e.printStackTrace();
     }
 
@@ -2103,7 +2099,7 @@ public class MPSQASServicesBean extends BaseEJB
    */
   public ContestInformation getContestInformation(int roundId, boolean adminInfo)
   {
-    if (VERBOSE) Log.msg("In MPSQASServicesBean.getContestInformation()");
+    log.debug("In MPSQASServicesBean.getContestInformation()");
 
     java.sql.Connection conn=null;
     PreparedStatement ps=null;
@@ -2128,7 +2124,7 @@ public class MPSQASServicesBean extends BaseEJB
 
       if(!rs.next())
       {
-        Log.msg("No contest/round scheduled for requested round: "+roundId);
+        log.debug("No contest/round scheduled for requested round: "+roundId);
         throw new Exception();
       }
 
@@ -2151,7 +2147,7 @@ public class MPSQASServicesBean extends BaseEJB
 
       if(!rs.next())
       {
-        Log.msg("No coding segment scheduled for round "+roundId);
+        log.debug("No coding segment scheduled for round "+roundId);
         contestInformation.setStartCoding("NOT SCHEDULED");
         contestInformation.setEndCoding("NOT SCHEDULED");
       }
@@ -2167,7 +2163,7 @@ public class MPSQASServicesBean extends BaseEJB
 
       if(!rs.next())
       {
-        Log.msg("No challenge segment scheduled for round "+roundId);
+        log.debug("No challenge segment scheduled for round "+roundId);
         contestInformation.setStartChallenge("NOT SCHEDULED");
         contestInformation.setEndChallenge("NOT SCHEDULED");
       }
@@ -2200,7 +2196,7 @@ public class MPSQASServicesBean extends BaseEJB
     }
     catch(Exception e)
     {
-      if (VERBOSE) Log.msg("Error retrieving contest information for round " 
+      log.debug("Error retrieving contest information for round " 
                            + roundId);
       e.printStackTrace();
       contestInformation = null;
@@ -2219,7 +2215,7 @@ public class MPSQASServicesBean extends BaseEJB
    */
   public String saveContestProblems(int roundId, ArrayList problems)
   {
-    Log.msg("In MPSQASServicesBean.scheduleProblems() for round "+roundId);
+    log.debug("In MPSQASServicesBean.scheduleProblems() for round "+roundId);
     java.sql.Connection conn = null;
     PreparedStatement ps = null;
     String results = "";
@@ -2241,7 +2237,7 @@ public class MPSQASServicesBean extends BaseEJB
       ps.setInt(1, ApplicationConstants.PROBLEM_TESTER);
       ps.setInt(2, roundId);
       int rowsUpdated=ps.executeUpdate();
-      Log.msg(rowsUpdated + " testers deleted from scheduled problems.");
+      log.debug(rowsUpdated + " testers deleted from scheduled problems.");
 
       //delete the old scheduled problems
       sqlStr.replace(0,sqlStr.length(),
@@ -2250,7 +2246,7 @@ public class MPSQASServicesBean extends BaseEJB
       ps.setInt(1,roundId);
       rowsUpdated = ps.executeUpdate();
 
-      Log.msg(rowsUpdated +" rows removed from round_problem.");
+      log.debug(rowsUpdated +" rows removed from round_problem.");
 
       //insert the new problems
       sqlStr.replace(0,sqlStr.length(),
@@ -2278,7 +2274,7 @@ public class MPSQASServicesBean extends BaseEJB
         rowsUpdated += ps.executeUpdate();
       }
 
-      Log.msg(rowsUpdated + " problems added to round " + roundId); 
+      log.debug(rowsUpdated + " problems added to round " + roundId); 
 
       //change the status of the problems to TESTING:
       sqlStr.replace(0, sqlStr.length(), 
@@ -2397,7 +2393,7 @@ public class MPSQASServicesBean extends BaseEJB
         sqlStr.append("WHERE user_id = ? ");
         ps = conn.prepareStatement(sqlStr.toString());
 
-        EMailMessage email;
+        TCSEmailMessage email;
         StringBuffer emailBody = new StringBuffer(256);
 
         //compose email to writers
@@ -2431,15 +2427,13 @@ public class MPSQASServicesBean extends BaseEJB
           emailBody.append("now and the contest to help polish the problems.");
           emailBody.append("\n\n-mpsqas\n\n");
           emailBody.append("This is an automated message from MPSQAS.\n");
-          email = new EMailMessage();
-          email.setMailSubject("Using your problems in "
+          email = new TCSEmailMessage();
+          email.setSubject("Using your problems in "
                                + contestName + ", " + contestTime);
-          email.setMailSentDate(new java.sql.Date(System.currentTimeMillis()));
-          email.setMailText(emailBody.toString());
-          email.setMailFromAddress(ApplicationConstants.FROM_EMAIL_ADDRESS);
-          email.setMode("S");
-          email.setMailToAddress(rs.getString(2));
-          Mail.sendMail(email);
+          email.setBody(emailBody.toString());
+          email.setFromAddress(ApplicationConstants.FROM_EMAIL_ADDRESS);
+          email.addToAddress(rs.getString(2), TCSEmailMessage.TO);
+          EmailEngine.send(email);
         }
 
         for(i = 0; i < testerIds.size(); i++)
@@ -2471,20 +2465,18 @@ public class MPSQASServicesBean extends BaseEJB
           emailBody.append("now and the contest to help polish the problems.");
           emailBody.append("\n\n-mpsqas\n\n");
           emailBody.append("This is an automated message from MPSQAS.\n");
-          email = new EMailMessage();
-          email.setMailSubject("You are problem testing "
+          email = new TCSEmailMessage();
+          email.setSubject("You are problem testing "
                                + contestName + ", " + contestTime);
-          email.setMailSentDate(new java.sql.Date(System.currentTimeMillis()));
-          email.setMailText(emailBody.toString());
-          email.setMailFromAddress(ApplicationConstants.FROM_EMAIL_ADDRESS);
-          email.setMode("S");
-          email.setMailToAddress(rs.getString(2));
-          Mail.sendMail(email);
+          email.setBody(emailBody.toString());
+          email.setFromAddress(ApplicationConstants.FROM_EMAIL_ADDRESS);
+          email.addToAddress(rs.getString(2), TCSEmailMessage.TO);
+          EmailEngine.send(email);
         }
       }
       catch(Exception e)
       {
-        Log.msg("Error sending email.");
+        log.debug("Error sending email.");
         e.printStackTrace();
       }
 
@@ -2499,7 +2491,7 @@ public class MPSQASServicesBean extends BaseEJB
       }
       catch(Exception e2)
       {
-        Log.msg("Error broadcasting problem_schedule for round " + roundId);
+        log.debug("Error broadcasting problem_schedule for round " + roundId);
         e2.printStackTrace();
       }
  
@@ -2507,7 +2499,7 @@ public class MPSQASServicesBean extends BaseEJB
     }
     catch(Exception e)
     {
-      Log.msg("Error scheduling problems:");
+      log.debug("Error scheduling problems:");
       e.printStackTrace();
       results = ApplicationConstants.SERVER_ERROR;
     }
@@ -2525,7 +2517,7 @@ public class MPSQASServicesBean extends BaseEJB
    */
   public void wrapUpContest(int roundId)
   {
-    if (VERBOSE) Log.msg("Wrapping up contest "+roundId);
+    log.debug("Wrapping up contest "+roundId);
 
     if (roundId < ApplicationConstants.REAL_CONTEST_ID_LOWER_BOUND)
     {
@@ -2550,7 +2542,7 @@ public class MPSQASServicesBean extends BaseEJB
       ps.setInt(1, MessageTypes.USED);
       ps.setInt(2, roundId);
       int updates = ps.executeUpdate();
-      Log.msg(updates + " problems changed to USED in wrapping up " + roundId);
+      log.debug(updates + " problems changed to USED in wrapping up " + roundId);
 
       //reconcile payments for users of problems
       sqlStr.replace(0, sqlStr.length(), "");
@@ -2565,7 +2557,7 @@ public class MPSQASServicesBean extends BaseEJB
     }
     catch(Exception e)
     {
-      Log.msg("Error wraping up " + roundId);
+      log.debug("Error wraping up " + roundId);
       e.printStackTrace();
     }
   } 
@@ -2578,7 +2570,7 @@ public class MPSQASServicesBean extends BaseEJB
    */
   public String verifyContest(int roundId)
   {
-    if(VERBOSE) Log.msg("In MPSQASServicesBean.contestVerify().");
+    log.debug("In MPSQASServicesBean.contestVerify().");
     java.sql.Connection conn=null;
     PreparedStatement ps=null;
     StringBuffer result=new StringBuffer(1000);;
@@ -2667,7 +2659,7 @@ public class MPSQASServicesBean extends BaseEJB
     }
     catch(Exception e)
     {
-      Log.msg("Error verifying contest.");
+      log.debug("Error verifying contest.");
       e.printStackTrace();
       result.append(ApplicationConstants.SERVER_ERROR);
     }
@@ -2685,7 +2677,7 @@ public class MPSQASServicesBean extends BaseEJB
    */
   public ArrayList getPendingApplications()
   {
-    if(VERBOSE) Log.msg("In MPSQASServicesBean.getPendingApplications().");
+    log.debug("In MPSQASServicesBean.getPendingApplications().");
 
     java.sql.Connection conn=null;
     PreparedStatement ps=null;
@@ -2745,7 +2737,7 @@ public class MPSQASServicesBean extends BaseEJB
     }
     catch(Exception e)
     {
-      Log.msg("Error getting problem testers: ");
+      log.debug("Error getting problem testers: ");
       e.printStackTrace();
       apps=null;
     }
@@ -2761,7 +2753,7 @@ public class MPSQASServicesBean extends BaseEJB
    */
   public ApplicationInformation getApplicationInformation(int applicationId)
   {
-    if(VERBOSE) Log.msg("In MPSQASServices.getApplicationInformation().");
+    log.debug("In MPSQASServices.getApplicationInformation().");
     java.sql.Connection conn=null;
     PreparedStatement ps=null;
     ApplicationInformation info=null;
@@ -2822,7 +2814,7 @@ public class MPSQASServicesBean extends BaseEJB
     }
     catch(Exception e)
     {
-      Log.msg("Error getting application information for dev_app_id = "+applicationId);
+      log.debug("Error getting application information for dev_app_id = "+applicationId);
       e.printStackTrace();
       info = null;
     }
@@ -2840,7 +2832,7 @@ public class MPSQASServicesBean extends BaseEJB
    */
   public ArrayList saveApplication(String message,int applicationType,int userId)
   {
-    if(VERBOSE) Log.msg("In MPSQASServicesBean.saveApplication().");
+    log.debug("In MPSQASServicesBean.saveApplication().");
 
     java.sql.Connection conn=null;
     PreparedStatement ps=null;
@@ -2921,7 +2913,7 @@ public class MPSQASServicesBean extends BaseEJB
       }
       catch(Exception e1)
       {
-        Log.msg("Error broadcast new application:");
+        log.debug("Error broadcast new application:");
         e1.printStackTrace();
       }
       
@@ -2930,7 +2922,7 @@ public class MPSQASServicesBean extends BaseEJB
     }
     catch(Exception e)
     {
-      Log.msg("Error inserting into development_application: ");
+      log.debug("Error inserting into development_application: ");
       e.printStackTrace();
      
       response=new ArrayList(2);
@@ -2955,7 +2947,7 @@ public class MPSQASServicesBean extends BaseEJB
   public ArrayList processApplicationReply(int applicationId, boolean accepted, 
                                            String message, int userId)
   {
-    if(VERBOSE) Log.msg("In MPSQASServicesBean.replyToApplication()");
+    log.debug("In MPSQASServicesBean.replyToApplication()");
     java.sql.Connection conn=null;
     PreparedStatement ps=null;
     ArrayList response=new ArrayList();
@@ -3052,7 +3044,7 @@ public class MPSQASServicesBean extends BaseEJB
         String accOrRej=accepted?"Accepted":"Rejected";
         String appType=appUserType==ApplicationConstants.PROBLEM_WRITER?"Problem Writer":"Problem Tester";
 
-        EMailMessage email=new EMailMessage();
+        TCSEmailMessage email=new TCSEmailMessage();
         StringBuffer emailBody=new StringBuffer(256);
 
         emailBody.replace(0,emailBody.length(),"Hi "+appHandle+",\n\n");
@@ -3078,17 +3070,15 @@ public class MPSQASServicesBean extends BaseEJB
         emailBody.append("\n-mpsqas\n");
         emailBody.append("\nThis is an automated email generated by MPSQAS.");
 
-        email.setMailSubject(appType+" Application "+accOrRej);
-        email.setMailSentDate(new java.sql.Date(System.currentTimeMillis()));
-        email.setMailText(emailBody.toString());
-        email.setMailFromAddress(ApplicationConstants.FROM_EMAIL_ADDRESS);
-        email.setMode("S");
-        email.setMailToAddress(emailAddy);
-        Mail.sendMail(email);
+        email.setSubject(appType+" Application "+accOrRej);
+        email.setBody(emailBody.toString());
+        email.setFromAddress(ApplicationConstants.FROM_EMAIL_ADDRESS);
+        email.addToAddress(emailAddy, TCSEmailMessage.TO);
+        EmailEngine.send(email);
       }
       catch(Exception e)
       {
-        Log.msg("Error sending email in response to application reply, id: "+applicationId);
+        log.debug("Error sending email in response to application reply, id: "+applicationId);
         e.printStackTrace();
       }
 
@@ -3103,7 +3093,7 @@ public class MPSQASServicesBean extends BaseEJB
       }
       catch(Exception e1)
       {
-        Log.msg("Error broadcast new application");
+        log.debug("Error broadcast new application");
         e1.printStackTrace();
       }
 
@@ -3112,7 +3102,7 @@ public class MPSQASServicesBean extends BaseEJB
     }
     catch(Exception e)
     {
-      Log.msg("Error processing application reply, id: "+applicationId);
+      log.debug("Error processing application reply, id: "+applicationId);
       e.printStackTrace();
 
       response=new ArrayList(2);
@@ -3137,7 +3127,7 @@ public class MPSQASServicesBean extends BaseEJB
    */
   public void logChat(ArrayList chat)
   {
-    if (VERBOSE) Log.msg("Logging MPSQAS chat.");
+    log.debug("Logging MPSQAS chat.");
 
     java.sql.Connection conn = null;
     PreparedStatement ps = null;
@@ -3174,7 +3164,7 @@ public class MPSQASServicesBean extends BaseEJB
     }
     catch(Exception e)
     {
-      Log.msg("Error logging chat:");
+      log.debug("Error logging chat:");
       e.printStackTrace();
     }
 
@@ -3191,7 +3181,7 @@ public class MPSQASServicesBean extends BaseEJB
    */
   public String getChatHistory(int id, boolean isRound)
   {
-    if (VERBOSE) Log.msg("Getting chat history");
+    log.debug("Getting chat history");
 
     java.sql.Connection conn = null;
     PreparedStatement ps = null;
@@ -3265,7 +3255,7 @@ public class MPSQASServicesBean extends BaseEJB
     }
     catch(Exception e)
     {
-      Log.msg("Error getting contest history:");
+      log.debug("Error getting contest history:");
       e.printStackTrace();
       outputString.append(ApplicationConstants.SERVER_ERROR);
     }
@@ -3294,7 +3284,7 @@ public class MPSQASServicesBean extends BaseEJB
    */
   public ArrayList getUsers(int forType, int id)
   {
-    if (VERBOSE) Log.msg("Getting users.");
+    log.debug("Getting users.");
 
     java.sql.Connection conn = null;
     PreparedStatement ps = null; 
@@ -3398,7 +3388,7 @@ public class MPSQASServicesBean extends BaseEJB
     }
     catch(Exception e)
     {
-      Log.msg("Error getting user information: ");
+      log.debug("Error getting user information: ");
       e.printStackTrace();
       users = null;  
     }
@@ -3415,7 +3405,7 @@ public class MPSQASServicesBean extends BaseEJB
    */
   public UserInformation getUserInformation(int userId)
   {
-    if (VERBOSE) Log.msg("Getting user info for userId " + userId);
+    log.debug("Getting user info for userId " + userId);
     java.sql.Connection conn = null;
     PreparedStatement ps = null;
     UserInformation userInfo = null;
@@ -3475,7 +3465,7 @@ public class MPSQASServicesBean extends BaseEJB
     }
     catch(Exception e)
     {
-      Log.msg("Error getting user information for userid "+userId);
+      log.debug("Error getting user information for userid "+userId);
       e.printStackTrace();
       userInfo = null;
     }
@@ -3517,7 +3507,7 @@ public class MPSQASServicesBean extends BaseEJB
     }
     catch(Exception e)
     {
-      Log.msg("Error updating payment.");
+      log.debug("Error updating payment.");
       e.printStackTrace();
       ok = false;
     }
@@ -3537,7 +3527,7 @@ public class MPSQASServicesBean extends BaseEJB
    */
   private void backUpSolution(int solutionId, int userId)
   {
-    if (VERBOSE) Log.msg("Backing up solution "+solutionId);
+    log.debug("Backing up solution "+solutionId);
 
     java.sql.Connection conn = null;
     PreparedStatement ps = null;
@@ -3564,7 +3554,7 @@ public class MPSQASServicesBean extends BaseEJB
     }
     catch(Exception e)
     {
-      Log.msg("Error backing up solution:");
+      log.debug("Error backing up solution:");
       e.printStackTrace();
     }
     closeConnection(conn, ps);
@@ -3577,7 +3567,7 @@ public class MPSQASServicesBean extends BaseEJB
    */
   private void backUpProblemStatement(int problemId, int userId)
   {
-    if (VERBOSE) Log.msg("Backing up problem statement "+problemId);
+    log.debug("Backing up problem statement "+problemId);
 
     java.sql.Connection conn = null;
     PreparedStatement ps = null;
@@ -3604,7 +3594,7 @@ public class MPSQASServicesBean extends BaseEJB
     }
     catch(Exception e)
     {
-      Log.msg("Error backing up problem:");
+      log.debug("Error backing up problem:");
       e.printStackTrace();
     }
     closeConnection(conn, ps);
@@ -3680,7 +3670,7 @@ public class MPSQASServicesBean extends BaseEJB
     }
     catch(Exception e)
     {
-      Log.msg("Error checking admin status: ");
+      log.debug("Error checking admin status: ");
       e.printStackTrace();
     }
     finally
@@ -3787,7 +3777,7 @@ public class MPSQASServicesBean extends BaseEJB
     }
     catch(Exception e)
     {
-      Log.msg("Error checking problem statement.");
+      log.debug("Error checking problem statement.");
       e.printStackTrace();
       errorMessage.append(ApplicationConstants.SERVER_ERROR);
     }
@@ -3811,7 +3801,7 @@ public class MPSQASServicesBean extends BaseEJB
    */
   private void reconcilePayment(int problemId)
   {
-    Log.msg("Reconciling payment for problemId = " + problemId);
+    log.debug("Reconciling payment for problemId = " + problemId);
     java.sql.Connection conn = null;
     PreparedStatement ps = null;
     
@@ -3917,7 +3907,7 @@ public class MPSQASServicesBean extends BaseEJB
     }
     catch(Exception e)
     {
-      Log.msg("Error updating payment for problem_id = " + problemId);
+      log.debug("Error updating payment for problem_id = " + problemId);
       e.printStackTrace(); 
     }
     finally
@@ -4005,7 +3995,7 @@ public class MPSQASServicesBean extends BaseEJB
     }
     catch(Exception e)
     {
-      Log.msg("Error getting solution id:");
+      log.debug("Error getting solution id:");
       e.printStackTrace();
     }
     finally
@@ -4051,7 +4041,7 @@ public class MPSQASServicesBean extends BaseEJB
     }
     catch(Exception e1)
     {
-      Log.msg("Error broadcasting problem update for problem "+problemId);
+      log.debug("Error broadcasting problem update for problem "+problemId);
       e1.printStackTrace();
     }
   }
@@ -4069,7 +4059,7 @@ public class MPSQASServicesBean extends BaseEJB
     }
     catch(Exception e)
     {
-      Log.msg("Error closing connection: ");
+      log.debug("Error closing connection: ");
       e.printStackTrace();
     }
   }
@@ -4093,7 +4083,7 @@ public class MPSQASServicesBean extends BaseEJB
     }
     catch(Exception e)
     {
-      Log.msg("Error sending message to applet server. data: "+data);
+      log.debug("Error sending message to applet server. data: "+data);
       e.printStackTrace();
     }
   }
@@ -4105,12 +4095,12 @@ public class MPSQASServicesBean extends BaseEJB
 
   public void ejbCreate() 
   { 
-    if (VERBOSE) Log.msg("MPSQASServicesBean: ejbCreate called.");
+    log.debug("MPSQASServicesBean: ejbCreate called.");
   }
 
   private synchronized void cleanUp()
   {
-    if (VERBOSE) Log.msg("Cleaning up MPSQASServicesBean");
+    log.debug("Cleaning up MPSQASServicesBean");
   }
 
   public void setSessionContext(SessionContext ctx) 
@@ -4118,6 +4108,5 @@ public class MPSQASServicesBean extends BaseEJB
     this.ctx = ctx;
   }
 
-  private static boolean VERBOSE = false;  
   SessionContext ctx;
 }

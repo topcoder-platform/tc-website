@@ -59,7 +59,7 @@ import java.util.*;
 //JDK1.1// import com.sun.java.util.collections.*;
 import java.sql.*;
 import com.coolservlets.forum.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
 /**
  * An Iterator for all the users in the system. Those wishing to integrate
  * Jive into their own User system should also modify this class.

@@ -13,20 +13,16 @@ import java.util.*;
 import java.text.*;
 import com.topcoder.web.pacts.common.*;
 import com.topcoder.web.pacts.bean.*;
-import com.topcoder.common.web.xml.*;
-
-
-import org.apache.log4j.Category;
+import com.topcoder.shared.docGen.xml.*;
 import java.io.*;
 import java.net.*;
 import javax.xml.transform.*;
 import javax.xml.transform.stream.*;
+import com.topcoder.shared.util.logging.Logger;
 
 
-import org.apache.log4j.*;
 public class AffidavitBean implements PactsConstants {
-    private static Category log = Category.getInstance( AffidavitBean.class.getName() );
-
+    private static Logger log = Logger.getLogger(AffidavitBean.class);
 
     /**
      * contstuctor

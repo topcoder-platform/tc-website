@@ -7,11 +7,13 @@ import java.sql.*;
 import java.text.*;
 import javax.naming.*;
 import javax.jms.JMSException;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.*;
 import com.topcoder.web.common.*;
 import com.topcoder.web.pacts.common.*;
-import com.topcoder.server.messaging.*;
-import org.apache.log4j.*;
+import com.topcoder.shared.messaging.*;
+import com.topcoder.shared.ejb.BaseEJB;
+
 
 /**
  * The EJB class which handles database access for the PACTS system.
@@ -23,7 +25,7 @@ import org.apache.log4j.*;
  */
 
 public class PactsServicesBean extends BaseEJB implements PactsConstants {
-    private static Category log = Category.getInstance(PactsServicesBean.class.getName());
+    private static Logger log = Logger.getLogger(PactsServicesBean.class);
     private static QueueMessageSender pactsMsgSender = null;
 
     // Initialize the message queue

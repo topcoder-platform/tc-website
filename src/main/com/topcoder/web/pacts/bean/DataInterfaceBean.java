@@ -8,7 +8,7 @@ import java.util.*;
 import java.math.*;
 import java.text.*;
 import java.rmi.RemoteException;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
 import com.topcoder.web.common.*;
 import com.topcoder.web.pacts.common.*;
 import com.topcoder.web.pacts.ejb.PactsServices.*;

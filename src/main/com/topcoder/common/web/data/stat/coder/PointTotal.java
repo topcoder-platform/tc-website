@@ -2,10 +2,10 @@ package com.topcoder.common.web.data.stat.coder;
 
 import java.io.Serializable;
 import java.text.*;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 import com.topcoder.common.web.data.*;
 
-public final class PointTotal implements Serializable, Base {
+public final class PointTotal implements Serializable, TagRenderer {
 
   private String contestName;
   private int contestId;

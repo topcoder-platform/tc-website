@@ -1,10 +1,10 @@
 package com.topcoder.common.web.data;
 
 import java.io.Serializable;
-import com.topcoder.common.web.xml.*;
-import com.topcoder.common.Log;
+import com.topcoder.shared.docGen.xml.*;
+import com.topcoder.shared.util.logging.Logger;
 
-public final class Rating implements Serializable, Base {
+public final class Rating implements Serializable, TagRenderer {
 
   private int CoderId;
   private int ContestId;
@@ -13,6 +13,7 @@ public final class Rating implements Serializable, Base {
   private java.sql.Date LastRatedEvent;
   private int NumRatings;
   private String Modified;
+  private static Logger log = Logger.getLogger(Rating.class);
 
   public Rating() {
     CoderId = 0;

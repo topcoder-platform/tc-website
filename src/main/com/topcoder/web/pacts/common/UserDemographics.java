@@ -5,11 +5,10 @@ package com.topcoder.web.pacts.common;
 
 import java.util.*;
 import com.topcoder.web.common.*;
-import org.apache.log4j.*;
+import com.topcoder.shared.util.logging.Logger;
 
 public class UserDemographics implements PactsConstants, java.io.Serializable {
-    private static Category log =
-	Category.getInstance(UserDemographics.class.getName());
+    private static Logger log = Logger.getLogger(UserDemographics.class);
 
     public String[] answers;
     public String[] questions;

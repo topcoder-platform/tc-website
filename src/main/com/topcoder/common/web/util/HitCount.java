@@ -3,7 +3,7 @@ package com.topcoder.common.web.util;
 import javax.naming.*;
 import com.topcoder.common.web.error.*;
 import com.topcoder.ejb.Util.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
 
 
 public final class HitCount {

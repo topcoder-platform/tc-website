@@ -34,7 +34,6 @@ public class CacheClientImpl
     public Object get(String key) 
         throws RemoteException
     {
-	System.out.println("GET: " + key);
         try {
             return _cache.get(key);
         } catch (Exception e) {

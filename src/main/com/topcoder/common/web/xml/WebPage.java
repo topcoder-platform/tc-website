@@ -2,6 +2,7 @@ package com.topcoder.common.web.xml;
 
 import com.topcoder.common.web.xml.*;
 import com.topcoder.common.web.util.*;
+import com.topcoder.shared.docGen.xml.RecordTag;
 import java.io.Serializable;
 
 public class WebPage extends RecordTag implements Serializable {

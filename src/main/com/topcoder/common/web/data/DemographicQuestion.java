@@ -3,10 +3,10 @@ package com.topcoder.common.web.data;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 
 
-public class DemographicQuestion implements Serializable, Base, Cloneable {
+public class DemographicQuestion implements Serializable, TagRenderer, Cloneable {
 
 
   private int demographicQuestionId;

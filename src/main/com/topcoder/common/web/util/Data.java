@@ -2,18 +2,19 @@ package com.topcoder.common.web.util;
 
 import java.util.*;
 import com.topcoder.common.web.data.*;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 import com.topcoder.common.web.constant.*;
 import com.topcoder.common.web.error.*;
+import com.topcoder.common.web.xml.WebPage;
 import com.topcoder.ejb.UserServices.*;
 import com.topcoder.ejb.AuthenticationServices.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
 import javax.naming.*;
 import javax.transaction.*;
+import com.topcoder.shared.util.logging.Logger;
 
 public final class Data {
-
-  private static final boolean VERBOSE = false;
+  private static Logger log = Logger.getLogger(Data.class);
 
   ////////////////////////////////////////////////////////////////////////////////
   public static final void stabilizeModifiableList (List modifiableList)
@@ -93,7 +94,7 @@ public final class Data {
         msg.append(nav.getUserId());
         msg.append("\n");
         msg.append("tc: Loading user attributes from user entity bean...");
-        Log.msg(VERBOSE, msg.toString());
+        log.debug(msg.toString());
         /////////////////////////////////////////////////////
         ctx = TCContext.getInitial();
         UserServicesHome userHome = ( UserServicesHome ) ctx.lookup ( ApplicationServer.USER_SERVICES );
@@ -101,7 +102,7 @@ public final class Data {
         user = userEJB.getUser();
         nav.setUser(user);
         /////////////////////////////////////////////////////
-        Log.msg(VERBOSE, "tc: user loaded from entity bean");
+        log.debug("tc: user loaded from entity bean");
         /////////////////////////////////////////////////////
       } catch (Exception e) {
         throw new NavigationException("tc:processCommands:ERROR READING DATABASE\n"+e,TCServlet.INTERNAL_ERROR_PAGE);
@@ -136,13 +137,6 @@ public final class Data {
         }
         java.sql.Date today = DateTime.getCurrentDate();
         result.addTag(contestTag);
-      }
-      if (VERBOSE) {
-        //////////////////////////////////
-        WebPage test = new WebPage("test");
-        test.addTag(result);
-        Log.msg(test.getXML(2));
-        //////////////////////////////////
       }
     } catch (Exception e) {
       e.printStackTrace();

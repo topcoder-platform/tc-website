@@ -7,8 +7,9 @@ import java.util.*;
 import java.io.*;
 import java.sql.*;
 import java.rmi.RemoteException;
-import com.topcoder.common.*;
-import com.topcoder.ejb.BaseEJB;
+import com.topcoder.shared.util.*;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.common.web.util.*;
 import com.topcoder.common.web.constant.*;
 import com.topcoder.common.web.data.stat.*;
@@ -28,11 +29,10 @@ import com.topcoder.common.web.data.stat.contest.*;
  */
 
 public class CoderStatisticsBean extends BaseEJB{
-              static final boolean VERBOSE = false;
-
+  private static Logger log = Logger.getLogger(CoderStatisticsBean.class);
 
   public ArrayList getLastCoderComps(int coderId, int num) throws RemoteException {
-    Log.msg(VERBOSE, "ejb:coderStatistics:getLast3CoderComps called...");
+    log.debug("ejb:coderStatistics:getLast3CoderComps called...");
     PreparedStatement ps = null;
     ResultSet rs = null;
     Connection conn = null;
@@ -65,7 +65,7 @@ public class CoderStatisticsBean extends BaseEJB{
       query.append( " AND rr.room_id = r.room_id");
       query.append( " ORDER BY cal.calendar_id DESC");
 
-      Log.msg(VERBOSE, "\nquery: **********\n " + query.toString());
+      log.debug("\nquery: **********\n " + query.toString());
       conn = DBMS.getDWConnection();
       ps = conn.prepareStatement(query.toString());
       result = new ArrayList();
@@ -97,9 +97,9 @@ public class CoderStatisticsBean extends BaseEJB{
       e.printStackTrace();
       throw new RemoteException ("ejb:CoderStatistics:getLast3CoderComps:(" + coderId + ")\n" + e.getMessage());
     } finally {
-      try { if (rs   != null) rs.close();  } catch (Exception ignore) {Log.msg(VERBOSE, "rs   close problem");}
-      try { if (ps   != null) ps.close();  } catch (Exception ignore) {Log.msg(VERBOSE, "ps   close problem");}
-      try { if (conn != null) conn.close();} catch (Exception ignore) {Log.msg(VERBOSE, "conn close problem");}
+      try { if (rs   != null) rs.close();  } catch (Exception ignore) {log.error("rs   close problem");}
+      try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.error("ps   close problem");}
+      try { if (conn != null) conn.close();} catch (Exception ignore) {log.error("conn close problem");}
       rs = null;
       ps = null;
       conn = null;
@@ -121,7 +121,7 @@ public class CoderStatisticsBean extends BaseEJB{
   *********************************************************************************************
   */
   public ArrayList getTopRankedCoders(int first, int last) throws RemoteException {
-    Log.msg(VERBOSE, "ejb:coderStatistics:getTopRankedCoders called...");
+    log.debug("ejb:coderStatistics:getTopRankedCoders called...");
     PreparedStatement ps = null; 
     ArrayList result = new ArrayList(last-first+1);
     Rank coderRank = null; 
@@ -140,7 +140,7 @@ public class CoderStatisticsBean extends BaseEJB{
       query.append(   " AND c.status = 'A'");
       query.append( " ORDER by r.rating DESC");
       conn = DBMS.getDWConnection();
-      Log.msg(VERBOSE, "\nquery: **********\n " + query.toString());
+      log.debug("\nquery: **********\n " + query.toString());
       ps = conn.prepareStatement(query.toString());
       rs = ps.executeQuery();
       int i=0;
@@ -169,9 +169,9 @@ public class CoderStatisticsBean extends BaseEJB{
       e.printStackTrace();
       throw new RemoteException (e.getMessage());
     } finally {
-      try { if (rs   != null) rs.close();  } catch (Exception ignore) {Log.msg(VERBOSE, "rs   close problem");}
-      try { if (ps   != null) ps.close();  } catch (Exception ignore) {Log.msg(VERBOSE, "ps   close problem");}
-      try { if (conn != null) conn.close();} catch (Exception ignore) {Log.msg(VERBOSE, "conn close problem");}
+      try { if (rs   != null) rs.close();  } catch (Exception ignore) {log.error("rs   close problem");}
+      try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.error("ps   close problem");}
+      try { if (conn != null) conn.close();} catch (Exception ignore) {log.error("conn close problem");}
       rs = null;
       ps = null;
       conn = null;
@@ -181,7 +181,7 @@ public class CoderStatisticsBean extends BaseEJB{
 
 
   public Coder getCoderEarnings(int coderId) throws RemoteException {
-    Log.msg(VERBOSE, "ejb:coderStatistics:getCoderEarnings called...");
+    log.debug("ejb:coderStatistics:getCoderEarnings called...");
     PreparedStatement ps = null;
     ResultSet rs = null;
     Connection conn = null;
@@ -201,7 +201,7 @@ public class CoderStatisticsBean extends BaseEJB{
       query.append(     " AND c.coder_id = rr.coder_id");
       query.append(     " AND rr.attended='Y'");
       query.append(   " GROUP BY c.coder_id");
-      Log.msg(VERBOSE, "\nquery: ********\n " + query.toString());
+      log.debug("\nquery: ********\n " + query.toString());
 
       conn = DBMS.getDWConnection();
       ps = conn.prepareStatement(query.toString());
@@ -220,9 +220,9 @@ public class CoderStatisticsBean extends BaseEJB{
       e.printStackTrace();
       throw new RemoteException ("ejb:CoderStatistics:getCoderEarnings:(" + coderId + ")\n" + e.getMessage());
     } finally {
-      try { if (rs   != null) rs.close();  } catch (Exception ignore) {Log.msg(VERBOSE, "rs   close problem");}
-      try { if (ps   != null) ps.close();  } catch (Exception ignore) {Log.msg(VERBOSE, "ps   close problem");}
-      try { if (conn != null) conn.close();} catch (Exception ignore) {Log.msg(VERBOSE, "conn close problem");}
+      try { if (rs   != null) rs.close();  } catch (Exception ignore) {log.error("rs   close problem");}
+      try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.error("ps   close problem");}
+      try { if (conn != null) conn.close();} catch (Exception ignore) {log.error("conn close problem");}
       rs = null;
       ps = null;
       conn = null;
@@ -243,7 +243,7 @@ public class CoderStatisticsBean extends BaseEJB{
   *********************************************************************************************
   */
   public ArrayList getEarningsHistory(int coderId) throws RemoteException {
-    Log.msg(VERBOSE, "ejb:coderStatistics:getEarningsHistory called...");
+    log.debug("ejb:coderStatistics:getEarningsHistory called...");
     PreparedStatement ps = null; 
     ArrayList result = null;
     Earning coderEarning = null; 
@@ -273,7 +273,7 @@ public class CoderStatisticsBean extends BaseEJB{
       query.append(    " ORDER BY cal.date");
       conn = DBMS.getDWConnection();
       result = new ArrayList();
-      Log.msg(VERBOSE, "\nquery: **********\n " + query.toString());
+      log.debug("\nquery: **********\n " + query.toString());
       ps = conn.prepareStatement(query.toString());
       ps.setInt(1, coderId);
       rs = ps.executeQuery();
@@ -289,17 +289,17 @@ public class CoderStatisticsBean extends BaseEJB{
         result.add(coderEarning);
       }
     } catch (SQLException sqe) {
-      Log.msg("coder_id: " + coderId);
+      log.debug("coder_id: " + coderId);
       DBMS.printSqlException(true, sqe);
       throw new RemoteException (sqe.getMessage());
     } catch (Exception e) {
-      Log.msg("coder_id: " + coderId);
+      log.debug("coder_id: " + coderId);
       e.printStackTrace();
       throw new RemoteException (e.getMessage());
     } finally {
-      try { if (rs   != null) rs.close();  } catch (Exception ignore) {Log.msg(VERBOSE, "rs   close problem");}
-      try { if (ps   != null) ps.close();  } catch (Exception ignore) {Log.msg(VERBOSE, "ps   close problem");}
-      try { if (conn != null) conn.close();} catch (Exception ignore) {Log.msg(VERBOSE, "conn close problem");}
+      try { if (rs   != null) rs.close();  } catch (Exception ignore) {log.error("rs   close problem");}
+      try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.error("ps   close problem");}
+      try { if (conn != null) conn.close();} catch (Exception ignore) {log.error("conn close problem");}
       rs = null;
       ps = null;
       conn = null;
@@ -322,7 +322,7 @@ public class CoderStatisticsBean extends BaseEJB{
   ///////////////////////////////////////////////////////////////////////
   public boolean getAdvanced ( int coderId, int roundId ) throws RemoteException {
   ///////////////////////////////////////////////////////////////////////
-    Log.msg ( VERBOSE, "ejb:CoderStatistics:getAdvanced called..." );
+    log.debug("ejb:CoderStatistics:getAdvanced called..." );
     boolean result       = false;
     PreparedStatement ps = null;
     ResultSet rs         = null;
@@ -348,12 +348,12 @@ public class CoderStatisticsBean extends BaseEJB{
         if ( rs.getString(1).equals("Y") ) result = true;
       }
     } catch ( SQLException sqe ) {
-      Log.msg ( "Coder id: " + coderId );
-      Log.msg ( "Round id: " + roundId );
+      log.debug ( "Coder id: " + coderId );
+      log.debug ( "Round id: " + roundId );
       DBMS.printSqlException ( true, sqe );
       throw new RemoteException ( sqe.getMessage() );
     } catch ( Exception e ) {
-      Log.msg ("Coder id: " + coderId );
+      log.debug ("Coder id: " + coderId );
       e.printStackTrace();
       throw new RemoteException ( e.getMessage() );
     } finally {
@@ -376,7 +376,7 @@ public class CoderStatisticsBean extends BaseEJB{
   *********************************************************************************************
   */
   public Coder getCoderStatistics(int coderId) throws RemoteException {
-    Log.msg(VERBOSE, "ejb:coderStatistics:getCoderStatistics called...");
+    log.debug("ejb:coderStatistics:getCoderStatistics called...");
     PreparedStatement ps = null;
     ResultSet rs = null;
     Connection conn = null;
@@ -408,7 +408,7 @@ public class CoderStatisticsBean extends BaseEJB{
       query.append(   " LEFT OUTER JOIN image i ON i.image_id = cix.image_id");
       query.append(   " LEFT OUTER JOIN path p ON p.path_id = i.path_id");
       query.append(  " GROUP BY c.handle, c.quote, c.member_since, r.rating, r.vol, c.coder_id, 14");
-      Log.msg(VERBOSE, "\nquery: ********\n " + query.toString());
+      log.debug("\nquery: ********\n " + query.toString());
       conn = DBMS.getDWConnection();
       ps = conn.prepareStatement(query.toString());
       ps.setInt(1, coderId);
@@ -437,9 +437,9 @@ public class CoderStatisticsBean extends BaseEJB{
       e.printStackTrace();
       throw new RemoteException ("ejb:CoderStatistics:getCoderStatistics:(" + coderId + ")\n" + e.getMessage());
     } finally {
-      try { if (rs   != null) rs.close();  } catch (Exception ignore) {Log.msg(VERBOSE, "rs   close problem");}
-      try { if (ps   != null) ps.close();  } catch (Exception ignore) {Log.msg(VERBOSE, "ps   close problem");}
-      try { if (conn != null) conn.close();} catch (Exception ignore) {Log.msg(VERBOSE, "conn close problem");}
+      try { if (rs   != null) rs.close();  } catch (Exception ignore) {log.error("rs   close problem");}
+      try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.error("ps   close problem");}
+      try { if (conn != null) conn.close();} catch (Exception ignore) {log.error("conn close problem");}
       rs = null;
       ps = null;
       conn = null;

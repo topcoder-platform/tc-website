@@ -17,7 +17,7 @@ import	javax.naming.*;
 import	javax.sql.DataSource;
 import	com.topcoder.web.render.ejb.WebMenuHdr;
 import	com.topcoder.web.render.ejb.WebMenuHdrObject;
-import	com.topcoder.common.DBMS;
+import	com.topcoder.shared.util.DBMS;
 
 public class WebMenuHdrBean implements javax.ejb.SessionBean {
 
@@ -44,7 +44,7 @@ public class WebMenuHdrBean implements javax.ejb.SessionBean {
 		String	insert = "INSERT INTO WEB_MENU_HDR VALUES (  " + menu_hdr_id + ", '" + country_code + "', '" + language_cd + "', " + style_id + ", " + menu_type_id + ", '" + menu_hdr_name + "', '" + menu_hdr_desc + "', ?, " + modify_by + ", ? )";
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( insert );
 			ps.setDate( 1, created );
 			ps.setDate( 2, modify_date );
@@ -65,7 +65,7 @@ public class WebMenuHdrBean implements javax.ejb.SessionBean {
 		PreparedStatement	ps = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( delete );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
@@ -258,7 +258,7 @@ public class WebMenuHdrBean implements javax.ejb.SessionBean {
 		InputStream	is = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
@@ -402,7 +402,7 @@ public class WebMenuHdrBean implements javax.ejb.SessionBean {
 			return( 0 );
 		int	rc = 0;
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( update.toString() );
 			int	index = 1;
 			rc = ps.executeUpdate();

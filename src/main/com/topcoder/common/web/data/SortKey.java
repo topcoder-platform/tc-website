@@ -2,15 +2,13 @@ package com.topcoder.common.web.data;
 
 import java.util.*;
 import java.io.*;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 
 
 //////////////////////////////////////////////////////
-public final class SortKey implements Serializable, Base {
+public final class SortKey implements Serializable, TagRenderer {
 //////////////////////////////////////////////////////
   
-  private static final boolean VERBOSE = false;
-
   private int  key;
   private char dir;
 

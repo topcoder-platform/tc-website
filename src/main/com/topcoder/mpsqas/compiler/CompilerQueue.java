@@ -4,7 +4,7 @@ import java.util.*;
 import java.net.*;
 import java.io.*;
 import com.topcoder.mpsqas.common.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * CompilerQueue is class which holds all pending compiles.  Compiles can be added to the queue through a socket.
@@ -15,6 +15,7 @@ import com.topcoder.common.*;
  */
 public class CompilerQueue extends Thread
 {
+  private static Logger log = Logger.getLogger(CompilerQueue.class);
   /**
    * Starts up the CompilerQueue.
    */
@@ -58,24 +59,24 @@ public class CompilerQueue extends Thread
     }
     catch(Exception e)
     {
-      Log.msg("Error setting up ServerSocket for GetCompiles.");
+      log.error("Error setting up ServerSocket for GetCompiles.");
       e.printStackTrace();
       return;
     }
 
-    Log.msg("Beginning to listen for compilers.");
+    log.debug("Beginning to listen for compilers.");
     while(!isInterrupted())
     {
       try
       {
         socket=listener.accept();
         availableCompilers.add(socket);
-        Log.msg("Adding Compiler to Queue.");
+        log.debug("Adding Compiler to Queue.");
         distributeCompile();
       }
       catch(Exception e2)
       {
-        Log.msg("Error getting GetCompile:");
+        log.error("Error getting GetCompile:");
         e2.printStackTrace();
       }
     }
@@ -95,24 +96,24 @@ public class CompilerQueue extends Thread
     }
     catch(Exception e)
     {
-      Log.msg("Error initiating PutCompile socket.");
+      log.error("Error initiating PutCompile socket.");
       e.printStackTrace(); 
       return;
     }
 
-    Log.msg("Beginning to listen for compiles.");
+    log.debug("Beginning to listen for compiles.");
     while(!isInterrupted())
     {
       try
       {
         socket=listener.accept();
-        Log.msg("Adding Pending Compile to Queue.");
+        log.debug("Adding Pending Compile to Queue.");
         pendingCompiles.addElement(socket);
         distributeCompile();
       }
       catch(Exception e2)
       {
-        Log.msg("Error getting PutCompile:");
+        log.error("Error getting PutCompile:");
         e2.printStackTrace();
       }
     } 
@@ -127,7 +128,7 @@ public class CompilerQueue extends Thread
   {
     if(availableCompilers.isEmpty() || pendingCompiles.isEmpty()) return;
 
-    Log.msg("Distributing compile.");
+    log.debug("Distributing compile.");
 
     Socket compiler=(Socket)availableCompilers.remove(0);
     Socket waiter=(Socket)pendingCompiles.remove(0);

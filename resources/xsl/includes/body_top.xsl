@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:template name="BodyTop">
+    <xsl:param name="image1"></xsl:param>
+    <xsl:param name="image"></xsl:param>
+    <xsl:param name="title"></xsl:param>
     <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
       <TR>
         <TD VALIGN="top" WIDTH="11" ALIGN="right">

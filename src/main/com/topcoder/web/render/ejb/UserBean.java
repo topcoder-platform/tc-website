@@ -17,7 +17,7 @@ import	javax.naming.*;
 import	javax.sql.DataSource;
 import	com.topcoder.web.render.ejb.User;
 import	com.topcoder.web.render.ejb.UserObject;
-import	com.topcoder.common.DBMS;
+import	com.topcoder.shared.util.DBMS;
 
 public class UserBean implements javax.ejb.SessionBean {
 
@@ -44,7 +44,7 @@ public class UserBean implements javax.ejb.SessionBean {
 		String	insert = "INSERT INTO USER VALUES (  " + user_id + ", '" + handle + "', '" + password + "', '" + status + "', " + user_type_id + ", '" + email + "', '" + logged_in + "', '" + terms + "', ? )";
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( insert );
 			ps.setDate( 1, last_login );
 			ps.executeUpdate();
@@ -64,7 +64,7 @@ public class UserBean implements javax.ejb.SessionBean {
 		PreparedStatement	ps = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( delete );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
@@ -277,7 +277,7 @@ public class UserBean implements javax.ejb.SessionBean {
 		InputStream	is = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( query.toString() );
 			rs = ps.executeQuery();
 			if( !rs.next() )
@@ -423,7 +423,7 @@ public class UserBean implements javax.ejb.SessionBean {
 			return( 0 );
 		int	rc = 0;
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( update.toString() );
 			int	index = 1;
 			rc = ps.executeUpdate();
@@ -446,7 +446,7 @@ public class UserBean implements javax.ejb.SessionBean {
 		String	query = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			if( handle.indexOf( '%' ) >= 0 )
 				query = "SELECT USER_ID FROM USER WHERE HANDLE LIKE '" + handle + "'";
 			else
@@ -474,7 +474,7 @@ public class UserBean implements javax.ejb.SessionBean {
 		String	query = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			if( password.indexOf( '%' ) >= 0 )
 				query = "SELECT USER_ID FROM USER WHERE PASSWORD LIKE '" + password + "'";
 			else
@@ -502,7 +502,7 @@ public class UserBean implements javax.ejb.SessionBean {
 		String	query = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			if( status.indexOf( '%' ) >= 0 )
 				query = "SELECT USER_ID FROM USER WHERE STATUS LIKE '" + status + "'";
 			else
@@ -530,7 +530,7 @@ public class UserBean implements javax.ejb.SessionBean {
 		String	query = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			if( logged_in.indexOf( '%' ) >= 0 )
 				query = "SELECT USER_ID FROM USER WHERE LOGGED_IN LIKE '" + logged_in + "'";
 			else
@@ -558,7 +558,7 @@ public class UserBean implements javax.ejb.SessionBean {
 		String	query = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			if( terms.indexOf( '%' ) >= 0 )
 				query = "SELECT USER_ID FROM USER WHERE TERMS LIKE '" + terms + "'";
 			else

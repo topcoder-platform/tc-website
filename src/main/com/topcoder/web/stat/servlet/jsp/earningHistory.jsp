@@ -1,6 +1,8 @@
 <%@ page 
   language="java"
   errorPage="/errorPage.jsp"
+  import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*"
+
 %>
 
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
@@ -43,12 +45,12 @@
 <bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request"/>
 
 <% 
-com.topcoder.web.stat.bean.StatRequestBean srb = (com.topcoder.web.stat.bean.StatRequestBean) request.getAttribute("REQUEST_BEAN");
+Request srb = (Request) request.getAttribute("REQUEST_BEAN");
 pageContext.setAttribute("coder_id", srb.getProperty("cr","0000"));
-com.topcoder.web.stat.common.ResultSetContainer rsc = (com.topcoder.web.stat.common.ResultSetContainer) queryEntries.get("Basic_Coder_Information");
+ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Basic_Coder_Information");
 boolean bEmpty = (rsc == null || rsc.size()!=1);
 if (!bEmpty) {
-  com.topcoder.web.stat.common.ResultSetContainer.ResultSetRow rsr = rsc.getRow(0);
+  ResultSetContainer.ResultSetRow rsr = rsc.getRow(0);
   pageContext.setAttribute("resultRow", rsr);
 %>
 
@@ -75,7 +77,7 @@ if (!bEmpty) {
               </TABLE>
 <% 
 } //end if not empty
-com.topcoder.web.stat.common.ResultSetContainer rsc2 = (com.topcoder.web.stat.common.ResultSetContainer) queryEntries.get("Earnings_History");
+ResultSetContainer rsc2 = (ResultSetContainer) queryEntries.get("Earnings_History");
 pageContext.setAttribute("resultSet", rsc2);
 
 //calculate scrolling information
@@ -141,7 +143,7 @@ String sSortUrl = "/stat?c=earnings_history&cr="+srb.getProperty("cr")+"&sq=Earn
                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" ALIGN="right" WIDTH="20%"><a href="<%=sSortUrl%>&sc=8&sd=<%= "8".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" class="statText">Payment Type</a></TD>      
                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                 </TR>
-<logic:iterate name="resultSet" id="resultRow2" type="com.topcoder.web.stat.common.ResultSetContainer.ResultSetRow">
+<logic:iterate name="resultSet" id="resultRow2" type="ResultSetContainer.ResultSetRow">
                 <TR VALIGN="middle">
                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>    
                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" HEIGHT="13"><bean:write format="MM.dd.yy" name="resultRow2" property='<%= "item[" + 3 /* event date */ + "].resultData" %>'/></TD>

@@ -349,7 +349,6 @@ public class DBMS {
                   query = " execute procedure nextval("+ TAX_FORM_SEQ +") ";
                   break;
                 default:
-                    //Log.msg ( sequence_name + " IS NO A RECOGNIZED SEQUENCE " );
                     getSeqId = false;
                     break;
         }
@@ -364,7 +363,6 @@ public class DBMS {
     throws Exception
     ////////////////////////////////////////////////////////////////////////////////
     {
-        //Log.msg("XXX retVal called....");
         PreparedStatement ps = null;
         ResultSet rs = null;
         int result = 0;

@@ -10,11 +10,13 @@
   import javax.transaction.Status;
 
   import com.topcoder.web.servlet.admin.*;
-  import com.topcoder.common.*;
+  import com.topcoder.shared.util.*;
   import com.topcoder.common.web.data.*;
-  import com.topcoder.common.web.xml.*;
+  import com.topcoder.shared.docGen.xml.*;
   import com.topcoder.common.web.error.*;
-  import com.topcoder.common.web.util.*;
+  import com.topcoder.common.web.xml.HTMLRenderer;
+  import com.topcoder.common.web.util.Conversion;
+  import com.topcoder.shared.util.logging.Logger;
   import com.topcoder.ejb.ContestAdminServices.*;
   import com.topcoder.ejb.AuthenticationServices.*;
   
@@ -22,18 +24,17 @@
   public final class SystemTestCaseReport  {
 
 
-    private static final boolean VERBOSE = false;
-
     private static final String DIR = com.topcoder.web.servlet.admin.XSL.DIR+"systemtestcasereport/";
     private static final String SYSTEMTESTCASEREPORT_MENU_PAGE = DIR+"systemtestcasereport_menu.xsl";
     private static final String PROBLEMLIST_MENU_PAGE = DIR+"systemtestcasereport_problemmenu.xsl";
     private static final String CODERLIST_MENU_PAGE = DIR+"systemtestcasereport_codermenu.xsl";
     private static final String ROUND_MENU_PAGE = DIR+"systemtestcasereport_roundmenu.xsl";
+    private static Logger log = Logger.getLogger(SystemTestCaseReport.class);
 
 
     ///////////////////////////////////////////////////////////////////////////////////
     public static String process ( HttpServletRequest request, HttpServletResponse response,
-      RenderHTML renderer, Navigation nav, XMLDocument document )
+      HTMLRenderer renderer, Navigation nav, XMLDocument document )
       throws NavigationException {
     //////////////////////////////////////////////////////////////////////////////////
     
@@ -55,7 +56,7 @@
 
       try {
         String command = Conversion.checkNull( request.getParameter("Command") );
-        Log.msg(VERBOSE, "SystemTestResult: Command: "+ command); 
+        log.debug("SystemTestResult: Command: "+ command); 
         if (command.equals("getRoundMenu")) {
           result = getRoundMenuScreen (renderer, request, document, nav, contestTag, sessionObjects );
         } else if ( command.equals("getProblemList") ) {
@@ -77,7 +78,7 @@
     }
 
     ////////////////////////////////////////////////////////////////////////////////
-    private static String getSystemTestCaseReportList (RenderHTML HTMLmaker, HttpServletRequest request,
+    private static String getSystemTestCaseReportList (HTMLRenderer HTMLmaker, HttpServletRequest request,
       XMLDocument document, Navigation nav, RecordTag contestTag, HashMap sessionObjects )
       throws NavigationException {
     ////////////////////////////////////////////////////////////////////////////////
@@ -131,8 +132,8 @@
           contestHome = null;
         } catch (Exception e) {
           e.printStackTrace();
-          Log.msg("SystemTestResult: getSystemTestCaseReportList error retrieving systemtestcasereport  list .");
-          Log.msg("MSG: " + e);
+          log.debug("SystemTestResult: getSystemTestCaseReportList error retrieving systemtestcasereport  list .");
+          log.debug("MSG: " + e);
           throw new NavigationException("Exception:", com.topcoder.web.servlet.admin.XSL.NAVIGATION_ERROR_URL);
         }
         finally {
@@ -147,7 +148,7 @@
         }
 
         document.addTag(contestTag);
-        Log.msg(VERBOSE, document.getXML(2) );
+        log.debug(document.getXML(2) );
         String xsldocURLString = SYSTEMTESTCASEREPORT_MENU_PAGE;
         nav.setScreen(xsldocURLString);
         result = HTMLmaker.render(document, xsldocURLString, null);
@@ -163,7 +164,7 @@
 
 
     ////////////////////////////////////////////////////////////////////////////////
-    private static String getCoderList (RenderHTML HTMLmaker, HttpServletRequest request,
+    private static String getCoderList (HTMLRenderer HTMLmaker, HttpServletRequest request,
       XMLDocument document, Navigation nav, RecordTag contestTag, HashMap sessionObjects)
       throws NavigationException {
     ////////////////////////////////////////////////////////////////////////////////
@@ -199,8 +200,8 @@
            coderList = contestEJB.getCoderList(roundId,problemId);
           contestHome = null;
         } catch (Exception e) {
-          Log.msg("SystemTestResult: getCoder error retrieving coder list.");
-          Log.msg("MSG: " + e);
+          log.debug("SystemTestResult: getCoder error retrieving coder list.");
+          log.debug("MSG: " + e);
           throw new NavigationException("DB ERROR", com.topcoder.web.servlet.admin.XSL.NAVIGATION_ERROR_URL);
         }
         finally {
@@ -218,7 +219,7 @@
         }
 
         document.addTag(contestTag);
-        Log.msg(VERBOSE, document.getXML(2) );
+        log.debug(document.getXML(2) );
         String xsldocURLString = CODERLIST_MENU_PAGE;
         nav.setScreen(xsldocURLString);
         result = HTMLmaker.render(document, xsldocURLString, null);
@@ -234,7 +235,7 @@
 
 
     ////////////////////////////////////////////////////////////////////////////////
-    private static String getProblemList (RenderHTML HTMLmaker, HttpServletRequest request,
+    private static String getProblemList (HTMLRenderer HTMLmaker, HttpServletRequest request,
       XMLDocument document, Navigation nav, RecordTag contestTag, HashMap sessionObjects)
       throws NavigationException {
     ////////////////////////////////////////////////////////////////////////////////
@@ -270,8 +271,8 @@
           problemList = contestEJB.getProblemList(roundId);
           contestHome = null;
         } catch (Exception e) {
-          Log.msg("SystemTestResult: getProblemList error retrieving problem list.");
-          Log.msg("MSG: " + e);
+          log.debug("SystemTestResult: getProblemList error retrieving problem list.");
+          log.debug("MSG: " + e);
           throw new NavigationException("DB ERROR", com.topcoder.web.servlet.admin.XSL.NAVIGATION_ERROR_URL);
         }
         finally {
@@ -286,7 +287,7 @@
         }
 
         document.addTag(contestTag);
-        Log.msg(VERBOSE, document.getXML(2) );
+        log.debug(document.getXML(2) );
         String xsldocURLString = PROBLEMLIST_MENU_PAGE;
         nav.setScreen(xsldocURLString);
         result = HTMLmaker.render(document, xsldocURLString, null);
@@ -301,7 +302,7 @@
     }
 
     ////////////////////////////////////////////////////////////////////////////////
-    private static void removeSystemTestResult (RenderHTML HTMLmaker, HttpServletRequest request,
+    private static void removeSystemTestResult (HTMLRenderer HTMLmaker, HttpServletRequest request,
       XMLDocument document, Navigation nav, RecordTag contestTag, HashMap sessionObjects)
       throws NavigationException {
     ////////////////////////////////////////////////////////////////////////////////
@@ -319,8 +320,8 @@
           contestEJB.removeSystemTestResult(roundId, coderId, problemId, testCaseId);
           contestHome = null;
         } catch (Exception e) {
-          Log.msg("SystemTestResult: removeSystemTestResult error removing challenge .");
-          Log.msg("MSG: " + e);
+          log.debug("SystemTestResult: removeSystemTestResult error removing challenge .");
+          log.debug("MSG: " + e);
           throw new NavigationException("DB ERROR", com.topcoder.web.servlet.admin.XSL.NAVIGATION_ERROR_URL);
         }
         finally {
@@ -339,7 +340,7 @@
 
 
     ////////////////////////////////////////////////////////////////////////////////
-    private static String getRoundMenuScreen (RenderHTML HTMLmaker, HttpServletRequest request,
+    private static String getRoundMenuScreen (HTMLRenderer HTMLmaker, HttpServletRequest request,
       XMLDocument document, Navigation nav, RecordTag contestTag, HashMap sessionObjects
      )
      //,Contest contest)
@@ -357,8 +358,8 @@
         roundList = contestEJB.getRoundList();
         contestHome = null;
       } catch (Exception e) {
-          Log.msg("SystemTestResult: getRoundMenuScreen error retrieving contest list .");
-          Log.msg("MSG: " + e);
+          log.debug("SystemTestResult: getRoundMenuScreen error retrieving contest list .");
+          log.debug("MSG: " + e);
           throw new NavigationException("DB ERROR", com.topcoder.web.servlet.admin.XSL.NAVIGATION_ERROR_URL);
       }
       finally {
@@ -374,7 +375,7 @@
          contestTag.addTag(((Round)roundList.get(i)).getXML());
       }
       document.addTag(contestTag);
-      Log.msg(VERBOSE,  document.getXML(2) );
+      log.debug(document.getXML(2) );
       String xsldocURLString = ROUND_MENU_PAGE;
       nav.setScreen(xsldocURLString);
       result = HTMLmaker.render(document, xsldocURLString, null);

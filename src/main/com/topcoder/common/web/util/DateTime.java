@@ -5,7 +5,7 @@ import javax.naming.*;
 import java.sql.*;
 import java.text.*;
 import com.topcoder.ejb.Util.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
 
 public final class DateTime {
 

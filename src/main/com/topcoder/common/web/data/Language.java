@@ -1,9 +1,9 @@
 package com.topcoder.common.web.data;
 
 import java.io.Serializable;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 
-public final class Language implements Serializable, Base, Cloneable {
+public final class Language implements Serializable, TagRenderer, Cloneable {
 
   private int languageId;
   private String name;

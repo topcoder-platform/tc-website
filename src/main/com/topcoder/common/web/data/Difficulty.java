@@ -1,10 +1,10 @@
 package com.topcoder.common.web.data;
 
 import java.io.Serializable;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 
 
-public final class Difficulty implements Serializable, Base, Cloneable {
+public final class Difficulty implements Serializable, TagRenderer, Cloneable {
 
   private int DifficultyId;
   private String DifficultyLevel;

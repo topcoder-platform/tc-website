@@ -1,6 +1,8 @@
 <%@ page 
   language="java"
   errorPage="/errorPage.jsp"
+  import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*"
+
 %>
 
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
@@ -38,11 +40,11 @@
      <logic:present name="QUERY_RESPONSE" scope="request">
 <bean:define id="nameColor" name="CODER_COLORS" scope="application" toScope="page"/>
 <bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request"/>
-<% com.topcoder.web.stat.common.ResultSetContainer rsc = (com.topcoder.web.stat.common.ResultSetContainer) queryEntries.get("Coder_Data");
+<% ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Coder_Data");
 boolean bEmpty = (rsc.size()!=1);
 boolean vieweeHasImage = false;
 boolean hasCharity = false;
-com.topcoder.web.stat.common.ResultSetContainer.ResultSetRow rsr = null;
+ResultSetContainer.ResultSetRow rsr = null;
 if (!bEmpty) {
   rsr = rsc.getRow(0);
   pageContext.setAttribute("resultRow", rsr);
@@ -70,7 +72,7 @@ if (!bEmpty) {
                  <TR>
                    <TD COLSPAN="5" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"></TD>
                  </TR>
-                 <logic:notEqual name="resultRow" property='<%= "item[" + 2 /*"quote"*/ + "]" %>' type="com.topcoder.web.stat.common.ResultSetContainer.ResultSetRow" value="">
+                 <logic:notEqual name="resultRow" property='<%= "item[" + 2 /*"quote"*/ + "]" %>' type="ResultSetContainer.ResultSetRow" value="">
                    <TR>
                      <TD COLSPAN="5" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="center" WIDTH="80%">&quot;<bean:write name="resultRow" property='<%= "item[" + 2 /*"quote"*/ + "]" %>'/>&quot;</TD>
                    </TR>
@@ -167,7 +169,7 @@ if (!bEmpty) {
                 </TR>
               </TABLE>
 <% if (!bEmpty) {
-com.topcoder.web.stat.common.ResultSetContainer rsc2 = (com.topcoder.web.stat.common.ResultSetContainer) queryEntries.get("Coder_Submission_Summary");
+ResultSetContainer rsc2 = (ResultSetContainer) queryEntries.get("Coder_Submission_Summary");
 pageContext.setAttribute("resultSet", rsc2);
 %>
         
@@ -190,7 +192,7 @@ pageContext.setAttribute("resultSet", rsc2);
                 <TR>
                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                 </TR>
-        <logic:iterate name="resultSet" id="resultRow2" type="com.topcoder.web.stat.common.ResultSetContainer.ResultSetRow">
+        <logic:iterate name="resultSet" id="resultRow2" type="ResultSetContainer.ResultSetRow">
                 <TR>
                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" HEIGHT="13"><bean:write name="resultRow2" property='<%= "item[" + 0 /* level desc */ + "]" %>'/></TD>
@@ -214,7 +216,7 @@ pageContext.setAttribute("resultSet", rsc2);
                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"></TD>
                 </TR>
               </TABLE>
-<% com.topcoder.web.stat.common.ResultSetContainer rsc3 = (com.topcoder.web.stat.common.ResultSetContainer) queryEntries.get("Coder_Challenge_Summary");
+<% ResultSetContainer rsc3 = (ResultSetContainer) queryEntries.get("Coder_Challenge_Summary");
 pageContext.setAttribute("resultSet", rsc3);
 %>
         
@@ -236,7 +238,7 @@ pageContext.setAttribute("resultSet", rsc3);
                 <TR>
                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                 </TR>
-        <logic:iterate name="resultSet" id="resultRow2" type="com.topcoder.web.stat.common.ResultSetContainer.ResultSetRow">
+        <logic:iterate name="resultSet" id="resultRow2" type="ResultSetContainer.ResultSetRow">
                 <TR>
                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" HEIGHT="13"><bean:write name="resultRow2" property='<%= "item[" + 0 /* level desc */ + "]" %>'/></TD>

@@ -3,11 +3,13 @@ import java.util.*;
 import java.io.*;
 import javax.naming.*;
 import java.sql.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
 import com.topcoder.ejb.Reporting.*;
+import com.topcoder.shared.util.logging.Logger;
 
 public class Query implements Serializable {
-  
+
+  private static Logger log = Logger.getLogger(Query.class);
   private StringBuffer query;
   private int[] returnTypes; 
   private int db;
@@ -15,7 +17,6 @@ public class Query implements Serializable {
   private static final char PLACE_HOLDER = '?';
   public static final int TRANSACTIONAL = 1;
   public static final int WAREHOUSE = 2;
-  private static final boolean VERBOSE = false;
 
   public Query() {
     query = new StringBuffer();
@@ -116,7 +117,7 @@ public class Query implements Serializable {
        Reporting r = rHome.create();
        result = r.getResult(this);
      } catch (Exception e) {
-       System.out.println("query: " + query);
+       log.error("query: " + query);
        e.printStackTrace();
      }
 

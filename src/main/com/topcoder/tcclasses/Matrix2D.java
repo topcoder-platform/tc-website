@@ -1,6 +1,7 @@
 package com.topcoder.tcclasses;
 import java.util.ArrayList;
 import java.io.Serializable;
+import com.topcoder.shared.util.logging.Logger;
 
 
 /**
@@ -21,6 +22,10 @@ import java.io.Serializable;
 
 public class Matrix2D implements Serializable
 {
+  protected ArrayList _matrix;
+  protected int _rows;
+  protected int _cols;
+  private static Logger log = Logger.getLogger(Matrix2D.class);
 
 
 /**
@@ -187,7 +192,7 @@ public class Matrix2D implements Serializable
       al.add("0");
     _matrix.add(al);    
     
-    if(VERBOSE) System.out.println("AFTER ADD ROW(): " + _matrix);
+    log.debug("AFTER ADD ROW(): " + _matrix);
   }
 
  
@@ -206,7 +211,7 @@ public class Matrix2D implements Serializable
       ((ArrayList) _matrix.get(i)).add("0");
     }
     
-    if(VERBOSE) System.out.println("AFTER ADD COL(): " + _matrix);
+    log.debug("AFTER ADD COL(): " + _matrix);
   }
 
 
@@ -226,7 +231,7 @@ public class Matrix2D implements Serializable
       al.add("0");
     _matrix.add(index, al);    
     
-    if(VERBOSE) System.out.println("AFTER ADD ROW(" + index + "): " + _matrix);
+    log.debug("AFTER ADD ROW(" + index + "): " + _matrix);
   }
 
  
@@ -246,7 +251,7 @@ public class Matrix2D implements Serializable
       ((ArrayList) _matrix.get(i)).add(index, "0");
     }
     
-    if(VERBOSE) System.out.println("AFTER ADD COL(" + index + "): " + _matrix);
+    log.debug("AFTER ADD COL(" + index + "): " + _matrix);
   }
 
  
@@ -374,7 +379,7 @@ public class Matrix2D implements Serializable
   {
     _matrix.set(index, data);
     
-    if(VERBOSE) System.out.println("AFTER SET ROW(" + index + ", " + data+"): " + _matrix);
+    log.debug("AFTER SET ROW(" + index + ", " + data+"): " + _matrix);
   }
 
  
@@ -397,7 +402,7 @@ public class Matrix2D implements Serializable
       row.set(index, data.get(i));
     }
     
-    if(VERBOSE) System.out.println("AFTER SET COL(" + index + ", " + data+"): " + _matrix);
+    log.debug("AFTER SET COL(" + index + ", " + data+"): " + _matrix);
   }
 
 
@@ -522,10 +527,6 @@ public class Matrix2D implements Serializable
 
 
   
-  protected ArrayList _matrix;
-  protected int _rows;
-  protected int _cols;
-  private static boolean VERBOSE = false;
   
 }
 

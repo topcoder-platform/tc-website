@@ -61,7 +61,7 @@ import com.coolservlets.forum.*;
 import java.sql.*;
 import java.util.*;
 import java.io.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
 //JDK1.1// import com.sun.java.util.collections.*;
 
 /**

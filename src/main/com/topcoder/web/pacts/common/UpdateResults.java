@@ -15,13 +15,12 @@
 package com.topcoder.web.pacts.common;
 
 import com.topcoder.web.common.*;
-import org.apache.log4j.*;
 import java.util.*;
+import com.topcoder.shared.util.logging.Logger;
 
 public class UpdateResults implements Map, java.io.Serializable {
 
-	private static Category log =
-		Category.getInstance(UpdateResults.class.getName());
+        private static Logger log = Logger.getLogger(UpdateResults.class);
 
 	private static final String STRING_CLOSER = ".";
 	private static final String ERROR = "Error";

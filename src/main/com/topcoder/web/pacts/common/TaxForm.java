@@ -19,12 +19,11 @@
 package com.topcoder.web.pacts.common;
 
 import java.util.*;
-import org.apache.log4j.*;
 import com.topcoder.web.common.*;
+import com.topcoder.shared.util.logging.Logger;
 
 public class TaxForm implements PactsConstants, java.io.Serializable {
-	private static Category log =
-		Category.getInstance(TaxForm.class.getName());
+    private static Logger log = Logger.getLogger(TaxForm.class);
 
 /*  Explanation of Members
 *

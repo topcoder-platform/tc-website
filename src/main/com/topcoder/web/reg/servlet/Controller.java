@@ -1,10 +1,9 @@
 package com.topcoder.web.reg.servlet;
-// package com.topcoder.web.servlet;
 
-import com.topcoder.common.*;
 import com.topcoder.common.web.data.*;
 import com.topcoder.web.reg.bean.*;
 import com.topcoder.ejb.AuthenticationServices.*;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.io.*;
 import java.util.*;
@@ -14,6 +13,7 @@ import javax.servlet.http.*;
 public class Controller
     extends HttpServlet
 {
+    private static Logger log = Logger.getLogger(Controller.class);
     static final String MULTIPART_FORM_DATA = "multipart/form-data";
     public static final String ALIAS = "/Registration";
     public static final String EXCEPTION = "exception";
@@ -38,7 +38,7 @@ public class Controller
             String taskName = request.getParameter(TASK);
             if (taskName == null || !isWord(taskName))
             {
-                Log.msg(TASK+" not found in request.");
+                log.debug(TASK+" not found in request.");
                 forwardToError(request,response,new TaskException(TASK+" not found in request."));
                 return;
             }
@@ -52,7 +52,7 @@ public class Controller
             }
             catch (ClassNotFoundException e)
             {
-                Log.msg(e.getMessage());
+                log.error(e.getMessage());
                 forwardToError(request,response,e);
                 return;
             }
@@ -64,7 +64,7 @@ public class Controller
                 }
                 catch (Exception e)
                 {
-                    Log.msg(e.getMessage());
+                    log.error(e.getMessage());
                     forwardToError(request,response,e);
                     return;
                 }
@@ -78,7 +78,7 @@ public class Controller
                 }
                 catch (ClassCastException e)
                 {
-                    Log.msg(e.getMessage());
+                    log.error(e.getMessage());
                     forwardToError(request,response,e);
                     return;
                 }
@@ -111,7 +111,7 @@ public class Controller
             }
             catch (TaskException e)
             {
-                Log.msg(e.getMessage());
+                log.error(e.getMessage());
                 forwardToError(request,response,e);
             }
 
@@ -159,7 +159,7 @@ public class Controller
         }
         catch (IOException e)
         {
-            Log.msg(e.getMessage());
+            log.error(e.getMessage());
             throw new ServletException(e);
         }
     }

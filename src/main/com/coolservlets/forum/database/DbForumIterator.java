@@ -57,9 +57,9 @@
 package com.coolservlets.forum.database;
 
 import java.util.*;
-//JDK1.1// import com.sun.java.util.collections.*;
 import java.sql.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
 import com.coolservlets.util.*;
 import com.coolservlets.forum.*;
 
@@ -89,6 +89,7 @@ public class DbForumIterator implements Iterator, ListIterator {
     private int [] threads;
     //points to the current thread id that the user has iterated to.
     private int currentIndex = -1;
+    private static Logger log = Logger.getLogger(DbForumIterator.class);
 
     DbForumFactory factory;
 
@@ -166,9 +167,9 @@ public class DbForumIterator implements Iterator, ListIterator {
             System.err.println("Error in DbThreadIterator:constructor()-" + sqle);
         }
         finally {
-          try { if (rs   != null) rs.close();  } catch (Exception ignore) {Log.msg("rs   close problem");}
-          try { if (ps   != null) ps.close();  } catch (Exception ignore) {Log.msg("ps   close problem");}
-          try { if (conn != null) conn.close();} catch (Exception ignore) {Log.msg("conn close problem");}
+          try { if (rs   != null) rs.close();  } catch (Exception ignore) {log.debug("rs   close problem");}
+          try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
+          try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
           rs = null; 
           ps = null; 
           conn = null; 

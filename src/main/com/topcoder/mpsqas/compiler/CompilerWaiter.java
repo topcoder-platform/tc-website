@@ -1,7 +1,7 @@
 package com.topcoder.mpsqas.compiler;
 
 import com.topcoder.mpsqas.common.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.logging.Logger;
 import java.util.*;
 import java.net.*;
 import java.io.*;
@@ -16,6 +16,11 @@ import java.io.*;
  */
 public class CompilerWaiter extends Thread
 {
+  private static Logger log = Logger.getLogger(CompilerWaiter.class);
+  private boolean quit;
+  private ArrayList compileRequest;
+  private boolean compileComplete; 
+  private ArrayList compileResponse;
   /**
    * This method starts the thread to compile and then, when the compile is
    * complete, it returns the results, which are a boolean indicating the
@@ -28,7 +33,7 @@ public class CompilerWaiter extends Thread
    */
   public ArrayList compile(String code,String fileName,String packageName)
   {
-    if (VERBOSE) Log.msg("In CompilerWaiter.compile");
+    log.debug("In CompilerWaiter.compile");
     ArrayList compileReturn=new ArrayList(2);
     this.compileRequest=new ArrayList(3);
     this.compileRequest.add(code);
@@ -89,7 +94,7 @@ public class CompilerWaiter extends Thread
       }
       catch(Exception e)
       {
-        if (VERBOSE) Log.msg("Can't get compile connection, trying again..");
+        log.debug("Can't get compile connection, trying again..");
         try
         {
           Thread.sleep(500);
@@ -110,7 +115,7 @@ public class CompilerWaiter extends Thread
     }
     catch(Exception e)
     {
-      if (VERBOSE) Log.msg("Error sending compile request to compiler:");
+      log.debug("Error sending compile request to compiler:");
       e.printStackTrace();
       compileResponse=new ArrayList(2);
       compileResponse.add(new Boolean(false));
@@ -168,9 +173,4 @@ public class CompilerWaiter extends Thread
     }
   }
 
-  private boolean quit;
-  private ArrayList compileRequest;
-  private boolean compileComplete; 
-  private ArrayList compileResponse;
-  private boolean VERBOSE = false;
 }

@@ -1,11 +1,11 @@
 package com.topcoder.common.web.data;
 
 import java.io.Serializable;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 
 
 public final class Skill 
-  implements Serializable, Cloneable, Comparable, Base {
+  implements Serializable, Cloneable, Comparable, TagRenderer {
 
   private int SkillId;
   private SkillType SkillType;

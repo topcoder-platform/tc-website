@@ -1,6 +1,6 @@
 package com.topcoder.mpsqas.appletmanager;
 
-import com.topcoder.common.*;
+import com.topcoder.shared.util.logging.Logger;
 import java.net.*;
 import java.io.*;
 /**
@@ -13,6 +13,7 @@ import java.io.*;
  */
 public class ConnectionManager extends Thread
 {
+  private static Logger log = Logger.getLogger(ConnectionManager.class);
   /**
    * The Constructor sets up a ConnectionManager and prepares
    * it to listen to connections.
@@ -40,7 +41,7 @@ public class ConnectionManager extends Thread
     Socket clientSocket;
     ClientConnection connection;
     int nextConnectionId=100000;  //a counter so each ClientConnection has a unique id
-    Log.msg("ConnectionManager starting to listen.");
+    log.debug("ConnectionManager starting to listen.");
 
     try
     {
@@ -48,9 +49,9 @@ public class ConnectionManager extends Thread
     }
     catch(IOException ioe)
     {
-      Log.msg("Error creating ConnectionManager listener ServerSocket:");
+      log.error("Error creating ConnectionManager listener ServerSocket:");
       ioe.printStackTrace();
-      Log.msg("Returning from ConnectionManager.run");
+      log.error("Returning from ConnectionManager.run");
       return;
     }
 
@@ -67,12 +68,12 @@ public class ConnectionManager extends Thread
       }
       catch (Exception e1)
       {
-        Log.msg("Error listening for client connections:");
+        log.error("Error listening for client connections:");
         e1.printStackTrace();
         continue;
       }
 
-      Log.msg("Got new client");
+      log.debug("Got new client");
       try
       {
         connection=new ClientConnection(clientSocket,nextConnectionId,mainAppletProcessor);
@@ -81,14 +82,14 @@ public class ConnectionManager extends Thread
       }
       catch(Exception e2)
       {
-        Log.msg("Error setting up new ClientConnnection:");
+        log.error("Error setting up new ClientConnnection:");
         e2.printStackTrace(); 
       }
 
       nextConnectionId++;
     }
 
-    Log.msg("This is ConnectionManager.run, signing off.");
+    log.debug("This is ConnectionManager.run, signing off.");
   }
 
   /**
@@ -97,14 +98,14 @@ public class ConnectionManager extends Thread
    */
   public void kill()
   {
-    Log.msg("Killing ConnectionManager.");
+    log.debug("Killing ConnectionManager.");
     try
     {
       interrupt();
     }
     catch (Exception e)
     {
-      Log.msg("Could not interrupt ConnectionManager run method:");
+      log.error("Could not interrupt ConnectionManager run method:");
       e.printStackTrace();
     }
   }

@@ -17,7 +17,7 @@ import	javax.naming.*;
 import	javax.sql.DataSource;
 import	com.topcoder.web.render.ejb.SectorAgreement;
 import	com.topcoder.web.render.ejb.SectorAgreementObject;
-import	com.topcoder.common.DBMS;
+import	com.topcoder.shared.util.DBMS;
 
 public class SectorAgreementBean implements javax.ejb.SessionBean {
 
@@ -44,7 +44,7 @@ public class SectorAgreementBean implements javax.ejb.SessionBean {
 		String	insert = "INSERT INTO SECTOR_AGREEMENT VALUES (  " + sector_id + ", " + user_id + ", ? )";
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( insert );
 			ps.setDate( 1, agree_date );
 			ps.executeUpdate();
@@ -64,7 +64,7 @@ public class SectorAgreementBean implements javax.ejb.SessionBean {
 		PreparedStatement	ps = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( delete );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
@@ -159,7 +159,7 @@ public class SectorAgreementBean implements javax.ejb.SessionBean {
 		InputStream	is = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
@@ -226,7 +226,7 @@ public class SectorAgreementBean implements javax.ejb.SessionBean {
 			return( 0 );
 		int	rc = 0;
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( update.toString() );
 			int	index = 1;
 			rc = ps.executeUpdate();
@@ -249,7 +249,7 @@ public class SectorAgreementBean implements javax.ejb.SessionBean {
 		String	query = "SELECT SECTOR_ID FROM SECTOR_AGREEMENT";
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			while( rs.next() )
@@ -272,7 +272,7 @@ public class SectorAgreementBean implements javax.ejb.SessionBean {
 		String	query = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			query = "SELECT SECTOR_ID FROM SECTOR_AGREEMENT WHERE USER_ID = " + user_id;
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();

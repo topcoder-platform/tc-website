@@ -2,9 +2,9 @@ package com.topcoder.common.web.data;
 
 import java.util.ArrayList;
 import java.io.Serializable;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 
-public final class ExpectedResult implements Serializable, Base {
+public final class ExpectedResult implements Serializable, TagRenderer {
 
   private int problemId;
   private int testCaseId;

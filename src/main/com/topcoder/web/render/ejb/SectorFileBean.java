@@ -17,7 +17,7 @@ import	javax.naming.*;
 import	javax.sql.DataSource;
 import	com.topcoder.web.render.ejb.SectorFile;
 import	com.topcoder.web.render.ejb.SectorFileObject;
-import	com.topcoder.common.DBMS;
+import	com.topcoder.shared.util.DBMS;
 
 public class SectorFileBean implements javax.ejb.SessionBean {
 
@@ -44,7 +44,7 @@ public class SectorFileBean implements javax.ejb.SessionBean {
 		String	insert = "INSERT INTO SECTOR_FILE VALUES (  " + sector_id + ", '" + file + "', '" + system + "', '" + status + "', '" + language_cd + "', '" + path + "', '" + link + "', '" + country_code + "', " + modify_by + ", ? )";
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( insert );
 			ps.setDate( 1, modify_date );
 			ps.executeUpdate();
@@ -64,7 +64,7 @@ public class SectorFileBean implements javax.ejb.SessionBean {
 		PreparedStatement	ps = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( delete );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
@@ -257,7 +257,7 @@ public class SectorFileBean implements javax.ejb.SessionBean {
 		InputStream	is = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
@@ -401,7 +401,7 @@ public class SectorFileBean implements javax.ejb.SessionBean {
 			return( 0 );
 		int	rc = 0;
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( update.toString() );
 			int	index = 1;
 			rc = ps.executeUpdate();
@@ -424,7 +424,7 @@ public class SectorFileBean implements javax.ejb.SessionBean {
 		String	query = "SELECT SECTOR_ID FROM SECTOR_FILE";
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			while( rs.next() )
@@ -447,7 +447,7 @@ public class SectorFileBean implements javax.ejb.SessionBean {
 		String	query = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			if( file.indexOf( '%' ) >= 0 )
 				query = "SELECT SECTOR_ID FROM SECTOR_FILE WHERE FILE LIKE '" + file + "'";
 			else
@@ -475,7 +475,7 @@ public class SectorFileBean implements javax.ejb.SessionBean {
 		String	query = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			if( link.indexOf( '%' ) >= 0 )
 				query = "SELECT SECTOR_ID FROM SECTOR_FILE WHERE LINK LIKE '" + link + "'";
 			else

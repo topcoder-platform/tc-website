@@ -17,7 +17,7 @@ import	javax.naming.*;
 import	javax.sql.DataSource;
 import	com.topcoder.web.render.ejb.WebContentGroup;
 import	com.topcoder.web.render.ejb.WebContentGroupObject;
-import	com.topcoder.common.DBMS;
+import	com.topcoder.shared.util.DBMS;
 
 public class WebContentGroupBean implements javax.ejb.SessionBean {
 
@@ -44,7 +44,7 @@ public class WebContentGroupBean implements javax.ejb.SessionBean {
 		String	insert = "INSERT INTO WEB_CONTENT_GROUP VALUES (  " + content_group_id + ", '" + content_group_desc + "' )";
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( insert );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
@@ -63,7 +63,7 @@ public class WebContentGroupBean implements javax.ejb.SessionBean {
 		PreparedStatement	ps = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( delete );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
@@ -144,7 +144,7 @@ public class WebContentGroupBean implements javax.ejb.SessionBean {
 		InputStream	is = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
@@ -200,7 +200,7 @@ public class WebContentGroupBean implements javax.ejb.SessionBean {
 			return( 0 );
 		int	rc = 0;
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( update.toString() );
 			int	index = 1;
 			rc = ps.executeUpdate();
@@ -223,7 +223,7 @@ public class WebContentGroupBean implements javax.ejb.SessionBean {
 		String	query = "SELECT CONTENT_GROUP_ID FROM WEB_CONTENT_GROUP";
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			while( rs.next() )

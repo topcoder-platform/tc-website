@@ -15,14 +15,13 @@
 
 package com.topcoder.web.pacts.common;
 
-import org.apache.log4j.*;
 import com.topcoder.web.common.*;
 import java.util.*;
+import com.topcoder.shared.util.logging.Logger;
 
 public class TaxFormHeaderList implements PactsConstants {
 
-	private static Category log =
-		Category.getInstance(TaxFormHeaderList.class.getName());
+        private static Logger log = Logger.getLogger(TaxFormHeaderList.class);
 
 	public TaxFormHeader headerList[];
 

@@ -4,6 +4,8 @@ package com.topcoder.common;
 import java.util.*;
 import javax.naming.*;
 import javax.transaction.*;
+import com.topcoder.shared.util.*;
+import com.topcoder.shared.util.logging.Logger;
 
 
 public class Transaction {
@@ -11,12 +13,13 @@ public class Transaction {
 
   private static String JNDI_TRANSACTION = "javax.transaction.UserTransaction";
   private static int MAX_RETRIES = 5;
+  private static Logger log = Logger.getLogger(Transaction.class);
 
 
   ////////////////////////////////////////////////////////////////////////////////
   public static final UserTransaction get() throws NamingException {
   ////////////////////////////////////////////////////////////////////////////////
-    InitialContext ctx = TCContext.getInitial ( ApplicationServer.HOST_URL );
+    InitialContext ctx = (InitialContext)TCContext.getInitial ( ApplicationServer.HOST_URL );
     UserTransaction trans = (UserTransaction) ctx.lookup ( ApplicationServer.TRANS_FACTORY );
     ctx.close();
     return trans;
@@ -28,9 +31,9 @@ public class Transaction {
   ////////////////////////////////////////////////////////////////////////////////
     InitialContext ctx = null;
     if (url.length() == 0) {
-      ctx = TCContext.getLocalInitial();
+      ctx = (InitialContext)TCContext.getInitial();
     } else {
-      ctx = TCContext.getInitial(url); 
+      ctx = (InitialContext)TCContext.getInitial(url); 
     }
     UserTransaction trans = (UserTransaction) ctx.lookup ( ApplicationServer.TRANS_FACTORY );
     ctx.close();
@@ -54,7 +57,7 @@ public class Transaction {
       Context ctx = new InitialContext();
       tx = (UserTransaction)  ctx.lookup ( JNDI_TRANSACTION );
     }catch (NamingException e) {
-      Log.msg("WARNING: Could not get transaction reference.");
+      log.warn("WARNING: Could not get transaction reference.");
       e.printStackTrace();
     }
     return tx;
@@ -77,7 +80,7 @@ public class Transaction {
         retVal = true; 
         break;
       } catch (Exception  e) {
-        Log.msg("WARNING: Encountered problems obtaining transaction... Retrying.");
+        log.warn("WARNING: Encountered problems obtaining transaction... Retrying.");
 
 //        e.printStackTrace();
         retVal = false;
@@ -88,7 +91,7 @@ public class Transaction {
     }
 
     if (!retVal)
-      Log.msg("ERROR: Could not begin transaction.");
+      log.error("ERROR: Could not begin transaction.");
 
     return retVal; 
 
@@ -100,12 +103,12 @@ public class Transaction {
   {
 
     boolean retVal = true; 
-    Log.msg("WARNING: Rolling back transaction...");
+    log.warn("WARNING: Rolling back transaction...");
 
     try {   
       utx.rollback();
     } catch (Exception  e) {
-      Log.msg("ERROR: Could not rollback transaction.");
+      log.warn("ERROR: Could not rollback transaction.");
       e.printStackTrace();
       retVal = false;
     }
@@ -125,19 +128,19 @@ public class Transaction {
     try {   
       utx.commit();
     } catch (HeuristicRollbackException e) {
-      Log.msg("ERROR: Could not commit transaction.");
+      log.error("ERROR: Could not commit transaction.");
       e.printStackTrace();
       retVal = false;
     } catch (RollbackException e) {
-      Log.msg("ERROR: Could not commit transaction.");
+      log.error("ERROR: Could not commit transaction.");
       e.printStackTrace();
       retVal = false;
     } catch (HeuristicMixedException e) {
-      Log.msg("ERROR: Could not commit transaction.");
+      log.error("ERROR: Could not commit transaction.");
       e.printStackTrace();
       retVal = false;
     } catch (SystemException e) {
-      Log.msg("ERROR: Could not commit transaction.");
+      log.error("ERROR: Could not commit transaction.");
       e.printStackTrace();
       retVal = false;
     }

@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:template name="top_room_wins">    
+    <xsl:param name="division"></xsl:param>
     <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
         <TR>
           <TD COLSPAN="6"><IMG SRC="/i/label_room_winners.gif" HEIGHT="17" WIDTH="166" BORDER="0"/></TD>

@@ -1,11 +1,13 @@
 package com.topcoder.web.servlet.marketing.task.report;
 
 import com.topcoder.web.servlet.marketing.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.*;
 import com.topcoder.common.web.util.*;
 import com.topcoder.common.web.data.*;
 import com.topcoder.common.web.error.*;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.common.web.xml.HTMLRenderer;
+import com.topcoder.shared.docGen.xml.*;
 import java.io.*;
 import java.util.*;
 import javax.servlet.*;
@@ -17,9 +19,9 @@ import com.topcoder.ejb.Reporting.*;
 public final class Report {
 
 
-  private static final boolean VERBOSE     = true;
-  private static final String  DIR         = XSL.DIR + "report/";
   private static final int     RETURN_ROWS = 100;
+  private static final String  DIR         = XSL.DIR + "report/";
+  private static Logger log = Logger.getLogger(Report.class);
 
 
   ////////////////////////////////////////////////////////////////////////////////
@@ -45,7 +47,7 @@ public final class Report {
 
   ////////////////////////////////////////////////////////////////////////////////
   public static String process (HttpServletRequest request, HttpServletResponse response,
-    RenderHTML renderer, Navigation nav, XMLDocument document)
+    HTMLRenderer renderer, Navigation nav, XMLDocument document)
     throws NavigationException {
   ////////////////////////////////////////////////////////////////////////////////
     String result            = null;
@@ -91,7 +93,7 @@ public final class Report {
         );
       }
     } catch ( NavigationException ne ) {
-      Log.msg("com.topcoder.web.servlet.marketing.task.corp.Request:ERROR:\n"+ne);
+      log.error("com.topcoder.web.servlet.marketing.task.corp.Request:ERROR:\n"+ne);
       throw ne;
     } catch ( Exception e ) {
       StringBuffer msg = new StringBuffer ( 150                               );

@@ -8,8 +8,8 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.naming.*;
 
-import com.topcoder.server.ejb.EmailServices.*;
-import org.apache.log4j.Category;
+import com.topcoder.shared.ejb.EmailServices.*;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * Task bean to add/edit/remove address lists
@@ -22,7 +22,7 @@ import org.apache.log4j.Category;
 public class AddressListTask
 	implements Task, Serializable
 {
-	static Category trace = Category.getInstance(AddressListTask.class);
+        private static Logger log = Logger.getLogger(AddressListTask.class);
 
 	public TaskRouter perform(HttpServlet servlet,
 				HttpServletRequest request,
@@ -84,13 +84,13 @@ public class AddressListTask
 	{
 		String group = request.getParameter(EmailConstants.GROUP);
 		if (group == null) {
-			trace.debug("No group specified - choosing first group");
+			log.debug("No group specified - choosing first group");
 
 			group = String.valueOf(getFirstAddressListGroupId());
 		}
 		request.setAttribute(EmailConstants.GROUP, group);
 
-		trace.debug("Listing address lists for group: " + group);
+		log.debug("Listing address lists for group: " + group);
 
 		return EmailConstants.ADDRESSLIST_LIST_PAGE;
 	}
@@ -115,7 +115,7 @@ public class AddressListTask
 		// clear error list
 		request.setAttribute("Error", null);
 
-		trace.debug("Creating new address list...");
+		log.debug("Creating new address list...");
 
 		// forward to the address list creation page 
 		return EmailConstants.ADDRESSLIST_CREATE_PAGE;
@@ -142,7 +142,7 @@ public class AddressListTask
 		ArrayList errorList = addressList.validate();
 		if (errorList.size() > 0) {
 			// error - go back
-			trace.debug("Address list validation failed - errors: " + errorList);
+			log.debug("Address list validation failed - errors: " + errorList);
 
 			// set error list attribute
 			request.setAttribute("Error", errorList);
@@ -150,7 +150,7 @@ public class AddressListTask
 			// forward back to address list creation page
 			return EmailConstants.ADDRESSLIST_CREATE_PAGE;
 		} else {
-			trace.debug("Adding address list:\n" + addressList);
+			log.debug("Adding address list:\n" + addressList);
 
 			int id = createList(addressList);
 			addressList.setId(String.valueOf(id));
@@ -186,7 +186,7 @@ public class AddressListTask
 		// clear error list
 		request.setAttribute("Error", null);
 
-		trace.debug("Editing address list:\n" + list);
+		log.debug("Editing address list:\n" + list);
 
 		// forward to address list editing page
 		return EmailConstants.ADDRESSLIST_EDIT_PAGE;
@@ -214,7 +214,7 @@ public class AddressListTask
 		ArrayList errorList = addressList.validate();
 		if (errorList.size() > 0) {
 			// error - go back
-			trace.debug("Address list validation failed - errors: " + errorList);
+			log.debug("Address list validation failed - errors: " + errorList);
 
 			// set error list attribute
 			request.setAttribute("Error", errorList);
@@ -222,7 +222,7 @@ public class AddressListTask
 			// forward back to address list creation page
 			return EmailConstants.ADDRESSLIST_CREATE_PAGE;
 		} else {
-			trace.debug("Saving address list:\n" + addressList);
+			log.debug("Saving address list:\n" + addressList);
 		
 			saveAddressList(addressList);
 
@@ -278,7 +278,7 @@ public class AddressListTask
 			throw new ServletException(e.toString());	
 		}
 				
-		trace.debug("Deleting address list:\n" + listId);
+		log.debug("Deleting address list:\n" + listId);
 		
 		deleteAddressList(listId);
 
@@ -311,7 +311,7 @@ public class AddressListTask
 		ArrayList errorList = memberData.validate();
 		if (errorList.size() > 0) {
 			// error - go back
-			trace.debug("Member data validation failed - errors: " + errorList);
+			log.debug("Member data validation failed - errors: " + errorList);
 
 			// set error list attribute
 			request.setAttribute("Error", errorList);
@@ -329,7 +329,7 @@ public class AddressListTask
 			// clear error list attribute
 			request.setAttribute("Error", null);
 
-			trace.debug("Adding member:\n" + memberData);
+			log.debug("Adding member:\n" + memberData);
 		
 			addMember(listId, memberData);
 
@@ -363,7 +363,7 @@ public class AddressListTask
 
 		MemberData memberData = retrieveMemberData(listId, memberId);
 
-		trace.debug("editing member:\n" + memberData);
+		log.debug("editing member:\n" + memberData);
 
 		request.getSession().setAttribute("MemberData", memberData);
 
@@ -393,7 +393,7 @@ public class AddressListTask
 		ArrayList errorList = memberData.validate();
 		if (errorList.size() > 0) {
 			// error - go back
-			trace.debug("Member data validation failed - errors: " + errorList);
+			log.debug("Member data validation failed - errors: " + errorList);
 
 			// set error list attribute
 			request.setAttribute("Error", errorList);
@@ -408,7 +408,7 @@ public class AddressListTask
 				throw new ServletException(e.toString());	
 			}
 
-			trace.debug("Saving member:\n" + memberData);
+			log.debug("Saving member:\n" + memberData);
 
 			saveMember(listId, memberData);	
 		
@@ -440,7 +440,7 @@ public class AddressListTask
 			throw new ServletException(e.toString());	
 		}
 
-		trace.debug("Deleting address list member " + memberId);
+		log.debug("Deleting address list member " + memberId);
 
 		deleteMember(listId, memberId);
 
@@ -521,7 +521,7 @@ public class AddressListTask
 						// validate new member data
 						ArrayList memberErrors = memberData.validate();
 						if (memberErrors.size() == 0) {
-							trace.debug("Adding member:\n " + memberData);
+							log.debug("Adding member:\n " + memberData);
 							addMember(listId, memberData);
 						} else {
 							errors.addAll(memberErrors);
@@ -535,7 +535,7 @@ public class AddressListTask
 			}
 		}
 
-		trace.debug("Invalid rows:\n" + invalidRowList);
+		log.debug("Invalid rows:\n" + invalidRowList);
 
 		// set error list attribute
 		request.setAttribute("Error", errors);
@@ -583,7 +583,7 @@ public class AddressListTask
 			id = emailList.createList(Integer.parseInt(addressList.getGroup()),
 						addressList.getName());
 		} catch (Exception e) {
-			trace.error("Error adding address list", e);
+			log.error("Error adding address list", e);
 			throw new ServletException(e.toString());
 		} finally {
 			if (context != null) {
@@ -643,7 +643,7 @@ public class AddressListTask
 			addressList.setFields(fields);
 			
 		} catch (Exception e) {
-			trace.error("Error retrieving address list:\n" + listId, e);
+			log.error("Error retrieving address list:\n" + listId, e);
 			throw new ServletException(e.toString());
 		} finally {
 			if (context != null) {
@@ -679,7 +679,7 @@ public class AddressListTask
 			emailList.setName(Integer.parseInt(addressList.getId()),
 					addressList.getName());
 		} catch (Exception e) {
-			trace.error("Error saving address list", e);
+			log.error("Error saving address list", e);
 			throw new ServletException(e.toString());
 		} finally {
 			if (context != null) {
@@ -712,7 +712,7 @@ public class AddressListTask
 			emailList.setGroupId(listId,
 					EmailConstants.DELETED_GROUP_ID);
 		} catch (Exception e) {
-			trace.error("Error deleting address list", e);
+			log.error("Error deleting address list", e);
 
 
 			throw new ServletException(e.toString());
@@ -741,7 +741,7 @@ public class AddressListTask
 	{
 		int id = -1;
 
-		trace.debug("member xml: " + memberData.toXML());
+		log.debug("member xml: " + memberData.toXML());
 	
 		Context context = null;
 		try {
@@ -751,7 +751,7 @@ public class AddressListTask
 
 			id = emailList.addMember(listId, memberData.toXML());
 		} catch (Exception e) {
-			trace.error("Error adding address list member", e);
+			log.error("Error adding address list member", e);
 			throw new ServletException(e.toString());
 		} finally {
 			if (context != null) {
@@ -790,7 +790,7 @@ public class AddressListTask
 			memberDataString = emailList.getData(listId, memberId);
 
 		} catch (Exception e) {
-			trace.error("Error retrieving member data", e);
+			log.error("Error retrieving member data", e);
 			throw new ServletException(e.toString());
 		} finally {
 			if (context != null) {
@@ -807,7 +807,7 @@ public class AddressListTask
 		try {
 			memberData = MemberData.loadFromXML(memberDataString);
 		} catch (Exception e) {
-			trace.error("Error loading member data", e);
+			log.error("Error loading member data", e);
 			throw new ServletException(e.toString());
 		}
 
@@ -841,7 +841,7 @@ public class AddressListTask
 
 			emailList.addMember(listId, memberData.toXML());
 		} catch (Exception e) {
-			trace.error("Error saving address list member", e);
+			log.error("Error saving address list member", e);
 			throw new ServletException(e.toString());
 		} finally {
 			if (context != null) {
@@ -874,7 +874,7 @@ public class AddressListTask
 
 			emailList.removeMember(listId, memberId);
 		} catch (Exception e) {
-			trace.error("Error deleting address list member", e);
+			log.error("Error deleting address list member", e);
 			throw new ServletException(e.toString());
 		} finally {
 			if (context != null) {
@@ -901,7 +901,7 @@ public class AddressListTask
 	{
 		Map addressListMap;
 
-		trace.debug("Retrieving address lists of group: " + group);
+		log.debug("Retrieving address lists of group: " + group);
 
 		Context context = null;
 		try {
@@ -910,7 +910,7 @@ public class AddressListTask
 			EmailList emailList = emailListHome.create();
 			addressListMap = emailList.getLists(group);
 		} catch (Exception e) {
-			trace.error("Error getting address list listing", e);
+			log.error("Error getting address list listing", e);
 			throw new ServletException(e.toString());
 		} finally {
 			if (context != null) {
@@ -944,7 +944,7 @@ public class AddressListTask
 			EmailListGroup emailListGroup = emailListGroupHome.create();
 			groupMap = emailListGroup.getGroups();
 		} catch (Exception e) {
-			trace.error("Error getting address list group listing", e);
+			log.error("Error getting address list group listing", e);
 			throw new ServletException(e.toString());
 		} finally {
 			if (context != null) {
@@ -1012,7 +1012,7 @@ public class AddressListTask
 			name = emailList.getListName(listId);
 
 		} catch (Exception e) {
-			trace.error("Error getting address list name", e);
+			log.error("Error getting address list name", e);
 			throw new ServletException(e.toString());
 		} finally {
 			if (context != null) {
@@ -1046,7 +1046,7 @@ public class AddressListTask
 			EmailList emailList = emailListHome.create();
 			memberSet = emailList.getMembers(listId);
 		} catch (Exception e) {
-			trace.error("Error getting address list members", e);
+			log.error("Error getting address list members", e);
 			throw new ServletException(e.toString());
 		} finally {
 			if (context != null) {
@@ -1082,7 +1082,7 @@ public class AddressListTask
 			EmailList emailList = emailListHome.create();
 			memberXML = emailList.getData(listId, memberId);
 		} catch (Exception e) {
-			trace.error("Error getting member data", e);
+			log.error("Error getting member data", e);
 			throw new ServletException(e.toString());
 		} finally {
 			if (context != null) {

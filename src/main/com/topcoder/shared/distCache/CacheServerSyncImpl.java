@@ -27,7 +27,6 @@ public class CacheServerSyncImpl
         throws RemoteException 
     {
 	CachedValue[] result = _listener.getChanged();
-	System.out.println("REALLY out: " + result.length);
 	return result;
     }
     public boolean getCleared()

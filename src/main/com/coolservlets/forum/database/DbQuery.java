@@ -59,11 +59,13 @@ import java.util.*;
 import java.sql.*;
 import com.coolservlets.util.*;
 import com.coolservlets.forum.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
+import com.topcoder.shared.util.logging.Logger;
 /**
  * Database implementation of the Query interface.
  */
 public class DbQuery implements Query {
+
     /**
      * The string entered by the user whose
      * words which will be searched for in the messages stored
@@ -74,6 +76,7 @@ public class DbQuery implements Query {
     private java.util.Date afterDate = null;
     private Forum forum;
     private DbForumFactory factory;
+    private static Logger log = Logger.getLogger(DbQuery.class);
     public DbQuery(Forum forum, DbForumFactory factory){
         this.forum = forum;
         this.factory = factory;
@@ -190,7 +193,7 @@ public class DbQuery implements Query {
             }
         }
         //FOR DEBUG
-        //Log.msg("***** the query *****\n" + query.toString());
+        //log.debug("***** the query *****\n" + query.toString());
         return query.toString();
     }
 }

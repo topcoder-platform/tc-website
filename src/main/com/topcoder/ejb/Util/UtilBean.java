@@ -7,19 +7,18 @@ import java.sql.*;
 import javax.ejb.*;
 import java.io.Serializable;
 import weblogic.common.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
 import com.topcoder.common.web.error.*;
 import com.topcoder.common.web.util.*;
 import com.topcoder.common.web.data.*;
-import com.topcoder.ejb.BaseEJB;
+import com.topcoder.shared.ejb.BaseEJB;
+import com.topcoder.shared.util.logging.Logger;
 
 ///////////////////////////////////////////////
 public class UtilBean extends BaseEJB {
 ///////////////////////////////////////////////
 
-
-  static final boolean VERBOSE = false;
-
+  private static Logger log = Logger.getLogger(UtilBean.class);
 
   ////////////////////////////////////////////////////////////////////////////
   public java.sql.Date getCurrentDate () throws RemoteException {
@@ -108,7 +107,7 @@ public class UtilBean extends BaseEJB {
   ////////////////////////////////////////////////////////
   public void insertJMSError ( int coderId, String msg ) {
   ////////////////////////////////////////////////////////
-    if (VERBOSE) System.out.println ( "ejb.Util.insertJMSError():called." );
+    log.debug ( "ejb.Util.insertJMSError():called." );
     /*********************************************************/
     String query             = "INSERT INTO jms_errors(coder_id,timestamp,message) VALUES(?,?,?)";
     /*********************************************************/
@@ -125,7 +124,7 @@ public class UtilBean extends BaseEJB {
       ps.setLong   ( 2, DateTime.getCurrentTime(conn).getTime() );
       ps.setString ( 3, msg                                   );
       int rows = ps.executeUpdate ();
-      if ( rows != 1 ) System.out.println ( 
+      if ( rows != 1 ) log.debug ( 
         "ERROR: Failed to insert row into JMS_ERRORS" 
       );
     } catch ( Exception e ) { 
@@ -262,7 +261,7 @@ public class UtilBean extends BaseEJB {
         insertPressReleaseHit ( id, host );
       }
     } catch ( Exception e ) {
-      if ( VERBOSE ) e.printStackTrace();
+      e.printStackTrace();
       StringBuffer msg = new StringBuffer();
       msg.append ( "common.Common:incrementPressReleaseHitCount:ERROR:" );
       msg.append ( "id="                                                );
@@ -310,7 +309,7 @@ public class UtilBean extends BaseEJB {
       ps.setString ( 2, host                        );
       ps.executeUpdate();
     } catch ( Exception e ) {
-      if ( VERBOSE ) e.printStackTrace();
+      e.printStackTrace();
       StringBuffer msg = new StringBuffer();
       msg.append ( "common.Common:insertPressReleaseHit:ERROR:" );
       msg.append ( "id="                                        );
@@ -357,7 +356,7 @@ public class UtilBean extends BaseEJB {
       ps.setString ( 2, host                        );
       ps.executeUpdate();
     } catch ( Exception e ) {
-      if ( VERBOSE ) e.printStackTrace();
+      e.printStackTrace();
       StringBuffer msg = new StringBuffer();
       msg.append ( "common.Common:updatePressReleaseHit:ERROR:" );
       msg.append ( "id="                                        );
@@ -402,7 +401,7 @@ public class UtilBean extends BaseEJB {
       ps.setInt    ( 1, id                          );
       ps.executeUpdate();
     } catch ( Exception e ) {
-      if ( VERBOSE ) e.printStackTrace();
+      e.printStackTrace();
       StringBuffer msg = new StringBuffer();
       msg.append ( "common.Common:insertPressRelease:ERROR:" );
       msg.append ( "id="                                     );
@@ -641,159 +640,6 @@ public class UtilBean extends BaseEJB {
     return result;
   }
 
-/**
- *****************************************************************
- * The logMail method creates a log of all out goimg
- * mail messages being sent from the TC Web.  Mail that 
- * is sent directly to the Exchange Server will be handled 
- * directly (no record of these are stored in the mail_log.
- *****************************************************************
- */
-  public int logMail(EMailMessage mail) throws RemoteException  {
-    Connection conn = null;
-    PreparedStatement ps = null;
-    int RetVal = 0;
-    javax.naming.Context ctx = null;
-    try {
-      ctx = new javax.naming.InitialContext();
-      javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
-      conn = ds.getConnection();
-      ps = conn.prepareStatement("INSERT INTO mail_log (coder_id, reason, timestamp) VALUES (?,?,?)");
-      // coder_mail
-      ps.setInt(1, mail.getCoderId());
-      ps.setString(2, mail.getReason());
-      ps.setTimestamp(3, DateTime.getCurrentTimestamp(conn));
-      RetVal = ps.executeUpdate();			
-    // Close the try
-    } catch (SQLException sqe) {
-      sqe.printStackTrace();
-      throw new RemoteException (sqe.getMessage());
-    } catch (Exception e) {
-      e.printStackTrace();
-      throw new RemoteException (e.getMessage());
-    } finally {
-      try { if (ps   != null) ps.close();  } catch (Exception ignore) {System.out.println("ps   close problem");}
-      try { if (conn   != null) conn.close();  } catch (Exception ignore) {System.out.println ( "conn   close problem");}
-      if (ctx != null)  { try { ctx.close(); } catch (Exception ignore) {} }
-      ps = null;
-      conn = null;
-    }
-    return RetVal;
-  }
-
-
-/*
-  ////////////////////////////////////////////////////////////
-  public void incrementSponsorHitCount ( String link, String refer )
-    throws RemoteException {
-  ////////////////////////////////////////////////////////////
-    java.sql.Connection conn = null;
-    PreparedStatement   ps = null;
-    ResultSet rs = null;
-    javax.naming.Context ctx = null;
-    try {
-      ctx = new javax.naming.InitialContext();
-      javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
-      conn = ds.getConnection();
-      StringBuffer query = new StringBuffer ( 150  );
-      query.append ( " SELECT" );
-      query.append (   " calendar_id" );
-      query.append ( " FROM" );
-      query.append (   " calendar" );
-      query.append ( " WHERE" );
-      query.append (   " year = ?" );
-      query.append (   " AND month_numeric = ?" );
-      query.append (   " AND day_of_month = ?" );
-      ps = conn.prepareStatement ( query.toString() );
-      query.delete ( 0, 150 );
-      Calendar now = Calendar.getInstance(); 
-      int year = now.get(Calendar.YEAR);
-      int mo = ( now.get(Calendar.MONTH) + 1 );
-      int day = now.get(Calendar.DAY_OF_MONTH);
-      if (VERBOSE) System.out.println ( "YEAR="+year+" MONTH="+mo+" DAY="+day );
-      ps.setInt ( 1, year );
-      ps.setInt ( 2, mo );
-      ps.setInt ( 3, day );
-      rs = ps.executeQuery();
-      ps.clearParameters();
-      if ( rs.next() ) {
-        int calendarId = rs.getInt(1);
-        if (VERBOSE) System.out.println ( "CALENDAR_ID="+calendarId );
-        if ( rs != null ) rs.close();
-        query.append ( " SELECT" );
-        query.append (   " link_id" );
-        query.append ( " FROM" );
-        query.append (   " link_hit" );
-        query.append ( " WHERE" );
-        query.append (   " link = ?" );
-        query.append (   " AND refer = ?" );
-        query.append (   " AND calendar_id = ?" );
-        ps = conn.prepareStatement ( query.toString() );
-        query.delete ( 0, 150 );
-        ps.setString ( 1, link );
-        ps.setString ( 2, refer );
-        ps.setInt ( 3, calendarId );
-        rs = ps.executeQuery();
-        ps.clearParameters();
-        if ( rs.next() ) {
-          int linkId = rs.getInt(1);
-          if ( rs != null ) rs.close();
-          if (VERBOSE) System.out.println ( "LINK_ID="+linkId );
-          query.append ( " UPDATE" );
-          query.append (   " link_hit" );
-          query.append (     " SET" );
-          query.append (       " hit = hit + 1" );
-          query.append ( " WHERE" );
-          query.append (   " link_id = ?" );
-          ps = conn.prepareStatement ( query.toString() );
-          query.delete ( 0, 150 );
-          ps.setInt ( 1, linkId );
-          ps.executeUpdate();
-        } else {
-          if ( rs != null ) rs.close();
-          javax.naming.Context env = (javax.naming.Context) ctx.lookup ( "java:comp/env" );
-          int seq = ((java.lang.Integer)env.lookup("LINK_SEQ")).intValue();
-          query.append ( " EXECUTE PROCEDURE nextval(?)" );
-          ps = conn.prepareStatement ( query.toString() );
-          query.delete ( 0, 150 );
-          ps.setInt ( 1, seq );
-          rs = ps.executeQuery();
-          ps.clearParameters();
-          if ( rs.next() ) {
-            int newLinkId = rs.getInt(1);
-            if (VERBOSE) System.out.println ( "NEW_LINK_ID="+newLinkId );
-            query.append ( " INSERT" );
-            query.append (   " INTO" );
-            query.append (     " link_hit (" );
-            query.append (       " link_id" );
-            query.append (       " ,link" );
-            query.append (       " ,refer" );
-            query.append (       " ,hit" );
-            query.append (       " ,calendar_id" );
-            query.append (     " )" );
-            query.append ( " VALUES (?,?,?,1,?)" );
-            ps = conn.prepareStatement ( query.toString() );
-            ps.setInt ( 1, newLinkId );
-            ps.setString ( 2, link );
-            ps.setString ( 3, refer );
-            ps.setInt ( 4, calendarId );
-            ps.executeUpdate();
-          }
-        }
-      }
-    } catch ( Exception e ) {
-      e.printStackTrace();
-      throw new RemoteException ( e.getMessage() );
-    } finally {
-      if (ps != null)   { try { ps.close();   } catch (Exception ignore) {} }
-      if (rs != null)   { try { rs.close();   } catch (Exception ignore) {} }
-      if (conn != null) { try { conn.close(); } catch (Exception ignore) {} }
-      if (ctx != null)  { try { ctx.close(); } catch (Exception ignore) {} }
-    }
-  }
-*/
-
-
   ////////////////////////////////////////////////////////////
   public void incrementSponsorHitCount ( String link, String refer )
     throws RemoteException {
@@ -819,7 +665,7 @@ public class UtilBean extends BaseEJB {
       ps.clearParameters();
       if ( rs.next() ) {
         int newLinkId = rs.getInt(1);
-        if (VERBOSE) System.out.println ( "NEW_LINK_ID="+newLinkId );
+        log.debug ( "NEW_LINK_ID="+newLinkId );
         /*********************************************************/
         query.append ( " INSERT" );
         query.append (   " INTO" );

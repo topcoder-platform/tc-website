@@ -5,7 +5,7 @@ import java.rmi.RemoteException;
 import java.util.*;
 import com.topcoder.common.web.data.stat.coder.*;
 import com.topcoder.common.web.data.stat.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
 
 public interface CoderStatistics extends EJBObject {
 

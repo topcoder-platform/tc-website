@@ -6,6 +6,7 @@ import javax.ejb.*;
 import java.util.*;
 import java.rmi.RemoteException;
 import com.topcoder.ejb.AuthenticationServices.*;
+import com.topcoder.shared.util.logging.Logger;
 
 
 public class UserServicesBean implements EntityBean  {
@@ -14,8 +15,7 @@ public class UserServicesBean implements EntityBean  {
   protected EntityContext ctx; 
   protected Properties props;
   protected User user;
-  final static boolean VERBOSE = false;
-
+  private static Logger log = Logger.getLogger(UserServicesBean.class);
 
   ///////////////////////////////////////////////////////////////           
   public UserServicesBean ()  {  }
@@ -59,7 +59,7 @@ public class UserServicesBean implements EntityBean  {
   ///////////////////////////////////////////////////////////////           
   private void inactivate ( User user ) throws RemoteException {
   ///////////////////////////////////////////////////////////////           
-    if (VERBOSE) System.out.println("ejb.User.UserServicesBean:inactivate(User) called...\n");
+    log.debug("ejb.User.UserServicesBean:inactivate(User) called...\n");
     user.setStatus ( "I" ); 
     setUser ( user );
   }

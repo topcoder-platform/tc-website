@@ -3,9 +3,9 @@ package com.topcoder.common.web.data;
 import java.io.Serializable;
 import java.sql.Date;
 
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 
-public class EventType implements Serializable, Base {
+public class EventType implements Serializable, TagRenderer {
 
   private int EventTypeId;
   private String EventTypeDesc;

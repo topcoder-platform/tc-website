@@ -28,14 +28,13 @@
 package com.topcoder.web.pacts.common;
 
 import com.topcoder.web.common.*;
-import org.apache.log4j.*;
 import java.util.*;
 import java.text.*;
+import com.topcoder.shared.util.logging.Logger;
 
 public class Affidavit implements PactsConstants, java.io.Serializable {
 
-	private static Category log =
-		Category.getInstance(Affidavit.class.getName());
+        private static Logger log = Logger.getLogger(Affidavit.class);
 /*  Explanation of Members
 *
 *  _header          - the more commonly requested information of the affidavit

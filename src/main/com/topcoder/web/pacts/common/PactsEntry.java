@@ -15,93 +15,92 @@
 
 package com.topcoder.web.pacts.common;
 
-import org.apache.log4j.*;
 import com.topcoder.web.common.*;
 import java.util.*;
 import com.topcoder.web.pacts.bean.pacts_internal.dispatch.*;
+import com.topcoder.shared.util.logging.Logger;
 
 public class PactsEntry implements PactsConstants {
 
-	private static Category log =
-		Category.getInstance(PactsEntry.class.getName());
+    private static Logger log = Logger.getLogger(PactsEntry.class);
 
-	public int _type;
+    public int _type;
     public long _id1;
     public long _id2;
 
     public PactsEntry(Map data, int row) {
-		ResultSetContainer rsc = (ResultSetContainer) data.get(ENTRY_HEADER_LIST);
-		if (rsc == null) {
-			log.error("There was no " + ENTRY_HEADER_LIST + " result set container!");
-			setDefaults();
-			return;
-		}
-		int rowCount = rsc.getRowCount();
-		if (row >= rowCount || row < 0) {
-			log.error("Bad row: " + row + " Size: " + rowCount);
-			setDefaults();
-			return;
-		}
-		ResultSetContainer.ResultSetRow rsr = rsc.getRow(row);
-		_type = TCData.getTCInt(rsr,OBJECT_TYPE,0,true);
-		_id1 = TCData.getTCLong(rsr,"first_id",0,true);
-		_id2 = TCData.getTCLong(rsr,"second_id",0,true);
-	}
+        ResultSetContainer rsc = (ResultSetContainer) data.get(ENTRY_HEADER_LIST);
+        if (rsc == null) {
+            log.error("There was no " + ENTRY_HEADER_LIST + " result set container!");
+            setDefaults();
+            return;
+        }
+        int rowCount = rsc.getRowCount();
+        if (row >= rowCount || row < 0) {
+            log.error("Bad row: " + row + " Size: " + rowCount);
+            setDefaults();
+            return;
+        }
+        ResultSetContainer.ResultSetRow rsr = rsc.getRow(row);
+        _type = TCData.getTCInt(rsr,OBJECT_TYPE,0,true);
+        _id1 = TCData.getTCLong(rsr,"first_id",0,true);
+        _id2 = TCData.getTCLong(rsr,"second_id",0,true);
+    }
 
-	public Object get() {
-		try {
-			switch (_type) {
-				case PAYMENT_OBJ: return getPayment();
-				case AFFIDAVIT_OBJ: return getAffidavit();
-				case CONTRACT_OBJ: return getContract();
-				case USER_TAX_FORM_OBJ: return getUserTaxForm();
-				case USER_PROFILE_OBJ: return getUserProfile();
-			}
-		} catch (Exception e) {
-			log.error("Exception caught in PactsEntry.get():");
-			e.printStackTrace();
-		}
-		return null;
-	}
+    public Object get() {
+        try {
+            switch (_type) {
+                case PAYMENT_OBJ: return getPayment();
+                case AFFIDAVIT_OBJ: return getAffidavit();
+                case CONTRACT_OBJ: return getContract();
+                case USER_TAX_FORM_OBJ: return getUserTaxForm();
+                case USER_PROFILE_OBJ: return getUserProfile();
+            }
+        } catch (Exception e) {
+            log.error("Exception caught in PactsEntry.get():");
+            e.printStackTrace();
+        }
+        return null;
+    }
 
-	public Payment getPayment() throws Exception {
-		InternalDispatchPayment bean =
-			new InternalDispatchPayment(null, null);
+    public Payment getPayment() throws Exception {
+        InternalDispatchPayment bean =
+            new InternalDispatchPayment(null, null);
 
-		return bean.get(_id1);
-	}
+        return bean.get(_id1);
+    }
 
-	public Affidavit getAffidavit() throws Exception {
-		InternalDispatchAffidavit bean =
-			new InternalDispatchAffidavit(null, null);
+    public Affidavit getAffidavit() throws Exception {
+        InternalDispatchAffidavit bean =
+            new InternalDispatchAffidavit(null, null);
 
-		return bean.get(_id1);
-	}
+        return bean.get(_id1);
+    }
 
-	public Contract getContract() throws Exception {
-		InternalDispatchContract bean =
-			new InternalDispatchContract(null, null);
+    public Contract getContract() throws Exception {
+        InternalDispatchContract bean =
+            new InternalDispatchContract(null, null);
 
-		return bean.get(_id1);
-	}
+        return bean.get(_id1);
+    }
 
-	public TaxForm getUserTaxForm() throws Exception {
-		InternalDispatchUserTaxForm bean =
-			new InternalDispatchUserTaxForm(null, null);
+    public TaxForm getUserTaxForm() throws Exception {
+        InternalDispatchUserTaxForm bean =
+            new InternalDispatchUserTaxForm(null, null);
 
-		return bean.get(_id1, _id2);
-	}
+        return bean.get(_id1, _id2);
+    }
 
-	public UserProfile getUserProfile() throws Exception {
-		InternalDispatchUserProfile bean =
-			new InternalDispatchUserProfile(null, null);
+    public UserProfile getUserProfile() throws Exception {
+        InternalDispatchUserProfile bean =
+            new InternalDispatchUserProfile(null, null);
 
-		return bean.get(_id1);
-	}
+        return bean.get(_id1);
+    }
 
-	private void setDefaults() {
-		_type = 0;
-		_id1 = 0;
-		_id2 = 0;
-	}
+    private void setDefaults() {
+        _type = 0;
+        _id1 = 0;
+        _id2 = 0;
+    }
 }

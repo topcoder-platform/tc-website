@@ -1,7 +1,7 @@
 package com.topcoder.shared.util;
 
 import java.util.*;
-import com.topcoder.server.util.TCResourceBundle;
+import com.topcoder.shared.util.TCResourceBundle;
 
 public class ApplicationServer {
 
@@ -14,6 +14,7 @@ public class ApplicationServer {
   public static int      ENVIRONMENT           = bundle.getIntProperty("ENVIRONMENT", DEV);
   public static String   SERVER_NAME           = bundle.getProperty("SERVER_NAME", "172.16.20.20");
   public static String   HOST_URL              = bundle.getProperty("HOST_URL", "t3://172.16.20.41:7030");
+  public static String   CONTEST_HOST_URL      = bundle.getProperty("CONTEST_HOST_URL", "t3://172.16.20.40:9003");
   public static String[] WEBLOGIC_CLUSTER_IP   = getClusterArray(bundle.getProperty("WEBLOGIC_CLUSTER_IP", "172.16.20.41"));
   public static String   BASE_DIR              = bundle.getProperty("BASE_DIR", "/usr/web/build/classes");
 

@@ -58,7 +58,7 @@ package com.coolservlets.forum.database;
 
 import com.coolservlets.forum.*;
 import com.coolservlets.util.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
 import java.rmi.RemoteException;
 import java.security.*;
 import java.sql.*;

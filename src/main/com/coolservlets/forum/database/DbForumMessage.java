@@ -61,7 +61,8 @@ import java.util.*;
 import java.text.SimpleDateFormat;
 import com.coolservlets.forum.*;
 import com.coolservlets.util.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
 /**
  * Database implementation of the ForumMessage interace.
  */
@@ -94,6 +95,7 @@ public final class DbForumMessage implements ForumMessage {
     private Properties properties;
     private Object propertyLock = new Object();
     private ForumFactory factory;
+    private static Logger log = Logger.getLogger(DbForumMessage.class);
     /**
      * Creates a new DbForumMessage object.
      */
@@ -206,9 +208,9 @@ public final class DbForumMessage implements ForumMessage {
             sqle.printStackTrace();
         }
         finally {
-          try { if (rs   != null) rs.close();  } catch (Exception ignore) {Log.msg("rs   close problem");}
-          try { if (ps   != null) ps.close();  } catch (Exception ignore) {Log.msg("ps   close problem");}
-          try { if (conn != null) conn.close();} catch (Exception ignore) {Log.msg("conn close problem");}
+          try { if (rs   != null) rs.close();  } catch (Exception ignore) {log.debug("rs   close problem");}
+          try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
+          try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
           rs = null;
           ps = null; 
           conn = null; 
@@ -256,9 +258,9 @@ public final class DbForumMessage implements ForumMessage {
                 sqle.printStackTrace();
             }
             finally {
-                try { if (rs   != null) rs.close();  } catch (Exception ignore) {Log.msg("rs   close problem");}
-                try { if (ps   != null) ps.close();  } catch (Exception ignore) {Log.msg("ps   close problem");}
-                try { if (conn != null) conn.close();} catch (Exception ignore) {Log.msg("conn close problem");}
+                try { if (rs   != null) rs.close();  } catch (Exception ignore) {log.debug("rs   close problem");}
+                try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
+                try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
                 rs = null; 
                 ps = null; 
                 conn = null; 
@@ -295,8 +297,8 @@ public final class DbForumMessage implements ForumMessage {
                 System.err.println(sqle);
             }
             finally {
-                try { if (ps   != null) ps.close();  } catch (Exception ignore) {Log.msg("ps   close problem");}
-                try { if (conn != null) conn.close();} catch (Exception ignore) {Log.msg("conn close problem");}
+                try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
+                try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
                 ps = null; 
                 conn = null; 
             }
@@ -339,13 +341,13 @@ public final class DbForumMessage implements ForumMessage {
                 "that they're being stored correctly.");
         }
         catch (Exception e) {
-            Log.msg("failure getting blob from DB");
+            log.debug("failure getting blob from DB");
             e.printStackTrace();
         }
         finally {
-          try { if (rs   != null) rs.close();  } catch (Exception ignore) {Log.msg("rs   close problem");}
-          try { if (ps   != null) ps.close();  } catch (Exception ignore) {Log.msg("ps   close problem");}
-          try { if (conn != null) conn.close();} catch (Exception ignore) {Log.msg("conn close problem");}
+          try { if (rs   != null) rs.close();  } catch (Exception ignore) {log.debug("rs   close problem");}
+          try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
+          try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
           rs = null; 
           ps = null; 
           conn = null; 
@@ -378,12 +380,12 @@ public final class DbForumMessage implements ForumMessage {
             sqle.printStackTrace();
         }
         catch( Exception e) {
-            Log.msg("failure setting blob in DB");
+            log.debug("failure setting blob in DB");
             e.printStackTrace();
         }
         finally {
-          try { if (ps   != null) ps.close();  } catch (Exception ignore) {Log.msg("ps   close problem");}
-          try { if (conn != null) conn.close();} catch (Exception ignore) {Log.msg("conn close problem");}
+          try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
+          try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
           ps = null; 
           conn = null; 
         }
@@ -411,12 +413,12 @@ public final class DbForumMessage implements ForumMessage {
             sqle.printStackTrace();
         }
         catch( Exception e) {
-            Log.msg("failure setting blob in DB");
+            log.debug("failure setting blob in DB");
             e.printStackTrace();
         }
         finally {
-            try { if (ps   != null) ps.close();  } catch (Exception ignore) {Log.msg("ps   close problem");}
-            try { if (conn != null) conn.close();} catch (Exception ignore) {Log.msg("conn close problem");}
+            try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
+            try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
             ps = null; 
             conn = null; 
         }

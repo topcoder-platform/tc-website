@@ -8,18 +8,18 @@ import com.topcoder.common.web.error.*;
 import com.topcoder.common.web.data.*;
 import com.topcoder.ejb.AuthenticationServices.*;
 import com.topcoder.common.web.util.*;
-import com.topcoder.common.web.xml.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.docGen.xml.*;
+import com.topcoder.shared.util.*;
+import com.topcoder.shared.util.logging.Logger;
 
 
 final class UserDb {
-
-  private static boolean VERBOSE = false;
+  private static Logger log = Logger.getLogger(UserDb.class);
 
   ///////////////////////////////////////////////////////////////
   static void insertUser ( User user ) throws TCException {
   ///////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "ejb.User.UserDb:insertUser():called...");
+    log.debug("ejb.User.UserDb:insertUser():called...");
     Connection conn = null;
     PreparedStatement ps = null;
     /**************************************************************/
@@ -83,9 +83,10 @@ final class UserDb {
       }
       if ( conn!=null ) { 
         try { 
-          conn.close();Log.msg(VERBOSE,"insertCoder cx closed...");
+          conn.close();
+          log.debug("insertCoder cx closed...");
         } catch(Exception ignore){
-          Log.msg ( VERBOSE, "insertCoder cx NOT closed..." );
+          log.error("insertCoder cx NOT closed...");
         }
       }
     }
@@ -95,7 +96,7 @@ final class UserDb {
   ///////////////////////////////////////////////////////////////
   static void updateUser(User user) throws TCException {
   ///////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "ejb.User.UserDb:updateUser():called...");
+    log.debug("ejb.User.UserDb:updateUser():called...");
     PreparedStatement ps = null;
     Connection conn = null;
     try  {
@@ -145,9 +146,10 @@ final class UserDb {
       if ( ps != null   ) { try { ps.close();   } catch ( Exception ignore ) {} }
       if ( conn != null ) { 
         try { 
-          conn.close();Log.msg(VERBOSE,"updateCoder cx closed..."); 
+          conn.close();
+          log.debug("updateCoder cx closed..."); 
         } catch ( Exception ignore ) {
-          Log.msg(VERBOSE,"updateCoder cx NOT closed...");
+          log.error("updateCoder cx NOT closed...");
         } 
       }
     }
@@ -157,7 +159,7 @@ final class UserDb {
   ///////////////////////////////////////////////////////////////
   static void loadUser ( User user ) throws TCException {
   ///////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "ejb.User.UserDb:loadUser()called...");
+    log.debug("ejb.User.UserDb:loadUser()called...");
     Connection conn = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
@@ -188,7 +190,7 @@ final class UserDb {
       conn = DBMS.getConnection();
       ps = conn.prepareStatement(query.toString());
       //////////////////////////////////////////////////////////////////////
-      Log.msg( VERBOSE, "EJB CODER ID="+user.getUserId() );
+      log.debug("EJB CODER ID="+user.getUserId() );
       //////////////////////////////////////////////////////////////////////
       ps.setInt   (1, user.getUserId ());
       rs = ps.executeQuery();
@@ -220,9 +222,10 @@ final class UserDb {
       if(ps!=null) {try {ps.close();} catch(Exception ignore){} }
       if(conn!=null) {
         try {
-          conn.close();Log.msg(VERBOSE,"loadeCoder cx closed..."); 
+          conn.close();
+          log.debug("loadeCoder cx closed..."); 
         } catch(Exception ignore){
-          Log.msg(VERBOSE,"loadCoder cx NOT closed...");
+          log.error("loadCoder cx NOT closed...");
         }
       }
     }
@@ -232,7 +235,7 @@ final class UserDb {
   ///////////////////////////////////////////////////////////////
   static void inactivateUser(int userId) throws TCException {
   ///////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE,"ejb.User.UserDb:inactivateUser() called ...");
+    log.debug("ejb.User.UserDb:inactivateUser() called ...");
     Connection conn = null;
     PreparedStatement ps = null;
     /**************************************************************/
@@ -259,7 +262,7 @@ final class UserDb {
   ///////////////////////////////////////////////////////////////
   static Integer getExistingUserId(Integer key) throws TCException {
   ///////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE,"ejb.User.UserDb:getExistingUserId():called...");
+    log.debug("ejb.User.UserDb:getExistingUserId():called...");
     ResultSet rs = null;
     PreparedStatement ps = null;
     Connection conn = null;
@@ -288,9 +291,10 @@ final class UserDb {
       }
       if(conn!=null) {
         try{
-          conn.close();Log.msg(VERBOSE,"getExistingUserId cx closed..."); 
+          conn.close();
+          log.debug("getExistingUserId cx closed..."); 
         } catch(Exception ignore){
-          Log.msg(VERBOSE,"getExistingUserId cx NOT closed...");
+          log.error("getExistingUserId cx NOT closed...");
         } 
       }
     }
@@ -309,7 +313,7 @@ final class UserDb {
   private static void loadGroupUsers(Connection conn, User user) 
     throws TCException {
   ///////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "ejb.User.UserDb:loadGroupUsers() called ...");
+    log.debug("ejb.User.UserDb:loadGroupUsers() called ...");
     PreparedStatement ps = null;
     ResultSet rs = null;
     StringBuffer query = new StringBuffer(150);
@@ -356,7 +360,7 @@ final class UserDb {
   private static void loadPermissions(Connection conn, User user) 
     throws TCException {
   ///////////////////////////////////////////////////////////////
-    Log.msg ( VERBOSE, "ejb.User.UserDb:loadPermissions() called ...");
+    log.debug("ejb.User.UserDb:loadPermissions() called ...");
     try  {
       user.getPermissions().clear();
       ArrayList permissions = getPermissions ( conn, user.getUserId() );
@@ -386,7 +390,7 @@ final class UserDb {
   private static ArrayList getGroupIds ( Connection conn, int userId )
     throws TCException {
   ///////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "ejb.User.UserDb:getGroupIds() called ...");
+    log.debug("ejb.User.UserDb:getGroupIds() called ...");
     ArrayList result     = null;
     ArrayList groupIds   = null;
     PreparedStatement ps = null;
@@ -432,7 +436,7 @@ final class UserDb {
   private static ArrayList getSubGroupIds ( Connection conn, int groupId )
     throws TCException {
   ///////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "ejb.User.UserDb:getSubGroupIds() called ...");
+    log.debug("ejb.User.UserDb:getSubGroupIds() called ...");
     ArrayList result     = null;
     ArrayList groupIds   = null;
     PreparedStatement ps = null;
@@ -480,7 +484,7 @@ final class UserDb {
   private static ArrayList getPermissions ( Connection conn, int sid )
     throws TCException {
   ///////////////////////////////////////////////////////////////
-    Log.msg ( VERBOSE, "ejb.User.UserDb:getPermissions(conn,sid) called ..." );
+    log.debug("ejb.User.UserDb:getPermissions(conn,sid) called ..." );
     ArrayList result     = null;
     PreparedStatement ps = null;
     ResultSet rs         = null;
@@ -534,7 +538,7 @@ final class UserDb {
   private static void insertSecureObject(Connection conn, User user)
     throws TCException {
   ///////////////////////////////////////////////////////////////
-    Log.msg ( VERBOSE, "ejb.User.UserDb:insertSecureObject() called ..." );
+    log.debug("ejb.User.UserDb:insertSecureObject() called ..." );
     PreparedStatement ps = null;
     /**************************************************************/
     /***********************Informix*******************************/
@@ -561,7 +565,7 @@ final class UserDb {
   private static void insertPermissions(Connection conn, User user)
     throws TCException {
   ///////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "ejb.User.UserDb:insertPermissions() called ...");
+    log.debug("ejb.User.UserDb:insertPermissions() called ...");
     try {
       ArrayList permissions = user.getPermissions();
       for (int i=0; i<permissions.size(); i++) {
@@ -578,7 +582,7 @@ final class UserDb {
   private static void insertPermission(Connection conn, Permission permission)
     throws TCException {
   ///////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "ejb.User.UserDb:insertPermission() called ...");
+    log.debug("ejb.User.UserDb:insertPermission() called ...");
     PreparedStatement ps = null;
     /**************************************************************/
     /***********************Informix*******************************/
@@ -615,7 +619,7 @@ final class UserDb {
   private static void updatePermissions(Connection conn, User user)
     throws TCException {
   ///////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "ejb.User.UserDb:updatePermissions() called ...");
+    log.debug("ejb.User.UserDb:updatePermissions() called ...");
     PreparedStatement ps = null;
     try {
       ArrayList permissions = user.getPermissions();
@@ -685,7 +689,7 @@ final class UserDb {
   private static void insertGroupUsers ( Connection conn, User user )
     throws TCException {
   ///////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "ejb.User.UserDb:insertGroupUsers() called ...");
+    log.debug("ejb.User.UserDb:insertGroupUsers() called ...");
     try {
       ArrayList groups = user.getGroups();
       for (int i=0; i<groups.size(); i++) {
@@ -703,7 +707,7 @@ final class UserDb {
   private static void insertGroupUser(Connection conn, GroupUser groupUser)
     throws TCException {
   ///////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "ejb.User.UserDb:insertGroupUser() called ...");
+    log.debug("ejb.User.UserDb:insertGroupUser() called ...");
     PreparedStatement ps = null;
     /**************************************************************/
     /***********************Informix*******************************/
@@ -739,7 +743,7 @@ final class UserDb {
   private static void updateGroupUsers(Connection conn, User user)
     throws TCException {
   ///////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "ejb.User.UserDb:updateGroupUsers() called ...");
+    log.debug("ejb.User.UserDb:updateGroupUsers() called ...");
     PreparedStatement ps = null;
     try {
       ArrayList groups = user.getGroups();
@@ -809,7 +813,7 @@ final class UserDb {
   private static void updateDefaultUserType (Connection conn, User user)
     throws TCException {
   ///////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "ejb.User.UserDb:updateDefaultUserType() called ...");
+    log.debug("ejb.User.UserDb:updateDefaultUserType() called ...");
     PreparedStatement ps = null;
     try {
       String modified = user.getDefaultUserType().getModified();

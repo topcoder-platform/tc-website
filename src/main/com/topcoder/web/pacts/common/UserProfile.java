@@ -35,11 +35,10 @@ package com.topcoder.web.pacts.common;
 
 import java.util.*;
 import com.topcoder.web.common.*;
-import org.apache.log4j.*;
+import com.topcoder.shared.util.logging.Logger;
    
 public class UserProfile implements PactsConstants, java.io.Serializable {
-       private static Category log = 
-	   	Category.getInstance(UserProfile.class.getName()); 
+    private static Logger log = Logger.getLogger(UserProfile.class);
 
     public UserProfileHeader _header;
     public String _email;

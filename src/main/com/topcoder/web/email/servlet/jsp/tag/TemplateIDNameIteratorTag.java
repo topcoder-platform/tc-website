@@ -9,41 +9,39 @@ import javax.servlet.http.*;
 
 import com.topcoder.web.email.servlet.*;
 import com.topcoder.web.email.bean.*;
-import org.apache.log4j.Category;
 
 /**
  * Custom tag to iterate through all id's/name's of email
  * templates in a given group.
  *
- * @author	James Lee (jameslee@cs.stanford.edu)
- * @version	1.0
+ * @author    James Lee (jameslee@cs.stanford.edu)
+ * @version    1.0
  *
  */
 
 public class TemplateIDNameIteratorTag
-	extends IDNameIteratorTag
+    extends IDNameIteratorTag
 {
-	static Category trace = Category.getInstance(TemplateIDNameIteratorTag.class);
-	
-	// the template group
-	protected int group;
+    
+    // the template group
+    protected int group;
 
-	public void setGroup(String group)
-	{
-		try {
-			this.group = Integer.parseInt(group);
-		} catch (NumberFormatException e) {
-			this.group = 0;
-		}
-	}
+    public void setGroup(String group)
+    {
+        try {
+            this.group = Integer.parseInt(group);
+        } catch (NumberFormatException e) {
+            this.group = 0;
+        }
+    }
 
-	Map getIdToNameMap()
-		throws JspException
-	{
-		try {
-			return TemplateTask.getTemplateMap(group);
-		} catch (ServletException e) {
-			throw new JspException(e.toString());
-		}
-	}
+    Map getIdToNameMap()
+        throws JspException
+    {
+        try {
+            return TemplateTask.getTemplateMap(group);
+        } catch (ServletException e) {
+            throw new JspException(e.toString());
+        }
+    }
 }

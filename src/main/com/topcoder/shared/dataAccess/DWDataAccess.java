@@ -13,6 +13,15 @@ import com.topcoder.shared.util.DBMS;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.1.2.2  2002/07/11 17:07:18  gpaul
+ *           isClose should be isClosed
+ *
+ *           Revision 1.1.2.1  2002/07/11 17:05:55  gpaul
+ *           check if connection is closed before attempting to do it.
+ *
+ *           Revision 1.1  2002/07/03 00:30:22  gpaul
+ *           moving over here
+ *
  *           Revision 1.2  2002/06/27 18:25:52  gpaul
  *           adjustments for a correct ApplicationSever.properties file and DBMS.properties file
  *
@@ -66,7 +75,7 @@ public class DWDataAccess implements DataAccessInt {
             Connection conn = DBMS.getDWConnection();
             DataRetriever dr = new DataRetriever(conn);
             Map map = dr.executeCommand(request.getProperties());
-            if (conn != null) {
+            if (conn != null && !conn.isClosed()) {
               try {
                 conn.close();
               } catch (Exception ce) { 

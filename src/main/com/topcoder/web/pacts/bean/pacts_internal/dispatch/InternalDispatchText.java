@@ -22,14 +22,13 @@ import java.io.*;
 import java.util.*;
 import com.topcoder.web.common.*;
 import com.topcoder.web.pacts.bean.*;
-import org.apache.log4j.*;
+import com.topcoder.shared.util.logging.Logger;
 
 public class InternalDispatchText implements PactsConstants {
 	HttpServletRequest request;
 	HttpServletResponse response;
 
-	public static Category log =
-		Category.getInstance(InternalDispatchText.class.getName());
+        private static Logger log = Logger.getLogger(InternalDispatchText.class);
 
 	public InternalDispatchText (HttpServletRequest request,
 			HttpServletResponse response) {

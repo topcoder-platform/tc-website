@@ -1,7 +1,7 @@
 package com.topcoder.mpsqas.tester;
 
 import com.topcoder.mpsqas.common.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.logging.Logger;
 import java.util.*;
 import java.net.*;
 import java.io.*;
@@ -17,6 +17,11 @@ import java.io.*;
  */
 public class TesterWaiter extends Thread
 {
+  private boolean quit;
+  private ArrayList testData;
+  private boolean testComplete; 
+  private ArrayList testResponse;
+  private static Logger log = Logger.getLogger(TesterWaiter.class);
 
   /**
    * The test method is the method to call to get code tested.  It returns an ArrayList whose first element is the result of the test as a String, 
@@ -32,7 +37,7 @@ public class TesterWaiter extends Thread
    */
   public ArrayList test(HashMap classFiles,String packageName,String className,String methodName,ArrayList paramTypes,Object[]args)
   {
-    if (VERBOSE) Log.msg("In TesterWaiter.test()");
+    log.debug("In TesterWaiter.test()");
     ArrayList testResults;
     this.testData=new ArrayList(6);
     this.testData.add(classFiles);
@@ -68,7 +73,7 @@ public class TesterWaiter extends Thread
     {
       testResults=this.testResponse;
     }
-    if (VERBOSE) Log.msg("TesterWaiter.test returning "+testResults);
+    log.debug("TesterWaiter.test returning "+testResults);
     return testResults; 
   }
 
@@ -86,7 +91,7 @@ public class TesterWaiter extends Thread
     //first, try to get connected to the tester
     while(!this.testComplete&&!this.quit)
     {
-      if (VERBOSE) Log.msg("Getting tester connection.");
+      log.debug("Getting tester connection.");
       try
       {
         socket=new Socket(ApplicationConstants.TESTER_IP, ApplicationConstants.PUT_TEST_PORT);
@@ -98,7 +103,7 @@ public class TesterWaiter extends Thread
         outputStream.writeObject(testData);
         outputStream.flush();
 
-        if (VERBOSE) Log.msg("Waiting for response.");
+        log.debug("Waiting for response.");
         //wait for the response
         while(!this.quit&&!this.testComplete)
         {
@@ -115,7 +120,7 @@ public class TesterWaiter extends Thread
       }
       catch(Exception e)
       {
-        Log.msg("Error in test waiter.");
+        log.debug("Error in test waiter.");
         e.printStackTrace();
         try
         {
@@ -151,9 +156,4 @@ public class TesterWaiter extends Thread
     }
   }
 
-  private boolean quit;
-  private ArrayList testData;
-  private boolean testComplete; 
-  private ArrayList testResponse;
-  private boolean VERBOSE = false;
 }

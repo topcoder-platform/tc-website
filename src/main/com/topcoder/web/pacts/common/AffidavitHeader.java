@@ -19,13 +19,12 @@
 package com.topcoder.web.pacts.common;
 
 import com.topcoder.web.common.*;
-import org.apache.log4j.*;
 import java.util.*;
+import com.topcoder.shared.util.logging.Logger;
 
 public class AffidavitHeader implements PactsConstants, java.io.Serializable {
 
-	private static Category log =
-		Category.getInstance(AffidavitHeader.class.getName());
+        private static Logger log = Logger.getLogger(AffidavitHeader.class);
 /*  Explanation of Members
 *
 *  _id           - DB id of the affidavit

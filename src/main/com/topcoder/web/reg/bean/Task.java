@@ -2,13 +2,12 @@ package com.topcoder.web.reg.bean;
 // package com.topcoder.web.bean;
 
 import java.util.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.ejb.AuthenticationServices.*;
 
 public class Task
 {
-    boolean VERBOSE = false;
-    
+    private static Logger log = Logger.getLogger(Task.class);
     protected Hashtable errors;
     protected boolean userChanged;
     protected User user;
@@ -99,10 +98,10 @@ public class Task
     
     public void setUser(User user)
     {
-        Log.msg(VERBOSE,"Task.setUser()");
+        log.debug("Task.setUser()");
         if (user != null && (this.user == null || this.user.getUserId() != user.getUserId()))
         {
-            Log.msg(VERBOSE,"...userId="+user.getUserId());
+            log.debug("...userId="+user.getUserId());
             this.userChanged = true;
             this.user = user;
         }
@@ -126,7 +125,7 @@ public class Task
             {
                 if (validSteps[i].equalsIgnoreCase(step))
                 {
-                    Log.msg(VERBOSE,"Task.setStep(\""+step+"\")");
+                    log.debug("Task.setStep(\""+step+"\")");
                     this.step = step;
                 }
             }

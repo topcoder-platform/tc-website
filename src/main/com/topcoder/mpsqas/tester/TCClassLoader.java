@@ -4,7 +4,7 @@ import java.lang.ClassLoader;
 import java.io.*;
 import java.lang.*;
 import java.util.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
 /**
  * TCClassLoader is a ClassLoader to load classes used by the tester.  It is taken from 
  * the contest tester.

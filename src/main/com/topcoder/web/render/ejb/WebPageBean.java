@@ -17,7 +17,7 @@ import	javax.naming.*;
 import	javax.sql.DataSource;
 import	com.topcoder.web.render.ejb.WebPage;
 import	com.topcoder.web.render.ejb.WebPageObject;
-import	com.topcoder.common.DBMS;
+import	com.topcoder.shared.util.DBMS;
 
 public class WebPageBean implements javax.ejb.SessionBean {
 
@@ -44,7 +44,7 @@ public class WebPageBean implements javax.ejb.SessionBean {
 		String	insert = "INSERT INTO WEB_PAGE VALUES (  " + page_id + ", '" + language_cd + "', '" + page_name + "', " + status_id + ", '" + page_title + "', '" + page_path + "', " + sort_number + ", " + site_hdr_id + ", '" + country_code + "', " + modify_by + ", ? )";
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( insert );
 			ps.setDate( 1, modify_date );
 			ps.executeUpdate();
@@ -64,7 +64,7 @@ public class WebPageBean implements javax.ejb.SessionBean {
 		PreparedStatement	ps = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( delete );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
@@ -271,7 +271,7 @@ public class WebPageBean implements javax.ejb.SessionBean {
 		InputStream	is = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
@@ -426,7 +426,7 @@ public class WebPageBean implements javax.ejb.SessionBean {
 			return( 0 );
 		int	rc = 0;
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( update.toString() );
 			int	index = 1;
 			rc = ps.executeUpdate();
@@ -449,7 +449,7 @@ public class WebPageBean implements javax.ejb.SessionBean {
 		String	query = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			if( page_name.indexOf( '%' ) >= 0 )
 				query = "SELECT PAGE_ID FROM WEB_PAGE WHERE PAGE_NAME LIKE '" + page_name + "'";
 			else
@@ -477,7 +477,7 @@ public class WebPageBean implements javax.ejb.SessionBean {
 		String	query = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			if( page_title.indexOf( '%' ) >= 0 )
 				query = "SELECT PAGE_ID FROM WEB_PAGE WHERE PAGE_TITLE LIKE '" + page_title + "'";
 			else
@@ -505,7 +505,7 @@ public class WebPageBean implements javax.ejb.SessionBean {
 		String	query = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			query = "SELECT PAGE_ID FROM WEB_PAGE WHERE SITE_HDR_ID = " + site_hdr_id;
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();

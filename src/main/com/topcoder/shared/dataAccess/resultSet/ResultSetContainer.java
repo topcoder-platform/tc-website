@@ -4,9 +4,10 @@ import java.sql.*;
 import java.io.*;
 import java.util.*;
 import java.math.*;
-import org.apache.log4j.*;
 import com.topcoder.shared.dataAccess.StringUtilities;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.docGen.xml.*;
 
 
 /**
@@ -56,7 +57,7 @@ import com.topcoder.shared.util.DBMS;
  * @version 1.01, 02/14/2002
  */
 public class ResultSetContainer implements Serializable, List, Cloneable {
-    private static Category log = Category.getInstance(ResultSetContainer.class.getName());
+    private static Logger log = Logger.getLogger(ResultSetContainer.class);
 
     // Stores ArrayList of ResultSetRow
     private ArrayList data;
@@ -1209,5 +1210,40 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
 	sbReturn.setLength(sbReturn.length() - 1);
 	return sbReturn.toString();
     }	
+
+    /**
+     * Returns a RecordTag that will allow us to get XML for 
+     * this ResultSetContainer
+     * @return The data contained in this result set within a <tt>RecordTag</tt>
+     */
+    public RecordTag getTag(String rootName, String rowName) throws Exception {
+      RecordTag result = null;
+      result = new RecordTag(rootName);
+      ResultSetRow row = null;
+      RecordTag rowRecord = null;
+      try {
+        for (int k=0; k<data.size(); k++) {
+          row = (ResultSetRow)data.get(k);
+          rowRecord = new RecordTag(rowName); 
+          for (int i=0;i<this.getColumnCount();i++) {
+            rowRecord.addTag(new ValueTag(this.getColumnName(i), row.getItem(i).toString()));
+          }
+          result.addTag(rowRecord);
+        }
+      } catch (Exception e) {
+        e.printStackTrace();
+        throw e;
+      }
+      return result;
+    } 
+    
+    /*
+     * Returns a RecordTag that will allow us to get XML for 
+     * this ResultSetContainer
+     * @return The data contained in this result set within a <tt>RecordTag</tt>
+     */ 
+    public RecordTag getTag() throws Exception {
+      return getTag("ResultSet", "ResultRow");
+    }
 }
 

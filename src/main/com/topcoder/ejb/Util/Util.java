@@ -35,9 +35,6 @@ public interface Util extends EJBObject {
   public void incrementPressReleaseHitCount ( int id, String host )
     throws  RemoteException;
 
-  public int logMail ( EMailMessage mail )
-    throws RemoteException;
-
   public void incrementSponsorHitCount ( String link, String refer )
     throws RemoteException;
 

@@ -1,9 +1,9 @@
 package com.topcoder.common.web.data;
 
 import java.io.Serializable;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 
-public class DemographicAnswer implements Cloneable, Serializable, Base {
+public class DemographicAnswer implements Cloneable, Serializable, TagRenderer {
 
 
   private int demographicQuestionId;

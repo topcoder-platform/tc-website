@@ -10,59 +10,53 @@ import javax.servlet.http.*;
 
 import com.topcoder.web.email.servlet.*;
 import com.topcoder.web.email.bean.*;
-import com.topcoder.web.stat.ejb.Statistics.*;
-import com.topcoder.web.stat.ejb.*;
-import com.topcoder.web.stat.common.*;
-import org.apache.log4j.Category;
 
 /**
  * ScheduledJobLogIteratorTag.java
  *
  * Description: Custom tag to iterate through the log of a scheduled job.
  *
- * @author	James Lee (jameslee@cs.stanford.edu)
- * @version	1.0
+ * @author    James Lee (jameslee@cs.stanford.edu)
+ * @version    1.0
  *
  */
 
 
 public class ScheduledJobLogIteratorTag
-	extends IteratorTag
+    extends IteratorTag
 {
-	static Category trace = Category.getInstance(ScheduledJobLogIteratorTag.class);
+    // list of log entries
+    List logList;
 
-	// list of log entries
-	List logList;
+    public void setLogList(List logList)
+    {
+        this.logList = logList;
+    }
 
-	public void setLogList(List logList)
-	{
-		this.logList = logList;
-	}
+    public int doStartTag()
+        throws JspException
+    {
+        setCollection(logList);
 
-	public int doStartTag()
-		throws JspException
-	{
-		setCollection(logList);
-
-		return super.doStartTag();
-	}
+        return super.doStartTag();
+    }
 /*
-	Object getElementAt(int index)
-	{
-		if (index < logResultSetContainer.size()) {
-			TCResultItem status = logResultSetContainer.getItem(index, 0);
-			TCResultItem reason = logResultSetContainer.getItem(index, 1);
-			TCResultItem detail_id = logResultSetContainer.getItem(index, 2);
+    Object getElementAt(int index)
+    {
+        if (index < logResultSetContainer.size()) {
+            TCResultItem status = logResultSetContainer.getItem(index, 0);
+            TCResultItem reason = logResultSetContainer.getItem(index, 1);
+            TCResultItem detail_id = logResultSetContainer.getItem(index, 2);
 
-			JobLogEntry jobLogEntry = new JobLogEntry();
-			jobLogEntry.setDetailStatus(String.valueOf(status));
-			jobLogEntry.setDetailReason(String.valueOf(reason));
-			jobLogEntry.setDetailId(String.valueOf(detail_id));
+            JobLogEntry jobLogEntry = new JobLogEntry();
+            jobLogEntry.setDetailStatus(String.valueOf(status));
+            jobLogEntry.setDetailReason(String.valueOf(reason));
+            jobLogEntry.setDetailId(String.valueOf(detail_id));
 
-			return jobLogEntry;
-		} else {
-			return null;
-		}
-	}
+            return jobLogEntry;
+        } else {
+            return null;
+        }
+    }
 */
 }

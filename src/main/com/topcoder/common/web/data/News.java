@@ -2,13 +2,13 @@ package com.topcoder.common.web.data;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 
 
 public class News 
   implements 
     Serializable 
-    ,Base 
+    ,TagRenderer 
     ,Comparable 
     ,QueryCriteria 
     ,Modifiable 

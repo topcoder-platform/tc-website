@@ -59,7 +59,7 @@ import java.util.*;
 import java.sql.*;
 import com.coolservlets.forum.*;
 import com.coolservlets.util.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
 /**
  * Database implementation of the ProfileManager interface.
  */

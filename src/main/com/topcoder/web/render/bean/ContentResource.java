@@ -20,7 +20,6 @@ import java.sql.SQLException;
 
 class ContentResource extends Resource {
 
-    private static final boolean VERBOSE = false;
     protected WebContentObject webContent;
     protected WebContent wc;
 

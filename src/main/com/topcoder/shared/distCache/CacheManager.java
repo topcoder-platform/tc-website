@@ -1,8 +1,9 @@
 package com.topcoder.shared.distCache;
-
+import com.topcoder.shared.util.logging.Logger;
 public class CacheManager
     implements Runnable
 {
+    private static Logger log = Logger.getLogger(CacheManager.class);
     private CacheServer _server;
 
     public CacheManager(CacheServer server) {
@@ -23,7 +24,7 @@ public class CacheManager
 
     private void expireObjects() {
         long time = System.currentTimeMillis();
-        System.out.println(">> EXPIRING things at " + new java.util.Date(time));
+        log.info(">> EXPIRING things at " + new java.util.Date(time));
         _server.cache().expire(time);
     }
 

@@ -59,9 +59,9 @@ package com.coolservlets.forum.database;
 import com.coolservlets.forum.*;
 import com.coolservlets.util.*;
 
-import com.topcoder.common.*;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
 import java.util.*;
-//JDK1.1// import com.sun.java.util.collections.*;
 import java.text.*;
 import java.sql.*;
 import java.security.*;
@@ -117,6 +117,7 @@ public class DbUser implements User {
     private Object propertyLock = new Object();
     private Object permLock = new Object();
     private Hashtable permissions = null;
+    private static Logger log = Logger.getLogger(DbUser.class);
 
     /**
      * Create a new DbUser with all required fields.
@@ -281,9 +282,9 @@ public class DbUser implements User {
             );
         }
         finally {
-          try { if (rs   != null) rs.close();  } catch (Exception ignore) {Log.msg("rs   close problem");}
-          try { if (ps   != null) ps.close();  } catch (Exception ignore) {Log.msg("ps   close problem");}
-          try { if (conn != null) conn.close();} catch (Exception ignore) {Log.msg("conn close problem");}
+          try { if (rs   != null) rs.close();  } catch (Exception ignore) {log.debug("rs   close problem");}
+          try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
+          try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
           rs = null; 
           ps = null; 
           conn = null; 
@@ -312,8 +313,8 @@ public class DbUser implements User {
             sqle.printStackTrace();
         }
         finally {
-          try { if (ps   != null) ps.close();  } catch (Exception ignore) {Log.msg("ps   close problem");}
-          try { if (conn != null) conn.close();} catch (Exception ignore) {Log.msg("conn close problem");}
+          try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
+          try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
           ps = null; 
           conn = null; 
         }
@@ -345,8 +346,8 @@ public class DbUser implements User {
             sqle.printStackTrace();
         }
         finally {
-          try { if (ps   != null) ps.close();  } catch (Exception ignore) {Log.msg("ps   close problem");}
-          try { if (conn != null) conn.close();} catch (Exception ignore) {Log.msg("conn close problem");}
+          try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
+          try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
           ps = null; 
           conn = null; 
         }

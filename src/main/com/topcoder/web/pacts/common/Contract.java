@@ -32,11 +32,10 @@ package com.topcoder.web.pacts.common;
 
 import java.util.*;
 import com.topcoder.web.common.*;
-import org.apache.log4j.*;
+import com.topcoder.shared.util.logging.Logger;
    
 public class Contract implements PactsConstants, java.io.Serializable {
-       private static Category log = 
-	   	Category.getInstance(Contract.class.getName()); 
+    private static Logger log = Logger.getLogger(Contract.class);
 
     public PaymentHeader _payments[];
     public ContractHeader _header;

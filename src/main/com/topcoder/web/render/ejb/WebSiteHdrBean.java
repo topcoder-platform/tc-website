@@ -17,7 +17,7 @@ import	javax.naming.*;
 import	javax.sql.DataSource;
 import	com.topcoder.web.render.ejb.WebSiteHdr;
 import	com.topcoder.web.render.ejb.WebSiteHdrObject;
-import	com.topcoder.common.DBMS;
+import	com.topcoder.shared.util.DBMS;
 
 public class WebSiteHdrBean implements javax.ejb.SessionBean {
 
@@ -44,7 +44,7 @@ public class WebSiteHdrBean implements javax.ejb.SessionBean {
 		String	insert = "INSERT INTO WEB_SITE_HDR VALUES (  " + site_hdr_id + ", '" + site_hdr_name + "', '" + site_hdr_desc + "', ?, ?, " + modify_by + " )";
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( insert );
 			ps.setDate( 1, created );
 			ps.setDate( 2, modify_date );
@@ -65,7 +65,7 @@ public class WebSiteHdrBean implements javax.ejb.SessionBean {
 		PreparedStatement	ps = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( delete );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
@@ -202,7 +202,7 @@ public class WebSiteHdrBean implements javax.ejb.SessionBean {
 		InputStream	is = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
@@ -302,7 +302,7 @@ public class WebSiteHdrBean implements javax.ejb.SessionBean {
 			return( 0 );
 		int	rc = 0;
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( update.toString() );
 			int	index = 1;
 			rc = ps.executeUpdate();
@@ -325,7 +325,7 @@ public class WebSiteHdrBean implements javax.ejb.SessionBean {
 		String	query = "SELECT SITE_HDR_ID FROM WEB_SITE_HDR";
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			while( rs.next() )
@@ -348,7 +348,7 @@ public class WebSiteHdrBean implements javax.ejb.SessionBean {
 		String	query = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			if( site_hdr_desc.indexOf( '%' ) >= 0 )
 				query = "SELECT SITE_HDR_ID FROM WEB_SITE_HDR WHERE SITE_HDR_DESC LIKE '" + site_hdr_desc + "'";
 			else

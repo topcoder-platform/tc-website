@@ -4,8 +4,9 @@ import java.sql.*;
 import java.io.*;
 import java.util.*;
 import java.math.*;
-import org.apache.log4j.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
+import com.topcoder.shared.util.logging.Logger;
+
 
 
 /**
@@ -55,7 +56,7 @@ import com.topcoder.common.*;
  * @version 1.01, 02/14/2002
  */
 public class ResultSetContainer implements Serializable, List, Cloneable {
-    private static Category log = Category.getInstance(ResultSetContainer.class.getName());
+    private static Logger log = Logger.getLogger(ResultSetContainer.class);
 
     // Stores ArrayList of ResultSetRow
     private ArrayList data;

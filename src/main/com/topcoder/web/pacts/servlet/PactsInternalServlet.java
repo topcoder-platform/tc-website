@@ -20,7 +20,7 @@ import com.topcoder.common.web.data.*;
 import com.topcoder.web.pacts.bean.pacts_internal.dispatch.*;
 import com.topcoder.web.pacts.bean.pacts_client.dispatch.*;
 import com.topcoder.web.pacts.bean.*;
-import org.apache.log4j.*;
+import com.topcoder.shared.util.logging.Logger;
 import java.util.*;
 import java.text.*;
 
@@ -42,7 +42,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 	private static final int NULL_FLOAT_TYPE = FLOAT_TYPE * NULL_MULT;
 	private static final int NULL_DOUBLE_TYPE = DOUBLE_TYPE * NULL_MULT;
 
-	private static Category log = Category.getInstance(PactsInternalServlet.class.getName());
+        private static Logger log = Logger.getLogger(PactsInternalServlet.class);
 
 
 	// Encapsulated boolean Class which describes

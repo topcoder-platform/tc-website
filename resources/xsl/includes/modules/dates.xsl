@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:template name="dates">
+    <xsl:param name="class"></xsl:param>
     <xsl:for-each select="/TC/HOME/Rounds/Round[position()=1]">
       <xsl:sort data-type="number" select="substring(RoundSegments/RoundSegment[SegmentId='1']/Start,7,4)"/>
       <xsl:sort data-type="number" select="substring(RoundSegments/RoundSegment[SegmentId='1']/Start,1,2)"/>

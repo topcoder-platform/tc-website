@@ -6,7 +6,8 @@ import java.text.*;
 import javax.naming.*;
 import javax.ejb.*;
 import com.topcoder.ejb.DataCache.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.common.web.error.*;
 import com.topcoder.common.web.util.*;
 import java.util.*;
@@ -17,9 +18,10 @@ import java.util.*;
 public class DataCacheRefresh {
 ///////////////////////////
 
+  private static Logger log = Logger.getLogger(DataCacheRefresh.class);
 
   /////////////////////////////////////////////////////////////////////////
-  private static final String[] validArg = { "xsl", "data" };
+  private static final String[] validArg = { "data" };
   /////////////////////////////////////////////////////////////////////////
 
 
@@ -107,18 +109,15 @@ public class DataCacheRefresh {
             if ( inArray(args,"data") ) {
               cacheIp = cache.resetAll();
             }
-            if ( inArray(args,"xsl") ) {
-              cacheIp = cache.resetXSL();
-            }
             for ( int j = 0; j < host.length; j++ ) {
               if ( byteArraysEqual(cacheIp,host[j].getAddress()) ) {
                 found[j]=true;
-                Log.msg ( Conversion.ipBytesToString( cacheIp )+" REFRESHED" );
+                log.debug ( Conversion.ipBytesToString( cacheIp )+" REFRESHED" );
                 break;
               }
             }
           } catch ( Exception e ) {
-            Log.msg("ERROR: An error occured while refreshing!");
+            log.error("ERROR: An error occured while refreshing!");
             e.printStackTrace();
             throw e;
           }

@@ -8,12 +8,11 @@ package com.topcoder.web.pacts.common;
 
 import java.util.*;
 import com.topcoder.web.common.*;
-import org.apache.log4j.*;
 import com.topcoder.web.pacts.common.*;
+import com.topcoder.shared.util.logging.Logger;
 
 public class TCData {
-    private static Category log =
-	Category.getInstance(TCData.class.getName());
+    private static Logger log = Logger.getLogger(TCData.class);
 
     private static final boolean LOG_EXCEPTIONS = false;
     public static long getTCLong(ResultSetContainer.ResultSetRow row,

@@ -2,7 +2,7 @@ package com.topcoder.utilities;
 
 import java.util.ArrayList;
 import java.sql.*;
-import com.topcoder.common.DBMS;
+import com.topcoder.shared.util.DBMS;
 
 public class DokkahBlade {
   

@@ -8,13 +8,14 @@ import java.math.*;
 import javax.naming.*;
 import java.rmi.RemoteException;
 import com.topcoder.web.project.common.*;
+import com.topcoder.shared.util.logging.Logger;
 
 public class ProjectServicesBean implements SessionBean  {
+    private static Logger log = Logger.getLogger(ProjectServicesBean.class);
     public static final int ROLE_EXECUTIVE  = 1;
     public static final int ROLE_MANAGER    = 2;
     public static final int ROLE_DEVELOPER  = 3;
     
-    private static final boolean VERBOSE = true;
     private static final String TAG = "ProjectServicesBean";
     
     protected SessionContext ctx;
@@ -59,9 +60,9 @@ public class ProjectServicesBean implements SessionBean  {
             if(conn!=null) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"cx closed...");
+                    log.debug("cx closed...");
                 } catch(Exception ignore){
-                    //Log.msg(VERBOSE,"cx NOT closed...");
+                    log.error("cx NOT closed...");
                 }
             }
         }
@@ -98,9 +99,9 @@ public class ProjectServicesBean implements SessionBean  {
             if(conn!=null) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"cx closed...");
+                    log.debug("cx closed...");
                 } catch(Exception ignore){
-                    //Log.msg(VERBOSE,"cx NOT closed...");
+                    log.error("cx NOT closed...");
                 }
             }
         }
@@ -137,9 +138,9 @@ public class ProjectServicesBean implements SessionBean  {
             if(conn!=null) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"cx closed...");
+                    log.debug("cx closed...");
                 } catch(Exception ignore){
-                    //Log.msg(VERBOSE,"cx NOT closed...");
+                    log.error("cx NOT closed...");
                 }
             }
         }
@@ -174,9 +175,9 @@ public class ProjectServicesBean implements SessionBean  {
             if(conn!=null) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"cx closed...");
+                    log.debug("cx closed...");
                 } catch(Exception ignore){
-                    //Log.msg(VERBOSE,"cx NOT closed...");
+                    log.error("cx NOT closed...");
                 }
             }
         }
@@ -206,9 +207,9 @@ public class ProjectServicesBean implements SessionBean  {
             if(conn!=null) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"cx closed...");
+                    log.debug("cx closed...");
                 } catch(Exception ignore){
-                    //Log.msg(VERBOSE,"cx NOT closed...");
+                    log.error("cx NOT closed...");
                 }
             }
         }
@@ -275,9 +276,9 @@ public class ProjectServicesBean implements SessionBean  {
             if(conn!=null) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"loadCoder cx closed...");
+                    log.debug("cx closed...");
                 } catch(Exception ignore){
-                    //Log.msg(VERBOSE,"loadCoder cx NOT closed...");
+                    log.error("cx NOT closed...");
                 }
             }
         }
@@ -402,9 +403,9 @@ public class ProjectServicesBean implements SessionBean  {
             if(conn!=null) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"loadeCoder cx closed...");
+                    log.debug("cx closed...");
                 } catch(Exception ignore){
-                    //Log.msg(VERBOSE,"loadCoder cx NOT closed...");
+                    log.error("cx NOT closed...");
                 }
             }
         }
@@ -487,9 +488,9 @@ public class ProjectServicesBean implements SessionBean  {
             if (conn != null ) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"updateCoder cx closed...");
+                    log.debug("cx closed...");
                 } catch (Exception ignore ) {
-                    //Log.msg(VERBOSE,"updateCoder cx NOT closed...");
+                    log.error("cx NOT closed...");
                 }
             }
         }
@@ -574,9 +575,9 @@ public class ProjectServicesBean implements SessionBean  {
             if (conn != null ) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"updateCoder cx closed...");
+                    log.debug("cx closed...");
                 } catch (Exception ignore ) {
-                    //Log.msg(VERBOSE,"updateCoder cx NOT closed...");
+                    log.error("cx NOT closed...");
                 }
             }
         }
@@ -648,9 +649,9 @@ public class ProjectServicesBean implements SessionBean  {
             if(conn!=null) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"loadCoder cx closed...");
+                    log.debug("cx closed...");
                 } catch(Exception ignore){
-                    //Log.msg(VERBOSE,"loadCoder cx NOT closed...");
+                    log.error("cx NOT closed...");
                 }
             }
         }
@@ -719,9 +720,8 @@ public class ProjectServicesBean implements SessionBean  {
             if(conn!=null) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"loadeCoder cx closed...");
                 } catch(Exception ignore){
-                    //Log.msg(VERBOSE,"loadCoder cx NOT closed...");
+                    log.error("loadCoder cx NOT closed...");
                 }
             }
         }
@@ -799,9 +799,8 @@ public class ProjectServicesBean implements SessionBean  {
             if(conn!=null) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"loadeCoder cx closed...");
                 } catch(Exception ignore){
-                    //Log.msg(VERBOSE,"loadCoder cx NOT closed...");
+                    log.error("loadCoder cx NOT closed...");
                 }
             }
         }
@@ -867,9 +866,8 @@ public class ProjectServicesBean implements SessionBean  {
             if (conn != null ) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"updateCoder cx closed...");
                 } catch (Exception ignore ) {
-                    //Log.msg(VERBOSE,"updateCoder cx NOT closed...");
+                    log.error("updateCoder cx NOT closed...");
                 }
             }
         }
@@ -937,9 +935,8 @@ public class ProjectServicesBean implements SessionBean  {
             if (conn != null ) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"updateCoder cx closed...");
                 } catch (Exception ignore ) {
-                    //Log.msg(VERBOSE,"updateCoder cx NOT closed...");
+                    log.error("updateCoder cx NOT closed...");
                 }
             }
         }
@@ -991,9 +988,8 @@ public class ProjectServicesBean implements SessionBean  {
             if(conn!=null) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"loadCoder cx closed...");
                 } catch(Exception ignore){
-                    //Log.msg(VERBOSE,"loadCoder cx NOT closed...");
+                    log.error("loadCoder cx NOT closed...");
                 }
             }
         }
@@ -1045,9 +1041,8 @@ public class ProjectServicesBean implements SessionBean  {
             if(conn!=null) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"loadeCoder cx closed...");
                 } catch(Exception ignore){
-                    //Log.msg(VERBOSE,"loadCoder cx NOT closed...");
+                    log.error("loadCoder cx NOT closed...");
                 }
             }
         }
@@ -1091,9 +1086,8 @@ public class ProjectServicesBean implements SessionBean  {
             if (conn != null ) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"updateCoder cx closed...");
                 } catch (Exception ignore ) {
-                    //Log.msg(VERBOSE,"updateCoder cx NOT closed...");
+                    log.error("updateCoder cx NOT closed...");
                 }
             }
         }
@@ -1146,9 +1140,8 @@ public class ProjectServicesBean implements SessionBean  {
             if (conn != null ) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"updateCoder cx closed...");
                 } catch (Exception ignore ) {
-                    //Log.msg(VERBOSE,"updateCoder cx NOT closed...");
+                    log.error("updateCoder cx NOT closed...");
                 }
             }
         }
@@ -1199,9 +1192,8 @@ public class ProjectServicesBean implements SessionBean  {
             if(conn!=null) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"loadCoder cx closed...");
                 } catch(Exception ignore){
-                    //Log.msg(VERBOSE,"loadCoder cx NOT closed...");
+                    log.error("loadCoder cx NOT closed...");
                 }
             }
         }
@@ -1238,9 +1230,8 @@ public class ProjectServicesBean implements SessionBean  {
             if (conn != null ) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"updateCoder cx closed...");
                 } catch (Exception ignore ) {
-                    //Log.msg(VERBOSE,"updateCoder cx NOT closed...");
+                    log.error("updateCoder cx NOT closed...");
                 }
             }
         }
@@ -1287,9 +1278,8 @@ public class ProjectServicesBean implements SessionBean  {
             if (conn != null ) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"updateCoder cx closed...");
                 } catch (Exception ignore ) {
-                    //Log.msg(VERBOSE,"updateCoder cx NOT closed...");
+                    log.error("updateCoder cx NOT closed...");
                 }
             }
         }
@@ -1335,9 +1325,8 @@ public class ProjectServicesBean implements SessionBean  {
             if(conn!=null) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"loadeCoder cx closed...");
                 } catch(Exception ignore){
-                    //Log.msg(VERBOSE,"loadCoder cx NOT closed...");
+                    log.error("loadCoder cx NOT closed...");
                 }
             }
         }
@@ -1385,9 +1374,8 @@ public class ProjectServicesBean implements SessionBean  {
             if(conn!=null) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"loadeCoder cx closed...");
                 } catch(Exception ignore){
-                    //Log.msg(VERBOSE,"loadCoder cx NOT closed...");
+                    log.error("loadCoder cx NOT closed...");
                 }
             }
         }
@@ -1440,9 +1428,8 @@ public class ProjectServicesBean implements SessionBean  {
             if(conn!=null) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"loadCoder cx closed...");
                 } catch(Exception ignore){
-                    //Log.msg(VERBOSE,"loadCoder cx NOT closed...");
+                    log.error("loadCoder cx NOT closed...");
                 }
             }
         }
@@ -1488,9 +1475,8 @@ public class ProjectServicesBean implements SessionBean  {
             if (conn != null ) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"updateCoder cx closed...");
                 } catch (Exception ignore ) {
-                    //Log.msg(VERBOSE,"updateCoder cx NOT closed...");
+                    log.error("updateCoder cx NOT closed...");
                 }
             }
         }
@@ -1542,9 +1528,8 @@ public class ProjectServicesBean implements SessionBean  {
             if(conn!=null) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"loadCoder cx closed...");
                 } catch(Exception ignore){
-                    //Log.msg(VERBOSE,"loadCoder cx NOT closed...");
+                    log.error("loadCoder cx NOT closed...");
                 }
             }
         }
@@ -1589,9 +1574,8 @@ public class ProjectServicesBean implements SessionBean  {
             if(conn!=null) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"loadeCoder cx closed...");
                 } catch(Exception ignore){
-                    //Log.msg(VERBOSE,"loadCoder cx NOT closed...");
+                    log.error("loadCoder cx NOT closed...");
                 }
             }
         }
@@ -1643,9 +1627,8 @@ public class ProjectServicesBean implements SessionBean  {
             if (conn != null ) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"updateCoder cx closed...");
                 } catch (Exception ignore ) {
-                    //Log.msg(VERBOSE,"updateCoder cx NOT closed...");
+                    log.error("updateCoder cx NOT closed...");
                 }
             }
         }
@@ -1709,9 +1692,8 @@ public class ProjectServicesBean implements SessionBean  {
             if(conn!=null) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"loadCoder cx closed...");
                 } catch(Exception ignore){
-                    //Log.msg(VERBOSE,"loadCoder cx NOT closed...");
+                    log.error("loadCoder cx NOT closed...");
                 }
             }
         }
@@ -1791,9 +1773,8 @@ public class ProjectServicesBean implements SessionBean  {
             if(conn!=null) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"loadeCoder cx closed...");
                 } catch(Exception ignore){
-                    //Log.msg(VERBOSE,"loadCoder cx NOT closed...");
+                    log.error("loadCoder cx NOT closed...");
                 }
             }
         }
@@ -1884,9 +1865,8 @@ public class ProjectServicesBean implements SessionBean  {
             if(conn!=null) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"loadeCoder cx closed...");
                 } catch(Exception ignore){
-                    //Log.msg(VERBOSE,"loadCoder cx NOT closed...");
+                    log.error("loadCoder cx NOT closed...");
                 }
             }
         }
@@ -1950,9 +1930,7 @@ public class ProjectServicesBean implements SessionBean  {
             if (conn != null ) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"updateCoder cx closed...");
                 } catch (Exception ignore ) {
-                    //Log.msg(VERBOSE,"updateCoder cx NOT closed...");
                 }
             }
         }
@@ -2014,9 +1992,7 @@ public class ProjectServicesBean implements SessionBean  {
             if (conn != null ) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"updateCoder cx closed...");
                 } catch (Exception ignore ) {
-                    //Log.msg(VERBOSE,"updateCoder cx NOT closed...");
                 }
             }
         }
@@ -2054,9 +2030,7 @@ public class ProjectServicesBean implements SessionBean  {
             if(conn!=null) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"cx closed...");
                 } catch(Exception ignore){
-                    //Log.msg(VERBOSE,"cx NOT closed...");
                 }
             }
         }
@@ -2091,9 +2065,7 @@ public class ProjectServicesBean implements SessionBean  {
             if(conn!=null) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"cx closed...");
                 } catch(Exception ignore){
-                    //Log.msg(VERBOSE,"cx NOT closed...");
                 }
             }
         }
@@ -2132,9 +2104,7 @@ public class ProjectServicesBean implements SessionBean  {
             if(conn!=null) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"cx closed...");
                 } catch(Exception ignore){
-                    //Log.msg(VERBOSE,"cx NOT closed...");
                 }
             }
         }
@@ -2171,9 +2141,7 @@ public class ProjectServicesBean implements SessionBean  {
             if(conn!=null) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"cx closed...");
                 } catch(Exception ignore){
-                    //Log.msg(VERBOSE,"cx NOT closed...");
                 }
             }
         }
@@ -2209,9 +2177,7 @@ public class ProjectServicesBean implements SessionBean  {
             if(conn!=null) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"cx closed...");
                 } catch(Exception ignore){
-                    //Log.msg(VERBOSE,"cx NOT closed...");
                 }
             }
         }    
@@ -2251,9 +2217,7 @@ public class ProjectServicesBean implements SessionBean  {
             if(conn!=null) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"cx closed...");
                 } catch(Exception ignore){
-                    //Log.msg(VERBOSE,"cx NOT closed...");
                 }
             }
         }
@@ -2296,9 +2260,7 @@ public class ProjectServicesBean implements SessionBean  {
             if(conn!=null) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"cx closed...");
                 } catch(Exception ignore){
-                    //Log.msg(VERBOSE,"cx NOT closed...");
                 }
             }
         }
@@ -2339,9 +2301,7 @@ public class ProjectServicesBean implements SessionBean  {
             if(conn!=null) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"cx closed...");
                 } catch(Exception ignore){
-                    //Log.msg(VERBOSE,"cx NOT closed...");
                 }
             }
         }
@@ -2380,9 +2340,7 @@ public class ProjectServicesBean implements SessionBean  {
             if(conn!=null) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"cx closed...");
                 } catch(Exception ignore){
-                    //Log.msg(VERBOSE,"cx NOT closed...");
                 }
             }
         }
@@ -2478,9 +2436,9 @@ public class ProjectServicesBean implements SessionBean  {
             if(conn!=null) {
                 try {
                     conn.close();
-                    //Log.msg(VERBOSE,"cx closed...");
+                    log.debug("cx closed...");
                 } catch(Exception ignore){
-                    //Log.msg(VERBOSE,"cx NOT closed...");
+                    log.error("cx NOT closed...");
                 }
             }
         }
@@ -2492,23 +2450,23 @@ public class ProjectServicesBean implements SessionBean  {
     //*************************************************************************
     
     public void ejbActivate() {
-        if (VERBOSE) System.out.println(getTag()+":  ejbActivate called");
+        System.out.println(getTag()+":  ejbActivate called");
     }
     
     public void ejbPassivate() {
-        if (VERBOSE) System.out.println(getTag()+":  ejbPassivate called");
+        System.out.println(getTag()+":  ejbPassivate called");
     }
     
     public void ejbCreate() throws CreateException {
-        if (VERBOSE) System.out.println(getTag()+":  ejbCreate called");
+        System.out.println(getTag()+":  ejbCreate called");
     }
     
     public void ejbRemove() throws RemoteException {
-        if (VERBOSE) System.out.println(getTag()+":  ejbRemove called");
+        System.out.println(getTag()+":  ejbRemove called");
     }
     
     public void setSessionContext(SessionContext ctx) throws RemoteException {
-        if (VERBOSE) System.out.println(getTag()+":  setSessionContext called");
+        System.out.println(getTag()+":  setSessionContext called");
         this.ctx = ctx;
     }
     
