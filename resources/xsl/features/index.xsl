@@ -10,173 +10,191 @@
   <xsl:import href="../includes/public_right_col.xsl"/>     
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
-    <HTML>
-      <HEAD>
-        <xsl:call-template name="Preload"/>      
-        <TITLE>TopCoder :: Features</TITLE>
-        <xsl:call-template name="CSS"/>      
-        <!--<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-        <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>-->
-        <META NAME="description" CONTENT="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
-        <META NAME="keywords" CONTENT="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
-      </HEAD>
-      <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
-        <xsl:call-template name="Top"/>
-<!-- Body Begins -->
-<TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
-	<TR>
-    <!-- Left Column Begins -->
-		<TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
-<!-- Left Column Include Begins -->	
-    <!-- Global Seconday Nav Begins -->	
-        <xsl:call-template name="global_left"/>
-	<!-- Global Seconday Nav Ends -->	
-<!-- Left Column Include Ends -->    		
-	  	</TD>
-	<!-- Left Column Ends -->
-	<!-- Gutter Begins -->
-		<TD WIDTH="4" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/table_top_fill.gif" WIDTH="4" HEIGHT="26" BORDER="0"/></TD>
-    <!-- Gutter Ends -->
 
-<!-- Body Area -->
-	<!-- Center Column Begins -->	
-		<TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#FFFFFF" VALIGN="top">
-<xsl:call-template name="BodyTop">
-  <xsl:with-param name="image1">white</xsl:with-param>
-  <xsl:with-param name="image">features</xsl:with-param>
-  <xsl:with-param name="title">&#160;Upcoming/Past Features</xsl:with-param>
-</xsl:call-template>
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
-				<TR>
-					<TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-					<TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>          
-            <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="1" BGCOLOR="#FFFFFF">
-		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="23" BORDER="0"/></TD></TR>
-		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="3" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;Upcoming Features</TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14" COLSPAN="3" BGCOLOR="#CCCCCC">Database security</TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14" COLSPAN="3">The ACE library - Adaptive Communication  Environment</TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14" COLSPAN="3" BGCOLOR="#CCCCCC">Authoring for an advanced morphing software (C++)</TD></TR>		
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14" COLSPAN="3">Massive-scale simulator to test an instant messaging server (C++)</TD></TR>		
-	    <TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14" COLSPAN="3" BGCOLOR="#CCCCCC">Tools for debugging memory leaks</TD></TR>
-	    <TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14" COLSPAN="3">Smart pointers in C++</TD></TR>	
-	    <TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14" COLSPAN="3" BGCOLOR="#CCCCCC">Explaining dynamic Programming</TD></TR>
-	    <TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14" COLSPAN="3">Genetic algorithms/programming</TD></TR>	    	
-	    <TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14" COLSPAN="3" BGCOLOR="#CCCCCC">Reverse engineering the MSN Messenger protocol</TD></TR>	
-	    <TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14" COLSPAN="3">XML-based UI description language that allows dynamic building and switching of UI screens at runtime</TD></TR>
-	    <TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14" COLSPAN="3"><A HREF="/index?t=features&amp;c=feat_topics" CLASS="bodyGeneric">Want to write?</A></TD></TR>		
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="23" BORDER="0"/></TD></TR>		
-		<TR><TD VALIGN="middle" BGCOLOR="#666666" COLSPAN="3" HEIGHT="18" CLASS="statText">&#160;&#160;<B>2003 Features</B></TD></TR>		
-		<TR><TD VALIGN="middle" BGCOLOR="#CCCCCC" HEIGHT="18" WIDTH="12%" CLASS="bodyText">&#160;&#160;<B>Date</B></TD><TD WIDTH="25%" VALIGN="middle" BGCOLOR="#CCCCCC" CLASS="bodyText">&#160;&#160;<B>Author</B></TD><TD WIDTH="63%" VALIGN="middle" BGCOLOR="#CCCCCC" CLASS="bodyText">&#160;&#160;<B>Feature</B></TD></TR>
-		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="3" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;January</TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>		
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;01.22.03</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;the_gigi</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=features&amp;c=feat_012203" CLASS="bodyGeneric">Who needs another UI framework?</A></TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;01.08.03</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;radeye</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=features&amp;c=feat_010803" CLASS="bodyGeneric">Functional Programming</A></TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD></TR>
-		
-		<TR><TD VALIGN="middle" BGCOLOR="#666666" COLSPAN="3" HEIGHT="18" CLASS="statText">&#160;&#160;<B>2002 Features</B></TD></TR>		
-		<TR><TD VALIGN="middle" BGCOLOR="#CCCCCC" HEIGHT="18" WIDTH="12%" CLASS="bodyText">&#160;&#160;<B>Date</B></TD><TD WIDTH="25%" VALIGN="middle" BGCOLOR="#CCCCCC" CLASS="bodyText">&#160;&#160;<B>Author</B></TD><TD WIDTH="63%" VALIGN="middle" BGCOLOR="#CCCCCC" CLASS="bodyText">&#160;&#160;<B>Feature</B></TD></TR>
-		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="3" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;December</TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>		
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;12.20.02</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;KaiEl</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=features&amp;c=feat_122002" CLASS="bodyGeneric">The Big Rerun</A></TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;12.09.02</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;KaiEl</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=features&amp;c=feat_120902" CLASS="bodyGeneric">It's Sink or Swim During the Challenge Phase</A></TD></TR>
-				
-		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD></TR>		
-		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="3" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;November</TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>		
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;11.20.02</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;leadhyena_inran</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=features&amp;c=feat_112002" CLASS="bodyGeneric">The eight seconds of death: Tips on preventing timeout</A></TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;11.13.02</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;RevenantChaos</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=features&amp;c=feat_111302" CLASS="bodyGeneric">King of the Silicon Hill: Today's High-End Microprocessors</A></TD></TR>
-				
-		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD></TR>		
-		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="3" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;October</TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>		
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;10.09.02</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;Penwiper</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=features&amp;c=feat_100902" CLASS="bodyGeneric">Graphics Programming for Motion Capture</A></TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;10.02.02</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;pearl</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=features&amp;c=feat_100202" CLASS="bodyGeneric">Finding a Job is a Job</A></TD></TR>
+<html>
 
-		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD></TR>		
-		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="3" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;September</TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>		
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;09.11.02</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;KaiEl</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=features&amp;c=feat_091102" CLASS="bodyGeneric">...A Problem is Born</A></TD></TR>
+<head>
 
-		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD></TR>				
-		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="3" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;August</TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>		
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;08.21.02</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;polgara</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=features&amp;c=feat_082102" CLASS="bodyGeneric">Wireless Woes and Winners</A></TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;08.07.02</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;KaiEl</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=features&amp;c=feat_080702" CLASS="bodyGeneric">Match Strategy</A></TD></TR>
-		
-		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD></TR>		
-		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="3" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;July</TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>		
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;07.24.02</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;polgara</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=features&amp;c=feat_072402" CLASS="bodyGeneric">Attack of the Moans: Building Applications for Users</A></TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;07.10.02</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;bitbucket43</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=features&amp;c=feat_071002" CLASS="bodyGeneric">From the Field - Avoid Overloading!</A></TD></TR>
+<xsl:call-template name="Preload" />      
 
-		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD></TR>
-		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="3" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;June</TD></TR> 
-		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;06.26.02</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;kpsmith</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=features&amp;c=feat_062602" CLASS="bodyGeneric">From the Field</A></TD></TR>		
-<!--		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;06.19.02</TD><TD VALIGN="middle" CLASS="bodyText">TopCoder Staff</TD><TD VALIGN="middle" CLASS="bodyText">Rapid Rise</TD></TR> -->
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;06.12.02</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;polgara</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=features&amp;c=feat_061202" CLASS="bodyGeneric">To in-house or to out-source, that is the question</A></TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;06.05.02</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;TopCoder Staff</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=features&amp;c=feat_060502" CLASS="bodyGeneric">Where Has The Time Gone?</A></TD></TR>
+<title>TopCoder :: Features</title>
 
-		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD></TR>
-		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="3" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;May</TD></TR> 
-		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;05.29.02</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;TopCoder Staff</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=features&amp;c=feat_052902" CLASS="bodyGeneric">The Outsiders</A></TD></TR>		
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;05.22.02</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;KaiEl</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=features&amp;c=feat_052202" CLASS="bodyGeneric">Obfu-What?</A></TD></TR>		
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;05.15.02</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;TopCoder Staff</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=features&amp;c=feat_051502" CLASS="bodyGeneric">First Time Phenomenal</A></TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;05.08.02</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;TopCoder Staff</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=features&amp;c=feat_050802" CLASS="bodyGeneric">Working Their Way Up</A></TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;05.01.02</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;TopCoder Staff</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=features&amp;c=feat_050102" CLASS="bodyGeneric">The Women of TopCoder</A></TD></TR>
+<xsl:call-template name="CSS" />      
 
-		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD></TR>
-		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="3" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;April</TD></TR> 
-		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>		
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.24.02</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;TopCoder Staff</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=statistics&amp;c=2002tccc_feature" CLASS="bodyGeneric">A Matter of Time</A></TD></TR>
-            </TABLE>
-<P>
-<A HREF="/index?t=features&amp;c=feat_topics" CLASS="bodyGeneric">Want to write?</A>
-</P>
+<meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
+<meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
+
+</head>
+
+<body bgcolor="#FFFFFF" topmargin="0" marginheight="0" leftmargin="0" marginwidth="0">
+
+<xsl:call-template name="Top" />
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr valign="top">
+<!-- Left Column Begins -->
+        <td width="170" bgcolor="#CCCCCC">
+
+            <xsl:call-template name="global_left" />
+
+        </td>
+<!-- Left Column Ends -->
+
+<!-- Gutter Begins -->
+        <td width="4"><img src="/i/table_top_fill.gif" width="4" height="26" border="0"/></td>
+<!-- Gutter Ends -->
+
+<!-- Center Column Begins -->    
+        <td class="bodyText" width="100%">
             
-<P><BR/></P>
-					</TD>
-					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-				</TR>
-				<TR>
-					<TD COLSPAN="4" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-				</TR>   	
-				<TR>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" WIDTH="75"><IMG SRC="/i/table_mid_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-				</TR>	
-				<TR>
-					<TD VALIGN="top" WIDTH="11" ALIGN="right" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-				</TR>
-			</TABLE>
-		</TD>
-	<!-- Center Column Ends -->
+            <xsl:call-template name="BodyTop">
+                <xsl:with-param name="image1">white</xsl:with-param>
+                <xsl:with-param name="image">features</xsl:with-param>
+                <xsl:with-param name="title">&#160;Upcoming/Past Features</xsl:with-param>
+            </xsl:call-template>
+            
+            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" width="100%">
+                <tr><td colspan="3"><img src="/i/clear.gif" alt="" width="1" height="23" border="0"/></td></tr>
+                <tr valign="top">
+                    <td width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
+                    <td class="bodyText" width="100%">         
+                        <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                            <tr><td valign="middle" class="bodyText"><img src="/i/clear.gif" alt="" width="1" height="23" border="0"/></td></tr>
+                            <tr><td valign="middle" class="statTextBig" background="/i/steel_gray_bg.gif" height="18">&#160;Upcoming Features</td></tr>
+                            <tr><td valign="middle" class="bodyText" bgcolor="#CCCCCC">Database security</td></tr>
+                            <tr><td valign="middle" class="bodyText">The ACE library - Adaptive Communication  Environment</td></tr>
+                            <tr><td valign="middle" class="bodyText" bgcolor="#CCCCCC">Authoring for an advanced morphing software (C++)</td></tr>        
+                            <tr><td valign="middle" class="bodyText">Massive-scale simulator to test an instant messaging server (C++)</td></tr>        
+                            <tr><td valign="middle" class="bodyText" bgcolor="#CCCCCC">Tools for debugging memory leaks</td></tr>
+                            <tr><td valign="middle" class="bodyText">Smart pointers in C++</td></tr>    
+                            <tr><td valign="middle" class="bodyText" bgcolor="#CCCCCC">Explaining dynamic Programming</td></tr>
+                            <tr><td valign="middle" class="bodyText">Genetic algorithms/programming</td></tr>            
+                            <tr><td valign="middle" class="bodyText" bgcolor="#CCCCCC">Reverse engineering the MSN Messenger protocol</td></tr>    
+                            <tr><td valign="middle" class="bodyText">XML-based UI description language that allows dynamic building and switching of UI screens at runtime</td></tr>
+                            <tr><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_topics" class="bodyGeneric">Want to write?</a></td></tr>        
+                            <tr><td valign="middle" class="bodyText"><img src="/i/clear.gif" alt="" width="1" height="23" border="0"/></td></tr>
+                        </table>
+        
+                        <table width="100%" border="0" cellpadding="0" cellspacing="1">
+                            <tr><td valign="middle" bgcolor="#666666" colspan="3" height="18" class="statText">&#160;&#160;<strong>2003 Features</strong></td></tr>        
+                            <tr>
+                                <td valign="middle" bgcolor="#CCCCCC" height="18" width="12%" class="bodyText">&#160;&#160;<strong>Date</strong></td>
+                                <td width="25%" valign="middle" bgcolor="#CCCCCC" class="bodyText">&#160;&#160;<strong>Author</strong></td>
+                                <td width="63%" valign="middle" bgcolor="#CCCCCC" class="bodyText">&#160;&#160;<strong>Feature</strong></td>
+                            </tr>
+                            <tr><td valign="middle" class="statTextBig" colspan="3" background="/i/steel_gray_bg.gif" height="18">&#160;January</td></tr>
+                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>        
+                            <tr>
+                                <td valign="middle" class="bodyText" height="14">&#160;02.20.03</td><td valign="middle" class="bodyText">&#160;&#160;David Tanacea</td>
+                                <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_022003" class="bodyGeneric">Component-Based Development: Why Hasn't the Vision Met Reality?</a></td>
+                            </tr>
+                            <tr>
+                                <td valign="middle" class="bodyText" height="14">&#160;01.22.03</td><td valign="middle" class="bodyText">&#160;&#160;the_gigi</td>
+                                <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_012203" class="bodyGeneric">Who needs another UI framework?</a></td>
+                            </tr>
+                            <tr>
+                                <td valign="middle" class="bodyText" height="14">&#160;01.08.03</td><td valign="middle" class="bodyText">&#160;&#160;radeye</td>
+                                <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_010803" class="bodyGeneric">Functional Programming</a></td>
+                            </tr>
+                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="15" border="0"/></td></tr>
+                        </table>
+        
+                        <table width="100%" border="0" cellpadding="0" cellspacing="1">
+                            <tr><td valign="middle" bgcolor="#666666" colspan="3" height="18" class="statText">&#160;&#160;<strong>2002 Features</strong></td></tr>        
+                            <tr><td valign="middle" bgcolor="#CCCCCC" height="18" width="12%" class="bodyText">&#160;&#160;<strong>Date</strong></td><td width="25%" valign="middle" bgcolor="#CCCCCC" class="bodyText">&#160;&#160;<strong>Author</strong></td><td width="63%" valign="middle" bgcolor="#CCCCCC" class="bodyText">&#160;&#160;<strong>Feature</strong></td></tr>
+                            <tr><td valign="middle" class="statTextBig" colspan="3" background="/i/steel_gray_bg.gif" height="18">&#160;December</td></tr>
+                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>        
+                            <tr><td valign="middle" class="bodyText" height="14">&#160;12.20.02</td><td valign="middle" class="bodyText">&#160;&#160;KaiEl</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_122002" class="bodyGeneric">The Big Rerun</a></td></tr>
+                            <tr><td valign="middle" class="bodyText" height="14">&#160;12.09.02</td><td valign="middle" class="bodyText">&#160;&#160;KaiEl</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_120902" class="bodyGeneric">It's Sink or Swim During the Challenge Phase</a></td></tr>
+                
+                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="15" border="0"/></td></tr>        
+                            <tr><td valign="middle" class="statTextBig" colspan="3" background="/i/steel_gray_bg.gif" height="18">&#160;November</td></tr>
+                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>        
+                            <tr><td valign="middle" class="bodyText" height="14">&#160;11.20.02</td><td valign="middle" class="bodyText">&#160;&#160;leadhyena_inran</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_112002" class="bodyGeneric">The eight seconds of death: Tips on preventing timeout</a></td></tr>
+                            <tr><td valign="middle" class="bodyText" height="14">&#160;11.13.02</td><td valign="middle" class="bodyText">&#160;&#160;RevenantChaos</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_111302" class="bodyGeneric">King of the Silicon Hill: Today's High-End Microprocessors</a></td></tr>
+                
+                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="15" border="0"/></td></tr>        
+                            <tr><td valign="middle" class="statTextBig" colspan="3" background="/i/steel_gray_bg.gif" height="18">&#160;October</td></tr>
+                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>        
+                            <tr><td valign="middle" class="bodyText" height="14">&#160;10.09.02</td><td valign="middle" class="bodyText">&#160;&#160;Penwiper</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_100902" class="bodyGeneric">Graphics Programming for Motion Capture</a></td></tr>
+                            <tr><td valign="middle" class="bodyText" height="14">&#160;10.02.02</td><td valign="middle" class="bodyText">&#160;&#160;pearl</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_100202" class="bodyGeneric">Finding a Job is a Job</a></td></tr>
+
+                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="15" border="0"/></td></tr>        
+                            <tr><td valign="middle" class="statTextBig" colspan="3" background="/i/steel_gray_bg.gif" height="18">&#160;September</td></tr>
+                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>        
+                            <tr><td valign="middle" class="bodyText" height="14">&#160;09.11.02</td><td valign="middle" class="bodyText">&#160;&#160;KaiEl</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_091102" class="bodyGeneric">...A Problem is Born</a></td></tr>
+
+                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="15" border="0"/></td></tr>                
+                            <tr><td valign="middle" class="statTextBig" colspan="3" background="/i/steel_gray_bg.gif" height="18">&#160;August</td></tr>
+                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>        
+                            <tr><td valign="middle" class="bodyText" height="14">&#160;08.21.02</td><td valign="middle" class="bodyText">&#160;&#160;polgara</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_082102" class="bodyGeneric">Wireless Woes and Winners</a></td></tr>
+                            <tr><td valign="middle" class="bodyText" height="14">&#160;08.07.02</td><td valign="middle" class="bodyText">&#160;&#160;KaiEl</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_080702" class="bodyGeneric">Match Strategy</a></td></tr>
+        
+                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="15" border="0"/></td></tr>        
+                            <tr><td valign="middle" class="statTextBig" colspan="3" background="/i/steel_gray_bg.gif" height="18">&#160;July</td></tr>
+                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>        
+                            <tr><td valign="middle" class="bodyText" height="14">&#160;07.24.02</td><td valign="middle" class="bodyText">&#160;&#160;polgara</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_072402" class="bodyGeneric">Attack of the Moans: Building Applications for Users</a></td></tr>
+                            <tr><td valign="middle" class="bodyText" height="14">&#160;07.10.02</td><td valign="middle" class="bodyText">&#160;&#160;bitbucket43</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_071002" class="bodyGeneric">From the Field - Avoid Overloading!</a></td></tr>
+
+                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="15" border="0"/></td></tr>
+                            <tr><td valign="middle" class="statTextBig" colspan="3" background="/i/steel_gray_bg.gif" height="18">&#160;June</td></tr> 
+                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
+                            <tr><td valign="middle" class="bodyText" height="14">&#160;06.26.02</td><td valign="middle" class="bodyText">&#160;&#160;kpsmith</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_062602" class="bodyGeneric">From the Field</a></td></tr>        
+                            <tr><td valign="middle" class="bodyText" height="14">&#160;06.12.02</td><td valign="middle" class="bodyText">&#160;&#160;polgara</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_061202" class="bodyGeneric">To in-house or to out-source, that is the question</a></td></tr>
+                            <tr><td valign="middle" class="bodyText" height="14">&#160;06.05.02</td><td valign="middle" class="bodyText">&#160;&#160;TopCoder Staff</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_060502" class="bodyGeneric">Where Has The Time Gone?</a></td></tr>
+
+                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="15" border="0"/></td></tr>
+                            <tr><td valign="middle" class="statTextBig" colspan="3" background="/i/steel_gray_bg.gif" height="18">&#160;May</td></tr> 
+                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
+                            <tr><td valign="middle" class="bodyText" height="14">&#160;05.29.02</td><td valign="middle" class="bodyText">&#160;&#160;TopCoder Staff</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_052902" class="bodyGeneric">The Outsiders</a></td></tr>        
+                            <tr><td valign="middle" class="bodyText" height="14">&#160;05.22.02</td><td valign="middle" class="bodyText">&#160;&#160;KaiEl</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_052202" class="bodyGeneric">Obfu-What?</a></td></tr>        
+                            <tr><td valign="middle" class="bodyText" height="14">&#160;05.15.02</td><td valign="middle" class="bodyText">&#160;&#160;TopCoder Staff</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_051502" class="bodyGeneric">First Time Phenomenal</a></td></tr>
+                            <tr><td valign="middle" class="bodyText" height="14">&#160;05.08.02</td><td valign="middle" class="bodyText">&#160;&#160;TopCoder Staff</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_050802" class="bodyGeneric">Working Their Way Up</a></td></tr>
+                            <tr><td valign="middle" class="bodyText" height="14">&#160;05.01.02</td><td valign="middle" class="bodyText">&#160;&#160;TopCoder Staff</td><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_050102" class="bodyGeneric">The Women of TopCoder</a></td></tr>
+
+                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="15" border="0"/></td></tr>
+                            <tr><td valign="middle" class="statTextBig" colspan="3" background="/i/steel_gray_bg.gif" height="18">&#160;April</td></tr> 
+                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>        
+                            <tr><td valign="middle" class="bodyText" height="14">&#160;04.24.02</td><td valign="middle" class="bodyText">&#160;&#160;TopCoder Staff</td><td valign="middle" class="bodyText"><a href="/index?t=statistics&amp;c=2002tccc_feature" class="bodyGeneric">A Matter of Time</a></td></tr>
+                        </table>
+                        
+                        <p><a href="/index?t=features&amp;c=feat_topics" class="bodyGeneric">Want to write?</a></p>
+                        
+                        <p><br/></p>
+                    </td>
+                    <td valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
+                </tr>
+                
+                <tr><td colspan="4" valign="top" width="100%"><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>       
+            </table>
+        </td>
+    <!-- Center Column Ends -->
 <!-- Body Area Ends -->
 
-	<!-- Gutter -->
-		<TD WIDTH="4" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->
-	<!-- Right Column Begins -->
-		<TD WIDTH="170" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
-<!-- Right Column Include Begins --> 
+<!-- Gutter -->
+        <td width="4"><img src="/i/clear.gif" width="4" height="1" border="0"/></td>
+<!-- Gutter Ends -->
+
+<!-- Right Column Begins -->
+        <td width="170"><img src="/i/clear.gif" width="170" height="1" border="0"/><br/>
+
         <xsl:call-template name="public_right_col"/>       
-<!-- Right Column Include Ends -->       
-        </TD>
-	<!-- Right Column Ends -->
-	<!-- Gutter -->
-		<TD WIDTH="10" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->
-	</TR>
-</TABLE>
-<!-- Body Ends -->
-        <xsl:call-template name="Foot"/>
-      </BODY>
-    </HTML>
-  </xsl:template>
+
+        </td>
+<!-- Right Column Ends -->
+
+<!-- Gutter -->
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+<!-- Gutter Ends -->
+    </tr>
+</table>
+
+<!-- Footer Begins -->
+<xsl:call-template name="Foot"/>
+<!-- Footer ends -->
+
+</body>
+</html>
+
+</xsl:template>
 </xsl:stylesheet>
