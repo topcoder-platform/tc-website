@@ -41,7 +41,7 @@ public class ProblemResults {
             qr = new QueryRequest();
             qr.addQuery("PassedData", getQuery(PASSED, round));
             qr.addQuery("FailedData", getQuery(FAILED, round));
-            dai = new QueryDataAccess((javax.sql.DataSource)TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
+            dai = new QueryDataAccess(DBMS.OLTP_DATASOURCE_NAME);
             resultMap = dai.getData(qr);
             ResultSetContainer mapRsc = (ResultSetContainer)resultMap.get("PassedData");
             System.out.println("************************************************************************************");

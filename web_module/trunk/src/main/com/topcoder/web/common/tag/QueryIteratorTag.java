@@ -32,11 +32,8 @@ public class QueryIteratorTag extends IteratorTag {
      * @see javax.servlet.jsp.tagext.Tag#doStartTag()
      */
     public int doStartTag() throws JspException {
-        InitialContext ic = null;
         try {
-            ic = (InitialContext)TCContext.getInitial();
-            DataAccessInt dai = new DataAccess((DataSource)
-                    new InitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
+            DataAccessInt dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
             Request dataRequest = new Request();
             dataRequest.setContentHandle(command);
 
@@ -69,8 +66,6 @@ public class QueryIteratorTag extends IteratorTag {
         } catch (Exception e) {
             e.printStackTrace();
             throw new JspException("Exception occured: " + e.getMessage());
-        } finally {
-            Util.closeIC(ic);
         }
         return super.doStartTag();
     }

@@ -36,8 +36,7 @@ public class StatisticsUtilities {
         Request dataRequest = null;
         Map resultMap = null;
         try {
-            dai = new DataAccess((javax.sql.DataSource)
-                TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
+            dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
             dataRequest = new Request(inputMap);
             dataRequest.setContentHandle(commandName);
             resultMap = dai.getData(dataRequest);

@@ -112,7 +112,7 @@ public final class TaskAffidavit {
 
                 } else {
                     ctx = TCContext.getInitial();
-                    dai = new DataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
+                    dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
                     RecordTag affidavitTag = new RecordTag("AFFIDAVIT");
                     dataRequest = new Request();
 

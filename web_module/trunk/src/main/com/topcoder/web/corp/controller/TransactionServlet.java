@@ -517,9 +517,6 @@ public class TransactionServlet extends HttpServlet {
     private boolean userCountryEligible(long userId, long productId) throws Exception {
         boolean eligible = true;
         InitialContext context = new InitialContext();
-        DataSource ds = (DataSource)
-                PortableRemoteObject.narrow(
-                        context.lookup(DBMS.CORP_OLTP_DATASOURCE_NAME), DataSource.class);
 
         UserAddressHome uaHome = (UserAddressHome)
             PortableRemoteObject.narrow(
@@ -534,7 +531,7 @@ public class TransactionServlet extends HttpServlet {
         //if they have no address, deny them
         eligible &= !rsc.isEmpty();
 
-        DataAccessInt dataAccess = new DataAccess(ds);
+        DataAccessInt dataAccess = new DataAccess(DBMS.CORP_OLTP_DATASOURCE_NAME);
         Request dr = new Request();
         dr.setContentHandle("eligible_country_for_product");
         dr.setProperty("prodID", String.valueOf(productId));

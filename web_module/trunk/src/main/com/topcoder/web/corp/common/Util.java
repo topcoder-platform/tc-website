@@ -18,13 +18,9 @@ public class Util {
 
     public static DataAccessInt getDataAccess(String datasource, boolean cached) throws Exception {
         if(datasource == null) return null;
-        InitialContext context = new InitialContext();
-        DataSource ds = (DataSource)
-            PortableRemoteObject.narrow(context.lookup(datasource),
-                                        DataSource.class);
         DataAccessInt dAccess = null;
-        if (cached) dAccess = new CachedDataAccess(ds);
-        else dAccess = new DataAccess(ds);
+        if (cached) dAccess = new CachedDataAccess(datasource);
+        else dAccess = new DataAccess(datasource);
         return dAccess;
     }
 }

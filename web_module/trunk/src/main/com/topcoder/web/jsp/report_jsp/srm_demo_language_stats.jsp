@@ -20,9 +20,8 @@
 				dataRequest.setContentHandle("srm_demo_lang");
 				dataRequest.setProperty("rd", request.getParameter("rd")==null?"4445":request.getParameter("rd"));
 				
-				           DataAccessInt dai = new DataAccess((javax.sql.DataSource)
-                            TCContext.getInitial().lookup(
-                                    dataRequest.getProperty(Constants.DB_KEY, Query.WAREHOUSE)));
+				           DataAccessInt dai = new DataAccess(
+                                    dataRequest.getProperty(Constants.DB_KEY, Query.WAREHOUSE));
                     Map dataMap = null;
                     dataMap = dai.getData(dataRequest);
 					

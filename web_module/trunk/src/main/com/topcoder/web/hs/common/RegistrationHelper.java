@@ -19,7 +19,6 @@ import java.util.*;
 import javax.ejb.*;
 import javax.naming.*;
 import javax.servlet.*;
-import javax.sql.*;
 import javax.transaction.UserTransaction;
 
 
@@ -181,9 +180,7 @@ public class RegistrationHelper {
             throw(new Exception(INCORRECT_GROUP));
         }
 
-        Context ctx = TCContext.getInitial();
-        DataSource ds = (DataSource) ctx.lookup(DBMS.HS_OLTP_DATASOURCE_NAME);
-        DataAccessInt dai = new DataAccess(ds);
+        DataAccessInt dai = new DataAccess(DBMS.HS_OLTP_DATASOURCE_NAME);
         Map map = new HashMap();
 
         map.put(DataAccessConstants.COMMAND, "student_data");
@@ -218,8 +215,7 @@ public class RegistrationHelper {
             throws Exception {
 
         Context ctx = TCContext.getInitial();
-        DataSource ds = (DataSource) ctx.lookup(DBMS.HS_OLTP_DATASOURCE_NAME);
-        DataAccessInt dai = new CachedDataAccess(ds);
+        DataAccessInt dai = new CachedDataAccess(DBMS.HS_OLTP_DATASOURCE_NAME);
         Map map = new HashMap();
 
         map.put(DataAccessConstants.COMMAND, "student_form");
@@ -290,9 +286,7 @@ public class RegistrationHelper {
     public static void populateSchoolCoachCount(StudentRegistrationBean srb)
             throws Exception {
 
-        Context ctx = TCContext.getInitial();
-        DataSource ds = (DataSource) ctx.lookup(DBMS.HS_OLTP_DATASOURCE_NAME);
-        DataAccessInt dai = new DataAccess(ds);
+        DataAccessInt dai = new DataAccess(DBMS.HS_OLTP_DATASOURCE_NAME);
         Map map = new HashMap();
 
         map.put(DataAccessConstants.COMMAND, "school_coach_count");
@@ -563,9 +557,7 @@ public class RegistrationHelper {
             throw(new Exception(INCORRECT_GROUP));
         }
 
-        Context ctx = TCContext.getInitial();
-        DataSource ds = (DataSource) ctx.lookup(DBMS.HS_OLTP_DATASOURCE_NAME);
-        DataAccessInt dai = new DataAccess(ds);
+        DataAccessInt dai = new DataAccess(DBMS.HS_OLTP_DATASOURCE_NAME);
         Map map = new HashMap();
 
         map.put(DataAccessConstants.COMMAND, "coach_data");
@@ -600,8 +592,7 @@ public class RegistrationHelper {
             throws Exception {
 
         Context ctx = TCContext.getInitial();
-        DataSource ds = (DataSource) ctx.lookup(DBMS.HS_OLTP_DATASOURCE_NAME);
-        DataAccessInt dai = new CachedDataAccess(ds);
+        DataAccessInt dai = new CachedDataAccess(DBMS.HS_OLTP_DATASOURCE_NAME);
         Map map = new HashMap();
 
         map.put(DataAccessConstants.COMMAND, "coach_form");
@@ -1030,9 +1021,7 @@ public class RegistrationHelper {
         r.setContentHandle("user exists");
         r.setProperty("hn", handle);
 
-        Context ctx = TCContext.getInitial();
-        DataSource ds = (DataSource) ctx.lookup(DBMS.HS_OLTP_DATASOURCE_NAME);
-        DataAccessInt dai = new DataAccess(ds);
+        DataAccessInt dai = new DataAccess(DBMS.HS_OLTP_DATASOURCE_NAME);
 
         ResultSetContainer rsc = (ResultSetContainer)dai.getData(r).get("user exists");
         return !rsc.isEmpty();

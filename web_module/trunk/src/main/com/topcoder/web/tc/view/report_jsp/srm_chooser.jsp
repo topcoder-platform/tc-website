@@ -19,9 +19,8 @@
                 com.topcoder.shared.dataAccess.Request dataRequest = new com.topcoder.shared.dataAccess.Request();
 				dataRequest.setContentHandle("srm_drop_down");
 								
-				           DataAccessInt dai = new DataAccess((javax.sql.DataSource)
-                            TCContext.getInitial().lookup(
-                                    dataRequest.getProperty(Constants.DB_KEY, Query.TRANSACTIONAL)));
+				           DataAccessInt dai = new DataAccess(
+                                    dataRequest.getProperty(Constants.DB_KEY, Query.TRANSACTIONAL));
                     Map dataMap = null;
                     dataMap = dai.getData(dataRequest);
 					

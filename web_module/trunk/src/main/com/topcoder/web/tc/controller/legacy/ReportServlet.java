@@ -100,9 +100,8 @@ public final class ReportServlet extends HttpServlet {
                     if (dataRequest.getContentHandle() == null || dataRequest.getContentHandle().equals("")) {
                         response_addr = Constants.NEW_REPORT_HOME_ADDR;
                     } else {
-                        DataAccessInt dai = new DataAccess((javax.sql.DataSource)
-                                TCContext.getInitial().lookup(
-                                        dataRequest.getProperty(Constants.DB_KEY, Query.TRANSACTIONAL)));
+                        DataAccessInt dai = new DataAccess(
+                                        dataRequest.getProperty(Constants.DB_KEY, Query.TRANSACTIONAL));
                         Map dataMap = null;
                         dataMap = dai.getData(dataRequest);
                         request.setAttribute(Constants.REPORT_RESULT_KEY, dataMap);
@@ -293,7 +292,7 @@ public final class ReportServlet extends HttpServlet {
             mainRequest.setProperty(Constants.REPORT_EMAIL_KEY, email);
 
         InitialContext context = new InitialContext();
-        DataAccessInt dai = new DataAccess((javax.sql.DataSource) context.lookup(DBMS.OLTP_DATASOURCE_NAME));
+        DataAccessInt dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
         Map mainMap = dai.getData(mainRequest);
         ResultSetContainer profileList = (ResultSetContainer)mainMap.get("main_profile_info");
 
@@ -341,7 +340,7 @@ public final class ReportServlet extends HttpServlet {
         Request dataRequest = null;
         Map resultMap = null;
 
-        dai = new DataAccess((javax.sql.DataSource) TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
+        dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
         dataRequest = new Request(parseQueryString(request));
         dataRequest.setContentHandle(Constants.REPORT_PROFILE_DETAIL_KEY);
         resultMap = dai.getData(dataRequest);
@@ -359,7 +358,7 @@ public final class ReportServlet extends HttpServlet {
         qr.addQuery("Country_List", COUNTRY_QUERY);
         qr.addQuery("Relocate_Answers", RELOCATE_QUERY);
         qr.addQuery("Profile_List", getProfileListQuery(parseQueryString(request), false));
-        dai = new QueryDataAccess((javax.sql.DataSource) TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
+        dai = new QueryDataAccess(DBMS.OLTP_DATASOURCE_NAME);
         resultMap = dai.getData(qr);
         request.setAttribute(Constants.REPORT_PROFILE_LIST_KEY, resultMap);
 
@@ -539,7 +538,7 @@ public final class ReportServlet extends HttpServlet {
             qr.addQuery("Country_List", COUNTRY_QUERY);
             qr.addQuery("Relocate_Answers", RELOCATE_QUERY);
             qr.addQuery("Profile_List", getProfileListQuery(new HashMap(), true));
-            dai = new QueryDataAccess((javax.sql.DataSource) TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
+            dai = new QueryDataAccess(DBMS.OLTP_DATASOURCE_NAME);
             resultMap = dai.getData(qr);
             request.setAttribute(Constants.REPORT_PROFILE_LIST_MENU_KEY, resultMap);
         } catch (Exception e) {

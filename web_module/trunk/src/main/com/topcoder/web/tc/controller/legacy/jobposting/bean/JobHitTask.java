@@ -185,12 +185,12 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         Request dataRequest = new Request();
         dataRequest.setContentHandle("member_profile_info");
         dataRequest.setProperty("mid", ""+getUserId());
-        DataAccess data = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
+        DataAccess data = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
         Map oltpMap = data.getData(dataRequest);
         ResultSetContainer profileInfo = (ResultSetContainer)oltpMap.get("TCES_Member_Profile");
         ResultSetContainer nextMatch = (ResultSetContainer)oltpMap.get("Next_SRM");
 
-        data = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.DW_DATASOURCE_NAME));
+        data = new DataAccess(DBMS.DW_DATASOURCE_NAME);
         Map dwMap = data.getData(dataRequest);
         ResultSetContainer dwResult = (ResultSetContainer)dwMap.get("TCES_Coder_Stats");
         if (!dwResult.isEmpty()) {
@@ -235,7 +235,7 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         dataRequest = new Request();
         dataRequest.setContentHandle("member_demographics");
         dataRequest.setProperty("mid", ""+getUserId());
-        data = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
+        data = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
         Map resultMap = data.getData(dataRequest);
         ResultSetContainer rsc = (ResultSetContainer)resultMap.get("TCES_Member_Demographics");
 

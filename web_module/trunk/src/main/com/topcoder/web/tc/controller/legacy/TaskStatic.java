@@ -103,7 +103,7 @@ public final class TaskStatic {
             try {
                 ctx = TCContext.getInitial();
                 /* this could be cached, but given low volumen, we'll go for correctness */
-                dai = new DataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
+                dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
 
                 RecordTag tcesTag = new RecordTag("TCES");
                 dataRequest = new Request();
