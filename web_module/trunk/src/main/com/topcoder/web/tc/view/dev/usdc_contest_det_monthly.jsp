@@ -100,7 +100,7 @@ else
                                 <td class="sidebarText" align=center ><rsc:item name="position_points" format="0" row="<%=resultRow%>"/></td>
                                 <td class="sidebarText" align=center ><rsc:item name="complete_count" format="0" row="<%=resultRow%>"/></td>
                                 <td class="sidebarText" align=center ><rsc:item name="incomplete_count" format="0" row="<%=resultRow%>"/></td>
-                                <td class="sidebarText" align=right>$<rsc:item name="prize_payment" format="#,##0" row="<%=resultRow%>"/></td>
+                                <td class="sidebarText" align=right><rsc:item ifNull="-" name="prize_payment" format="$#,###" row="<%=resultRow%>"/></td>
                                 <td class="sidebarText" align=center><a href="/tc?module=USDCMemberResults&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>">results</a></td>
                             </tr>
                             </rsc:iterator>
