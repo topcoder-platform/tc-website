@@ -1,14 +1,10 @@
 <project name="topcoder" default="main" basedir=".">
-<!-- removing those changes -->
    <property name="Name"          value="TopCoder" />
    <property name="version"       value="0.0.1" />
    <property name="build"         value="build" />
    <property name="war.dir"       value="${build}/wars" />
-   <property name="email.war.name"      value="email.war"/>
-   <property name="query.war.name"      value="query.war"/>
-   <property name="resume.war.name"     value="resume.war"/>
-   <property name="tces.war.name" value="tces.war"/>
-   <property name="stat.war.name" value="stat.war"/>
+   <property name="email.war.name"      value="email"/>
+   <property name="query.war.name"      value="query"/>
    <property name="ejb_jars"      value="${build}/ejb_jars" />
    <property name="classes"       value="${build}/classes" />
    <property name="testclasses"   value="${build}/testcases" />
@@ -16,8 +12,6 @@
    <property name="lib.dir"       value="lib" />
    <property name="jars.dir"      value="${lib.dir}/jars" />
    <property name="struts.dir"    value="${lib.dir}/jakarta-struts-build-unknown/lib" />
-<!--   <property name="struts.dir"    value="${lib.dir}/jakarta-struts-1.1-b1/lib" /> -->
-<!--   <property name="struts.dir"    value="${lib.dir}/jakarta-struts-build-20020730/lib" /> -->
    <property name="bin"           value="lib/bin" />
    <property name="src.dir"       value="src"/>
    <property name="java"          value="${src.dir}/main" />
@@ -27,6 +21,7 @@
    <property name="Jive.jar"      value="${bin}/Jive.jar"/>
    <property name="servlets"      value="${build}/servlets" />
    <property name="web"           value="src/main/com/topcoder/web" />
+   <property name="tc_cluster"   value="/export/home/weblog5/weblogic1/tc_cluster" />
    <property name="public_html"   value="/export/home/weblog5/weblogic1/tc_cluster/public_html" />
    <property environment="env"/>
 
@@ -563,41 +558,31 @@
         <mkdir  dir="${war.dir}"/>
         <antcall target="war_email"/>
         <antcall target="war_query"/>
-<!--        <antcall target="war_tces"/> -->
-<!--        <antcall target="war_stat"/> -->
-<!--        <antcall target="war_resume"/> -->
+    </target>
+
+    <target name="dev_wars" depends="compile">
+        <antcall target="dev_war_query"/>
+    </target>
+         
+    <target name="dev_war_query" depends="compile">
+      <delete dir="${tc_cluster}/${query.war.name}"/>
+      <mkdir dir="${tc_cluster}/${query.war.name}"/>
+      <copy todir="${tc_cluster}/${query.war.name}"/>
+        <fileset dir="${java}/com/topcoder/web/query/servlet/jsp">
+          <include name="**/*.jsp"/>
+        </fileset>
+      </copy>
+      <copy todir="${tc_cluster}/${query.war.name}/WEB-INF"/>
+          <include name="${resources}/${query.war_name}/*.tld"/>
+          <include name="${resources}/${query.war_name}/*.xml"/>
+      </copy>
+      <copy todir="${tc_cluster}/${query.war.name}/classes"/>
+          <include name="com/topcoder/web/query/**"/>
+      </copy>
     </target>
     
-<!-- 
-    <target name="war_stat" depends="compile">
-        <war warfile="${war.dir}/${stat.war.name}" webxml="${resources}/stat/web.xml">
-            <fileset dir="${java}/com/topcoder/web/stat/servlet/jsp">
-                <include name="**/*.jsp"/>
-            </fileset>
-            <fileset dir="${java}/com/topcoder/web/jsp">
-                <include name="top.jsp"/>
-                <include name="foot.jsp"/>
-                <include name="script.jsp"/>
-                <include name="errorPage.jsp"/>
-                <include name="my_features.jsp"/>
-                <include name="public_right.jsp"/>
-                <include name="menu.jsp"/>
-                <include name="date_time.jsp"/>
-            </fileset>
-            <classes dir="${classes}">
-                <include name="com/topcoder/web/stat/**"/>
-            </classes>
-            <webinf dir="${struts.dir}">
-                <include name="*.tld"/>
-            </webinf>
-            <lib dir="${struts.dir}">
-                <include name="*.jar"/>
-            </lib>
-        </war>
-    </target>
--->
     <target name="war_email" depends="compile">
-        <war warfile="${war.dir}/${email.war.name}" webxml="${resources}/email/web.xml">
+        <war warfile="${war.dir}/${email.war.name}.war" webxml="${resources}/email/web.xml">
             <fileset dir="${java}/com/topcoder/web/email/servlet/jsp">
                 <include name="**/*.jsp"/>
             </fileset>
@@ -613,7 +598,7 @@
         </war>
     </target>
     <target name="war_query" depends="compile">
-        <war warfile="${war.dir}/${query.war.name}" webxml="${resources}/query/web.xml">
+        <war warfile="${war.dir}/${query.war.name}.war" webxml="${resources}/query/web.xml">
             <fileset dir="${java}/com/topcoder/web/query/servlet/jsp">
                 <include name="**/*.jsp"/>
             </fileset>
@@ -625,38 +610,6 @@
             </webinf>
         </war>
     </target>
-
-
-    <target name="war_tces" depends="compile">
-        <war warfile="${war.dir}/${tces.war.name}" webxml="${resources}/tces/web.xml">
-            <fileset dir="${java}/com/topcoder/web/tces/servlet/jsp">
-              <include name="**/*.jsp"/>
-            </fileset>            
-            <webinf dir="${resources}/tces">
-                <include name="tces-taglib.tld"/>
-            </webinf>            
-            <fileset dir="${java}/com/topcoder/web/jsp">
-              <include name="**/*.jsp"/>
-            </fileset>        
-            <classes dir="${classes}">
-                <include name="com/topcoder/web/tces/common/**"/>
-                <include name="com/topcoder/web/tces/servlet/**"/>
-                <include name="com/topcoder/web/tces/bean/**"/>
-            </classes>
-        </war>
-    </target>
-    <target name="war_resume" depends="compile">
-        <war warfile="${war.dir}/${resume.war.name}" webxml="${resources}/resume/web.xml">
-            <fileset dir="${java}/com/topcoder/web/resume/servlet/jsp">
-                <include name="**/*.jsp"/>
-            </fileset>
-            <classes dir="${classes}">
-                <include name="com/topcoder/web/resume/**"/>
-            </classes>
-        </war>
-    </target>
-
-
 
 </project>
 
