@@ -98,7 +98,7 @@ function submitEnter(e) {
                             Email Address
                         </td>
                         <td>
-                             <tc-webtag:textInput name="<%=Constants.EMAIL%>" size="30" maxlength="30" onkeypress="submitEnter(event)"/>
+                             <tc-webtag:textInput name="<%=Constants.EMAIL%>" size="30" maxlength="100" onkeypress="submitEnter(event)"/>
                         </td>
                     </tr>
                     <tr><td><br/></td></tr>
