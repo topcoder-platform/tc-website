@@ -50,7 +50,7 @@
 <!-- Tab bar sublinks-->
 <jsp:include page="tco03Sublinks.jsp" >
    <jsp:param name="selectedList" value="coding_advancers"/>
-   <jsp:param name="selectedTab" value="overview"/>
+   <jsp:param name="selectedTab" value="details"/>
 </jsp:include>
 
             <h2>Advancers</h2>
