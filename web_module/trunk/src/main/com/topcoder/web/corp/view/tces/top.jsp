@@ -1,7 +1,5 @@
 <%@  page
     language="java"
-  autoFlush="false"
-  buffer="64kb"
     import="com.topcoder.common.web.data.CoderRegistration,
         com.topcoder.ejb.DataCache.*,
         com.topcoder.common.web.util.*,
