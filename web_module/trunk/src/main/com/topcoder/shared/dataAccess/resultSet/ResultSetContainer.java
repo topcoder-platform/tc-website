@@ -1279,6 +1279,38 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
     }
 
     /**
+     * This routine sorts the data in the container by the given column,
+     * in the given direction, if two rows are equal on this crteria, it
+     * uses the second column to break the tie.
+     *
+     * @param i The column index to sort by.
+     * @param otherCol The column index to break ties.
+     * @param ascending whether to sort the data in ascending or descending order.
+     * @param backAscending whether to sort the data in ascending or descending order.
+     */
+    public void sortByColumn(int i, int otherCol, boolean ascending, boolean backAscending) {
+        Collections.sort(data, new DataRowComparator(i, otherCol, ascending, backAscending));
+    }
+
+    /**
+     * This routine sorts the data in the container by the given column,
+     * in the given direction, if two rows are equal on this crteria, it
+     * uses the second column to break the tie.
+     *
+     * @param sCol The column to sort by.
+     * @param sBackCol The column to break ties.
+     * @param ascending whether to sort the data in ascending or descending order.
+     * @param backAscending whether to sort the data in ascending or descending order.
+     */
+    public void sortByColumn(String sCol, String sBackCol, boolean ascending, backAscending) {
+        if (!isValidColumn(sCol))
+            throw new IllegalArgumentException("Column name " + sCol + " is not valid");
+        if (!isValidColumn(sBackCol))
+            throw new IllegalArgumentException("Column name " + sBackCol + " is not valid");
+        Collections.sort(data, new DataRowComparator(getColumnIndex(sCol), getColumnIndex(sBackCol), ascending, backAscending));
+    }
+
+    /**
      * This method will output all columns and data, rows separated by \n, columns separated by \t
      *
      * @return	The columns and data, in string form.
