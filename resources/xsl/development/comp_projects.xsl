@@ -71,6 +71,7 @@
 
 <!-- Center Column Begins -->
             <td class="bodyText" width="100%">
+<!--
             <xsl:call-template name="BodyTop">
             <xsl:with-param name="image1">white</xsl:with-param>
             <xsl:with-param name="image">development</xsl:with-param>
@@ -86,7 +87,36 @@
                 the project, you are agreeing to the requirements and committing to perform the work outlined in
                 the requirement specifications.
             </p>
+-->
 
+            <br/>
+            
+            <table width="600" align="center" cellspacing="0">
+                <tr><td class="devInstructions" colspan="2"><i>Design / Development Instructions</i></td></tr>
+            </table>
+            <table width="600" align="center" class="devInstructionsTable" cellspacing="0">
+                <tr><td class="devInstructions">1.</td><td class="devInstructions">Choose a component: <span class="bodyText">Click through the component names listed below and find one that sounds right for you.</span></td></tr>
+                <tr><td class="devInstructions">2.</td><td class="devInstructions">Register: <span class="bodyText">On the component defintion page, click the link to "Register for this Component" and agree to the terms. You are now commited to that project!</span></td></tr>
+                <tr><td class="devInstructions">3.</td><td class="devInstructions">Check out the Developer Forum: <span class="bodyText">After registering, you will receive an email allowing you access to the forums for that project. Download the Design Distribution.</span></td></tr>
+                <tr><td class="devInstructions">4.</td><td class="devInstructions">Download the Development Distribution: <span class="bodyText">Download the Design Distribution. Read through the docs and get familiar with the requirements.</span></td></tr>
+                <tr><td class="devInstructions">5.</td><td class="devInstructions">Complete the project requirements and submit: <span class="bodyText">Login to <br/><A href="http://software.topcoder.com/review/login.jsp">Project Submit and Review</A> and submit your submission.</span></td></tr>
+                <tr><td class="bodyText" colspan="2"><p align="right"><A href="/?t=development&amp;c=getting_started">...more detailed competition instructions</A></p></td></tr>
+            </table>
+            
+
+<!--
+            <ol class="devInstructionsList">
+            <li>Choose a component: <span class="bodyText">Click through the component names listed below and find one that sounds right for you.</span><br/><br/></li>
+            <li>Register: <span class="bodyText">On the component defintion page, click the link to "Register for this Component" and agree to the terms. You are now commited to that project!</span><br/><br/></li>
+            <li>Check out the Developer Forum: <span class="bodyText">After registering, you will receive an email allowing you access to the forums for that project. Download the Design Distribution.</span><br/><br/></li>
+            <li>Download the Development Distribution: <span class="bodyText">Download the Design Distribution. Read through the docs and get familiar with the requirements.</span><br/><br/></li>
+            <li>Complete the project requirements and submit: <span class="bodyText">Login to <A href="http://software.topcoder.com/review/login.jsp">Project Submit and Review</A> and submit your submission.</span></li>
+            </ol>
+            <p align="right"><A href="/?t=development&amp;c=getting_started">...more detailed competition instructions</A></p>
+-->
+
+            <br/><br/>
+            
 <!-- Open Component Design Projects begins -->
 
             <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
@@ -269,6 +299,7 @@
                 </xsl:for-each>
             </table>
 
+            <p><span class="bigRed">NOTE: In order to participate in a component project, you MUST register for that project.</span></p>
             <p><br/>*And that's before royalty payments. The more Component <A href="http://software.topcoder.com/components/subscriptions.jsp">Subscriptions</A> we sell, the more royalties we pay out to our winners!<br/>
             **Only these projects are designated as TCCC projects. <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_comp_description">Click here</A> for the rules and more information about the 2004 TCCC Component Competition. At the <A href="#comp_des">bottom</A> of this page are regular component projects that do not qualify for the TCCC.</p>
 
