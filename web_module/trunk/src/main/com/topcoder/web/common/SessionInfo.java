@@ -37,7 +37,6 @@ public class SessionInfo {
             setGroup('A');
         else {
             setGroup('G');
-            handle = "";  // anonymous looks nameless to the jsps
         }
 
         serverName = request.getServerName();
