@@ -6,6 +6,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>04.04.05<br>2:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=040405">The Design Process - Section 1: some advice...</A></span><br><br>
+       In part 1 of 4 of his guide to TopCoder component design competitions, Pops lays out some great hints and tips.</td>
+      <td class="newsPhoto"><img src="/i/m/Pops_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=119676">Pops</A></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=features&d2=040405">full story</A>&#160;|&#160;
+         <A href="/?&t=features&c=index">archive</A>
+   </td></tr>
+ 
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>04.04.05<br>11:40 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -238,18 +253,6 @@
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_finals_analysis">full story</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.11.05<br>8:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_des_summary">adic wins the TCCC05 Design Competition!</A></span><br><br>
-      Another giant check to cash for adic.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_des_summary">full story</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
