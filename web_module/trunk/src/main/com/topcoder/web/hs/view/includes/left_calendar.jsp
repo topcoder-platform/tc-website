@@ -30,7 +30,7 @@
                                 <td id="calendarMini">3</td>
                                 <td id="calendarMini">4</td>
                                 <td id="calendarMini">5</td>
-                                <td id="calendarSRMMini"><a href="?module=Static&amp;d1=schedule&amp;d2=sched_march_2003" class="calendarSRMMini">6</a></td>
+                                <td id="calendarMini">6</td>
                                 <td id="calendarMini">7</td>
                                 <td id="calendarMini">8</td>
                             </tr>
