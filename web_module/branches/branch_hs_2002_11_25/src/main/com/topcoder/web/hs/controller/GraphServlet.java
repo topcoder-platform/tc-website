@@ -78,6 +78,7 @@ public class GraphServlet extends HttpServlet {
             if(!hsa.hasPermission(new ClassResource(this.getClass())))
                 throw new PermissionException("You must login to view this page.");
         } catch(Exception e) {
+            log.fatal("caught exception checking permissions, giving up", e);
             return;  // just give them a red x
         }
 

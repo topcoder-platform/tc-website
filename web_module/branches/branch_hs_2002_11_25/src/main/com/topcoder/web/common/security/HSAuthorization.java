@@ -5,6 +5,7 @@ import com.topcoder.security.*;
 import com.topcoder.security.admin.*;
 import com.topcoder.security.policy.*;
 import com.topcoder.shared.security.*;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * This will be using the TopCoder Software security component to determine
@@ -18,19 +19,21 @@ import com.topcoder.shared.security.*;
  */
 public class HSAuthorization implements Authorization {
 
-    private TCSubject user = null;
+    private static Logger log = Logger.getLogger(HSAuthorization.class);
+
+    private TCSubject sub = null;
     private PolicyRemote policy = null;
 
     /** Construct an instance which can be used to check access for the given user. */
     public HSAuthorization(TCSubject sub) throws Exception {
-        this.user = sub;
+        this.sub = sub;
         policy = (PolicyRemote)Constants.createEJB(PolicyRemote.class);
     }
 
     /** Constructor which takes a User object and fetches the TCSubject for that user. */
     public HSAuthorization(User user) throws Exception {
         PrincipalMgrRemote pmgr = (PrincipalMgrRemote)Constants.createEJB(PrincipalMgrRemote.class);
-        this.user = pmgr.getUserSubject(user.getId());
+        this.sub = pmgr.getUserSubject(user.getId());
         policy = (PolicyRemote)Constants.createEJB(PolicyRemote.class);
     }
 
@@ -38,8 +41,10 @@ public class HSAuthorization implements Authorization {
     public boolean hasPermission(Resource r) {
         try {
             TCPermission perm = new GenericPermission(r.getName());
-            return policy.checkPermission(user, perm);
+            return policy.checkPermission(sub, perm);
+
         } catch(Exception e) {
+            log.warn("caught exception checking access to "+r.getName()+" for userid="+sub.getUserId()+", denying", e);
             return false;
         }
     }
@@ -47,7 +52,7 @@ public class HSAuthorization implements Authorization {
     /** Hack to get the groups for the user by looking for specially named roles in their TCSubject. */
     public Set getGroups() {
         Set groupnames = new HashSet();
-        Iterator it = user.getPrincipals().iterator();
+        Iterator it = sub.getPrincipals().iterator();
         while(it.hasNext()) {
             String rolename = ((RolePrincipal)it.next()).getName();
             if(rolename.startsWith("group_"))

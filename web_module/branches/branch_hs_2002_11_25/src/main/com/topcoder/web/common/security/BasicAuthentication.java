@@ -6,6 +6,7 @@ import com.topcoder.security.*;
 import com.topcoder.security.admin.*;
 import com.topcoder.security.login.*;
 import com.topcoder.shared.security.*;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * Uses the TCS security component to process login requests, and HTTP cookies or a Persistor to store a User.
@@ -14,13 +15,15 @@ import com.topcoder.shared.security.*;
  */
 public class BasicAuthentication implements WebAuthentication {
 
+    private static Logger log = Logger.getLogger(BasicAuthentication.class);
+
     private Persistor persistor;
     private HttpServletRequest request;
     private HttpServletResponse response;
     private LoginRemote login;
     private PrincipalMgrRemote pmgr;
 
-    private User anonymous = new SimpleUser(-1, "anonymous", "");  //@@@ name these?  or is this good enough?
+    private User anonymous = new SimpleUser(-1, "anonymous", "");  //@@@ name these?  or is this good enough?  perhaps move to User
 
     /**
      * Construct an authentication instance backed by the given persistor and HTTP request and response.
@@ -42,6 +45,8 @@ public class BasicAuthentication implements WebAuthentication {
      */
     public void login(User u) throws LoginException {
 
+        log.info("attempting login as "+u.getUserName());
+
         try {
             TCSubject sub = login.login(u.getUserName(), u.getPassword());
             Long uid = new Long(sub.getUserId());
@@ -50,8 +55,10 @@ public class BasicAuthentication implements WebAuthentication {
             c.setMaxAge(Integer.MAX_VALUE);  // this should fit comfortably, since the expiration date is a string on the wire
             response.addCookie(c);
             persistor.setObject(request.getSession().getId()+"user_id", uid);
+            log.info("login succeeded");
 
         } catch (Exception e) {
+            log.info("login failed", e);
             throw new LoginException(e);
         }
     }
@@ -63,6 +70,8 @@ public class BasicAuthentication implements WebAuthentication {
      * 3.  clear any information in the session associated with them
      */
     public void logout() {
+
+        log.info("logging out");
 
         persistor.removeObject(request.getSession().getId()+"user_id");
         Cookie c = new Cookie("user_id", "");
@@ -85,7 +94,7 @@ public class BasicAuthentication implements WebAuthentication {
                 try {
                     return makeUser(Long.parseLong(ca[i].getValue()));
                 } catch(NumberFormatException e) {
-                    /* invalid cookie, keep going */
+                    log.warn("got non-numeric user_id cookie: \""+ca[i].getValue()+"\"");
                 }
             }
 
@@ -114,7 +123,7 @@ public class BasicAuthentication implements WebAuthentication {
             UserPrincipal up = pmgr.getUser(id);
             return new SimpleUser(id, up.getName(), "");
         } catch(Exception e) {
-            System.out.println("caught exception in makeUser with id = "+id);
+            log.warn("caught exception in makeUser with id = "+id, e);
             e.printStackTrace();
             return anonymous;
         }

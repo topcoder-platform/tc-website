@@ -7,6 +7,7 @@ import com.topcoder.shared.security.*;
 import com.topcoder.web.common.security.*;
 import com.topcoder.web.common.*;
 import com.topcoder.web.hs.model.*;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * Contains some of the basic methods and data for request processors.
@@ -26,12 +27,14 @@ public abstract class Base implements RequestProcessor {
     /* used internally */
     protected User user;
     protected Authorization hsa;
+    protected static Logger log = Logger.getLogger(Base.class);
 
     /* return values */
     private String nextPage = "";
     private boolean nextPageInContext = false;
 
     public Base() {
+        log.debug("constructing "+this.getClass().getName());
     }
 
     public void setRequest(ServletRequest request) {
@@ -47,13 +50,14 @@ public abstract class Base implements RequestProcessor {
      * Override this to disable auth setup and adding default beans.
      */
     protected void baseProcessing() throws Exception {
+       log.debug("entering baseProcessing");
 
         try {
             user = auth.getUser();
             hsa = new HSAuthorization(user);
 
         } catch(Exception e) {
-            e.printStackTrace();
+            log.warn("problem getting User and Authorization objects, trying again as guest", e);
 
             /* most likely a stale cookie, so clear it out and try again */
             auth.logout();
@@ -79,6 +83,7 @@ public abstract class Base implements RequestProcessor {
     /** This is final to discourage overriding it.  Instead subclasses should implement businessProcessing(). */
     public final void process() throws Exception {
         baseProcessing();
+        log.debug("calling businessProcessing");
         businessProcessing();
     }
 

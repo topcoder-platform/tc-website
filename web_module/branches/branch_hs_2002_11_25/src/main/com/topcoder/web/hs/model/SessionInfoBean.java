@@ -7,11 +7,14 @@ import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.*;
 import com.topcoder.shared.util.*;
 import com.topcoder.common.web.util.Data;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * Holds some details about the current user for the benefit of curious JSPs.
  */
 public class SessionInfoBean implements Serializable {
+
+    private static Logger log = Logger.getLogger(SessionInfoBean.class);
 
     private String handle = null;
     private int userid = -1;  //@@@ should be long
@@ -95,7 +98,7 @@ public class SessionInfoBean implements Serializable {
                 setRating(Integer.parseInt(rr.getItem("rating").toString()));
 
         } catch(Exception e) {
-            e.printStackTrace();
+            log.error("caught exception from database queries, some values left at defaults", e);
         }
     }
 }

@@ -25,7 +25,9 @@ public class Constants {
         for(int i=0; i<f.length; i++)
             try {
                 f[i].set(null, sc.getInitParameter(f[i].getName()));
-            } catch(Exception e) { }
+            } catch(Exception e) {
+                /* probably harmless, could just be a type or modifier mismatch */
+            }
     }
 
     /** Replaces null strings with "", others are returned untouched. */

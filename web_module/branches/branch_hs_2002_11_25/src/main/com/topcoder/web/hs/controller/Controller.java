@@ -8,6 +8,7 @@ import com.topcoder.web.common.*;
 import com.topcoder.web.hs.common.*;
 import com.topcoder.web.common.security.*;
 import com.topcoder.web.hs.controller.requests.*;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * All requests to the HS website pass through this servlet.
@@ -18,6 +19,8 @@ import com.topcoder.web.hs.controller.requests.*;
  * @version $Revision$
  */
 public final class Controller extends HttpServlet {
+
+    private static Logger log = Logger.getLogger(Controller.class);
 
     /**
      * Initializes the servlet.
@@ -36,18 +39,18 @@ public final class Controller extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-
         /* for exceptions we surely cannot correct */
         try {
             RequestProcessor rp;
 
-            System.out.println();
-            System.out.println("    "+request.getMethod()+" from "+request.getRemoteHost());
-            System.out.println("--- "+HttpUtils.getRequestURL(request));
+            log.info("    "+request.getMethod()+" from "+request.getRemoteHost());
+            log.info("--- "+HttpUtils.getRequestURL(request));
 
             String canonpath = request.getContextPath() + request.getServletPath();
+            log.debug("canonical path to servlet = "+canonpath);
             String query = request.getQueryString();
             String qtail = (query==null) ? ("") : ("?"+query);
+            log.debug("query from URL of request = "+qtail);
 
             /* and those we perhaps can */
             try {
@@ -56,12 +59,13 @@ public final class Controller extends HttpServlet {
                 if(!canonpath.equals(request.getRequestURI())) {
 
                     String ref = request.getHeader("Referer");
-                    if(ref!=null) System.out.println("mangled request linked from "+ref);  //@@@ definitely make this a log
+                    if(ref!=null) log.warn("mangled servlet path in request linked from page "+ref);
 
                     /* trying to redirect a post will probably not improve the situation
                      * if we got this far, though, so only take evasive action on gets.
                      */
                     if(request.getMethod().equals("GET")) {
+                        log.info("dispensing with request by redirecting to proper servlet name");
                         response.sendRedirect(response.encodeRedirectURL(canonpath+qtail));
                         return;
                     }
@@ -72,12 +76,15 @@ public final class Controller extends HttpServlet {
                 if(!Constants.isLegal(cmd)) throw new NavigationException("invalid command: "+cmd);
                 cmd = "com.topcoder.web.hs.controller.requests."+cmd;
 
+                log.debug("creating request processor of class "+cmd);
                 rp = (RequestProcessor)Class.forName(cmd).newInstance();
                 callProcess(rp, request, response);
 
             } catch(PermissionException e) {  //@@@ any way i can put this elsewhere?  in Error?
+                log.info("caught PermissionException", e);
 
 //@@@  would like to handle this differently if they are already logged in
+//@@@  nest this catch in a deeper try i think
 
                 /* forward to the login page, with a message and a way back */
 
@@ -88,9 +95,7 @@ public final class Controller extends HttpServlet {
                 callProcess(rp, request, response);
 
             } catch(Exception e) {
-                e.printStackTrace();
-
-                /* try to forward to the error page */
+                log.error("caught exception, forwarding to error page", e);
 
                 request.setAttribute("exception", e);
 
@@ -106,7 +111,7 @@ public final class Controller extends HttpServlet {
 
         /* things are extremely broken, make one last attempt to get an error message to the logs and browser */
         } catch(Exception e) {
-            e.printStackTrace();
+            log.fatal("forwarding to error page failed", e);
 
             response.setStatus(500);
             PrintWriter out = response.getWriter();
