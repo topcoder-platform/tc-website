@@ -27,7 +27,7 @@
                     <td class="bodyText"> 
                         <p><span class=testHead>Campaign Results</span><br/>
                         Company Name: Brooks<br/>
-                        Campaign Name: Operation FindGeek<br/>
+                        Campaign Name: Operation FindCandidate<br/>
                         </p>
                     </td>
                 </tr>
@@ -103,7 +103,7 @@ for (i = 1; i <= 20; i++)
                     document.write(' </object> ');
 
                     document.write("</td>")
-                    document.write("<td class='screeningCellOdd' align=center><A href='/'>view</A></td>")
+                    document.write("<td class='screeningCellOdd' align=center><A href='/corp/testing/candidate/profile.jsp'>view</A></td>")
     } else {
                     document.write("<td class='screeningCellEven' nowrap=nowrap><A href='/corp/testing/candidate/profile.jsp'>Johnny Doe"+i+"</A></td> ")
                     document.write("<td class='screeningCellEven'>CT</td>")
@@ -144,7 +144,7 @@ for (i = 1; i <= 20; i++)
                     document.write(' </object> ');
 
                     document.write("</td>")
-                    document.write("<td class='screeningCellEven' align=center><A href='/'>view</A></td>")
+                    document.write("<td class='screeningCellEven' align=center><A href='/corp/testing/candidate/profile.jsp'>view</A></td>")
     }
     document.write("</tr>")
 }

@@ -26,8 +26,8 @@
                 <tr valign="top">
                     <td class="bodyText"> 
                         <p><span class=testHead>Position List</span><br/>
-                        Company Name: <A href="/corp/testing/results/campaignList.jsp">Brooks</A><br/>
-                        Campaign Name: <A href="/corp/testing/results/campaignList.jsp">Operation FindGeek</A><br/>
+                        Company Name: Brooks<br/>
+                        Campaign Name: Operation FindCandidate<br/>
                         </p>
                     </td>
                 </tr>
