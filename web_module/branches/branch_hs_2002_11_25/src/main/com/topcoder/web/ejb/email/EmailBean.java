@@ -1,5 +1,6 @@
 package com.topcoder.web.ejb.email;
 
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.util.idgenerator.*;
 import com.topcoder.util.idgenerator.sql.InformixDB;
 
@@ -10,8 +11,6 @@ import javax.naming.*;
 import javax.sql.*;
 
 public class EmailBean implements SessionBean {
-
-  private final static String HS_APPLICATION_DS="DBMS.OLTP_DATASOURCE_NAME";
 
   private transient InitialContext init_ctx=null;
 
@@ -50,7 +49,7 @@ public class EmailBean implements SessionBean {
 
       /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
        */
-      DataSource ds=(DataSource)init_ctx.lookup(HS_APPLICATION_DS);
+      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
 
       if (!IdGenerator.isInitialized()) {
         IdGenerator.init(new InformixDB(),ds,"sequence_object","name",
@@ -96,7 +95,7 @@ public class EmailBean implements SessionBean {
 
       /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
        */
-      DataSource ds=(DataSource)init_ctx.lookup(HS_APPLICATION_DS);
+      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
 
       StringBuffer query=new StringBuffer(1024);
       query.append("SELECT email_type_id ");
@@ -138,7 +137,7 @@ public class EmailBean implements SessionBean {
 
       /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
        */
-      DataSource ds=(DataSource)init_ctx.lookup(HS_APPLICATION_DS);
+      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
 
       StringBuffer query=new StringBuffer(1024);
       query.append("SELECT address ");
@@ -177,7 +176,7 @@ public class EmailBean implements SessionBean {
 
       /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
        */
-      DataSource ds=(DataSource)init_ctx.lookup(HS_APPLICATION_DS);
+      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
 		   
       StringBuffer query=new StringBuffer(1024);
       query.append("UPDATE email ");
@@ -212,7 +211,7 @@ public class EmailBean implements SessionBean {
 
       /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
        */
-      DataSource ds=(DataSource)init_ctx.lookup(HS_APPLICATION_DS);
+      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
 		   
       StringBuffer query=new StringBuffer(1024);
       query.append("UPDATE email ");

@@ -1,5 +1,6 @@
 package com.topcoder.web.ejb.termsofuse;
 
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.util.idgenerator.*;
 import com.topcoder.util.idgenerator.sql.InformixDB;
 
@@ -10,8 +11,6 @@ import javax.naming.*;
 import javax.sql.*;
 
 public class TermsOfUseBean implements SessionBean {
-
-  private final static String HS_APPLICATION_DS="DBMS.OLTP_DATASOURCE_NAME";
 
   private transient InitialContext init_ctx=null;
 
@@ -49,7 +48,7 @@ public class TermsOfUseBean implements SessionBean {
     try {
       /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
        */
-      DataSource ds=(DataSource)init_ctx.lookup(HS_APPLICATION_DS);
+      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
 
       if (!IdGenerator.isInitialized()) {
         IdGenerator.init(new InformixDB(),ds,"sequence_object","name",
@@ -94,7 +93,7 @@ public class TermsOfUseBean implements SessionBean {
 
       /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
        */
-      DataSource ds=(DataSource)init_ctx.lookup(HS_APPLICATION_DS);
+      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
 
       StringBuffer query=new StringBuffer(1024);
       query.append("SELECT terms_of_use_type_id ");
@@ -133,7 +132,7 @@ public class TermsOfUseBean implements SessionBean {
 
       /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
        */
-      DataSource ds=(DataSource)init_ctx.lookup(HS_APPLICATION_DS);
+      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
 
       StringBuffer query=new StringBuffer(1024);
       query.append("UPDATE terms_of_use ");
@@ -170,7 +169,7 @@ public class TermsOfUseBean implements SessionBean {
 
       /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
        */
-      DataSource ds=(DataSource)init_ctx.lookup(HS_APPLICATION_DS);
+      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
 
       StringBuffer query=new StringBuffer(1024);
       query.append("SELECT text ");
@@ -208,7 +207,7 @@ public class TermsOfUseBean implements SessionBean {
 
       /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
        */
-      DataSource ds=(DataSource)init_ctx.lookup(HS_APPLICATION_DS);
+      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
 
       StringBuffer query=new StringBuffer(1024);
       query.append("UPDATE terms_of_use ");

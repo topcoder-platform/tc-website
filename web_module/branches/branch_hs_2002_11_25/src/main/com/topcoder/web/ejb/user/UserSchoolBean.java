@@ -1,5 +1,7 @@
 package com.topcoder.web.ejb.user;
 
+import com.topcoder.shared.util.DBMS;
+
 import java.rmi.RemoteException;
 import java.sql.*;
 import javax.ejb.*;
@@ -7,8 +9,6 @@ import javax.naming.*;
 import javax.sql.*;
 
 public class UserSchoolBean implements SessionBean {
-
-  private final static String HS_APPLICATION_DS="java:comp/env/jdbc/hsAppDS";
 
   private transient InitialContext init_ctx=null;
 
@@ -45,7 +45,7 @@ public class UserSchoolBean implements SessionBean {
 
       /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
        */
-      DataSource ds=(DataSource)init_ctx.lookup(HS_APPLICATION_DS);
+      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
 
       StringBuffer query=new StringBuffer(1024);
       query.append("INSERT ");
@@ -84,7 +84,7 @@ public class UserSchoolBean implements SessionBean {
 
       /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
        */
-      DataSource ds=(DataSource)init_ctx.lookup(HS_APPLICATION_DS);
+      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
 
       StringBuffer query=new StringBuffer(1024);
       query.append("SELECT current ");
@@ -123,7 +123,7 @@ public class UserSchoolBean implements SessionBean {
 
       /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
        */
-      DataSource ds=(DataSource)init_ctx.lookup(HS_APPLICATION_DS);
+      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
       
       StringBuffer query=new StringBuffer(1024);
       query.append("UPDATE user_school_xref ");
@@ -158,7 +158,7 @@ public class UserSchoolBean implements SessionBean {
 
       /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
        */
-      DataSource ds=(DataSource)init_ctx.lookup(HS_APPLICATION_DS);
+      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
 
       StringBuffer query=new StringBuffer(1024);
       query.append("DELETE ");
