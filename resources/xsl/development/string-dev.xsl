@@ -118,10 +118,9 @@
 						All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.</p>
 							
 						<p>Component Posting: 1.23.2003<br/>
-						Initial Submission Due Date: 2.6.2003<br/>
-						Winner Announced: 2.19.2003<br/>
-						Final Submission Due Date: 2.24.2003</p>
-
+						Initial Submission Due Date: 2.6.2003 - <xsl:value-of select="/TC/DEVELOPMENT/date"/><br/>
+						Winner Announced: 2.19.2003 - <xsl:value-of select="/TC/DEVELOPMENT/DevWinner"/><br/>
+						Final Submission Due Date: 2.24.2003 - <xsl:value-of select="/TC/DEVELOPMENT/DesFinal"/></p>
 <!-- Register at TCS -->
 						
 
