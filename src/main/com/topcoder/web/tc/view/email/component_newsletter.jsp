@@ -20,7 +20,7 @@
         <table>
         	<tr>
         		<td><img src="/i/clear.gif" alt="" width="20" height="1" border="0"/></td>
-        		<td class="bodyText">Welcome to the first edition of the TopCoder Component Newsletter. We are happy to provide this newsletter to you as 
+        		<td class="bodyText">Welcome to the TopCoder Component Newsletter. We are happy to provide this newsletter to you as 
         		a way to stay abreast of the latest happenings at TopCoder. As always we continue to improve our component methodology and grow our catalog 
         		based on invaluable feedback from customers such as yourself. We appreciate your continued support.</td>
         		<td><img src="/i/clear.gif" alt="" width="20" height="1" border="0"/></td>
@@ -97,28 +97,38 @@
                 </tr>
                 
                 <tr>
-                    <td bgcolor="#FFFFFF"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
-                    <td class="smallText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=6707859&ver=1" target="blank">Bace64 Codec</A> - Plugs in to the Compression Utility library so that users can handle Base64 data. Uses for the library include logic to encode email messages, attachments, and XML strings.</td>
+                    <td bgcolor="#FFFFFF"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
+                    <td class="smallText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8403457&ver=1" target="blank">Sort Utility</A> -  The Sort List Utility adds a utility class to facilitate sorting of lists which implement the standard .NET IList interface.</td>
                 </tr>
                 
                 <tr>
                     <td bgcolor="#EEEEEE"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
-                    <td class="smallText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7411534&ver=1" target="blank">Performance Oriented Thread Pool</A> - Maintains a pool of threads and provides the highest performance to those threads that have been executing for the shortest period of time.</td>
+                    <td class="smallText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=6707859&ver=1" target="blank">Bace64 Codec</A> - Plugs in to the Compression Utility library so that users can handle Base64 data. Uses for the library include logic to encode email messages, attachments, and XML strings.</td>
                 </tr>
                 
                 <tr>
                     <td bgcolor="#FFFFFF"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
-                    <td class="smallText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=6601809&ver=1" target="blank">Trie Collection</A> - Provides trie data structure implementations including the Set and Map interfaces.</td>
+                    <td class="smallText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7411534&ver=1" target="blank">Performance Oriented Thread Pool</A> - Maintains a pool of threads and provides the highest performance to those threads that have been executing for the shortest period of time.</td>
+                </tr>
+                
+                <tr>
+                    <td bgcolor="#EEEEEE"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
+                    <td class="smallText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=6601809&ver=1" target="blank">Trie Collection</A> - Provides trie data structure implementations including the Set and Map interfaces.</td>
                 </tr>
 
                 <tr>
+                    <td bgcolor="#FFFFFF"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
+                    <td class="smallText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7263800&ver=1" target="blank">Thread Pool</A> - Facilitates the management and usage of threads for asynchronous processing.</td>
+                </tr>
+                
+                <tr>
                     <td bgcolor="#EEEEEE"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
-                    <td class="smallText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7263800&ver=1" target="blank">Thread Pool</A> - Facilitates the management and usage of threads for asynchronous processing.</td>
+                    <td class="smallText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7263827&ver=1" target="blank">DNS Query</A> - Query DNS servers for DNS records and available servers.</td>
                 </tr>
                 
                 <tr>
                     <td bgcolor="#FFFFFF"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
-                    <td class="smallText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7263827&ver=1" target="blank">DNS Query</A> - Query DNS servers for DNS records and available servers.</td>
+                    <td class="smallText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7410707&ver=1" target="blank">Shopping Cart</A> - The Shopping Cart component defines a data structure to hold and manage an online store's items.</td>
                 </tr>
                 
                 </table>
@@ -156,47 +166,47 @@
 
             <tr>
 				<td>
-					<table border="0" cellpadding="5" cellspacing="0" bgcolor="#666666" width="270">            
-                
-                <tr>
-                    <td class="bodyText" bgcolor="#EEEEEE"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
-                    <td class="bodyText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8519763&ver=1" target="blank">Unit Converter</A></td>
-                </tr>
-                
-                <tr>
-                    <td class="bodyText" bgcolor="#FFFFFF"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
-                    <td class="bodyText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7387570&ver=1" target="blank">Phonetic Matching</A></td>
-                </tr>
-
-                <tr>
-                    <td class="bodyText" bgcolor="#EEEEEE"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
-                    <td class="bodyText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7540610&ver=1" target="blank">OSS/J TCK Test Proxy</A></td>
-                </tr>
-                
-                <tr>
-                    <td class="bodyText" bgcolor="#FFFFFF"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
-                    <td class="bodyText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=600038&ver=2" target="blank">Document Generator V2</A></td>
-                </tr>
-    
-                <tr>
-                    <td class="bodyText" bgcolor="#EEEEEE"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
-                    <td class="bodyText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7325502&ver=1" target="blank">XML Navigator</A></td>
-                </tr>
-                
-                <tr>
-                    <td class="bodyText" bgcolor="#FFFFFF"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
-                    <td class="bodyText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7557958&ver=1" target="blank">Forums Engine</A></td>
-                </tr>
-
-                <tr>
-                    <td class="bodyText" bgcolor="#EEEEEE"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
-                    <td class="bodyText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=5710129&ver=1" target="blank">LDAP Client</A></td>
-                </tr>
-				</table>
+					<table border="0" cellpadding="5" cellspacing="0" bgcolor="#666666" width="270">
+                		<tr>
+                    		<td class="bodyText" bgcolor="#FFFFFF" valign="top" width="20%"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
+                    		<td class="bodyText" bgcolor="#FFFFFF" width="80%">
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7325387&ver=1" target="blank">Authorization</A><br/>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8595405&ver=1" target="blank">Data Access Interface</A><br/>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8595067&ver=1" target="blank">Report Data</A><br/>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8603710&ver=1" target="blank">Address Book</A><br/>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=9900311&ver=1" target="blank">Connection Manager</A><br/>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8444506&ver=1" target="blank">Encryption</A><br/>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7381375&ver=1" target="blank">File Delta</A><br/>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8593048&ver=1" target="blank">Message Center</A><br/>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8519763&ver=1" target="blank">Unit Converter</A>
+   							</td>
+                		</tr>
+                	</table>
+                </td>
+               </tr>
+               <tr>
+                <td>
+					<table border="0" cellpadding="5" cellspacing="0" bgcolor="#666666" width="270">
+                		<tr>
+                    		<td class="bodyText" bgcolor="#FFFFFF" valign="top" width="20%"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
+                    		<td class="bodyText" bgcolor="#FFFFFF" width="80%">
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=9899637&ver=1" target="blank">Data Access Socket Server</A><br/>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=2804393&ver=1" target="blank">Email Address Validator 1.1</A><br/>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8357861&ver=3" target="blank">SAML Schema 1.1</A><br/>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8594269&ver=1" target="blank">Status Tracker</A><br/>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8540094&ver=1" target="blank">Address Book</A><br/>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8566897&ver=1" target="blank">Catalog</A><br/>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7338805&ver=2" target="blank">Chart Rendering Engine 1.1</A><br/>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8595304&ver=1" target="blank">LDAP SDK Interface</A><br/>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=2300015&ver=2" target="blank">Logging Wrapper 1.2</A><br/>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8593287&ver=1" target="blank">MultiMap</A><br/>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=600215&ver=1" target="blank">Security Manager 1.1</A>
+                    		</td>
+                		</tr>
+					</table>
 				</td>
-				</tr>
-
-      		<tr>
+			</tr>
+			<tr>
 				<td>
 					<table border="0" cellpadding="5" cellspacing="0" bgcolor="#666666" width="270">
                 		<tr>
@@ -206,95 +216,42 @@
                 </td>
            	</tr>			
 				
-            <tr>
+        <tr>
 				<td>
 					<table border="0" cellpadding="5" cellspacing="0" bgcolor="#666666" width="270">
-                
-                <tr>
-                    <td class="bodyText" bgcolor="#EEEEEE"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
-                    <td class="bodyText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7410031&ver=1" target="blank">Tail</A></td>
-                </tr>
-                
-                <tr>
-                    <td class="bodyText" bgcolor="#FFFFFF"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
-                    <td class="bodyText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7551467&ver=1" target="blank">Unit Test Generator</A></td>
-                </tr>
-                
-                <tr>
-                    <td class="bodyText" bgcolor="#EEEEEE"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
-                    <td class="bodyText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8447769&ver=1" target="blank">File Upload</A></td>
-                </tr>
-                
-                <tr>
-                    <td class="bodyText" bgcolor="#FFFFFF"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
-                    <td class="bodyText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8444395&ver=1" target="blank">Heartbeat</A></td>
-                </tr>
-                
-                
-              	<tr>
-                    <td class="bodyText" bgcolor="#EEEEEE"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
-                    <td class="bodyText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7381375&ver=1" target="blank">File Delta</A></td>
-                </tr>
-                
-                <tr>
-                    <td class="bodyText" bgcolor="#FFFFFF"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
-                    <td class="bodyText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8403457&ver=1" target="blank">Sort Utility</A></td>
-                </tr>
-                
-                <tr>
-                    <td class="bodyText" bgcolor="#EEEEEE"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
-                    <td class="bodyText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7534130&ver=1" target="blank">Java Class Associations</A></td>
-                </tr>
-                
-                <tr>
-                    <td class="bodyText" bgcolor="#FFFFFF"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
-                    <td class="bodyText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8451710&ver=1" target="blank">Source Control Client</A></td>
-                </tr>
-                
-                
-                <tr>
-                    <td class="bodyText" bgcolor="#EEEEEE"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
-                    <td class="bodyText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=6601794&ver=1" target="blank">String Distance</A></td>
-                </tr>
-                
-                <tr>
-                    <td class="bodyText" bgcolor="#FFFFFF"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
-                    <td class="bodyText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=3312447&ver=1" target="blank">Bulk Email</A></td>
-                </tr>
-
-                <tr>
-                    <td class="bodyText" bgcolor="#EEEEEE"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
-                    <td class="bodyText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7324513&ver=1" target="blank">CSS Style Object</A></td>
-                </tr>
-                
-                <tr>
-                    <td class="bodyText" bgcolor="#FFFFFF"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
-                    <td class="bodyText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=500004&ver=2" target="blank">Configuration Manager Version 3</A></td>
-                </tr>
-                
-                <tr>
-                    <td class="bodyText" bgcolor="#EEEEEE"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
-                    <td class="bodyText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7408776&ver=1" target="blank">Load Estimator</A></td>
-                </tr>
-                
-                <tr>
-                    <td class="bodyText" bgcolor="#FFFFFF"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
-                    <td class="bodyText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=6511818&ver=1" target="blank">Pluggable Persistence</A></td>
-                </tr>
-
-                <tr>
-                    <td class="bodyText" bgcolor="#EEEEEE"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
-                    <td class="bodyText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7362393&ver=1" target="blank">Reference Collection</A></td>
-                </tr>
-                
-                <tr>
-                    <td class="bodyText" bgcolor="#FFFFFF"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
-                    <td class="bodyText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7410707&ver=1" target="blank">Shopping Cart</A></td>
-                </tr>
-
-                </table>
-                	</td>
+                		<tr>
+                    		<td class="bodyText" bgcolor="#FFFFFF" valign="top" width="20%"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
+                    		<td class="bodyText" bgcolor="#FFFFFF" width="80%">
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8567592&ver=1" target="blank">Document Generator</A><br/>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8447769&ver=1" target="blank">File Upload</A><br/>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7387570&ver=1" target="blank">Phonetic Pattern Matching</A><br/>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7408797&ver=1" target="blank">SVG Generator</A><br/>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7410031&ver=1" target="blank">Tail</A>
+   							</td>
                 		</tr>
+                	</table>
+                </td>
+               </tr>
+               <tr>
+                <td>
+					<table border="0" cellpadding="5" cellspacing="0" bgcolor="#666666" width="270">
+                		<tr>
+                    		<td class="bodyText" bgcolor="#FFFFFF" valign="top" width="20%"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
+                    		<td class="bodyText" bgcolor="#FFFFFF" width="80%">
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7387999&ver=1" target="blank">Random String Image</A><br/>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7412228&ver=1" target="blank">SAML Authenticator</A><br/>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=4312547&ver=1" target="blank">API Version Compatibility</A><br/>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7324513&ver=1" target="blank">CSS Style Object</A><br/>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7339708&ver=1" target="blank">Data Paging Tag</A><br/>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=600038&ver=1" target="blank">Document Generator 2.0</A><br/>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8541877&ver=1" target="blank">Email Confirmation</A><br/>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=5501523&ver=1" target="blank">Generic Parser 1.1</A><br/>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=6500731&ver=1" target="blank">Object XML Validation</A>
+                    		</td>
+                		</tr>
+					</table>
+				</td>
+			</tr>
                 			</table>
 			</td>
 <!-- Compnents in Progress Ends-->  
@@ -314,12 +271,13 @@
                     <A href="http://software.topcoder.com/catalog/c_component.jsp?comp=2803908&ver=1" target="blank"><img src="/i/email/feat_comp_math_expression.gif" width="170" height="104" border="0"/></A><br/>
                     
                     <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
-                    
+                                        
+                    <A href="/?t=sponsor&c=link&link=/i/downloads/cbdi_journal.pdf&refer=homepage" target="blank"><img src="/i/promos/cbdi_journal.gif" alt="CBDI Journal" width="170" height="150" border="0" /></A><br/>
+
+                    <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+                                        
                     <A href="http://software.topcoder.com/forum/c_active_collab.jsp" target="blank"><img src="/i/email/promo_cust_forums_third.gif" width="170" height="120" border="0"/></A><br/>
                     
-                    <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
-                    
-                    <A href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_becomesponsor" target="blank"><img src="/i/promos/sponsor_tccc04.gif" width="170" height="150" border="0"/></A><br/>
 
                     
                     </td>
@@ -351,26 +309,26 @@
                 		</tr>
                 
                 		
-                    		<tr><td class="bodyText" bgcolor="#FFFFFF"><A href="http://www.topcoder.com/?&t=news_events&c=pr_02_16_04" target="blank">TopCoder Announces Yahoo! as Title Sponsor for TCCC04</A><br/>
-							"Yahoo! is proud to sponsor the TopCoder Collegiate Challenge and showcase the programmers and developers of tomorrow as 
-							they put their skills to the test," said Libby Sartain, Senior Vice President, Human Resources and Chief People Yahoo. 
-							"Many of the participants in this event are as fun, innovative and talented as our own employees and we are excited to 
-							have the Yahoo! team on-site to meet the competitors and witness their considerable coding capabilities." [February 16]
+                    		<tr><td class="bodyText" bgcolor="#FFFFFF"><A href="http://www.topcoder.com/?&t=news_events&c=pr_04_19b_04" target="blank">Champions Announced In 2004 TCCC Sponsored by Yahoo!<sup>&#174;</sup></A><br/>
+							 TopCoder announced today that Tomasz Czajka of Warsaw, Poland, Pavlo Aksonov of the Ukraine and Roman Koshlyak, also of the 
+							 Ukraine, have won the Coding, Design and Development Component tournaments of the 2004 TopCoder Collegiate Challenge 
+							 sponsored by Yahoo! [April 19]
 							</td></tr>
 							
-							<tr><td class="bodyText" bgcolor="#FFFFFF"><A href="http://www.topcoder.com/?&t=news_events&c=pr_02_02_04" target="blank">TopCoder Announces DoubleClick 2004 Coding Challenge</A><br/>
-							 Having self-administered coding competitions for its employees for the last two years, DoubleClick is now turning to 
-							 TopCoder to expand this year's competition to include external applicants. The DoubleClick 2004 Coding Challenge is 
-							 open to all DoubleClick employees worldwide. As an added dimension this year, DoubleClick is also opening the contest 
-							 to students at two local universities - Columbia and NYU. [February 2]
+							<tr><td class="bodyText" bgcolor="#FFFFFF"><A href="http://www.topcoder.com/?&t=news_events&c=pr_04_19_04" target="blank">Custom Web Application Enables Online Gift Card Service</A><br/>
+							Stage Stores has implemented a high quality enterprise solution to reduce the inconvenience and cost of customers having 
+							to call an 800 number to purchase gift cards. The customized web solution is compatible across Apache Web Server, 
+							Tomcat Servlet Engine and Oracle RDBMS platforms and was designed and developed by TopCoder Software using the 
+							company's unique development methodology and catalog of more than 150 reusable components. [April 19]
 							</td></tr>
 							
-							<tr><td class="bodyText" bgcolor="#FFFFFF"><A href="http://www.computerworld.com/developmenttopics/development/story/0,10801,89274,00.html?SKC=development-89274" target="blank">Standards penetrate telecom industry</A><br/>
-							 Transferring phone numbers between telecommunications service providers seems like a logical feature that should have 
-							 always existed. However, it took an act of Congress to enable the Federal Communications Commission to announce that 
-							 cell phone numbers could be transferred between carriers beginning last fall. (As if it were so simple that an act of 
-							 Congress could make it work.). [January 26]
+							<tr><td class="bodyText" bgcolor="#FFFFFF"><A href="http://www.businessweek.com/technology/content/apr2004/tc20040413_3592_tc146.htm" target="blank">Hiring Techies Is as Tricky as Ever</A><br/>
+							TopCoder rounded up about 100 programmers to participate in this software smackdown, some 10 of whom made it to the final 
+							round. DoubleClick Chief Information Officer Mok Choe says the company has already hired a few of the winners. "We can 
+							filter out the cream of the crop," says Choe. [April 13]
 							</td></tr>
+							
+							<tr><td class="bodyText" bgcolor="#FFFFFF"><strong><A href="http://www.topcoder.com/?t=news_events&c=index" target="blank">View All</A></strong></td></tr>
 <!-- TopCoder News Ends-->					
                 		<tr><td bgcolor="#FFFFFF"><hr noshade size="1" width="100%"></hr></td></tr>
                 		
