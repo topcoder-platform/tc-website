@@ -42,7 +42,7 @@
       } else {
           errorURL = new StringBuffer("/rtables/post.jsp?"+request.getQueryString());
       }
-      request.setAttribute("errorURL", errorURL.toString());
+      request.setAttribute("nextpage", errorURL.toString());
       request.setAttribute("module", "Login");
       request.setAttribute("message", "You must log in to post a round table message.");
       getServletConfig().getServletContext().getContext("/").getRequestDispatcher(response.encodeURL("/tc")).forward(request, response);
