@@ -79,6 +79,7 @@ public class ModifyCommandQueryTask extends BaseTask implements Task, Serializab
             CommandQueryBean cqb = null;
             for (int j=0; j<getCurrentQueryList().size(); j++) {
                 cqb = (CommandQueryBean)getCurrentQueryList().get(j);
+                log.debug("XXX: " + cqb.toString());
                 cq.setSortOrder(cqb.getCommandId(), cqb.getQueryId(), cqb.getSortOrder());
             }
         } else if (step!=null && step.equals(Constants.NEW_STEP)) {
