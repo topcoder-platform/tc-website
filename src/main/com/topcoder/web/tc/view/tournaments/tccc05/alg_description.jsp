@@ -23,20 +23,20 @@
             
         <p class=bigTitle>Description of the Algorithm Competition</p>
 
-            Once again, 24 of the world's best coders will be invited to compete live at the onsite finals in Santa Clara, CA, USA.</p>
+            Once again, 24 of the world's best collegiate coders will be invited to compete live at the onsite finals in Santa Clara, CA, USA.</p>
             <ul>
                 <li><strong>Registration</strong><br />
-                    STARTS: Monday, December 20 at 9:00 AM ET<br/>
-                    ENDS: Tuesday, January 11 at 9:00 AM ET</li>
+                    STARTS: Monday, December 20, 2004 at 9:00 AM ET<br/>
+                    ENDS: Tuesday, January 11, 2005 at 9:00 AM ET</li>
                     
                 <li><strong>Qualification Round</strong><br />
-                    STARTS: Tuesday, January 11 at 12:00 PM ET (noon)<br/>
-                    ENDS: Wednesday, January 12 at 12:00 PM ET (noon)</li>
+                    STARTS: Tuesday, January 11, 2005 at 12:00 PM ET (noon)<br/>
+                    ENDS: Wednesday, January 12, 2005 at 12:00 PM ET (noon)</li>
                     
                 <li><strong>Elimination Rounds</strong><br/>
-                     January 16<br/>
+                     January 15<br/>
                      January 19<br/>
-                     January 22<br/>
+                     January 26<br/>
                      February 2
                      </li>
                 <li><strong>Onsite Finals</strong><br />

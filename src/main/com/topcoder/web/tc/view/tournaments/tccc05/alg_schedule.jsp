@@ -26,15 +26,15 @@
         <p><span class="bodySubtitle">Registration</span><br/>
             In order to be eligible to compete in the Algorithm Competition, each competitor must be a registered TopCoder member 
             and have registered separately for the Algorithm Competition.  Registration for the competition is unlimited, 
-            however each individual may only register once. Registration for the 2004 TopCoder Open Algorithm Competition is scheduled as follows:</p>
+            however each individual may only register once. Registration for the 2005 TopCoder Collegiate Challenge Algorithm Competition is scheduled as follows:</p>
 
             <p>
             <table width="510" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr valign="top">
                     <td class="sidebarText" width="25%">Registration</td>
                     <td class="sidebarText" width="75%">
-                        OPENS: Monday, December 20 at 9:00 AM ET<br /><br/>
-                        CLOSES: Tuesday, January 11 at 9:00 AM ET
+                        OPENS: Monday, December 20, 2004 at 9:00 AM ET<br /><br/>
+                        CLOSES: Tuesday, January 11, 2005 at 9:00 AM ET
                     </td>
                 </tr>
             </table>
@@ -54,10 +54,10 @@
                 <tr valign="top">
                     <td class="sidebarText">Qualification Round</td>
                     <td class="sidebarText">
-                        START: Tuesday, January 11<br />
+                        START: Tuesday, January 11, 2005<br />
                         12:00 PM ET (noon)<br /><br/>
-                        END: Wednesday, January 12<br />
-                        12:00 PM (noon)
+                        END: Wednesday, January 12, 2005<br />
+                        12:00 PM ET (noon)
                     </td>
                     <td class="sidebarText">All eligible registered competitors</td>
                     <td class="sidebarText">Top 100 scorers in each of 5 Qualification Round Problem Sets</td>
@@ -78,7 +78,7 @@
                 <tr valign="top">
                     <td class="sidebarText">Online Round #1</td>
                     <td class="sidebarText">
-						Saturday, January 16th<br/>Register: 9:00 - 11:55 AM<br/>START: 12:00 PM (Noon)
+						Saturday, January 15th<br/>Register: 9:00 - 11:55 AM ET<br/>START: 12:00 PM ET (Noon)
                     <td class="sidebarText">500</td>
                     <td class="sidebarText">200</td>
                     </td>
@@ -87,7 +87,7 @@
                 <tr valign="top">
                     <td class="sidebarText">Online Round #2</td>
                     <td class="sidebarText">
-                        Wednesday, January 19th<br/>Register:  6:30 - 9:25 PM<br/>START: 9:30 PM
+                        Wednesday, January 19th<br/>Register:  6:30 - 9:25 PM ET<br/>START: 9:30 PM ET
                     </td>
                     <td class="sidebarText">200</td>
                     <td class="sidebarText">100</td>
@@ -96,7 +96,7 @@
                 <tr valign="top">
                     <td class="sidebarText">Online Round #3</td>
                     <td class="sidebarText">
-                        Wednesday, January 26th<br/>Register:  6:30 - 9:25 PM<br/>START: 9:30 PM
+                        Wednesday, January 26th<br/>Register:  6:30 - 9:25 PM ET<br/>START: 9:30 PM ET
                     </td>
                     <td class="sidebarText">100</td>
                     <td class="sidebarText">50</td>
@@ -105,7 +105,7 @@
                 <tr valign="top">
                     <td class="sidebarText">Online Round #4</td>
                     <td class="sidebarText">
-                        Wednesday, February 2nd<br/>Register:  6:30 - 9:25 PM<br/>START: 9:30 PM
+                        Wednesday, February 2nd<br/>Register:  6:30 - 9:25 PM ET<br/>START: 9:30 PM ET
                     </td>
                     <td class="sidebarText">50</td>
                     <td class="sidebarText">24</td>

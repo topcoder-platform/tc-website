@@ -36,13 +36,13 @@
 
             <h3><font color="#CC0000">No purchase necessary to enter or win. The tournament is void where prohibited.</font></h3>
 
-			The 2005 TopCoder Collegiate Challenge ("TCCC") Algorithm Competition will take place between January 11th and March 11th, 2005.  It will consist of one (1) online qualification round, four (4) online elimination rounds and two (2) onsite final rounds, being the Semifinal and Championship rounds.  The prize purse for this competition is $60,000 in cash.  Up to 150 competitors will win a cash prize, and for competing in Online Round #1, up to 500 competitors will receive a participatory prize.  The top 24 finishers in the online rounds will advance to the onsite Semifinal and Championship rounds, being held at the Santa Clara Marriott in Santa Clara, California, USA on March 10th and 11th.
+			The 2005 TopCoder Collegiate Challenge ("TCCC") Algorithm Competition will take place between January 11 and March 11, 2005.  It will consist of one (1) online qualification round, four (4) online elimination rounds and three (3) onsite final rounds, being the Semifinal, Wildcard and Championship rounds.  The prize purse for this competition is $60,000 in cash.  Up to 150 competitors will win a cash prize, and for competing in Online Round #1, up to 500 competitors will receive a participatory prize.  The top 24 finishers in the online rounds will advance to the onsite Semifinal and Championship rounds, being held at the Santa Clara Marriott in Santa Clara, California, USA on March 10 and 11.
 			<br/><br/>
 
             <a name="eligibility"></a>
             <h3><a href="#top"><img src="/i/navigation/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right">
             </a>Eligibility</h3>
-			TopCoder members meeting the following eligibility criteria are eligible to compete in the Algorithm Competition: 
+			TopCoder members meeting the following criteria are eligible to compete in the Algorithm Competition: 
 			
 			<ul>
 			<li>Must be at least 18 years of age (as of January 11, 2005); AND</li>
@@ -51,7 +51,7 @@
 
 			TopCoder members who are 18 years of age or older as of January 11, 2005 are eligible to win cash prizes, unless otherwise prohibited. The TopCoder Collegiate Challenge is void in the Quebec province of Canada, and elsewhere where prohibited by applicable law. Cash prizes will not be paid to residents of Cuba, Iran, Iraq, Libya, North Korea, Sudan, or Syria.
 			<br/><br/>
-			Employees of TopCoder, Inc. and of all official tournament sponsors, regardless of commitment date as sponsor, as of January 11, 2005, including any companies involved in the production (including prize suppliers), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament. If a competitor's employer signs up as an official sponsor of the tournament after December 20, 2004, then that competitor will be disqualified from participating further in the tournament. TopCoder members who are performing internships for any official tournament sponsor between December 20, 2004 and March 11, 2005 are also ineligible to compete.
+			Employees of TopCoder, Inc. and of all official tournament sponsors, regardless of commitment date as sponsor, including any companies involved in the production (including prize suppliers), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament. If a competitor's employer signs up as an official sponsor of the tournament after December 20, 2004, then that competitor will be disqualified from participating further in the tournament. TopCoder members who are performing internships for any official tournament sponsor between December 20, 2004 and March 11, 2005 are also ineligible to compete.
 
             <a name="registration"></a>
             <h3><a href="#top"><img src="/i/navigation/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right">
@@ -80,7 +80,7 @@
             </a>Online Elimination Rounds</h3>
 			Everyone who competes in an online round must login to the TopCoder Competition Arena no later than ten (10) minutes prior to the start of the online round. (See the schedule for competition dates and times.) TopCoder members from around the world may be participating in the online rounds, but all start times will be communicated as Eastern Time, so contestants in different time zones must adjust accordingly. If a coder does not participate, for any reason, in an online round he/she has advanced to, it will be treated as an automatic loss in that round of competition. 
 			<br/><br/>
-			All competitors who have qualified for an online round will be assigned to a specific room. TopCoder will determine all room assignments prior to the start of each online round in the TopCoder Iron Man format, which assigns members to rooms according to tournament seed such that the higher seeded members are assigned to the lower numbered rooms.  The dates and times of the online rounds of competition are as follows: 
+			All competitors who have qualified for an online round will be assigned to a specific room. <b>TopCoder will determine all room assignments prior to the start of each online round in the TopCoder Iron Man format, which assigns members to rooms according to tournament seed such that the higher seeded members are assigned to the lower numbered rooms</b>.  The dates and times of the online rounds of competition are as follows: 
 
 			<br/><br/>
 			<table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
@@ -90,7 +90,7 @@
 				</tr>
 				<tr>
                     <td width="50%" class="sidebarText">Online Round #1</td>
-					<td width="50%" class="sidebarText">Saturday, January 16th<br/>Register: 9:00 - 11:55 AM<br/>START: 12:00 PM (Noon)</td>
+					<td width="50%" class="sidebarText">Saturday, January 15th<br/>Register: 9:00 - 11:55 AM<br/>START: 12:00 PM (Noon)</td>
 				</tr>
 				<tr>
                     <td width="50%" class="sidebarText">Online Round #2</td>
@@ -126,9 +126,9 @@
 			<ul>
 			<li>Total points acquired (higher is better) during the rounds of the tournament in which all of the tied participants were presented with the same set of problems (excluding the Qualification Round).</li>
 			<li>If a tie still remains, then by rating (higher is better) following the Qualification Round.</li>
-			<li>If a tie still remains, all tied coders will advance to the next round.</li.
+			<li>If a tie still remains, all tied coders will advance to the next round.</li>.
 			</ul>
-
+			
             <span class="bodySubtitle">Competition Round Structure</span><br/>
 			With the exception of the Qualification Round, each online and onsite round of competition consists of three phases: the Coding Phase, Challenge Phase, and System Testing Phase. (Note: The format of these competition rounds is similar to the format of the Single Round Matches.  The rules in place for the Single Round Matches as of January 11, 2005 will also apply to the online and onsite rounds of the TCCC.)
 
@@ -139,7 +139,7 @@
 			</ul>
 
             <span class="bodySubtitle">Onsite Semifinal and Championship Rounds</span><br/>
-			The twenty-four (24) advancers from Online Round #4 will travel to the Santa Clara Marriott on Wednesday, March 9th to compete in the Semifinal round of the tournament being held on Thursday, March 10th.  All contestants must arrive at the Santa Clara Marriott no later than 4:00 PM on Wednesday, March 9th.  All contestants must confirm their attendance at the onsite rounds no later than 5:00 PM ET on Friday, February 18, 2005.  If a contestant is unable to attend the onsite rounds, he/she will forfeit his/her eligibility to receive any prizes awarded to onsite finalists, and his/her spot in the tournament will be given to the next highest overall scorer from Online Round #4.
+			The twenty-four (24) advancers from Online Round #4 will travel to the Santa Clara Marriott on Tuesday, March 8th or Wednesday, March 9th to compete in the Semifinal round of the tournament being held on Thursday, March 10.  All contestants must arrive at the Santa Clara Marriott no later than 4:00 PM on Wednesday, March 9th.  All contestants must confirm their attendance at the onsite rounds no later than 5:00 PM ET on Friday, February 18, 2005.  If a contestant is unable to attend the onsite rounds, he/she will forfeit his/her eligibility to receive any prizes awarded to onsite finalists, and his/her spot in the tournament will be given to the next highest overall scorer from Online Round #4.
 			<br/><br/>
 			TopCoder will provide travel arrangements for each competitor, up to a cost of $1,000 per person.  (That is, if a contestant's airfare is greater than $1,000, the contestant will be responsible for the difference between the cost of the airfare and $1,000.)  TopCoder will also provide ground transportation to and from the airport, as well as hotel accommodations and certain meals for each contestant.  All other expenses are the responsibility of the contestant.  TopCoder will not provide travel or lodging accommodations for competitor guests at the 2005 TCCC.  
 			<br/><br/>
@@ -149,27 +149,27 @@
 			<table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td width="50%" class="sidebarTitle">Round of Competition</td>
-                    <td width="50%" class="sidebarTitle">Date and Time (all Eastern Time)</td>
+                    <td width="50%" class="sidebarTitle">Date and Time (all Pacific Time)</td>
 				</tr>
 				<tr>
 					<td width="50%" class="sidebarText">Semifinal Room #1</td>
-					<td width="50%" class="sidebarText">Thursday, March 10th, 10:00 AM</td>
+					<td width="50%" class="sidebarText">Thursday, March 10, 10:00 AM</td>
 				</tr>
 				<tr>
 					<td width="50%" class="sidebarText">Semifinal Room #2</td>
-					<td width="50%" class="sidebarText">Thursday, March 10th, 1:00 PM</td>
+					<td width="50%" class="sidebarText">Thursday, March 10, 1:00 PM</td>
 				</tr>
 				<tr>
 					<td width="50%" class="sidebarText">Semifinal Room #3</td>
-					<td width="50%" class="sidebarText">Thursday, March 10th, 4:00 PM</td>
+					<td width="50%" class="sidebarText">Thursday, March 10, 4:00 PM</td>
 				</tr>
 				<tr>
 					<td width="50%" class="sidebarText">Wildcard Round</td>
-					<td width="50%" class="sidebarText">Friday, March 11th, 10:00 AM</td>
+					<td width="50%" class="sidebarText">Friday, March 11, 10:00 AM</td>
 				</tr>
 				<tr>
 					<td width="50%" class="sidebarText">Championship Round</td>
-					<td width="50%" class="sidebarText">Friday, March 11th, 2:30 PM</td>
+					<td width="50%" class="sidebarText">Friday, March 11, 2:30 PM</td>
 				</tr>
 			</table>
 			<br/><br/>
@@ -277,9 +277,9 @@
 			<span class=bodySubtitle>Other</span><br/>
 			The tournament is void in whole or in part where prohibited by law.
 			<br/><br/>
-			A list of tournament winners by coder handles will be available on the web site at http://www.topcoder.com/tc, and will be displayed for at least 3 months after the end of the tournament.
+			A list of tournament winners by coder handles will be available on the web site at <A href="/tc">http://www.topcoder.com/tc</A>, and will be displayed for at least 3 months after the end of the tournament.
 			<br/><br/>
-			This tournament is brought to you by TopCoder, Inc. (http://www.topcoder.com/) 703 Hebron Avenue, Glastonbury, CT 06033.
+			This tournament is brought to you by TopCoder, Inc. (<A href="/">http://www.topcoder.com/</A>) 703 Hebron Avenue, Glastonbury, CT 06033.
 
 			</div>
 		</td>
