@@ -26,7 +26,7 @@ public class TCO04ComponentTermsAgree extends TermsAgreeBase {
              
              //if we're here, this is successful
              UserEvent userEvent = (UserEvent)createEJB(getInitialContext(), UserEvent.class);
-             userEvent.createUserEvent(getUser().getId(), Constants.TCO04_EVENT_ID, DBMS.OLTP_DATASOURCE_NAME);
+             userEvent.createUserEvent(getUser().getId(), Constants.TCO04_EVENT_ID, DBMS.TCS_OLTP_DATASOURCE_NAME);
          } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
