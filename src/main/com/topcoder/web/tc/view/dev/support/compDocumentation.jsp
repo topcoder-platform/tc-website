@@ -124,8 +124,8 @@
 					The screening and review scorecards are used by the Development Review Boards to score component submissions. All members who submit a development solution will be able to log in to TopCoder Software Project Submit & Review and view their corresponding project's screening and review scorecards. These are sample screen shots from the Submit & Review application.
 					</td>
 					<td class="projectCells" valign="top" align="center">
-					11.10.2003<br/>
-					07.27.2004
+					08.17.2004<br/>
+					08.17.2004
 					</td>
 					<td class="projectCells" valign="top" align="right" nowrap="nowrap">
 					<A href="/tc?module=Static&d1=dev&d2=support&d3=devScreeningSample">Sample Development Screening Scorecard</A><br/>
