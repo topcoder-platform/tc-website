@@ -2,7 +2,6 @@ package com.topcoder.web.privatelabel.controller.request;
 
 import com.topcoder.web.privatelabel.model.*;
 import com.topcoder.web.privatelabel.Constants;
-import com.topcoder.web.privatelabel.view.tag.DemographicInput;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.shared.util.logging.Logger;

@@ -11,6 +11,7 @@ public class FullRegInfo extends SimpleRegInfo {
     private List responses;
 
     public FullRegInfo() {
+        responses = new ArrayList();
     }
 
     public FullRegInfo(SimpleRegInfo info) {
