@@ -117,7 +117,7 @@
                 <tr>
                     <td class="sidebarText">WHEN:
                     	<ul>
-                    		<li>Registration opens - December 13, 2004</li>
+                    		<li>Registration opens - December 20, 2004</li>
 							<li>Participation rounds - January 3, 2004 - February 3, 2005</li>
 							<li>Championship round - March 10, 2005</li>
 						</ul>
