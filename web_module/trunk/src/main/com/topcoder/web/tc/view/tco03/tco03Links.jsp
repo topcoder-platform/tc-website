@@ -94,9 +94,9 @@
 
 <!-- Advancers tab -->
             <% if (selectedTab.equals("component_advancers")) {%>
-                 <td class="statTextBig" width="128"><A href="/tc?module=Static&d1=tco03&d2=tco03_comp_highlights" class="statTextBig"><img src="/i/tournament/tco03/tab_advancers_on.gif" alt="Advancers" width="88" height="22" border="0" /></A></td>
+                 <td class="statTextBig" width="128"><A href="/tc?module=Static&d1=tco03&d2=tco03_comp_des_rd1" class="statTextBig"><img src="/i/tournament/tco03/tab_advancers_on.gif" alt="Advancers" width="88" height="22" border="0" /></A></td>
             <% } else { %>
-                 <td class="statTextBig" width="128"><A href="/tc?module=Static&d1=tco03&d2=tco03_comp_highlights" class="statTextBig"><img src="/i/tournament/tco03/tab_advancers_off.gif" alt="Advancers" width="88" height="22" border="0" /></A></td>
+                 <td class="statTextBig" width="128"><A href="/tc?module=Static&d1=tco03&d2=tco03_comp_des_rd1" class="statTextBig"><img src="/i/tournament/tco03/tab_advancers_off.gif" alt="Advancers" width="88" height="22" border="0" /></A></td>
             <% } %>
 
       <td width="49%"><img src="/i/clear.gif" alt="" width="5" height="10" border="0" /></td>

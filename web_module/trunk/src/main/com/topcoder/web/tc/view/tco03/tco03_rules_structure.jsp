@@ -71,13 +71,13 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
             A total of 500 TopCoder members will compete in Online Round 1.  The field will be comprised of 100 automatic
             berths and 400 qualification spots.</p>
 
-            <p>Click <a href="/?&amp;t=tournaments&amp;c=tco03_sched#berths">here</a> for more details regarding the automatic berths
+            <p>Click <a href="/tc?module=Static&d1=tco03&d2=tco03_schedule#berths">here</a> for more details regarding the automatic berths
             and qualification spots.</p><br />
 
 <!-- Online Elimination Rounds -->
             <p><span class="bodySubtitle">Online Elimination Rounds</span><br />
             Everyone who competes in an online round must log on to the TopCoder Competition Arena no later than ten minutes prior to
-            the start of the online round. (Click <a href="/?&amp;t=tournaments&amp;c=tco03_sched#sched">here</a> for competition dates and times.)
+            the start of the online round. (Click <a href="/tc?module=Static&d1=tco03&d2=tco03_schedule#sched">here</a> for competition dates and times.)
             TopCoder members from around the world may be
             participating in these rounds, but all start times will be communicated as Eastern Time, so contestants in different time zones
             must adjust accordingly. If a coder does not participate, for any reason, in an online round they have advanced to, it will be
@@ -135,7 +135,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
             <br/><br/>
             TopCoder will determine the room assignments for the Semifinal rooms prior to the start of each Semifinal round, in a 
             manner such that the average competitor rating (as of October 6th) for each room will be similar.  Click
-            <A href="/?&amp;t=tournaments&amp;c=tco03_sched">here</A> for the schedule.
+            <A href="/tc?module=Static&d1=tco03&d2=tco03_schedule">here</A> for the schedule.
             <br/><br/>
             The Semifinal Round will consist of four (4) rooms of four (4) coders each. The winner in each room will advance to the 
             Championship Round.

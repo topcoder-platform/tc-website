@@ -55,7 +55,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 <!-- Tab bar links-->
 <jsp:include page="tco03Links.jsp" >
    <jsp:param name="selectedContest" value="coding"/>
-   <jsp:param name="selectedTab" value="coding_advancers"/>
+   <jsp:param name="selectedTab" value="coding_overview"/>
 </jsp:include>
 
 <!-- Tab bar sublinks-->
@@ -65,27 +65,49 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 </jsp:include>
 
             <h2>Advancers</h2>
-            
-            <table width="500" align="center" border="0" cellpadding="2" cellspacing="2" class="formFrame">
-               <tr>
-                  <td width = "40%" align = "left" class="advancers_header">Round</td>
-                  <td width = "20%" align = "right" class="advancers_header">Advancers</td>
-                  <td width = "20%" align = "right" class="advancers_header">Room Winners</td>
-                  <td width = "20%" align = "right" class="advancers_header">Wildcards</td>
+
+            <p>Click a column name to sort the list of advancers by that column.</p>
+
+            <a name="data"/>
+            <table width="400" align="center" border="0" cellpadding="6" cellspacing="0" class="formFrame">
+                <tr>
+                  <td class="header" width="100%" colspan="4"></td>
                </tr>
-               <tr>
-                  <td align = "left" class="advancers_roundid"><a href="/tc?module=Static&d1=tco03&d2=tco03_top100" class="topLink">Top 100</a></td>
-                  <td align = "right" class="advancers_faded"><a href="/tc?module=Static&d1=tco03&d2=tco03_top100">100</a></td>
-                  <td align = "right" class="advancers_faded">n/a</td>
-                  <td align = "right" class="advancers_faded">n/a</td>
-               </tr>
-               <tr>
-                  <td align = "left" class="advancers_roundid"><a href="/tc?module=Static&d1=tco03&d2=tco03_advancers&rd=4700" class="topLink">Qualification Round 1</a></td>
-                  <td align = "right" class="advancers_faded"><a href="/tc?module=Static&d1=tco03&d2=tco03_advancers&rd=4700">200</a></td>
-                  <td align = "right" class="advancers_faded">n/a</td>
-                  <td align = "right" class="advancers_faded">n/a</td>
-               </tr>
-            </table>
+                <tr>
+                   <td class="testTableTitle_off" width="10%" align="center">
+                       <a class="statTextBig">
+                          
+                       </a>
+                   </td>
+                   <td class="testTableTitle_off" width="30%" align="left">
+                       <a class="statTextBig">
+                           Handle
+                       </a>
+                   </td>
+                   <td class="testTableTitle_off" width="30%" align="right">
+                       <a class="statTextBig">
+                           Rating
+                       </a>
+                   </td>
+                   <td class="testTableTitle_off" width="30%" align="right">
+                       <a class="statTextBig">
+                           Points
+                       </a>
+                   </td>
+                </tr>
+
+
+                    <tr>
+                       <td class="advancers_list" align="right"></td>
+                       <td class="advancers_list" align="left">
+                       <td class="advancers_list" align="right"></td>
+                       <td class="advancers_list" align="right"></td>
+                   </tr>
+                </xsl:for-each>
+
+
+
+             </table>
 
          <p><br/></p>
          </td>
