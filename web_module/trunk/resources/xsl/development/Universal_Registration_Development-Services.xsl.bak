@@ -114,8 +114,8 @@
                                                         <li>Provide an operation report of new users.</li>
                                                     </ul>
                                                     <p>
-                                                        The utility layer consists of helper classes used by the services implementation classes.  The developer
-                                                        will develop SQL, JDBC, and LDAP utilities
+                                                        The services layer consists of of numerous …Service interfaces and corresponding implementation classes along with the “model” classes. 
+                                                        Simple delegation and value objects will be developed by this layer.
 
 
                                                     </p>
@@ -131,9 +131,6 @@
                                                     </p>
                                                     <ul class="noSpList">
                                                         <li>Solaris</li>
-                                                        <li>LDAP</li>
-                                                        <li>SQL</li>
-                                                        <li>JDBC</li>
                                                         <li>Java 1.4</li>
                                                     </ul>
 
