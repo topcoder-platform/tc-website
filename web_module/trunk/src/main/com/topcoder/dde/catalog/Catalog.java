@@ -38,7 +38,8 @@ public interface Catalog extends javax.ejb.EJBObject {
     long NET_CATALOG = 5801777;
     long JAVA_CATALOG = 5801776;
     long FLASH_CATALOG = 8459260;
-
+    long NET_CUSTOM_CATALOG = 5801779;
+    long JAVA_CUSTOM_CATALOG = 5801778;
 
     /**
      * <p>Performs a search on the catalog. All options are represented by a
