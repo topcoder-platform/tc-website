@@ -83,12 +83,14 @@ public class Task {
 
     public boolean isNumber(String s, boolean acceptFloat) {
         if (isEmpty(s)) return false;
-        for (int i = 0; i < s.length(); i++) {
-            if (acceptFloat) {
-                if (!Character.isDigit(s.charAt(i)) && s.charAt(i)!='.') {
-                    return false;
-                }
-            } else {
+        if (acceptFloat) {
+            try {
+                Float.parseFloat(s);
+            } catch (Exception e) {
+                return false;
+            }
+        } else {
+            for (int i = 0; i < s.length(); i++) {
                 if (!Character.isDigit(s.charAt(i))) {
                     return false;
                 }

@@ -479,6 +479,7 @@ public class Registration
                     log.debug("this.school is not a number =>" + this.school);
                     addError(SCHOOL, "Please select your school.");
                 }
+               
                 if ((!isEmpty(this.gpa) && !isNumber(this.gpa, true)) ||
                        (isEmpty(this.gpa) && !isEmpty(this.gpaScale))) {
                     log.debug("bad gpa entered: " + this.gpa);
@@ -488,6 +489,11 @@ public class Registration
                        (!isEmpty(this.gpa) && isEmpty(this.gpaScale))) {
                     log.debug("bad gpa scale entered: " + this.gpaScale);
                     addError(GPA_SCALE, "Please enter a valid GPA Scale.");
+                }
+                if (!isEmpty(this.gpa) && isNumber(this.gpa, true) && 
+                    !isEmpty(this.gpaScale) && isNumber(this.gpaScale, true) &&
+                    Float.parseFloat(this.gpa) > Float.parseFloat(this.gpaScale)) {
+                    addError(GPA, "GPA must be lese than or equal to the GPA scale.");
                 }
             }
 
