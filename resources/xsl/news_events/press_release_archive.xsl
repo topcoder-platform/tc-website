@@ -58,6 +58,11 @@
             
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
 
+<!-- 2005 -->
+                            <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2005</font></td></tr>
+                            
+                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_01_18_05">TopCoder&#174; Announces Motorola as Premier Sponsor of 2005 TopCoder Collegiate Challenge</A> [January 18]<br/><br/></td></tr>
+
 <!-- 2004 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2004</font></td></tr>
                             

@@ -63,6 +63,21 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
             
+<!-- TCCC05 MOTOROLA -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_01_18_05"><img src="/i/pressroom/motorola_logo.gif" alt="Motorola" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_01_18_05">TopCoder&#174; Announces Motorola as Premier Sponsor of 2005 TopCoder Collegiate Challenge</A></strong></font><br />
+                        TopCoder today announced Motorola, Inc., (NYSE: MOT), a global leader in wireless, broadband and automotive communications technologies, as a premier sponsor for its 2005 TopCoder Collegiate Challenge (TCCC 05).  <span class="prHead">[January 18]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <!-- ComputerWorld Article -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
@@ -89,7 +104,7 @@
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
-                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_12_20_04"><img src="/i/pressroom/tccc05_logo.gif" alt="TCO04" border="0" /></A></td>
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_12_20_04"><img src="/i/pressroom/tccc05_logo.gif" alt="TCCC05" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_12_20_04">TopCoder&#174; Announces Yahoo! as Title Sponsor for 2005 TCCC</A></strong></font><br />
