@@ -56,7 +56,7 @@
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
                 <tr><td class="normal"><img src="/images/headComponents.gif" alt="Components" width="545" height="32" border="0" /></td></tr>
-                <tr><td class="subhead">Subscribe</td></tr>
+                <tr><td class="subhead">Subscriptions</td></tr>
                 <tr><td class="normal">
                         <br>
                         <h3>TopCoder is now offering the Developer Subscription to the Topcoder Software Component Catalog</h3>
@@ -108,9 +108,6 @@
 
                         </div>
 
-                        <p>Visit our <a href="/catalog/c_showroom.jsp">Component Catalog</a> for a complete selection of components.</p>
-
-                        <p>Speak your mind in our <a href="/forum/c_active_collab.jsp">Collaboration Forums.</a></p></td>
                 </tr>
                 <tr><td><img src="/images/clear.gif" alt="" width="10" height="40" border="0" /></td></tr>
             </table>
