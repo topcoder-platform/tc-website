@@ -96,9 +96,12 @@ public class CampaignList extends BaseScreeningProcessor {
             if (result.size() == 1) {
                 // if so redirect the user to campaign position list
                 row = (ResultSetContainer.ResultSetRow) result.get(0);
+                String campaignId = row.getStringItem("campaign_id");
                 log.info("There is a single campaign for the user. Will redirect to campaign : "
-                        + row.getStringItem("campaign_id"));
-                request.setAttribute(Constants.CAMPAIGN_ID, row.getStringItem("campaign_id"));
+                        + campaignId);
+                request.setAttribute(Constants.CAMPAIGN_ID, campaignId);
+                log.info("Checking the request Campaign ID attribute reading it back : "
+                        + request.getAttribute(Constants.CAMPAIGN_ID));
                 setNextPage(buildProcessorURL(Constants.POSITION_LIST_PROCESSOR, null));
                 setIsNextPageInContext(false);
             } else {
