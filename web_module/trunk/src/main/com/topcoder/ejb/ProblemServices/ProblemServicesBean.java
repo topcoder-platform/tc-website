@@ -44,44 +44,18 @@
         //if the user chose to save the problem to the DEV environment, get the connection to the DB
         //and call insertProblem.
         if( ((Boolean)environments.get("DEV")).booleanValue() ) {
-          if(DBMS.DB == DBMS.POSTGRES) {
-            try {
-              Class.forName(DBMS.POSTGRES_DRIVER);
-            } catch(Exception ex) { 
-              ex.printStackTrace(); 
-            }
-            conn = DriverManager.getConnection("jdbc:postgresql://172.16.1.151:5432/jmabeta", "coder", "coder");
-            conn.setAutoCommit(false);
-          }
-          else if(DBMS.DB == DBMS.INFORMIX) {
             try {
               Class.forName(DBMS.INFORMIX_DRIVER);
             } catch(Exception ex) {
               ex.printStackTrace();
             }
             conn = DriverManager.getConnection("jdbc:informix-sqli://172.16.1.151:1526/informixoltp:INFORMIXSERVER=informixoltp_tcp;user=coder;password=coder");
-          }
+          
           System.out.println("\ninserting problem: DEV");
           insertProblem(problem, conn);
-          if(DBMS.DB == DBMS.POSTGRES) {
-            conn.commit();
-          }
           conn.close();
         }
         if( ((Boolean)environments.get("QA")).booleanValue() ) {
-          if(DBMS.DB == DBMS.POSTGRES) {
-            try {
-              Class.forName(DBMS.POSTGRES_DRIVER);
-            } catch(Exception ex) { 
-              ex.printStackTrace(); 
-            }
-            conn = DriverManager.getConnection("jdbc:postgresql://192.168.14.52:5432/qa_transactional", "coder", "coder");
-            conn.setAutoCommit(false);
-     
-            conn2 = DriverManager.getConnection("jdbc:postgresql://172.16.214.51:5432/qa_transactional", "coder", "coder");
-            conn2.setAutoCommit(false);
-          }
-          else if(DBMS.DB == DBMS.INFORMIX) {
             try {
               Class.forName(DBMS.INFORMIX_DRIVER);
             } catch(Exception ex) {
@@ -89,47 +63,21 @@
             }
             //conn = DriverManager.getConnection("jdbc:informix-sqli://192.168.14.52:2020/informixoltp:INFORMIXSERVER=informixoltp_tcp;user=coder;password=coder");
             conn2 = DriverManager.getConnection("jdbc:informix-sqli://172.16.214.51:1526/informixoltp:INFORMIXSERVER=informixoltp_tcp;user=coder;password=coder");
-          }
-/*
-          System.out.println("\ninserting problem: QA-PROD");
-          insertProblem(problem, conn);
-          if(DBMS.DB == DBMS.POSTGRES) {
-            conn.commit();
-          }
-          conn.close();
-*/
 
           System.out.println("\ninserting problem: QA-LOCAL");
           insertProblem(problem, conn2);
-          if(DBMS.DB == DBMS.POSTGRES) {
-            conn2.commit();
-          }
           conn2.close();
         }
         if( ((Boolean)environments.get("PROD")).booleanValue() ) {
-          if(DBMS.DB == DBMS.POSTGRES) {
-            try {
-              Class.forName(DBMS.POSTGRES_DRIVER);
-            } catch(Exception ex) {
-              ex.printStackTrace();
-            }
-            conn = DriverManager.getConnection("jdbc:postgresql://192.168.14.51:5432/tcoltp", "coder", "coder");
-            conn.setAutoCommit(false);
-          }
-          else if(DBMS.DB == DBMS.INFORMIX) {
             try {
               Class.forName(DBMS.INFORMIX_DRIVER);
             } catch(Exception ex) {
               ex.printStackTrace();
             }
             conn = DriverManager.getConnection("jdbc:informix-sqli://192.168.14.51:2020/informixoltp:INFORMIXSERVER=informixoltp_tcp;user=coder;password=coder");
-          }
 
           System.out.println("\ninserting problem: PROD");
           insertProblem(problem, conn);
-          if(DBMS.DB == DBMS.POSTGRES) {
-            conn.commit();
-          }
           conn.close();
         }
       }
@@ -164,16 +112,9 @@
       int problem_id = -1;
 
       StringBuffer txtProblems = new StringBuffer(200);
-      if(DBMS.DB == DBMS.POSTGRES) {
-        txtProblems.append(" INSERT INTO problems (problem_id, result_type, ").
-                    append(" method_name, class_name, difficulty_level_id, active_ind) ").
-                    append(" VALUES (?, ?, ?, ?, ?, ?) ");
-      }
-      else {
         txtProblems.append(" INSERT INTO problem (problem_id, result_type_id, ").
                     append(" method_name, class_name, difficulty_id) ").
                     append(" VALUES (?, ?, ?, ?, ?) ");
-      }
 
 
       try {
@@ -183,12 +124,7 @@
         problem.setProblemId(problem_id);
         ps = conn.prepareStatement(txtProblems.toString());
         ps.setInt(1, problem_id);
-        if(DBMS.DB == DBMS.POSTGRES) {
-          ps.setString(2, problem.getResultType());
-        }
-        else {
-          ps.setInt(2, problem.getResultTypeId());
-        }
+        ps.setInt(2, problem.getResultTypeId());
         ps.setString(3, problem.getMethodName());
         ps.setString(4, problem.getClassName ());
         ps.setInt(5, problem.getDifficultyId());
@@ -202,18 +138,10 @@
           problem.getProblemId() + " failed to be inserted in the database ");
         }
       
-        if(DBMS.DB == DBMS.POSTGRES) {
-          conn.commit();
-        }
-
         // Insert Problem Text
         String problemText = problem.getProblemText();
         if (problemText != null) {
           insertProblemText(problem_id, problemText, conn);
-        }
-
-        if(DBMS.DB == DBMS.POSTGRES) {
-          conn.commit();
         }
 
         // Insert Problem Parameters
@@ -257,8 +185,6 @@
       StringBuffer txtProblemText = new StringBuffer(100);
 
       try {
-        //if POSTGRES, check to see if problem text exists in problem_text table.
-
         txtProblemText.append(" INSERT INTO problem_text (problem_text, problem_id) ").
                        append(" VALUES (?,?) ");
 
@@ -271,9 +197,6 @@
 
           if (DBMS.DB == DBMS.INFORMIX) {
             ps.setBytes(1, DBMS.serializeTextString(problemText));
-          }
-          else if (DBMS.DB == DBMS.POSTGRES) {
-            ps.setString(1, problemText);
           }
 
           int RetVal = ps.executeUpdate();
@@ -305,22 +228,9 @@
       StringBuffer txtProblemText = new StringBuffer(100);
 
       try {
-        //if POSTGRES, check to see if problem text exists in problem_text table.
-        if(DBMS.DB == DBMS.POSTGRES) {
-          StringBuffer selectProblemText = new StringBuffer(100);
-
-          txtProblemText.append(" UPDATE problem_text ").
-                         append(" SET problem_text = ? ").
-                         append(" WHERE problem_id = (SELECT problem_id ").
-                         append("                     FROM problems ").
-                         append("                     WHERE class_name = ?) ");
-        }
-        else {
           txtProblemText.append(" UPDATE problem ").
                          append(" SET problem_text = ? ").
                          append(" WHERE class_name = ? ");
-        }
-
 
         ps = conn.prepareStatement(txtProblemText.toString());
 
@@ -329,13 +239,7 @@
           ps.setString(2, class_name);
           //ps.setBytes(1, baos.toByteArray());
 
-          if (DBMS.DB == DBMS.INFORMIX) {
-            ps.setBytes(1, DBMS.serializeTextString(problemText));
-          }
-          else if (DBMS.DB == DBMS.POSTGRES) {
-            ps.setString(1, problemText);
-          }
-
+          ps.setBytes(1, DBMS.serializeTextString(problemText));
           int RetVal = ps.executeUpdate();
           if (RetVal != 1) {
             throw new RemoteException ("ProblemServicesBean:updateProblemText failed");
@@ -372,13 +276,7 @@
       StringBuffer insProbParamBuf = new StringBuffer(100);
       byte[] bytes = null;      
 
-      if(DBMS.DB == DBMS.POSTGRES) {
-        insProbParamBuf.append(" UPDATE problems "); 
-      }
-      else {
         insProbParamBuf.append(" UPDATE problem ");
-      }
-      
       insProbParamBuf.append(" SET param_types = ? ").
                       append(" WHERE class_name = ? ");
 
@@ -427,14 +325,8 @@
       
 
       StringBuffer txtTestCases = new StringBuffer();
-      if(DBMS.DB == DBMS.POSTGRES) {
-        txtTestCases.append(" INSERT INTO system_test_cases (problem_id, test_case_id) ").
-                     append(" VALUES (?, ?) ");
-      }
-      else {
         txtTestCases.append(" INSERT INTO system_test_case (problem_id, test_case_id) ").
                      append(" VALUES (?, ?) ");
-      }
                
       try {
         conn = DBMS.getConnection();
@@ -494,24 +386,14 @@
         ctx = null;
  
         // Insert Test Case Args
-        if(DBMS.DB == DBMS.POSTGRES) {
-          table = "system_test_cases";
-        }
-        else {
           table = "system_test_case";
-        }
          
         field = "args";
         whereClause = "test_case_id=" + test_case_id;
         c.insertBlobObject(table, field, test_case_args, whereClause);
 
         // Insert Expected Result
-        if(DBMS.DB == DBMS.POSTGRES) {
-          table = "system_test_cases";
-        }
-        else {
-          table = "system_test_case";
-        }
+        table = "system_test_case";
         field = "expected_result";
         whereClause = "test_case_id=" + test_case_id;
         c.insertBlobObject(table, field, expected_result, whereClause);
@@ -543,44 +425,17 @@
         //if the user chose to save the problem to the DEV environment, get the connection to the DB
         //and call updateProblem.
         if( ((Boolean)environments.get("DEV")).booleanValue() ) {
-          if(DBMS.DB == DBMS.POSTGRES) {
-            try {
-              Class.forName(DBMS.POSTGRES_DRIVER);
-            } catch(Exception ex) {
-              ex.printStackTrace();
-            }
-            conn = DriverManager.getConnection("jdbc:postgresql://172.16.1.151:5432/jmabeta", "coder", "coder");
-            conn.setAutoCommit(false);
-          }
-          else if(DBMS.DB == DBMS.INFORMIX) {
             try {
               Class.forName(DBMS.INFORMIX_DRIVER);
             } catch(Exception ex) {
               ex.printStackTrace();
             }
             conn = DriverManager.getConnection("jdbc:informix-sqli://172.16.1.151:1526/informixoltp:INFORMIXSERVER=informixoltp_tcp;user=coder;password=coder");
-          }
           System.out.println("\nupdating problem: DEV"); 
           updateProblem(problem, paramTypesModified, conn);
-          if(DBMS.DB == DBMS.POSTGRES) {
-            conn.commit();
-          }
           conn.close();
         }
         if( ((Boolean)environments.get("QA")).booleanValue() ) {
-          if(DBMS.DB == DBMS.POSTGRES) {
-            try {
-              Class.forName(DBMS.POSTGRES_DRIVER);
-            } catch(Exception ex) {
-              ex.printStackTrace();
-            }
-            conn = DriverManager.getConnection("jdbc:postgresql://192.168.14.52:5432/qa_transactional", "coder", "coder");
-            conn.setAutoCommit(false);
-
-            conn2 = DriverManager.getConnection("jdbc:postgresql://172.16.214.51:5432/qa_transactional", "coder", "coder");
-            conn2.setAutoCommit(false);
-          }
-          else if(DBMS.DB == DBMS.INFORMIX) {
             try {
               Class.forName(DBMS.INFORMIX_DRIVER);
             } catch(Exception ex) {
@@ -588,46 +443,20 @@
             }
             //conn = DriverManager.getConnection("jdbc:informix-sqli://192.168.14.52:2020/informixoltp:INFORMIXSERVER=informixoltp_tcp;user=coder;password=coder");
             conn2 = DriverManager.getConnection("jdbc:informix-sqli://172.16.214.51:1526/informixoltp:INFORMIXSERVER=informixoltp_tcp;user=coder;password=coder");
-          }
-/*
-          System.out.println("\nupdating problem: QA-PROD");
-          updateProblem(problem, paramTypesModified, conn);
-          if(DBMS.DB == DBMS.POSTGRES) {
-            conn.commit();
-          }
-          conn.close();
-*/
           System.out.println("\nupdating problem: QA-LOCAL");
           updateProblem(problem, paramTypesModified, conn2);
-          if(DBMS.DB == DBMS.POSTGRES) {
-            conn2.commit();
-          }
           conn2.close();
 
         }
         if( ((Boolean)environments.get("PROD")).booleanValue() ) {
-          if(DBMS.DB == DBMS.POSTGRES) {
-            try {
-              Class.forName(DBMS.POSTGRES_DRIVER);
-            } catch(Exception ex) {
-              ex.printStackTrace();
-            }
-            conn = DriverManager.getConnection("jdbc:postgresql://192.168.14.51:5432/tcoltp", "coder", "coder");
-            conn.setAutoCommit(false);
-          }
-          else if(DBMS.DB == DBMS.INFORMIX) {
             try {
               Class.forName(DBMS.INFORMIX_DRIVER);
             } catch(Exception ex) {
               ex.printStackTrace();
             }
             conn = DriverManager.getConnection("jdbc:informix-sqli://192.168.14.51:2020/informixoltp:INFORMIXSERVER=informixoltp_tcp;user=coder;password=coder");
-          }
           System.out.println("\nupdating problem: PROD");
           updateProblem(problem, paramTypesModified, conn);
-          if(DBMS.DB == DBMS.POSTGRES) {
-            conn.commit();
-          }
           conn.close();
         }
       }
@@ -660,27 +489,13 @@
       int problem_id = problem.getProblemId();
 
       StringBuffer txtProblems = new StringBuffer(150);
-      if(DBMS.DB == DBMS.POSTGRES) {
-        txtProblems.append(" UPDATE problems ").
-                    append(" SET result_type = ?, method_name = ?, class_name = ?, difficulty_level_id = ? ").
-                    append(" WHERE class_name = ? ");
-      }
-      else {
         txtProblems.append(" UPDATE problem ").
                     append(" SET result_type_id = ?, method_name = ?, class_name = ?, difficulty_id = ? ").
                     append(" WHERE class_name = ? ");
-      }
-
 
       try {
         ps = conn.prepareStatement(txtProblems.toString());
-
-        if(DBMS.DB == DBMS.POSTGRES) {
-          ps.setString(1, problem.getResultType());
-        }
-        else {
-          ps.setInt(1, problem.getResultTypeId());
-        }
+        ps.setInt(1, problem.getResultTypeId());
         ps.setString(2, problem.getMethodName());
         ps.setString(3, problem.getNewClassName());
         //ps.setString(5, problem.getActiveInd());
@@ -693,18 +508,11 @@
           problem.getProblemId() + " failed to be updated in the database ");
         }
 
-        if(DBMS.DB == DBMS.POSTGRES) {
-          conn.commit();
-        }
 
         // Update Problem Text
         String problemText = problem.getProblemText();
         if (problemText != null) {
           updateProblemText(problem.getNewClassName(), problemText, conn);
-        }
-
-        if(DBMS.DB == DBMS.POSTGRES) {
-          conn.commit();
         }
 
         if(paramTypesModified) {
@@ -776,14 +584,8 @@
       ResultSet rs = null;
 
       StringBuffer txtTestCases = new StringBuffer();
-      if(DBMS.DB == DBMS.POSTGRES) {
-        txtTestCases.append(" DELETE FROM system_test_cases ").
-                     append(" WHERE problem_id = ? ");
-      }
-      else {
         txtTestCases.append(" DELETE FROM system_test_case ").
                      append(" WHERE problem_id = ? ");
-      }
                
       try {
         conn = DBMS.getConnection();
@@ -819,14 +621,8 @@
       ResultSet rs = null;
 
       StringBuffer txtTestCases = new StringBuffer();
-      if(DBMS.DB == DBMS.POSTGRES) {
-        txtTestCases.append(" DELETE FROM system_test_cases ").
-                     append(" WHERE problem_id = ? ");
-      }
-      else {
         txtTestCases.append(" DELETE FROM system_test_case ").
                      append(" WHERE problem_id = ? ");
-      }
 
       try {
         ps = conn.prepareStatement(txtTestCases.toString());
@@ -860,14 +656,8 @@
       ResultSet rs = null;
 
       StringBuffer txtTestCases = new StringBuffer();
-      if(DBMS.DB == DBMS.POSTGRES) {
-        txtTestCases.append(" DELETE FROM system_test_cases ").
-                     append(" WHERE test_case_id = ? ");
-      }
-      else {
         txtTestCases.append(" DELETE FROM system_test_case ").
                      append(" WHERE test_case_id = ? ");
-      }
                
       try {
         conn = DBMS.getConnection();
@@ -905,30 +695,14 @@
       StringBuffer txtProblems = new StringBuffer();
       StringBuffer txtProblemText = new StringBuffer();
 
-      if(DBMS.DB == DBMS.POSTGRES) {
-        txtProblems.append(" DELETE FROM problems ").
-                    append(" WHERE problem_id = ? ");
-
-        txtProblemText.append(" DELETE FROM problem_text ").
-                       append(" WHERE problem_id = ? ");
-      }
-      else {
         txtProblems.append(" DELETE FROM problem ").
                     append(" WHERE problem_id = ? ");
-      }
                
       try {
         //delete the test cases
         deleteTestCases(problem_id);
 
         conn = DBMS.getConnection();
-
-        if(DBMS.DB == DBMS.POSTGRES) {
-          //delete problem_text
-          ps = conn.prepareStatement(txtProblemText.toString());
-          ps.setInt(1,problem_id);
-          ps.executeUpdate();
-        }
 
         //delete the problem
         ps = conn.prepareStatement(txtProblems.toString());
@@ -965,44 +739,18 @@
         //if the user chose to delete the problem from the DEV environment, get the connection to the DB
         //and call deleteProblem.
         if( ((Boolean)environments.get("DEV")).booleanValue() ) {
-          if(DBMS.DB == DBMS.POSTGRES) {
-            try {
-              Class.forName(DBMS.POSTGRES_DRIVER);
-            } catch(Exception ex) {
-              ex.printStackTrace();
-            }
-            conn = DriverManager.getConnection("jdbc:postgresql://172.16.1.151:5432/jmabeta", "coder", "coder");
-            conn.setAutoCommit(false);
-          }
-          else if(DBMS.DB == DBMS.INFORMIX) {
             try {
               Class.forName(DBMS.INFORMIX_DRIVER);
             } catch(Exception ex) {
               ex.printStackTrace();
             }
             conn = DriverManager.getConnection("jdbc:informix-sqli://172.16.1.151:1526/informixoltp:INFORMIXSERVER=informixoltp_tcp;user=coder;password=coder");
-          }
+          
           System.out.println("\ndeleting problem: DEV");
           deleteProblem(class_name, conn);
-          if(DBMS.DB == DBMS.POSTGRES) {
-            conn.commit();
-          }
           conn.close();
         }
         if( ((Boolean)environments.get("QA")).booleanValue() ) {
-          if(DBMS.DB == DBMS.POSTGRES) {
-            try {
-              Class.forName(DBMS.POSTGRES_DRIVER);
-            } catch(Exception ex) {
-              ex.printStackTrace();
-            }
-            conn = DriverManager.getConnection("jdbc:postgresql://192.168.14.52:5432/qa_transactional", "coder", "coder");
-            conn.setAutoCommit(false);
-
-            conn2 = DriverManager.getConnection("jdbc:postgresql://172.16.214.51:5432/qa_transactional", "coder", "coder");
-            conn2.setAutoCommit(false);
-          }
-          else if(DBMS.DB == DBMS.INFORMIX) {
             try {
               Class.forName(DBMS.INFORMIX_DRIVER);
             } catch(Exception ex) {
@@ -1010,44 +758,24 @@
             }
             conn = DriverManager.getConnection("jdbc:informix-sqli://192.168.14.52:1526/informixoltp:INFORMIXSERVER=informixoltp_tcp;user=coder;password=coder");
             conn2 = DriverManager.getConnection("jdbc:informix-sqli://172.16.214.51:1526/informixoltp:INFORMIXSERVER=informixoltp_tcp;user=coder;password=coder");
-          }
           System.out.println("\ndeleting problem: QA-PROD");
           deleteProblem(class_name, conn);
-          if(DBMS.DB == DBMS.POSTGRES) {
-            conn.commit();
-          }
           conn.close();
 
           System.out.println("\ndeleting problem: QA-LOCAL");
           deleteProblem(class_name, conn2);
-          if(DBMS.DB == DBMS.POSTGRES) {
-            conn2.commit();
-          }
           conn2.close();
         }
         if( ((Boolean)environments.get("PROD")).booleanValue() ) {
-          if(DBMS.DB == DBMS.POSTGRES) {
-            try {
-              Class.forName(DBMS.POSTGRES_DRIVER);
-            } catch(Exception ex) {
-              ex.printStackTrace();
-            }
-            conn = DriverManager.getConnection("jdbc:postgresql://192.168.14.51:5432/tcoltp", "coder", "coder");
-            conn.setAutoCommit(false);
-          }
-          else if(DBMS.DB == DBMS.INFORMIX) {
             try {
               Class.forName(DBMS.INFORMIX_DRIVER);
             } catch(Exception ex) {
               ex.printStackTrace();
             }
             conn = DriverManager.getConnection("jdbc:informix-sqli://192.168.14.51:1526/informixoltp:INFORMIXSERVER=informixoltp_tcp;user=coder;password=coder");
-          }
+          
           System.out.println("\ndeleting problem: PROD");
           deleteProblem(class_name, conn);
-          if(DBMS.DB == DBMS.POSTGRES) {
-            conn.commit();
-          }
           conn.close();
         }
       }
@@ -1087,16 +815,10 @@
       int problem_id = 0;
 
       StringBuffer txtProblems = new StringBuffer();
-      if(DBMS.DB == DBMS.POSTGRES) {
-        txtProblems.append(" SELECT problem_id ").
-                    append(" FROM problems ").
-                    append(" WHERE class_name = ? ");
-      }
-      else {
         txtProblems.append(" SELECT problem_id ").
                     append(" FROM problem ").
                     append(" WHERE class_name = ? ");
-      }
+      
 
       try {
         ps = conn.prepareStatement(txtProblems.toString());
@@ -1112,27 +834,12 @@
 
         StringBuffer txtProblemText = new StringBuffer();
  
-        if(DBMS.DB == DBMS.POSTGRES) {
-          txtProblems.replace(0, txtProblems.length(), " DELETE FROM problems ").
-                      append(" WHERE problem_id = ? ");
-
-          txtProblemText.append(" DELETE FROM problem_text ").
-                         append(" WHERE problem_id = ? ");
-        }
-        else {
           txtProblems.replace(0, txtProblems.length(), " DELETE FROM problem ").
                       append(" WHERE problem_id = ? ");
-        }
+        
 
         //delete the test cases
         deleteTestCases(problem_id, conn);
-
-        if(DBMS.DB == DBMS.POSTGRES) {
-          //delete problem_text
-          ps = conn.prepareStatement(txtProblemText.toString());
-          ps.setInt(1,problem_id);
-          ps.executeUpdate();
-        }
 
         //delete the problem
         ps = conn.prepareStatement(txtProblems.toString());
@@ -1164,12 +871,7 @@
       Connection conn = null;
       PreparedStatement ps = null;
       String txtDltProb = "";
-      if(DBMS.DB == DBMS.POSTGRES) {
-        txtDltProb = " UPDATE Problems SET active_ind = 'I' WHERE problem_id = ? ";
-      }
-      else {
         txtDltProb = " UPDATE Problem SET status = 'I' WHERE problem_id = ? ";
-      }
                      
       try {
         conn = DBMS.getConnection();
@@ -1214,12 +916,7 @@
       try {
         conn = DBMS.getConnection();
 
-        if(DBMS.DB == DBMS.POSTGRES) {
-          sqlStr.append("SELECT MAX(problem_id) + 1 as problem_id FROM problems ");
-        }
-        else {
           sqlStr.append("SELECT MAX(problem_id) + 1 as problem_id FROM problem ");
-        }
 
         ps = conn.prepareStatement(sqlStr.toString());
         rs = ps.executeQuery();
@@ -1268,12 +965,7 @@
       try {
         conn = DBMS.getConnection();
 
-        if(DBMS.DB == DBMS.POSTGRES) {
-          sqlStr.append("SELECT MAX(test_case_id) + 1 as test_case_id FROM system_test_cases ");
-        }
-        else {
           sqlStr.append("SELECT MAX(test_case_id) + 1 as test_case_id FROM system_test_case ");
-        }
 
         ps = conn.prepareStatement(sqlStr.toString());
         rs = ps.executeQuery();
@@ -1320,21 +1012,12 @@
 
        StringBuffer txtGetProblem = new StringBuffer();
 
-       if(DBMS.DB == DBMS.POSTGRES) {
-         txtGetProblem.append(" SELECT p.problem_id, p.method_name, p.class_name, ").
-                       append(" p.result_type, p.active_ind, d.difficulty_level ").
-                       append(" FROM problems p, difficulty_levels d " ).
-                       append(" WHERE p.difficulty_level_id = d.difficulty_level_id ").
-                       append(" ORDER BY problem_id ");
-       }
-       else {
          txtGetProblem.append(" SELECT p.problem_id, p.method_name, p.class_name, ").
                        append(" dt.data_type_desc, p.status, d.difficulty_level, p.result_type_id ").
                        append(" FROM problem p, difficulty d, data_type dt " ).
                        append(" WHERE p.difficulty_id = d.difficulty_id ").
                        append(" AND p.result_type_id = dt.data_type_id ").
                        append(" ORDER BY problem_id ");
-       }
 
        
        try {
@@ -1352,9 +1035,6 @@
             problem.setResultType(rs.getString(4));
             problem.setActiveInd(rs.getString(5));
             problem.setDifficulty(rs.getString(6));
-            if(DBMS.DB != DBMS.POSTGRES) {
-              problem.setResultTypeId(rs.getInt(7));
-            }
             results.add(problem);
          }
 
@@ -1393,25 +1073,12 @@
       
       String whereClause = "problem_id=" + problem_id;
       String table = "problem";
-      if(DBMS.DB == DBMS.POSTGRES) {
-        table = "problems";
-      }
       String field = "param_types";
       String problem_text = null;
       
 
        StringBuffer txtGetProblem = new StringBuffer(300);
        
-       if(DBMS.DB == DBMS.POSTGRES) {
-         txtGetProblem.append(" SELECT p.problem_id, p.method_name, p.class_name, ").
-                       append(" p.result_type, p.active_ind, p.difficulty_level_id, ").
-                       append(" d.difficulty_level, pt.problem_text, p.param_types ").
-                       append(" FROM difficulty_levels d, problems p LEFT OUTER JOIN problem_text pt " ).
-                       append(" ON p.problem_id = pt.problem_id ").
-                       append(" WHERE p.problem_id = ? AND ").
-                       append(" p.difficulty_level_id = d.difficulty_level_id ");
-       }
-       else {
          txtGetProblem.append(" SELECT p.problem_id, p.method_name, p.class_name, ").
                        append(" dt.data_type_desc, p.status, p.difficulty_id, ").
                        append(" d.difficulty_level, p.problem_text, p.param_types, p.result_type_id ").
@@ -1419,7 +1086,6 @@
                        append(" WHERE p.problem_id = ? AND ").
                        append(" p.difficulty_id = d.difficulty_id AND ").
                        append(" p.result_type_id = dt.data_type_id ");
-       }
 
        
        try {
@@ -1452,9 +1118,6 @@
             catch (Exception tce) {}
 
             problem.setProblemText(problem_text);
-            if(DBMS.DB != DBMS.POSTGRES) {
-              problem.setResultTypeId(rs.getInt(10));
-            }
          }
          
          if(blobObject instanceof ArrayList) {
@@ -1514,27 +1177,16 @@
       Object expBlobObject = null;
       String whereClause = "";
       String table = "system_test_case";
-      if(DBMS.DB == DBMS.POSTGRES) {
-        table = "system_test_cases";
-      }
       String field = "";
       int test_case_id = 0;
       int testOrder = 0;
       ArrayList blobObject = null;
 
        StringBuffer txtGetTestCases = new StringBuffer();
-       if(DBMS.DB == DBMS.POSTGRES) {
-         txtGetTestCases.append(" SELECT problem_id, test_case_id, args, expected_result ").
-                         append(" FROM system_test_cases " ).
-                         append(" WHERE problem_id = ? ").
-                         append(" ORDER BY test_case_id ");
-       }
-       else {
          txtGetTestCases.append(" SELECT problem_id, test_case_id, args, expected_result ").
                          append(" FROM system_test_case " ).
                          append(" WHERE problem_id = ? ").
                          append(" ORDER BY test_case_id ");
-       }
 
        
        try {
@@ -1834,14 +1486,8 @@
       Difficulty difficultyLevel = null;
 
        StringBuffer txtGetDifficultyLevels = new StringBuffer();
-       if(DBMS.DB == DBMS.POSTGRES) {
-         txtGetDifficultyLevels.append(" SELECT difficulty_level_id, difficulty_level, difficulty_desc ").
-                                append(" FROM difficulty_levels " );
-       }
-       else {
          txtGetDifficultyLevels.append(" SELECT difficulty_id, difficulty_level, difficulty_desc ").
                                 append(" FROM difficulty " );
-       }
 
        try {
          conn = DBMS.getConnection();
@@ -1888,16 +1534,9 @@
       ResultSet rs = null;
 
        StringBuffer txtGetDataTypes = new StringBuffer();
-       if(DBMS.DB == DBMS.POSTGRES) {
-         txtGetDataTypes.append(" SELECT type_name ").
-                         append(" FROM data_types " ).
-                         append(" ORDER BY type_name ");
-       }
-       else {
          txtGetDataTypes.append(" SELECT data_type_desc, data_type_id ").
                          append(" FROM data_type " ).
                          append(" ORDER BY data_type_desc ");
-       }
 
        try {
          conn = DBMS.getConnection();
@@ -1905,16 +1544,9 @@
          ps = conn.prepareStatement(txtGetDataTypes.toString());
          rs = ps.executeQuery();
 
-         if(DBMS.DB == DBMS.POSTGRES) {
-           while (rs.next()) {
-             dataTypeHash.put(rs.getString(1), rs.getString(1));
-           }
-         }
-         else {
            while (rs.next()) {
              dataTypeHash.put(new Integer(rs.getInt(2)), rs.getString(1));
            }
-         }
 
        }
        catch (SQLException e) {
