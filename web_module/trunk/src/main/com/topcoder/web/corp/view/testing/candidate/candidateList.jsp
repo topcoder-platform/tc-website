@@ -45,15 +45,39 @@
 
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                  <tr>
-                   <td align="left" class="screeningHeader">Candidate</td>
-                   <td align="center" class="screeningHeader">Profile</td>               
-                   <td align="center" class="screeningHeader">Begin</td>               
-                   <td align="center" class="screeningHeader">End</td>
-                   <td align="center" class="screeningHeader">Status</td>
+                   <td align="left" class="screeningHeader">
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=Constants.SORT_BY%>=handle">
+                            Candidate
+                        </A>
+                   </td>
+                   <td align="center" class="screeningHeader">
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=Constants.SORT_BY%>=profile_sort">
+                            Profile
+                        </A>
+                   </td>               
+                   <td align="center" class="screeningHeader">
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=Constants.SORT_BY%>=begin_time">
+                            Begin
+                        </a>
+                   </td>               
+                   <td align="center" class="screeningHeader">
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=Constants.SORT_BY%>=end_time">
+                            End
+                        </A>
+                   </td>
+                   <td align="center" class="screeningHeader">
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=Constants.SORT_BY%>=status_sort">
+                            Status
+                        </A>
+                   </td>
                    <%--<% if( request.getAttribute(Constants.USAGE_TYPE) != null && ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
                    <td align="center" class="screeningHeader">Preference Level</td>
                    <% } %>--%>
-                   <td align="center" class="screeningHeader">Notes</td>                                          
+                   <td align="center" class="screeningHeader">
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=Constants.SORT_BY%>=handle">
+                            Notes
+                        </A>
+                   </td>                                          
                 </tr>
 
                 <jsp:useBean id="candidateList" type="java.util.List" scope="request" />
