@@ -61,12 +61,12 @@
 
             <p>Prizewinners will be notified via e-mail within 10 days of the completion of the Online Round #4 that
             they have won a prize.  Any prizewinner claiming a cash prize must complete and return the following
-            documents to TopCoder by Tuesday, November 12th:</p>
+            documents to TopCoder by Wednesday, November 12th:</p>
 
             <ul>
                 <li>Affidavit of Eligibility and Liability and Publicity Release (must be notarized unless you already have a
                 notarized affidavit on file with TopCoder)</li>
-                <li>Competitor questionnaire&#151;the questions and responses will be published in the 2003 TopCoder Open sponsored by Intel&#174; 
+                <li>Competitor questionnaire&#151;the questions and responses will be published in the 2003 TopCoder Open sponsored by Intel&#174;
                 Program</li>
                 <li>Travel form&#151;provides TopCoder with the appropriate travel information in the event you advance to
                 the onsite tournament rounds</li>
@@ -74,15 +74,16 @@
             </ul>
 
             <p>Prizes will be presented within 60 days of making an eligibility determination. Unclaimed or undeliverable
-            prizes will not be awarded.  Competitors who do not submit the required information listed above by Tuesday, October
-            28th will forfeit their prizes.</p>
+            prizes will not be awarded.  Competitors who do not submit the required information listed above by Wednesday, November 12th
+            will forfeit their prizes.</p>
 
             <p>As a condition of participation in the tournament, all information provided by you in your TopCoder member
             profile must be comprehensive, accurate and up-to-date. TopCoder may require you to complete an additional
             registration form to register for the tournament. In order to be eligible to participate in the tournament, you must
             have completed any and all registration forms required by TopCoder.</p>
 
-            <p>As a condition of winning and redeeming a cash prize, winners will be required to return by Tuesday, November 12th a
+            <p>As a condition of winning and redeeming a cash prize, winners will be required to return by Wednesday, November 12th a
+
             completed (i) notarized Affidavit of Eligibility and Liability and Publicity Release, (ii) competitor questionnaire,
             (iii) travel form, and (iv) IRS Form W-9 or W-8BEN, as appropriate, if one is not already on file with TopCoder.
             In completing the Affidavit of Eligibility and Liability and Publicity Release, a winner (i) confirms his/her

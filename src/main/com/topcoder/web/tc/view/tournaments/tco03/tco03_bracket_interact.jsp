@@ -59,6 +59,7 @@
  id="bracket" 
  ALIGN="top">
  <PARAM NAME=movie VALUE="/i/tournament/tco03/bracket.swf"> 
+ <PARAM NAME=menu VALUE=false>
  <PARAM NAME=quality VALUE=high> 
  <PARAM NAME=salign VALUE=T> 
  <PARAM NAME=bgcolor VALUE=#FFFFFF> 
