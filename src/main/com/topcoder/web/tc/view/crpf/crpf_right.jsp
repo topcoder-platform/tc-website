@@ -33,7 +33,7 @@ else if (navigator.userAgent && navigator.userAgent.indexOf("MSIE")>=0
 
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
 
-            <A href="/reg/index.jsp" target="_top"><img src="/i/events/crpf03/promo_tc_member.gif" alt="Become a TopCoder member" width="170" height="63" border="0"></A><br />
+            <A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_att" target="_top"><img src="/i/events/crpf03/att_foundation.gif" alt="ATT Foundation" width="170" height="120" border="0"></A><br />
 
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
 
