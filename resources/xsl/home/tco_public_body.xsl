@@ -65,7 +65,7 @@
             
             <h2>Photo finish: Yarin! </h2>
 
-<p>The third match of the day was the closest yet.  reid and Yarin have recent a history of 
+<p>The third match of the day was the closest yet.  reid and Yarin have a recent history of 
 competition. reid, rated higher than Yarin, lost to him in two of the four previous TCO rounds.</p>
 
 <p>Today's action started when reid and Yarin submitted the 275-point problem two seconds 
