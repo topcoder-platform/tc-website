@@ -66,7 +66,7 @@ public class ServerMonitorBot {
                         fiveone = false;
                         System.out.println("FAILED, SENDING MAIL");
                         addError("response from 12.51 failed");
-                        addError(ret);
+                        addErrorLarge(ret);
                         sendError();
                     }
                 } else {
@@ -137,10 +137,16 @@ public class ServerMonitorBot {
     }
 
     private static String errorText = "";
+    private static String errorTextLarge = "";
 
     public static void addError(String message) {
         System.out.println("ADDING ERROR");
         errorText += message + "\n";
+        errorTextLarge += message + "\n";
+    }
+    
+    public static void addErrorLarge(String message) {
+        errorTextLarge += message + "\n";
     }
 
     public void sendError() {
@@ -148,13 +154,9 @@ public class ServerMonitorBot {
             System.out.println("SENDING ERROR LOG");
             try {
                 TCSEmailMessage em = new TCSEmailMessage();
-                em.addToAddress("rfairfax@topcoder.com", TCSEmailMessage.TO);
-                em.addToAddress("mlydon@topcoder.com", TCSEmailMessage.TO);
-                em.addToAddress("gpaul@topcoder.com", TCSEmailMessage.TO);
                 em.addToAddress("8609182841@mobile.att.net", TCSEmailMessage.TO);
                 em.addToAddress("8604626228@vtext.com", TCSEmailMessage.TO);
                 em.addToAddress("8604656205@mobile.mycingular.com", TCSEmailMessage.TO);
-                em.addToAddress("8602686127@messaging.sprintpcs.com", TCSEmailMessage.TO);
                 em.addToAddress("8606144043@vtext.com", TCSEmailMessage.TO);
 
                 em.setSubject("Server Error");
@@ -162,12 +164,23 @@ public class ServerMonitorBot {
                 em.setFromAddress("rfairfax@topcoder.com");
 
                 EmailEngine.send(em);
+                
+                em = new TCSEmailMessage();
+                em.addToAddress("rfairfax@topcoder.com", TCSEmailMessage.TO);
+                em.addToAddress("mlydon@topcoder.com", TCSEmailMessage.TO);
+                em.addToAddress("gpaul@topcoder.com", TCSEmailMessage.TO);
+                em.addToAddress("8602686127@messaging.sprintpcs.com", TCSEmailMessage.TO);
+
+                em.setSubject("Server Error");
+                em.setBody(errorTextLarge);
+                em.setFromAddress("rfairfax@topcoder.com");
             } catch (Exception e) {
                 System.out.println("HERE" + e.getClass());
                 e.printStackTrace();
             }
         }
         errorText = "";
+        errorTextLarge = "";
     }
 
     /**
