@@ -393,8 +393,30 @@ I, <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/>&#160;<xsl:va
   </xsl:choose>
 </xsl:when>
 <xsl:otherwise>
+  And I make this solemn declaration conscientiously believing the statements contained in this declaration to be true.
+  <BR/>
+  <BR/>
+  <xsl:choose>
+  <xsl:when test="/TC/AFFIDAVIT/Affidavit/Info/has_notarized_affidavit=0">
+    <TABLE WIDTH="500" BORDER="0">
+      <TR>
+        <TD>Declared before me at the _______________  this ___________ day of _____________ 2003 before me:</TD>
+        <TD>)<BR/>)<BR/>)<BR/></TD>
+        <TD></TD>
+      </TR>
+      <TR>
+        <TD VALIGN="top"><BR/>__________________________________<BR/>Signature: Notary Public (or its equivalent) <BR/><BR/>__________________________________<BR/>Print Name</TD>
+        <TD></TD>
+        <TD VALIGN="top"><BR/>__________________________________<BR/>Signature: <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/>&#160;<xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/last_name"/><BR/></TD>
+      </TR>
+    </TABLE>
+  </xsl:when>
+  <xsl:otherwise>
     <BR/>__________________________________<BR/>Signature: <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/>&#160;<xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/last_name"/><BR/>
-</xsl:otherwise>
+  </xsl:otherwise>
+  </xsl:choose>
+
+  </xsl:otherwise>
 </xsl:choose>
 
 
