@@ -76,7 +76,7 @@ public class TCES extends Task implements Serializable {
 			try {
 				if (currentNav.getTaskKey().equals("contact")) {
 					CoderBean beanCoder = new CoderBean();
-					coderObject.coder_id = new Long( (long)currentUser.getUserId(); );
+					coderObject.coder_id = new Long( (long)currentUser.getUserId() );
 					coderObject = beanCoder.request(Coder.SELECT, coderObject);
 					boolean doUpdate = false;
 					if (htParams.get("firstName") != null) {
@@ -89,7 +89,7 @@ public class TCES extends Task implements Serializable {
 		/*
 					UserBean beanUser = new UserBean();
 					UserObject objUser = new UserObject();
-					objUser.user_id = new Long ((long)currentUser.getUserId(););
+					objUser.user_id = new Long ((long)currentUser.getUserId());
 					objUser = beanUser.request(User.SELECT, objUser);			
 		*/
 				}
