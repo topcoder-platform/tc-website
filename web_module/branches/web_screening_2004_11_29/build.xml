@@ -83,16 +83,21 @@
         <mkdir dir="${public_html}/WEB-INF/lib"/>
     </target>
 
-    <target name="compile" depends="init">
+
+     <target name="compile_shared" depends="init">
+         <javac
+             srcdir="${shared}"
+             destdir="${classes}"
+             classpathref="class.path"
+             deprecation="${deprecation}"
+             debug="${debug}"
+             >
+         </javac>
+     </target>
+
+
+    <target name="compile" depends="init,compile_shared">
         <available property="jdk1.4+" classname="java.nio.ByteBuffer" />
-        <javac
-            srcdir="${shared}"
-            destdir="${classes}"
-            classpathref="class.path"
-            deprecation="${deprecation}"
-            debug="${debug}"
-            >
-        </javac>
         <javac
             srcdir="${java}"
             destdir="${classes}"
