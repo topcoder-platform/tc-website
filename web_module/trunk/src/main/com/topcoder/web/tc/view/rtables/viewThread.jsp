@@ -75,8 +75,36 @@
     response.sendRedirect(Redirect_URL);
   }
   // get the authToken as a way to get userID's below
-  Authorization authToken 
-    = (Authorization)session.getValue("jiveAuthorization");
+    Navigation n = null;
+    String rtUser = "";
+    String rtPassword = "";
+    try {
+     n = (Navigation) session.getAttribute("navigation");
+     if ( n == null ) n = new Navigation(request, response);
+       if ( n.isIdentified() ) {
+         rtUser =n.getSessionInfo().getHandle();
+       }
+    }
+
+    catch( Exception e ) {
+         response.sendRedirect(Redirect_URL);
+         return;
+    }
+    // do a login if all parameters are good
+    AuthorizationFactory authFactory = AuthorizationFactory.getInstance();
+    Authorization authToken = null;
+
+      if(rtUser==""){
+        authToken = authFactory.getAnonymousAuthorization();
+        session.setAttribute("jiveAuthorization",authToken);
+      } else {
+        authToken = authFactory.getAuthorization(rtUser,rtPassword);
+        session.setAttribute("jiveAuthorization",authToken);
+      }
+
+    // get the authToken as a way to get userID's below
+  authToken = (Authorization)session.getAttribute("jiveAuthorization");
+
 %>
 <%  //////////////////////
   // get parameters
@@ -97,9 +125,7 @@
     StringBuffer buf = new StringBuffer();
     try {
     String subject = message.getSubject();
-    boolean msgIsAnonymous = message.isAnonymous();
     com.coolservlets.forum.User author = message.getUser();
-    String authorName = author.getUsername();
 
 
     int forumID = forum.getID();
