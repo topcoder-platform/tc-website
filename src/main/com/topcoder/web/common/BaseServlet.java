@@ -102,6 +102,7 @@ public abstract class BaseServlet extends HttpServlet {
     }
 
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        log.debug("my service method called");
         if (req.getMethod().equals("GET")) doGet(req, resp);
         else if (req.getMethod().equals("POST")) doPost(req, resp);
         else if (req.getMethod().equals("DELETE")) doDelete(req, resp);

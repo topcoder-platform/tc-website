@@ -35,7 +35,7 @@ import java.util.StringTokenizer;
 import java.util.zip.GZIPOutputStream;
 
 
-public final class MainServlet extends HttpServlet {
+public final class MainServlet extends BaseServlet {
 
 
     private String ERROR_PAGE = null;
