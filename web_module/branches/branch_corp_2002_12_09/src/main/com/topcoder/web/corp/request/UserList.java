@@ -40,6 +40,7 @@ public class UserList extends BaseProcessor {
     void businessProcessing() throws Exception {
         log.debug("Attempting to set up user list");
         pageInContext = true;
+        long companyId;
         BasicAuthentication authToken = getAuthenticityToken();
         if (!authToken.isLoggedIn()) {
 
@@ -47,7 +48,7 @@ public class UserList extends BaseProcessor {
             /* For testing purposes set company ID to 12345 until
                Authenticaiton is working.  Normally throw exception if a user
                is not logged in. */
-            long companyId = 12345; 
+            companyId = 12345; 
 
             //throw new AuthenticationException("You must be logged in to perform this action");
         }
@@ -57,7 +58,7 @@ public class UserList extends BaseProcessor {
             User currentUser = authToken.getLoggedInUser();
             long userId = currentUser.getId();
             /* get the company associated with that logged in users ID number */
-            long companyId = new 
+            companyId = new 
                 com.topcoder.web.ejb.user.ContactBean().getCompanyId(userId);
         }
 
