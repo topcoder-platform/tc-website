@@ -200,26 +200,6 @@
                                                     <td class="statText" align="right">10.06.3003</td>
                                                 </tr>
                                             </table>
-
-
-
-                                            <br/>Application Project Posting: 7.15.2003 <br/>
-                                            <br/>Member Selection: 7.18.2003 <br/>
-                                            <br/>Member Acceptance: 7.21.2003 <br/>
-                                            <br/>Design Start: 7.22.2003 <br/>
-                                            <br/>Phase 1 Due Date: 7.28.2003
-                                                <br/>&#160;&#160;&#160;Use Cases
-                                                <br/>&#160;&#160;&#160;Class Diagrams
-                                                <br/>&#160;&#160;&#160;Sequence Diagrams<br/>
-                                            <br/>Phase 2 Due Date: 8.04.2003
-                                                 <br/> &#160;&#160;&#160;Design Specification<br/>
-                                            <br/>Phase 3 Due Date: 8.11.2003
-                                                 <br/>&#160;&#160;&#160;Test Plan
-                                                 <br/>&#160;&#160;&#160;Development Scope Document<br/>
-                                            <br/>Winner Announced 8.13.3003<br/>
-                                            <br/>Updated Submission Due Date: 8.15.2003<br/>
-                                            <br/>Estimated Development End Date: 10.6.2003<br/>
-                                            <br/>
                                         </p>
                                         <!-- Register at TCS -->
                                         <p>
