@@ -153,7 +153,7 @@ abstract public class ContractingBase extends BaseProcessor {
             }
 
             ResumeServices resumeServices = (ResumeServices) createEJB(getInitialContext(), ResumeServices.class);
-            if(!resumeServices.hasResume(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME)) {
+            if((!resumeServices.hasResume(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME)) && (info.getResume() == null)) {
                 addError("Resume", "A resume is required.");
             }
         }
