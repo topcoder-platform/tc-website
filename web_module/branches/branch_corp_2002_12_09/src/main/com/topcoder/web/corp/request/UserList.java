@@ -29,7 +29,7 @@ import javax.naming.InitialContext;
 public class UserList extends BaseProcessor {
     private static Logger log = Logger.getLogger(UserList.class);
 
-    private static final String USER_LIST_PAGE = "UserListView"; 
+    private static final String USER_LIST_PAGE = "/acc_admin/UserListView.jsp"; 
 
    /**  <p>BusinessProcessing for this processor will retrieve a list of user
      *  information from the database related to current company of the
@@ -46,14 +46,11 @@ public class UserList extends BaseProcessor {
         pageInContext = true;
         long userId;
         WebAuthentication authToken = getAuthenticityToken();
-        if( authToken.getUser().isAnonymous() ){
-            throw new AuthenticationException("You must be logged in to perform this action");
-        }
 
         /* Find the current logged in users ID number.  */
         User currentUser = authToken.getActiveUser();
         userId = currentUser.getId();
-        log.debug("--- UserList getting companyId for userId: "+userId);
+
         /* get the company associated with that logged in users ID number */
         long companyId = new 
             com.topcoder.web.ejb.user.ContactBean().getCompanyId(userId);
@@ -73,6 +70,6 @@ public class UserList extends BaseProcessor {
             throw new Exception("User list invalid. userId="+userId);
         }
         request.setAttribute("companyUsers",rsc);
-        nextPage = ("/acc_admin/UserListView.jsp");
+        nextPage = USER_LIST_PAGE;
     }
 }
