@@ -121,6 +121,9 @@ public class Constants {
     public static String PROFILE_PAGE;
     public static String UNRATED_PAGE;
     public static String NO_RESUME_PAGE;
+    
+    //tco04 constant
+    public static int TCO04_EVENT_ID;
 
 
     static {
