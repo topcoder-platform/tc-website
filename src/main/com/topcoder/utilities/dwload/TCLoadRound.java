@@ -616,7 +616,7 @@ public class TCLoadRound extends TCLoad {
             query.append("       ,stc.expected_result ");  // 4
             query.append("       ,CURRENT ");              // 5
             query.append("  FROM system_test_case stc, component comp ");
-            query.append(" WHERE comp.problem_id in (SELECT problem_id FROM round_problem WHERE round_id = ?)");
+            query.append(" WHERE comp.component_id in (SELECT component_id FROM round_component WHERE round_id = ?)");
             query.append(" AND comp.component_id = stc.component_id");
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
@@ -982,18 +982,18 @@ public class TCLoadRound extends TCLoad {
             query.append("       ,CURRENT ");                                 // 9
             query.append("       ,(SELECT data_type_desc ");                  // 10
             query.append("           FROM data_type ");
-            query.append("          WHERE data_type_id = result_type_id) ");
+            query.append("          WHERE data_type_id = c.result_type_id) ");
             query.append("       ,d.difficulty_id ");                         // 11
             query.append("       ,d.difficulty_desc ");                       // 12
             query.append("       ,rp.division_id ");                          // 13
             query.append("       ,rp.points ");                               // 14
             query.append("  FROM problem p ");
-            query.append("       ,round_problem rp ");
+            query.append("       ,round_component rp ");
             query.append("       ,difficulty d ");
             query.append("       ,component c ");
             query.append(" WHERE rp.round_id = ? ");
             query.append("   AND p.problem_id = c.problem_id");
-            query.append("   AND p.problem_id = rp.problem_id ");
+            query.append("   AND c.component_id = rp.component_id ");
             query.append("   AND rp.difficulty_id = d.difficulty_id");
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
@@ -1501,7 +1501,7 @@ public class TCLoadRound extends TCLoad {
             query.append("       ,(SELECT division_id FROM room ");           // 14
             query.append("          WHERE room.room_id = rr.room_id) ");
             query.append("       ,(SELECT count(*) ");                        // 15
-            query.append("           FROM round_problem rp ");
+            query.append("           FROM round_component rp ");
             query.append("                ,room r ");
             query.append("          WHERE rp.round_id = rr.round_id ");
             query.append("            AND rp.division_id = r.division_id ");
@@ -1554,7 +1554,7 @@ public class TCLoadRound extends TCLoad {
             query.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
             query.append("            AND c.round_id = rr.round_id ");
             query.append("            AND c.succeeded = " + STATUS_FAILED + ") ");
-            query.append("       ,(SELECT sum(defendant_points) ");           // 27
+            query.append("       ,(SELECT sum(c.defendant_points) ");           // 27
             query.append("           FROM challenge c ");
             query.append("          WHERE c.round_id = rr.round_id ");
             query.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
@@ -1726,6 +1726,7 @@ public class TCLoadRound extends TCLoad {
         int round_id = 0;
         int division_id = 0;
         int problem_id = 0;
+        int component_id = 0;
 
         try {
             query = new StringBuffer(100);
@@ -1745,8 +1746,8 @@ public class TCLoadRound extends TCLoad {
             query.append("       ,cs.status_id ");                               // 7
             // 8: end_status_text
             query.append("       ,(SELECT status_desc ");                        // 8
-            query.append("           FROM problem_status_lu ");
-            query.append("          WHERE problem_status_id = cs.status_id) ");
+            query.append("           FROM component_status_lu ");
+            query.append("          WHERE component_status_id = cs.status_id) ");
             query.append("       ,c.open_time ");                                // 9
             query.append("       ,s.submit_time ");                              // 10
             query.append("       ,s.submit_time - c.open_time ");                // 11
@@ -1775,6 +1776,7 @@ public class TCLoadRound extends TCLoad {
             query.append("           FROM round_segment rs");
             query.append("          WHERE rs.round_id = cs.round_id");
             query.append("            AND rs.segment_id = 2)");                  // coding segment...need constant
+            query.append("       ,cs.component_id ");                            
             query.append(" FROM component_state cs");
             query.append(" LEFT OUTER JOIN submission s ");
             query.append(" ON cs.component_state_id = s.component_state_id");
@@ -1797,8 +1799,8 @@ public class TCLoadRound extends TCLoad {
             query = new StringBuffer(100);
             query.append("SELECT rp.open_order ");     // 1
             query.append("       ,rp.submit_order ");  // 2
-            query.append("  FROM round_problem rp ");
-            query.append(" WHERE rp.problem_id = ? ");
+            query.append("  FROM round_component rp ");
+            query.append(" WHERE rp.component_id = ? ");
             query.append("   AND rp.round_id = ? ");
             query.append("   AND rp.division_id = ? ");
             psSelOpenSubmitOrder = prepareStatement(query.toString(), SOURCE_DB);
@@ -1806,9 +1808,9 @@ public class TCLoadRound extends TCLoad {
             query = new StringBuffer(100);
             query.append("SELECT rp.difficulty_id ");    // 1
             query.append("       ,d.difficulty_desc ");  // 2
-            query.append("  FROM round_problem rp ");
+            query.append("  FROM round_component rp ");
             query.append("       ,difficulty d ");
-            query.append(" WHERE rp.problem_id = ? ");
+            query.append(" WHERE rp.component_id = ? ");
             query.append("   AND rp.division_id = ? ");
             query.append("   AND rp.round_id = ? ");
             query.append("   AND rp.difficulty_id = d.difficulty_id ");
@@ -1859,12 +1861,13 @@ public class TCLoadRound extends TCLoad {
                 round_id = rs.getInt(2);
                 division_id = rs.getInt(3);
                 problem_id = rs.getInt(4);
+                component_id = rs.getInt("component_id");
                 // if they didn't submit, use the difference between open time and the end of the coding phase
                 // otherwise use the difference between open time and submit time
                 long elapsed_time = rs.getLong(10) == 0?rs.getDate(16).getTime() - rs.getLong(9):rs.getLong(11);
 
                 psSel2.clearParameters();
-                psSel2.setInt(1, problem_id);
+                psSel2.setInt(1, component_id);
                 psSel2.setInt(2, division_id);
                 psSel2.setInt(3, fRoundId);
                 int level_id = -1;
@@ -1885,7 +1888,7 @@ public class TCLoadRound extends TCLoad {
 
                 // Get open_order and submit_order
                 psSelOpenSubmitOrder.clearParameters();
-                psSelOpenSubmitOrder.setInt(1, problem_id);
+                psSelOpenSubmitOrder.setInt(1, component_id);
                 psSelOpenSubmitOrder.setInt(2, fRoundId);
                 psSelOpenSubmitOrder.setInt(3, division_id);
                 rs2 = psSelOpenSubmitOrder.executeQuery();
