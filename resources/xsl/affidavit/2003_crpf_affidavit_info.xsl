@@ -80,7 +80,7 @@
                             <ol>
                                 <li>
                                 <p><strong>AFFIDAVIT</strong> - please complete sign and fax to 860.659.4276 and mail originl
-                                    to TopCoder at the address below.  Faxes must be received by Midnight, EST, Monday, November 17th.</p>
+                                    to TopCoder at the address below.  Faxes must be received by 12:00 PM (noon), EST, Monday, November 17th.</p>
                                 <p>
                                     View a <a href="/?&amp;t=affidavit&amp;c=2003_crpf_affidavit">printable version</a> of your affidavit.
                                     Please read the affidavit, sign it and return it to us at the address below.  Note that you do not
@@ -89,7 +89,7 @@
                                 </li>
                                 <li>
                                 <p><strong>TAX FORM</strong> - please complete, sign and fax to (860.657.4276) and mail original to
-                                    TopCoder at address below.  Fax must be received by Midnight, EST, Monday, November 17th:</p>
+                                    TopCoder at address below.  Fax must be received by 12:00 PM (noon), EST, Monday, November 17th:</p>
                                 <xsl:choose>
                                     <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_tax_form)=0">
                                         <p>You must complete, sign and return the appropriate tax form (Form W-9 or Form W-8BEN) via fax or mail to the address below.  If you don't know the form
@@ -109,13 +109,13 @@
                                 </xsl:choose>
                                 </li>
                                 <li>
-                                <p><strong>TRAVEL INFORMATION PAGE</strong> - form must be completed and submitted by Midnight, EST, Monday, November 17th:</p>
+                                <p><strong>TRAVEL INFORMATION PAGE</strong> - form must be completed and submitted by 12:00 PM (noon), EST, Monday, November 17th:</p>
 
                                 <p>View the <a href="/?&amp;t=affidavit&amp;c=2003_crpf_travel_info">Travel Information Page.</a> Complete ALL questions.</p>
                                 </li>
 
                                 <li>
-                                <p><strong>HEAD SHOT</strong> - must be emailed by Midnight EST, November 17th:</p>
+                                <p><strong>HEAD SHOT</strong> - must be emailed by 12:00 PM (noon) EST, November 17th:</p>
                                 <xsl:choose>
                                     <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_image)=0">
                                         <p>We do not have your headshot on file.  Click below to submit your headshot.</p>
@@ -135,7 +135,7 @@
                             Glastonbury, CT 06033
                         </div>
 
-                        <p><strong>Reminder, you will forfeit your grand prize if all necessary items above are not completed by Midnight, EST, Monday, November 17th.  Any
+                        <p><strong>Reminder, you will forfeit your grand prize if all necessary items above are not completed by 12:00 PM (noon), EST, Monday, November 17th.  Any
                         items that need to be mailed via the postal service must be postmarked by this date.</strong></p>
 
                         <p>If you have questions, please contact <a href="mailto:tlongo@topcoder.com" >Tom Longo</a>.</p>
