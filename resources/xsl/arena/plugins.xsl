@@ -72,11 +72,11 @@
                         Plugin Name: <strong>KawigiEdit</strong><br />
                         Description: A feature-rich editor plugin.<br />
                         Author: Kawigi<br />
-                        Date: 06/04/2004<br />
+                        Date: 09/14/2004<br />
                         <a href="/contest/classes/KawigiEdit/KawigiEdit.html" class="statText">Documentation</a><br />
-                        <a href="http://students.cs.byu.edu/~kawigi/tc/" class="statText">Plugin homepage</a><br />
-                        Version: 1.03<br />
-                        EntryPoint: kawigiedit.KawigiEdit<br />
+                        <a href="http://topcoder.yajags.com" class="statText">Plugin homepage</a><br />
+                        Version: 1.1<br />
+                        EntryPoint: kawigi.KawigiEdit<br />
                         ClassPath: KawigiEdit.jar<br />
                         <a href="/contest/classes/KawigiEdit/KawigiEdit.jar" class="statText">KawigiEdit.jar Plugin</a></p>
 
