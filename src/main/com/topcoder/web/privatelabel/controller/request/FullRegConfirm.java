@@ -20,7 +20,7 @@ import java.util.Collections;
  *
  * @author gpaul 07.07.2003
  */
-abstract class FullRegConfirm extends FullRegBase {
+public abstract class FullRegConfirm extends FullRegBase {
     protected static Logger log = Logger.getLogger(FullRegConfirm.class);
 
     protected void registrationProcessing() throws TCWebException {
