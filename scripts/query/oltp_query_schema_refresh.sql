@@ -7,9 +7,11 @@ INSERT INTO command VALUES(26,"jobs_by_sender",1);
 INSERT INTO command VALUES(27,"jobs_by_subject",1);
 INSERT INTO command VALUES(28,"query_description",1);
 INSERT INTO command VALUES(30,"email_queries",1);
-INSERT INTO command VALUES(31,'Notify Active',1);
-INSERT INTO command VALUES(32,'Notify Active US',1);
+INSERT INTO command VALUES(31,'Next Competition',1);
+INSERT INTO command VALUES(32,'Member Development or Employment Opportunities',1);
 INSERT INTO command VALUES(33,'authenticate_data_user',1);
+INSERT INTO command VALUES(35,'Competition Results',1);
+INSERT INTO command VALUES(36,'TopCoder News and Events',1);
 
 INSERT INTO data_type VALUES (1001,'Integer Input');
 INSERT INTO data_type VALUES (1002,'Decimal Input');
@@ -26,6 +28,9 @@ INSERT INTO command_query_xref VALUES(27,55,1);
 INSERT INTO command_query_xref VALUES(28,56,1);
 INSERT INTO command_query_xref VALUES(30,51,1);
 INSERT INTO command_query_xref VALUES(33,60,1);
+INSERT INTO command_query_xref VALUES(35,61,1);
+INSERT INTO command_query_xref VALUES(36,62,1);
+
 
 INSERT INTO input_lu VALUES(3,"cr",1001,"Coder ID");
 INSERT INTO input_lu VALUES(5,"sd",1003,"Start date");
