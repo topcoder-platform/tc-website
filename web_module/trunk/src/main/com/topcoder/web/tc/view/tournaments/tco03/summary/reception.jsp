@@ -52,12 +52,12 @@
 </jsp:include>-->
 
             <p class="terciary">
-                Play-by-Play&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=reception_photos">Photos</a>
+                Summary&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=reception_photos">Photos</a>
             </p>
             
             <div class="leadPhoto">
-            <img src="/i/clear.gif" alt="" width="200" height="350" class="photoFrameBig" /><br/>
-            <span class="leadPhotoCaption">dgarthur contemplates a question during the Semi-final Round.<br/><br/></span>
+            <img src="/i/tournament/tco03/reception/summary.jpg" alt="" width="200" height="350" class="photoFrameBig" /><br/>
+            <span class="leadPhotoCaption">ZorbaTHut and Yarin enjoy the calm before the storm<br/><br/></span>
             </div>
             
             <h2>Opening Night Reception</h2>
@@ -65,86 +65,19 @@
             <p>by Matt Murphy, <em>TopCoder Staff</em><br />
             Wednesday, December 3, 2003</p>
 
-            <p>In a final round that saw 11 out of a possible 12 submissions, it was <strong>dgarthur</strong> who posted the highest 
-            score and walked away $50,000 richer as the Champion.</p>
-
-            <p>The contest started off with <strong>Yarin, </strong><strong>dgarthur</strong> and <strong>sjelkjd</strong> all opening the 250-point problem and 
-            <strong>dmwright</strong> opting to go with the 450.  <strong>Yarin</strong> took the early lead with a quick submission of the 250-pointer 
-            for 237.49 points.  He then moved on to the 450.  <strong>sjelkjd</strong> was in next with his submission to the 250, 
-            getting 213.97 points.  <strong>dgarthur</strong> brought in the lowest score on the 250 with his submission for 
-            202.96 points.  He and <strong>sjelkjd</strong> both moved on to the 450.  Even before <strong>dmwright</strong> could log his first 
-            submission, <strong>Yarin</strong> sent in his second, adding 385.26 points from his 450.  <strong>dmwright</strong> finally sent in 
-            his first submission for 303.43 points on the 450.  He moved on to the 950, leaving the 250 for last.  
-            <strong>dgarthur</strong> made up some ground by receiving 381.34 points for his 450-point submission, and moved 
-            to the 950.</p>
-
-            <p>The contest started off with <strong>Yarin, </strong><strong>dgarthur</strong> and <strong>sjelkjd</strong> all opening the 250-point problem and 
-            <strong>dmwright</strong> opting to go with the 450.  <strong>Yarin</strong> took the early lead with a quick submission of the 250-pointer 
-            for 237.49 points.  He then moved on to the 450.  <strong>sjelkjd</strong> was in next with his submission to the 250, 
-            getting 213.97 points.  <strong>dgarthur</strong> brought in the lowest score on the 250 with his submission for 
-            202.96 points.  He and <strong>sjelkjd</strong> both moved on to the 450.  Even before <strong>dmwright</strong> could log his first 
-            submission, <strong>Yarin</strong> sent in his second, adding 385.26 points from his 450.  <strong>dmwright</strong> finally sent in 
-            his first submission for 303.43 points on the 450.  He moved on to the 950, leaving the 250 for last.  
-            <strong>dgarthur</strong> made up some ground by receiving 381.34 points for his 450-point submission, and moved 
-            to the 950.</p>
-
-            <div align="center">
-            <table border="0" cellspacing="2" cellpadding="0" class="pointsTable">
-                <tr>
-                    <td  class="pointsName">dgarthur</td>
-                    <td class="pointsScore">1447.71</td>
-                </tr>
-                               			
-                <tr>
-                    <td  class="pointsName">Yarin</td>
-                    <td class="pointsScore">1382.79</td>
-                </tr>
-                               			
-                <tr>
-                    <td  class="pointsName">dmwright</td>
-                    <td class="pointsScore">1245.14</td>
-                </tr>
-                               			
-                <tr>
-                    <td  class="pointsName">sjelkjd</td>
-                    <td class="pointsScore">246.08</td>
-                </tr>
-            </table>
-            </div>	
-
-            <p><strong>sjelkjd</strong> offered the only action of the Challenge Phase by unsuccessfully challenging all 3 950-point 
-            submissions and <strong>Yarin's</strong> 450-point submission.  System tests proved that challenging any of the other 
-            competitor's submissions was in vain, as all submissions passed.  The final scores looked quite similar 
-            to those at the end of the Coding Phase:</p>
-
-            <div align="center">
-            <table border="0" cellspacing="2" cellpadding="0" class="pointsTable">
-                <tr>
-                    <td  class="pointsName">dgarthur</td>
-                    <td class="pointsScore">1447.71</td>
-                </tr>
-                               			
-                <tr>
-                    <td  class="pointsName">Yarin</td>
-                    <td class="pointsScore">1382.79</td>
-                </tr>
-                               			
-                <tr>
-                    <td  class="pointsName">dmwright</td>
-                    <td class="pointsScore">1245.14</td>
-                </tr>
-                               			
-                <tr>
-                    <td  class="pointsName">sjelkjd</td>
-                    <td class="pointsScore">246.08</td>
-                </tr>
-            </table>
-            </div>	
-
-            <p><strong>dgarthur</strong> was all smiles during the media hour, and rightfully so.  He performed perfectly through 
-            two onsite rounds and beat six very worthy competitors in two days.  Congratulations to dgarthur and 
-            the 15 other semi-finalists for a great weekend of coding!</p>
-
+            <p>Tonight, in a conference room filled with food, drink and plenty of tech related chatter, all eyes were on a few 16.  
+            Each one of these coders will be vying for the title of grand champion tomorrow as the final rounds of the 2003 TopCoder Open sponsored by Intel&#174;
+            commence.  With more than 1,000 competitors participating six rounds earlier, these contestants have already come a long way.  
+            With $130,000 at stake, tensions should have been high when the coders came face to face.  But they weren't.</p>
+ 
+            <p>The environment was fairly relaxing at the welcome reception.  Representatives from NVIDIA and Revelation Software 
+            were on hand to mingle with the finalists and to assess the level of competition.  Introductions were made.  Tournament 
+            stories were told.  Brainteasers were solved, and reinvented and solved again - warming up for the problems they will 
+            face tomorrow morning. </p>
+ 
+            <p>There are a lot of preparations to be made before the semi-finals begin.  After the reception, the competitors retired to 
+            their rooms to recover from jetlag.  Hopefully, butterflies won't keep them from their much-needed rest. </p>
+            
             <p><br/></p>
         </td>
 <!-- Center Column Ends -->
