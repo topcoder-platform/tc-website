@@ -75,7 +75,14 @@
                                             The Admin Tool Enhancement project has completed the Design Phase and will now enter
                                             the Development Phase.  The functional requirements for the Admin Tool project have
                                             been seperated into 3 groups.  For this project there will be 2 members selected per
-                                            functional group to compete for the winning submission.
+                                            functional group to compete for the winning submission.  The project design documents
+                                            will be given to the members once the selected members have been chosen.  In order to
+                                            inquire for this project please click on the appropriate link at the bottom of this page.
+
+                                            <strong>View the
+                                                <a target="_new" class="bodyText" href="/i/development/downloads/AdminToolRequirementsSpecification-web.pdf">Business Requirement Specification</a> for this application project &gt;&gt;
+                                            </strong>
+
                                             <br/><br/>Group 1 - Must implement the following functionality according to the design:
                                             <br/>&#160;&#160;&#160;Add Time
                                             <br/>&#160;&#160;&#160;Advance Contest Phase
