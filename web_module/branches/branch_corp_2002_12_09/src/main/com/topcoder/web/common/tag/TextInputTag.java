@@ -7,10 +7,12 @@ public class TextInputTag extends BaseTag {
     private boolean passw = false;
     private String aclass = null;
     private String onKeyPress = null;
+    private boolean editable = true;
 
     public int doStartTag() {
         StringBuffer ret = new StringBuffer();
-        try {
+        
+        if( editable ) {
             ret.append("<input type=\"").append(passw?"password":"text")
             .append("\" name=\"").append(name).append("\" ");
             if( size >= 0 ) {
@@ -33,6 +35,16 @@ public class TextInputTag extends BaseTag {
                 ret.append("value=\"").append(value).append("\" ");
             }
             ret.append("/>");
+        }
+        else {
+            if(value == null) {
+                value = (String) getDefaultValue();
+            }
+            if( value != null ) {
+                ret.append(value);
+            }
+        }
+        try {
             pageContext.getOut().print(ret.toString());
         }
         catch (java.io.IOException ioe) {
@@ -87,4 +99,11 @@ public class TextInputTag extends BaseTag {
         this.onKeyPress = onKeyPress;
     }
 
+	/**
+	 * Sets the editable.
+	 * @param editable The editable to set
+	 */
+	public void setEditable(String edit) {
+        editable = edit.equalsIgnoreCase("true");
+	}
 }

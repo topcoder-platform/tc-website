@@ -42,7 +42,7 @@ public final class StringUtils {
         ALPHABET_PUNCTUATION_EN;
 
     public static final String ALPHABET_HEX_UPPER = "0123456789ABCDEF";
-
+    public static final String ALPHABET_PHONE_NUMBER = "-0123456789()+";
     
     /**
      * Checks if string has all its charachters in alphabet given.

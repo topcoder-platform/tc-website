@@ -54,9 +54,9 @@ public class Login extends BaseProcessor {
      * @see com.topcoder.web.corp.request.BaseProcessor#businessProcessing()
      */
     void businessProcessing() throws AuthenticationException {
-        if( ! authToken.getUser().isAnonymous() ) {
-            throw new AuthenticationException("Already logged in. Try logout at first");
-        }
+//        if( ! authToken.getUser().isAnonymous() ) {
+//            throw new AuthenticationException("Already logged in. Try logout at first");
+//        }
 //        if( ! "POST".equals(request.getMethod()) ) {
 //            pageInContext = true;
 //            nextPage = SessionPersistor.getInstance(request.getSession(true))
@@ -103,7 +103,12 @@ public class Login extends BaseProcessor {
         }
 
         // if destination is null then controller will fetch recently viewed page
-        nextPage = destination;
+        if( destination == null ) {
+            nextPage = "/corp/";
+        }
+        else {
+            nextPage = destination;
+        }
         
         pageInContext = false; // ensures all request parameters are dropped off
         return;

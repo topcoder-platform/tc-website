@@ -39,6 +39,11 @@
             <name>onKeyPress</name>
             <required>false</required>
         </attribute>
+        <attribute>
+            <name>editable</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
     </tag>
 
     <tag>

@@ -29,6 +29,7 @@ abstract class BaseRegistration extends BaseProcessor {
     protected String userName;
     protected String phone;
     protected String password;
+    protected String password2;
     protected String email;
     
     
@@ -478,11 +479,7 @@ abstract class BaseRegistration extends BaseProcessor {
      * rules (uniquiness)
      * @return boolean true if allowed
      */
-    protected boolean checkUsernameValidity(
-        String keyLogin,
-        boolean forUpdate
-    )
-    {
+    protected boolean checkUsernameValidity(String keyLogin) {
         boolean success;
         //as usually check against alphabet 
         success = checkItemValidity(keyLogin, userName, 
@@ -491,9 +488,6 @@ abstract class BaseRegistration extends BaseProcessor {
         );
         if( !success ) {
             return false;
-        }
-        if( forUpdate ) {
-            return success;
         }
         // and additionally check against DB - not implemented for now
         boolean techProblems = false;

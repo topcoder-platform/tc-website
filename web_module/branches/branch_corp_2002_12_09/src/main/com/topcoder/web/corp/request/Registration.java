@@ -74,7 +74,6 @@ public class Registration extends BaseRegistration {
     private String state;
     private String zip;
     private String country;
-    private String password2;
 
     private String email2;
     
@@ -222,7 +221,7 @@ public class Registration extends BaseRegistration {
         );
 
         ret &= // username validity
-        checkUsernameValidity(KEY_LOGIN, false); 
+        checkUsernameValidity(KEY_LOGIN); 
 
         ret &= // password validity
         checkItemValidity(KEY_PASSWORD, password, 
