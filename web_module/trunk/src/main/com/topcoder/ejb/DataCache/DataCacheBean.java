@@ -20,6 +20,7 @@ public class DataCacheBean extends BaseEJB {
     private static ArrayList demographicAssignments;
     private static ArrayList languages;
     private static ArrayList referralTypes;
+    private static ArrayList organizations;
     private static ArrayList jobTypes;
     private static ArrayList editorTypes;
     private static ArrayList schools;
@@ -36,6 +37,7 @@ public class DataCacheBean extends BaseEJB {
     private static boolean referralTypesCached;
     private static boolean jobTypesCached;
     private static boolean editorTypesCached;
+    private static boolean organizationsCached;
     private static boolean contestNavsCached;
     private static boolean contestsCached;
     private static boolean schoolsCached;
@@ -255,6 +257,7 @@ public class DataCacheBean extends BaseEJB {
             this.referralTypesCached = false;
             this.jobTypesCached = false;
             this.editorTypesCached = false;
+            this.organizationsCached = false;
             this.contestNavsCached = false;
             this.contestsCached = false;
             this.schoolsCached = false;
@@ -292,6 +295,14 @@ public class DataCacheBean extends BaseEJB {
             this.roundsCached = false;
         }
     }
+
+    public void resetOrganizations() throws TCException {
+        log.debug("EJB DataCacheBean resetOrganizations called.");
+        synchronized (this) {
+            this.organizationsCached = false;
+        }
+    }
+
 
 
     public void resetMemberCount() throws TCException {
@@ -412,6 +423,76 @@ public class DataCacheBean extends BaseEJB {
             this.contestNavsCached = false;
         }
     }
+
+
+    /*********************************************************************************************
+     * getOrganizations
+     * Get the organizations coders belong to
+     * @author Steve Burrows
+     * @return ArrayList of Organizations
+     * @throws TCException
+     *********************************************************************************************
+     */
+    public ArrayList getOrganizations() throws TCException {
+        log.debug("ejb.DataCache.DataCacheBean:getOrganizations:called.");
+        if (!this.organizationsCached) {
+            synchronized (this) {
+                this.organizations = popOrganizations();
+                this.organizationsCached = true;
+            }
+        }
+        return this.organizations;
+    }
+
+    private ArrayList popOrganizations() throws TCException {
+        log.debug("ejb.DataCache.DataCacheBean:popOrganizations:called.");
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        ArrayList result = new ArrayList(80);
+        try {
+            conn = DBMS.getConnection(); //get connection from the pool
+            String query = "SELECT organization_id, organization_desc, organization FROM organization WHERE organization_id > 0";
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Organization organization = new Organization();
+                organization.setOrganizationId(rs.getInt(1));
+                organization.setOrganizationDesc(rs.getString(2));
+                organization.setOrganization(rs.getString(3));
+                result.add(organization);
+            }
+            if (result != null) result.trimToSize();
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
+            throw new TCException("ejb.DataCache.DataCacheBean:popOrganizations: ERROR \n " + sqe.getMessage());
+        } catch (Exception e) {
+            throw new TCException("ejb.DataCache.DataCacheBean:popOrganizations:ERROR:" + e);
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                }
+            }
+        }
+        return result;
+    }
+
+
+
 
 
     public ArrayList getAdContests() throws TCException {
