@@ -405,6 +405,9 @@ Founder and Chairman, TopCoder, Inc.
 
 
   <tr valign="middle">
+    <td colspan="4" class="statText" valign="middle">&nbsp;</td>
+  </tr>  
+  <tr valign="middle">
     <td colspan="4" class="statTextBig" valign="middle" background="/i/steel_bluebv_bg.gif" height="16">&nbsp;Confirmation Code</td>
   </tr>
   <tr valign="middle">
