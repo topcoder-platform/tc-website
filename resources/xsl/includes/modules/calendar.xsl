@@ -4,7 +4,7 @@
             <table width="100%" bgcolor="#4A4A4A" cellspacing="0" cellpadding="0" border="0">
                 <tr> 
                     <td valign="top">
-                        <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                        <table width="180" border="0" cellspacing="1" cellpadding="1">
                             <tr><td colspan="7" class="statTextBig" nowrap="nowrap" height="18">&#160;Match Dates: October</td></tr>
                             
                             <tr> 
