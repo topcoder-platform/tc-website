@@ -104,21 +104,12 @@
 
                 <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=email_engine-NET-design&amp;payment=210&amp;date=2&#47;12&#47;2003">.NET Email Engine</a></td>
-                    <td background="" class="statText" align="center">$210.00</td>
-                    <td background="" class="statText" align="center">2.12.2003</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
                     <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=api_version_compatibility-design&amp;payment=210&amp;date=2&#47;12&#47;2003">API Version Compatibility</a></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=api_version_compatibility-design&amp;payment=210&amp;date=2&#47;19&#47;2003">API Version Compatibility</a></td>
                     <td background="" class="statText" align="center">$210.00</td>
-                    <td background="" class="statText" align="center">2.12.2003</td>
+                    <td background="" class="statText" align="center">2.19.2003</td>
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
 
@@ -126,237 +117,247 @@
 
                 <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=barcode_generation-design&amp;payment=210&amp;date=2&#47;12&#47;2003">Bulk Email</a></td>
-                    <td background="" class="statText" align="center">$210.00</td>
-                    <td background="" class="statText" align="center">2.12.2003</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=bulk_email-design&amp;payment=280&amp;date=2&#47;12&#47;2003">Bulk Email</a></td>
-                    <td background="" class="statText" align="center">$280.00</td>
-                    <td background="" class="statText" align="center">2.12.2003</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=code_formatter-design&amp;payment=210&amp;date=2&#47;12&#47;2003">Code Formatter</a></td>
-                    <td background="" class="statText" align="center">$210.00</td>
-                    <td background="" class="statText" align="center">2.12.2003</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=compression_utility-design&amp;payment=280&amp;date=2&#47;12&#47;2003">Compression Utility</a></td>
-                    <td background="" class="statText" align="center">$300.00</td>
-                    <td background="" class="statText" align="center">2.12.2003</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-                
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=config_manager-design&amp;payment=105&amp;date=2&#47;12&#47;2003">Configuration Manager Enhancement</a></td>
-                    <td background="" class="statText" align="center">$105.00</td>
-                    <td background="" class="statText" align="center">2.12.2003</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=credit_card_processor-design&amp;payment=245&amp;date=2&#47;12&#47;2003">Credit Card Processor</a></td>
-                    <td background="" class="statText" align="center">$245.00</td>
-                    <td background="" class="statText" align="center">2.12.2003</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-                
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=data_access_object_generator-design&amp;payment=245&amp;date=2&#47;12&#47;2003">Data Access Object Generator</a></td>
-                    <td background="" class="statText" align="center">$245.00</td>
-                    <td background="" class="statText" align="center">2.12.2003</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=distributed_simple_cache-design&amp;payment=280&amp;date=2&#47;12&#47;2003">Distributed Simple Cache</a></td>
-                    <td background="" class="statText" align="center">$280.00</td>
-                    <td background="" class="statText" align="center">2.12.2003</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=file_conversion-1.1-ejb-design&amp;payment=105&amp;date=2&#47;12&#47;2003">File Conversion Enhancement - EJB</a></td>
-                    <td background="" class="statText" align="center">$105.00</td>
-                    <td background="" class="statText" align="center">2.12.2003</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=file_delta-design&amp;payment=245&amp;date=2&#47;12&#47;2003">File Delta</a></td>
-                    <td background="" class="statText" align="center">$245.00</td>
-                    <td background="" class="statText" align="center">2.12.2003</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=file_diff-design&amp;payment=140&amp;date=2&#47;12&#47;2003">File Diff</a></td>
-                    <td background="" class="statText" align="center">$140.00</td>
-                    <td background="" class="statText" align="center">2.12.2003</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=file_distributor-design&amp;payment=280&amp;date=2&#47;12&#47;2003">File Distributor</a></td>
-                    <td background="" class="statText" align="center">$280.00</td>
-                    <td background="" class="statText" align="center">2.12.2003</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=generic_parser-design&amp;payment=175&amp;date=2&#47;12&#47;2003">Generic Parser</a></td>
-                    <td background="" class="statText" align="center">$175.00</td>
-                    <td background="" class="statText" align="center">2.12.2003</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=heartbeat-design&amp;payment=210&amp;date=2&#47;12&#47;2003">Heartbeat (RMI/HTTP)</a></td>
-                    <td background="" class="statText" align="center">$210.00</td>
-                    <td background="" class="statText" align="center">2.12.2003</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=http_utility-design&amp;payment=140&amp;date=2&#47;12&#47;2003">HTTP Utility</a></td>
-                    <td background="" class="statText" align="center">$140.00</td>
-                    <td background="" class="statText" align="center">2.12.2003</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=image_converter-design&amp;payment=280&amp;date=2&#47;12&#47;2003">Image Converter</a></td>
-                    <td background="" class="statText" align="center">$280.00</td>
-                    <td background="" class="statText" align="center">2.12.2003</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=java_decompiler-design&amp;payment=245&amp;date=2&#47;12&#47;2003">Java Decompiler</a></td>
-                    <td background="" class="statText" align="center">$245.00</td>
-                    <td background="" class="statText" align="center">2.12.2003</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-                
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=javadoc_verification-design&amp;payment=210&amp;date=2&#47;12&#47;2003">Javadoc Verification</a></td>
-                    <td background="" class="statText" align="center">$210.00</td>
-                    <td background="" class="statText" align="center">2.12.2003</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=lazy_instantiation-design&amp;payment=175&amp;date=2&#47;12&#47;2003">Lazy Instantiation</a></td>
-                    <td background="" class="statText" align="center">$175.00</td>
-                    <td background="" class="statText" align="center">2.12.2003</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=lexical_analyzer-design&amp;payment=280&amp;date=2&#47;12&#47;2003">Lexical Analyzer</a></td>
-                    <td background="" class="statText" align="center">$280.00</td>
-                    <td background="" class="statText" align="center">2.12.2003</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=magic_numbers-design&amp;payment=210&amp;date=2&#47;12&#47;2003">Magic Numbers</a></td>
-                    <td background="" class="statText" align="center">$210.00</td>
-                    <td background="" class="statText" align="center">2.12.2003</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=security-design&amp;payment=280&amp;date=2&#47;12&#47;2003">Security Enhancement</a></td>
-                    <td background="" class="statText" align="center">$280.00</td>
-                    <td background="" class="statText" align="center">2.12.2003</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=stoppable_thread-design&amp;payment=245&amp;date=2&#47;12&#47;2003">Object Factory</a></td>
-                    <td background="" class="statText" align="center">$245.00</td>
-                    <td background="" class="statText" align="center">2.12.2003</td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=base_exception-design&amp;payment=700&amp;date=2&#47;19&#47;2003">Base Exception</a></td>
+                    <td background="" class="statText" align="center">$70.00</td>
+                    <td background="" class="statText" align="center">2.19.2003</td>
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
 
                 <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
+
+                <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=command_line_utilities-design&amp;payment=175&amp;date=2&#47;19&#47;2003">Command Line Utilities</a></td>
+                    <td background="" class="statText" align="center">$175.00</td>
+                    <td background="" class="statText" align="center">2.19.2003</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+                <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=config_manager-design&amp;payment=105&amp;date=2&#47;19&#47;2003">Configuration Manager Enhancement</a></td>
+                    <td background="" class="statText" align="center">$105.00</td>
+                    <td background="" class="statText" align="center">2.19.2003</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+                <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=credit_card_processor-design&amp;payment=245&amp;date=2&#47;19&#47;2003">Credit Card Processor</a></td>
+                    <td background="" class="statText" align="center">$245.00</td>
+                    <td background="" class="statText" align="center">2.19.2003</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+                
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+                <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=data_access_object_generator-design&amp;payment=245&amp;date=2&#47;19&#47;2003">Data Access Object Generator</a></td>
+                    <td background="" class="statText" align="center">$245.00</td>
+                    <td background="" class="statText" align="center">2.19.2003</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+                <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=data_grouping-design&amp;payment=175&amp;date=2&#47;19&#47;2003">Data Grouping</a></td>
+                    <td background="" class="statText" align="center">$175.00</td>
+                    <td background="" class="statText" align="center">2.19.2003</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+
+                <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=distributed_simple_cache-design&amp;payment=280&amp;date=2&#47;19&#47;2003">Distributed Simple Cache</a></td>
+                    <td background="" class="statText" align="center">$280.00</td>
+                    <td background="" class="statText" align="center">2.19.2003</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+                <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=file_conversion-1.1-ejb-design&amp;payment=105&amp;date=2&#47;19&#47;2003">File Conversion Enhancement - EJB</a></td>
+                    <td background="" class="statText" align="center">$105.00</td>
+                    <td background="" class="statText" align="center">2.19.2003</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+                <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=encryption-design&amp;payment=280&amp;date=2&#47;19&#47;2003">Encryption</a></td>
+                    <td background="" class="statText" align="center">$280.00</td>
+                    <td background="" class="statText" align="center">2.19.2003</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+
+                <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=file_diff-design&amp;payment=140&amp;date=2&#47;19&#47;2003">File Diff</a></td>
+                    <td background="" class="statText" align="center">$140.00</td>
+                    <td background="" class="statText" align="center">2.19.2003</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+                <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=file_distributor-design&amp;payment=280&amp;date=2&#47;19&#47;2003">File Distributor</a></td>
+                    <td background="" class="statText" align="center">$280.00</td>
+                    <td background="" class="statText" align="center">2.19.2003</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+                <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=generic_parser-design&amp;payment=175&amp;date=2&#47;19&#47;2003">Generic Parser</a></td>
+                    <td background="" class="statText" align="center">$175.00</td>
+                    <td background="" class="statText" align="center">2.19.2003</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+
+                <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=heartbeat-design&amp;payment=210&amp;date=2&#47;19&#47;2003">Heartbeat (RMI/HTTP)</a></td>
+                    <td background="" class="statText" align="center">$210.00</td>
+                    <td background="" class="statText" align="center">2.19.2003</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+                <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=http_utility-design&amp;payment=140&amp;date=2&#47;19&#47;2003">HTTP Utility</a></td>
+                    <td background="" class="statText" align="center">$140.00</td>
+                    <td background="" class="statText" align="center">2.19.2003</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+                <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=image_converter-design&amp;payment=280&amp;date=2&#47;19&#47;2003">Image Converter</a></td>
+                    <td background="" class="statText" align="center">$280.00</td>
+                    <td background="" class="statText" align="center">2.19.2003</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+                <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=java_decompiler-design&amp;payment=245&amp;date=2&#47;19&#47;2003">Java Decompiler</a></td>
+                    <td background="" class="statText" align="center">$245.00</td>
+                    <td background="" class="statText" align="center">2.19.2003</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+                
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+                <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=job_scheduler-design&amp;payment=210&amp;date=2&#47;19&#47;2003">Job Scheduling</a></td>
+                    <td background="" class="statText" align="center">$210.00</td>
+                    <td background="" class="statText" align="center">2.19.2003</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+                
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+                <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=lexical_analyzer-design&amp;payment=280&amp;date=2&#47;19&#47;2003">Lexical Analyzer</a></td>
+                    <td background="" class="statText" align="center">$280.00</td>
+                    <td background="" class="statText" align="center">2.19.2003</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+                <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=ldap_client-design&amp;payment=175&amp;date=2&#47;19&#47;2003">LDAP Client</a></td>
+                    <td background="" class="statText" align="center">$175.00</td>
+                    <td background="" class="statText" align="center">2.19.2003</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+                <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=nntp_client-design&amp;payment=175&amp;date=2&#47;19&#47;2003">NNTP Client</a></td>
+                    <td background="" class="statText" align="center">$175.00</td>
+                    <td background="" class="statText" align="center">2.19.2003</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+                <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=security-design&amp;payment=280&amp;date=2&#47;19&#47;2003">Security Enhancement</a></td>
+                    <td background="" class="statText" align="center">$280.00</td>
+                    <td background="" class="statText" align="center">2.19.2003</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
+
+                <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=standard_class-design&amp;payment=105&amp;date=2&#47;19&#47;2003">Standard Class</a></td>
+                    <td background="" class="statText" align="center">$105.00</td>
+                    <td background="" class="statText" align="center">2.19.2003</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
+
+                <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=sql_parser-design&amp;payment=210&amp;date=2&#47;19&#47;2003">SQL Parser</a></td>
+                    <td background="" class="statText" align="center">$210.00</td>
+                    <td background="" class="statText" align="center">2.19.2003</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
+
+                <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=svg2dgraphics-design&amp;payment=280&amp;date=2&#47;19&#47;2003">SVG 2D Graphics Generator</a></td>
+                    <td background="" class="statText" align="center">$280.00</td>
+                    <td background="" class="statText" align="center">2.19.2003</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
+
 
                 <tr>
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -440,26 +441,6 @@
                 </tr>
 
                 <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=file_splitter-development&amp;payment=168&amp;date=2&#47;13&#47;2003">File Splitter</a></td>
-                    <td background="" class="statText" align="center">$168.00</td>
-                    <td background="" class="statText" align="center">2.13.2003</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=matrix-development&amp;payment=216&amp;date=2&#47;13&#47;2003">Math Matrix</a></td>
-                    <td background="" class="statText" align="center">$216.00</td>
-                    <td background="" class="statText" align="center">2.13.2003</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
 
                 <tr>
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>

@@ -104,7 +104,8 @@ public class CreateXSL
                             }
                         }
                         
-                final String DESIGN_PROJECTS = "\n<tr valign=\"top\">" + "\n" +
+                /*
+                 final String DESIGN_PROJECTS = "\n<tr valign=\"top\">" + "\n" +
                                               "    <td background=\"\" width=\"10\" class=\"statText\"><img src=\"/i/clear.gif\" alt=\"\" width=\"10\" height=\"1\" border=\"0\" /></td>" + "\n" +
                                               "    <td background=\"\" class=\"statText\"><a class=\"statText\" href=\"/index?t=development&amp;c=<<<FILENAME>>>&amp;payment=<<<PAYMENT>>>&amp;date=<<<DAY>>>&#47;<<<MONTH>>>&#47;<<<YEAR>>>\"><<<COMPONENT_SPACE_NAME>>></a></td>" +"\n" +
                                               "    <td background=\"\" class=\"statText\" align=\"center\"><<<PAYMENT>>></td>" +"\n" +
@@ -112,7 +113,7 @@ public class CreateXSL
                                               "    <td background=\"\" width=\"10\" class=\"statText\"><img src=\"/i/clear.gif\" alt=\"\" width=\"10\" height=\"1\" border=\"0\" /></td>" +"\n" +
                                               "</tr>\n";
                         String designProjects = "";
-                        
+                  */      
                         
                         
 
@@ -145,7 +146,7 @@ public class CreateXSL
                         if(phase == ComponentVersionInfo.SPECIFICATION)
                         {
                             postfix = "design";
-                            
+                            /*
                             String tempDesignProjects = DESIGN_PROJECTS;
                             tempDesignProjects = replacePattern(tempDesignProjects, "<<<FILENAME>>>", fileName.toLowerCase() + "-" + postfix);
                             tempDesignProjects = replacePattern(tempDesignProjects, "<<<DATE>>>", df.format(phaseDate));
@@ -154,6 +155,7 @@ public class CreateXSL
                             tempDesignProjects = replacePattern(tempDesignProjects, "<<<YEAR>>>", String.valueOf(cal.get(java.util.Calendar.YEAR)));
                             tempDesignProjects = replacePattern(tempDesignProjects, "<<<COMPONENT_SPACE_NAME>>>", componentName);
                             System.out.println(tempDesignProjects);
+                            */
                         }
                         else if (phase == ComponentVersionInfo.DEVELOPMENT)
                         {
