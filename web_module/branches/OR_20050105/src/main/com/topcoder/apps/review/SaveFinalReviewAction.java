@@ -75,18 +75,17 @@ public final class SaveFinalReviewAction extends ReviewAction {
                 // check if there is a non fixed item
                 FixItem[] items = data.getFinalReview().getFixCheckList();
 
-                boolean finalFixOk = true;
+                int notFixedItems = 0;
 
                 for (int i = 0; i < items.length; i++)
                     if (items [i].getFinalFixStatus().getId() == 1) { // fix constant!
-                        finalFixOk= false;
-                        break;
+                        notFixedItems++;
                     }
 
-                if (finalFixOk) {
+                if (notFixedItems == 0) {
                     AutoPilot.finalReviewEmail(data);
                 } else {
-                    AutoPilot.finalReviewFailed(data);
+                    AutoPilot.finalReviewFailed(data, notFixedItems,"comment");
                 }
 
             }

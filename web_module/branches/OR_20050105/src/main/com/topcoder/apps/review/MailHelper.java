@@ -142,6 +142,43 @@ class MailHelper {
         sendMail(from, to, project.getName() + " results", bodyText);
     }
 
+    static void failedReviewMail(SecurityEnabledUser from, User to, int notFixedItems, String comment, Project project)
+                     throws Exception {
+
+        // fill common data into the xml
+        XMLDocument xmlDocument = new XMLDocument("MAILDATA");
+        xmlDocument.addTag(new ValueTag("USER_NAME", to.getHandle()));
+        xmlDocument.addTag(new ValueTag("PROJECT_NAME", project.getName()));
+        xmlDocument.addTag(new ValueTag("NOT_FIXED_ITEMS",notFixedItems ));
+        xmlDocument.addTag(new ValueTag("COMMENT", comment));
+        xmlDocument.addTag(new ValueTag("IS_COMMENTED", comment.trim().length() > 0 ? 1 : 0));
+
+        String filenameXSL = ConfigHelper.getXSL(ConfigHelper.FINAL_REVIEW_FAIL_XSL);
+
+        if (filenameXSL == null) {
+            StringBuffer s = new StringBuffer();
+            s.append("\nThe " + ConfigHelper.FINAL_REVIEW_FAIL_XSL + " property doesn't seem to exist in " + ConfigHelper.CONFIG_FILE + '\n');
+            s.append("The contents of the config file is: \n\n>>> ");
+
+            InputStream is = MailHelper.class.getClassLoader().getResourceAsStream(ConfigHelper.CONFIG_FILE);
+            int ch;
+            while ((ch = is.read()) != -1) {
+                s.append((char) ch);
+                if (ch == '\n') {
+                    s.append(">>> ");
+                }
+            }
+            is.close();
+            s.append('\n');
+
+            throw new Exception(s.toString());
+        }
+
+        // format mail and send it
+        String bodyText = formatBody(xmlDocument, filenameXSL);
+        sendMail(from, to, "Final Review results", bodyText);
+    }
+
     static String formatNumber(double dscore) {
         long score = Math.round(dscore * 100);
         return score / 100 + "." + (score % 100 < 10 ? "0" : "") + score % 100;

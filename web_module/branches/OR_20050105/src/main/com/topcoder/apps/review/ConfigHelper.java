@@ -94,7 +94,7 @@ public class ConfigHelper implements ConfigManagerInterface {
     /**
      * Final review failed mail xsl file property name.
      */
-    private static final String FINAL_REVIEW_FAIL_XSL = "final_review_fail_xsl";
+    static final String FINAL_REVIEW_FAIL_XSL = "final_review_fail_xsl";
 
 
     /**
