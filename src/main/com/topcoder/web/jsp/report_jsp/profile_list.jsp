@@ -299,7 +299,6 @@
                 cl = document.profileListForm[col].length;
                 var s1;
                 loop: for(s1=0;s1 < document.profileListForm[col].options.length;s1++){
-                if (!document.profileListForm[col].options[sl].selected) {continue loop;}
                   pText = document.profileListForm[col].options[sl].text;
                   pValue = document.profileListForm[col].options[sl].value;
                   if (document.profileListForm[col].options[sl].value > "" && select == 0) {
