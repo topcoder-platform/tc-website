@@ -119,9 +119,9 @@
                </tr>
                <tr>
                   <td align = "left" class="advancers_roundid"><A href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4703" class="topLink">Online Round 2</A></td> 
-                  <td align = "right" class="advancers_faded"><A href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4703">TBD</A></td>
-                  <td align = "right" class="advancers_faded"><A href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4703">TBD</A></td>
-                  <td align = "right" class="advancers_faded"><A href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4703">TBD</A></td>
+                  <td align = "right" class="advancers_faded"><A href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4703">100</A></td>
+                  <td align = "right" class="advancers_faded"><A href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4703">20</A></td>
+                  <td align = "right" class="advancers_faded"><A href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4703">80</A></td>
                   <td align = "right" class="advancers_faded"><A href="Javascript:openWin('/index?t=tournaments&amp;c=tco03_radeye_rd2','radeye2',900,600);">view</A></td>
                </tr>
                <tr>

@@ -84,7 +84,20 @@ function openWin(url, name, w, h) {
 <h2>Match summary</h2> 
 
 <p> 
-Tensions and caffeine levels were high as the coding phase of Round 2 of the TopCoder Open started.  With competitors whose average rating was 1968, it was a surprise to no one that most coders flew through a simple easy problem that required little more than algebra.  However, as coders began to work on the medium problem, it became clear that, while the easy problem was no challenge, this was Round 2, and the problems were getting harder.  At the half hour mark, only a handful of coders had finished two problems, with tomek in the lead (out of coders who didn't skip the medium).  After about a half hour, the 500 submissions were flowing in pretty well, but a dismal success rate destined most of them to failure.  At the end of the coding phase, it was tomek in the lead, closely followed by SnapDragon.  During the challenge phase, SnapDragon was able to gain another 50 points, pushing him into the lead over tomek.  In room 6, Yarin managed to find two challenges and the 100 points propelled him into third place.  System tests turned out to be brutal for the medium problem, and almost 80% of the submissions failed, though the top 3 competitors emerged unscathed.  The next round, with an average competitor rating of 2207 promises to be at least as exciting, so tune in next time when we find out if SnapDragon really has a 100% chance of advancing to round 4, whether or not snewman can continue his streak in the face of ever increasing difficulty, and whether dplass, having learned about dynamic programming in the round tables, can beat the odds yet again and advance.
+Tensions and caffeine levels were high as the coding phase of Round 2 of the TopCoder Open started.  With competitors 
+whose average rating was 1968, it was a surprise to no one that most coders flew through a simple easy problem that 
+required little more than algebra.  However, as coders began to work on the medium problem, it became clear that, 
+while the easy problem was no challenge, this was Round 2, and the problems were getting harder.  At the half hour 
+mark, only a handful of coders had finished two problems, with tomek in the lead (out of coders who didn't skip the 
+medium).  After about a half hour, the 500 submissions were flowing in pretty well, but a dismal success rate destined 
+most of them to failure.  At the end of the coding phase, it was tomek in the lead, closely followed by SnapDragon.  
+During the challenge phase, SnapDragon was able to gain another 50 points, pushing him into the lead over tomek.  In 
+room 6, Yarin managed to find two challenges and the 100 points propelled him into third place.  System tests turned 
+out to be brutal for the medium problem, and almost 80% of the submissions failed, though the top 3 competitors emerged 
+unscathed.  The next round, with an average competitor rating of 2207 promises to be at least as exciting, so tune in 
+next time when we find out if SnapDragon really has a 100% chance of advancing to round 4, whether or not snewman 
+can continue his streak in the face of ever increasing difficulty, and whether dplass, having learned about dynamic 
+programming in the round tables, can beat the odds yet again and advance.
 </p> 
   
 <p>
