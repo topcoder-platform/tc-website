@@ -211,4 +211,17 @@
     </tag>
 
 
+    <tag>
+        <name>ratingStyle</name>
+        <tagclass>com.topcoder.web.tc.view.tag.RatingStyle</tagclass>
+        <bodycontent>empty</bodycontent>
+        <info>
+        </info>
+        <attribute>
+            <name>rating</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
 </taglib>
