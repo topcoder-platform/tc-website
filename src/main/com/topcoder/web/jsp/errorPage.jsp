@@ -59,6 +59,10 @@ isErrorPage="true"
             <img border="0" vspace="5" height="1" width="400" src="/i/clear.gif"><br>
             <div class="header"><%=message==null?"Sorry, there was an error in your request.":message%></div>
             <div class="header"><a href="<%=url==null?"javascript:history.back();":url%>">go back</a></div>
+            <br/>
+            <br/>
+            <br/>
+            <a HREF="mailto:service@topcoder.com" CLASS="bodyText">service@topcoder.com</a>
         </td>
         <td width="10"><img border="0" height="1" width="10" src="/i/clear.gif"></td>
         <td width="170"><img border="0" height="1" width="170" src="/i/clear.gif"></td>
