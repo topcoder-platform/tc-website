@@ -51,13 +51,14 @@
             
                 <p><span class="bodySubtitle">What does the package include?</span><br/>
                 <ul>
-                <li><b>Action!</b> See the competition live and in-person. Attendence to all the onsite rounds of competition.</li>
-                <li><b>Knowledge!</b>Learn tricks of the trade from the experts. Attendance at all onsite events (sponsor and member presentations).</li>
+                <li><b>Action!</b> See the competition live and in-person. Includes attendence to all the onsite rounds of competition.</li>
+                <li><b>Knowledge!</b> Learn tricks of the trade from the experts. Includes attendance at all onsite events (sponsor and member presentations).</li>
                 <li><b>Hotel!</b> Stay at the same great hotel where the competitors are staying. 2 nights hotel accomodations at the <A href="http://www.bostonparkplaza.com/default.asp?sID=home" target="_blank">Boston Park Plaza Hotel & Towers.</A></li>
-                <li><b>Food!</b>Hang-out and dine with the semifinalists. 2 meals with the competitors and free beverages throughout the competitions.</li>
-                <li><b>TopCoder Gear!</b>Take home TopCoder collectables. T-shirt, program and other TCCC items.</li> 
+                <li><b>Food!</b> Hang-out and dine with the semifinalists. 2 meals with the competitors and free beverages throughout the competitions.</li>
+                <li><b>TopCoder Gear!</b> Take home TopCoder collectables. T-shirt, program and other TCCC items.</li> 
                 </ul>
             
+                <div align="left"><img src="/i/tournament/tccc04/495signup.gif" width="240" height="30" border="0"></div>
             
                 <p><span class="bodySubtitle">The details:</span><br/>
 
