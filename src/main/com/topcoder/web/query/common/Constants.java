@@ -176,7 +176,8 @@ public class Constants {
         DB_LIST.add(new DatabaseBean("SCREENING_OLTP", "Screening"));
         DB_LIST.add(new DatabaseBean("HS_OLTP", "HS Transactional"));
         DB_LIST.add(new DatabaseBean("HS_DW", "HS Warehouse"));
-
+        DB_LIST.add(new DatabaseBean("VERIZON_OLTP", "Verizon"));
+        DB_LIST.add(new DatabaseBean("VERIZON_DW", "Verizon DW"));
     }
 }
 
