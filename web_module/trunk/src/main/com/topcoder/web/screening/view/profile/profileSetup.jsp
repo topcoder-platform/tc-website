@@ -132,7 +132,7 @@ function submitConfirm() {
 
                 <tr>
                     <td width="10" class="testFormHeader"><img src="/i/clear.gif" width="10" height="1" alt="" border="0" /></td>
-                    <td width="20%" align="center" class="testFormHeader">Name</td>
+                    <td width="20%" class="testFormHeader">Name</td>
                     <td width="20%" align="center" class="testFormHeader">Division</td>
                     <td width="20%" align="center" class="testFormHeader">Difficulty</td>
                     <td colspan="2" align="center" class="testFormHeader">Algorithmic Categories</td>
@@ -157,7 +157,7 @@ function submitConfirm() {
           %> --%>
                 <tr>
                     <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-                    <td align="center" class="testTableOdd"><a href="JavaScript:getProblemDetail('<screen:beanWrite name="testA" property="roundId" />,<screen:beanWrite name="testA" property="problemId"/>')" class="bodyText"><screen:beanWrite name="testA" property="problemName"/></a></td>
+                    <td class="testTableOdd"><a href="JavaScript:getProblemDetail('<screen:beanWrite name="testA" property="roundId" />,<screen:beanWrite name="testA" property="problemId"/>')" class="bodyText"><screen:beanWrite name="testA" property="problemName"/></a></td>
                     <td align="center" class="testTableOdd"><screen:beanWrite name="testA" property="divisionDesc" /></td>
                     <td align="center" class="testTableOdd"><screen:beanWrite name="testA" property="difficultyDesc" /></td>
                     <td colspan="2" align="center" class="testTableOdd"><screen:beanWrite name="testA" property="algorithmicCategoryList" /></td>
@@ -172,7 +172,7 @@ function submitConfirm() {
 
                 <tr>
                     <td width="10" class="testFormHeader"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-                    <td width="20%" align="center" class="testFormHeader">Name</td>
+                    <td width="20%" class="testFormHeader">Name</td>
                     <td width="20%" align="center" class="testFormHeader">Division</td>
                     <td width="20%" align="center" class="testFormHeader">Difficulty</td>
                     <td width="40%" align="center" class="testFormHeader">Algorithmic Categories</td>
@@ -186,7 +186,7 @@ function submitConfirm() {
                 <input type="hidden" name="testSetB" value="<screen:beanWrite name="testB" property="roundId" />,<screen:beanWrite name="testB" property="problemId"/>" >
                 <tr>
                     <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-                    <td align="center" class="testTableOdd"><a href="JavaScript:getProblemDetail('<screen:beanWrite name="testB" property="roundId" />,<screen:beanWrite name="testB" property="problemId"/>')" class="bodyText"><screen:beanWrite name="testB" property="problemName"/></a></td>
+                    <td class="testTableOdd"><a href="JavaScript:getProblemDetail('<screen:beanWrite name="testB" property="roundId" />,<screen:beanWrite name="testB" property="problemId"/>')" class="bodyText"><screen:beanWrite name="testB" property="problemName"/></a></td>
                     <td align="center" class="testTableOdd"><screen:beanWrite name="testB" property="divisionDesc" /></td>
                     <td align="center" class="testTableOdd"><screen:beanWrite name="testB" property="difficultyDesc" /></td>
                     <td align="center" class="testTableOdd"><screen:beanWrite name="testB" property="algorithmicCategoryList" /></td>
@@ -230,6 +230,7 @@ function submitConfirm() {
                     
                 <screen:resultSetRowIterator id="row" list="<%=profile.getLanguageList()%>">
                 <tr>
+                    <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
                     <td class="testTableOdd" colspan="5">
                         <% if(profile.hasLanguage(row.getItem("language_id").toString())) { %>
                         <input type="checkbox" name="language" value="<screen:resultSetItem row="<%=row%>" name="language_id" />" CHECKED>&#160;<screen:resultSetItem row="<%=row%>" name="language_name" />
@@ -237,6 +238,7 @@ function submitConfirm() {
                         <input type="checkbox" name="language" value="<screen:resultSetItem row="<%=row%>" name="language_id" />" >&#160;<screen:resultSetItem row="<%=row%>" name="language_name" />
                         <% } %>
                     </td>
+                    <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
                 </tr>
                 </screen:resultSetRowIterator>
                 
