@@ -1,0 +1,23 @@
+<?xml version="1.0"?> 
+<CMConfig>
+  <Config name="File Upload">
+        <Property name="allowed_directories">
+                <Value>.</Value>
+        </Property>
+        <Property name="temp_directory">
+                <Value>.</Value>
+        </Property>
+        <Property name="default_directory">
+                <Value>.</Value>
+        </Property>
+        <Property name="overwrite_allowed">
+                <Value>yes</Value>
+        </Property>
+        <Property name="max_single_file_size">
+                <Value>500000</Value>
+        </Property>
+        <Property name="max_total_file_size">
+                <Value>500000</Value>
+        </Property>
+  </Config>
+</CMConfig>
