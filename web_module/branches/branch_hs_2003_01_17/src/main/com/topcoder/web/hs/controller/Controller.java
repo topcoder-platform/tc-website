@@ -111,17 +111,16 @@ public class Controller extends HttpServlet {
             /* only reporting errors at this point */
 
             if(rp.isNextPageInContext()) {
-                try {
-                    getServletContext().getRequestDispatcher(response.encodeURL(rp.getNextPage())).forward(request, response);
-                } catch(IllegalStateException e) {  /* meaning response was already committed */
-                    request.setAttribute("disable-includes", "yes");  /* only error.jsp respects this */
-                    getServletContext().getRequestDispatcher(response.encodeURL(rp.getNextPage())).include(request, response);
-                }
+                getServletContext().getRequestDispatcher(response.encodeURL(rp.getNextPage())).forward(request, response);
             } else {
                 response.sendRedirect(response.encodeRedirectURL(rp.getNextPage()));
             }
 
-        /* things are extremely broken, make one last attempt to get an error message to the browser */
+        /* things are extremely broken, or perhaps some of the response
+         * buffer had already been flushed when an error was thrown,
+         * and the forward to error page failed.  in any event, make
+         * one last attempt to get an error message to the browser
+         */
         } catch(Exception e) {
             log.fatal("forwarding to error page failed", e);
 
