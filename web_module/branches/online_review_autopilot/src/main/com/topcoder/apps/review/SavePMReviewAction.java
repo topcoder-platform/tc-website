@@ -20,6 +20,8 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionForwards;
 import org.apache.struts.action.ActionMapping;
 
+import com.topcoder.apps.review.document.DocumentManagerLocal;
+
 /**
  * <p>
  * Extends from <strong>ReviewAction</strong> that saves the PM review message
@@ -81,6 +83,13 @@ public final class SavePMReviewAction extends ReviewAction {
                 ProjectData data = ((SubmissionForm) form).toProjectData(orpd);
                 BusinessDelegate businessDelegate = new BusinessDelegate();
                 ResultData result = businessDelegate.projectAdmin(data);
+                DocumentManagerLocal documentManager;
+                
+                try {
+                    documentManager = EJBHelper.getDocumentManager();
+                } catch(Exception e) {
+                    return null;
+                }
                 
                 if (result instanceof SuccessResult)  {
                     long sid = ((SubmissionForm) form).getSubmission().getId();
@@ -99,7 +108,12 @@ public final class SavePMReviewAction extends ReviewAction {
                             if (scorecard instanceof ScreeningScorecard) {
                                 if (((SubmissionForm) form).getIsScreening()) {
                                     ((InitialSubmission)((SubmissionForm) form).getSubmission()).setAdvancedToReview(((SubmissionForm) form).getAdvanced());
-                                    documentManager.saveInitialSubmission(((SubmissionForm) form).getSubmission(), user.getTCSubject());
+                                    
+                                    try {
+                                        documentManager.saveInitialSubmission((InitialSubmission)((SubmissionForm) form).getSubmission(), data.getUser().getTCSubject());
+                                    } catch(Exception e) {
+                                        return null;
+                                    }
                                     
                                     ScreeningData sData = new ScreeningData(orpd, sid, (ScreeningScorecard) scorecard);
                                     result = businessDelegate.screeningScorecard(sData);
