@@ -23,11 +23,10 @@
                         Saturday, January 22, 2005</p>
 
                         <p>
-In Division 2, newbie <b>Sabur_AIUB</b> took top honors, and earned slot 17 in all time
-impressive debuts, earning himself a rating of 1891 in the process.  Nicely done!
-<b>Marto</b> and <b>valo_bg</b> took second and third, with <b>Dan [Popovici]</b> in a
-very close fourth.
-
+In Division 2, <b>Marto</b> and <b>valo_bg</b> took second and third, with <b>Dan [Popovici]</b> in a very close fourth. 
+Partway through the match, three newbies held the top three spots, but that changed before too long.
+Nobody was terribly surprised in Division 1, when <b>tomek</b> took top honors. <b>marian</b> and <b>misof</b> were 
+second and third, by good margins.
 						<a href="/index?t=statistics&c=srm227_prob" class="bodyText"><strong>full&#160;story</strong></a>
                         </p>
 

@@ -84,17 +84,15 @@ function openWin(url, name, w, h) {
 
 <h2>Match summary</h2>
 
-<p>In Division 2, newbie <b>Sabur_AIUB</b> took top honors, and earned slot 17 in all time
-impressive debuts, earning himself a rating of 1891 in the process.  Nicely done!
-<b>Marto</b> and <b>valo_bg</b> took second and third, with <b>Dan [Popovici]</b> in a
-very close fourth.  Partway through the match, three newbies held the top three spots,
-but that changed before too long.</p>
-
-<p>Nobody was terribly surprised in Division 1, when <b>tomek</b> took top honors.
-<b>marian</b> and <b>misof</b> were second and third, by good margins.  <b>marian</b>
-deserves a lot of credit for a good fight, after working his way up to second with
-a dominating <b>eight</b> successful challenges.  Also notably, <b>RalphFurmaniak</b>
-rung up six competitor's problems in the challenge round.</p>
+<p>
+In Division 2, <b>Marto</b> and <b>valo_bg</b> took second and third, with <b>Dan [Popovici]</b> in a very close fourth. 
+Partway through the match, three newbies held the top three spots, but that changed before too long.
+<br /><br />
+Nobody was terribly surprised in Division 1, when <b>tomek</b> took top honors. <b>marian</b> and <b>misof</b> were 
+second and third, by good margins. <b>marian</b> deserves a lot of credit for a good fight, after working his 
+way up to second with a dominating eight successful challenges. Also notably, <b>RalphFurmaniak</b> rung 
+up six competitor's problems in the challenge round.
+</p>
 
 <H1>
 The Problems
@@ -118,7 +116,7 @@ Used as: Division Two - Level One: <blockquote><table cellspacing="2">
       <b>Submission Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      241 / 247 (97.57%)
+      232 / 236 (98.31%)
     </td>
   </tr>
   <tr>
@@ -126,7 +124,7 @@ Used as: Division Two - Level One: <blockquote><table cellspacing="2">
       <b>Success Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      216 / 241 (89.63%)
+      211 / 232 (90.95%)
     </td>
   </tr>
   <tr>
@@ -134,7 +132,7 @@ Used as: Division Two - Level One: <blockquote><table cellspacing="2">
       <b>High Score</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      <b>senzao18</b> for 249.97 points (0 mins 19 secs)
+      <b>supernova</b> for 249.35 points (1 mins 27 secs)
     </td>
   </tr>
   <tr>
@@ -142,7 +140,7 @@ Used as: Division Two - Level One: <blockquote><table cellspacing="2">
       <b>Average Score</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      233.62 (for 216 correct submissions)
+      233.43 (for 211 correct submissions)
     </td>
   </tr>
 </table></blockquote>
@@ -181,7 +179,7 @@ Used as: Division Two - Level Two: <blockquote><table cellspacing="2">
       <b>Submission Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      202 / 247 (81.78%)
+      194 / 236 (82.20%)
     </td>
   </tr>
   <tr>
@@ -189,7 +187,7 @@ Used as: Division Two - Level Two: <blockquote><table cellspacing="2">
       <b>Success Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      166 / 202 (82.18%)
+      159 / 194 (81.96%)
     </td>
   </tr>
   <tr>
@@ -197,7 +195,7 @@ Used as: Division Two - Level Two: <blockquote><table cellspacing="2">
       <b>High Score</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      <b>Sahra</b> for 495.77 points (2 mins 37 secs)
+      <b>eoj</b> for 487.18 points (4 mins 37 secs)
     </td>
   </tr>
   <tr>
@@ -205,7 +203,7 @@ Used as: Division Two - Level Two: <blockquote><table cellspacing="2">
       <b>Average Score</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      355.47 (for 166 correct submissions)
+      353.26 (for 159 correct submissions)
     </td>
   </tr>
 </table></blockquote>
@@ -233,7 +231,7 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
       <b>Success Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      231 / 240 (96.25%)
+      229 / 240 (95.42%)
     </td>
   </tr>
   <tr>
@@ -249,10 +247,11 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
       <b>Average Score</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      223.35 (for 231 correct submissions)
+      223.47 (for 229 correct submissions)
     </td>
   </tr>
 </table></blockquote>
+
 
 <p>This problem was again, pretty straightforward, as indicated by the fairly high
 success rates.  However, it took a little more effort to work out a solution here.
@@ -301,7 +300,7 @@ Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
       <b>Submission Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      98 / 247 (39.68%)
+      94 / 236 (39.83%)
     </td>
   </tr>
   <tr>
@@ -309,7 +308,7 @@ Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
       <b>Success Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      35 / 98 (35.71%)
+      34 / 94 (36.17%)
     </td>
   </tr>
   <tr>
@@ -317,7 +316,7 @@ Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
       <b>High Score</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      <b>Sabur_AIUB</b> for 965.42 points (5 mins 24 secs)
+      <b>valo_bg</b> for 945.04 points (6 mins 55 secs)
     </td>
   </tr>
   <tr>
@@ -325,10 +324,11 @@ Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
       <b>Average Score</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      617.51 (for 35 correct submissions)
+      607.28 (for 34 correct submissions)
     </td>
   </tr>
 </table></blockquote>
+
 
 <p>Here, we need to get a little creative to come up with a workable solution.
 Consider placing <i>f</i> fancy trees along a total of <i>n</i> locations, so that
@@ -498,6 +498,7 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
     </td>
   </tr>
 </table></blockquote>
+
 
 <p>This problem was intended to involve a lot of time thinking.  With lots of geometry, trig,
 a pseudo-random generator function, and constraints large enough to make timeout a very
