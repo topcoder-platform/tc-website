@@ -11,16 +11,17 @@ public class Constants {
      * We create the context anew each time in case the JNDI provider is restarted.
      * Package scope is deliberate.
      */
-    static Object createEJB(String cn) throws Exception {
+    static Object createEJB(Class remoteclass) throws Exception {
+
         Hashtable env = new Hashtable();
         env.put(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
         env.put(Context.PROVIDER_URL, "172.16.20.40:1099");
         InitialContext ctx = new InitialContext(env);
-        Class c = Class.forName(cn);
-        Field f = c.getField("EJB_REF_NAME");
-        String ern = (String)f.get(null);
-        Object rh = ctx.lookup(ern);
-        Method m = rh.getClass().getMethod("create", null);
-        return m.invoke(rh, null);
+
+        Class remotehomeclass = Class.forName(remoteclass.getName()+"Home");
+        String refname = (String)remotehomeclass.getField("EJB_REF_NAME").get(Null);
+        Object remotehome = ctx.lookup(refname);
+        Method createmethod = remotehome.getClass().getMethod("create", null);
+        return createmethod.invoke(rh, null);
     }
 }

@@ -29,8 +29,8 @@ public class BasicAuthentication implements WebAuthentication {
         this.persistor = userPersistor;
         this.request = (HttpServletRequest)request;
         this.response = (HttpServletResponse)response;
-        this.login = (LoginRemote)Constants.createEJB("loginRemoteHome");
-        this.pmgr = (PrincipalMgrRemote)Constants.createEJB("PrincipalMgrRemoteHome");
+        this.login = (LoginRemote)Constants.createEJB(LoginRemote.class);
+        this.pmgr = (PrincipalMgrRemote)Constants.createEJB(PrincipalMgrRemote.class);
     }
   
     /**

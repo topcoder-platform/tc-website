@@ -26,7 +26,7 @@ public class HSAuthorization implements Authorization {
     public HSAuthorization(TCSubject sub) {
         try {
             this.user = sub;
-            policy = (PolicyRemote)Constants.createEJB("PolicyRemoteHome");
+            policy = (PolicyRemote)Constants.createEJB(PolicyRemote.class);
         } catch(Exception e) {
             throw new RuntimeException(e.getMessage());  //@@@ use authexception?
         }
@@ -35,9 +35,9 @@ public class HSAuthorization implements Authorization {
     /** Constructor which takes a User object and fetches the TCSubject for that user. */
     public HSAuthorization(User user) {
         try {
-            PrincipalMgrRemote pmgr = (PrincipalMgrRemote)Constants.createEJB("PrincipalMgrRemoteHome");
+            PrincipalMgrRemote pmgr = (PrincipalMgrRemote)Constants.createEJB(PrincipalMgrRemote.class);
             this.user = pmgr.getUserSubject(user.getId());
-            policy = (PolicyRemote)Constants.createEJB("PolicyRemoteHome");
+            policy = (PolicyRemote)Constants.createEJB(PolicyRemote.class);
         } catch(Exception e) {
             throw new RuntimeException(e.getMessage());  //@@@ use authexception?
         }
