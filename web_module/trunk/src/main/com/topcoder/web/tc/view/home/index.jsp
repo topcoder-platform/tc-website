@@ -136,7 +136,7 @@
 		<td class=homeRightCol>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
 			<tr><td class=homeBigPromo><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=about"><img src="/i/home/promos/tccc05_LG.gif" border=0 /></A></td></tr>
-			<tr><td class=homeSmallPromo><A href="/i/tournament/tco04/onsite_movies/snapNtomek.mov"><img src="/i/home/promos/tco04_snaptomek.jpg" border=0 /></A></td></tr>
+			<tr><td class=homeSmallPromo><A href="/i/tournament/tco04/onsite_movies/snapdragon.mov"><img src="/i/home/promos/tco04_snapdragon.gif" border=0 /></A></td></tr>
 		</table>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
 			<tr>
