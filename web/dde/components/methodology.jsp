@@ -108,7 +108,7 @@
 <!-- Development begins -->
                         <p><strong>Development and Testing</strong><br>
                         The PM creates a Development Review Board made up of three TopCoder members who regularly submit development proposals for TopCoder Software 
-                        Projects. Submitted development solutions are scored using a standardized <a href="http://www.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=devScoreSheet">scorecard</a>. The development submission with the best score above the TopCoder
+                        Projects. Submitted development solutions are scored using a standardized <a href="http://www.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=devReviewSample">scorecard</a>. The development submission with the best score above the TopCoder
                         Software Miniumum Score is chosen for the project. The winning developer is given additional time to incorporate suggestions from the 
                         Review Board. If the time frame is not met, the developer is disqualified and the next design in order of score will be declared the winner.</p>
 <!-- Development ends -->
