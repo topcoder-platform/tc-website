@@ -64,16 +64,16 @@ public class RatingBean implements SessionBean {
             _sqle.printStackTrace();
             throw(new EJBException(_sqle.getMessage()));
         } finally {
-            if (con != null) {
+            if (ps != null) {
                 try {
-                    con.close();
+                    ps.close();
                 } catch (Exception _e) {
                     /* do nothing */
                 }
             }
-            if (ps != null) {
+            if (con != null) {
                 try {
-                    ps.close();
+                    con.close();
                 } catch (Exception _e) {
                     /* do nothing */
                 }

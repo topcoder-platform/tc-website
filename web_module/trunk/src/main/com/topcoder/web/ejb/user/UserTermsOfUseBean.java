@@ -81,16 +81,16 @@ public class UserTermsOfUseBean implements SessionBean {
             _ne.printStackTrace();
             throw(new EJBException(_ne.getMessage()));
         } finally {
-            if (con != null) {
+            if (ps != null) {
                 try {
-                    con.close();
+                    ps.close();
                 } catch (Exception _e) {
                     /* do nothing */
                 }
             }
-            if (ps != null) {
+            if (con != null) {
                 try {
-                    ps.close();
+                    con.close();
                 } catch (Exception _e) {
                     /* do nothing */
                 }
@@ -132,16 +132,16 @@ public class UserTermsOfUseBean implements SessionBean {
             _ne.printStackTrace();
             throw(new EJBException(_ne.getMessage()));
         } finally {
-            if (con != null) {
+            if (ps != null) {
                 try {
-                    con.close();
+                    ps.close();
                 } catch (Exception _e) {
                     /* do nothing */
                 }
             }
-            if (ps != null) {
+            if (con != null) {
                 try {
-                    ps.close();
+                    con.close();
                 } catch (Exception _e) {
                     /* do nothing */
                 }
@@ -181,9 +181,9 @@ public class UserTermsOfUseBean implements SessionBean {
             _ne.printStackTrace();
             throw(new EJBException(_ne.getMessage()));
         } finally {
-            if (con != null) {
+            if (rs != null) {
                 try {
-                    con.close();
+                    rs.close();
                 } catch (Exception _e) {
                     /* do nothing */
                 }
@@ -195,9 +195,9 @@ public class UserTermsOfUseBean implements SessionBean {
                     /* do nothing */
                 }
             }
-            if (rs != null) {
+            if (con != null) {
                 try {
-                    rs.close();
+                    con.close();
                 } catch (Exception _e) {
                     /* do nothing */
                 }

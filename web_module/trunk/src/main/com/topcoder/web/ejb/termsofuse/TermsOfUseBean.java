@@ -91,16 +91,16 @@ public class TermsOfUseBean implements SessionBean {
             _ne.printStackTrace();
             throw(new EJBException(_ne.getMessage()));
         } finally {
-            if (con != null) {
+            if (ps != null) {
                 try {
-                    con.close();
+                    ps.close();
                 } catch (Exception _e) {
                     /* do nothing */
                 }
             }
-            if (ps != null) {
+            if (con != null) {
                 try {
-                    ps.close();
+                    con.close();
                 } catch (Exception _e) {
                     /* do nothing */
                 }
@@ -146,16 +146,16 @@ public class TermsOfUseBean implements SessionBean {
             _ne.printStackTrace();
             throw(new EJBException(_ne.getMessage()));
         } finally {
-            if (con != null) {
+            if (ps != null) {
                 try {
-                    con.close();
+                    ps.close();
                 } catch (Exception _e) {
                     /* do nothing */
                 }
             }
-            if (ps != null) {
+            if (con != null) {
                 try {
-                    ps.close();
+                    con.close();
                 } catch (Exception _e) {
                     /* do nothing */
                 }
@@ -199,16 +199,16 @@ public class TermsOfUseBean implements SessionBean {
             _ne.printStackTrace();
             throw(new EJBException(_ne.getMessage()));
         } finally {
-            if (con != null) {
+            if (ps != null) {
                 try {
-                    con.close();
+                    ps.close();
                 } catch (Exception _e) {
                     /* do nothing */
                 }
             }
-            if (ps != null) {
+            if (con != null) {
                 try {
-                    ps.close();
+                    con.close();
                 } catch (Exception _e) {
                     /* do nothing */
                 }
@@ -256,16 +256,16 @@ public class TermsOfUseBean implements SessionBean {
             _e.printStackTrace();
             throw(new EJBException(_e.getMessage()));
         } finally {
-            if (con != null) {
+            if (ps != null) {
                 try {
-                    con.close();
+                    ps.close();
                 } catch (Exception _e) {
                     /* do nothing */
                 }
             }
-            if (ps != null) {
+            if (con != null) {
                 try {
-                    ps.close();
+                    con.close();
                 } catch (Exception _e) {
                     /* do nothing */
                 }
@@ -311,16 +311,16 @@ public class TermsOfUseBean implements SessionBean {
             _e.printStackTrace();
             throw(new EJBException(_e.getMessage()));
         } finally {
-            if (con != null) {
+            if (ps != null) {
                 try {
-                    con.close();
+                    ps.close();
                 } catch (Exception _e) {
                     /* do nothing */
                 }
             }
-            if (ps != null) {
+            if (con != null) {
                 try {
-                    ps.close();
+                    con.close();
                 } catch (Exception _e) {
                     /* do nothing */
                 }

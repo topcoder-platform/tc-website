@@ -91,18 +91,18 @@ public class    UserBean implements SessionBean {
             _ne.printStackTrace();
             throw(new EJBException(_ne.getMessage()));
         } finally {
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (Exception _e) {
-                    log.debug("createUser error. Failed to close Connection");
-                }
-            }
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception _e) {
                     log.debug("createUser error. Failed to close PreparedStatement");
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (Exception _e) {
+                    log.debug("createUser error. Failed to close Connection");
                 }
             }
         }
@@ -144,19 +144,19 @@ public class    UserBean implements SessionBean {
             _ne.printStackTrace();
             throw(new EJBException(_ne.getMessage()));
         } finally {
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (Exception _e) {
-                    log.debug("setFirstName error. Failed to close Connection");
-                }
-            }
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception _e) {
                     log.debug("setFirstName error. Failed to close PreparedStatement");
                     _e.printStackTrace();
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (Exception _e) {
+                    log.debug("setFirstName error. Failed to close Connection");
                 }
             }
         }
@@ -198,18 +198,18 @@ public class    UserBean implements SessionBean {
             _ne.printStackTrace();
             throw(new EJBException(_ne.getMessage()));
         } finally {
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (Exception _e) {
-                    log.debug("setLastName error. Failed to close Connection");
-                }
-            }
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception _e) {
                     log.debug("setLastName error. Failed to close PreparedStatement");
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (Exception _e) {
+                    log.debug("setLastName error. Failed to close Connection");
                 }
             }
         }
@@ -251,18 +251,18 @@ public class    UserBean implements SessionBean {
             _ne.printStackTrace();
             throw(new EJBException(_ne.getMessage()));
         } finally {
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (Exception _e) {
-                    log.debug("setUserStatusId error. Failed to close Connection");
-                }
-            }
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception _e) {
                     log.debug("setUserStatusId error. Failed to close PreparedStatement");
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (Exception _e) {
+                    log.debug("setUserStatusId error. Failed to close Connection");
                 }
             }
         }
@@ -306,18 +306,18 @@ public class    UserBean implements SessionBean {
             _ne.printStackTrace();
             throw(new EJBException(_ne.getMessage()));
         } finally {
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (Exception _e) {
-                    log.debug("getFirstName error. Failed to close Connection");
-                }
-            }
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception _e) {
                     log.debug("getFirstName error. Failed to close PreparedStatement");
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (Exception _e) {
+                    log.debug("getFirstName error. Failed to close Connection");
                 }
             }
         }
@@ -362,18 +362,18 @@ public class    UserBean implements SessionBean {
             _ne.printStackTrace();
             throw(new EJBException(_ne.getMessage()));
         } finally {
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (Exception _e) {
-                    log.debug("getLastName error. Failed to close Connection");
-                }
-            }
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception _e) {
                     log.debug("getLastName error. Failed to close PreparedStatement");
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (Exception _e) {
+                    log.debug("getLastName error. Failed to close Connection");
                 }
             }
         }
@@ -418,18 +418,18 @@ public class    UserBean implements SessionBean {
             _ne.printStackTrace();
             throw(new EJBException(_ne.getMessage()));
         } finally {
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (Exception _e) {
-                    log.debug("getUserStatusId error. Failed to close Connection");
-                }
-            }
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception _e) {
                     log.debug("getUserStatusId error. Failed to close PreparedStatement");
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (Exception _e) {
+                    log.debug("getUserStatusId error. Failed to close Connection");
                 }
             }
         }
