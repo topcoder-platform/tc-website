@@ -128,8 +128,8 @@
 					07.27.2004
 					</td>
 					<td class="projectCells" valign="top" align="right" nowrap="nowrap">
-					<A href="/i/development/downloads/Sample_Development_Screening_Scorecard.pdf">Sample Development Screening Scorecard.pdf</A><br/>
-					<A href="/tc?module=Static&d1=dev&d2=devScoreSheet">Development Review Scoring</A><br/>
+					<A href="/i/development/downloads/Sample_Development_Screening_Scorecard.pdf">Sample Development Screening Scorecard</A><br/>
+					<A href="/tc?module=Static&d1=dev&d2=devScoreSheet">Sample Development Review Scorecard</A><br/>
 					</td>
 				</tr>
                 <tr>
