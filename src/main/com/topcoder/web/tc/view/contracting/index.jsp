@@ -72,9 +72,7 @@ return false;
 		<br/><br/>
 		We are aggressively seeking out companies that have a strong need for the level of talent that only TopCoder members can provide.  TopCoder does all of the leg work for you - we find the companies, look for the right positions and when we find a match, we present you with the opportunity. Only after you confirm your interest in a particular position will TopCoder pass on your information to the appropriate hiring manager.  Before you even talk to the company's representative, TopCoder will make sure your salary requirements, job requirements, and relocation requests are met.  Best of all, TopCoder provides this service for full time and contract work, at no cost to you.
 		<br/><br/>
-		Registering <a href="/tc?module=ContractingPreferences">here</a> is the first step. Give us your salary and travel requirements and rate your experience with a variety of programming languages, database platforms and relevant Industry experience.  Then, let TopCoder work for you!
-		<br/><br/>
-      While the program is open to all members, regardless of rating status, rated members will have a distinct advantage over non-rated members since potential employers will be able to view their competition statistics and code samples, in addition to any uploaded resume information. In line with TopCoder's overall philosophy, this will allow companies to differentiate coders who would otherwise look the same on paper. Non-rated members wishing to obtain a rating should review the <A href="/?t=schedule&c=index">competition calendar</A> for the next Single Round Match date. 
+      TopCoder currently has several clients looking to hire TopCoder member.  Register <a href="/tc?module=ContractingPreferences">here</a> to provide us with your salary and travel requirements and rate your experience with a variety of programming languages, database platforms and relevant Industry experience.  Then, let TopCoder work for you!
 		<br/><br/>
 		</p>
 

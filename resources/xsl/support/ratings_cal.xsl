@@ -140,7 +140,7 @@
                 <B>The new volatility of the coder is calculated:</B>
                 <BR/>
                                     <BR/>
-                                    <IMG ALT="new volatility" HEIGHT="46" WIDTH="421" SRC="/i/rating/nv.gif" ALIGN="center" BORDER="0"/><BR/>
+                                    <IMG ALT="new volatility" SRC="/i/rating/nv.gif" ALIGN="center" BORDER="0"/><BR/>
                                     <BR/>
                 <B>The new rating of the coder is calculated:</B>
                 <BR/>
