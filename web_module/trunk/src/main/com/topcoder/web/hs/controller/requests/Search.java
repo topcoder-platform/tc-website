@@ -119,25 +119,20 @@ public class Search extends Base {
         Context ctx = TCContext.getInitial();
         DataSource ds = (DataSource) ctx.lookup(DBMS.HS_OLTP_DATASOURCE_NAME);
         DataAccessInt dai = new CachedDataAccess(ds);
-        Map map = new HashMap();
 
-        map.put(DataAccessConstants.COMMAND, "state_list");
-        Request req = new Request(map);
+        Request req = new Request();
+        req.setContentHandle("state_list");
         Map data = dai.getData(req);
 
-        ResultSetContainer rsc;
-        rsc = (ResultSetContainer) data.get("state_list");
-        sb.setStateList(rsc);
+        ResultSetContainer states;
+        states = (ResultSetContainer) data.get("state_list");
+        sb.setStateList(states);
 
-        if (isValidListValue(sb.getStateCode(), sb.getStateList(), "state_code")) {
-            map.put(DataAccessConstants.COMMAND, "state_schools");
-            map.put(STATE_INPUT_CODE, sb.getStateCode());
-            req = new Request(map);
-            Map schools = dai.getData(req);
-
-            rsc = (ResultSetContainer) schools.get("state_schools");
-        }
-        sb.setSchoolList(rsc);
+        req = new Request();
+        req.setContentHandle("state_schools");
+        req.setProperty(STATE_INPUT_CODE, sb.getStateCode());
+        Map schools = dai.getData(req);
+        sb.setSchoolList((ResultSetContainer) schools.get("state_schools"));
     }
 
 
