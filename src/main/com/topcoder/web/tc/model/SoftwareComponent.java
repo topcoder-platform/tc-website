@@ -1,11 +1,15 @@
 package com.topcoder.web.tc.model;
 
+import com.topcoder.shared.util.logging.Logger;
+
 
 /**
  * @author dok
  * Date: Feb 11, 2004
  */
 public class SoftwareComponent {
+
+    private static Logger log = Logger.getLogger(SoftwareComponent.class);
 
     private final static float[] DESIGN_HOUR_LOOKUP = {0f, 4f, 8f, 11f};
     private final static float[] DESIGN_EFFORT_LOOKUP = {0f, .10f, .15f, .20f};
@@ -31,6 +35,8 @@ public class SoftwareComponent {
     private SoftwareComponent() {}
 
     public SoftwareComponent(int level, int submissionCount, int submissionsPassedScreening, int phaseId) {
+        log.debug("level: " + level + " submissionCount: " + submissionCount + " submissionPassedScreening: " +
+                submissionsPassedScreening + " phaseId: " + phaseId);
         this.phaseId = phaseId;
         this.levelId = level;
         this.submissionCount = submissionCount;
