@@ -59,7 +59,9 @@
         <td align="center" colspan="10" nowrap>
             <a href="javascript:document.ratings.submit()"><img src="/i/submit.gif" width="60" height="18" border="0"></a>
             <img src="/i/clear.gif" width="10" height="18" border="0">
-            <a href="/tc?module=ProblemRatingResults&pid=<%= request.getParameter("pid") %>"><img src="/i/results.gif" width="60" height="18" border="0"></a>
+            <% if (request.getAttribute("showResults")!=null&&request.getAttribute("showResults").equals("true")) { %>
+                <a href="/tc?module=ProblemRatingResults&pid=<%= request.getParameter("pid") %>"><img src="/i/results.gif" width="60" height="18" border="0"></a>
+            <% } %>
         </td>
         </tr>
       </table>
