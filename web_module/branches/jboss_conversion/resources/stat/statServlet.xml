@@ -13,7 +13,7 @@
   <!ATTLIST QuickStatItem url CDATA #REQUIRED>
 
   <!ELEMENT ContentList (ContentItem+)>
-  <!ELEMENT ContentItem (CDATA)>
+  <!ELEMENT ContentItem (PCDATA)>
   <!ATTLIST ContentItem contentHandle CDATA #REQUIRED>
   <!ATTLIST ContentItem nextPage CDATA #REQUIRED>
   <!ATTLIST ContentItem access CDATA #REQUIRED>
