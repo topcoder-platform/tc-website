@@ -609,7 +609,6 @@ else if (command.equals("send")) {
                         msgText.append("/stat?c=member_profile&cr=");
                         msgText.append(nav.getUserId());
                         msgText.append("\n");
-                        msgText.append(rating);
 
                         mail.setBody(msgText.toString());
                         xsldocURLString = XSL_DIR + "inquiry_app.xsl";
