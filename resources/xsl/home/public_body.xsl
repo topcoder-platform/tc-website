@@ -137,25 +137,25 @@
                 <tr valign="top">
                     <td width="55" class="bodyText">
 
-<!--                        <img src="/i/m/lbackstrom_mug.jpg" alt="" width="55" height="61" border="0" vspace="5"/><br />
-                        By&#160;<strong>lbackstrom</strong><br/>
-                        <span class="smallText"><em>TopCoder Member</em></span> -->
-
-                        <img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=269554"><strong>Yarin</strong></a><br/>
+						<img src="/i/m/lbackstrom_mug.jpg" alt="" width="55" height="61" border="0" vspace="5"/><br />
+                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=159052"><strong>lbackstrom</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span>
+
+                        <!--<img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
+                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=269554"><strong>Yarin</strong></a><br/>
+                        <span class="smallText"><em>TopCoder Member</em></span> -->
 
                     </td>
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="4"><strong>Single Round Match 142</strong></font><br />
-                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm142_prob</xsl:attribute><font size="4"><strong>Problem Set Analysis &amp; Opinion</strong></font></a></p>
+                        <p><font size="4"><strong>Single Round Match 144</strong></font><br />
+                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm144_prob</xsl:attribute><font size="4"><strong>Problem Set Analysis &amp; Opinion</strong></font></a></p>
 
-                        <p>The top two scorers in Division-I, <strong>Yarin</strong> and <strong>dgarthur</strong> were the same as in the recent TCCC final, but
-                        this time with <strong>Yarin</strong> as the winner. In third place came <strong>dary</strong> after a very impressive performance in only
-                        his second SRM! In Division-II, <strong>PJYelton</strong> took a comfortable win after delivering 5 successful challenges. The
-                        difficulty level of the problem set was very good, with a good distribution of scores and submits.
-                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm142_prob</xsl:attribute><strong>full&#160;story</strong></a></p>
+                        <p><b>ZorbaTHut</b> was dominant in SRM 144, outscoring second place <b>SnapDragon</b> by almost 150 points - without the aid of any challenges. His strong performance gave him 
+                        116 points, and moved him up to 6th overall. <b>SnapDragon</b> came in second as the only other coder with 3 correct submissions. Overall, the problems were a little more 
+                        difficult than usual, and were scored as such. In division 2, <b>bladerunner</b>, a new comer, led the pack by an equally large margin, beating second place jorend by 
+                        almost 200 points. Congrats to <b>ZorbaTHut</b> and <b>bladerunner</b>. 
+                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm144_prob</xsl:attribute><strong>full&#160;story</strong></a></p>
                     </td>
                 </tr>
                 <tr><td colspan="3"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>
