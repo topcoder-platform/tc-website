@@ -43,6 +43,7 @@
                 <td>
             </tr>
         </table>
+        <script language="javascript" src="lib.js"></script>
         <script language="javascript">
             //written to page by backend
             var numArgs = 2;
@@ -73,37 +74,6 @@
                 }
             }
             
-            function putValue(root, name, newValue) {
-                if(eval(root + ".getElementById")) {
-                    eval(root + ".getElementById('" + name + "').value = newValue;");
-                } else if(eval(root + ".all")) {
-                    eval(root + ".all." + name + ".value = newValue;");
-                } else {
-                    eval(root + "." + name + ".value = newValue;");
-                }
-            }
-            
-            function getValue(root, name) {
-                if(eval(root + ".getElementById")) {
-                    return eval(root + ".getElementById('" + name + "').value;");
-                } else if(eval(root + ".all")) {
-                    return eval(root + ".all." + name + ".value;");
-                } else {
-                    //try directly
-                    return eval(root + "." + name + ".value;");
-                }
-            }
-            
-            function doFocus(root, name) {
-                if(eval(root + ".getElementById")) {
-                    eval(root + ".getElementById('" + name + "').focus();");
-                } else if(eval(root + ".all")) {
-                    eval(root + ".all." + name + ".focus();");
-                } else {
-                    
-                }
-            }
-            
             var windowHandle = null;
          
             function launchArray(id) {   
@@ -131,6 +101,7 @@
                         case "String[]":
                             break;
                         case "int":
+                        case "long":
                             if(val == "" || isNaN(parseInt(val))) {
                                 alert("Argument " + (i+1) + " must be a valid integer.");
                                 doFocus("document.frmTesting", "arg" + i + "input");
@@ -138,9 +109,23 @@
                             }
                             break;
                             
+                        case "double":
+                            if(val == "" || isNaN(parseFloat(val))) {
+                                alert("Argument " + (i+1) + " must be a valid double.");
+                                doFocus("document.frmTesting", "arg" + i + "input");
+                                return;
+                            }
+                            break;
+                        case "boolean":
+                            if(val.toLowerCase() != "true" && val.toLowerCase() != "false") {
+                                alert("Argument " + (i+1) + " must be either true or false.");
+                                doFocus("document.frmTesting", "arg" + i + "input");
+                                return;
+                            }
+                            break;
                         default:
-                            alert("TODO");
-                            return;
+                            //assume string like object
+                            break;
                     }
                 }
                 
@@ -148,14 +133,22 @@
                 for(var i = 0; i < numArgs; i++) {
                     switch(argTypes[i]) {
                         case "String[]":
+                        case "int[]":
+                        case "long[]":
+                        case "double[]":
                             break;
                         case "int":
+                        case "long":
                             putValue("window.opener.document.forms[0]", "arg" + i, parseInt(getValue("document.frmTesting", "arg" + i + "input")));
                             break;
-                            
+                        case "double":
+                            putValue("window.opener.document.forms[0]", "arg" + i, parseFloat(getValue("document.frmTesting", "arg" + i + "input")));
+                            break;
+                        case "boolean":
+                            putValue("window.opener.document.forms[0]", "arg" + i, getValue("document.frmTesting", "arg" + i + "input"));
                         default:
-                            alert("TODO");
-                            return;
+                            putValue("window.opener.document.forms[0]", "arg" + i, getValue("document.frmTesting", "arg" + i + "input").toLowerCase());
+                            break;
                     }
                 }
                 
