@@ -84,9 +84,14 @@ public class MainServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
         try {
+            Persistor p = new SessionPersistor(request.getSession());
+            WebAuthentication authen = new BasicAuthentication(p, request, response);
+            long userId = authen.getActiveUser().getId();
+
             RequestInfo rInfo = new RequestInfo();
             rInfo.setIsNew(false);
             rInfo.setControllerUrl(request.getServletPath());
+            rInfo.setUser(authen.getActiveUser());
             request.setAttribute(Constants.REQUEST_INFO, rInfo);
 
             String procParam = 
@@ -111,16 +116,9 @@ public class MainServlet extends HttpServlet {
                 className = Constants.PROCESSORS_PACKAGE + "."  + procParam;
             }
             Class procClass = Class.forName(className);
-
-            Persistor p = new SessionPersistor(request.getSession());
-            WebAuthentication authen = new BasicAuthentication(p, request, response);
-            
-            rInfo.setUser(authen.getActiveUser());
-            long userId = authen.getActiveUser().getId();
-
             Resource r = new ClassResource(procClass);
-            PrincipalMgr pm = new PrincipalMgr();
             
+            PrincipalMgr pm = new PrincipalMgr();
             TCSubject sub = pm.getUserSubject(userId);
             Authorization author = new TCSAuthorization(sub);
             
@@ -149,9 +147,6 @@ public class MainServlet extends HttpServlet {
             String wherenow = rp.getNextPage();
             boolean forward = rp.isNextPageInContext();
 
-            // do it again here if we get here just so that if we were just
-            // doing the login processor, we can get that info in there instead?
-            rInfo.setUser(authen.getActiveUser());
             sendToPage(request, response, wherenow, forward);
         } catch (AnonymousUserException e) {
             sendToPage(request, response, Constants.LOGIN_PAGE, true);
