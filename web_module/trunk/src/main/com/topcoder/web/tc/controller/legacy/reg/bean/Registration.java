@@ -95,6 +95,7 @@ public class Registration
     public static final String GPA = "gpa";
     public static final String GPA_SCALE = "gpaScale";
     public static final String COMP_COUNTRY = "compCountry";
+    public static final String SCHOOL_VIEWABLE = "slv";
 
     // step 3 attributes
     public static final String REGISTER = "register"; // error only
@@ -215,6 +216,7 @@ public class Registration
     protected String compCountry;
     protected boolean hasResume;
     protected boolean autoActivate;
+    protected boolean schoolViewable;
 
     public Registration() {
         super();
@@ -274,6 +276,7 @@ public class Registration
             hasResume = false;
             compCountry = "";
             autoActivate = false;
+            schoolViewable = true;
             resetUser();
         }
     }
@@ -381,13 +384,13 @@ public class Registration
                 gpa = "" + coder.getCurrentSchool().getGpa();
                 gpaScale = "" + coder.getCurrentSchool().getGpaScale();
             }
+            schoolViewable =coder.getCurrentSchool().isViewable();
         } else {
             schoolState = "";
             schoolStateChanged = false;
             school = "";
             schoolName = "";
         }
-
 
         code = "";
 
@@ -802,6 +805,8 @@ public class Registration
                 setGpaScale(value);
             else if (name.startsWith(DEMO_PREFIX))
                 setDemographics(name.substring(DEMO_PREFIX.length()), valArray);
+            else if (name.equals(SCHOOL_VIEWABLE))
+                setSchoolViewable(value);
             else
                 return false;
         } else if (isStep(STEP_3)) {
@@ -927,6 +932,9 @@ public class Registration
     public void setGpaScale(String value) {
         log.debug("setGpaScale(" + value + ") called");
         this.gpaScale = checkNull(value);
+    }
+    public void setSchoolViewable(String value) {
+        this.schoolViewable="on".equalsIgnoreCase(value);
     }
 
     public void setNotification(String notifyId, String value) {
@@ -1281,6 +1289,10 @@ public class Registration
 
     public String getGpaScale() {
         return this.gpaScale;
+    }
+
+    public boolean isSchoolViewable() {
+        return schoolViewable;
     }
 
     public String getSchoolError() {
@@ -1745,6 +1757,7 @@ public class Registration
                     if (!this.gpaScale.equals("")) {
                         currentSchool.setGpaScale(Float.parseFloat(this.gpaScale));
                     }
+                    currentSchool.setViewable(this.schoolViewable);
                 }
 
                 userServices.setUser(user);
