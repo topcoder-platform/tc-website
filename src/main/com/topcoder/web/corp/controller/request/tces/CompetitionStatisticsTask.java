@@ -144,6 +144,14 @@ public class CompetitionStatisticsTask extends BaseTask implements Task, Seriali
                     " does not belong to uid=" + Long.toString(uid));
         }
 
+        if (isRestrictedCampaign(getCampaignID())) {
+            if (!getRoundIds(getCampaignID()).contains(new Long(getRoundID()))) {
+                throw new TCESAuthenticationException(" cid=" + Integer.toString(getCampaignID()) +
+                        " rd=" + getRoundID() +
+                        " does not belong to uid=" + Long.toString(uid));
+            }
+        }
+
         resultMap = getDataAccess(getDw()).getData(dataRequest);
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Coder_Comp_Stats");
