@@ -27,34 +27,37 @@ public final class TaskDevelopment {
         String cacheKey = null;
         try {
             String command = Conversion.checkNull(request.getParameter("c"));
-            if (nav.getLoggedIn()) {
-                RecordTag devTag = new RecordTag("DEVELOPMENT");
-                String xsldocURLString = null;
-                /********************** no command *******************/
-                if (command.equals("index")) {
-                    cacheKey = request.getServerName() + TCServlet.LOGGED_IN_KEY;
-                    xsldocURLString = XSL_DIR + command + ".xsl";
-                }
-                /********************** inquire *******************/
-                else if (command.equals("inquire")) {
+            boolean requiresLogin = false;
+            RecordTag devTag = new RecordTag("DEVELOPMENT");
+            String xsldocURLString = null;
+            if (command.equals("inquire")) {
+                if (nav.getLoggedIn()) {
                     String project = Conversion.checkNull(request.getParameter("Project"));
                     String to = Conversion.checkNull(request.getParameter("To"));
                     devTag.addTag(new ValueTag("ProjectName", project));
                     devTag.addTag(new ValueTag("Project", project));
                     devTag.addTag(new ValueTag("To", to));
                     xsldocURLString = XSL_DIR + command + ".xsl";
+                } else {
+                    requiresLogin = true;
                 }
-                /********************** tcs_inquire *******************/
-                else if (command.equals("tcs_inquire")) {
+            }
+            /********************** tcs_inquire *******************/
+            else if (command.equals("tcs_inquire")) {
+                if (nav.getLoggedIn()) {
                     String project = Conversion.checkNull(request.getParameter("Project"));
                     String to = Conversion.checkNull(request.getParameter("To"));
                     devTag.addTag(new ValueTag("ProjectName", project));
                     devTag.addTag(new ValueTag("Project", project));
                     devTag.addTag(new ValueTag("To", to));
                     xsldocURLString = XSL_DIR + command + ".xsl";
+                } else {
+                    requiresLogin = true;
                 }
-                /********************** send *******************/
-                else if (command.equals("send")) {
+            }
+            /********************** send *******************/
+            else if (command.equals("send")) {
+                if (nav.getLoggedIn()) {
                     String handle = nav.getUser().getHandle();
                     String from = nav.getUser().getEmail();
                     String project = Conversion.checkNull(request.getParameter("Project"));
@@ -80,9 +83,13 @@ public final class TaskDevelopment {
                     mail.setFromAddress(from);
                     EmailEngine.send(mail);
                     xsldocURLString = XSL_DIR + "inquiry_sent.xsl";
+                } else {
+                    requiresLogin = true;
                 }
-                /********************** tcs_send *******************/
-                else if (command.equals("tcs_send")) {
+            }
+            /********************** tcs_send *******************/
+            else if (command.equals("tcs_send")) {
+                if (nav.getLoggedIn()) {
                     log.debug("terms: " + Conversion.checkNull(request.getParameter("terms")));
                     String handle = nav.getUser().getHandle();
                     String from = nav.getUser().getEmail();
@@ -96,10 +103,10 @@ public final class TaskDevelopment {
                     msgText.append(" inquiry for project:  ");
                     msgText.append(project);
                     msgText.append("\n\n");
-                    if (request.getParameter("terms")==null) {
-                      msgText.append("\n\nDid not agree to terms.\n");
-                    } else { 
-                      msgText.append("\n\nAgreed to terms.\n");
+                    if (request.getParameter("terms") == null) {
+                        msgText.append("\n\nDid not agree to terms.\n");
+                    } else {
+                        msgText.append("\n\nAgreed to terms.\n");
                     }
                     msgText.append("\n\nComment:\n");
                     msgText.append(comment);
@@ -109,11 +116,14 @@ public final class TaskDevelopment {
                     EmailEngine.send(mail);
                     xsldocURLString = XSL_DIR + "inquiry_sent.xsl";
                 } else {
-                    xsldocURLString = XSL_DIR + command + ".xsl";
+                    requiresLogin = true;
                 }
-                document.addTag(devTag);
-                result = HTMLmaker.render(document, xsldocURLString);
             } else {
+                xsldocURLString = XSL_DIR + command + ".xsl";
+            }
+            document.addTag(devTag);
+            result = HTMLmaker.render(document, xsldocURLString);
+            if (requiresLogin) {
                 StringBuffer url = new StringBuffer(request.getRequestURI());
                 String query = request.getQueryString();
                 if (query != null) {
