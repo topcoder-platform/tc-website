@@ -298,7 +298,7 @@ function goTo(selection)
   }  
   else if (sel == "july_02")
   {
-    window.location = "/index?t=schedule&c=index";
+    window.location = "/index?t=schedule&c=july_02";
   } 
   else if (sel == "aug_02")
   {
