@@ -77,6 +77,20 @@
 
             <hr width="100%" size="1" noshade="noshade" />
 
+<!-- DevX Article -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="http://www.devx.com/Java/Article/21602" target="_blank"><img src="/i/pressroom/devx_logo.gif" alt="DevX" width="135" height="92" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://www.devx.com/Java/Article/21602" target="_blank">The Smart Choice for Smart Clients: J2EE or .NET?</A></strong></font><br />
+                        In a world of distributed computing, the demand for smart-client applications is growing quickly. IT managers realize they must keep users happy-the user's experience will make or break any application-while leveraging their existing service-oriented architectures (SOAs). The problem is that most development teams either do not know where to begin or they are unprepared for the challenges that come with smart-client implementation. <span class="prHead">[July 27]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <!--  Computer World-->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
