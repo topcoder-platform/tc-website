@@ -890,6 +890,7 @@
                 <include name="foot.jsp"/>
                 <include name="script.jsp"/>
                 <include name="body_top.jsp"/>
+                <include name="page_title.jsp"/>
                 <include name="date_time.jsp"/>
                 <include name="menu.jsp"/>
                 <include name="nocache.jsp"/>
@@ -930,6 +931,7 @@
                 <include name="date_time.jsp"/>
                 <include name="script.jsp"/>
                 <include name="body_top.jsp"/>
+                <include name="page_title.jsp"/>
                 <include name="menu.jsp"/>
                 <include name="includes/global_left.jsp"/>
                 <include name="includes/modules/simpleSearch.jsp"/>
