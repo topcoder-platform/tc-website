@@ -178,6 +178,18 @@
 					<td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
 
+				<tr><td height="3" colspan="7"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
+
+				<tr valign="middle">
+					<td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+					<td class="statText" height="18">&#160;&#160;<a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2806547" class="statText">Spell Check:&#160;Design</a></td>
+					<td class="statText" height="18" align="center">1</td>
+					<td class="statText" height="18" align="center"><a href="/stat?c=member_profile&amp;cr=272311" class="coderTextGreen"><strong>yellow_gecko</strong></a></td>
+					<td class="statText" height="18" align="center">77.78</td>
+					<td class="statText" height="18" align="center">$666.00</td>
+					<td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+				</tr>
+
 				<tr><td height="5" colspan="7"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
 
 				<tr valign="middle">
