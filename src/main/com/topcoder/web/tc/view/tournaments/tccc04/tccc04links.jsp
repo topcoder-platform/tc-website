@@ -84,11 +84,27 @@
             <table width="100%" border="0" cellspacing="0" cellpadding="2" class="tccc04SubNav">
                 <tr>
                     <td class="tccc04SubNav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="<%=tabLev3.equals("overview")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco&d3=tccc04_alg_overview" class="topLink">Participate</a></td>
-                    <td class="<%=tabLev3.equals("eligibility")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco&d3=tccc04_alg_overview" class="topLink">Onsite</a></td>
-                    <td class="<%=tabLev3.equals("conditions")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco&d3=tccc04_alg_overview" class="topLink">Directions</a></td>
-                    <td class="<%=tabLev3.equals("structure")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco&d3=tccc04_alg_overview" class="topLink">Transportation</a></td>
-                    <td class="<%=tabLev3.equals("prizes")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco&d3=tccc04_alg_overview" class="topLink">Hotels</a></td>
+                    <td class="<%=tabLev3.equals("overview")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_rules_overview" class="topLink">Overview</a></td>
+                    <td class="<%=tabLev3.equals("eligibility")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_rules_eligibility" class="topLink">Eligibility</a></td>
+                    <td class="<%=tabLev3.equals("conditions")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_rules_conditions" class="topLink">Conditions of Participation</a></td>
+                    <td class="<%=tabLev3.equals("structure")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_rules_structure" class="topLink">Structure</a></td>
+                    <td class="<%=tabLev3.equals("prizes")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_rules_prizes" class="topLink">Prizes</a></td>
+                    <td class="tccc04SubNav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+            </table>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="bodyText">
+               <tr><td bgcolor="#666666" width="100%" height="3" class="bodyText"><img src="/i/clear.gif" alt="" width="1" height="3" border="0" /></td></tr>
+            </table>
+
+    <% } else if (tabLev2.equals("onsite")) { %>
+            <table width="100%" border="0" cellspacing="0" cellpadding="2" class="tccc04SubNav">
+                <tr>
+                    <td class="tccc04SubNav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="<%=tabLev3.equals("overview")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_overview" class="topLink">Participate</a></td>
+                    <td class="<%=tabLev3.equals("eligibility")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_overview" class="topLink">Onsite</a></td>
+                    <td class="<%=tabLev3.equals("conditions")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_overview" class="topLink">Directions</a></td>
+                    <td class="<%=tabLev3.equals("structure")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_overview" class="topLink">Transportation</a></td>
+                    <td class="<%=tabLev3.equals("prizes")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_overview" class="topLink">Hotels</a></td>
                     <td class="tccc04SubNav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
             </table>

@@ -43,10 +43,6 @@
    <jsp:param name="tabLev3" value="overview"/>
 </jsp:include>
 
-            <p class="terciary">
-                Algorithm Competition&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_overview_comp">Component Competition</a>
-            </p>
-
             <h2>Overview of the Tournament</h2>
 
             <p>
