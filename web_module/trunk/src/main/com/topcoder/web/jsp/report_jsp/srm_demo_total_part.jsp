@@ -31,16 +31,7 @@
 			%>	
 			
 			
-<%! 
-private String getPercentage (ResultSetContainer total, ResultSetContainer.ResultSetRow val, String col, String col2){
-   long tot = Long.parseLong(total.getItem(0,"total").toString());
-   long valu = Long.parseLong(val.getItem(col).toString());
-   long valu2 = Long.parseLong(val.getItem(col2).toString());
-   double ret = (double)valu2 / valu*100;
-   DecimalFormat df = new DecimalFormat("0.00");
-   return df.format(ret);
-   
-}
+<%
 long total = 0;
 long total_coders = 0;
 double coder_percent = 0;
@@ -55,9 +46,9 @@ function goTo(selection){
   }
 }
 // -->
-</script>  
-	
-<table width="100%" class="srmFrame">	
+</script>
+
+<table width="100%" class="srmFrame">
 <tr><td colspan="3" class="srmQuestion">Total Participation Histogram</td></tr>
 <tr>
 <td class="bodyText"><strong>Number of Rated Matches</strong></td>
@@ -65,7 +56,7 @@ function goTo(selection){
 <td class="bodyText"><strong>Percent</strong></td>
 </tr>
 <rsc:iterator list="<%=rsc%>" id="Row" >
-<% total_coders = total_coders + Long.parseLong(Row.getItem("num_coders").toString()); %>
+<% total_coders += Long.parseLong(Row.getItem("num_coders").toString()); %>
 </rsc:iterator>
 <%boolean even=false;%>
   <rsc:iterator list="<%=rsc%>" id="Row" >
@@ -77,7 +68,8 @@ function goTo(selection){
 <% 
 DecimalFormat df = new DecimalFormat("0.00");
 coder_percent = (float)total / total_coders*100;
-coder_percent_stg = df.format(coder_percent); 
+coder_percent_stg = df.format(coder_percent);
+df = null;
 %>
 <%=coder_percent_stg%>%
 </td>
