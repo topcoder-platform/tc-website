@@ -22,7 +22,7 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                     
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=tco03_online_rd_3">SRM 169 - Problem Set &amp; Analysis</a></font></strong><br />
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=tco03_online_rd_3">TCO - Online Round 3 - Problem Set &amp; Analysis</a></font></strong><br />
                         Tuesday, October 28, 2003</p>
 
 <p> 
