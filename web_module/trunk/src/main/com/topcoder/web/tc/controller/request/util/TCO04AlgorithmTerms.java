@@ -1,7 +1,6 @@
 package com.topcoder.web.tc.controller.request.util;
 
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.common.TCWebException;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
