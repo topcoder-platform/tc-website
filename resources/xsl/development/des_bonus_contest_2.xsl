@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
     <xsl:import href="../top.xsl" />
     <xsl:import href="../script.xsl" />
@@ -109,6 +109,16 @@
                 </tr>
             </table> -->
 
+            <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
+                <tr valign="top">
+                    <td class="statText">
+                        
+                        <p><strong><center>The official contest results will be announced on Thursday, July 10th!</center></strong></p>
+
+                        
+                    </td>
+                </tr>
+            </table>
             <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
                 <tr>
                     <td align="center">
@@ -116,7 +126,13 @@
                       
                 <tr>
                     <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" colspan="3"><a name="design"></a><h1 class="devSubhead">Qualifying Contest Entries</h1></td>
+                    <td class="statText" colspan="3"><a name="design"></a><h1 class="devSubhead">Qualifying Members</h1></td>
+                    <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr>
+                    <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="statText" colspan="3"><a name="design"></a>(5 or more submissions)</td>
                     <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
 
@@ -217,9 +233,16 @@
 
                 <tr>
                     <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" colspan="3"><a name="design"></a><h1 class="devSubhead">Other Contest Entries</h1></td>
+                    <td class="statText" colspan="3"><a name="design"></a><h1 class="devSubhead">Non-Qualifing Members</h1></td>
                     <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
+
+                <tr>
+                    <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="statText" colspan="3"><a name="design"></a>(less than 5 submissions)</td>
+                    <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
                 <tr valign="middle">
                     <td background="/i/steel_bluebv_bg.gif" width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" border="0" /></td>
                     <td background="/i/steel_bluebv_bg.gif" width="150" class="statText">Handle</td>
