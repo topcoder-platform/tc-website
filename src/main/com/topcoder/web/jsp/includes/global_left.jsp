@@ -169,7 +169,8 @@
                 <tr><td bgcolor="#990000"><jsp:include page="../includes/modules/simpleSearch.jsp"/></td></tr>
             </table>
 
-            <img alt="" width="180" height="23" src="/i/left_nav_btm.gif" border="0"/><br /><br />
+            <img alt="" width="180" height="23" src="/i/left_nav_btm.gif" border="0"/><br />
+            <img alt="" width="5" height="5" src="/i/clear.gif" border="0"/><br />
 
     <% if (level1.equals("home")) { %>
             <jsp:include page="../../home/coder_of_month.jsp" />
