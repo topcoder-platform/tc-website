@@ -210,6 +210,94 @@
   </tag>
 
   <tag>
+    <name>month</name>
+    <tagclass>com.topcoder.web.screening.view.tag.MonthTag</tagclass>
+    <bodycontent>Empty</bodycontent>
+    <info>
+        Write out a select drop down for the months of the year
+    </info>
+    <attribute>
+      <name>name</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>selected</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>day</name>
+    <tagclass>com.topcoder.web.screening.view.tag.DayTag</tagclass>
+    <bodycontent>Empty</bodycontent>
+    <info>
+        Write out a select drop down for the days of the month
+    </info>
+    <attribute>
+      <name>name</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>selected</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>year</name>
+    <tagclass>com.topcoder.web.screening.view.tag.YearTag</tagclass>
+    <bodycontent>Empty</bodycontent>
+    <info>
+        Write out a select drop down for Years. Count is number of years
+        out to write.  start is the starting year, default starting year
+        is current year
+    </info>
+    <attribute>
+      <name>name</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>selected</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>count</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>start</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>hour</name>
+    <tagclass>com.topcoder.web.screening.view.tag.HourTag</tagclass>
+    <bodycontent>Empty</bodycontent>
+    <info>
+        Write out a select drop down for the hours of the day
+    </info>
+    <attribute>
+      <name>name</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>selected</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
     <name>listIterator</name>
     <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
     <teiclass>com.topcoder.web.common.tag.ListIteratorTagInfo</teiclass>
