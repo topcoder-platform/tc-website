@@ -85,9 +85,11 @@ public class TCLoadRank extends TCLoad {
             loadRatingRank(ACTIVE_RATING_RANK_TYPE_ID);
 
 
-/*
-            loadSchoolAvgRatingRank();
-*/
+            loadCountryRatingRank();
+            loadStateRatingRank();
+//            loadSchoolRatingRank();
+//            loadAgeGroupAvgRatingRank();
+
 
             log.info("SUCCESS: Rank load ran successfully for round " + roundId + ".");
             return true;
@@ -253,6 +255,183 @@ public class TCLoadRank extends TCLoad {
         }
 
     }
+
+
+    /**
+     * Loads the countr_coder_rank table with information about
+     * rating rank within a country.
+     */
+    private void loadCountryRatingRank() throws Exception {
+        log.debug("loadCountryRatingRank called...");
+        StringBuffer query = null;
+        PreparedStatement psDel = null;
+        PreparedStatement psSel = null;
+        PreparedStatement psIns = null;
+        ResultSet rs = null;
+        int count = 0;
+        int coderCount = 0;
+        List ratings = null;
+
+        try {
+
+            query = new StringBuffer(100);
+            query.append( " DELETE");
+            query.append(   " FROM country_coder_rank");
+            psDel = prepareStatement(query.toString(), TARGET_DB);
+
+            query = new StringBuffer(100);
+            query.append( " INSERT");
+            query.append(   " INTO country_coder_rank (coder_id, percentile, rank, rank_no_tie, country_code)");
+            query.append( " VALUES (?, ?, ?, ?, ?)");
+            psIns = prepareStatement(query.toString(), TARGET_DB);
+
+            query = new StringBuffer(100);
+            query.append( " SELECT distinct c.country_code");
+            query.append(   " FROM coder c");
+            query.append(      " , rating r");
+            query.append(      " , active_members a");
+            query.append(  " WHERE c.status = 'A'");
+            query.append(    " AND r.rating > 0");
+            query.append(    " AND c.coder_id = r.coder_id");
+            query.append(    " AND a.coder_id = c.coder_id") ;
+            psSel = prepareStatement(query.toString(), SOURCE_DB);
+
+            // delete all the records from the country ranking table
+            psDel.executeUpdate();
+
+            rs = psSel.executeQuery();
+            String countryCode = null;
+            while (rs.next()) {
+                countryCode =rs.getString("country_code");
+                ratings = getCurrentCoderCountryRatings(countryCode);
+                coderCount = ratings.size();
+
+                int i = 0;
+                int rating = 0;
+                int rank = 0;
+                int size = ratings.size();
+                int tempRating = 0;
+                int tempCoderId = 0;
+                for (int j=0; j<size; j++) {
+                    i++;
+                    tempRating = ((CoderRating)ratings.get(j)).getRating();
+                    tempCoderId = ((CoderRating)ratings.get(j)).getCoderId();
+                    if (tempRating != rating) {
+                        rating = tempRating;
+                        rank = i;
+                    }
+                    psIns.setInt(1, tempCoderId);
+                    psIns.setFloat(2, (float)100*((float)(coderCount-rank)/coderCount));
+                    psIns.setInt(3, rank);
+                    psIns.setInt(4, j+1);
+                    psIns.setString(5, countryCode);
+                    count += psIns.executeUpdate();
+                    printLoadProgress(count, "country coder rating rank");
+                }
+            }
+            log.info("Records loaded for country coder rating rank load: " + count);
+
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw new Exception("Load of 'country_coder_rank' table failed for country coder rating rank.\n" +
+                    sqle.getMessage());
+        } finally {
+            close(rs);
+            close(psSel);
+            close(psIns);
+            close(psDel);
+        }
+
+    }
+
+
+    /**
+     * Loads the state_coder_rank table with information about
+     * rating rank within a state.
+     */
+    private void loadStateRatingRank() throws Exception {
+        log.debug("loadStateRatingRank called...");
+        StringBuffer query = null;
+        PreparedStatement psDel = null;
+        PreparedStatement psSel = null;
+        PreparedStatement psIns = null;
+        ResultSet rs = null;
+        int count = 0;
+        int coderCount = 0;
+        List ratings = null;
+
+        try {
+
+            query = new StringBuffer(100);
+            query.append( " DELETE");
+            query.append(   " FROM state_coder_rank");
+            psDel = prepareStatement(query.toString(), TARGET_DB);
+
+            query = new StringBuffer(100);
+            query.append( " INSERT");
+            query.append(   " INTO state_coder_rank (coder_id, percentile, rank, rank_no_tie, state_code)");
+            query.append( " VALUES (?, ?, ?, ?, ?)");
+            psIns = prepareStatement(query.toString(), TARGET_DB);
+
+            query = new StringBuffer(100);
+            query.append( " SELECT distinct c.state_code");
+            query.append(   " FROM coder c");
+            query.append(      " , rating r");
+            query.append(      " , active_members a");
+            query.append(  " WHERE c.status = 'A'");
+            query.append(    " AND r.rating > 0");
+            query.append(    " AND c.coder_id = r.coder_id");
+            query.append(    " AND a.coder_id = c.coder_id") ;
+            psSel = prepareStatement(query.toString(), SOURCE_DB);
+
+            // delete all the records from the country ranking table
+            psDel.executeUpdate();
+
+            rs = psSel.executeQuery();
+            String stateCode = null;
+            while (rs.next()) {
+                stateCode =rs.getString("state_code");
+                ratings = getCurrentCoderStateRatings(stateCode);
+                coderCount = ratings.size();
+
+                int i = 0;
+                int rating = 0;
+                int rank = 0;
+                int size = ratings.size();
+                int tempRating = 0;
+                int tempCoderId = 0;
+                for (int j=0; j<size; j++) {
+                    i++;
+                    tempRating = ((CoderRating)ratings.get(j)).getRating();
+                    tempCoderId = ((CoderRating)ratings.get(j)).getCoderId();
+                    if (tempRating != rating) {
+                        rating = tempRating;
+                        rank = i;
+                    }
+                    psIns.setInt(1, tempCoderId);
+                    psIns.setFloat(2, (float)100*((float)(coderCount-rank)/coderCount));
+                    psIns.setInt(3, rank);
+                    psIns.setInt(4, j+1);
+                    psIns.setString(5, stateCode);
+                    count += psIns.executeUpdate();
+                    printLoadProgress(count, "state coder rating rank");
+                }
+            }
+            log.info("Records loaded for state coder rating rank load: " + count);
+
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw new Exception("Load of 'state_coder_rank' table failed for state coder rating rank.\n" +
+                    sqle.getMessage());
+        } finally {
+            close(rs);
+            close(psSel);
+            close(psIns);
+            close(psDel);
+        }
+
+    }
+
 
 
 
@@ -441,6 +620,96 @@ public class TCLoadRank extends TCLoad {
     }
 
 
+    /**
+     * Get a sorted list (by rating desc) of all the active coders
+     * and their ratings from a particular country
+     * @return List containing CoderRating objects
+     * @throws Exception if something goes wrong when querying
+     */
+    private List getCurrentCoderCountryRatings(String countryCode) throws Exception {
+        log.debug("getCurrentCoderCountryRatings called...");
+        StringBuffer query = null;
+        PreparedStatement psSel = null;
+        ResultSet rs = null;
+        List ret = null;
+
+        try {
+
+            query = new StringBuffer(100);
+            query.append(" SELECT c.coder_id");
+            query.append(       " ,r.rating");
+            query.append(  " FROM coder c");
+            query.append(       " ,rating r");
+            query.append(       " ,active_members a");
+            query.append( " WHERE c.status = 'A'");
+            query.append(   " AND r.rating > 0");
+            query.append(   " AND c.coder_id = r.coder_id");
+            query.append(   " AND a.coder_id = c.coder_id");
+            query.append(   " AND c.country_code = ?");
+            query.append( " ORDER BY r.rating DESC");
+            psSel = prepareStatement(query.toString(), SOURCE_DB);
+            psSel.setString(1, countryCode);
+
+            rs = psSel.executeQuery();
+            ret = new ArrayList();
+            while (rs.next()) {
+                ret.add(new CoderRating(rs.getInt("coder_id"), rs.getInt("rating")));
+            }
+
+        } finally {
+            close(rs);
+            close(psSel);
+        }
+        return ret;
+
+    }
+
+
+    /**
+     * Get a sorted list (by rating desc) of all the active coders
+     * and their ratings from a particular state
+     * @return List containing CoderRating objects
+     * @throws Exception if something goes wrong when querying
+     */
+    private List getCurrentCoderStateRatings(String stateCode) throws Exception {
+        log.debug("getCurrentCoderStateRatings called...");
+        StringBuffer query = null;
+        PreparedStatement psSel = null;
+        ResultSet rs = null;
+        List ret = null;
+
+        try {
+
+            query = new StringBuffer(100);
+            query.append(" SELECT c.coder_id");
+            query.append(       " ,r.rating");
+            query.append(  " FROM coder c");
+            query.append(       " ,rating r");
+            query.append(       " ,active_members a");
+            query.append( " WHERE c.status = 'A'");
+            query.append(   " AND r.rating > 0");
+            query.append(   " AND c.coder_id = r.coder_id");
+            query.append(   " AND a.coder_id = c.coder_id");
+            query.append(   " AND c.state_code = ?");
+            query.append( " ORDER BY r.rating DESC");
+            psSel = prepareStatement(query.toString(), SOURCE_DB);
+            psSel.setString(1, stateCode);
+
+            rs = psSel.executeQuery();
+            ret = new ArrayList();
+            while (rs.next()) {
+                ret.add(new CoderRating(rs.getInt("coder_id"), rs.getInt("rating")));
+            }
+
+        } finally {
+            close(rs);
+            close(psSel);
+        }
+        return ret;
+
+    }
+
+
 
     /**
      * Gets the of ratings for all the active coders that have
@@ -502,7 +771,6 @@ public class TCLoadRank extends TCLoad {
             ret = new ArrayList(tempHash.size());
             Iterator it = tempHash.entrySet().iterator();
             Map.Entry entry = null;
-            CoderRating cr = null;
             while (it.hasNext()) {
                 entry = (Map.Entry)it.next();
                 int coderId = ((Integer)entry.getKey()).intValue();
@@ -523,8 +791,6 @@ public class TCLoadRank extends TCLoad {
         long endTime = System.currentTimeMillis();
         log.info("TIME IN METHOD: " + (endTime-startTime) + " milliseconds");
         return ret;
-
-
     }
 
 
@@ -533,7 +799,8 @@ public class TCLoadRank extends TCLoad {
      * @return the number of active rated coders.
      * @throws Exception 
      */
-    private int getActiveRatedCoderCount() throws Exception { 
+/*
+    private int getActiveRatedCoderCount() throws Exception {
         log.debug("getActiveRatedCoderCount called...");
         PreparedStatement ps = null; 
         StringBuffer query = null;
@@ -563,7 +830,7 @@ public class TCLoadRank extends TCLoad {
         }
         return ret;
     }
-
+*/
     /**
      * Gets the most recent round in the source
      * db.  If there are no rounds in the source
@@ -605,7 +872,7 @@ public class TCLoadRank extends TCLoad {
     private class CoderRating implements Comparable {
         private int _coderId = 0;
         private int _rating = 0;
-        CoderRating(int coderId, int rating) { 
+        CoderRating(int coderId, int rating) {
             _coderId = coderId;
             _rating = rating;
         }
@@ -618,8 +885,10 @@ public class TCLoadRank extends TCLoad {
         int getRating() {return _rating;}
         void setCoderId(int coderId) {_coderId = coderId;}
         void setRating(int rating) {_rating = rating;}
+
         public String toString() { return new String(_coderId+":"+_rating); }
     }
+
 
 /*
     private class SchoolAvgRating {
