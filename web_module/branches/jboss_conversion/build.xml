@@ -27,6 +27,7 @@
 -->
      <property name="jboss_home" value="../jboss-4.0.1"/>
      <property name="jboss_deploy" value="${jboss_home}/server/default/deploy"/>
+     <property name="jboss_lib" value="${jboss_home}/server/default/lib"/>
      <property environment="env"/>
 
      <property name="deprecation" value="true"/>
@@ -601,10 +602,43 @@
          <antcall target="deploy-corp"/>
          <antcall target="deploy-privatelabel"/>
 
-<!--
-         copy over the libs     including shared.`
--->
+         <antcall target="move-libs"/>
 
+     </target>
+
+     <target name="move-libs">
+         <copy todir="${jboss_lib}">
+             <fileset dir="${resources}">
+                 <include name="CorpConstants.properties"/>
+                 <include name="DataAccess.properties"/>
+                 <include name="PrivateLabel.properties"/>
+                 <include name="jive.properties"/>
+                 <include name="problem.xsd"/>
+                 <include name="Resume.properties"/>
+                 <include name="TC.properties"/>
+             </fileset>
+         </copy>
+         <copy todir="${jboss_lib}">
+             <fileset dir="${bin}">
+                 <include name="shared.jar"/>
+             </fileset>
+         </copy>
+         <copy todir="${jboss_lib}">
+             <fileset dir="${jars.dir}">
+                 <include name="ifxjdbc.jar"/>
+                 <include name="bfograph.jar"/>
+                 <include name="configmanager2.jar"/>
+                 <include name="object_formatter.jar"/>
+                 <include name="idgenerator.jar"/>
+                 <include name="upload.jar"/>
+                 <include name="tcsUtil.jar"/>
+                 <include name="tcs/catalog.jar"/>
+                 <include name="tcs/user.jar"/>
+                 <include name="fileconvert.jar"/>
+                 <include name="httpunit.jar"/>
+                 <include name="itext-1.1.jar"/>
+             </fileset>
+         </copy>
      </target>
 
      <target name="move">
