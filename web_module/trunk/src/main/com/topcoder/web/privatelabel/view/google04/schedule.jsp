@@ -44,7 +44,7 @@
 			<br/><br/>
 			<span class=bigTitle>Tough problems. Intense competition. No pressure.</span>
 			<span valign=top>
-			<table class=smallBoxTable align=right cellspacing=5 cellpadding=0>
+			<table class=smallBoxTable align=right cellspacing=0 cellpadding=0>
 				<tr>
 					<td align=center nowrap=nowrap class=smallBlueBox>
 					<span class=bodyTextBlue>Important Dates</span>
@@ -59,6 +59,7 @@
 					Friday, October 15th
 					</td>
 				</tr>
+				<tr><td>&#160;</td></tr>
 				<tr>
 					<td align=center nowrap=nowrap class=smallGreenBox>
 					<span class=bodyTextGreen>$30,000 in<br/>Cash Prizes!</span>
@@ -81,7 +82,7 @@
 			<br/><br/>
 
 			<a name="sched"></a>
-			<table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+			<table width="400" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
 				<tr>
 					<td class="sidebarTitle" width="25%">Round</td>
 					<td class="sidebarTitle" width="35%">Date and Time*</td>
@@ -106,7 +107,7 @@
 			Everyone who competes in Round 1 must log in to the TopCoder Competition Arena no later than ten minutes prior to the start of the online round.  All start times will be communicated as Eastern Time.  If a coder does not participate, for any reason, in an online round he/she has advanced to, it will be treated as an automatic loss in that round of competition.
 			<br/><br/>
 
-			<table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+			<table width="400" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
 				<tr>
 					<td class="sidebarTitle" width="25%">Round</td>
 					<td class="sidebarTitle" width="35%">Date and Time*</td>
@@ -138,7 +139,7 @@
 			Up to 25 coders will compete in the Championship Round being held onsite at Google's headquarters.  Each finalist is responsible for arriving at Google's headquarters to compete.
 			<br/><br/>
 
-			<table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+			<table width="400" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
 				<tr>
 					<td class="sidebarTitle" width="25%">Round</td>
 					<td class="sidebarTitle" width="35%">Date and Time*</td>
