@@ -32,4 +32,8 @@ public class User {
     public void setHandle(String handle) {
         this.handle = handle;
     }
+
+    public boolean equals(Object o) {
+        return ((User)o).getUserId()==userId;
+    }
 }
