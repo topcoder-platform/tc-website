@@ -25,7 +25,7 @@ if(request.getAttribute("extraquestion") != null && request.getAttribute("extraq
     extra = true;
 }
 %>
-
+<%=extra%>
 <table width="770" align="left" valign="top" cellpadding=0 cellspacing=0 border=0>
 	<tr><td><img src="/i/events/brooks/brooks_logo.gif" border="0" width="122" height="66"/><img src="/i/events/brooks/header.gif" border="0" width="409" height="66"/></td></tr>
 	<tr><td><div class=brHead><img src="/i/clear.gif" height="23" width="1"></div></td></tr>
