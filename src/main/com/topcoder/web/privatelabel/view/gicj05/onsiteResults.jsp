@@ -41,40 +41,7 @@
 <td class=advancersRound width="20%">Country</td>
 <td class=advancersRound width="15%">Score</td>
 </tr>
-<tr class=sidebarText><td>1</td><td>bobomelulu</td><td>Bob Omelulu</td><td>India</td><td>1831.34</td></tr>
-<tr class=sidebarText><td>1</td><td>bobomelulu</td><td>Bob Omelulu</td><td>India</td><td>1831.34</td></tr>
-<tr class=sidebarText><td>1</td><td>bobomelulu</td><td>Bob Omelulu</td><td>India</td><td>1831.34</td></tr>
-<tr class=sidebarText><td>1</td><td>bobomelulu</td><td>Bob Omelulu</td><td>India</td><td>1831.34</td></tr>
-<tr class=sidebarText><td>1</td><td>bobomelulu</td><td>Bob Omelulu</td><td>India</td><td>1831.34</td></tr>
-<tr class=sidebarText><td>1</td><td>bobomelulu</td><td>Bob Omelulu</td><td>India</td><td>1831.34</td></tr>
-<tr class=sidebarText><td>1</td><td>bobomelulu</td><td>Bob Omelulu</td><td>India</td><td>1831.34</td></tr>
-<tr class=sidebarText><td>1</td><td>bobomelulu</td><td>Bob Omelulu</td><td>India</td><td>1831.34</td></tr>
-<tr class=sidebarText><td>1</td><td>bobomelulu</td><td>Bob Omelulu</td><td>India</td><td>1831.34</td></tr>
-<tr class=sidebarText><td>1</td><td>bobomelulu</td><td>Bob Omelulu</td><td>India</td><td>1831.34</td></tr>
-<tr class=sidebarText><td>1</td><td>bobomelulu</td><td>Bob Omelulu</td><td>India</td><td>1831.34</td></tr>
-<tr class=sidebarText><td>1</td><td>bobomelulu</td><td>Bob Omelulu</td><td>India</td><td>1831.34</td></tr>
-<tr class=sidebarText><td>1</td><td>bobomelulu</td><td>Bob Omelulu</td><td>India</td><td>1831.34</td></tr>
-<tr class=sidebarText><td>1</td><td>bobomelulu</td><td>Bob Omelulu</td><td>India</td><td>1831.34</td></tr>
-<tr class=sidebarText><td>1</td><td>bobomelulu</td><td>Bob Omelulu</td><td>India</td><td>1831.34</td></tr>
-<tr class=sidebarText><td>1</td><td>bobomelulu</td><td>Bob Omelulu</td><td>India</td><td>1831.34</td></tr>
-<tr class=sidebarText><td>1</td><td>bobomelulu</td><td>Bob Omelulu</td><td>India</td><td>1831.34</td></tr>
-<tr class=sidebarText><td>1</td><td>bobomelulu</td><td>Bob Omelulu</td><td>India</td><td>1831.34</td></tr>
-<tr class=sidebarText><td>1</td><td>bobomelulu</td><td>Bob Omelulu</td><td>India</td><td>1831.34</td></tr>
-<tr class=sidebarText><td>1</td><td>bobomelulu</td><td>Bob Omelulu</td><td>India</td><td>1831.34</td></tr>
-<tr class=sidebarText><td>1</td><td>bobomelulu</td><td>Bob Omelulu</td><td>India</td><td>1831.34</td></tr>
-<tr class=sidebarText><td>1</td><td>bobomelulu</td><td>Bob Omelulu</td><td>India</td><td>1831.34</td></tr>
-<tr class=sidebarText><td>1</td><td>bobomelulu</td><td>Bob Omelulu</td><td>India</td><td>1831.34</td></tr>
-<tr class=sidebarText><td>1</td><td>bobomelulu</td><td>Bob Omelulu</td><td>India</td><td>1831.34</td></tr>
-<tr class=sidebarText><td>1</td><td>bobomelulu</td><td>Bob Omelulu</td><td>India</td><td>1831.34</td></tr>
-<tr class=sidebarText><td>1</td><td>bobomelulu</td><td>Bob Omelulu</td><td>India</td><td>1831.34</td></tr>
-<tr class=sidebarText><td>1</td><td>bobomelulu</td><td>Bob Omelulu</td><td>India</td><td>1831.34</td></tr>
-<tr class=sidebarText><td>1</td><td>bobomelulu</td><td>Bob Omelulu</td><td>India</td><td>1831.34</td></tr>
-<tr class=sidebarText><td>1</td><td>bobomelulu</td><td>Bob Omelulu</td><td>India</td><td>1831.34</td></tr>
-<tr class=sidebarText><td>1</td><td>bobomelulu</td><td>Bob Omelulu</td><td>India</td><td>1831.34</td></tr>
-<tr class=sidebarText><td>1</td><td>bobomelulu</td><td>Bob Omelulu</td><td>India</td><td>1831.34</td></tr>
-<tr class=sidebarText><td>1</td><td>bobomelulu</td><td>Bob Omelulu</td><td>India</td><td>1831.34</td></tr>
-<tr class=sidebarText><td>1</td><td>bobomelulu</td><td>Bob Omelulu</td><td>India</td><td>1831.34</td></tr>
-<tr class=sidebarText><td>1</td><td>bobomelulu</td><td>Bob Omelulu</td><td>India</td><td>1831.34</td></tr>
+<tr class=sidebarText><td>1</td><td>mike</td><td>Mike Lydon</td><td>India</td><td>1831.34</td></tr>
 </table>
 
 
