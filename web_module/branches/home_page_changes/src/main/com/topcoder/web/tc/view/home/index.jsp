@@ -80,7 +80,7 @@
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
 			<tr>
 				<td class=homeArrow><img src="/i/home/triangle.gif" border=0 /></td>
-				<td class=homeTitle><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>"> class=homeTitleLink>Software</A></td>
+				<td class=homeTitle><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>" class=homeTitleLink>Software</A></td>
 			</tr>
 			<tr>
 				<td class=homeArrow>&#160;</td>
