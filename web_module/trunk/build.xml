@@ -883,6 +883,9 @@
             <webinf dir="${struts.dir}">
                 <include name="*.tld"/>
             </webinf>
+            <webinf dir="${resources}">
+                <include name="FileUpload.xml"/>
+            </webinf>
             <lib dir="${struts.dir}">
                 <include name="*.jar"/>
             </lib>
