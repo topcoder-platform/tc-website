@@ -75,11 +75,17 @@ Edit Timeline
 <table border="0" cellpadding="0" cellspacing="1" class="forumBkgd"  width="100%">
     <tr valign="top">
 	<td class="forumTitleCenter"><img src="images/clear.gif" alt="" width="1" height="1" border="0"></td>
-	<td class="forumTitleCenter">
+	<td class="forumTitleCenter" width="8%">
 	    Start
 	</td>
-	<td class="forumTitleCenter">
+	<td class="forumTitleCenter" width="8%">
 	    End
+	</td>
+	<td class="forumTitleCenter" width="55%">
+	    Edit Start
+	</td>
+	<td class="forumTitleCenter"width="14%">
+	    Edit Duration
 	</td>
     </tr>
 
@@ -88,11 +94,36 @@ Edit Timeline
                 <tr valign="top">
                     <td class="forumTitleCenter">
                         <bean:define id="phaseName" name="phaseInstance" property="phase.name" />
-                        <html:radio property="currentPhase" value="<%=phaseName.toString()%>" /><br/><bean:write name="phaseName" /></td>
+                        <bean:write name="phaseName" /></td>
                     <td class="forumTextCenterOdd">
-                        <html:text property='<%="phaseStart["+pIdx+"]"%>' size="20" /></td>
+                        <!-- html:text property='<%="phaseStart["+pIdx+"]"%>' size="20" / -->
+                        <bean:write name="phaseInstance" property='<%="phaseStart["+pIdx+"]"%>' />
+                        
+                        </td>
                     <td class="forumTextCenterOdd">
-                        <html:text property='<%="phaseEnd["+pIdx+"]"%>' size="20" /></td>
+                        <!-- html:text property='<%="phaseEnd["+pIdx+"]"%>' size="20" / -->
+                        <bean:write name="phaseInstance" property='<%="phaseEnd["+pIdx+"]"%>' />
+                        </td>
+                        
+                    <td class="forumTextCenterOdd">
+			    <table border="0" width="100%">
+				    <tr>
+					<td width="50%" align="left">
+					<input name="'<%="adjustStartDate["+pIdx+"]"%>'" checked="checked" type="radio" value="true">
+						When previous phase ends
+					</td>
+					<td width="50%">
+						<input name='<%="adjustStartDate["+pIdx+"]"%>' type="radio" value="false">Other
+						<input name='<%="phaseStart["+pIdx+"]"%>' size="20" value="" type="text">
+					</td>
+				    </tr>
+			    </table>
+
+		    </td>
+                    <td class="forumTextCenterOdd">
+                          <input name='<%="phaseLength["+pIdx+"]"%>' size="3" value="40" type="text"> hours
+                    </td>
+                        
                 </tr>
 </logic:iterate>
                           

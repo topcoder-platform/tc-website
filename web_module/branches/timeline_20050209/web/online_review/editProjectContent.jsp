@@ -8,7 +8,7 @@
 <script language="javascript">
 function editTimeline()
 {
-	document.projectForm.action='<html:rewrite page="editTimeline.do?action=load_timeline">';
+	document.projectForm.action='<html:rewrite page="/editTimeline.do?action=load_timeline" />';
 	document.projectForm.action.value='load_timeline';
 	document.projectForm.submit.click();
 }
