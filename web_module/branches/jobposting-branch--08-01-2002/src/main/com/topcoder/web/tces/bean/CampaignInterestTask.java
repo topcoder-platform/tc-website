@@ -46,7 +46,7 @@ log.debug("Setting CampaignName = "+campaignName);
         this.campaignName = campaignName;
     }
 
-    public String getCampiagnName() {
+    public String getCampaignName() {
         return campaignName;
     }
 
