@@ -285,9 +285,10 @@
                                                     <!-- Register at TCS -->
                                                     <p>
                                                         <a name="requirementspecification"></a>
-                                                        <strong>View the
-                                                            <a target="_new" class="bodyText" href="/i/development/downloads/GiftCardApplicationSpec_v10.pdf">Requirement Specification</a> for this application project &gt;&gt;
-                                                        </strong>
+                                                        <strong>Document and Templates </strong>
+                                                        View the <a target="_new" class="bodyText" href="/?t=development&c=app_sample_docs">Documents and Templates</a> for the Application Development Methodology
+
+
                                                     </p>
 
                                                     <p>
@@ -298,21 +299,6 @@
                                                             -->
                                                         </strong>
                                                     </p>
-                                                    <!--
-                                                    <p>
-                                                        <strong>
-                                                            <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Admin%20Tool%20Enhancements%20Group2">Inquire for the Group 2 Development Tasks of the Application Project</a> to get selected as a developer and to obtain the information necessary to submit a solution.
-                                                        </strong>
-                                                    </p>
-                                                    <p>
-                                                        <strong>
-                                                            <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Admin%20Tool%20Enhancements%20Group3">Inquire for the Group 3 Development Tasks of the Application Project</a> to get selected as a developer and to obtain the information necessary to submit a solution.
-                                                        </strong>
-                                                    </p>
-                                                    -->
-                                                    <!--<p>To submit a solution, email your submissions to
-                                                    <a href="mailto:submissions@topcodersoftware.com" class="bodyText">submissions@topcodersoftware.com</a>.</p> -->
-
                                                 </td>
                                             </tr>
                                         </table>
