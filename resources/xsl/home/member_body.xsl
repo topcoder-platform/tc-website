@@ -402,7 +402,7 @@
                 <table border="0" cellspacing="1" cellpadding="0" width="100%" bgcolor="#FFFFFF">
                     <tr>
                         <td valign="top" colspan="3" class="bodyText"><a class="bodyGeneric">
-                            <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><strong>Single Round Match 135</strong></a><br />
+                            <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><strong>2003 TCCC Round 1 NE/SE</strong></a><br />
                             Tuesday, February 11, 2003<br /><br />
                         </td>
                     </tr>
@@ -489,7 +489,7 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
                         By&#160;lbackstrom<br /><i>[TC]&#160;Member</i><br /></td>
                     <td valign="top" width="8" rowspan="2"><img src="/i/clear.gif" alt="" width="8" height="1" border="0" /></td>
                     <td valign="top" width="100%" align="left" class="bodyText" colspan="2">
-                        <font size="2" color="#000000" face="tahoma, verdana"><strong>SRM 135</strong></font></td>
+                        <font size="2" color="#000000" face="tahoma, verdana"><strong>2003 TCCC Round 1 NE/SE</strong></font></td>
                 </tr>
 
                 <tr>
@@ -528,7 +528,7 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
             <map name="srmanimation_home">
                 <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="?t=tournaments&amp;c=tccc03_sched" target="_parent" />
 <!--                <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="/?&amp;t=tces&amp;c=index" /> -->
-                <area shape="poly" alt="SRM Match 135" coords="0,93, 107,93, 120,106, 238,106, 238,155, 19,155, 0,137" href="/?RoundId=4470&amp;t=schedule&amp;c=srm" />
+                <area shape="poly" alt="SRM Match 136" coords="0,93, 107,93, 120,106, 238,106, 238,155, 19,155, 0,137" href="/?RoundId=4470&amp;t=schedule&amp;c=srm" />
             </map>
 <!--SRM Sponsor Ends-->
 
