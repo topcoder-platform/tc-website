@@ -445,7 +445,8 @@ private Log log = null;
             SimpleDateFormat sdf = new SimpleDateFormat(Constants.DATE_FORMAT);
             SimpleDateFormat sdf2 = new SimpleDateFormat(Constants.DATE_FORMAT2);
 
-            forcedStartDates[index] = adjustStartDates[index]? "" : start.trim();
+            //forcedStartDates[index] = adjustStartDates[index]? "" : start.trim();
+            forcedStartDates[index] = start.trim();
             /*PhaseInstance phase = project.getTimeline()[index];
 
             startDates[index] = start.trim();

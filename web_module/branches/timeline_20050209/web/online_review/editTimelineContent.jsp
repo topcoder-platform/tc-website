@@ -25,7 +25,7 @@ function checkFalse(f, n)
     v = null;
     s = 'adjustStartDate[' + n + ']';
     for (i=0; i < f.elements.length; i++)
-        if (f.elements[i].name == s && f.elements[i].value == "f") v = f.elements[i];
+        if (f.elements[i].name == s && f.elements[i].value == "false") v = f.elements[i];
 
     if (v != null)
         v.checked=true;
