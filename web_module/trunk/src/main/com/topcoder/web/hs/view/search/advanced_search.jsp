@@ -123,42 +123,54 @@
                             <tr><td colspan="4" height="10"><img src="/i/hs/clear.gif" height="10" width="1" alt="" border="0"></td></tr>
                         </table>
                                 
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                            <tr><td height="10"><img src="/i/hs/clear.gif" height="10" width="1" alt="" border="0"></td></tr>
+                        </table>
+                        
+                        <% if (search.hasMemberList()) { %>
+
                         <table width="100%" cellpadding="3" cellspacing="0" border="0" id="formFrame">
-                            <tr><td colspan="5" align="left">&nbsp;Search Results:&nbsp;&nbsp;<jsp:getProperty name="search" property="Start"/> to <jsp:getProperty name="search" property="End"/></td></tr>
+                            <tr><td colspan="7" class="formTitle">&nbsp;Search Results:&nbsp;&nbsp;<jsp:getProperty name="search" property="Start"/> to <jsp:getProperty name="search" property="End"/></td></tr>
 
-                            <tr><td colspan="5" height="10"><img src="/i/hs/clear.gif" height="10" width="1" alt="" border="0"></td></tr>
+                                <% if (search.getMemberList().size()==0) { %>
+                            <tr><td><img src="/i/hs/clear.gif" height="10" width="1" alt="" border="0"></td></tr>
 
-                                <% if (search.hasMemberList()) {
-                                    if (search.getMemberList().size()==0) { %>
                             <tr><td class="bodyText" align="center">No members found.</td></tr>
+                                
                                 <% } else { %>
-                                        
-                            <tr><td colspan="5" align="center"><%=(search.getHasPrev()?"<A HREF=\"Javascript:document.advForm.next.value='false';Javascript:document.advForm.submit()\">&lt;&lt; prev</A>":"&lt;&lt; prev")%> | <%=(search.getHasNext()?"<A HREF=\"Javascript:document.advForm.next.value='true';Javascript:document.advForm.submit()\">next &gt;&gt;</A>":"&gt;&gt; next")%></td></tr>
+                            <tr><td colspan="7" align="center" bgcolor="#1B2E5D" class="statText"><%=(search.getHasPrev()?"<a href=\"Javascript:document.advForm.next.value='false';Javascript:document.advForm.submit()\" class=\"statText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%> | <%=(search.getHasNext()?"<a href=\"Javascript:document.advForm.next.value='true';Javascript:document.advForm.submit()\" class=\"statText\">next &gt;&gt;</a>":"&gt;&gt; next")%></td></tr>
+
+                            <tr><td colspan="7"><img src="/i/hs/clear.gif" height="3" width="1" alt="" border="0"></td></tr>
 
                             <tr>
-                                <td><b>Handle</b></td>
-                                <td><b>Rating</b></td>
-                                <td><b>State</b></td>
-                                <td><b>School</b></td>
-                                <td><b>Last Competed</b></td>
+                                <td><img src="/i/hs/clear.gif" height="1" width="3" alt="" border="0"></td>
+                                <td><strong>Handle</strong></td>
+                                <td><strong>Rating</strong></td>
+                                <td><strong>State</strong></td>
+                                <td><strong>School</strong></td>
+                                <td><strong>Last Competed</strong></td>
+                                <td><img src="/i/hs/clear.gif" height="1" width="3" alt="" border="0"></td>
                             </tr>
                                         
                             <adv:resultSetRowIterator id="member" list="<%=search.getMemberList()%>">
         
                             <tr>
+                                <td><img src="/i/hs/clear.gif" height="1" width="3" alt="" border="0"></td>
                                 <td><a href="?module=Statistics&c=member_profile&cr=<adv:resultSetItem row='<%=member%>' name="user_id"/>"><adv:resultSetItem row="<%=member%>" name="handle"/></a></td>
                                 <td><adv:resultSetItem row="<%=member%>" name="rating"/></td>
                                 <td><adv:resultSetItem row="<%=member%>" name="state_code"/></td>
                                 <td><adv:resultSetItem row="<%=member%>" name="school_name"/></td>
                                 <td><adv:resultSetItem row="<%=member%>" name="last_competed" format="MM/dd/yyyy" ifnull="N/A"/></td>
+                                <td><img src="/i/hs/clear.gif" height="1" width="3" alt="" border="0"></td>
                             </tr>
 
                             </adv:resultSetRowIterator>
-                                <% }
-                                } %>
-                            <tr><td colspan="5" height="10"><img src="/i/hs/clear.gif" height="10" width="1" alt="" border="0"></td></tr>
-
+                                <% } %>
+                            
+                            <tr><td colspan="7"><img src="/i/hs/clear.gif" height="10" width="1" alt="" border="0"></td></tr>
                         </table>
+                       
+                        <% } %>
 
 <script type="text/javascript">
 
