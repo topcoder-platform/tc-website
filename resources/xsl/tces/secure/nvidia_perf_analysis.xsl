@@ -62,7 +62,7 @@
 
 
 
-<P><B>PERFORMANCE ANALYSIS SOFTWARE ENGINEER</B><br/>
+<P><B>PERFORMANCE ANALYSIS SOFTWARE ENGINEER</B><BR/><BR/>
 Performance Analysis Software Engineers are responsible for performance analysis and improvement of 3D graphics applications.  Applications include industry standard benchmarks and third party software products.
 <BR/><BR/>
 Minimum GPA: 3.5

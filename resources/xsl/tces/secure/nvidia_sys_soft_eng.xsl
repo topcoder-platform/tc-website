@@ -62,7 +62,7 @@
 
 
 
-<P><B>SYSTEM SOFTWARE ENGINEER</B><br/>
+<P><B>SYSTEM SOFTWARE ENGINEER</B><br/><BR/>
 Systems Software supports NVIDIA's new high performance chipset business. They are generalists, with a deep understanding of the today's PC architecture, including bus protocols such as PCI, AGP, USB and 1394, and CPU booting, arbitration, and cache management protocols.  System Engineers program down to the metal, and are comfortable around hardware specs. They write software for Networking, Audio, IDE, SMBus and other hardware, and implement support for modern PC standards such as ACPI and OnNow.
 <br/><br/>
 Minimum GPA:  3.8
