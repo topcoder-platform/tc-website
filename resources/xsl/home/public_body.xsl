@@ -355,7 +355,7 @@ Why would we want to do something like that...<a class="bodyGeneric"><xsl:attrib
 <!-- <A HREF="/?&amp;t=tournaments&amp;c=invit02_cnn"><IMG SRC="/i/tournament/invit02/invit02_cnn_home.gif" ALT="TC on CNN" WIDTH="244" HEIGHT="145" BORDER="0"/></A> -->
 
 <!-- Software Promo Begins -->
-					<a href="/?&amp;t=development&amp;c=comp_projects"><img src="/i/tcs_board.gif" alt="TCS" width="244" height="156" vspace="1" border="0"/></a>
+					<a href="/?&amp;t=development&amp;c=bonus_contest_0303"><img src="/i/tcs_board.gif" alt="TCS" width="244" height="156" vspace="1" border="0"/></a>
 <!-- Software Promo Ends -->
 
 <!-- Software Leader Board Begins -->
