@@ -92,8 +92,8 @@ if (!bEmpty) {
                 </TR>                
                 <TR>
                   <TD COLSPAN="4" CLASS="statText">
-                  <% if ( SessionInfo.isLoggedIn() && Integer.parseInt(rsr.getItem(1).toString())==SessionInfo.getUserId() ) { %><A HREF="<%="https://"+request.getServerName()+"/@@@reg/index.jsp"%>" CLASS="statText" TARGET="_parent">Update your profile</A>
-<% } else { %>&#160;</xsl:otherwise><%}%>
+                  <% if ( SessionInfo.isLoggedIn() && Integer.parseInt(rsr.getItem(1).toString())==SessionInfo.getUserId() ) { %><A HREF="?module=UpdateStudent"%>" CLASS="statText" TARGET="_parent">Update your profile</A>
+<% } else { %>&#160;<% } %>
                   </TD>
                 </TR>                
                   <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD>
