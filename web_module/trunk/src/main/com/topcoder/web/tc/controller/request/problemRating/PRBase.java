@@ -13,6 +13,7 @@ import java.util.*;
 
 abstract public class PRBase extends Base {
 
+    protected static int NUM_RATINGS = 10;
 
     protected void processResults() throws Exception{
         Request r = new Request();
@@ -33,9 +34,12 @@ abstract public class PRBase extends Base {
         getRequest().setAttribute("problemName",problemName.getRow(0).getStringItem("name"));
 
         //get the info for the distribution graphs
-        List overall = getDistributionList(getDataAccess().getData(r), "overall_problem_rating_distribution");
-        List div1 = getDistributionList(getDataAccess().getData(r), "div1_problem_rating_distribution");
-        List div2 = getDistributionList(getDataAccess().getData(r), "div2_problem_rating_distribution");
+        List overall = getDistributionList(
+                (ResultSetContainer)qMap.get("overall_votes"),
+                (ResultSetContainer)qMap.get("div1_overal_votes"),
+                (ResultSetContainer)qMap.get("div2_overall_votes"));
+        List div1 = getDistributionList(qMap, "div1_problem_rating_distribution");
+        List div2 = getDistributionList(qMap, "div2_problem_rating_distribution");
 
         ProblemRatingDistribution overallAvg = avg(overall);
         ProblemRatingDistribution div1Avg = avg(div1);
@@ -100,7 +104,6 @@ abstract public class PRBase extends Base {
         setIsNextPageInContext(true);
     }
 
-
     protected static List getDistributionList(Map m, String key) throws Exception {
 
         ResultSetContainer rsc = (ResultSetContainer)m.get(key);
@@ -119,6 +122,16 @@ abstract public class PRBase extends Base {
             result.setFrequencies(frequencies);
             ret.add(result);
         }
+        return ret;
+    }
+
+    protected static List getDistributionList(ResultSetContainer rsc1,
+                                              ResultSetContainer rsc2,
+                                              ResultSetContainer rsc3) throws Exception {
+        ArrayList ret = new ArrayList(3);
+        ret.add(buildDistribution(rsc1));
+        ret.add(buildDistribution(rsc2));
+        ret.add(buildDistribution(rsc3));
         return ret;
     }
 
@@ -147,6 +160,21 @@ abstract public class PRBase extends Base {
         //generate an average of the distributions
         for (int i=0; i<sums.length; i++) {
             freqs.add(new Float((float)sums[i]/list.size()));
+        }
+        ret.setFrequencies(freqs);
+        return ret;
+    }
+
+    protected static ProblemRatingDistribution buildDistribution(ResultSetContainer list) {
+        int[] sums = new int[NUM_RATINGS+1];
+        //generate the distribution of responses
+        for (int k=list.size(); --k>=0;) {
+            sums[list.getIntItem(k, 1)]++;
+        }
+        ProblemRatingDistribution ret = new ProblemRatingDistribution();
+        List freqs = new ArrayList(NUM_RATINGS);
+        for (int i=1; i<sums.length; i++) {
+            freqs.add(new Integer(sums[i]));
         }
         ret.setFrequencies(freqs);
         return ret;
