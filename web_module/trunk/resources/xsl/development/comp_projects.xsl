@@ -80,7 +80,6 @@
             <p><h2 align="left">Projects for Design and/or Development currently available!</h2></p>
 
 <!-- Open Component Design Projects begins -->
-            <p class="bigRed"><b>NOTE:</b> The following design projects are all eligible for the 2005 TopCoder Collegiate Challenge Component Design Competition.</p>
 
             <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
                 <tr>
