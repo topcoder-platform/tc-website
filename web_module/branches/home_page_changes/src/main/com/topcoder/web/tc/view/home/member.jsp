@@ -34,8 +34,7 @@
 		<td width="100%" align="center">
 			<img src="/i/clear.gif" alt="" width="1" height="15" border="0" /><br/>
 			<jsp:include page="big_promo.jsp" />
-  
-			<jsp:include page="small_promos.jsp" />
+  			<jsp:include page="small_promos.jsp" />
 			<img src="/i/clear.gif" alt="" width="1" height="10" border="0" />
 			<jsp:include page="corp_promos.jsp" />
 			<img src="/i/clear.gif" alt="" width="1" height="10" border="0" />

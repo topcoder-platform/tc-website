@@ -38,8 +38,8 @@
 <%-- Left Column --%>
 		<td class=homeLeftCol>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
-			<tr><td class=homeBigPromo><A href="/tc"><img src="/i/promos/developercenter.gif" border=0 /></A></td></tr>
-			<tr><td class=homeSmallPromo><A href="/tc?module=Static&d1=dev&d2=ad_overview"><img src="/i/promos/earncash.jpg" border=0 /></A></td></tr>
+			<tr><td class=homeBigPromo><A href="/tc"><img src="/i/home/promos/developercenter.gif" border=0 /></A></td></tr>
+			<tr><td class=homeSmallPromo><A href="/tc?module=Static&d1=dev&d2=ad_overview"><img src="/i/home/promos/earncash.jpg" border=0 /></A></td></tr>
 		</table>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
 			<tr>
@@ -66,15 +66,15 @@
 			</tr>
 			<tr>
 				<td class=homeArrow>&#160;</td>
-				<td class=homeText>Interested in earning money? Just register <A href="/tc?module=Static&d1=contracting&d2=index">here</A> and TopCoder will contact you about temporary and permanent positions that fit your skills.</td>
+				<td class=homeText>Just <A href="/tc?module=Static&d1=contracting&d2=index">register here</A> and TopCoder will contact you about temporary and permanent positions that fit your skills.</td>
 			</tr>
 		</table>
 		</td>
 <%-- Center Column --%>
 		<td class=homeCentCol>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
-			<tr><td class=homeBigPromo><A href="/corp/?module=Static&d1=corp&d2=index"><img src="/i/promos/techAssessTool.jpg" border=0 /></A></td></tr>
-			<tr><td class=homeSmallPromo><A href="http://software.topcoder.com/components/subscriptions.jsp"><img src="/i/promos/compSubscriptions.jpg" border=0 /></A></td></tr>
+			<tr><td class=homeBigPromo><A href="/corp/?module=Static&d1=corp&d2=index"><img src="/i/home/promos/techAssessTool.jpg" border=0 /></A></td></tr>
+			<tr><td class=homeSmallPromo><A href="http://software.topcoder.com/components/subscriptions.jsp"><img src="/i/home/promos/compSubscriptions.jpg" border=0 /></A></td></tr>
 		</table>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
 			<tr>
@@ -83,7 +83,7 @@
 			</tr>
 			<tr>
 				<td class=homeArrow>&#160;</td>
-				<td class=homeText>Some of the best developers in the world are competing to build your next application. Learn how TopCoder delivers high-quality <A href="http://software.topcoder.com">software</A> at a lower cost than the competition.</td>
+				<td class=homeText>Developers from all over the world are competing to build your next application. Learn how TopCoder delivers high-quality <A href="http://software.topcoder.com">software</A> at a lower cost than the competition.</td>
 			</tr>
 
 			<tr>
@@ -92,7 +92,7 @@
 			</tr>
 			<tr>
 				<td class=homeArrow>&#160;</td>
-				<td class=homeText>Is your company looking to interact with the most talented developers from around the world? TopCoder offers many <A href="/corp/?module=Static&d1=corp&d2=spon_prog&d3=index">opportunities</A> to do just that.</td>
+				<td class=homeText>Is your company looking to interact with developers from around the world? TopCoder offers many <A href="/corp/?module=Static&d1=corp&d2=spon_prog&d3=index">opportunities</A> to do just that.</td>
 			</tr>
 			<tr>
 				<td class=homeArrow><img src="/i/home/triangle.gif" border=0 /></td>
@@ -100,20 +100,20 @@
 			</tr>
 			<tr>
 				<td class=homeArrow>&#160;</td>
-				<td class=homeText>Are you a company interested in <A href="/corp/?module=Static&d1=corp&d2=tces_home">hiring</A> the best talent?  Let TopCoder bring you together with software engineers looking for jobs.</td>
+				<td class=homeText>Are you a company interested in <A href="/corp/?module=Static&d1=corp&d2=tces_home">hiring</A> talent? Let TopCoder bring you together with software engineers looking for jobs.</td>
 			</tr>
 		</table>
 		</td>
 <%-- Right Column --%>
 		<td class=homeRightCol>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
-			<tr><td class=homeBigPromo><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/promos/tco04Finals.gif" border=0 /></A></td></tr>
-			<tr><td class=homeSmallPromo><A href="/"><img src="/i/clear.gif" width=270 height=105 border=0 /></A></td></tr>
+			<tr><td class=homeBigPromo><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/home/promos/tco04Finals.gif" border=0 /></A></td></tr>
+			<tr><td class=homeSmallPromo><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=spec_showdown"><img src="/i/home/promos/tco04SS_sm.gif" border=0 /></A></td></tr>
 		</table>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
 			<tr>
 				<td class=homeArrow><img src="/i/home/triangle.gif" border=0 /></td>
-				<td class=homeTitle><A href="/?t=schedule&c=index" class=homeTitleLink>Upcoming Events:</A></td>
+				<td class=homeTitle><A href="/?t=schedule&c=index" class=homeTitleLink>October Events:</A></td>
 			</tr>
 			<tr>
 				<td class=homeArrow>&#160;</td>
@@ -121,8 +121,7 @@
 				<b>10/06</b> - SRM 214<br/><br/>
 				<b>10/16</b> - SRM 215<br/><br/>
 				<b>10/18</b> - SRM 216<br/><br/>
-				<b>10/27</b> - SRM 217<br/><br/>
-				<b>11/11-12</b> - TCO Onsite Finals
+				<b>10/27</b> - SRM 217
 				</td>
 			</tr>
 			<tr>
