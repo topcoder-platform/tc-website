@@ -79,6 +79,7 @@ public abstract class FullRegBase extends SimpleRegBase {
                     al = (ArrayList)multiAnswerMap.get(new Long(response.getQuestionId()));
                 }
                 al.add(String.valueOf(response.getAnswerId()));
+                multiAnswerMap.put(new Long(response.getQuestionId()), al);
                 //setDefault(Constants.DEMOG_PREFIX + response.getQuestionId(), String.valueOf(response.getAnswerId()));
             } else {
                 //todo something is wrong, we don't recognize that kind of question
