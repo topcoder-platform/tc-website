@@ -1,4 +1,4 @@
-package com.topcoder.web.ejb.user;
+package com.topcoder.web.screening.ejb.coder;
 
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;

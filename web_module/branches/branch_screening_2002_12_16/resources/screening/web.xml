@@ -6,7 +6,6 @@
 
 <web-app>
 
-
 <servlet>
   <servlet-name>screening</servlet-name>
   <display-name>screening</display-name>

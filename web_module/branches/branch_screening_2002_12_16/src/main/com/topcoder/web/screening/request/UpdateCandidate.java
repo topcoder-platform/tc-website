@@ -19,13 +19,13 @@ import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.email.EmailHome;
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.ejb.user.UserHome;
-import com.topcoder.web.ejb.user.CompanyCandidate;
-import com.topcoder.web.ejb.user.CompanyCandidateHome;
 
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.common.ScreeningException;
 import com.topcoder.web.screening.ejb.coder.Coder;
 import com.topcoder.web.screening.ejb.coder.CoderHome;
+import com.topcoder.web.screening.ejb.coder.CompanyCandidate;
+import com.topcoder.web.screening.ejb.coder.CompanyCandidateHome;
 import com.topcoder.web.screening.model.CandidateInfo;
 import com.topcoder.web.common.security.PrincipalMgr;
 import com.topcoder.web.common.security.PrincipalMgrException;
@@ -36,7 +36,7 @@ import com.topcoder.web.common.security.PrincipalMgrException;
  * Then it will create a new one.
  * </p>
  *
- * @author Dan Tomalesky
+ * @author Grimicus
  * @version 1.0
  */
 public class UpdateCandidate extends BaseProcessor

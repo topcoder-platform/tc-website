@@ -18,4 +18,17 @@
         </reference-descriptor>
         <jndi-name>com.topcoder.web.screening.ejb.coder.CoderHome</jndi-name>
     </weblogic-enterprise-bean>
+    <weblogic-enterprise-bean>
+        <ejb-name>CompanyCandidate</ejb-name>
+        <caching-descriptor>
+            <max-beans-in-free-pool>20</max-beans-in-free-pool>
+        </caching-descriptor>
+        <reference-descriptor>
+            <resource-description>
+                <res-ref-name>datasource</res-ref-name>
+                <jndi-name>SCREENING_OLTP</jndi-name>
+            </resource-description>
+        </reference-descriptor>
+        <jndi-name>com.topcoder.web.screening.ejb.coder.CompanyCandidateHome</jndi-name>
+    </weblogic-enterprise-bean>
 </weblogic-ejb-jar>
