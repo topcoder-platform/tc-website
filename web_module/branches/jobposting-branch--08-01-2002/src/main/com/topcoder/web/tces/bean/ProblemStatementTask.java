@@ -24,7 +24,7 @@ import java.util.Map;
  *
  * @author  George Dean
  */
-public class ProblemStatementTask extends Object implements java.io.Serializable {
+public class ProblemStatementTask extends BaseTask implements Task, Serializable {
     
     private static Logger log = Logger.getLogger(ProblemStatementTask.class);
 
