@@ -97,6 +97,22 @@ public final class TaskDevelopment {
 
             if (command.equals("tcs_inquire") || command.equals("tcs_app_inquire")) {
                 if (nav.isLoggedIn()) {
+
+                    int phase = Integer.parseInt(request.getParameter("phase"));
+                    int version = Integer.parseInt(request.getParameter("version"));
+                    devTag.addTag(new ValueTag("phase", phase));
+                    devTag.addTag(new ValueTag("version", version));
+                    long projectId = Long.parseLong(request.getParameter("projectId"));
+                    long componentId = 0;
+                    boolean appProject = false;
+                    if (Conversion.checkNull(request.getParameter("comp")).equals("")) {
+                        appProject = true;
+                    } else {
+                        componentId = Long.parseLong(request.getParameter("comp"));
+                        devTag.addTag(new ValueTag("comp", componentId));
+                    }
+                    devTag.addTag(new ValueTag("projectId", projectId));
+
                     Request dataRequest = null;
                     ResultSetContainer rsc = null;
                     Map resultMap = null;
