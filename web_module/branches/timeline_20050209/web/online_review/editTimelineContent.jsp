@@ -54,6 +54,7 @@
             
 <bean:define id="theProject" name="projectForm" property="project" type="com.topcoder.apps.review.projecttracker.Project" />
             <table border="0" cellpadding="0" cellspacing="1" width="100%">
+
 <logic:equal name="projectForm" property="timelineValid" value="false">
                 <tr>
                     <td colspan="<%=theProject.getTimeline().length+1%>" width="100%" class="errorText">
@@ -69,6 +70,13 @@
 
 <td>
 <table border="0" cellpadding="0" cellspacing="1" class="forumBkgd"  width="100%">
+<logic:equal name="projectForm" property="timelineValid" value="false">
+                <tr>
+                    <td colspan="<%=theProject.getTimeline().length+1%>" width="100%" class="errorText">
+                        <html:errors property='timeline' /></td>
+                </tr>
+</logic:equal>
+
     <tr valign="top">
 	<td class="forumTitleCenter"><img src="images/clear.gif" alt="" width="1" height="1" border="0"></td>
 	<td class="forumTitleCenter" width="8%">
@@ -103,8 +111,10 @@
 			    <table border="0" width="100%">
 				    <tr>
 					<td width="50%" align="left">
+				<logic:notEqual name="pIdx" value="0">
 		                        <html:radio property='<%="adjustStartDate["+pIdx+"]"%>' value="true"  />
 						When previous phase ends
+				</logic:notEqual>						
 					</td>
 					<td width="50%">
 			                        <html:radio property='<%="adjustStartDate["+pIdx+"]"%>' value="false" />

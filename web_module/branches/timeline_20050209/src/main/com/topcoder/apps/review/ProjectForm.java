@@ -1019,38 +1019,25 @@ log(Level.INFO, "checkProjectData="+checkProjectData);
 
         if (checkTimeline)  {
             timelineValid = true;
-/*
+
             for (int i = 0; i < project.getTimeline().length; i++) {
                 String phaseName = project.getTimeline()[i].getPhase().getName();
-                Date start = project.getTimeline()[i].getStartDate();
-                Date end = project.getTimeline()[i].getEndDate();
 
-                if (start == null) {
-                    errors.add("timeline",
-                            new ActionError("error.format", "Error in the start date of phase " + phaseName));
-                    timelineValid = false;
+                if (!adjustStartDates[i]) {
+                    Date start = parseDate(forcedStartDates[i]);
+
+                    if (start == null) {
+                        errors.add("timeline",
+                                new ActionError("error.format", "Error in the start date of phase " + phaseName));
+                        timelineValid = false;
+                    }
                 }
-                if (end == null) {
-                    errors.add("timeline",
-                            new ActionError("error.format", "Error in the end date of phase " + phaseName));
-                    timelineValid = false;
-                }
-                if (start != null && end != null && start.compareTo(end) > 0) {
-                    errors.add("timeline",
-                            new ActionError("error.format",
-                                    "Start date of phase " + phaseName + " must be ahead of end date"));
-                    timelineValid = false;
-                }
-                if (start != null && i > 0 && project.getTimeline()[i - 1].getEndDate() != null
-                        && start.compareTo(project.getTimeline()[i - 1].getEndDate()) < 0) {
-                    errors.add("timeline",
-                            new ActionError("error.format",
-                                    "Start date of phase " + phaseName
-                            + " must be after the previous end date"));
-                    timelineValid = false;
-                }
+                //FIX: check time
+
+
             }
-*/
+
+
             if (!timelineValid) {
                 setValid(false);
             }
@@ -1245,6 +1232,7 @@ public void timeLineFromProject(Project project)
         }
 
         adjustStartDates[0] = false; // qq fix
+        forcedStartDates[0] = dateFormatter.format(project.getTimeline()[0].getStartDate());
 
         int n = startDates.length;
         TCPhase[] phases = new TCPhase[n];
@@ -1256,7 +1244,11 @@ public void timeLineFromProject(Project project)
             if (i > 0) {
                 phases [i].addDependency(phases[i - 1]);
                 adjustStartDates[i] = project.getTimeline()[i].getStartDate().equals(project.getTimeline()[i-1].getEndDate());
+                if (!adjustStartDates[i]) {
+                    forcedStartDates[i] = dateFormatter.format(project.getTimeline()[i].getStartDate());
+                }
             }
+
             phaseLengths[i] = phases[i].getLength();
         }
 
