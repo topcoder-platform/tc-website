@@ -50,9 +50,9 @@
 
 <%@ page import="javax.ejb.*,javax.naming.*,javax.rmi.*,com.topcoder.web.TCES.ejb.*,java.rmi.*,java.util.*" %>
 <%@ page import="com.topcoder.web.tces.common.*" %>
-
+<%@ page import="com.topcoder.web.TCES.common.*" %>
 <%
-
+/*
 Lookup cities = new Lookup();
 cities.add("0", "New York");
 cities.add("1", "Los Angeles");
@@ -86,7 +86,7 @@ Lookup years = new Lookup();
 years.add("0", "2002");
 years.add("1", "2003");
 
-
+*/
 String selectedCity = "";
 String selectedSchool = "";
 String selectedDegreeType = "";
