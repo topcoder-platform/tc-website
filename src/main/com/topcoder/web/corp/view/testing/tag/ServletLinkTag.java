@@ -8,6 +8,8 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 
 import com.topcoder.web.corp.common.Constants;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.BaseServlet;
 
 /**
  * Custom tag to simplify linking to the servlet.
@@ -132,9 +134,9 @@ public class ServletLinkTag extends TagSupport {
             (HttpServletRequest)pageContext.getRequest();
 
         StringBuffer buffer = new StringBuffer();
-        
-        buffer.append(request.getContextPath());
-        buffer.append(Constants.CONTROLLER_URL);
+
+        SessionInfo info = (SessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);
+        buffer.append(info.getServletPath());
         if(processor != null || param != null){
             buffer.append("?");
             if(processor != null){
