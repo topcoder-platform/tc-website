@@ -69,9 +69,9 @@ public class UserListTest extends BaseProcessor {
      *  "companyUsers" for use in the userlist jsp page.
      */
     private void setupUsersList() throws Exception {
-
+        long companyId = 0;
         try {
-            long companyId = Long.parseLong(request.getParameter("companyId"));
+            companyId = Long.parseLong(request.getParameter("companyId"));
         } catch (NumberFormatException nfe) {
             throw new Exception("Error determining company ID");
         }
