@@ -1,6 +1,4 @@
-<%@ page import="com.topcoder.web.codinginterface.techassess.Constants,
-                 com.topcoder.web.common.BaseProcessor,
-                 java.util.Map"%>
+<%@ page import="com.topcoder.web.codinginterface.techassess.Constants"%>
 <%@ taglib uri="/WEB-INF/tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
@@ -69,6 +67,7 @@ function submitEnter(e) {
 						<td class=loginLeft>Login:</td>
 						<td class=loginRight><tc-webtag:textInput name="<%=Constants.HANDLE%>" size="15" maxlength="15" onKeyPress="submitEnter(event)"/></td>
 					</tr>
+					<tr><td class=tableText colspan=2><p class=pC><span class=bigRed><tc-webtag:errorIterator id="err" name="<%=Constants.PASSWORD%>"><%=err%><br/></tc-webtag:errorIterator></span></p></td></tr>
 					<tr>
 						<td class=loginLeft>Password:</td>
 						<td class=loginRight><tc-webtag:textInput name="<%=Constants.PASSWORD%>" size="15" maxlength="15" onKeyPress="submitEnter(event)"/></td>
