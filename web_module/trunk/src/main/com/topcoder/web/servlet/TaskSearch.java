@@ -353,7 +353,7 @@ public final class TaskSearch {
                         rsc = (ResultSetContainer) resultMap.get("Coder_Data");
                         if (!rsc.isEmpty()) {
                             stat = new com.topcoder.common.web.data.stat.coder.Coder();
-                            stat.setMemberSince((java.sql.Date)rsc.getItem(0, "member_since").getResultData());
+                            stat.setMemberSince(new java.sql.Date(((Date)rsc.getItem(0, "member_since").getResultData()).getTime()));
                             stat.setHandle(rsc.getItem(0, "handle").toString());
                             stat.setRating(((Integer)rsc.getItem(0, "rating").getResultData()).intValue());
                             stat.setTotalEarnings(((Float)rsc.getItem(0, "total_earnings").getResultData()).floatValue());
