@@ -12,8 +12,8 @@
 		<td class=tabBarEnd align=right rowspan=2><img src="/i/corp/screening/tabBarEnd.gif" alt=""/></td>
 	</tr>
 	<tr>
-		<td class=tabBar><img src="/i/corp/screening/tab.gif" alt=""/></td>
-		<td class=tabBar><img src="/i/corp/screening/tab.gif" alt=""/></td>
-		<td class=tabBar><img src="/i/corp/screening/tab.gif" alt=""/></td>
+		<td class=tabBar><img src="/i/corp/screening/mainTab.gif" alt=""/></td>
+		<td class=tabBar><img src="/i/corp/screening/mainTab.gif" alt=""/></td>
+		<td class=tabBar><img src="/i/corp/screening/mainTab.gif" alt=""/></td>
 	</tr>
 </table>

@@ -19,7 +19,8 @@
 
 		<table cellspacing=0 cellpadding=0 class=timeTable>
 			<tr>
-				<td class=timeCell>Current Time: 3:43:50 PM</td>
+				<td class=timeCellLeft>&#160;</td>
+				<td class=timeCellRight>Current Time<br />3:43:50 PM</td>
 			</tr>
 		</table>
 
