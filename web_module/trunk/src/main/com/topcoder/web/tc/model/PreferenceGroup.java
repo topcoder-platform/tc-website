@@ -10,6 +10,7 @@ import java.io.Serializable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Collections;
 /**
  *
  * @author  rfairfax
@@ -29,7 +30,7 @@ public class PreferenceGroup implements Serializable, Comparable {
     
     public void addPreference(Preference p) {
         prefs.add(p);
-        prefs.sort();
+        Collections.sort(prefs);
     }
     
     public int getSortOrder() {

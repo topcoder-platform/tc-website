@@ -15,6 +15,7 @@ import com.topcoder.shared.dataAccess.resultSet.*;
 
 import com.topcoder.web.tc.model.PreferenceGroup;
 import com.topcoder.web.tc.model.Preference;
+import com.topcoder.web.tc.model.PreferenceValue;
 
 import java.util.*;
 /**
@@ -49,6 +50,26 @@ public class Preferences extends ContractingBase {
                 pref.setSortOrder(rscPref.getIntItem(j, "sort_order"));
                 pref.setText(rscPref.getStringItem(j, "preference_desc"));
                 pref.setType(rscPref.getIntItem(j, "preference_type_id"));
+                
+                //load answers if type == multi select
+                if(pref.getType() == Constants.PREFERENCE_MULTIPLE_SELECT) {
+                    Request rval = new Request();
+                    rval.setContentHandle("preference_values");
+                    rval.setProperty("prid", String.valueOf(rscPref.getIntItem(j, "preference_id")));
+                    
+                    ResultSetContainer rscVal = (ResultSetContainer)getDataAccess().getData(rval).get("preference_values");
+                    
+                    for(int x = 0; x < rscVal.size(); x++) {
+                        PreferenceValue pv = new PreferenceValue();
+                        
+                        pv.setID(rscVal.getIntItem(x, "preference_value_id"));
+                        pv.setSortOrder(rscVal.getIntItem(x, "sort_order"));
+                        
+                        pv.setText(rscVal.getStringItem(x, "value"));
+                        
+                        pref.addPrefValue(pv);
+                    }
+                }
                 
                 grp.addPreference(pref);
             }

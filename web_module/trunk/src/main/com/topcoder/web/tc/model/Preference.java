@@ -10,7 +10,7 @@ import java.io.Serializable;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Collections;
 /**
  *
  * @author  rfairfax
@@ -31,7 +31,7 @@ public class Preference implements Serializable, Comparable {
     
     public void addPrefValue(PreferenceValue pv) {
         options.add(pv);
-        options.sort();
+        Collections.sort(options);
     }
     
     public int getType() {
