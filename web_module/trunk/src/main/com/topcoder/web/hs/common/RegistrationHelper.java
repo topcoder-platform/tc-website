@@ -458,32 +458,31 @@ public class RegistrationHelper {
 
             UserHome uh = (UserHome) ctx.lookup("hs:" + UserHome.EJB_REF_NAME);
             User user = uh.create();
-            long user_id = srb.getUserId().longValue();
-            user.setFirstName(user_id, srb.getFirstName());
-            user.setLastName(user_id, srb.getLastName());
+            long userId = srb.getUserId().longValue();
+            user.setFirstName(userId, srb.getFirstName());
+            user.setLastName(userId, srb.getLastName());
 
             UserSchoolHome ush = (UserSchoolHome)
                     ctx.lookup("hs:" + UserSchoolHome.EJB_REF_NAME);
             UserSchool user_school = ush.create();
-            long school_id = srb.getSchoolId().longValue();
-            if (user_school.existsUserSchoolId(user_id, school_id)) {
-                user_school.setCurrentUserSchoolId(user_id, school_id);
+            long schoolId = srb.getSchoolId().longValue();
+            if (user_school.exists(userId, schoolId)) {
+                user_school.setCurrentUserSchoolId(userId, schoolId);
             } else {
-                user_school.createUserSchool(user_id, school_id);
-                user_school.setCurrentUserSchoolId(user_id, school_id);
+                user_school.createUserSchool(userId, schoolId);
+                user_school.setCurrentUserSchoolId(userId, schoolId);
             }
 
             EmailHome eh = (EmailHome) ctx.lookup("hs:" + EmailHome.EJB_REF_NAME);
             Email email = eh.create();
-            long email_id = email.createEmail(user_id);
-            email.setPrimaryEmailId(user_id, email_id);
-            email.setAddress(email_id, srb.getEmail());
-            email.setEmailTypeId(email_id, EMAIL_TYPE_ID_DEFAULT);
+            long emailId = email.getPrimaryEmailId(userId);
+            email.setAddress(emailId, srb.getEmail());
+            email.setEmailTypeId(emailId, EMAIL_TYPE_ID_DEFAULT);
 
             CoderHome ch = (CoderHome) ctx.lookup(CoderHome.EJB_REF_NAME);
             Coder coder = ch.create();
-            coder.setEditorId(user_id, srb.getEditorId().intValue());
-            coder.setLanguageId(user_id, srb.getLanguageId().intValue());
+            coder.setEditorId(userId, srb.getEditorId().intValue());
+            coder.setLanguageId(userId, srb.getLanguageId().intValue());
 
             utx.commit();
         } catch (Exception _e) {
@@ -821,32 +820,32 @@ public class RegistrationHelper {
 
             UserHome uh = (UserHome) ctx.lookup("hs:" + UserHome.EJB_REF_NAME);
             User user = uh.create();
-            long user_id = crb.getUserId().longValue();
-            user.setFirstName(user_id, crb.getFirstName());
-            user.setLastName(user_id, crb.getLastName());
+            long userId = crb.getUserId().longValue();
+            user.setFirstName(userId, crb.getFirstName());
+            user.setLastName(userId, crb.getLastName());
 
             UserSchoolHome ush = (UserSchoolHome)
                     ctx.lookup("hs:" + UserSchoolHome.EJB_REF_NAME);
             UserSchool user_school = ush.create();
             long school_id = crb.getSchoolId().longValue();
-            if (user_school.existsUserSchoolId(user_id, school_id)) {
-                user_school.setCurrentUserSchoolId(user_id, school_id);
+            if (user_school.exists(userId, school_id)) {
+                user_school.setCurrentUserSchoolId(userId, school_id);
             } else {
-                user_school.createUserSchool(user_id, school_id);
-                user_school.setCurrentUserSchoolId(user_id, school_id);
+                user_school.createUserSchool(userId, school_id);
+                user_school.setCurrentUserSchoolId(userId, school_id);
             }
 
             EmailHome eh = (EmailHome) ctx.lookup("hs:" + EmailHome.EJB_REF_NAME);
             Email email = eh.create();
-            long email_id = email.createEmail(user_id);
-            email.setPrimaryEmailId(user_id, email_id);
-            email.setAddress(email_id, crb.getEmail());
-            email.setEmailTypeId(email_id, EMAIL_TYPE_ID_DEFAULT);
+            long emailId = email.getPrimaryEmailId(userId);
+            email.setPrimaryEmailId(userId, emailId);
+            email.setAddress(emailId, crb.getEmail());
+            email.setEmailTypeId(emailId, EMAIL_TYPE_ID_DEFAULT);
 
             CoderHome ch = (CoderHome) ctx.lookup(CoderHome.EJB_REF_NAME);
             Coder coder = ch.create();
-            coder.setEditorId(user_id, crb.getEditorId().intValue());
-            coder.setLanguageId(user_id, crb.getLanguageId().intValue());
+            coder.setEditorId(userId, crb.getEditorId().intValue());
+            coder.setLanguageId(userId, crb.getLanguageId().intValue());
 
             utx.commit();
         } catch (Exception _e) {
