@@ -7,9 +7,6 @@ import java.util.ArrayList;
 
 public class FullRegInfo extends SimpleRegInfo {
 
-    private byte[] resume;
-    private String fileName;
-    private int fileType;
     private int coderType;
     private List responses;
 
@@ -18,30 +15,6 @@ public class FullRegInfo extends SimpleRegInfo {
 
     public FullRegInfo(SimpleRegInfo info) {
         super(info);
-    }
-
-    public byte[] getResume() {
-        return resume;
-    }
-
-    public void setResume(byte[] resume) {
-        this.resume = resume;
-    }
-
-    public String getFileName() {
-        return fileName;
-    }
-
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
-
-    public int getFileType() {
-        return fileType;
-    }
-
-    public void setFileType(int fileType) {
-        this.fileType = fileType;
     }
 
     public int getCoderType() {
