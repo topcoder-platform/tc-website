@@ -16,7 +16,7 @@
         </init-param>
         <init-param>
             <param-name>default_processor</param-name>
-            <param-value>Static</param-value>
+            <param-value>Home</param-value>
             <description>the processor to execute if non is specified in the request</description>
         </init-param>
         <init-param>
