@@ -11,13 +11,19 @@ import javax.servlet.http.HttpServletResponse;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.RequestProcessor;
 //import com.topcoder.web.corp.request.PrimaryRegistrationProcessor;
-import com.topcoder.web.query.common.Constants;
+//import com.topcoder.web.query.common.Constants;
 
 /**
  * Final class comment will go gere
  * 
  * 
  * ----- some realization notes (to be removed upon completion) ---------<br>
+ * 
+ * 2002/12/20 by djFD 
+ * I just have commentted all related to Constants to avoid reference to
+ * foreign package com.topcoder.web.query.common.Constants.
+ * All references are replaced by dumbly hardcoded literals so we have to decide
+ * what to do with them
  * 
  * 2002/12/17 by djFD
  * 
@@ -43,9 +49,6 @@ import com.topcoder.web.query.common.Constants;
 public class MainServlet extends HttpServlet {
     private final static Logger log = Logger.getLogger(MainServlet.class);
     
-//    private RequestProcessor proc1 = null;
-//    private RequestProcessor proc2 = null;
-
     /**
      * Initializes the servlet. What content will be feed is defined from
      * servlet config accepted
@@ -53,46 +56,8 @@ public class MainServlet extends HttpServlet {
      * @throws     ServletException
      * */
     public void init() throws ServletException {
-        com.topcoder.web.query.common.Constants.init(getServletConfig());
-//        try {
-//            proc1 = (RequestProcessor)Class.forName(config.getInitParameter("processor-1")).newInstance();
-//            log.debug("destination 1 ok");
-//        }
-//        catch (Exception e) {
-//            log.error("destination1 disabled ("+e.getMessage()+")");
-//        }
-//
-//        try {
-//            proc2 = (RequestProcessor)Class.forName(config.getInitParameter("processor-2")).newInstance();
-//            log.debug("destination 2 ok");
-//        }
-//        catch (Exception e) {
-//            log.error("destination2 disabled ("+e.getMessage()+")");
-//        }
+        //com.topcoder.web.query.common.Constants.init(getServletConfig());
     }
-
-//    /**
-//     * Returns -1 when URI specified is invalid (look at class description to
-//     * see what requests are valid). 
-//     * @param req request to the content
-//     * @return int destination: eiter 1 or two when URI is valid, otherwise -1
-//     */
-//    private int getDestination(HttpServletRequest req) {
-//        int n = req.getContextPath().trim().length();
-//        String reqRelURI = req.getRequestURI().trim().substring(n);
-//        if( ! "/".equals(reqRelURI) ) {
-//            return -1;
-//        }
-//        try {
-//            int dest = Integer.parseInt(req.getQueryString());
-//            if( dest == 1 || dest ==2 ) {
-//                return dest;
-//            }
-//        }
-//        catch(Exception e) {
-//        }
-//        return -1;
-//    }
 
     /**
      * Method comments will go here  
@@ -100,6 +65,11 @@ public class MainServlet extends HttpServlet {
      * 
      * 
      * ----- some realization notes (to be removed upon completion) ---------<br>
+     * 
+     * 2002/12/20 by djFD
+     * Hi NeoTuri, maybe is it better instead of iterating thru entire bundle of
+     * init parameters to get one from some HashTable created upon servlet
+     * initialization?
      * 
      * -- 2002/12/19 by NeoTuri
      * All requests will be distributed on the 'module' query parameter in the 
@@ -178,39 +148,6 @@ public class MainServlet extends HttpServlet {
             /* Not sure what to do when no modules can be used to complete this request */
             sendToPage( request, response, "index.jsp", false );
         }
-        /*
-    	// I suppose for testing purposes that 'pr' request parameter defines
-    	// what action to pefrorm, so if it is 'prim_reg' literal then my
-    	// processor must be called.
-    	// all others parameters (if any) in that case is my responsibility
-    	String param1 = request.getParameter("pr");
-    	if( "prim-reg".equalsIgnoreCase(param1) ) {
-    		RequestProcessor proc = new PrimaryRegistrationProcessor();
-    		proc.setRequest(request);
-    		try {
-    			proc.process();
-    		}
-    		catch(Exception e) {
-    			String errPage = proc.getNextPage();
-    			if( proc.isNextPageInContext() ) {
-    				getServletContext().getRequestDispatcher(errPage).forward(request, response);
-    			}
-    			else {
-    				response.sendRedirect(errPage);
-    			}
-    		}
-    	}
-    	else {
-    		String entireUri = request.getRequestURI();
-    		if( null != request.getQueryString() ) {
-    			entireUri += "?"+request.getQueryString();
-    		}
-    		//possible situations when dispatcher for the given URI is absent,
-    		// and then dispatcher will be null  
-    		getServletContext().getRequestDispatcher(entireUri).forward(request, response);
-    	}
-    	return;
-        */
     }
     
     /**
@@ -271,12 +208,12 @@ public class MainServlet extends HttpServlet {
     private void sendToLoginPage(HttpServletRequest request, HttpServletResponse response, boolean forward)
             throws ServletException, IOException {
         if (forward) {
-            sendToPage(request, response, Constants.LOGIN_PAGE, forward);
+            sendToPage(request, response, "login.jsp" /*Constants.LOGIN_PAGE*/, forward);
         } else {
             sendToPage(request,
                     response,
                     "http://" + request.getServerName() + request.getContextPath() + request.getServletPath() + "?" +
-                    Constants.TASK_PARAM + "=" + Constants.LOGIN_TASK,
+                    "module=login"/*Constants.TASK_PARAM + "=" + Constants.LOGIN_TASK*/,
                     false);
         }
     }
@@ -295,7 +232,7 @@ public class MainServlet extends HttpServlet {
                                     Throwable exception) throws ServletException, IOException {
         log.error("Controller error - forwarding to error page", exception);
         request.setAttribute("Exception", exception);
-        sendToPage(request, response, Constants.ERROR_PAGE, true);
+        sendToPage(request, response, "error.jsp" /*Constants.ERROR_PAGE*/, true);
     }
 
     private static boolean isLegal(String s) {
