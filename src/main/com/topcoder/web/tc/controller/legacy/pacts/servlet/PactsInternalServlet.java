@@ -2642,9 +2642,11 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         doAffidavit(request, response);
     }
 
+/*
     protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
         return true;
     }
+*/
 
 
 }
