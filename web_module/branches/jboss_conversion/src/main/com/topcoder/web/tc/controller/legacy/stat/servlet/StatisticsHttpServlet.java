@@ -32,7 +32,8 @@ import java.util.Properties;
 
 public class StatisticsHttpServlet extends HttpServlet {
     private static Logger log = Logger.getLogger(StatisticsHttpServlet.class);
-    private static final String XML_FILE = ApplicationServer.BASE_DIR + "/resources/stat/statServlet.xml";
+//    private static final String XML_FILE = ApplicationServer.BASE_DIR + "/resources/stat/statServlet.xml";
+    private static final String XML_FILE = "statServlet.xml";
     private static final String LOGGED_IN_ONLY = "1";
     private static final String ACCESS_MAP_KEY = "ACCESSCTRL";
     private Properties mProp = new Properties();

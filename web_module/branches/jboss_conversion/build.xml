@@ -646,6 +646,12 @@
                  <include name="problem.xsd"/>
                  <include name="Resume.properties"/>
                  <include name="TC.properties"/>
+                 <include name="TC.properties"/>
+             </fileset>
+         </copy>
+         <copy todir="${jboss_conf}">
+             <fileset dir="${resources}/stat">
+                 <include name="statServlet.xml"/>
              </fileset>
          </copy>
      </target>
