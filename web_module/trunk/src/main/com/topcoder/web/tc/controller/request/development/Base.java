@@ -8,6 +8,7 @@ import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.util.Map;
 import java.util.Iterator;
@@ -17,11 +18,14 @@ import java.util.Iterator;
  * Date: Feb 10, 2004
  */
 public abstract class Base extends BaseProcessor {
+    protected Logger log = Logger.getLogger(Base.class);
 
     final protected void businessProcessing() throws TCWebException {
         //get the data for the right side
         try {
 
+            log.debug("ENTERING businessProcessing");
+            
             ResultSetContainer openProjects = getOpenProjects();
 
             double devSum = 0.0d;
@@ -42,6 +46,7 @@ public abstract class Base extends BaseProcessor {
             getRequest().setAttribute("DesignSum", new Double(designSum));
             getRequest().setAttribute("OpenProjects", openProjects);
 
+            log.debug("LEAVING businessProcessing");
 
         } catch (TCWebException e) {
             throw e;
