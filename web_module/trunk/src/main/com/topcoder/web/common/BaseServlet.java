@@ -31,6 +31,7 @@ public abstract class BaseServlet extends HttpServlet {
     private String LOGIN_PROCESSOR = null;
     protected String LOGIN_SERVLET = null;
     public static final String MESSAGE_KEY = "message";
+    public static final String URL_KEY = "url";
     public static final String NEXT_PAGE_KEY = "nextpage";
     public static final String SESSION_INFO_KEY = "sessionInfo";
 
@@ -132,7 +133,7 @@ public abstract class BaseServlet extends HttpServlet {
                             throw new PermissionException(authentication.getActiveUser(), resource);
                         }
                     } catch (ClassNotFoundException e) {
-                        throw new NavigationException(e);
+                        throw new NavigationException("Invalid request", e);
                     }
                 } catch (PermissionException pe) {
                     log.debug("caught PermissionException");
@@ -239,6 +240,8 @@ public abstract class BaseServlet extends HttpServlet {
             request.setAttribute(MESSAGE_KEY, "Sorry, you do not have permission to access the specified resource.");
         } else if (e instanceof NavigationException) {
             request.setAttribute(MESSAGE_KEY, e.getMessage());
+            if (((NavigationException)e).hasUrl())
+                request.setAttribute(URL_KEY, ((NavigationException)e).getUrl());
         } else {
             request.setAttribute(MESSAGE_KEY, "An error has occurred when attempting to process your request.");
         }
