@@ -35,35 +35,6 @@ public class Constants {
     public static final String KEY_MODULE = "module";
     public static final String KEY_INTERNAL_EXC_PAGE = "int-exc-page";
 
-    /**
-     * Environment to produce JTA InitialContext from.
-     */
-    public static final Hashtable JTA_CONTEXT_ENVIRONMENT = new Hashtable();
-
-    /**
-     * Environment to produce JTA InitialContext from.
-     */
-    public static final Hashtable NDS_CONTEXT_ENVIRONMENT = new Hashtable();
-
-    /**
-     * jndi name of transaction manager
-     */
-    public static String JTA_TX_MANAGER = null;
-
-    /**
-     * Environment to produce InitialContext for our EJB.
-     */
-    public static final Hashtable EJB_CONTEXT_ENVIRONMENT = new Hashtable();
-
-    /**
-     * Name of transactional DataSourse to be used
-     */
-    public static String JTA_DATA_SOURCE = null;
-
-    /**
-     * Name of non-transactional DataSourse to be used
-     */
-    public static String NDS_DATA_SOURCE = null;
     public static String CORP_PRINCIPAL = null;
     public static String CCTX_LOGIN = null;
     public static String CCTX_PARTNER = null;
@@ -93,56 +64,6 @@ public class Constants {
 
         store = new TCResourceBundle("CorpConstants");
         CORP_PRINCIPAL = store.getProperty("security-corp-principal", "corp_user");
-        JTA_TX_MANAGER = store.getProperty(
-                "jta-transaction-manager",
-                "weblogic/transaction/TransactionManager"
-        );
-
-        JTA_DATA_SOURCE = store.getProperty("jta-data-source", "JTS_CORP_OLTP");
-        NDS_DATA_SOURCE = store.getProperty("nds-data-source", "CORP_OLTP");
-
-        String value;
-        // jta environment
-        value = store.getProperty("jta-context-factory", "weblogic.jndi.WLInitialContextFactory");
-        JTA_CONTEXT_ENVIRONMENT.put(
-                javax.naming.Context.INITIAL_CONTEXT_FACTORY,
-                value
-        );
-        value = store.getProperty("jta-provider-url", "t3://127.0.0.1:8040");
-        JTA_CONTEXT_ENVIRONMENT.put(
-                javax.naming.Context.PROVIDER_URL,
-                value
-        );
-
-        // nds environment
-        value = store.getProperty(
-                "nds-context-factory",
-                "weblogic.jndi.WLInitialContextFactory"
-        );
-        NDS_CONTEXT_ENVIRONMENT.put(
-                javax.naming.Context.INITIAL_CONTEXT_FACTORY,
-                value
-        );
-        value = store.getProperty("nds-provider-url", "t3://127.0.0.1:8040");
-        NDS_CONTEXT_ENVIRONMENT.put(
-                javax.naming.Context.PROVIDER_URL,
-                value
-        );
-
-        // app ejb environment
-        value = store.getProperty(
-                "ejb-context-factory",
-                "weblogic.jndi.WLInitialContextFactory"
-        );
-        EJB_CONTEXT_ENVIRONMENT.put(
-                javax.naming.Context.INITIAL_CONTEXT_FACTORY,
-                value
-        );
-        value = store.getProperty("ejb-provider-url", "t3://127.0.0.1:8040");
-        EJB_CONTEXT_ENVIRONMENT.put(
-                javax.naming.Context.PROVIDER_URL,
-                value
-        );
 
         CCTX_LOGIN = store.getProperty("cctx-login", null);
         CCTX_PARTNER = store.getProperty("cctx-partner", null);

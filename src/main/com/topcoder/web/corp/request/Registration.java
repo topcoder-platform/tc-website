@@ -4,12 +4,13 @@ import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.NotAuthorizedException;
 import com.topcoder.security.RolePrincipal;
 import com.topcoder.security.UserPrincipal;
-import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.corp.Constants;
 import com.topcoder.web.corp.Util;
@@ -75,14 +76,14 @@ public final class Registration extends UserEdit {
      * @see com.topcoder.web.corp.request.UserEdit#getFormFields()
      */
     protected boolean getFormFields() throws Exception {
-        company = (String) request.getParameter(KEY_COMPANY);
-        title = (String) request.getParameter(KEY_TITLE);
-        compAddress = (String) request.getParameter(KEY_ADDRLINE);
-        compAddress2 = (String) request.getParameter(KEY_ADDRLINE2);
-        city = (String) request.getParameter(KEY_CITY);
-        state = (String) request.getParameter(KEY_STATE);
-        zip = (String) request.getParameter(KEY_ZIP);
-        country = (String) request.getParameter(KEY_COUNTRY);
+        company = request.getParameter(KEY_COMPANY);
+        title = request.getParameter(KEY_TITLE);
+        compAddress = request.getParameter(KEY_ADDRLINE);
+        compAddress2 = request.getParameter(KEY_ADDRLINE2);
+        city = request.getParameter(KEY_CITY);
+        state = request.getParameter(KEY_STATE);
+        zip = request.getParameter(KEY_ZIP);
+        country = request.getParameter(KEY_COUNTRY);
         return super.getFormFields();
     }
 
@@ -104,10 +105,8 @@ public final class Registration extends UserEdit {
         InitialContext ic = null;
         ResultSetContainer rsc = null;
         try {
-            ic = new InitialContext(Constants.NDS_CONTEXT_ENVIRONMENT);
-            DataAccessInt dai = new DataAccess((DataSource) ic.lookup(
-                    Constants.NDS_DATA_SOURCE)
-            );
+            ic = (InitialContext)TCContext.getInitial();
+            DataAccessInt dai = new DataAccess((DataSource) ic.lookup(DBMS.CORP_DATASOURCE_NAME));
             dataRequest.setContentHandle("cmd-states-list");
             Map resultMap = dai.getData(dataRequest);
             rsc = (ResultSetContainer) resultMap.get("State_List");
@@ -134,7 +133,6 @@ public final class Registration extends UserEdit {
     }
 
     /**
-     * @see com.topcoder.web.corp.request.UserEdit#verifyFormFieldsValidity(boolean)
      */
     protected boolean verifyFormFieldsValidity() {
         boolean valid = super.verifyFormFieldsValidity();
@@ -201,7 +199,6 @@ public final class Registration extends UserEdit {
     }
 
     /**
-     * @see com.topcoder.web.corp.request.UserEdit#verifyAllowed(com.topcoder.web.corp.request.UserEdit.SecurityInfo)
      */
     protected void verifyAllowed()
             throws NotAuthorizedException, Exception {
@@ -252,7 +249,7 @@ public final class Registration extends UserEdit {
         boolean techProblems = false;
         boolean success = false;
         try {
-            ic = new InitialContext(Constants.EJB_CONTEXT_ENVIRONMENT);
+            ic = (InitialContext)TCContext.getInitial();
             Request stateRequest = new Request();
             if (KEY_STATE.equals(key)) {
                 stateRequest.setContentHandle("cmd-state-name-from-id");
@@ -262,7 +259,7 @@ public final class Registration extends UserEdit {
                 stateRequest.setProperty("countryID", value);
             }
             DataAccessInt dai = new DataAccess(
-                    (DataSource) ic.lookup(Constants.JTA_DATA_SOURCE)
+                    (DataSource) ic.lookup(DBMS.CORP_JTS_DATASOURCE_NAME)
             );
             Map state = dai.getData(stateRequest);
             ResultSetContainer rsc;
@@ -301,12 +298,10 @@ public final class Registration extends UserEdit {
      * secToken.createNew. When true, new primary contact is being creating,
      * otherwise user with that id is about to be modified
      *
-     * @see com.topcoder.web.corp.request.UserEdit#storeUserDataIntoDB(InitialContext, SecurityInfo)
      */
     protected void storeUserDataIntoDB(InitialContext ic)
             throws NamingException, CreateException, RemoteException,
             GeneralSecurityException {
-        PrincipalMgrRemote mgr = secTok.man;
         commonFieldsStore(ic, secTok.createNew);
         // company item for user
         Company companyTable = (
@@ -318,7 +313,6 @@ public final class Registration extends UserEdit {
                 ).create();
 
         long companyID = -1;
-        long contactID = -1;
 
         if (secTok.createNew) {
             companyID = companyTable.createCompany();

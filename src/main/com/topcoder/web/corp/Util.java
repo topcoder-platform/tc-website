@@ -46,9 +46,9 @@ public class Util {
             throws NamingException, SystemException, NotSupportedException {
         InitialContext ic = null;
         try {
-            ic = new InitialContext(Constants.JTA_CONTEXT_ENVIRONMENT);
+            ic = (InitialContext)TCContext.getInitial();
             TransactionManager tm;
-            tm = (TransactionManager) ic.lookup(Constants.JTA_TX_MANAGER);
+            tm = (TransactionManager) ic.lookup(ApplicationServer.TRANS_FACTORY);
             tm.begin();
             return tm.getTransaction();
         } finally {

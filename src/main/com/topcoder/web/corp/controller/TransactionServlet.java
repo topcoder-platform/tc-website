@@ -1,6 +1,7 @@
 package com.topcoder.web.corp.controller;
 
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.corp.Constants;
@@ -307,7 +308,7 @@ public class TransactionServlet extends HttpServlet {
         InitialContext icEJB = null;
         Transaction dbTx = null;
         try {
-            icEJB = new InitialContext(Constants.EJB_CONTEXT_ENVIRONMENT);
+            icEJB = (InitialContext)TCContext.getInitial();
             dbTx = Util.beginTransaction();
             Purchase purchaseTable = (
                     (PurchaseHome) icEJB.lookup(PurchaseHome.EJB_REF_NAME)
@@ -440,7 +441,7 @@ public class TransactionServlet extends HttpServlet {
 
             InitialContext icEJB = null;
             try {
-                icEJB = new InitialContext(Constants.EJB_CONTEXT_ENVIRONMENT);
+                icEJB = (InitialContext)TCContext.getInitial();
                 // check if there is such product
                 Product productTable = (
                         (ProductHome) icEJB.lookup(ProductHome.EJB_REF_NAME)
