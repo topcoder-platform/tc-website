@@ -266,19 +266,19 @@
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Winner Announced:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="right">04.14.2004</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">04.14.2004</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Updated Submission Due Date:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="right">04.16.2004 9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">04.16.2004 9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Design Complete:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="right">04.19.2004</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">04.19.2004</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Estimated Development End Date:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="right">05.11.2004</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">05.11.2004</td>
                                                         </tr>
                                                     </table>
 
