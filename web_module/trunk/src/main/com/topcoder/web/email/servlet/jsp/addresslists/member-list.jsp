@@ -1,4 +1,5 @@
 <%@ page import="com.topcoder.web.email.servlet.*" %>
+<%@ page errorPage="../error.jsp" %>
 <h3>Mailing list members</h3>
 
 <% // alternate colors every row...

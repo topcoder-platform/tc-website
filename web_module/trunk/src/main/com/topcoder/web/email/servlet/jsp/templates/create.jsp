@@ -1,4 +1,5 @@
 <%@ page import="com.topcoder.web.email.servlet.*" %>
+<%@ page errorPage="../error.jsp" %>
 <jsp:useBean id="EmailTemplate" scope="session" class="com.topcoder.web.email.bean.EmailTemplateForm" />
 
 <html>

@@ -1,4 +1,5 @@
 <%@ page import="com.topcoder.web.email.servlet.*" %>
+<%@ page isErrorPage="true" %>
 
 <html>
 <head>

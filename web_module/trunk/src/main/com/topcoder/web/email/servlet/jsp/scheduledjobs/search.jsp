@@ -1,3 +1,9 @@
+<%@ page errorPage="../error.jsp" %>
+<jsp:include page="../header.jsp" />
+<%@ page import="com.topcoder.web.email.servlet.*, com.topcoder.web.email.bean.*, java.util.*" %>
+<%@ taglib uri="/email-taglib.tld" prefix="email"%>
+<jsp:useBean id="startDate" scope="request" class="java.util.GregorianCalendar"/>
+<jsp:useBean id="endDate" scope="request" class="java.util.GregorianCalendar"/>
 <html>
 <head>
 	<title>Job Search</title>
@@ -14,13 +20,8 @@ function reload()
 
 //--> </SCRIPT>
 
-<jsp:include page="../header.jsp" />
-<%@ page import="com.topcoder.web.email.servlet.*, com.topcoder.web.email.bean.*, java.util.*" %>
-<%@ taglib uri="/email-taglib.tld" prefix="email"%>
 
 <p class="bodyTextBig">Search by start date:</p>
-<jsp:useBean id="startDate" scope="request" class="java.util.GregorianCalendar"/>
-<jsp:useBean id="endDate" scope="request" class="java.util.GregorianCalendar"/>
 <form name="frmDate" action="<%=response.encodeURL(EmailConstants.ALIAS)%>" method="post" >
 	<input type="hidden" name="<%=EmailConstants.TASK%>" value="<%=EmailConstants.SCHEDULEDJOB_TASK%>">
 
