@@ -119,7 +119,7 @@
 <P>
 Everyone remembers the 1980's don't they?  The big hair, the Members Only jackets, 
 the leg warmers, carrying "Boom-boxes" on your shoulder, Molly Ringwald in every movie, and 
-those damn Rubik's Cubes.  The challenge was to try and return the six-sided cube to its original 
+those stupid Rubik's Cubes.  The challenge was to try and return the six-sided cube to its original 
 form by having all of the like-colored squares on the same side.  These little cubes had the whole 
 world, from infants to grandparents, captivated.  While solving the Rubik's Cube provided one with 
 a God-like mystique, some who consistently failed grew frustrated and quit, while others just keep 
