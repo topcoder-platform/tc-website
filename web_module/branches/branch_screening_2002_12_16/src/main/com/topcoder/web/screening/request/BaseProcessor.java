@@ -15,12 +15,15 @@ import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.security.*;
 import com.topcoder.web.common.security.*;
 import com.topcoder.web.screening.common.*;
+import com.topcoder.shared.util.logging.Logger;
 
 /** Provides some of the basic methods and data common to request processors.
  * @author Porgery
  */
 public abstract class BaseProcessor implements RequestProcessor {
     
+    private static Logger log = Logger.getLogger(BasicAuthentication.class);
+
     /** Holds value of property nextPageInContext. */
     private boolean nextPageInContext;
     
@@ -46,30 +49,57 @@ public abstract class BaseProcessor implements RequestProcessor {
      */    
     public abstract void process() throws Exception;
     
-    protected void authorize() throws Exception{
+    /** Attempts to authorize the current user for access to this
+     * processor.
+     * @throws ScreeningException For general failures
+     * @throws AnonymousUserException When the user is not logged in and anonymous access is not allowed
+     * @throws PermissionDeniedException When the user is logged in but does not have the necessary permission
+     */    
+    protected void authorize()
+    throws ScreeningException, AnonymousUserException, PermissionDeniedException{
         authorize(null);
     }
     
-    protected void authorize(String redirect) throws Exception{
-        Hashtable env = new Hashtable();
-        env.put(Context.INITIAL_CONTEXT_FACTORY,
-            "org.jnp.interfaces.NamingContextFactory");
-        env.put(Context.PROVIDER_URL,
-            ApplicationServer.SECURITY_PROVIDER_URL);
-        InitialContext context = new InitialContext(env);
-            
-        PrincipalMgrRemoteHome pmHome = (PrincipalMgrRemoteHome)
-            context.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
-        PrincipalMgrRemote principalMgr = pmHome.create();
-        
-        TCSubject sub = 
-            principalMgr.getUserSubject(getAuthentication().getUser().getId());
-        
-        Authorization auth = new TCSAuthorization(sub);
+    /** Attempts to authorize the current user for access to this
+     * processor.
+     * @param redirect URL to be passed to login page so it can redirect back here after login succeeds
+     * @throws ScreeningException For general failures
+     * @throws AnonymousUserException When the user is not logged in and anonymous access is not allowed
+     * @throws PermissionDeniedException When the user is logged in but does not have the necessary permission
+     */    
+    protected void authorize(String redirect)
+    throws ScreeningException, AnonymousUserException, PermissionDeniedException{
+        boolean permitted;
+        long userId = getAuthentication().getUser().getId();
         Resource r = new ClassResource(this.getClass());
+        try{
+            log.debug("Getting PrincipalMgr bean");
+            Hashtable env = new Hashtable();
+            env.put(Context.INITIAL_CONTEXT_FACTORY,
+                ApplicationServer.SECURITY_FACTORY);
+            env.put(Context.PROVIDER_URL,
+                ApplicationServer.SECURITY_PROVIDER_URL);
+            InitialContext context = new InitialContext(env);
+            
+            PrincipalMgrRemoteHome pmHome = (PrincipalMgrRemoteHome)
+                context.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+            PrincipalMgrRemote principalMgr = pmHome.create();
         
-        if(!auth.hasPermission(r)){
-            if(getAuthentication().getUser().getId() == User.USER_ANONYMOUS_ID){
+            log.debug("Getting TCSubject");
+            TCSubject sub = 
+                principalMgr.getUserSubject(userId);
+        
+            Authorization auth = new TCSAuthorization(sub);
+            
+            permitted = auth.hasPermission(r);
+        }catch(Exception e){
+            log.error("Authorization failed");
+            throw new ScreeningException(e);
+        }
+        if(!permitted){
+            log.debug("User " + userId +
+                " not authorized to access resource " + r.getName());
+            if(userId == User.USER_ANONYMOUS_ID){
                 getRequest().setAttribute(Constants.REDIRECT,redirect);
                 getRequest().setAttribute(Constants.MESSAGE_PARAMETER,
                     "You must be logged in to access that resource.");
@@ -80,10 +110,17 @@ public abstract class BaseProcessor implements RequestProcessor {
         }
     }
     
+    /**
+     * @return  */    
     protected String getSelfRedirect(){
         return getSelfRedirect(null);
     }
     
+    /** Builds a URL that can be used to redirect back to the
+     * current processor.
+     * @param parameters Additional parameters to be added to the URL
+     * @return A fully formed URL
+     */    
     protected String getSelfRedirect(String parameters){
         HttpServletRequest rq = (HttpServletRequest)getRequest();
         
