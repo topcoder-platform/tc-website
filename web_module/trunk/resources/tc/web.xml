@@ -51,6 +51,19 @@
             <description></description>
         </init-param>
 
+        <!-- pages -->
+        <init-param>
+            <param-name>default_page</param-name>
+            <param-value>/review_board/competition.jsp</param-value>
+            <description></description>
+        </init-param>
+
+
+        <init-param>
+            <param-name>static_prefix</param-name>
+            <param-value>d</param-value>
+            <description></description>
+        </init-param>
 
     </servlet>
 
