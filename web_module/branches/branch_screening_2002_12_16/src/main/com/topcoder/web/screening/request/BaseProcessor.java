@@ -27,7 +27,7 @@ public abstract class BaseProcessor implements RequestProcessor {
     /** Creates a new instance of BaseProcessor */
     public BaseProcessor() {
         nextPage = null;
-        nextPageInContext = false;
+        nextPageInContext = true;
         request = null;
         response = null;
     }
