@@ -125,14 +125,14 @@
                                                         Compensation for the winning solution is distributed in two installments.
                                                         <br/>
                                                         <br/>
-                                                        <strong>First Payment:</strong>
+                                                        &#160;&#160;&#160;&#160;&#160;<strong>First Payment:</strong>
                                                         <br/>
-                                                        When the winning solution is submitted and review board suggestions are integrated.
+                                                        &#160;&#160;&#160;&#160;&#160;When the winning solution is submitted and review board suggestions are integrated.
                                                         <br/>
                                                         <br/>
-                                                        <strong>Second Payment:</strong>
+                                                        &#160;&#160;&#160;&#160;&#160;<strong>Second Payment:</strong>
                                                         <br/>
-                                                        At the completion of the development project*.
+                                                        &#160;&#160;&#160;&#160;&#160;At the completion of the development project*.
                                                         <br/>
                                                         <br/>
                                                         Compensation for the second place designer will be paid in one installment
