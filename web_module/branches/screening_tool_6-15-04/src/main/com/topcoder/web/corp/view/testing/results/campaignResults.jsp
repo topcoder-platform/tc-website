@@ -63,7 +63,7 @@ function getProblemDetail(id) {
 
 <!-- Middle column begins -->
         <td width="100%" align="center"><img src="/i/corp/clear.gif" width="200" height="11" alt="" border="0"><br>
-            <table border="0" cellspacing="0" cellpadding="0" width="700">
+            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrameNB">
                 <tr valign="top">
                     <td class="bodyText">
                         <%
@@ -86,7 +86,7 @@ function getProblemDetail(id) {
             <%
                 info = (List) request.getAttribute(Constants.CAMPAIGN_RESULTS_LIST);
             %>
-            <table border="0" cellspacing="0" cellpadding="0" width="700">
+            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrameNB">
                 <tr valign="top">
                     <td class="bodyText">Total Candidates:
                         <b><%= info.size()%></b>
