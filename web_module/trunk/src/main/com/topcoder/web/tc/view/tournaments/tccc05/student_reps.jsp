@@ -40,14 +40,14 @@
                     <td class="sidebarTitle">
                         School
                     </td>
-                    <td class="sidebarTitle">
+                    <td class="sidebarTitle" align=center>
                         # of Referrals
                     </td>
                     <rsc:iterator list="<%=rsc%>" id="resultRow">
                     <tr>
                         <td class="sidebarText"><a href="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>"><rsc:item name="handle" row="<%=resultRow%>"/></a></td>
                         <td class="sidebarText"><rsc:item name="school_name" row="<%=resultRow%>"/></td>
-                        <td class="sidebarText"><rsc:item name="total_count" row="<%=resultRow%>"/></td>
+                        <td class="sidebarText" align=center><rsc:item name="total_count" row="<%=resultRow%>"/></td>
                     </tr>
                     </rsc:iterator>
                 </tr>
