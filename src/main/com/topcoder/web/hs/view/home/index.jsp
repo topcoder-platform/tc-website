@@ -33,7 +33,7 @@
         <td valign="top" width="99%">
             <table cellspacing="0" cellpadding="10" border="0" width="100%">
                 <tr valign="top">
-                    <td height="100%" align="center">
+                    <td height="100%" align="center" class="statTextBig">
 
                         <jsp:include page="../includes/tchs03_head_home.jsp" />
 
@@ -45,7 +45,7 @@
                             <tr><td width="100%" class="tourney_subnav"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td></tr>
                         </table>
 
-                        <div align="center"><h3>The following schools qualify for the Championship Match</h3></div>
+                        <div align="center"><h3>The following schools qualify for the Championship Match</h3>
                         
                         <table cellspacing="0" cellpadding="3" border="0" width="300">
                             <tr>
@@ -360,6 +360,9 @@
 
                             <tr><td class="statSubtitle" colspan="2"><img src="/i/spacer.gif" width="10" height="1" border="0"></td></tr>
                         </table>
+                        
+                        </div>
+                        
                     </td>
                 </tr>
             </table>
