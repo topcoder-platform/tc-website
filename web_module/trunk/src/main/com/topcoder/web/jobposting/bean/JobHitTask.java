@@ -123,8 +123,7 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
                         setNextPage(jpServices.getLink(jobId));
                         setNextPageInternal(false);
                     } else {
-                        // don't know where to go with this...needs to change...
-                        setNextPage(Constants.ERROR_PAGE);
+                        setNextPage(Constants.PROFILE_PAGE);
                         setNextPageInternal(true);
                     }
                 } catch (Exception e) {
