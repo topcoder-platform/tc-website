@@ -15,6 +15,8 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.ejb.resume.ResumeServices;
+import com.topcoder.web.tc.controller.legacy.resume.bean.Resume;
 
 import javax.servlet.http.HttpUtils;
 import java.util.Map;
@@ -219,6 +221,12 @@ public class PopulateCandidate extends BaseScreeningProcessor {
                     
                     PrincipalMgr mgr = new PrincipalMgr();
                     request.setAttribute("password", mgr.getPassword(Long.parseLong(cid)));
+                    
+                    //get Resume Information
+                    ResumeServices resumeServices = (ResumeServices)BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
+                    Resume resume = resumeServices.getResume(Long.parseLong(cid), Constants.DATA_SOURCE); 
+                    
+                    request.setAttribute("resume", resume.getFileName());
                     
                     log.info("The problems info list contains : " + result.size() + " records");
 

@@ -220,6 +220,12 @@ if ( MM_FlashCanPlay ) {
                             </td>
                         </tr>
                          </screen:resultSetRowIterator>
+                         <tr>
+                            <td class="screeningCellOdd" align=right>Resume:</td>
+                            <td class="screeningCellOdd">
+                                |<%=request.getAttribute("resume")%>|
+                            </td>
+                        </tr>
                     </table>
                     </td>
 
