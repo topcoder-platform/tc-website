@@ -110,6 +110,16 @@
                                 <b>For information on how to win an Intel&#174; Centrino&#153; mobile technology-based notebook computer click <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_intel">here</a></b><br/><br/>
                            </xsl:when>
                                 <xsl:when test="$roundId=5856">
+                                    <table width="428" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+                                        <tr valign="top">
+                                        <td align="left" valign="middle">
+                                            <h2>Intel<sup>&#174;</sup> Centrino&#153; Mobile Technology-based Tablet PC Quick Specs</h2>
+                                        </td>
+                                        <td align="left" valign="middle">
+                                            <img src="/i/tournament/tco04/intel_tablet.jpg" width="216" height="167" border="0">
+                                        </td>
+                                    </tr>
+                                    </table>
                                  <table width="428" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                                     <tr valign="top">
                                         <td class="sidebarTitle">Configuration Details:</td>
