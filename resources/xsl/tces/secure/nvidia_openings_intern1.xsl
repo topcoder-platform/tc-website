@@ -66,7 +66,7 @@
                         <xsl:call-template name="nvidia_links"/>
 <!-- Nvidia Ends -->
 
-                        <div align="center"><img src="/i/es/nvidia/intern_banner.gif" width="510" height="100" alt="" border="0" vspace="10" /></div>       
+                        <div align="center"><a href="/?&amp;t=tces&amp;c=nvidia"><img src="/i/es/nvidia/intern_banner.gif" width="510" height="100" alt="" border="0" vspace="10" /></a></div>       
 
                         <p>We are reinventing the visual experience beyond the bleeding-edge with the best hardware and software innovation.  The culture promotes 
                         and inspires our driven team of world-class engineers and developers to be at the top of their game...and to have fun along the way!  We are shaping 

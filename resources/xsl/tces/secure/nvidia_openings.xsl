@@ -58,7 +58,7 @@
                         <xsl:call-template name="nvidia_links"/>
 <!-- Nvidia Ends -->
 
-<IMG SRC="/i/es/nvidia/professional_banner.gif" WIDTH="510" HEIGHT="100" ALT="" BORDER="0" VSPACE="10" ALIGN="CENTER"/><BR/>       
+<a href="/?&amp;t=tces&amp;c=nvidia"><IMG SRC="/i/es/nvidia/professional_banner.gif" WIDTH="510" HEIGHT="100" ALT="" BORDER="0" VSPACE="10" ALIGN="CENTER"/></a><BR/>       
 <P>
 
 Below is the current listing of full time positions within NVIDIA.  All
