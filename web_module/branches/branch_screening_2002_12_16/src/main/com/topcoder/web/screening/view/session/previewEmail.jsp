@@ -55,10 +55,10 @@ if(emailInfo.getSessionInfo() != null) {%>
            </TR>
            <TR><%
     if(emailInfo.getSessionInfo().useCandidateEmail() || emailInfo.getSessionInfo().useRepEmail()) {%>
-              <TD CLASS="bodyText" ALIGN="left" VALIGN="middle"><PRE>
+              <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
 <strong>Subject:</strong> <jsp:getProperty name="emailInfo" property="subject" />
 <jsp:getProperty name="emailInfo" property="msgText" />
-</PRE></TD>
+</TD>
     <%}
     else {%>
               <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">No email to be sent</TD>
