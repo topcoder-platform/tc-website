@@ -116,7 +116,7 @@
                   </A>
                   </TD>
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="statText" NOWRAP>
+                  <TD class="statText">
                     <%= hit.getItem("rating").toString() %>
                   </TD>
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
