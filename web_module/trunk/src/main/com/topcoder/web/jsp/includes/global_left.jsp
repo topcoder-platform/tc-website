@@ -213,7 +213,7 @@
                 <tr><td id="leftNav"><a class="left" href="/?&t=features&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Features</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/?&t=development&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Development</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/?&t=tournaments&c=tourny_index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Tournaments</a></td></tr>
-                <tr><td id="leftNav"><a class="left" href="/rtables/index.jsp"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><font color="#FFFFFF"> Round Tables</font></a></td></tr>
+                <tr><td id="leftNav"><a class="left" href="/rtables/index.jsp"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Round Tables</a></td></tr>
 <%
   // do a login if all parameters are good
   Authorization aToken = (Authorization) session.getAttribute("jiveAuthorization");
@@ -257,7 +257,7 @@
     int messageCount = f.getMessageCount();
 %>
     
-    <tr><td valign="middle" height="15" class="statText" bgcolor="#333333"><a href="/rtables/viewForum.jsp?forum=<%= fID %>&mc=<%=messageCount%>" class="statText"><%=(fName!=null)?fName:"&nbsp;"%></a></td></tr>
+                <tr><td id="leftSubnav"><a href="/rtables/viewForum.jsp?forum=<%= fID %>&mc=<%=messageCount%>" class="leftOn"><%=(fName!=null)?fName:"&nbsp;"%></a></td></tr>
 
 <% } %>
 
