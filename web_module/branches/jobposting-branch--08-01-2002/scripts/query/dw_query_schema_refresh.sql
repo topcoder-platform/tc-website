@@ -39,6 +39,7 @@ INSERT INTO command VALUES(1013,"tces_competition_history");
 INSERT INTO command VALUES(1014,"tces_competition_statistics");
 INSERT INTO command VALUES(1015,"tces_problem_statistics");
 INSERT INTO command VALUES(1016,"tces_problem_statement");
+INSERT INTO command VALUES(1500,"member_profile_info");
 
 INSERT INTO command_query_xref VALUES(1, 1, 1);
 INSERT INTO command_query_xref VALUES(1, 2, 2);
@@ -111,6 +112,7 @@ INSERT INTO command_query_xref VALUES(1014, 1007, 3);
 INSERT INTO command_query_xref VALUES(1015, 1008, 1);
 INSERT INTO command_query_xref VALUES(1015, 1009, 2);
 INSERT INTO command_query_xref VALUES(1016, 1010, 1);
+INSERT INTO command_query_xref VALUES(1500, 1000, 1);
 
 INSERT INTO input_lu VALUES(1, "rd", 1001, "Round ID");
 INSERT INTO input_lu VALUES(2, "rm", 1001, "Room ID");
