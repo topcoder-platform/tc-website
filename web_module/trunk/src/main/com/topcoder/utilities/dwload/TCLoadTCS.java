@@ -328,7 +328,7 @@ public class TCLoadTCS extends TCLoad {
                             "(select avg(case when final_score is null then 0 else final_score end) from project_result where project_id = p.project_id) as avg_final_score, " +
                             "case when p.project_type_id = 1 then 112 else 113 end as phase_id, " +
                             "(select description from phase where phase_id = (case when p.project_type_id = 1 then 112 else 113 end)) as phase_desc, " +
-                            "(select max(category_id) from comp_categories where component_id = cc.component_id) as category_id, " +
+                            "cc.root_category_id as category_id, " +
                             "(select category_name from categories where category_id = cc.root_category_id) as category_desc, " +
                             "(select start_date from phase_instance where phase_id = 1 and cur_version = 1 and project_id = p.project_id) as posting_date, " +
                             "(select end_date from phase_instance where phase_id = 1 and cur_version = 1 and project_id = p.project_id) as submitby_date, " +
