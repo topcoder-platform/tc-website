@@ -26,7 +26,7 @@
 <%-- Banners --%>
 	<tr>
 		<td width="50%" rowspan=2>&#160;</td>
-		<td class=homeLeftBan><A href="/"><img src="/i/home/tab_developercenter.gif" border=0 /></A></td>
+		<td class=homeLeftBan><A href="/tc"><img src="/i/home/tab_developercenter.gif" border=0 /></A></td>
 		<td class=homeGutter rowspan=2>&#160;</td>
 		<td class=homeCentBan><A href="/corp/?module=Static&d1=corp&d2=index"><img src="/i/home/tab_corporateservices.gif" border=0 /></A></td>
 		<td class=homeGutter rowspan=2>&#160;</td>
@@ -38,7 +38,7 @@
 <%-- Left Column --%>
 		<td class=homeLeftCol>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
-			<tr><td class=homeBigPromo><A href="/"><img src="/i/promos/developercenter.gif" border=0 /></A></td></tr>
+			<tr><td class=homeBigPromo><A href="/tc"><img src="/i/promos/developercenter.gif" border=0 /></A></td></tr>
 			<tr><td class=homeSmallPromo><A href="/"><img src="/i/promos/earncash.jpg" border=0 /></A></td></tr>
 		</table>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
@@ -48,7 +48,7 @@
 			</tr>
 			<tr>
 				<td class=homeArrow>&#160;</td>
-				<td class=homeText>How do you stand up among your peers? <A href="/">Compete</A> to be the best coder in the world through our algorithm competitions.</td>
+				<td class=homeText>How do you stand up among your peers? <A href="/tc">Compete</A> to be the best coder in the world through our algorithm competitions.</td>
 			</tr>
 
 			<tr>
@@ -57,7 +57,7 @@
 			</tr>
 			<tr>
 				<td class=homeArrow>&#160;</td>
-				<td class=homeText>Compete in software <A href="/">component</A> or <A href="/">application</A> competitions and get paid for what you build! You can also earn money by <A href="/">reviewing</A> software components.</td>
+				<td class=homeText>Compete in software <A href="/?t=development&c=index">component</A> or <A href="/?t=development&c=index">application</A> competitions and get paid for what you build! You can also earn money by <A href="/tc?module=ViewReviewProjects">reviewing</A> software components.</td>
 			</tr>
 
 			<tr>
@@ -66,7 +66,7 @@
 			</tr>
 			<tr>
 				<td class=homeArrow>&#160;</td>
-				<td class=homeText>Now you can buy infrastructure components in both .NET and Java to serve as the building blocks for software components.  Only $12.95 a month for personal <A href="/">subscriptions</A></td>
+				<td class=homeText>Now you can buy infrastructure components in both .NET and Java to serve as the building blocks for software components.  Only $12.95 a month for personal <A href="/?t=development&c=index">subscriptions</A></td>
 			</tr>
 		</table>
 		</td>
@@ -150,7 +150,7 @@
             <A href="/?t=about_tc&c=privacy" class="footerLinks">Privacy</A>&#160;&#160;|&#160;&#160;
             <A href="/?t=about_tc&c=terms" class="footerLinks">Terms</A>
 			<br/>
-            <A href="/" class="footerLinks">Developer Center</A>&#160;&#160;|&#160;&#160;
+            <A href="/tc" class="footerLinks">Developer Center</A>&#160;&#160;|&#160;&#160;
             <A href="/" class="footerLinks">Corporate Services</A>
     <tr><td width="100%" class="copyright" colspan=7>Copyright &#169; 2001-2004, TopCoder, Inc. All rights reserved.</td></tr>
 </table>
