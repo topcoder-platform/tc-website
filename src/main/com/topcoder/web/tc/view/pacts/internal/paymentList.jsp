@@ -53,10 +53,10 @@
 		<table id="datatable" border="0" cellpadding="5" cellspacing="0">
         <tr>
             <td>
-                <a href="Javascript:checkAll(true)">check</a>
+                <a href="Javascript:checkAll(true)">check all</a>
             </td>
             <td>
-                <a href="Javascript:checkAll(false)">checked</a>
+                <a href="Javascript:checkAll(false)">uncheck all</a>
             </td>
             <td colspan="6">
             </td>
@@ -136,6 +136,17 @@ for (int n = 0; n < rowCount; n++) {
 out.print("</td></tr>");
 
 %>
+        <tr>
+            <td>
+                <a href="Javascript:checkAll(true)">check all</a>
+            </td>
+            <td>
+                <a href="Javascript:checkAll(false)">uncheck all</a>
+            </td>
+            <td colspan="6">
+            </td>
+        </tr>
+
 </table>
 
 </form>
