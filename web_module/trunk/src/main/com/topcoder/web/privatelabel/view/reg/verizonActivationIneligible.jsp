@@ -62,9 +62,9 @@
 
                             You can use your handle and password to login to the Practice Arena to
                             hone your skills for future Verizon coding events – just click the
-                            "Practice Arena" link to the left.<br/><br/><br/>
+                            "Practice Arena" link to the left.<br/><br/><br/><br/><br/><br/><br/>
 
-                            <font size="-1">Questions?  Contact us at <a class="bodyCopy" href="mailto:service@topcoder.com">service@topcoder.com</a></font>
+                             <p style="font-size:10px">Questions?  Contact us at <a href="mailto:service@topcoder.com">service@topcoder.com</a></p>
 
                         <p><img src="/i/clear.gif" width="427" height="20" border="0"/></p>
                     </td>
