@@ -55,44 +55,28 @@
     <tr>
         <td background="/i/testBodyLeft.gif" width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"></td>
         <td width="100%" align="center">
-            <table border="0" cellpadding="0" cellspacing="0" width="25%" align="left">
+            <table border="0" cellpadding="0" cellspacing="10" width="25%" align="left">
                 <tr>
-                    <td class="bodyText">
-                        <h1 id="bodyTitle">Help Manual</h1>
-                        
-                        <p>This page should present you with a button to start the competition arena applet.</p>
-                        
-                        <p><strong>NOTE:</strong> If a red button to "Load Testing Environment" does <strong>not</strong> appear below, you may not have the 
-                        appropriate Plug-in software installed. 
-                        
-                        <script type="text/javascript">
-                            function getReq(){u='/?t=support&amp;c=software_req';window.open(u);close();}
-                        </script>
-                        <a href="Javascript:getReq()">Get more information</a></p>
-                        
-                        
-                        <p><strong>You may minimize this browser window, but do not close it.</strong> Doing so will close the applet.</p>
+                    <td class="helpNav">
+
+<!-- Help Nav begins -->
+                        <jsp:include page="helpLeft.jsp" >
+                            <jsp:param name="selected" value="index"/>
+                        </jsp:include>
+<!-- Help Nav ends -->
+
                     </td>
                 </tr>
             </table>
 
-            <table border="0" cellpadding="0" cellspacing="0" width="75%">
+            <table border="0" cellpadding="0" cellspacing="10" width="75%">
                 <tr>
-                    <td class="bodyText">
-                        <h1 id="bodyTitle">Help Manual</h1>
+                    <td>
+                        <h1 id="bodyTitle">Help Guide</h1>
                         
-                        <p>This page should present you with a button to start the competition arena applet.</p>
-                        
-                        <p><strong>NOTE:</strong> If a red button to "Load Testing Environment" does <strong>not</strong> appear below, you may not have the 
-                        appropriate Plug-in software installed. 
-                        
-                        <script type="text/javascript">
-                            function getReq(){u='/?t=support&amp;c=software_req';window.open(u);close();}
-                        </script>
-                        <a href="Javascript:getReq()">Get more information</a></p>
-                        
-                        
-                        <p><strong>You may minimize this browser window, but do not close it.</strong> Doing so will close the applet.</p>
+                        <p>Welcome to the help guide for the Testing Application powered by TopCoder. Please read through this document in its entirety to 
+                        familiarize yourself with the Testing Application process and features.</p>
+
                     </td>
                 </tr>
             </table>
