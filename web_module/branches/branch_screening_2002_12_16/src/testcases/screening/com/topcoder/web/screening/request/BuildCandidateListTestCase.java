@@ -21,6 +21,7 @@ import org.w3c.dom.*;
  * @version 1.0
  */
 public class BuildCandidateListTestCase extends TestCase {
+	WebSiteFlowTest wsf = null;
 	
 	/**
 	 * constuctor with name for TestCase
@@ -30,14 +31,27 @@ public class BuildCandidateListTestCase extends TestCase {
 	}
 	
 	/**
-	 * tests that we can open page with candidate list
+	 * logging in to be able to test other pages
 	 * */
-	public void testCandidateListWSF() {
-		WebSiteFlowTest wsf = new WebSiteFlowTest();
+	public void setUp() {
+		wsf = new WebSiteFlowTest();
 		boolean bOk;
 		
 		try {
 			wsf.init();
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail("setUp failed with Exception " + e);
+		}		
+	}
+	/**
+	 * tests that we can open page with candidate list
+	 * */
+	public void testCandidateListWSF() {
+		boolean bOk;
+		
+		try {
+			//wsf.init();
 			bOk = wsf.testPage("BuildCandidateList");
 			assertTrue(bOk);
 		} catch (Exception e) {
@@ -50,11 +64,10 @@ public class BuildCandidateListTestCase extends TestCase {
 	 * WSF framework
 	 * */	
 	public void testCandidateListLinksWSF() {
-		WebSiteFlowTest wsf = new WebSiteFlowTest();
 		boolean bOk;
 		
 		try {
-			wsf.init();
+			//wsf.init();
 			bOk = wsf.testPageLinks("BuildCandidateList");
 			assertTrue(bOk);
 		} catch (Exception e) {
@@ -68,11 +81,9 @@ public class BuildCandidateListTestCase extends TestCase {
 	 * Web Site Flow (WSF) framework
 	 * */
 	public void testCandidateListPath() {
-		WebSiteFlowTest wsf = new WebSiteFlowTest();
 		boolean bOk;
 		
 		try {
-			wsf.init();
 			bOk = wsf.testPath("LoginToPopulateCandidate");
 			assertTrue(bOk);
 		} catch (Exception e) {

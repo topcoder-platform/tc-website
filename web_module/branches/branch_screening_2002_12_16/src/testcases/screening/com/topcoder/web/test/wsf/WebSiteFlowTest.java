@@ -25,8 +25,20 @@ import javax.xml.parsers.*;
 
 public class WebSiteFlowTest {
 	WebSiteFlowXmlInfo info;
+	Map cookies = null;
+	WebConversation con = null;
+	String baseUrl = "";
 
 	public WebSiteFlowTest() {
+	}
+	
+	void addNewCookies(WebResponse resp) {
+		String[] cook = con.getCookieNames();
+		/*String [] names = resp.getNewCookieNames();
+		for (int i=0; i<names.length; i++) {
+			String val = resp.getNewCookieValue(names[i]);
+			con.addCookie(names[i], val);
+		}*/
 	}
 	
 	/**
@@ -38,12 +50,10 @@ public class WebSiteFlowTest {
 	 * */
 	public boolean testPage(String pageName) throws Exception {
 		WsfPage page = info.getPageByName(pageName);
-		WebConversation con = new WebConversation();
-		String requestUrl = (String) info.parameters.get("common-url-base");
-		requestUrl += page.url;
+		String requestUrl = baseUrl + page.url;
 		WebRequest request = new GetMethodWebRequest(requestUrl);
-
 		WebResponse resp = con.getResponse(request);
+		addNewCookies(resp);
 		boolean testOk = isCorrectPage(page, resp);
 
 		return testOk;
@@ -60,15 +70,25 @@ public class WebSiteFlowTest {
 		// testing that it is correct page using all
 		// patterns
 		boolean testOk = true;
-		
+
 		for (int i = 0; i < page.patterns.length; i++) {
 			WsfPattern pat = page.patterns[i];
 			String pageText = resp.getText();
 			// checking for conformance to pattern
 			testOk = testOk && pat.check(pageText);
+			if (testOk == false) {
+				printPage(page.name, pageText);
+			}
+
 		}
-		
+
 		return testOk;
+	}
+	
+	void printPage(String name, String page) throws IOException{
+		Writer w = new BufferedWriter(new FileWriter("Source" + name + ".out"));
+		w.write(page);
+		w.close();		
 	}
 	
 	/**
@@ -89,12 +109,11 @@ public class WebSiteFlowTest {
 	
 		// preparing page
 		WsfPage page = info.getPageByName(pageName);
-		WebConversation con = new WebConversation();
-		String requestUrl = (String) info.parameters.get("common-url-base");
-		requestUrl += page.url;
+		String requestUrl = baseUrl + page.url;
 		WebRequest request = new GetMethodWebRequest(requestUrl);
 		// reading page from web site
 		WebResponse resp = con.getResponse(request);
+		addNewCookies(resp);
 		// testing all links one by one
 		for (int i = 0; i < page.links.length && testOk; i++) {
 			WsfLink l = page.links[i];
@@ -122,12 +141,11 @@ public class WebSiteFlowTest {
 		
 		// preparing page
 		WsfPage page = info.getPageByName(pageName);
-		WebConversation con = new WebConversation();
-		String requestUrl = (String) info.parameters.get("common-url-base");
-		requestUrl += page.url;
+		String requestUrl = baseUrl + page.url;
 		WebRequest request = new GetMethodWebRequest(requestUrl);
 		// reading page from web site
 		WebResponse resp = con.getResponse(request);
+		addNewCookies(resp);
 		// testing all forms one by one
 		for (int i = 0; i < page.forms.length && testOk; i++) {
 			WsfForm f = page.forms[i];
@@ -142,6 +160,7 @@ public class WebSiteFlowTest {
 			WebRequest frequest = wf.getRequest(sb);
 			// check that we can read correct page
 			WebResponse fresp = con.getResponse(frequest);
+			addNewCookies(fresp);
 			WsfPage fpage = info.getPageByName(f.targetPageName);
 			testOk = isCorrectPage(fpage, fresp);
 		}
@@ -158,8 +177,6 @@ public class WebSiteFlowTest {
 	 * */
 	public boolean testPath(String pathName) throws Exception {
 		WsfPath path = info.getPathByName(pathName);
-		WebConversation con = new WebConversation();
-		String baseUrl = (String) info.parameters.get("common-url-base");	
 		WsfPage page;
 		WebResponse resp=null;
 		WebRequest req;
@@ -174,6 +191,7 @@ public class WebSiteFlowTest {
 				url = baseUrl + page.url;
 				req = new GetMethodWebRequest(url);
 				resp = con.getResponse(req);
+				addNewCookies(resp);
 			} else if (l.type.equals("finish")) {
 				// response should have correct finish page
 				page = info.getPageByName((String)l.val);
@@ -185,6 +203,7 @@ public class WebSiteFlowTest {
 				WebLink wl = resp.getLinkWith(lnk.pattern);
 				req = wl.getRequest();
 				resp = con.getResponse(req);
+				addNewCookies(resp);
 				page = info.getPageByName(lnk.targetPageName);
 				testOk = isCorrectPage(page, resp);
 			} else if (l.type.equals("form")) {
@@ -200,6 +219,7 @@ public class WebSiteFlowTest {
 				req = wf.getRequest(sb);
 				// check that we can read correct page
 				resp = con.getResponse(req);
+				addNewCookies(resp);
 				page = info.getPageByName(f.targetPageName);
 				testOk = isCorrectPage(page, resp);
 			} else {
@@ -217,8 +237,11 @@ public class WebSiteFlowTest {
 		if (info == null) {
 			info = new WebSiteFlowXmlInfo();
 		}
+		boolean bret;
 		info.init();
-		this.testPage("Login");
-		this.testPageForms("Login");
+		con = new WebConversation();
+		baseUrl = (String) info.parameters.get("common-url-base");
+		bret = this.testPage("Login");
+		bret = this.testPageForms("Login");
 	}
 }
