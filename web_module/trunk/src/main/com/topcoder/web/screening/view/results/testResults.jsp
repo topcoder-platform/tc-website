@@ -124,6 +124,7 @@ function getProblemDetail(id) {
                      Constants.PROBLEM_TYPE_ID + '=' + row.getItem("problem_type_id");
                      boolean isSubmitted = row.getItem("is_submitted").toString().equals("1");
                      boolean isCompiled = row.getItem("is_compiled").toString().equals("1");
+                     boolean isSystemTested = row.getItem("is_system_tested").toString().equals("1");
                      %>
                      
                 <tr>
@@ -136,7 +137,7 @@ function getProblemDetail(id) {
 		       <td align="center" class="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="points" format="#.##" ifNull="N/A" /></td>
 		       <td align="center" class="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="elapsed" /></td>
 		       <td align="center" class="<%=even?"testTableEven":"testTableOdd"%>">
-                 <% if (isSubmitted || isCompiled) {%>
+                 <% if (isSystemTested && (isSubmitted || isCompiled)) {%>
                  <screen:servletLink processor="ProblemResult" param="<%=prparam%>" >Details</screen:servletLink>
                  <% } %>
                </td>
@@ -211,6 +212,7 @@ function getProblemDetail(id) {
                                          Constants.PROBLEM_TYPE_ID + '=' + row.getItem("problem_type_id");
                         boolean isSubmitted = row.getItem("is_submitted").toString().equals("1");
                         boolean isCompiled = row.getItem("is_compiled").toString().equals("1");
+                        boolean isSystemTested = row.getItem("is_system_tested").toString().equals("1");
                      %>
 	             <TR>
 		       <TD CLASS="<%=even?"testTableEven":"testTableOdd"%>">&#160;<A HREF="JavaScript:getProblemDetail('<screen:resultSetItem row="<%=row%>" name="session_round_id" />,<screen:resultSetItem row="<%=row%>" name="problem_id" />')" CLASS="bodyText"><screen:resultSetItem row="<%=row%>" name="problem_name" /></A></TD>
@@ -220,7 +222,7 @@ function getProblemDetail(id) {
 		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="num_failed" /></TD>
 		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="pct_passed" />%</TD>
 		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="elapsed" /></TD>
-               <% if (isSubmitted || isCompiled) { %>
+               <% if (isSystemTested && (isSubmitted || isCompiled)) { %>
 		         <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:servletLink processor="ProblemResult" param="<%=prparam%>" styleClass="bodyText">Details</screen:servletLink></TD>
                <% } %>
 	             </TR>
