@@ -150,8 +150,20 @@
                             </td>
 
                             <td align="left" class="statText">
-                                List will be announced on Saturday, Feb. 22nd at 12pm
-                                </td>
+                                <xsl:for-each select="/TC/TOURNAMENTS/INT_Competitors/Competitor">
+                                <a>
+                                    <xsl:attribute name="HREF">stat?c=member_profile&amp;cr=<xsl:value-of select="user_id"/></xsl:attribute>
+                                    <xsl:attribute name="CLASS">statText</xsl:attribute>
+                                    <font>
+                                      <xsl:attribute name="color">
+                                        <xsl:call-template name="GetRatingColor"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template>
+                                      </xsl:attribute>
+                                      <xsl:value-of select="handle"/>
+                                    </font>
+                                  </a>
+                                  <br />
+                                </xsl:for-each>
+                              </td>
                             </tr>
 
                             <tr><td colspan="5"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
