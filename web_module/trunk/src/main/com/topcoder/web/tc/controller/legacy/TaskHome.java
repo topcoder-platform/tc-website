@@ -170,6 +170,12 @@ public final class TaskHome {
                 rsc = (ResultSetContainer) resultMap.get("Top_Rating_Gainers_And_Losers");
                 homeTag.addTag(rsc.getTag("GainersAndLosers", "Coder"));
 
+                dataRequest = new Request();
+                dataRequest.setContentHandle("recent_srm_survey_question");
+                resultMap = dai.getData(dataRequest);
+                rsc = (ResultSetContainer) resultMap.get("recent_srm_survey_question");
+                homeTag.addTag(rsc.getTag("SurveyInfo", "QuestionInfo"));
+
                 DataCache dcHome = Cache.get();
                 homeTag.addTag(new ValueTag("MemberCount", dcHome.getMemberCount()));
             } catch (Exception e) {
