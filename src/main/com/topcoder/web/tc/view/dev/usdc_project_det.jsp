@@ -61,7 +61,7 @@
 
                         <table width="510" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                             <tr>
-                                <td class=header colspan=7><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=rscProject.getRow(0)%>"/>"><rsc:item name="component_name" row="<%=rscProject.getRow(0)%>"/></A></td>
+                                <td class=header colspan=7><A class="header" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=rscProject.getRow(0)%>"/>"><rsc:item name="component_name" row="<%=rscProject.getRow(0)%>"/></A>
                             </tr>
                             <tr>
                                 <td class="sidebarTitle" nowrap=nowrap>Competitor</td>
@@ -70,13 +70,15 @@
                                 <td class="sidebarTitle" align=center>Score</td>
                                 <td class="sidebarTitle" align=right>Prizes</td>
                             </tr>
+                            <rsc:iterator list="<%=rsc%>" id="resultRow">
                             <tr>
-                                <td class="sidebarText"><A href="/">somedude</A></td>
+                                <td class="sidebarText"><a href="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>"><rsc:item name="handle" row="<%=resultRow%>"/></a></td>
                                 <td class="sidebarText" align=center nowrap=nowrap>06.03.2004 9:00AM</td>
                                 <td class="sidebarText" align=center>1</td>
                                 <td class="sidebarText" align=center>90.00</td>
                                 <td class="sidebarText" align=right>$1,000</td>
                             </tr>
+                            </rsc:iterator>
                         </table>
                         
                         <br/>
