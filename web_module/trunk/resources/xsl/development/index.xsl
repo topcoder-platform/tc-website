@@ -83,7 +83,7 @@
 <LI>The developer with the winning solution will be given additional time to fix bugs and incorporate design suggestions from the QA board.  The additional time period will be set as a percentage (currently 20%) of the initial development period.  For example, a component with a 10 day design period will allow an additional 2 days after the due date for the developer to incorporate the suggestions.  If the completed solution is submitted on time and passes all regression testing the developer is paid the entire development payment as stated in the development project posting.  Also at that time, the designer is paid the final payment for the design contract as detailed in the design project posting.</LI>
 </OL>
 <TABLE BORDER="0" CELLSPACING="5" CELLPADDING="5" WIDTH="100%">
-        <TR><TD CLASS="statText">LATEST POSTINGS</TD></TR>
+        <TR><TD CLASS="statText"><B>Most Recent Postings</B></TD></TR>
 		<TR>
 		<TD  VALIGN="top" CLASS="statText">
 <P>
@@ -119,7 +119,7 @@ Component Submission Due Date: 11/26/2002<BR/>
 </P>
         </TD>
     </TR>
-    <TR><TD CLASS="statText">OLD POSTINGS</TD></TR>	
+    <TR><TD CLASS="statText"><B>Closed Postings</B></TD></TR>	
     <TR>
 		<TD  VALIGN="top" CLASS="statText">
 <P>

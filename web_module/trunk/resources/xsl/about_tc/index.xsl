@@ -51,7 +51,7 @@
 				<TR>
 					<TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
 					<TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/><BR/>
-					TopCoder is fast becoming the major league for programming competitions. TopCoder brings members together twice weekly to compete online 
+					TopCoder is fast becoming the major league for programming competitions. TopCoder brings members together once a week to compete online 
 					&#40;Single Round Match&#41; and twice a year both online and on location &#40;Tournaments&#41;.<BR/><BR/>
 					<B>Why Online Competitions</B><BR/>
 					Competitions provide an understanding of a person's capabilities through a demonstration of skill. What was lacking in the world of programming 
