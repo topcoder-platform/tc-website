@@ -38,6 +38,17 @@
            </TR>
          </TABLE>
 
+<script language="JavaScript">
+   function submitForm(){
+ 	var frm = document.coderRankForm;
+	  if (isNaN(parseInt(frm.er.value)||)
+      alert(frm.er.value+" is not a valid integer");
+    else
+      frm.submit();
+
+	}
+   }
+</script>
 
 <% //common code that pulls out the request bean.
     Request srb = (Request) request.getAttribute("REQUEST_BEAN");
@@ -213,7 +224,7 @@
 <INPUT TYPE="HIDDEN" NAME="c" VALUE="index">
       Viewing top&#160;&#160;
 <INPUT TYPE="text" NAME="er" MAXLENGTH="4" SIZE="4" value="<%=topN%>">&#160;&#160;
-      <A HREF="javaScript:document.coderRankForm.submit();" CLASS="statText">&#160;[ submit ]</A>
+      <A HREF="javaScript:submitForm();" CLASS="statText">&#160;[ submit ]</A>
 </FORM>
     </TD>
   </TR>
