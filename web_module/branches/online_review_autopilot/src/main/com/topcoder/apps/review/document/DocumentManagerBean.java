@@ -1478,7 +1478,7 @@ public class DocumentManagerBean implements SessionBean {
                 float finalScore = rs.getFloat(7);
                 int placement = rs.getInt(8);
                 boolean passedScreening = rs.getBoolean(9);
-                boolean advancedToReview = rs.getBoolean(17);
+                boolean advancedToReview = rs.getBoolean("advanced_to_review");
 
                 long subVersionId = rs.getLong(10);
 
