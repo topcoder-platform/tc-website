@@ -480,7 +480,8 @@
         <jar jarfile="${builddir}/auto_pilot_timer.sar" basedir="${build_classdir}" includes="com/topcoder/apps/review/autopilottimer/**,
                         com/topcoder/apps/review/document/**,
                         com/topcoder/apps/review/EJBHelper.class,
-                        com/topcoder/apps/review/OnlineReview*Data.class,
+                        com/topcoder/apps/review/OnlineReviewProjectData.class,
+                        com/topcoder/apps/review/ProjectForm.class,
                         com/topcoder/apps/review/projecttracker/**">
             <metainf dir="${javasrc}/main/com/topcoder/apps/review/autopilottimer" includes="*.xml"/>
         </jar>

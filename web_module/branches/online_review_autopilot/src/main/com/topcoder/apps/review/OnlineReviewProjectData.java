@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ? 2003, TopCoder, Inc. All rights reserved
  */
 
 package com.topcoder.apps.review;
@@ -33,7 +33,7 @@ public class OnlineReviewProjectData extends OnlineReviewData {
      *
      * @param orpd The OnlineReviewProjectData to be set.
      */
-    protected OnlineReviewProjectData(OnlineReviewProjectData orpd) {
+    public OnlineReviewProjectData(OnlineReviewProjectData orpd) {
         super(orpd.getUser());
         this.info = orpd.getProject();
     }
@@ -46,7 +46,7 @@ public class OnlineReviewProjectData extends OnlineReviewData {
      * @param user The user to be set.
      * @param info The project info to be set.
      */
-    protected OnlineReviewProjectData(SecurityEnabledUser user, UserProjectInfo info) {
+    public OnlineReviewProjectData(SecurityEnabledUser user, UserProjectInfo info) {
         super(user);
 
         if (info == null) {
