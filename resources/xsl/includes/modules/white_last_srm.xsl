@@ -9,12 +9,14 @@
 		<TD CLASS="bodyText" VALIGN="top">
 <!-- <A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">tck</A> -->	
 <P>
-<SPAN CLASS="bodyTextBold">Single Round Match 92</SPAN><BR/>
-Wednesday, May 29, 2002<BR/>
+<SPAN CLASS="bodyTextBold">Single Round Match 93</SPAN><BR/>
+Thursday, May 30, 2002<BR/>
 By Adam Loss, <I>TopCoder Staff Writer</I><BR/><BR/>
-<A HREF="/index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">dmh2000</A>
- only coded the Level One problem, but it was enough to win Room 20 by 3.62 points, 
-187.47 to 183.85 over <A HREF="/index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">MEEP!</A>...<A HREF="/index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">full&#160;story</A> 
+<A HREF="/index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">Echo</A>
+ won Room 2 by 1.12 points over 
+<A HREF="/index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">KurtSteinkraus</A>, 689.93 to 688.81. 
+<A HREF="/index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">xxfobxx</A>
+ used two successful challenges for a come-from-behind win in Room 37...<A HREF="/index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">full&#160;story</A> 
 </P>
 				
 <!-- <P><B>Division-I</B><BR/>
