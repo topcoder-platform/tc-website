@@ -465,8 +465,10 @@ If you have ever played a video game, gone to a movie, or just watched a bit of 
 <area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/?ContestId=4350&amp;t=schedule&amp;c=srm"/> -->
 <area alt="" shape="poly" coords="225,88,124,89,106,77,8,77,9,31,230,30" href="/?&amp;t=tces&amp;c=apex"/>
 </map>
+<A HREF="/?&amp;t=development&amp;c=index">
+<IMG SRC="/i/tcs_board.gif" ALT="TCS" WIDTH="244" HEIGHT="156" VSPACE="5" BORDER="0"/></A>
 <A HREF="/?&amp;t=news_events&amp;c=pr_10_22_02">
-<IMG SRC="/i/tces_quote.gif" ALT="TCES" WIDTH="244" HEIGHT="156" VSPACE="5" BORDER="0"/></A>
+<IMG SRC="/i/tces_quote.gif" ALT="TCES" WIDTH="244" HEIGHT="156" BORDER="0"/></A>
 <!-- <A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
 <IMG SRC="/i/tces_promo.gif" alt="" width="244" height="77" border="0"/></A><BR/> -->
 
