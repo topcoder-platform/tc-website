@@ -68,7 +68,6 @@ public final class SaveFinalReviewAction extends ReviewAction {
             ResultData result = new BusinessDelegate().finalReview(data);
 
             if (result instanceof SuccessResult)  {
-                log(Level.INFO, "SuccessResult");
                 request.getSession().removeAttribute(mapping.getAttribute());
                 resetToken(request);
 

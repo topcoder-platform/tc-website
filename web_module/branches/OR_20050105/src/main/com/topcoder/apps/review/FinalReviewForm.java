@@ -48,6 +48,10 @@ public class FinalReviewForm extends AggregationWorksheetForm {
      */
     private boolean approvedValid = true;
 
+
+    /**
+     * Wheter the final fixes are approved.
+     */
     private boolean isApproved = false;
 
     // ----------------------------------------------------------- Properties
@@ -214,11 +218,11 @@ public class FinalReviewForm extends AggregationWorksheetForm {
         // if the project was rejected but all the items were fixed, a comment is needed
         if (!getApproved() && !mustReject && ((getComments() == null) || (getComments().trim().length() == 0))) {
             setValid(false);
-            errors.add("comments", new ActionError("error.message.required"));
+            errors.add("comments", new ActionError("error.commentForReject.required"));
             commentsValid = false;
         }
 
-        //  if the reviewer approved the project but there are not fixed items, show error
+        // if the reviewer approved the project but there are not fixed items, show error
         if (getApproved() && mustReject) {
             setValid(false);
             errors.add("approved", new ActionError("error.reject.required"));
