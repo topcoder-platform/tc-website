@@ -25,10 +25,10 @@
     <tr valign="top">
 
 <!-- Left Column Begins -->
-        <td width="170" bgcolor="#CCCCCC">
+        <td width="180">
             <jsp:include page="../includes/left.jsp">
-                <jsp:param name="level1" value="privateLabel"/>
-                <jsp:param name="level2" value="overview"/>
+                <jsp:param name="level1" value="private_label"/>
+                <jsp:param name="level2" value="index"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -38,11 +38,32 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column begins -->
-        <td width="100%"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
+        <td width="100%">
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top"><td id="corpTitle" width="100%" colspan="3"><img src="/i/header_event_sponsorship.gif" alt="" width="546" height="41" border="0"></td></tr>
+                
                 <tr valign="top">
-                    <td class="bodyText" width="100%" colspan="3">
-                        <h1 class="testHead">Private Label Events</h1>
+                    <td class="bodyText" width="99%">
+                        <img src="/i/clear.gif" width="1" height="10" alt="" border="0"><br>
+                        
+                        <h2 class="corpHead">Private Label Competitions</h2>
+
+                        <p>TopCoder will develop and administer customized developer competitions.  These competitions are designed to allow 
+                        your developers to establish bragging rights, build morale, and identify top/hidden talent internally within your 
+                        organization.</p>
+
+                        <p>TopCoder will open a practice room one week prior to each competition where only your developers will be 
+                        allowed to hone their skills using problems from previous competitions.  TopCoder will have staff available to 
+                        answer any questions during this time.  This will create familiarization with the competition arena and allow you 
+                        to promote the event in advance.</p>
+
+                        <p>TopCoder’s technical team will coordinate setting up the competition prior to the event.  They will also be 
+                        available during each competition to answer any questions, and resolve any technical issues immediately, should 
+                        they arise.</p>
+
+                        <p>The advantage of running a competition using this program is the ability to focus on the business goals at hand 
+                        rather than the logistical hurdles to pull off such an event.</p>
+                        
                     </td>
                 <tr>
                 
