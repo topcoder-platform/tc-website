@@ -175,7 +175,7 @@
                                             <br/>
                                             Design Reviewer - $280.00
                                             <br/><br/>
-                                            Total - $2,205.00
+                                            Total - $2,475.00
                                         </p>
 
                                         <!-- Definition of Completion -->
