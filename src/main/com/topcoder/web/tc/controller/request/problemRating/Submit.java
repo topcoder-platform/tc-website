@@ -54,7 +54,7 @@ public class Submit extends Base {
                 rs[i] = Integer.parseInt(al.get(ptr++).toString());
             }
             prs.submitAnswers(qs,rs,userID,Integer.parseInt(request.getParameter("pid")));
-            setNextPage(Constants.PROBLEM_RATING_RESULTS);
+            setNextPage("?" + Constants.MODULE_KEY + "=ProblemRatingResults&" + Constants.PROBLEM_ID + "=" + request.getParameter("pid"));
             setIsNextPageInContext(true);
         }catch(Exception e){
             e.printStackTrace();
