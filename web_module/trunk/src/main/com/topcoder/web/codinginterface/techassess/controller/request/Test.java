@@ -73,7 +73,7 @@ public class Test extends Base {
 
             ScreeningTestResponse response = (ScreeningTestResponse) receive(5000);
 
-            setDefault(Constants.MESSAGE, response.getMessage());
+            setUserMessage(response.getMessage());
             //setDefault(CodingInterfaceConstants.SUCCESS_FLAG, String.valueOf(response.getStatus()));
 
             closeProcessingPage(buildProcessorRequestString(Constants.RP_TEST_RESPONSE,
