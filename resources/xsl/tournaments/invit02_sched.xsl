@@ -283,7 +283,11 @@
                       <TD ALIGN="center" VALIGN="middle" CLASS="statText" BACKGROUND="/i/steel_gray_bg.gif">11:00 AM</TD>
                       <TD ALIGN="center" VALIGN="middle" CLASS="statText" BACKGROUND="/i/steel_gray_bg.gif">3:00 PM</TD>
                       <TD ALIGN="center" VALIGN="middle" CLASS="statText" BACKGROUND="/i/steel_gray_bg.gif">6:00 PM</TD>
-                    </TR>                   
+                    </TR>
+                    <TR>
+                      <TD ALIGN="right" HEIGHT="13" CLASS="statText"><A HREF="/index?t=tournaments&amp;c=invit02_semiroom1" CLASS="statTextBig">Summary</A></TD>
+                      <TD COLSPAN="4" ALIGN="center" HEIGHT="13" CLASS="statText">&#160;</TD>
+                    </TR>                                     
                     <TR>
                       <TD COLSPAN="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
                     </TR> 
@@ -310,6 +314,10 @@
                       <TD ALIGN="right" VALIGN="middle" HEIGHT="13" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif">Date&#160;</TD>
                       <TD COLSPAN="4" ALIGN="center" VALIGN="middle" CLASS="statText" BACKGROUND="/i/steel_gray_bg.gif">Sat. Nov. 23rd 11:00 AM</TD>
                     </TR>
+                    <TR>
+                      <TD ALIGN="right" HEIGHT="13" CLASS="statText"><A HREF="/index?t=tournaments&amp;c=invit02_champ" CLASS="statTextBig">Summary</A></TD>
+                      <TD COLSPAN="4" ALIGN="center" HEIGHT="13" CLASS="statText">&#160;</TD>
+                    </TR>                     
                     </TABLE>
           <P><BR/></P>
     </TD>
