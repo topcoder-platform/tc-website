@@ -22,7 +22,7 @@ public class RemoveProfileProblem extends BaseProfileProcessor {
         info.removeTestSetB(request.getParameter(Constants.TEST_SET_B_REMOVE));
 
         request.setAttribute(Constants.PROFILE_INFO, info);
-        setNextPage(((SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getServletPath() + "?" +
+        setNextPage("testing/" + "?" +
                 Constants.MODULE_KEY + "=" +
                 Constants.POPULATE_PROFILE_PROCESSOR);
         setIsNextPageInContext(true);

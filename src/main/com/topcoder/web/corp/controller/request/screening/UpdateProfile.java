@@ -41,7 +41,7 @@ public class UpdateProfile extends BaseProfileProcessor {
             try {
                 request.setAttribute(Constants.PROFILE_INFO, info);
                 if (!validateProfileInfo()) {
-                    setNextPage(((SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getServletPath() + "?" +
+                    setNextPage("testing/" + "?" +
                             Constants.MODULE_KEY + "=" +
                             Constants.POPULATE_PROFILE_PROCESSOR);
                     setIsNextPageInContext(true);
