@@ -82,7 +82,7 @@
                                     <a class="statText">
 
                     <xsl:attribute name="href">
-                        <xsl:value-of select="concat('/tc?module=ProjectDetail&amp;pj='./project_id)"/>
+                        <xsl:value-of select="concat('/tc?module=ProjectDetail&amp;pj=',./project_id)"/>
                     </xsl:attribute><xsl:value-of select="./component_name"/>
 
                     <xsl:if test="number(./version) &gt;  number('1')">
@@ -177,7 +177,7 @@
                                     <a class="statText">
 
                         <xsl:attribute name="href">
-                            <xsl:value-of select="concat('/tc?module=ProjectDetail&amp;pj='./project_id)"/>
+                            <xsl:value-of select="concat('/tc?module=ProjectDetail&amp;pj=',./project_id)"/>
                         </xsl:attribute><xsl:value-of select="./component_name"/>
                         
                         <xsl:if test="number(./version) &gt;  number('1')">
