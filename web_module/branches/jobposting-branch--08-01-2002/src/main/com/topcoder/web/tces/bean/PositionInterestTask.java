@@ -168,7 +168,7 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
                     ((Long)hitListRow.getItem("coder_id").getResultData()).toString().trim() );
             hit.put("handle",
                     hitListRow.getItem("handle").toString().trim() );
-            if (((Integer)hitistRow.getItem("rating").getResultData()).intValue() > 0) {
+            if (((Integer)hitListRow.getItem("rating").getResultData()).intValue() > 0) {
                 hit.put("rating",
                         ((Integer)hitListRow.getItem("rating").getResultData()).toString() );
 log.debug("rating_int inserted: "+hitListRow.getItem("rating").getResultData());

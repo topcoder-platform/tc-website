@@ -1,6 +1,7 @@
 package com.topcoder.web.tces.common;
 
 import com.topcoder.shared.dataAccess.resultSet.TCResultItem;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.math.BigDecimal;
 import java.util.TreeMap;
@@ -16,6 +17,8 @@ import java.util.Iterator;
  * </p>
  */
 public class JSPUtils {
+
+    private static Logger log = Logger.getLogger(JSPUtils.class);
 
     /**
      * Encodes an object based on html encoding scheme.  Escape-out
@@ -104,6 +107,14 @@ public class JSPUtils {
         while (maps.hasNext()) {
             Map curMap = (Map)maps.next();
 
+            if (curMap.get(fieldName)==null) {
+                System.out.println(curMap);
+                Iterator it=curMap.keySet().iterator();
+                while (it.hasNext())
+                    log.debug(it.next());
+            }
+            else {
+
             ArrayList keyDupList = null;
             if (!mapsMap.containsKey(curMap.get(fieldName))) {
                 keyDupList = new ArrayList();
@@ -114,6 +125,8 @@ public class JSPUtils {
             }
 
             keyDupList.add(curMap);
+
+            }
         }
 
         while (mapsMap.size()>0) {
