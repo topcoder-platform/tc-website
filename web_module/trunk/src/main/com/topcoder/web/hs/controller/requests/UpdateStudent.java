@@ -6,7 +6,6 @@ import com.topcoder.web.hs.common.*;
 import com.topcoder.web.hs.model.*;
 
 import java.util.*;
-import javax.servlet.*;
 
 /**
  * A RequestProcessor which handles updating students information.  It
@@ -14,27 +13,17 @@ import javax.servlet.*;
  * updating entries in the database via EJBs.
  *
  * @author Nathan Egge
- * @date 2003/1/16
  */
 public class UpdateStudent extends Base {
 
     private final static String UPDATE_BASE = "/registration/";
-
     private final static String UPDATE_PAGE = "update_student.jsp";
-
     private final static String CONFIRM_PAGE = "confirm_student.jsp";
-
     private final static String HOME_PAGE = "/home/index.jsp";
-
     private final static String REGISTER_CMD = "update";
-
     private final static String CONFIRM_CMD = "confirm";
-
-    private final static String INVALID_COMMAND = "Invalid command passed to " +
-            "update module: ";
-
-    private final static String MISSING_SESSION = "Cannot update information " +
-            "without logging in";
+    private final static String INVALID_COMMAND = "Invalid command passed to update module: ";
+    private final static String MISSING_SESSION = "Cannot update information without logging in";
 
     private final static Logger log = Logger.getLogger(UpdateStudent.class);
 

@@ -26,8 +26,9 @@ public class Static extends Base {
         path += ".jsp";
 
         /* check whether the path is allowed for this type of user */
-        if(!hsa.hasPermission(new PathResource(path)))
-            throw new PermissionException("access to page denied", user);
+        Resource r = new PathResource(path);
+        if(!hsa.hasPermission(r))
+            throw new PermissionException(user, r);
 
         setNextPage(path);
         setIsNextPageInContext(true);

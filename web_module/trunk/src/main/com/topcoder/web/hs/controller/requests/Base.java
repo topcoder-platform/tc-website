@@ -87,8 +87,9 @@ public abstract class Base implements RequestProcessor {
         Set groups = ((HSAuthorization)hsa).getGroups();
         info.setAll(user, groups);
 
+        Resource r = new ClassResource(this.getClass());
         if(!hsa.hasPermission(new ClassResource(this.getClass())))
-            throw new PermissionException("access to processor denied", user);
+            throw new PermissionException(user, r);
 
         nav = new NavZoneBean();
         request.setAttribute("NavZone", nav);
