@@ -25,6 +25,10 @@
 	<tr>
 		<td class=bodyL>&#160;</td>
 		<td class=bodyContent>
+		<span class=bodyBigTitle>Welcome to the Testing Application.</span>
+		<br/><br/>
+		Please login to the Technical Assessment Tool below.  Your ID and PASSWORD have been emailed to you.		
+		<br/><br/>
 
 		<FORM>
 		<table width="400" align=center cellspacing=0 cellpadding=0 class=tableFrame>
@@ -48,9 +52,7 @@
 				<td class=tableText align=right>
 				&#160;
 				</td>
-				<td class=tableText>
-				<img src="/i/corp/screening/buttonGo.gif" border=0 />
-				</td>
+				<td class=tableText><A href="/mockup/directions.jsp"><img src="/i/corp/screening/buttonGo.gif" border=0 /></A></td>
 			</tr>
 			<tr><td class=tableText colspan=2>&#160;</td></tr>
 		</table>
