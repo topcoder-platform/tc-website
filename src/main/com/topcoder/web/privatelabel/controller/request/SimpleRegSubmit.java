@@ -69,14 +69,16 @@ public class SimpleRegSubmit extends SimpleRegBase {
             try {
                 //since we don't have a transaction spanning the security
                 //stuff, attempt to remove this newly created user manually
-                securityCtx = (InitialContext) TCContext.getContext(
-                                    ApplicationServer.SECURITY_CONTEXT_FACTORY,
-                                    ApplicationServer.SECURITY_PROVIDER_URL);
-                PrincipalMgrRemoteHome rHome = (PrincipalMgrRemoteHome)
-                                    securityCtx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+                if (newUser!=null && newUser.getId()>0) {
+                    securityCtx = (InitialContext) TCContext.getContext(
+                                        ApplicationServer.SECURITY_CONTEXT_FACTORY,
+                                        ApplicationServer.SECURITY_PROVIDER_URL);
+                    PrincipalMgrRemoteHome rHome = (PrincipalMgrRemoteHome)
+                                        securityCtx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
 
-                PrincipalMgrRemote mgr = rHome.create();
-                mgr.removeUser(newUser, CREATE_USER);
+                    PrincipalMgrRemote mgr = rHome.create();
+                    mgr.removeUser(newUser, CREATE_USER);
+                }
             } catch (Exception ex) {
                 throw new TCWebException(ex);
             } finally {
