@@ -60,6 +60,10 @@
                 <td class="bodyText" valign="middle" align="left"><a href="/i/card/badge4_300x40.gif">300px X 40px</a></td>
             </tr>
          </table>
+         
+         <p>If you would like to post this image with a link on your site or resume, please use this to send a recruiter to the appropriate site:</p>
+         <p align=center>link goes here automatically</p>
+        
 
         <p><a href="/tc?module=Static&d1=card&d2=description">Back to description</a></p> 
 
