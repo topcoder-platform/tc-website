@@ -37,27 +37,37 @@
 <!-- Manage Users ends -->
 <!-- TCES ends -->
 
+    <% } else if ((level1.equals("sponsorship"))) { %>
+
+<!-- Sponsorship begins -->
+            <img src="/i/clear.gif" width="170" height="6" border="0" alt=""><br>
+            <img src="/i/left_nav_top.gif" width="170" height="11" border="0" alt=""><br>
+
+            <table width="170" cellspacing="0" cellpadding="0" border="0">
+                <tr><td id="myServicesTitle">Sponsorship:</td></tr>
+
+            <% if (level1.equals("sponsorship")) { %>
+                <tr><td id="<%=level2.startsWith("overview")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=spon_prog&d3=index" class="corpLeftOn">Overview</a></td></tr>
+                <tr><td id="<%=level2.startsWith("srm")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=spon_prog&d3=srm_index" class="corpLeftOn">Single Round Matches</a></td></tr>
+                <tr><td id="<%=level2.startsWith("tourny")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=spon_prog&d3=tourny_index" target="_parent" class="corpLeftOn">Tournaments</a></td></tr>
+            <% } %>
+<!-- Sponsorship ends -->
+
     <% } else { %>
-            
-<!-- Corporate Services begins -->
+
             <img src="/i/clear.gif" width="170" height="6" border="0" alt=""><br>
             <img src="/i/left_nav_top.gif" width="170" height="11" border="0" alt=""><br>
 
             <table width="170" cellspacing="0" cellpadding="0" border="0">
                 <tr><td id="myServicesTitle">Corporate Services:</td></tr>
 
-<!-- TCES begins -->
-                <tr><td id="<%=level1.equals("tces_home")?"myServicesNavSelect":"myServicesNav"%>"><img src="/i/nav_arrow_right.gif" width="10" height="10" alt="" border="0"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=tces_home" target="_parent" class="corpLeft">Employment Services</a></td></tr>
-<!-- TCES ends -->
+<!-- Employment Services begins -->
+                <tr><td id="myServicesNav"><img src="/i/nav_arrow_right.gif" width="10" height="10" alt="" border="0"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=tces_home" target="_parent" class="corpLeft">Employment Services</a></td></tr>
+<!-- Employment Services ends -->
 
 <!-- Sponsorship begins -->
-                <tr><td id="<%=level1.equals("sponsorship")?(level2.equals("overview")?"myServicesNavSelect":"myServicesNavOn"):"myServicesNav"%>"><img src="/i/nav_arrow_<%=level1.equals("sponsorship")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=spon_prog&d3=index" class="<%=level1.equals("sponsorship")?"corpLeftOn":"corpLeft"%>">Sponsorship</a></td></tr>
-            <% if (level1.equals("sponsorship")) { %>
-                <tr><td id="<%=level2.startsWith("srm")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=spon_prog&d3=srm_index" class="corpLeftOn">Single Round Matches</a></td></tr>
-                <tr><td id="<%=level2.startsWith("tourny")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=spon_prog&d3=tourny_index" target="_parent" class="corpLeftOn">Tournaments</a></td></tr>
-            <% } %>
+                <tr><td id="myServicesNav"><img src="/i/nav_arrow_right.gif" width="10" height="10" alt="" border="0"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=spon_prog&d3=index" target="_parent" class="corpLeft">Sponsorship</a></td></tr>
 <!-- Sponsorship ends -->
-<!-- Corporate Services ends -->
 
     <% } %>
             
