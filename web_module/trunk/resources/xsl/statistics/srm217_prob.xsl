@@ -93,7 +93,7 @@ points.  Esi was a close second, followed by nihilista, almost 80 points behind.
 In division 1, however, the problems were anything but easy.  Though most
 coders made short work of the 250 point problem, they had a hard time with the
 600.  Many of them submitted some code, but the majority were doomed to failure.
-The 900 point problem also proved difficulty for most, though it had a much
+The 900 point problem also proved difficult for most, though it had a much
 higher success rate.  When the dust finally settled, SnapDragon and tomek were
 the only ones to solve all three problems, and SnapDragon ended up with the win.
 In second place, TAG challenged all 14 medium problems in his room successfully.
