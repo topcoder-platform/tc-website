@@ -120,7 +120,7 @@ public class SimpleSearch extends Base {
         queryBottom.append(" , country co");
         if (m.getSchoolName()!=null) {
             queryBottom.append(" , school s");
-            queryBottom.append(" , current_school cs)");
+            queryBottom.append(" , current_school cs");
         } else {
             queryBottom.append(" , outer (school s, current_school cs)");
         }
