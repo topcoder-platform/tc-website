@@ -419,6 +419,8 @@ public class Registration
 
             if (isEmpty(this.country)) addError(COUNTRY, "Please choose your country.");
 
+            if (this.country.equals(USA)&&isEmpty(this.state)) addError(STATE, "Please choose your state.");
+
             if (isEmpty(this.phone)) addError(PHONE, "Please enter your phone number.");
 
             if (isEmpty(this.handle)) {
