@@ -29,6 +29,8 @@ public class View extends SurveyData {
             } else {
                 setNextPage(Constants.SURVEY_VIEW);
             }
+        } catch (TCWebException e) {
+            throw e;
         } catch (Exception e) {
             throw new TCWebException(e);
         }
