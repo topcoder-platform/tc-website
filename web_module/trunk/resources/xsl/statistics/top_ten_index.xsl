@@ -74,7 +74,7 @@
                    </TD>
                  </TR>
                  <TR>
-                   <TD COLSPAN="5" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="14" BORDER="0"></TD>
+                   <TD COLSPAN="5" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="14" BORDER="0"/></TD>
                  </TR>
                </TABLE>
              </TD>
