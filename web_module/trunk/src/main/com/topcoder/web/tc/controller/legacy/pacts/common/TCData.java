@@ -14,7 +14,7 @@ import java.util.StringTokenizer;
 public class TCData {
     private static Logger log = Logger.getLogger(TCData.class);
 
-    private static final boolean LOG_EXCEPTIONS = false;
+    private static final boolean LOG_EXCEPTIONS = true;
 
     public static long getTCLong(ResultSetContainer.ResultSetRow row,
                                  String key, long defaultVal,
