@@ -146,7 +146,7 @@
    <TD></TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
    <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle">
-    <reg:errorIterator id="error" name="Email"><%=error%><BR>
+    <reg:errorIterator id="error" name="Email"><%=error%><BR></reg:errorIterator>
    </TD>
   </TR>
   <TR ALIGN="right" VALIGN="middle">
