@@ -115,14 +115,16 @@ public class GoogleRegSubmit extends FullRegSubmit {
             mail.setSubject("IMPORTANT - Google Code Jam 2003 Activation Email");
 
             buf.append("You're invited to take part in the Google Code Jam 2003, a programming competition that will be worthy of your time, your skills and your interest.\n\n");
-            buf.append("GOOGLE CODE JAM 2003 ACTIVATION INFORMATION\n\n");
-            buf.append("Your Google activation code is ");
-            buf.append(code);
-            buf.append("\n\n");
-            buf.append("To activate your account, navigate to the following WWW URL:\n\n");
-            buf.append(getUrl(code));
-            buf.append("\n\n");
-            buf.append("If you cannot click on the web address above, please copy the address into your web browser to continue.  If the address spans two lines, please make sure you copy and paste both sections without any spaces between them.\n\n");
+            if (info.isNew()) {
+                buf.append("GOOGLE CODE JAM 2003 ACTIVATION INFORMATION\n\n");
+                buf.append("Your Google activation code is ");
+                buf.append(code);
+                buf.append("\n\n");
+                buf.append("To activate your account, navigate to the following WWW URL:\n\n");
+                buf.append(getUrl(code));
+                buf.append("\n\n");
+                buf.append("If you cannot click on the web address above, please copy the address into your web browser to continue.  If the address spans two lines, please make sure you copy and paste both sections without any spaces between them.\n\n");
+            }
             buf.append("Your handle and password will provide you with access to the Google Competition Arena, where you can practice and chat, and where you'll compete in the Google Code Jam 2003.\n\n");
             buf.append("PRACTICING FOR THE EVENT\n");
             buf.append("There is a practice room available to you that will allow you to become acclimated with the competition environment before you participate in the Google Code Jam 2003.  The practice room contains a problem set that will be very similar in nature to the problems you will encounter during competition.  The practice room will be available from 8:00AM EDT on October 1, 2003 through 5:00PM EDT on November 14, 2003.\n\n");
