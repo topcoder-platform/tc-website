@@ -83,6 +83,7 @@
     <tr>
         <td class="statText">School:</td>
         <td class="statText">
+        <% System.out.println("blkaldkjflkajsf: " + JobHitTask.getSchool()); %>
             <jsp:getProperty name="JobHitTask" property="School" />
       </td>
     </tr>

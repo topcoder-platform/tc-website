@@ -159,6 +159,8 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         DataAccess data = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
         Map resultMap = data.getData(oltpDataRequest);
         ResultSetContainer rsc = (ResultSetContainer)resultMap.get("TCES_Member_Profile");
+        log.debug(rsc.toString());
+
 
         CoderRegistration coder = (CoderRegistration) user.getUserTypeDetails().get("Coder");
         setUserId(user.getUserId());
