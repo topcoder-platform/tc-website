@@ -249,13 +249,15 @@
       <url-pattern>/PactsMemberServlet</url-pattern>
     </servlet-mapping>
 
+<!--
     <servlet-mapping>
       <servlet-name>report</servlet-name>
       <url-pattern>/report</url-pattern>
     </servlet-mapping>
 
+-->
     <servlet-mapping>
-      <servlet-name>javadocs</servlet-name>
+        <servlet-name>javadocs</servlet-name>
       <url-pattern>/javadocs</url-pattern>
     </servlet-mapping>
 
