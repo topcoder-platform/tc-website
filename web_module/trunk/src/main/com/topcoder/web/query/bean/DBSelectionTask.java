@@ -43,7 +43,7 @@ public class DBSelectionTask extends BaseTask implements Task, Serializable {
     }
 
     public void process(String step) throws Exception {
-        super.setNextPage(Constants.COMMAND_LIST_PAGE);
+        super.setNextPage(Constants.DB_SELECTION_PAGE);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {

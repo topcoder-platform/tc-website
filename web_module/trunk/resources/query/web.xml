@@ -239,7 +239,7 @@
 
   <init-param>
     <param-name>db_selection_task</param-name>
-    <param-value>DBTask</param-value>
+    <param-value>DBSelectionTask</param-value>
     <description></description>
   </init-param>
 
