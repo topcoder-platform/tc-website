@@ -11,6 +11,15 @@
 
 <jsp:include page="../script.jsp" />
 
+<script language = "JavaScript">
+<!--
+function PassFlash(graphNums){
+   var test = graphNums;
+    window.document.myFlash.SetVariable("answers", test);
+}
+//--> 
+</script> 
+
 </head>
 
 <body>
@@ -36,11 +45,9 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins --> 
-         <td width="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
-            <jsp:include page="../body_top.jsp" >
-                 <jsp:param name="image" value="polls"/>  
-                 <jsp:param name="image1" value="white"/>  
-            </jsp:include>
+         <td width="100%" class="bodyText">
+            <img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
+            <img src="/i/header_questions.gif" width="210" height="26" border="0"><br/>
             <p><img src="/i/clear.gif" width="240" height="1" border="0"><br>
                <tc:questionIterator list="<%=questionInfo%>" id="question">
                   <table width="100%" border="0" cellpadding="0" cellspacing="0" class="bodyText">
@@ -67,6 +74,36 @@
                   </rsc:iterator>
                </table>
              </tc:questionIterator>
+            </p>
+            <p>
+               <a href="#" onClick="PassFlash('50,40,30,20')">String1</a>
+               <a href="#" onClick="PassFlash('20,30,40,50')">String1</a>
+               <a href="#" onClick="PassFlash('90,20,15,55')">String1</a>
+               <a href="#" onClick="PassFlash('60,70,40,30')">String1</a>
+            </p>
+            <p>
+            <object
+                  type="application/x-shockwave-flash"
+                  data="/i/barGraph.swf"
+            classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+            codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"
+            width=400 
+            height=400 
+            id="myFlash" >
+            <PARAM  NAME=movie  VALUE="/i/barGraph.swf"> 
+            <PARAM NAME=quality VALUE="high"> 
+            <PARAM NAME=bgcolor VALUE="#FFFFFF"> 
+            <embed 
+            src="/i/barGraph.swf" 
+            quality=high 
+            width=400 
+            height=400
+            type="application/x-shockwave-flash" 
+            pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" 
+            name="myFlash" 
+            swLiveConnect="true" >
+            </embed> 
+            </object> 
             </p> 
          </td>
 <!-- Center Column Ends -->
