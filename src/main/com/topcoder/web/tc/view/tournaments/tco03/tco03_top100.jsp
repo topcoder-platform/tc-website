@@ -68,10 +68,10 @@
                 <%boolean even = false;%>
                 <rsc:iterator list="<%=rsc%>" id="resultRow">
                     <tr>
-                       <td class="<%=even?"formTextEven":"formTextOdd"%>">
+                       <td class="<%=even?"formHandleOdd":"formHandleEven"%>">
                            <A HREF="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>" CLASS="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item name="handle" row="<%=resultRow%>"/></A>
                        </td>
-                       <td class="<%=even?"formTextEven":"formTextOdd"%>" align="right"><rsc:item name="rating" row="<%=resultRow%>"/></td>
+                       <td class="<%=even?"formHandleOdd":"formHandleEven"%>" align="right"><rsc:item name="rating" row="<%=resultRow%>"/></td>
                    </tr>
                    <%even=!even;%>
                </rsc:iterator>
