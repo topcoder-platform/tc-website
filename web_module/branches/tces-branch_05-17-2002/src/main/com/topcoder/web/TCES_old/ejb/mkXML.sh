@@ -36,7 +36,7 @@ EOF
          <max-beans-in-free-pool>200</max-beans-in-free-pool>
          <initial-beans-in-free-pool>10</initial-beans-in-free-pool>
       </caching-descriptor>
-      <jndi-name>com.topcoder.web.render.ejb.${CLASS_NAME}</jndi-name>
+      <jndi-name>com.topcoder.web.TCES.ejb.${CLASS_NAME}</jndi-name>
    </weblogic-enterprise-bean>
 EOF
 	SESS_ID=`expr $SESS_ID + 1`
