@@ -75,7 +75,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 </jsp:include>
 
                 <p>
-                Photos&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=crpf&d2=crpf_overview">Details</a>
+                Photos&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=CRPFStatic&d1=crpf&d2=crpf_overview">Details</a>
             </p>
             
             <h2><i>A Magical Evening</i> Photos</h2>
