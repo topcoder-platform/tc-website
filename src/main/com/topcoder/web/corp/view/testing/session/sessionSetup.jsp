@@ -211,11 +211,11 @@ function submitSession() {
                 </tr>
                     
                 <tr valign="middle">
-                    <td class="testTableOdd" colspan="3">Invite candidate to Testing Application&#160;<screen:checkbox name="candidateEmail" value="YES" checked="<%=testSessionInfo.getCandidateEmail()%>" /><img src="/i/corp/clear.gif" width="1" height="20" alt="" border="0"></td>
+                    <td class="testTableOdd" colspan="3">Invite candidate to Testing Application&#160;<screen:checkbox name="<%=Constants.CANDIDATE_EMAIL%>" value="YES" checked="<%=testSessionInfo.getCandidateEmail()%>" /><img src="/i/corp/clear.gif" width="1" height="20" alt="" border="0"></td>
                 </tr>
                 
                 <tr valign="middle">
-                    <td class="testTableEven" colspan="3">Send me email reminder&#160;<screen:checkbox name="repEmail" value="YES" checked="<%=testSessionInfo.getRepEmail()%>" /><img src="/i/corp/clear.gif" width="1" height="20" alt="" border="0"></td>
+                    <td class="testTableEven" colspan="3">Send me email reminder&#160;<screen:checkbox name="<%=Constants.REP_EMAIL%>" value="YES" checked="<%=testSessionInfo.getRepEmail()%>" /><img src="/i/corp/clear.gif" width="1" height="20" alt="" border="0"></td>
                 </tr>
                 
                 <tr valign="middle">
