@@ -78,7 +78,7 @@
 
                 arr = arr.substring(0, arr.length-1);
 
-                putValue("window.opener.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + arg, arr);
+                putValue("window.opener.opener.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + arg, arr);
                 window.opener.setModify("<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + arg);
 
                 window.close();
