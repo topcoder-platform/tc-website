@@ -1,9 +1,7 @@
 <!--Left Navigation Include Begins-->
 
-<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
-
 <jsp:useBean id="SessionInfo" class="com.topcoder.web.hs.model.SessionInfoBean" scope="request" />
-<jsp:useBean id="NavZone" class="com.topcoder.web.hs.model.NavZoneBean" scope="request" />
+<jsp:useBean id="nav" class="com.topcoder.web.hs.model.NavZoneBean" scope="request" />
 
 <TABLE WIDTH="170" CELLSPACING="0" CELLPADDING="0" BORDER="0" BGCOLOR="#000000">
     <TR>
@@ -30,12 +28,11 @@
     <TR>
 
 
-<logic:notEqual name="NavZone" property="Folder" value="stats">
+<% if(!nav.getFolder(0).equals("stats")) { %>
 
          <TD CLASS="sidenav">&nbsp;<A HREF="?module=Statistics&c=round_overview" CLASS="sidenav"><IMG SRC="/i/hs/nav_arrow_right.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>Statistics</A></TD>
 
-</logic:notEqual>
-<logic:equal name="NavZone" property="Folder" value="stats">
+<% } else { %>
 
          <TD CLASS="sidenav">&nbsp;<A HREF="?module=Statistics&c=round_overview" CLASS="sidenav"><IMG SRC="/i/hs/nav_arrow_bottom.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>Statistics</A></TD>
      </TR>
@@ -54,7 +51,7 @@
  		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Statistics&c=room_stats" CLASS="sidenav">Room Stats</A><BR/>
  		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Statistics&c=member_profile&cr=<jsp:getProperty name="SessionInfo" property="UserId" />" CLASS="sidenav">Member Profile</A><BR/>
 
-</logic:equal>
+<% } %>
 
 
     </TR>
@@ -70,12 +67,11 @@
     <TR>
 
 
-<logic:notEqual name="NavZone" property="Folder" value="faq">
+<% if(!nav.getFolder(0).equals("stats")) { %>
 
          <TD CLASS="sidenav">&nbsp;<A HREF="?module=Static&d1=faq&d2=faq" CLASS="sidenav"><IMG SRC="/i/hs/nav_arrow_right.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>Support/FAQs</A></TD>
 
-</logic:notEqual>
-<logic:equal name="NavZone" property="Folder" value="faq">
+<% } else { %>
 
          <TD CLASS="sidenav">&nbsp;<A HREF="?module=Static&d1=faq&d2=faq" CLASS="sidenav"><IMG SRC="/i/hs/nav_arrow_bottom.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>Support/FAQs</A></TD>
      </TR>
@@ -93,7 +89,7 @@
  		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Static&d1=faq&d2=rules_quali" CLASS="sidenav">Rules & Qualification </A>
          </TD>
 
-</logic:equal>
+<% } %>
 
 
     </TR>
@@ -115,12 +111,11 @@
     <TR>
 
 
-<logic:notEqual name="NavZone" property="Folder" value="about">
+<% if(!nav.getFolder(0).equals("stats")) { %>
 
          <TD CLASS="sidenav">&nbsp;<A HREF="?module=Static&d1=about&d2=about" CLASS="sidenav"><IMG SRC="/i/hs/nav_arrow_right.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>About Us</A></TD>
 
-</logic:notEqual>
-<logic:equal name="NavZone" property="Folder" value="about">
+<% } else { %>
 
          <TD CLASS="sidenav">&nbsp;<A HREF="?module=Static&d1=about&d2=about" CLASS="sidenav"><IMG SRC="/i/hs/nav_arrow_bottom.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>About Us</A></TD>
      </TR>
@@ -132,7 +127,7 @@
          <IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Static&d1=about&d2=about_member" CLASS="sidenav">For Members</A> <BR/>
  		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Static&d1=about&d2=about_sponsor" CLASS="sidenav">For Sponsors</A>
 
-</logic:equal>
+<% } %>
 
     </TR>
     <TR>
