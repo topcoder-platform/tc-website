@@ -23,7 +23,9 @@ public class Results extends Base {
             DataAccessInt dataAccess = getDataAccess();
             Map qMap = dataAccess.getData(r);
             ResultSetContainer questions = (ResultSetContainer) qMap.get("problem rating results");
+            ResultSetContainer problemName = (ResultSetContainer) qMap.get("problem name");
             getRequest().setAttribute("problemRatingResults",questions);
+            getRequest().setAttribute("problemName",problemName.getRow(0).getStringItem("name"));
             setNextPage(Constants.PROBLEM_RATING_RESULTS);
             setIsNextPageInContext(true);
         }catch(Exception e){
