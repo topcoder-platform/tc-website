@@ -45,8 +45,6 @@
                     <td class="bodyText"># of Submissions</td>
                     <td class="bodyText">Review Start</td>
                     <td class="bodyText">Review End</td>
-                    <td class="bodyText">Agg. Review Start</td>
-                    <td class="bodyText">Agg. Review End</td>
                     <td class="bodyText"># Review Positions Available</td>
                 </tr>
 
@@ -58,8 +56,6 @@
                         <td class="bodyText"><rsc:item row="<%=resultRow%>" name="submission_count"/></td>
                         <td class="bodyText"><rsc:item row="<%=resultRow%>" name="review_start" format="MM.dd.yyyy"/></td>
                         <td class="bodyText"><rsc:item row="<%=resultRow%>" name="review_end" format="MM.dd.yyyy"/></td>
-                        <td class="bodyText"><rsc:item row="<%=resultRow%>" name="agg_review_start" format="MM.dd.yyyy"/></td>
-                        <td class="bodyText"><rsc:item row="<%=resultRow%>" name="agg_review_end" format="MM.dd.yyyy"/></td>
                         <td class="bodyText"><rsc:item row="<%=resultRow%>" name="available_spots"/></td>
                     </tr>
                 </rsc:iterator>
