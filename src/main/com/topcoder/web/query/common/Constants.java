@@ -33,6 +33,8 @@ public class Constants {
     public static String GROUP_PARAM = null;
 
     public static String LOGIN_TASK = null;
+    public static String DB_SELECTION_TASK = null;
+    public static String COMMAND_LIST_TASK = null;
 
     public static void init(ServletConfig servletConfig) throws ServletException {
         
@@ -59,6 +61,8 @@ public class Constants {
         GROUP_PARAM = servletConfig.getInitParameter("group_param");
 
         LOGIN_TASK = servletConfig.getInitParameter("login_task");
+        DB_SELECTION_TASK = servletConfig.getInitParameter("db_selection_task");
+        COMMAND_LIST_TASK = servletConfig.getInitParameter("command_list_task");
 
     }
 }

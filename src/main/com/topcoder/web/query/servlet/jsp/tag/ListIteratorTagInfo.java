@@ -2,7 +2,7 @@ package com.topcoder.web.query.servlet.jsp.tag;
 
 import javax.servlet.jsp.tagext.*;
 
-public class SetIteratorTagInfo extends TagExtraInfo {
+public class ListIteratorTagInfo extends TagExtraInfo {
 
     public VariableInfo[] getVariableInfo(TagData data) {
         return new VariableInfo[]{
