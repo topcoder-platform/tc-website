@@ -20,15 +20,10 @@
         <META NAME="description" CONTENT="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
         <META NAME="keywords" CONTENT="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
 <script Language="JavaScript">
-
-
-function open_window(url) {
-mywin =
-window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,width=433,height=288');
-
-}
-
-
+  function changeImage(image, newImage) {
+    document[image].src=newImage;
+    return;
+  }
 </script>      
       </HEAD>
       <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
@@ -91,33 +86,54 @@ Thursday, April 18, 2002<BR/>
 <!-- body content ends here -->
           </TD>
             </TR>
+          </TABLE>
+                      
+          <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">            
             <TR>
               <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/><A NAME="photo"></A></TD>
             </TR>          
-            
-          
             <TR>
-              <TD VALIGN="middle" COLSPAN="3" HEIGHT="18" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig">&#160;&#160;Reception Photos</TD>
+              <TD VALIGN="middle" COLSPAN="3" HEIGHT="18" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig">&#160;&#160;Semifinal Room 2 Photos</TD>
             </TR>
             <TR>
               <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
             </TR>                                             
             <TR>
-              <TD VALIGN="top" COLSPAN="3" CLASS="bodyText" ALIGN="center"><BR/>
-<A HREF="javascript:open_window('/?t=pic&amp;c=member&amp;img=RECPT01')"><IMG SRC="/i/2002tccc/RECPT01_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
-<A HREF="javascript:open_window('/?t=pic&amp;c=member&amp;img=RECPT02')"><IMG SRC="/i/2002tccc/RECPT02_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
-<A HREF="javascript:open_window('/?t=pic&amp;c=member&amp;img=RECPT03')"><IMG SRC="/i/2002tccc/RECPT03_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>             
-<A HREF="javascript:open_window('/?t=pic&amp;c=member&amp;img=RECPT04')"><IMG SRC="/i/2002tccc/RECPT04_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
+              <TD VALIGN="top" COLSPAN="3" CLASS="bodyText" ALIGN="center">
+<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR101.jpg');"><IMG SRC="/i/2002tccc/SFR101_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
+<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR102.jpg');"><IMG SRC="/i/2002tccc/SFR102_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
+<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR103.jpg');"><IMG SRC="/i/2002tccc/SFR103_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>             
+<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR104.jpg');"><IMG SRC="/i/2002tccc/SFR104_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
+<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR105.jpg');"><IMG SRC="/i/2002tccc/SFR105_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>             
               </TD>
             </TR>
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText" ALIGN="center"><BR/>
-<A HREF="javascript:open_window('/?t=pic&amp;c=member&amp;img=RECPT05')"><IMG SRC="/i/2002tccc/RECPT05_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
-<A HREF="javascript:open_window('/?t=pic&amp;c=member&amp;img=RECPT06')"><IMG SRC="/i/2002tccc/RECPT06_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
-<A HREF="javascript:open_window('/?t=pic&amp;c=member&amp;img=RECPT07')"><IMG SRC="/i/2002tccc/RECPT07_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>             
-<A HREF="javascript:open_window('/?t=pic&amp;c=member&amp;img=RECPT08')"><IMG SRC="/i/2002tccc/RECPT08_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
+              <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="1" BGCOLOR="#000000">
+	<TR>
+		<TD><IMG SRC="/i/2002tccc/SFR101.jpg" NAME="bigVersion" WIDTH="432" HEIGHT="288" BORDER="0"/></TD>
+	</TR>
+</TABLE>
+              <BR/></TD>
+            </TR>            
+            <TR>
+              <TD VALIGN="top" COLSPAN="3" CLASS="bodyText" ALIGN="center">
+<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR106.jpg');"><IMG SRC="/i/2002tccc/SFR106_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
+<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR107.jpg');"><IMG SRC="/i/2002tccc/SFR107_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>             
+<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR108.jpg');"><IMG SRC="/i/2002tccc/SFR108_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
+<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR107.jpg');"><IMG SRC="/i/2002tccc/SFR107_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>             
+<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR108.jpg');"><IMG SRC="/i/2002tccc/SFR108_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>              
               </TD>
-            </TR>               
+            </TR>
+            <TR>
+              <TD VALIGN="top" COLSPAN="3" CLASS="bodyText" ALIGN="center">
+<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR101.jpg');"><IMG SRC="/i/2002tccc/SFR101_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
+<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR102.jpg');"><IMG SRC="/i/2002tccc/SFR102_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
+<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR103.jpg');"><IMG SRC="/i/2002tccc/SFR103_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>             
+<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR104.jpg');"><IMG SRC="/i/2002tccc/SFR104_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
+<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR105.jpg');"><IMG SRC="/i/2002tccc/SFR105_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>             
+              </TD>
+            </TR>              
           </TABLE>
           <P><br/></P>
     </TD>
