@@ -298,6 +298,7 @@ public final class TaskDevelopment {
                 resultMap = null;
                 dataRequest = new Request();
                 dataRequest.setContentHandle("Multiplier_Status");
+                dataRequest.setProperty("pj", request.getParameter("pj"));
 
                 dai = new DataAccess(
                                 dataRequest.getProperty(Constants.DB_KEY, Query.TCS_CATALOG));
