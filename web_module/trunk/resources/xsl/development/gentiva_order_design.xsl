@@ -101,7 +101,8 @@
 
                                                     <p>
                                                         <strong>Business Requirement Specification </strong>
-                                                            View the <a target="_new" class="bodyText" href="/i/development/downloads/GentivaOrderProcessingApplicationSpec.pdf">Business Requirement Specification</a> for this application project.
+                                                        <br/>
+                                                        View the <a target="_new" class="bodyText" href="/i/development/downloads/GentivaOrderProcessingApplicationSpec.pdf">Business Requirement Specification</a> for this application project.
                                                     </p>
 
 
