@@ -138,23 +138,8 @@
                         <BR/>.:: All times are Eastern Standard unless noted otherwise ::.<BR/><BR/></TD></TR>
                       <TR><TD COLSPAN="3" ALIGN="center">
                         .:: 
-<SCRIPT type="text/javascript"><![CDATA[                      
-function arena() {
-  w=window.open("","Launch","top=2,left=2,width=300,height=225,status=1");
-  d = w.document;
-  d.write ( "<HTML><HEAD><TITLE>Loading</TITLE>" );
-  d.write ( "</HEAD><BODY bgcolor=\"#CCCCCC\">" );
-  d.write ( "<font color=\"#000000\" size=\"2\" face=\"arial,verdana,helvetica,sans-serif\">" );
-  d.write ( "<b>Loading...</b>" );
-  d.write ( "</font>" );
-  d.write ( "<SCRIPT type=\"text/javascript\">" );
-  d.write ( "window.location='/?t=arena&amp;c=arena'" );
-  d.write ( "\<\/SCRIPT\>" );
-  d.write ( "</BODY></HTML>" );
-}
-]]></SCRIPT>
-                          <A HREF="JavaScript:arena();" CLASS="bodyText">
-                            DOWNLOAD THE ARENA APPLET
+                          <A HREF="JavaScript:arena();" CLASS="bodyTextBig">
+                            <b>DOWNLOAD THE ARENA APPLET</b>
                             <BR/><BR/>
                           </A>
                       </TD></TR>
