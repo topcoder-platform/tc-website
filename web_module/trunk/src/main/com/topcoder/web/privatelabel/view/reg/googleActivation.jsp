@@ -87,12 +87,7 @@ function openWin(url, name, w, h) {
          <td width="100%" class="bodyText" valign="top">
             <img src="/i/clear.gif" width="10" height="10" border="0"/><br />
 
-<h2>Registration</h2>
-<p>
-Activation Successful!<br/><br/>
-
-</p>
-</blockquote>
+<h2>Activation Successful!</h2>
 <p><br /></p>
 
 
