@@ -103,7 +103,7 @@ function checkInputs(){
                         sponsors to get their message across in an appealing and non-intrusive manner.  Because we take our relationship with sponsors seriously, we
                         believe that they have value to provide.  We ask that you listen to what they have to say.</p>
 
-                        <p>Please read the Terms of Use and Privacy Policy, and let me be the first to say good luck in the arena.</p>
+                        <p>Please read the <A href="/?t=about_tc&amp;c=terms">Terms of Use</A> and <A href="/?&t=about_tc&c=privacy">Privacy Policy</A>, and let me be the first to say good luck in the arena.</p>
 
                         <p>Jack Hughes<br>
                         Founder and Chairman, TopCoder, Inc.</p>
@@ -111,8 +111,7 @@ function checkInputs(){
                 </tr>
             </table>
 
-             <div align="center"><br>Required fields are in <strong>bold</strong><br/>
-             Please read the <A href="/?t=about_tc&amp;c=terms">Terms and Revisions</A>, and <A href="/?&t=about_tc&c=privacy">Privacy Policy</A> before registering.</div>
+             <div align="center"><br>Required fields are in <strong>bold</strong><br/>&#160;</div>
 
             <table border="0" cellspacing="0" cellpadding="3" width="100%">
 
