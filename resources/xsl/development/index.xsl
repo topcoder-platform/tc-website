@@ -73,11 +73,10 @@ Inquiry Deadline: TBD<BR/>
 </P>
 
 <P>
-Project: <A HREF="/index?t=development&amp;c=dde2" CLASS="statTextBig">Distributed Development Environment</A><BR/>
+Project: <A HREF="/index?t=development&amp;c=dde2" CLASS="statText">Distributed Development Environment</A><BR/>
 Start Date: June 26, 2002<BR/>
 End Date: August 23, 2002<BR/>
-Member Selection: <b>Open</b><BR/>
-Inquiry Deadline:  June 26, 2002<BR/>
+Member Selection: Closed<BR/>
 </P>
 
 <P>
@@ -116,7 +115,7 @@ Member Selection: Closed<BR/>
 </P>
 
 <P>
-Project: <A HREF="/index?t=development&amp;c=dde1" CLASS="statTextBig">Design of the TopCoder Distributed Development Environment</A><BR/>
+Project: <A HREF="/index?t=development&amp;c=dde1" CLASS="statText">Design of the TopCoder Distributed Development Environment</A><BR/>
 Start Date: May 21, 2002<BR/>
 End Date: June 11, 2002<BR/>
 Member Selection: Closed<BR/>
