@@ -51,16 +51,16 @@
 				<table border=0 cellpadding=0 cellspacing=0 align=center width=250>
 					<tr>
 						<td class=homeArrow><img src="/i/home/triangle.gif" border=0 /></td>
-						<td class=homeTitle><A href="/?t=schedule&c=index" class=homeTitleLink>Software</A></td>
+						<td class=homeTitle><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>" class=homeTitleLink>Software</A></td>
 					</tr>
 					<tr>
 						<td class=homeArrow>&#160;</td>
 						<td class=homeText>
 						<br/>
-						<A href="">Component Catalogs</A><br/>
+						<A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/index.jsp">Component Catalogs</A><br/>
 						Re-usable software components in the TopCoder Software catalogs drive down cost while increasing the level of quality and speed of delivery.
 						<br/><br/>
-						<A href="">Application Development</A><br/>
+						<A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/applications/index.jsp">Application Development</A><br/>
 						TopCoder leverages our member base of qualified software developers and our unique competition-based development methodology to create commercial software for our customers.
 						<br/><br/>
 						</td>
@@ -72,16 +72,16 @@
 				<table border=0 cellpadding=0 cellspacing=0 align=center width=250>
 					<tr>
 						<td class=homeArrow><img src="/i/home/triangle.gif" border=0 /></td>
-						<td class=homeTitle><A href="/?t=schedule&c=index" class=homeTitleLink>Employment Services</A></td>
+						<td class=homeTitle><A href="/corp/?module=Static&d1=corp&d2=tces_home" class=homeTitleLink>Employment Services</A></td>
 					</tr>
 					<tr>
 						<td class=homeArrow>&#160;</td>
 						<td class=homeText>
 						<br/>
-						<A href="">Technical Assessment Tool</A><br/>
+						<A href="/corp/?module=Static&d1=corp&d2=testing&d3=index">Technical Assessment Tool</A><br/>
 						The TopCoder Testing Program allows companies to assess the technical abilities of candidates during the interview process, thereby reducing the time incurred by in-house engineers.
 						<br/><br/>
-						<A href="">Tournament Sponsorship</A><br/>
+						<A href="/corp/?module=Static&d1=corp&d2=spon_prog&d3=tourny_index">Tournament Sponsorship</A><br/>
 						TopCoder tournaments draw a global participation base of the top collegiate and professional developers.  TopCoder gathers information about each participant on how they are ranked and rated based on their performance
 						<br/><br/>
 						</td>
@@ -93,16 +93,16 @@
 				<table border=0 cellpadding=0 cellspacing=0 align=center width=250>
 					<tr>
 						<td class=homeArrow><img src="/i/home/triangle.gif" border=0 /></td>
-						<td class=homeTitle><A href="/?t=schedule&c=index" class=homeTitleLink>Marketing Services</A></td>
+						<td class=homeTitle><A href="/corp/?module=Static&d1=corp&d2=spon_prog&d3=index" class=homeTitleLink>Marketing Services</A></td>
 					</tr>
 					<tr>
 						<td class=homeArrow>&#160;</td>
 						<td class=homeText>
 						<br/>
-						<A href="">Tournament Sponsorship</A><br/>
+						<A href="/corp/?module=Static&d1=corp&d2=spon_prog&d3=market_tourny">Tournament Sponsorship</A><br/>
 						TopCoder offers custom programs for technology vendors to increase awareness and adoption through our tournaments.
 						<br/><br/>
-						<A href="">Private Label Events</A><br/>
+						<A href="/corp/?module=Static&d1=corp&d2=spon_prog&d3=market_conference">Private Label Events</A><br/>
 						Through our private label events we have the ability to integrate select tools to be used in competition, allowing companies to showcase their tools in software design and development processes.
 						<br/><br/>
 						</td>
