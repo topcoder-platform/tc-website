@@ -121,7 +121,7 @@ public class JavaDocServicesBean extends BaseEJB {
             sql.append(    ",web_service ws ");
             sql.append("WHERE ws.web_service_id = wsjd.web_service_id ");
             sql.append(  "AND ws.web_service_name = ? ");
-            sql.append(  "AND ws.path = ? ");
+            sql.append(  "AND wsjd.path = ? ");
             ps = conn.prepareStatement(sql.toString());
             ps.setString(1, webServiceName);
             ps.setString(2, path);
