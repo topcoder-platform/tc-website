@@ -202,9 +202,6 @@
                                         <ol>
                                             <li>Eligible TopCoder members inquire to be selected for the design phase of the application.</li>
                                             <li>TopCoder Software selects 2 members to work independently during the design phase of the application.</li>
-                                            <!--<li>Designers must submit a completed Application Design Specification on the Specification Submission Due
-                                Date as stated in the Application Project Posting page.</li>
-                                -->
                                             <li>Designers must submit the following documents by the Due Date as stated in the Application Project Posting page:
                                                 <ul>
                                                     <li>Application Design Specification Document</li>
@@ -270,28 +267,37 @@
                                         </p>
 
                                         <ol>
-                                            <li>Developers submit development solutions in the same manner as design solutions.</li>
+                                            <li>Eligible TopCoder members inquire to be selected for the development phase of the application.</li>
+                                            <li>TopCoder Software selects 2 members to work independently during the development phase of the application.</li>
                                             <li>Developers are responsible for submitting completed development solutions that can be integrated
-                                                with other developer submissions. Completed solutions include a working solution, unit test cases
-                                                and all associated documentation.</li>
+                                                with other developer submissions. </li>
+                                            <li>Developers must submit the following documents by the Due Date as stated in the Application Project Posting page:
+                                                <ul>
+                                                    <li>A working solution as defined by the Application Requirements and Design Specifications</li>
+                                                    <li>Unit Test Cases</li>
+                                                    <ul>
+                                                        <li>Checking methods for handling of valid and invalid arguments.</li>
+                                                        <li>Testing constructors for accessibility.</li>
+                                                        <li>Testing expected output.</li>
+                                                        <li>Stress Testing.</li>
+                                                    </ul>
+                                                </ul>
+                                            </li>
                                             <li>The Designer and TopCoder Software Application Manager are available to answer questions and give guidance.</li>
                                             <li>A Development Review Board is selected from the Development Review Board Pool.</li>
                                             <li>The Development Review Board and Designer are responsible for testing and scoring each submission.</li>
-                                            <li>Scoring includes accuracy testing, failure testing, and stress testing.</li>
                                             <li>Once all submissions are scored a winning solution is chosen.</li>
                                             <li>The winning developers must integrate as a team all of the winning submissions into one application.</li>
                                             <li>A lead developer is chosen by the TopCoder Software Project Manager, from the winning submitters to
                                                 facilitate the integration and build process.</li>
-                                            <li>The Development Review Board will test the application for accuracy, stress, and failure at the end of the Integration Phase.  All bug fixes are addressed immediately by the integration team.</li>
+                                            <li>The Development Review Board will test the application at the end of the Integration Phase.  All bug fixes are
+                                                addressed immediately by the integration team.</li>
                                             <li>The Development Review Board performs the Final Application Review once all the of fixes have been applied.</li>
                                         </ol>
-
                                     </td>
                                 </tr>
                                 <!-- Development ends -->
-
-
-                                <!-- QA begins -->
+                               <!-- QA begins -->
                                 <tr valign="top">
                                     <td width="100%">
                                         <a name="qa"></a>
