@@ -130,6 +130,7 @@ public class TCCC05ContestDetails extends StatBase {
     public void addPoints(String handle, int userId, int pts, boolean completed) {
         TCCC05ContestDetail user = null;
         for(int i = 0; i < arr.size(); i++) {
+            log.debug("OLD");
             TCCC05ContestDetail item = (TCCC05ContestDetail)arr.get(i);
             if(item.getUserID() == userId) {
                 user = item;
@@ -137,8 +138,9 @@ public class TCCC05ContestDetails extends StatBase {
             }
         }
         if(user == null) {
-            arr.add(new TCCC05ContestDetail(handle, userId));
-            user = (TCCC05ContestDetail)arr.get(arr.size()-1);
+            log.debug("NEW");
+            user = new TCCC05ContestDetail(handle, userId);
+            arr.add(user);
         }
         
         user.addPoints(pts);
