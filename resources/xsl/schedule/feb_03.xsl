@@ -85,7 +85,7 @@
               <TR BGCOLOR="#FFFFFF"> 
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">9</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">10</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>11</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 135</B></SPAN><BR/>Register: 6:00&#160;PM<BR/>Compete: 9:00&#160;PM<BR/><!--Sponsored by: Apex, Google &#38; NVIDIA--><BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?RoundId=4465&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>11</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 135</B></SPAN><BR/>Register: 6:00&#160;PM<BR/>Compete: 9:00&#160;PM<BR/>Sponsored by: Gentleware<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?RoundId=4465&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">12</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">13</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">14</TD>
