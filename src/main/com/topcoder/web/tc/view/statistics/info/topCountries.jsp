@@ -68,17 +68,18 @@
 
             <p class="bodyText"></p>
 
-            <p class="bodyText">Where <b><i>X</i></b> is the fraction of a country’s rating
+            <p class="bodyText">Where <b><i>X</i></b> is the fraction of a countryï¿½s rating
             that will be based on the top <b><i>K</i></b> coders within that country.</p>
 
             <p class="bodyText"></p>
 
             <p class="bodyText">We have chosen an <b><i>R</i></b> of .87, this means that
-            the top 10 coders contribute about 75% of a country’s rating.</p>
+            the top 10 coders contribute about 75% of a countryï¿½s rating.</p>
 
          </td>
       </tr>
       <br/>
+      <tr><td align="right"><font size="-1">formula courtesy of ChristopherH</font></td></tr>
       <tr>
          <td align="center">
            <p><br /></p>
