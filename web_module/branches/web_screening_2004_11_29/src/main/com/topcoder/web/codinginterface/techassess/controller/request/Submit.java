@@ -79,7 +79,7 @@ public class Submit extends Base {
 
             addError(Constants.CODE, response.getMessage());
             Problem p = new Problem();
-            p.setProblemComponents(new ProblemComponent[] {response.getProblemComponent()});
+            //p.setProblemComponents(new ProblemComponent[] {response.getProblemComponent()});
             setDefault(Constants.PROBLEM, new ProblemInfo(code, componentId, languageId, p, problemTypeId));
 
             closeProcessingPage(buildProcessorRequestString(Constants.RP_VIEW_PROBLEM_RESPONSE,
