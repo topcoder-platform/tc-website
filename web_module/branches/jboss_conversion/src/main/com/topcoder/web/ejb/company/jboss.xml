@@ -7,14 +7,15 @@
         <session>
             <ejb-name>Company</ejb-name>
             <jndi-name>com.topcoder.web.ejb.company.CompanyHome</jndi-name>
-            <resource-env-ref>
-                <resource-env-ref-name>jts_datasource_name</resource-env-ref-name>
+            <resource-ref>
+                <resource-name>jts_datasource_name</resource-name>
                 <jndi-name>JTS_CORP_DS</jndi-name>
-            </resource-env-ref>
-            <resource-env-ref>
-                <resource-env-ref-name>datasource_name</resource-env-ref-name>
+            </resource-ref>
+            <resource-ref>
+                <resource-name>datasource_name</resource-name>
                 <jndi-name>CORP_DS</jndi-name>
-            </resource-env-ref>
+            </resource-ref>
         </session>
+        <
     </enterprise-beans>
 </jboss>
