@@ -1,4 +1,4 @@
-package com.topcoder.web.servlet;
+package com.topcoder.web.screening.controller;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -15,7 +15,7 @@ import java.io.IOException;
  * @author Greg Paul
  */
 
-public final class TestingAppJNLPServlet extends HttpServlet {
+public final class JNLPServlet extends HttpServlet {
 
     public synchronized void init(ServletConfig config) throws ServletException {
         super.init(config);
@@ -39,17 +39,9 @@ public final class TestingAppJNLPServlet extends HttpServlet {
 
         try {
             host = request.getParameter("host");
-            if ((host=="") || host.equals("")) host="corporate.topcoder.com";
-
             port = request.getParameter("port");
-            if ((port=="") || port.equals("")) port="8001";
-
             tunnel = request.getParameter("tunnel");
-            if ((tunnel=="") || tunnel.equals("")) tunnel="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=screening+port=8001";
-
             companyID = request.getParameter("company");
-            if ((companyID=="") || companyID.equals("")) companyID="1";
-
 
             /***********************************************************************/
             out = response.getOutputStream();
