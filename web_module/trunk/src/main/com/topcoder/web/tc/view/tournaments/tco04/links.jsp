@@ -4,7 +4,7 @@
     String tabLev3 = request.getParameter("tabLev3")==null?"":request.getParameter("tabLev3");
 %>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#EBEBEB">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#EBEBEB"> 
 
 <!-- LEVEL 1 TABS -->
 <% if (tabLev1.equals("overview")) {%>
