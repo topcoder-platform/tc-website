@@ -53,8 +53,7 @@
 Because we value privacy as much as we value programmers, TopCoder is committed to protecting the privacy of our users.  
 We want to provide a safe, secure user experience.  We will use reasonable commercial efforts to ensure that the information 
 you submit to us remains private. Your personal information is immediately transferred from our web server to behind our firewall, where it remains isolated 
-from a direct connection to the Internet. The information that you submit to us is used only for the purposes as set forth herein, as required by law, or when we believe 
-in good faith that disclosure is legally required to protect our rights.  The following reflects our commitment to you.  
+from a direct connection to the Internet.  
 <BR/><BR/>
 Our security and Privacy Commitment are periodically reviewed and enhanced as necessary.  However, you should understand that "perfect security" does not exist on the Internet.  
 The information that you submit to us is used only for the purposes as set forth herein, as required by law, or when we believe in good faith that disclosure is legally required 
@@ -87,12 +86,18 @@ Spectators are allowed to view the competition without identifying themselves, b
 during the competition will be available to anyone - spectators, members and sponsors and may be subject to challenge from other members.  Your performance in a competition will 
 allow us to help balance the competition.  It will be recorded to calculate competition rating values and it will be posted on the web site and in the competition area.  Winners' 
 names may also be released to governmental authorities as required by law and to those requesting such information from TopCoder.  At registration, we will ask you to answer questions 
-regarding certain demographic information as it relates to your status as a student or a professional.<BR/><BR/>
+regarding certain demographic information as it relates to your status as a student or a professional.
+<BR/><BR/>
 As a TopCoder member, you can create a more extensive profile that includes your work and educational experience, as well as your relevant technology skills.  You have the ability to 
-update and change this information at any time and we encourage you to keep it updated.<BR/><BR/>
-Only TopCoder sponsors and subscribing employers will have access to view your demographic information, educational and work experience, and contact information.<BR/><BR/>
-TopCoder sponsors may contact you proactively based upon your skills, experience and TopCoder success.  TopCoder may decide to utilize a process through which TopCoder members may 
-choose to review online inquiries from interested TopCoder sponsors or subscribing companies before being contacted by those companies.<BR/><BR/>
+update and change this information at any time and we encourage you to keep it updated.
+<BR/><BR/>
+Only TopCoder sponsors and subscribing employers will have access to view your demographic information, educational and work experience, and contact information.
+<BR/><BR/>
+TopCoder sponsors may contact you proactively based upon your skills, experience and TopCoder success.  If you are contacted by a third-party regarding employment opportunities and/or 
+media interest as a result in your participation in TopCoder competitions (including, but not limited to, Single Round Matches and tournaments), you agree to promptly notify TopCoder of such contact. 
+TopCoder may decide to utilize a process through which TopCoder members may 
+choose to review online inquiries from interested TopCoder sponsors or subscribing companies before being contacted by those companies.
+<BR/><BR/>
 The personal information you provide must be accurate and complete and all registration details (where applicable) must contain your real name, address and other requested details. 
 You are solely responsible for your personal information and we may take any action with respect to your personal information we deem necessary or appropriate if we believe it may 
 cause us to suffer any loss, liability or commercial damage.<BR/>
@@ -133,7 +138,7 @@ We suggest that you access these sites' online policies regarding their data col
                                     <BR/>
 TopCoder will provide you with a reasonable opportunity to review the information that it has compiled about you, as well as a 
 reasonable opportunity to correct any erroneous information.  To view or correct your information, log in to the TopCoder web site,
-  go to "Update Profile" under the "Member Home" page, or contact us at <A HREF="mailto:service@topcoder.com" CLASS="bodyText">service@topcoder.com</A>.
+  click on "Update Profile" on your "Member Home" page, or contact us at <A HREF="mailto:service@topcoder.com" CLASS="bodyText">service@topcoder.com</A>.
 <BR/>
                                     <BR/>
                                     <B>Privacy Commitment Changes</B>
