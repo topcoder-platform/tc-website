@@ -31,9 +31,9 @@
 
 
   <tag>
-    <name>rowIterator</name>
-    <tagclass>com.topcoder.web.query.servlet.jsp.tag.RowIteratorTag</tagclass>
-    <teiclass>com.topcoder.web.query.servlet.jsp.tag.RowIteratorTagInfo</teiclass>
+    <name>resultSetRowIterator</name>
+    <tagclass>com.topcoder.web.query.servlet.jsp.tag.ResultSetRowIteratorTag</tagclass>
+    <teiclass>com.topcoder.web.query.servlet.jsp.tag.ResultSetRowteratorTagInfo</teiclass>
     <bodycontent>JSP</bodycontent>
     <info>
       Tag to iterate through a ResultSetContainer
@@ -51,9 +51,9 @@
   </tag>
 
   <tag>
-    <name>RSCTag</name>
-    <tagclass>com.topcoder.web.query.servlet.jsp.tag.RSCTag</tagclass>
-    <teiclass>com.topcoder.web.query.servlet.jsp.tag.RSCTagInfo</teiclass>
+    <name>resultSetItemTag</name>
+    <tagclass>com.topcoder.web.query.servlet.jsp.tag.ResultSetItemTag</tagclass>
+    <teiclass>com.topcoder.web.query.servlet.jsp.tag.ResultSetItemTagInfo</teiclass>
     <bodycontent>JSP</bodycontent>
     <info>
       Tag to get the value of a TCResultItem
@@ -69,11 +69,209 @@
       <rtexprvalue>true</rtexprvalue>
     </attribute>
     <attribute>
-      <name>colName</name>
+      <name>name</name>
       <required>true</required>
       <rtexprvalue>true</rtexprvalue>
     </attribute>
   </tag>
+
+  <tag>
+    <name>commandGroupSelect</name>
+    <info>
+        Generates an html select box with command groups
+    </info>
+    <tagclass>com.topcoder.web.query.servlet.jsp.tag.CommandGroupSelect</tagclass>
+    <teiclass>com.topcoder.web.query.servlet.jsp.tag.CommandGroupSelectInfo</teiclass>
+    <bodycontent>empty</bodycontent>
+    <attribute>
+      <name>name</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>list</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>value</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>class</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>onChange</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>selectedValue</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>selectedText</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>selectedOnly</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>dataTypeSelect</name>
+    <info>
+        Generates an html select box with data types
+    </info>
+    <tagclass>com.topcoder.web.query.servlet.jsp.tag.DataTypeSelect</tagclass>
+    <bodycontent>empty</bodycontent>
+    <attribute>
+      <name>name</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>value</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>class</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>onChange</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>selectedValue</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>selectedText</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>selectedOnly</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>inputSelect</name>
+    <info>
+        Generates an html select box with inputs
+    </info>
+    <tagclass>com.topcoder.web.query.servlet.jsp.tag.InputSelect</tagclass>
+    <teiclass>com.topcoder.web.query.servlet.jsp.tag.InputSelectInfo</teiclass>
+    <bodycontent>empty</bodycontent>
+    <attribute>
+      <name>name</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>list</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>value</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>class</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>onChange</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>selectedValue</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>selectedText</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>selectedOnly</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+
+  <tag>
+    <name>querySelect</name>
+    <info>
+        Generates an html select box with queries
+    </info>
+    <tagclass>com.topcoder.web.query.servlet.jsp.tag.QuerySelect</tagclass>
+    <teiclass>com.topcoder.web.query.servlet.jsp.tag.QuerySelectInfo</teiclass>
+    <bodycontent>empty</bodycontent>
+    <attribute>
+      <name>name</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>list</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>value</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>class</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>onChange</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>selectedValue</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>selectedText</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>selectedOnly</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+
+
 
 
 </taglib>

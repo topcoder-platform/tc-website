@@ -67,6 +67,10 @@ public class DBMS {
     public static final int PAYMENT_DETAIL_SEQ = getIntProperty("PAYMENT_DETAIL_SEQ", 55);
     public static final int TAX_FORM_SEQ = getIntProperty("TAX_FORM_SEQ", 56);
     public static final int RESUME_SEQ = getIntProperty("RESUME_SEQ", 81);
+    public static final int INPUT_SEQ = getIntProperty("INPUT_SEQ", 82);
+    public static final int QUERY_SEQ = getIntProperty("INPUT_SEQ", 83);
+    public static final int COMMAND_SEQ = getIntProperty("INPUT_SEQ", 84);
+    public static final int COMMAND_GROUP_SEQ = getIntProperty("INPUT_SEQ", 85);
 
     private static final String getProperty(String key, String defaultValue) {
         return bundle.getProperty(key, defaultValue);

@@ -58,7 +58,7 @@ public class Authentication implements Serializable {
             auth.setUserId(USER_NOT_LOGGED_IN);
             auth.setRequestedURL(requestedURL);
 
-            QueryAuthenticationHome qaHome = (QueryAuthenticationHome) ctx.lookup(ApplicationServer.QUERY_AUTHENTICATION);
+            QueryAuthenticationHome qaHome = (QueryAuthenticationHome) ctx.lookup(ApplicationServer.Q_QUERY_AUTHENTICATION);
             QueryAuthentication qa = qaHome.create();
             ResultSetContainer rsc = qa.getLoginInfo(handle);
 
@@ -84,7 +84,7 @@ public class Authentication implements Serializable {
             throw new AuthenticationException(e.getMessage());
         } catch (NamingException e) {
             throw new AuthenticationException("Could not find ejb with name: " +
-                    ApplicationServer.QUERY_AUTHENTICATION + "\n" + e.getMessage());
+                    ApplicationServer.Q_QUERY_AUTHENTICATION + "\n" + e.getMessage());
         } catch (CreateException e) {
             throw new AuthenticationException("Could not create instance of QueryAuthentication ejb\n" + e.getMessage());
         }

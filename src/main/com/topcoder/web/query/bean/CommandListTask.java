@@ -3,28 +3,30 @@ package com.topcoder.web.query.bean;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.query.common.Constants;
 import com.topcoder.web.query.common.AuthenticationException;
-import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.query.ejb.QueryServices.*;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 
 import javax.servlet.http.*;
 import java.io.Serializable;
-import java.util.*;
 
 /**
  * @author Greg Paul
  *
  */
 
-public class DBSelectionTask extends BaseTask implements Task, Serializable {
+public class CommandListTask extends BaseTask implements Task, Serializable {
 
-    private static Logger log = Logger.getLogger(DBSelectionTask.class);
+    private static Logger log = Logger.getLogger(CommandListTask.class);
 
-    private ArrayList dbList;
+    private ResultSetContainer commandList;
+    private String db;
 
     /* Creates a new LoginTask */
-    public DBSelectionTask() {
+    public CommandListTask() {
         super();
-        dbList = new ArrayList();
+        db = "";
     }
 
 
@@ -42,21 +44,38 @@ public class DBSelectionTask extends BaseTask implements Task, Serializable {
     }
 
     public void process(String step) throws Exception {
-        dbList.add(DBMS.OLTP_DATASOURCE_NAME);
-        dbList.add(DBMS.DW_DATASOURCE_NAME);
+        CommandHome cHome = (CommandHome) getInitialContext().lookup(ApplicationServer.Q_COMMAND);
+        Command c = cHome.create();
+        c.setDataSource(getDb());
+        setCommandList(c.getCommandList());
         super.setNextPage(Constants.COMMAND_LIST_PAGE);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {
+        String value = paramValues[0];
+        value = (value == null?"":value.trim());
+
+        if (paramName.equalsIgnoreCase(Constants.DB_PARAM))
+            setDb(value);
     }
 
-    public List getDbList() {
-        return dbList;
+    public String getDb() {
+        return db;
     }
 
-    private void setDbs(ArrayList dbList) {
-        this.dbList = dbList;
+    public void setDb(String db) {
+        this.db = db;
     }
+
+    public ResultSetContainer getCommandList() {
+        return commandList;
+    }
+
+    public void setCommandList(ResultSetContainer commandList) {
+        this.commandList = commandList;
+    }
+
+
 
 }
 

@@ -8,7 +8,6 @@ import javax.servlet.http.*;
 import java.io.Serializable;
 
 /**
- * Processes the login task
  * @author Greg Paul
  * @author bigjake <kitz@mit.edu>
  *
@@ -41,7 +40,50 @@ public class LoginTask extends BaseTask implements Task, Serializable {
         super.setNextPage(Constants.LOGIN_PAGE);
     }
 
+	public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
+            throws AuthenticationException, Exception {
+            setSession(request.getSession(true));
+	}
 
+    public void servletPostAction(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    }
+
+    public void process(String step) throws Exception {
+        if (Authentication.isLoggedIn(session)) {
+            if (Authentication.getRequestedURL(session).trim().length()>0) {
+                setNextPage(Authentication.getRequestedURL(session).trim());
+                customRedir=true;
+                Authentication.resetRequestedURL(session);
+            } else {
+                setNextPage(Constants.DB_SELECTION_PAGE );
+            }
+        } else {
+            if (Authentication.getRequestedURL(session).trim().length()>0) {
+                setNextPage(Authentication.getRequestedURL(session).trim());
+                customRedir=true;
+                Authentication.resetRequestedURL(session);
+            }
+            try {
+                Authentication.attemptLogin( getHandleInput(), getPasswordInput(), getInitialContext(), session, "");
+            } catch (AuthenticationException e) {
+                setMessage(Authentication.getErrorMessage(session));
+                setNextPage(Constants.LOGIN_PAGE );
+            }
+            if (!customRedir) {
+                setNextPage(Constants.DB_SELECTION_PAGE );
+            }
+        }
+    }
+
+    public void setAttributes(String paramName, String paramValues[]) {
+        String value = paramValues[0];
+        value = (value == null?"":value.trim());
+
+        if (paramName.equalsIgnoreCase(Constants.HANDLE_PARAM))
+            setHandleInput(value);
+        else if (paramName.equalsIgnoreCase(Constants.PASSWORD_PARAM))
+            setPasswordInput(value);
+    }
 
     /** Setter for property handleInput.
      * @param handleInput New value of property handleInput.
@@ -88,53 +130,7 @@ public class LoginTask extends BaseTask implements Task, Serializable {
     public void setSession(HttpSession session) {
         this.session = session;
     }
-        
 
-	public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
-            throws AuthenticationException, Exception {
-            setSession(request.getSession(true));
-	}
-
-    public void servletPostAction(HttpServletRequest request, HttpServletResponse response) throws Exception {
-    }
-
-    public void process() throws Exception {
-        if (Authentication.isLoggedIn(session)) {
-            if (Authentication.getRequestedURL(session).trim().length()>0) {
-                setNextPage(Authentication.getRequestedURL(session).trim());
-                customRedir=true;
-                Authentication.resetRequestedURL(session);
-            } else {
-                setNextPage(Constants.DB_SELECTION_PAGE );
-            }
-        } else {
-            if (Authentication.getRequestedURL(session).trim().length()>0) {
-                setNextPage(Authentication.getRequestedURL(session).trim());
-                customRedir=true;
-                Authentication.resetRequestedURL(session);
-            }
-            try {
-                Authentication.attemptLogin( getHandleInput(), getPasswordInput(), getInitialContext(), session, "");
-            } catch (AuthenticationException e) {
-                setMessage(Authentication.getErrorMessage(session));
-                setNextPage(Constants.LOGIN_PAGE );
-            }
-            if (!customRedir) {
-                setNextPage(Constants.DB_SELECTION_PAGE );
-            }
-        }
-    }
-
-    public void setAttributes(String paramName, String paramValues[]) {
-        String value = paramValues[0];
-        value = (value == null?"":value.trim());
-
-        if (paramName.equalsIgnoreCase(Constants.HANDLE_PARAM))
-            setHandleInput(value);
-        else if (paramName.equalsIgnoreCase(Constants.PASSWORD_PARAM))
-            setPasswordInput(value);
-
-    }
 
 }
 

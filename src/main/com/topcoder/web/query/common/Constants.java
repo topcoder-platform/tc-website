@@ -1,8 +1,6 @@
 package com.topcoder.web.query.common;
 
 import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
-import java.text.*;
 
 /**
  * Constants for the query tool
@@ -10,37 +8,73 @@ import java.text.*;
  */
 public class Constants {
 
-    public static String QUERY_PACKAGE = null;
-    public static String ERROR_PAGE = null;
-    public static String LOGIN_PAGE = null;
-    public static String COMMAND_LIST_PAGE = null;
-    public static String COMMAND_DETAIL_PAGE = null;
-    public static String QUERY_DETAIL_PAGE = null;
-    public static String MODIFY_GROUP_PAGE = null;
-    public static String MODIFY_COMMAND_PAGE = null;
-    public static String MODIFY_QUERY_PAGE = null;
-    public static String MODIFY_QUERY_INPUT_PAGE = null;
-    public static String MODIFY_INPUT_PAGE = null;
-    public static String DB_SELECTION_PAGE = null;
+    public static String QUERY_PACKAGE;
 
-    public static String TASK_PARAM = null;
-    public static String HANDLE_PARAM = null;
-    public static String PASSWORD_PARAM = null;
-    public static String DB_PARAM = null;
-    public static String COMMAND_PARAM = null;
-    public static String QUERY_PARAM = null;
-    public static String INPUT_PARAM = null;
-    public static String GROUP_PARAM = null;
+    public static String ERROR_PAGE;
+    public static String LOGIN_PAGE;
+    public static String DB_SELECTION_PAGE;
+    public static String COMMAND_LIST_PAGE;
+    public static String COMMAND_DETAIL_PAGE;
+    public static String QUERY_DETAIL_PAGE;
+    public static String MODIFY_GROUP_PAGE;
+    public static String MODIFY_COMMAND_PAGE;
+    public static String MODIFY_QUERY_PAGE;
+    public static String MODIFY_QUERY_INPUT_PAGE;
+    public static String MODIFY_INPUT_PAGE;
+    public static String MODIFY_COMMAND_QUERY_PAGE;
 
-    public static String LOGIN_TASK = null;
-    public static String DB_SELECTION_TASK = null;
-    public static String COMMAND_LIST_TASK = null;
+    public static String TASK_PARAM;
+    public static String STEP_PARAM;
+    public static String HANDLE_PARAM;
+    public static String PASSWORD_PARAM;
+    public static String DB_PARAM;
+    public static String COMMAND_ID_PARAM;
+    public static String QUERY_ID_PARAM;
+    public static String INPUT_ID_PARAM;
+    public static String GROUP_ID_PARAM;
+    public static String COMMAND_DESC_PARAM;
+    public static String QUERY_NAME_PARAM;
+    public static String COLUMN_INDEX_PARAM;
+    public static String QUERY_TEXT_PARAM;
+    public static String INPUT_CODE_PARAM;
+    public static String INPUT_DESC_PARAM;
+    public static String DATA_TYPE_ID_PARAM;
+    public static String GROUP_DESC_PARAM;
+    public static String OPTIONAL_PARAM;
+    public static String DEFAULT_VALUE_PARAM;
+    public static String SORT_ORDER_PARAM;
+    public static String RANKING_PARAM;
 
-    public static void init(ServletConfig servletConfig) throws ServletException {
-        
+    public static String LOGIN_TASK;
+    public static String DB_SELECTION_TASK;
+    public static String COMMAND_LIST_TASK;
+    public static String COMMAND_DETAIL_TASK;
+    public static String QUERY_DETAIL_TASK;
+    public static String MODIFY_GROUP_TASK;
+    public static String MODIFY_COMMAND_TASK;
+    public static String MODIFY_QUERY_TASK;
+    public static String MODIFY_QUERY_INPUT_TASK;
+    public static String MODIFY_INPUT_TASK;
+
+    public static String NEW_STEP;
+    public static String SAVE_STEP;
+    public static String REMOVE_STEP;
+
+
+    /* hard coding these two because they are not well defined in the db
+     * and are hard coded in the query runners
+     */
+    public static int[] DATA_TYPE_IDS = {1001, 1002, 1003, 1004, 1005};
+    public static String[] DATA_TYPE_DESCS = {"Integer Input", "Decimal Input", "Date Input", "Sort Direction", "String"};
+
+
+    public static void init(ServletConfig servletConfig) {
+
         QUERY_PACKAGE = servletConfig.getInitParameter("query_package");
+
         ERROR_PAGE = servletConfig.getInitParameter("error_page");
         LOGIN_PAGE = servletConfig.getInitParameter("login_page");
+        DB_SELECTION_PAGE = servletConfig.getInitParameter("db_selection_page");
         COMMAND_LIST_PAGE = servletConfig.getInitParameter("command_list_page");
         COMMAND_DETAIL_PAGE = servletConfig.getInitParameter("command_detail_page");
         QUERY_DETAIL_PAGE = servletConfig.getInitParameter("query_detail_page");
@@ -49,20 +83,44 @@ public class Constants {
         MODIFY_QUERY_PAGE = servletConfig.getInitParameter("modify_query_page");
         MODIFY_QUERY_INPUT_PAGE = servletConfig.getInitParameter("modify_query_input_page");
         MODIFY_INPUT_PAGE = servletConfig.getInitParameter("modify_input_page");
-        DB_SELECTION_PAGE = servletConfig.getInitParameter("db_selection_page");
+        MODIFY_COMMAND_QUERY_PAGE = servletConfig.getInitParameter("modify_command_query_page");
 
         TASK_PARAM = servletConfig.getInitParameter("task_param");
+        STEP_PARAM = servletConfig.getInitParameter("step_param");
         HANDLE_PARAM = servletConfig.getInitParameter("handle_param");
         PASSWORD_PARAM = servletConfig.getInitParameter("password_param");
         DB_PARAM = servletConfig.getInitParameter("db_param");
-        COMMAND_PARAM = servletConfig.getInitParameter("command_param");
-        QUERY_PARAM = servletConfig.getInitParameter("query_param");
-        INPUT_PARAM = servletConfig.getInitParameter("input_param");
-        GROUP_PARAM = servletConfig.getInitParameter("group_param");
+        COMMAND_ID_PARAM = servletConfig.getInitParameter("command_id_param");
+        QUERY_ID_PARAM = servletConfig.getInitParameter("query_id_param");
+        INPUT_ID_PARAM = servletConfig.getInitParameter("input_id_param");
+        GROUP_ID_PARAM = servletConfig.getInitParameter("group_id_param");
+        COMMAND_DESC_PARAM = servletConfig.getInitParameter("command_desc_param");
+        QUERY_NAME_PARAM = servletConfig.getInitParameter("query_name_param");
+        COLUMN_INDEX_PARAM = servletConfig.getInitParameter("column_index_param");
+        QUERY_TEXT_PARAM = servletConfig.getInitParameter("query_text_param");
+        INPUT_CODE_PARAM = servletConfig.getInitParameter("input_code_param");
+        INPUT_DESC_PARAM = servletConfig.getInitParameter("input_desc_param");
+        DATA_TYPE_ID_PARAM = servletConfig.getInitParameter("data_type_id_param");
+        GROUP_DESC_PARAM = servletConfig.getInitParameter("group_desc_param");
+        OPTIONAL_PARAM = servletConfig.getInitParameter("optional_param");
+        DEFAULT_VALUE_PARAM = servletConfig.getInitParameter("default_value_param");
+        SORT_ORDER_PARAM = servletConfig.getInitParameter("sort_order_param");
+        RANKING_PARAM = servletConfig.getInitParameter("ranking_param");
 
         LOGIN_TASK = servletConfig.getInitParameter("login_task");
         DB_SELECTION_TASK = servletConfig.getInitParameter("db_selection_task");
         COMMAND_LIST_TASK = servletConfig.getInitParameter("command_list_task");
+        COMMAND_DETAIL_TASK = servletConfig.getInitParameter("command_detail_task");
+        QUERY_DETAIL_TASK = servletConfig.getInitParameter("query_detail_task");
+        MODIFY_GROUP_TASK = servletConfig.getInitParameter("modify_group_task");
+        MODIFY_COMMAND_TASK = servletConfig.getInitParameter("modify_command_task");
+        MODIFY_QUERY_TASK = servletConfig.getInitParameter("modify_query_task");
+        MODIFY_QUERY_INPUT_TASK = servletConfig.getInitParameter("modify_query_input_task");
+        MODIFY_INPUT_TASK = servletConfig.getInitParameter("modify_input_task");
+
+        NEW_STEP = servletConfig.getInitParameter("new_step");
+        SAVE_STEP = servletConfig.getInitParameter("save_step");
+        REMOVE_STEP = servletConfig.getInitParameter("remove_step");
 
     }
 }

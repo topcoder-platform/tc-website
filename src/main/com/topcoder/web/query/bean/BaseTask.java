@@ -5,9 +5,9 @@ import com.topcoder.shared.util.logging.Logger;
 import javax.naming.InitialContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
 
 /**
- * A basic implementation of Task.
  * @author Greg Paul
  * @author bigjake <kitz@mit.edu>
  *
@@ -26,14 +26,17 @@ public abstract class BaseTask implements Task {
     /* Holds the path to the servlet that instantiated this task */
     private String servletPath;
 
+    private HashMap errors;
+
     /* Makes a new BaseTask */
     public BaseTask() {
         setInitialContext(null);
         setNextPage(null);
         setServletPath(null);
+        errors = new HashMap();
     }
 
-    public abstract void process() throws Exception;
+    public abstract void process(String step) throws Exception;
 
     public void setInitialContext(InitialContext ctx) {
         this.ctx=ctx;
@@ -70,5 +73,39 @@ public abstract class BaseTask implements Task {
 
     public abstract void setAttributes(String paramName, String paramValues[]);
 
+    public void addError(String key, Object error) {
+        if (!hasError(key)) {
+            errors.put(key, error);
+        }
+    }
+
+    public String getError(String key) {
+        if (errors.containsKey(key) && errors.get(key) != null) {
+            return errors.get(key).toString();
+        }
+        return "";
+    }
+
+    public boolean hasError(String key) {
+        return errors.containsKey(key);
+    }
+
+    public void removeError(String key) {
+        if (hasError(key)) {
+            errors.remove(key);
+        }
+    }
+
+    public void clearErrors() {
+        errors.clear();
+    }
+
+    public boolean hasErrors() {
+        return errors.isEmpty();
+    }
+
+    boolean isEmpty(String s) {
+        return s != null && s.trim().length() > 0;
+    }
 }
 

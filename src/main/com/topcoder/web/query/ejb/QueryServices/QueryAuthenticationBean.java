@@ -9,6 +9,7 @@ import java.rmi.RemoteException;
 import javax.naming.InitialContext;
 import javax.naming.Context;
 import javax.sql.DataSource;
+import javax.ejb.EJBException;
 import java.sql.*;
 
 /**
@@ -19,9 +20,10 @@ import java.sql.*;
 public class QueryAuthenticationBean extends BaseEJB {
 
     private static Logger log = Logger.getLogger(QueryAuthenticationBean.class);
+    private String dataSourceName;
 
-    public ResultSetContainer getLoginInfo(String handle) throws RemoteException {
-        log.debug("In getLoginInfo(String)...");
+    public ResultSetContainer getLoginInfo(String handle) throws RemoteException, EJBException {
+        log.debug("getLoginInfo called...handle: " + handle);
         ResultSet rs = null;
         PreparedStatement ps = null;
         Connection conn = null;
@@ -48,9 +50,9 @@ public class QueryAuthenticationBean extends BaseEJB {
             rsc = new ResultSetContainer(rs);
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new RemoteException("SQLException getting login information for " + handle);
+            throw new EJBException("SQLException getting login information for " + handle);
         } catch (Exception e) {
-            throw new RemoteException("Exception getting login information for " + handle + "\n " + e.getMessage());
+            throw new EJBException("Exception getting login information for " + handle + "\n " + e.getMessage());
         } finally {
             if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet");}}
             if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement");}}
@@ -58,6 +60,10 @@ public class QueryAuthenticationBean extends BaseEJB {
             if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context");}}
         }
         return rsc;
+    }
+
+    public void setDataSource(String dataSourceName) throws RemoteException, EJBException {
+        this.dataSourceName = dataSourceName;
     }
 }
 
