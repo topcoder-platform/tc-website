@@ -62,9 +62,9 @@
                             <tr><td valign="middle" bgcolor="#666666" colspan="3" class="statText"><font size="3"><strong>2003 Features</strong></font></td></tr>        
 
                             <tr valign="middle">
-                                <td width="12%" class="statTextBig" bgcolor="#999999"><strong>Date</strong></td>
-                                <td width="25%" class="statTextBig" bgcolor="#999999"><strong>Author</strong></td>
-                                <td width="63%" class="statTextBig" bgcolor="#999999"><strong>Feature</strong></td>
+                                <td width="20%" class="statTextBig" bgcolor="#999999"><strong>Date</strong></td>
+                                <td width="20%" class="statTextBig" bgcolor="#999999"><strong>Author</strong></td>
+                                <td width="60%" class="statTextBig" bgcolor="#999999"><strong>Feature</strong></td>
                             </tr>
                             
                             <tr>
@@ -111,9 +111,9 @@
                             <tr><td valign="middle" bgcolor="#666666" colspan="3" class="statText"><font size="3"><strong>2002 Features</strong></font></td></tr>        
 
                             <tr valign="middle">
-                                <td width="12%" class="statTextBig" bgcolor="#999999"><strong>Date</strong></td>
-                                <td width="25%" class="statTextBig" bgcolor="#999999"><strong>Author</strong></td>
-                                <td width="63%" class="statTextBig" bgcolor="#999999"><strong>Feature</strong></td>
+                                <td width="20%" class="statTextBig" bgcolor="#999999"><strong>Date</strong></td>
+                                <td width="20%" class="statTextBig" bgcolor="#999999"><strong>Author</strong></td>
+                                <td width="60%" class="statTextBig" bgcolor="#999999"><strong>Feature</strong></td>
                             </tr>
                             
                             <tr>
