@@ -43,9 +43,11 @@ public class SortTag extends TagSupport {
             if (inputCol==column) {
                 if (currDir.equals("desc")) {
                     if (ascColumn >- 1) finalColumn = ascColumn;
+                    else finalColumn = column;
                     sortDir = "asc";
                 } else {
                     if (descColumn >- 1) finalColumn = descColumn;
+                    else finalColumn = column;
                     sortDir = "desc";
                 }
             } else if (inputCol == ascColumn) {
