@@ -30,10 +30,10 @@ public class IndexInner extends Base {
                 loadSessionErrorsIntoRequest(messageId);
                 loadSessionDefaultsIntoRequest(messageId);
                 log.debug("defaults: " + defaults);
-                if (hasDefault(Constants.PROBLEM_SETS)&&hasDefault(Constants.LANGUAGES)) {
+                if (hasDefault(Constants.PROBLEM_SETS)) {
                     log.debug("has defaults");
                     getRequest().setAttribute(Constants.PROBLEM_SETS, getDefault(Constants.PROBLEM_SETS));
-                    getRequest().setAttribute(Constants.LANGUAGES, getDefault(Constants.LANGUAGES));
+                    getRequest().setAttribute(Constants.LANGUAGES, getLanguages());
                     setNextPage(successPage);
                     setIsNextPageInContext(true);
                 }

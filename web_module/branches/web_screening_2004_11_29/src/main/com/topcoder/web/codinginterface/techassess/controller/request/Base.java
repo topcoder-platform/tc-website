@@ -11,10 +11,7 @@ import com.topcoder.shared.messaging.TimeOutException;
 import com.topcoder.shared.netCommon.messages.Message;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.language.JavaLanguage;
-import com.topcoder.shared.language.CPPLanguage;
-import com.topcoder.shared.language.CSharpLanguage;
-import com.topcoder.shared.language.VBLanguage;
+import com.topcoder.shared.language.*;
 
 import java.util.*;
 import java.io.PrintWriter;
@@ -278,32 +275,12 @@ public abstract class Base extends BaseProcessor {
     }
 
 
-    protected static ArrayList getLanguages(ArrayList languageIds) {
-        ArrayList languages = new ArrayList(languageIds.size());
+    protected static List getLanguages(ArrayList languageIds) {
+        List ret = new ArrayList(languageIds.size());
         for (Iterator it = languageIds.iterator(); it.hasNext();) {
-            switch (((Integer)it.next()).intValue()) {
-                case JavaLanguage.ID : {
-                    languages.add(JavaLanguage.JAVA_LANGUAGE);
-                    break;
-                }
-
-                case CPPLanguage.ID : {
-                    languages.add(CPPLanguage.CPP_LANGUAGE);
-                    break;
-                }
-
-                case CSharpLanguage.ID : {
-                    languages.add(CSharpLanguage.CSHARP_LANGUAGE);
-                    break;
-                }
-
-                case VBLanguage.ID : {
-                    languages.add(VBLanguage.VB_LANGUAGE);
-                    break;
-                }
-            }
+            ret.add(BaseLanguage.getLanguage(((Integer)it.next()).intValue()));
         }
-        return languages;
+        return ret;
     }
 
 
