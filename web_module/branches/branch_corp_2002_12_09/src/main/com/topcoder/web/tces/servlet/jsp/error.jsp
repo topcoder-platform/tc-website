@@ -37,7 +37,7 @@
 	   <BR>
 	   </TD>
 	   <TR>
-	   <TD>
+	   <TD COLSPAN="3">
 
 	   <DIV CLASS="header">
 
