@@ -47,7 +47,7 @@
                       <TR> 
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">22</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">23</TD>
-                        <TD BGCOLOR="#666666" BACKGROUND="" CLASS="smallText" ALIGN="center"><A CLASS="smallFoot"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;ContestId=4285&amp;t=schedule&amp;c=srm</xsl:attribute>24</A></TD>
+                        <TD BGCOLOR="#990000" BACKGROUND="" CLASS="smallText" ALIGN="center"><A CLASS="smallFoot"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;ContestId=4285&amp;t=schedule&amp;c=srm</xsl:attribute>24</A></TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">25</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">26</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">27</TD>
@@ -55,7 +55,7 @@
                       </TR>
                       <TR> 
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">29</TD>
-                        <TD BGCOLOR="#CCCCCC" BACKGROUND="" CLASS="smallText" ALIGN="center"><A CLASS="smallText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;ContestId=4290&amp;t=schedule&amp;c=srm</xsl:attribute>30</A></TD>
+                        <TD BGCOLOR="#990000" BACKGROUND="" CLASS="smallText" ALIGN="center"><A CLASS="smallFoot"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;ContestId=4290&amp;t=schedule&amp;c=srm</xsl:attribute>30</A></TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">&#160;</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">&#160;</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">&#160;</TD>
