@@ -9,13 +9,13 @@ import java.util.List;
 
 public class QuerySelect extends Select {
 
-    private ResultSetContainer list;
+    private List list;
 
     public QuerySelect() {
         super();
     }
 
-    public void setList(ResultSetContainer list) {
+    public void setList(List list) {
         this.list = list;
     }
 
