@@ -241,7 +241,7 @@ function goTo(selection)
   }  
   else if (sel == "registration")
   {
-    window.location = "/reg/index.jsp";
+    window.location = "<%="https://"+request.getServerName()+"/reg/index.jsp"%>";
   }
   else if (sel == "2002sun_tcccrules")
   {
