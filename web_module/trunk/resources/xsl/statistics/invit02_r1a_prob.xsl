@@ -76,13 +76,12 @@
 <!--end contextual links-->
 <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"/><BR/>
 <!--<A HREF="stat?c=round_stats&amp;rd=4165&amp;dn=2" CLASS="bodyGeneric">-->
-<B>Invitational<BR/>
-Online Round #1, Part 1 Seeding</B><BR/>
+<B>2002 TopCoder Invitational<BR/>
+Online Round #1, Part 1</B><BR/>
 Thursday, October 10, 2002
 <P><B>Problem Set Analysis &amp; Opinion</B></P>
 
-
-<P><B>Problem Summary</B>
+<P>
 The problems for this round of the Invitational were relatively easy, compared to your typical SRM Division I problems. I suspect that the problems will get more difficult as the rounds progress, with the on-site problems being more difficult than typical Division I problems. The Level 3 problem was the only problem that was really on par with Division I difficulty. I suppose this was to give at least some challenge to the higher-ranked competitors. </P>
 
 <P><font size="2"><B>The Problems</B></font></P>
