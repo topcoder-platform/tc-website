@@ -34,7 +34,7 @@ public class FullRegConfirm extends FullRegBase {
                 setNextPage(Constants.VERIZON_REG_DEMOG_PAGE);
                 setDefaults(regInfo);
             } else {
-                getRequest().setAttribute("responseList", ((FullRegInfo)regInfo).getResponses());
+                getRequest().setAttribute("responseList", ((FullRegInfo) regInfo).getResponses());
                 getRequest().setAttribute("questionMap", questions);
                 regInfo.setCountryName(findCountry(regInfo.getCountryCode()));
                 regInfo.setStateName(findState(regInfo.getStateCode()));
@@ -72,26 +72,27 @@ public class FullRegConfirm extends FullRegBase {
             key = DemographicInput.PREFIX + q.getId();
             values = getRequest().getParameterValues(key);
             //loop through all the responses in the request
-            if (q.isRequired() && values.length==0) {
+            if (q.isRequired() && (values == null || values.length == 0)) {
                 //this is cheating, cuz really it should be done in the data checking method.
                 addError(DemographicInput.PREFIX + r.getQuestionId(), "Please enter a valid answer, this question is required.");
-            }
-            for (int i=0; i<values.length; i++) {
-                r = new DemographicResponse();
-                r.setQuestionId(q.getId());
-                if (q.getAnswerType() == DemographicQuestion.FREE_FORM) {
-                    r.setText(values[i]);
-                    responses.add(r);
-                } else if (q.getAnswerType() == DemographicQuestion.SINGLE_SELECT ||
-                        q.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT ) {
-                    try {
-                        r.setAnswerId(Long.parseLong(values[i]));
+            } else if (values != null) {
+                for (int i = 0; i < values.length; i++) {
+                    r = new DemographicResponse();
+                    r.setQuestionId(q.getId());
+                    if (q.getAnswerType() == DemographicQuestion.FREE_FORM) {
+                        r.setText(values[i]);
                         responses.add(r);
-                    } catch (NumberFormatException e) {
-                        //skip it, it's invalid, checking will have to pick it up later
+                    } else if (q.getAnswerType() == DemographicQuestion.SINGLE_SELECT ||
+                            q.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
+                        try {
+                            r.setAnswerId(Long.parseLong(values[i]));
+                            responses.add(r);
+                        } catch (NumberFormatException e) {
+                            //skip it, it's invalid, checking will have to pick it up later
+                        }
+                    } else {
+                        throw new Exception("invalid answer type found: " + q.getAnswerType() + " for question " + q.getId());
                     }
-                } else {
-                    throw new Exception("invalid answer type found: " + q.getAnswerType() + " for question " + q.getId());
                 }
             }
 
