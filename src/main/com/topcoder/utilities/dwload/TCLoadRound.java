@@ -23,6 +23,9 @@ package com.topcoder.utilities.dwload;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.6  2002/06/12 05:13:41  gpaul
+ *           exclude people in group_id 14 also
+ *
  *           Revision 1.5  2002/06/11 18:44:38  gpaul
  *           added stuff to populate the payment_type_id and payment_type_desc columns in room_result
  *
@@ -627,6 +630,7 @@ public class TCLoadRound extends TCLoad {
       fSql.append(" WHERE round_id = ? ");
       fSql.append("   AND coder_id = ? ");
       fSql.append("   AND problem_id = ?");
+      fSql.append("   AND submission_number = ?");
       psDel = prepareStatement(fSql.toString(), TARGET_DB);
 
       // On to the load
@@ -637,15 +641,17 @@ public class TCLoadRound extends TCLoad {
         int round_id = rs.getInt(1);
         int coder_id = rs.getInt(2);
         int problem_id = rs.getInt(3);
+        int submission_number = rs.getInt(14);
         int last_submission = 0;
         if (rs.getInt(8)>0) {  //they submitted at least once
-          last_submission = rs.getInt(8)==rs.getInt(14)?1:0;
+          last_submission = rs.getInt(8)==submission_number?1:0;
         }
 
         psDel.clearParameters();
         psDel.setInt(1, round_id);
         psDel.setInt(2, coder_id);
         psDel.setInt(3, problem_id);
+        psDel.setInt(4, submission_number);
         psDel.executeUpdate();
 
         psIns.clearParameters();
@@ -656,7 +662,7 @@ public class TCLoadRound extends TCLoad {
         psIns.setInt      (5,  rs.getInt    (5));  // status_id
         psIns.setInt      (6,  rs.getInt    (6));  // language_id
         psIns.setLong     (7,  rs.getLong   (7));  // open_time
-        psIns.setInt      (8,  rs.getInt    (8));  // submission_number
+        psIns.setInt      (8,  rs.getInt    (14));  // submission_number
         if (Arrays.equals(getBytes(rs,9), "".getBytes()))
           setBytes(psIns, 9, getBytes(rs, 13));       // use compilation_text
         else setBytes(psIns, 9, getBytes(rs, 9));       // use submission_text
@@ -1599,93 +1605,77 @@ public class TCLoadRound extends TCLoad {
       fSql.append("       ,rr.coder_id ");                             // 3
       fSql.append("       ,rr.point_total ");                          // 4
       fSql.append("       ,rr.room_seed ");                            // 5
-      fSql.append("       ,rr.paid ");                                 // 6
+      fSql.append("       ,rp.paid ");                                 // 6
       fSql.append("       ,rr.old_rating ");                           // 7
       fSql.append("       ,rr.new_rating ");                           // 8
       fSql.append("       ,rr.room_placed ");                          // 9
       fSql.append("       ,rr.attended ");                             // 10
       fSql.append("       ,rr.advanced ");                             // 11
-      // 12: challenge_points
       fSql.append("       ,(SELECT sum(c.challenger_points) ");        // 12
       fSql.append("           FROM challenge c ");
       fSql.append("          WHERE c.round_id = rr.round_id ");
       fSql.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
       fSql.append("          AND c.challenger_id = rr.coder_id) ");
-      // 13: system_test_points
       fSql.append("       ,(SELECT sum(deduction_amount) ");           // 13
       fSql.append("           FROM system_test_result str ");
       fSql.append("          WHERE str.round_id = rr.round_id ");
       fSql.append("            AND str.coder_id = rr.coder_id) ");
-      // 14: division_id
       fSql.append("       ,(SELECT division_id FROM room ");           // 14
       fSql.append("          WHERE room.room_id = rr.room_id) ");
-      // 15: problems_presented
       fSql.append("       ,(SELECT count(*) ");                        // 15
       fSql.append("           FROM round_problem rp ");
       fSql.append("                ,room r ");
       fSql.append("          WHERE rp.round_id = rr.round_id ");
       fSql.append("            AND rp.division_id = r.division_id ");
       fSql.append("            AND rr.room_id = r.room_id) ");
-      // 16: problems_correct
       fSql.append("       ,(SELECT count(*) FROM problem_state ps ");  // 16
       fSql.append("          WHERE ps.round_id = rr.round_id ");
       fSql.append("            AND ps.coder_id = rr.coder_id ");
       fSql.append("            AND status_id = "+ STATUS_PASSED_SYS_TEST+") ");
-      // 17: problems_failed_by_system_test
       fSql.append("       ,(SELECT count(*) FROM problem_state ps ");  // 17
       fSql.append("          WHERE ps.round_id = rr.round_id ");
       fSql.append("            AND ps.coder_id = rr.coder_id ");
       fSql.append("            AND status_id = "+ STATUS_FAILED_SYS_TEST+") ");
-      // 18: problems_failed_by_challenge
       fSql.append("       ,(SELECT count(*) FROM challenge c ");       // 18
       fSql.append("          WHERE c.round_id = rr.round_id ");
       fSql.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
       fSql.append("            AND c.defendant_id = rr.coder_id ");
       fSql.append("            AND succeeded = "+ STATUS_SUCCEEDED +") ");
-      // 19: problems_opened
       fSql.append("       ,(SELECT count(*) FROM problem_state ps ");  // 19
       fSql.append("          WHERE ps.round_id = rr.round_id ");
       fSql.append("            AND ps.coder_id = rr.coder_id) ");
-      // 20: problems_left_open
       fSql.append("       ,(SELECT count(*) FROM problem_state ps ");  // 20
       fSql.append("          WHERE ps.round_id = rr.round_id ");
       fSql.append("            AND ps.coder_id = rr.coder_id ");
       fSql.append("            AND status_id = "+ STATUS_OPENED +") ");
-      // 21: challenge_attempts_made
       fSql.append("       ,(SELECT count(*) FROM challenge c ");       // 21
       fSql.append("          WHERE c.challenger_id = rr.coder_id ");
       fSql.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
       fSql.append("            AND c.round_id = rr.round_id) ");
-      // 22: challenges_made_successful
       fSql.append("       ,(SELECT count(*) FROM challenge c ");       // 22
       fSql.append("          WHERE c.challenger_id = rr.coder_id ");
       fSql.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
       fSql.append("            AND c.round_id = rr.round_id ");
       fSql.append("            AND succeeded = "+ STATUS_SUCCEEDED +") ");
-      // 23: challenges_made_failed
       fSql.append("       ,(SELECT count(*) FROM challenge c ");       // 23
       fSql.append("          WHERE c.challenger_id = rr.coder_id ");
       fSql.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
       fSql.append("            AND c.round_id = rr.round_id ");
       fSql.append("            AND succeeded = "+ STATUS_FAILED + ") ");
-      // 24: challenge_attempts_received
       fSql.append("       ,(SELECT count(*) FROM challenge c ");       // 24
       fSql.append("          WHERE c.defendant_id = rr.coder_id ");
       fSql.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
       fSql.append("            AND c.round_id = rr.round_id) ");
-      // 25: challenges_received_successful
       fSql.append("       ,(SELECT count(*) FROM challenge c ");       // 25
       fSql.append("          WHERE c.defendant_id = rr.coder_id ");
       fSql.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
       fSql.append("            AND c.round_id = rr.round_id ");
       fSql.append("            AND succeeded = "+ STATUS_SUCCEEDED +") ");
-      // 26: challenges_received_failed
       fSql.append("       ,(SELECT count(*) FROM challenge c ");       // 26
       fSql.append("          WHERE c.defendant_id = rr.coder_id ");
       fSql.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
       fSql.append("            AND c.round_id = rr.round_id ");
       fSql.append("            AND succeeded = "+ STATUS_FAILED +") ");
-      // 27: defense_points
       fSql.append("       ,(SELECT sum(defendant_points) ");           // 27
       fSql.append("           FROM challenge c ");
       fSql.append("          WHERE c.round_id = rr.round_id ");
@@ -1699,7 +1689,8 @@ public class TCLoadRound extends TCLoad {
       fSql.append("  FROM room_result rr ");
       fSql.append("  JOIN room r ON rr.round_id = r.round_id ");
       fSql.append("   AND rr.room_id = r.room_id ");
-      fSql.append("  LEFT OUTER JOIN round_payment rp ON rr.round_payment_id = rp.round_payment_id");
+      fSql.append("  LEFT OUTER JOIN round_payment rp ON rr.round_id = rp.round_id");
+      fSql.append("              AND rp.coder_id = rr.coder_id");
       fSql.append("  LEFT OUTER JOIN payment_type_lu pt ON rp.payment_type_id = pt.payment_type_id");
       fSql.append(" WHERE r.room_type_id = " + CONTEST_ROOM);
       fSql.append("   AND rr.round_id = ?");
