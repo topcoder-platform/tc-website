@@ -35,6 +35,7 @@ public class AdvancedSearch extends SimpleSearch {
         super.setDefaults(m);
         setDefault(Constants.STATE_CODE, m.getStateCode() == null ? "" : m.getStateCode().toString());
         setDefault(Constants.COUNTRY_CODE, m.getCountryCode() == null ? "" : m.getCountryCode().toString());
+        setDefault(Constants.SCHOOL_NAME, m.getSchoolName() == null ? "" : m.getSchoolName().toString());
         setDefault(Constants.MIN_RATING, m.getMinRating() == null ? "" : m.getMinRating().toString());
         setDefault(Constants.MAX_RATING, m.getMaxRating() == null ? "" : m.getMaxRating().toString());
         setDefault(Constants.MIN_NUM_RATINGS, m.getMinNumRatings() == null ? "" : m.getMinNumRatings().toString());
@@ -56,6 +57,10 @@ public class AdvancedSearch extends SimpleSearch {
         String countryCode = StringUtils.checkNull(getRequest().getParameter(Constants.COUNTRY_CODE));
         if (!countryCode.equals(""))
             ret.setCountryCode(countryCode);
+
+        String schoolName = StringUtils.checkNull(getRequest().getParameter(Constants.SCHOOL_NAME));
+        if (!schoolName.equals(""))
+            ret.setSchoolName(schoolName);
 
         String minRating = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_RATING));
         if (!minRating.equals(""))

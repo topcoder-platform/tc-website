@@ -10,6 +10,7 @@ public class MemberSearch {
     private String handle = null;
     private String stateCode = null;
     private String countryCode = null;
+    private String schoolName = null;
     private Integer minRating = null;
     private Integer maxRating = null;
     private Integer minNumRatings = null;
@@ -130,4 +131,13 @@ public class MemberSearch {
     public void setCountryCode(String countryCode) {
         this.countryCode = countryCode;
     }
+
+    public String getSchoolName() {
+        return schoolName;
+    }
+
+    public void setSchoolName(String schoolName) {
+        this.schoolName = schoolName;
+    }
+
 }

@@ -41,6 +41,7 @@ public class Constants {
     public static String MAX_NUM_RATINGS;
     public static String MAX_DAYS_SINCE_LAST_COMP;
     public static String NOTE_TEXT;
+    public static String SCHOOL_NAME;
 
 
     public static String PROJECT_ID;
