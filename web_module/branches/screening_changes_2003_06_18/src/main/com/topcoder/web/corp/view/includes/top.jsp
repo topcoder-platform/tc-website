@@ -3,10 +3,9 @@
                  com.topcoder.web.corp.Constants,
                  com.topcoder.shared.security.User,
                  com.topcoder.web.common.security.SessionPersistor,
-                 com.topcoder.web.common.security.BasicAuthentication,
-                 com.topcoder.web.corp.model.SessionInfo"
+                 com.topcoder.web.common.security.BasicAuthentication"
          autoFlush="false" %>
-<jsp:usebean id="SessionInfo" class="com.topcoder.web.corp.model.SessionInfo" scope="request" />
+<jsp:usebean id="SessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <%
    boolean isHomePage = "true".equals(request.getParameter("isHomePage"));
@@ -19,7 +18,7 @@
     <tr valign="middle">
         <td class="login" width="99%">&nbsp;</td>
         <td class="login" nowrap>
-    <% if (SessionInfo.isGuest()) {  // no logged user %>
+    <% if (SessionInfo.isAnonymous()) {  // no logged user %>
             <strong>You are not logged in.</strong>
 &#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=LoginPage" class="loginLinks" target="_parent">Login</a>
 &#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Registration" class="loginLinks">Register</a>

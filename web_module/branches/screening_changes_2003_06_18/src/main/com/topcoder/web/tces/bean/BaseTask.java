@@ -4,7 +4,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.web.corp.model.SessionInfo;
+import com.topcoder.web.common.SessionInfo;
 
 import javax.naming.InitialContext;
 import javax.servlet.http.HttpServletRequest;

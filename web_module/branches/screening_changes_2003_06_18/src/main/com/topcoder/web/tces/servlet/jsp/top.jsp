@@ -5,7 +5,7 @@
         com.topcoder.common.web.util.*,
         java.text.DecimalFormat,
         com.topcoder.common.web.data.Navigation" %>
-<jsp:usebean id="SessionInfo" class="com.topcoder.web.corp.model.SessionInfo" scope="request" />
+<jsp:usebean id="SessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <a name="top"/>
 <table width="100%" border="0" cellpadding="3" cellspacing="0" class="search">
