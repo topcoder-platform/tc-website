@@ -47,7 +47,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
          <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br />
 
 <!--CRPF Header-->
-               <table align="center">
+               <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
                   <tr>
                      <td><img src="/i/events/crpf03/banner_online_rounds_start.gif" alt="Online rounds start November 11" width="510" height="41" border="0"><br/>
                      <A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_overview"><img src="/i/events/crpf03/crpf_banner_2.jpg" width="510" height="135" border="0" alt="TopCoder Charity Challenge benefiting the CPPF"></A><br/>
@@ -66,51 +66,55 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
    <jsp:param name="selectedTab" value=""/>
 </jsp:include>
 
-
-
                <blockquote>
-               <table class="bodyText">
+               <table width="100%" border="0" cellpadding="0" cellspacing="10">
                   <tr>
-                     <td>
-                     </td>
-                      <td>
-                        <p>Donations can be made by:<br />
+                      <td class="bodyText" colspan="2">
+                        <p>Donating to the TopCoder Charity Challenge for the CRPF is easy! Just follow the directions below. 
+                        <A href="#downloads">Download</A> our handy forms to help collect donations on your behalf.</p>
                      </td>
                   </tr>
-                  <tr>
-                     <td width="150" align="center" valign="top"><img src="/i/tournament/crpf03/creditcard.gif" width="89" height="63" border="0">
-                     </td>
-                     <td>
-                        <ul><li>Credit card:</li>
+                  
+                  <tr valign="top">
+                     <td width="150" align="center"><img src="/i/tournament/crpf03/creditcard.gif" width="89" height="63" alt="Pay by credit card" border="0"></td>
+                     <td class="bodyText">
+                        <strong>To donate by credit card</strong>
                         <ol>
-                        <li>Go to <A href="http://www.crpf.org/contribute/contribute.cfm?orgid=TopCoderWebsite2003" target="_blank">www.christopherreeve.org/topcoder</A>.  <b>Note:  Donations will be accepted until 11:59 PM Eastern Time on November 10th</b>.</li>
-                        <li>Remember to enter the TopCoder member's name and/or handle so the donation can be matched to the correct competitor</li>
-                        <li>If you have any questions about this please contact <A href="mailto:service@topcoder.com" class="bodyText">TopCoder Service</A></li>
+                            <li>Go to the <A href="http://www.crpf.org/contribute/contribute.cfm?orgid=TopCoderWebsite2003" target="_blank">TopCoder Donation</A> 
+                            page on www.crpf.org. <strong>Donations will be accepted until 11:59 PM Eastern Time on November 10th</strong>.</li>
+                            <li>Enter your name and contact information. <strong>Your personal information will remain confidential.</strong></li>
+                            <li>On the next page enter the handle or first and last name of the TopCoder member that your donation is in honor of.</li>
+                            <li>If you have any questions please contact <A href="mailto:service@topcoder.com?Subject=I have a question about the TopCoder Charity Challenge CRPF" class="bodyText">TopCoder Service.</A></li>
                         </ol>
-                        </ul>
                      </td>
                   </tr>
-                  <tr>
-                     <td width="150" align="center" valign="top"><img src="/i/tournament/crpf03/check.gif" width="150" height="63" border="0">
-                     </td>
-                     <td>
-                        <ul><li>
-                        Check:
-                        <ol><li>Please complete this <A href="/i/tournament/crpf03/donation_form.pdf" target="_blank">donation form</A>.<br>
-                        <A href="http://www.adobe.com/products/acrobat/readstep.html">Adobe Acrobat 5</A> is required to view this form</li>
-                        <li>Make your check payable to the Christopher Reeve Paralysis Foundation</li>
-                        <li>Checks must be received at TopCoder <b>no later than November 10</b>.<br />
-                        Mail the form and check to:<br />
-                        TopCoder<br />
-                        703 Hebron Ave<br />
-                        Glastonbury,CT 06033<br />
-                        ATTN:  CRPF DONATIONS</li></ol></li></ul>
+                  
+                  <tr valign="top">
+                     <td width="150" align="center"><img src="/i/tournament/crpf03/check.gif" width="150" height="63" alt="Pay by check" border="0"></td>
+                     <td class="bodyText">
+                        <strong>To donate by check:</strong>
+                        <ol>
+                            <li>Make your check payable to the <em>Christopher Reeve Paralysis Foundation</em>.</li>
+                            <li>Include the handle or first and last name of the TopCoder member that your donation is in honor of.</li>
+                            <li>Mail your check to:<br/>
+                            TopCoder<br />
+                            703 Hebron Ave<br />
+                            Glastonbury,CT 06033<br />
+                            ATTN:  CRPF DONATIONS</li>
+                        </ol>
                      </td>
                   </tr>
-                  <tr>
-                     <td></td>
-                     <td>
-                        <ul><li>If you would like to collect donations around the office, this <A href="/i/tournament/crpf03/pledge_collection_form.pdf" target="_blank">form</A> may be helpful.</li></ul>
+                  
+                  <tr valign="top">
+                     <td width="150" align="center"><A name="downloads"><img src="/i/tournament/crpf03/download_forms.gif" width="80" height="63" border="0" alt="Download forms"></A></td>
+                     <td class="bodyText">
+                        <p><strong>Download forms</strong><br/>
+                        Hang this <A href="/i/tournament/crpf03/pledge_collection_form.pdf" target="_blank">pledge collection form</A> around your office, dorm 
+                        or dining hall to help spread the word about your participation in the TopCoder Charity Challenge for CRPF.</p>
+                        
+                        <p>This <A href="/i/tournament/crpf03/donation_form.pdf" target="_blank">donation form</A> provides simple instructions for an individual donor.</p>
+                        
+                        <p><A href="http://www.adobe.com/products/acrobat/readstep2.html" target="_blank"><img src="/i/tournament/crpf03/get_adobe_reader.gif" width="88" height="31" alt="Get Adobe Reader" border="0"></A></p>
                      </td>
                   </tr>
                </table>
