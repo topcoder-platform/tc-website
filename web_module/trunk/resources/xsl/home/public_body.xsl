@@ -71,8 +71,8 @@
                 <table border="0" cellspacing="1" cellpadding="0" width="100%" bgcolor="#FFFFFF">
                     <tr>
                         <td valign="top" colspan="3" class="bodyText"><a class="bodyGeneric">
-                            <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><strong>2003 TCCC Round 1 NE/SE</strong></a><br />
-                            Thursday, February 20, 2003<br /><br />
+                            <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><strong>2003 TCCC Round 1 Int.</strong></a><br />
+                            Saturday, February 22, 2003<br /><br />
                         </td>
                     </tr>
 
@@ -139,24 +139,22 @@
                 <tr><td valign="top" colspan="7"><img src="/i/label_coder_view.gif" alt="Coder's Point of View" width="148" height="26" border="0" /></td></tr>
                 
                 <tr>
-                    <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br />
-                        By&#160;Yarin<br /><i>[TC]&#160;Member</i><br /></td>
+                    <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/Logan_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br />
+                        By&#160;Logan<br /><i>[TC]&#160;Member</i><br /></td>
                     <td valign="top" width="8" rowspan="2"><img src="/i/clear.gif" alt="" width="8" height="1" border="0" /></td>
                     <td valign="top" width="100%" align="left" class="bodyText" colspan="2">
-                        <font size="2" color="#000000" face="tahoma, verdana"><strong>2003 TCCC Round 1 W/MW</strong></font></td>
+                        <font size="2" color="#000000" face="tahoma, verdana"><strong>2003 TCCC Round 1 Int</strong></font></td>
                 </tr>
 
                 <tr>
                     <td valign="top" class="bodyText" width="100%">
                         <a class="bodyGeneric">
-                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=tccc03_wmw_prob</xsl:attribute><strong>Problem Set Analysis &amp; Opinion</strong></a><br />
+                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=tccc03_int_prob</xsl:attribute><strong>Problem Set Analysis &amp; Opinion</strong></a><br />
 
-                        <p>The first round for the students in the W/MW regions was maybe a little easier than for those competing two days
-    ago. The medium and the hard problem had low acceptance rate; the medium had several potential traps and special
-    cases that you could fall in, and the hard involved geometry, a topic that can scare any TopCoder. Luckily the
-    easy problem was easier, and since all that mattered was getting a positive score to advance to the next round
-    (due to the low number of competitors), you only had to solve this one to be safe. <b>bigg_nate</b> got the top
-    score, an impressive <b>1415.93</b> points, more than 200 points ahead of the runner-up.</p>
+                        <p>The most notable aspect of this round was the Level 2 problem, which was solved by only four coders.
+            This lead to a lot of successful challenges by coders such as <b>John Dethridge</b>.  The
+            The Level 1 and Level 3 problems had very high success rates among those that submitted the problems,
+            but each had a rather low submission rate.</p>
                     </td>
                 </tr>
             </table>
