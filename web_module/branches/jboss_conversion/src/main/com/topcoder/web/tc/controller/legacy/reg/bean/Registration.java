@@ -1769,7 +1769,7 @@ public class Registration
             if (Transaction.begin(transaction)) {
                 UserServices userServices;
                 if (isEdit()) {
-                    userServices = userServicesHome.findByPrimaryKey(new Integer(user.getUserId()));
+                    userServices = userServicesHome.findByPrimaryKey(new Long(user.getUserId()));
                 } else {
                     userServices = userServicesHome.create(user);
                     activationCode = StringUtils.getActivationCode(coder.getCoderId());
@@ -1973,13 +1973,13 @@ public class Registration
         }
     }
 
-    private void doLegacyCrap(int userId) {
+    private void doLegacyCrap(long userId) {
         Context ctx = null;
         com.topcoder.common.web.data.User user = null;
         try {
             ctx = TCContext.getInitial();
             UserServicesHome userHome = (UserServicesHome) ctx.lookup(ApplicationServer.USER_SERVICES);
-            UserServices userEJB = userHome.findByPrimaryKey(new Integer(userId));
+            UserServices userEJB = userHome.findByPrimaryKey(new Long(userId));
             user = userEJB.getUser();
             log.debug("tc: user loaded from entity bean");
 

@@ -54,7 +54,7 @@ public class SubmitEmailActivate extends Base {
             }
             try {
                 UserServicesHome userServicesHome = (UserServicesHome) getInitialContext().lookup(ApplicationServer.USER_SERVICES);
-                UserServices userServices = userServicesHome.findByPrimaryKey(new Integer((int) subject.getUserId()));
+                UserServices userServices = userServicesHome.findByPrimaryKey(new Long(subject.getUserId()));
                 com.topcoder.common.web.data.User user = userServices.getUser();
 
                 updateEmail(userServices, email);

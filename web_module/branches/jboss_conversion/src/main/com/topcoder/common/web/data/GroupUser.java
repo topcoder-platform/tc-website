@@ -12,7 +12,7 @@ public final class GroupUser implements java.io.Serializable {
 
 
     private Group group;
-    private int userId;
+    private long userId;
     private String modified;
 
 
@@ -34,7 +34,7 @@ public final class GroupUser implements java.io.Serializable {
     /**
      * Set the user id.
      */
-    public void setUserId(int userId) {
+    public void setUserId(long userId) {
         this.userId = userId;
     }
 
@@ -58,7 +58,7 @@ public final class GroupUser implements java.io.Serializable {
     /**
      * Get the user id.
      */
-    public int getUserId() {
+    public long getUserId() {
         return userId;
     }
 
