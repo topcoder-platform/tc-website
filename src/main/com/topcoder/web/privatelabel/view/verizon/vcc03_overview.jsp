@@ -178,6 +178,7 @@
 </table>
 
 <!-- Footer Begins -->
+<jsp:include page="verizon_foot.jsp" />
 <!-- Footer Ends -->
 
 </body>
