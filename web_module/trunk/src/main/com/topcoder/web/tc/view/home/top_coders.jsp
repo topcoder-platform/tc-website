@@ -1,6 +1,7 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
 <% ResultSetContainer coders = (ResultSetContainer)request.getAttribute("top_coders");%>
 
 <table width="180" border="0" cellspacing="0" cellpadding="3" bgcolor="#555555">
@@ -20,7 +21,7 @@
     <rsc:iterator list="<%=coders%>" id="resultRow">
         <tr>
             <td align="right" class="<%=even?"formHandleEven":"formHandleOdd"%>"><rsc:item name="rank" row="<%=resultRow%>"/>&#160;&#160;&#160;</td>
-            <td align="left" class="<%=even?"formHandleEven":"formHandleOdd"%>" nowrap="nowrap"><a href="/stat?c=member_profile&cr=<rsc:item row="<%=resultRow%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item row="<%=resultRow%>" name="handle"/></a></td>
+            <td align="left" class="<%=even?"formHandleEven":"formHandleOdd"%>" nowrap="nowrap"><tc-webtag:handle coderId='<%=resultRow.getIntItem("coder_id")%>' context="algorithm"/></td>
             <td align="right" class="<%=even?"formHandleEven":"formHandleOdd"%>" nowrap="nowrap"><rsc:item name="rating" row="<%=resultRow%>"/></td>
         </tr>
         <% even = !even;%>
