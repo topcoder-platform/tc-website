@@ -919,7 +919,7 @@ public final class GraphServlet extends HttpServlet {
             g = new BarGraph();
             g.optionTitle("Rating Distribution");
             g.optionTitleStyle(titleStyle);
-            g.optionXAxisLabel("Rating");
+            g.optionXAxisLabel("Rating - line indicates " + dataRequest.getProperty("hn") + "'s rating");
             g.optionYAxisLabel("Number of Coders");
             g.optionXAxisLabelStyle(labelStyle);
             g.optionYAxisLabelStyle(labelStyle);
@@ -971,7 +971,7 @@ public final class GraphServlet extends HttpServlet {
                 out.setColor(RED);
             
             out.line(78+ (16*rs),79,78+ (16*rs),348);
-            //out.line(94+ (16*rs),0,126+ (16*rs),400);
+            out.line(77+ (16*rs),79,77+ (16*rs),348);
             out.render(g);
             return baos.toByteArray();
 
