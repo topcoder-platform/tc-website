@@ -1952,13 +1952,18 @@ public class ProjectTrackerBean implements SessionBean {
 
         try {
             int n = phaseArr.length;
+
+            // try to instantiate a start date calculator, that will give the start date for the project.
             StartDateCalculator sdc = null;
             sdc = (StartDateCalculator) Class.forName(ConfigHelper.getStartDateCalculatorClassname()).newInstance();
             java.util.Date startDate = sdc.calculateNextStart(projectTypeId);
 
+            // create a project to handle the phases
             com.topcoder.project.phases.Project project = new com.topcoder.project.phases.Project(startDate,
                         new TCWorkdays(ConfigHelper.getString(ConfigHelper.WORKDAYS_CONF_FILE), TCWorkdays.XML_FILE_FORMAT));
 
+
+            // create the phases so that each one depends on the previous phase.
             TCPhase[] phases = new TCPhase[n];
             for (int i=0; i < n; i++) {
                 phases[i] = new TCPhase(project, startDate, phaseArr[i].getDefaultDuration());
@@ -1967,6 +1972,8 @@ public class ProjectTrackerBean implements SessionBean {
                 }
             }
 
+
+            // get the start dates and the end date.
             Date[] result = new Date [n + 1];
 
             for (int i=0; i < n; i++) {

@@ -195,6 +195,16 @@ public final class Constants {
      */
     public final static String TERMINATE_KEY = "terminate";
 
+    /**
+     * The action mapping for refreshing the timeline
+     */
+    public final static String REFRESH_KEY = "refresh";
+
+    /**
+     * The action mapping for storing the timeline in the project
+     */
+    public final static String STORE_KEY = "store";
+
     // --------------------------------------------------------- URL Parameter
 
     /**
@@ -331,6 +341,16 @@ public final class Constants {
      * The string constant for action refresh timeline.
      */
     public static final String ACTION_REFRESH = "refresh";
+
+    /**
+     * The current edition is the timeline
+     */
+    public static final String EDITING_TIMELINE = "timeline";
+
+    /**
+     * The current edition is the project
+     */
+    public static final String EDITING_PROJECT = "project";
 
     // --------------------------------------------------------- Phase Id
 

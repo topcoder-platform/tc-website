@@ -29,8 +29,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Iterator;
 import java.util.Set;
-
-// qq borrar!!
 import com.topcoder.util.log.Level;
 import com.topcoder.util.log.Log;
 import com.topcoder.util.log.LogException;
@@ -46,18 +44,6 @@ import com.topcoder.util.log.LogFactory;
  */
 public final class ProjectForm extends ReviewForm {
 
-// qq borrar!!
-private Log log = null;
-    protected void log(Level level, java.lang.Object message) {
-        try {
-            if (log == null) {
-                log = LogFactory.getInstance().getLog("com.topcoder.apps.review");
-            }
-            log.log(level, message);
-        } catch (LogException e) {
-        }
-    }
-// qq end borrar
 
 
     // --------------------------------------------------- Instance Variables
@@ -216,8 +202,33 @@ private Log log = null;
      */
     private boolean[] adjustStartDates = null;
 
+    /**
+     * Logging instance
+     */
+    private Log log = null;
+
+
 
     // ----------------------------------------------------------- Properties
+
+
+    /**
+     * log a message.
+     *
+     * @param level the logging level.
+     * @message the text to be logged.
+     */
+    protected void log(Level level, java.lang.Object message) {
+        try {
+            if (log == null) {
+                log = LogFactory.getInstance().getLog("com.topcoder.apps.review");
+            }
+            log.log(level, message);
+        } catch (LogException e) {
+        }
+    }
+
+
 
     /**
      * Return the project.
@@ -442,22 +453,13 @@ private Log log = null;
      */
     public void setForcedPhaseStart(int index, String start) {
         if (project != null) {
-            SimpleDateFormat sdf = new SimpleDateFormat(Constants.DATE_FORMAT);
-            SimpleDateFormat sdf2 = new SimpleDateFormat(Constants.DATE_FORMAT2);
-
-            //forcedStartDates[index] = adjustStartDates[index]? "" : start.trim();
             forcedStartDates[index] = start.trim();
-            /*PhaseInstance phase = project.getTimeline()[index];
-
-            startDates[index] = start.trim();
-            if (start.indexOf(".") >= 0) {
-                phase.setStartDate(sdf.parse(start.trim(), new ParsePosition(0)));
-            } else {
-                phase.setStartDate(sdf2.parse(start.trim(), new ParsePosition(0)));
-            }*/
         }
     }
 
+    /**
+     * Converts a date in string representation to a Date object.
+     */
     private Date parseDate(String date) {
         SimpleDateFormat sdf = new SimpleDateFormat(Constants.DATE_FORMAT);
         SimpleDateFormat sdf2 = new SimpleDateFormat(Constants.DATE_FORMAT2);
@@ -878,15 +880,6 @@ private Log log = null;
     }
 
     /**
-     * Get the Project from the ProjectPhases component to store a set of phases.
-     *
-     * @return the Project from the ProjectPhases component to store a set of phases.
-     */
-/*qq    public com.topcoder.project.phases.Project getProjectPhases() {
-        return projectPhases;
-    }*/
-
-    /**
      * Return the specified phase's length in minutes
      *
      * @param index The index of phase.
@@ -906,16 +899,6 @@ private Log log = null;
         phaseLengths[index] = phaseLength;
         phaseMinutes[index] = parseLength(phaseLength);
     }
-/*
-    public String getPhaseLength(int index) {
-        return phaseLengths[index] / 60;
-    }
-
-
-    public void setPhaseLength(int index, String value) {
-        phaseLengths[index] = hours * 60 + getPhaseMinutes(index);
-    }
-*/
 
 
     /**
@@ -936,11 +919,6 @@ private Log log = null;
      */
     public void setAdjustStartDate(int index, String adjust) {
         adjustStartDates[index] = Boolean.valueOf(adjust).booleanValue();
-        log(Level.INFO, "setAdjustStartDate("+index+","+adjust+"): " +adjustStartDates[index]);
-/*
-        if (adjustStartDates[index]) {
-            forcedStartDates[index] = "";
-        }*/
     }
 
 
@@ -985,48 +963,8 @@ private Log log = null;
             return errors;
         }
 
-        boolean checkTimeline = false;
-        boolean checkPayments = false;
-        boolean checkProjectData = false;
 
-log(Level.INFO, "currentEdition=" + currentEdition);
-log(Level.INFO, "action=" + action);
-
-        if ("timeline".equals(currentEdition)) {
-            // the user edited the timeline
-
-            String timelineAction = request.getParameter(Constants.ACTION_KEY);
-
-            if (Constants.ACTION_STORE.equals(timelineAction)) {
-                checkTimeline = true;
-            }
-
-            if (Constants.ACTION_REFRESH.equals(timelineAction)) {
-                checkTimeline = true;
-            }
-
-            if (Constants.ACTION_LOAD.equals(timelineAction)) {
-                checkPayments = true;
-            }
-
-            // if the action is CANCEL, no checking will be done.
-
-        }
-
-        if ("project".equals(currentEdition)) {
-            // the user edited the project
-
-            if (Constants.ACTION_EDIT.equals(action)) {
-                checkProjectData = true;
-            }
-        }
-log(Level.INFO, "checkTimeline="+checkTimeline);
-log(Level.INFO, "checkPayments="+checkPayments);
-log(Level.INFO, "checkProjectData="+checkProjectData);
-
-
-        if (checkTimeline)  {
-
+        if (Constants.EDITING_TIMELINE.equals(currentEdition))  {
             for (int i = 0; i < project.getTimeline().length; i++) {
                 phaseValid[i] = true;
 
@@ -1040,8 +978,6 @@ log(Level.INFO, "checkProjectData="+checkProjectData);
                         setValid(false);
                     }
                 }
-                //FIX: check time
-
                 if  (phaseMinutes[i] < 0) {
                     errors.add("phase[" + i + "]",
                                new ActionError("error.format", "Error in the phase duration"));
@@ -1051,7 +987,9 @@ log(Level.INFO, "checkProjectData="+checkProjectData);
             }
         }
 
-        if (checkPayments || checkProjectData) {
+        if (Constants.EDITING_PROJECT.equals(currentEdition)) {
+
+            // check the participants
             for (int i = 0; i < project.getParticipants().length; i++) {
                 if (!participantsValid[i]) {
                     setValid(false);
@@ -1060,6 +998,7 @@ log(Level.INFO, "checkProjectData="+checkProjectData);
                 }
             }
 
+            // check the payments
             for (int i = 0; i < project.getParticipants().length; i++) {
                 if (project.getParticipants()[i].getPaymentInfo() != null
                         && project.getParticipants()[i].getPaymentInfo().getPayment() < 0.0f) {
@@ -1070,9 +1009,6 @@ log(Level.INFO, "checkProjectData="+checkProjectData);
                 }
             }
 
-        }
-
-        if (checkProjectData) {
             if (project.getCurrentPhase().getId() == Phase.ID_SCREENING) {
                 if (project.getScreeningTemplateId() == -1) {
                     setValid(false);
@@ -1088,6 +1024,7 @@ log(Level.INFO, "checkProjectData="+checkProjectData);
                             new ActionError("error.reviewTemplate.required"));
                 }
             }
+
             reasonValid = true;
             if (reason == null || reason.trim().equals("")) {
                 errors.add("reason",
@@ -1196,62 +1133,36 @@ log(Level.INFO, "checkProjectData="+checkProjectData);
         this.submitterRemovalSet = null;
     }
 
+
     /**
-     * Set the timeLine in the form bean from the project.
-     * The bean must have been previously created using fromProject method.
+     * Sets the necessary fields for editing the timeline.
      *
+     *
+     * @return an instance of FailureResult if TCWorkdays configuration couldn't be loaded or an instance of SuccessResult
+     * if all went fine.
      */
-/*   qq borrar
-public void timeLineFromProject(Project project)
-    {
-        log(Level.INFO, "timeLineFromProject");
-
-        for (int i = 0; i < project.getTimeline().length; i++) {
-            if (project.getTimeline()[i].getStartDate() == null) {
-                    startDates[i] = null;
-                } else {
-                    startDates[i] = dateFormatter.format(project.getTimeline()[i].getStartDate());
-                }
-
-                if (project.getTimeline()[i].getEndDate() == null) {
-                    endDates[i] = null;
-                } else {
-                    endDates[i] = dateFormatter.format(project.getTimeline()[i].getEndDate());
-                }
-
-
-                forcedStartDates[i] = startDates[i];
-
-                if (i > 0) {
-                    adjustStartDates[i] = (endDates[i-1] == startDates[i-1]);
-                } else {
-                    adjustStartDates[i]=false;
-                }
-
-            }
-    }
-*/
-
     public ResultData editTimeline() {
-        log(Level.INFO, "timeLineFromProject");
-
+        // Create the project that handles the phases using a configuration file for Workdays
         try {
 
-        projectPhases = new com.topcoder.project.phases.Project(project.getTimeline()[0].getStartDate(),
-                        new TCWorkdays(ConfigHelper.getString(ConfigHelper.WORKDAYS_CONF_FILE), TCWorkdays.XML_FILE_FORMAT));
+            projectPhases = new com.topcoder.project.phases.Project(project.getTimeline()[0].getStartDate(),
+                            new TCWorkdays(ConfigHelper.getString(ConfigHelper.WORKDAYS_CONF_FILE), TCWorkdays.XML_FILE_FORMAT));
         } catch (Exception e) {
             return new FailureResult("Couldn't load the TCWorkdays configuration due to: " + e);
         }
 
-        adjustStartDates[0] = false; // qq fix
+        // The first phase can't be adjusted to previous phase and its starting date is equivalent to the project
+        // starting date
+        adjustStartDates[0] = false;
         forcedStartDates[0] = dateFormatter.format(project.getTimeline()[0].getStartDate());
 
         int n = startDates.length;
         TCPhase[] phases = new TCPhase[n];
 
 
+        // create the phases.  Each phase depends on the previous.  If its start date equals the end date of the previous
+        // phase, it is considered that it is adjusted to the previous phase.
         for (int i = 0; i < n; i++) {
-
             phases[i] = new TCPhase(projectPhases, project.getTimeline()[i].getStartDate(), project.getTimeline()[i].getEndDate());
             if (i > 0) {
                 phases [i].addDependency(phases[i - 1]);
@@ -1266,15 +1177,25 @@ public void timeLineFromProject(Project project)
         return new SuccessResult();
     }
 
+
+
+    /**
+     * Adjust the phases to the start dates and lengths specified by the user.
+     * If a phase's start date is before the end of the previous date, it will be adjusted to its end,
+     *
+     * @return an instance of SuccessResult.
+     */
     public ResultData refreshTimeline() {
         int n = startDates.length;
 
 
+
+        // Clear the project and re enter the phases.
+        projectPhases.clearPhases();
         Date startDate = projectPhases.getStartDate();
         TCPhase[] phases = new TCPhase[n];
 
         for (int i = 0; i < n; i++) {
-
             if (!adjustStartDates[i]) {
                 Date newStartDate = parseDate(forcedStartDates[i]);
 
@@ -1288,8 +1209,6 @@ public void timeLineFromProject(Project project)
                 }
             }
 
-            log (Level.INFO, "StartDate [" + i + "]=" + startDate);
-            log (Level.INFO, "PhaseLength[" + i + "]=" + phaseMinutes[i]);
 
             phases[i] = new TCPhase(projectPhases, startDate, phaseMinutes[i]);
 
@@ -1301,39 +1220,15 @@ public void timeLineFromProject(Project project)
             endDates[i] = dateFormatter.format(phases[i].calcEndDate());
             startDate = phases[i].calcEndDate();
         }
-/*
-        Date startDate = projectPhases.getStartDate();
-        Iterator it = projectPhases.getPhases(new PhaseDateComparator()).iterator();
-        int i = 0;
-        while (it.hasNext()) {
-            TCPhase phase = (TCPhase) it.next();
-log (Level.INFO, "adjustStartDates [" + i+"]: " +adjustStartDates[i]);
-
-            if (!adjustStartDates[i]) {
-                Date newStartDate = parseDate(forcedStartDates[i]);
-
-                // Just change the date if it is after the last phase start.  If not, it would give an error.
-                // If the date for the phase is earlier than the date for a previous phase, it is not taken into account.
-                if (newStartDate.after(startDate) || (i == 0)) {
-                    startDate = newStartDate;
-                } else {
-                    adjustStartDates[i] = true;
-                    forcedStartDates[i] = "";
-                }
-            }
-log (Level.INFO, "StartDate [" + i + "]=" + startDate);
-            phase.setStartDate(startDate);
-            phase.setLength(phaseMinutes[i]);
-
-            startDates[i] = dateFormatter.format(phase.getStartDate());
-            endDates[i] = dateFormatter.format(phase.calcEndDate());
-            startDate = phase.calcEndDate();
-            i++;
-        }
-*/
         return new SuccessResult();
     }
 
+
+    /**
+     * Commit the changes in the timeline to the project.
+     *
+     * @return an instance of SuccessResult.
+     */
     public ResultData commitTimeline() {
         for (int i = 0; i < startDates.length; i++)  {
             setPhaseStart(i, startDates[i]);
@@ -1343,7 +1238,12 @@ log (Level.INFO, "StartDate [" + i + "]=" + startDate);
 
     }
 
-    // qq comment
+    /**
+     * Parse a time length with format "hh:mm" and return the equivalent in minutes.
+     *
+     * @param length a length with format hh:mm
+     * @return the number of minutes or -1 if the string can't be parsed.
+     */
     public int parseLength(String length) {
         try {
             String fields[] = length.trim().split(":");
@@ -1366,7 +1266,13 @@ log (Level.INFO, "StartDate [" + i + "]=" + startDate);
 
     }
 
-    // qq comment
+
+    /**
+     * Formats a quantity of minutes to "hh:mm"
+     *
+     * @param minutes the quantity of minutes
+     * @return a string with format "hh:mm.
+     */
     public String formatLength(int minutes) {
         int h = minutes / 60;
         int m = minutes % 60;

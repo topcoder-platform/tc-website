@@ -57,62 +57,55 @@ public final class EditTimelineAction extends ReviewAction {
             return new FailureResult("No action provided");
         }
 
-
-
-
-log(Level.INFO, "action="+action);
-ResultData result = new SuccessResult();
+        ResultData result = new SuccessResult();
 
         if (Constants.ACTION_STORE.equals(action)) {
-            log(Level.INFO, "store_timeline");
-
+            log(Level.INFO, "store timeline");
             result = ((ProjectForm) form).refreshTimeline();
-            //qq
+            if (!(result instanceof SuccessResult)) {
+                return result;
+            }
+
             result = ((ProjectForm) form).commitTimeline();
+            if (!(result instanceof SuccessResult)) {
+                return result;
+            }
 
             request.getSession().setAttribute(mapping.getAttribute(), form);
 
             forwards.removeForward(mapping.findForward(Constants.SUCCESS_KEY));
-            forwards.addForward(mapping.findForward("store"));
+            forwards.addForward(mapping.findForward(Constants.STORE_KEY));
 
 
         } else if (Constants.ACTION_REFRESH.equals(action)) {
-            log(Level.INFO, "refresh_timeline");
+            log(Level.INFO, "refresh timeline");
 
             result = ((ProjectForm) form).refreshTimeline();
+            if (!(result instanceof SuccessResult)) {
+                return result;
+            }
 
             request.getSession().setAttribute(mapping.getAttribute(), form);
 
             forwards.removeForward(mapping.findForward(Constants.SUCCESS_KEY));
-            forwards.addForward(mapping.findForward("refresh"));
+            forwards.addForward(mapping.findForward(Constants.REFRESH_KEY));
 
         } else if (Constants.ACTION_LOAD.equals(action)) {
-            log(Level.INFO, "load_timeline");
+            log(Level.INFO, "load timeline");
             result = ((ProjectForm) form).editTimeline();
+            if (!(result instanceof SuccessResult)) {
+                return result;
+            }
 
             request.getSession().setAttribute(mapping.getAttribute(), form);
 
         } else if (Constants.ACTION_CANCEL.equals(action)) {
-            log(Level.INFO, "cancel_timeline");
+            log(Level.INFO, "cancel timeline");
 
             request.getSession().setAttribute(mapping.getAttribute(), form);
 
             forwards.removeForward(mapping.findForward(Constants.SUCCESS_KEY));
-            forwards.addForward(mapping.findForward("cancel"));
-
-/*            BusinessDelegate businessDelegate = new BusinessDelegate();
-            result = businessDelegate.projectDetail(orpd);
-
-            if (result instanceof SuccessResult) {
-                ProjectRetrieval pr = (ProjectRetrieval) result;
-                ((ProjectForm) form).timeLineFromProject(pr.getProject());
-                request.getSession().setAttribute(mapping.getAttribute(), form);
-
-                forwards.removeForward(mapping.findForward(Constants.SUCCESS_KEY));
-                forwards.addForward(mapping.findForward("cancel"));
-            }
-            */
-
+            forwards.addForward(mapping.findForward(Constants.CANCEL_KEY));
         }
 
 
