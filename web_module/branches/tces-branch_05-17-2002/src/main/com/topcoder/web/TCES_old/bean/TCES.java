@@ -64,26 +64,38 @@ public class TCES extends Task implements Serializable {
 			return true;
 		}
 				
+		private CoderObject coderObject = new CoderObject();
+		public CoderObject.setCoderObject(CoderObject objIn) { coderObject = objIn; }
+ 		public CoderObject getCoderObject() { return coderObject; }
+
     public void process() throws TaskException {
     	Log.msg(VERBOSE,"TCES.process()");
 			if (currentNav == null) {
 				throw new TaskException("TCES.process(): No current task");
 			}
-			if (htParams.size() == 0) {
-				isTaskValidated = false;
+			try {
+				if (currentNav.getTaskKey().equals("contact")) {
+					CoderBean beanCoder = new CoderBean();
+					coderObject.coder_id = new Long( (long)currentUser.getUserId(); );
+					coderObject = beanCoder.request(Coder.SELECT, coderObject);
+					boolean doUpdate = false;
+					if (htParams.get("firstName") != null) {
+						coderObject.firstName = htParams.get("first_name");
+						doUpdate = true;
+					}
+					if (doUpdate) {
+						coderObject = beanCoder.request(Coder.UPDATE, coderObject);
+					}
+		/*
+					UserBean beanUser = new UserBean();
+					UserObject objUser = new UserObject();
+					objUser.user_id = new Long ((long)currentUser.getUserId(););
+					objUser = beanUser.request(User.SELECT, objUser);			
+		*/
+				}
+			} catch (Exception e) {
+				throw new TaskException("TCES.process(): Exception: " + e.getMessage());			
 			}
-/*
-			int user_id = user.getUserId();
-			CoderBean beanCoder = new CoderBean();
-			CoderObject objCoder = new CoderObject();
-			objCoder.coder_id = new Long( (long)user_id );
-			objCoder = beanCoder.request(Coder.SELECT, objCoder);
-
-			UserBean beanUser = new UserBean();
-			UserObject objUser = new UserObject();
-			objUser.user_id = new Long ((long)user_id);
-			objUser = beanUser.request(User.SELECT, objUser);			
-*/
     }
  
  		public TCESNav getCurrentNav() {
