@@ -87,7 +87,7 @@
 
   <init-param>
    <param-name>position_interest_page</param-name>
-   <param-value>/position_interest.jsp.jsp</param-value>
+   <param-value>/position_interest.jsp</param-value>
     <description>
       URI to the position interest JSP
     </description>
