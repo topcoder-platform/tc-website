@@ -5,10 +5,20 @@
       <TR>
         <!-- <TD CLASS="registerNav" WIDTH="15" HEIGHT="21" BACKGROUND="/i/top_bar_bg.gif" VALIGN="middle"><IMG SRC="/i/clear.gif" WIDTH="15" HEIGHT="1" BORDER="0"/></TD> -->
         <TD CLASS="registerNav" WIDTH="114" HEIGHT="21" BACKGROUND="/i/steel_gray_bg.gif">
-          <A CLASS="registerNav" TARGET="_parent">
-            <xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>
-            <IMG SRC="/i/menu_profile_on.gif" ALT="Update Profile" WIDTH="114" HEIGHT="21" BORDER="0"/>
-          </A>
+          <xsl:choose>
+            <xsl:when test="/TC/LoggedIn='true'">
+              <A CLASS="registerNav" TARGET="_parent">
+                <xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>
+                <IMG SRC="/i/menu_profile_on.gif" ALT="Update Profile" WIDTH="114" HEIGHT="21" BORDER="0"/>
+              </A>  
+            </xsl:when>
+            <xsl:otherwise>
+              <A CLASS="registerNav" TARGET="_parent">
+                <xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>
+                <IMG SRC="/i/menu_reg_off.gif" ALT="Register" WIDTH="114" HEIGHT="21" BORDER="0"/>
+              </A>  
+            </xsl:otherwise>
+          </xsl:choose>
         </TD>
         <!-- <TD WIDTH="5" HEIGHT="21" BACKGROUND="/i/steel_gray_bg.gif" ALIGN="right">
           <IMG SRC="/i/top_bar_left.gif" WIDTH="21" HEIGHT="21" BORDER="0"/>
