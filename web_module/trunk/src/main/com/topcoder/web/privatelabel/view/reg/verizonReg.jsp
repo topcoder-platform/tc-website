@@ -18,7 +18,11 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 
-<!-- Left Column Begins -->
+<!-- Gutter Begins -->
+        <td width="10"><img src="/i/clear.gif" width="10" height="1"></td>
+<!-- Gutter Ends -->
+
+<!-- Left Column Begins-->
          <td>
          <p><img src="/i/clear.gif" width="180" height="60" border="0"/><br />
          <a href="/" ><img src="/i/tournament/vcc03/vcc03_left.gif" width="180" height="74" border="0"/></a><br />
@@ -28,18 +32,30 @@
          </p>
          </td>         
 <!-- Left Column Ends -->
-  
+
 <!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1"></td>
+        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
-<!-- Center Column Begins -->
+<!-- Center Column Begins -->  
         <td class="bodyText" width="100%">
 <!-- TCO Header -->
-         <p><br /></p>
-         <div align="center"><img src="/i/tournament/vcc03/vcc03.gif" alt="Verizon Coding Challenge" width="500" height="120" border="0" vspace="0" /></div>
-         <p><br /></p>
-         <table cellpadding="1" cellspacing="3" class="bodyText">
+   <p><br /></p>
+   <div align="center"><img src="/i/tournament/vcc03/vcc03.gif" alt="Verizon Coding Challenge" width="500" height="120" border="0" vspace="0" /></div>
+   <p><br /></p>
+   
+<!-- Tab bar links-->
+<jsp:include page="/verizon/verizonLinks.jsp" >
+   <jsp:param name="selectedTab" value="rules"/>
+</jsp:include>
+<!-- Tab bar sub links-->
+<jsp:include page="/verizon/verizonSublinks.jsp" >
+   <jsp:param name="selectedList" value="rules"/>
+   <jsp:param name="selectedTab" value="registration"/>
+</jsp:include>   
+
+      <blockquote>
+        <table cellpadding="1" cellspacing="3" class="bodyText">
         <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.FULL_REG_DEMOG%>"/>
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
@@ -165,7 +181,7 @@
                     Address1
                 </td>
                 <td align="left">
-                    <tc-webtag:textInput name="<%=Constants.ADDRESS1%>"  size="15" maxlength="50"/>
+                    <tc-webtag:textInput name="<%=Constants.ADDRESS1%>"  size="30" maxlength="50"/>
                 </td>
             </tr>
 
@@ -179,7 +195,7 @@
                     Address2
                 </td>
                 <td align="left">
-                    <tc-webtag:textInput name="<%=Constants.ADDRESS2%>"  size="15" maxlength="50"/>
+                    <tc-webtag:textInput name="<%=Constants.ADDRESS2%>"  size="30" maxlength="50"/>
                 </td>
             </tr>
 
@@ -193,7 +209,7 @@
                     Address3
                 </td>
                 <td align="left">
-                    <tc-webtag:textInput name="<%=Constants.ADDRESS3%>"  size="15" maxlength="50"/>
+                    <tc-webtag:textInput name="<%=Constants.ADDRESS3%>"  size="30" maxlength="50"/>
                 </td>
             </tr>
 
@@ -254,23 +270,21 @@
                     <tc-webtag:rscSelect name="<%=Constants.COUNTRY_CODE%>" list="<%=countryRsc%>" fieldText="country_name" fieldValue="country_code"/>
                 </td>
             </tr>
-
-
             <tr>
-                <td colspan="2">
-                    <a href="javascript: document.regForm.submit();">submit</a>
-                    <p class="button" align="center"> <a href="javascript: document.regForm.submit();">submit</a></p>
-                </td>
-            </tr>
-
+               <td colspan="2" align="center">
+                  <p><br /></p>
+                  <p align="center"><a href="javascript: document.regForm.submit();" class="button" align="center">Submit</a></p>
+                  <p><br /></p>
+               </td>
+            </tr> 
             </form>
-
          </table>
+         </blockquote>
       </td>
    </tr>
 </table>
 
-<jsp:include page="../foot.jsp" />
+<jsp:include page="/verizon/verizon_foot.jsp" />
 
 </body>
 
