@@ -5,6 +5,8 @@ import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.ejb.product.*;
 import com.topcoder.web.ejb.user.Contact;
 import com.topcoder.web.ejb.user.ContactHome;
+import com.topcoder.web.ejb.user.UserTermsOfUseHome;
+import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.corp.Util;
 import com.topcoder.web.corp.controller.TransactionServlet;
 import com.topcoder.shared.util.DBMS;
@@ -100,6 +102,8 @@ public class TransactionInfo {
             if (cost <= 0) {
                 throw new Exception("No valid product found for ID given");
             }
+            termsId = productTable.getTermsOfUseId(productID);
+
             userBackPage = productTable.getRedirectionURL(productID);
 
             ProductUnit productUnit = ((ProductUnitHome) icEJB.lookup(ProductUnitHome.EJB_REF_NAME)).create();
@@ -113,6 +117,9 @@ public class TransactionInfo {
 
             Contact contactTable = ((ContactHome) icEJB.lookup("corp:"+ContactHome.EJB_REF_NAME)).create();
             companyID = contactTable.getCompanyId(buyerID);
+
+            UserTermsOfUse userTerms = ((UserTermsOfUseHome) icEJB.lookup("corp:"+UserTermsOfUseHome.EJB_REF_NAME)).create();
+            agreed = userTerms.hasTermsOfUse(buyerID, termsId);
 
             setRolesPerProduct(productID);
             
