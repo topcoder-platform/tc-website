@@ -4,7 +4,6 @@
 %>
 
 
-<% if (nav.getLoggedIn()) { %>
-<%@ include file="my_features.jsp" %>
-<% } %>
 
+
+<jsp:include page="../my_features.jsp"/>
