@@ -26,6 +26,7 @@ function getProblemDetail(id) {
 
 </head>
 
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.screening.model.SessionInfo" />
 <jsp:useBean id="candidateInfo" class="com.topcoder.web.screening.model.CandidateInfo" />
 <jsp:useBean id="profileInfo" class="com.topcoder.web.screening.model.ProfileInfo" />
 <jsp:useBean id="testResultsInfo" class="com.topcoder.web.screening.model.TestResultsInfo" />
@@ -48,7 +49,7 @@ function getProblemDetail(id) {
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr valign="top">
                     <td class="bodyText">
-                        <h1 class="testHead">Test Results</h1>
+                        <h1 class="testHead"><%=testResultsInfo.isSessionComplete()?"Test Results":"Test Details%></h1>
                     </td>
                 </tr>
             </table>
@@ -70,6 +71,16 @@ function getProblemDetail(id) {
                 <tr>
                     <td class="bodyText">
                         <strong>Problem Set:</strong> <jsp:getProperty name='profileInfo' property='testSetAName'/>
+                    </td>
+	        </tr>
+                <tr>
+                    <td class="bodyText">
+                        <strong>Problem Set:</strong> <screen:beanWrite name='sessionInfo' property='beginDate' format='MM/dd/yyyy hh:mm a'/>
+                    </td>
+	        </tr>
+                <tr>
+                    <td class="bodyText">
+                        <strong>Problem Set:</strong> <screen:beanWrite name='sessionInfo' property='endDate' format='MM/dd/yyyy hh:mm a'/>
                     </td>
 	        </tr>
 	    </table>

@@ -339,6 +339,24 @@ public class SessionInfo extends BaseModel {
         return formDate(endYear, endMonth, endDay, endHour);
     }
 
+    public void setBeginDate(Date beginDate) {
+        Calendar c = Calendar.getInstance();
+        c.setTime(beginDate);
+        setBeginYear(String.valueOf(c.get(Calendar.YEAR)));
+        setBeginMonth(String.valueOf(c.get(Calendar.MONTH)+1));
+        setBeginDay(String.valueOf(c.get(Calendar.DAY_OF_MONTH)));
+        setBeginHour(String.valueOf(c.get(Calendar.HOUR_OF_DAY)));
+    }
+
+    public void setEndDate(Date endDate) {
+        Calendar c = Calendar.getInstance();
+        c.setTime(endDate);
+        setEndYear(String.valueOf(c.get(Calendar.YEAR)));
+        setEndMonth(String.valueOf(c.get(Calendar.MONTH)+1));
+        setEndDay(String.valueOf(c.get(Calendar.DAY_OF_MONTH)));
+        setEndHour(String.valueOf(c.get(Calendar.HOUR_OF_DAY)));
+    }
+
     public boolean isSelectedProfile(String profileId) {
         return this.profileId != null && this.profileId.equals(profileId);
     }

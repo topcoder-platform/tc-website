@@ -6,14 +6,12 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.common.PermissionDeniedException;
 import com.topcoder.web.screening.common.ScreeningException;
-import com.topcoder.web.screening.model.CandidateInfo;
-import com.topcoder.web.screening.model.ProblemInfo;
-import com.topcoder.web.screening.model.ProfileInfo;
-import com.topcoder.web.screening.model.TestResultsInfo;
+import com.topcoder.web.screening.model.*;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Date;
 
 /**
  * Processing for the Test Results page.
@@ -43,7 +41,11 @@ public class TestResults extends BaseProcessor {
         }
         String roundId = result.getItem(0,"contest_round_id").toString();
         String divisionId = result.getItem(0,"contest_division_id").toString();
-        
+        SessionInfo sessionInfo = new SessionInfo();
+        sessionInfo.setBeginDate(((Date)result.getItem(0, "begin_time").getResultData()));
+        sessionInfo.setEndDate(((Date)result.getItem(0, "end_time").getResultData()));
+        getRequest().setAttribute("sessionInfo",sessionInfo);
+
         dAccess = getDataAccess(Constants.DW_DATA_SOURCE, true);
         dr = new Request();
         dr.setContentHandle("roundProblemStats");
