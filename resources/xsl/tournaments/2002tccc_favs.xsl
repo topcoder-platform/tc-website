@@ -26,7 +26,7 @@
 <TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
   <TR>
     <!-- Left Column Begins -->
-    <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
+    <TD WIDTH="180" VALIGN="top">
 <!-- Left Column Include Begins -->  
     <!-- Global Seconday Nav Begins -->        
         <xsl:call-template name="public_stats_left"/>
@@ -336,7 +336,7 @@ Even though <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=114853" CL
     <TD WIDTH="4" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
     <!-- Gutter Ends -->
   <!-- Right Column Begins -->
-    <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
+    <TD WIDTH="180" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
 <!-- <A HREF="/index?t=tournaments&amp;c=tourny_sched"><IMG SRC="/i/tournament/sun_small_banner2.gif" ALT="" WIDTH="170" HEIGHT="84" BORDER="0"/></A> -->
 <!-- Right Column Include Begins -->        
         <xsl:call-template name="public_right_col"/>        
