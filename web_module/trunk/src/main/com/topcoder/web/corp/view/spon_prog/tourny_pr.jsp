@@ -7,7 +7,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>Sponsor a TopCoder Single Round Match</title>
+<title>Sponsor a TopCoder Computer Programming Tournament</title>
 
 <jsp:include page="../includes/css.jsp" />
 
@@ -18,6 +18,9 @@
 <body>
 
 <!-- Top begins -->
+<jsp:include page="includes/top.jsp" >
+  <jsp:param name="isSponsorPage" value="true"/>
+</jsp:include>
 <jsp:include page="../includes/top.jsp"/>
 <!-- Top ends -->
 
