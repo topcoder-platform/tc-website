@@ -761,13 +761,25 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
          * @return	The row data in string form.
          */
         public String toString() {
+            return toString("\t");
+        }	
+
+        /**
+         * ResultSetContainer.ResultSetRow implementation of toString.  
+         * This method will output all data, separated by colDelim
+         *
+         * @return	The row data in string form.
+         */
+        public String toString(String colDelim) {
             StringBuffer sbReturn = new StringBuffer();
             for (int i=0;i<mtcItems.length;i++) {
-                sbReturn.append(mtcItems[i].toString()).append("\t");
+                sbReturn.append(mtcItems[i].toString()).append(colDelim);
             }
-            sbReturn.setLength(sbReturn.length() - 1);
+            sbReturn.setLength(sbReturn.length() - colDelim.length());
             return sbReturn.toString();
         }	
+
+
     }
     
     /**********************************************************************/
@@ -1211,10 +1223,11 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
 	    sbReturn.append(this.getColumnName(i)).append(colDelim);
 	}
 	sbReturn.setLength(sbReturn.length() - colDelim.length());
-	sbReturn.append("\n");
+	sbReturn.append(rowDelim);
 	it = data.iterator();
 	while (it.hasNext()) {
-	    sbReturn.append(it.next().toString()).append(rowDelim);
+	    sbReturn.append(((ResultSetContainer.ResultSetRow)it.next()).
+                toString(colDelim)).append(rowDelim);
 	}
 	sbReturn.setLength(sbReturn.length() - rowDelim.length());
 	return sbReturn.toString();
