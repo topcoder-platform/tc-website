@@ -65,7 +65,7 @@
 </P>
 
 <p>
-TopCoder is looking to hire a full-time software developer to administer and maintain the TopCoder 
+TopCoder is looking to hire a full-time software developer to administer, enhance, and maintain the TopCoder 
 competition engine. Candidates must work well under pressure in a high-risk environment and must 
 have excellent communication skills.
 </p>
