@@ -155,7 +155,7 @@ Initial Submission Due Date: 11/29/2002<br/>
 Final Submission Due Date: 12/13/2002<br/>
 
 <!-- Register at TCS -->
-After inquiring for this project please make sure you are registered at www.topcodersoftware.com.  Each eligible member will be granted access to more detailed information about the project and the deliverables.
+  Each eligible member will be granted access to more detailed information about the project and the deliverables.
 </p>
 
 

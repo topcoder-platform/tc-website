@@ -143,7 +143,7 @@ Final Submission Due Date: 11/19/2002<BR/>
 Estimated Development End Date: 12/6/2002<BR/>
 
 <BR/>
-After inquiring for this project please make sure you are registered at www.topcodersoftware.com.  Each eligible member will be granted access to more detailed information about the project and the deliverables.
+  Each eligible member will be granted access to more detailed information about the project and the deliverables.
 </P>
 
 

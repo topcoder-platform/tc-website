@@ -130,7 +130,7 @@
 
 
 <!-- Register at TCS -->
-						<p>After inquiring for this project please make sure you are registered at <a href="http://www.topcodersoftware.com" class="statText">TopCoder Software</a>.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
+						
 
                             <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Distributed Simple Cache: Design&amp;comp=4310994&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>
