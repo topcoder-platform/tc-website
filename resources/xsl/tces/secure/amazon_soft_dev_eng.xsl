@@ -76,7 +76,7 @@
                         precision, enjoys implementing real systems, and is motivated by the prospect of spectacular business returns.  Proficiency 
                         in C is required, and the ideal candidate is an expert in at least one language (such C, C++, Java, or Perl).  A BS in computer 
                         science (or equivalent experience) is required; graduate degrees, experience building high-availability or large-scale systems, 
-                        and knowledge of advanced algorithms and data structures are significant plusses.</p>
+                        and knowledge of advanced algorithms and data structures are significant pluses.</p>
 
                         
                         <p align="center"><a href="/jobposting?&amp;t=JobHitTask&amp;jid=130&amp;jt=2" class="bodyText">Apply now!</a> | <a href="/?&amp;t=tces&amp;c=amazon_openings&amp;a=secure" class="bodyText">Back to Jobs</a></p>

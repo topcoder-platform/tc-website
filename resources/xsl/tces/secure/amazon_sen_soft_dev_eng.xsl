@@ -86,8 +86,8 @@
                         <p>We are looking for people who love to write code to solve real problems, love to see their solutions in use, and thrive in a 
                         small cross functional team. If you are an expert in object-oriented techniques, if you have delivered truly scalable and reliable 
                         solutions which meet the highest performance bar, and if you have designed and built complex distributed systems in C++ on UNIX, 
-                        we want to talk to you.  We look for candidates who are good communicators, flexible, hard working, smart, and have at least five 
-                        years of professional C++ experience. Customer focus, an interest in business, experience in system architecture or AI would 
+                        we want to talk to you.  We look for candidates who are good communicators, flexible, hard working, smart, and <strong>have at least five 
+                        years of professional C++ experience</strong>. Customer focus, an interest in business, experience in system architecture or AI would 
                         be nice pluses. Oh, and a degree in computer science, math, or even something more esoteric.</p>
 
                         
