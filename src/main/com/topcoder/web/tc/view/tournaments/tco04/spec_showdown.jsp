@@ -29,6 +29,16 @@
         our tournaments are all about? Do you live in the San Jose area and need an excuse to get away from work on a Friday 
         afternoon? If so, then the TCO Spectator Showdown is for you!</p>
 
+<%-- uncomment this when SS starts --%>
+<%--
+		<p align=right><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=ss_leaderboard_website">view the leaderboard</A>
+--%>
+<%-- uncomment this when SS photos are up --%>
+<%--
+		&#160;&#160;/&#160;&#160;<A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=photos">photos</A>
+--%>
+		</p>
+
 		<p><span class="bodySubtitle">OPEN COMPETITION!</span><br/>TopCoder is introducing a competition for attendees of the 2004 TopCoder Open. The TCO Spectator Showdown is a 
 		competition open to members of the event audience who want to join in the competitive spirit and battle for prizes.  
 		It's is an exciting way to see how your algorithmic skills match up against others' skills on TopCoder problems. </p> 
