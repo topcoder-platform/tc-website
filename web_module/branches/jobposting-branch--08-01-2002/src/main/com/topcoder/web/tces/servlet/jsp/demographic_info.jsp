@@ -60,7 +60,7 @@
         <jsp:include page="../body_top.jsp" >  
            <jsp:param name="image" value="tces"/>  
            <jsp:param name="image1" value="steelblue"/>  
-           <jsp:param name="title" value="Company Name"/>  
+           <jsp:param name="title" value="<%=DemographicTask.getCompanyName()%>"/>  
         </jsp:include><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"><BR>
         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
           <TR>

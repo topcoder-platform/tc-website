@@ -171,6 +171,10 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
             dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
             resultMap = dai.getData(dataRequest);
 
+            rsc = (ResultSetContainer) resultMap.get("TCES_Company_Name");
+            ResultSetContainer.ResultSetRow cmpyNameRow = rsc.getRow(0);
+            setCompanyName( cmpyNameRow.getItem("company_name").toString() );
+
             rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_Info");
             ResultSetContainer.ResultSetRow cpgnInfRow = rsc.getRow(0);
             setCampaignName( cpgnInfRow.getItem("campaign_name").toString() );
