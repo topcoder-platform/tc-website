@@ -100,7 +100,6 @@
                             University of Massachusetts Amherst (5)<br />
                             Rutgers University (4)<br />
                             Stevens Institute of Technology (4)<br />
-                            None Specified (3)<br />
                             Ohio State University (3)<br />
                             Syracuse University (3)<br />
                             Boston University (2)<br />
@@ -155,7 +154,6 @@
                             Florida State University (3)<br />
                             Clemson University (2)<br />
                             Middle Tennessee State University (2)<br />
-                            None Specified (2)<br />
                             Western Kentucky University (2)<br />
                             College of Charleston (1)<br />
                             Embry-Riddle Aeronautical University (1)<br />
@@ -177,7 +175,6 @@
                             <td width="25%" align="left" class="statText">
                             University of Texas Austin (13)<br />
                             Stanford University (12)<br />
-                            None Specified (11)<br />
                             California Institute of Technology (9)<br />
                             University of California Berkeley (8)<br />
                             University of California Los Angeles (8)<br />
@@ -222,7 +219,6 @@
                             Purdue University System (6)<br />
                             University of Illinois Urbana-Champaign (6)<br />
                             University of Wisconsin Madison (6)<br />
-                            None Specified (5)<br />
                             University of Minnesota Twin Cities (5)<br />
                             University of Nebraska Lincoln (4)<br />
                             Illinois Institute of Technology (3)<br />
