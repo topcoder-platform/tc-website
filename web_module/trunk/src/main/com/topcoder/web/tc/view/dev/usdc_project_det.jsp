@@ -52,7 +52,7 @@
                                 <td class="sidebarTitle" align=center nowrap=nowrap>Submission Date</td>
                                 <td class="sidebarTitle" align=center>Place</td>
                                 <td class="sidebarTitle" align=center>Score</td>
-                                <td class="sidebarTitle" align=right>Earnings</td>
+                                <td class="sidebarTitle" align=right>Prizes</td>
                             </tr>
                             <tr>
                                 <td class="sidebarText"><A href="/">somedude</A></td>

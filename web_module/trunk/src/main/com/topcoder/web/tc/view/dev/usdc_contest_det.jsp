@@ -45,17 +45,19 @@
 
                         <table width="510" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                             <tr>
-                                <td class=header colspan=7>Week 1 Projects</td>
+                                <td class=header colspan=6>Week 1 Projects</td>
                             </tr>
                             <tr>
                                 <td class="sidebarTitle" nowrap=nowrap>Component Name</td>
+                                <td class="sidebarTitle" align=center nowrap=nowrap>Details</td>
                                 <td class="sidebarTitle" align=center>Start Date</td>
                                 <td class="sidebarTitle" align=center>End Date</td>
-                                <td class="sidebarTitle" align=right>1st Place Earnings</td>
-                                <td class="sidebarTitle" align=right>2nd Place Earnings</td>
+                                <td class="sidebarTitle" align=right>1st Place Prizes</td>
+                                <td class="sidebarTitle" align=right>2nd Place Prizes</td>
                             </tr>
                             <tr>
-                                <td class="sidebarText"><A href="/tc?module=Static&d1=dev&d2=usdc_project_det">Component 1</A></td>
+                                <td class="sidebarText"><A href="/">Component 1</A></td>
+                                <td class="sidebarText" align=center><A href="/tc?module=Static&d1=dev&d2=usdc_project_det">details</A></td>
                                 <td class="sidebarText" align=center nowrap=nowrap>06.03.2004 9:00AM</td>
                                 <td class="sidebarText" align=center nowrap=nowrap>06.10.2004 9:00AM</td>
                                 <td class="sidebarText" align=right>$1,000</td>
