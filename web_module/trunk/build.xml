@@ -906,13 +906,15 @@
          </copy>
      </target>
 
-     <target name="deploy-techassess-expanded" depends="war-techassess">
+     <target name="deploy-techassess-expanded" depends="war-techassess,expand-techassess">
+     </target>
+
+     <target name="expand-techassess" depends="">
          <copy file="${shared.jar}" todir="${jboss_home}/server/default/lib" overwrite="true"/>
          <delete file="${jboss_home}/server/default/deploy/techassess.war"/>
          <unwar src="${war.dir}/techassess.war" dest="${jboss_home}/server/default/deploy/techassess.war/" overwrite="yes"/>
          <delete dir="${jboss_home}/server/default/deploy/techassess.war/META-INF"/>
      </target>
-
 
      <target name="deploy-corp" depends="war-corp">
          <antcall target="package-EJB-DataCacheBean"/>
