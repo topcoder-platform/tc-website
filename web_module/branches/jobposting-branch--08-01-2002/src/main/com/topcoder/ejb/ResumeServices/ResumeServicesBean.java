@@ -88,7 +88,7 @@ public class ResumeServicesBean extends BaseEJB {
             ps = conn.prepareStatement(DELETE_FILE_QUERY);
             ps.setInt(1,userID);
             int numDeleted = ps.executeUpdate();
-            if(numDeleted!=1)throw new Exception(numDeleted + " columns where deleted, when 1 was expected.");
+            if(numDeleted!=1&&numDeleted!=0)throw new Exception(numDeleted + " columns where deleted, when 0 or 1 were expected.");
             ps = conn.prepareStatement(GET_FILE_TYPE_ID_QUERY);
             ps.setString(1,fileType);
             rs = ps.executeQuery();
