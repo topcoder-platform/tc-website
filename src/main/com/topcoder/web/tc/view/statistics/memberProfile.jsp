@@ -67,6 +67,7 @@ if (!rsc.isEmpty()) {
   rsr = rsc.getRow(0);
   pageContext.setAttribute("resultRow", rsr);
   vieweeHasImage = rsr.getItem(23).toString().equals("1");
+    System.out.println("here:" + rsr.getItem(25) + ":");
   if (rsr.getItem(25)!=null&&Integer.parseInt(rsr.getItem(25).toString()) > 0)
     hasCharity = true;  //have there winnings ever gone to charity
 }
