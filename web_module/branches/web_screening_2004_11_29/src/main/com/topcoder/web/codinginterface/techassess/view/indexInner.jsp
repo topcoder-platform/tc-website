@@ -64,7 +64,7 @@
                </tr>
                <tc-webtag:listIterator id="problem" list="problemSets">
                    <tr>
-                      <td class=tableTextOdd><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_PROBLEM_SET%>&<%=Constants.PROBLEM_TYPE_ID%>=<jsp:getProperty name="problem" property="type"/>" target="_top"><img src="/i/corp/screening/buttonEnter.gif" alt="" /></a></td>
+                      <td class=tableTextOdd><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_PROBLEM_SET%>&<%=Constants.PROBLEM_TYPE_ID%>=<jsp:getProperty name="problem" property="typeId"/>" target="_top"><img src="/i/corp/screening/buttonEnter.gif" alt="" /></a></td>
                       <td class=tableTextOdd><jsp:getProperty name="problem" property="problemSetName"/></td>
                       <td class=tableTextOdd align=center><jsp:getProperty name="problem" property="completedCount"/>/<jsp:getProperty name="problem" property="problemCount"/></td>
                       <td class=tableTextOdd><jsp:getProperty name="problem" property="description"/></td>
