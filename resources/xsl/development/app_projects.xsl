@@ -110,6 +110,15 @@
                     <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
                 </tr>
                
+                <tr valign="top">
+                    <td width="3"><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
+                    <td width="1" ><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td>
+                    <td class="statText"><a class="statText" href="?&amp;t=development&amp;c=admin_tool_enhancements">Admin Tool Enhancements</a></td>
+                    <td class="statText" align="center">$1,600</td>
+                    <td class="statText" align="center">$600</td>
+                    <td class="statText" align="center">5.27.2003</td>
+                    <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
+                </tr>
                 <!--tr valign="top">
                     <td width="3"><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
                     <td width="1" ><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td>
