@@ -45,7 +45,8 @@ public class ReviewProjectDetail extends Base {
                                     detail.getIntItem(0, "submission_count"),
                                     detail.getIntItem(0, "phase_id"),
                                     detail.getIntItem(0, "level_id"),
-                                    detail.getLongItem(0, "project_id")));
+                                    detail.getLongItem(0, "project_id"),
+                                    detail.getIntItem(0, "review_resp_id")));
                         } else {
                             //this one has been assigned
                             reviewerList.add(makeApp(row.getStringItem("reviewer_type"),
@@ -55,7 +56,8 @@ public class ReviewProjectDetail extends Base {
                                     row.getLongItem("user_id"),
                                     row.getStringItem("handle"),
                                     row.getIntItem("primary") == 1,
-                                    detail.getLongItem(0, "project_id")));
+                                    detail.getLongItem(0, "project_id"),
+                                    detail.getIntItem(0, "review_resp_id")));
                         }
                     }
 
@@ -95,7 +97,8 @@ public class ReviewProjectDetail extends Base {
                                 row.getLongItem("user_id"),
                                 row.getStringItem("handle"),
                                 row.getIntItem("primary") == 1,
-                                detail.getLongItem(0, "project_id")));
+                                detail.getLongItem(0, "project_id"),
+                                0));
                     }
                     for (int i = count; i < 3; i++) {
                         //add empty positions until the list is 3 long
@@ -103,7 +106,8 @@ public class ReviewProjectDetail extends Base {
                                 detail.getIntItem(0, "submission_count"),
                                 detail.getIntItem(0, "phase_id"),
                                 detail.getIntItem(0, "level_id"),
-                                detail.getLongItem(0, "project_id")));
+                                detail.getLongItem(0, "project_id"),
+                                0));
                     }
 
                     //if there is no primary spot in the list, put one in there
@@ -139,8 +143,8 @@ public class ReviewProjectDetail extends Base {
 
     private ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int phaseId,
                                            int levelId, long userId, String handle, boolean primary,
-                                           long projectId) {
-        ReviewBoardApplication ret = makeApp(reviewerType, numSubmissions, phaseId, levelId, projectId);
+                                           long projectId, int reviewerTypeId) {
+        ReviewBoardApplication ret = makeApp(reviewerType, numSubmissions, phaseId, levelId, projectId, reviewerTypeId);
         ret.setHandle(handle);
         ret.setPrimary(primary);
         ret.setUserId(userId);
@@ -148,11 +152,12 @@ public class ReviewProjectDetail extends Base {
     }
 
     private ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int phaseId,
-                                           int levelId, long projectId) {
+                                           int levelId, long projectId, int reviewerTypeId) {
         //we'll always assume 1 submission gets through screening
         ReviewBoardApplication ret = new ReviewBoardApplication(phaseId, levelId, numSubmissions, 1);
         ret.setProjectId(projectId);
         ret.setReviewerType(reviewerType);
+        ret.setReviewerTypeId(reviewerTypeId);
         return ret;
     }
 
