@@ -56,7 +56,7 @@
 The online tournament rounds run in a Java applet. We have designed our utilities to utilize some of the features 
 of Sun's 1.2 version of the JDK. This means that in order to run the applet, you will need to install a web 
 browser plug-in that allows the browser to run 1.2 applications. For information on which browser and 
-operating systems are compatible with the plug-in, <A HREF="http://java.sun.com/products/plugin/download/all.html" CLASS="bodyText">click here</A>. 
+operating systems are compatible with the plug-in, <A HREF="http://java.sun.com/getjava/install.html" CLASS="bodyText">click here</A>. 
 Even if you already have a JRE 1.1.X plug-in installed, you will need to re-install a newer version of the plug-in.  
 The latest version of the plug-in can be downloaded from Sun's website 
 (<A HREF="http://java.sun.com/products/plugin/" CLASS="bodyText">http://java.sun.com/products/plugin/</A>). 
