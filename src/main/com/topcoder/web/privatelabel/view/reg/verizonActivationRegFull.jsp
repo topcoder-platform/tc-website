@@ -54,7 +54,7 @@
                 <tr valign="top">
                     <td width="427" class="bodyCopy">
 
-                        <h2 class="pgTitle">Activation Successful</h2>
+                        <h2 class="pgTitle">Activated</h2>
                             Thank you for providing your information in order to be notified of future
                             Verizon coding events. Unfortunately, registration for the Verizon Coding
                             Challenge has exceeded the 500-person limit and you are unable to participate.<br/><br/>

@@ -173,7 +173,7 @@ function openWin(url, name, w, h) {
                     Email Address
                 </td>
                 <td align="left">
-                    <tc-webtag:textInput name="<%=Constants.EMAIL%>"  size="15" maxlength="50"/>
+                    <tc-webtag:textInput name="<%=Constants.EMAIL%>"  size="15" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>"/>
                 </td>
             </tr>
 
@@ -187,7 +187,7 @@ function openWin(url, name, w, h) {
                     Confirm Email Address
                 </td>
                 <td align="left">
-                    <tc-webtag:textInput name="<%=Constants.EMAIL_CONFIRM%>"  size="15" maxlength="50"/>
+                    <tc-webtag:textInput name="<%=Constants.EMAIL_CONFIRM%>"  size="15" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>"/>
                 </td>
             </tr>
 
