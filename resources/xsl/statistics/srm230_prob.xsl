@@ -149,7 +149,8 @@ Used as: Division Two - Level One: <blockquote><table cellspacing="2">
 The most popular solution computed each sum separately using a for loop.  Since the only possible
 denominators are 1, 2, and 4, the final calculation can be done pretty easily.  An alternate
 solution uses the fact that<pre>
-    1<sup>2</sup>+...+n<sup>2</sup> = n(n+1)(2n+1)/6</pre>
+   1<sup>3</sup> + ... + n<sup>3</sup> = n<sup>2</sup>(1 + n)<sup>2</sup>/4
+</pre>
 Using this formula, we find that the final result is always n<sup>2</sup>/4.  This shows that in
 actuality, the final denominator can only be 1 or 4.  A solution written in Java follows:<pre>
   int[] getDifferences(int n) { 
@@ -319,7 +320,8 @@ follows:
   int ret = 0, curr = 0;
   for (int end = 0; end &lt; str.length(); end++) {
      curr = (curr * 10) + str.charAt(end)-'0';
-     if (curr &lt; prev || curr &gt; 1000000) continue;
+     if (curr &lt; prev) continue;
+     if (curr &gt; 1000000) break;
      ret += rec(str.substring(end+1),curr);
   } 
   return ret;
