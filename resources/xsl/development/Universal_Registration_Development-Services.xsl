@@ -354,7 +354,7 @@
                                                     <p>
                                                         <strong> Registration </strong>
                                                         <br/>
-                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Universal%20Registration%20Services%20Development">here</a> to get selected as a development and to obtain the information necessary to submit a solution.
+                                                        Closed
                                                     </p>
                                                 </td>
                                             </tr>
