@@ -63,6 +63,21 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
                  
+<!-- CIO article -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="http://www.cio.com/archive/101503/tl_winner.html" target="_blank"><img src="/i/pressroom/ciocom_logo_1201.gif" alt="cio" width="135" height="60" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://www.cio.com/archive/101503/tl_winner.html" target="_blank">Winner's Circle for Sale</A></strong></font><br />
+                        "TopCoder, seeking to profit from its contestants' prowess, has created a new division called TopCoder Software that aims to hire out teams of programmers on an outsourced or consulting basis to large corporations." <span class="prHead">[October 15]</span></p>
+                        
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <!-- Talbots-->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
