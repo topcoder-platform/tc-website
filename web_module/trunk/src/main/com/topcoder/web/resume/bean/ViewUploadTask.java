@@ -34,13 +34,13 @@ public class ViewUploadTask extends ResumeTask{
         BasicAuthentication auth = new BasicAuthentication(
                 new SessionPersistor(request.getSession()), request, response);
         if (navigation==null) navigation = new Navigation();
-        if (!navigation.getLoggedIn() && auth.getUser().isAnonymous()) {
+        if (!navigation.getLoggedIn() && auth.getActiveUser().isAnonymous()) {
             log.debug("User not logged in, can't download a file.");
             throw new Exception("User not logged in, can't download a file.");
         } else {
             if (navigation.getLoggedIn())
                 userId = navigation.getUserId();
-            else userId = (int)auth.getUser().getId();
+            else userId = (int)auth.getActiveUser().getId();
         }
         if (getRequestParameter(request, "compid")!=null) {
             companyId = Long.parseLong(getRequestParameter(request, "compid"));
