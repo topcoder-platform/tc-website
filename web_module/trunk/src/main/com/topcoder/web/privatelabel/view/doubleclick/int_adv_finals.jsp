@@ -34,8 +34,8 @@
                            <td class="sidebarTitle" width="25%">Score</td>
                         </tr>
 
-<tr><td class="sidebarText">Champion</td><td class="sidebarText">handle</td><td class="sidebarText">score</td></tr>
-<tr><td class="sidebarText">2nd</td><td class="sidebarText">handle</td><td class="sidebarText">score</td></tr>
+<tr><td class="sidebarText">Champion</td><td class="sidebarText">eliotdclk</td><td class="sidebarText">541.70</td></tr>
+<tr><td class="sidebarText">2nd</td><td class="sidebarText">toder</td><td class="sidebarText">518.48</td></tr>
 
 
                      </table>

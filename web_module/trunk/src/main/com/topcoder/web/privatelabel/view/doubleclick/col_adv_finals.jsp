@@ -34,8 +34,8 @@
                            <td class="sidebarTitle" width="25%">Score</td>
                         </tr>
 
-<tr><td class="sidebarText">Champion</td><td class="sidebarText">handle</td><td class="sidebarText">score</td></tr>
-<tr><td class="sidebarText">2nd</td><td class="sidebarText">handle</td><td class="sidebarText">score</td></tr>
+<tr><td class="sidebarText">Champion</td><td class="sidebarText">LLCoolJay</td><td class="sidebarText">626.92</td></tr>
+<tr><td class="sidebarText">2nd</td><td class="sidebarText">cbnyc</td><td class="sidebarText">498.08</td></tr>
 
 
                      </table>
