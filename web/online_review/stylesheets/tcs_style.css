@@ -279,7 +279,11 @@ A.bigRed:active
 	margin: 0px;
 	border: 0px;
 }
-
+.bodySubtitle
+{
+	font-size: 14px;
+	font-weight: bold;
+}
 .bodyTextSm
 {
 	font-size: 11px;
