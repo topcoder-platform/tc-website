@@ -100,6 +100,20 @@
                     <td class="projectHeaders" align="left">Payment</td>
                 </tr>
             </table>
+<% if (projectDetail.getIntItem(0, "root_category_id") == 5801778 || projectDetail.getIntItem(0, "root_category_id") == 5801779) {%>
+                        <p>
+                        TopCoder will compensate members with first and second place submissions that have scored at least
+                        70. The initial payment will be distributed in two installments.
+                        First Milestone: When the winning solution is submitted and review board suggestions are integrated.
+                        Second Milestone: Is marked by the completion of the development project*.</p>
+
+                        <p class="noSpListTitle"><strong>Winning Developer</strong></p>
+                        <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
+                            <tr>
+                                <td class="bodyText" nowrap="nowrap">Total Payment -</td><td class="bodyText" align="right">$<rsc:item set="<%=projectDetail%>" name="total_payment" format="0.00"/></td>
+                            </tr>
+                        </table>
+<% } else { %>
                         <p>
                         TopCoder will compensate members with first and second place submissions that have scored at least
                         70. First place compensation will consist of both initial payments and royalties on
@@ -121,6 +135,7 @@
                                 <td class="bodyText" nowrap="nowrap">Total Payment -</td><td class="bodyText" align="right">$<rsc:item set="<%=projectDetail%>" name="total_payment" format="0.00"/></td>
                             </tr>
                         </table>
+<% } %>
 
                         <p><strong>Second Place Developer</strong><br />
                            Total Payment - <rsc:item set="<%=projectDetail%>" name="second_place_payment" format="0.00"/><br/>

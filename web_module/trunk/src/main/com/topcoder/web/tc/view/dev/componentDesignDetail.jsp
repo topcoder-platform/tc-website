@@ -100,6 +100,27 @@
                     <td class="projectHeaders" align="left">Payment</td>
                 </tr>
             </table>
+<% if (projectDetail.getIntItem(0, "root_category_id") == 5801778 || projectDetail.getIntItem(0, "root_category_id") == 5801779) {%>
+                        <p>
+                        TopCoder will compensate members with first and second place submissions that have scored at least
+                        70. The initial payment will be distributed in two installments.
+                        First Milestone: When the winning solution is submitted and review board suggestions are integrated.
+                        Second Milestone: Is marked by the completion of the development project*.</p>
+
+                        <p class="noSpListTitle"><strong>Winning Designer</strong></p>
+
+                        <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
+                            <tr>
+                                <td class="bodyText" nowrap="nowrap">Total Payment -</td><td class="bodyText" align="right">$<rsc:item set="<%=projectDetail%>" name="total_payment" format="0.00"/></td>
+                            </tr>
+                            <tr>
+                                <td class="bodyText" nowrap="nowrap">First Deliverable -</td><td class="bodyText" align="right">$<rsc:item set="<%=projectDetail%>" name="first_payment" format="0.00"/></td>
+                            </tr>
+                            <tr>
+                                <td class="bodyText" nowrap="nowrap">Project Completion - </td><td class="bodyText" align="right">$<rsc:item set="<%=projectDetail%>" name="second_payment" format="0.00"/></td>
+                            </tr>
+                        </table>
+<% } else { %>
                         <p>
                         TopCoder will compensate members with first and second place submissions that have scored at least
                         70. First place compensation will consist of both initial payments and royalties on
@@ -107,7 +128,11 @@
                         First Milestone: When the winning solution is submitted and review board suggestions are integrated.
                         Second Milestone: Is marked by the completion of the development project*.</p>
 
-                        <p>Members will also collect royalties on the revenue generated from the sale of the component. The total royalty per component will be equal to 10%* of the component's revenue, with 25%* of the royalty being paid to the designer, 25% to the developer(s), 25% to the Architecture Board member(s) and 25% to the Development Board member(s).  Royalties may be diluted if additional work is done to the component, as the total work effort for the component will increase.</p>
+                        <p>Members will also collect royalties on the revenue generated from the sale of the component.
+                        The total royalty per component will be equal to 10%* of the component's revenue, with 25%* of
+                        the royalty being paid to the designer, 25% to the developer(s), 25% to the Architecture Board
+                        member(s) and 25% to the Development Board member(s).  Royalties may be diluted if additional work
+                        is done to the component, as the total work effort for the component will increase.</p>
 
                         <p class="noSpListTitle"><strong>Winning Designer</strong></p>
 
@@ -128,6 +153,8 @@
                                 <td class="bodyText" nowrap="nowrap">Project Completion - </td><td class="bodyText" align="right">$<rsc:item set="<%=projectDetail%>" name="second_payment" format="0.00"/></td>
                             </tr>
                         </table>
+<% } %>
+
 
                         <p><strong>Second Place Designer</strong><br />
                            Total Payment - $<rsc:item set="<%=projectDetail%>" name="second_place_payment" format="0.00"/><br/>
