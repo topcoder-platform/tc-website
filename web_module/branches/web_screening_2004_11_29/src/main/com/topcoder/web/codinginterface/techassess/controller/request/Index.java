@@ -1,13 +1,15 @@
 package com.topcoder.web.codinginterface.techassess.controller.request;
 
 import com.topcoder.web.codinginterface.techassess.Constants;
+import com.topcoder.web.codinginterface.techassess.model.ProblemSetInfo;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 import com.topcoder.shared.netCommon.screening.request.ScreeningGetProblemSetsRequest;
 import com.topcoder.shared.netCommon.screening.response.ScreeningGetProblemSetsResponse;
+import com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemSet;
 import com.topcoder.shared.util.logging.Logger;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * User: dok
@@ -35,10 +37,16 @@ public class Index extends Base {
 
             ScreeningGetProblemSetsResponse response = (ScreeningGetProblemSetsResponse)receive(5000);
 
-            List sets = Arrays.asList(response.getProblemSets());
-            log.debug("there are " + sets.size() + " problem sets");
 
-            setDefault(Constants.PROBLEM_SETS, sets);
+            ScreeningProblemSet[] serverSets = response.getProblemSets();
+            ArrayList a = new ArrayList(serverSets.length);
+            for (int i=0; i<serverSets.length; i++) {
+                a.add(new ProblemSetInfo(serverSets[i].getProblemSetDesc(), serverSets[i].getProblemSetName(),
+                        new Date(666), serverSets[i].getStatus(), serverSets[i].getProblemLabels()));
+            }
+            //log.debug("there are " + serverSets.length + " problem sets");
+
+            setDefault(Constants.PROBLEM_SETS, a);
             setLanguages(getLanguages(response.getAllowedLanguages()));
 
             closeProcessingPage(buildProcessorRequestString(Constants.RP_INDEX_RESPONSE,
