@@ -183,7 +183,7 @@
                                         Requirement Specification</A> for this component project</strong>
                             </p>
 
-                        <xsl:if test="/TC/DEVELOPMENT/tco='t'">
+                        <xsl:if test="not(/TC/DEVELOPMENT/tco='t')">
 
                            <p><strong><A>
                                     <xsl:attribute name="href">
