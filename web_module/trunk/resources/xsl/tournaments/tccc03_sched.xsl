@@ -114,20 +114,20 @@
                     
                     <tr valign="middle">
                       <td align="right" class="tourney_subnav">Advancing</td>
-                      <td align="center" class="statText">&#160;</td>
-                      <td align="center" class="statText">&#160;</td>
-                      <td align="center" class="statText">&#160;</td>
-                      <td align="center" class="statText">&#160;</td>
-                      <td align="center" class="statText">&#160;</td>
+                        <td align="center" class="statText"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4462&amp;rc=N">view</a></td>
+                        <td align="center" class="statText"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4462&amp;rc=STH">view</a></td>
+                        <td align="center" class="statText"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4464&amp;rc=W">view</a></td>
+                        <td align="center" class="statText"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4464&amp;rc=MW">view</a></td>
+                        <td align="center" class="statText"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4466&amp;rc=INT">view</a></td>
                     </tr>
                     
                     <tr>
                       <td align="right" class="statText">Room Winners<br/>Wildcards</td>
-                      <td align="center" class="statText"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4462&amp;rc=N">20</a><br/>80</td>
-                      <td align="center" class="statText"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4462&amp;rc=STH">20</a><br/>80</td>
-                      <td align="center" class="statText"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4464&amp;rc=W">20</a><br/>80</td>
-                      <td align="center" class="statText"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4464&amp;rc=MW">20</a><br/>80</td>
-                      <td align="center" class="statText"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4466&amp;rc=INT">20</a><br/>80</td>
+                      <td align="center" class="statText">20<br/>80</td>
+                      <td align="center" class="statText">20<br/>80</td>
+                      <td align="center" class="statText">20<br/>80</td>
+                      <td align="center" class="statText">20<br/>80</td>
+                      <td align="center" class="statText">20<br/>80</td>
                     </tr>
                     
                     <!-- <TR>
@@ -191,7 +191,7 @@
                     </tr>
                     
                     <tr valign="middle">
-                      <td align="right" class="tourney_subnav"><strong>Total Competitors</strong></td>
+                      <td align="right" class="tourney_subnav"><a class="statText" href="/index/?t=tournaments&amp;c=tccc03_competitors&amp;rds=4472"><strong>Total Competitors</strong></a></td>
                       <td align="center" class="tourney_subnav"><a href="/index?t=tournaments&amp;c=tccc03_regions_ne100" class="statTextBig"></a>Northeast</td>
                       <td align="center" class="tourney_subnav"><a href="/index?t=tournaments&amp;c=tccc03_regions_se100" class="statTextBig"></a>Southeast</td>
                       <td align="center" class="tourney_subnav"><a href="/index?t=tournaments&amp;c=tccc03_regions_w100" class="statTextBig"></a>West</td>
@@ -210,11 +210,11 @@
                     
                     <tr valign="middle">
                       <td align="right" class="tourney_subnav">Advancing<br/>(All advancers win $50 each)</td>
-                      <td align="center" class="statText">&#160;</td>
-                      <td align="center" class="statText">&#160;</td>
-                      <td align="center" class="statText">&#160;</td>
-                      <td align="center" class="statText">&#160;</td>
-                      <td align="center" class="statText">&#160;</td>
+                      <td align="center" class="statText"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4472&amp;rc=N">view</a></td>
+                      <td align="center" class="statText"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4472&amp;rc=STH">view</a></td>
+                      <td align="center" class="statText"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4472&amp;rc=W">view</a></td>
+                      <td align="center" class="statText"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4472&amp;rc=MW">view</a></td>
+                      <td align="center" class="statText"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4472&amp;rc=INT">view</a></td>
                     </tr>
                     
                     <tr valign="middle">
