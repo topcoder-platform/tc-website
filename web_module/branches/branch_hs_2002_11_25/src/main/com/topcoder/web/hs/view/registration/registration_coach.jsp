@@ -169,7 +169,7 @@
   <TR>
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">&nbsp;</TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="top">An email will be sent to authorize your account activation.</TD>
+   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="top"><!--An email will be sent to authorize your account activation.--></TD>
   </TR>
   <TR VALIGN="middle">
    <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle">&nbsp;</TD>
