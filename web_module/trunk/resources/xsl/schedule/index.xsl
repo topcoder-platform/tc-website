@@ -146,7 +146,7 @@
                                     <strong>Match 180</strong><br />
                                     Register: 5:00&#160;PM<br />
                                     Compete: 8:00&#160;PM<br />
-                                    Sponsor: <A href="/?t=sponsor&amp;c=intel_ids">Intel</A><br />
+                                    Sponsor: <A href="/?t=tces&amp;c=index">Google</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4720&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">23</td>
@@ -162,7 +162,6 @@
                                     <strong>Match 181</strong><br />
                                     Register: 6:00&#160;PM<br />
                                     Compete: 9:00&#160;PM<br />
-                                    Sponsor: <A href="/?t=tces&amp;c=index">Google</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4725&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">29</td>
