@@ -124,8 +124,8 @@ public class PDFGenerator extends BaseProcessor {
             config.setChallengeSuccessRatio(formater.format(rsc.getDoubleItem(0, "challenge_attempts_made")/rsc.getDoubleItem(0, "challenges_made_successful")) + "%" );
         }
         
-        config.setSubmissionRatio(rsc.getStringItem(0, "problems_submitted") + " out of " + rsc.getStringItem(0, "problems_presented") + " (" + formater.format(rsc.getDoubleItem(0, "problems_submitted")/rsc.getDoubleItem(0, "problems_presented")) + "%)" );
-        config.setSubmissionSuccessRatio(rsc.getStringItem(0, "problems_correct") + " out of " + rsc.getStringItem(0, "problems_submitted") + " (" + formater.format(rsc.getDoubleItem(0, "problems_correct")/rsc.getDoubleItem(0, "problems_submitted")) + "%)" );
+        config.setSubmissionRatio(rsc.getStringItem(0, "problems_submitted") + " out of " + rsc.getStringItem(0, "problems_presented") + " (" + formater.format(rsc.getDoubleItem(0, "problems_submitted")/rsc.getDoubleItem(0, "problems_presented")*100.0) + "%)" );
+        config.setSubmissionSuccessRatio(rsc.getStringItem(0, "problems_correct") + " out of " + rsc.getStringItem(0, "problems_submitted") + " (" + formater.format(rsc.getDoubleItem(0, "problems_correct")/rsc.getDoubleItem(0, "problems_submitted")*100.0) + "%)" );
         
         //load problem stats        
         int cid = Integer.parseInt(StringUtils.checkNull(getRequest().getParameter("component")));
@@ -139,8 +139,8 @@ public class PDFGenerator extends BaseProcessor {
         rsc = (ResultSetContainer)getDWDataAccess().getData(r).get("placement_problem_details");
         config.setProblemName(rsc.getStringItem(0, "desc"));
         config.setAvgTimeToSubmit(formatTime(rsc.getIntItem(0, "avg_time")));
-        config.setSubmissionPercent(formater.format(rsc.getDoubleItem(0, "problems_submitted")/rsc.getDoubleItem(0, "coder_count")) + "%");
-        config.setSuccessfulSubmissionPercent(formater.format(rsc.getDoubleItem(0, "problems_correct")) + "%");
+        config.setSubmissionPercent(formater.format(rsc.getDoubleItem(0, "problems_submitted")/rsc.getDoubleItem(0, "coder_count")*100.0) + "%");
+        config.setSuccessfulSubmissionPercent(formater.format(rsc.getDoubleItem(0, "problems_correct")*100.0) + "%");
         config.setSubmissionTime(formatTime(rsc.getIntItem(0, "time_elapsed")));
         config.setSubmissionText(rsc.getStringItem(0, "submission_text"));
         
@@ -248,6 +248,8 @@ public class PDFGenerator extends BaseProcessor {
             getResponse().getOutputStream().close();
 
             getResponse().flushBuffer();
+            
+            log.debug("DONE PDFING");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -746,6 +748,8 @@ public class PDFGenerator extends BaseProcessor {
         cell.setBackgroundColor(new Color(0xCC,0xCC,0xCC));
         submission.addCell(cell);
 
+        System.out.println("TEXT:" + info.getSubmissionText());
+        
         submission.addCell(new Phrase(info.getSubmissionText(), FontFactory.getFont(FontFactory.COURIER, 12, Font.NORMAL, Color.black)));
 
         doc.add(submission);
