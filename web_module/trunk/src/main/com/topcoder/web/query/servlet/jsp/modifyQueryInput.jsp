@@ -63,7 +63,7 @@
                         <input type="text" name="<%=Constants.SORT_ORDER_PARAM%>" value ="<jsp:getProperty name="queryInput" property="SortOrder"/>" size="3" maxlength="3"/>
                       </TD>
                       <TD CLASS="statTextBig">
-                        <input type="checkbox" name="<%=Constants.OPTIONAL_PARAM%>" class="bodyText" <%=input.isOptional()?"checked":""%>/>
+                        <input type="checkbox" name="<%=Constants.OPTIONAL_PARAM%>" class="bodyText" <%=queryInput.isOptional()?"checked":""%>/>
                       <TD CLASS="statTextBig">
                         <input type="text" name="<%=Constants.DEFAULT_VALUE_PARAM%>" value ="<jsp:getProperty name="queryInput" property="DefaultValue"/>" size="30" maxlength="100"/>
                       </TD>
