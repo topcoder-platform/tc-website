@@ -62,6 +62,8 @@
 <!-- 2003 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2003</font></td></tr>
 
+                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_08_19_03">TopCoder Hosts Software Component Design and Development Contest</A> [August 19]</td></tr>  
+
                             <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_08_13_03">TopCoder Hosts Charity Tournament</A> [August 13]</td></tr>  
 
                             <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_08_11_03">TopCoder Launches Application Development Services</A> [August 11]</td></tr>  
