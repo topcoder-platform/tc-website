@@ -198,7 +198,8 @@
                                     <td><img src="/i/clear.gif" alt="" height="1" width="1" border="0" /></td>
                                     <td class="statText" valign="top">
                                     <br />
-                                    03.03.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/Application_Design_Deliverables.pdf" class="statText">Application Design Deliverables.pdf</a><br />
+                                        03.03.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/Application_Design_Deliverables.pdf" class="statText">Application Design Deliverables.pdf</a><br />
+                                        07.15.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/Application_Design_Specification.pdf" class="statText">Application Design Specification.pdf</a><br />
                                     </td>
                                     
                                 </tr>
