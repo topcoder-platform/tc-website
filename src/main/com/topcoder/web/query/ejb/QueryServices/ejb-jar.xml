@@ -10,9 +10,9 @@
          <session-type>Stateless</session-type>
          <transaction-type>Container</transaction-type>
          <env-entry>
-            <env-entry-name>MaxCacheSize</env-entry-name>
-            <env-entry-type>java.lang.Integer</env-entry-type>
-            <env-entry-value>25</env-entry-value>
+            <env-entry-name>datasource_name</env-entry-name>
+            <env-entry-type>java.lang.String</env-entry-type>
+            <env-entry-value>SCREENING_OLTP</env-entry-value>
          </env-entry>
       </session>
       <session id="Session_2">
@@ -22,11 +22,6 @@
          <ejb-class>com.topcoder.web.query.ejb.QueryServices.QueryBean</ejb-class>
          <session-type>Stateless</session-type>
          <transaction-type>Container</transaction-type>
-         <env-entry>
-            <env-entry-name>MaxCacheSize</env-entry-name>
-            <env-entry-type>java.lang.Integer</env-entry-type>
-            <env-entry-value>25</env-entry-value>
-         </env-entry>
       </session>
       <session id="Session_3">
          <ejb-name>QueryInput</ejb-name>
@@ -35,11 +30,6 @@
          <ejb-class>com.topcoder.web.query.ejb.QueryServices.QueryInputBean</ejb-class>
          <session-type>Stateless</session-type>
          <transaction-type>Container</transaction-type>
-         <env-entry>
-            <env-entry-name>MaxCacheSize</env-entry-name>
-            <env-entry-type>java.lang.Integer</env-entry-type>
-            <env-entry-value>25</env-entry-value>
-         </env-entry>
       </session>
       <session id="Session_4">
          <ejb-name>Command</ejb-name>
@@ -48,11 +38,6 @@
          <ejb-class>com.topcoder.web.query.ejb.QueryServices.CommandBean</ejb-class>
          <session-type>Stateless</session-type>
          <transaction-type>Container</transaction-type>
-         <env-entry>
-            <env-entry-name>MaxCacheSize</env-entry-name>
-            <env-entry-type>java.lang.Integer</env-entry-type>
-            <env-entry-value>25</env-entry-value>
-         </env-entry>
       </session>
       <session id="Session_5">
          <ejb-name>CommandGroup</ejb-name>
@@ -61,11 +46,6 @@
          <ejb-class>com.topcoder.web.query.ejb.QueryServices.CommandGroupBean</ejb-class>
          <session-type>Stateless</session-type>
          <transaction-type>Container</transaction-type>
-         <env-entry>
-            <env-entry-name>MaxCacheSize</env-entry-name>
-            <env-entry-type>java.lang.Integer</env-entry-type>
-            <env-entry-value>25</env-entry-value>
-         </env-entry>
       </session>
       <session id="Session_6">
          <ejb-name>Input</ejb-name>
@@ -74,11 +54,6 @@
          <ejb-class>com.topcoder.web.query.ejb.QueryServices.InputBean</ejb-class>
          <session-type>Stateless</session-type>
          <transaction-type>Container</transaction-type>
-         <env-entry>
-            <env-entry-name>MaxCacheSize</env-entry-name>
-            <env-entry-type>java.lang.Integer</env-entry-type>
-            <env-entry-value>25</env-entry-value>
-         </env-entry>
       </session>
       <session id="Session_7">
          <ejb-name>CommandQuery</ejb-name>
@@ -87,11 +62,6 @@
          <ejb-class>com.topcoder.web.query.ejb.QueryServices.CommandQueryBean</ejb-class>
          <session-type>Stateless</session-type>
          <transaction-type>Container</transaction-type>
-         <env-entry>
-            <env-entry-name>MaxCacheSize</env-entry-name>
-            <env-entry-type>java.lang.Integer</env-entry-type>
-            <env-entry-value>25</env-entry-value>
-         </env-entry>
       </session>
    </enterprise-beans>
    <assembly-descriptor>
