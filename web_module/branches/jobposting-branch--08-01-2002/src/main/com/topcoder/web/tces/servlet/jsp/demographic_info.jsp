@@ -168,7 +168,12 @@
                    
                 </TD>
                     
-                <TD WIDTH="10%" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18"><BR></TD>
+                <TD WIDTH="10%">
+                    <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935">
+                        <TR HEIGHT="18"><TD BACKGROUND="/i/steel_bluebv_bg.gif"><BR></TD></TR>
+                        <TR><TD><BR></TD></TR>
+                    </TABLE>
+                </TD>
                 
                     
                 <TD width="40%">
