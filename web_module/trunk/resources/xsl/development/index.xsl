@@ -55,6 +55,10 @@
 </P>
 
 <P>
+<b>TopCoder is now offering development projects for commercial components.  Members can now receive, in addition to the advance compensation, royalties on all sales of these components through TopCoder.  Check out the projects below and watch for more information on TopCoder Software.</b>
+</P>
+
+<P>
 We will choose the project participants based upon TopCoder rating, historical TopCoder participation, and relevant experience in the technologies that are to be utilized. Ultimately, the final decision regarding the project team will be TopCoder's.
 </P>
 
