@@ -72,18 +72,6 @@
 
                         <table border="0" cellspacing="5" cellpadding="0" width="100%">
 
-<!-- DiversifiedData begins -->
-                            <tr valign="top">
-                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=diversifieddata" target="_top"><img src="/i/es/diversifieddata/diversifieddata_logo.gif" width="150" height="38" alt="AlphaSimplex" border="0" /></a></td>
-                                <td width="99%" class="bodyText"><strong>Diversified Data, </strong>  the leader in Content Addressed Storage (CAS) consulting and the design and integration of 
-                                complex content and knowledge management environments, is looking to hire developers on a contract-to-hire basis.  Join teams comprised of their leading solutions 
-                                architects, accomplished engineers, project managers, and senior developers as they collaborate to craft end-to-end solutions that can be deployed and sustained locally or globally.  
-                                <A href="/?&amp;t=tces&amp;c=diversifieddata" class="bodyText" target="_top"> Learn more</A> about what Diversified Data has to offer. <br/><br/></td>
-                            </tr>
-                            
-                            <tr><td colspan="2" bgcolor="#43515E" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
-
-<!-- DiversifiedData ends -->
 
 <!-- AlphaSimplex begins -->
                             <tr valign="top">
@@ -99,6 +87,18 @@
                             <tr><td colspan="2" bgcolor="#43515E" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
 <!-- AlphaSimplex ends -->
 
+<!--Amazon.com begins-->
+                            <tr valign="top">
+                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=amazon" target="_top"><img src="/i/es/amazon/amazon_logo.gif" width="139" height="34" alt="AlphaSimplex" border="0" /></a></td>
+                                <td width="99%" class="bodyText">We hire people from vastly diverse backgrounds, and roles at the company vary greatly.  Yet 
+                                ask any Amazonian what he or she loves about working here, and you'll get surprisingly similar answers.  
+                                <A href="/?&amp;t=tces&amp;c=amazon" class="bodyText" target="_top"> Why do we like it here so much?</A><br/><br/></td>
+                            </tr>
+                            
+                            <tr><td colspan="2" bgcolor="#43515E" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
+
+<!--Amazon.com ends-->
+
 <!-- Appian begins -->
                             <tr valign="top">
                                 <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=appian" target="_top"><img src="/i/es/appian/appian_logo.gif" width="121" height="38" alt="Appian Corp" border="0" /></a></td>
@@ -111,54 +111,6 @@
                             
                             <tr><td colspan="2" bgcolor="#43515E" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
 <!-- Appian ends -->
-
-<!-- Vertex begins 
-                            <tr valign="top">
-                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=vertex" target="_top"><img src="/i/es/vertex/vertex_logo.gif" width="76" height="52" alt="" border="0" /></a></td>
-                                <td width="99%" class="bodyText"><strong>Vertex Pharmaceuticals Incorporated (NASDAQ: VRTX)</strong> is a global biotechnology 
-                                company. Vertex seeks to discover, develop, and commercialize major pharmaceutical products independently and with 
-                                partners. Vertex has more than 12 drug candidates in clinical and preclinical development to treat viral diseases, 
-                                inflammation, cancer, autoimmune diseases, neurological disorders and genetic disorders. They have an 
-                                <A href="/?&amp;t=tces&amp;c=vertex" class="bodyText" target="_top">open contract position.</A><br/><br/></td>
-                            </tr>
-                            
-                            <tr><td colspan="2" bgcolor="#43515E" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
- Vertex ends -->
-
-<!-- Microsoft begins
-                            <tr valign="top">
-                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=ms"><img src="/i/es/ms/ms_logo.gif" width="160" height="40" alt="" border="0" /></a></td>
-                                <td width="99%" class="bodyText">At Microsoft, we see no limits to the potential we all might reach because we see no limits to human imagination.  That is what inspires us.  And that is why we create software that helps people and businesses reach their potential.  It's not just our purpose. It's our passion. <a href="/?&amp;t=tces&amp;c=ms" class="bodyText">How far will you GO?</a><br /><br /></td>
-                            </tr>
-                        
-                            <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
-Microsoft ends -->
-
-<!-- Solipsys begins  ### Solipsys' contract has expired 6/13/03 ###
-                            <tr valign="top">
-                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=solipsys"><img src="/i/es/solipsys/solipsys_logo.gif" width="135" height="60" border="0"/></a></td>
-                                <td width="99%" class="bodyText"><strong>Solipsys Corporation</strong> is a small, high technology business specializing in products 
-                                    for defense application.  Our primary corporate focus is the development of products designed to address the 
-                                    multi-faceted problem of Joint and Coalition Forces information networking.  We are constantly scanning the horizon 
-                                    for motivated, team-oriented management, technology, and engineering professionals to lead our company into the 
-                                    21st century.  <a href="/?&amp;t=tces&amp;c=solipsys" class="bodyText">Check out</a> our open Software 
-                                    Developer and Systems Engineer positions.<br /><br /></td>
-                            </tr>
-                        
-                            <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
- Solipsys ends -->
-
-<!-- Nvidia begins-->
-                            <tr valign="top">
-                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=nvidia"><img src="/i/es/nvidia/nvidia_logo.gif" width="120" height="83" border="0"/></a></td>
-                                <td width="99%" class="bodyText"><strong>NVIDIA&#174; Corporation (Nasdaq: NVDA)</strong> is the worldwide leader in 
-                                    graphics processors and media and communications devices.  At NVIDIA we work hard. We thrive on innovation. We 
-                                    define the cutting-edge. We deliver to the nth degree. <a href="/?&amp;t=tces&amp;c=nvidia" class="bodyText">Click here</a> 
-                                    to check out our open Software Engineering positions.<br /><br /></td>
-                            </tr>
-                        
-                            <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
-<!-- Nvidia ends -->
 
 <!-- Cryptic begins ### Cryptic's contract has expired 2/4/03 ###
   <tr>
@@ -173,6 +125,19 @@ Microsoft ends -->
         <td colspan="3" bgcolor="#43515E" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>
     </tr>       
  Cryptic ends -->
+
+<!-- DiversifiedData begins -->
+                            <tr valign="top">
+                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=diversifieddata" target="_top"><img src="/i/es/diversifieddata/diversifieddata_logo.gif" width="150" height="38" alt="AlphaSimplex" border="0" /></a></td>
+                                <td width="99%" class="bodyText"><strong>Diversified Data, </strong>  the leader in Content Addressed Storage (CAS) consulting and the design and integration of 
+                                complex content and knowledge management environments, is looking to hire developers on a contract-to-hire basis.  Join teams comprised of their leading solutions 
+                                architects, accomplished engineers, project managers, and senior developers as they collaborate to craft end-to-end solutions that can be deployed and sustained locally or globally.  
+                                <A href="/?&amp;t=tces&amp;c=diversifieddata" class="bodyText" target="_top"> Learn more</A> about what Diversified Data has to offer. <br/><br/></td>
+                            </tr>
+                            
+                            <tr><td colspan="2" bgcolor="#43515E" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
+
+<!-- DiversifiedData ends -->
 
 <!-- FBI begins -->
                             <tr valign="top">
@@ -197,6 +162,56 @@ Microsoft ends -->
                         
                             <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
  Google ends -->
+
+<!-- Microsoft begins
+                            <tr valign="top">
+                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=ms"><img src="/i/es/ms/ms_logo.gif" width="160" height="40" alt="" border="0" /></a></td>
+                                <td width="99%" class="bodyText">At Microsoft, we see no limits to the potential we all might reach because we see no limits to human imagination.  That is what inspires us.  And that is why we create software that helps people and businesses reach their potential.  It's not just our purpose. It's our passion. <a href="/?&amp;t=tces&amp;c=ms" class="bodyText">How far will you GO?</a><br /><br /></td>
+                            </tr>
+                        
+                            <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
+Microsoft ends -->
+
+<!-- Nvidia begins-->
+                            <tr valign="top">
+                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=nvidia"><img src="/i/es/nvidia/nvidia_logo.gif" width="120" height="83" border="0"/></a></td>
+                                <td width="99%" class="bodyText"><strong>NVIDIA&#174; Corporation (Nasdaq: NVDA)</strong> is the worldwide leader in 
+                                    graphics processors and media and communications devices.  At NVIDIA we work hard. We thrive on innovation. We 
+                                    define the cutting-edge. We deliver to the nth degree. <a href="/?&amp;t=tces&amp;c=nvidia" class="bodyText">Click here</a> 
+                                    to check out our open Software Engineering positions.<br /><br /></td>
+                            </tr>
+                        
+                            <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
+<!-- Nvidia ends -->
+
+
+<!-- Solipsys begins  ### Solipsys' contract has expired 6/13/03 ###
+                            <tr valign="top">
+                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=solipsys"><img src="/i/es/solipsys/solipsys_logo.gif" width="135" height="60" border="0"/></a></td>
+                                <td width="99%" class="bodyText"><strong>Solipsys Corporation</strong> is a small, high technology business specializing in products 
+                                    for defense application.  Our primary corporate focus is the development of products designed to address the 
+                                    multi-faceted problem of Joint and Coalition Forces information networking.  We are constantly scanning the horizon 
+                                    for motivated, team-oriented management, technology, and engineering professionals to lead our company into the 
+                                    21st century.  <a href="/?&amp;t=tces&amp;c=solipsys" class="bodyText">Check out</a> our open Software 
+                                    Developer and Systems Engineer positions.<br /><br /></td>
+                            </tr>
+                        
+                            <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
+ Solipsys ends -->
+
+<!-- Vertex begins 
+                            <tr valign="top">
+                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=vertex" target="_top"><img src="/i/es/vertex/vertex_logo.gif" width="76" height="52" alt="" border="0" /></a></td>
+                                <td width="99%" class="bodyText"><strong>Vertex Pharmaceuticals Incorporated (NASDAQ: VRTX)</strong> is a global biotechnology 
+                                company. Vertex seeks to discover, develop, and commercialize major pharmaceutical products independently and with 
+                                partners. Vertex has more than 12 drug candidates in clinical and preclinical development to treat viral diseases, 
+                                inflammation, cancer, autoimmune diseases, neurological disorders and genetic disorders. They have an 
+                                <A href="/?&amp;t=tces&amp;c=vertex" class="bodyText" target="_top">open contract position.</A><br/><br/></td>
+                            </tr>
+                            
+                            <tr><td colspan="2" bgcolor="#43515E" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
+ Vertex ends -->
+
 
 <!-- GE begins
  <TR>
