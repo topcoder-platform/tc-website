@@ -9,6 +9,14 @@
 %>
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
 <TR>
+<TD WIDTH="170" HEIGHT="21" BACKGROUND="/i/top_bar_bg.gif" BGCOLOR="#CC0000"><A HREF="Javascript:arena()" onMouseOver="changeImages('image3', 'image3on')" onMouseOut="changeImages('image3', 'image3off')" TARGET="_parent"><IMG NAME="image3" SRC="/i/menu_applet2_off.gif" ALT="Competition Applet" WIDTH="170" HEIGHT="21" BORDER="0"></A></TD>
+<TD CLASS="registerNav" WIDTH="114" HEIGHT="21" BACKGROUND="/i/top_bar_bg.gif"><% if ( nav.getLoggedIn() ) { %><A HREF="<%="https://"+request.getServerName()+"/reg/index.jsp"%>" CLASS="registerNav" TARGET="_parent"><IMG SRC="/i/menu_profile_on.gif" ALT="Update Profile" WIDTH="114" HEIGHT="21" BORDER="0"/></A><% } else { %><A CLASS="registerNav" HREF="<%="https://"+request.getServerName()+"/reg/index.jsp"%>" TARGET="_parent"><IMG SRC="/i/menu_reg_off.gif" ALT="Register" WIDTH="114" HEIGHT="21" BORDER="0"/></A><%}%></TD>          
+<TD WIDTH="187" HEIGHT="21" BACKGROUND="/i/top_bar_bg.gif" BGCOLOR="#CC0000"><A HREF="/?&t=tces&c=index" onMouseOver="changeImages('image2', 'image2on')" onMouseOut="changeImages('image2', 'image2off')" TARGET="_blank"><IMG NAME="image2" SRC="/i/menu_tces_off.gif" ALT="TCES" WIDTH="187" HEIGHT="21" BORDER="0"></A></TD>
+<TD WIDTH="100%" HEIGHT="21" BACKGROUND="/i/top_bar_bg.gif" BGCOLOR="#CC0000"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+</TR>
+</TABLE>
+<!-- <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+<TR>
 <TD CLASS="registerNav" WIDTH="114" HEIGHT="21" BACKGROUND="/i/top_bar_bg.gif"><% if ( nav.getLoggedIn() ) { %><A HREF="<%="https://"+request.getServerName()+"/reg/index.jsp"%>" CLASS="registerNav" TARGET="_parent"><IMG SRC="/i/menu_profile_on.gif" ALT="Update Profile" WIDTH="114" HEIGHT="21" BORDER="0"/></A><% } else { %><A CLASS="registerNav" HREF="<%="https://"+request.getServerName()+"/reg/index.jsp"%>" TARGET="_parent"><IMG SRC="/i/menu_reg_off.gif" ALT="Register" WIDTH="114" HEIGHT="21" BORDER="0"/></A><%}%></TD>
 <TD WIDTH="127" HEIGHT="21" BACKGROUND="/i/top_bar_bg.gif" BGCOLOR="#CC0000"><A HREF="Javascript:arena()" onMouseOver="changeImages('image3', 'image3on')" onMouseOut="changeImages('image3', 'image3off')" TARGET="_parent"><IMG NAME="image3" SRC="/i/menu_applet_off.gif" ALT="Competition Applet" WIDTH="127" HEIGHT="21" BORDER="0"></A></TD>
 <TD WIDTH="100" HEIGHT="21" BACKGROUND="/i/top_bar_bg.gif" BGCOLOR="#CC0000"><A HREF="/?&t=practice&amp;c=index" onMouseOver="changeImages('image7', 'image7on')" onMouseOut="changeImages('image7', 'image7off')" TARGET="_parent"><IMG NAME="image7" SRC="/i/menu_practice_off.gif" ALT="Practice Room" WIDTH="100" HEIGHT="21" BORDER="0"></A></TD>
@@ -21,10 +29,10 @@
 <TD WIDTH="100%" HEIGHT="21" BACKGROUND="/i/top_bar_bg.gif" BGCOLOR="#CC0000"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
 </TR>
 </TABLE>
-<!-- <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
   <TR>
     <TD WIDTH="100%" BACKGROUND="/i/steel_gray_bg.gif" VALIGN="top" ALIGN="right"><IMG SRC="/i/clear.gif" WIDTH="510" HEIGHT="1" BORDER="0"/></TD>
     <TD WIDTH="8" BACKGROUND="/i/steel_gray_bg.gif" VALIGN="top" ALIGN="right"><IMG SRC="/i/top_gray_right.gif" WIDTH="8" HEIGHT="8" BORDER="0"/></TD>
     <TD WIDTH="210" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="210" HEIGHT="1" BORDER="0"/></TD>
-  </TR> -->
-</TABLE>
+  </TR>
+</TABLE> -->

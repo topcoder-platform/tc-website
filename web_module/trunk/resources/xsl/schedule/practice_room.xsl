@@ -5,7 +5,7 @@
   <xsl:import href="../includes/body_top.xsl"/>  
   <xsl:import href="../foot.xsl"/>
   <xsl:import href="../includes/modules/calendar.xsl"/>
-  <xsl:import href="../includes/schedule/public_schedule_left.xsl"/>     
+  <xsl:import href="../includes/global_left.xsl"/>     
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
     <HTML>
@@ -27,7 +27,7 @@
 		<TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
 <!-- Left Column Include Begins -->	
     <!-- Global Seconday Nav Begins -->	
-        <xsl:call-template name="public_schedule_left"/>
+        <xsl:call-template name="global_left"/>
 	<!-- Global Seconday Nav Ends -->			
 <!-- Left Column Include Ends -->					
 	  	</TD>

@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:template name="calendar">
-            <TABLE BGCOLOR="#333333" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="1">
+            <TABLE BGCOLOR="#000000" WIDTH="170" BORDER="0" CELLSPACING="0" CELLPADDING="0">
         <TR> 
-               <TD VALIGN="top">
+               <TD VALIGN="top" BGCOLOR="#333333">
                   <TABLE WIDTH="100%" BORDER="0" CELLSPACING="1" CELLPADDING="0">
-              <TR> 
-                      <TD BGCOLOR="#333333" BACKGROUND="" CLASS="moduleTitle" COLSPAN="7" HEIGHT="17" VALIGN="middle"><IMG SRC="/i/module_labels_dec_date.gif" ALT="December Dates" WIDTH="166" HEIGHT="17" BORDER="0"/></TD>
-                   </TR>
+                      <TR> 
+                        <TD BGCOLOR="#333333" COLSPAN="7" VALIGN="middle" HEIGHT="18" CLASS="statTextBig" NOWRAP="0">&#160;&#160;&#160;Match Dates: DECEMBER</TD>
+                      </TR>
                       <TR BGCOLOR="#CC6600"> 
                         <TD BACKGROUND="/i/orangebv_bg.gif" CLASS="moduleTitle" ALIGN="center" WIDTH="16"><FONT COLOR="#FFFFFF">S</FONT></TD>
                         <TD BACKGROUND="/i/orangebv_bg.gif" CLASS="moduleTitle" ALIGN="center" WIDTH="16"><FONT COLOR="#FFFFFF">M</FONT></TD>
@@ -75,11 +75,11 @@
             </TD>
         </TR>
         <TR> 
-                <TD BGCOLOR="#CCCCCC" BACKGROUND="" HEIGHT="15" ALIGN="right" CLASS="smallText">
-                  <SPAN CLASS="smallText">More 
-                    <A CLASS="smallText">
+                <TD BGCOLOR="#333333" BACKGROUND="" HEIGHT="15" ALIGN="right" CLASS="smallFoot">
+                  <SPAN CLASS="smallFoot">More 
+                    <A CLASS="smallFoot">
                       <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=index</xsl:attribute>
-                      2002 match dates
+                      2002 match dates&#160;&#160;
                     </A>
                   </SPAN>
                 </TD>

@@ -5,7 +5,7 @@
 	<xsl:import href="../includes/body_top.xsl"/>  
 	<xsl:import href="../foot.xsl"/>
 	<xsl:import href="../includes/modules/stats_intro.xsl"/>  
-	<xsl:import href="../includes/dev/public_dev_left.xsl"/> 
+	<xsl:import href="../includes/global_left.xsl"/>
 	<xsl:import href="../includes/dev/public_dev_right.xsl"/>     
 	<xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
 	<xsl:template match="/">
@@ -35,7 +35,7 @@
 	<tr>
 <!-- Left Column Begins -->
 		<td width="170" bgcolor="#CCCCCC" valign="top">
-			<xsl:call-template name="public_dev_left"/>
+			<xsl:call-template name="global_left"/>
 		</td>
 <!-- Left Column Ends -->
 
@@ -44,7 +44,7 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->  
-			<td class="bodyText" width="100%" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="240" height="1" vspace="5" alt="" border="0"/><br/>
+			<td class="bodyText" width="100%" bgcolor="#CCCCCC" valign="top">
 				<xsl:call-template name="BodyTop">
 					<xsl:with-param name="image1">steelblue</xsl:with-param>
 					<xsl:with-param name="image">development</xsl:with-param>
@@ -60,11 +60,11 @@
                                     
 							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Database Abstraction Component Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
-							<p><strong>Overview</strong><br />
+							<p><strong>Overview</strong><br/>
 							The Database Abstraction component is intended to provide a common set of Java classes that abstract the mapping of database data types to the corresponding java objects.  Mappings are provided for Oracle, Informix and MS SQLServer.</p>
 
-							<p><strong>Project Type</strong><br />
-							Component Design Project: Provide a complete design for the Database Abstraction component.<br />
+							<p><strong>Project Type</strong><br/>
+							Component Design Project: Provide a complete design for the Database Abstraction component.<br/>
 							Please review the TopCoder Software <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_meth" class="statText">Component Development Methodology</a> for further details regarding this project type.</p>
 
 							<p><strong>Technologies</strong></p>
@@ -73,14 +73,14 @@
 								<li>Java 1.4</li>
 							</ul>
 
-							<p><strong>Payment</strong><br />
+							<p><strong>Payment</strong><br/>
 							TopCoder will compensate the member with the winning solution. Compensation will consist of both initial payments and royalties on the sale of the component. The initial payment will be distributed in two installments.<br/>
 							First Milestone: When the winning solution is submitted and review board suggestions are integrated.<br/>
 							Second Milestone: Is marked by the completion of the development project*.</p>
 
 							<p>Members will also collect royalties on the revenue generated from the sale of the component. The total royalty per component will be equal to 10%* of the component's revenue, with 25%* of the royalty being paid to the designer, 25% to the developer(s), 25% to the Architecture Board member(s) and 25% to the QA Board member(s).  Royalties may be diluted if additional work is done to the component, as the total work effort for the component will increase.</p>
 							
-							<p><strong>Designer</strong><br />
+							<p><strong>Designer</strong><br/>
 							Royalty Percentage - 25%</p>
 							
 							<p>Total Payment - $210.00<br/>
@@ -95,7 +95,7 @@
 								<li>Final payment is conditional on acceptance of the fully functional component by the QA Review Board.</li>
 							</ul>
 
-							<p><strong>Eligibility</strong><br />
+							<p><strong>Eligibility</strong><br/>
 							You must be a rated TopCoder member, at least 18 years of age, meeting all of the membership requirements and fit into one of the following categories:</p>
 
 							<ol>
@@ -117,7 +117,7 @@
 
 							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Database Abstraction Component Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
-						<p><br /></p>
+						<p><br/></p>
 					</td>
 
 					<td valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>

@@ -5,7 +5,7 @@
 	<xsl:import href="../includes/body_top.xsl" />  
 	<xsl:import href="../foot.xsl" />
 	<xsl:import href="../includes/modules/stats_intro.xsl" />  
-	<xsl:import href="../includes/dev/public_dev_left.xsl" /> 
+  <xsl:import href="../includes/global_left.xsl"/>  
 	<xsl:import href="../includes/dev/public_dev_right.xsl" />     
 	<xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN" />
 	<xsl:template match="/">
@@ -35,7 +35,7 @@
 	<tr>
 <!-- Left Column Begins -->
 		<td width="170" bgcolor="#CCCCCC" valign="top">
-			<xsl:call-template name="public_dev_left" />
+			<xsl:call-template name="global_left"/>
 		</td>
 <!-- Left Column Ends -->
 
@@ -44,7 +44,7 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->  
-		<td class="bodyText" width="100%" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="240" height="1" vspace="5" alt="" border="0" /><br />
+		<td class="bodyText" width="100%" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="240" height="1" vspace="5" alt="" border="0" /><br/>
 			<xsl:call-template name="BodyTop">
 				<xsl:with-param name="image1">steelblue</xsl:with-param>
 				<xsl:with-param name="image">development</xsl:with-param>
@@ -54,17 +54,17 @@
 			<table border="0" cellspacing="0" cellpadding="0" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
 				<tr>
 					<td bgcolor="#000033" background="/i/steel_darkblue_bg.gif" valign="top" width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0" /></td>
-					<td class="statText" colspan="2" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0" /><br />
+					<td class="statText" colspan="2" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0" /><br/>
 
 						<h1 class="devSubhead"><strong>Object Selector: Design</strong></h1>
                                     
 						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Object Selector Component Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 					
-						<p><strong>Overview</strong><br />
+						<p><strong>Overview</strong><br/>
 						The Object Selector component enables objects to be selected based on their defined availability and "weight". This component will initially be used to determine what advertisements are displayed on the TopCoder web site and in the TopCoder applet. In this scenario, the "Objects" defined to the chooser will represent a company logo and a url. These objects will be configured to display within a defined time frame. If time frames overlap among objects, the object weighting will determine how often each is displayed.</p>
 
-						<p><strong>Project Type</strong><br />
-						Component Design Project: Provide a complete design for the Object Selector component.<br />
+						<p><strong>Project Type</strong><br/>
+						Component Design Project: Provide a complete design for the Object Selector component.<br/>
 						Please review the TopCoder Software <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_meth" class="statText">Component Development Methodology</a> for further details regarding this project type.</p>
 
 						<p><strong>Technologies</strong></p>
@@ -73,18 +73,18 @@
 							<li>Java 1.4</li>
 						</ul>
 
-						<p><strong>Payment</strong><br />
-						TopCoder will compensate the member with the winning solution. Compensation will consist of both initial payments and royalties on the sale of the component. The initial payment will be distributed in two installments.<br />
-						First Milestone: When the winning solution is submitted and review board suggestions are integrated.<br />
+						<p><strong>Payment</strong><br/>
+						TopCoder will compensate the member with the winning solution. Compensation will consist of both initial payments and royalties on the sale of the component. The initial payment will be distributed in two installments.<br/>
+						First Milestone: When the winning solution is submitted and review board suggestions are integrated.<br/>
 						Second Milestone: Is marked by the completion of the development project*.</p>
 
 						<p>Members will also collect royalties on the revenue generated from the sale of the component. The total royalty per component will be equal to 10%* of the component's revenue, with 25%* of the royalty being paid to the designer, 25% to the developer(s), 25% to the Architecture Board member(s) and 25% to the QA Board member(s).  Royalties may be diluted if additional work is done to the component, as the total work effort for the component will increase.</p>
 
-						<p><strong>Designer</strong><br />
+						<p><strong>Designer</strong><br/>
 						Royalty Percentage - 25%</p>
 						
-						<p>Total Payment - $210.00<br />
-						First Deliverable - $157.50<br />
+						<p>Total Payment - $210.00<br/>
+						First Deliverable - $157.50<br/>
 						Project Completion - $52.50</p>
 
 						<p><sup>*</sup>Completion of the project is defined as follows:</p>
@@ -95,7 +95,7 @@
 							<li>Final payment is conditional on acceptance of the fully functional component by the QA Review Board.</li>
 						</ul>
 
-						<p><strong>Eligibility</strong><br />
+						<p><strong>Eligibility</strong><br/>
 						You must be a rated TopCoder member, at least 18 years of age, meeting all of the membership requirements and fit into one of the following categories:</p>
 
 						<ol>
@@ -105,19 +105,19 @@
 							<li>A Non US Citizen working in their country of residence.</li>
 						</ol>
 
-						<p><strong>Time Line</strong><br />
+						<p><strong>Time Line</strong><br/>
 						All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.</p>
 					
-						<p>Component Posting: 11.26.2002<br />
-						Initial Submission Due Date: 12.11.2002<br />
-						Final Submission Due Date: 12.23.2002<br />
+						<p>Component Posting: 11.26.2002<br/>
+						Initial Submission Due Date: 12.11.2002<br/>
+						Final Submission Due Date: 12.23.2002<br/>
 						Estimated Development End Date: 1.27.2003</p>
 
 						<p>After inquiring for this project please make sure you are registered at www.topcodersoftware.com.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
 
 						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Object Selector Component Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
-						<p><br /></p>
+						<p><br/></p>
 					</td>
 
 					<td valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -147,7 +147,7 @@
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-		<td width="244" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="170" height="1" alt="" border="0" /><br />
+		<td width="244" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="170" height="1" alt="" border="0" /><br/>
 			<xsl:call-template name="public_dev_right" />        
 		</td>
 <!-- Right Column Ends -->

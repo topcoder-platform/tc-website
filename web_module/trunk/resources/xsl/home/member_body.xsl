@@ -1,772 +1,699 @@
 <?xml version="1.0"?>
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-
   <xsl:import href="../includes/modules/srm_dates.xsl"/>
-
-  <xsl:import href="../includes/modules/common_questions.xsl"/>
-
-  <xsl:import href="../includes/modules/tc_updates.xsl"/>
-
-  <xsl:import href="../includes/modules/top_10_wins_div1.xsl"/> 
-
-  <xsl:import href="../includes/modules/top_10_wins_div2.xsl"/>   
-
-  <xsl:import href="../includes/modules/last_srm.xsl"/>
-
+  <xsl:import href="../includes/modules/tc_updates2.xsl"/>
+  <xsl:import href="../includes/modules/white_last_srm.xsl"/>
   <xsl:import href="../includes/modules/quick_stats_pulldown.xsl"/>
-
   <xsl:import href="../includes/modules/quick_stats_tidbit.xsl"/>
-
-  <xsl:import href="../includes/modules/countries.xsl"/>   
-
-  <xsl:import href="../includes/modules/coder_week.xsl"/>
-
-  <xsl:import href="../includes/modules/top_10_coders.xsl"/>
-
+  <xsl:import href="../includes/modules/countries.xsl"/>
+  <xsl:import href="../includes/modules/intro.xsl"/>      
   <xsl:import href="../includes/modules/round_table.xsl"/>
-
-  <xsl:import href="../includes/modules/my_stats.xsl"/>
-
-  <xsl:import href="../includes/modules/arena.xsl"/>   
-
-  <xsl:import href="../includes/modules/calendar.xsl"/>  
-
+  <xsl:import href="../includes/modules/practice_room.xsl"/>
+  <xsl:import href="../includes/modules/my_stats.xsl"/>  
+  <xsl:import href="../includes/modules/arena2.xsl"/>  
+  <xsl:import href="../includes/modules/calendar.xsl"/>
+  <xsl:import href="../includes/modules/simple_search.xsl"/>  
+  <xsl:import href="../includes/global_left.xsl"/>  
+  <!-- <xsl:import href="../includes/modules/editorials.xsl"/> -->
+  <!-- <xsl:import href="../includes/modules/top_room_wins.xsl"/> -->
+  <xsl:import href="../includes/modules/top_scorers.xsl"/>
+  <xsl:import href="../includes/global_left.xsl"/>  
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
-
   <xsl:template name="MemberBody">
-
-
-
-<!-- <SCRIPT type="text/javascript">alert("ALTHOUGH IT MAY LOOK JUST LIKE THE LAST HOME PAGE, THIS IS MEMBER HOME, MAN...");</SCRIPT> -->
-
-
 
 <!-- Body Begins -->
 
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
-
   <TR>
-
     <TD VALIGN="top" COLSPAN="3"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/><BR/>
-
       <!-- SRM Promo Begins -->
 
       <!-- SRM Promo Ends -->    
-
     </TD>
-
     <!-- Right Column Include Begins -->
 
     <!-- Gutter -->
-
-    <TD WIDTH="3" ROWSPAN="2" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="3" HEIGHT="1" BORDER="0"/></TD>
-
+    <!-- <TD WIDTH="3" ROWSPAN="2" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="3" HEIGHT="1" BORDER="0"/></TD> -->
     <!-- Gutter Ends -->
+  <!-- Right Column Begins -->
+    <!-- <TD WIDTH="170" ROWSPAN="2" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/> 
 
-    <!-- Right Column Begins -->
-
-    <TD WIDTH="170" ROWSPAN="2" BGCOLOR="#CCCCCC" VALIGN="top"><!-- <IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/> --> 
-
-<xsl:call-template name="my_stats"/>
-
-<xsl:call-template name="calendar"/>
 
 <IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/>
-
-<xsl:call-template name="arena"/>
-
+<xsl:call-template name="module_login"/> 
 <xsl:call-template name="top_10_coders"/>
+<xsl:call-template name="arena"/>
+    </TD> -->
+<!-- <xsl:call-template name="round_table"/>
+                <xsl:choose>
+                  <xsl:when test="/TC/LoggedIn='true'">
+                  </xsl:when>                  
+                  <xsl:otherwise>
+                     <xsl:call-template name="practice_room"/>
+                  </xsl:otherwise>
+                </xsl:choose> -->
 
-    </TD>
 
   <!-- Right Column Ends -->
 
-    
-
   <!-- Gutter -->
 
-    <TD WIDTH="25" ROWSPAN="2" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
-
+    <TD WIDTH="1" ROWSPAN="2" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
     <!-- Gutter Ends -->       
-
   </TR>    
-
    <TR>
 
-     <!-- Left Column Include Begins -->   
+<!-- Left Column Include Begins -->   
 
-     <!-- Gutter Begins -->
-
-     <!-- <TD WIDTH="1" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD> -->
-
+  <!-- Gutter Begins -->
+    <!-- <TD WIDTH="1" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD> -->
      <!-- Gutter Ends -->
 
-     <!-- Left Column Begins -->
+    <!-- Left Column Begins -->
 
-     <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top" CLASS="statText"><!-- <IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0" VSPACE="5"><BR/> -->
-
-      <xsl:call-template name="srm_dates"/>
-
-      <IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/>
-
-          <xsl:choose>
-
-          <xsl:when test="/TC/LoggedIn='true'"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/>
-
-          </xsl:when>
-
-          <xsl:otherwise>
-
-          <xsl:call-template name="common_questions"/>
-
-          </xsl:otherwise>
-
-          </xsl:choose>
-
-      <xsl:call-template name="tc_updates"/>
-
-      <xsl:call-template name="countries"/>              
-
-      <IMG SRC="/i/logo_ghosted_bracket.gif" WIDTH="160" HEIGHT="77" BORDER="0" ALT="[ TopCoder ]" VSPACE="10"/>        
-
+    <TD WIDTH="170" BGCOLOR="#000000" VALIGN="top"><!-- <IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0" VSPACE="5"><BR/> -->
+<xsl:call-template name="global_left"/>
+<IMG SRC="/i/logo_ghosted_bracket.gif" WIDTH="160" HEIGHT="77" BORDER="0" ALT="[ TopCoder ]" VSPACE="5"/><BR/>
+<!-- Do Not Delete This Line --><FONT SIZE="1" COLOR="#000000" FACE="tahoma">HiddenWord</FONT>      
       </TD>    
 
   <!-- Left Column Ends -->
-
   <!-- Gutter Begins -->
-
-    <TD WIDTH="3" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="3" HEIGHT="1" BORDER="0"/></TD>
-
+    <TD WIDTH="1" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
     <!-- Gutter Ends -->
-
 <!-- Left Column Include Ends -->
-
-
 
 <!-- Body Area -->
 
   <!-- Center Column Begins -->  
-
-    <TD WIDTH="100%" VALIGN="top" ALIGN="center">
-
-  <!-- Motorola Promo Begins -->
-
-      <!-- <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC" WIDTH="100%">
-
-        <TR>
-
-          <TD WIDTH="187" VALIGN="top" BGCOLOR="#990000"><A HREF="/?RoundId=4085&amp;t=schedule&amp;c=srm"><IMG SRC="/i/moto_promo1.gif" ALT="" WIDTH="240" HEIGHT="161" BORDER="0"/></A></TD>
-
-          <TD WIDTH="285" VALIGN="top" BGCOLOR="#990000"><A HREF="http://www.topcoder.com/i/mot_redir.html" target="_blank"><IMG SRC="/i/moto_promo2.gif" ALT="" WIDTH="244" HEIGHT="161" BORDER="0"/></A></TD>
-
-          <TD WIDTH="100%" BACKGROUND="/i/mot_promo_bg.gif" BGCOLOR="#990000" VALIGN="top"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-
-          <TD WIDTH="20" BACKGROUND="/i/mot_promo_bg.gif" BGCOLOR="#990000" VALIGN="top" ALIGN="right"><IMG SRC="/i/mot_promo_top_rt.gif" ALT="" WIDTH="23" HEIGHT="22" BORDER="0"/></TD>          
-
-        </TR>
-
-      </TABLE> -->
-
-     <!-- Motorola Promo Ends --> 
-
-
-
-  <!-- Sun Promo Begins -->
-
-      <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC" WIDTH="100%">
-
-        <TR>
-
-          <TD WIDTH="187" VALIGN="top" BGCOLOR="#43515E"><A HREF="/?t=schedule&amp;c=tourny_sched"><IMG SRC="/i/sun_promo1.jpg" ALT="" WIDTH="240" HEIGHT="161" BORDER="0"/></A></TD>
-
-          <TD WIDTH="285" VALIGN="top" BGCOLOR="#43515E"><A HREF="/i/sun_redir.html" target="_blank"><IMG SRC="/i/sun_promo2.gif" ALT="" WIDTH="244" HEIGHT="161" BORDER="0"/></A></TD>
-
-          <TD WIDTH="100%" BACKGROUND="/i/sun_promo_bg.gif" BGCOLOR="#43515E" VALIGN="top"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-
-          <TD WIDTH="20" BACKGROUND="/i/sun_promo_bg.gif" BGCOLOR="#43515E" VALIGN="top" ALIGN="right"><IMG SRC="/i/sun_promo_top_rt.gif" ALT="" WIDTH="23" HEIGHT="22" BORDER="0"/></TD>          
-
-        </TR>
-
-      </TABLE>
-
-     <!-- Sun Promo Ends -->
-
+    <TD WIDTH="100%" VALIGN="top" ALIGN="center" BGCOLOR="#FFFFFF"> 
      <!-- My Stats Begins -->
-
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-
   <TR>
-
-    <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="right"><IMG SRC="/i/steelblue_top_left1.gif" ALT="" WIDTH="11" HEIGHT="26" BORDER="0"/></TD>
-
+    <TD COLSPAN="4" VALIGN="top" BGCOLOR="#FFFFFF" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
+  </TR>  
+  <TR>
+    <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="right"><IMG SRC="/i/steelblue_top_left1.gif" ALT="" WIDTH="90" HEIGHT="26" BORDER="0"/></TD>
     <TD VALIGN="top" WIDTH="75" ALIGN="left" BGCOLOR="#FFFFFF"><IMG SRC="/i/steelblue_top_left2.gif" ALT="" WIDTH="75" HEIGHT="26" BORDER="0"/></TD>
-
     <TD VALIGN="middle" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/label_my_stats_big.gif" ALT="My Stats" WIDTH="92" HEIGHT="26" BORDER="0"/></TD>
-
     <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"/></TD>
-
   </TR>
-
 </TABLE>
-
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">  
-
-  <TR>
-
-    <TD VALIGN="top" WIDTH="11" BACKGROUND="/i/steel_darkblue_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-
-    <TD COLSPAN="2" VALIGN="top" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0" VSPACE="1"/><BR/>
-
-      <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
-
-        <TR>
-
-          <TD BACKGROUND="/i/steel_gray_bg3.gif" COLSPAN="5" CLASS="statText" HEIGHT="18" VALIGN="bottom"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/><A><xsl:attribute name="HREF">/stat?c=member_profile&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute><xsl:attribute name="CLASS">statText</xsl:attribute><IMG SRC="/i/my_profile.gif" ALT="" WIDTH="59" HEIGHT="14" BORDER="0"/></A><A><xsl:attribute name="HREF">/stat?c=ratings_history&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute><xsl:attribute name="CLASS">statText</xsl:attribute><IMG SRC="/i/my_rating.gif" ALT="" WIDTH="96" HEIGHT="14" BORDER="0"/></A><A><xsl:attribute name="HREF">/stat?c=earnings_history&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute><xsl:attribute name="CLASS">statText</xsl:attribute><IMG SRC="/i/my_earning.gif" ALT="" WIDTH="111" HEIGHT="14" BORDER="0"/></A></TD>     
-
-        </TR>        
-
-        
-
-        
-
-        <!-- <TR>
-
-          <TD BACKGROUND="/i/steel_gray_bg3.gif" COLSPAN="5" CLASS="statText" HEIGHT="16">&#160;&#160;<A><xsl:attribute name="HREF">?t=statistics&amp;c=member_profile&amp;Coder_Id=<xsl:value-of select="/TC/UserId"/></xsl:attribute><xsl:attribute name="CLASS">statText</xsl:attribute> profile </A>&#160;|&#160;<A HREF="/index?t=statistics&amp;c=ratings_history" CLASS="statText"> rating history </A>&#160;|&#160;<A HREF="/index?t=statistics&amp;c=earnings_history" CLASS="statText"> earnings history </A></TD>    
-
-        </TR> -->       
-
-
-
-
-
-        <TR>
-
-          <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="5" CLASS="smallFoot"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
-
-        </TR>      
-
-        <TR>
-
-          <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" VALIGN="middle" ALIGN="right" WIDTH="15%" HEIGHT="14">Ranking</TD>        
-
-          <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" VALIGN="middle" ALIGN="right" WIDTH="15%">Rating</TD>  
-
-          <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" VALIGN="middle" ALIGN="right" WIDTH="30%">Earnings</TD>
-
-          <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" VALIGN="middle" ALIGN="right" WIDTH="40%"># of Competitions</TD>
-
-          <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>        
-
-        </TR>
-
-        <TR>
-
-          <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="5" CLASS="smallFoot"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"/></TD>    
-
-        </TR>        
-
-        <TR>
-
-          <xsl:choose>
-
-          <xsl:when test="/TC/Ranking>0">
-
-            <TD CLASS="statText" VALIGN="middle" ALIGN="right" HEIGHT="13"><xsl:value-of select="/TC/Ranking"/>&#160;&#160;</TD>
-
-          </xsl:when>
-
-          <xsl:otherwise>
-
-            <TD CLASS="statText" VALIGN="middle" ALIGN="right" HEIGHT="13">Not Ranked&#160;&#160;</TD>
-
-          </xsl:otherwise>
-
-          </xsl:choose>
-
-          <TD CLASS="statText" VALIGN="middle" ALIGN="right"><xsl:value-of select="/TC/Rating"/>&#160;&#160;</TD>
-
-          <TD CLASS="statText" VALIGN="middle" ALIGN="right">$<xsl:value-of select="format-number(/TC/HOME/Coder/TotalEarnings, '0.00')"/>&#160;&#160;</TD>
-
-          <TD CLASS="statText" VALIGN="middle" ALIGN="right"><xsl:value-of select="/TC/HOME/Coder/NumCompetitions"/>&#160;&#160;</TD>
-
-          <TD CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>         
-
-        </TR> 
-
-        <TR>
-
-          <TD  COLSPAN="5" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="smallText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
-
-        </TR>  
-
-      </TABLE>
-
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">  
-
-  <TR>
-
-    <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="16"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
-
-  </TR>
-
-  <xsl:if test="count(/TC/HOME/Last3Comps/RoomResult)!='0'">
-
-    <TR>
-
-      <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="16"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>    
-
-    </TR>  
-
-    <TR>
-
-      <TD BACKGROUND="/i/steel_gray_bg3.gif" COLSPAN="16" CLASS="smallFoot" HEIGHT="16" VALIGN="middle">&#160;Statistics from your Last <xsl:value-of select="count(/TC/HOME/Last3Comps/RoomResult)"/> Matches (click the <IMG SRC="/i/coders_icon_onclear.gif" ALT="" WIDTH="10" HEIGHT="10" HSPACE="2" BORDER="0"/> icon to view problem information).</TD>    
-
-    </TR> 
-
-    <TR>
-
-      <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="16"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
-
-    </TR>  
-
-    <TR>
-
-      <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-
-      <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" VALIGN="middle" WIDTH="10%" HEIGHT="28">Coder</TD>  
-
-      <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" VALIGN="middle" WIDTH="10%" ALIGN="center">Coding<br/>Phase</TD>
-
-      <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" VALIGN="middle" ALIGN="right">&#160;+&#160;</TD>    
-
-      <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" VALIGN="middle" WIDTH="10%" ALIGN="center">Challenge<br/>Phase</TD>
-
-      <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" VALIGN="middle" ALIGN="right">&#160;+&#160;</TD>    
-
-      <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" VALIGN="middle" WIDTH="10%" ALIGN="center">Testing<br/>Phase</TD>
-
-      <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" VALIGN="middle" ALIGN="right">&#160;=&#160;</TD>    
-
-      <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" VALIGN="middle" WIDTH="10%" ALIGN="center">Final<br/>Points</TD>
-
-      <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" VALIGN="middle" WIDTH="10%" ALIGN="center">Adv.</TD>  
-
-      <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" VALIGN="middle" WIDTH="10%" ALIGN="center">Old<br/>Rating</TD>
-
-      <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" VALIGN="middle" ALIGN="right">&#160;+&#160;</TD>    
-
-      <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" VALIGN="middle" WIDTH="10%" ALIGN="center">Rating<br/>Change</TD>    
-
-      <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" VALIGN="middle" ALIGN="right">&#160;=&#160;</TD>    
-
-      <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" VALIGN="middle" WIDTH="10%" ALIGN="center">New<br/>Rating</TD>    
-
-      <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-
-    </TR>
-
-    <TR>
-
-      <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="16"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"/></TD>    
-
-    </TR>  
-
-    <xsl:for-each select="/TC/HOME/Last3Comps/RoomResult">
-
-        <TR>
-
-          <xsl:choose><xsl:when test="/TC/LoggedIn='true'">
-
-            <TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="middle" WIDTH="10">
-
-              <A>
-
-                <xsl:attribute name="HREF">/stat?c=coder_room_stats&amp;rd=<xsl:value-of select="RoundId"/>&amp;cr=<xsl:value-of select="CoderId"/></xsl:attribute>
-
-                <IMG SRC="/i/coders_icon.gif" ALT="" WIDTH="10" HEIGHT="10" HSPACE="2" BORDER="0"/>
-
-              </A>
-
+     
+      <xsl:choose>
+      <xsl:when test="count(/TC/HOME/CoderData/Data)='0'">
+        <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
+          <TR>
+            <TD COLSPAN="3" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
+          </TR>
+          <TR>
+            <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
+            <TD CLASS="statText" VALIGN="top" HEIGHT="50">
+              You must compete to view this information.
             </TD>
-
-            <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" VALIGN="left"> 
-
-              <A>
-
-                <xsl:attribute name="HREF">stat?c=member_profile&amp;cr=<xsl:value-of select="CoderId"/></xsl:attribute>
-
-                <xsl:attribute name="CLASS">statText</xsl:attribute>
-
-                <FONT>
-
-                  <xsl:attribute name="color">
-
-                    <xsl:call-template name="GetRatingColor"><xsl:with-param name="rating"><xsl:value-of select="PostRoundRating"/></xsl:with-param></xsl:call-template>
-
-                  </xsl:attribute>
-
-                  <xsl:value-of select="Handle"/>
-
-                </FONT>
-
-              </A>
-
-            </TD>
-
-            </xsl:when>
-
-            <xsl:otherwise>
-
-              <TD>
-
-                <IMG SRC="/i/coders_icon.gif" ALT="" WIDTH="10" HEIGHT="10" HSPACE="4" BORDER="0"/>
-
-              </TD>
-
-              <TD>
-
-                <xsl:attribute name="CLASS">statText</xsl:attribute>
-
-                <FONT>
-
-                  <xsl:attribute name="color">
-
-                    <xsl:call-template name="GetRatingColor"><xsl:with-param name="rating"><xsl:value-of select="PostRoundRating"/></xsl:with-param></xsl:call-template>
-
-                  </xsl:attribute>
-
-                  <B><xsl:value-of select="Handle"/></B>
-
-                </FONT>
-
-              </TD>
-
-            </xsl:otherwise></xsl:choose>
-
-          <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right"><xsl:value-of select="format-number(CodingPoints, '0.00')"/></TD>
-
-          <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right">&#160;&#160;</TD>
-
-          <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right"><xsl:value-of select="format-number(ChallengePoints, '0.00')"/></TD>
-
-          <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right">&#160;&#160;</TD>
-
-          <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right"><xsl:value-of select="format-number(TestPoints, '0.00')"/></TD>
-
-          <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right">&#160;&#160;</TD>
-
-          <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right"><xsl:value-of select="format-number(FinalPoints, '0.00')"/></TD>
-
-          <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right">
-
-            <xsl:choose>
-
-            <xsl:when test="Advanced='Y'">
-
-              Yes
-
-            </xsl:when>
-
-            <xsl:otherwise> 
-
-              No
-
-            </xsl:otherwise>
-
-            </xsl:choose>
-
-          </TD>
-
-          <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right">
-
-            <xsl:call-template name="GetRatingToDisplay"><xsl:with-param name="rating"><xsl:value-of select="format-number(PreRoundRating, '0')"/></xsl:with-param></xsl:call-template>
-
-          </TD>
-
-          <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right">&#160;&#160;</TD>
-
-          <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right"><xsl:value-of select="format-number(RatingDifference, '0.00')"/></TD>    
-
-          <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right">&#160;&#160;</TD>
-
-          <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right">
-
-            <xsl:call-template name="GetRatingToDisplay"><xsl:with-param name="rating"><xsl:value-of select="format-number(PostRoundRating, '0')"/></xsl:with-param></xsl:call-template>
-
-          </TD>      
-
-          <TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>        
-
-        </TR>
-
-         <TR>
-
-         <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="16"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"/></TD>    
-
-         </TR>        
-
-    </xsl:for-each>
-
-    <TR>
-
-      <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="16"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>    
-
-    </TR>
-
-    <TR>
-
-      <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" COLSPAN="16"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
-
-    </TR>
-
-    <TR>
-
-        <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" COLSPAN="16"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
-
-    </TR>        
-
-  </xsl:if>
-
-</TABLE>      
-
-      
-
+             <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
+          </TR>
+        </TABLE>
+      </xsl:when>
+      <xsl:otherwise>
+
+
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
+  <TR>
+      <TD COLSPAN="5" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
+  </TR>             
+          
+  <TR>
+    <TD CLASS="statText" ROWSPAN="8" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>  
+    <TD CLASS="statText" ROWSPAN="8" VALIGN="top">
+      <xsl:choose>
+      <xsl:when test="/TC/HOME/CoderData/Data/has_image='1'">
+        <IMG WIDTH="126" HEIGHT="140" ALIGN="left" BORDER="0"><xsl:attribute name="SRC"><xsl:value-of select="/TC/HOME/CoderData/Data/image_path"/></xsl:attribute></IMG>
+      </xsl:when>
+      <xsl:otherwise>
+        <A><xsl:attribute name="HREF">mailto:memberphotos@topcoder.com?subject=<xsl:value-of select="/TC/ActivationCode"/> | [ <xsl:value-of select="/TC/Handle"/> ] | <xsl:value-of select="/TC/UserId"/> SUBMIT IMAGE: PLEASE DO NOT CHANGE SUBJECT</xsl:attribute><IMG SRC="/i/m/nophoto_submit.gif" WIDTH="126" HEIGHT="140" ALIGN="left" BORDER="0"/></A>
+      </xsl:otherwise>
+      </xsl:choose>
+      <IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/>
     </TD>
 
-    <TD VALIGN="top" WIDTH="10" BACKGROUND="/i/steel_darkblue_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-
+    <TD CLASS="statText" COLSPAN="2">
+    <xsl:if test="/TC/HOME/CoderData/Data/quote!=''">
+    "<xsl:value-of select="/TC/HOME/CoderData/Data/quote"/>"
+    </xsl:if>
+    </TD>
+    <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>    
   </TR>
-
   <TR>
-
-    <TD COLSPAN="4" VALIGN="top" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-
-  </TR>     
-
+      <TD COLSPAN="3" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"/></TD>
+  </TR>
   <TR>
-
-    <TD VALIGN="top" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-
-    <TD VALIGN="top" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="14"><IMG SRC="/i/clear.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-
-    <TD VALIGN="top" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-
-    <TD VALIGN="top" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-
+    <TD CLASS="statText">Member Since:</TD>    
+      <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right" NOWRAP=""><xsl:value-of select="/TC/HOME/CoderData/Data/member_since_date"/></TD>
+      <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+  </TR>    
+  <TR>
+    <TD CLASS="statText">Volatility Factor:</TD>    
+      <TD CLASS="statText" ALIGN="right"><xsl:value-of select="/TC/HOME/CoderData/Data/vol"/></TD>
+      <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+  </TR>
+  <TR>
+    <TD CLASS="statText">Average Points per Contest:</TD>    
+      <TD CLASS="statText" ALIGN="right"><xsl:value-of select="format-number(/TC/HOME/CoderData/Data/avg_final_points, '0.00')"/></TD>
+      <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+  </TR>  
+  <TR>
+    <TD CLASS="statText">Maximum Rating:</TD>    
+      <TD CLASS="statText" ALIGN="right"><xsl:value-of select="/TC/HOME/CoderData/Data/highest_rating"/></TD>
+      <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
   </TR>  
 
+  <xsl:choose>
+  <xsl:when test="/TC/HasImage='true'">
+    <!-- <TR>
+        <TD COLSPAN="3" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"/></TD>
+    </TR> -->
+    <TR>
+      <TD COLSPAN="3">
+          <A><xsl:attribute name="HREF">mailto:memberphotos@topcoder.com?subject=<xsl:value-of select="/TC/ActivationCode"/> | [ <xsl:value-of select="/TC/Handle"/> ] | <xsl:value-of select="/TC/UserId"/> RE-SUBMIT IMAGE: PLEASE DO NOT CHANGE SUBJECT</xsl:attribute><xsl:attribute name="CLASS">statText</xsl:attribute>Click here to resend your photo</A>
+      </TD>
+    </TR>
+  </xsl:when>
+  <xsl:otherwise>
+    <TR>
+      <TD COLSPAN="3" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"/></TD>
+    </TR>
+    <TR>
+      <TD COLSPAN="3" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="24" BORDER="0"/></TD>
+    </TR>
+  </xsl:otherwise>
+  </xsl:choose>
+    <TR>
+      <TD COLSPAN="3" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"/></TD>
+    </TR>  
+    <TR>
+      <TD COLSPAN="5" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"/></TD>
+    </TR>        
+</TABLE> 
+  </xsl:otherwise>
+  </xsl:choose>
+
+ 
+
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">  
+  <TR>
+    <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
+    <TD COLSPAN="2" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0" VSPACE="1"/><BR/>
+      <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
+        <TR>
+          <TD BACKGROUND="/i/steel_gray_bg3.gif" COLSPAN="5" CLASS="statText" HEIGHT="18" VALIGN="bottom">
+            <IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/>
+            <A CLASS="statText">
+              <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=member_profile&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>
+              <IMG SRC="/i/my_profile.gif" ALT="" WIDTH="59" HEIGHT="14" BORDER="0"/>
+            </A>
+            <A CLASS="statText">
+              <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=ratings_history&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>
+              <IMG SRC="/i/my_rating.gif" ALT="" WIDTH="96" HEIGHT="14" BORDER="0"/>
+            </A>
+            <A CLASS="statText">
+              <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=earnings_history&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>
+              <IMG SRC="/i/my_earning.gif" ALT="" WIDTH="111" HEIGHT="14" BORDER="0"/>
+            </A>
+          </TD>    
+        </TR>        
+        <TR>
+          <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="5" CLASS="smallFoot"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
+        </TR>      
+        <TR>
+          <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" VALIGN="middle" ALIGN="right" WIDTH="15%" HEIGHT="14">Ranking</TD>        
+          <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" VALIGN="middle" ALIGN="right" WIDTH="15%">Rating</TD>  
+          <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" VALIGN="middle" ALIGN="right" WIDTH="30%">Earnings</TD>
+          <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" VALIGN="middle" ALIGN="right" WIDTH="40%"># of Competitions</TD>
+          <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>        
+        </TR>
+        <TR>
+          <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="5" CLASS="smallFoot"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"/></TD>    
+        </TR>        
+        <TR>
+          <xsl:choose>
+          <xsl:when test="/TC/Ranking>0">
+            <TD CLASS="statText" VALIGN="middle" ALIGN="right" HEIGHT="13"><xsl:value-of select="/TC/Ranking"/>&#160;&#160;</TD>
+          </xsl:when>
+          <xsl:otherwise>
+            <TD CLASS="statText" VALIGN="middle" ALIGN="right" HEIGHT="13">Not Ranked&#160;&#160;</TD>
+          </xsl:otherwise>
+          </xsl:choose>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="right"><xsl:value-of select="/TC/Rating"/>&#160;&#160;</TD>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="right">$<xsl:value-of select="format-number(/TC/HOME/Coder/TotalEarnings, '0.00')"/>&#160;&#160;</TD>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="right"><xsl:value-of select="/TC/HOME/Coder/NumCompetitions"/>&#160;&#160;</TD>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>         
+        </TR> 
+        <TR>
+          <TD  COLSPAN="5" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="smallText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
+        </TR>  
+      </TABLE>
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">  
+  <TR>
+    <TD COLSPAN="16"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
+  </TR>
+  <xsl:if test="count(/TC/HOME/Last3Comps/RoomResult)!='0'">
+    <TR>
+      <TD COLSPAN="16"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>    
+    </TR>  
+    <TR>
+      <TD BACKGROUND="/i/steel_gray_bg3.gif" COLSPAN="16" CLASS="smallFoot" HEIGHT="16" VALIGN="middle">&#160;Statistics from your Last <xsl:value-of select="count(/TC/HOME/Last3Comps/RoomResult)"/> Matches (click the <IMG SRC="/i/coders_icon_onclear.gif" ALT="" WIDTH="10" HEIGHT="10" HSPACE="2" BORDER="0"/> icon to view problem information).</TD>    
+    </TR> 
+    <TR>
+      <TD COLSPAN="16"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
+    </TR>  
+    <TR>
+      <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+      <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" VALIGN="middle" WIDTH="10%" HEIGHT="28">Coder</TD>  
+      <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" VALIGN="middle" WIDTH="10%" ALIGN="center">Coding<br/>Phase</TD>
+      <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" VALIGN="middle" ALIGN="right">&#160;+&#160;</TD>    
+      <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" VALIGN="middle" WIDTH="10%" ALIGN="center">Challenge<br/>Phase</TD>
+      <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" VALIGN="middle" ALIGN="right">&#160;+&#160;</TD>    
+      <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" VALIGN="middle" WIDTH="10%" ALIGN="center">Testing<br/>Phase</TD>
+      <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" VALIGN="middle" ALIGN="right">&#160;=&#160;</TD>    
+      <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" VALIGN="middle" WIDTH="10%" ALIGN="center">Final<br/>Points</TD>
+      <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" VALIGN="middle" WIDTH="10%" ALIGN="center">Adv.</TD>  
+      <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" VALIGN="middle" WIDTH="10%" ALIGN="center">Old<br/>Rating</TD>
+      <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" VALIGN="middle" ALIGN="right">&#160;+&#160;</TD>    
+      <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" VALIGN="middle" WIDTH="10%" ALIGN="center">Rating<br/>Change</TD>    
+      <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" VALIGN="middle" ALIGN="right">&#160;=&#160;</TD>    
+      <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig" VALIGN="middle" WIDTH="10%" ALIGN="center">New<br/>Rating</TD>    
+      <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+    </TR>
+    <TR>
+      <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="16"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"/></TD>    
+    </TR>  
+    <xsl:for-each select="/TC/HOME/Last3Comps/RoomResult">
+        <TR>
+          <xsl:choose><xsl:when test="/TC/LoggedIn='true'">
+            <TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="middle" WIDTH="10">
+              <A>
+                <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=coder_room_stats&amp;rd=<xsl:value-of select="RoundId"/>&amp;cr=<xsl:value-of select="CoderId"/></xsl:attribute>
+                <IMG SRC="/i/coders_icon.gif" ALT="" WIDTH="10" HEIGHT="10" HSPACE="2" BORDER="0"/>
+              </A>
+            </TD>
+            <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" VALIGN="left"> 
+              <A>
+                <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=member_profile&amp;cr=<xsl:value-of select="CoderId"/></xsl:attribute>
+                <xsl:attribute name="CLASS">statText</xsl:attribute>
+                <FONT>
+                  <xsl:attribute name="color">
+                    <xsl:call-template name="GetRatingColor"><xsl:with-param name="rating"><xsl:value-of select="PostRoundRating"/></xsl:with-param></xsl:call-template>
+                  </xsl:attribute>
+                  <xsl:value-of select="Handle"/>
+                </FONT>
+              </A>
+            </TD>
+            </xsl:when>
+            <xsl:otherwise>
+              <TD>
+                <IMG SRC="/i/coders_icon.gif" ALT="" WIDTH="10" HEIGHT="10" HSPACE="4" BORDER="0"/>
+              </TD>
+              <TD>
+                <xsl:attribute name="CLASS">statText</xsl:attribute>
+                <FONT>
+                  <xsl:attribute name="color">
+                    <xsl:call-template name="GetRatingColor"><xsl:with-param name="rating"><xsl:value-of select="PostRoundRating"/></xsl:with-param></xsl:call-template>
+                  </xsl:attribute>
+                  <B><xsl:value-of select="Handle"/></B>
+                </FONT>
+              </TD>
+            </xsl:otherwise></xsl:choose>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="right"><xsl:value-of select="format-number(CodingPoints, '0.00')"/></TD>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="right">&#160;&#160;</TD>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="right"><xsl:value-of select="format-number(ChallengePoints, '0.00')"/></TD>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="right">&#160;&#160;</TD>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="right"><xsl:value-of select="format-number(TestPoints, '0.00')"/></TD>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="right">&#160;&#160;</TD>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="right"><xsl:value-of select="format-number(FinalPoints, '0.00')"/></TD>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="right">
+            <xsl:choose>
+            <xsl:when test="Advanced='Y'">
+              Yes
+            </xsl:when>
+            <xsl:otherwise> 
+              No
+            </xsl:otherwise>
+            </xsl:choose>
+          </TD>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="right">
+            <xsl:call-template name="GetRatingToDisplay"><xsl:with-param name="rating"><xsl:value-of select="format-number(PreRoundRating, '0')"/></xsl:with-param></xsl:call-template>
+          </TD>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="right">&#160;&#160;</TD>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="right"><xsl:value-of select="format-number(RatingDifference, '0.00')"/></TD>    
+          <TD CLASS="statText" VALIGN="middle" ALIGN="right">&#160;&#160;</TD>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="right">
+            <xsl:call-template name="GetRatingToDisplay"><xsl:with-param name="rating"><xsl:value-of select="format-number(PostRoundRating, '0')"/></xsl:with-param></xsl:call-template>
+          </TD>      
+          <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>        
+        </TR>
+         <TR>
+         <TD COLSPAN="16"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"/></TD>    
+         </TR>        
+    </xsl:for-each>
+    <TR>
+      <TD COLSPAN="16"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>    
+    </TR>
+    <TR>
+      <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" COLSPAN="16"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
+    </TR>
+    <TR>
+        <TD CLASS="statText" COLSPAN="16"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
+    </TR>        
+  </xsl:if>
+</TABLE>      
+    </TD>
+    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+  </TR>
+  <TR>
+    <TD COLSPAN="4" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
+  </TR>     
+  <TR>
+    <TD VALIGN="top" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
+    <TD VALIGN="top" WIDTH="14"><IMG SRC="/i/clear.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
+    <TD VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+  </TR>  
 </TABLE> 
 
-    <!-- My Stats Ends -->
-
-                         
-
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" WIDTH="100%" VALIGN="top">
-
+    <!-- My Stats Ends --> 
+<!-- Invitational block -->    
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%"> 
   <TR>
+    <TD COLSPAN="3" CLASS="bodyText" VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" HEIGHT="50"><FONT SIZE="3" FACE="verdana, arial, tahoma"><B>The 2002 TopCoder Invitational Champion is...</B></FONT></TD>
+  </TR>
+  <TR>
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+    <TD CLASS="bodyText" VALIGN="top" ><A HREF="/index?t=schedule&amp;c=invit02_sched"><IMG SRC="/i/invit02_logow.gif" ALT="" WIDTH="155" HEIGHT="105" HSPACE="6" ALIGN="left" BORDER="0"/></A> <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournaments&amp;c=invit02_champ</xsl:attribute><IMG SRC="/i/tournament/invit02/home_invt02champ.jpg" BORDER="0" WIDTH="250" HEIGHT="122" ALT=""/></A><BR/>
+<P><A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournaments&amp;c=invit02_champ</xsl:attribute><B>The Land Down Under comes out On Top!</B></A><BR/>
+by MaryBeth Biondi, <I>TopCoder Staff</I><BR/>
+Saturday, November 23, 2002</P>
 
-    <TD VALIGN="bottom" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="right"><IMG SRC="/i/steelblue_top_left1.gif" ALT="" WIDTH="11" HEIGHT="26" BORDER="0"/></TD>
+Due to an inaccuracy in one of the problem specifications, the four finalists were asked to 
+compete twice today as we sought to crown the 2002 TopCoder Invitational champion.  <B>John Dethridge</B> 
+became TopCoder's new highest rated member, defeating <B>SnapDragon</B>, <B>dgarthur</B>, and <B>moira</B> 
+in the Championship round...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournaments&amp;c=invit02_champ</xsl:attribute>read&#160;more</A><BR/><BR/>
 
-    <TD VALIGN="bottom" BGCOLOR="#FFFFFF" WIDTH="75"><IMG SRC="/i/steelblue_top_left2.gif" ALT="" WIDTH="75" HEIGHT="26" BORDER="0"/></TD>
+<B>Championship updates: </B> <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=tourney_semi</xsl:attribute>Advancer Stats</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournaments&amp;c=invit02_brackets</xsl:attribute>Brackets</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournaments&amp;c=invit02_champ</xsl:attribute>Summary</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournaments&amp;c=invit02_champ#photo</xsl:attribute>Photos</A>
+<BR/><BR/>
+<!--<B>When:</B> November 22nd and 23rd<BR/>
+<B>Where:</B> Mohegan Sun Casino in Uncasville, CT<BR/>
+<B>Total Prize:</B> $150,000<BR/>
+<A HREF="http://www.mohegansun.com/directions/index.jsp" TARGET="_blank">
+<IMG SRC="/i/spectator.gif" ALT="Invitational" WIDTH="200" HEIGHT="57" VSPACE="3" BORDER="0"/></A>
 
-    <TD CLASS="bodySubHead" VALIGN="top" BGCOLOR="#FFFFFF">
-
-<xsl:choose>
-
-  <xsl:when test="number(/TC/Rating)&lt;1200">
-
-    <A HREF="/stat?c=round_stats&amp;dn=2"><IMG SRC="/i/label_div_2.gif" ALT="Division II" WIDTH="116" HEIGHT="26" BORDER="0"/></A>
-
-  </xsl:when>
-
-  <xsl:otherwise>
-
-    <A HREF="/stat?c=round_stats&amp;dn=1"><IMG SRC="/i/label_div_1.gif" ALT="Division I" WIDTH="116" HEIGHT="26" BORDER="0"/></A>
-
-  </xsl:otherwise>
-
-</xsl:choose>
-
+<A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=authentication&amp;c=login</xsl:attribute>Login</A> to sign up!<BR/>
+<A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=invit02_sched</xsl:attribute>Get more details!</A><BR/>-->
     </TD>
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+  </TR>
+  <TR>  
+    <TD COLSPAN="3" CLASS="bodyText" VALIGN="top" WIDTH="100%">
+<!-- tourney links -->    
+	<!-- <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="1">
+      <TR>
+        <TD COLSPAN="3" ALIGN="center" VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif">&#160;&#160;INVITATIONAL FEATURES</TD>
+      </TR>                    						
+	  <TR>
+		<TD WIDTH="33%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
+			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='invit02_pt1'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_pt2'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rnd2'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rnd3'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rnd4'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_semi'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_champ'">orangebv_bg</xsl:when>
+			<xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>		
+		<A HREF="/index?t=schedule&amp;c=tourney_semi" CLASS="statTextBig">Round Updates</A></TD>
+		<TD WIDTH="33%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
+			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='invit02_sched'">orangebv_bg</xsl:when><xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>		
+		<A HREF="/index?t=schedule&amp;c=invit02_sched" CLASS="statTextBig">Schedule</A></TD>
+		<TD WIDTH="33%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig">
+			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='tourny_rules_overview'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rules_overview'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rules_scoring'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rules_conditions'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rules_prizes'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rules_onsite'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rules_structure'">orangebv_bg</xsl:when>
+			<xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>	
+		<A HREF="/index?t=schedule&amp;c=invit02_rules_overview" CLASS="statTextBig">Rules</A></TD>
+	  </TR>
+    </TABLE> -->
+<!-- tourney links end -->     
+<!-- <B>Update:</B><BR/>
+The assignments for the first round of the tournament are now available.  Each part lists the assigned members alphabetically by handle.<BR/><BR/> -->
 
-    <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"/></TD>
 
-    <TD ROWSPAN="4" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="2" HEIGHT="1" BORDER="0"/></TD>
+    </TD>    
+  </TR>
+  <!-- <TR> 
+    <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
+    <TD VALIGN="top" CLASS="bodyText"><BR/>
+<FONT SIZE="3" FACE="verdana, arial, tahoma"><B>The Reception: A View from the Inside</B></FONT><BR/>
+In a scene reminiscent of Survivor, 16 finalists have gathered onsite to outwit, out-type and 
+out-code each other and, in the process, walk away with $50,000.  With the Melbourne University vs. 
+University of Waterloo rivalry alive on the international scene, and the question of whether Stanford 
+University will continue its dominance on the minds of the Americans, the 2002 TopCoder Invitational 
+is slated to be the most exciting onsite event yet.  Join me as the scene unfolds over the next two days...
+<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournaments&amp;c=invit02_reception</xsl:attribute>read&#160;more</A>
 
-    <TD ROWSPAN="4" VALIGN="top" BACKGROUND="/i/steel_darkblue_bg.gif">
+<BR/><BR/>
+<B>Room 1</B>: 8AM (EST)(<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=invit02_sched</xsl:attribute>Get details</A>). Logon to view round activity.
+<BR/><BR/>
+    </TD>    
+    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
+  </TR> -->      
+  <TR>
+    <TD VALIGN="top" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
+  </TR>  
+  <TR>  
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" WIDTH="100%" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+  </TR> 
+</TABLE>
 
-  <!-- SRM Results Begins -->  
+<IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/>
 
-      <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF">
+<!-- Summary/Best/Worst Begins -->         
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
+  <TR>
+    <TD VALIGN="middle" BGCOLOR="#FFFFFF" WIDTH="184"><IMG SRC="/i/label_srm_summary.gif" ALT="Last Match Summary" WIDTH="184" HEIGHT="26" HSPACE="5" BORDER="0" ALIGN="left"/></TD>
+    <TD WIDTH="100%" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+  </TR>
+</TABLE>
+<TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
+<TR> 
+    <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
+    <TD VALIGN="top" COLSPAN="3" CLASS="bodyText"><A CLASS="bodyGeneric">
+        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><B>Single Round Match 121</B></A><BR/>
+Tuesday, November 26, 2002<BR/><BR/>
 
-        <TR>
 
-          <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="right" BACKGROUND=""><IMG SRC="/i/steelblue_top_left1.gif" ALT="" WIDTH="11" HEIGHT="26" BORDER="0"/></TD>
+    </TD>    
+    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
+  </TR>
+  <TR> 
+    <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
+    <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="33%" NOWRAP="0" HEIGHT="15">
+      <A CLASS="bodyGeneric">
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=round_overview#leaders</xsl:attribute>
+        Div. Leaders
+      </A>
+    </TD>
+    <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="43%" NOWRAP="0">
+      <A CLASS="bodyGeneric">
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=round_overview#problem_stats</xsl:attribute>
+        Problem Stats
+      </A>
+    </TD> 
+    <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="23%" NOWRAP="0">
+      <A CLASS="bodyGeneric">
+        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute>
+        Results
+      </A>
+    </TD>   
+    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
+  </TR>  
+</TABLE> 
 
-          <TD VALIGN="top" WIDTH="75" ALIGN="left" BGCOLOR="#FFFFFF" BACKGROUND=""><IMG SRC="/i/steelblue_top_left2.gif" ALT="" WIDTH="75" HEIGHT="26" BORDER="0"/></TD>
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">  
+  <TR>
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="middle" CLASS="statText" WIDTH="100%">  
+       <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#001935">  
+          <TR>
+             <TD VALIGN="middle" HEIGHT="17" ALIGN="center" COLSPAN="5" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">Best/Worst Rating Change</TD> 
+          </TR>
+          <TR><TD COLSPAN="5" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>          
+          <xsl:for-each select="/TC/HOME/GainersAndLosers/Coder">
+            <TR>
+              <TD HEIGHT="14" VALIGN="middle" WIDTH="20%" CLASS="statTextBig" NOWRAP="0">&#160;&#160;&#160;<xsl:value-of select="division"/></TD>
+              <TD VALIGN="middle" WIDTH="10%" CLASS="statText">&#160;&#160;<xsl:value-of select="change_type"/>:</TD> 
+              <TD VALIGN="middle" WIDTH="35%" CLASS="statText" NOWRAP="0">&#160;&#160;
+                <A>
+                  <xsl:attribute name="HREF">stat?c=member_profile&amp;cr=<xsl:value-of select="coder_id"/></xsl:attribute>
+                  <xsl:attribute name="CLASS">bodyText</xsl:attribute>
+                  <FONT>
+                    <xsl:attribute name="color">
+                      <xsl:call-template name="GetRatingColor"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template>
+                    </xsl:attribute>
+                    <xsl:value-of select="handle"/>
+                  </FONT>
+                </A>
+              </TD>
+              <TD VALIGN="middle" WIDTH="15%" CLASS="statText" ALIGN="center"><xsl:value-of select="change"/></TD>
+              <TD VALIGN="middle" WIDTH="20%" CLASS="statText" NOWRAP="0">&#160;<xsl:value-of select="room_name"/></TD>
+            </TR>            
+          </xsl:for-each>
+          <TR><TD COLSPAN="5" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"/></TD></TR>
+       </TABLE>
+    </TD>
+    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
+  </TR>
+  
+<!-- Uncomment for invit02
+ 
+  <TR> 
+    <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
+    <TD VALIGN="top" COLSPAN="3" CLASS="bodyText"><BR/>
+<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=invit02_champ</xsl:attribute><B>G'day Mate!</B></A><BR/>
+by MaryBeth Biondi, <I>TopCoder Staff</I><BR/>
 
-          <TD VALIGN="middle" BGCOLOR="#FFFFFF" BACKGROUND=""><A HREF="/index?t=statistics&amp;c=match_summary"><IMG SRC="/i/label_srm_summary_sm.gif" ALT="Last Match Summary" WIDTH="102" HEIGHT="26" BORDER="0"/></A></TD>
+<P>
+...
+<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournaments&amp;c=invit02_champ</xsl:attribute>read&#160;more</A>
+</P>
+    </TD>    
+    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
+  </TR> --> 
+  
+  <TR><TD COLSPAN="3" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"/></TD></TR>  
+</TABLE>
 
-          <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10" ALIGN="right" BACKGROUND=""><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"/></TD>
+<!-- Summary/Best/Worst Ends -->
 
-        </TR>
+<!-- Coder Point of View Begins -->
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">  
+  <TR><TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="8" BORDER="0"/></TD>
+      <TD VALIGN="top" COLSPAN="7"><IMG SRC="/i/label_coder_view.gif" ALT="Coder's Point of View" WIDTH="148" HEIGHT="26" BORDER="0"/></TD>   
+      <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>    
+  </TR>  
+  <TR>
+    <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
+    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> 
+    By&#160;ZorbaTHut<BR/><I>[TC]&#160;Member</I><BR/></TD>
+    <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD> 
+    <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText" COLSPAN="2">
+    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>SRM 121</B></FONT>
+    </TD>
+  </TR>      
+  <TR>
+    <TD VALIGN="top" CLASS="bodyText" WIDTH="100%">
+	<A CLASS="bodyGeneric">
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm121_prob</xsl:attribute>
+        <B>Problem Set Analysis &amp; Opinion</B>
+      </A><BR/>	  
+<P>
+Back to the old grind, and you know, after the invitational, all these
+problems seem curiously easy. But that's how it goes. Today provided one of
+the most quickly solvable problems I've ever seen, easily completable in two
+small lines of code, as well as a hard nasty one with only one functioning
+solution. It's also the first round I've seen with only four unique
+problems, as two of the problems were shared across divisions...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm121_prob</xsl:attribute>Get the analysis</A>
+</P>
+    </TD>
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>     
+  </TR>
+  <TR><TD VALIGN="top" COLSPAN="9"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>  
+  <TR>  
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" WIDTH="100%" COLSPAN="7" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+  </TR> 
+  <TR><TD VALIGN="top" COLSPAN="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"/></TD></TR>   
+</TABLE>
+<!-- End of Point of View -->
 
-        <TR>
+<xsl:call-template name="arena"/> 
+<P><BR/></P>
+     </TD>
+  <!-- Center Column Ends -->    
+    <TD BGCOLOR="#001935" VALIGN="top" CLASS="statText" WIDTH="244"><IMG SRC="/i/clear.gif" ALT="" WIDTH="244" HEIGHT="1" BORDER="0"/><BR/> 
+<!--SRM Sponsor Starts-->
 
-          <TD VALIGN="top" WIDTH="11" BACKGROUND="/i/steel_darkblue_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
+<IMG SRC="/i/srm_home.gif" WIDTH="244" HEIGHT="250" ALT="" BORDER="0" USEMAP="#srm_home"/><MAP NAME="srm_home">
+<AREA ALT="" COORDS="124,28,228,90" HREF="/?&amp;t=tces&amp;c=fbi"/>
+<AREA ALT="" COORDS="141,160,224,187" HREF="/?&amp;t=schedule&amp;c=srm_spon_artifact"/>
+<AREA ALT="" SHAPE="POLY" COORDS="23,193,112,193,121,201,234,201,234,240,38,240,12,216,12,193" HREF="/?RoundId=4400&amp;t=schedule&amp;c=srm"/>
+</MAP>
 
-          <TD COLSPAN="2" VALIGN="top" BACKGROUND="/i/steel_darkblue_bg.gif" HEIGHT="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="105" HEIGHT="1" BORDER="0"/><BR/>
+<!--<IMG USEMAP="#cryptic_home" SRC="/i/es/cryptic/cryptic_home.gif" alt="" width="244" height="160" border="0"/>  
+  <BR/>
+<MAP NAME="cryptic_home">
+<AREA ALT="Cryptic Studios" SHAPE="poly" COORDS="17,33,17,60,141,60,141,92,228,92,228,25,17,25" HREF="/?&amp;t=tces&amp;c=cryptic"/>
+<AREA ALT="" SHAPE="poly" COORDS="229,104,120,105,105,94,11,95,10,120,36,146,229,148" HREF="/?RoundId=4380&amp;t=schedule&amp;c=srm"/> 
+<AREA ALT="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?&amp;c=last_match"/>
+</MAP>-->
+<!--SRM Sponsor Ends-->
+<!-- <A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
+<IMG SRC="/i/tces_promo.gif" alt="" width="244" height="77" border="0"/></A> -->
+<A HREF="/?&amp;t=development&amp;c=components">
+<IMG SRC="/i/tcs_board.gif" ALT="TCS" WIDTH="244" HEIGHT="156" VSPACE="1" BORDER="0"/></A>
+<!-- <A HREF="/?&amp;t=news_events&amp;c=pr_10_22_02">
+<IMG SRC="/i/tces_quote.gif" ALT="TCES" WIDTH="244" HEIGHT="156" BORDER="0"/></A> -->
+ 
+<IMG SRC="/i/clear.gif" ALT="" WIDTH="244" HEIGHT="1" BORDER="0"/>
+     <xsl:choose>
+     <xsl:when test="number(/TC/Rating)&lt;1200"> 
+       <xsl:call-template name="top_scorers"><xsl:with-param name="division">2</xsl:with-param></xsl:call-template>
+     </xsl:when>
+     <xsl:otherwise>
+       <xsl:call-template name="top_scorers"><xsl:with-param name="division">1</xsl:with-param></xsl:call-template>
+     </xsl:otherwise>
+     </xsl:choose>
 
-    <!-- Last SRM Begins --> 
-
-<xsl:call-template name="last_srm"/>
-
-    <!-- Last SRM Ends -->             
-
-            
-
-        <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
-
-        <TR>
-
-          <TD COLSPAN="3" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-
-        </TR>              
-
-        <TR>
-
-          <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="left" BACKGROUND=""><IMG SRC="/i/steelblue_top_left1.gif" ALT="" WIDTH="11" HEIGHT="26" BORDER="0"/></TD>
-
-          <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="75" ALIGN="left" BACKGROUND=""><IMG SRC="/i/steelblue_top_left2.gif" ALT="" WIDTH="75" HEIGHT="26" BORDER="0"/></TD>
-
-          <TD CLASS="bodyTextBold" VALIGN="middle" BGCOLOR="#FFFFFF" BACKGROUND=""><IMG SRC="/i/label_quick_stats_sm.gif" ALT="Quick Stats" WIDTH="104" HEIGHT="26" BORDER="0"/></TD>                              
-
-        </TR>
-
+            <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
+                 <TR> 
+                  <TD COLSPAN="3" BGCOLOR="#001935"><IMG SRC="/i/label_quick_stats_home.gif" ALT="Quick Stats" WIDTH="166" HEIGHT="17" BORDER="0"/></TD>
+                </TR>
+                 <TR> 
+                  <TD BGCOLOR="#FFFFFF" COLSPAN="3"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+                </TR>                
               <TR>
-
-                <TD CLASS="statText" VALIGN="top" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
-
+                <TD ROWSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>                
+                <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
+                <TD ROWSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>             
               </TR>              
-
               <TR>
-
-                <TD CLASS="statText" VALIGN="top" COLSPAN="3">Select a Quick Stat from the menu below.</TD>
-
+                <TD CLASS="statText" VALIGN="top">Select a Quick Stat from the menu below.</TD>
               </TR>
-
               <TR>
-
-                <TD CLASS="statText" VALIGN="top" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
-
+                <TD CLASS="statText" VALIGN="top"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
               </TR>                              
-
                <TR>
-
-                <TD CLASS="quickstatText" VALIGN="top" COLSPAN="3">
-
+                <TD CLASS="quickstatText" VALIGN="top">
     <!-- Quick Stat Pulldown Begins --> 
-
+    
 <xsl:call-template name="quick_stats_pulldown"/>
 
-    <!-- Quick Stat Pulldown Ends -->
-
                 </TD>
-
-              </TR>                 
-
-            </TABLE>  
-
-          </TD>
-
-          <TD VALIGN="top" WIDTH="10" BACKGROUND="/i/steel_darkblue_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-
-        </TR>
-
-      </TABLE>
-
-    <!-- Quick Stat Pulldown Begins --> 
-
-<xsl:call-template name="quick_stats_tidbit"/>
-
-    <!-- Quick Stat Pulldown Ends -->      
-
-  <!-- Featured Stats Ends -->
-
+              </TR>               
+            </TABLE><BR/>
+<!-- <A HREF="/?&amp;t=schedule&amp;c=2002sun_sched">
+<IMG SRC="/i/2002sn_winner.gif" ALT="SunNetwork Coding Challenge" WIDTH="244" HEIGHT="156" VSPACE="5" BORDER="0"/></A> -->           
+<A HREF="/stat?c=member_profile&amp;cr=302185">
+<IMG SRC="/i/codermonth_nov.gif" ALT="Coder of the Month" WIDTH="244" HEIGHT="156" VSPACE="10" BORDER="0"/></A>
     </TD>
-
-  </TR>
-
-  <TR>
-
-    <TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11" HEIGHT="200"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-
-    <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="2" VALIGN="top" BGCOLOR="#000033"><IMG SRC="/i/clear.gif" ALT="" WIDTH="105" HEIGHT="1" BORDER="0"/><BR/>
-
-    <!-- SRM Results Begins -->
-
-    
-
-<xsl:choose>
-
-  <xsl:when test="number(/TC/Rating)&lt;1200">
-
-     <xsl:call-template name="top_10_wins_div2"/>
-
-  </xsl:when>
-
-  <xsl:otherwise>
-
-     <xsl:call-template name="top_10_wins_div1"/>
-
-  </xsl:otherwise>
-
-</xsl:choose>     
-
-        
-
-    <!-- SRM Results Ends --> 
-
-    </TD>
-
-    <TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-
-  </TR>  
-
-  <TR>
-
-    <TD VALIGN="top" WIDTH="11" ALIGN="right" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-
-    <TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" BGCOLOR="#000033" WIDTH="14"><IMG SRC="/i/table_mid_left_blue_home.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-
-    <TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" BGCOLOR="#000033" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-
-    <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-
-  </TR>  
-
-</TABLE>
-
-  <!-- SRM Results Ends -->
-
-<!-- Coder of the Week Begins -->
-
-<xsl:call-template name="coder_week"/>
-
-<!-- Coder of the Week Ends -->         
-
-    </TD>
-
-  <!-- Center Column Ends -->
-
 <!-- Body Area Ends -->
-
   </TR>   
-
 </TABLE>
-
   </xsl:template>
-
 </xsl:stylesheet>
-

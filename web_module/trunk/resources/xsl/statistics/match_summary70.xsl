@@ -5,7 +5,7 @@
   <xsl:import href="../includes/body_top.xsl"/>  
   <xsl:import href="../foot.xsl"/>
   <xsl:import href="../includes/modules/stats_intro.xsl"/>  
-  <xsl:import href="../includes/stats/public_stats_left.xsl"/> 
+  <xsl:import href="../includes/global_left.xsl"/> 
   <xsl:import href="../includes/public_right_col.xsl"/>     
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
@@ -29,18 +29,18 @@
     <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
 <!-- Left Column Include Begins -->  
     <!-- Global Seconday Nav Begins -->        
-        <xsl:call-template name="public_stats_left"/>
+        <xsl:call-template name="global_left"/>
   <!-- Global Seconday Nav Ends -->      
 <!-- Left Column Include Ends -->              
       </TD>
   <!-- Left Column Ends -->
   <!-- Gutter Begins -->
-    <TD WIDTH="4" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8" BORDER="0"/></TD>
+    <TD WIDTH="4" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/table_top_fill.gif" WIDTH="4" HEIGHT="26" BORDER="0"/></TD>
     <!-- Gutter Ends -->
 
 <!-- Body Area -->
   <!-- Center Column Begins -->  
-    <TD CLASS="bodyText" WIDTH="100%" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="240" height="1" VSPACE="5" BORDER="0"/><BR/>
+    <TD CLASS="bodyText" WIDTH="100%" bgcolor="#FFFFFF" valign="top">
 <xsl:call-template name="BodyTop">
   <xsl:with-param name="image1">steelblue</xsl:with-param>
   <xsl:with-param name="image">statistics</xsl:with-param>
@@ -184,21 +184,20 @@ View the Top-10 Winners:<BR/>
   <!-- Center Column Ends -->
 <!-- Body Area Ends -->
 
-  <!-- Gutter -->
-    <TD WIDTH="4" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
+	<!-- Gutter -->
+		<TD WIDTH="4" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
     <!-- Gutter Ends -->
-  <!-- Right Column Begins -->
-    <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
-<!-- <A HREF="/index?t=schedule&amp;c=tourny_sched"><IMG SRC="/i/tournament/sun_small_banner2.gif" ALT="" WIDTH="170" HEIGHT="84" BORDER="0"/></A> -->
-<!-- Right Column Include Begins -->        
-        <xsl:call-template name="public_right_col"/>        
+	<!-- Right Column Begins -->
+		<TD WIDTH="170" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><br/>
+<!-- Right Column Include Begins --> 
+        <xsl:call-template name="public_right_col"/>       
 <!-- Right Column Include Ends -->        
         </TD>
-  <!-- Right Column Ends -->
-  <!-- Gutter -->
-    <TD WIDTH="25" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
+	<!-- Right Column Ends -->
+	<!-- Gutter -->
+		<TD WIDTH="10" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
     <!-- Gutter Ends -->
-  </TR>
+	</TR>
 </TABLE>
 <!-- Body Ends -->
         <xsl:call-template name="Foot"/>

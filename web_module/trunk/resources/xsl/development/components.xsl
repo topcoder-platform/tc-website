@@ -5,7 +5,7 @@
 	<xsl:import href="../includes/body_top.xsl" />  
 	<xsl:import href="../foot.xsl" />
 	<xsl:import href="../includes/modules/stats_intro.xsl" />  
-	<xsl:import href="../includes/dev/public_dev_left.xsl" /> 
+  <xsl:import href="../includes/global_left.xsl"/>  
 	<xsl:import href="../includes/dev/public_dev_right.xsl" />     
 	<xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN" />
 	<xsl:template match="/">
@@ -31,7 +31,7 @@
 	<tr valign="top">
 <!-- Left Column Begins -->
 		<td width="170" bgcolor="#CCCCCC">
-			<xsl:call-template name="public_dev_left" />
+			<xsl:call-template name="global_left"/>
 	  	</td>
 <!-- Left Column Ends -->
 
@@ -40,7 +40,7 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-            <td class="bodyText" width="100%" bgcolor="#CCCCCC"><img src="/i/clear.gif" width="240" height="1" alt="" vspace="5" border="0" /><br />
+            <td class="bodyText" width="100%" bgcolor="#CCCCCC">
 			<xsl:call-template name="BodyTop">
 			<xsl:with-param name="image1">steelblue</xsl:with-param>
 			<xsl:with-param name="image">development</xsl:with-param>
@@ -56,7 +56,7 @@
 	<!-- Featured Winner Begins -->
 				<tr valign="top">
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" class="statText" width="100%" colspan="4"><strong><img src="/i/development/title_weekly_comp_winners.gif" alt="This Week's Component Project Winners" width="346" height="26" border="0" /></strong><br />
+					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" class="statText" width="100%" colspan="4"><strong><img src="/i/development/title_weekly_comp_winners.gif" alt="This Week's Component Project Winners" width="346" height="26" border="0" /></strong><br/>
 						<span class="statTextSmall">Week Ending November 22, 2002</span></td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
@@ -213,7 +213,7 @@
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-		<td width="244" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="244" height="1" alt="" border="0" /><br />
+		<td width="244" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="244" height="1" alt="" border="0" /><br/>
 			<xsl:call-template name="public_dev_right" />        
         </td>
 <!-- Right Column Ends -->
