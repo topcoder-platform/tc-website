@@ -8,7 +8,7 @@
 <link type="text/css" rel="stylesheet" href="/css/screening.css" >
 </head>
 <body>
-<tc-webtag:useBean id="problemSets" name="<%=Constants.PROBLEM_SETS%>" class="java.util.ArrayList" scope="page" />
+<tc-webtag:useBean id="problemSets" name="<%=Constants.PROBLEM_SETS%>" type="java.util.ArrayList" scope="page" />
 
 <table class=bodyCenter cellspacing=0 cellpadding=0>
    <tr>

@@ -13,7 +13,7 @@ public class UseBeanTagInfo extends TagExtraInfo {
 
     public VariableInfo[] getVariableInfo(TagData data) {
 
-        String clazz= (String)data.getAttribute("class");
+        String clazz= (String)data.getAttribute("type");
 
         return new VariableInfo[] {
           new VariableInfo(data.getAttributeString("id"),

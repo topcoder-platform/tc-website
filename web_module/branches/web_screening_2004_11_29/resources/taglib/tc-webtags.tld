@@ -302,7 +302,7 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
-            <name>class</name>
+            <name>type</name>
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
