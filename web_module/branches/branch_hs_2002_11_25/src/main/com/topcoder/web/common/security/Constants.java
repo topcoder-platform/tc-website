@@ -27,7 +27,7 @@ public class Constants {
         Class c = Class.forName(cn);
         Field f = c.getField("EJB_REF_NAME");
         String ern = (String)f.get(null);
-        Object rh = context.lookup(ern);
+        Object rh = ctx.lookup(ern);
         Method m = rh.getClass().getMethod("create", null);
         return m.invoke(rh, null);
     }

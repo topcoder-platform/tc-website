@@ -3,6 +3,7 @@ package com.topcoder.web.common.security;
 import java.util.Hashtable;
 import javax.naming.*;
 import com.topcoder.security.TCSubject;
+import com.topcoder.security.admin.*;
 import com.topcoder.security.policy.*;
 import com.topcoder.shared.security.*;
 
