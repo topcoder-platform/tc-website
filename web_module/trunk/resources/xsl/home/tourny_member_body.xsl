@@ -401,6 +401,29 @@
 <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
   <TR> 
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
+    <TD VALIGN="top" WIDTH="4">
+
+      <xsl:choose>
+      <xsl:when test="/TC/InvitationalInfo/IsRegistered/is_registered='0'"> 
+        Not registered.
+        <xsl:when test="/TC/InvitationalInfo/IsEligible/is_eligible='0'"> 
+          Not Eligible. 
+        </xsl:when>
+        <xsl:otherwise>
+          Eligible.
+        </xsl:choose>
+        Registered. 
+      </xsl:otherwise>
+      </xsl:choose>
+
+
+
+
+    </TD> 
+    <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
+  </TR> 
+  <TR> 
+    <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" COLSPAN="3" CLASS="bodyText"><A CLASS="bodyGeneric">
         <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><B>Single Round Match 113</B></A><BR/>
 Tuesday, September 10, 2002<BR/><BR/> 
