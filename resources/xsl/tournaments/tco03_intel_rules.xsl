@@ -71,8 +71,9 @@
             <p><strong>TO ENTER</strong><br />
             If not already a member, register for Intel Developer Services electronically at 
             <A href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup" targget="_blank">https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup</A>.  
-            You must be a registered member of Intel Developer Services by, latest, October 9, 2003 at 6 p.m. PT to be included in this drawing.  Only 
-            one entry per person in each competition.</p>
+            You must be a registered member of Intel Developer Services by, latest, October 7, 2003 at 7 p.m. PT to be included in the first drawing.  You 
+            must be a registered member of Intel Developer Services by, latest, October 9, 2003 at 8 p.m. PT to be included in the second drawing. Only one 
+            entry per person in each competition.</p>
             
             <p>Intel is not responsible for entries not received due to lost, failed, delayed, or interrupted connection or miscommunications, or other 
             electronic malfunctions. Intel is not responsible for incorrect or inaccurate entry information, whether caused by persons entered at the 
