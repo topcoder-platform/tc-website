@@ -92,6 +92,7 @@ public class Login extends Base {
             getRequest().getSession().setAttribute(Constants.LANGUAGES, getLanguages(response));
 
             SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
+            log.debug("go to " + info.getServletPath() + " after login");
 
             //go to the default after login
             setNextPage(info.getServletPath());
