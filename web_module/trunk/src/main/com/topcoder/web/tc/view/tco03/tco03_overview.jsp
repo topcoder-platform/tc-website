@@ -44,18 +44,24 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-         <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br />
+         <td class="bodyText" WIDTH="100%">
 
             <div align="center">
                 <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br />
                 <img src="/i/promos/tco03/tco_home_comp_start_a.gif" alt="Component Competition starts Sept 2" width="540" height="165" border="0"/><br/>
-<!--                <A href="/index?t=development&amp;c=comp_projects" target="_top"><img src="/i/promos/tco03/tco_home_comp_start_b.gif" alt="Start submitting projects today" width="185" height="21" border="0" /></A><br/> -->
                 <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br />
             </div>
 
 <!-- Tab bar links-->
 <jsp:include page="tco03Links.jsp" >
-   <jsp:param name="selectedTab" value="overview"/>
+   <jsp:param name="selectedContest" value="coding"/>
+   <jsp:param name="selectedTab" value="coding_overview"/>
+</jsp:include>
+
+<!-- Tab bar sublinks-->
+<jsp:include page="tco03Sublinks.jsp" >
+   <jsp:param name="selectedList" value=""/>
+   <jsp:param name="selectedTab" value=""/>
 </jsp:include>
 
             <h2>Overview of the Coding Tournament</h2>
@@ -84,7 +90,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-         <td width="170">
+         <td width="180">
             <img src="/i/clear.gif" width="170" height="1" border="0"><br/>
          </td>
 <!-- Right Column Ends -->

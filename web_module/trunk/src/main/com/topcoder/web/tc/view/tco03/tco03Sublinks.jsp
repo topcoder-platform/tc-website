@@ -8,15 +8,15 @@
 %>
 
     <% if (list.equals("rules")) { %>
-            <table width="100%" border="0" cellspacing="0" cellpadding="2" class="crpfSubNav">
+            <table width="100%" border="0" cellspacing="0" cellpadding="2" class="tcoSubNav">
                 <tr>
-                    <td class="crpfSubNav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="<%=tab.equals("overview")?"crpfSubNav_on":"crpfSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_rules_overview" class="topLink">Overview</a></td>
-                    <td class="<%=tab.equals("eligibility")?"crpfSubNav_on":"crpfSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_rules_eligibility" class="topLink">Eligibility</a></td>
-                    <td class="<%=tab.equals("conditions")?"crpfSubNav_on":"crpfSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_rules_conditions" class="topLink">Conditions of Participation</a></td>
-                    <td class="<%=tab.equals("structure")?"crpfSubNav_on":"crpfSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_rules_structure" class="topLink">Structure</a></td>
-                    <td class="<%=tab.equals("prizes")?"crpfSubNav_on":"crpfSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_rules_prizes" class="topLink">Prizes</a></td>
-                    <td class="crpfSubNav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="tcoSubNav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="<%=tab.equals("overview")?"tcoSubNav_on":"tcoSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tco03&d2=tco03_rules_overview" class="topLink">Overview</a></td>
+                    <td class="<%=tab.equals("eligibility")?"tcoSubNav_on":"tcoSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tco03&d2=tco03_rules_overview" class="topLink">Eligibility</a></td>
+                    <td class="<%=tab.equals("conditions")?"tcoSubNav_on":"tcoSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tco03&d2=tco03_rules_overview" class="topLink">Conditions of Participation</a></td>
+                    <td class="<%=tab.equals("structure")?"tcoSubNav_on":"tcoSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tco03&d2=tco03_rules_overview" class="topLink">Structure</a></td>
+                    <td class="<%=tab.equals("prizes")?"tcoSubNav_on":"tcoSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tco03&d2=tco03_rules_overview" class="topLink">Prizes</a></td>
+                    <td class="tcoSubNav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
             </table>
             <table width="100%" border="0" cellpadding="0" cellspacing="0" class="bodyText">
@@ -24,7 +24,7 @@
             </table>
 
     <% } else { %>
-        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="crpfSubNav">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tcoSubNav">
             <tr><td width="100%"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
         </table>
     <% } %>
