@@ -448,7 +448,7 @@ public final class TaskDevelopment {
                             /*if (!isProjectLockedOut(componentId, version, phase, nav.getSessionInfo().getUserId()) ||
                                     isTournamentComponent(componentId, version, phase)) {*/
                              if(!isProjectRegClosed(Long.parseLong(request.getParameter("projectId")))) {
-                                if (!hasRegistered(componentId, version, phase, nav.getSessionInfo().getUserId())) {
+                                if (!hasRegistered(Long.parseLong(request.getParameter("projectId")), nav.getSessionInfo().getUserId())) {
 
                                     Context CONTEXT = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
 
@@ -718,13 +718,11 @@ public final class TaskDevelopment {
         return !rsc.isEmpty();
     }
 
-    static boolean hasRegistered(long componentId, long version, long phase, long userId) throws Exception {
+    static boolean hasRegistered(long projectId, long userId) throws Exception {
         DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
         Request r = new Request();
         r.setContentHandle("component_inquiry");
-        r.setProperty("cd", String.valueOf(componentId));
-        r.setProperty("vid", String.valueOf(version));
-        r.setProperty("ph", String.valueOf(phase));
+        r.setProperty("pj", String.valueOf(projectId));
         r.setProperty("uid", String.valueOf(userId));
         ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("component_inquiry");
         return !rsc.isEmpty();
