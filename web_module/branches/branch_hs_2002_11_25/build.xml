@@ -747,6 +747,16 @@
           <include name="*.xml"/>
         </fileset>
       </copy>
+      <copy todir="${tc_cluster}/${hs.war.name}/WEB-INF">
+        <fileset dir="${struts.dir}">
+          <include name="*.tld"/>
+        </fileset>
+      </copy>
+      <copy todir="${tc_cluster}/${hs.war.name}/WEB-INF/lib">
+        <fileset dir="${struts.dir}">
+          <include name="*.jar"/>
+        </fileset>
+      </copy>
       <copy todir="${tc_cluster}/${hs.war.name}/classes">
         <fileset dir="${classes}">
           <include name="com/topcoder/web/hs/**"/>
