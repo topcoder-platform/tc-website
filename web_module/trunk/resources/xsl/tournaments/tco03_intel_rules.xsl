@@ -52,7 +52,7 @@
                         <table border="0" cellpadding="0" cellspacing="0">
                             
                             	<tr valign="top">
-                                		<td valign="top" ><img src="/i/sponsor/intel_ids/IDS_TC_Rules-header.gif" width="510" height="115" /></td>
+                                		<td valign="top" ><img src="/i/sponsor/intel_ids/IDS_TC-Rules_header.gif" width="510" height="115" /></td>
                             	</tr>
                             	
                             	<tr>
