@@ -141,6 +141,7 @@ public class TCLoadRequests extends TCLoad {
 
         try {
             psSel = prepareStatement(REQUEST_LIST, SOURCE_DB);
+            psSel.setTimestamp(1, fLastWebLogTime);
 
             rs = psSel.executeQuery();
             URL url = null;
