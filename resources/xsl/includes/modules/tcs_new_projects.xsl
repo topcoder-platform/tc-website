@@ -23,8 +23,8 @@
 
 							<tr valign="top">
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=xxx">New Project 1</a></td>
-								<td background="" class="statText" align="center">xx.xx.2002</td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=spell_check">Spell Check</a></td>
+								<td background="" class="statText" align="center">12.04.2002</td>
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 							</tr>
 							
@@ -32,8 +32,8 @@
 
 							<tr valign="top">
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=xxx">New Project 2</a></td>
-								<td background="" class="statText" align="center">xx.xx.2002</td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=math_eval">Math Evaluator</a></td>
+								<td background="" class="statText" align="center">12.04.2002</td>
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 							</tr>
 
@@ -69,7 +69,7 @@
 							<tr valign="top">
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=timer_dev">Timer</a></td>
-								<td background="" class="statText" align="center">12.06.2002</td>
+								<td background="" class="statText" align="center">12.05.2002</td>
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 							</tr>
 							
@@ -77,8 +77,8 @@
 
 							<tr>
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=unit_test_gen_dev">Unit Test Generator</a></td>
-								<td background="" class="statText" align="center">12.06.2002</td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=utg_dev">Unit Test Generator</a></td>
+								<td background="" class="statText" align="center">12.05.2002</td>
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 							</tr>
 
