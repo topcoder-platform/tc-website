@@ -7,7 +7,7 @@
     <body>
         <table>
             <tr>
-                <td>Index</td>
+                <td>Problem</td>
             </tr>
         </table>
     </body>
