@@ -14,12 +14,12 @@ public class JobSelect
 {
     String getOptionValue(Object o)
     {
-        return ""+((Job)o).getJobId();
+        return ""+((JobType)o).getJobTypeId();
     } 
 
     String getOptionText(Object o)
     {
-        return ((Job)o).getJobDesc();
+        return ((JobType)o).getJobTypeDesc();
     }
     
     ArrayList getSelectOptions()
@@ -32,7 +32,7 @@ public class JobSelect
             context = TCContext.getInitial();
             DataCacheHome dataCacheHome = (DataCacheHome) context.lookup(ApplicationServer.DATA_CACHE);
             DataCache dataCache = dataCacheHome.create();
-            jobs = dataCache.getJobs();
+            jobs = dataCache.getJobTypes();
         }
         catch (Exception e)
         {

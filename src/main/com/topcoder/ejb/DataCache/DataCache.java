@@ -74,9 +74,9 @@ public interface DataCache extends EJBObject {
 
   public void resetSkillTypes() throws TCException, RemoteException;
 
-  public ArrayList getJobs() throws TCException, RemoteException;
+  public ArrayList getJobTypes() throws TCException, RemoteException;
 
-  public void resetJobs() throws TCException, RemoteException;
+  public void resetJobTypes() throws TCException, RemoteException;
 
   public ArrayList getEditors() throws TCException, RemoteException;
 

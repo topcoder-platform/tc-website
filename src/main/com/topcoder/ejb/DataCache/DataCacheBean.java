@@ -32,7 +32,7 @@ public class DataCacheBean extends BaseEJB {
   private static ArrayList experienceTypes;
   private static ArrayList languages;
   private static ArrayList referralTypes;
-  private static ArrayList jobs;
+  private static ArrayList jobTypes;
   private static ArrayList editorTypes;
   private static ArrayList newsItems;
   private static ArrayList schools;
@@ -58,7 +58,7 @@ public class DataCacheBean extends BaseEJB {
   private static boolean experienceTypesCached;
   private static boolean languagesCached;
   private static boolean referralTypesCached;
-  private static boolean jobsCached;
+  private static boolean jobTypesCached;
   private static boolean editorTypesCached;
   private static boolean newsItemsCached;
   private static boolean contestNavsCached;
@@ -276,7 +276,7 @@ public class DataCacheBean extends BaseEJB {
       this.languagesCached = false;
       this.degreeLevelsCached = false;
       this.referralTypesCached = false;
-      this.jobsCached = false;
+      this.jobTypesCached = false;
       this.editorTypesCached = false;
       this.contestNavsCached = false;
       this.contestsCached = false;
@@ -449,11 +449,11 @@ public class DataCacheBean extends BaseEJB {
 
 
   /////////////////////////////////////////////////////////////////
-  public void resetJobs() throws TCException {
+  public void resetJobTypes() throws TCException {
   /////////////////////////////////////////////////////////////////
-    log.debug( "EJB DataCacheBean resetJobs called.");
+    log.debug( "EJB DataCacheBean resetJobTypes called.");
     synchronized (this) {
-      this.jobsCached = false;
+      this.jobTypesCached = false;
     }
   }
 
@@ -1681,23 +1681,23 @@ public class DataCacheBean extends BaseEJB {
 
 
   //////////////////////////////////////////////////////////////////
-  public ArrayList getJobs() throws TCException {
+  public ArrayList getJobTypes() throws TCException {
   //////////////////////////////////////////////////////////////////
-    log.debug( "ejb.DataCacheBean:getJobs:called." );
-    if ( !this.jobsCached ) {
+    log.debug( "ejb.DataCacheBean:getJobTypes:called." );
+    if ( !this.jobTypesCached ) {
       synchronized (this) {
-        this.jobs = popJobs();
-        this.jobsCached = true;
+        this.jobTypes = popJobTypes();
+        this.jobTypesCached = true;
       }
     }
-    return this.jobs;
+    return this.jobTypes;
   }
 
 
   //////////////////////////////////////////////////////////////////
-  private ArrayList popJobs() throws TCException {
+  private ArrayList popJobTypes() throws TCException {
   //////////////////////////////////////////////////////////////////
-    log.debug("ejb.DataCacheBean:popJobs:called." );
+    log.debug("ejb.DataCacheBean:popJobTypes:called." );
     Connection conn      = null;
     PreparedStatement ps = null;
     ResultSet rs         = null;
@@ -1705,23 +1705,23 @@ public class DataCacheBean extends BaseEJB {
     String query = null;
     try {
       conn = DBMS.getConnection();
-      query = "SELECT job_id, job_desc FROM job ORDER BY job_desc";
+      query = "SELECT job_type_id, job_type_desc FROM job_type_lu ORDER BY job_type_desc";
       ps           = conn.prepareStatement ( query );
       rs           = ps.executeQuery();
       while ( rs.next() ) {
-        Job job = new Job();
-        job.setJobId   ( rs.getInt(1)    );
-        job.setJobDesc ( rs.getString(2) );
+        JobType job = new JobType();
+        job.setJobTypeId   ( rs.getInt(1)    );
+        job.setJobTypeDesc ( rs.getString(2) );
         result.add ( job );
       }
       if ( result != null ) result.trimToSize();
     } catch (SQLException sqe) {
       DBMS.printSqlException(true, sqe);
-      throw new TCException( "ejb.DataCache.DataCacheBean:popJobs: ERROR \n "+sqe.getMessage() );
+      throw new TCException( "ejb.DataCache.DataCacheBean:popJobTypes: ERROR \n "+sqe.getMessage() );
     } catch ( Exception e ) {
       e.printStackTrace();
       throw new TCException (
-        "ejb.DatCacheBean:popJobs:ERROR:"+e.getMessage()
+        "ejb.DatCacheBean:popJobTypes:ERROR:"+e.getMessage()
       );
     } finally {
       if ( rs != null   ) { try { rs.close();   } catch (Exception ignore) {} }
