@@ -62,6 +62,20 @@
             </table>
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+            
+<!--  Intel Sponsor TCO04 -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_08_18_04"><img src="/i/pressroom/intel.gif" alt="" width="135" height="35" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_08_18_04">Intel Corporation Sponsors 2004 TopCoder Open Tournament</A></strong></font><br />
+                          "We are pleased to participate as a sponsor of the 2004 TopCoder Open, which is recognized as one of the pre-eminent events of its kind in the world," said Melissa Laird, general manager, Solutions Enabling Division, Intel Corporation. "We look forward to an exciting tournament and the interaction with an exceptional field of contestants."<span class="prHead"> [August 18]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
 
 <!--  RedHerring -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
