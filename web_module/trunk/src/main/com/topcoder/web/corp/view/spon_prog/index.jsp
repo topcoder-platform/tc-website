@@ -82,7 +82,7 @@
  
                         <ul>
                             <span class="listSubtitle"><a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_index">Tournaments</a></span><br>
-                            <li>Held biennially</li>
+                            <li>Held biannially</li>
                             <li>Title, Corporate and Associate Sponsorships are available</li>
                             <li>Online and onsite over an eight-week period</li>
                             <li>Sponsors promoted on TC website, arena applet, opt-in email, and onsite</li>
