@@ -109,11 +109,11 @@ abstract public class ContractingBase extends BaseProcessor {
             }
             
             //lookup two checkboxs, have to hardcode due to HTML limiations
-            if(getRequestParameter(Constants.PREFERENCE_CONTRACTING) == null) {
+            if(getRequestParameter(Constants.PREFERENCE_PREFIX + Constants.PREFERENCE_CONTRACTING) == null) {
                 info.setPreference(Constants.PREFERENCE_CONTRACTING, Constants.PREFERENCE_CONTRACTING_FALSE);
             }
             
-            if(getRequestParameter(Constants.PREFERENCE_PERMANENT) == null) {
+            if(getRequestParameter(Constants.PREFERENCE_PREFIX + Constants.PREFERENCE_PERMANENT) == null) {
                 info.setPreference(Constants.PREFERENCE_PERMANENT, Constants.PREFERENCE_PERMANENT_FALSE);
             }
             
