@@ -8,7 +8,7 @@ import javax.rmi.*;
 
 public abstract class EJBTestCase extends TestCase {
 
-  private final static String IP="65.112.118.210"; //inside: 172.16.20.41
+  private final static String IP= "172.16.20.41"; //outside: 65.112.118.210  inside: 172.16.20.41
 
   private final static int PORT=8050;
 
