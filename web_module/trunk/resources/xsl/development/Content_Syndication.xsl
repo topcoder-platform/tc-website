@@ -90,7 +90,7 @@
                                                         The goal of this system will be to automate as much of the content syndication project 
                                                         as possible.  Automating this project will remove the majority of the manual intervention 
                                                         needed to distribute content.  Users will select content for syndication through an 
-                                                        interactive front end for “ordering” content.  The selected content will then be converted 
+                                                        interactive front end for &quot;ordering&quot; content.  The selected content will then be converted 
                                                         to the customer specific XML format and transported using the a Content Syndication server.
                                                         Additionally, reporting and historical tracking will be built into the system.  Users will 
                                                         be able to track who has been sent what content and when the content was sent.  
