@@ -82,14 +82,14 @@
                            <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
 
                             <tr valign="middle">
-                                <td nowrap class="loginText" align="right">User Name:</td>
+                                <td nowrap class="bodyText" align="right">User Name:</td>
                                 <td colspan="2" align="left"><input type="text" name="<%=Login.USER_NAME%>" value="<%= username %>" maxlength="15" size="12" onkeypress="submitEnter(event,document.frmLogin)"></td>
                             </tr>
 
                             <tr valign="middle">
-                                <td nowrap class="loginText" align="right">Password:</td>
+                                <td nowrap class="bodyText" align="right">Password:</td>
                                 <td align="left"><input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event,document.frmLogin)"></td>
-                                <td nowrap class="loginText">&#160;&#160;<a href="JavaScript:document.frmLogin.submit()" class="loginText">Login&#160;&gt;</a></td>
+                                <td nowrap class="bodyText">&#160;&#160;<a href="JavaScript:document.frmLogin.submit()" class="loginText">Login&#160;&gt;</a></td>
                             </tr>
 
                            <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
