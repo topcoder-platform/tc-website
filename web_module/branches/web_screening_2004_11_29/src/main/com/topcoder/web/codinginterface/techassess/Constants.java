@@ -33,6 +33,7 @@ public class Constants implements CodingInterfaceConstants {
     public static String PAGE_PROBLEM_STATEMENT;
     public static String PAGE_SUBMIT_CONFIRM;
     public static String PAGE_TEST;
+    public static String PAGE_TEST_RESULT;
 
     //parameters
     public static String COMPANY_ID;
