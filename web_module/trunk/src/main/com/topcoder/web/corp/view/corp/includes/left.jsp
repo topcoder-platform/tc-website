@@ -130,16 +130,6 @@
             
             </table>
 
-<!-- TopCoder Info begins -->
-            <table width="180" cellspacing="0" cellpadding="0" border="0">
-                <tr><td id="leftNavTitle">TopCoder Info:</td></tr>
-                <tr><td id="leftNav"><a href="http://<%=ApplicationServer.SERVER_NAME%>/?t=about_tc&c=index" class="left"><img src="/i/corp/nav_arrow_right.gif" width="10" height="10" alt="" border="0">About TopCoder</a></td></tr>
-                <tr><td id="leftNav"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?d1=review_board&d2=competition" class="left"><img src="/i/corp/nav_arrow_right.gif" width="10" height="10" alt="" border="0"/>Review Boards</a></td></tr>
-                <tr><td id="leftNav"><a href="http://<%=ApplicationServer.SERVER_NAME%>/?t=news_events&c=index" class="left"><img src="/i/corp/nav_arrow_right.gif" width="10" height="10" alt="" border="0">Press Room</a></td></tr>
-                <tr><td id="leftNav"><a href="http://<%=ApplicationServer.SERVER_NAME%>/?t=contacts&c=index" class="left"><img src="/i/corp/nav_arrow_right.gif" width="10" height="10" alt="" border="0">Contact Us</a></td></tr>
-            </table>
-<!-- TopCoder Info ends -->
-
             <img src="/i/corp/left_nav_btm.gif" width="180" height="23" border="0" alt=""><br><br>
             
             <div align="center"><img src="/i/corp/logo_ghosted_bracket.gif" width="160" height="77" border="0" alt="[ TopCoder ]" vspace="10" /><br><br></center>
