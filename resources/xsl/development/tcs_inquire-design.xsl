@@ -209,7 +209,7 @@ submissions@topcodersoftware.com</a>.
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-        <td width="244" bgcolor="#001B35">
+        <td width="244" bgcolor="#ffffff">
             <xsl:call-template name="public_dev_right" />        
         </td>
 <!-- Right Column Ends -->
