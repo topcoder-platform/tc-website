@@ -22,6 +22,7 @@ public class Constants {
 
     //pages
     public static String PAGE_INDEX;
+    public static String PAGE_LOGIN;
 
     //parameters
     public static String HANDLE;
