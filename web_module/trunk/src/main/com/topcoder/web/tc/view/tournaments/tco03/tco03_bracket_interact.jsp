@@ -74,11 +74,13 @@ else if (navigator.userAgent && navigator.userAgent.indexOf("MSIE")>=0
             
             <table width="510" align="center" border="0" cellpadding="0" cellspacing="0">
                <tr>
-                  <td width = "100%" align = "center"> 
+                  <td width = "100%" align = "center" class="bodyText">
 
 <SCRIPT language="JavaScript">
                 <!--
+                
 if ( MM_FlashCanPlay ) {
+       document.write('<p>Click the names within the bracket to see competitor statistics.</p>');
        document.write('<OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"');
 	document.write('  codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" ');
 	document.write(' ID="bracket" WIDTH="510" HEIGHT="450" ALIGN="top">');
@@ -98,6 +100,7 @@ if ( MM_FlashCanPlay ) {
        }
 // -->
 </SCRIPT>
+                  <p>Note: The onsite competitors may change due to travel restrictions.</p>
 
                         </td>
                    </tr>
