@@ -58,6 +58,8 @@ public class ModifyCommandTask extends BaseTask implements Task, Serializable {
         c.setDataSource(getDb());
         cg.setDataSource(getDb());
 
+        setGroups(cg.getAllCommandGroups());
+
         if (step!=null && step.equals(Constants.SAVE_STEP)) {
             checkCommandDesc(getCommandDesc());
             checkGroupId(getGroupId(), cg);
