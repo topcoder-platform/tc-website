@@ -10,7 +10,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <HTML>
 <HEAD>
-<TITLE>TopCoder - Portal</TITLE>
+<TITLE>TopCoder Corporate</TITLE>
 <script language="JavaScript" src="<%=request.getContextPath()%>/script.js"></script>
 <%--
 <script TYPE="text/javascript">

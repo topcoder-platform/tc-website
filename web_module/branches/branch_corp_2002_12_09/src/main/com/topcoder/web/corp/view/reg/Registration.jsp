@@ -10,7 +10,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
 <HEAD>
-<TITLE>TopCoder - Portal</TITLE>
+<TITLE>TopCoder Corporate</TITLE>
 <script language="JavaScript" src="<%=request.getContextPath()%>/script.js"></script>
 </HEAD>
 
