@@ -112,7 +112,7 @@
       <!-- Right Column Begins -->
       <TD WIDTH="10" bgcolor="#001935" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"><BR>
         <!-- Right Column Include Begins -->
-        <!-- <%@ include file="right.jsp" %> -->
+        <%@ include file="right.jsp" %>
         <!--include virtual="/includes/public_right_col.shtml"-->
         <!-- Right Column Include Ends -->
       </TD>

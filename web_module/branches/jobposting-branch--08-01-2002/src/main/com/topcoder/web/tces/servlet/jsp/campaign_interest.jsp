@@ -46,7 +46,7 @@
         <jsp:include page="/body_top.jsp" >  
            <jsp:param name="image" value="tces"/>  
            <jsp:param name="image1" value="steelblue"/>  
-           <jsp:param name="title" value="<jsp:getProperty name="CampaignInterestTask" property="CompanyName"/>"/>  
+           <jsp:param name="title" value="<%=CampaignInterestTask.getCompanyName()%>"/>  
         </jsp:include><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"><BR>
         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
           <TR>
@@ -55,9 +55,9 @@
               <P><B>Position Interest</B></P>
               
               <P>
-              <B><jsp:getProperty name="CampaignInterestTask" property="CampaignName"/></B><BR>
+              <B><%=CampaignInterestTask.getCampaignName()></B><BR>
               Status: <B>Active</B><BR>
-              <a href="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.DEMOGRAPHIC_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>" class="statText">View collective demographic info</A><BR>
+              <a href="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.DEMOGRAPHIC_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CampaignInterestTask.getCampaignID()%>" class="statText">View collective demographic info</A><BR>
               </P>
               <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">               
                 <TR>

@@ -42,6 +42,7 @@ public class CampaignInterestTask extends BaseTask implements Task, Serializable
     }
 
     public void setCampaignName( String campaignName ) {
+log.debug("Setting CampaignName = "+campaignName);
         this.campaignName = campaignName;
     }
 
@@ -50,6 +51,7 @@ public class CampaignInterestTask extends BaseTask implements Task, Serializable
     }
 
     public void setCampaignStatus( String campaignStatus ) {
+log.debug("Setting CampaignStatus = "+campaignStatus);
         this.campaignStatus = campaignStatus;
     }
 
@@ -66,6 +68,7 @@ public class CampaignInterestTask extends BaseTask implements Task, Serializable
     }
 
     public int getCampaignID() {
+log.debug("Setting CampaignID = "+Integer.toString(campaignID));
         return campaignID;
     }
 
@@ -74,6 +77,7 @@ public class CampaignInterestTask extends BaseTask implements Task, Serializable
     }
 
     public String getCompanyName() {
+log.debug("Setting Companyname = "+companyName);
         return companyName;
     }
 
