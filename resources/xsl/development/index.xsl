@@ -71,7 +71,7 @@ Project: <A HREF="/index?t=development&amp;c=admin_cmd" CLASS="statTextBig">Admi
 Start Date: May 9, 2002<BR/>
 End Date: June 20, 2002<BR/>
 Member Selection: <b>Open</b><BR/>
-Inquiry Deadline: May 7, 2002 12:00 PM EDT<BR/>
+Inquiry Deadline: May 8, 2002 12:00 PM EDT<BR/>
 </P>
 
 <P>
