@@ -422,16 +422,12 @@ public class UserEdit extends BaseProcessor {
         try {
             PrincipalMgrRemote mgr = Util.getPrincipalManager();
 
-            try {
                 success = false;
-                mgr.getUser(userName);
-                addError(
-                        KEY_LOGIN, "Please enter another user name."
-                );
-            } catch (NoSuchUserException nsue) {
-                // it is fine - handle seem to be free yet
-                success = true;
-            }
+                if (userExists(userName)) {
+                    addError(KEY_LOGIN, "Please enter another user name.");
+                } else {
+                    success = true;
+                }
         } catch (RemoteException re) {
             techProblems = true;
             log.error("RemoteException - user registration process");
@@ -448,6 +444,9 @@ public class UserEdit extends BaseProcessor {
             techProblems = true;
             log.error("GeneralSecurityException - user registration process");
             gse.printStackTrace();
+        } catch (Exception e) {
+            techProblems = true;
+            e.printStackTrace();
         } finally {
             if (techProblems) {
                 addError(
@@ -458,6 +457,19 @@ public class UserEdit extends BaseProcessor {
             }
         }
         return success;
+    }
+
+    protected boolean userExists(String handle) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("user exists");
+        r.setProperty("hn", handle);
+
+        InitialContext ic = TCContext.getInitial();
+        DataAccessInt dai = new DataAccess((DataSource) ic.lookup(DBMS.CORP_OLTP_DATASOURCE_NAME));
+
+        ResultSetContainer rsc = (ResultSetContainer)dai.getData(r).get("user exists");
+        return !rsc.isEmpty();
+
     }
 
     /**
