@@ -73,6 +73,8 @@ public class TCESConstants {
     public static String STEP_PARAM = null;
     public static String SORT_PARAM = null;
     public static String SORT_ORDER_PARAM = null;
+    public static String BACK_SORT_PARAM = null;
+    public static String BACK_SORT_ORDER_PARAM = null;
     public static String USER_ID_PARAM = null;
     public static String HANDLE_PARAM = null;
     public static String PASSWORD_PARAM = null;
@@ -202,6 +204,8 @@ public class TCESConstants {
         STEP_PARAM = bundle.getProperty("step_param", "");
         SORT_PARAM = bundle.getProperty("sort_param", "");
         SORT_ORDER_PARAM = bundle.getProperty("sort_order_param", "");
+        BACK_SORT_PARAM = bundle.getProperty("back_sort_param", "");
+        BACK_SORT_ORDER_PARAM = bundle.getProperty("back_sort_order_param", "");
         USER_ID_PARAM = bundle.getProperty("user_id_param", "");
         HANDLE_PARAM = bundle.getProperty("handle_param", "");
         PASSWORD_PARAM = bundle.getProperty("password_param", "");

@@ -1302,7 +1302,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      * @param ascending whether to sort the data in ascending or descending order.
      * @param backAscending whether to sort the data in ascending or descending order.
      */
-    public void sortByColumn(String sCol, String sBackCol, boolean ascending, backAscending) {
+    public void sortByColumn(String sCol, String sBackCol, boolean ascending, boolean backAscending) {
         if (!isValidColumn(sCol))
             throw new IllegalArgumentException("Column name " + sCol + " is not valid");
         if (!isValidColumn(sBackCol))
