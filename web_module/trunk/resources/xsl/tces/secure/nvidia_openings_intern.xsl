@@ -80,19 +80,13 @@
                 </UL></P>
             
                 <P>All positions are for New College Graduate &#40;NCG&#41;, Internship, and Co-op opportunities, unless otherwise indicated:</P>
-                
-                
-<P><BR/></P>
-
-
-
-<TABLE WIDTH="100%" CELLPADDING="5" CELLSPACING="5" BORDER="0">
+ <TABLE WIDTH="100%" CELLPADDING="5" CELLSPACING="5" BORDER="0">
    <TR>
       <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_softeng01&amp;a=secure" CLASS="bodyText">SOFTWARE ENGINEER</A></B><BR/><BR/>
                             <B><A HREF="/?&amp;t=tces&amp;c=nvidia_syssofteng01&amp;a=secure" CLASS="bodyText">GRAPHICS ARCHITECTURE ENGINEER</A></B><BR/><BR/>
                             <B><A HREF="/?&amp;t=tces&amp;c=nvidia_syssofteng01&amp;a=secure" CLASS="bodyText">3D GRAPHICS APPLICATION SOFTWARE ENGINEER</A></B><BR/><BR/>
-                            <B><A HREF="/?&amp;t=tces&amp;c=nvidia_syssofteng01&amp;a=secure" CLASS="bodyText">CAD ENGINEER&#42; </A></B><BR/><BR/>
+                            <B><A HREF="/?&amp;t=tces&amp;c=nvidia_syssofteng01&amp;a=secure" CLASS="bodyText">CAD ENGINEER&#42; </A></B><BR/>&#42; Intern&#47; Co-op Position Only<BR/>
          <!--<B><A HREF="/?&amp;t=tces&amp;c=nvidia_diageng&amp;a=secure" CLASS="bodyText">DIAGNOSTIC ENGINEER</A></B><BR/>
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_peranaeng_intern&amp;a=secure" CLASS="bodyText">PERFORMANCE ANALYSIS ENGINEER INTERN/CO-OP</A></B><BR/>
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_videobioseng&amp;a=secure" CLASS="bodyText">VIDEO BIOS ENGINEER</A></B><BR/>
@@ -128,10 +122,7 @@
   </TR>
 </TABLE>
 <!--end contextual links-->
-          
-          <P><BR/></P>
-          <P>&#42; Intern&#47; Co-op Position Only</P>
-                <P>As an New College Grad at NVIDIA, your career starts faster than the speed of light!  You will be working side by side with some of the world's best engineers, 
+          <P>As an New College Grad at NVIDIA, your career starts faster than the speed of light!  You will be working side by side with some of the world's best engineers, 
                 and you will have an opportunity of a lifetime to make your mark in history.  Where your career will go...only you can tell!</P>
 
                 <P>As an intern&#47; co-op at NVIDIA, you will be empowered to show what you can do.  You are a valuable member of our team and play a critical role in the development 
