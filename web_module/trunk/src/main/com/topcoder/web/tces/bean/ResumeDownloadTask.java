@@ -36,17 +36,6 @@ public class ResumeDownloadTask extends BaseTask {
     public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
             throws Exception {
 
-        /* User authorization checking */
-        SessionPersistor persistor = new SessionPersistor(request.getSession(true));
-        WebAuthentication authToken = new BasicAuthentication(persistor, request, response);
-
-        if (authToken.getUser().isAnonymous()) {
-            log.debug("User not logged in, can't download a file.");
-            throw new TCESAuthenticationException("User not logged in, can't download a file.");
-        } else {
-            userId = (int)authToken.getUser().getId();
-        }
-
 
         Request oltpDataRequest = new Request();
         oltpDataRequest.setContentHandle("tces_verify_member_access");
