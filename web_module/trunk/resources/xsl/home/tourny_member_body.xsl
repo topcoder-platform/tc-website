@@ -383,6 +383,80 @@
 </TABLE> 
 
     <!-- My Stats Ends --> 
+<!-- Invitational block -->    
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%"> 
+  <TR>
+    <TD VALIGN="top" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+  </TR> 
+  <TR>
+    <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" HSPACE="6" BORDER="0"/></TD>
+    <TD CLASS="bodyText" VALIGN="top" NOWRAP="0"><A HREF="/index?t=schedule&amp;c=invit02_sched"><IMG SRC="/i/invit02_logow.gif" ALT="" WIDTH="155" HEIGHT="105" HSPACE="6" ALIGN="left" BORDER="0"/></A><BR/>
+<B>When:</B> October 8th - November 23rd<BR/>
+<B>Where:</B> Mohegan Sun Casino in Uncasville, CT<BR/>
+<B>Total Prize:</B> $150,000<BR/><BR/>
+<!--
+<A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=authentication&amp;c=login</xsl:attribute>Login</A> to sign up!<BR/>
+<A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=invit02_sched</xsl:attribute>Get more details!</A><BR/>-->
+    </TD>
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+  </TR>
+  <TR>  
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+    <TD CLASS="bodyText" VALIGN="top" WIDTH="100%" BGCOLOR="#CCCCCC">
+<!-- tourney links -->    
+	<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="1">
+      <TR>
+        <TD COLSPAN="3" ALIGN="center" VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif">&#160;&#160;INVITATIONAL FEATURES</TD>
+      </TR>                    						
+	  <TR>
+		<!-- <TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" >
+			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='tourny_spons'">orangebv_bg</xsl:when><xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
+		<A HREF="/index?t=schedule&amp;c=tourny_spons" CLASS="statTextBig">Sponsor</A></TD> -->
+		<TD WIDTH="33%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
+			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='invit02_pt1'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_pt2'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rnd2'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rnd3'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rnd4'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_semi'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_champ'">orangebv_bg</xsl:when>
+			<xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>		
+		<A HREF="/index?t=schedule&amp;c=tourney_advancers&amp;rds=4325" CLASS="statTextBig">Round Updates</A></TD>
+		<TD WIDTH="33%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
+			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='invit02_sched'">orangebv_bg</xsl:when><xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>		
+		<A HREF="/index?t=schedule&amp;c=invit02_sched" CLASS="statTextBig">Schedule</A></TD>
+		<TD WIDTH="33%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig">
+			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='tourny_rules_overview'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rules_overview'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rules_scoring'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rules_conditions'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rules_prizes'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rules_onsite'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rules_structure'">orangebv_bg</xsl:when>
+			<xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>	
+		<A HREF="/index?t=schedule&amp;c=invit02_rules_overview" CLASS="statTextBig">Rules</A></TD>
+		<!-- <TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
+			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='nopage'">orangebv_bg</xsl:when><xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>		
+		<A HREF="/TourneyReg?&amp;cd=4320&amp;rd=4320" CLASS="statTextBig">Sign Up</A></TD>	-->	
+	  </TR>
+    </TABLE>
+<!-- tourney links end -->     
+<!-- <B>Update:</B><BR/>
+The assignments for the first round of the tournament are now available.  Each part lists the assigned members alphabetically by handle.<BR/><BR/> -->
+<!-- <B>View Online Round #1</B>:<BR/>Part 1<A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=tourney_advancers&amp;rds=4324</xsl:attribute> - Advancers</A>  |    
+Part 2<A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=tourney_advancers&amp;rds=4325</xsl:attribute> - Advancers</A><BR/><BR/> -->
+    </TD>    
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+  </TR>    
+  <TR>
+    <TD VALIGN="top" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
+  </TR>  
+  <TR>  
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" WIDTH="100%" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+  </TR>    
+</TABLE>
 
 <!-- Summary/Best/Worst Begins -->         
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
@@ -395,8 +469,8 @@
   <TR> 
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" COLSPAN="3" CLASS="bodyText"><A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><B>Single Round Match 116</B></A><BR/>
-Tuesday, October 15, 2002<BR/><BR/> 
+        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><B>2002 TopCoder Invitational Round 2</B></A><BR/>
+Wednesday, October 16, 2002<BR/><BR/> 
     </TD>    
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
   </TR>
@@ -514,8 +588,9 @@ was <B>ZorbaThut</B>, who was able to hit his target, barely making it with a po
 <IMG USEMAP="#ge_home" SRC="/i/es/ge/ge_home.gif" alt="" width="244" height="160" border="0"/>  
   <BR/>
 <map name="ge_home">
-<area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?&amp;c=last_match"/>
-<!-- <area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/?ContestId=4330&amp;t=schedule&amp;c=srm"/> -->
+<area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?c=round_stats&amp;rd=4330"/>
+<!-- <area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?&amp;c=last_match"/>
+<area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/?ContestId=4330&amp;t=schedule&amp;c=srm"/> -->
 <area alt="" shape="poly" coords="225,88,124,89,106,77,8,77,9,31,230,30" href="/?&amp;t=tces&amp;c=ge"/>
 </map>
 
