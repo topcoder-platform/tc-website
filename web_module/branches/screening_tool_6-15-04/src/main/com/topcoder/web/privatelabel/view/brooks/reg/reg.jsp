@@ -24,15 +24,21 @@
 		<td>
 			<table cellspacing="0" cellpadding="0" border="0" width="100%"> 
 				<tr> 
-					<td class=brLeftCol valign="top"><a href="/pl/?&module=Static&d1=brooks&d2=overview"><img src="/i/events/brooks/overview.gif" alt="" width="146" height="19" border="0"></a></td> 
+<%--
+                    <td class=brLeftCol valign="top"><a href="/pl/?&module=Static&d1=brooks&d2=overview"><img src="/i/events/brooks/overview.gif" alt="" width="146" height="19" border="0"></a></td> 
+--%>
 					<td width="100%" valign="top">
-					    <p class="brBody"><span class="brBodyTitle">Registration</span><br/><br/>
-						</p>
 						<form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.BROOKS_REG_DEMOG%>"/>
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
             <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="EventId"/>"/>
                         <table width="100%" cellpadding="0" cellspacing="3" border="0" >
+                            <tr>
+                                <td class="brBodyTitle" align=right>Registration
+                                </td>
+                                <td class="brBodyTitle" align=right nowrap=nowrap><A href="/pl/?&module=Static&d1=brooks&d2=overview" class="brBodyTitle">Back to Overview</A>
+                                </td>
+                           </tr>
                         <tr>
                             <td class="brErrorText" colspan="2">
                                 <tc-webtag:errorIterator id="err" name="<%=Constants.FIRST_NAME%>"><%=err%><br/></tc-webtag:errorIterator>

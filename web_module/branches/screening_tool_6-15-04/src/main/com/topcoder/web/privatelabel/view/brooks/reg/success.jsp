@@ -19,11 +19,19 @@
 		<td>
 			<table cellspacing="0" cellpadding="0" border="0" width="100%"> 
 				<tr> 
-					<td class=brLeftCol valign="top"><a href="/pl/?&module=Static&d1=brooks&d2=overview"><img src="/i/events/brooks/overview.gif" alt="" width="146" height="19" border="0"></a></td> 
+<%--
+                    <td class=brLeftCol valign="top"><a href="/pl/?&module=Static&d1=brooks&d2=overview"><img src="/i/events/brooks/overview.gif" alt="" width="146" height="19" border="0"></a></td> 
+--%>
 					<td width="100%" valign="top">
-					    <p class="brBody"><span class="brBodyTitle">Registration</span><br/><br/>
-						Thank you for registering.  Put some link to something <a class=brBody href="/">here</a>
-						</p>
+                            <tr>
+                                <td class="brBodyTitle" align=right>Registration
+                                </td>
+                                <td class="brBodyTitle" align=right nowrap=nowrap><A href="/pl/?&module=Static&d1=brooks&d2=overview" class="brBodyTitle">Back to Overview</A>
+                                </td>
+                           </tr>
+                           <tr>
+                                <td class="brBody" colspan=2 align=center>Thank you for registering!</td>
+                            </tr>
 
 						<p><br/></p>
 					</td> 
