@@ -91,7 +91,11 @@ public class MainTask extends BaseTask implements Task, Serializable {
 
         ResultSetContainer.ResultSetRow rRow = rsc.getRow(0);
 
-        setCompanyName( TCData.getTCString(rRow, "company_name") );
+String str= TCData.getTCString(rRow, "company_name");
+log.debug(str);
+setCompanyName(str);
+
+//        setCompanyName( TCData.getTCString(rRow, "company_name") );
 
         setNextPage(TCESConstants.JSP_ROOT + TCESConstants.MAIN_PAGE);
     }
