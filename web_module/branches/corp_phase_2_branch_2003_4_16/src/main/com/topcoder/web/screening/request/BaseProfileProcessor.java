@@ -69,29 +69,21 @@ public abstract class BaseProfileProcessor extends BaseProcessor {
     }
 
     protected List getTestSetBList(long profileId, User user) throws Exception {
-        Request profileTestSetA = new Request();
-        profileTestSetA.setProperty(DataAccessConstants.COMMAND, Constants.PROFILE_TEST_SET_A_QUERY_KEY);
-        profileTestSetA.setProperty("spid", String.valueOf(profileId));
-        profileTestSetA.setProperty("uid", String.valueOf(user.getId()));
+
         List ret = new ArrayList();
 
         SessionProfileProblemHome sppHome = (SessionProfileProblemHome)
-            PortableRemoteObject.narrow(
-                    TCContext.getInitial().lookup(SessionProfileProblemHome.class.getName()),
-                                   SessionProfileProblemHome.class);
+                PortableRemoteObject.narrow(
+                        TCContext.getInitial().lookup(SessionProfileProblemHome.class.getName()),
+                        SessionProfileProblemHome.class);
         SessionProfileProblem problem = sppHome.create();
 
-
-        Map map = getDataAccess().getData(profileTestSetA);
-
-        if (map != null) {
-            ResultSetContainer rsc = problem.getProblems(profileId);
-            for (Iterator i = rsc.iterator(); i.hasNext();) {
-                ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) i.next();
-                long tempRoundId = Long.parseLong(row.getItem("session_round_id").toString());
-                long tempProblemId = Long.parseLong(row.getItem("problem_id").toString());
-                ret.add(ProblemInfo.createProblemInfo(user, tempRoundId, tempProblemId));
-            }
+        ResultSetContainer rsc = problem.getProblems(profileId);
+        for (Iterator i = rsc.iterator(); i.hasNext();) {
+            ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) i.next();
+            long tempRoundId = Long.parseLong(row.getItem("session_round_id").toString());
+            long tempProblemId = Long.parseLong(row.getItem("problem_id").toString());
+            ret.add(ProblemInfo.createProblemInfo(user, tempRoundId, tempProblemId));
         }
         return ret;
     }
