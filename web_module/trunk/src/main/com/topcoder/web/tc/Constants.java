@@ -48,6 +48,7 @@ public class Constants {
     public static String EMAIL_SENT;
 
     /* misc constants */
+    public static int SRM_SURVEY_QUESTION;
 
 
     private Constants() {
