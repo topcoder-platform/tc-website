@@ -43,8 +43,8 @@ public class DataAccess implements DataAccessInt {
      * the data from the EJB.
      */
     public Map getData(RequestInt request) throws Exception {
+        Connection conn = dataSource.getConnection();
         try {
-            Connection conn = dataSource.getConnection();
             DataRetriever dr = new DataRetriever(conn);
             Map map = dr.executeCommand(request.getProperties());
             return map;
@@ -55,8 +55,9 @@ public class DataAccess implements DataAccessInt {
                 try {
                     conn.close();
                 } catch (Exception ce) {
-                log.error("Failed to close connection");
-             }
+                    log.error("Failed to close connection");
+                }
+            }
         }
     }
     /**
