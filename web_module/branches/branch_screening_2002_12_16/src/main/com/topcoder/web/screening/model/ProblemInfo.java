@@ -41,7 +41,7 @@ public class ProblemInfo extends BaseModel {
     private String overallAccuracy;
     private HashSet algorithmicCategories;
     private HashSet businessCategories;
-
+    private String roundName;    
 
     public ProblemInfo() {
         algorithmicCategories = new HashSet();
@@ -355,6 +355,7 @@ public class ProblemInfo extends BaseModel {
         info.setProblemId(new Long(row.getItem("problem_id").toString()));
         info.setRoundId(new Long(row.getItem("round_id").toString()));
         info.setProblemName(row.getItem("name").toString());
+        info.setRoundName(row.getItem("round_name").toString());
         info.setDivisionDesc(row.getItem("division_desc").toString());
         info.setDifficultyDesc(row.getItem("difficulty_desc").toString());
         info.setProblemStatement(row.getItem("problem_statement").toString());
@@ -405,4 +406,19 @@ public class ProblemInfo extends BaseModel {
 
         return info;
     }
+    
+    /** Getter for property roundName.
+     * @return Value of property roundName.
+     */
+    public String getRoundName() {
+        return this.roundName;
+    }
+    
+    /** Setter for property roundName.
+     * @param roundName New value of property roundName.
+     */
+    public void setRoundName(String roundName) {
+        this.roundName = roundName;
+    }
+    
 }
