@@ -14,7 +14,7 @@
   <init-param>
     <param-name>processor-static</param-name>
     <param-value>com.topcoder.web.corp.request.Static</param-value>
-    <description>handles primary registration page</description>
+    <description>handles static pages</description>
   </init-param>
 
   <init-param>

@@ -48,6 +48,7 @@ class UserListTest extends BaseProcessor {
     */
     void businessProcessing() throws Exception {
         try {
+            log.error("Attempting to set up user list");
             setupUsersList();
             nextPage = ("/acc_admin/user_list.jsp");
         }
