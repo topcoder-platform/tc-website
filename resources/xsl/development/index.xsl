@@ -93,26 +93,6 @@
             
             <hr width="534" size="1px" noshade="noshade"/>
             
-<!--Application Development begins -->
-            <table border="0" cellspacing="0" cellpadding="0" width="534">
-                <tr valign="top">
-                    <td class="bodyText">
-                        <p align="left"><font size="3"><strong>Application Development</strong></font><br/>
-                        <A href="/?t=development&amp;c=app_projects"><img src="/i/development/graphic_applications.gif" alt="" width="165" height="95" border="0" align="right" /></A>
-                        Rated members with a winning track record of Software Component solutions attain Level II TopCoder Developer 
-                        status, and become eligible for TopCoder Application Development teams. As part of a team, you will customize 
-                        and integrate components for specific applications, both internal to TopCoder and for commercial sale. These 
-                        projects pay out higher cash amounts than Component projects, and royalties are paid to team members for 
-                        every commercial sale of the application.</p>
-                        
-                        <p><A href="/?t=development&amp;c=app_meth">Learn more</A> about the TopCoder Software Application Methodology</p>
-                    </td>
-                </tr>
-            </table>
-<!--Application Development ends -->
-
-            <hr width="534" size="1px" noshade="noshade"/>
-
 <!--Review begins -->
             <table border="0" cellspacing="0" cellpadding="0" width="534">
                 <tr valign="top">
