@@ -112,6 +112,11 @@
             <description></description>
         </init-param>
         <init-param>
+            <param-name>page-Registration-update</param-name>
+            <param-value>/corp/</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
             <param-name>page-Registration-retry</param-name>
             <param-value>reg/Registration.jsp</param-value>
             <description></description>
