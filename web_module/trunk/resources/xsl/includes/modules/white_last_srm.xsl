@@ -9,13 +9,12 @@
 		<TD CLASS="bodyText" VALIGN="top">
 <!-- <A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">tck</A> -->	
 <P>
-<SPAN CLASS="bodyTextBold">Single Round Match 91</SPAN><BR/>
-Wednesday, May 22, 2002<BR/>
+<SPAN CLASS="bodyTextBold">Single Round Match 92</SPAN><BR/>
+Wednesday, May 29, 2002<BR/>
 By Adam Loss, <I>TopCoder Staff Writer</I><BR/><BR/>
-<A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">kalmes</A>
- was the top-scorer in Division-I, winning Room 4 with 1422.50 final points. <A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">Ninjak</A>
- was the top-scorer in Division-II and SRM 91, earning 1557.10 final points
- ...<A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">full&#160;story</A> 
+<A HREF="/index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">dmh2000</A>
+ only coded the Level One problem, but it was enough to win Room 20 by 3.62 points, 
+187.47 to 183.85 over <A HREF="/index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">MEEP!</A>...<A HREF="/index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">full&#160;story</A> 
 </P>
 				
 <!-- <P><B>Division-I</B><BR/>
