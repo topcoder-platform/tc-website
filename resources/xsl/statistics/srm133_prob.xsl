@@ -375,7 +375,7 @@ configurations will contain the same elements in the array in the same order.</p
 
 
 
-                                        <IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
+                                        <IMG SRC="/i/m/Yarin_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
                                         By&#160;Yarin
                                         <BR/>
                                         <DIV CLASS="smallText">
