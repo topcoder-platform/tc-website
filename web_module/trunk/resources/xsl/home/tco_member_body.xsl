@@ -48,7 +48,7 @@
                 <tr valign="top">
                     <td width="99%" class="bodyText">
 
-            <div align="center"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_overview"><img src="/i/promos/tco_promo_big.gif" alt="2003 TopCoder Open sponsored by Intel&#174;" width="530" height="164" border="0" /></A></div>
+            <div align="center"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=summary&amp;d4=reception"><img src="/i/promos/tco_promo_big.gif" alt="2003 TopCoder Open sponsored by Intel&#174;" width="530" height="164" border="0" /></A></div>
 
                         <table border="0" cellspacing="5" cellpadding="0" align="right" width="200">
                             <tr valign="top"><td align="left"><img src="/i/tournament/tco03/reception/summary.jpg" alt="" width="200" height="350" class="photoFrameBig" /></td></tr>
