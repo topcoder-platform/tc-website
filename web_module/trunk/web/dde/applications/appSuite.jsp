@@ -54,7 +54,8 @@
 
 <!-- Middle Column begins -->
         <td width="99%" align=center valign=top>
-        <img src="/images/clear.gif" alt="" width="450" height="10" border="0" />
+		<div class=appSuiteBody>
+
 <object
 classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
 codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
@@ -63,14 +64,14 @@ height="450"
 id="appSuite"
 align="top"
 <param name="allowScriptAccess" value="sameDomain" />
-<param name="movie" value="/images/flash/appSuiteDetails.swf?appSuiteXML=appSuiteDetails.xml"/>
+<param name="movie" value="/images/flash/appSuiteDetails.swf?appSuiteXML=as_Ecommerce.xml"/>
 <param name="menu" value="false" />
 <param name="align" value="t" />
 <param name="salign" value="t" />
 <param name="menu" value="false" />
 <param name="bgcolor" value="#FFFFFF" />
 <embed
-src="/images/flash/appSuiteDetails.swf?appSuiteXML=appSuiteDetails.xml"
+src="/images/flash/appSuiteDetails.swf?appSuiteXML=as_Ecommerce.xml"
 menu="false"
 quality="high"
 bgcolor="#FFFFFF"
@@ -84,7 +85,7 @@ pluginspage="http://www.macromedia.com/go/getflashplayer" />
 </object>
 
 			<p><font size="3"><strong><a href="http://www.topcoder.com/?t=contacts&c=index">Contact us</a> today so we can get started developing your next application.</strong></font></p>
-            <p><br></p>
+		</div>
         </td>
 <!-- Middle Column ends -->
 
