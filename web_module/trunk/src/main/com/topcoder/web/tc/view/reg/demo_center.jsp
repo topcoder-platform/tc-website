@@ -190,27 +190,21 @@ function lookupText(qId){
                     <td></td>
                     <td class="errorText"></td>
                 </tr>
-                <tr>
-                    <td class="registerLabel">Allow others to see what school I attend&nbsp;</td>
-                    <td class="statText"><input type="checkbox" name="<%=Registration.SCHOOL_VIEWABLE%>" <%=Registration.isSchoolViewable()?"checked":""%>></td>
-                </tr>
-
-                <tr>
-                    <td></td>
-                    <td class="errorText"><jsp:getProperty name="Registration" property="GpaScaleError" /></td>
-                </tr>
-
-
-
-                <tr>
-                    <td></td>
-                    <td class="errorText"></td>
-                </tr>
 
                 <tr valign="middle">
                     <td class="registerLabel">&nbsp;</td>
                     <td class="statText">Please provide the following school information<br>Page will refresh with schools based upon the state you select.</td>
                 </tr>
+
+                <tr>
+                    <td></td>
+                    <td class="errorText"></td>
+                </tr>
+                <tr>
+                    <td class="registerLabel">Allow others to see what school I attend&nbsp;</td>
+                    <td class="statText"><input type="checkbox" name="<%=Registration.SCHOOL_VIEWABLE%>" <%=Registration.isSchoolViewable()?"checked":""%>></td>
+                </tr>
+
 
                 <tr>
                     <td></td>
