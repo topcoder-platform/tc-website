@@ -13,7 +13,7 @@
 <% if(sessionInfo.isAnonymous()) { %>
             &#160;&#160;<a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Login" class="loginLinks" target="_parent">Login</a>
 <%} else { %>
-             <strong>Hello, <jsp:getproperty name="sessionInfo" property="Handle" />.</strong>
+             <strong>Hello, <jsp:getProperty name="sessionInfo" property="handle" />.</strong>
             &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Logout" class="loginLinks" target="_parent">Logout</a>
 <% }%>
             &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/" class="loginLinks">Corporate Services Home</a>
