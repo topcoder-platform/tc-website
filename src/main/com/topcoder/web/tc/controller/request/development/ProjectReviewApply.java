@@ -60,14 +60,14 @@ public class ProjectReviewApply extends Base {
                     throw new NavigationException("You have already applied to review this project.");
                 } else {
                     try {
-                        if (catalog == Constants.JAVA_CATALOG_ID) {
+                        if (catalog == Constants.JAVA_CATALOG_ID || catalog == Constants.CUSTOM_JAVA_CATALOG_ID) {
                             if (rbu.canReviewJava(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId(), phaseId)) {
                                 applicationProcessing();
                             } else {
                                 throw new NavigationException("Sorry, you can not review this project because " +
                                         "you are not a Java reviewer");
                             }
-                        } else if (catalog == Constants.DOT_NET_CATALOG_ID) {
+                        } else if (catalog == Constants.DOT_NET_CATALOG_ID || catalog == Constants.CUSTOM_DOT_NET_CATALOG_ID) {
                             if (rbu.canReviewDotNet(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId(), phaseId)) {
                                 applicationProcessing();
                             } else {
