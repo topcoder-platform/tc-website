@@ -41,6 +41,7 @@
 
 <!-- Upcoming Tournaments begins -->
 
+<%--
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
                 <tr><td class="header">Upcoming Private Label Events</td></tr>
             </table>
@@ -49,6 +50,7 @@
 
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+--%>
 
 <!-- Past Tournaments begins -->
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
