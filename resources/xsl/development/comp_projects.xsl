@@ -84,7 +84,7 @@
                         <p><strong>Only the projects below are designated as TCCC projects.
                         <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_comp_description">Click here</A>
                         for the rules and more information about the 2004 TCCC Component Competition. At the <A href="#comp_des">bottom</A> of this page are regular component projects that do not qualify for the TCCC.</strong></p>
-                       Be the first submitter for any TCCC project and earn yourself the multiplier.  Now from the 
+                       Be the first submitter for any TCCC project and earn yourself the multiplier.  Now from the
                        <a href='?&amp;t=development&amp;c=multiplier_status'>Project Submission</a> page you can view who has inquired, submitted and who has the multiplier!
 
                     </td>
@@ -144,7 +144,7 @@
                             <td class="formTextOdd" align="center"><xsl:value-of select="./total_inquiries"/></td>
                             <td class="formTextOdd" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
                             <td class="formTextOdd" align="center"><xsl:value-of select="./description"/></td>
-                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
+                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
                         </tr>
                     </xsl:if>
                 </xsl:for-each>
@@ -211,7 +211,7 @@
                             <td class="formTextOdd" align="center"><xsl:value-of select="./total_inquiries"/></td>
                             <td class="formTextOdd" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
                             <td class="formTextOdd" align="center"><xsl:value-of select="./description"/></td>
-                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
+                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
                         </tr>
                     </xsl:if>
                 </xsl:for-each>
@@ -301,7 +301,7 @@
                             <td class="formTextOdd" align="center"><xsl:value-of select="./total_inquiries"/></td>
                             <td class="formTextOdd" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
                             <td class="formTextOdd" align="center"><xsl:value-of select="./description"/></td>
-                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
+                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
                         </tr>
                     </xsl:if>
                 </xsl:for-each>
@@ -363,7 +363,7 @@
                             <td class="formTextOdd" align="center"><xsl:value-of select="./total_inquiries"/></td>
                             <td class="formTextOdd" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
                             <td class="formTextOdd" align="center"><xsl:value-of select="./description"/></td>
-                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
+                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
                         </tr>
                     </xsl:if>
                 </xsl:for-each>
