@@ -51,6 +51,7 @@ public class Save extends Base {
             if (hasParameter(Constants.CODE))
                 code = getRequest().getParameter(Constants.CODE);
 
+            log.debug("language: " + languageId);
 
             ScreeningSaveRequest request = new ScreeningSaveRequest(componentId, problemTypeId, languageId, code);
             request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);

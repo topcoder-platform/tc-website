@@ -1,3 +1,5 @@
+<%@ page import="com.topcoder.web.common.BaseServlet"%>
+<%@ page isErrorPage="true" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <html>
 <head>
@@ -6,6 +8,11 @@
 <link type="text/css" rel="stylesheet" href="/css/screening.css" >
 </head>
 <body>
+
+<% if (exception == null) exception = (Exception)request.getAttribute("exception");
+   if (exception!=null) exception.printStackTrace();
+   String message = (String)request.getAttribute(BaseServlet.MESSAGE_KEY);
+ %>
 
 <table class=bodyCenter cellspacing=0 cellpadding=0>
    <tr>
@@ -36,8 +43,13 @@
             <p class=pL>
             <span class=bodyBigTitle>Page Error</span>
             <br /><br />
-            An error has occurred when attempting to process your request.
+
+            <%=message==null?"An error has occurred when attempting to process your request.":message%>
             <br /><br />
+            <% if (url!=null) { %>
+                Please <a href="<%=url%>">go back</a> to the last page you were viewing.
+                <br /><br />
+            <% } %>
             If you have a question or comment please email <a href="mailto:service@topcoder.com">service@topcoder.com</a>.
             </p>
 
