@@ -746,9 +746,21 @@
 
     </servlet>
 
+    <servlet>
+        <servlet-name>JNLPServlet</servlet-name>
+        <display-name>JNLPServlet</display-name>
+        <description></description>
+        <servlet-class>com.topcoder.web.screening.controller.JNLPServlet</servlet-class>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>screening</servlet-name>
         <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>JNLPServlet</servlet-name>
+        <url-pattern>/JNLPServlet/</url-pattern>
     </servlet-mapping>
 
     <taglib>
