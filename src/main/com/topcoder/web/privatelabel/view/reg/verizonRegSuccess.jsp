@@ -51,9 +51,9 @@
 
 <!-- Center Column -->
         <td valign="top" width="579"><img src="/i/clear.gif" width="574" height="10" border="0"/><br />
-            <table width="427" border="0" cellpadding="0" cellspacing="0">
+            <table border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="427" class="bodyCopy">
+                    <td class="bodyCopy">
 
 <p><font size="-1">
 <br/>
