@@ -40,14 +40,14 @@
             <param name="salign" value="t">
             </object><br/>
 --> 
-            <table  align="center" border="0" cellspacing="0" cellpadding="0" class="bodyText">
+            <table  width="100%" align="center" border="0" cellspacing="0" cellpadding="0" class="bodyText">
             <tr><td colspan="9"><img src="/i/clear.gif" width="10" height="10"></td></tr>
             <tr><td colspan="9" align="center"><img src="/i/events/google2003/gecc_logo.gif" width="502" height="89" border="0"/></td></tr>
             <tr><td colspan="9"><img src="/i/clear.gif" width="10" height="10"></td></tr>
             <tr><td colspan="9" align="center"><img src="/i/events/google2003/google_tagline.gif" width="173" height="15" border="0"/></td></tr>
-            <tr><td colspan="9"><img src="/i/clear.gif" width="10" height="10"></td></tr>
+            <tr><td colspan="9"><img src="/i/clear.gif" width="10" height="20"></td></tr>
             <tr>
-               <td width=15>&nbsp;</td>
+               <td width="50%">&nbsp;</td>
                <td id=1 bgcolor=#efefef align=center width=95 nowrap onClick="return c('www.google.com/imghp','wi',event);" style=cursor:pointer;cursor:hand;><a href="/pl/?&module=Static&d1=google&d2=google_overview"><font size=-1>Overview</font></a></td>
                <td width=15>&nbsp;</td>
                <td id=0 bgcolor=#3366cc align=center width=95 nowrap><font color=#ffffff size=-1><b>Schedule</b></font></td>
@@ -55,10 +55,10 @@
                <td id=1 bgcolor=#efefef align=center width=95 nowrap onClick="return c('www.google.com/imghp','wi',event);" style=cursor:pointer;cursor:hand;><a href="/pl/?&module=Static&d1=google&d2=google_rules_overview"><font size=-1>Rules</font></a></td>
                <td width=15>&nbsp;</td>
                <td id=1 bgcolor=#efefef align=center width=95 nowrap onClick="return c('www.google.com/imghp','wi',event);" style=cursor:pointer;cursor:hand;><a href="/pl/?&module=Static&d1=google&d2=google_registration"><font size=-1>Register Now</font></a></td>
-               <td width=15>&nbsp;</td>
+               <td width="50%">&nbsp;</td>
             </tr>
             <tr>
-               <td colspan=9 bgcolor=#3366cc><img width=1 height=1 alt=""></td>
+               <td wdith="100%" colspan=9 bgcolor=#3366cc><img width=1 height=1 alt=""></td>
             </tr>
          </table>
 
