@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@  page
   contentType="text/html"%>
 <!-- Footer Include Begins -->
@@ -21,14 +22,14 @@
             <A href="/?t=home&c=public_home" class="smallFoot">Competition</A>&#160;&#160;|&#160;&#160;
             <A href="/?t=development&c=index" class="smallFoot">Development</A>&#160;&#160;|&#160;&#160;
             <A href="/?t=tces&c=index" class="smallFoot">Job Listings</A>&#160;&#160;|&#160;&#160;
-            <A href="http://software.topcoder.com" class="smallFoot">Software</A>&#160;&#160;|&#160;&#160;
-            <A href="http://corporate.topcoder.com/?module=Static&d1=corpd2=tces_home" class="smallFoot">Employment Services</A>&#160;&#160;|&#160;&#160;
-            <A href="http://corporate.topcoder.com/?module=Static&d1=corp&d2=spon_prog&d3=index" class="smallFoot">Sponsorship</A><br /><br />
+            <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>" class="smallFoot">Software</A>&#160;&#160;|&#160;&#160;
+            <A href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corpd2=tces_home" class="smallFoot">Employment Services</A>&#160;&#160;|&#160;&#160;
+            <A href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=spon_prog&d3=index" class="smallFoot">Sponsorship</A><br /><br />
 
             Copyright &#169; 2001-2003, TopCoder, Inc. All rights reserved.
             </div>
             <br/><br/>
         </td>
     </tr>
-</table>    
+</table>
 <!-- Footer Include Ends -->
