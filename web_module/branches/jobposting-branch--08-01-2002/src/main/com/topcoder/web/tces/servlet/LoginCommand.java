@@ -38,6 +38,7 @@ public class LoginCommand implements TCESCommand, Serializable {
 	}
 
 	public LoginCommand(String step, Logger log) {
+log.debug("lc--"+step);
 		if (step==null) {
 			isStepView=true;
 			isStepAuth=false;
