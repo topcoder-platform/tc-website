@@ -32,6 +32,7 @@ public class TCLoadRank extends TCLoad {
     private static final int OVERALL_RATING_RANK_TYPE_ID = 1;
     private static final int SRM_ROUND_TYPE = 1;
     private static final int TOURNAMENT_ROUND_TYPE = 2;
+    private int STUDENT_GROUP_ID = 1800001;
     private static final int AVERAGE_RATING_RANK_TYPE_ID = 1;
 
     /**
@@ -42,6 +43,7 @@ public class TCLoadRank extends TCLoad {
         USAGE_MESSAGE = new String(
                 "TCLoadRank parameters - defaults in ():\n" +
                 "  -roundid number       : Round ID to load\n" +
+                "  [-studentgroup number] : id for the student group             (1800001)\n" +
                 "  [-fullload boolean] : true-clean rank load, false-selective  (false)\n");
     }
 
@@ -53,6 +55,7 @@ public class TCLoadRank extends TCLoad {
         log.debug("setParameters called...");
         try {
             Boolean tmpBool;
+            Integer tmp;
             roundId = retrieveIntParam("roundid", params, false, true).intValue();
 
             //TODO get the rank type constants from xml
@@ -60,6 +63,11 @@ public class TCLoadRank extends TCLoad {
             if (tmpBool != null) {
                 FULL_LOAD = tmpBool.booleanValue();
                 log.info("New fullload flag is " + FULL_LOAD);
+            }
+            tmp = retrieveIntParam("studentgroup", params, true, true);
+            if (tmp != null) {
+                STUDENT_GROUP_ID = tmp.intValue();
+                log.info("New studentgroup id is " + STUDENT_GROUP_ID);
             }
 
         } catch (Exception ex) {

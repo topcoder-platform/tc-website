@@ -49,6 +49,7 @@ public class TCLoadRound extends TCLoad {
     private int CONTEST_ROOM = 2;    // contestroom
     private int ROUND_LOG_TYPE = 1;    // roundlogtype
     private int CHALLENGE_NULLIFIED = 92;   // challengenullified
+    private int STUDENT_GROUP_ID = 1800001;
     private boolean FULL_LOAD = false;//fullload
 
     /**
@@ -74,7 +75,8 @@ public class TCLoadRound extends TCLoad {
                 "  [-failsystest number] : Problem_status of failed system test  (160)\n" +
                 "  [-contestroom number] : Type id for contest rooms             (2)\n" +
                 "  [-roundlogtype number] : Log type id for this load            (1)\n" +
-                "  [-challengenullified number] : id for nullified challenges    (2)\n" +
+                "  [-challengenullified number] : id for nullified challenges    (92)\n" +
+                "  [-studentgroup number] : id for the student group             (1800001)\n" +
                 "  [-fullload boolean] : true-clean round load, false-selective  (false)\n");
     }
 
@@ -139,6 +141,12 @@ public class TCLoadRound extends TCLoad {
             if (tmp != null) {
                 CHALLENGE_NULLIFIED = tmp.intValue();
                 log.info("New challengenullified id is " + CHALLENGE_NULLIFIED);
+            }
+
+            tmp = retrieveIntParam("studentgroup", params, true, true);
+            if (tmp != null) {
+                STUDENT_GROUP_ID = tmp.intValue();
+                log.info("New studentgroup id is " + STUDENT_GROUP_ID);
             }
 
             tmpBool = retrieveBooleanParam("fullload", params, true);
@@ -311,11 +319,11 @@ public class TCLoadRound extends TCLoad {
             query.append("  FROM room_result rr ");
             query.append(" WHERE rr.round_id = ? ");
             query.append("   AND rr.attended = 'Y' ");
-            query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT 'pops' ");
-            query.append("          FROM group_user gu ");
-            query.append("         WHERE gu.user_id = rr.coder_id ");
-            query.append("           AND gu.group_id IN (13,14))");
+            query.append("   AND EXISTS ");
+            query.append("     (SELECT 'dok' ");
+            query.append("        FROM user_group_xref ugx");
+            query.append("       WHERE ugx.login_id = rr.coder_id");
+            query.append("         AND ugx.group_id = " + STUDENT_GROUP_ID + ")");
 
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
@@ -326,11 +334,11 @@ public class TCLoadRound extends TCLoad {
             query.append(" WHERE rr.coder_id = ? ");
             query.append("   AND rr.attended = 'Y' ");
             query.append("   AND rr.new_rating > 0 ");
-            query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT 'pops' ");
-            query.append("          FROM group_user gu ");
-            query.append("         WHERE gu.user_id = rr.coder_id ");
-            query.append("           AND gu.group_id IN (13,14))");
+            query.append("   AND EXISTS ");
+            query.append("     (SELECT 'dok' ");
+            query.append("        FROM user_group_xref ugx");
+            query.append("       WHERE ugx.login_id = rr.coder_id");
+            query.append("         AND ugx.group_id = " + STUDENT_GROUP_ID + ")");
 
             psSelMinMaxRatings = prepareStatement(query.toString(), SOURCE_DB);
 
@@ -496,11 +504,11 @@ public class TCLoadRound extends TCLoad {
             query.append(" LEFT OUTER JOIN compilation c ");
             query.append(" ON cs.component_state_id = c.component_state_id");
             query.append(" WHERE cs.round_id = ?");
-            query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT 'pops' ");
-            query.append("          FROM group_user gu ");
-            query.append("         WHERE gu.user_id = cs.coder_id ");
-            query.append("           AND gu.group_id in (13,14))");
+            query.append("   AND EXISTS ");
+            query.append("     (SELECT 'dok' ");
+            query.append("        FROM user_group_xref ugx");
+            query.append("       WHERE ugx.login_id = cs.coder_id");
+            query.append("         AND ugx.group_id = " + STUDENT_GROUP_ID + ")");
 
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
@@ -711,11 +719,11 @@ public class TCLoadRound extends TCLoad {
             query.append("  FROM system_test_result str, component comp ");
             query.append(" WHERE str.round_id = ?");
             query.append(" AND comp.component_id = str.component_id");
-            query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT 'pops' ");
-            query.append("          FROM group_user gu ");
-            query.append("         WHERE gu.user_id = str.coder_id ");
-            query.append("           AND gu.group_id IN (13,14))");
+            query.append("   AND EXISTS ");
+            query.append("     (SELECT 'dok' ");
+            query.append("        FROM user_group_xref ugx");
+            query.append("       WHERE ugx.login_id = str.coder_id");
+            query.append("         AND ugx.group_id = " + STUDENT_GROUP_ID + ")");
 
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
@@ -1578,11 +1586,11 @@ if students change schools, reloading an old round will lose historical data
             query.append(" WHERE r.room_type_id = " + CONTEST_ROOM);
             query.append("   AND rr.round_id = ?");
             query.append("   AND rr.attended = 'Y'");
-            query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT 'pops' ");
-            query.append("          FROM group_user gu ");
-            query.append("         WHERE gu.user_id = rr.coder_id ");
-            query.append("           AND gu.group_id IN (13,14))");
+            query.append("   AND EXISTS ");
+            query.append("     (SELECT 'dok' ");
+            query.append("        FROM user_group_xref ugx");
+            query.append("       WHERE ugx.login_id = rr.coder_id");
+            query.append("         AND ugx.group_id = " + STUDENT_GROUP_ID + ")");
 
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
@@ -1783,11 +1791,11 @@ if students change schools, reloading an old round will lose historical data
             query.append(" AND rr.coder_id = cs.coder_id");
             query.append(" WHERE cs.round_id = ?");
             query.append("   AND rr.attended = 'Y'");
-            query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT 'pops' ");
-            query.append("          FROM group_user gu ");
-            query.append("         WHERE gu.user_id = cs.coder_id ");
-            query.append("           AND gu.group_id IN (13,14))");
+            query.append("   AND EXISTS ");
+            query.append("     (SELECT 'dok' ");
+            query.append("        FROM user_group_xref ugx");
+            query.append("       WHERE ugx.login_id = cs.coder_id");
+            query.append("         AND ugx.group_id = " + STUDENT_GROUP_ID + ")");
 
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
@@ -1991,11 +1999,11 @@ if students change schools, reloading an old round will lose historical data
             query.append(" WHERE chal.round_id = ? ");
             query.append("   AND chal.component_id = comp.component_id");
             query.append("   AND chal.status_id <> " + CHALLENGE_NULLIFIED);
-            query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT 'pops' ");
-            query.append("          FROM group_user gu ");
-            query.append("         WHERE gu.user_id = chal.defendant_id ");
-            query.append("           AND gu.group_id IN (13,14))");
+            query.append("   AND EXISTS ");
+            query.append("     (SELECT 'dok' ");
+            query.append("        FROM user_group_xref ugx");
+            query.append("       WHERE ugx.login_id = chal.defendant_id");
+            query.append("         AND ugx.group_id = " + STUDENT_GROUP_ID + ")");
 
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
