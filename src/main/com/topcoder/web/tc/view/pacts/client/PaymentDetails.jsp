@@ -30,8 +30,8 @@ function goTo(selection){
      <TR>
        <TD WIDTH="170" VALIGN="top">
 	        <jsp:include page="../../includes/global_left.jsp">
-				<jsp:param name="level1" value="pacts"/>
-				<jsp:param name="level2" value=""/>
+				<jsp:param name="level1" value="my_home"/>
+				<jsp:param name="level2" value="pacts"/>
 			</jsp:include>
        </TD>
        <TD WIDTH="4" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8" BORDER="0"></TD>
