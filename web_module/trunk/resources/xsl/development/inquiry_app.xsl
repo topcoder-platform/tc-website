@@ -46,7 +46,7 @@
 <!-- Center Column Begins -->  
         <td class="bodyText" width="99%">
             <xsl:call-template name="BodyTop">
-                <xsl:with-param name="image1">steelblue</xsl:with-param>
+                <xsl:with-param name="image1">white</xsl:with-param>
                 <xsl:with-param name="image">development</xsl:with-param>
                 <xsl:with-param name="title">Application Development</xsl:with-param>
             </xsl:call-template>

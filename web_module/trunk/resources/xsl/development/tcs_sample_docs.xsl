@@ -46,7 +46,7 @@
 <!-- Center Column Begins -->  
             <td class="bodyText" width="100%" valign="top">
                 <xsl:call-template name="BodyTop">
-                    <xsl:with-param name="image1">steelblue</xsl:with-param>
+                    <xsl:with-param name="image1">white</xsl:with-param>
                     <xsl:with-param name="image">development</xsl:with-param>
                     <xsl:with-param name="title">&#160;Component Development</xsl:with-param>
                 </xsl:call-template>
@@ -61,9 +61,9 @@
                                 <tr valign="middle"><td bgcolor="#666666" class="registerNav" height="18" colspan="3">&#160;Component Documentation</td></tr>
                                 
                                 <tr valign="middle">
-                                    <td background="/i/steel_bluebv_bg.gif" class="bodyText" width="45%" height="18">&#160;Description&#160;</td>
-                                    <td background="/i/steel_bluebv_bg.gif" class="bodyText" width="5%" height="18"><img src="/i/clear.gif" alt="" height="1" width="5" border="0" /></td>
-                                    <td background="/i/steel_bluebv_bg.gif" class="bodyText" width="50%" height="18">Modified&#160;&#160;&#160;&#160;&#160; Download File&#160;</td>
+                                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="45%" height="18">&#160;Description&#160;</td>
+                                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="5%" height="18"><img src="/i/clear.gif" alt="" height="1" width="5" border="0" /></td>
+                                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="50%" height="18">Modified&#160;&#160;&#160;&#160;&#160; Download File&#160;</td>
                                 </tr>
                             
                                 <tr><td colspan="3"><hr width="100%" size="1px" color="666666" /></td></tr>
@@ -182,9 +182,9 @@
                                 <tr valign="middle"><td bgcolor="#666666" class="registerNav" height="18" colspan="3">&#160;Application Documentation</td></tr>
                                 
                                 <tr valign="middle">
-                                    <td background="/i/steel_bluebv_bg.gif" class="bodyText" width="45%" height="18">&#160;Description&#160;</td>
-                                    <td background="/i/steel_bluebv_bg.gif" class="bodyText" width="5%" height="18"><img src="/i/clear.gif" alt="" height="1" width="5" border="0" /></td>
-                                    <td background="/i/steel_bluebv_bg.gif" class="bodyText" width="50%" height="18">Modified&#160;&#160;&#160;&#160;&#160; Download File&#160;</td>
+                                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="45%" height="18">&#160;Description&#160;</td>
+                                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="5%" height="18"><img src="/i/clear.gif" alt="" height="1" width="5" border="0" /></td>
+                                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="50%" height="18">Modified&#160;&#160;&#160;&#160;&#160; Download File&#160;</td>
                                 </tr>
                                 
                                 <tr><td colspan="3"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
@@ -245,12 +245,12 @@
 
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
-                    <td width="100%" background="/i/steel_darkblue_bg.gif">
-                        <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
+                    <td width="100%">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#EEEEEE">
                             <tr valign="top">
                                 <td class="bodyText" width="100%">
                                     <p><strong>Sample Design Submission</strong><br />
-                                    This is the <a href="/i/development/downloads/submission-sample.jar" class="bodyText">winning design submission</a> from <a href="/stat?c=member_profile&amp;cr=119676" class="coderTextBlue">Pops</a> for the <a href="http://software.topcoder.com/catalog/c_component.jsp?comp=6402357&amp;cat=1" class="bodyText">Class Discovery</a> component. It should only be used as a guide for creating a design submission. Contents of this submission include:
+                                    This is the <a href="/i/development/downloads/submission-sample.jar" class="bodyText">winning design submission</a> from <a href="/stat?c=member_profile&amp;cr=119676">Pops</a> for the <a href="http://software.topcoder.com/catalog/c_component.jsp?comp=6402357&amp;cat=1" class="bodyText">Class Discovery</a> component. It should only be used as a guide for creating a design submission. Contents of this submission include:
                                     <ul>
                                         <li>Component Specification</li>
                                         <li>Test Cases</li>
@@ -261,12 +261,12 @@
                 </tr>
 
                 <tr valign="top">
-                    <td width="100%" background="/i/steel_darkblue_bg.gif">
-                        <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
+                    <td width="100%">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#EEEEEE">
                             <tr valign="top">
                                 <td class="bodyText" width="100%">
                                     <p><strong>Sample Development Submission</strong><br />
-                                    This is the <a href="/i/development/downloads/devsubmission-sample.jar" class="bodyText">winning development submission</a> from <a href="/stat?c=member_profile&amp;cr=281876" class="coderTextGreen">garyk</a> for the Object Formatter component. It should only be used as a guide for creating a development submission. Contents of this submission include:
+                                    This is the <a href="/i/development/downloads/devsubmission-sample.jar" class="bodyText">winning development submission</a> from <a href="/stat?c=member_profile&amp;cr=281876">garyk</a> for the Object Formatter component. It should only be used as a guide for creating a development submission. Contents of this submission include:
                                     <ul>
                                         <li>Compilable Source Code</li>
                                         <li>Unit Test Cases: Developer's should submit unit test cases called from the UnitTests.java and placed in the base package test directory.</li>
@@ -277,8 +277,8 @@
                 </tr>
 
                 <tr valign="top">
-                    <td width="100%" background="/i/steel_darkblue_bg.gif">
-                        <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
+                    <td width="100%">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#EEEEEE">
                             <tr valign="top">
                                 <td class="bodyText" width="100%">
                                     <p><strong>Completed Component</strong><br/>

@@ -42,7 +42,7 @@
   <!-- Center Column Begins -->  
     <TD CLASS="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="240" height="1" VSPACE="5" BORDER="0"/><BR/>
 <xsl:call-template name="BodyTop">
-  <xsl:with-param name="image1">steelblue</xsl:with-param>
+  <xsl:with-param name="image1">white</xsl:with-param>
   <xsl:with-param name="image">development</xsl:with-param>
   <xsl:with-param name="title">&#160;Overview</xsl:with-param>
 </xsl:call-template>
