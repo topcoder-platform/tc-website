@@ -83,7 +83,7 @@
 
                 <TR>
                   <TD class="statText" HEIGHT="18">&#160;
-                  <A HREF="#" class="statText">
+                  <A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.MEMBER_PROFILE_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CampaignInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=(String)hit.get("job_id")%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=(String)hit.get("coder_id")%>" class="statText">
                     <%= (String)hit.get("handle") %>
                   </A></TD>
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
@@ -107,14 +107,12 @@
                     <%= (String)hit.get("school") %>
                   </TD> 
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="statText"><A HREF="position_int.jsp" class="statText">
+                  <TD class="statText"><A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CampaignInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=(String)hit.get("job_id")%>" class="statText">
                     <%= (String)hit.get("position") %>
                   </A></TD>                                   
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText">
-                  <A HREF="campaign_int.jsp" class="statText">
                     <%= (String)hit.get("hit_date") %>
-                  </A>
                   </TD>
                 </TR>
                 

@@ -140,6 +140,7 @@ public class CampaignInterestTask extends BaseTask implements Task, Serializable
             HashMap hit = new HashMap();
 
             hit.put("coder_id", ((Long)hitListRow.getItem("coder_id").getResultData()).toString() );
+            hit.put("job_id", ((Long)hitListRow.getItem("job_id").getResultData()).toString() );
             hit.put("handle", hitListRow.getItem("handle").toString() );
             hit.put("rating", ((Integer)hitListRow.getItem("rating").getResultData()).toString() );
             hit.put("state", hitListRow.getItem("state_code").toString() );

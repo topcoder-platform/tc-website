@@ -71,7 +71,7 @@
 
                 <TR>
                   <TD class="statText" HEIGHT="18">&#160;
-                    <%=(String)campaignInfo.get("campaign_name")%>
+                    <A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_DETAIL_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=(String)campaignInfo.get("campaign_id")%>" class="statText"><%=(String)campaignInfo.get("campaign_name")%></A>
                   </TD>
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText">
@@ -83,7 +83,7 @@
                   </TD>
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText">
-                    <b><A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_DETAIL_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=(String)campaignInfo.get("campaign_id")%>" class="statText"><%=(String)campaignInfo.get("status_desc")%></A></b>
+                    <b><%=(String)campaignInfo.get("status_desc")%></b>
                   </TD>
                 </TR>
 

@@ -82,7 +82,8 @@
                 <tces:mapIterator id="hit" mapList="<%=(List)PositionInterestTask.getHitList()%>">                
                 
                 <TR>
-                  <TD class="statText" HEIGHT="18">&#160;<A HREF="#" class="statText">
+                  <TD class="statText" HEIGHT="18">&#160;
+                  <A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.MEMBER_PROFILE_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=PositionInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=PositionInterestTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=(String)hit.get("coder_id")%>" class="statText">
                     <%= (String)hit.get("handle") %>
                   </A>
                   </TD>
@@ -107,7 +108,9 @@
                     <%= (String)hit.get("school") %>
                   </TD>                  
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="statText"><A HREF="campaign_int.jsp" class="statText"><%= (String)hit.get("hit_date") %></A></TD>
+                  <TD class="statText">
+                    <%= (String)hit.get("hit_date") %>
+                  </TD>
                 </TR>
                 
                 </tces:mapIterator>

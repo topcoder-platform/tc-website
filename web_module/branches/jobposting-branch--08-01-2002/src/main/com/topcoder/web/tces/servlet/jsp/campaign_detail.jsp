@@ -95,9 +95,9 @@
                         <%= (String)position.get("hit_count") %>
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                    <TD class="statText"><A HREF="campaign_int.jsp" class="statText">
+                    <TD class="statText">
                         <%= (String)position.get("most_recent") %>
-                    </A> </TD>
+                    </TD>
                   </TR>
                 </tces:mapIterator>
 

@@ -28,6 +28,7 @@ public class TCESConstants {
     public static String CAMPAIGN_INTEREST_TASK = "CampaignInterestTask";
     public static String POSITION_INTEREST_TASK = "PositionInterestTask";
     public static String DEMOGRAPHIC_TASK = "DemographicTask";
+    public static String MEMBER_PROFILE_TASK = "MemberProfileTask";
 
     public static String TASK_PARAM = "task";
     public static String STEP_PARAM = null;
@@ -36,6 +37,7 @@ public class TCESConstants {
     public static String PASSWORD_PARAM = null;
     public static String CAMPAIGN_ID_PARAM = "cid";
     public static String JOB_ID_PARAM = "jid";
+    public static String MEMBER_ID_PARAM = "mid";
 
     public static String MSG_ATTR_KEY = null;
     public static String COMPANY_NAME_ATTR_KEY = "CompanyName";
