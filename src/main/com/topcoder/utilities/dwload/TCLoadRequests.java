@@ -206,13 +206,13 @@ public class TCLoadRequests extends TCLoad {
             ps = prepareStatement(CREATE_URL, TARGET_DB);
             ps.setString(1, url.getUrl());
             if (url.hasCoderId())
-                ps.setNull(2, Types.DECIMAL);
-            else
                 ps.setLong(2, url.getCoderId());
-            if (url.hasRoundId())
-                ps.setNull(3, Types.DECIMAL);
             else
+                ps.setNull(2, Types.DECIMAL);
+            if (url.hasRoundId())
                 ps.setLong(3, url.getRoundId());
+            else
+                ps.setNull(3, Types.DECIMAL);
             ps.setString(4, url.getPageName());
 
             int ret = ps.executeUpdate();
@@ -405,7 +405,7 @@ public class TCLoadRequests extends TCLoad {
                         paramMap.put("", s);
                     } else if (s.indexOf('=') > 0) {
                         paramMap.put(s.substring(0, s.indexOf('=')),
-                                s.substring(s.indexOf('='), s.length()));
+                                s.substring(s.indexOf('=')+1, s.length()));
                     } else {
                         paramMap.put(s, "");
                     }
