@@ -26,22 +26,39 @@ public class RequestTracker {
     private static Logger log = Logger.getLogger(RequestTracker.class);
     private static Thread t = null;
 
+    /*
+     * Create the thread to batch the inserts to the database
+     * and kick it off.
+     */
     static {
         log.info("starting request tracker thread");
         t = new RequestTrackerThread();
         t.start();
     }
 
+
+    /**
+     * Track a request.  This version does not have a user associated with
+     * the request so we'll assume they are anonymous
+     * @param request
+     */
     public static void trackRequest(TCRequest request) {
-        log.debug("add request");
         q.add(new UserRequest(GUEST, request));
-        log.debug("added request");
     }
 
+    /**
+     * Track a request.
+     * @param u
+     * @param request
+     */
     public static void trackRequest(User u, TCRequest request) {
         q.add(new UserRequest(u, request));
     }
 
+    /**
+     * A thread class that is used to load all the requests to the db once
+     * every batch period.
+     */
     private static class RequestTrackerThread extends Thread {
         public void run() {
             while (true) {
@@ -55,18 +72,20 @@ public class RequestTracker {
         }
     }
 
+    /**
+     *
+     */
     private static void loadRequests() {
         ArrayList a = new ArrayList(q.size());
         synchronized (q) {
-            log.debug("beginning move from queue to temp storage");
             while (!q.isEmpty())
                 a.add(q.pop());
-            log.debug("move from queue to temp storage complete");
         }
         InitialContext ctx = null;
         try {
             ctx = TCContext.getInitial();
             RequestServices rs = (RequestServices) BaseProcessor.createEJB(ctx, RequestServices.class);
+            log.debug("begin request batch load");
             for (Iterator it = a.iterator(); it.hasNext();) {
                 UserRequest r = (UserRequest) it.next();
                 if (r.u.isAnonymous()) {
@@ -75,6 +94,7 @@ public class RequestTracker {
                     rs.createRequest(r.u.getId(), r.url, new Timestamp(r.time), DBMS.COMMON_OLTP_DATASOURCE_NAME);
                 }
             }
+            log.debug("end request batch load");
 
         } catch (Exception e) {
             log.error("Problem inserting request" + e);
