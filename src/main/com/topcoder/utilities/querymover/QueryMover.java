@@ -64,7 +64,9 @@ public class QueryMover {
         Context ctx = null;
         try {
             q.initSource();
+            log.info("source init complete");
             q.initTarget();
+            log.info("target init complete");
             ctx = TCContext.getContext(targetContextFactory, targetContextURL);
             utx = (UserTransaction) ctx.lookup("javax.transaction.UserTransaction");
             utx.begin();
