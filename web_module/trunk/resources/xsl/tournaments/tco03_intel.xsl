@@ -50,13 +50,13 @@ function openWin(url, name, w, h) {
 
 <!-- Center Column Begins -->
         <td align="center">    
-            <table border="0" cellspacing="15" cellpadding="0" width="510">
+            <table border="0" cellspacing="15" cellpadding="0" width="540">
                 <tr valign="top">
                     <td colspan="2" align="center"><img src="/i/sponsor/intel_ids/IDS_TC-header.gif" width="510" height="115" /></td>
                 </tr> 
                 
                 <tr align="left">
-                    <td class="bodyText" valign="top" width="99%" > 
+                    <td class="bodyText" valign="top" width="295" > 
                         <p>With technology complexity increasing at a blistering pace, <a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup">
                         <strong>Intel&#174; Developer Services</strong> </a> offers the resources and opportunities you need to keep stride with industry innovations, 
                         take advantage of emerging technologies and accelerate the successful development and delivery of your solutions.</p>
@@ -65,6 +65,8 @@ function openWin(url, name, w, h) {
                         technical white papers, membership with <a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>Intel Developer 
                         Services</strong> </a> gives you FREE access to tools and resources that can maximize your code's performance, give you 
                         time-to-market advantage and make your software sing. Fast.</p>
+                        
+                        <img src="/i/clear.gif" width="295" height="1" border="0"/>
                      </td>
                      
                      <td class="smallText" width="200">
