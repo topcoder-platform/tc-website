@@ -18,7 +18,7 @@ Cryptic Studios is interested in evaluating TopCoder members for full-time emplo
 </P>
 <P>
 Cryptic Studios is an independent developer of massive multiplayer online games for the PC and next generation consoles.  Located in San Jose, CA, Cryptic Studios is looking for extremely talented developers to join their fun, flexible and informal workplace as a Programmer and Level Designer.  </P>
-<P>To learn more about the opportunities at Cryptic Studios, please visit <A HREF="/?&amp;t=tces&amp;c=cryptic">TopCoder Employment Services</A></P>
+<P>To learn more about the opportunities at Cryptic Studios, please visit <A HREF="/?&amp;t=tces&amp;c=index">TopCoder Employment Services</A></P>
 <P>Thank you and good luck in the arena! <BR/>
 TopCoder Employment Services</P>
 </FONT>
