@@ -38,7 +38,8 @@ public abstract class Base extends BaseProcessor {
 
 
     protected void businessProcessing() throws Exception {
-        log.debug("session timeout is " + getRequest().getSession().getMaxInactiveInterval());
+        //log.debug("session timeout is " + getRequest().getSession().getMaxInactiveInterval());
+        getRequest().setAttribute(Constants.CURRENT_TIME, String.valueOf(System.currentTimeMillis()));
         try {
             techAssessProcessing();
         } catch (TimeOutException e) {

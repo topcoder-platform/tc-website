@@ -13,7 +13,6 @@ public class CurrentTime extends Base {
 
     protected void techAssessProcessing() throws Exception {
 
-        getRequest().setAttribute("currentTime", String.valueOf(System.currentTimeMillis()));
         setNextPage(Constants.PAGE_CURRENT_TIME);
         setIsNextPageInContext(true);
 

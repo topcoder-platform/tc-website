@@ -74,6 +74,7 @@ public class Constants {
     public static String PROBLEM;
     public static String CONTINUE_LINK;
     public static String CONTINUE_DESC;
+    public static String CURRENT_TIME;
 
     //other
     public static int TEST_SET_A_ID;
