@@ -2,11 +2,16 @@ package com.topcoder.web.screening.controller;
 
 import com.topcoder.web.test.*;
 import com.topcoder.web.screening.controller.MainServlet;
+import com.topcoder.web.screening.common.Constants;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
 
+
+import com.meterware.httpunit.*;
+import org.xml.sax.*;
+import org.w3c.dom.*;
 
 //import com.mockobjects.servlet.MockHttpServletResponse;
 //import com.mockobjects.servlet.MockHttpServletRequest;
@@ -43,7 +48,7 @@ public class MainServletTestCase extends TestCase {
             //request.log = log;
             session = new HttpSessionHelper();
             request.mySession = session;
-            request.setParameter("rp", "Logout");
+            request.setParameter(Constants.REQUEST_PROCESSOR, "Logout");
             
 			response = new ServletResponseHelper();
 			servlet = new MainServlet();
@@ -65,7 +70,7 @@ public class MainServletTestCase extends TestCase {
 		assertTrue(true);
 		log.println("Started doPost test\n");
 		try {
-            request.setParameter("rp", "WrongRequestProcessorName");
+            request.setParameter(Constants.REQUEST_PROCESSOR, "WrongRequestProcessorName");
 			servlet.doPost((HttpServletRequest)request, (HttpServletResponse)response);
             log.println("servlet.doPost passed");
             RequestDispatcher rd = servlet.getServletContext().getRequestDispatcher("");
@@ -83,7 +88,7 @@ public class MainServletTestCase extends TestCase {
 		assertTrue(true);
 		log.println("Started doPost test\n");
 		try {
-            request.setParameter("rp", "Logout");
+            request.setParameter(Constants.REQUEST_PROCESSOR, "Logout");
 			servlet.doPost((HttpServletRequest)request, (HttpServletResponse)response);
             log.println("servlet.doPost passed");
             RequestDispatcher rd = servlet.getServletContext().getRequestDispatcher("");
@@ -96,6 +101,25 @@ public class MainServletTestCase extends TestCase {
 			assertTrue(false);
 		}
     }
+    
+    /**
+     * testing that we corrctly get to error page after wrong command 
+     * */
+    public void testErrorPageHttp() {
+    	String mainStrUrl = "http://65.112.118.205/screening/screening?rp=WrongClassName";
+
+		WebConversation con = new WebConversation();
+        WebRequest request = new GetMethodWebRequest(mainStrUrl);
+        
+        try {
+        	WebResponse response = con.getResponse( request );
+        	// checking that this is Error page
+        	String title = response.getTitle();
+        	assertEquals("Wrong title:" + title, title, "Screening Tool Error");        	
+        } catch (Exception e) {
+        	fail("There was exception " + e);
+        }		
+	}
     
     public void tearDown() {
         log.println("finished");

@@ -20,8 +20,8 @@ public class CandidateInfoTestCase extends TestCase {
 
     public void testGetSet() {
         Long val = new Long(-1);
-        info.setCandidateId(val);
-        assertEquals(val, info.getCandidateId());
+        info.setUserId(val);
+        assertEquals(val, info.getUserId());
 
         String email = "foo@bar.com";
         info.setEmailAddress(email);
