@@ -50,7 +50,7 @@
                 <% { boolean even = true; %>
                 <screen:resultSetRowIterator id="row" list="<%=candidateInfo.getNoteList()%>">
                 <tr>
-                    <td <% if(even){ %>class="testTableEven"<% } %><% } else { %>class="testTableOdd"><%=StringUtils.htmlEncode((String)row.getItem("text").getResultData())%></td>
+                    <td <% if(even){ %>class="testTableEven"<% } else { %>class="testTableOdd"<% } %>><%=StringUtils.htmlEncode((String)row.getItem("text").getResultData())%></td>
                     <td align="center" <% if(even){ %>class="testTableEven"<% } else { %>class="testTableOdd"<% } %>><screen:resultSetItem row="<%=row%>" name="created_by" /></td>
                     <td align="center" <% if(even){ %>class="testTableEven"<% } else { %>class="testTableOdd"<% } %>><strong><screen:resultSetItem row="<%=row%>" name="create_date" /></strong></td>
                 </tr>
