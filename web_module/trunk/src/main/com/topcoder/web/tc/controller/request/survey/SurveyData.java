@@ -2,12 +2,14 @@ package com.topcoder.web.tc.controller.request.survey;
 
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.Question;
 import com.topcoder.web.tc.model.Survey;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.security.ClassResource;
 
 import java.util.Map;
 import java.util.Iterator;
@@ -24,27 +26,31 @@ public abstract class SurveyData extends Base {
     protected abstract void surveyProcessing() throws Exception;
 
     protected final void businessProcessing() throws TCWebException {
-        long surveyId;
-        try {
-            surveyId = Long.parseLong(getRequest().getParameter(Constants.SURVEY_ID));
-        } catch (NullPointerException e) {
-            throw new NavigationException("Invalid Request, missing required information.");
-        }
-
-        try {
-            survey = createSurvey(surveyId);
-            if (survey==null) {
-                throw new NavigationException("Invalid Request, survey does not exist.");
-            } else {
-                getRequest().setAttribute("surveyInfo", survey);
-                questionInfo = getQuestionInfo(surveyId);
-                getRequest().setAttribute("questionInfo", questionInfo);
+        if (getUser().isAnonymous()) {
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        } else {
+            long surveyId;
+            try {
+                surveyId = Long.parseLong(getRequest().getParameter(Constants.SURVEY_ID));
+            } catch (NullPointerException e) {
+                throw new NavigationException("Invalid Request, missing required information.");
             }
-            surveyProcessing();
-        } catch (TCWebException e) {
-            throw e;
-        } catch (Exception e) {
-            throw new TCWebException(e);
+
+            try {
+                survey = createSurvey(surveyId);
+                if (survey==null) {
+                    throw new NavigationException("Invalid Request, survey does not exist.");
+                } else {
+                    getRequest().setAttribute("surveyInfo", survey);
+                    questionInfo = getQuestionInfo(surveyId);
+                    getRequest().setAttribute("questionInfo", questionInfo);
+                }
+                surveyProcessing();
+            } catch (TCWebException e) {
+                throw e;
+            } catch (Exception e) {
+                throw new TCWebException(e);
+            }
         }
     }
 

@@ -202,22 +202,7 @@ public class Submit extends View {
         }
     }
 
-    private boolean alreadyResponded() throws Exception {
-        boolean ret = false;
-        Question q = null;
-        InitialContext ctx = null;
-        try {
-            ctx = new InitialContext();
-            Response response = (Response) createEJB(ctx, Response.class);
-            for (Iterator it = questionInfo.iterator(); it.hasNext();) {
-                q = (Question) it.next();
-                ret |= response.exists(getUser().getId(), q.getId());
-            }
-        } finally {
-            close(ctx);
-        }
-        return ret;
-    }
+
 }
 
 
