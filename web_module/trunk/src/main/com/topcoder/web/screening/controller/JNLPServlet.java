@@ -61,15 +61,16 @@ public final class JNLPServlet extends HttpServlet {
                      "<jnlp spec=\"1.0+\" " +
                      //"codebase=\"http://corporate.topcoder.com/contest/screening/\" " +
                      //"href=\"ScreeningApp.jnlp\">\r\n" +
+                     ">\r\n" +
                      "<information>\r\n" +
                      "<title>TopCoder Testing Application</title>\r\n" +
                      "<vendor>TopCoder, Inc.</vendor>\r\n" +
-                     "<homepage href=\"http://www.topcoder.com\"/>\r\n" +
+                     "<homepage href=\"http://corporate.topcoder.com\"/>\r\n" +
                      "<description>TopCoder Testing Application</description>\r\n" +
-                     "<icon href=\"http://www.topcoder.com/images/topcoder.jpg\"/>\r\n" +
+                     "<icon href=\"http://corporate.topcoder.com/images/topcoder.jpg\"/>\r\n" +
                      "</information>\r\n" +
                      "<security>\r\n" +
-                     "all-permissions/>\r\n" +
+                     "<all-permissions/>\r\n" +
                      "</security>\r\n" +
                      "<resources>\r\n" +
                      "<j2se version=\"1.4+\"/>\r\n" +
