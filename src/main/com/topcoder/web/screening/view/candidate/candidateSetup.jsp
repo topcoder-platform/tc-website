@@ -6,7 +6,7 @@
 <HEAD>
 <title>Topcoder | Testing Application Management Tool</title>
 
-<jsp:include page="/script.jsp"/>
+<jsp:include page="../includes/script.jsp"/>
 
 <SCRIPT language="JavaScript"><!--
 function back() {

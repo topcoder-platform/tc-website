@@ -11,14 +11,14 @@
 <head>
 <title>Topcoder | Testing Application Management Tool</title>
 
-<jsp:include page="/script.jsp"/> 
+<jsp:include page="includes/script.jsp"/>
 
 </head>
 
 <body>
 
 <!-- Header begins -->
-<jsp:include page="/includes/top.jsp" />
+<jsp:include page="includes/top.jsp" />
 <!-- Header ends -->
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -62,7 +62,7 @@
     </tr>
 </table>
 
-  <jsp:include page="/includes/foot.jsp" />
+  <jsp:include page="includes/foot.jsp" />
 
 </body>
 </html>

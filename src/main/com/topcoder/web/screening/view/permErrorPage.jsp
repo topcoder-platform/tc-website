@@ -11,7 +11,7 @@ String message = (String)request.getAttribute("message");
 <head>
 <title>Topcoder&#160;&#160;|&#160;&#160;Testing Application Management Tool</title>
 
-<jsp:include page="/script.jsp"/>
+<jsp:include page="includes/script.jsp"/>
 </HEAD>
 <BODY BGCOLOR="#CCCCCC" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
 <jsp:include page="/includes/top.jsp"/>
