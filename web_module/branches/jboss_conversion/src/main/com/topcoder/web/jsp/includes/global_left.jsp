@@ -276,7 +276,7 @@
 
     <% if (level1.equals("home")) { %>
 
-            <jsp:include page="../../home/coder_of_month.jsp" />
+            <jsp:include page="/home/coder_of_month.jsp" />
     <% } %>
 
             <div align="center"><img src="/i/logo_ghosted_bracket.gif" width="160" height="77" alt="[ TopCoder ]" vspace="10" border="0"/></div><br /><br />
