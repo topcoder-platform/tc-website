@@ -26,6 +26,8 @@ public final class JavaDocServlet extends HttpServlet {
 
     private static Logger log = Logger.getLogger(ResponseServlet.class);
     private static final String ERROR_PAGE = "/errorPage.jsp";
+    private static final String WEB_SERVICE_NAME = "/errorPage.jsp";
+    private static final String PATH = "/errorPage.jsp";
 
     public synchronized void init(ServletConfig config) throws ServletException {
         log.debug("SERVLET INIT CALLED");
@@ -46,9 +48,22 @@ public final class JavaDocServlet extends HttpServlet {
 
     public void process(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ServletOutputStream out = response.getOutputStream();
-        out.print("<html><body>TIM TEST</body></html>");
-        out.flush();
+        StringBuffer out = new StringBuffer();
+        out.append("<html><body>");
+
+        String webServiceName = request.getParameter(WEB_SERVICE_NAME);
+        String path = request.getParameter(PATH);
+        if(path == null || path.length() == 0) {
+            path = "index.html";
+        }
+        out.append("webServiceName = " + webServiceName + "<br>");
+        out.append("path = " + path + "<br>");
+        out.append("<a href=\"test.html\">Click Here</a>");
+
+        out.append("</html></body>");
+        ServletOutputStream outputStream = response.getOutputStream();
+        outputStream.print(out.toString());
+        outputStream.flush();
     }
 
     /**
