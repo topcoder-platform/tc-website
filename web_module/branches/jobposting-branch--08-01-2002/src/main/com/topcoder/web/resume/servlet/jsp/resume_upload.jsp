@@ -7,7 +7,7 @@
     <TABLE WIDTH="100%" HEIGHT="100%" BACKGROUND="/i/steel_darkblue_bg.gif">
       <TR>
         <TD>
-          <form name="upload_form" enctype="multipart/form-data" method="POST" action="<%=%>">
+          <form name="upload_form" enctype="multipart/form-data" method="POST" action="<%="/resume/Controller"%>">
             <input type="hidden" name="<%=Controller.TASK%>" value="<%=Controller.RESUME%>">  
             <input type=file name=file1>
             <input type="submit" value="Upload"> 
