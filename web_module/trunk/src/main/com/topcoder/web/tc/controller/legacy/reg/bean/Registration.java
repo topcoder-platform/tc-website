@@ -556,7 +556,7 @@ public class Registration
                                 } else if (strQuestionId.equals(DEMOGRAPHIC_QUESTION_EMPLOYER)) {
                                     employerBlank = true;
                                     employerQuestionText = question.getDemographicQuestionText();
-                                } else if (strQuestionId.equals(DEMOGRAPHIC_QUESTION_OTHER_SCHOOL) && !this.country.equals(USA)) {
+                                } else if (strQuestionId.equals(DEMOGRAPHIC_QUESTION_OTHER_SCHOOL) && !isNumber(this.school)) {
                                     addError(DEMO_PREFIX + strQuestionId, "Please enter your school name.");
                                 }
                                 break;
