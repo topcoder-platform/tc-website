@@ -118,7 +118,6 @@ public class UpdateSession extends BaseSessionProcessor {
                             Long.parseLong(Constants.TEST_SET_B_SEGMENT_INTERVAL);
                     segment.createSessionSegment(sessionId, Long.parseLong(Constants.SESSION_SEGMENT_TEST_SET_B_ID), testSetBSegment);
 
-                    log.debug("RYAN: EMAIL IS " + info.useCandidateEmail());
                     //if we got through all that, then send the email
                     if (info.useCandidateEmail() || info.useRepEmail()) {
                         EmailInfo.createEmailInfo(info, requestor).sendEmail();
