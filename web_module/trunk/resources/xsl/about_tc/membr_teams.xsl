@@ -95,12 +95,12 @@ Division 2:  The number of teams is unlimited.</LI><BR/>
 <LI><B>Members on a team competing at once</B><BR/>There will be a maximum number of 4 members and a minimum of 3 members competing in any given team-based competition. 
 Teams are encouraged to vary the team playing on any given night in order to ease scheduling conflicts and promote participation.</LI><BR/>
 <LI><B>Sign Up</B><BR/>TopCoder will announce on Monday, April 1 to the member base that team competitions will be starting on a predetermined date of June 3, 2002. 
-TopCoder will "announce" this via a page posted to the website, and linking this page to a round table post.  In order to be considered for team-based competitions, 
-members will have to sign up on the website.  Part of the signup process will allow members to express interest in becoming a team captain.</LI><BR/>
+TopCoder will "announce" this via a page posted to the web site, and linking this page to a round table post.  In order to be considered for team-based competitions, 
+members will have to sign up on the web site.  Part of the sign-up process will allow members to express interest in becoming a team captain.</LI><BR/>
 <LI><B>Captains</B><BR/>Based on the response, TopCoder will select 48 team captains and alert them of their status.  The highest rated individuals who express an 
 interest in being team captains will be chosen as captains. Once the teams have been established, the captain will select one alternate captain to be available 
 in the event of scheduling conflicts and/or emergencies.</LI><BR/>
-<LI><B>Draft</B><BR/>On a predetermined date, TopCoder will hold the TC Draft. The TC Draft will be similar to other professional drafts and will include 6 rounds 
+<LI><B>Draft</B><BR/>On a predetermined date, TopCoder will hold the TopCoder Draft. The TopCoder Draft will be similar to other professional drafts and will include 6 rounds 
 in which all teams will select a player to their team.<BR/><BR/><UL>
 <LI>Date: Friday, May 24, 2002</LI><BR/>
 <LI>Start Time: 12:01 P.M. EST</LI><BR/>
@@ -124,7 +124,7 @@ Semifinal:	August 19, 2002, 2 teams advance</LI><BR/>
 <LI><B>Championship Match (2 teams compete head-to-head)</B><BR/>
 August 26, 2002</LI></UL>
 During the first 2 team-based competitions, which will span 2 weeks, a team captain will have the ability to trade players or cut players and select members 
-from a pool of players not selected in the TC Draft.</P>
+from a pool of players not selected in the TopCoder Draft.</P>
 <P><B>Competition Format</B><BR/>
 Every time there is a team-based competition it will be the responsibility of the team captain to register all of the competing team members.   During each team-based 
 competition, there will be a minimum of 3 and maximum of 4 members competing on a given team.  TopCoder will require that each team member must compete in at least 6 
@@ -142,8 +142,8 @@ would in turn return a result set in XML format.  Every team-based competition w
 competition, there will only be one problem given that the team needs to solve.<BR/><BR/>
 The plan is to have 3 web services for each team-based competition.  The team lead would assign a component that deals with one of the web services to each team member. 
 The 3 members are writing the code that would interface with the web services and at the same time perform some unit of work.  The team lead would then write the main 
-level code that would interface with the 3 components that the other 3 members have created, and produce some output.  This way the team lead's submission is dependant 
-on the code submitted by the other 3 team members.  In turn, the 3 team member's submissions are dependant on interfacing with TopCoder specific web services.  Multiple 
+level code that would interface with the 3 components that the other 3 members have created, and produce some output.  This way the team lead's submission is dependent 
+on the code submitted by the other 3 team members.  In turn, the 3 team member's submissions are dependent on interfacing with TopCoder specific web services.  Multiple 
 submissions will be allowed, however there will be a penalty associated with such an action.</LI><BR/>
 <LI><B>Web Services</B><BR/>The TopCoder members that currently write problems for Single Round Matches will also be creating the web services that will support the team based competitions. 
 The web services that will be created for each team-based competition will be exposed via the Internet during the active contest.  That way as members are using their 
