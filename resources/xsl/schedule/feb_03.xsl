@@ -57,12 +57,12 @@
             <TABLE WIDTH="100%" BORDER="0" CELLSPACING="1" CELLPADDING="3">
               <TR> 
                 <TD CLASS="registerNav" BACKGROUND="/i/orangebv_bg.gif" ALIGN="center"><B>Sun</B></TD>
-                <TD CLASS="registerNav" BACKGROUND="/i/orangebv_bg.gif" ALIGN="center" WIDTH="20%"><B>Mon</B></TD>
+                <TD CLASS="registerNav" BACKGROUND="/i/orangebv_bg.gif" ALIGN="center"><B>Mon</B></TD>
                 <TD CLASS="registerNav" BACKGROUND="/i/orangebv_bg.gif" ALIGN="center" WIDTH="20%"><B>Tues</B></TD>
                 <TD CLASS="registerNav" BACKGROUND="/i/orangebv_bg.gif" ALIGN="center" WIDTH="20%"><B>Wed</B></TD>
                 <TD CLASS="registerNav" BACKGROUND="/i/orangebv_bg.gif" ALIGN="center" WIDTH="20%"><B>Thurs</B></TD>
                 <TD CLASS="registerNav" BACKGROUND="/i/orangebv_bg.gif" ALIGN="center" WIDTH="20%"><B>Fri</B></TD>
-                <TD CLASS="registerNav" BACKGROUND="/i/orangebv_bg.gif" ALIGN="center"><B>Sat</B></TD>
+                <TD CLASS="registerNav" BACKGROUND="/i/orangebv_bg.gif" ALIGN="center" WIDTH="20%"><B>Sat</B></TD>
               </TR>
               <TR BGCOLOR="#FFFFFF"> 
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BGCOLOR="#CCCCCC">&#160;</TD>
