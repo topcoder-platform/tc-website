@@ -16,11 +16,12 @@ public class ProfileInfo extends BaseModel {
     private ResultSetContainer languageList;
     private HashSet testSetB;
     private ArrayList language;
-
+    private String testSetAName;    
 
     public ProfileInfo()
     {
         profileName = "";
+        testSetAName = "";
         testSetB = new HashSet();
         language = new ArrayList();
     }
@@ -250,4 +251,19 @@ public class ProfileInfo extends BaseModel {
         if(aLanguageId == null) return false;
         return language.contains(new Long(aLanguageId));
     }
+    
+    /** Getter for property testSetAName.
+     * @return Value of property testSetAName.
+     */
+    public String getTestSetAName() {
+        return this.testSetAName;
+    }
+    
+    /** Setter for property testSetAName.
+     * @param testSetAName New value of property testSetAName.
+     */
+    public void setTestSetAName(String testSetAName) {
+        this.testSetAName = testSetAName;
+    }
+    
 }
