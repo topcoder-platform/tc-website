@@ -63,7 +63,7 @@
             <jsp:include page="../body_top.jsp" >
                 <jsp:param name="image" value="statistics"/>
                 <jsp:param name="image1" value="steelblue"/>
-                <jsp:param name="title" value="Member Search Results"/>
+                <jsp:param name="title" value="Advanced Member Search"/>
             </jsp:include>
 
             <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
@@ -109,8 +109,17 @@
 
                                 <tr>
                                     <td class="statText">
-                                        <% ResultSetContainer stateRsc = memberSearch.getStateList(); %>
-                                        <tc-webtag:rscSelect name="<%=Constants.STATE_CODE%>" list="<%=stateRsc%>" fieldText="state_name" fieldValue="state_code"/>
+                                        <tc-webtag:rscSelect name="<%=Constants.STATE_CODE%>" list="<%=memberSearch.getStateList()%>" fieldText="state_name" fieldValue="state_code"/>
+                                    </td>
+                                </tr>
+
+                                <tr><td class="statText"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
+
+                                <tr><td class="statText" valign="middle" height="15" width="50%">Country</td></tr>
+
+                                <tr>
+                                    <td class="statText">
+                                        <tc-webtag:rscSelect name="<%=Constants.STATE_CODE%>" list="<%=memberSearch.getCountryList()%>" fieldText="country_name" fieldValue="country_code"/>
                                     </td>
                                 </tr>
 
