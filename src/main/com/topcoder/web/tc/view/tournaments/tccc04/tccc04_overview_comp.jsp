@@ -46,10 +46,10 @@
 </jsp:include>-->
 
             <p class="terciary">
-                Algorithm Competition&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_overview_comp">Component Competition</a>
+                <a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_overview_comp">Algorithm Competition</a>&nbsp;&nbsp;|&nbsp;&nbsp;Component Competition
             </p>
 
-            <h2>Overview of the Algorithm Competition</h2>
+            <h2>Overview of the Component Competition</h2>
 
             <ul>
                 <li><strong>Dates: </strong><br />
