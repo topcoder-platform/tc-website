@@ -16,6 +16,13 @@ if ( window.navigator.appName.indexOf("Netscape")>-1 && window.navigator.appVers
     window.open('/statistics/graphPopup.jsp?'+url+'&width='+wd+'&height='+ht,name,size);
     return;
   }
+  function getGraph(url,wd,ht,name) {
+    var last=0;
+    var daHt = parseInt(ht) + parseInt('49');
+    var size = "top=2,left=2,width="+wd+",height="+daHt+"status=0";
+    window.open('/statistics/graphPopup.jsp?'+url+'&width='+wd+'&height='+ht,name,size);
+    return;
+  }
 
 function arena() {
   w=window.open("/contest/arena/launch.html","Launch","top=2,left=2,width=300,height=225,status=1");
