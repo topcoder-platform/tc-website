@@ -5,7 +5,6 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
-import com.topcoder.web.privatelabel.model.FullRegInfo;
 import com.topcoder.shared.util.logging.Logger;
 
 import java.util.StringTokenizer;
@@ -34,6 +33,7 @@ abstract class SimpleRegBase extends RegistrationBase {
         setDefault(Constants.ADDRESS3, info.getAddress3());
         setDefault(Constants.COUNTRY_CODE, info.getCountryCode());
         setDefault(Constants.STATE_CODE, info.getStateCode());
+        setDefault(Constants.PROVINCE, info.getProvince());
         setDefault(Constants.CITY, info.getCity());
         setDefault(Constants.ZIP, info.getZip());
     }

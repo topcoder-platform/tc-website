@@ -851,13 +851,13 @@ public class AddressBean extends BaseEJB {
      *
      *
      * @param addressId address ID of entry to set
-     * @param privince the province to set to
+     * @param province the province to set to
      *
      * @throws EJBException
      */
-    public void setProvince(long addressId, String privince) {
+    public void setProvince(long addressId, String province) {
         log.debug("setProvince called...addressId: " + addressId +
-                " privince: " + privince);
+                " province: " + province);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -869,9 +869,9 @@ public class AddressBean extends BaseEJB {
             ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
             conn = ds.getConnection();
 
-            ps = conn.prepareStatement("UPDATE address SET privince = ? " +
+            ps = conn.prepareStatement("UPDATE address SET province = ? " +
                     "WHERE address_id = ?");
-            ps.setString(1, privince);
+            ps.setString(1, province);
             ps.setLong(2, addressId);
 
             int rows = ps.executeUpdate();
@@ -879,16 +879,16 @@ public class AddressBean extends BaseEJB {
             if (rows != 1)
                 throw new EJBException("Wrong number of rows in update: " +
                         rows + " for address_id: " + addressId +
-                        " privince: " + privince);
+                        " province: " + province);
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating address_id: '" +
-                    addressId + "' privince: " + privince);
+                    addressId + "' province: " + province);
         } catch (NamingException e) {
             throw new EJBException("NamingException updating state code");
         } catch (Exception e) {
             throw new EJBException("Exception updating address_id: " +
-                    addressId + " privince: " + privince +
+                    addressId + " province: " + province +
                     "\n" + e.getMessage());
         } finally {
             close(ps);
