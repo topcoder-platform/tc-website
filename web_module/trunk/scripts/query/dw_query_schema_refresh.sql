@@ -36,6 +36,7 @@ INSERT INTO command VALUES(29,"rating_distribution_graph_dark",2);
 INSERT INTO command VALUES(30,"round_overview",6);
 INSERT INTO command VALUES(31,"problem_distribution_graph",2);
 INSERT INTO command VALUES(32,"school_avg_rating",6);
+INSERT INTO command VALUES(33,"top_scorers",6);
 
 INSERT INTO command_query_xref VALUES(1, 1, 1);
 INSERT INTO command_query_xref VALUES(1, 2, 2);
@@ -99,6 +100,7 @@ INSERT INTO command_query_xref VALUES(30, 2, 3);
 INSERT INTO command_query_xref VALUES(31, 55, 1);
 INSERT INTO command_query_xref VALUES(31, 56, 2);
 INSERT INTO command_query_xref (command_id, query_id, sort_order) VALUES(32,57,1);
+INSERT INTO command_query_xref (command_id, query_id, sort_order) VALUES(33,58,1);
 
 INSERT INTO input_lu VALUES(1, "rd", 1001, "Round ID");
 INSERT INTO input_lu VALUES(2, "rm", 1001, "Room ID");
@@ -236,3 +238,7 @@ INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (57, "Y", 10, 20, 1);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (57, "Y", 1, 8, 2);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (57, "Y", 50, 9, 3);
+INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (58, "Y", 1, 8, 1);
+INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (58, "Y", 10, 9, 2);
+INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (58, "Y", 1, 11, 3);
+INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (58, "Y", "$26", 1, 4);
