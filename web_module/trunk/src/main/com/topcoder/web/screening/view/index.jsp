@@ -19,20 +19,12 @@
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
-    <!-- Left Column Begins -->
-        <td width="22">
-
-            <jsp:include page="includes/left.jsp" />
-
-        </td>
-      <!-- Left Column Ends -->
-
       <!-- Gutter Begins -->
-        <td><img src="/i/clear.gif" width="10" height="1"></td>
+        <td><img src="/i/clear.gif" width="25" height="1"></td>
         <!-- Gutter Ends -->
 
         <!-- Center Column begins -->
-        <td class="bodyText" width="100%"><img src="/i/clear.gif" width="400" height="11" border="0"><br />
+        <td width="100%" align="center"><img src="/i/clear.gif" width="400" height="11" border="0"><br />
             <table border="0" cellspacing="0" cellpadding="0" width="70%">
                 <tr valign="top">
                     <td class="bodyText">
@@ -45,7 +37,7 @@
             </table>
                             
             <table border="0" cellspacing="0" cellpadding="0" width="70%">
-                <tr><td colspan="3"><img src="/i/clear.gif" width="1" height="10"></td></tr>
+                <tr><td colspan="3"><img src="/i/clear.gif" width="1" height="20"></td></tr>
                 <tr><td colspan="3"><h3 class="testSubhead">Create a New Session:</h3></td></tr>
                 <tr>
                     <td valign="top" class="bodyText" nowrap="nowrap"><strong>Step 1:</strong></td>
