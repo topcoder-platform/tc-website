@@ -192,7 +192,7 @@ public final class ReportServlet extends HttpServlet {
         /* get the root context so we can forward to the generic error page
          */
         getServletContext().getRequestDispatcher(
-                response.encodeURL("/errorPage.jsp")).forward(request, response);
+                response.encodeURL(Constants.JSP_ADDR + "/errorPage.jsp")).forward(request, response);
     }
 
     private String getReport(HttpServletRequest request, Report report) throws Exception {
