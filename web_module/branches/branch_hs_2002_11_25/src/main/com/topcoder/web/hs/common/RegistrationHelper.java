@@ -194,8 +194,8 @@ public class RegistrationHelper {
     _srb.setLastName((String)rsr.getItem("last_name").getResultData());
     _srb.setStateCode((String)rsr.getItem("state_code").getResultData());
     _srb.setSchoolId((Long)rsr.getItem("school_id").getResultData());
-    _srb.setEmail((String)rsr.getItem("email").getResultData());
-    _srb.setConfirmEmail((String)rsr.getItem("email").getResultData());
+    _srb.setEmail((String)rsr.getItem("address").getResultData());
+    _srb.setConfirmEmail((String)rsr.getItem("address").getResultData());
     _srb.setEditorId((Integer)rsr.getItem("editor_id").getResultData());
     _srb.setLanguageId((Integer)rsr.getItem("language_id").getResultData());
   }
@@ -538,8 +538,8 @@ public class RegistrationHelper {
     _crb.setLastName((String)rsr.getItem("last_name").getResultData());
     _crb.setStateCode((String)rsr.getItem("state_code").getResultData());
     _crb.setSchoolId((Long)rsr.getItem("school_id").getResultData());
-    _crb.setEmail((String)rsr.getItem("email").getResultData());
-    _crb.setConfirmEmail((String)rsr.getItem("email").getResultData());
+    _crb.setEmail((String)rsr.getItem("address").getResultData());
+    _crb.setConfirmEmail((String)rsr.getItem("address").getResultData());
     _crb.setEditorId((Integer)rsr.getItem("editor_id").getResultData());
     _crb.setLanguageId((Integer)rsr.getItem("language_id").getResultData());
   }
