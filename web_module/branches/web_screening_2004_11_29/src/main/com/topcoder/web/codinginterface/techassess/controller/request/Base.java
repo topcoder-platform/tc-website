@@ -44,7 +44,6 @@ public abstract class Base extends BaseProcessor {
         getResponse().setContentType("text/html");
         try {
             PrintWriter out = getResponse().getWriter();
-            out.println("<html><head><title>Wait page</title></head><body><table><tr><td>");
             out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\">");
             out.println("<html>");
             out.println("<head>");
