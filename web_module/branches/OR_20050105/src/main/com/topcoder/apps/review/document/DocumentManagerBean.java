@@ -2916,7 +2916,7 @@ info("GetFinalReview1: isApproved="+isApproved);
                     long fixItemVid = rs.getLong(7);
                     isApproved = rs.getBoolean (8);
                     comments = rs.getString (9);
-info("GetFinalReview2: isApproved="+finalReview.isApproved);
+info("GetFinalReview2: isApproved="+isApproved);
 
                     FinalFixStatusManager finalFixStatusManager = (FinalFixStatusManager) Common.getFromCache(
                             "FinalFixStatusManager");
