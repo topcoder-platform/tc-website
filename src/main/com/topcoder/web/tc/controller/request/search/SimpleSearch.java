@@ -122,12 +122,12 @@ public class SimpleSearch extends Base {
         queryBottom.append(" AND ");
         queryBottom.append(m.getMaxNumRatings()== null?String.valueOf(Integer.MAX_VALUE):m.getMaxNumRatings().toString());
         if (m.getCountryCode() != null)
-            queryBottom.append(" AND c.country_code like '").append(StringUtils.replace(m.getCountryCode(), "'", "''")).append("'");
+            queryBottom.append(" AND c.comp_country_code like '").append(StringUtils.replace(m.getCountryCode(), "'", "''")).append("'");
         if (m.getMaxDaysSinceLastComp() != null) {
             queryBottom.append(" AND cal.calendar_id = ro.calendar_id");
             queryBottom.append(" AND cal.date > CURRENT - ").append(m.getMaxDaysSinceLastComp()).append(" UNITS DAY");
         }
-        queryBottom.append(" AND c.country_code = co.country_code");
+        queryBottom.append(" AND c.comp_country_code = co.country_code");
 
 
         StringBuffer searchQuery = new StringBuffer(400);
