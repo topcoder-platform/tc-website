@@ -17,7 +17,7 @@
 
 <xsl:call-template name="Preload"/>      
 
-<title>2003 TopCoder Open - Computer Programming Tournament - Rules - Overview</title>
+<title>2003 TopCoder Open - Computer Programming Tournament - Rules - Prizes</title>
 
 <xsl:call-template name="CSS"/>      
 
@@ -70,19 +70,73 @@
 <!-- Tab bar sub links-->
             <xsl:call-template name="tco03_sublinks">
                 <xsl:with-param name="selectedList">rules</xsl:with-param>
-                <xsl:with-param name="selectedTab">overview</xsl:with-param>
+                <xsl:with-param name="selectedTab">prizes</xsl:with-param>
             </xsl:call-template>
     
             <blockquote>
-            <h2>Official Rules and Regulations</h2>
+            <h2>About the Prizes</h2>
             
-            <h3><font color="#CC0000">No purchase necessary to enter or win</font></h3>
+            <p>The tournament will award prizes to all competitors and $100,000 in cash prizes. Up to 500 competitors will 
+            receive a prize for competing in Online Round #1, and up to 200 eligible competitors will receive cash prizes.  
+            Any and all applicable taxes on prizes, including the cost of a guest attending the onsite rounds, are the sole 
+            responsibility of the prizewinner. Prizes will be distributed as follows:</p>
+            
+            <table width="100%" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+                <tr>
+                    <td width="50%" class="sidebarTitle">Competitor(s)</td>
+                    <td width="50%" class="sidebarTitle" align="right">Prize</td>
+                </tr>
 
-            <p>The 2003 TopCoder Open ("TCO") will take place between October 7th and December 5th, 2003.  It will consist of two (2) online 
-            qualification rounds, four (4) online elimination rounds and two (2) onsite final rounds, being the Semifinal and Championship rounds.  
-            The prize purse for this tournament is $100,000 in cash.  Up to 500 competitors will receive a prize just for competing in Online 
-            Round #1, and up to 200 eligible competitors will receive cash prizes.  The top 16 finishers in the online rounds will advance to 
-            the onsite Semifinal and Championship rounds, being held at the Mohegan Sun Casino in Uncasville, CT from December 4th and 5th.</p>
+                <tr>
+                    <td width="50%" class="sidebarText">500 competitors who compete in Online Round #1</td>
+                    <td width="50%" class="sidebarText" align="right">Limited edition 2003 TopCoder Open t-shirt</td>
+                </tr>
+
+                <tr>
+                    <td width="50%" class="sidebarText">200 competitors who advance to and compete in Online Round #2</td>
+                    <td width="50%" class="sidebarText" align="right">$25 each</td>
+                </tr>
+
+                <tr>
+                    <td width="50%" class="sidebarText">100 competitors who advance to and compete in Online Round #3</td>
+                    <td width="50%" class="sidebarText" align="right">$50 each</td>
+                </tr>
+
+                <tr>
+                    <td width="50%" class="sidebarText">50 competitors who advance to and compete in Online Round #4</td>
+                    <td width="50%" class="sidebarText" align="right">$100 each</td>
+                </tr>
+
+                <tr>
+                    <td width="50%" class="sidebarText">12 Semifinalists* who compete in one of four Semifinal rounds</td>
+                    <td width="50%" class="sidebarText" align="right">$1,000 each</td>
+                </tr>
+
+                <tr>
+                    <td width="50%" class="sidebarText">4<span class="super">th</span> place finisher* in the Championship Round</td>
+                    <td width="50%" class="sidebarText" align="right">$3,000</td>
+                </tr>
+
+                <tr>
+                    <td width="50%" class="sidebarText">3<span class="super">rd</span> place finisher* in the Championship Round</td>
+                    <td width="50%" class="sidebarText" align="right">$5,000</td>
+                </tr>
+
+                <tr>
+                    <td width="50%" class="sidebarText">2<span class="super">nd</span> place finisher* in the Championship Round</td>
+                    <td width="50%" class="sidebarText" align="right">$15,000</td>
+                </tr>
+
+                <tr>
+                    <td width="50%" class="sidebarText">1<span class="super">st</span> place finisher* - Tournament Champion</td>
+                    <td width="50%" class="sidebarText" align="right">$50,000</td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" class="sidebarText">* Prize will be awarded at the conclusion of the Championship Round. 
+                        Winner must be present at the onsite rounds to receive prize.</td>
+                </tr>
+            </table>
             </blockquote>
 
             <p><br/></p>
