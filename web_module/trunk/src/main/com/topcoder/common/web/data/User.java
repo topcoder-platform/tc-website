@@ -236,5 +236,8 @@ public class User extends SecureObject implements java.io.Serializable, Permissi
         return Terms;
     }
 
+    public String toString() {
+        return "handle: " + Handle + " userid " + SId;
+    }
 
 }
