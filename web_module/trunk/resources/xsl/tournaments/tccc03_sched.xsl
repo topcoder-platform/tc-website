@@ -326,6 +326,7 @@
                     </tr>
                     
                     <tr><td colspan="5" valign="middle" height="13" class="statText">**Time is subject to change.</td></tr>
+                    <tr><td colspan="5" valign="middle" height="13" class="statText">***TopCoder has become aware of inappropriate behavior by certain competitors in the International region following the Collegiate Challenge Regional Semifinal round.  This behavior will affect advancement in the International region.  TopCoder is currently investigating this behavior and upon conclusion of this investigation, we will update the International advancement information and will post more details of this matter in the round tables. </td></tr>
                     
                     <tr> <td colspan="5"><img src="/i/clear.gif" alt="" width="1" height="20" border="0"/></td></tr>
                     
