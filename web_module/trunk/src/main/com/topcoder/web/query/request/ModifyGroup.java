@@ -63,7 +63,7 @@ public class ModifyGroup extends BaseProcessor {
                 setGroupDesc(cg.getCommandGroupName(getGroupId(), getDb()));
             }
         }
-        request.setAttribute(this.getClass().getName(), this);
+        request.setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".")+1), this);
         setNextPage(Constants.MODIFY_GROUP_PAGE);
         setIsNextPageInContext(true);
     }
