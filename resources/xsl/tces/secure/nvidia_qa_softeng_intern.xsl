@@ -80,7 +80,7 @@ multiple systems in lab environment, keeping them continually in operation, upda
 Power-User level with the Windows Family of Operating Systems including Windows XP, Windows Me, Windows 2000, Windows 98 SE, and 
 Windows NT4, including how they interact with Applications and Hardware.  Understanding of QA theory, bug tracking to resolution, and software 
 development support desired.  The ability to research and comprehend technically complex specifications concerning the development of PC 
-architecture and sub-systems is required.  Knowledgeable of current industry standards such as DirectX, OpenGL, EDID & DDC, DVD, ACPI, and 
+architecture and sub-systems is required.  Knowledgeable of current industry standards such as DirectX, OpenGL, EDID &#38; DDC, DVD, ACPI, and 
 PC Design Guides is a plus. </P>
 
 <P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=111&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_openings_intern&amp;a=secure" CLASS="bodyText">more Intern/Co-op Positions</A></P>
