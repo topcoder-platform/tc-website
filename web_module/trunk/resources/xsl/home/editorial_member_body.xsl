@@ -89,6 +89,183 @@
   <!-- Center Column Begins -->  
     <TD WIDTH="100%" VALIGN="top" ALIGN="center" BGCOLOR="#FFFFFF"> 
      <!-- My Stats Begins -->
+      <!-- <xsl:choose>
+      <xsl:when test="count(/TC/STATLISTS/Coder)='0'">
+        <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
+          <TR>
+            <TD COLSPAN="4" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
+          </TR>
+          <TR>
+            <TD COLSPAN="4" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" VALIGN="top" HEIGHT="50">
+              No member profile available.
+            </TD>
+          </TR>
+        </TABLE>
+      </xsl:when>
+      <xsl:otherwise>
+
+
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
+  <TR>
+      <TD COLSPAN="5" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
+  </TR>  
+  <TR>
+          <TD COLSPAN="5" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText">
+            <SPAN CLASS="statTextLarge"><B>Coder:</B>&#160;
+              <FONT>
+                <xsl:attribute name="color">
+                  <xsl:call-template name="GetRatingColor"><xsl:with-param name="rating"><xsl:value-of select="/TC/STATLISTS/Coder/Rating"/></xsl:with-param></xsl:call-template>
+                </xsl:attribute>
+                <B><xsl:value-of select="/TC/STATLISTS/Coder/Handle"/></B>
+              </FONT>
+            </SPAN>
+          </TD>
+  </TR>
+            <TR>
+              <TD COLSPAN="5" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"/></TD>
+            </TR>  
+          <xsl:if test="/TC/STATLISTS/Coder/Quote!=''">
+            <TR>
+              <TD COLSPAN="5" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="center" WIDTH="80%">"<xsl:value-of select="/TC/STATLISTS/Coder/Quote"/>"</TD>
+            </TR>
+            <TR>
+              <TD COLSPAN="5" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
+            </TR>             
+          </xsl:if>
+  <TR>
+    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ROWSPAN="11" VALIGN="top">
+      <xsl:choose>
+      <xsl:when test="/TC/STATLISTS/Coder/Image!=''">
+        <IMG WIDTH="126" HEIGHT="140" ALIGN="left" BORDER="0"><xsl:attribute name="SRC"><xsl:value-of select="/TC/STATLISTS/Coder/Image"/></xsl:attribute></IMG>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:choose>
+        <xsl:when test="/TC/HasImage='true'">
+          <IMG SRC="/i/m/nophoto_big.gif" WIDTH="126" HEIGHT="140" ALIGN="left" BORDER="0"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:choose>
+          <xsl:when test="/TC/LoggedIn='true'">
+            <A><xsl:attribute name="HREF">mailto:memberphotos@topcoder.com?subject=<xsl:value-of select="/TC/ActivationCode"/> | [ <xsl:value-of select="/TC/Handle"/> ] | <xsl:value-of select="/TC/UserId"/> SUBMIT IMAGE: PLEASE DO NOT CHANGE SUBJECT</xsl:attribute><IMG SRC="/i/m/nophoto_submit.gif" WIDTH="126" HEIGHT="140" ALIGN="left" BORDER="0"/></A>
+          </xsl:when>
+          <xsl:otherwise>
+            <A><xsl:attribute name="HREF">?t=statistics&amp;c=member_profile&amp;submit_photo=true</xsl:attribute><IMG SRC="/i/m/nophoto_login.gif" WIDTH="126" HEIGHT="140" ALIGN="left" BORDER="0"/></A>
+          </xsl:otherwise>
+          </xsl:choose>
+        </xsl:otherwise>
+        </xsl:choose>
+      </xsl:otherwise>
+      </xsl:choose>
+      <IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/>
+    </TD>
+
+    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" WIDTH="50%">Rating:</TD>
+      <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right" WIDTH="20%"><xsl:value-of select="/TC/STATLISTS/Coder/Rating"/></TD>
+      <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+      <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="left" WIDTH="30%">
+                <xsl:choose>
+                  <xsl:when test="/TC/LoggedIn='true'">
+              <A>
+                 <xsl:attribute name="HREF">?t=statistics&amp;c=ratings_history&amp;Coder_Id=<xsl:value-of select="/TC/STATLISTS/Coder/CoderId"/></xsl:attribute>
+                 <xsl:attribute name="CLASS">statText</xsl:attribute>[&#160;ratings&#160;history&#160;]
+              </A>
+                  </xsl:when>
+                  <xsl:otherwise>
+               <A>
+                 <xsl:attribute name="HREF">/?t=authentication&amp;c=login</xsl:attribute>
+                 <xsl:attribute name="CLASS">statText</xsl:attribute>[&#160;login&#160;for&#160;history&#160;]
+              </A>                 
+                  </xsl:otherwise>
+                </xsl:choose>
+            </TD>
+  </TR>
+  <TR>
+    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText">Volatility Factor:</TD>    
+      <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right"><xsl:value-of select="/TC/STATLISTS/Coder/Volatility"/></TD>
+      <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+      <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="left">&#160;</TD>
+  </TR>  
+  <TR>
+    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText">Member Since:</TD>    
+      <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right" NOWRAP=""><xsl:value-of select="/TC/STATLISTS/Coder/MemberSince"/></TD>
+      <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+      <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="left">&#160;</TD>
+  </TR>  
+  <TR>
+    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText">Total Earnings:</TD>    
+      <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right">
+      $<xsl:value-of select="format-number(/TC/STATLISTS/Coder/TotalEarnings, '0.00')"/>
+      </TD>
+      <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+      <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="left">
+                <xsl:choose>
+                  <xsl:when test="/TC/LoggedIn='true'">
+              <A>
+                 <xsl:attribute name="HREF">/?t=statistics&amp;c=earnings_history&amp;Coder_Id=<xsl:value-of select="/TC/STATLISTS/Coder/CoderId"/></xsl:attribute>
+                 <xsl:attribute name="CLASS">statText</xsl:attribute>[&#160;earnings&#160;history&#160;]
+              </A>
+                  </xsl:when>
+                  <xsl:otherwise>
+               <A>
+                 <xsl:attribute name="HREF">/?t=authentication&amp;c=login</xsl:attribute>
+                 <xsl:attribute name="CLASS">statText</xsl:attribute>[&#160;login&#160;for&#160;history&#160;]
+              </A>                 
+                  </xsl:otherwise>
+                </xsl:choose>
+            </TD>
+  </TR>  
+  <TR>
+    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText">Number of Competitions:</TD>    
+      <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right"><xsl:value-of select="/TC/STATLISTS/Coder/NumCompetitions"/></TD>
+      <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+      <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="left">&#160;</TD>
+  </TR>  
+  <TR>
+      <TD COLSPAN="4" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"/></TD>
+  </TR>
+  <TR>
+    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText">Average Points per Contest:</TD>    
+      <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right"><xsl:value-of select="format-number(/TC/STATLISTS/Coder/AvgPoints, '0.00')"/></TD>
+      <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+      <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="left">&#160;</TD>
+  </TR>  
+  <TR>
+    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText">Maximum Rating:</TD>    
+      <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right"><xsl:value-of select="/TC/STATLISTS/Coder/MaxRating"/></TD>
+      <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+      <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="left">&#160;</TD>
+  </TR>  
+
+
+
+
+  <xsl:choose>
+  <xsl:when test="/TC/HasImage='true'">
+    <TR>
+        <TD COLSPAN="4" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"/></TD>
+    </TR>
+    <TR>
+        <TD COLSPAN="4" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="24" BORDER="0"/></TD>
+    </TR>
+    <TR>
+      <TD>
+          <A><xsl:attribute name="HREF">mailto:memberphotos@topcoder.com?subject=<xsl:value-of select="/TC/ActivationCode"/> | [ <xsl:value-of select="/TC/Handle"/> ] | <xsl:value-of select="/TC/UserId"/> RE-SUBMIT IMAGE: PLEASE DO NOT CHANGE SUBJECT</xsl:attribute><xsl:attribute name="CLASS">statText</xsl:attribute>Click here to resend your photo</A>
+      </TD>
+    </TR>
+  </xsl:when>
+  <xsl:otherwise>
+    <TR>
+      <TD COLSPAN="4" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"/></TD>
+    </TR>
+    <TR>
+      <TD COLSPAN="4" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="24" BORDER="0"/></TD>
+    </TR>
+  </xsl:otherwise>
+  </xsl:choose>
+  <TR>
+      <TD COLSPAN="4" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="14" BORDER="0"/></TD>
+  </TR>      
+</TABLE> -->
 
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
   <TR>
