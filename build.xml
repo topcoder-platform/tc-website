@@ -21,7 +21,7 @@
    <property name="Jive.jar"      value="${bin}/Jive.jar"/>
    <property name="servlets"      value="${build}/servlets" />
    <property name="web"           value="src/main/com/topcoder/web" />
-   <property name="public_html"   value="${WL1_HOME}/tc_cluster/public_html" />
+   <property name="public_html"   value="/opt/home/weblog5/weblogic1/tc_cluster/public_html" />
    <property environment="env"/>
 
    <property name="deprecation"   value="false" />
@@ -74,7 +74,8 @@
       <rmic classname="com.topcoder.server.distCache.CacheClientImpl"     base="${classes}"/>
       <rmic classname="com.topcoder.server.distCache.CacheServerSyncImpl" base="${classes}"/>
    </target>
-   <target name="deploy" depends="servlets,jsp,moveStruts,moveReg">
+
+   <target name="deploy" depends="servlets,moveStruts,moveReg">
    </target>
 
    <target name="servlets" depends="compile">
