@@ -21,11 +21,11 @@ public class ResumeServicesBean extends BaseEJB {
     private static final String GET_RESUME_QUERY =
             "SELECT r.file AS file " +
                   " ,r.file_name AS file_name " +
-                  " ,ftl.mime_type AS mime_type " +
-                  " ,ft1.file_type_desc AS file_type " +
+                  " ,ft.mime_type AS mime_type " +
+                  " ,ft.file_type_desc AS file_type " +
              " FROM resume r " +
-              "JOIN file_type_lu ftl " +
-               " ON ftl.file_type_id = r.file_type_id " +
+              "JOIN file_type_lu ft " +
+               " ON ft.file_type_id = r.file_type_id " +
             " WHERE coder_id = ?";
 
     public Resume getResume(int userID) throws RemoteException{

@@ -19,7 +19,7 @@ public class Constants {
     public static String TASK_PACKAGE = null;
 
     public static void init(ServletConfig servletConfig) throws ServletException {
-        bundle = new TCResourceBundle("JobPosting");
+        bundle = new TCResourceBundle("Resume");
 
         MESSAGE_KEY = bundle.getProperty("message_key", "message");
         NAVIGATION_KEY = bundle.getProperty("navigation_key", "navigation");
