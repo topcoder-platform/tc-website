@@ -15,6 +15,9 @@ package com.topcoder.utilities.dwload;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.2  2002/04/22 17:50:38  gpaul
+ *           include coder_image_xref.display_flag in the move
+ *
  *           Revision 1.1  2002/04/02 21:54:14  gpaul
  *           moving the load over from 153 cvs
  *
@@ -195,14 +198,16 @@ public class TCLoadCoders extends TCLoad {
       fSql.append(" WHERE c.coder_id = u.user_id ");
       fSql.append("   AND c.modify_date > ?");
       fSql.append("   AND EXISTS (SELECT * FROM group_user gu WHERE gu.user_id = u.user_id AND gu.group_id = 10)");
-      
-      // Need to exclude Admins from this query! Make sure there is no row
-      // in the group_user table where this coder is in group 13
       fSql.append("   AND NOT EXISTS ");
       fSql.append("       (SELECT * ");
       fSql.append("          FROM group_user gu ");
       fSql.append("         WHERE gu.user_id = c.coder_id ");
       fSql.append("           AND gu.group_id = 13)");
+      fSql.append("   AND NOT EXISTS ");
+      fSql.append("       (SELECT * ");
+      fSql.append("          FROM group_user gu ");
+      fSql.append("         WHERE gu.user_id = c.coder_id ");
+      fSql.append("           AND gu.group_id = 14)");
       psSel = prepareStatement(fSql.toString(), SOURCE_DB);
 
       // Our insert statement
@@ -669,14 +674,16 @@ public class TCLoadCoders extends TCLoad {
       fSql.append("WHERE cs.skill_id = s.skill_id ");
       fSql.append("  AND cs.modify_date > ?");
       fSql.append("   AND EXISTS (SELECT * FROM group_user gu WHERE gu.user_id = cs.coder_id AND gu.group_id = 10)");
-
-      // Need to exclude Admins from this query! Make sure there is no row
-      // in the group_user table where this coder is in group 13
       fSql.append("   AND NOT EXISTS ");
       fSql.append("       (SELECT * ");
       fSql.append("          FROM group_user gu ");
       fSql.append("         WHERE gu.user_id = cs.coder_id ");
       fSql.append("           AND gu.group_id = 13)");
+      fSql.append("   AND NOT EXISTS ");
+      fSql.append("       (SELECT * ");
+      fSql.append("          FROM group_user gu ");
+      fSql.append("         WHERE gu.user_id = cs.coder_id ");
+      fSql.append("           AND gu.group_id = 14)");
       psSel = prepareStatement(fSql.toString(), SOURCE_DB);
 
       fSql.setLength(0);
@@ -765,14 +772,16 @@ public class TCLoadCoders extends TCLoad {
       fSql.append("  FROM rating r ");
       fSql.append(" WHERE r.modify_date > ? ");
       fSql.append("   AND EXISTS (SELECT * FROM group_user gu WHERE gu.user_id = r.coder_id AND gu.group_id = 10)");
-
-      // Need to exclude Admins from this query! Make sure there is no row
-      // in the group_user table where this coder is in group 13
       fSql.append("   AND NOT EXISTS ");
       fSql.append("       (SELECT * ");
       fSql.append("          FROM group_user gu ");
       fSql.append("         WHERE gu.user_id = r.coder_id ");
       fSql.append("           AND gu.group_id = 13)");
+      fSql.append("   AND NOT EXISTS ");
+      fSql.append("       (SELECT * ");
+      fSql.append("          FROM group_user gu ");
+      fSql.append("         WHERE gu.user_id = r.coder_id ");
+      fSql.append("           AND gu.group_id = 14)");
       psSel = prepareStatement(fSql.toString(), SOURCE_DB);
 
       fSql.setLength(0);

@@ -23,6 +23,9 @@ package com.topcoder.utilities.dwload;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.5  2002/06/11 18:44:38  gpaul
+ *           added stuff to populate the payment_type_id and payment_type_desc columns in room_result
+ *
  *           Revision 1.4  2002/05/31 01:25:37  gpaul
  *           added more stuff to speed it up
  *
@@ -385,14 +388,16 @@ public class TCLoadRound extends TCLoad {
       fSql.append("  FROM room_result rr ");
       fSql.append(" WHERE rr.round_id = ? ");
       fSql.append("   AND rr.attended = 'Y' ");
-
-      // Need to exclude Admins from this query! Make sure there is no row
-      // in the group_user table where this coder is in group 13
       fSql.append("   AND NOT EXISTS ");
       fSql.append("       (SELECT * ");
       fSql.append("          FROM group_user gu ");
       fSql.append("         WHERE gu.user_id = rr.coder_id ");
       fSql.append("           AND gu.group_id = 13)");
+      fSql.append("   AND NOT EXISTS ");
+      fSql.append("       (SELECT * ");
+      fSql.append("          FROM group_user gu ");
+      fSql.append("         WHERE gu.user_id = rr.coder_id ");
+      fSql.append("           AND gu.group_id = 14)");
 
       psSel = prepareStatement(fSql.toString(), SOURCE_DB);
 
@@ -403,14 +408,16 @@ public class TCLoadRound extends TCLoad {
       fSql.append(" WHERE rr.coder_id = ? ");
       fSql.append("   AND rr.attended = 'Y' ");
       fSql.append("   AND rr.new_rating > 0 ");
-
-      // Need to exclude Admins from this query! Make sure there is no row
-      // in the group_user table where this coder is in group 13
       fSql.append("   AND NOT EXISTS ");
       fSql.append("       (SELECT * ");
       fSql.append("          FROM group_user gu ");
       fSql.append("         WHERE gu.user_id = rr.coder_id ");
       fSql.append("           AND gu.group_id = 13)");
+      fSql.append("   AND NOT EXISTS ");
+      fSql.append("       (SELECT * ");
+      fSql.append("          FROM group_user gu ");
+      fSql.append("         WHERE gu.user_id = rr.coder_id ");
+      fSql.append("           AND gu.group_id = 14)");
 
       psSelMinMaxRatings = prepareStatement(fSql.toString(), SOURCE_DB);
 
@@ -582,14 +589,16 @@ public class TCLoadRound extends TCLoad {
       fSql.append(  " LEFT OUTER JOIN compilation c ");
       fSql.append(    " ON ps.problem_state_id = c.problem_state_id");
       fSql.append( " WHERE ps.round_id = ?");
-
-      // Need to exclude Admins from this query! Make sure there is no row
-      // in the group_user table where this coder is in group 13
       fSql.append("   AND NOT EXISTS ");
       fSql.append("       (SELECT * ");
       fSql.append("          FROM group_user gu ");
       fSql.append("         WHERE gu.user_id = ps.coder_id ");
       fSql.append("           AND gu.group_id = 13)");
+      fSql.append("   AND NOT EXISTS ");
+      fSql.append("       (SELECT * ");
+      fSql.append("          FROM group_user gu ");
+      fSql.append("         WHERE gu.user_id = ps.coder_id ");
+      fSql.append("           AND gu.group_id = 14)");
 
       psSel = prepareStatement(fSql.toString(), SOURCE_DB);
 
@@ -796,14 +805,16 @@ public class TCLoadRound extends TCLoad {
       fSql.append("       ,str.message ");           // 12
       fSql.append("  FROM system_test_result str ");
       fSql.append(" WHERE round_id = ?");
-
-      // Need to exclude Admins from this query! Make sure there is no row
-      // in the group_user table where this coder is in group 13
       fSql.append("   AND NOT EXISTS ");
       fSql.append("       (SELECT * ");
       fSql.append("          FROM group_user gu ");
       fSql.append("         WHERE gu.user_id = str.coder_id ");
       fSql.append("           AND gu.group_id = 13)");
+      fSql.append("   AND NOT EXISTS ");
+      fSql.append("       (SELECT * ");
+      fSql.append("          FROM group_user gu ");
+      fSql.append("         WHERE gu.user_id = str.coder_id ");
+      fSql.append("           AND gu.group_id = 14)");
 
       psSel = prepareStatement(fSql.toString(), SOURCE_DB);
 
@@ -1693,15 +1704,16 @@ public class TCLoadRound extends TCLoad {
       fSql.append(" WHERE r.room_type_id = " + CONTEST_ROOM);
       fSql.append("   AND rr.round_id = ?");
       fSql.append("   AND rr.attended = 'Y'");
-
-
-      // Need to exclude Admins from this query! Make sure there is no row
-      // in the group_user table where this coder is in group 13
       fSql.append("   AND NOT EXISTS ");
       fSql.append("       (SELECT * ");
       fSql.append("          FROM group_user gu ");
       fSql.append("         WHERE gu.user_id = rr.coder_id ");
       fSql.append("           AND gu.group_id = 13)");
+      fSql.append("   AND NOT EXISTS ");
+      fSql.append("       (SELECT * ");
+      fSql.append("          FROM group_user gu ");
+      fSql.append("         WHERE gu.user_id = rr.coder_id ");
+      fSql.append("           AND gu.group_id = 14)");
 
       psSel = prepareStatement(fSql.toString(), SOURCE_DB);
 
@@ -1911,14 +1923,16 @@ public class TCLoadRound extends TCLoad {
       fSql.append(  " AND rr.coder_id = ps.coder_id");
       fSql.append(  " AND rr.attended = 'Y'");
       fSql.append(  " AND ps.round_id = ?");
-
-      // Need to exclude Admins from this query! Make sure there is no row
-      // in the group_user table where this coder is in group 13
       fSql.append("   AND NOT EXISTS ");
       fSql.append("       (SELECT * ");
       fSql.append("          FROM group_user gu ");
       fSql.append("         WHERE gu.user_id = ps.coder_id ");
       fSql.append("           AND gu.group_id = 13)");
+      fSql.append("   AND NOT EXISTS ");
+      fSql.append("       (SELECT * ");
+      fSql.append("          FROM group_user gu ");
+      fSql.append("         WHERE gu.user_id = ps.coder_id ");
+      fSql.append("           AND gu.group_id = 14)");
 
       psSel = prepareStatement(fSql.toString(), SOURCE_DB);
 
@@ -2123,10 +2137,6 @@ public class TCLoadRound extends TCLoad {
       fSql.append("  FROM challenge ");
       fSql.append(" WHERE round_id = ? ");
       fSql.append("   AND status_id <> " + CHALLENGE_NULLIFIED);
-
-      // Need to exclude Admins from this query! Make sure there is no row
-      // in the group_user table where this coder is in group 13. We need to
-      // do this for both defendant_id and challenger_id
       fSql.append("   AND NOT EXISTS ");
       fSql.append("       (SELECT * ");
       fSql.append("          FROM group_user gu ");
@@ -2136,7 +2146,7 @@ public class TCLoadRound extends TCLoad {
       fSql.append("       (SELECT * ");
       fSql.append("          FROM group_user gu ");
       fSql.append("         WHERE gu.user_id = challenger_id ");
-      fSql.append("           AND gu.group_id = 13)");
+      fSql.append("           AND gu.group_id = 14)");
 
       psSel = prepareStatement(fSql.toString(), SOURCE_DB);
 
