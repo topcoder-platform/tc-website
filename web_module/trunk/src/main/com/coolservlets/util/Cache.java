@@ -123,7 +123,7 @@ public class Cache {
     public boolean containsKey(int key) {
         boolean ret = false;
         try {
-            ret = (getCache().get(String.valueOf(key)))!=null;
+            ret = (getCache().containsKey(String.valueOf(key)));
         } catch (RemoteException e) {
             e.printStackTrace();  //To change body of catch statement use Options | File Templates.
         }
