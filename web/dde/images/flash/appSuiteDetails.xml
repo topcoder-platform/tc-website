@@ -39,9 +39,6 @@
 			<component name='Authorization' ID='9932070' status='Development'/>
 			<component name='Authentication Factory' ID='6403441' status='Ready'/>
 			<component name='Encryption' ID='2810520' status='Ready'/>
-			<component name='Authorization' ID='9932070' status='Development'/>
-			<component name='Authentication Factory' ID='6403441' status='Ready'/>
-			<component name='Encryption' ID='2810520' status='Ready'/>
 		</appFunction>
 		<appFunction name='Credit Card Processing'>
 			<component name='Credit Card Validation' ID='10028532' status='Design'/>
@@ -49,6 +46,11 @@
 			<component name='Credit Card Validation' ID='10028532' status='Design'/>
 		</appFunction>
 		<appFunction name='Administration'>
+			<component name='Credit Card Validation' ID='10028532' status='Design'/>
+		</appFunction>
+		<appFunction name='Credit Card Processing'>
+			<component name='Credit Card Validation' ID='10028532' status='Design'/>
+			<component name='FTP Utility' ID='6401313' status='Ready'/>
 			<component name='Credit Card Validation' ID='10028532' status='Design'/>
 		</appFunction>
 	</compDiagram>
