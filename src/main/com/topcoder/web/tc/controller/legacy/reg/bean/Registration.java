@@ -1081,7 +1081,7 @@ public class Registration
         return getError(LANGUAGE);
     }
 
-    public String getCompCountrError() {
+    public String getCompCountryError() {
         return getError(COMP_COUNTRY);
     }
 
