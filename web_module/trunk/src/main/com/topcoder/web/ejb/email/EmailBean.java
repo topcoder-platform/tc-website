@@ -3,6 +3,7 @@ package com.topcoder.web.ejb.email;
 import com.topcoder.util.idgenerator.IdGenerator;
 import com.topcoder.util.idgenerator.sql.SimpleDB;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.BaseEJB;
 
@@ -28,7 +29,7 @@ public class EmailBean extends BaseEJB {
         InitialContext ctx = null;
 
         try {
-
+            ctx = TCContext.getInitial();
             if (!IdGenerator.isInitialized()) {
                 IdGenerator.init(new SimpleDB(), (DataSource) ctx.lookup(idDataSource), "sequence_object", "name",
                         "current_value", 9999999999L, 1, false);
