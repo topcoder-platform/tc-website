@@ -110,6 +110,8 @@ public class ModifyInputTask extends BaseTask implements Task, Serializable {
             super.addError(Constants.INPUT_CODE_PARAM, "Input Code already exists");
         } else if (inputCode.length() > 25) {
             super.addError(Constants.INPUT_CODE_PARAM, "Input Code too long");
+        } else if (containsNonLetters(inputCode)) {
+            super.addError(Constants.INPUT_CODE_PARAM, "Invalid input code, letters only");
         }
     }
 
@@ -137,6 +139,16 @@ public class ModifyInputTask extends BaseTask implements Task, Serializable {
                 super.addError(Constants.INPUT_ID_PARAM, "Invalid input id");
             }
         }
+    }
+
+    private boolean containsNonLetters(String s) { 
+        for (int i=0; i<s.length(); i++) {
+            char ch = s.charAt(i);
+            if ("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".indexOf(ch) < 0) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public boolean isNewInput() {

@@ -23,25 +23,25 @@
             <TR><TD><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
             <TR>
               <TD CLASS="statText">
-                  <A HREF="<%=begin+Constants.MODIFY_COMMAND_TASK+end%>" class="statText"><%=Constants.MODIFY_COMMAND_NAME%></A>
+                  <A HREF="<%=begin+Constants.MODIFY_COMMAND_TASK+end%>" class="statText">New Command</A>
               </TD>
             </TR>
             <TR><TD><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
             <TR>
               <TD CLASS="statText">
-                  <A HREF="<%=begin+Constants.MODIFY_GROUP_TASK+end%>" class="statText"><%=Constants.MODIFY_GROUP_NAME%></A>
+                  <A HREF="<%=begin+Constants.MODIFY_GROUP_TASK+end%>" class="statText">New Command Group</A>
               </TD>
             </TR>
             <TR><TD><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
             <TR>
               <TD CLASS="statText">
-                  <A HREF="<%=begin+Constants.MODIFY_QUERY_TASK+end%>" class="statText"><%=Constants.MODIFY_QUERY_NAME%></A>
+                  <A HREF="<%=begin+Constants.MODIFY_QUERY_TASK+end%>" class="statText">New Query</A>
               </TD>
             </TR>
             <TR><TD><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
             <TR>
               <TD CLASS="statText">
-                  <A HREF="<%=begin+Constants.MODIFY_INPUT_TASK+end%>" class="statText"><%=Constants.MODIFY_INPUT_NAME%></A>
+                  <A HREF="<%=begin+Constants.MODIFY_INPUT_TASK+end%>" class="statText">New Input</A>
               </TD>
             </TR>
             <TR><TD><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
