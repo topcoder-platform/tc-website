@@ -4,7 +4,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
   <HEAD>
-		<%@ page import="com.topcoder.web.tces.servlet.*" %>
 		<%@ page import="com.topcoder.web.TCES.ejb.*" %>
     <TITLE>TCES</TITLE>
     <%@ include file="../script.jsp" %>
@@ -39,7 +38,9 @@
             <TD CLASS="statTextBig" COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
 							<% //@ include file="nocache.jsp" %>
 							<% //@ page errorPage="error.jsp" %>
+
 							<%@ taglib uri="tc-taglib.tld" prefix="tc" %>
+							<%@ page import="com.topcoder.web.tces.servlet.*" %>
 							<jsp:useBean id="TCES" scope="session" class="com.topcoder.web.tces.bean.TCES" />
 							<jsp:useBean id="navigation" scope="session" class="com.topcoder.common.web.data.Navigation" />
 							<tc:getProperty id="user" name="navigation" property="user" type="com.topcoder.common.web.data.User" />
