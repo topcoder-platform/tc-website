@@ -198,7 +198,7 @@ public class ProfileInfo extends BaseModel {
 
     public void addTestSetB(String[] testSetBArray)
     {
-        if(testSetB == null) return;
+        if(testSetBArray == null) return;
         for(int i = 0; i < testSetBArray.length; ++i)
         {
             testSetB.add(new Long(testSetBArray[i]));
