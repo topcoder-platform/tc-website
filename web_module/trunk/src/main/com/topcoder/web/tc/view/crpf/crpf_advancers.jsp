@@ -6,8 +6,6 @@
 <html>
 <head>
 <title>TopCoder Charity Challenge</title>
-<% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("crpf_advancers"); %>
-<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <jsp:include page="../script.jsp" />
 
 <SCRIPT type="text/javascript">
