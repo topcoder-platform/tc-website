@@ -51,14 +51,11 @@ public class UserList extends BaseProcessor {
         User currentUser = authToken.getActiveUser();
         userId = currentUser.getId();
 
-        /* get the company associated with that logged in users ID number */
-        long companyId = new 
-            com.topcoder.web.ejb.user.ContactBean().getCompanyId(userId);
         log.debug("--- UserList getting users for companyId: "+companyId);
         Request dataRequest = new Request();
         dataRequest.setContentHandle("corp_company_user_listing");
         
-        dataRequest.setProperty("comid", Long.toString(companyId) );
+        dataRequest.setProperty("uid", Long.toString(userId) );
         
         DataAccessInt dai = new DataAccess(
             (javax.sql.DataSource)new InitialContext().lookup("CORP_OLTP"));
