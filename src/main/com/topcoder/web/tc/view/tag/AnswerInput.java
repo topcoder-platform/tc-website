@@ -63,6 +63,7 @@ public class AnswerInput extends BaseTag {
             } else if (question.getStyleId()==Question.SINGLE_CHOICE) {
                 inputText = buildRadioButton(answer.getId());
             }
+            log.debug("pagecontext: " + pageContext + " id: " + getId() + " inputText: " + inputText);
             pageContext.setAttribute(getId(), inputText, PageContext.PAGE_SCOPE);
             return EVAL_BODY_TAG;
         } else {
