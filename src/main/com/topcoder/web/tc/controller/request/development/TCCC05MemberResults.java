@@ -132,7 +132,7 @@ public class TCCC05MemberResults extends StatBase {
                 return a1.getComponent().compareToIgnoreCase(a2.getComponent());
             }
             
-            return c2.compareTo(c1);
+            return c2.before(c1) ? -1 : 1;
         }
         
     }
