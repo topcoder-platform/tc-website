@@ -55,7 +55,7 @@
                         two-month period and culminate with the championship and a $50,000 grand prize.</p>
 
                         <p><strong>The next tournament is the TopCoder Open (TCO). Online qualification rounds start October 7. Onsite rounds will be 
-                        held on December 4-5, 2003 at Mohegan Sun Hotel & Casino in Uncasville, CT.</strong></p>
+                        held on December 4-5, 2003 at Mohegan Sun Casino in Uncasville, CT.</strong></p>
 
                         <p>The TCO tournament rounds are comprised of:
 
@@ -78,8 +78,8 @@
                         The TopCoder Arena Applet is the most critical element in the sponsorship program.  This is where the attention of our 
                         members is captured for an average of over 2-1/2 hours during the weekly competitions.  In the applet are lobbies where 
                         our members converse with each other before and after the competition.  During the competition, virtual rooms are where 
-                        our members code, compile, and test their submissions. There is also a challenge round to allow competitors the 
-                        opportunity to view and try to break each other code.  Sponsors have the ability to interact directly with a qualified 
+                        our members code, compile, and test their submissions. There is also a Challenge Round to allow competitors the 
+                        opportunity to view and try to break each other's code.  Sponsors have the ability to interact directly with a qualified 
                         demographic before, during and after the competitions. </p>
 
                         <p><span class="bodySubtitle"><a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_email">Opt-in Email</a></span><br>
@@ -110,12 +110,12 @@
                         feedback from onsite members, and the opportunity for follow-up campaigns.  No print or TV campaign can provide 
                         this kind of invaluable marketing opportunity.</p>
 
-                        <p><strong>TopCoder Open Sponsorship Programs tailored to individual clients range from $5,000 to $50,000</strong></p>
+                        <p><strong>TopCoder Open Sponsorship Programs tailored to individual clients range from $5,000 to $50,000.</strong></p>
 
                         <p>TopCoder extends across all professional and collegiate levels and is the only venue that draws thousands of software professionals 
                         together for hours at a time to write software and investigate technology.</p>
 
-                        <p>For more information on TopCoder Sponsorship Programs, contact Drew Vaughn at 
+                        <p>For more information on sponsoring the TCO, please contact Drew Vaughn at 
                         <a href="mailto:dvaughn@topcoder.com">dvaughn@topcoder.com</a> or 866-867-2633.</p>
                         
                         <p><br/></p>

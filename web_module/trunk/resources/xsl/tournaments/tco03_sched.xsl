@@ -126,7 +126,7 @@
 <!-- Online Elimination Rounds begins -->
             <A name="online"></A><p><span class="bodySubtitle">Online Elimination Rounds</span><br />
             A total of 500 TopCoder members will compete in Online Round #1 of the TCO.  The field will be comprised of 100 automatic 
-            berths and 400 qualification spots.</p>
+            berths and 400 qualification spots. Each room winner and the next highest scorers in each round will advance.</p>
             
             <table width="100%" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr>
@@ -249,6 +249,12 @@
                     </td>
                     <td class="bodyText" bgcolor="#FFCC33" align="center"><strong>4</strong></td>
                     <td class="bodyText" bgcolor="#FFCC33" align="center"><strong>1</strong></td>
+                </tr>
+
+                <tr valign="top">
+                    <td class="sidebarText" colspan="4">
+                        *NOTE: All times are Eastern Time. The times of the onsite rounds are subject to change.
+                    </td>
                 </tr>
             </table><br />
 
