@@ -179,7 +179,12 @@
                             </p>
                             
                             <p><br /></p>
-                            
+                            <p>
+                                 To submit a solution, email your submissions to <a href="mailto:submissions@topcodersoftware.com" class="statText">
+submissions@topcodersoftware.com</a>.
+                            </p>
+
+<!--                            
                            <p>
                                 <strong>
                                 <a class="statText">
@@ -192,7 +197,7 @@
                                 </a>
                                </strong>
                             </p>
-                            
+-->                            
                         <p><br /></p>
                         
                     </td>
