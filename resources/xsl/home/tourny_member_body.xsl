@@ -527,6 +527,9 @@ this was augmented by a successful challenge....
      </TD>
   <!-- Center Column Ends -->    
     <TD BGCOLOR="#001935" VALIGN="top" CLASS="statText" WIDTH="244"><IMG SRC="/i/clear.gif" ALT="" WIDTH="244" HEIGHT="1" BORDER="0"/><BR/>
+<A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
+<IMG SRC="/i/tces_promo.gif" alt="" width="244" height="77" border="0"/></A><BR/>
+
 <!--
 <A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=apex</xsl:attribute></A>  
 <IMG USEMAP="#apex_home" SRC="/i/es/apex/apex_home.gif" alt="" width="244" height="160" border="0"/>  
