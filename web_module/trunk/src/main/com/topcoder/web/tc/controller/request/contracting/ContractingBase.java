@@ -91,8 +91,10 @@ abstract public class ContractingBase extends BaseProcessor {
                         
                     String val = getRequestParameter(param);
                     
-                    info.setPreference(prefId, val);
-                    log.debug("SET PREFERENCE " + prefId + " TO " + val);
+                    if(!val.equals("")) {
+                        info.setPreference(prefId, val);
+                        log.debug("SET PREFERENCE " + prefId + " TO " + val);
+                    }
                 }
             }
         } else {
