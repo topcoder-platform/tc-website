@@ -124,7 +124,7 @@
                             <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="estimated_dev_date"/></xsl:call-template>
                         </xsl:variable>
 			<xsl:variable name="reg_end">
-                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="reg_end_date"/> 9:00 AM ET</xsl:call-template>
+                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="reg_end_date"/></xsl:call-template> 9:00 AM ET
                         </xsl:variable>
                         <tr valign="top">
                             <td class="projectCells" align="center">
@@ -154,7 +154,7 @@
                                         <xsl:value-of select="./total_rated_inquiries"/>/<xsl:value-of select="./total_unrated_inquiries"/>
                             </td>
                             <td class="projectCells" align="center">
-                                <xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="reg_end_date"/> 9:00 AM ET</xsl:call-template>
+                                <xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="reg_end_date"/></xsl:call-template> 9:00 AM ET
                             </td>
                             <td class="projectCells" align="center">
                                <xsl:value-of select="./total_submissions"/>
@@ -210,7 +210,8 @@
                             <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="final_submission_date"/></xsl:call-template>
                         </xsl:variable>
 			<xsl:variable name="reg_end">
-                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="reg_end_date"/> 9:00 AM ET</xsl:call-template>
+                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="reg_end_date"/></xsl:call-template> 9:00 AM ET
+
                         </xsl:variable>
                         <tr valign="top">
                             <td class="projectCells" align="center">
@@ -240,7 +241,8 @@
                                         <xsl:value-of select="./total_rated_inquiries"/>/<xsl:value-of select="./total_unrated_inquiries"/>
                             </td>
                             <td class="projectCells" align="center">
-                                <xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="reg_end_date"/> 9:00 AM ET</xsl:call-template>
+                                <xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="reg_end_date"/></xsl:call-template>  9:00 AM ET
+
                             </td>
                             <td class="projectCells" align="center">
                                <xsl:value-of select="./total_submissions"/>
