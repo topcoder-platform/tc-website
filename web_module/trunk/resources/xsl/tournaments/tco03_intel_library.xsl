@@ -29,7 +29,7 @@
 <body>
 <table border="0" cellspacing="10" cellpadding="0" width="100%">
     <tr valign="top">
-        <td align="center"><img src="/i/sponsor/intel_ids/specs_header.gif" width="510" height="64"/>
+        <td align="left"><img src="/i/sponsor/intel_ids/IDL-logo-square.gif" width="120" height="80" />
         </td>
     </tr>
     <tr>
