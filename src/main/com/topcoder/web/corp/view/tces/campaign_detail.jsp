@@ -30,18 +30,20 @@
 </jsp:include>
 <!-- Top ends -->
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-    <tr valign="top">
-<!-- Center Column begins -->
+<table width=700 border=0 cellpadding=0 cellspacing=0 align=center>
+	<TR valign="top">
+<!-- Center Column Begins -->
         <td class="bodyText" width="100%" align=center>
 			<img src="/i/corp/clear.gif" width="400" height="11" alt="" border=0><br/>
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrameNB">
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
                 <tr valign="top">
                     <td class=bodyText>
-                        <p><span class=testHead>Employment Campaign Positions</span><br/>
+                        <p>
                         <tces:trailIterator id="trailItem" trailList="<%=CampaignDetailTask.getTrail()%>">
                             <a href="<jsp:getProperty name="trailItem" property="href"/>" class="bodyText"><jsp:getProperty name="trailItem" property="name" /></a> &gt;
                         </tces:trailIterator>
+						<br/>
+						<span class=testHead>Employment Campaign Positions</span>
 						<br/><br/>
 			            <strong><jsp:getProperty name="CampaignDetailTask" property="CompanyName" /></strong><br/>
 			            <strong>Campaign:</strong> <jsp:getProperty name="CampaignDetailTask" property="CampaignName" /><br/>
@@ -52,7 +54,7 @@
                 </tr>
             </table>
 
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                 <tr>
                     <td class="screeningHeader" width="50%">Position Name</td>
                     <td class="screeningHeader" width="50%" align=center>Total Hits</td>

@@ -29,18 +29,20 @@
     <jsp:param name="level1" value="employment_services"/>
 </jsp:include><!-- Top ends -->
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-    <tr valign="top">
-<!-- Center Column begins -->
+<table width=700 border=0 cellpadding=0 cellspacing=0 align=center>
+	<TR valign="top">
+<!-- Center Column Begins -->
         <td class="bodyText" width="100%" align=center>
 			<img src="/i/corp/clear.gif" width="400" height="11" alt="" border=0><br/>
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrameNB">
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
                 <tr valign="top">
                     <td class=bodyText>
-                        <p><span class=testHead>Campaign Interest</span><br/>
+                        <p>
                         <tces:trailIterator id="trailItem" trailList="<%=CampaignInterestTask.getTrail()%>">
                             <a href="<jsp:getProperty name="trailItem" property="href" />" class="bodyText"><jsp:getProperty name="trailItem" property="name" /></a> &gt;
                         </tces:trailIterator>
+						<br/>
+						<span class=testHead>Campaign Interest</span>
 						<br/><br/>
                         <strong>Campaign:</strong> <%=CampaignInterestTask.getCampaignName()%><br/>
                         <a href="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.DEMOGRAPHIC_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CampaignInterestTask.getCampaignID()%>" class="bodyText">View collective demographic info</a><br/>
@@ -49,7 +51,7 @@
                 </tr>
             </table>
                         
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                 <tr>
                     <td class="screeningHeader"><A HREF="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.SORT_PARAM%>=handle&<%=TCESConstants.SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_ASC%>" class="screeningHeader"><strong>Handle</strong></a></td>
                     <td class="screeningHeader"><a href="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.SORT_PARAM%>=rating_sort&<%=TCESConstants.SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_DES%>" class="screeningHeader"><strong>Rating</strong></a></td>
