@@ -71,7 +71,7 @@
 
                         <p><strong>Loading the Competition Arena</strong><br/>
                         The Competition Arena is a Java Applet that requires the Java 1.4 runtime to be installed on your machine.  Load the application by clicking the 
-                        Compete Now button at <a href="http//:www.topcoder.com">www.topcoder.com/verizon</a>.  Once you click the button, you will be notified if 
+                        Compete Now button at <a href="http://www.topcoder.com">www.topcoder.com/verizon</a>.  Once you click the button, you will be notified if 
                         you need to upgrade your Java runtime.  
                         If so, please follow the steps of the installation wizard to upgrade your system.  If an upgrade is not required, the application will load automatically 
                         and present you with a red "Launch Competition Arena" button.</p>
@@ -117,28 +117,28 @@
                         <dd><strong>The Problem Statement</strong><br/>
                         The top pane of the coding window contains the problem statement in its entirety.  The problem statement explains exactly what it is that you are 
                         attempting to accomplish.  It includes an explanation of the task, the class and method definitions that your solution must adhere to, all of the constraints 
-                        for any input parameters, and examples to help clarify the statement. </dd>
+                        for any input parameters, and examples to help clarify the statement. </dd><br/>
                         
                         <dd><strong>Choosing a Language</strong><br/>
                         The Verizon Coding Challenge allows coders to utilize Java, C++, C#, or VB.NET as a competition programming language.  You have the option to 
                         choose a programming language on a problem-by-problem basis.  It is legal for you to use two different programming languages to solve different 
                         problems in a single competition.  For this reason, you have the option of choosing the programming language from within the coding window.  You can 
                         find the language selection area in the upper right area of the coding window – under "Choose your language". Remember to select the appropriate language 
-                        before you attempt to compile your code.  Strange compilation results can be a symptom of having the wrong language selected.</dd>
+                        before you attempt to compile your code.  Strange compilation results can be a symptom of having the wrong language selected.</dd><br/>
                         
                         <dd><strong>Creating a Solution</strong><br/>
                         The solution class you create and all of its members must be defined as public in order for the TopCoder servers to have access to your class members 
-                           and invoke the appropriate methods.  Below you will find code templates for Java, C++, C# and VB.NET:</dd>
+                           and invoke the appropriate methods.  Below you will find code templates for Java, C++, C# and VB.NET:</dd><br/>
                            
-                        <dd><strong>Java Code Template</strong><br/></dd>
+                        <dd><strong>Java Code Template</strong><br/></dd><br/>
                           
 
-                          <dd><strong>C++ Code Template</strong><br/></dd>
+                          <dd><strong>C++ Code Template</strong><br/></dd><br/>
                           
                           
-                          <dd><strong>C# Code Template</strong><br/></dd>
+                          <dd><strong>C# Code Template</strong><br/></dd><br/>
                           
-                          <dd><strong>VB.NET Code Template</strong><br/></dd>
+                          <dd><strong>VB.NET Code Template</strong><br/></dd><br/>
                           
                           
                           <dd><strong>Compiling</strong><br/>
@@ -146,7 +146,7 @@
                         compilation will dictate to which language compiler the compilation request is sent.  A compilation request will send the code that is currently in the coding 
                         window to the TopCoder compiler.  If a compilation is successful, you will be notified of such.  If the compilation is not successful, the errors that are 
                         returned by the compiler will be displayed to you in the compilation results window.  Once a successful compilation is accomplished, the resultant compiled 
-                        object will be stored on TopCoder’s server.  Any user test or code submission will always utilize the most recent successfully compiled code.</dd>
+                        object will be stored on TopCoder’s server.  Any user test or code submission will always utilize the most recent successfully compiled code.</dd><br/>
                           
                           
                             <dd><strong>User Testing</strong><br/>
@@ -156,34 +156,34 @@
                             test based on the examples in the problem statement will provide a fairly good measure of the correctness of your solution since the examples will specify 
                             what the return value for a given set of input parameters should be.  However, the examples do not represent an exhaustive test suite for a given problem 
                             - just because your code produces the proper results for all examples does not necessarily mean that it will produce the proper result for other input 
-                            parameters.  Think about potential border cases that may cause variations in the behavior of your solution and test these cases thoroughly.</dd>
+                            parameters.  Think about potential border cases that may cause variations in the behavior of your solution and test these cases thoroughly.</dd><br/>
                             
                             <dd>If your compiled code executes successfully (without errors) for the input parameters that you've provided, you will be presented with the return 
                             value(s) that your code produced.  In the event that an error occurs during the execution of your code, you will be presented with the error message(s) 
-                            that the execution of your code produced.</dd>
+                            that the execution of your code produced.</dd><br/>
                             
                             <dd><i>Important note: All code submissions must run in under eight (8) seconds for ALL test cases, otherwise the code submission will be marked as incorrect, 
-                            and you will not receive any points.</i></dd>
+                            and you will not receive any points.</i></dd><br/>
                             
                             <dd>NOTE: any standard output (i.e., System.out.println) from the execution of your class/method will be returned to you along with the results of your 
-                            test.  This may be useful for debugging your code.</dd>
+                            test.  This may be useful for debugging your code.</dd><br/>
                             
                             <dd><strong>The Problem Arguments Window</strong><br/>
                             When you click on the "Test" button from within the coding window, the "Problem Arguments Window" will appear.  The problem arguments window is 
                             where you will input the test case with which you wish to use to test your code.  Each argument to the problem statement will be represented by either 
-                            an input area (simple data type), or by a "Create" button if the argument is an array (complex data type).</dd>
+                            an input area (simple data type), or by a "Create" button if the argument is an array (complex data type).</dd><br/>
                            
                             <dd><strong>Simple Data Types</strong><br/>
                            For all non-array data types - such as int, long, char and String - the test box input dialog will present you with a field to input the data.  The data 
                            should be input without any quotes or other extra characters.  So, if you want to test with the String "abc" you should just type abc into the 
-                           input field, not "abc".</dd>
+                           input field, not "abc".</dd><br/>
                             
                             <dd><strong>Complex Data Types</strong><br/>
                            When one of the inputs is an array such as int[] (vector &#60;int&#62; in C++), the test case dialog will present you with a button to create the array.  
                            Clicking this will bring up a new dialog box where you can enter the data elements.  There are a couple of ways to enter data here.  The most obvious 
                            is to enter the elements of the array one at a time and click the '+' button (or press enter) after each one.  You can move the elements up or down using the 
                            '^' and 'v' buttons, respectively.  You can also remove items either one at a time, with the '-' button, or all at once with the 'C' button.  If you want to modify 
-                           an element that is already entered, you can double click on the element in the panel above the entry field and modify it.</dd>
+                           an element that is already entered, you can double click on the element in the panel above the entry field and modify it.</dd><br/>
                            
                            <dd>Adding elements one at a time can be slow, so there are also two buttons that allow batch adding of elements.  The simpler of the two is the "++" button.  
                            To use this button, you should enter all of the data elements as a comma delimited list, and then press the "++" button.  For example, typing 1,3,6,4 and 
@@ -196,18 +196,18 @@
                            button is that any array sample input can be copied directly from the problem statement, and created by pasting and clicking "{}".  A couple of notes 
                            about the "{}" button are that the curly brackets at the front and end are optional, and the button will work without them.  Also, whitespace that is not 
                            enclosed by double quotes is ignored.  Furthermore, the dialog works exactly the same with all types of arrays.  Thus, with the "{}" button {1,2,3} will 
-                           create an int[],{1,2,3}, if the data type is an int[], and will create a String[], {"1","2","3"}, if the data type is a String[]. </dd>
+                           create an int[],{1,2,3}, if the data type is an int[], and will create a String[], {"1","2","3"}, if the data type is a String[]. </dd><br/>
                            
                             <dd><strong>Submitting</strong><br/>
                           At any point after a successful compilation, you have the option to submit your code.  It is important to realize that submission can be made 
                           regardless of whether or not your submission is correct.  <i>The faster you can submit a correct solution to the problem, the more points you will receive.</i> 
                           Points will be assigned regardless of whether the submission is correct or not.  Any points for a submission that turns out to be wrong will be removed 
                           when the submission is subjected to the system tests.  <i>Submit will not necessarily use the code that appears in the coding window.  You must compile first 
-                          before you submit.</i></dd>
+                          before you submit.</i></dd><br/>
                           
                           <dd>You do have the option of submitting a problem multiple times.  If you’ve already submitted a problem and you choose to submit again, your score 
                           for that submission will be adjusted to account for the additional lapsed time, as well as an additional penalty of 10% of the maximum point 
-                          value for the problem.</dd>
+                          value for the problem.</dd><br/>
                        </dl>
                       
                       <p><strong>Saving</strong><br/>
@@ -254,9 +254,9 @@
                 
                 <p><strong>If You Have Any Questions</strong><br/>
                     If you have a question during the competition about the problem statement or about the functionality of the Arena, please utilize the chat interface in the 
-                    Arena to present your question to the competition administrators.  To do so, simply type the following in the white chat line at the bottom of the applet:<br/>
-                    <strong><i>admins; [YOUR QUESTION]</i></strong><br/>
-                    An administrator will respond to your question in the chat area.<br/>
+                    Arena to present your question to the competition administrators.  To do so, simply type the following in the white chat line at the bottom of the applet:<br/><br/>
+                    <strong><i>admins; [YOUR QUESTION]</i></strong><br/><br/>
+                    An administrator will respond to your question in the chat area.<br/><br/>
                     If you have a problem logging into the Arena or cannot access the chat interface, you may send an email to <a href="mailto: service@topcoder.com">service@topcoder.com.</a>Please include a detailed 
                     description of the problem that you are having.</p>
 
