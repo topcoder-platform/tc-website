@@ -19,6 +19,8 @@
   <xsl:import href="../includes/modules/srm_sponsor.xsl"/>
   <xsl:import href="../includes/modules/coder_of_month.xsl"/>
   <xsl:import href="../includes/modules/srm_best_worst.xsl"/>
+  <xsl:import href="../includes/modules/big_promo.xsl"/>
+  <xsl:import href="../includes/modules/small_promos.xsl"/>
   <xsl:import href="../includes/modules/coder_pov.xsl"/>
   <xsl:import href="../includes/modules/tcs_promo.xsl"/>
   <xsl:import href="../includes/modules/member_surveys.xsl"/>
