@@ -69,73 +69,73 @@
                             
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">November 2</td>
-                                <td valign="middle" class="bodyText">timmac</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=10407399">timmac</A></td>
                                 <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_110204" class="bodyText">Encryption Algorithms</A></td>
                             </tr>
 
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">October 4</td>
-                                <td valign="middle" class="bodyText">lbackstrom</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=159052">lbackstrom</A></td>
                                 <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_100404b" class="bodyText">The Importance of Algorithms</A></td>
                             </tr>
 
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">October 4</td>
-                                <td valign="middle" class="bodyText">AryanI</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=10135324">AryanI</A></td>
                                 <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_100404" class="bodyText">Peer 2 Fear: Solutions for developers for designing secure P2P applications</A></td>
                             </tr>
 
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">September 1</td>
-                                <td valign="middle" class="bodyText">leadhyena_inran</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=282560">leadhyena_inran</A></td>
                                 <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_090104" class="bodyText">On Sentinels</A></td>
                             </tr>
 
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">August 3</td>
-                                <td valign="middle" class="bodyText">ivern</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=156859">ivern</A></td>
                                 <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_080304" class="bodyText">Reviewing Software for Fun and Profit</A></td>
                             </tr>
 
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">July 7</td>
-                                <td valign="middle" class="bodyText">dimkadimon</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=276230">dimkadimon</A></td>
                                 <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_070704" class="bodyText">Healthy Computing</A></td>
                             </tr>
                             
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">June 2</td>
-                                <td valign="middle" class="bodyText">dplass</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=251184">dplass</A></td>
                                 <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_060204" class="bodyText">Java for C++ coders, and vice versa</A></td>
                             </tr>
                             
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">April 29</td>
-                                <td valign="middle" class="bodyText">dplass</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=251184">dplass</A></td>
                                 <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_042904" class="bodyText">All I really need to know about Software Development I learned from TopCoder</A></td>
                             </tr>
                             
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">April 1</td>
-                                <td valign="middle" class="bodyText">vorthys</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=299177">vorthys</A></td>
                                 <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_040104" class="bodyText">Dynamic Programming</A></td>
                             </tr>
                             
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">March 1</td>
-                                <td valign="middle" class="bodyText">pmadden</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=290395">pmadden</A></td>
                                 <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_030104" class="bodyText">The Educational Component of TopCoding</A></td>
                             </tr>
                             
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">February 10</td>
-                                <td valign="middle" class="bodyText">Pops</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=119676">Pops</A></td>
                                 <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_021004" class="bodyText">The 5 Most Common Design Mistakes</A></td>
                             </tr>
                             
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">January 14</td>
-                                <td valign="middle" class="bodyText">dplass</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=251184">dplass</A></td>
                                 <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_011404" class="bodyText">An Enterprise Java Overview</A></td>
                             </tr>
                             
@@ -153,61 +153,61 @@
                             
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">December 22</td>
-                                <td valign="middle" class="bodyText">Eeyore</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=273434">Eeyore</A></td>
                                 <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_122203" class="bodyText">Not Round, Not a Table</A></td>
                             </tr>
                             
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">October 24</td>
-                                <td valign="middle" class="bodyText">Modulator</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=299709">Modulator</A></td>
                                 <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_102403" class="bodyText">Challenging 101</A></td>
                             </tr>
                             
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">September 17</td>
-                                <td valign="middle" class="bodyText">goongas</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=271144">goongas</A></td>
                                 <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_091703" class="bodyText">A Crash Course in the Java Collections Framework</A></td>
                             </tr>
                             
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">August 28</td>
-                                <td valign="middle" class="bodyText">Yarin</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=269554">Yarin</A></td>
                                 <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_082803" class="bodyText">A Crash Course in the C++ STL</A></td>
                             </tr>
                             
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">July 29</td>
-                                <td valign="middle" class="bodyText">Pops</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=119676">Pops</A></td>
                                 <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_072903" class="bodyText">The TopCoder Design Contest #2</A></td>
                             </tr>
                             
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">July 10</td>
-                                <td valign="middle" class="bodyText">vorthys</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=299177">vorthys</A></td>
                                 <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_071003" class="bodyText">Immutable Objects</A></td>
                             </tr>
 
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">June 26</td>
-                                <td valign="middle" class="bodyText">slowjoe</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=271917">slowjoe</A></td>
                                 <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_062603" class="bodyText">Simple Performance Improvement</A></td>
                             </tr>
                             
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">May 27</td>
-                                <td valign="middle" class="bodyText">schveiguy</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=273217">schveiguy</A></td>
                                 <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_052703" class="bodyText">Threads and Atomicity</A></td>
                             </tr>
 
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">April 8</td>
-                                <td valign="middle" class="bodyText">nicomp</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=303718">nicomp</A></td>
                                 <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_040803" class="bodyText">TopCoder Competitions vs. The Real World</a></td>
                             </tr>
 
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">March 17</td>
-                                <td valign="middle" class="bodyText">srowen</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=296145">srowen</A></td>
                                 <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_031703" class="bodyText">Component-Based Development: TopCoder Style</a></td>
                             </tr>
 
@@ -219,13 +219,13 @@
 
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">January 22</td>
-                                <td valign="middle" class="bodyText">the_gigi</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=292607">the_gigi</A></td>
                                 <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_012203" class="bodyText">Who needs another UI framework?</a></td>
                             </tr>
 
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">January 8</td>
-                                <td valign="middle" class="bodyText">radeye</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=277659">radeye</A></td>
                                 <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_010803" class="bodyText">Functional Programming</a></td>
                             </tr>
 
@@ -244,61 +244,61 @@
                             
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">December 20</td>
-                                <td valign="middle" class="bodyText">KaiEl</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=264761">KaiEl</A></td>
                                 <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_122002" class="bodyText">The Big Rerun</a></td>
                             </tr>
                             
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">December 9</td>
-                                <td valign="middle" class="bodyText">KaiEl</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=264761">KaiEl</A></td>
                                 <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_120902" class="bodyText">It's Sink or Swim During the Challenge Phase</a></td>
                             </tr>
 
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">November 20</td>
-                                <td valign="middle" class="bodyText">leadhyena_inran</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=282560">leadhyena_inran</A></td>
                                 <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_112002" class="bodyText">The eight seconds of death: Tips on preventing timeout</a></td>
                             </tr>
                             
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">November 13</td>
-                                <td valign="middle" class="bodyText">RevenantChaos</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=295939">RevenantChaos</A></td>
                                 <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_111302" class="bodyText">King of the Silicon Hill: Today's High-End Microprocessors</a></td>
                             </tr>
                 
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">October 9</td>
-                                <td valign="middle" class="bodyText">Penwiper</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=150527">Penwiper</A></td>
                                 <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_100902" class="bodyText">Graphics Programming for Motion Capture</a></td>
                             </tr>
                             
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">October 2</td>
-                                <td valign="middle" class="bodyText">pearl</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=274323">pearl</A></td>
                                 <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_100202" class="bodyText">Finding a Job is a Job</a></td>
                             </tr>
 
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">September 11</td>
-                                <td valign="middle" class="bodyText">KaiEl</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=264761">KaiEl</A></td>
                                 <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_091102" class="bodyText">...A Problem is Born</a></td>
                             </tr>
 
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">August 21</td>
-                                <td valign="middle" class="bodyText">polgara</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=153650">polgara</A></td>
                                 <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_082102" class="bodyText">Wireless Woes and Winners</a></td>
                             </tr>
                             
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">August 7</td>
-                                <td valign="middle" class="bodyText">KaiEl</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=264761">KaiEl</A></td>
                                 <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_080702" class="bodyText">Match Strategy</a></td>
                             </tr>
 
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">July 24</td>
-                                <td valign="middle" class="bodyText">polgara</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=153650">polgara</A></td>
                                 <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_072402" class="bodyText">Attack of the Moans: Building Applications for Users</a></td>
                             </tr>
                             
@@ -310,13 +310,13 @@
 
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">June 26</td>
-                                <td valign="middle" class="bodyText">kpsmith</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=277956">kpsmith</A></td>
                                 <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_062602" class="bodyText">From the Field</a></td>
                             </tr>        
                             
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">June 12</td>
-                                <td valign="middle" class="bodyText">polgara</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=153650">polgara</A></td>
                                 <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_061202" class="bodyText">To in-house or to out-source, that is the question</a></td>
                             </tr>
                             
@@ -333,7 +333,7 @@
                             
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">May 22</td>
-                                <td valign="middle" class="bodyText">KaiEl</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=264761">KaiEl</A></td>
                                 <td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_052202" class="bodyText">Obfu-What?</a></td>
                             </tr>        
                             
