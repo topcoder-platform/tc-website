@@ -1125,14 +1125,10 @@ where
   s.school_id = cs.school_id and
   u.status = 'A' and
   coder_type_id = 1 and
-  s.school_id in
-  (1038,
-  959,1475,1002,
-  147,475,1433,
-  1401,606,1054,
-  1082,1592,1373,
-  481,1378,1422,
-  986,219,1246 )
+  s.school_id in (
+  1401, 606, 1054, 1082,
+  1592, 1373, 481, 1378,
+  1422, 986, 219, 1246)
 order by 1
 " 
 
@@ -1232,6 +1228,63 @@ from
   invite_list l
 where
   u.user_id = l.coder_id and
-  contest_id = 4320 and
+  contest_id = 4325 and
   mod(seed,2) > 0
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 93 "Affidavit_Info" 0 0 "
+SELECT CASE WHEN SUM(a.notarized) > 0 THEN 1 ELSE 0 END AS has_notarized_affidavit
+     , (SELECT count(*) FROM user_tax_form_xref ut where ut.user_id = a.user_id) AS has_tax_form
+     , (SELECT count(*) FROM coder_image_xref cix, image i WHERE cix.image_id = i.image_id AND cix.coder_id = a.user_id AND cix.display_flag = 1 AND i.image_type_id = 1) as has_image
+     , u.handle
+     , c.first_name
+     , c.last_name
+     , u.email
+     , c.address1
+     , c.address2
+     , c.city
+     , c.state_code
+     , c.zip
+     , co.country_name
+     , c.home_phone
+     , c.work_phone
+     , ct.coder_type_desc
+  FROM user u
+     , OUTER affidavit a
+     , coder c
+     , coder_type ct
+     , country co
+ WHERE u.user_id = @cr@
+   AND u.user_id = a.user_id
+   AND u.user_id = c.coder_id
+   AND c.coder_type_id = ct.coder_type_id
+   AND c.country_code = co.country_code
+ GROUP BY 2,3,4,5,6,7,8,9,10,11,12,13,14,15,16
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 94 "Tourney_Advancers" 0 0 "
+SELECT u.handle
+     , u.user_id
+     , rr.point_total
+     , il.seed
+     , c.name as contest_name
+     , r.name as round_name
+     , ra.rating
+     , r.round_id
+  FROM user u
+     , room_result rr
+     , invite_list il
+     , round r
+     , contest c
+     , rating ra
+ WHERE rr.coder_id = il.coder_id
+   AND il.coder_id = u.user_id
+   AND il.round_id in (4324, 4325)
+   AND rr.round_id IN (@rds@)
+   AND rr.advanced = 'Y'
+   AND rr.coder_id = il.coder_id
+   AND rr.round_id = r.round_id
+   AND r.contest_id = c.contest_id
+   AND u.user_id = ra.coder_id
+ ORDER BY point_total DESC
 "
