@@ -117,7 +117,7 @@
                 
                 <tr>
                     <td class="bodyText">8:30pm - 10:00pm</td>
-                    <td class="bodyText">NVIDIA Gathering **</td>
+                    <td class="bodyText">NVIDIA Gathering *</td>
                 </tr>
 
                 <tr>
@@ -177,8 +177,7 @@
                 </tr>
                 
                 <tr>
-                    <td colspan="2" class="smallText">* Open to competitors, their guests, and sponsors only.<br />
-                    ** Open to competitors and their guests only.</td>
+                    <td colspan="2" class="smallText">* Open to competitors, their guests, and sponsors only.</td>
                 </tr>
                 
             </table>
