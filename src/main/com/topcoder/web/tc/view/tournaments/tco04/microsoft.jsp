@@ -36,14 +36,6 @@
 					proud sponsor of this year's competition, Microsoft is looking for the next
 					generation of technology innovators. If you have talent and a passion for
 					technology, this could be your big moment.</p>
-
-					<p>Visit <a href="/?t=sponsor&c=link&link=http://www.microsoft.com/careers&refer=ms_tco_landing_page" target="_blank">www.microsoft.com/careers</a>
-					to search for jobs.</p>
-
-
-					<p>Or if you're a college student, check out our college career site:
-					<a href="/?t=sponsor&c=link&link=http://www.microsoft.com/college&refer=ms_tco_landing_page" target="_blank">www.microsoft.com/college</a> </p>
-
 					
 					<p>Check out the <a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=microsoft&d4=joblisting">jobs available to TopCoder members</a>.</p>
 
