@@ -1,33 +1,59 @@
-<%@ page contentType="text/html; charset=ISO-8859-1" %>
+<%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-
 <title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
-        
-<script language="JavaScript">
-  function changeImage(image, newImage) {
-    document[image].src=newImage;
-    return;
-  }
-</script>
-     
-<jsp:include page="../script.jsp" />
 
-<meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
-<meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
+<jsp:include page="../script.jsp" />
 
 </head>
 
-<body>
+<body onLoad="timer(1);">
 
-<jsp:include page="top.jsp" />
+<jsp:include page="../top.jsp" >
+    <jsp:param name="level1" value=""/>
+</jsp:include>
 
-<jsp:include page="member_body.jsp" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+   <tr valign="top">
+<!-- Left Column Begins-->
+        <td width="180">
+            <jsp:include page="../includes/global_left.jsp">
+                <jsp:param name="level1" value="events"/>
+                <jsp:param name="level2" value=""/>
+            </jsp:include>
+        </td>
+<!-- Left Column Ends -->
 
-<!-- Footer Begins -->
+<!-- Gutter Begins -->
+        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
+<!-- Gutter Ends -->
+
+<!-- Center Column Begins -->
+        <td width="100%" valign="top"><img src="/i/clear.gif" width="510" height="1" border="0"/></td>
+
+<!-- Center Column Ends -->
+
+<!-- Gutter -->
+         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"></td>
+<!-- Gutter Ends -->
+
+<!-- Right Column Begins -->
+         <td width="170">
+         <img src="/i/clear.gif" width="180" height="10" border="0"><br/>
+         <jsp:include page="srm_sponsor.jsp" />
+         <jsp:include page="tco_promo.jsp" />
+         <jsp:include page="coder_of_month.jsp" />
+         <jsp:include page="member_surveys.jsp" />
+
+         </td>
+<!-- Right Column Ends -->
+
+    </tr>
+</table>
+
 <jsp:include page="../foot.jsp" />
-<!-- Footer Endss -->
 
 </body>
+
 </html>

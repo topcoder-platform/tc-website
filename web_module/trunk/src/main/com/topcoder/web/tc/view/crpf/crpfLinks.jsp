@@ -46,9 +46,9 @@ function openWin(url, name, w, h) {
 
 <!-- Donate tab -->
             <% if (selectedTab.equals("donate")) {%>
-                 <td class="statTextBig" width="88"><A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_donate" class="statTextBig"><img src="/i/events/crpf03/tab_donate_on.gif" alt="Donate" width="50" height="22" border="0" /></A></td>
+                 <td class="statTextBig" width="88"><A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_donate" class="statTextBig"><img src="/i/events/crpf03/tab_donate_on.gif" alt="Donate" width="60" height="22" border="0" /></A></td>
             <% } else { %>
-                 <td class="statTextBig" width="88"><A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_donate" class="statTextBig"><img src="/i/events/crpf03/tab_donate_off.gif" alt="Donate" width="50" height="22" border="0" /></A></td>
+                 <td class="statTextBig" width="88"><A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_donate" class="statTextBig"><img src="/i/events/crpf03/tab_donate_off.gif" alt="Donate" width="60" height="22" border="0" /></A></td>
             <% } %>
 
 <!-- ATT tab -->
