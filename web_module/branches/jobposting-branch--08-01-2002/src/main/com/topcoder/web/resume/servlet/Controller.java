@@ -18,7 +18,7 @@ public class Controller
         extends HttpServlet {
     private static Logger log = Logger.getLogger(Controller.class);
     static final String MULTIPART_FORM_DATA = "multipart/form-data";
-    public static final String EXCEPTION = "exception";
+    public static final String MESSAGE = "message";
     public static final String NAVIGATION = "navigation";
     public static final String TASK = "task";
     public static final String ALIAS = "/Resume";
@@ -113,7 +113,7 @@ public class Controller
     void forwardToError(HttpServletRequest request, HttpServletResponse response, Throwable exception)
             throws ServletException, IOException {
         if (request != null) {
-            request.setAttribute(EXCEPTION, exception);
+            request.setAttribute(MESSAGE, exception.getMessage());
         }
         forwardToError(request, response);
     }
