@@ -79,7 +79,7 @@
 <p> 
 SRM 158 had a well balanced set, with almost no confusion issues.  Division 1
 saw <strong>ZorbaTHut</strong> easily taking first place, with the highest score on the level 3,
-and a good 50 points ahead of <strong>schveiguy</strong>, without the help of challenges.  Newbie
+and a good 50 points ahead of <strong>Yarin</strong>, without the help of challenges.  Newbie
 coder <strong>gevak</strong> edged out <strong>DimaGer</strong> by 20 points to win division 2, and got a nice
 1815 debut rating.  <strong>gevak</strong> also got the high score for his level 3 solution.  Also of note, <strong>raquib</strong> pulled off 6 successful challenges in room 9, and <strong>radeye</strong> got 4 successful challenges in room 4, all with the same test case.
 </p>
@@ -248,26 +248,57 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
   </tr> 
 </table></blockquote> 
 
-<p> 
-Fortunately, all the languages have a function which can parse a number with an
-arbitrary base, which makes this problem much easier.  If you don't know the
-functions, you should learn them.  The easiest solution is to parse all the
+<p>
+Unfortunately, not all of the languages have a function which can parse a
+number with an arbitrary base.  In Java, you can use Integer.parseInt(), and in
+C++, you can use strtol().  However, I could not find an equivalent function
+for either C# or VB .net.  .net does provide a function to parse a string in
+bases 2, 8, 10, or 16, but this will not help for any other base.  Even so,
+converting bases is pretty straightforward.  All you need to do is add the
+value associated with each character, and multiply by the base for every
+character parsed.  The following C++ code does this:
+</p>
+
+<pre>
+int parseInt(string s, int base)
+{
+  int result = 0;
+  for(int i = 0; i &lt; s.length(); i++)
+  {
+    int v;
+    if(s[i] &gt;= '0' &#38;&#38; s[i] &lt;= '9')
+      v = s[i] - '0';
+    else
+      v = s[i] - 'A' + 10;
+    if(v &gt;= base)
+      return -1000;
+    result *= base;
+    result += v;
+  }
+  return result;
+}
+</pre>
+
+<p>
+With the above function, you must check for -1000 to see if the base did not
+parse correctly.  Alternatively, you can throw and catch an exception instead
+of returning -1000.  So the easiest solution to the problem is to parse all the
 numbers for each of the bases from 2 to 20, and see which bases can parse the
-numbers properly, and the equation holds true.
+numbers properly, and for which the equation holds true. 
 </p>
 
 <p>
 As it turns out, if the addition of any digit happens to carry to the next
-digit, then the equation can only be valid for at most one base.  If not,
-and the equation is valid mathematically, it is valid for all the bases which
-can parse the highest digit in the equation.  For example, if the highest digit
-in such an equation is a 5, then the equation is valid for bases 6 and above.
+digit, then the equation can only be valid for at most one base. If not, and
+the equation is valid mathematically, it is valid for all the bases which can
+parse the highest digit in the equation. For example, if the highest digit in
+such an equation is a 5, then the equation is valid for bases 6 and above. 
 </p>
 
 <p>
 Many people failed on the case "0+0=0" because they added a 1 to the resulting
 bases.
-</p> 
+</p>
 
 <font size="+2"> 
 <b>Gems</b> 
