@@ -348,7 +348,7 @@ pageContext.setAttribute("resultSet", rsc3);
        <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
 
 <!-- Left nav begins -->
-            <jsp:include page="../includes/public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                 <jsp:param name="level1" value="profile"/>
             </jsp:include>
 <!-- Left nav ends -->
