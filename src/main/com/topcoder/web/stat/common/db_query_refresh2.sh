@@ -271,12 +271,14 @@ p.path || i.file_name as image_path,
        ,image i
  WHERE cix.image_id = i.image_id
    AND cix.coder_id = @cr@
+   AND cix.display_flag = 1
    AND i.image_type_id = 1) as has_image,
 TO_CHAR(c.member_since, '%iY-%m-%d') as member_since_date
 FROM coder_problem_summary cps JOIN coder c ON cps.coder_id = c.coder_id
                                 AND cps.coder_id = @cr@
                                JOIN rating r ON c.coder_id = r.coder_id
      LEFT OUTER JOIN coder_image_xref cix ON c.coder_id = cix.coder_id
+                 AND cix.display_flag = 1
      LEFT OUTER JOIN image i ON i.image_id = cix.image_id
       AND i.image_type_id = 1
      LEFT OUTER JOIN path p ON p.path_id = i.path_id
