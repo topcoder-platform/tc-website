@@ -48,7 +48,7 @@
             <table width="100%" border="0" cellpadding="0" cellspacing="15">
 
 <!-- 2003 JavaOne Conference -->
-                <tr><td align="center"><A href="http://www.revelation.com" target="_blank"><img src="/i/tournament/tco03/sponsors/revelation_header.jpg" alt="Revelation Software is a corporate sponsor of the 2003 TopCoder Open" width="565" height="91" border="0" /></A></td></tr>
+                <tr><td align="center"><A href="http://www.revelation.com/tcohome/tcoevent03" target="_blank"><img src="/i/tournament/tco03/sponsors/revelation_header.jpg" alt="Revelation Software is a corporate sponsor of the 2003 TopCoder Open" width="565" height="91" border="0" /></A></td></tr>
                             
                 <tr valign="top">
                     <td class="promoText" width="99%">
