@@ -15,7 +15,7 @@
         <td width="190">
             <jsp:include page="aksonov_names.jsp">
                 <jsp:param name="time" value="initial" />
-                <jsp:param name="doc" value="doc7" />
+                <jsp:param name="doc" value="doc8" />
             </jsp:include>
         </td>
 
@@ -31,7 +31,7 @@
                 </tr>
 
                 <tr>
-                    <td width="99%"><div class="compDocs"><img src="/i/tournament/tco03/comp_docs/aksonov/SequenceDiagram5.gif" alt="" width="500" height="351" border="0"></div></td>
+                    <td width="99%"><div class="compDocs"><img src="/i/tournament/tco03/comp_docs/aksonov/UseCaseDiagram1.gif" alt="" width="426" height="404" border="0"></div></td>
                     <td width="20"><img src="/i/clear.gif" alt="" width="20" height="20" border="0"></td>
                 </tr>
 

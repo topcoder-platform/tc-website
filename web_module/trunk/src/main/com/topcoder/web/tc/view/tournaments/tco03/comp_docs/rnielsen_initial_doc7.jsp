@@ -31,7 +31,7 @@
                 </tr>
 
                 <tr>
-                    <td width="99%"><div class="compDocs"><img src="/i/tournament/tco03/comp_docs/rnielsen/UseCaseDiagram1.gif" alt="" width="426" height="320" border="0"></div></td>
+                    <td width="99%"><div class="compDocs"><img src="/i/tournament/tco03/comp_docs/rnielsen/SequenceDiagram5.gif" alt="" width="500" height="351" border="0"></div></td>
                     <td width="20"><img src="/i/clear.gif" alt="" width="20" height="20" border="0"></td>
                 </tr>
 
