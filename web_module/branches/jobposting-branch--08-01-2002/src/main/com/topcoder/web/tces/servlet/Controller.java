@@ -69,19 +69,17 @@ log.debug("task = "+taskName);
                 taskClass = Class.forName(TCESConstants.TCES_PACKAGE + "." + taskName);
                 task = (Task) taskClass.newInstance();
                 task.setInitialContext(ctx);
-                task.processStep(taskStepName);
 
-log.debug(">>>params: ");
                 Enumeration parameterNames = request.getParameterNames();
                 while (parameterNames.hasMoreElements()) {
                     String parameterName = parameterNames.nextElement().toString();
                     String[] parameterValues = request.getParameterValues(parameterName);
-log.debug("n: "+parameterName+" v: "+parameterValues[0]);
                     if (parameterValues != null) {
                         task.setAttributes(parameterName, parameterValues);
                     }
                 }
-log.debug("<<<");
+
+                task.processStep(taskStepName);
 
                 task.servletAction(this, request, response);
 
