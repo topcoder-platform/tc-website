@@ -38,9 +38,9 @@ Please view the following links for review of the Google Employment program.<BR/
 
 <A HREF="/i/es/ge/member_home.jpg">Member Home Page</A><BR/>
 
-<A HREF="/?t=jobs&amp;c=ge">GE Main Page</A><BR/>
+<A HREF="/?t=tces&amp;c=ge">GE Main Page</A><BR/>
 
-<A HREF="/?t=jobs&amp;c=ge_faq">GE FAQ Page</A><BR/>
+<A HREF="/?t=tces&amp;c=ge_faq">GE FAQ Page</A><BR/>
 
 <!-- <A HREF="statsindex.gif">Statistics Index Page</A><BR/>
 
@@ -68,7 +68,7 @@ Please view the following links for review of the Google Employment program.<BR/
 
 <B>Email</B><BR/>
 
-<A HREF="/?t=jobs&amp;c=ge_em">Employment Announcement</A><BR/>
+<A HREF="/?t=tces&amp;c=ge_em">Employment Announcement</A><BR/>
 
 <!-- <A HREF="mr.html">Match Results</A><BR/> -->
 
