@@ -50,12 +50,10 @@
   <TR>
     <TD BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
     <TD CLASS="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
-                               <font color="#ffffff" size="2" face="arial, helvetica, verdana, sans-serif">
                                     <FORM method="POST" name="frmInquire" ACTION="/">
                                         <INPUT VALUE="development" NAME="t" TYPE="hidden"/><INPUT VALUE="inquire" NAME="c" TYPE="hidden"/><INPUT VALUE="" NAME="Project" TYPE="hidden"/><INPUT VALUE="" NAME="To" TYPE="hidden"/>
                                     </FORM>
-                                        <span class="statTextBig">Admin Commands Project</span>
-                                    </font>
+                                    <b>Admin Commands Project</b>
                                     <BR/>
                                     <a href="Javascript:document.frmInquire.Project.value='Admin Commands';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>
                                     <BR/>
@@ -66,13 +64,13 @@
 Currently, there are several command line utilities that TopCoder runs during a competition. TopCoder also runs several utilities via an Admin Monitor interface. The goal of this project is to port all of the utilities to work within the Admin Monitor interface as well as the applet where applicable. 
                                     <BR/>
                                     <BR/>
-A new EJB (Enterprise Java Bean) should be created called, which controls all interaction with the database. The EJB should be a stateless session EJB. All methods related to the utilities that currently run in the Admin Monitor should be moved to the new EJB.  
+A new EJB (Enterprise Java Bean) should be created, which controls all interaction with the database. The EJB should be a stateless session EJB. All methods related to the utilities that currently run in the Admin Monitor should be moved to the new EJB.  
                                     <BR/>
                                     <BR/>
                                     <b>Overview</b>
                                     <BR/>
                                     <BR/>
-There will be a total of 4 people assigned to the project with positions available for development, architect and quality assurance.  Each development assignment will undergo 3 phases.  Phase 1 is getting up to speed on the project as well as the design phase.  Reading through requirements, documentation and providing any insight as to what the over all project will entail.  The first phase will also be used for developers to get acclimated to the development serves and source code control environments.  Also, for the design portion, the team as a whole will discuss the over all project goals and objectives and come up with the different designs for each specific component.  Phase 2 is the development.  This phase is where all of the development will take place.  The final phase is the quality assurance and bug fixes phase.
+There will be a total of four people assigned to the project with positions available for Developer, Software Architect and QA Developer.  Each development assignment will undergo three phases.  Phase one is getting up to speed on the project as well as the design phase.  Reading through requirements, documentation and providing any insight as to what the over all project will entail.  The first phase will also be used for developers to get acclimated to the development serves and source code control environments.  Also, for the design portion, the team as a whole will discuss the over all project goals and objectives and come up with the different designs for each specific component.  Phase two is the development period and the final phase addresses quality assurance and bug fixes.
                                     <BR/>
                                     <BR/>
 TopCoder strongly feels that the developers have a very big role when it comes to coming up with requirements for a development project.  As a member of this team you are expected to contribute to the design and implementation of various components even if you will not be working on the directly.  TopCoder also mandates that developers provide feedback and give ideas as to how the system should run from an operations standpoint.  
@@ -103,6 +101,8 @@ The developer will be responsible for developing a solution that meets all requi
                                     <BR/>
                                     <BR/>
 The QA Developer is responsible for testing the completed component. Tests should involve both normal and extreme scenarios to simulate production usage. The developer's responsibility will begin on the project Start Date and extend through to Production Deployment. The majority of the workload will occur during Beta and QA testing. In addition to implementing component testing, it is also the QA Developer's responsibility to stay abreast of component design and progress. In the event the lead Developer cannot complete the project, TopCoder fully expects the QA developer to have sufficient knowledge of the component so as to continue and complete development.
+                                    <BR/>
+                                    <BR/>
                                     <BR/>
                                     <BR/>
                                     <b>Functional Overview</b>
@@ -192,26 +192,28 @@ The command is used to search blob objects based on a phrase. This command shoul
 The command is used to search text fields based on a phrase. This command should allow a user to choose a database table and a column and provide a phrase to search for.
                                     <BR/>
                                     <BR/>
+                                    <BR/>
+                                    <BR/>
                                     <b>Payment</b>
                                     <BR/>
                                     <BR/>
-                                    Architect will get paid a total of $1,800.00
+                                    Architect will get paid a total of $1,800.00:
                                     <ul>
-                                        <li>$180.00 at the start of the project </li>
-                                        <li>$900.00 on June 5th</li>
-                                        <li>$720.00 at the completion of the project* </li>
+                                        <li>$180.00 at the start of the project.</li>
+                                        <li>$900.00 on June 5th.</li>
+                                        <li>$720.00 at the completion of the project.* </li>
                                     </ul>
-                                    Developer will get paid a total of $2,400.00 each
+                                    Developer will get paid a total of $2,400.00 each:
                                     <ul>
-                                        <li>$240.00 at the start of the project </li>
-                                        <li>$1200.00 on June 5th</li>
-                                        <li>$960.00 at the completion of the project* </li>
+                                        <li>$240.00 at the start of the project.</li>
+                                        <li>$1200.00 on June 5th.</li>
+                                        <li>$960.00 at the completion of the project.*</li>
                                     </ul>
-                                    QA Developer will get paid a total of $1,200.00 
+                                    QA Developer will get paid a total of $1,200.00:
                                     <ul>
-                                        <li>$120.00 at the start of the project </li>
-                                        <li>$600.00 on June 5th</li>
-                                        <li>$480.00 at the completion of the project* </li>
+                                        <li>$120.00 at the start of the project.</li>
+                                        <li>$600.00 on June 5th.</li>
+                                        <li>$480.00 at the completion of the project.* </li>
                                     </ul>
 *Completion of the project is defined as follows: 
                                     <ul>
@@ -224,14 +226,14 @@ The command is used to search text fields based on a phrase. This command should
                                     <BR/>            
 You must be a rated TopCoder member, meeting all of the membership requirements and fit into one of the following categories:<BR/>
                                     <ol>
-                                        <li>a US Citizen</li>
-                                        <li>a Lawful Permanent Resident of the US (i.e., a Green Card holder)</li>
-                                        <li>currently lawfully residing in the US with valid employment authorization to act as an independent contractor.</li>
+                                        <li>A US Citizen.</li>
+                                        <li>A Lawful Permanent Resident of the US (i.e., a Green Card holder).</li>
+                                        <li>Currently lawfully residing in the US with valid employment authorization to act as an independent contractor.</li>
                                     </ol>
                                     <b>Time Line</b>
                                     <BR/>
                                     <BR/>            
-The project will begin on the 9th of May. There will be a Kick-Off conference call to address the following: introduction of all team members, design considerations for the new systems, specific time lines, deliverables, development, and any outstanding issues. The project is scheduled to be complete by July 12th. 
+The project will begin on the 9th of May. There will be a kick-off conference call to address the following: introduction of all team members, design considerations for the new systems, specific time lines, deliverables, development, and any outstanding issues. The project is scheduled to be complete by July 12th. 
                                     <ul>
                                         <li>Project Start Date:    May 9, 2002</li>
                                         <li>Project End Date:      June 20, 2002</li>
