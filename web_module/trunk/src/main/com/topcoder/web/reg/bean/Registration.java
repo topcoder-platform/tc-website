@@ -61,7 +61,7 @@ public class Registration
     public static final String CONFIRM_PASSWORD = "confirmPassword";
     public static final String EMAIL = "email";
     public static final String CONFIRM_EMAIL = "confirmEmail";
-    public static final String NOTIFY = "notify";
+    //public static final String NOTIFY = "notify";
     public static final String EDITOR = "editor";
     public static final String LANGUAGE = "language";
     public static final String QUOTE = "quote";
@@ -72,6 +72,8 @@ public class Registration
     public static final String REFERRAL = "referral";
     public static final String REFERRAL_SCHOOL_STATE = "referralSchoolState";
     public static final String REFERRAL_OTHER = "referralOther";
+    public static final String NOTIFY_PREFIX = Notification.PREFIX;
+    public static final String NOTIFY_DESC_PREFIX = Notification.DESC_PREFIX;
     public static final String DEMO_PREFIX = Demographic.PREFIX;
     public static final String DESC_PREFIX = Demographic.DESC_PREFIX;
     public static final String SCHOOL = "school";
@@ -142,8 +144,8 @@ public class Registration
     protected String quote;
     protected String email;
     protected String confirmEmail;
-    protected String notify;
-    protected boolean notifyChecked;
+    //protected String notify;
+    //protected boolean notifyChecked;
     protected String editor;
     protected String language;
     protected String coderType;
@@ -155,6 +157,7 @@ public class Registration
     protected boolean referralSchoolStateChanged;
     protected String referralOther;
     protected HashMap demographics; 
+    protected HashSet notifications; 
     protected String schoolState;
     protected boolean schoolStateChanged;
     protected String school;
@@ -189,8 +192,8 @@ public class Registration
             quote = "";
             email = "";
             confirmEmail = "";
-            notify = "";
-            notifyChecked = false;
+            //notify = "";
+            //notifyChecked = false;
             editor = "";
             language = "";
             coderType = "";
@@ -202,6 +205,23 @@ public class Registration
             referralSchoolStateChanged = false;
             referralOther = "";
             demographics = new HashMap();
+
+                ArrayList notifyList = null;
+                try
+                {
+                    notifyList = Notification.getNotifications();
+                }
+                catch ( Exception e )
+                {
+                    notifyList = new ArrayList(0);
+                }
+                notifications = new HashSet ( notifyList.size() );
+                for ( int i = 0; i < notifyList.size(); i++ )
+                {
+                    Notify notify = (Notify) notifyList.get(i);
+                    notifications.add ( Integer.toString(notify.getNotifyId()) );
+                }
+
             schoolState = "";
             schoolStateChanged = false;
             school = "";
@@ -214,6 +234,20 @@ public class Registration
             loadUser();            
         }
     }
+
+
+    public void setStep(String step)
+    {
+      if ( isStep(STEP_1) && step==null )
+      {
+        notifications.clear();
+        if (VERBOSE) System.out.println ( "notifications cleared..." );
+      }
+      if (VERBOSE) System.out.println ( "previous step = " + getStep() );
+      super.setStep ( step );
+      if (VERBOSE) System.out.println ( "super.setStep("+step+") called..." );
+    }
+
     
     public void setUser(User user)
     {
@@ -271,8 +305,8 @@ public class Registration
         quote = checkNull(coder.getQuote());
         email = checkNull(user.getEmail());
         confirmEmail = email;
-        notify = (checkNull(coder.getNotify()).equals("Y")?CHECKBOX_YES:"");
-        notifyChecked = false;
+        //notify = (checkNull(coder.getNotify()).equals("Y")?CHECKBOX_YES:"");
+        //notifyChecked = false;
         editor = Integer.toString(coder.getEditor().getEditorId());
         language = Integer.toString(coder.getLanguage().getLanguageId());
         coderType = Integer.toString(coder.getCoderType().getCoderTypeId());
@@ -284,6 +318,20 @@ public class Registration
         referralSchoolState = "";
         referralSchoolStateChanged = false;
         referralOther = checkNull(coder.getCoderReferral().getOther());
+
+        notifications.clear();
+        try { 
+          ArrayList notificationObjects = coder.getNotifications();
+          for ( int i = 0; i < notificationObjects.size(); i++ ) 
+          {
+            Notify notify = (Notify) notificationObjects.get(i);
+            notifications.add ( Integer.toString(notify.getNotifyId()) );
+          }
+        }  
+        catch (Exception ignore)
+        {
+        }
+   
         demographics = new HashMap();
         try
         {
@@ -361,26 +409,6 @@ public class Registration
             if (isEmpty(this.country)) addError(COUNTRY,"Please choose your country.");
             
             if (isEmpty(this.phone)) addError(PHONE,"Please enter your phone number.");
-           
-/************** BAD LOGIC ********************** 
-            if ( isEmpty(this.handle) ) 
-            {
-              addError(HANDLE,"Please enter your desired handle.");
-            }
-            else if 
-            (
-              this.handle.toLowerCase().indexOf("guest") >= 0 
-              || 
-              (
-                isRegister()
-                || !this.handle.equalsIgnoreCase ( user.getHandle() )
-              )
-              && handleExists ( this.handle )
-            ) 
-            {
-              addError ( HANDLE,"Please choose another handle." );
-            }
-***********************************************/
 
             if ( isEmpty(this.handle) )
             {
@@ -407,8 +435,8 @@ public class Registration
             if (isEmpty(this.email)) addError(EMAIL,"Please enter your email address.");
             else if (isEmpty(this.confirmEmail)) addError(CONFIRM_EMAIL,"Please re-type your email address.");
             else if (!this.confirmEmail.equals(this.email)) addError(CONFIRM_EMAIL,"Your re-typed email does not match your email.");
-            this.notify = (notifyChecked?CHECKBOX_YES:"");
-            notifyChecked = false;
+            //this.notify = (notifyChecked?CHECKBOX_YES:"");
+            //notifyChecked = false;
 
             if (!isNumber(this.editor)) addError(EDITOR,"Please choose a default editor.");
             
@@ -649,13 +677,9 @@ public class Registration
         String value = valArray[0];
         value = (value==null?"":value.trim());
         if ( !name.equals("TermDesc") )
+        {
           Log.msg(VERBOSE,"Registration.setAttribute(\""+name+"\",\""+value+"\")");
-        //if (isStep(STEP_0))
-        //{
-            //if (name.equalsIgnoreCase(TERMS)) setTerms(value);
-            //else return false;
-        //}
-        //else 
+        }
         if (isStep(STEP_1))
         {
             if (name.equalsIgnoreCase(FIRST_NAME)) setFirstName(value);
@@ -673,11 +697,16 @@ public class Registration
             else if (name.equalsIgnoreCase(QUOTE)) setQuote(value);
             else if (name.equalsIgnoreCase(EMAIL)) setEmail(value);
             else if (name.equalsIgnoreCase(CONFIRM_EMAIL)) setConfirmEmail(value);
-            else if (name.equalsIgnoreCase(NOTIFY)) setNotify(value);
+            //else if (name.equalsIgnoreCase(NOTIFY)) setNotify(value);
             else if (name.equalsIgnoreCase(EDITOR)) setEditor(value);
             else if (name.equalsIgnoreCase(LANGUAGE)) setLanguage(value);
             else if (name.equalsIgnoreCase(CODER_TYPE)) setCoderType(value);
             else if (name.equalsIgnoreCase(TERMS)) setTerms(value);
+            else if (name.startsWith(NOTIFY_PREFIX))
+            {
+              setNotification ( name.substring(NOTIFY_PREFIX.length()), value );
+              if (VERBOSE) System.out.println ( "NOTIFICATION SET: " + name.substring(NOTIFY_PREFIX.length()) + "=" + value);
+            }
             else return false;
         }
         else if (isStep(STEP_2))
@@ -775,11 +804,11 @@ public class Registration
         this.confirmEmail = checkNull(value);
     }
 
-    public void setNotify(String value)
-    {
-        notifyChecked = true;
-        this.notify = checkNull(value);
-    }
+    //public void setNotify(String value)
+    //{
+        //notifyChecked = true;
+        //this.notify = checkNull(value);
+    //}
 
     public void setEditor(String value)
     {
@@ -823,9 +852,7 @@ public class Registration
     {
         Log.msg ( VERBOSE, "setSchoolState(" + value + ") called: schoolStateChanged="+schoolStateChanged );
         Log.msg ( VERBOSE, "this.schoolState = " + this.schoolState );
-        //if ( !this.schoolState.equals("") ) {
-          schoolStateChanged =  !this.schoolState.equals(checkNull(value));
-        //}
+        schoolStateChanged =  !this.schoolState.equals(checkNull(value));
         this.schoolState = checkNull(value);
         Log.msg ( VERBOSE, "this.schoolState=" + this.schoolState +": schoolStateChanged="+schoolStateChanged );
         
@@ -845,6 +872,25 @@ public class Registration
 
 
 
+    public void setNotification ( String notifyId, String value )
+    {
+        try
+        {
+            Integer.parseInt(notifyId);
+        }
+        catch (Exception e)
+        {
+            if ( VERBOSE )
+            {
+                e.printStackTrace();
+            }
+            return;
+        }
+        this.notifications.add ( notifyId );
+    }
+
+
+
     public void setDemographics ( String questionId, String[] value )
     {
         if ( this.demographics.containsKey(questionId) ) 
@@ -860,7 +906,7 @@ public class Registration
 
     }
 
- 
+// LEFT OFF 
     public void setDemographic ( String questionId, String value )
     {
         try
@@ -1085,15 +1131,15 @@ public class Registration
         return getError(CONFIRM_EMAIL);
     }
     
-    public String getNotify()
-    {
-        return this.notify;
-    }
+    //public String getNotify()
+    //{
+        //return this.notify;
+    //}
 
-    public String getNotifyError()
-    {
-        return getError(NOTIFY);
-    }
+    //public String getNotifyError()
+    //{
+        //return getError(NOTIFY);
+    //}
     
     public String getEditor()
     {
@@ -1308,6 +1354,11 @@ public class Registration
         return result;
     }
 
+    public Set getNotifications()
+    {
+        return notifications;
+    }
+   
     public Map getDemographics()
     {
         return demographics;
@@ -1550,20 +1601,6 @@ public class Registration
     }
   
 
-/* 
-    DemographicResponse getDemographicResponse(ArrayList responses, int questionId)
-    {
-        for (int i=0;i<responses.size();i++)
-        {
-            DemographicResponse response = (DemographicResponse) responses.get(i);
-            if (response.getDemographicQuestionId() == questionId)
-            {
-                return response;
-            }
-        }
-        return null;
-    }
-*/
     
     public boolean isEdit()
     {
@@ -1629,7 +1666,32 @@ public class Registration
         user.setPassword(password);
         user.setEmail(email); 
         coder.setQuote(quote);
-        coder.setNotify((notify.equalsIgnoreCase(CHECKBOX_YES)?"Y":"N"));
+        //coder.setNotify((notify.equalsIgnoreCase(CHECKBOX_YES)?"Y":"N"));
+
+        ArrayList cachedNotify = null;
+        try
+        {
+          DataCache cache = Cache.get();
+          cachedNotify = cache.getNotifications();
+        }
+        catch ( Exception e )
+        {  
+          cachedNotify = new ArrayList();
+        }
+        HashMap cachedLookup = new HashMap ( cachedNotify.size() );
+        for ( int i = 0; i < cachedNotify.size(); i++ )
+        {
+          Notify notify = (Notify) cachedNotify.get(i);
+          cachedLookup.put ( Integer.toString(notify.getNotifyId()), notify );
+        }
+        ArrayList coderNotify = coder.getNotifications();
+        coderNotify.clear();
+        for ( Iterator i = notifications.iterator(); i.hasNext(); )
+        {
+          coderNotify.add ( cachedLookup.get(i.next()) );
+        }
+
+  
         Editor editor = new Editor();
         editor.setEditorId(Integer.parseInt(this.editor));
         coder.setEditor(editor);

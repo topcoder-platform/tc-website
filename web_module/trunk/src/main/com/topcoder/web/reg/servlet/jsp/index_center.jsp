@@ -296,16 +296,6 @@ Founder and Chairman, TopCoder, Inc.
     <td colspan="2" class="statText" align="left" valign="top">An email will be sent to authorize your account activation.<br></td>
   </tr>
 
-<!--
-  <tr>
-      <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" align="left" valign="middle"><jsp:getProperty name="Registration" property="NotifyError" /></td>
-  </tr>
-  <tr>
-    <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Match Notification&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-        <tc:getProperty id="notify" name="Registration" property="Notify" />
-    <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="checkbox" name="<%=Registration.NOTIFY%>" <%=(notify.equalsIgnoreCase(Registration.CHECKBOX_YES)?"checked":"")%>></td>
-  </tr>
--->
 
   <tr>
     <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" align="left" valign="middle"><jsp:getProperty name="Registration" property="QuoteError" /></td>
@@ -318,6 +308,34 @@ Founder and Chairman, TopCoder, Inc.
 
   <tr valign="middle">
     <td colspan="4" class="statText" valign="middle">&nbsp;</td>
+  </tr>
+  <tr valign="middle">
+    <td colspan="4" class="statTextBig" valign="middle" background="/i/steel_bluebv_bg.gif" height="16">&nbsp;Email Notification</td>
+  </tr>
+  <tr valign="middle">
+    <td colspan="4" class="statTextBig" valign="middle"><img src="/i/clear.gif" width="1" height="2" border="0"></td>
+  </tr>
+
+
+  <tc:notification selectedValues="<%=Registration.getNotifications()%>" class="statText">
+    <tr>
+      <td></td>
+      <td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+      <td colspan="2" class="errorText" align="left" valign="middle">
+      </td>
+    </tr>
+    <tr>
+      <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif"><%=notifyName%>&nbsp;</td>
+      <td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+      <td colspan="2" class="statTextBig" align="left" valign="middle">
+        <%=notifyControl%>
+      </td>
+    </tr>
+  </tc:notification>
+
+
+  <tr valign="middle">
+    <td colspan="4" class="statText" valign="middle">&nbsp;</td>
   </tr>  
   <tr valign="middle">
     <td colspan="4" class="statTextBig" valign="middle" background="/i/steel_bluebv_bg.gif" height="16">&nbsp;Editor &amp; Language</td>
@@ -325,6 +343,8 @@ Founder and Chairman, TopCoder, Inc.
   <tr valign="middle">
     <td colspan="4" class="statTextBig" valign="middle"><img src="/i/clear.gif" width="1" height="2" border="0"></td>
   </tr>  
+
+
     <tr>
         <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" align="left" valign="middle"><jsp:getProperty name="Registration" property="EditorError" /></td>
     </tr>
