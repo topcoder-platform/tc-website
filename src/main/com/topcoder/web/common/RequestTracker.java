@@ -30,7 +30,7 @@ public class RequestTracker {
     static {
         log.info("starting request tracker thread");
         t = new RequestTrackerThread();
-        t.run();
+        t.start();
     }
 
     public static void trackRequest(TCRequest request) {
