@@ -78,8 +78,8 @@
             </xsl:call-template>
 
             <p><h2 align="left">Projects for Design and/or Development currently available!</h2></p>
-            <p class="bigRed">
-                In order to participate in a component project, you MUST register for that project.  There are
+            <p>
+                <span class="bigRed">In order to participate in a component project, you MUST register for that project.</span>  There are
                 only a limited number of registration slots available for each component project.  Registration
                 for each project below will be open until the listed "Max Registrants" has been reached or until
                 the project is completed or removed from the project list.  Please note that by registering for
