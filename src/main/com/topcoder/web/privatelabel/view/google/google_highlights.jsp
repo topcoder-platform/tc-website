@@ -112,7 +112,7 @@ function openWin(url, name, w, h) {
                         </tr>
                         <tr valign="top">
                            <td class="google_round_id" ><a href="/pl/?&module=Static&d1=google&d2=google_winners" class="topLink">Onsite Championship Round</a></td>
-                           <td class="sidebarText" align="right"><a href="/pl/?&module=Static&d1=google&d2=google_winners" class="topLink">4</a></td>
+                           <td class="sidebarText" align="right"><a href="/pl/?&module=Static&d1=google&d2=google_winners" >4</a></td>
                         </tr>
 
                      </table>
