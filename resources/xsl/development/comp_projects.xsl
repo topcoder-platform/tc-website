@@ -166,7 +166,7 @@
 
                 <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=config_manager-design">Data Access Object Generator</a></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=data_access_object_generator-design">Data Access Object Generator</a></td>
                     <td background="" class="statText" align="center">$245.00</td>
                     <td background="" class="statText" align="center">1.29.2003</td>
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
