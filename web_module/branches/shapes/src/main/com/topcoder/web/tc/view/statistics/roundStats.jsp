@@ -8,6 +8,7 @@
 <%@ taglib uri="struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
 
 
 <%
@@ -279,6 +280,7 @@ pageContext.setAttribute("resultSetDates", rsc);
 <% } %>
 
 
+<% String sLink = "/stat?c=member_profile&cr=";%>
 <bean:define id="nameColor" name="CODER_COLORS" scope="application" toScope="page"/>
 <%-- attempting to reduce download size --%>
 <logic:iterate name="resultSet" id="resultRow" type="ResultSetContainer.ResultSetRow">
@@ -302,6 +304,7 @@ pageContext.setAttribute("resultSetDates", rsc);
 <TD CLASS="statText"  HEIGHT="13" WIDTH="10">
 <A HREF="/stat?c=coder_room_stats&rd=<%= currRound %>&rm=<bean:write name="resultRow" property='<%= "item[" + 4 /* id */ + "]" %>'/>&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /* id */ + "]" %>'/>" CLASS="statText"><IMG SRC="/i/coders_icon.gif" ALT="" WIDTH="10" HEIGHT="10" HSPACE="4" BORDER="0"/></A>
 </TD>
+<TD CLASS="statText" nowrap="0"><tc:ratingImage link='<%=sLink+resultRow.getIntItem(1)%>' bg='B' cid='<%=resultRow.getIntItem(1)%>' /></TD>
 <TD CLASS="statText" nowrap="0"><A HREF="/stat?c=member_profile&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /* id */ + "]" %>'/>" CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 0 /* handle */ + "]" %>'/></A></TD>
 <TD CLASS="statText"ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 7 /* coding pts */ + "].resultData" %>'/></TD>
 <TD CLASS="statText" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
