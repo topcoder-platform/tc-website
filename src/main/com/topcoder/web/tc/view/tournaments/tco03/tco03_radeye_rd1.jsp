@@ -20,8 +20,15 @@
 
       <table cellpadding="0" cellspacing="3" align="center" border="0" class="bodyText" width="800">
          <tr>
-            <td align="left" class="bodyText" colspan="3"><h2>radeye's odds</h2></td>
+            <td align="left" class="bodyText" colspan="2" nowrap><h2>radeye's odds</h2></td>
+            <td align="right" class="bodyText">
+            <!-- round links-->
+            <jsp:include page="tco03radeyelinks.jsp" >
+               <jsp:param name="selectedRound" value="round1"/>
+            </jsp:include>
+            </td>
          </tr>
+         
          <tr>
             <td align="left" class="bodyText" valign="top">
                <img src="/i/m/radeye_mug.gif" alt="" width="55" height="61" border="0" vspace="5" align="left"/>
