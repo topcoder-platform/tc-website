@@ -18,14 +18,6 @@
 <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
 <jsp:include page="../includes/top.jsp"/>
 
-<H1><%
-if (rsc != null) 
-	out.println(rsc.size());
-else 
-	out.println("null");
-%></H1>
-
-
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
    <TR>
     <!-- Left Column Begins -->
@@ -70,8 +62,11 @@ else
 	</tc-webtag:iterator>
 --%>
 
-
 	<TR>
+	  <TD>
+	  <%=rsc.toString()%>
+	  </TD>
+	</TR>
 		<TD COLSPAN="4" VALIGN="middle" CLASS="bodyText" HEIGHT="15" ALIGN="center"><A HREF="<%=appContext%>/?module=static&d1=acc_admin&d2=add_usr" CLASS="bodyText">Add</A></TD>		
 	</TR>				
 </TABLE>
