@@ -108,7 +108,7 @@ a.affidavitText = new String("<form action=PactsMemberServlet?t=affidavit&c=affi
 				a.affidavitText = a.affidavitText.substring(0,idx) + "<input type=\"text\" name=\"family_name\" size=25 maxlength=25>" + a.affidavitText.substring(idx+(new String("FILL IN BELOW")).length());
 			}
 out.print("<p>" + a.affidavitText + "</p>");
-out.print("<center><table><tr><td>");
+out.print("<center><table><tr><td class=\"statText\">");
 out.print("<input type=hidden name=" + PactsConstants.AFFIDAVIT_ID);
 out.print(" value=" + a.affidavit._header._id + ">");
 if(a.affidavit._birthday.length() <= 0) {
