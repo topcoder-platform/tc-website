@@ -27,7 +27,7 @@ long total_coders;
 long new_coders;
 %>	
 <table width="100%" class="srmFrame">
-<tr><td colspan="2" class="srmQuestion">U.S. Participation by Region</td></tr>
+<tr><td colspan="4" class="srmQuestion">U.S. Participation by Region</td></tr>
 <tr>
 <td class="bodyText"><strong>Region</strong></td>
 <td class="bodyText"><strong>All</strong></td>
