@@ -1,9 +1,9 @@
-<%--                   
+<%--
 /**
  *  profile.jsp
  */
 --%>
-<%@  page 
+<%@  page
   language="java"
   errorPage="/errorPage.jsp"
   import="java.util.*,
@@ -88,6 +88,11 @@
       <td>Events</td>
       <td>&#160;&#160;&#160;</td>
       <td><%=p.getItem("num_ratings").toString()%></td>
+    </tr>
+    <tr>
+      <td>Default Language</td>
+      <td>&#160;&#160;&#160;</td>
+      <td><%=p.getItem("language_name").toString()%></td>
     </tr>
     <tr>
       <td>Member Since</td>
