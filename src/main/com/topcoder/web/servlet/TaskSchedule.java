@@ -41,12 +41,18 @@ public final class TaskSchedule {
             DataCache dcHome = Cache.get();
 
             String roundids = Conversion.checkNull(request.getParameter("rds"));
+            String sortCol = request.getParameter("sc");
+            String sortDir = request.getParameter("sdir");
             if (!roundids.equals("")) {
                 ctx = TCContext.getInitial();
                 dai = new CachedDataAccess((javax.sql.DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
                 dataRequest = new Request();
                 dataRequest.setContentHandle("tourney_advancers");
                 dataRequest.setProperty("rds", roundids.trim());
+                if (sortCol!=null)
+                    dataRequest.setProperty("sc", sortCol);
+                if (sortDir!=null)
+                    dataRequest.setProperty("sdir", sortDir);
                 resultMap = dai.getData(dataRequest);
                 rsc = (ResultSetContainer) resultMap.get("Tourney_Advancers");
                 schedTag.addTag(rsc.getTag("Advancers", "Advancer"));
