@@ -8,6 +8,7 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.naming.InitialContext;
@@ -25,6 +26,8 @@ public class CoderSessionInfo extends SessionInfo {
     private String activationCode;
     private boolean hasImage;
 
+    private static Logger log = Logger.getLogger(CoderSessionInfo.class);
+
     public CoderSessionInfo() {
         super();
     }
@@ -39,10 +42,14 @@ public class CoderSessionInfo extends SessionInfo {
                 rating = info.getIntItem(0, "rating");
                 hasImage = info.getIntItem(0, "has_image")>0;
                 activationCode = info.getStringItem(0, "activation_code");
+            } else {
+                log.warn("couldn't find session info for: " + authentication.getActiveUser().getId());
             }
             ResultSetContainer rsc = getDwInfo(authentication.getActiveUser().getId());
             if (!rsc.isEmpty()) {
                 rank = rsc.getIntItem(0, "rank");
+            } else {
+                log.warn("couldn't find rank info for: " + authentication.getActiveUser().getId());
             }
         }
     }
