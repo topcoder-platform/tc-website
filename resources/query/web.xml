@@ -158,6 +158,12 @@
         </init-param>
 
         <init-param>
+            <param-name>command_group_id_param</param-name>
+            <param-value>CommandGroupId</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
             <param-name>query_id_param</param-name>
             <param-value>QueryId</param-value>
             <description></description>
