@@ -205,35 +205,32 @@ function getProblemDetail(id) {
                     </td>
 
                     <td class='<%=cssClasses[counter % 2]%>' align=center>
-                        <script language="javascript">
-                            document.write(' <object ');
-                            document.write(' classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" ');
-                            document.write(' codebase="http://fpdownload.macromedia.com');
-                            document.write('/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" ');
-                            document.write(' width="80" ');
-                            document.write(' height="12" ');
-                            document.write(' id="tc_card" ');
-                            document.write(' align="middle">');
-                            document.write(' <param name="allowScriptAccess" value="sameDomain" />');
-                            document.write(' <param name="movie" ');
-                            document.write(' value="<%=swfFiles[counter % 2]%>&?preference=<%=row.getStringItem("preference")%>&sendurl=/corp/testing/?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<%=row.getStringItem("user_id")%>"/>');
-                            document.write(' <param name="menu" value="false" />');
-                            document.write(' <param name="quality" value="high" />');
-                            document.write(' <param name="bgcolor" value="#ffffff" />');
-                            document.write(' <embed ');
-                            document.write(' src="<%=swfFiles[counter % 2]%>&?preference=<%=row.getStringItem("preference")%>&sendurl=/corp/testing/?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<%=row.getStringItem("user_id")%>" ');
-                            document.write(' menu="false" ');
-                            document.write(' quality="high" ');
-                            document.write(' bgcolor="#ffffff" ');
-                            document.write(' width="80" ');
-                            document.write(' height="12" ');
-                            document.write(' name="tc_card" ');
-                            document.write(' align="middle" ');
-                            document.write(' allowScriptAccess="sameDomain" ');
-                            document.write(' type="application/x-shockwave-flash" ');
-                            document.write(' pluginspage="http://www.macromedia.com/go/getflashplayer" /> ');
-                            document.write(' </object> ');
-                        </script>
+                        <object
+                        classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+                        codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"                      
+                        width="80"
+                        height="12"
+                        id="tc_card"
+                        align="middle">
+                        <param name="allowScriptAccess" value="sameDomain" />
+                        <param name="movie"
+                        value="<%=swfFiles[counter % 2]%>&?preference=<%=row.getStringItem("preference")%>&sendurl=/corp/testing/?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<%=row.getStringItem("user_id")%>"/>"/>
+                        <param name="menu" value="false" />
+                        <param name="quality" value="high" />
+                        <param name="bgcolor" value="#ffffff" />
+                        <embed
+                        src="<%=swfFiles[counter % 2]%>&?preference=<%=row.getStringItem("preference")%>&sendurl=/corp/testing/?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<%=row.getStringItem("user_id")%>"
+                        menu="false"
+                        quality="high"
+                        bgcolor="#ffffff"
+                        width="80"
+                        height="12"
+                        name="tc_card"
+                        align="middle"
+                        allowScriptAccess="sameDomain"
+                        type="application/x-shockwave-flash"
+                        pluginspage="http://www.macromedia.com/go/getflashplayer" />
+                        </object>
                     </td>
 
                     <td class='<%=cssClasses[counter++ % 2]%>' align=center>
