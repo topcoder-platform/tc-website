@@ -148,7 +148,7 @@
                         <div align="center">
                             Address to send affidavits &amp; tax forms to:<br/>
                             TopCoder <br/>
-                            Attn: Tom Longo<br/>
+                            Attn: MaryBeth Luce<br/>
                             703 Hebron Avenue<br/>
                             Glastonbury, CT 06033
                         </div>

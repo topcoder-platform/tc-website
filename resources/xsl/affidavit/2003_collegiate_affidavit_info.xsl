@@ -143,7 +143,7 @@
                         </ol>
                         
                         <div align="center"> 
-                            TopCoder Attn: Tom Longo<br/>
+                            TopCoder Attn: MaryBeth Luce<br/>
                             703 Hebron Avenue<br/>
                             Glastonbury, CT 06033
                         </div>

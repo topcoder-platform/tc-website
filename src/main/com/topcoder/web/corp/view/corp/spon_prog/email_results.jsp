@@ -66,9 +66,8 @@
                         
                         <p>Best of luck in the next match!</p>
                         
-                        <p>Tom Longo<br/>
-                        Vice President of Membership<br/>
-                        TopCoder, Inc.</p>
+                        <p>TopCoder Compeitions<br/>
+                        </p>
                         </tt>
 
                         <p><br/></p>
