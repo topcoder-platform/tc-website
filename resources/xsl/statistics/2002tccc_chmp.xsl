@@ -92,7 +92,7 @@
           
           <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">         
             <TR>
-              <TD VALIGN="top" COLSPAN="2" CLASS="bodyText"><IMG SRC="/i/pdf_iconw.gif" ALT="" WIDTH="31" HEIGHT="31" ALIGN="left" HSPACE="5" BORDER="0"/>Problems and Solutions are available for download.</TD>
+              <TD VALIGN="top" COLSPAN="2" CLASS="bodyText"><IMG SRC="/i/pdf_iconw.gif" ALT="" WIDTH="31" HEIGHT="31" ALIGN="left" HSPACE="5" BORDER="0"/>Problems Statements are available for download.</TD>
             </TR>
             <TR>
               <TD VALIGN="middle" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
@@ -106,18 +106,18 @@
             </TR>                                                                                         
             <TR>
               <TD VALIGN="top" CLASS="bodyText">             
-Level 1 - <A HREF="/i/2002tccc/MuseumGuard_250.pdf" CLASS="bodyText">MuseumGuard</A> (250)</TD>
-              <TD VALIGN="top" CLASS="bodyText"><A HREF="#" CLASS="bodyText">Solution</A></TD>
+Level 1 (250) - <A HREF="/i/2002tccc/MuseumGuard_250.pdf" CLASS="bodyText">MuseumGuard</A> (.pdf)</TD>
+              <TD VALIGN="top" CLASS="bodyText"><A HREF="/stat?c=problem_solution&amp;rm=68&amp;rd=68&amp;pm=690&amp;cr=114853" CLASS="bodyText">Solution</A></TD>
             </TR>                                             
             <TR>              
               <TD VALIGN="top" CLASS="bodyText">
-Level 2 - <A HREF="/i/2002tccc/NumList_500.pdf" CLASS="bodyText">NumList</A> (500)</TD>
-              <TD VALIGN="top" CLASS="bodyText"><A HREF="#" CLASS="bodyText">Solution</A></TD>
+Level 2 (500) - <A HREF="/i/2002tccc/NumList_500.pdf" CLASS="bodyText">NumList</A> (.pdf)</TD>
+              <TD VALIGN="top" CLASS="bodyText"><A HREF="/stat?c=problem_solution&amp;rd=68&amp;rm=68&amp;cr=114853&amp;pm=565" CLASS="bodyText">Solution</A></TD>
             </TR>                                             
             <TR>              
               <TD VALIGN="top" CLASS="bodyText">              
-Level 3 - <A HREF="/i/2002tccc/PlanetX_1000.pdf" CLASS="bodyText">PlanetX</A> (1000)</TD>
-              <TD VALIGN="top" CLASS="bodyText"><A HREF="#" CLASS="bodyText">Solution</A></TD>
+Level 3 (1000) - <A HREF="/i/2002tccc/PlanetX_1000.pdf" CLASS="bodyText">PlanetX</A> (.pdf)</TD>
+              <TD VALIGN="top" CLASS="bodyText"><A HREF="/stat?c=problem_solution&amp;rd=68&amp;rm=68&amp;cr=114853&amp;pm=663" CLASS="bodyText">Solution</A></TD>
             </TR>
             <TR>
               <TD VALIGN="middle" COLSPAN="2"><A NAME="log"></A><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
