@@ -73,7 +73,7 @@
 		<TR>					
 			<TD VALIGN="top" CLASS="bodyText" NOWRAP="0">&#160;&#160;<B>Championship:</B><BR/>
 			- <A HREF="/index?t=statistics&amp;c=2002tccc_chmp" CLASS="bodyText">Summary</A><BR/>
-			- <A HREF="/index?t=statistics&amp;c=2002tccc_chmp" CLASS="bodyText">Problems</A><BR/>			
+			- <A HREF="/index?t=statistics&amp;c=2002tccc_chmpprob" CLASS="bodyText">Problems</A><BR/>			
 			- <A HREF="/index?t=statistics&amp;c=2002tccc_chmpprob#log" CLASS="bodyText">Chrono Log</A><BR/>
 			- <A HREF="/index?t=statistics&amp;c=2002tccc_chmp#photo" CLASS="bodyText">Photos</A><BR/>
 			</TD>
