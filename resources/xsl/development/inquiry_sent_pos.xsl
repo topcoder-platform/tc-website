@@ -76,8 +76,7 @@
                                     <xsl:value-of select="concat('http://software.topcoder.com/forum/c_forum.jsp?f=',$FORUMID)"/>
                                 </xsl:attribute>
                                 Developer Forum
-                            </a>.  
-
+                            </a>  
                                <xsl:choose>
                                 <!-- xsl:when test="$design=1" -->
                                 <xsl:when test="contains($Project, 'Design')">
