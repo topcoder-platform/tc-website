@@ -149,6 +149,19 @@
                                             answered. Following review from the board the winning member is given until the Updated Submission Due Date to modify their submission.
                                         </p>
                                         <p>
+                                            <table>
+                                                <tr>
+                                                    <td>Application Project Posting:</td>
+                                                    <td>7.15.2003</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Member Selection:</td>
+                                                    <td>7.18.2003</td>
+                                                </tr>
+                                            </table>
+
+
+
                                             <br/>Application Project Posting: 7.15.2003 <br/>
                                             <br/>Member Selection: 7.18.2003 <br/>
                                             <br/>Member Acceptance: 7.21.2003 <br/>
