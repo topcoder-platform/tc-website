@@ -1,4 +1,3 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <%@  page
   language="java"
   import="java.util.*,
@@ -34,11 +33,6 @@ long ninetyplus_total = 0;
 long total = 0;
 long row_total =0;
 %>	
-
-
-
-
-
 <table width="100%" class="srmFrame">
 <tr><td colspan="9" class="srmQuestion">Professionals</td></tr>
 <tr>

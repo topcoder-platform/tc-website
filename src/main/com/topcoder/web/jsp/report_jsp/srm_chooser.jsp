@@ -1,4 +1,3 @@
-
 <%@  page
   language="java"
   import="java.util.*,
@@ -27,17 +26,10 @@
 					ResultSetContainer rsc = (ResultSetContainer)dataMap.get("srm_qry_chooser");
 					String link=request.getParameter("link")==null?"srm_index":request.getParameter("link");
 			%>	
-<script language="JavaScript">
-<!--
-function goTo(selection){
-  sel = selection.options[selection.selectedIndex].value;
-  if (sel && sel != '#'){
-    window.location=sel;
-  }
-}
-// -->
-</script>  
-	
+			
+
+
+
 <table width="100%">	
 <tr><td>
 <select name="round" onChange="goTo(this)">
@@ -50,5 +42,3 @@ function goTo(selection){
  
  </tr>
   </table>
-
- 

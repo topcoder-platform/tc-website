@@ -21,8 +21,6 @@ javax.servlet.jsp.JspWriter,
 
 "
 %>
-<jsp:include page="css.jsp" />
-<jsp:include page="../script.jsp" />
 <%
 String newrd;
 if (request.getParameter("rd")==null)
