@@ -86,9 +86,15 @@ public class Controller extends HttpServlet {
 
                 task.servletPostAction(request, response);
 
-                request.setAttribute( taskName, task );
+                request.setAttribute(taskName, task);
 
-                getServletContext().getRequestDispatcher( response.encodeURL(task.getNextPage()) ).forward(request, response);
+                if (task==null)
+                    log.debug("task is null");
+                if (task.getNextPage() == null)
+                    log.debug("next page is null");
+
+                getServletContext().getRequestDispatcher(
+                        response.encodeURL(task.getNextPage()) ).forward(request, response);
 
             }
             else {
