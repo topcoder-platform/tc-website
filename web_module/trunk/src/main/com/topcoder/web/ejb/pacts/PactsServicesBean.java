@@ -1897,7 +1897,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             long affidavitId = (long) DBMS.getSeqId(c, DBMS.AFFIDAVIT_SEQ);
             String paymentStr = "null";
             if (p != null) {
-                long paymentId = makeNewPayment(c, p, (a._header._typeID == CONTEST_WINNING_AFFIDAVIT));
+                long paymentId = makeNewPayment(c, p, p.payReferrer());
                 paymentStr = "" + paymentId;
             }
 
@@ -4128,7 +4128,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * has already been generated for this round.
      * @throws SQLException If there was some error updating the data.
      */
-    public int generateRoundPayments(long roundId, boolean makeChanges)
+    public int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges)
             throws IllegalUpdateException, SQLException {
         int i;
         Connection c = null;
@@ -4192,7 +4192,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             StringBuffer getAffidavitTexts = new StringBuffer(300);
             getAffidavitTexts.append("SELECT x.country_code, att.text ");
             getAffidavitTexts.append("FROM affidavit_template att, country_affidavit_template_xref x ");
-            getAffidavitTexts.append("WHERE att.affidavit_type_id = " + CONTEST_WINNING_AFFIDAVIT);
+            getAffidavitTexts.append("WHERE att.affidavit_type_id = " + affidavitTypeId);
             getAffidavitTexts.append(" and att.affidavit_template_id =x.affidavit_template_id ");
             ResultSetContainer texts = runSelectQuery(c, getAffidavitTexts.toString(), false);
             int numTexts = texts.getRowCount();
@@ -4212,7 +4212,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 a._header._user._id = userId;
                 a._header._statusID = AFFIDAVIT_PENDING_STATUS;
                 a._header._description = roundName + " contest affidavit";
-                a._header._typeID = CONTEST_WINNING_AFFIDAVIT;
+                a._header._typeID = affidavitTypeId;
 
                 Payment p = new Payment();
                 p._grossAmount = TCData.getTCDouble(winners.getRow(i), "paid");
@@ -4289,6 +4289,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             throw new SQLException(e.getMessage());
         }
     }
+
+    public int generateRoundPayments(long roundId, boolean makeChanges)
+            throws IllegalUpdateException, SQLException {
+        return generateRoundPayments(roundId, CONTEST_WINNING_AFFIDAVIT, makeChanges);
+    }
+
+
 
     /**
      * Sets the status on all affidavits older than a specified time

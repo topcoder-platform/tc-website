@@ -194,4 +194,8 @@ public class Payment implements PactsConstants, java.io.Serializable {
         _header._description = desc;
     }
 
+    public boolean payReferrer() {
+        return _typeId==CONTEST_PAYMENT;
+    }
+
 }
