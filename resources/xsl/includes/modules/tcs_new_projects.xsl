@@ -88,14 +88,14 @@
                 <tr valign="middle">
                     <td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
                     <td background="/i/graybv_bg.gif" bgcolor="#666666" width="164" class="statText">Development Projects</td>
-                                <td background="/i/graybv_bg.gif" bgcolor="#666666" width="70" class="statText" align="center">Submit by</td>
-                                <td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
-                            </tr>
+                    <td background="/i/graybv_bg.gif" bgcolor="#666666" width="70" class="statText" align="center">Submit by</td>
+                    <td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
+                </tr>
 
                 <xsl:for-each select="/TC/DEVELOPMENT/projects/project">
                     <xsl:if test="./phase_id=$dev-phase and ./status_id=$status_id">
 
-                            <tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+                <tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
                         <xsl:variable name="initial_submission">
                             <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template>
@@ -110,83 +110,80 @@
                             <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="final_submission_date"/></xsl:call-template>
                         </xsl:variable>
 
-                            <tr valign="top">
-                                <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-                                <td class="statText">
-                                    <a class="statText">
-                                    <xsl:attribute name="href"> 
-                                        <xsl:value-of select="concat('/index?t=development&amp;c=tcs_inquire-dev&amp;comp=', ./component_id, '&amp;docId=', ./document_id, '&amp;version=', ./version, '&amp;phase=', ./phase_id, '&amp;payment=', ./price, '&amp;date=', $initial_submission, '&amp;final_submission=', $final_submission, '&amp;winner_announced=', $winner_announced, '&amp;posting_date=', $posting_date)"/>
-                                    </xsl:attribute><xsl:value-of select="./component_name"/>
-                                    </a>
-                                    <xsl:if test="number(./version) &gt;  number('1')">
-                                        v <xsl:value-of select="./version"/>
-                                    </xsl:if>
-                                </td>
-                                <td class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
-                                <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-                        </tr>
+                <tr valign="top">
+                    <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+                    <td class="statText">
+                        <a class="statText">
+                        <xsl:attribute name="href">
+                            <xsl:value-of select="concat('/index?t=development&amp;c=tcs_inquire-dev&amp;comp=', ./component_id, '&amp;docId=', ./document_id, '&amp;version=', ./version, '&amp;phase=', ./phase_id, '&amp;payment=', ./price, '&amp;date=', $initial_submission, '&amp;final_submission=', $final_submission, '&amp;winner_announced=', $winner_announced, '&amp;posting_date=', $posting_date)"/>
+                        </xsl:attribute><xsl:value-of select="./component_name"/>
+                        </a>
+                        <xsl:if test="number(./version) &gt;  number('1')">
+                            v <xsl:value-of select="./version"/>
+                        </xsl:if>
+                    </td>
+                    <td class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
+                    <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+                </tr>
+
                     </xsl:if>
                 </xsl:for-each>
 
-                            <tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
+                <tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
 
-                            <tr valign="top">
-                                <td width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-                                <td colspan="2" class="openProjects"><a class="openProjects" href="/index?t=development&amp;c=comp_projects">View all open Component Projects</a></td>
-                                <td width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-                            </tr>
-                            
-                            <tr><td colspan="4" background="" height="15"><img src="/i/clear.gif" width="1" height="15" alt="" border="0" /></td></tr>
-                        </table>
-                    </td>
+                <tr valign="top">
+                    <td width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+                    <td colspan="2" class="openProjects"><a class="openProjects" href="/index?t=development&amp;c=comp_projects">View all open Component Projects</a></td>
+                    <td width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                 </tr>
+                            
+                <tr><td colspan="4" background="" height="15"><img src="/i/clear.gif" width="1" height="15" alt="" border="0" /></td></tr>
+            </table>
 <!-- Component Development Projects ends -->
 
 <!-- Application Projects begins -->
+            <table width="244" border="0" cellspacing="0" cellpadding="0" bgcolor="#000000"> 
                 <tr valign="middle"><td height="28"><img src="/i/development/head_new_app.gif" alt="NEW Application Projects" width="244" height="28" border="0" /></td></tr>
+            </table>
+
+            <table width="244" cellspacing="0" cellpadding="0" border="0" bgcolor="#000000">                
+                <tr valign="middle">
+                    <td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
+                    <td background="/i/graybv_bg.gif" bgcolor="#666666" width="164" class="statText">Project Title</td>
+                    <td background="/i/graybv_bg.gif" bgcolor="#666666" width="70" class="statText" align="center">Inquire by</td>
+                    <td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
+                </tr>
+                            
+                <tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+                <!-- 
+                <tr valign="top">
+                    <td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+                    <td background="" class="statText" colspan="2">There are no new Application Projects this week.</td>
+                    <td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+                </tr>
+                -->
+                
+                <tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
                 <tr valign="top">
-                    <td bgcolor="#000000"> 
-                        <table width="244" cellspacing="0" cellpadding="0" border="0" bgcolor="#000000">                
-                            <tr valign="middle">
-                                <td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
-                                <td background="/i/graybv_bg.gif" bgcolor="#666666" width="164" class="statText">Project Title</td>
-                                <td background="/i/graybv_bg.gif" bgcolor="#666666" width="70" class="statText" align="center">Inquire by</td>
-                                <td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
-                            </tr>
+                    <td width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+                    <td class="statText"><a class="statText" href="/index?t=development&amp;c=online_review&amp;t=app">Online Review</a></td>
+                    <td class="statText" align="center">12.14.2003</td>
+                    <td width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+                </tr>                            
                             
-                            <tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+                <tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
 
-                            <!-- 
-                            <tr valign="top">
-                                <td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-                                <td background="" class="statText" colspan="2">There are no new Application Projects this week.</td>
-                                <td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-                            </tr>
-                            -->
-                            <tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                            <tr valign="top">
-                                <td width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-                                <td class="statText"><a class="statText" href="/index?t=development&amp;c=online_review&amp;t=app">Online Review</a></td>
-                                <td class="statText" align="center">12.14.2003</td>
-                                <td width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-                            </tr>                            
-                            
-                            <tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr> -->
-
-                            <tr valign="top">
-                                <td width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-                                <td colspan="2" class="openProjects"><a class="openProjects" href="/index?t=development&amp;c=app_projects">View all open Application Projects</a></td>
-                                <td width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-                            </tr>
-                            
-                            <tr><td colspan="4" height="15"><img src="/i/clear.gif" width="1" height="15" alt="" border="0" /></td></tr>
-                        </table>
-                    </td>
+                <tr valign="top">
+                    <td width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+                    <td colspan="2" class="openProjects"><a class="openProjects" href="/index?t=development&amp;c=app_projects">View all open Application Projects</a></td>
+                    <td width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                 </tr>
-<!-- Application Projects ends -->
+                            
+                <tr><td colspan="4" height="15"><img src="/i/clear.gif" width="1" height="15" alt="" border="0" /></td></tr>
             </table>
+<!-- Application Projects ends -->
 
             <table width="244" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000"> 
                 <tr valign="top">
