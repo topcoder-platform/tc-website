@@ -16,7 +16,7 @@
 
                 <xsl:call-template name="Preload"/>
 
-                <title>EDI Certification Website Application Design Project at TopCoder</title>
+                <title>EDI Transaction Processor Application Design Project at TopCoder</title>
 
                 <xsl:call-template name="CSS"/>
 
@@ -71,7 +71,7 @@
                                         <!-- Title -->
                                         <table cellspacing="0" class="formFrame" align="center" width="530">
                                             <tr>
-                                                <td class="projectTitles" nowrap="nowrap">Design Application Project - EDI Certification Website Application</td>
+                                                <td class="projectTitles" nowrap="nowrap">Design Application Project - EDI Transaction Processor Application</td>
                                             </tr>
                                             <tr>
                                                 <td class="projectHeaders" align="left">Overview</td>
