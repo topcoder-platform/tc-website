@@ -1,4 +1,11 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
+<%@ page import="com.topcoder.web.privatelabel.Constants,
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="privatelabel.tld" prefix="pl" %>
+<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.FullRegInfo" scope="session" />
+<jsp:usebean id="questionList" class="java.util.List" scope="request" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -24,8 +31,26 @@
 					    <p class="brBody"><span class="brBodyTitle">Registration</span><br/><br/>
 						Registration explanation goes here.
 						</p>
-						<form>
+						<form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
+                                                    <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.BROOKS_REG_CONFIRM%>"/>
+                                                    <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
+                                                    <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="EventId"/>"/>
                         <table width="100%" cellpadding="0" cellspacing="3" border="0" >
+                        <pl:questionIterator id="question" list="<%=questionList%>">
+                            <tr>
+                                <td class="brErrorText" colspan="2">
+                                    <tc-webtag:errorIterator id="err" name="<%=Constants.DEMOG_PREFIX+question.getId()%>"><%=err%><br/></tc-webtag:errorIterator>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="brRegTableQuestion">
+                                    <%=question.getText()%>
+                                </td>
+                                <td class="brRegTableAnswer">
+                                    <pl:demographicInput question="<%=question%>"/>
+                                </td>
+                           </tr>
+                        </pl:questionIterator>
                         <tr>
                             <td class="brErrorText" colspan="2"></td>
                         </tr>
