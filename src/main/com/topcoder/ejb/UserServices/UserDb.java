@@ -26,6 +26,7 @@ final class UserDb {
     static void insertUser(User user) throws TCException {
         log.debug("ejb.User.UserDb:insertUser():called...");
         Connection conn = null;
+        Connection secConn = null;
         PreparedStatement ps = null;
         /**************************************************************/
         StringBuffer query = new StringBuffer(200);
@@ -87,8 +88,8 @@ final class UserDb {
             query.append(" INSERT INTO security_user");
             query.append(       " (login_id, user_id, password)");
             query.append(" VALUES (?, ?, ?)");
-            conn = ds.getConnection();
-            ps = conn.prepareStatement(query.toString());
+            secConn = ds.getConnection();
+            ps = secConn.prepareStatement(query.toString());
             ps.setLong(1, user.getUserId());
             ps.setString(2, user.getHandle());
             ps.setString(3, "placeholder");
@@ -119,6 +120,14 @@ final class UserDb {
                     log.error("insertCoder cx NOT closed...");
                 }
             }
+            if (secConn != null) {
+                try {
+                    secConn.close();
+                    log.debug("insertCoder cx closed...");
+                } catch (Exception ignore) {
+                    log.error("insertCoder cx NOT closed...");
+                }
+            }
         }
     }
 
@@ -127,6 +136,7 @@ final class UserDb {
         log.debug("ejb.User.UserDb:updateUser():called...");
         PreparedStatement ps = null;
         Connection conn = null;
+        Connection secConn = null;
         try {
             conn = DBMS.getTransConnection();
             if (user.getModified().equals("U")) {
@@ -165,8 +175,8 @@ final class UserDb {
                 query.append(" UPDATE security_user");
                 query.append(   " SET user_id = ?");
                 query.append( " WHERE login_id = ?");
-                conn = ds.getConnection();
-                ps = conn.prepareStatement(query.toString());
+                secConn = ds.getConnection();
+                ps = secConn.prepareStatement(query.toString());
                 ps.setString(1, user.getHandle());
                 ps.setLong(2, user.getUserId());
                 regVal = ps.executeUpdate();
@@ -199,6 +209,14 @@ final class UserDb {
             if (conn != null) {
                 try {
                     conn.close();
+                    log.debug("updateCoder cx closed...");
+                } catch (Exception ignore) {
+                    log.error("updateCoder cx NOT closed...");
+                }
+            }
+            if (secConn != null) {
+                try {
+                    secConn.close();
                     log.debug("updateCoder cx closed...");
                 } catch (Exception ignore) {
                     log.error("updateCoder cx NOT closed...");
