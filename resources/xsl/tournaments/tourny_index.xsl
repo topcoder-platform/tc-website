@@ -60,9 +60,9 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="15" border="0"/><br/>
 
-<!-- Upcoming Events begins -->
+<!-- Upcoming Tournaments begins -->
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
-                <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">Upcoming Events</font></td></tr>
+                <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">Upcoming Tournaments</font></td></tr>
             </table>
                 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
@@ -83,27 +83,29 @@
                     </td>
                 </tr>
             </table>
-<!-- Upcoming Events ends -->
+<!-- Upcoming Tournaments ends -->
 
-<!-- Past Events begins -->
+<!-- Past Tournaments begins -->
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
-                <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">Past Events</font></td></tr>
+                <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">Past Tournaments</font></td></tr>
             </table>
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
                 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><A href="/index?t=tournaments&amp;c=tccc03_champ"><img src="/i/tournament/photo_tccc03.jpg" alt="2003 TCCC" width="274" height="134" border="0" /></A></td>
-                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
-                    <td width="99%" class="bodyText">
-                        <p><A href="/index?t=tournaments&amp;c=tccc03_champ"><img src="/i/tournament/logo_tccc03.gif" alt="Logo" width="113" height="73" border="0" hspace="2" align="right" /></A>
-                        <font size="3"><strong>2003 Sun Microsystems&#153; and TopCoder Collegiate Challenge</strong></font><br />
+                    <td width="274" rowspan="2"><A href="/index?t=tournaments&amp;c=tccc03_champ"><img src="/i/tournament/photo_tccc03.jpg" alt="2003 TCCC" width="274" height="134" border="0" /></A></td>
+                    <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText" colspan="2"><font size="3"><strong>2003 Sun Microsystems&#153; TopCoder Collegiate Challenge</strong></font></td>
+                </tr>
+                <tr valign="top">
+                    <td class="bodyText">
                         April 4-5<br />
                         University Park Hotel @ MIT<br/>
                         Cambridge, Massachusetts<br />
-                        <A href="/index?t=tournaments&amp;c=tccc03_champ">Summary</A></p>
+                        <A href="/index?t=tournaments&amp;c=tccc03_champ">Summary</A>
                     </td>
+                    <td valign="bottom" width="1%"><A href="/index?t=tournaments&amp;c=tccc03_champ"><img src="/i/tournament/logo_tccc03.gif" alt="Logo" width="113" height="73" border="0" hspace="2" align="right" /></A></td>
                 </tr>
             </table>
 
@@ -111,16 +113,18 @@
 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><A href="/index?t=tournaments&amp;c=invit02_champ"><img src="/i/tournament/photo_tci02.jpg" alt="2002 TCI" width="274" height="134" border="0" /></A></td>
-                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
-                    <td width="99%" class="bodyText">
-                        <p><A href="/index?t=tournaments&amp;c=invit02_champ"><img src="/i/tournament/logo_tci02.gif" alt="Logo" width="113" height="73" border="0" hspace="2" align="right" /></A>
-                        <font size="3"><strong>2002 TopCoder Invitational</strong></font><br />
+                    <td width="274" rowspan="2"><A href="/index?t=tournaments&amp;c=invit02_champ"><img src="/i/tournament/photo_tci02.jpg" alt="2002 TCI" width="274" height="134" border="0" /></A></td>
+                    <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText" colspan="2"><font size="3"><strong>2002 TopCoder Invitational</strong></font></td>
+                </tr>
+                <tr valign="top">
+                    <td class="bodyText">
                         November 22-23<br />
-                        Mohegan Sun Casino and Resort<br />
+                        Mohegan Sun Casino<br />
                         Uncasville, Connecticut<br />
-                        <A href="/index?t=tournaments&amp;c=invit02_champ">Summary</A></p>
+                        <A href="/index?t=tournaments&amp;c=invit02_champ">Summary</A>
                     </td>
+                    <td valign="bottom" width="1%"><A href="/index?t=tournaments&amp;c=invit02_champ"><img src="/i/tournament/logo_tci02.gif" alt="Logo" width="113" height="73" border="0" hspace="2" align="right" /></A></td>
                 </tr>
             </table>
 
@@ -128,16 +132,18 @@
 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><A href="/index?t=tournaments&amp;c=2002tccc_champ"><img src="/i/tournament/photo_tccc02.jpg" alt="2002 TCCC" width="274" height="134" border="0" /></A></td>
-                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
-                    <td width="99%" class="bodyText">
-                        <p><A href="/index?t=tournaments&amp;c=2002tccc_champ"><img src="/i/tournament/logo_tccc02.gif" alt="Logo" width="113" height="73" border="0" hspace="2" align="right" /></A>
-                        <font size="3"><strong>2002 Sun Microsystems&#153; and TopCoder Collegiate Challenge</strong></font><br />
+                    <td width="274" rowspan="2"><A href="/index?t=tournaments&amp;c=2002tccc_champ"><img src="/i/tournament/photo_tccc02.jpg" alt="2002 TCCC" width="274" height="134" border="0" /></A></td>
+                    <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText" colspan="2"><font size="3"><strong>2002 Sun Microsystems&#153; TopCoder Collegiate Challenge</strong></font></td>
+                </tr>
+                <tr valign="top">
+                    <td class="bodyText">
                         April 19-20<br />
                         University Park Hotel @ MIT<br/>
                         Cambridge, Massachusetts<br />
-                        <A href="/index?t=tournaments&amp;c=2002tccc_champ">Summary</A></p>
+                        <A href="/index?t=tournaments&amp;c=2002tccc_champ">Summary</A>
                     </td>
+                    <td valign="bottom" width="1%"><A href="/index?t=tournaments&amp;c=2002tccc_champ"><img src="/i/tournament/logo_tccc02.gif" alt="Logo" width="113" height="73" border="0" hspace="2" align="right" /></A></td>
                 </tr>
             </table>
 
