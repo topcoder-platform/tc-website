@@ -20,6 +20,7 @@ public class Login extends Base {
 
         if (hasParameter(Constants.HANDLE)) {
             handle = getRequest().getParameter(Constants.HANDLE);
+            setDefault(Constants.HANDLE, handle);
         } else {
             addError(Constants.HANDLE, "Please enter your login");
         }
@@ -32,6 +33,7 @@ public class Login extends Base {
 
         if (hasParameter(Constants.COMPANY_ID)) {
             companyId = Long.parseLong(getRequest().getParameter(Constants.COMPANY_ID));
+            setDefault(Constants.COMPANY_ID, new Long(companyId));
         } else {
             throw new NavigationException("Invalid request, missing required parameter.");
         }
