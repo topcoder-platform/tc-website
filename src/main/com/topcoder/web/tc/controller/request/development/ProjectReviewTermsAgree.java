@@ -93,7 +93,7 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
         detail = (ResultSetContainer) results.get("pm_details");
 
         String address = detail.getStringItem(0,"address");
-        log.info("ORIGINAL ADDRESS IS: " + address);
+        log.debug("ORIGINAL ADDRESS IS: " + address);
 
         TCSEmailMessage mail = new TCSEmailMessage();
         mail.setSubject("New Review Application");
