@@ -803,7 +803,7 @@ public class ProjectTrackerBean implements SessionBean {
                     ps = conn.prepareStatement(
                                 "update project_result " +
                                 "set valid_submission_ind = 1, reliability_ind = 1 " +
-                                "where not exists(select * from submission where project_id = project_result.project_id and submitter_id = project_result.user_id and is_removed = 0 and cur_version = 1 and passed_screening = 0) " +
+                                "where exists(select * from submission where project_id = project_result.project_id and submitter_id = project_result.user_id and is_removed = 0 and cur_version = 1 and passed_screening = 1) " +
                                 "and project_id = ?");
                     
                     ps.setLong(1, project.getId());
