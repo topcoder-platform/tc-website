@@ -50,7 +50,7 @@
 		  <td><jsp:include page="srm_info.jsp" /></td>
 		</tr>
 	    <tr>
-		  <td><jsp:include page="srm_chooser.jsp" /><jsp:param name="link" value="srm_lang_index"/></jsp:include></td>
+		  <td><jsp:include page="srm_chooser.jsp" ><jsp:param name="link" value="srm_lang_index"/></jsp:include></td>
 		</tr>
 		<tr>
 		  <td><jsp:include page="srm_demo_language_stats.jsp" /></td>

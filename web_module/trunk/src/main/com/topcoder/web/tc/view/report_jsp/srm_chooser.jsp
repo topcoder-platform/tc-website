@@ -25,17 +25,6 @@
 <%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
 <%
 
-    TCRequest tcRequest = HttpObjectFactory.createRequest(request);
-    TCResponse tcResponse = HttpObjectFactory.createResponse(response);
-    WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(tcRequest.getSession()),
-            tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
-    PrincipalMgrRemote pmgr = (PrincipalMgrRemote) com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
-    TCSubject user = pmgr.getUserSubject(authentication.getActiveUser().getId());
-    SessionInfo info = new SessionInfo(tcRequest, authentication, user.getPrincipals());
-    if (!info.isAdmin()) {
-        %> you don't have permssion to view this page <%
-        return;
-    }
 
                 com.topcoder.shared.dataAccess.Request dataRequest = new com.topcoder.shared.dataAccess.Request();
 				dataRequest.setContentHandle("srm_drop_down");

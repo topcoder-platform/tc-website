@@ -34,18 +34,7 @@
 
 
 	String round = request.getParameter("rd");
-	    if (round==null) {
-        com.topcoder.shared.dataAccess.Request dataRequest = new com.topcoder.shared.dataAccess.Request();
-                        dataRequest.setContentHandle("most_recent_srm");
 
-                                   DataAccessInt dai = new CachedDataAccess(
-                                            dataRequest.getProperty(Constants.DB_KEY, Query.WAREHOUSE));
-                            Map dataMap = null;
-                            dataMap = dai.getData(dataRequest);
-
-                            ResultSetContainer rsc1 = (ResultSetContainer)dataMap.get("Most_Recent_SRM");
-        round = rsc1.getStringItem(0, "round_id");
-    }
     com.topcoder.shared.dataAccess.Request dataRequest = new com.topcoder.shared.dataAccess.Request();
 	dataRequest.setContentHandle("srm_match_info");
 	dataRequest.setProperty("rd", round);
