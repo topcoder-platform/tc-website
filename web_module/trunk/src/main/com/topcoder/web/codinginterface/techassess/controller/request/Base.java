@@ -58,7 +58,7 @@ public abstract class Base extends BaseProcessor {
             techAssessProcessing();
             getRequest().setAttribute(Constants.CURRENT_TIME, String.valueOf(System.currentTimeMillis()));
         } catch (TimeOutException e) {
-            unlock();
+            if (sessionId>=0) unlock();
             closeProcessingPage(buildProcessorRequestString(Constants.RP_TIMEOUT, null, null));
         }
     }
