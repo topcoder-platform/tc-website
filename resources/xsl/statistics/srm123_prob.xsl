@@ -357,7 +357,7 @@ Return -1 if we went through all 52 iterations and no solution was found.
           <b>High Score</b>
         </td>
         <td style="background: #eee;" class="bodyText">
-<B>Yotaku</B>  for 247.32 points  
+<B>nullspace</B>  for 332.43 points  
                 </td>
       </tr>
     </table>
