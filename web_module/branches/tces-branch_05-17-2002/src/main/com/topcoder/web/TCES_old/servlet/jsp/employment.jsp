@@ -70,6 +70,10 @@ years.addPair("0", "2002");
 years.addPair("1", "2003");
 
 
+Lookup cities = new Lookup();
+cities.addPair("1", "Katmandu");
+cities.addPair("2", "Kalamazoo");
+
 Lookup states = new Lookup();
 states.addPair("1", "Alabama");
 states.addPair("2", "North Dakota");
@@ -167,7 +171,7 @@ String endYear = "";
 <tr>
 <td colspan="5"><table width="100%" cellpadding="1" cellspacing="0" border="0">
 <tr>
-<td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Cotu&nbsp;</td>
+<td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">City&nbsp;</td>
 <td width="1"><img src="/i/clear.gif" height="1" width="1" border="0"></td>
 <td class="statTextBig" align="left" valign="middle"><%= cities.getSelectBox("", "", "", "") %></td>
 </tr>
