@@ -143,7 +143,10 @@ public class PreferenceLevelBean extends BaseEJB {
         String[] constraintColumns = new String[] {COMPANY_ID, USER_ID};
         String[] constraintValues = new String[] {String.valueOf(companyId), String.valueOf(userId)};
 
-        Integer level = selectInt(PREFERENCE_TABLE, LEVEL, constraintColumns, constraintValues, dataSource);
+        Integer level = null;
+        try {
+            level = selectInt(PREFERENCE_TABLE, LEVEL, constraintColumns, constraintValues, dataSource);
+        } catch(RowNotFoundException e) {}
 
         if (level == null) {
             throw new NoSuchPreferenceLevelException("No preference level has been specified", userId, companyId);
@@ -170,8 +173,12 @@ public class PreferenceLevelBean extends BaseEJB {
         String[] constraintColumns = new String[] {COMPANY_ID, USER_ID};
         String[] constraintValues = new String[] {String.valueOf(companyId), String.valueOf(userId)};
 
-        Long modifyUserId = selectLong(PREFERENCE_TABLE, USER_MODIFY_ID, constraintColumns, constraintValues,
+        Long modifyUserId = null;
+
+        try {
+            modifyUserId = selectLong(PREFERENCE_TABLE, USER_MODIFY_ID, constraintColumns, constraintValues,
                 dataSource);
+        } catch(RowNotFoundException e) {}
 
         if (modifyUserId == null) {
             throw new NoSuchPreferenceLevelException("No preference level has been specified", userId, companyId);
