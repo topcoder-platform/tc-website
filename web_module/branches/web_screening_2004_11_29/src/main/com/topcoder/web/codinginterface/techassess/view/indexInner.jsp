@@ -49,7 +49,7 @@
             <span class=bodySmallTitle>Test Set B</span><br />
             (if presented) The total time allotted for this problem set can be seen in the Time Available column below. Although your solution submissions will be timed, accuracy and style are your main objectives.
             <br /><br />
-            Click on an Enter button to open a problem set.
+            Click on an Enter button to open a pro  blem set.
             <br /><br />
             </p>
             <table width="100%" cellspacing=0 cellpadding=0 class=tableFrame>
@@ -64,11 +64,11 @@
                <tc-webtag:listIterator id="problem" list="problemSets">
                    <tr>
                       <td class=tableTextOdd><a href="/mockup/exampleDirections.jsp"><img src="/i/corp/screening/buttonEnter.gif" alt="" /></a></td>
-                      <td class=tableTextOdd>asdfasdf</td>
-                      <td class=tableTextOdd align=center>0/1</td>
-                      <td class=tableTextOdd>Example Coding Problem Set</td>
-                      <td class=tableTextOdd>Un-Opened</td>
-                      <td class=tableTextOdd align=right>N/A</td>
+                      <td class=tableTextOdd><jsp:getProperty name="problem" property="problemSetName"/></td>
+                      <td class=tableTextOdd align=center>X/Y</td>
+                      <td class=tableTextOdd><jsp:getProperty name="problem" property="problemSetDesc"/></td>
+                      <td class=tableTextOdd><jsp:getProperty name="problem" property="problemSetName"/></td>
+                      <td class=tableTextOdd align=right>????</td>
                    </tr>
                </tc-webtag:listIterator>
             </table>
