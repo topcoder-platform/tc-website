@@ -9,7 +9,7 @@ import com.topcoder.web.codinginterface.techassess.Constants;
  */
 public class LoginResponse extends Base {
 
-    protected static Logger log = Logger.getLogger(LoginResponse.class);
+    protected static final Logger log = Logger.getLogger(LoginResponse.class);
 
     protected void businessProcessing() throws Exception {
         setNextPage(buildProcessorRequestString(Constants.RP_INDEX, null, null));

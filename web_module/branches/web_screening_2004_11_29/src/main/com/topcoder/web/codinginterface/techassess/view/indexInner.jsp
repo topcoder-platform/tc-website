@@ -1,4 +1,5 @@
-<%@ page import="com.topcoder.web.codinginterface.techassess.Constants"%>
+<%@ page import="com.topcoder.web.codinginterface.techassess.Constants,
+                 com.topcoder.web.common.BaseProcessor"%>
 <%@ taglib uri="/WEB-INF/tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <html>
@@ -9,6 +10,11 @@
 </head>
 <body>
 <tc-webtag:useBean id="problemSets" name="<%=Constants.PROBLEM_SETS%>" type="java.util.ArrayList" scope="page" />
+<%
+    System.out.println("sets; " + request.getAttribute(Constants.PROBLEM_SETS));
+    System.out.println("sets; " + session.getAttribute(Constants.PROBLEM_SETS));
+    System.out.println("sets; " + session.getAttribute(BaseProcessor.DEFAULTS_KEY));
+%>
 
 <table class=bodyCenter cellspacing=0 cellpadding=0>
    <tr>

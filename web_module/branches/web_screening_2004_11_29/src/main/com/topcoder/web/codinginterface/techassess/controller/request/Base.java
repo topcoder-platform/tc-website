@@ -87,7 +87,7 @@ public abstract class Base extends BaseProcessor {
         if (companyId < 0) {
             Long temp = (Long) getRequest().getSession().getAttribute(Constants.COMPANY_ID);
             if (temp == null)
-                throw new TCWebException("company id has not be set");
+                throw new TCWebException("company id has not been set");
             else {
                 companyId = temp.longValue();
             }

@@ -25,6 +25,7 @@ public class Login extends Base {
         if (hasParameter(Constants.COMPANY_ID)) {
             companyId = Long.parseLong(getRequest().getParameter(Constants.COMPANY_ID));
             setDefault(Constants.COMPANY_ID, new Long(companyId));
+            setCompanyId(companyId);
         } else {
             throw new NavigationException("Invalid request, missing required parameter.");
         }
@@ -64,7 +65,6 @@ public class Login extends Base {
                 if (response.isSuccess()) {
                     getAuthentication().login(new SimpleUser(response.getUserID(), "", ""));
                     setSessionId(response.getSessionID());
-                    setCompanyId(companyId);
                 } else {
                     addError(Constants.HANDLE, response.getMessage());
                 }

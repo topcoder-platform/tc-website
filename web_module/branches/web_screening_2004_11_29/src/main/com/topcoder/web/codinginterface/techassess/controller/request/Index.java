@@ -9,6 +9,7 @@ import com.topcoder.shared.language.JavaLanguage;
 import com.topcoder.shared.language.CPPLanguage;
 import com.topcoder.shared.language.CSharpLanguage;
 import com.topcoder.shared.language.VBLanguage;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -19,6 +20,7 @@ import java.util.Iterator;
  */
 public class Index extends Base {
 
+    protected static Logger log = Logger.getLogger(Index.class);
 
     protected void businessProcessing() throws Exception {
 
