@@ -70,14 +70,12 @@ public class UserListTest extends BaseProcessor {
      */
     private void setupUsersList() throws Exception {
 
-
-        String companyId = (String)request.getParameter("companyId");
+        try {
+            long companyId = Long.parseLong(request.getParameter("companyId"));
+        } catch (NumberFormatException nfe) {
+            throw new Exception("Error determining company ID");
+        }
         log.debug("UserList getting users for companyId: "+companyId);
-
-        /*
-        if (companyId == null || companyId.length() == 0) { 
-            throw new Exception("Error getting company attribute");
-        }*/
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -88,26 +86,23 @@ public class UserListTest extends BaseProcessor {
 
         try {
             StringBuffer query = new StringBuffer();
-
-            query.append( "SELECT u.user_id, su.user_id AS handle," );
-            query.append( " u.first_name, u.last_name" );
-            query.append( " FROM security_user su, user u, contact c" );
-            query.append( " WHERE su.login_id = u.user_id" );
-            query.append( " AND u.user_id = c.contact_id" );
-            query.append( " AND c.company_id = " ); 
-            query.append(companyId);
-
+            query.append( "SELECT u.user_id");
+            query.append(      ", u.first_name");
+            query.append(      ", u.last_name" );
+            query.append( " FROM user u");
+            query.append( " WHERE u.user_id in (SELECT c.contact_id");
+            query.append(                      " FROM contact c");
+            query.append(                     " WHERE c.company_id = ?)");
 
 //            query.append( "SELECT u.user_id, u.user_id AS handle," );
 //            query.append( " u.first_name, u.last_name" );
 //            query.append( " FROM user u" );
 
-
-
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, companyId);
             rs = ps.executeQuery();
 
             ret = new ResultSetContainer(rs);
