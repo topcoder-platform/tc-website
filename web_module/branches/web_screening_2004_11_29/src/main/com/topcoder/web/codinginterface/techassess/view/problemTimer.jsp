@@ -1,23 +1,16 @@
 <%@ page import="com.topcoder.web.codinginterface.techassess.Constants,
                  java.util.List,
                  com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemSet,
-                 java.util.ArrayList,
                  com.topcoder.web.codinginterface.techassess.model.ProblemSetInfo"%>
 <script language="JavaScript" type="text/javascript" src="/js/techassess.js"></script>
 <script language="javascript">
 
         <%
             Object o = request.getAttribute(Constants.PROBLEM_SETS);
-            List problems = null;
-            if (o==null) {
-                o = request.getAttribute(Constants.PROBLEMS);
-                problems = new ArrayList(1);
-                problems.add(o);
-            } else {
-                problems = (List)o;
-            }
 if (o!=null) {
         %>
+            List problems = (List)o;
+
                 var times= new Array(<%=problems.size()%>);
                 var ids = new Array(<%=problems.size()%>);
                 var types = new Array(<%=problems.size()%>);
