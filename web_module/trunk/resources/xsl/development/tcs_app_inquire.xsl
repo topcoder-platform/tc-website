@@ -167,7 +167,7 @@ If you have any questions regarding these Terms, contact us at service@topcoders
 <!--
                      <A CLASS="statTextBig" HREF="Javascript:if(document.frmSend.terms){document.frmSend.submit();}else{alert('You must agree to the terms to apply for this project.');}">
 -->
-                     <a class="statTextBig" href="Javascript:submitForm();">
+                     <a href="Javascript:submitForm();">
                        <b>Click here to submit &gt;&gt;</b>
                      </a>
                   </td>
