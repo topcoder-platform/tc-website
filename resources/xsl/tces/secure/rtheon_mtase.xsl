@@ -128,7 +128,7 @@ Digital video processing, pattern recognition concepts, decision theory methods,
 <B>Majors:</B> Computer Engineering, Computer Science, Electrical Engineering, Math - Applied, Math - General, Physics - Applied, Physics - General
 </P>
 
-<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=88&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=raytheon_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></P>
+<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=92&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=raytheon_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></P>
 <!-- Client Job List Ends -->
           
           <P><BR/></P>
