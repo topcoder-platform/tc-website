@@ -39,13 +39,13 @@
   					<img src="/i/clear.gif" width="7" height="1"><img src="/i/events/javaone04/coding_challenge.gif" width="351" height="27" border="0">  						
   						<p></p>
   						<p class="regmiddle"><strong><font size="4">Practice Arena</font></strong></p>
-						<p class="regmiddle">Practice for the JavaOne Coding Challenge! From May 28-June 26, a dedicated online practice room is 
-						available for registered JavaOne conference Attendees. In the practice room, you get to solve algorithmic 
+						<p class="regmiddle">Practice for the JavaOne Coding Challenge! From May 28-June 26, a dedicated online practice room will be 
+						available here for registered JavaOne conference Attendees. In the practice room, you get to solve algorithmic 
 						problems and code, compile, test, and submit problems similar to the ones in the JavaOne Coding Challenge. 
 						Log in anytime and give yourself a better chance at walking away with one of the grand prizes.</p>
 
 						<p class="regmiddle">In the meantime, get everything you need to sharpen your Java programming skills through the Sun Developer 
-						Network at sun.com/developers/. With technical articles, code samples, blueprints, and more, you're sure to 
+						Network at <a href="http://developers.sun.com/">sun.com/developers/</a>. With technical articles, code samples, blueprints, and more, you're sure to 
 						learn something new. Gear up on the tips and tricks that will give you the edge!</p>
 					
 					
