@@ -52,68 +52,68 @@
           <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
           <TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>          
           <P>
-            Congratulations for making it into the fourth round of the TopCoder Invitational.<BR/>
+            <CENTER><IMG SRC="/i/invit02_logow.gif" HEIGHT="105" WIDTH="155"/></CENTER><BR/><BR/>
+            Congratulations on advancing to Online Round #4 of the 2002 TopCoder Invitational!  You are one of the 64 finalists eligible to receive a cash prize of at least $500.  In order to receive your prize, you MUST complete and return all of the following 5 items by Monday, October 28th at 12:00PM EST:  IF WE DO NOT RECEIVE ALL OF THESE ITEMS BY 12:00PM ON MONDAY, OCTOBER 28, 2002, YOU WILL FORFEIT YOUR PRIZE.
             <BR/>
-            This next round is the final online round.<BR/>
-            <BR/> 
-            All items below must be completed by Monday, October 28th at noon EST in order to receive your minimum cash award.<BR/>
             <BR/>
             <ol>
               <li>
+                <B>AFFIDAVIT</B> - must be postmarked on or before Oct. 28, 2002:<BR/><BR/>
                 <xsl:choose>
                   <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_notarized_affidavit)=0">
-                    We do not have an affidavit on file.  Click <A HREF="/?&amp;t=affidavit&amp;c=2002_invitational_affidavit">here</A> 
-                    to view a printable version.  
-                    This must be signed in front of a notary and return immediately to the address below.
+                    We do not have an affidavit on file.  Click <A HREF="/?&amp;t=affidavit&amp;c=2002_invitational_affidavit">here</A> to view a printable version of your affidavit.  This affidavit must notarized and returned to us at the address below.
                   </xsl:when>
                   <xsl:otherwise>
-                    Your affidavit is complete.  Click <A HREF="/?&amp;t=affidavit&amp;c=2002_invitational_affidavit">here</A> 
-                    to view a printable version.  
-                    You must sign this new copy and send it back to the address below.
+                    Click <A HREF="/?&amp;t=affidavit&amp;c=2002_invitational_affidavit">here</A> to view a printable version of your affidavit.  Please read the affidavit, sign it and return it to us at the address below.
                   </xsl:otherwise>
                 </xsl:choose>
                 <BR/>
                 <BR/>
               </li>
               <li>
+                <B>TAX FORM</B> - must be postmarked on or before Oct. 28, 2002:<BR/><BR/>
                 <xsl:choose>
                   <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_tax_form)=0">
-                    You must complete, sign and return a tax form.  Read the instructions 
-                    <A HREF="/contest/iw9.pdf">here (W9)</A> and <A HREF="/contest/iw8ben.pdf">here (W8)</A> 
-                    to determine which tax form is applicable to you.  Click
-                    <A HREF="/contest/fw9.pdf">here (W9)</A> or <A HREF="/contest/fw8ben.pdf">here (W8)</A> to print 
-                    out the appropriate tax form.  This must be returned immediately to the address below.
+                    You must complete, sign and return the appropriate tax form (Form W-9 or Form W-8BEN) to the address below.  If you don't know the form that applies to you, please refer to the instructions below:<BR/><BR/>
+                    <B>Instructions</B><BR/>
+                    Form W-9 Instructions: <A HREF="/contest/iw9.pdf">here (W9)</A><BR/>
+                    Form W-8BEN Instructions: <A HREF="/contest/iw8ben.pdf">here (W8)</A><BR/> 
+                    <BR/>
+                    <B>Tax Forms</B><BR/>
+                    Form W-9 <A HREF="/contest/fw9.pdf">here (W9)</A><BR/>
+                    Form W-8BEN <A HREF="/contest/fw8ben.pdf">here (W8)</A>
                   </xsl:when>
                   <xsl:otherwise>
-                    We have a tax form on file.  This item is complete.
+                    We already have your tax form on file.  You do NOT need to complete and return another form.
                   </xsl:otherwise>
                 </xsl:choose>
                 <BR/>
                 <BR/>
               </li>
               <li>
+                <B>2002 TOPCODER INVITATIONAL QUESTIONNAIRE</B> - completed form must be emailed to <A HREF="mailto:invitational@topcoder.com">invitational@topcoder.com</A> by 12:00PM EST on Monday, Oct. 28th:<BR/><BR/>
 	        Click <A HREF="/?&amp;t=affidavit&amp;c=2002_invitational_questionaire">here</A> to view 
                 the TopCoder 2002 Questionnaire.  Copy this HTML page into a word processor.  Complete 
-                ALL questions and email it back to: 
-                <A HREF="mailto:invitational@topcoder.com">invitational@topcoder.com</A>
+                ALL questions and return it via email.
                 <BR/>
                 <BR/>
               </li>
               <li>
+                <B>TRAVEL INFORMATION PAGE</B> - completed form must be emailed to <A HREF="mailto:invitational@topcoder.com">invitational@topcoder.com</A> by 12:00PM EST on Monday, Oct. 28th:<BR/><BR/>
 	        Click <A HREF="#">here</A> to view a Travel Information Page.  Copy this HTML page into 
-                a word processor.  Complete ALL questions and email it back to: 
-                <A HREF="mailto:invitational@topcoder.com">invitational@topcoder.com</A>
+                a word processor.  Complete ALL questions and return it via email.
                 <BR/>
                 <BR/>
               </li>
               <li>
                 <xsl:choose>
                   <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_image)=0">
-                    We do not have a Headshot on file.  Go to your Member Home Page to submit one.
+                    We do not have your headshot on file.  Click below to submit your headshot.<BR/><BR/>
+                    <CENTER><TABLE><TR><TD><A><xsl:attribute name="HREF">mailto:memberphotos@topcoder.com?subject=<xsl:value-of select="/TC/ActivationCode"/> | [ <xsl:value-of select="/TC/Handle"/> ] | <xsl:value-of select="/TC/UserId"/> SUBMIT IMAGE: PLEASE DO NOT CHANGE SUBJECT</xsl:attribute><IMG SRC="/i/m/nophoto_submit.gif" WIDTH="126" HEIGHT="140" ALIGN="left" BORDER="0"/></A></TD></TR></TABLE></CENTER>
+
                   </xsl:when>
                   <xsl:otherwise>
-                    We have a Headshot on file.  If you'd like to change it, go to your Member Home 
-                    Page and resubmit there.
+                    We have a Headshot on file.  If you'd like to change it click <A><xsl:attribute name="HREF">mailto:memberphotos@topcoder.com?subject=<xsl:value-of select="/TC/ActivationCode"/> | [ <xsl:value-of select="/TC/Handle"/> ] | <xsl:value-of select="/TC/UserId"/> RE-SUBMIT IMAGE: PLEASE DO NOT CHANGE SUBJECT</xsl:attribute>here</A>
                   </xsl:otherwise>
                 </xsl:choose>
                 <BR/>
