@@ -11,6 +11,8 @@
 
 <title>TopCoder Corporate Services</title>
 
+<link rel="stylesheet" type="text/css" href="/css/corpStyle.css"/>
+
 <script language="JavaScript" src="/js/script.js"></script>
 
 </head>
@@ -37,15 +39,15 @@
         <td width="100%" valign="top"><img src="/i/clear.gif" height="11" border="0"><br />
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr valign="top">
-                    <td width="50%" class="corpText">
-                        <p><span class="corpTitle">Candidate Testing</span><br />
-                        TopCoder's Candidate Testing Application allows you to <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=screening&d2=index" class="corp"><strong>test the technical abilities<strong></a> 
+                    <td width="50%" id="corpText">
+                        <h1 class="corpTitle">Candidate Testing</h1>
+                        <p>TopCoder's Candidate Testing Application allows you to <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=screening&d2=index" class="corp"><strong>test the technical abilities<strong></a> 
                         of candidates during the interview process, thereby reducing the time incurred by in-house engineers.  You can choose problem sets to test candidates' problem 
                         solving skills with scenarios that mirror on-the-job issues.  Instead of only assessing an employee's skills months after the hire date, detailed statistics and all 
                         submitted code are available to you during the interview process as a way to measure and compare candidates.  This information drastically reduces the time and 
                         effort it takes to identify proven developers.</p>
 
-                       <p><span class="corpTitle">Recruiting</span><br />
+                       <h1 class="corpTitle">Recruiting</h1>
                         TopCoder Recruiting provides you with innovative programs designed to <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=tces&d2=index" class="corp"><strong>attract, identify, and evaluate</strong></a> 
                         collegiate candidates and experienced professionals for full time employment consideration.  With a member base in excess of 24,000&#151;including more than 
                         12,000 students from over 750 schools&#151;employers obtain objective measurement detail about candidates, including code samples and statistics, that is not 
@@ -56,13 +58,13 @@
                        <td><img src="/i/clear.gif" width="8" height="1"></td>
                        
                        <td width="50%" class="corpText">
-                       <p><span class="corpTitle">Sponsorship</span><br />
+                       <h1 class="corpTitle">Sponsorship</h1>
                        As a TopCoder sponsor <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=spon_prog&d2=index" class="corp"><strong>you can market</strong></a> 
                        to a powerful community of technologists. This highly sought after demographic influences technology buying decisions for thousands of companies. They dictate the 
                        future direction of technology and manage thousands of people. Through competition, TopCoder provides a unique  approach to attracting and differentiating this 
                        demographic. Sponsors benefit from a branded, exciting, credible experience for programmers.</p>
                       
-                       <p><span class="corpTitle">Private Label Events</span><br />
+                       <h1 class="corpTitle">Private Label Events</h1>
                        Many members of your IT staff may feel left out of traditional training and incentive programs. Just like our weekly Single Round Matches and 
                        Tournaments, <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=spon_prog&d2=index" class="bodyText"><strong>TopCoder Private Label Events</strong></a> 
                        are a unique way for your developers to learn new skills and build teamwork. You receive reports that help you identify your best talent, as well as 

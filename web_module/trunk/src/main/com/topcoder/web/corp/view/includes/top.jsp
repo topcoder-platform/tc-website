@@ -19,6 +19,8 @@
         <td width="100%" align="right" class="globalNavSmall" nowrap="0"> 
             <a href="http://www.topcodersoftware.com" target="_parent" class="globalNavSmall">topcodersoftware.com</a>
 <% if (isHomePage) { %>
+            &#160;
+<% } else { %>
 
     <% if( activeUser.isAnonymous() ) {  // no logged user %>
             &#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=LoginPage" class="globalNavSmall" target="_parent">Login</a>
@@ -27,40 +29,38 @@
     <% } %>
 
             &#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=index" target="_parent" class="globalNavSmall">Home</a>
-    
-<% } else { %>
-            &#160;
 <%  } %>
         </td>
-        <td width="15" bgcolor="#333333"><img src="/i/clear.gif" width="15" height="1" border="0" vspace="8" /></td>
+        <td width="15" bgcolor="#333333"><img src="/i/clear.gif" width="30" height="1" border="0" /></td>
     </tr>
 </table>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">
     <tr valign="middle">
-        <td width="15" bgcolor="#000000"><a name="top"></a><img src="/i/clear.gif" width="15" height="1" border="0" /></td>
-        <td width="206" bgcolor="#000000">
+        <td width="15"><a name="top"></a><img src="/i/clear.gif" width="15" height="1" border="0" /></td>
+        <td width="206">
+
 <% if (isHomePage) { %>
-        <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=index" target="_parent"><img src="/i/logo_corp.gif" width="206" height="49" border="0" vspace="10" /></a>
-<% } else { %>
         <img src="/i/logo_corp.gif" width="206" height="49" border="0" vspace="10" />
+<% } else { %>
+        <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=index" target="_parent"><img src="/i/logo_corp.gif" width="206" height="49" border="0" vspace="10" /></a>
 <%  } %>
+
         </td>
         <td width="20" bgcolor="#000000"><img src="/i/clear.gif" width="1" height="1" border="0" hspace="15" /></td>
         <td width="100%" nowrap="nowrap" align="right" bgcolor="#000000">
 <% if( activeUser.isAnonymous() ) { %>
            <table border="0" cellpadding="0" cellspacing="0">
                 <tr valign="middle"><form name="frmMiniLogin" method="POST" action="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Login">
-                    <td nowrap="nowrap" class="statTextBig" align="right">User Name:&#160;&#160;</td>
-                    <td colspan="2"><input class="dropdown" maxlength="15" size="12" name="<%=Login.KEY_USER_HANDLE%>" type="TEXT" onkeypress="submitEnter(event, document.frmMiniLogin)" /></td>
+                    <td nowrap="nowrap" class="statText" align="right">User Name:&#160;&#160;</td>
+                    <td colspan="2" align="left"><input maxlength="15" size="12" name="<%=Login.KEY_USER_HANDLE%>" type="TEXT" onkeypress="submitEnter(event, document.frmMiniLogin)" /></td>
                 </tr>
 
                 <tr valign="middle">
                     <td nowrap="nowrap" class="statTextBig" align="right">Password:&#160;&#160;</td>
-                    <td><input class="dropdown" maxlength="15" size="12" name="<%=Login.KEY_USER_PASS%>" type="Password" onkeypress="submitEnter(event, document.frmMiniLogin)" /></td>
-                    <td nowrap="nowrap" class="statTextBig">&#160;&#160;<a href="javascript:document.frmMiniLogin.submit();" class="statTextBig">Login&#160;&gt;</a>
-                        <input name="<%=Login.KEY_LOGINMODE%>" type="hidden" value="1"/>
-                    </td></form>
+                    <td align="left"><input maxlength="15" size="12" name="<%=Login.KEY_USER_PASS%>" type="Password" onkeypress="submitEnter(event, document.frmMiniLogin)" /></td>
+                    <td nowrap="nowrap" class="statText">&#160;&#160;<a href="javascript:document.frmMiniLogin.submit();" class="statText">Login&#160;&gt;</a>
+                        <input name="<%=Login.KEY_LOGINMODE%>" type="hidden" value="1" /></td></form>
                 </tr>
             </table>
         </td>
