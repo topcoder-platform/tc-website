@@ -37,6 +37,9 @@ public class ComponentBracketData extends Base {
 
     private final String[] tco04_des_finalists = new String[]{"277356", "278342", "289824", "152342"};
     private final String[] tco04_dev_finalists = new String[]{"7270519", "7463987", "310233"};
+    
+    private final String[] tccc05_des_finalists = new String[]{"278342", "11797255", "289824"};
+    private final String[] tccc05_dev_finalists = new String[]{"302053", "7360309", "286911", "268851"};
 
     public void businessProcessing() throws TCWebException {
 
@@ -66,7 +69,11 @@ public class ComponentBracketData extends Base {
             DecimalFormat df = new DecimalFormat("0");
 
             String[] arr;
-            if (type.equals("tco04_design")) {
+            if (type.equals("tccc05_design")) {
+                arr = tccc05_des_finalists;
+            } else if (type.equals("tccc05_development")) {
+                arr = tccc05_dev_finalists;
+            }else if (type.equals("tco04_design")) {
                 arr = tco04_des_finalists;
             } else if (type.equals("tco04_development")) {
                 arr = tco04_dev_finalists;
