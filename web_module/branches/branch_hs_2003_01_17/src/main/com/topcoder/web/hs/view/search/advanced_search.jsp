@@ -77,7 +77,7 @@
   </TR>
   <TR>
    <TD HEIGHT="18" VALIGN="middle" ALIGN="center" CLASS="statText" COLSPAN="4">
-    <INPUT TYPE="BUTTON" NAME="Submit" VALUE="" ONCLICK="Javascript:submitSearch()">
+    <INPUT TYPE="button" NAME="submitButton" VALUE="Submit" ONCLICK="Javascript:submitSearch()">
    </TD>
   </TR>
   <TR>
