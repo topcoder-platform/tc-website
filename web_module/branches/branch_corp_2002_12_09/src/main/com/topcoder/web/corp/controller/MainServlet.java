@@ -35,7 +35,7 @@ import com.topcoder.web.corp.Util;
  * server errors.
  * 
  * @author Greg Paul , modified by djFD
- * @version 1.1.2.49
+ * @version 1.1.2.61
  *
  */
 public class MainServlet extends HttpServlet {
@@ -118,16 +118,18 @@ public class MainServlet extends HttpServlet {
                 log.debug("user [id="+tcUser.getUserId()+"] has not enough "+
                     "permissions to work with module "+processorClassName
                 );
-                if (authToken.getActiveUser().isAnonymous()) {
-                    /* If the user is anonymous and tries to access a module 
-                       they are not authorized to access, send them to the 
-                       login page.
-                    */
-                    log.debug("user anonymous unauthorized to access resource, " +
-                              "forwarding to login page.");
-                    fetchLoginPage(request,response);
-                    return;
-                }
+
+//                if (authToken.getActiveUser().isAnonymous()) {
+//                    /* If the user is anonymous and tries to access a module 
+//                       they are not authorized to access, send them to the 
+//                       login page.
+//                    */
+//                    log.debug("user anonymous unauthorized to access resource, " +
+//                              "forwarding to login page.");
+//                    fetchLoginPage(request,response);
+//                    return;
+//                }
+
                 throw new NotAuthorizedException("Not enough permissions to "+
                     "work with requested module"
                 );
@@ -137,14 +139,14 @@ public class MainServlet extends HttpServlet {
                 Class.forName(processorClassName).newInstance();
             log.debug("processing module "+processorClassName+" instantiated");
 
-        }
-        catch(Exception e) {
-            log.error("processing module instantiation exception ", e);
-            fetchErrorPage(request, response, e);
-            return;
-        }
-
-        try {
+//        }
+//        catch(Exception e) {
+//            log.error("processing module instantiation exception ", e);
+//            fetchErrorPage(request, response, e);
+//            return;
+//        }
+//
+//        try {
 
             // set main page in web.xml as homePage for Static Processor
             request.setAttribute("homePage",dest);
@@ -162,6 +164,18 @@ public class MainServlet extends HttpServlet {
                 persistor.pushLastPage(lastUserPage);
             }
             fetchRegularPage(request, response, destination, forward);
+        }
+        catch(NotAuthorizedException nae) {
+            if (authToken.getActiveUser().isAnonymous()) {
+                /* If the user is anonymous and tries to access a module 
+                   they are not authorized to access, send them to the 
+                   login page.
+                */
+                log.debug("user unauthorized to access resource and user " +
+                          "not logged in, forwarding to login page.");
+                fetchLoginPage(request,response);
+                return;
+            }
         }
         catch(Exception e) {
             log.error("exception during request processing ["
@@ -276,7 +290,7 @@ public class MainServlet extends HttpServlet {
             PFX_PAGE + KEY_LOGINPAGE
         );
 
-        String loginPageDest = loginPage + "&" + destParam + "=" +
+        String loginPageDest = loginPage + "?" + destParam + "=" +
             java.net.URLEncoder.encode(
                 originatingPage
 //                , resp.getCharacterEncoding() // 1.4

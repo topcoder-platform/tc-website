@@ -73,7 +73,7 @@
         </init-param>
         <init-param>
             <param-name>page-login</param-name>
-            <param-value>/?module=Static&amp;d1=LoginPage</param-value>
+            <param-value>/LoginPage.jsp</param-value>
             <description>unauthorized anonymous users will go here</description>
         </init-param>
     </servlet>
