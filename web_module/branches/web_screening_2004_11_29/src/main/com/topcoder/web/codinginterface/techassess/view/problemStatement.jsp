@@ -1,4 +1,5 @@
-<%@ page import="com.topcoder.web.codinginterface.techassess.Constants"%>
+<%@ page import="com.topcoder.web.codinginterface.techassess.Constants,
+                 com.topcoder.shared.language.Language"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <%@ taglib uri="/WEB-INF/tc-webtags.tld" prefix="tc-webtag" %>
 <html>
@@ -16,7 +17,7 @@
     System.out.println("class: " + lang.getClass().getName());
 %>
 
-<tc-webtag:problemStatement problem="prob" language="lang"/>
+<tc-webtag:problemStatement problem="prob" language="<%=(Language)lang%>"/>
 
 
 </body>
