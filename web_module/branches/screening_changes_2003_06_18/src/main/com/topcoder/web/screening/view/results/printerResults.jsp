@@ -18,7 +18,6 @@
 <jsp:useBean id="candidateInfo" class="com.topcoder.web.screening.model.CandidateInfo" />
 <jsp:useBean id="profileInfo" class="com.topcoder.web.screening.model.ProfileInfo" />
 <jsp:useBean id="testResultsInfo" class="com.topcoder.web.screening.model.TestResultsInfo" />
-<% System.out.println("set a: " + profileInfo.getTestSetAList());%>
 
 <body>
 
