@@ -5,6 +5,7 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.shared.netCommon.screening.request.ScreeningGetProblemSetsRequest;
 import com.topcoder.shared.netCommon.screening.response.ScreeningGetProblemSetsResponse;
 import com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemSet;
+import com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemLabel;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 
 import java.util.Arrays;
@@ -53,6 +54,7 @@ public class ViewProblemSet extends Base {
                 if (problemSets[i].getType().intValue()==problemType) {
                     //ok, we found the set, now we need to get the actual problems
                     problems = Arrays.asList(problemSets[i].getProblemLabels());
+                    ScreeningProblemLabel a = new ScreeningProblemLabel();
                 }
             }
             log.debug("there are " + problems.size() + " problems");
