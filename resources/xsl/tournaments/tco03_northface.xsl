@@ -42,7 +42,7 @@
 
 <!-- Center Column Begins -->	
         <td class="bodyText" align="center">
-            <table width="540" border="0" cellpadding="0" cellspacing="15">
+            <table width="510" border="0" cellpadding="0" cellspacing="15">
                   <tr align="left">
                     <td  align="left" width="510" colspan="2"><A href="http://www.northface.edu" target="_blank"><img src="/i/sponsor/northface/northface_banner.gif" alt="Northface" width="510" height="67" border="0" /></A><br/>
                  </td>
@@ -95,13 +95,26 @@
             </tr>
        
                 <tr valign="top">
-                    <td class="bodyText" align="left" width="360" >
+                    <td class="bodyText" colspan="2" align="left">
                     <img src="/i/sponsor/northface/northface_title_5.gif" alt="Northface" width="360" height="42" border="0" />
-                          <p>Computer science graduates enjoy favorable job prospects and salaries, particularly if they have practical experience. </p>
-                     </td>
-                    <td align="left">  <img src="/i/sponsor/northface/northface_graph.gif" alt="Northface" width="245" height="120" border="0" />
+                    </td>
+                  </tr>
+                  
+                 <tr valign="top">
+                    <td colspan="2">
+                    <table>
+                        <tr>
+                            <td> 
+                                <p>Computer science graduates enjoy favorable job prospects and salaries, particularly if they have practical experience. </p>
+                            </td >
+                     
+                            <td> <img src="/i/sponsor/northface/northface_graph.gif" alt="Northface" width="245" height="120" border="0"/>
+                            </td>
+                        </tr>
+                        </table>
                     </td>
                 </tr>
+                        
 
                 <tr valign="top">
                     <td class="promoText" colspan="2" align="left">
