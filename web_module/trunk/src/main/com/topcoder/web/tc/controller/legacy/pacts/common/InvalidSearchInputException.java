@@ -1,5 +1,7 @@
 package com.topcoder.web.tc.controller.legacy.pacts.common;
 
+import com.topcoder.web.common.TCWebException;
+
 /**
  * This is an exception class used by the data interface bean
  * to indicate that an input criterion to a search routine was
@@ -9,7 +11,7 @@ package com.topcoder.web.tc.controller.legacy.pacts.common;
  * @version 1.00, 03/14/2002
  */
 
-public class InvalidSearchInputException extends Exception {
+public class InvalidSearchInputException extends TCWebException {
     /**
      * Constructs a <code>InvalidSearchInputException</code> object
      * with no message.

@@ -1,5 +1,7 @@
 package com.topcoder.web.tc.controller.legacy.pacts.common;
 
+import com.topcoder.web.common.TCWebException;
+
 /**
  * This is an exception class used by the data interface bean
  * and EJB to indicate an attempt to update a payment after it
@@ -9,7 +11,7 @@ package com.topcoder.web.tc.controller.legacy.pacts.common;
  * @version 1.00, 04/01/2002
  */
 
-public class PaymentPaidException extends Exception {
+public class PaymentPaidException extends TCWebException {
     /**
      * Constructs a <code>PaymentPaidException</code> object
      * with no message.

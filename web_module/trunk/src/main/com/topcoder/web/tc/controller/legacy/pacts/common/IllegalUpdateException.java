@@ -1,5 +1,7 @@
 package com.topcoder.web.tc.controller.legacy.pacts.common;
 
+import com.topcoder.web.common.TCWebException;
+
 /**
  * This is an exception class used by the data interface bean
  * and EJB in response to an invalid update request from the user.
@@ -8,7 +10,7 @@ package com.topcoder.web.tc.controller.legacy.pacts.common;
  * @version 1.00, 04/01/2002
  */
 
-public class IllegalUpdateException extends Exception {
+public class IllegalUpdateException extends TCWebException {
     /**
      * Constructs a <code>IllegalUpdateException</code> object
      * with no message.

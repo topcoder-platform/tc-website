@@ -10,7 +10,7 @@ package com.topcoder.web.tc.controller.legacy.pacts.common;
  * @version 1.00, 03/14/2002
  */
 
-public class NoObjectFoundException extends Exception {
+public class NoObjectFoundException extends TCWebException {
     /**
      * Constructs a <code>NoObjectFoundException</code> object
      * with no message.
