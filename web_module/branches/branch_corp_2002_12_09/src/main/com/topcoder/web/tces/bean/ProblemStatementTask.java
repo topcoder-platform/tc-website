@@ -70,7 +70,7 @@ public class ProblemStatementTask extends BaseTask implements Task, Serializable
 //                              " not Authorized for access to resouce.");
 //        }
 
-        User curUser = getAuthenticityToken().getUser();
+        User curUser = getAuthenticityToken().getActiveUser();
         uid = curUser.getId();
     }
 

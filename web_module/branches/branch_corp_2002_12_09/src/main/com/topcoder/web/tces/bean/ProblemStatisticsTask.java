@@ -74,7 +74,7 @@ public class ProblemStatisticsTask extends BaseTask implements Task, Serializabl
 //                              " not Authorized for access to resouce.");
 //        }
 
-        User curUser = getAuthenticityToken().getUser();
+        User curUser = getAuthenticityToken().getActiveUser();
         uid = curUser.getId();
     }
 

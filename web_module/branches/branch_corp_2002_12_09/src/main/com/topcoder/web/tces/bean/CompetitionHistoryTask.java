@@ -63,7 +63,7 @@ public class CompetitionHistoryTask extends BaseTask implements Task, Serializab
 //                              " not Authorized for access to resouce.");
 //        }
 
-        User curUser = getAuthenticityToken().getUser();
+        User curUser = getAuthenticityToken().getActiveUser();
         uid = curUser.getId();
 
     }
