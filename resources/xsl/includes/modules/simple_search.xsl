@@ -10,7 +10,7 @@
                     <td class="data" width="2"><img src="/i/clear.gif" width="2" height="1" border="0"/></td>
                     <td class="statTextBig">
                         <input type="hidden" name="module" value="SimpleSearch" />
-                        <input type="text" name="hn" value="Handle:" size="12" maxlength="15" onFocus="javascript: if (document.simpleSearchForm.hn.value=='Handle:') document.simpleSearchForm.hn.value = '';" onBlur="javascript: if (document.simpleSearchForm.hn.value == '') document.simpleSearchForm.hn.value = 'Handle:';" />
+                        <input type="text" name="ha" value="Handle:" size="12" maxlength="15" onFocus="javascript: if (document.simpleSearchForm.ha.value=='Handle:') document.simpleSearchForm.ha.value = '';" onBlur="javascript: if (document.simpleSearchForm.ha.value == '') document.simpleSearchForm.ha.value = 'Handle:';" />
                     </td>
                     <td class="statTextBig"><A href="javascript:void document.simpleSearchForm.submit();"><img src="/i/button_go_member_search.gif" alt="Go" width="24" height="18" vspace="3" border="0" /></A></td>
                     <td width="99%"><img src="/i/clear.gif" alt="" width="5" height="5" border="0" /></td>
