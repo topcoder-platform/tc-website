@@ -1871,7 +1871,8 @@ if students change schools, reloading an old round will lose historical data
                 } else {
                     throw new SQLException("Unable to find level_id and level_desc " +
                             "for problem_id " + problem_id +
-                            " and division_id " + division_id);
+                            " and division_id " + division_id +
+                            " and coder_id " + coder_id);
                 }
 
                 close(rs2);
