@@ -169,7 +169,7 @@ public final class JavaDocServlet extends HttpServlet {
 
         out.append(
                 "Please login to view the java docs for " + webServiceName + ".<P>" +
-                "<FORM NAME=\"login_form\" METHOD=\"post\" ACTION=\"" + SERVLET_NAME + "?" + WEB_SERVICE_NAME + "="+webServiceName+\"">" +
+                "<FORM NAME=\"login_form\" METHOD=\"post\" ACTION=\"" + SERVLET_NAME + "?" + WEB_SERVICE_NAME + "="+webServiceName+"\">" +
                 "Handle: + <INPUT TYPE=\"text\" NAME=\"" + PASSWORD + "\" SIZE=\"15\"<BR>" +
                 "Password: + <INPUT TYPE=\"password\" NAME=\"" + HANDLE + "\" SIZE=\"15\"<BR>" +
                 "<INPUT TYPE=\"submit\" NAME=\"login_button\" VALUE=\"Login\"><BR>" + 
