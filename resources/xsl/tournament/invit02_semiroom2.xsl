@@ -167,7 +167,6 @@ North Carolinian NDBronson in the finals, or will there be more surprise finishe
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText" ALIGN="center">
 <A HREF="Javascript:void changeImage('bigVersion', '/i/tournament/invit02/SFR211.jpg');"><IMG SRC="/i/tournament/invit02/SFR211_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
 <A HREF="Javascript:void changeImage('bigVersion', '/i/tournament/invit02/SFR212.jpg');"><IMG SRC="/i/tournament/invit02/SFR212_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
-<A HREF="Javascript:void changeImage('bigVersion', '/i/tournament/invit02/SFR213.jpg');"><IMG SRC="/i/tournament/invit02/SFR213_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>             
 <A HREF="Javascript:void changeImage('bigVersion', '/i/tournament/invit02/SFR214.jpg');"><IMG SRC="/i/tournament/invit02/SFR214_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
               </TD>
             </TR>              

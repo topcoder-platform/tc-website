@@ -190,10 +190,10 @@ is slated to be the most exciting onsite event yet.  Join me as the scene unfold
 <TR> 
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" COLSPAN="3" CLASS="bodyText"><A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><B>The 2002 TopCoder Invitational: Room 1</B></A><BR/>
+        <xsl:attribute name="HREF">/stat?&amp;c=round_stats&amp;rd=4371</xsl:attribute><B>The 2002 TopCoder Invitational: Room 2</B></A><BR/>
 Friday, November 22, 2002<BR/><BR/>
 
-<B>Room 1 updates: </B> <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=tourney_advancers&amp;rds=4355</xsl:attribute>Advancer Stats</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_brackets</xsl:attribute>Brackets</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_semiroom1</xsl:attribute>Summary</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_semiroom1#photo</xsl:attribute>Photos</A>
+<B>Room 2 updates: </B> <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=tourney_semi</xsl:attribute>Advancer Stats</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_brackets</xsl:attribute>Brackets</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_semiroom2</xsl:attribute>Summary</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_semiroom2#photo</xsl:attribute>Photos</A>
 <BR/><BR/>
     </TD>    
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
@@ -214,7 +214,7 @@ Friday, November 22, 2002<BR/><BR/>
     </TD> 
     <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="23%" NOWRAP="0">
       <A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute>
+        <xsl:attribute name="HREF">/stat?&amp;c=round_stats&amp;rd=4371</xsl:attribute>
         Results
       </A>
     </TD>   
@@ -262,21 +262,17 @@ Friday, November 22, 2002<BR/><BR/>
   <TR> 
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" COLSPAN="3" CLASS="bodyText"><BR/>
-<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournament&amp;c=invit02_semiroom1</xsl:attribute><B>As expected, SnapDragon struts his stuff</B></A><BR/>
+<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournament&amp;c=invit02_semiroom2</xsl:attribute><B>A Nail Biter, Indeed</B></A><BR/>
 by MaryBeth Biondi, <I>TopCoder Staff</I><BR/>
-<P>
-In front of a sparse crowd, the morning competitors dealt with some minor system issues and tough 
-problem statements as the first round of competition started at 8:00am.  
-</P>
 
 <P>
-All four competitors started the round by opening the 300-point problem.  Ten minutes later, 
-<B>SnapDragon</B> was the first to weigh in with a submission for 268.59 points.  Within the next 
-minute, both <B>malpt</B> and <B>ambrose</B> submitted their solutions for 260.51 points and 257.85 points, 
-respectively.  <B>kyky</B> worked on his solution for 7 more minutes before submitting for 219.80 points...
-<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_semiroom1</xsl:attribute>read&#160;more</A>
+The morning's second competition brought a few more spectators onsite, but lots more online.  
+Nearly 50 members logged in to cheer on their fellow coders in a tightly contested match, which
+ pitted <B>dmwright</B>'s tournament experience against <B>reid</B>'s speed.  <B>dgarthur</B> and <B>lars</B>, in some 
+ people's minds, may have only been along for the experience...
+<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_semiroom2</xsl:attribute>read&#160;more</A>
 </P>
-<B>Room 2</B>: 11AM (EST)(<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=invit02_sched</xsl:attribute>Get details</A>). Logon to view round activity.
+<B>Room 3</B>: 3PM (EST)(<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=invit02_sched</xsl:attribute>Get details</A>). Logon to view round activity.
 <BR/><BR/>
     </TD>    
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
@@ -299,25 +295,27 @@ respectively.  <B>kyky</B> worked on his solution for 7 more minutes before subm
   </TR>  
   <TR>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
-    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/Logan_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> 
-    By&#160;Logan<BR/><I>[TC]&#160;Member</I><BR/></TD>
+    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> 
+    By&#160;lbackstrom<BR/><I>[TC]&#160;Member</I><BR/></TD>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText" COLSPAN="2">
-    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>The 2002 TopCoder Invitational: Room 1</B></FONT>
+    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>The 2002 TopCoder Invitational: Room 2</B></FONT>
     </TD>
   </TR>      
   <TR>
     <TD VALIGN="top" CLASS="bodyText" WIDTH="100%">
 	<A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournament&amp;c=invit02_semiprob1</xsl:attribute>
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournament&amp;c=invit02_semiprob2</xsl:attribute>
         <B>Problem Set Analysis &amp; Opinion</B>
       </A><BR/>	  
-
 <P>
-As expected, this problem set was more difficult than the standard single round match
-problem set.  The Level 1 problem was not very hard, but the Level 2 and Level 3
-problems made up for this.  The Level 2 problem in particular may have been the most
-difficult, requiring an interesting dynamic programming solution...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournament&amp;c=invit02_semiprob1</xsl:attribute>Get the analysis</A>
+This round had a pretty simple easy problem, and pretty difficult medium and hard problems, both dealing with graphs, 
+though in very different ways.  All three coders submitted the easy fairly quickly.  <B>dmwright</B> then moved 
+on the the hard problem while everyone else solved the medium.  <B>Lars</B> was the fastest on the medium, though 
+his solution was doomed to timeout.  <B>reid</B> and <B>dgarthur</B> submitted shortly afterwards.  With about 15 minutes 
+to go, <B>dmwright</B> gave up on the hard, and went back to the medium, but was unable to finish it.  With less than 
+5 minutes to spare, both <B>dgarthur</B> and <B>reid</B> submitted the 1000.  However <B>reid</B> had an off by 1 error somewhere, 
+and <B>dgarthur</B> came away with the upset....<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournament&amp;c=invit02_semiprob2</xsl:attribute>Get the analysis</A>
 </P>
     </TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>     
