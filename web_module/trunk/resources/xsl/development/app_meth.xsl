@@ -235,7 +235,7 @@
 					<li>Once the TopCoder Software Application Manager is satisfied that the winning application meets the rigorous 
 					standards of TopCoder Software the development solution is accepted and the winning Development Team is compensated.</li>
 					</ol>
-					
+				
 
                     </td>
                 </tr>
