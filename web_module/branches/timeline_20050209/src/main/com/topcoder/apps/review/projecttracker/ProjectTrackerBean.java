@@ -1975,7 +1975,7 @@ public class ProjectTrackerBean implements SessionBean {
 
             return result;
         } catch (Exception e) {
-            info("Couldn't calculate the project dates due to: " + e);
+            info("Couldn't calculate the project dates due to: " + e.getMessage());
             return null;
         }
 
