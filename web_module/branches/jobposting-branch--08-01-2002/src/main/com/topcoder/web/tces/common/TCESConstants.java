@@ -33,7 +33,7 @@ public class TCESConstants {
     public static String USER_ID_PARAM = null;
     public static String HANDLE_PARAM = null;
     public static String PASSWORD_PARAM = null;
-    public static String CAMPAIGN_ID_PARAM = "campid";
+    public static String CAMPAIGN_ID_PARAM = "cid";
     public static String POSITION_ID_PARAM = "jid";
 
     public static String MSG_ATTR_KEY = null;
