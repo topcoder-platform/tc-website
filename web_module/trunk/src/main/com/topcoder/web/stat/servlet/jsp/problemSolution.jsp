@@ -168,9 +168,7 @@ if (rscSubmissions.size() > 0) {  %>
 
                  <TR>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" COLSPAN="7" VALIGN="middle" ALIGN="center">
-                     <% if (stBuffer.toString().trim().length()>0) { %>
-                       <A HREF="/stat?c=problem_statement&pm=<%= pageContext.getAttribute("pm").toString()%>&rd=<%=sRoundId%>&rm=<%=sRoomId%>&cr=<%=sCoderId%>" CLASS="statText">View&nbsp;<%= sClassName %>&nbsp; Problem Statement</A>
-                     <% } %>
+                     <A HREF="/stat?c=problem_statement&pm=<%= pageContext.getAttribute("pm").toString()%>&rd=<%=sRoundId%>&rm=<%=sRoomId%>&cr=<%=sCoderId%>" CLASS="statText">View&nbsp;<%= sClassName %>&nbsp; Problem Statement</A>
                    </TD>
                  </TR>
                  <TR>
