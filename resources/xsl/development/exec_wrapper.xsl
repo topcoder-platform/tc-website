@@ -65,7 +65,9 @@
 
 							<p><strong>Project Type</strong><br />
 							Component Design Project: Provide a complete design for the Executable Wrapper component.<br />
-							Please review the TopCoder Software <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_meth" class="statText">Component Development Methodology</a> for further details regarding this project type.</p>
+							Please review the TopCoder Software <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_meth" class="statText">Component Development Methodology</a> before you submit a solution. 
+							If you're not sure what to submit, go to <a href="/?&amp;t=development&amp;c=tcs_sample_docs" class="statText">Documentation and Sample Submissions</a> for more information.
+                            </p>
 
 							<p><strong>Technologies</strong></p>
 
@@ -78,7 +80,7 @@
 							First Milestone: When the winning solution is submitted and review board suggestions are integrated.<br/>
 							Second Milestone: Is marked by the completion of the development project*.</p>
 
-							<p>Members will also collect royalties on the revenue generated from the sale of the component. The total royalty per component will be equal to 10%* of the component's revenue, with 25%* of the royalty being paid to the designer, 25% to the developer(s), 25% to the Architecture Board member(s) and 25% to the QA Board member(s).  Royalties may be diluted if additional work is done to the component, as the total work effort for the component will increase.</p>
+							<p>Members will also collect royalties on the revenue generated from the sale of the component. The total royalty per component will be equal to 10%* of the component's revenue, with 25%* of the royalty being paid to the designer, 25% to the developer(s), 25% to the Architecture Board member(s) and 25% to the Development Board member(s).  Royalties may be diluted if additional work is done to the component, as the total work effort for the component will increase.</p>
 							
 							<p><strong>Designer</strong><br />
 							Royalty Percentage - 25%</p>
