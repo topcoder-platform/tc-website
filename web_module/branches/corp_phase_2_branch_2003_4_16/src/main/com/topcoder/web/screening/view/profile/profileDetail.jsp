@@ -47,7 +47,12 @@
                     </screen:resultSetRowIterator>
                   </td>
                 </tr>
-
+                <tr>
+                   <td class="bodyText"><strong>Candiates Assigned: </strong><% if (profile.getSessionList().isEmpty()) { %>0<% } else { %><screen:resultSetItem row="<%=profile.getSessionList().getRow(0)%>" name="num_sessions" /> <% }%></td>
+                </tr>
+                <tr>
+                   <td class="bodyText"><strong>Candiates Completed: </strong><% if (profile.getSessionList().isEmpty()) { %>0<% } else { %><screen:resultSetItem row="<%=profile.getSessionList().getRow(0)%>" name="num_complete" /> <% } %></td>
+                </tr>
             </table>
 
              <table border="0" cellspacing="0" cellpadding="0" width="70%">
@@ -101,9 +106,59 @@
                 </screen:listIterator>
 
                 <tr><td colspan="6"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
+
             </table>
 
             <p><br></p>
+            <% if (!profile.getSessionList().isEmpty()) { %>
+            <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
+
+                <tr>
+                   <td colspan="2" align="center" class="testHeadSmall">&#160;</td>
+                   <td align="center" class="testHeadSmall">&#160;</td>
+                   <td align="center" class="testHeadSmall">PROBLEMS</td>
+                   <td colspan="2" align="center" class="testHeadSmall">&#160;</td>
+                </tr>
+
+                <tr>
+                   <td align="center" class="testHeadSmall">Candidate</td>
+                   <td align="center" class="testHeadSmall">Status</td>
+                   <td align="center" class="testFormHeader">Presented</td>
+                   <td align="center" class="testFormHeader">Submitted</td>
+                   <td align="center" class="testFormHeader">Passed</td>
+                   <td align="center" class="testHeadSmall">&#160;</td>
+                </tr>
+
+                <% boolean even = true; %>
+                <screen:resultSetRowIterator id='row' list='<%= profile.getSessionList() %>'>
+
+                <%-- Do a table body row --%>
+                <% if(row.getItem("num_sessions").toString().equals("0")){ %>
+                <tr><td colspan="6" align="center" class="bodyText" bgcolor="#EEEEEE">No sessions scheduled for this profile.</td></tr>
+
+                <% } else { %>
+                <%
+                    String cparam = Constants.CANDIDATE_ID + '=' + row.getItem("user_id");
+                    String sparam = Constants.SESSION_ID + '=' + row.getItem("session_id");
+
+                    String color = (even) ? "bgcolor='#EEEEEE'" : "";
+                %>
+                <tr>
+                    <td width="20%" class="bodyText" <%=color%>><screen:servletLink processor="PopulateCandidate" param="<%=cparam%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="user_name" /></screen:servletLink></td>
+                    <td width="16%" align="center" class="bodyText" <%=color%>><screen:sessionStatus row="<%=row%>" /></td>
+                    <td width="16%" align="center" class="bodyText" <%=color%>><%=String.valueOf(((Long)row.getItem("set_a_count").getResultData()).longValue()+((Long)row.getItem("set_b_count").getResultData()).longValue())%></td>
+                    <td width="16%" align="center" class="bodyText" <%=color%>><screen:resultSetItem row="<%=row%>" name="submitted" /></td>
+                    <td width="16%" align="center" class="bodyText" <%=color%>><screen:resultSetItem row="<%=row%>" name="passed" /></td>
+                    <td width="16%" align="center" class="bodyText" <%=color%>><screen:servletLink processor="TestResults" param="<%=sparam%>"><screen:sessionStatusLink row="<%=row%>" /></screen:servletLink></td>
+                </tr>
+                <% } %>
+                <% even = !even; %>
+                </screen:resultSetRowIterator>
+            </table>
+            <% } %>
+
+            <p><br></p>
+
         </td>
 <!-- Middle Column ends -->
 
