@@ -57,8 +57,8 @@ Description: Feature rich editor that has all the features Pops needs<BR/>
 Author: Pops<BR/>
 Date: 2/20/2002<BR/>
 Instructions: <A HREF="/contest/classes/PopsEdit.htm" CLASS="statText">Documentation >></A><BR/>
-Upgrade Release Notes: <A HREF="/contest/classes/PopsEdit_Upgrade_2_1.htm" CLASS="statText">Release Notes >></A><BR/>
-Version: 2.1<BR/>
+Upgrade Release Notes: <A HREF="/contest/classes/PopsEdit_Upgrade_2_5.htm" CLASS="statText">Release Notes >></A><BR/>
+Version: 2.5<BR/>
 EntryPoint: popsedit.EntryPoint (case sensitive)<BR/>
 ClassPath: PopsEdit.jar<BR/>
 <A HREF="/contest/classes/PopsEdit.jar" CLASS="statText">PopsEdit.jar Applet Plugin >></A><BR/>
@@ -71,8 +71,8 @@ Description: Plugin that will read/write the problem information to an external 
 Author: Pops<BR/>
 Date: 2/25/2002<BR/>
 Instructions: <A HREF="/contest/classes/FileEdit.htm" CLASS="statText">Documentation >></A><BR/>
-Upgrade Release Notes: <A HREF="/contest/classes/FileEdit_Upgrade_2_1_1.htm" CLASS="statText">Release Notes >></A><BR/>
-Version: 2.11<BR/>
+Upgrade Release Notes: <A HREF="/contest/classes/FileEdit_Upgrade_2_5.htm" CLASS="statText">Release Notes >></A><BR/>
+Version: 2.5<BR/>
 Plugin Entry Point: fileedit.EntryPoint<BR/>
 Plugin ClassPath: FileEdit.jar<BR/>
 <A HREF="/contest/classes/FileEdit.jar" CLASS="statText">FileEdit.jar Applet Plugin >></A><BR/>

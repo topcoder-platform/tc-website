@@ -361,9 +361,43 @@ public class Registration
             if (isEmpty(this.country)) addError(COUNTRY,"Please choose your country.");
             
             if (isEmpty(this.phone)) addError(PHONE,"Please enter your phone number.");
-            
-            if (isEmpty(this.handle)) addError(HANDLE,"Please enter your desired handle.");
-            else if (this.handle.toLowerCase().indexOf("guest")>=0 || (isRegister()||!this.handle.equalsIgnoreCase(user.getHandle()))&&handleExists(this.handle)) addError(HANDLE,"Please choose another handle.");
+           
+/************** BAD LOGIC ********************** 
+            if ( isEmpty(this.handle) ) 
+            {
+              addError(HANDLE,"Please enter your desired handle.");
+            }
+            else if 
+            (
+              this.handle.toLowerCase().indexOf("guest") >= 0 
+              || 
+              (
+                isRegister()
+                || !this.handle.equalsIgnoreCase ( user.getHandle() )
+              )
+              && handleExists ( this.handle )
+            ) 
+            {
+              addError ( HANDLE,"Please choose another handle." );
+            }
+***********************************************/
+
+            if ( isEmpty(this.handle) )
+            {
+              addError(HANDLE,"Please enter your desired handle.");
+            }
+            else if 
+            (
+              // if handle has the word "guest" in it
+              this.handle.toLowerCase().indexOf("guest") >= 0
+              //  or new registration and the handle exists
+              || ( isRegister() && handleExists(this.handle) )
+              //  or update registration, the handle changes, and the new handle exists
+              || ( !isRegister() && !this.handle.equalsIgnoreCase(user.getHandle()) && handleExists (this.handle) )
+            ) 
+            {
+              addError ( HANDLE,"Please choose another handle." );
+            }
 
             if (isEmpty(this.password)) addError(PASSWORD,"Please enter your password.");
             else if (this.password.length()<PASSWORD_MIN_LENGTH) addError(PASSWORD,"Please make sure your password is at least "+PASSWORD_MIN_LENGTH+" characters long.");
