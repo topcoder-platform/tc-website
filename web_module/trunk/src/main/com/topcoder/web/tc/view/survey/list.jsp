@@ -66,6 +66,11 @@
                         <a href="?&module=ViewSurvey&sid=<rsc:item row="<%=survey%>" name="survey_id"/>"><img src="/i/answer.gif" width="60" height="18" border="0"></a>
                      <% } %>
                   </td>
+                  <td>
+                     <% if (survey.getStringItem("image")!=null) { %>
+                        <img src="<rsc:item row="<%=survey%>" name="image"/>"/>
+                     <% } %>
+                  </td>
                </tr>
                <% even = !even; %>
                </rsc:iterator>
