@@ -94,10 +94,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../public_right.jsp">
-               <jsp:param name="level1" value="review_board"/>
-               <jsp:param name="level2" value="competition"/> 
-            </jsp:include>
+            <jsp:include page="crfp_right.jsp" />
          </td>
 <!-- Right Column Ends -->
 
