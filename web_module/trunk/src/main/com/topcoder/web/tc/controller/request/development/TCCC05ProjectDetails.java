@@ -43,6 +43,7 @@ public class TCCC05ProjectDetails extends StatBase {
         
         DecimalFormat dfmt = new DecimalFormat("$#,##0.00");
         SimpleDateFormat dtfmt = new SimpleDateFormat("MM.dd.yyyy hh:mma");
+        DecimalFormat scfmt = new DecimalFormat("0.00");
         
         int[] placementPoints = new int[] {10,7,5,4,0};
                 
@@ -50,7 +51,7 @@ public class TCCC05ProjectDetails extends StatBase {
         {
             int pts = 0;
             String place = "-";
-            double score = 0;
+            String score = "";
             if(rsc.getItem(i, "final_score").getResultData() != null) {
                 if(rsc.getDoubleItem(i, "final_score") >= 70) {
                     if(i < placementPoints.length)  {
@@ -58,7 +59,7 @@ public class TCCC05ProjectDetails extends StatBase {
                         place = String.valueOf(i+1);
                     }
                 }
-                score = rsc.getDoubleItem(i, "final_score");
+                score = scfmt.format(rsc.getDoubleItem(i, "final_score"));
             }
             
             String prz = ""; 
