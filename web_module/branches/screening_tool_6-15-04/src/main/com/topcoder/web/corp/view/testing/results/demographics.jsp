@@ -35,22 +35,24 @@
  <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="10"border="0"><br>
         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
           <TR>
-            <TD WIDTH="11"><IMG src="/i/corp/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-            <TD class="bodyText" COLSPAN="2" VALIGN="top" WIDTH="100%"><IMG src="/i/corp/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
-              <P>
-              <B>Campaign: <jsp:getProperty name="demographicInfo" property="CampaignName"/></B><BR>
+            <TD class="bodyText" COLSPAN="2" VALIGN="top" WIDTH="100%" align="center">
+            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrameNB">
+                <tr valign="top">
+                    <td class="bodyText">
+					<P>Campaign: <jsp:getProperty name="demographicInfo" property="CampaignName"/></B></P>
+                    </td>
+                </tr>
+            </table>
 
-              </P>
-              
-              <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TABLE WIDTH="700" CELLSPACING="10" CELLPADDING="0" border="0">
                 <TR valign='top'>
-                <TD width='40%'>
+                <TD width="50%">
                 
                   <% if (demographicInfo.getStudentCount() > 0) { %>    
                 
-                      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="3" BORDER="0">
+					<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                         <TR>
-                          <TD class="testTableTitle" COLSPAN="3">&#160;<b>Student (<jsp:getProperty name="demographicInfo" property="StudentCount"/>)</b></TD>
+                          <TD class="screeningTitle" COLSPAN="3">&#160;<b>Student (<jsp:getProperty name="demographicInfo" property="StudentCount"/>)</b></TD>
                         </TR>
 
                         <%
@@ -60,24 +62,20 @@
                         %>
 
                         <TR>
-                          <TD class="bodyText" COLSPAN="3"><BR></TD>
-                        </TR>                
-
-                        <TR>
-                          <TD class="testFormHeader"COLSPAN="3"><%=question%></TD>
+                          <TD class="screeningHeader"COLSPAN="3"><%=question%></TD>
                         </TR>
 
 
                         <% boolean odd = true;; %>
                         <tces:mapIterator id="resp" MapList="<%=StudentResponsesList%>">
                             <TR>
-                              <TD class="<%=odd?"testTableOdd":"testTableEven"%>">
+                              <TD class="<%=odd?"screeningCellOdd":"screeningCellEven"%>">
                                 <%=(String)resp.get("title")%>
                               </TD>
-                              <TD class="<%=odd?"testTableOdd":"testTableEven"%>">
+                              <TD class="<%=odd?"screeningCellOdd":"screeningCellEven"%>">
                                 <%=(String)resp.get("percent")%>
                               </TD>
-                              <TD class="<%=odd?"testTableOdd":"testTableEven"%>">
+                              <TD class="<%=odd?"screeningCellOdd":"screeningCellEven"%>">
                                 <%=(String)resp.get("count")%>
                               </TD>
                             </TR>
@@ -91,9 +89,9 @@
                       </TABLE>
                       
                    <% }else{ %>
-                      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="3" BORDER="0">
+					<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                         <TR>
-                          <TD class="testTableTitle" COLSPAN="3">&#160;<b>Student (0)</b></TD>
+                          <TD class="screeningTitle" COLSPAN="3">&#160;<b>Student (0)</b></TD>
                         </TR>
                         <TR>
                           <TD class="bodyText" COLSPAN="3"><BR></TD>
@@ -107,16 +105,15 @@
                 </TD>
 
 
-                <TD WIDTH="10%"></TD>
 
 
-                <TD width="40%">
+                <TD width="50%">
 
                   <% if (demographicInfo.getProCount() > 0) { %>
                   
-                      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="3" BORDER="0">
+					<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                         <TR>
-                          <TD class="testTableTitle" COLSPAN="3">&#160;<b>Professional (<jsp:getProperty name="demographicInfo" property="ProCount"/>)</b></TD>
+                          <TD class="screeningTitle" COLSPAN="3">&#160;<b>Professional (<jsp:getProperty name="demographicInfo" property="ProCount"/>)</b></TD>
                         </TR>
                         <%
                           while (ProQuestionIterator.hasNext()) {
@@ -125,23 +122,19 @@
                         %>
 
                         <TR>
-                          <TD class="bodyText" COLSPAN="3"><BR></TD>
-                        </TR>                
-
-                        <TR>
-                          <TD class="testFormHeader" COLSPAN="3"><B><%=question%></B></TD>
+                          <TD class="screeningHeader" COLSPAN="3"><B><%=question%></B></TD>
                         </TR>                
 
                         <% boolean odd = true; %>
                         <tces:mapIterator id="resp" MapList="<%=ProResponsesList%>">
                             <TR>
-                              <TD class="<%=odd?"testTableOdd":"testTableEven"%>">
+                              <TD class="<%=odd?"screeningCellOdd":"screeningCellEven"%>">
                                 <%=(String)resp.get("title")%>
                               </TD>
-                              <TD class="<%=odd?"testTableOdd":"testTableEven"%>">
+                              <TD class="<%=odd?"screeningCellOdd":"screeningCellEven"%>">
                                 <%=(String)resp.get("percent")%>
                               </TD>
-                              <TD class="<%=odd?"testTableOdd":"testTableEven"%>">
+                              <TD class="<%=odd?"screeningCellOdd":"screeningCellEven"%>">
                                 <%=(String)resp.get("count")%>
                               </TD>
                             </TR>
@@ -155,9 +148,9 @@
                       </TABLE>                  
                   
                    <% }else{ %>
-                      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BORDER="0">               
+					<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                         <TR>
-                          <TD class="testTableTitle" COLSPAN="3">&#160;<b>Professional (0)</b></TD>
+                          <TD class="screeningTitle" COLSPAN="3">&#160;<b>Professional (0)</b></TD>
                         </TR>
 
                         <TR>
