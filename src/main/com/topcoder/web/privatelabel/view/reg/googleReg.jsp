@@ -246,21 +246,6 @@
 
             <tr>
                 <td colspan="2" class="errorText">
-                    <tc-webtag:errorIterator id="err" name="<%=Constants.PROVINCE%>"><%=err%><br/></tc-webtag:errorIterator>
-                </td>
-            </tr>
-
-            <tr>
-                <td align="right">
-                    Province
-                </td>
-                <td align="left">
-                    <tc-webtag:textInput name="<%=Constants.PROVINCE%>"  size="15" maxlength="50"/>
-                </td>
-            </tr>
-
-            <tr>
-                <td colspan="2" class="errorText">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.ZIP%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
             </tr>
