@@ -7,7 +7,7 @@
     String list = request.getParameter("selectedList")==null?"":request.getParameter("selectedList");
 %>
 
-    <% if (list.equals("coding")) { %>
+    <% if (list.equals("coding_rules")) { %>
             <table width="100%" border="0" cellspacing="0" cellpadding="2" class="tcoSubNav">
                 <tr>
                     <td class="tcoSubNav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -23,7 +23,7 @@
                <tr><td bgcolor="#666666" width="100%" height="3" class="bodyText"><img src="/i/clear.gif" alt="" width="1" height="3" border="0" /></td></tr>
             </table>
 
-    <% } else if (list.equals("component")) { %>
+    <% } else if (list.equals("component_rules")) { %>
             <table width="100%" border="0" cellspacing="0" cellpadding="2" class="tcoSubNav">
                 <tr>
                     <td class="tcoSubNav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
