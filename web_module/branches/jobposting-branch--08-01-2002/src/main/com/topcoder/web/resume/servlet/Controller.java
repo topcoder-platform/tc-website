@@ -63,6 +63,7 @@ public class Controller
                 try {
                     task = (ResumeTask) taskClass.getConstructor(new Class[]{FileUpload.class}).newInstance(new Object[]{fu});
                     log.debug("about to process task: "+taskName);
+                    task.setUser(getUser(request.getSession()));
                     task.process();
                 } catch (Exception e) {
                     e.printStackTrace();
