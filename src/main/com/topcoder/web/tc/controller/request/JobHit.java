@@ -9,10 +9,12 @@ import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.common.web.data.CoderRegistration;
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.common.web.data.User;
@@ -37,6 +39,10 @@ public class JobHit extends Base {
 
 
         try {
+            if (!userIdentified()) {
+                throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+            }
+
             Enumeration parameterNames = getRequest().getParameterNames();
             while (parameterNames.hasMoreElements()) {
                 String parameterName = parameterNames.nextElement().toString();
