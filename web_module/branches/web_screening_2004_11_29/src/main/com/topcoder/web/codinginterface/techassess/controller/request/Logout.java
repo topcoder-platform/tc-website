@@ -25,6 +25,7 @@ public class Logout extends Base {
         //todo do we need to wait for this really?
         ScreeningLogoutResponse response = (ScreeningLogoutResponse)receive(5000);
 
+        getAuthentication().logout();
 
         setNextPage(buildProcessorRequestString(Constants.RP_LOGIN,
                 new String[] {Constants.COMPANY_ID}, new String[]{String.valueOf(getCompanyId())}));
