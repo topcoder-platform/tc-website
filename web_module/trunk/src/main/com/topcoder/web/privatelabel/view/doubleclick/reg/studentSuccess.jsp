@@ -27,7 +27,7 @@
 
    <div CLASS="dc_bodyText">
          <p class="pageTitle">Registration</p>
-         <p>Description of registration goes here</p>
+         <p>Registration Successful!</p>
          <p>
             In order to be eligible to compete in the Verizon Coding Challenge,
             you must activate your account by following the directions sent to the email
