@@ -56,7 +56,7 @@ public final class TC extends HttpServlet {
             throws ServletException, IOException {
 
         // HATE CACHING!!!!!!!
-
+/*
         try {
             synchronized (this) {
                 renderer.refresh();
@@ -64,6 +64,7 @@ public final class TC extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
+*/
         processCommands(request, response);
     }
 
