@@ -17,34 +17,6 @@ import java.io.IOException;
  * The servlet to handle job posting http requests.
  * @author Greg Paul
  * @version $Revision$
- *  Log of Changes:
- *           $Log$
- *           Revision 1.9  2002/08/01 18:57:52  gpaul
- *           added lots of javadocs stuff and reformatted code
- *
- *           Revision 1.8  2002/07/16 19:58:08  gpaul
- *           changed job_hit to job_posting, pulled some debug
- *
- *           Revision 1.7  2002/07/16 19:54:12  gpaul
- *           use root context for error page
- *
- *           Revision 1.6  2002/07/16 18:14:26  gpaul
- *           return after forwarding to error page
- *
- *           Revision 1.5  2002/07/16 18:10:56  gpaul
- *           added a little debug info
- *
- *           Revision 1.4  2002/07/16 18:04:58  gpaul
- *           added a little debug info
- *
- *           Revision 1.3  2002/07/16 17:10:10  gpaul
- *           some addition fault tolerance for bad commands/ no command
- *
- *           Revision 1.2  2002/07/16 16:34:07  gpaul
- *           no message
- *
- *           Revision 1.1  2002/07/16 14:53:40  gpaul
- *           first add
  *
  */
 

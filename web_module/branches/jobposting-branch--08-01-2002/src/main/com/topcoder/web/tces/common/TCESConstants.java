@@ -5,7 +5,6 @@ import javax.servlet.ServletException;
 
 public class TCESConstants {
 
-    public static String COMMAND = null;
     public static String ERROR_PAGE = null;
     public static String JOB_ID_KEY = null;
     public static String USER_ID_KEY = null;
@@ -13,7 +12,6 @@ public class TCESConstants {
     public static int JOB_POSTING_ID = -1;
 
     public static void init(ServletConfig servletConfig) throws ServletException {
-        COMMAND = servletConfig.getInitParameter("command");
         ERROR_PAGE = servletConfig.getInitParameter("error_page");
         JOB_ID_KEY = servletConfig.getInitParameter("job_id");
         USER_ID_KEY = servletConfig.getInitParameter("user_id");

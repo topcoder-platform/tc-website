@@ -12,18 +12,6 @@ import java.sql.*;
  *
  * @author Greg Paul
  * @version  $Revision$
- *  Log of Changes:
- *           $Log$
- *           Revision 1.3  2002/08/01 18:57:52  gpaul
- *           added lots of javadocs stuff and reformatted code
- *
- *           Revision 1.2  2002/07/16 18:21:49  gpaul
- *           added a little debug info
- *
- *           Revision 1.1  2002/07/16 14:53:27  gpaul
- *           first add
- *
- *
  */
 
 public class TCESServicesBean extends BaseEJB {
