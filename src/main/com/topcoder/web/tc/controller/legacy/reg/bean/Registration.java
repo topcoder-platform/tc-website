@@ -24,6 +24,13 @@ import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.GroupPrincipal;
 import com.topcoder.security.UserPrincipal;
+import com.topcoder.web.tc.controller.request.authentication.EmailActivate;
+
+import com.topcoder.web.ejb.coder.Coder;
+import com.topcoder.web.ejb.email.Email;
+import com.topcoder.ejb.UserServices.UserServicesHome;
+import com.topcoder.ejb.UserServices.UserServices;
+import com.topcoder.web.common.BaseProcessor;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -558,6 +565,11 @@ public class Registration
             
         }
     }
+    
+    
+    static final char[] INACTIVE_STATI = {'I', '0', '9', '6', '5', '4'};
+    static final char[] UNACTIVE_STATI = {'U', '2'};
+    static final char[] ACTIVE_STATI = {'1', 'A'};
     
     public void setAutoActivate(boolean b) {
         autoActivate = b;
@@ -1642,6 +1654,20 @@ public class Registration
 
             user.setModified("S");
             coder.setAllModifiedStable();
+            
+            //auto activate
+            if(isRegister() && autoActivate) {
+                InitialContext ctx = TCContext.getInitial();
+                com.topcoder.web.ejb.user.User userbean = (com.topcoder.web.ejb.user.User) BaseProcessor.createEJB(ctx, com.topcoder.web.ejb.user.User.class);
+                char status = userbean.getStatus(coder.getCoderId(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                if (Arrays.binarySearch(UNACTIVE_STATI, status) > 0) {
+                    doLegacyCrap((int)coder.getCoderId());
+                    Email email = (Email) BaseProcessor.createEJB(ctx, Email.class);
+                    email.setStatusId(email.getPrimaryEmailId(coder.getCoderId(), DBMS.COMMON_OLTP_DATASOURCE_NAME),
+                            1, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    userbean.setStatus(coder.getCoderId(), ACTIVE_STATI[1], DBMS.COMMON_OLTP_DATASOURCE_NAME); //want to get 'A'
+                } 
+            }
         } catch (Exception e) {
             try {
                 if (!Transaction.rollback(transaction)) {
@@ -1729,6 +1755,36 @@ public class Registration
                 addError(REGISTER, "There was a problem sending the activation email. Please contact service@topcoder.com");
             }
         }
+    }
+    
+    private void doLegacyCrap(int userId) {
+        Context ctx = null;
+        com.topcoder.common.web.data.User user = null;
+        try {
+            ctx = TCContext.getInitial();
+            UserServicesHome userHome = (UserServicesHome) ctx.lookup(ApplicationServer.USER_SERVICES);
+            UserServices userEJB = userHome.findByPrimaryKey(new Integer(userId));
+            user = userEJB.getUser();
+            log.debug("tc: user loaded from entity bean");
+
+            user.setStatus(String.valueOf(ACTIVE_STATI[1]));
+            user.setModified("U");
+
+            userEJB.setUser(user);
+
+        } catch (Exception e) {
+            
+        } finally {
+            if (ctx!=null) {
+                try {
+                    ctx.close();
+                } catch (Exception e) {
+                    log.error("couldn't close context");
+                }
+            }
+        }
+
+
     }
 
     public static int getCoderId(String activationCode) {
