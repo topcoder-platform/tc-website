@@ -43,37 +43,29 @@
 
 <!-- Center Column Begins -->
             <td class="bodyText" width="99%">
-
+            <br/>
+            
             <div align="center">
-            <table border="0" cellpadding="0" cellspacing="0" width="534">
+            <table border="0" cellpadding="10" cellspacing="0" width="534">
                 <tr>
-                    <td width="534" align="left" class="bodyText">
-                        <img src="/images/clear.gif" width="1" height="20" alt="" border="0"/><br/>
-                        <strong><img src="/i/development/title_another_way.gif" alt="Another way to compete, earn cash, royalties, and recognition" width="510" height="84" border="0" /></strong>
-                        <p align="left"><strong>You've got a few TopCoder Single Round Matches under your belt. Now you're ready for these challenging 
-                        (and potentially lucrative) projects. Winning solutions are rewarded with cash payouts and royalites. Whether you're 
-                        looking for a small project for yourself, or if you want to be part of a team, TopCoder Software Projects provide 
-                        opportunities for you to put your skills to good use.</strong></p>
-                        <img src="/images/clear.gif" width="1" height="1" alt="" border="0"/>
+                    <td align="center" class="bodyText">
+                        <img src="/i/development/dev_home_promo.jpg" width="489" height="314" alt="" border="0" usemap="#dev_promos"/>
+                        <map name="dev_promos">
+                        <area shape="rect" alt="" coords="40,55,225,240" href="/?t=development&amp;c=comp_projects" />
+                        <area shape="rect" alt="" coords="300,55,435,240" href="/tc?module=ViewReviewProjects " />
+                        </map>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left" class="bodyText">Winning solutions are rewarded with cash payouts and royalites. Whether you're looking for a small project for yourself, or if you want to be part of a team, TopCoder Software Projects provide opportunities for you to put your skills to good use.
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" class="bodyText"><a href="/?t=development&amp;c=getting_started"><img src="/i/development/getting_started.gif" border="0" width="534" height="35"/></a>
                     </td>
                 </tr>
             </table>
 
-            <table border="0" cellspacing="0" cellpadding="0" width="534">
-                <tr valign="top">
-                    <td class="bodyText" width="25%" align="center"><A href="/?t=development&amp;c=dev_payment"><img src="/i/development/promo_howtogetpaid.gif" alt="How to get paid" width="126" height="126" border="0" /></A></td>
-                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
-                    <td class="bodyText" width="25%" align="center"><A href="http://software.topcoder.com/forum/c_active_collab.jsp?ft=2"><img src="/i/development/promo_dev_forums.gif" alt="Developer Forums" width="126" height="126" border="0" /></A></td>
-                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
-                    <td class="bodyText" width="25%" align="center"><A href="/?t=development&amp;c=comp_projects"><img src="/i/development/promo_openprojects.gif" alt="Open Projects" width="126" height="126" border="0" /></A></td>
-                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
-                    <td class="bodyText" width="25%" align="center"><A href="/tc?module=ViewReviewProjects"><img src="/i/development/promo_reviews.gif" alt="Review Opportunities" width="126" height="126" border="0" /></A></td>
-                </tr>
-            </table>
-
-<!--Getting Started -->
-		<br/><br/>
-		<div align="center"><a href="/?t=development&amp;c=getting_started"><img src="/i/development/getting_started.gif" border="0" width="534" height="35"/></a></div>
 		<br/>
 
             <hr width="534" size="1px" noshade="noshade"/>
