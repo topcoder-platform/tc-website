@@ -64,6 +64,7 @@ public class CompetitionHistoryTask extends BaseTask implements Task, Serializab
     }
 
     public void processStep(String step) throws Exception {
+        viewCompetitionHistory();
     }
     
     private void viewCompetitionHistory() throws Exception {
