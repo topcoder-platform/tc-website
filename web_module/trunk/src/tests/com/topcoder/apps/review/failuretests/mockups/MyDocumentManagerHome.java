@@ -1,7 +1,7 @@
 /*
  * MyDocumentManagerHome.java 1.0 6/30/2003
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review.failuretests.mockups;
 
@@ -22,12 +22,12 @@ import com.topcoder.apps.review.document.DocumentManagerLocalHome;
  * @author kolanovic
  * @version 1.0
  */
-public class MyDocumentManagerHome extends EJBHomeBase 
-                                   implements DocumentManagerLocalHome {
+public class MyDocumentManagerHome extends EJBHomeBase
+        implements DocumentManagerLocalHome {
     /**
      * <p>Returns a new instance of MyDocumentManager.</p>
      */
     public DocumentManagerLocal create() throws CreateException {
-        return(new MyDocumentManager());
+        return (new MyDocumentManager());
     }
 }

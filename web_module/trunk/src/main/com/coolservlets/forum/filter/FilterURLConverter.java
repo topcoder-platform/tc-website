@@ -53,11 +53,14 @@
  * individuals on behalf of CoolServlets.com. For more information
  * on CoolServlets.com, please see <http://www.coolservlets.com>.
  */
- 
+
 package com.coolservlets.forum.filter;
 
-import com.coolservlets.forum.*;
-import java.util.*;
+import com.coolservlets.forum.ForumMessage;
+import com.coolservlets.forum.ForumMessageFilter;
+
+import java.util.Enumeration;
+import java.util.Properties;
 
 /**
  * A ForumMessageFilter that converts URL's to working HTML web links.
@@ -74,11 +77,11 @@ public class FilterURLConverter extends ForumMessageFilter {
      */
     private Properties propDescriptions;
 
-   /**
-    * Creates a new filter not associated with a message. This is
-    * generally only useful for defining a template filter that other
-    * fitlers will be cloned from.
-    */
+    /**
+     * Creates a new filter not associated with a message. This is
+     * generally only useful for defining a template filter that other
+     * fitlers will be cloned from.
+     */
     public FilterURLConverter() {
         super();
         props = new Properties();
@@ -95,8 +98,7 @@ public class FilterURLConverter extends ForumMessageFilter {
      * @param propertyDescriptions the property descriptions for the filter.
      */
     public FilterURLConverter(ForumMessage message, Properties properties,
-            Properties propertyDescriptions)
-    {
+                              Properties propertyDescriptions) {
         super(message);
         this.props = new Properties(properties);
         this.propDescriptions = new Properties(propertyDescriptions);
@@ -108,7 +110,7 @@ public class FilterURLConverter extends ForumMessageFilter {
      *
      * @param message the ForumMessage to wrap the new filter around.
      */
-    public ForumMessageFilter clone(ForumMessage message){
+    public ForumMessageFilter clone(ForumMessage message) {
         return new FilterURLConverter(message, props, propDescriptions);
     }
 
@@ -176,7 +178,7 @@ public class FilterURLConverter extends ForumMessageFilter {
 
     /**
      * Sets a property of the filter. Each filter has a set number of
-     * properties that are determined by the filter author. 
+     * properties that are determined by the filter author.
      *
      * @param name the name of the property to set.
      * @param value the new value for the property.
@@ -185,8 +187,7 @@ public class FilterURLConverter extends ForumMessageFilter {
      *    exist.
      */
     public void setFilterProperty(String name, String value)
-            throws IllegalArgumentException
-    {
+            throws IllegalArgumentException {
         if (props.getProperty(name) == null) {
             throw new IllegalArgumentException();
         }
@@ -215,21 +216,20 @@ public class FilterURLConverter extends ForumMessageFilter {
      * @param input the text to be converted.
      * @returns the input string with the URLs replaced with links.
      */
-    private String convertURL( String input ) {
+    private String convertURL(String input) {
         //Check if the string is null or zero length -- if so, return
         //what was sent in.
-        if( input == null || input.length() == 0 ) {
+        if (input == null || input.length() == 0) {
             return input;
-        }
-        else {
+        } else {
             StringBuffer buf = new StringBuffer();
-            
+
             int i = 0, j = 0, oldend = 0;
             int len = input.length();
             char cur;
 
-            while ( ( i=input.indexOf( "http://", oldend) ) >= 0 ) {
-                j=i+7;
+            while ((i = input.indexOf("http://", oldend)) >= 0) {
+                j = i + 7;
                 cur = input.charAt(j);
                 while (j < len) {
                     //Is a space?
@@ -237,23 +237,23 @@ public class FilterURLConverter extends ForumMessageFilter {
                     //Is a Win32 newline?
                     if (cur == '\n') break;
                     //Is Unix newline?
-                    if (cur == '\r' && j<len-1 && input.charAt(j+1) == '\n')
+                    if (cur == '\r' && j < len - 1 && input.charAt(j + 1) == '\n')
                         break;
 
                     j++;
-                    if (j<len) {
+                    if (j < len) {
                         cur = input.charAt(j);
                     }
                 }
-                buf.append(input.substring(oldend,i));
+                buf.append(input.substring(oldend, i));
                 buf.append("<a href =\"");
-                buf.append(input.substring(i,j));
+                buf.append(input.substring(i, j));
                 buf.append("\">");
-                buf.append(input.substring(i,j));
+                buf.append(input.substring(i, j));
                 buf.append("</a>");
                 oldend = j;
             }
-            buf.append(input.substring(j,len));
+            buf.append(input.substring(j, len));
             return buf.toString();
         }
     }

@@ -22,7 +22,7 @@ public class DDEDocForumXrefTest extends DDEServerTestCase {
     }
 
     protected void setUp() throws NamingException {
-        docForumXrefHome=lookup();
+        docForumXrefHome = lookup();
     }
 
     private static LocalDDEDocForumXrefHome lookup() throws NamingException {
@@ -30,26 +30,26 @@ public class DDEDocForumXrefTest extends DDEServerTestCase {
     }
 
     public void test() throws Exception {
-        LocalForumMaster forumMaster=ForumMasterTest.create();
-        LocalForumTopics forumTopics=ForumTopicsTest.create(forumMaster);
-        LocalDDECompCatalog catalog=DDECompCatalogTest.create();
-        LocalDDECompVersions versions=DDECompVersionsTest.create(catalog);
-        LocalDDECompDocumentation compDocumentation=DDECompDocumentationTest.create(versions);
-        LocalDDEDocForumXref result=docForumXrefHome.create(forumTopics.getId().longValue(), compDocumentation);
-        LocalDDEDocForumXref docForumXref=result;
-        Long primaryKey=testGetPrimaryKey(docForumXref);
+        LocalForumMaster forumMaster = ForumMasterTest.create();
+        LocalForumTopics forumTopics = ForumTopicsTest.create(forumMaster);
+        LocalDDECompCatalog catalog = DDECompCatalogTest.create();
+        LocalDDECompVersions versions = DDECompVersionsTest.create(catalog);
+        LocalDDECompDocumentation compDocumentation = DDECompDocumentationTest.create(versions);
+        LocalDDEDocForumXref result = docForumXrefHome.create(forumTopics.getId().longValue(), compDocumentation);
+        LocalDDEDocForumXref docForumXref = result;
+        Long primaryKey = testGetPrimaryKey(docForumXref);
         testGetCompDocumentation(docForumXref, compDocumentation);
         testRemove(docForumXref, compDocumentation, forumTopics, forumMaster, versions, catalog, primaryKey);
     }
 
     private void testGetCompDocumentation(LocalDDEDocForumXref docForumXref, LocalDDECompDocumentation compDocumentation) {
-        LocalDDECompDocumentation compDocumentation2=docForumXref.getCompDocumentation();
+        LocalDDECompDocumentation compDocumentation2 = docForumXref.getCompDocumentation();
         assertTrue(compDocumentation.isIdentical(compDocumentation2));
     }
 
     private void testRemove(LocalDDEDocForumXref docForumXref, LocalDDECompDocumentation compDocumentation,
-            LocalForumTopics forumTopics, LocalForumMaster forumMaster, LocalDDECompVersions versions, LocalDDECompCatalog catalog, 
-            Long primaryKey) throws RemoveException {
+                            LocalForumTopics forumTopics, LocalForumMaster forumMaster, LocalDDECompVersions versions, LocalDDECompCatalog catalog,
+                            Long primaryKey) throws RemoveException {
         docForumXref.remove();
         compDocumentation.remove();
         forumTopics.remove();
@@ -64,8 +64,8 @@ public class DDEDocForumXrefTest extends DDEServerTestCase {
     }
 
     private Long testGetPrimaryKey(LocalDDEDocForumXref docForumXref) throws FinderException {
-        Long primaryKey=(Long) docForumXref.getPrimaryKey();
-        LocalDDEDocForumXref docForumXref2=docForumXrefHome.findByPrimaryKey(primaryKey);
+        Long primaryKey = (Long) docForumXref.getPrimaryKey();
+        LocalDDEDocForumXref docForumXref2 = docForumXrefHome.findByPrimaryKey(primaryKey);
         assertTrue(docForumXref.isIdentical(docForumXref2));
         return primaryKey;
     }

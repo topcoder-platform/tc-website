@@ -17,14 +17,14 @@ import com.topcoder.apps.review.accuracytests.ejb.*;
  * @author  valeriy
  */
 public class ViewAllProjectsTest extends AbstractAccuracyTest {
-    
+
     private ViewAllProjects viewAllProjects;
-    
+
     /** Creates a new instance of ViewAllProjectsTest */
     public ViewAllProjectsTest(String name) {
         super(name);
     }
-    
+
     public void setUp() throws Exception {
         super.setUp();
         setUpUsers();
@@ -33,7 +33,7 @@ public class ViewAllProjectsTest extends AbstractAccuracyTest {
         setUpDocuments();
         viewAllProjects = new ViewAllProjects();
     }
-    
+
     public void testViewAllProjects1() throws Exception {
         try {
             project.setCurrentPhase(phases[2]);
@@ -42,21 +42,21 @@ public class ViewAllProjectsTest extends AbstractAccuracyTest {
             if (!(res instanceof ProjectsRetrieval)) {
                 fail("ProjectsRetrieval expected, but was ", res);
             }
-            ProjectsRetrieval retr = (ProjectsRetrieval)res;
+            ProjectsRetrieval retr = (ProjectsRetrieval) res;
             UserProjectInfo[] infos = retr.getProjects();
             if (infos.length != 1) {
-                fail("Wrong projects "+infos.length);
+                fail("Wrong projects " + infos.length);
             }
             if (infos[0] != info) {
-                fail("Wrong projects "+info+":"+infos[0]);
+                fail("Wrong projects " + info + ":" + infos[0]);
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
 
     }
-    
+
     public void testViewAllProjects2() throws Exception {
         try {
             project.setCurrentPhase(phases[8]);
@@ -65,17 +65,17 @@ public class ViewAllProjectsTest extends AbstractAccuracyTest {
             if (!(res instanceof ProjectsRetrieval)) {
                 fail("ProjectsRetrieval expected, but was ", res);
             }
-            ProjectsRetrieval retr = (ProjectsRetrieval)res;
+            ProjectsRetrieval retr = (ProjectsRetrieval) res;
             UserProjectInfo[] infos = retr.getProjects();
             if (infos.length != 1) {
-                fail("Wrong projects "+infos.length);
+                fail("Wrong projects " + infos.length);
             }
             if (infos[0] != info) {
-                fail("Wrong projects "+info+":"+infos[0]);
+                fail("Wrong projects " + info + ":" + infos[0]);
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
     }
 
@@ -89,7 +89,7 @@ public class ViewAllProjectsTest extends AbstractAccuracyTest {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
     }
 
@@ -103,7 +103,7 @@ public class ViewAllProjectsTest extends AbstractAccuracyTest {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
     }
 
@@ -117,7 +117,7 @@ public class ViewAllProjectsTest extends AbstractAccuracyTest {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
     }
 
@@ -131,7 +131,7 @@ public class ViewAllProjectsTest extends AbstractAccuracyTest {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
     }
 
@@ -145,7 +145,7 @@ public class ViewAllProjectsTest extends AbstractAccuracyTest {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
     }
 }

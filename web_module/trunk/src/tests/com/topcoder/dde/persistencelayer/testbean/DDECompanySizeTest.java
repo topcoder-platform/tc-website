@@ -10,7 +10,7 @@ import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompanySizeHome;
 
 public final class DDECompanySizeTest extends DDEServerTestCase {
 
-    private static final String DESCRIPTION="CompanySizeDesc9";
+    private static final String DESCRIPTION = "CompanySizeDesc9";
 
     private LocalDDECompanySizeHome companySizeHome;
 
@@ -19,15 +19,15 @@ public final class DDECompanySizeTest extends DDEServerTestCase {
 
     static LocalDDECompanySize create() throws CreateException {
         try {
-            LocalDDECompanySizeHome companySizeHome=lookup();
+            LocalDDECompanySizeHome companySizeHome = lookup();
             return companySizeHome.create(DESCRIPTION);
         } catch (NamingException e) {
-            throw new CreateException(""+e);
+            throw new CreateException("" + e);
         }
     }
 
     protected void setUp() throws NamingException {
-        companySizeHome=lookup();
+        companySizeHome = lookup();
     }
 
     private static LocalDDECompanySizeHome lookup() throws NamingException {
@@ -35,22 +35,22 @@ public final class DDECompanySizeTest extends DDEServerTestCase {
     }
 
     public void test() throws Exception {
-        String description=DESCRIPTION;
-        LocalDDECompanySize companySize=create();
-        Long primaryKey=testFindByPrimaryKey(companySize);
+        String description = DESCRIPTION;
+        LocalDDECompanySize companySize = create();
+        Long primaryKey = testFindByPrimaryKey(companySize);
         testGetDescription(companySize, description);
         testRemove(companySize, primaryKey);
     }
 
     private Long testFindByPrimaryKey(LocalDDECompanySize companySize) throws FinderException {
-        Long primaryKey=(Long) companySize.getPrimaryKey();
-        LocalDDECompanySize companySize2=companySizeHome.findByPrimaryKey(primaryKey);
+        Long primaryKey = (Long) companySize.getPrimaryKey();
+        LocalDDECompanySize companySize2 = companySizeHome.findByPrimaryKey(primaryKey);
         assertTrue(companySize.isIdentical(companySize2));
         return primaryKey;
     }
 
     private void testGetDescription(LocalDDECompanySize companySize, String description) {
-        String description2=companySize.getDescription();
+        String description2 = companySize.getDescription();
         assertEquals(description, description2);
     }
 

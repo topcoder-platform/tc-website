@@ -1,7 +1,7 @@
 /*
  * EJBHomeBase.java 1.0 9/21/2003
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review.failuretests.mockups;
 
@@ -15,7 +15,7 @@ import javax.ejb.CreateException;
 
 public class EJBHomeBase {
     // EJB methods
-    
+
     public void remove(Handle handle) throws RemoveException {
     }
 

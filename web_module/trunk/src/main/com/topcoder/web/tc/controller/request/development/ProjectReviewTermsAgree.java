@@ -1,21 +1,20 @@
 package com.topcoder.web.tc.controller.request.development;
 
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.model.SoftwareComponent;
-import com.topcoder.web.ejb.rboard.RBoardApplication;
-import com.topcoder.web.ejb.user.UserTermsOfUse;
-import com.topcoder.shared.util.DBMS;
-
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.EmailEngine;
+import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.ejb.rboard.RBoardApplication;
+import com.topcoder.web.ejb.user.UserTermsOfUse;
+import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.model.SoftwareComponent;
 
-import com.topcoder.shared.util.*;
-
-import java.util.*;
+import java.util.Map;
 
 /**
  * @author dok
@@ -92,7 +91,7 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
         results = getDataAccess().getData(r);
         detail = (ResultSetContainer) results.get("pm_details");
 
-        String address = detail.getStringItem(0,"address");
+        String address = detail.getStringItem(0, "address");
         log.debug("ORIGINAL ADDRESS IS: " + address);
 
         TCSEmailMessage mail = new TCSEmailMessage();

@@ -6,8 +6,8 @@
 
 package com.topcoder.web.ejb.user;
 
-import javax.ejb.EJBHome;
 import javax.ejb.CreateException;
+import javax.ejb.EJBHome;
 import java.rmi.RemoteException;
 
 /**
@@ -15,7 +15,7 @@ import java.rmi.RemoteException;
  * @author  rfairfax
  */
 public interface UserEventHome extends EJBHome {
-    
+
     UserEvent create() throws CreateException, RemoteException;
-    
+
 }

@@ -1,9 +1,13 @@
 package com.topcoder.web.render.bean;
 
-import com.topcoder.web.render.ejb.*;
+import com.topcoder.web.render.ejb.SectorFileHome;
+import com.topcoder.web.render.ejb.WebContent;
+import com.topcoder.web.render.ejb.WebContentHome;
 
 import javax.ejb.CreateException;
-import javax.naming.*;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import java.rmi.RemoteException;
 import java.sql.SQLException;
 import java.util.StringTokenizer;

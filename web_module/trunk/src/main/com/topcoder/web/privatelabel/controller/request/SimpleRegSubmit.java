@@ -1,11 +1,10 @@
 package com.topcoder.web.privatelabel.controller.request;
 
-import com.topcoder.security.UserPrincipal;
-import com.topcoder.shared.util.Transaction;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.web.common.TCWebException;
+import com.topcoder.shared.util.Transaction;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.address.Address;
 import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.email.Email;

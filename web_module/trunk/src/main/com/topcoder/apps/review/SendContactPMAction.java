@@ -5,15 +5,10 @@
 package com.topcoder.apps.review;
 
 import com.topcoder.util.log.Level;
+import org.apache.struts.action.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.struts.action.ActionError;
-import org.apache.struts.action.ActionErrors;
-import org.apache.struts.action.ActionForm;
-import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionForward;
-import org.apache.struts.action.ActionForwards;
 
 /**
  * <p>
@@ -25,14 +20,14 @@ import org.apache.struts.action.ActionForwards;
  * @version 1.0
  */
 public final class SendContactPMAction extends ReviewAction {
-    
+
     /**
      * <p>
      * Call the business logic layer and set session if possible.
      * </p>
      *
      * @return the result data.
-     * 
+     *
      * @param mapping The ActionMapping used to select this instance
      * @param form The optional ActionForm bean for this request (if any)
      * @param request The HTTP request we are processing
@@ -47,20 +42,20 @@ public final class SendContactPMAction extends ReviewAction {
                                    HttpServletResponse response,
                                    ActionErrors errors,
                                    ActionForwards forwards,
-                                   OnlineReviewProjectData orpd) {        
-        log(Level.INFO, "SendContactPMAction: User '" 
-                        + orpd.getUser().getHandle() + "' in session " 
-                        + request.getSession().getId());
-        
+                                   OnlineReviewProjectData orpd) {
+        log(Level.INFO, "SendContactPMAction: User '"
+                + orpd.getUser().getHandle() + "' in session "
+                + request.getSession().getId());
+
         // Was this transaction cancelled?
-	    if (isCancelled(request)) {
+        if (isCancelled(request)) {
             ActionForward forward = null;
 
             request.getSession().removeAttribute(mapping.getAttribute());
-	        forward = mapping.findForward(Constants.CANCEL_KEY);
-            forward = new ActionForward(forward.getPath() + "?" + 
-                                        Constants.ID_KEY + "=" + 
-                                        orpd.getProject().getId(), true);
+            forward = mapping.findForward(Constants.CANCEL_KEY);
+            forward = new ActionForward(forward.getPath() + "?" +
+                    Constants.ID_KEY + "=" +
+                    orpd.getProject().getId(), true);
             forward.setName(Constants.CANCEL_KEY);
             forwards.removeForward(mapping.findForward(Constants.SUCCESS_KEY));
             forwards.addForward(forward);
@@ -68,21 +63,21 @@ public final class SendContactPMAction extends ReviewAction {
         } else {
             if (!isTokenValid(request)) {
                 errors.add(ActionErrors.GLOBAL_ERROR,
-                           new ActionError("error.transaction.token"));
+                        new ActionError("error.transaction.token"));
                 forwards.addForward(mapping.findForward(Constants.FAILURE_KEY));
                 return null;
             } else {
-                ContactPMData data = 
-                    ((ContactPMForm) form).toContactPMData(orpd);
+                ContactPMData data =
+                        ((ContactPMForm) form).toContactPMData(orpd);
                 ResultData result = new BusinessDelegate().sendContactPM(data);
-                
-                if (result instanceof SuccessResult)  {
+
+                if (result instanceof SuccessResult) {
                     request.getSession().removeAttribute(mapping.getAttribute());
                     resetToken(request);
                 }
-                
+
                 return result;
             }
-        }        
+        }
     }
 }

@@ -9,6 +9,7 @@
 package com.topcoder.dde.persistencelayer.test;
 
 import com.topcoder.dde.persistencelayer.interfaces.*;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
@@ -28,7 +29,7 @@ public class TestLocalDDEUserCustomerHome extends PersistenceTestCase {
 
     /* an instance of the localHome interface implementation to work with */
     private LocalDDEUserCustomerHome localHome;
-    
+
     /* default field values for entity instances */
     private static final String DEF_FIRST_NAME = "Melvin";
     private static final String DEF_LAST_NAME = "Smith";
@@ -45,13 +46,13 @@ public class TestLocalDDEUserCustomerHome extends PersistenceTestCase {
     private static final boolean DEF_HTMLNEWS = false;
     private static final String DEF_ACT_CODE = "Penguin Power";
     private static final String DEF_EMAIL = "melvins@marauders.com";
-    
+
     /**
      * a default constructor for use only by other test cases in this package
      */
     TestLocalDDEUserCustomerHome() {
         this("testCreate");
-    } 
+    }
 
     /**
      * constructs a new TestLocalDDEUserCustomerHome configured to run the named
@@ -59,7 +60,7 @@ public class TestLocalDDEUserCustomerHome extends PersistenceTestCase {
      */
     public TestLocalDDEUserCustomerHome(String testName) {
         this(testName, null);
-    } 
+    }
 
     /**
      * constructs a new TestLocalDDECategoriesHome configured to run the named
@@ -74,7 +75,7 @@ public class TestLocalDDEUserCustomerHome extends PersistenceTestCase {
      */
     public void setUp() throws Exception {
         super.setUp();
-        synchronized(contextLock) {
+        synchronized (contextLock) {
             localHome = (LocalDDEUserCustomerHome) ctx.lookup(
                     LocalDDEUserCustomerHome.EJB_REF_NAME);
         }
@@ -84,15 +85,15 @@ public class TestLocalDDEUserCustomerHome extends PersistenceTestCase {
      * creates a LocalDDEUserCustomer entity with default parameters
      */
     LocalDDEUserCustomer createDefault(LocalDDEUserMaster master,
-            LocalDDECountryCodes country, LocalDDECompanySize size,
-            LocalDDEPriceTiers tier) throws Exception {
+                                       LocalDDECountryCodes country, LocalDDECompanySize size,
+                                       LocalDDEPriceTiers tier) throws Exception {
         return localHome.create(DEF_FIRST_NAME, DEF_LAST_NAME, DEF_COMPANY,
                 DEF_ADDRESS, DEF_CITY, DEF_POSTAL, DEF_TEL_COUNTRY, DEF_TEL_AREA,
                 DEF_TEL_NBR, DEF_USE_COMP, DEF_USE_CONS, DEF_TCSNEWS,
                 DEF_HTMLNEWS, DEF_ACT_CODE, DEF_EMAIL, master, country, size,
                 tier);
     }
-    
+
     /**
      * tests all entity creation functionality of the bean
      */
@@ -125,7 +126,7 @@ public class TestLocalDDEUserCustomerHome extends PersistenceTestCase {
                             TestLocalDDEUserMasterHome masterHome
                                     = new TestLocalDDEUserMasterHome();
                             masterHome.setUp();
-                            localMaster= masterHome.createDefault();
+                            localMaster = masterHome.createDefault();
                             assertNotNull(localMaster);
                             try {
                                 synchronized (TestLocalDDEPriceTiersHome.class) {
@@ -140,9 +141,9 @@ public class TestLocalDDEUserCustomerHome extends PersistenceTestCase {
                                             /* test normal creation */
                                             LocalDDEUserCustomer local =
                                                     createDefault(localMaster,
-                                                                  localCountry,
-                                                                  localSize,
-                                                                  localTier);
+                                                            localCountry,
+                                                            localSize,
+                                                            localTier);
                                             assertNotNull(local);
                                             try {
                                                 assertEquals(DEF_FIRST_NAME,
@@ -208,11 +209,11 @@ public class TestLocalDDEUserCustomerHome extends PersistenceTestCase {
             }
         }
     }
-    
+
     public void testFindByPrimaryKey() {
         fail("Test not yet implemented");
     }
-    
+
 //    public void testFindByActivationCode() {
 //        fail("Test not yet implemented");
 //    }
@@ -242,24 +243,24 @@ public class TestLocalDDEUserCustomerHome extends PersistenceTestCase {
         Long tierId;
         String activationCode;
         String emailAddress;
-        
+
         DDEUserCustomerData(Object id, Long user, String first, String last,
-                String comp, String addr, String cit, String postal, Long country,
-                String telCountry, String telArea, String telNbr,
-                boolean components, boolean consultants, boolean tcsnews,
-                boolean newsHtml, Long size, Long tier, String activation,
-                String email) {
+                            String comp, String addr, String cit, String postal, Long country,
+                            String telCountry, String telArea, String telNbr,
+                            boolean components, boolean consultants, boolean tcsnews,
+                            boolean newsHtml, Long size, Long tier, String activation,
+                            String email) {
             this(keyToLong(id), user, first, last, comp, addr, cit, postal,
-                country, telCountry, telArea, telNbr, components, consultants,
-                tcsnews, newsHtml, size, tier, activation, email);
+                    country, telCountry, telArea, telNbr, components, consultants,
+                    tcsnews, newsHtml, size, tier, activation, email);
         }
-        
+
         DDEUserCustomerData(long id, Long user, String first, String last,
-                String comp, String addr, String cit, String postal, Long country,
-                String telCountry, String telArea, String telNbr,
-                boolean components, boolean consultants, boolean tcsnews,
-                boolean newsHtml, Long size, Long tier, String activation,
-                String email) {
+                            String comp, String addr, String cit, String postal, Long country,
+                            String telCountry, String telArea, String telNbr,
+                            boolean components, boolean consultants, boolean tcsnews,
+                            boolean newsHtml, Long size, Long tier, String activation,
+                            String email) {
             userCustomerId = id;
             loginId = user;
             firstName = first;
@@ -281,11 +282,11 @@ public class TestLocalDDEUserCustomerHome extends PersistenceTestCase {
             activationCode = activation;
             emailAddress = email;
         }
-        
+
         DDEUserCustomerData(ResultSet rs) throws SQLException {
             readRowData(rs);
         }
-        
+
         public Object getPrimaryKey() {
             return new Long(userCustomerId);
         }
@@ -327,22 +328,22 @@ public class TestLocalDDEUserCustomerHome extends PersistenceTestCase {
             rs.updateString("ACTIVATION_CODE", activationCode);
             rs.updateString("EMAIL_ADDRESS", emailAddress);
         }
-        
+
         public void storeRowData(ResultSet rs) throws SQLException {
             updateResultSet(rs);
             rs.updateRow();
         }
-        
+
         public void insertRowData(ResultSet rs) throws SQLException {
             rs.moveToInsertRow();
             rs.updateLong("USER_CUSTOMER_ID", userCustomerId);
             updateResultSet(rs);
             rs.insertRow();
         }
-        
+
         public void readRowData(ResultSet rs) throws SQLException {
             long l;
-            
+
             userCustomerId = rs.getLong("USER_CUSTOMER_ID");
 
             l = rs.getLong("LOGIN_ID");
@@ -386,39 +387,39 @@ public class TestLocalDDEUserCustomerHome extends PersistenceTestCase {
             emailAddress = rs.getString("EMAIL_ADDRESS");
 
         }
-        
+
         public boolean matchesResultSet(ResultSet rs) throws SQLException {
             return equals(new DDEUserCustomerData(rs));
         }
-        
+
         public boolean equals(Object o) {
-            if (! (o instanceof DDEUserCustomerData) ) {
+            if (!(o instanceof DDEUserCustomerData)) {
                 return false;
             }
             DDEUserCustomerData d = (DDEUserCustomerData) o;
             return (
-                (userCustomerId == d.userCustomerId)
-                && objectsMatch(loginId, d.loginId)
-                && objectsMatch(firstName, d.firstName)
-                && objectsMatch(lastName, d.lastName)
-                && objectsMatch(company, d.company)
-                && objectsMatch(address, d.address)
-                && objectsMatch(city, d.city)
-                && objectsMatch(postalCode, d.postalCode)
-                && objectsMatch(countryCode, d.countryCode)
-                && objectsMatch(telephoneCountry, d.telephoneCountry)
-                && objectsMatch(telephoneArea, d.telephoneArea)
-                && objectsMatch(telephoneNbr, d.telephoneNbr)
-                && (useComponents == d.useComponents)
-                && (useConsultants == d.useConsultants)
-                && (receiveTcsnews == d.receiveTcsnews)
-                && (receiveNewshtml == d.receiveNewshtml)
-                && objectsMatch(companySizeId, d.companySizeId)
-                && objectsMatch(tierId, d.tierId)
-                && objectsMatch(activationCode, d.activationCode)
-                && objectsMatch(emailAddress, d.emailAddress) );
+                    (userCustomerId == d.userCustomerId)
+                    && objectsMatch(loginId, d.loginId)
+                    && objectsMatch(firstName, d.firstName)
+                    && objectsMatch(lastName, d.lastName)
+                    && objectsMatch(company, d.company)
+                    && objectsMatch(address, d.address)
+                    && objectsMatch(city, d.city)
+                    && objectsMatch(postalCode, d.postalCode)
+                    && objectsMatch(countryCode, d.countryCode)
+                    && objectsMatch(telephoneCountry, d.telephoneCountry)
+                    && objectsMatch(telephoneArea, d.telephoneArea)
+                    && objectsMatch(telephoneNbr, d.telephoneNbr)
+                    && (useComponents == d.useComponents)
+                    && (useConsultants == d.useConsultants)
+                    && (receiveTcsnews == d.receiveTcsnews)
+                    && (receiveNewshtml == d.receiveNewshtml)
+                    && objectsMatch(companySizeId, d.companySizeId)
+                    && objectsMatch(tierId, d.tierId)
+                    && objectsMatch(activationCode, d.activationCode)
+                    && objectsMatch(emailAddress, d.emailAddress));
         }
-        
+
     }
 
 }

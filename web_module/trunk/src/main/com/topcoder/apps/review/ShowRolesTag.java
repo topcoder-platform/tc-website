@@ -3,16 +3,12 @@
  */
 package com.topcoder.apps.review;
 
-import com.topcoder.apps.review.projecttracker.UserRole;
-import com.topcoder.apps.review.projecttracker.User;
-import com.topcoder.apps.review.projecttracker.Project;
-import com.topcoder.apps.review.projecttracker.UserProjectInfo;
-import com.topcoder.apps.review.projecttracker.ProjectType;
+import com.topcoder.apps.review.projecttracker.*;
+import org.apache.struts.util.MessageResources;
+import org.apache.struts.util.RequestUtils;
+import org.apache.struts.util.ResponseUtils;
 
 import javax.servlet.jsp.JspException;
-import org.apache.struts.util.ResponseUtils;
-import org.apache.struts.util.RequestUtils;
-import org.apache.struts.util.MessageResources;
 
 /**
  * <p>
@@ -32,7 +28,7 @@ public class ShowRolesTag extends BaseTag {
      * The attribute name.
      */
     private String name = null;
-    
+
     /**
      * Name of the property to be accessed on the specified bean.
      */
@@ -42,7 +38,7 @@ public class ShowRolesTag extends BaseTag {
 
     /**
      * Return the attribute name.
-     * 
+     *
      * @return the attribute name.
      */
     public String getName() {
@@ -57,10 +53,10 @@ public class ShowRolesTag extends BaseTag {
     public void setName(String name) {
         this.name = name;
     }
-    
+
     /**
      * Return the attribute property.
-     * 
+     *
      * @return the attribute property.
      */
     public String getProperty() {
@@ -89,7 +85,7 @@ public class ShowRolesTag extends BaseTag {
         User user = (User) RequestUtils.lookup(pageContext, Constants.USER_KEY, null);
         UtilityBean utility = (UtilityBean) RequestUtils.lookup(pageContext, Constants.UTILITY_KEY, null);
         MessageResources messages =
-            MessageResources.getMessageResources(Constants.MESSAGE_RESOURCE_KEY);
+                MessageResources.getMessageResources(Constants.MESSAGE_RESOURCE_KEY);
         StringBuffer result = new StringBuffer("");
         String buf = null;
         Object obj = RequestUtils.lookup(pageContext, name, property, null);
@@ -107,7 +103,7 @@ public class ShowRolesTag extends BaseTag {
         if (userRoles == null || user == null) {
             return (SKIP_BODY);  // Nothing to output
         }
-        
+
         // Make the output string
         for (int i = 0; i < userRoles.length; i++) {
             UserRole userRole = userRoles[i];
@@ -133,10 +129,10 @@ public class ShowRolesTag extends BaseTag {
         if (buf != null && result.length() == 0) {
             result.append(buf);
         }
-        
+
         // Print this result to our output writer, no filtered
         ResponseUtils.write(pageContext, result.toString());
-        
+
         // Skip the body of this tag
         return (SKIP_BODY);
     }

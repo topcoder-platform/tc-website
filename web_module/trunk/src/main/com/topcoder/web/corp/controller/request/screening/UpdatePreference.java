@@ -7,23 +7,22 @@
  */
 package com.topcoder.web.corp.controller.request.screening;
 
-import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.corp.common.Util;
-import com.topcoder.web.corp.common.PermissionDeniedException;
-import com.topcoder.web.corp.common.Constants;
-import com.topcoder.web.corp.common.ScreeningException;
-import com.topcoder.web.ejb.preferencelevel.PreferenceLevel;
-import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.Transaction;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.corp.common.Constants;
+import com.topcoder.web.corp.common.PermissionDeniedException;
+import com.topcoder.web.corp.common.ScreeningException;
+import com.topcoder.web.corp.common.Util;
+import com.topcoder.web.ejb.preferencelevel.PreferenceLevel;
 
-import javax.transaction.UserTransaction;
 import javax.naming.NamingException;
-import java.util.Map;
+import javax.transaction.UserTransaction;
 import java.rmi.RemoteException;
+import java.util.Map;
 
 /**
  * <p>A request processor responsible to handle the requests to create/update the preference level relevant to specified

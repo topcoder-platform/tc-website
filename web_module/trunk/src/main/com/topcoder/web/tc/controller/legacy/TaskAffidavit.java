@@ -2,7 +2,6 @@ package com.topcoder.web.tc.controller.legacy;
 
 import com.topcoder.common.web.constant.TCServlet;
 import com.topcoder.common.web.data.Navigation;
-import com.topcoder.web.common.NavigationException;
 import com.topcoder.common.web.util.Conversion;
 import com.topcoder.common.web.util.Data;
 import com.topcoder.common.web.xml.HTMLRenderer;
@@ -12,19 +11,23 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.docGen.xml.RecordTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
+import com.topcoder.shared.security.PathResource;
+import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.TCSEmailMessage;
-import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.security.SimpleUser;
-import com.topcoder.shared.security.PathResource;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 
 import javax.naming.Context;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.*;
+import java.util.Enumeration;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.TreeMap;
 
 
 public final class TaskAffidavit {
@@ -77,7 +80,7 @@ public final class TaskAffidavit {
                     buf.append(nav.getUser().getHandle());
                     buf.append(" has answered your questions thusly\n\n");
                     Map.Entry me = null;
-                    for (Iterator it = questions.entrySet().iterator(); it.hasNext(); ) {
+                    for (Iterator it = questions.entrySet().iterator(); it.hasNext();) {
                         me = (Map.Entry) it.next();
                         buf.append(me.getKey());
                         buf.append(". ");
@@ -90,7 +93,8 @@ public final class TaskAffidavit {
                     TCSEmailMessage mail = new TCSEmailMessage();
                     if (requestCommand.equals("2004_open_submit_info"))
                         mail.setSubject("Travel Info Response - " + nav.getUser().getHandle());
-                    else mail.setSubject("Component Travel Info Response - " + nav.getUser().getHandle());
+                    else
+                        mail.setSubject("Component Travel Info Response - " + nav.getUser().getHandle());
 
                     mail.setBody(buf.toString());
                     mail.addToAddress("mluce@topcoder.com", TCSEmailMessage.TO);

@@ -1,19 +1,10 @@
 package com.topcoder.web.privatelabel.controller.request.amazon;
 
-import com.topcoder.web.privatelabel.Constants;
-import com.topcoder.web.privatelabel.model.SimpleRegInfo;
-import com.topcoder.web.privatelabel.model.FullRegInfo;
-import com.topcoder.web.privatelabel.model.VerizonRegInfo;
-import com.topcoder.web.privatelabel.controller.request.FullReg;
 import com.topcoder.web.common.TCWebException;
-
-import com.topcoder.shared.security.Authorization;
-import com.topcoder.shared.security.ClassResource;
-import com.topcoder.security.TCSubject;
-import com.topcoder.web.common.security.TCSAuthorization;
-import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.web.common.*;
-import com.topcoder.web.corp.Util;
+import com.topcoder.web.privatelabel.Constants;
+import com.topcoder.web.privatelabel.controller.request.FullReg;
+import com.topcoder.web.privatelabel.model.FullRegInfo;
+import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 /**
  * @author dok

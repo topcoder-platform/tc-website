@@ -1,21 +1,21 @@
 /*
  * UserRole.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.projecttracker;
 
-import java.io.Serializable;
-
 import com.topcoder.apps.review.persistence.Common;
+
+import java.io.Serializable;
 
 
 /**
  * <p>
  * The UserRole represents the relationship of a user to a project.
  * </p>
- * 
+ *
  * @author FatClimber
  * @version 1.0
  */
@@ -39,7 +39,7 @@ public class UserRole implements Serializable {
      * @param versionId DOCUMENT ME!
      */
     public UserRole(long id, Role role, User user, PaymentInfo paymentInfo,
-        ReviewerResponsibility reviewerResponsibility, long versionId) {
+                    ReviewerResponsibility reviewerResponsibility, long versionId) {
         this.id = id;
         this.role = role;
         this.user = user;
@@ -70,7 +70,7 @@ public class UserRole implements Serializable {
      * <p>
      * Return the id of the role.
      * </p>
-     * 
+     *
      * @return the id of the role.
      */
     public long getId() {
@@ -81,7 +81,7 @@ public class UserRole implements Serializable {
      * <p>
      * Return the id of the role.
      * </p>
-     * 
+     *
      * @return the id of the role.
      */
     public void setId(long id) {
@@ -93,7 +93,7 @@ public class UserRole implements Serializable {
      * <p>
      * Return the user role.
      * </p>
-     * 
+     *
      * @return the user role.
      */
     public Role getRole() {
@@ -104,7 +104,7 @@ public class UserRole implements Serializable {
      * <p>
      * Set the user role.
      * </p>
-     * 
+     *
      * @param role The user role to be set.
      */
     public void setRole(Role newRole) {
@@ -116,7 +116,7 @@ public class UserRole implements Serializable {
      * <p>
      * Return the user.
      * </p>
-     * 
+     *
      * @return the user.
      */
     public User getUser() {
@@ -127,7 +127,7 @@ public class UserRole implements Serializable {
      * <p>
      * Set the user
      * </p>
-     * 
+     *
      * @param user The user to be set.
      */
     public void setUser(User newUser) {
@@ -141,7 +141,7 @@ public class UserRole implements Serializable {
      * <p>
      * Return the payment information.
      * </p>
-     * 
+     *
      * @return the payment information.
      */
     public PaymentInfo getPaymentInfo() {
@@ -152,7 +152,7 @@ public class UserRole implements Serializable {
      * <p>
      * Set the payment information.
      * </p>
-     * 
+     *
      * @param info The payment information.
      */
     public void setPaymentInfo(PaymentInfo newPaymentInfo) {
@@ -164,7 +164,7 @@ public class UserRole implements Serializable {
      * <p>
      * Return the reviewer's responsibility.
      * </p>
-     * 
+     *
      * @return the reviewer's responsibility.
      */
     public ReviewerResponsibility getReviewerResponsibility() {
@@ -175,11 +175,11 @@ public class UserRole implements Serializable {
      * <p>
      * Set the reviewer's responsibility.
      * </p>
-     * 
+     *
      * @param reviewerResponsibility The reviewer's responsibility.
      */
     public void setReviewerResponsibility(ReviewerResponsibility newReviewerResponsibility) {
-        if (!Common.equals(this.reviewerResponsibility, newReviewerResponsibility)) { 
+        if (!Common.equals(this.reviewerResponsibility, newReviewerResponsibility)) {
             this.reviewerResponsibility = newReviewerResponsibility;
             this.dirtyFlag = true;
         }

@@ -1,33 +1,31 @@
 package com.topcoder.web.codinginterface.techassess.controller.request;
 
-import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.SessionInfo;
-import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.codinginterface.techassess.model.WebQueueResponseManager;
-import com.topcoder.web.codinginterface.techassess.model.ImageInfo;
-import com.topcoder.web.codinginterface.techassess.Constants;
+import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.language.BaseLanguage;
 import com.topcoder.shared.messaging.QueueMessageSender;
 import com.topcoder.shared.messaging.TimeOutException;
 import com.topcoder.shared.netCommon.messages.Message;
 import com.topcoder.shared.netCommon.screening.request.ScreeningLogoutRequest;
-import com.topcoder.shared.security.User;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.language.*;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.CachedDataAccess;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.security.User;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.codinginterface.techassess.Constants;
+import com.topcoder.web.codinginterface.techassess.model.ImageInfo;
+import com.topcoder.web.codinginterface.techassess.model.WebQueueResponseManager;
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.TCWebException;
 
-import javax.servlet.http.HttpSessionBindingListener;
 import javax.servlet.http.HttpSessionBindingEvent;
-import javax.servlet.http.HttpUtils;
-import java.util.*;
+import javax.servlet.http.HttpSessionBindingListener;
 import java.io.IOException;
 import java.io.Serializable;
-import java.io.FileInputStream;
+import java.util.*;
 
 /**
  * @author  dok
@@ -103,7 +101,7 @@ public abstract class Base extends BaseProcessor {
     }
 
     public List getLanguages() throws TCWebException {
-        if (languages==null) {
+        if (languages == null) {
             List temp = (List) getRequest().getSession().getAttribute(Constants.LANGUAGES);
             if (temp == null)
                 throw new TCWebException("languages have not been set");
@@ -122,7 +120,7 @@ public abstract class Base extends BaseProcessor {
      */
     public final void setSessionId(long sessionId) {
         //log.debug("session id set to " + sessionId);
-        if (getRequest().getSession().getAttribute("logouter")==null) {
+        if (getRequest().getSession().getAttribute("logouter") == null) {
             getRequest().getSession().setAttribute("logouter", new Logouter(sessionId, sender));
         }
         this.sessionId = sessionId;
@@ -160,11 +158,11 @@ public abstract class Base extends BaseProcessor {
         return companyId;
     }
 
-    protected Object getDefault(String key ) {
+    protected Object getDefault(String key) {
         return defaults.get(key);
     }
 
-    protected boolean hasDefault(String key ) {
+    protected boolean hasDefault(String key) {
         //log.debug("defaults is " + defaults);
         return defaults.containsKey(key);
     }
@@ -244,64 +242,64 @@ public abstract class Base extends BaseProcessor {
     }
 
     private static final String FULL_CONTENT =
-        "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\">" +
-        "<html>" +
-        "<head>" +
-        "<title>Technical Assessment</title>" +
-        "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" >" +
-        "<link type=\"text/css\" rel=\"stylesheet\" href=\"/css/screening.css\" >" +
-        "</head>" +
-        "<body>" +
-        "<table class=bodyCenter cellspacing=0 cellpadding=0>" +
-        "<tr>" +
-          " <td align=center>" +
+            "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\">" +
+            "<html>" +
+            "<head>" +
+            "<title>Technical Assessment</title>" +
+            "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" >" +
+            "<link type=\"text/css\" rel=\"stylesheet\" href=\"/css/screening.css\" >" +
+            "</head>" +
+            "<body>" +
+            "<table class=bodyCenter cellspacing=0 cellpadding=0>" +
+            "<tr>" +
+            " <td align=center>" +
             " <table cellspacing=0 cellpadding=0 class=tabTable>" +
-              " <tr>" +
-                " <td class=logoBox rowspan=2><img src=\"/i/corp/screening/clientLogo.gif\" alt=\"\"/></td>" +
-                " <td class=titleBar><img src=\"/i/corp/screening/pbtcLogo.gif\" alt=\"\"/></td>" +
-                " <td class=tabBarEnd align=right rowspan=2><img src=\"/i/corp/screening/tabBarEnd.gif\" alt=\"\"/></td>" +
-              " </tr>" +
-              " <tr>" +
-                " <td class=tabBar></td>" +
-              " </tr>" +
+            " <tr>" +
+            " <td class=logoBox rowspan=2><img src=\"/i/corp/screening/clientLogo.gif\" alt=\"\"/></td>" +
+            " <td class=titleBar><img src=\"/i/corp/screening/pbtcLogo.gif\" alt=\"\"/></td>" +
+            " <td class=tabBarEnd align=right rowspan=2><img src=\"/i/corp/screening/tabBarEnd.gif\" alt=\"\"/></td>" +
+            " </tr>" +
+            " <tr>" +
+            " <td class=tabBar></td>" +
+            " </tr>" +
             " </table>" +
             " <table cellspacing=0 cellpadding=0 class=timeTable>" +
-              " <tr>" +
-                " <td class=timeCellLeft><img src=\"/i/corp/screening/techAssTitle.gif\" alt=\"\" /></td>" +
-                " <td class=timeCellRight>&#160;<br />&#160;</td>" +
-              " </tr>" +
+            " <tr>" +
+            " <td class=timeCellLeft><img src=\"/i/corp/screening/techAssTitle.gif\" alt=\"\" /></td>" +
+            " <td class=timeCellRight>&#160;<br />&#160;</td>" +
+            " </tr>" +
             " </table>" +
             " <table cellspacing=0 cellpadding=0 class=bodyTable>" +
-              " <tr>" +
-                " <td><img src=\"/i/corp/screening/bodyTL.gif\" alt=\"\"/></td>" +
-                " <td class=bodyT>&#160;</td>" +
-                " <td><img src=\"/i/corp/screening/bodyTR.gif\" alt=\"\"/></td>" +
-              " </tr>" +
-              " <tr>" +
-                " <td class=bodyL>&#160;</td>" +
-                " <td class=bodyContent>" +
-                " <br /><br />" +
-                  " <table cellspacing=0 cellpadding=5 border=0 class=processingTable>" +
-                    " <tr>" +
-                      " <td><p class=pC><span class=bodySmallTitle>Processing...</span></p></td>" +
-                      " <td><img src=\"/i/corp/screening/processing.gif\" alt=\"\"/></td>" +
-                    " </tr>" +
-                  " </table>" +
-                  " <br /><br />" +
-                " </td>" +
-                " <td class=bodyR>&#160;</td>" +
-              " </tr>" +
-              " <tr>" +
-                " <td><img src=\"/i/corp/screening/bodyBL.gif\" alt=\"\"/></td>" +
-                " <td class=bodyB>&#160;</td>" +
-                " <td><img src=\"/i/corp/screening/bodyBR.gif\" alt=\"\"/></td>" +
-              " </tr>" +
+            " <tr>" +
+            " <td><img src=\"/i/corp/screening/bodyTL.gif\" alt=\"\"/></td>" +
+            " <td class=bodyT>&#160;</td>" +
+            " <td><img src=\"/i/corp/screening/bodyTR.gif\" alt=\"\"/></td>" +
+            " </tr>" +
+            " <tr>" +
+            " <td class=bodyL>&#160;</td>" +
+            " <td class=bodyContent>" +
+            " <br /><br />" +
+            " <table cellspacing=0 cellpadding=5 border=0 class=processingTable>" +
+            " <tr>" +
+            " <td><p class=pC><span class=bodySmallTitle>Processing...</span></p></td>" +
+            " <td><img src=\"/i/corp/screening/processing.gif\" alt=\"\"/></td>" +
+            " </tr>" +
             " </table>" +
-          " </td>" +
-        " </tr>" +
-        "</table>" +
-        "</body>" +
-        "</html>";
+            " <br /><br />" +
+            " </td>" +
+            " <td class=bodyR>&#160;</td>" +
+            " </tr>" +
+            " <tr>" +
+            " <td><img src=\"/i/corp/screening/bodyBL.gif\" alt=\"\"/></td>" +
+            " <td class=bodyB>&#160;</td>" +
+            " <td><img src=\"/i/corp/screening/bodyBR.gif\" alt=\"\"/></td>" +
+            " </tr>" +
+            " </table>" +
+            " </td>" +
+            " </tr>" +
+            "</table>" +
+            "</body>" +
+            "</html>";
 
     protected void showProcessingPage() throws IOException {
         showProcessingPage(FULL_CONTENT);
@@ -346,7 +344,7 @@ public abstract class Base extends BaseProcessor {
     protected static List getLanguages(ArrayList languageIds) {
         List ret = new ArrayList(languageIds.size());
         for (Iterator it = languageIds.iterator(); it.hasNext();) {
-            ret.add(BaseLanguage.getLanguage(((Integer)it.next()).intValue()));
+            ret.add(BaseLanguage.getLanguage(((Integer) it.next()).intValue()));
         }
         return ret;
     }

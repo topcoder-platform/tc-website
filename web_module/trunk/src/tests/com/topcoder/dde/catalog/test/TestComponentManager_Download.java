@@ -1,4 +1,4 @@
-/* 
+/*
  * TestComponentManager_Download.java
  *
  * By John C. Bollinger
@@ -9,8 +9,10 @@ package com.topcoder.dde.catalog.test;
 
 import com.topcoder.dde.catalog.CatalogException;
 import com.topcoder.dde.catalog.Download;
+
 import java.util.Collection;
 import java.util.Iterator;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -22,8 +24,8 @@ import junit.framework.TestSuite;
  * @version 1.0
  */
 public class TestComponentManager_Download
-       extends RemoteComponentManagerTestCase {
-       
+        extends RemoteComponentManagerTestCase {
+
     protected Download download;
 
     /**
@@ -35,13 +37,13 @@ public class TestComponentManager_Download
     public TestComponentManager_Download(String testName) {
         super(testName);
     }
-    
+
     public void setUp() throws Exception {
         super.setUp();
         download = new Download("Test Download #" + idGen.nextId(),
                 "http://test.com/dl");
     }
-    
+
     /**
      * tests the normal functioning of the addDownload method
      */
@@ -61,7 +63,7 @@ public class TestComponentManager_Download
      */
 /*
  * Objecting to this case is not required
- *         
+ *
     synchronized public void testAddDownload_Exists() throws Exception {
         Download dl = manager1.addDownload(download);
         try {
@@ -74,11 +76,11 @@ public class TestComponentManager_Download
         }
     }
  */
- 
+
     /**
      * tests the functioning of the addDownload method when the argument is
      * <code>null</code>
-     */    
+     */
     public void testAddDownload_Null() throws Exception {
         try {
             manager1.addDownload(null);
@@ -91,24 +93,24 @@ public class TestComponentManager_Download
     /*
      * getDownloads tested implicitly throughout this test case
      */
-    
+
     /**
      * tests the normal functioning of the removeDownload method
      */
     synchronized public void testRemoveDownload() throws Exception {
         Download dl = manager1.addDownload(download);
         Collection downloads;
-        
+
         manager1.removeDownload(dl.getId());
         downloads = manager1.getDownloads();
-        
+
         assertTrue("Download not removed", !downloads.contains(download));
     }
-    
+
     /**
      * tests the functioning of the removeDownload method when no download
      * matching the argument exists
-     */    
+     */
     public void testRemoveDownload_Missing() throws Exception {
         try {
             manager1.removeDownload(idGen.nextId());
@@ -131,7 +133,7 @@ public class TestComponentManager_Download
             throw e;
         }
     }
-     
+
     /**
      * tests the normal functioning of the updateDownload method
      */
@@ -139,24 +141,24 @@ public class TestComponentManager_Download
         Download dl = manager1.addDownload(download);
         Download dl2 = new Download(dl.getDescription(), dl.getURL());
         Collection downloads;
-        
+
         try {
             dl.setURL("https://test.com/download/dl");
             manager1.updateDownload(dl);
             downloads = manager1.getDownloads();
             assertTrue("Download not updated on the server",
-                       downloads.contains(dl));
+                    downloads.contains(dl));
             assertTrue("Download duplicated, not updated",
-                       !downloads.contains(dl2));
+                    !downloads.contains(dl2));
         } finally {
             manager1.removeDownload(dl.getId());
         }
     }
-    
+
     /**
      * tests the functioning of the updateDownload method when the argument is
      * <code>null</code>
-     */    
+     */
     public void testUpdateDownload_Null() throws Exception {
         try {
             manager1.updateDownload(null);
@@ -165,11 +167,11 @@ public class TestComponentManager_Download
             /* the expected case */
         }
     }
-    
+
     /**
      * tests the functioning of the updateDownload method when no download
      * matching the argument exists
-     */    
+     */
     public void testUpdateDownload_Missing() throws Exception {
         try {
             manager1.updateDownload(download);
@@ -178,14 +180,14 @@ public class TestComponentManager_Download
             /* the expected case */
         }
     }
-    
+
     /**
      * tests the functioning of the updateDownload method when the download
      * matching the argument is not associated with the component being managed
      */
 /*
  * Not a valid test -- the behavior tested for is not required or expected
- *    
+ *
     synchronized public void testUpdateDownload_NotOwned() throws Exception {
         Download dl = manager2.addDownload(download);
         try {
@@ -202,5 +204,5 @@ public class TestComponentManager_Download
     public static Test suite() {
         return new ComponentManagerTestSetup(new TestSuite(TestComponentManager_Download.class));
     }
-    
+
 }

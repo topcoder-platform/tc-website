@@ -1,14 +1,14 @@
 package com.topcoder.web.tc.controller.request.statistics;
 
+import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Static;
-import com.topcoder.shared.util.TCResourceBundle;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.DataAccessConstants;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 import javax.servlet.http.HttpUtils;
 import java.util.Map;

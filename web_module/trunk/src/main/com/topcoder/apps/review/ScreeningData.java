@@ -1,10 +1,11 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 
 package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.document.ScreeningScorecard;
+
 /**
  * Wrapping class for the screening scorecard data.
  *
@@ -12,9 +13,9 @@ import com.topcoder.apps.review.document.ScreeningScorecard;
  * @version 1.0
  */
 public class ScreeningData extends OnlineReviewProjectData {
-    
+
     // --------------------------------------------------- Instance Variables
-    
+
     /**
      * The id of submitter.
      */
@@ -24,14 +25,14 @@ public class ScreeningData extends OnlineReviewProjectData {
      * The screening scorecard.
      */
     private ScreeningScorecard screeningScorecard = null;
-    
+
     // ------------------------------------------------------------ Constructor
-    
+
     /**
      * <p>
      * Creates the instance of <code>ScreeningData</code> class.
      * </p>
-     * 
+     *
      * @param orpd The OnlineReviewProjectData to be set.
      * @param submitterId The id of submitter.
      * @param screeningScorecard The screening scorecard to be set.
@@ -44,30 +45,30 @@ public class ScreeningData extends OnlineReviewProjectData {
     }
 
     // --------------------------------------------------------- Public Methods
-    
+
     /**
      * <p>
      * Return the id of submitter.
      * </p>
-     * 
+     *
      * @return the id of submitter.
      */
     public long getSubmitterId() {
         return submitterId;
     }
-    
+
     /**
      * <p>
      * Return the wrapped screening scorecard.
      * </p>
-     * 
+     *
      * @return the wrapped screening scorecard.
      */
-    public ScreeningScorecard getScreeningScorecard() {        
+    public ScreeningScorecard getScreeningScorecard() {
         return screeningScorecard;
-    } // end getScreeningScorecard        
-    
-    
+    } // end getScreeningScorecard
+
+
 } // end ScreeningData
 
 

@@ -1,19 +1,20 @@
 package com.topcoder.web.ejb.pacts;
 
-import com.topcoder.web.ejb.BaseEJB;
-import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.messaging.QueueMessageSender;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.ejb.BaseEJB;
+import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
 import com.topcoder.web.tc.controller.legacy.pacts.common.*;
 
-import javax.jms.JMSException;
-import javax.naming.InitialContext;
 import javax.ejb.EJBException;
+import javax.jms.JMSException;
 import java.sql.*;
-import java.text.*;
+import java.text.DecimalFormat;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 
@@ -3741,7 +3742,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws  SQLException If there is some problem querying the database
      */
     public boolean canAffirmAffidavit(long userId, int affidavitTypeId) throws SQLException {
-        return hasNotarizedAffidavit(userId, affidavitTypeId)&&hasAllDemographicAnswers(userId)&&hasTaxForm(userId);
+        return hasNotarizedAffidavit(userId, affidavitTypeId) && hasAllDemographicAnswers(userId) && hasTaxForm(userId);
     }
 
 
@@ -3757,7 +3758,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         try {
             c = DBMS.getConnection();
             ResultSetContainer rsc = runSelectQuery(c, query.toString(), false);
-            ret = Integer.parseInt(rsc.getItem(0, 0).toString())>0;
+            ret = Integer.parseInt(rsc.getItem(0, 0).toString()) > 0;
 
         } catch (SQLException e) {
             close(c);
@@ -3768,7 +3769,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     }
 
-    public boolean hasAllDemographicAnswers(long userId) throws  SQLException {
+    public boolean hasAllDemographicAnswers(long userId) throws SQLException {
 
         StringBuffer query = new StringBuffer(300);
         query.append("SELECT COUNT(*) FROM demographic_assignment da, demographic_question dq ");
@@ -3785,7 +3786,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         try {
             c = DBMS.getConnection();
             ResultSetContainer rsc = runSelectQuery(c, query.toString(), false);
-            ret = Integer.parseInt(rsc.getItem(0, 0).toString())==0;
+            ret = Integer.parseInt(rsc.getItem(0, 0).toString()) == 0;
 
         } catch (SQLException e) {
             close(c);
@@ -3807,7 +3808,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         try {
             c = DBMS.getConnection();
             ResultSetContainer rsc = runSelectQuery(c, query.toString(), false);
-            ret = Integer.parseInt(rsc.getItem(0, 0).toString())>0;
+            ret = Integer.parseInt(rsc.getItem(0, 0).toString()) > 0;
 
         } catch (SQLException e) {
             close(c);
@@ -3816,7 +3817,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
         return ret;
     }
-
 
 
     // Surrounds with "" if the string contains a comma, as QuickBooks won't like
@@ -4016,7 +4016,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 String address2 = rsc.getItem(i, "address2").toString();
                 String email = rsc.getItem(i, "email").toString();
                 String userId = rsc.getItem(i, "user_id").toString();
-                String dueDate = rsc.getItem(i, "date_due").toString().equals("00/00/0000") ?  currentDate : rsc.getItem(i, "date_due").toString();
+                String dueDate = rsc.getItem(i, "date_due").toString().equals("00/00/0000") ? currentDate : rsc.getItem(i, "date_due").toString();
                 vendors.append("!VEND,NAME,PRINTAS,ADDR1,ADDR2,ADDR3,ADDR4,ADDR5,VTYPE,CONT1,EMAIL,SALUTATION,FIRSTNAME,MIDINIT,LASTNAME\n");
                 // Add the vendor line if necessary
                 if (!codersPrinted.contains(userId)) {
@@ -4319,7 +4319,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             throws IllegalUpdateException, SQLException {
         return generateRoundPayments(roundId, CONTEST_WINNING_AFFIDAVIT, makeChanges);
     }
-
 
 
     /**

@@ -1,7 +1,7 @@
 package com.topcoder.web.privatelabel.controller.request.googleindia05;
 
-import com.topcoder.web.privatelabel.controller.request.BaseActivate;
 import com.topcoder.web.privatelabel.Constants;
+import com.topcoder.web.privatelabel.controller.request.BaseActivate;
 
 /**
  * @author  dok

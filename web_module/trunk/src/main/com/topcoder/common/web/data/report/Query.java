@@ -1,8 +1,8 @@
 package com.topcoder.common.web.data.report;
 
 import com.topcoder.ejb.Reporting.Reporting;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 
@@ -108,7 +108,7 @@ public class Query implements Serializable {
         ArrayList result = null;
         try {
             InitialContext ctx = TCContext.getInitial();
-            Reporting r = (Reporting)BaseProcessor.createEJB(ctx, Reporting.class);
+            Reporting r = (Reporting) BaseProcessor.createEJB(ctx, Reporting.class);
             result = r.getResult(this);
         } catch (Exception e) {
             log.error("query: " + query);

@@ -1,19 +1,19 @@
 package com.topcoder.web.corp.controller.request.screening;
 
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.web.corp.common.PermissionDeniedException;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.corp.common.Constants;
+import com.topcoder.web.corp.common.PermissionDeniedException;
 import com.topcoder.web.corp.common.Util;
 import com.topcoder.web.corp.model.ProblemInfo;
 import com.topcoder.web.corp.model.SubmissionInfo;
-import com.topcoder.web.common.TCWebException;
 
 import javax.servlet.http.HttpUtils;
-import java.util.Map;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class PrinterTestResults extends TestResults {
     private static Logger log = Logger.getLogger(PrinterTestResults.class);

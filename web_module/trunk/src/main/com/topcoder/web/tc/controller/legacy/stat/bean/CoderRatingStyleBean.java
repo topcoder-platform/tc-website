@@ -1,6 +1,8 @@
 package com.topcoder.web.tc.controller.legacy.stat.bean;
 
-import java.util.*;
+import java.util.Comparator;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * This class represents a bean container of Rating Brackets.
@@ -104,9 +106,9 @@ public class CoderRatingStyleBean {
                 iVal = ((CoderRatingBracket) obj).miMin;
                 int iMaxVal = ((CoderRatingBracket) obj).miMax;
                 if (miMin > iVal)
-                    return miMax > iMaxVal ? (miMin - iVal):0;
+                    return miMax > iMaxVal ? (miMin - iVal) : 0;
                 else if (miMin < iVal)
-                    return miMax < iMaxVal ? (miMin - iVal):0;
+                    return miMax < iMaxVal ? (miMin - iVal) : 0;
                 else
                     return 0;
             } else if (obj instanceof MyNumber) {

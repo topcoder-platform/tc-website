@@ -1,8 +1,10 @@
 package com.topcoder.web.hs.controller.requests;
 
-import java.io.*;
-import com.topcoder.web.hs.common.*;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.hs.common.Constants;
+
+import java.io.PrintWriter;
+import java.io.StringWriter;
 
 /**
  * A RequestProcessor which handles an exception which occured during
@@ -24,9 +26,9 @@ public class Error extends Base {
     protected void businessProcessing() throws TCWebException {
 
 //@@@ err, this next blob is useless because the jsp does this stuff itself
-        Exception e = (Exception)getRequest().getAttribute("exception");
+        Exception e = (Exception) getRequest().getAttribute("exception");
         String en, et;
-        if(e==null) {
+        if (e == null) {
             en = "Unknown Error";
             et = "No trace available";
         } else {

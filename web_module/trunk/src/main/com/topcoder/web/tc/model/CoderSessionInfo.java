@@ -1,17 +1,17 @@
 package com.topcoder.web.tc.model;
 
+import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.CachedDataAccess;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.logging.Logger;
 
-import java.util.Set;
 import java.util.Map;
+import java.util.Set;
 
 public class CoderSessionInfo extends SessionInfo {
     private int rating;
@@ -49,7 +49,7 @@ public class CoderSessionInfo extends SessionInfo {
                 } catch (NullPointerException e) {
                     designRating = 0;
                 }
-                hasImage = info.getIntItem(0, "has_image")>0;
+                hasImage = info.getIntItem(0, "has_image") > 0;
                 activationCode = info.getStringItem(0, "activation_code");
             } else {
                 log.warn("couldn't find session info for: " + authentication.getActiveUser().getId());
@@ -63,10 +63,10 @@ public class CoderSessionInfo extends SessionInfo {
         }
 
         CachedDataAccess countDai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
-        countDai.setExpireTime(15*60*1000);
+        countDai.setExpireTime(15 * 60 * 1000);
         Request countReq = new Request();
         countReq.setContentHandle("member_count");
-        memberCount = ((ResultSetContainer)countDai.getData(countReq).get("member_count")).getIntItem(0, "member_count");
+        memberCount = ((ResultSetContainer) countDai.getData(countReq).get("member_count")).getIntItem(0, "member_count");
     }
 
     public int getRating() {
@@ -104,7 +104,7 @@ public class CoderSessionInfo extends SessionInfo {
         r.setContentHandle("session_info");
         r.setProperty("cr", String.valueOf(userId));
         Map m = dAccess.getData(r);
-        return (ResultSetContainer)m.get("session_info");
+        return (ResultSetContainer) m.get("session_info");
     }
 
     private ResultSetContainer getDwInfo(long userId) throws Exception {
@@ -114,7 +114,7 @@ public class CoderSessionInfo extends SessionInfo {
         r.setContentHandle("dw_session_info");
         r.setProperty("cr", String.valueOf(userId));
         Map m = dAccess.getData(r);
-        return (ResultSetContainer)m.get("session_info");
+        return (ResultSetContainer) m.get("session_info");
     }
 
 }

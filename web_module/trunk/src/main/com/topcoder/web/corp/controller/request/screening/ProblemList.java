@@ -3,12 +3,11 @@ package com.topcoder.web.corp.controller.request.screening;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.User;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.corp.common.Constants;
 import com.topcoder.web.corp.common.ScreeningException;
 import com.topcoder.web.corp.common.Util;
 import com.topcoder.web.corp.model.ProblemInfo;
-import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.TCWebException;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -49,15 +48,12 @@ public class ProblemList extends BaseScreeningProcessor {
                     while (item < result.size() &&
                             round.equals(result.getItem(item, "session_round_id").toString())) {
                         String problem = result.getItem(item, "problem_id").toString();
-                        if(super.getUsageType() == Constants.USAGE_TYPE_SCREENING)
-                        {
+                        if (super.getUsageType() == Constants.USAGE_TYPE_SCREENING) {
                             subList.add(
                                     ProblemInfo.createProblemInfo(user,
                                             Long.parseLong(round),
                                             Long.parseLong(problem), true));
-                        }   
-                        else
-                        {
+                        } else {
                             subList.add(
                                     ProblemInfo.createProblemInfo(user,
                                             Long.parseLong(round),

@@ -1,9 +1,9 @@
 package com.topcoder.utilities.cheaterChecker;
 
-import java.util.TreeSet;
-import java.util.StringTokenizer;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
 
 public class Util {
     private static TreeSet javaTokens;
@@ -28,10 +28,11 @@ public class Util {
             String tok = st.nextToken();
             if ((tok.charAt(0) >= 'a' && tok.charAt(0) <= 'z') ||
                     (tok.charAt(0) >= 'A' && tok.charAt(0) <= 'Z'))
-            tokens.add(tok);
+                tokens.add(tok);
         }
         return tokens;
     }
+
     /**
      * Given two lists, determine the how many items they share in common.
      * the consecutive flag determines whether or not the items have to
@@ -74,7 +75,6 @@ public class Util {
     }
 
 
-
     public static int getLevenshteinDistance(List list1, List list2) {
         int table[][] = new int[list1.size() + 1][list2.size() + 1];
         int i, k = 0;
@@ -99,21 +99,21 @@ public class Util {
         double sum = 0;
         double avg = avg(values);
         Result r = null;
-        for (int i=0; i<values.size(); i++) {
-            r = (Result)values.get(i);
-            sum += (r.getValue()-avg)*(r.getValue()-avg);
+        for (int i = 0; i < values.size(); i++) {
+            r = (Result) values.get(i);
+            sum += (r.getValue() - avg) * (r.getValue() - avg);
         }
-        return Math.sqrt(sum/(values.size()-1));
+        return Math.sqrt(sum / (values.size() - 1));
     }
 
     public static double avg(List values) {
         double sum = 0;
         Result r = null;
-        for (int i=0; i<values.size(); i++) {
-            r = (Result)values.get(i);
-            sum+=r.getValue();
+        for (int i = 0; i < values.size(); i++) {
+            r = (Result) values.get(i);
+            sum += r.getValue();
         }
-        return sum/values.size();
+        return sum / values.size();
     }
 
     /**
@@ -129,7 +129,7 @@ public class Util {
 
     /**
      * given three integers, return the smallest
-      * @param a
+     * @param a
      * @param b
      * @param c
      * @return
@@ -147,9 +147,12 @@ public class Util {
      * @return
      */
     protected static int magic(int n) {
-        if (n==0) return 0;
-        else if (n<3) return 1;
-        else return (n-1)+magic(n-1);
+        if (n == 0)
+            return 0;
+        else if (n < 3)
+            return 1;
+        else
+            return (n - 1) + magic(n - 1);
     }
 
     static {
@@ -203,7 +206,6 @@ public class Util {
         javaTokens.add("volatile");
         javaTokens.add("while");
     }
-
 
 
 }

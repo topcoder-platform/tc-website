@@ -1,7 +1,7 @@
 package com.topcoder.web.ejb.note;
 
-import javax.ejb.EJBObject;
 import javax.ejb.EJBException;
+import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
 
 /**
@@ -97,5 +97,5 @@ public interface Note extends EJBObject {
      * @throws RemoteException
      */
     public void removeNote(long noteId, String dataSource)
-        throws EJBException, RemoteException;
+            throws EJBException, RemoteException;
 }

@@ -1,13 +1,14 @@
 package com.topcoder.web.hs.controller.requests;
 
-import com.topcoder.shared.security.*;
-import com.topcoder.shared.util.logging.*;
-import com.topcoder.web.hs.common.*;
-import com.topcoder.web.hs.model.*;
+import com.topcoder.shared.security.User;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.hs.common.RegistrationHelper;
+import com.topcoder.web.hs.model.SessionInfoBean;
+import com.topcoder.web.hs.model.StudentRegistrationBean;
 
-import java.util.*;
+import java.util.HashMap;
 
 /**
  * A RequestProcessor which handles updating students information.  It

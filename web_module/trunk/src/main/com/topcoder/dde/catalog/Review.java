@@ -10,8 +10,9 @@
 
 package com.topcoder.dde.catalog;
 
-import java.util.Date;
 import com.topcoder.dde.user.User;
+
+import java.util.Date;
 
 
 /**
@@ -39,7 +40,7 @@ public class Review implements java.io.Serializable {
 
 
     Review(long id, long userId, String username, Date reviewDate, int rating,
-            String comments) {
+           String comments) {
         this.id = id;
         this.userId = userId;
         this.username = username;
@@ -67,11 +68,11 @@ public class Review implements java.io.Serializable {
     public Review(User user, int rating, String comments) {
         if (user == null) {
             throw new IllegalArgumentException(
-            "Null specified for reviewer");
+                    "Null specified for reviewer");
         }
         if (comments == null) {
             throw new IllegalArgumentException(
-            "Null specified for review comments");
+                    "Null specified for review comments");
         }
         this.id = -1;
         this.userId = user.getId();
@@ -118,8 +119,8 @@ public class Review implements java.io.Serializable {
      */
     public Date getReviewDate() {
         return (reviewDate == null)
-            ? null
-            : (Date) reviewDate.clone();
+                ? null
+                : (Date) reviewDate.clone();
     }
 
     /**
@@ -159,7 +160,7 @@ public class Review implements java.io.Serializable {
     public void setComments(String comments) {
         if (comments == null) {
             throw new IllegalArgumentException(
-            "Null specified for review comments");
+                    "Null specified for review comments");
         }
         this.comments = comments;
     }
@@ -180,8 +181,8 @@ public class Review implements java.io.Serializable {
         }
         Review other = (Review) object;
         return getUserId() == other.getUserId()
-            && getRating() == other.getRating()
-            && getComments().equals(other.getComments());
+                && getRating() == other.getRating()
+                && getComments().equals(other.getComments());
     }
 
     /**
@@ -197,7 +198,7 @@ public class Review implements java.io.Serializable {
 
     public String toString() {
         return "Review " + getId() + " by user " + getUserId() + " - Rating: "
-            + getRating() + " - " + getComments();
+                + getRating() + " - " + getComments();
     }
 
 

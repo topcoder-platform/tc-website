@@ -32,20 +32,20 @@ public class SortTag extends TagSupport {
     public int doStartTag() throws JspException {
         String currCol = StringUtils.checkNull(pageContext.getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
         String currDir = StringUtils.checkNull(pageContext.getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
-        SortInfo defaults = (SortInfo)pageContext.getRequest().getAttribute(SortInfo.REQUEST_KEY);
+        SortInfo defaults = (SortInfo) pageContext.getRequest().getAttribute(SortInfo.REQUEST_KEY);
         String sortDir = defaults.getDefault(column);
-        if (sortDir==null) sortDir = "asc";
+        if (sortDir == null) sortDir = "asc";
 
         int finalColumn = column;
 
         if (!(currCol.equals("") || currDir.equals(""))) {
             int inputCol = Integer.parseInt(currCol);
-            if (inputCol==column) {
+            if (inputCol == column) {
                 if (currDir.equals("desc")) {
-                    if (ascColumn >- 1) finalColumn = ascColumn;
+                    if (ascColumn > -1) finalColumn = ascColumn;
                     sortDir = "asc";
                 } else {
-                    if (descColumn >- 1) finalColumn = descColumn;
+                    if (descColumn > -1) finalColumn = descColumn;
                     sortDir = "desc";
                 }
             } else if (inputCol == ascColumn) {

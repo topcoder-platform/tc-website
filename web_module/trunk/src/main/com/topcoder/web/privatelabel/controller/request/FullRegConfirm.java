@@ -11,10 +11,10 @@ import com.topcoder.web.privatelabel.model.DemographicResponse;
 import com.topcoder.web.privatelabel.model.FullRegInfo;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
-import java.util.Iterator;
-import java.util.Map;
-import java.util.List;
 import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 /**
  *

@@ -10,6 +10,7 @@ package com.topcoder.dde.persistencelayer.test;
 
 import com.topcoder.dde.persistencelayer.interfaces.LocalDDECategoriesHome;
 import com.topcoder.dde.persistencelayer.interfaces.LocalDDECategories;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
@@ -29,7 +30,7 @@ public class TestLocalDDECategoriesHome extends PersistenceTestCase {
     private LocalDDECategoriesHome localHome;
     private LocalDDECategories parent;
     private Long parentId;
-    
+
     private static final long DEFAULT_STATUS = 0L;
     private static final long ACTIVE_STATUS = 1L;
     private static final long OTHER_ACTIVE_STATUS = 101L;
@@ -46,7 +47,7 @@ public class TestLocalDDECategoriesHome extends PersistenceTestCase {
      */
     TestLocalDDECategoriesHome() {
         this("testCreate");
-    }        
+    }
 
     /**
      * constructs a new TestLocalDDECategoriesHome configured to run the named
@@ -70,7 +71,7 @@ public class TestLocalDDECategoriesHome extends PersistenceTestCase {
      */
     public void setUp() throws Exception {
         super.setUp();
-        synchronized(contextLock) {
+        synchronized (contextLock) {
             localHome = (LocalDDECategoriesHome) ctx.lookup(
                     LocalDDECategoriesHome.EJB_REF_NAME);
         }
@@ -81,28 +82,28 @@ public class TestLocalDDECategoriesHome extends PersistenceTestCase {
         assertNotNull("parent category's id is null", parentId);
         INVALID_PARENT_ID = new Long(nextId());
     }
-    
+
     public void tearDown() throws Exception {
         if (parent != null) {
             parent.remove();
         }
         super.tearDown();
     }
-    
+
     /**
      * returns a new LocalDDECategories entity with default field values
      */
     LocalDDECategories createDefault() throws Exception {
         return localHome.create(parentId, DEF_CAT_NAME, DEF_CAT_DESC,
-                DEFAULT_STATUS); 
+                DEFAULT_STATUS);
     }
-    
+
     /**
      * tests normal creation of a new DDECategory entity
      */
     public void testCreate() throws Exception {
         synchronized (TestLocalDDECategoriesHome.class) {
-            LocalDDECategories local = createDefault(); 
+            LocalDDECategories local = createDefault();
             assertNotNull("local bean reference is null", local);
             try {
                 assertEquals(parentId, local.getParentCategoryId());
@@ -121,7 +122,7 @@ public class TestLocalDDECategoriesHome extends PersistenceTestCase {
     /**
      * tests creation of a new DDECategory entity with a status that is not in
      * the status table
-     */    
+     */
     public void testCreateInvalidStatus() throws Exception {
         try {
             LocalDDECategories local = localHome.create(parentId, DEF_CAT_NAME,
@@ -133,7 +134,7 @@ public class TestLocalDDECategoriesHome extends PersistenceTestCase {
         }
     }
 
-    
+
     /**
      * tests creation of a new DDECategory with a parent category not in the
      * DB
@@ -151,7 +152,7 @@ public class TestLocalDDECategoriesHome extends PersistenceTestCase {
             local.remove();
         }
     }
-    
+
     /**
      * tests creation of a new DDECategory with a null name
      */
@@ -165,7 +166,7 @@ public class TestLocalDDECategoriesHome extends PersistenceTestCase {
             /* the expected case */
         }
     }
-    
+
     /**
      * tests creation of a new DDECategory with a null description
      */
@@ -179,7 +180,7 @@ public class TestLocalDDECategoriesHome extends PersistenceTestCase {
             /* the expected case */
         }
     }
-    
+
     /**
      * tests the findAllActive() method
      */
@@ -199,7 +200,7 @@ public class TestLocalDDECategoriesHome extends PersistenceTestCase {
                 (Long) cd1.getPrimaryKey(), DEF_CAT_NAME + "1..1", DEF_CAT_DESC,
                 ACTIVE_STATUS);
         /* must synchronize to avoid conflicts with other tests */
-        synchronized(TestLocalDDECategoriesHome.class) {
+        synchronized (TestLocalDDECategoriesHome.class) {
             try {
                 ensureInDB(cd1);
                 ensureInDB(cd2);
@@ -214,7 +215,7 @@ public class TestLocalDDECategoriesHome extends PersistenceTestCase {
                  * non-test data
                  */
                 assertEquals("incorrect number of active categories returned",
-                             4, col.size());
+                        4, col.size());
             } finally {
                 deleteRow(cd1);
                 deleteRow(cd2);
@@ -225,7 +226,7 @@ public class TestLocalDDECategoriesHome extends PersistenceTestCase {
             }
         }
     }
-    
+
     /**
      * tests the findByPrimaryKey() method when the requested key is present
      */
@@ -233,13 +234,13 @@ public class TestLocalDDECategoriesHome extends PersistenceTestCase {
         DDECategoriesData catData = new DDECategoriesData(
                 nextId(), null, DEF_CAT_NAME, DEF_CAT_DESC, DEFAULT_STATUS);
         /* must synchronize to avoid conflicts with other tests */
-        synchronized(TestLocalDDECategoriesHome.class) {
+        synchronized (TestLocalDDECategoriesHome.class) {
             ensureInDB(catData);
             try {
                 transactionBoundary();
                 LocalDDECategories cat =
                         localHome.findByPrimaryKey(
-                        (Long) catData.getPrimaryKey());
+                                (Long) catData.getPrimaryKey());
                 assertNotNull(cat);
                 assertEquals("Found the wrong data", catData,
                         new DDECategoriesData(
@@ -251,7 +252,7 @@ public class TestLocalDDECategoriesHome extends PersistenceTestCase {
             }
         }
     }
-    
+
     /**
      * tests the findByPrimaryKey() method when the requested key is absent
      */
@@ -263,7 +264,7 @@ public class TestLocalDDECategoriesHome extends PersistenceTestCase {
             /* the expected case */
         }
     }
-    
+
     /**
      * tests the findByParentCategoryId() method
      */
@@ -284,7 +285,7 @@ public class TestLocalDDECategoriesHome extends PersistenceTestCase {
                 (Long) cd1.getPrimaryKey(), DEF_CAT_NAME + "1..1", DEF_CAT_DESC,
                 ACTIVE_STATUS);
         assertNotNull("test category 1's primary key is null",
-                      cd1.getPrimaryKey());
+                cd1.getPrimaryKey());
         DDECategoriesData cd12 = new DDECategoriesData(new Long(nextId()),
                 (Long) cd1.getPrimaryKey(), DEF_CAT_NAME + "1..2", DEF_CAT_DESC,
                 ACTIVE_STATUS);
@@ -292,7 +293,7 @@ public class TestLocalDDECategoriesHome extends PersistenceTestCase {
                 (Long) cd1.getPrimaryKey(), DEF_CAT_NAME + "1..3", DEF_CAT_DESC,
                 0);
         /* must synchronize to avoid conflicts with other tests */
-        synchronized(TestLocalDDECategoriesHome.class) {
+        synchronized (TestLocalDDECategoriesHome.class) {
             try {
                 ensureInDB(cd1);
                 ensureInDB(cd2);
@@ -327,19 +328,19 @@ public class TestLocalDDECategoriesHome extends PersistenceTestCase {
             }
         }
     }
-    
+
     class DDECategoriesData implements RowData {
         long categoryId;
         Long parentCategoryId;
         String categoryName;
         String description;
         long statusId;
-        
+
         DDECategoriesData(Object id, Long parentId, String name, String desc,
                           long status) {
             this(keyToLong(id), parentId, name, desc, status);
         }
-        
+
         DDECategoriesData(long id, Long parentId, String name, String desc,
                           long status) {
             categoryId = id;
@@ -348,39 +349,39 @@ public class TestLocalDDECategoriesHome extends PersistenceTestCase {
             description = desc;
             statusId = status;
         }
-        
+
         DDECategoriesData(ResultSet rs) throws SQLException {
             readRowData(rs);
         }
-        
+
         public Object getPrimaryKey() {
             return new Long(categoryId);
         }
-        
+
         private void updateResultSet(ResultSet rs) throws SQLException {
             if (parentCategoryId == null) {
                 rs.updateNull("PARENT_CATEGORY_ID");
             } else {
                 rs.updateLong("PARENT_CATEGORY_ID",
-                              parentCategoryId.longValue());
+                        parentCategoryId.longValue());
             }
             rs.updateString("CATEGORY_NAME", categoryName);
             rs.updateString("DESCRIPTION", description);
             rs.updateLong("STATUS_ID", statusId);
         }
-        
+
         public void storeRowData(ResultSet rs) throws SQLException {
             updateResultSet(rs);
             rs.updateRow();
         }
-        
+
         public void insertRowData(ResultSet rs) throws SQLException {
             rs.moveToInsertRow();
             rs.updateLong("CATEGORY_ID", categoryId);
             updateResultSet(rs);
             rs.insertRow();
         }
-        
+
         public void readRowData(ResultSet rs) throws SQLException {
             long l;
             categoryId = rs.getLong("CATEGORY_ID");
@@ -390,22 +391,22 @@ public class TestLocalDDECategoriesHome extends PersistenceTestCase {
             description = rs.getString("DESCRIPTION");
             statusId = rs.getLong("STATUS_ID");
         }
-        
+
         public boolean matchesResultSet(ResultSet rs) throws SQLException {
             return equals(new DDECategoriesData(rs));
         }
-        
+
         public boolean equals(Object o) {
-            if (! (o instanceof DDECategoriesData) ) {
+            if (!(o instanceof DDECategoriesData)) {
                 return false;
             }
             DDECategoriesData d = (DDECategoriesData) o;
             return (
-                (categoryId == d.categoryId)
-                && objectsMatch(parentCategoryId, d.parentCategoryId)
-                && objectsMatch(categoryName, d.categoryName)
-                && objectsMatch(description, d.description)
-                && (statusId == d.statusId) );
+                    (categoryId == d.categoryId)
+                    && objectsMatch(parentCategoryId, d.parentCategoryId)
+                    && objectsMatch(categoryName, d.categoryName)
+                    && objectsMatch(description, d.description)
+                    && (statusId == d.statusId));
         }
     }
 }

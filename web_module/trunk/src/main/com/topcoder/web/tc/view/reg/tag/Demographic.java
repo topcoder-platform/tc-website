@@ -1,6 +1,8 @@
 package com.topcoder.web.tc.view.reg.tag;
 
-import com.topcoder.common.web.data.*;
+import com.topcoder.common.web.data.DemographicAnswer;
+import com.topcoder.common.web.data.DemographicAssignment;
+import com.topcoder.common.web.data.DemographicQuestion;
 import com.topcoder.common.web.util.Cache;
 import com.topcoder.ejb.DataCache.DataCache;
 
@@ -8,7 +10,10 @@ import javax.naming.Context;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.BodyTagSupport;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
 
 public class Demographic
         extends BodyTagSupport {
@@ -95,8 +100,8 @@ public class Demographic
             String answer = "";
             String description = "";
             if (question.getDemographicQuestionDesc() != null) {
-              description = question.getDemographicQuestionDesc();
-            } 
+                description = question.getDemographicQuestionDesc();
+            }
             if (question.getSelectable().equals("N")) {
                 answer = buildText(questionId);
                 answer += buildDesc(question);

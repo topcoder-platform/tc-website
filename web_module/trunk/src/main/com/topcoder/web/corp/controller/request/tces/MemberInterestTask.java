@@ -10,7 +10,6 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.corp.common.TCESConstants;
-import com.topcoder.web.corp.controller.request.tces.BaseTask;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -125,17 +124,17 @@ public class MemberInterestTask extends BaseTask implements Task, Serializable {
                     " does not belong to uid=" + Long.toString(uid));
         }
 
-		if (super.getSessionInfo().isAdmin())
-			setCompanyName(TCESConstants.ADMIN_COMPANY);
-		else {
-			rsc = (ResultSetContainer) resultMap.get("TCES_Company_Name");
+        if (super.getSessionInfo().isAdmin())
+            setCompanyName(TCESConstants.ADMIN_COMPANY);
+        else {
+            rsc = (ResultSetContainer) resultMap.get("TCES_Company_Name");
             if (rsc.getRowCount() == 0) {
                 throw new Exception("No company name!");
             }
             ResultSetContainer.ResultSetRow cmpyNameRow = rsc.getRow(0);
 
-			setCompanyName(cmpyNameRow.getItem("company_name").toString());
-		}
+            setCompanyName(cmpyNameRow.getItem("company_name").toString());
+        }
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_Info");
         if (rsc.getRowCount() == 0) {
@@ -153,7 +152,7 @@ public class MemberInterestTask extends BaseTask implements Task, Serializable {
         dwDataRequest.setProperty("mid", Integer.toString(getMemberID()));
 
         Map dwResultMap = getDataAccess(getDw()).getData(dwDataRequest);
-        ResultSetContainer dwResult = (ResultSetContainer)dwResultMap.get("TCES_Coder_Stats");
+        ResultSetContainer dwResult = (ResultSetContainer) dwResultMap.get("TCES_Coder_Stats");
         setRanked(!dwResult.isEmpty());
 
 

@@ -10,20 +10,29 @@
 
 package com.topcoder.dde.forum;
 
-import com.topcoder.dde.forum.*;
-import com.topcoder.dde.catalog.*;
-import com.topcoder.dde.persistencelayer.interfaces.*;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompForumXrefHome;
 import com.topcoder.forum.*;
-import com.topcoder.security.*;
-import com.topcoder.security.policy.*;
-import java.util.*;
-import java.net.*;
-import java.rmi.RemoteException;
-import javax.ejb.*;
-import javax.naming.*;
+import com.topcoder.security.GeneralSecurityException;
+import com.topcoder.security.TCSubject;
+import com.topcoder.security.policy.PolicyRemote;
+import com.topcoder.security.policy.PolicyRemoteHome;
+
+import javax.ejb.CreateException;
+import javax.ejb.EJBException;
+import javax.ejb.SessionBean;
+import javax.ejb.SessionContext;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.rmi.PortableRemoteObject;
-import java.sql.*;
-import javax.sql.*;
+import javax.sql.DataSource;
+import java.rmi.RemoteException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.LinkedList;
+import java.util.List;
 
 
 /**
@@ -43,29 +52,30 @@ public class DDEForumBean implements SessionBean {
     private DataSource datasource;
 
 
-    public DDEForumBean() {}
+    public DDEForumBean() {
+    }
 
 
     public void ejbCreate() throws CreateException {
         try {
             Context homeBindings = new InitialContext();
             PolicyRemoteHome policyHome = (PolicyRemoteHome)
-               PortableRemoteObject.narrow(
-                   homeBindings.lookup(PolicyRemoteHome.EJB_REF_NAME),
-                   PolicyRemoteHome.class);
+                    PortableRemoteObject.narrow(
+                            homeBindings.lookup(PolicyRemoteHome.EJB_REF_NAME),
+                            PolicyRemoteHome.class);
             compforumHome = (LocalDDECompForumXrefHome)
-                homeBindings.lookup(LocalDDECompForumXrefHome.EJB_REF_NAME);
+                    homeBindings.lookup(LocalDDECompForumXrefHome.EJB_REF_NAME);
             datasource = (DataSource) homeBindings.lookup("java:comp/env/jdbc/DefaultDS");
             checker = policyHome.create();
-        } catch(NamingException exception) {
+        } catch (NamingException exception) {
             throw new EJBException(exception.toString());
-        } catch(RemoteException exception) {
+        } catch (RemoteException exception) {
             throw new EJBException(exception.toString());
         }
     }
 
     public boolean canPost(long forumId, TCSubject subject)
-           throws ForumException {
+            throws ForumException {
         if (subject == null) {
             throw new ForumException("Null specified for subject");
         }
@@ -73,17 +83,17 @@ public class DDEForumBean implements SessionBean {
         boolean hasPermission = false;
         try {
             hasPermission = checker.checkPermission(subject,
-                new ForumPostPermission(forumId));
-        } catch(GeneralSecurityException exception) {
+                    new ForumPostPermission(forumId));
+        } catch (GeneralSecurityException exception) {
             throw new ForumException(exception.toString());
-        } catch(RemoteException exception) {
+        } catch (RemoteException exception) {
             throw new EJBException(exception.toString());
         }
         return hasPermission;
     }
 
     public boolean canModerate(long forumId, TCSubject subject)
-           throws ForumException {
+            throws ForumException {
         if (subject == null) {
             throw new ForumException("Null specified for subject");
         }
@@ -91,33 +101,33 @@ public class DDEForumBean implements SessionBean {
         boolean hasPermission = false;
         try {
             hasPermission = checker.checkPermission(subject,
-                new ForumModeratePermission(forumId));
-        } catch(GeneralSecurityException exception) {
+                    new ForumModeratePermission(forumId));
+        } catch (GeneralSecurityException exception) {
             throw new ForumException(exception.toString());
-        } catch(RemoteException exception) {
+        } catch (RemoteException exception) {
             throw new EJBException(exception.toString());
         }
         return hasPermission;
     }
 
     public ForumComponent getLinkedComponent(long forumId)
-           throws ForumException {
+            throws ForumException {
 
         final String sql = "select c.component_id," +
-                                 " c.component_name," +
-                                 " c.short_desc," +
-                                 " c.root_category_id," +
-                                 " v.comp_vers_id," +
-                                 " v.version_text," +
-                                 " v.phase_id," +
-                                 " xc.forum_id collab," +
-                                 " xs.forum_id spec" +
-                            " from comp_catalog c" +
-                                 " join comp_versions v on (c.component_id = v.component_id)" +
-                                 " join comp_forum_xref xc on (v.comp_vers_id = xc.comp_vers_id and xc.forum_type = 1)" +
-                                 " left outer join comp_forum_xref xs on (v.comp_vers_id = xs.comp_vers_id and xs.forum_type = 2)" +
-                           " where c.status_id = " + com.topcoder.dde.catalog.ComponentInfo.APPROVED +
-                             " and (xc.forum_id = ? or xs.forum_id = ?)";
+                " c.component_name," +
+                " c.short_desc," +
+                " c.root_category_id," +
+                " v.comp_vers_id," +
+                " v.version_text," +
+                " v.phase_id," +
+                " xc.forum_id collab," +
+                " xs.forum_id spec" +
+                " from comp_catalog c" +
+                " join comp_versions v on (c.component_id = v.component_id)" +
+                " join comp_forum_xref xc on (v.comp_vers_id = xc.comp_vers_id and xc.forum_type = 1)" +
+                " left outer join comp_forum_xref xs on (v.comp_vers_id = xs.comp_vers_id and xs.forum_type = 2)" +
+                " where c.status_id = " + com.topcoder.dde.catalog.ComponentInfo.APPROVED +
+                " and (xc.forum_id = ? or xs.forum_id = ?)";
 
         Connection conn = null;
         PreparedStatement ps = null;
@@ -129,7 +139,7 @@ public class DDEForumBean implements SessionBean {
             ps.setLong(1, forumId);
             ps.setLong(2, forumId);
             rs = ps.executeQuery();
-            while(rs.next()) {
+            while (rs.next()) {
                 component = new ForumComponent();
                 component.setComponentId(rs.getLong("component_id"));
                 component.setName(rs.getString("component_name"));
@@ -144,9 +154,24 @@ public class DDEForumBean implements SessionBean {
         } catch (SQLException sqle) {
             throw new ForumException(sqle.toString());
         } finally {
-            if (rs != null) try { rs.close(); } catch(SQLException sqle) {} finally { rs = null; }
-            if (ps != null) try { ps.close(); } catch(SQLException sqle) {} finally { ps = null; }
-            if (conn != null) try { conn.close(); } catch(SQLException sqle) {} finally { conn = null; }
+            if (rs != null) try {
+                rs.close();
+            } catch (SQLException sqle) {
+            } finally {
+                rs = null;
+            }
+            if (ps != null) try {
+                ps.close();
+            } catch (SQLException sqle) {
+            } finally {
+                ps = null;
+            }
+            if (conn != null) try {
+                conn.close();
+            } catch (SQLException sqle) {
+            } finally {
+                conn = null;
+            }
         }
         return component;
     }
@@ -154,33 +179,33 @@ public class DDEForumBean implements SessionBean {
 
     public List getActiveForums(long forumType) throws ForumException {
         final String sql =
-                       " select c.component_id, " +
-                               " c.component_name, " +
-                               " c.short_desc, " +
-                               " c.root_category_id, " +
-                               " v.comp_vers_id, " +
-                               " v.version_text, " +
-                               " v.phase_id, " +
-                               " f.forum_id, " +
-                               " f.total_topics, " +
-                               " f.total_threads, " +
-                               " f.total_posts, " +
-                               " p.post_time, " +
-                               " u.user_id " +
-                          " from comp_catalog c " +
-                              " ,comp_versions v " +
-                              " ,comp_forum_xref x " +
-                              " ,forum_master f " +
-                              " ,outer (forum_posts p, security_user u) " +
-                         " where c.status_id = " + com.topcoder.dde.catalog.ComponentInfo.APPROVED +
-                           " and f.status_id = " + com.topcoder.forum.ForumStatus.ACTIVE +
-                           " and c.component_id = v.component_id " +
-                           " and x.forum_type = ? " +
-                           " and x.forum_id = f.forum_id " +
-                           " and f.last_post_id = p.post_id " +
-                           " and p.login_id = u.login_id " +
-                           " and v.comp_vers_id = x.comp_vers_id " +
-                         " order by p.post_time desc, c.component_name ";
+                " select c.component_id, " +
+                " c.component_name, " +
+                " c.short_desc, " +
+                " c.root_category_id, " +
+                " v.comp_vers_id, " +
+                " v.version_text, " +
+                " v.phase_id, " +
+                " f.forum_id, " +
+                " f.total_topics, " +
+                " f.total_threads, " +
+                " f.total_posts, " +
+                " p.post_time, " +
+                " u.user_id " +
+                " from comp_catalog c " +
+                " ,comp_versions v " +
+                " ,comp_forum_xref x " +
+                " ,forum_master f " +
+                " ,outer (forum_posts p, security_user u) " +
+                " where c.status_id = " + com.topcoder.dde.catalog.ComponentInfo.APPROVED +
+                " and f.status_id = " + com.topcoder.forum.ForumStatus.ACTIVE +
+                " and c.component_id = v.component_id " +
+                " and x.forum_type = ? " +
+                " and x.forum_id = f.forum_id " +
+                " and f.last_post_id = p.post_id " +
+                " and p.login_id = u.login_id " +
+                " and v.comp_vers_id = x.comp_vers_id " +
+                " order by p.post_time desc, c.component_name ";
 
         Connection conn = null;
         PreparedStatement ps = null;
@@ -191,7 +216,7 @@ public class DDEForumBean implements SessionBean {
             ps = conn.prepareStatement(sql);
             ps.setLong(1, forumType);
             rs = ps.executeQuery();
-            while(rs.next()) {
+            while (rs.next()) {
                 ActiveForum forum = new ActiveForum();
                 forum.setComponentId(rs.getLong("component_id"));
                 forum.setName(rs.getString("component_name"));
@@ -214,15 +239,31 @@ public class DDEForumBean implements SessionBean {
         } catch (SQLException sqle) {
             throw new ForumException(sqle.toString());
         } finally {
-            if (rs != null) try { rs.close(); } catch(SQLException sqle) {} finally { rs = null; }
-            if (ps != null) try { ps.close(); } catch(SQLException sqle) {} finally { ps = null; }
-            if (conn != null) try { conn.close(); } catch(SQLException sqle) {} finally { conn = null; }
+            if (rs != null) try {
+                rs.close();
+            } catch (SQLException sqle) {
+            } finally {
+                rs = null;
+            }
+            if (ps != null) try {
+                ps.close();
+            } catch (SQLException sqle) {
+            } finally {
+                ps = null;
+            }
+            if (conn != null) try {
+                conn.close();
+            } catch (SQLException sqle) {
+            } finally {
+                conn = null;
+            }
         }
         return l;
     }
 
 
-    public void ejbActivate() {}
+    public void ejbActivate() {
+    }
 
     public void ejbPassivate() {
         /*
@@ -232,7 +273,8 @@ public class DDEForumBean implements SessionBean {
          */
     }
 
-    public void ejbRemove() {}
+    public void ejbRemove() {
+    }
 
     public void setSessionContext(SessionContext context) {
         ejbContext = context;

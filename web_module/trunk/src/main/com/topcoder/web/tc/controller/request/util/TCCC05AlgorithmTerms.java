@@ -1,8 +1,8 @@
 package com.topcoder.web.tc.controller.request.util;
 
-import com.topcoder.web.tc.Constants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.tc.Constants;
 
 import java.util.Calendar;
 
@@ -48,8 +48,8 @@ public class TCCC05AlgorithmTerms extends TermsBase {
         Request r = new Request();
         r.setContentHandle("tccc05_eligibility");
         r.setProperty("cr", String.valueOf(getUser().getId()));
-        ResultSetContainer rsc = (ResultSetContainer)getDataAccess().getData(r).get("tccc05_eligibility");
-        log.debug("they " + (rsc.isEmpty()?"are not":"are") + " eligible");
+        ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("tccc05_eligibility");
+        log.debug("they " + (rsc.isEmpty() ? "are not" : "are") + " eligible");
         return !rsc.isEmpty();
     }
 

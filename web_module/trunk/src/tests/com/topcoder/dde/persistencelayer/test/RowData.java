@@ -21,7 +21,7 @@ interface RowData {
      * returns an <code>Object</code> representing this row's primary key
      */
     public Object getPrimaryKey();
-    
+
     /**
      * stores the data encapsulated by this object into the row represented
      * by the current row of the supplied <code>ResultSet</code>
@@ -31,7 +31,7 @@ interface RowData {
      *         <code>RowData</code>
      */
     public void storeRowData(ResultSet rs) throws SQLException;
-    
+
     /**
      * inserts the data encapsulated by this object into the table by means of
      * the supplied <code>ResultSet</code>
@@ -40,7 +40,7 @@ interface RowData {
      *         from this <code>RowData</code> into the database
      */
     public void insertRowData(ResultSet rs) throws SQLException;
-    
+
     /**
      * reads the data encapsulated by this object from the current row of the
      * supplied <code>ResultSet</code>
@@ -49,7 +49,7 @@ interface RowData {
      *         should be populated
      */
     public void readRowData(ResultSet rs) throws SQLException;
-    
+
     /**
      * checks whether the data encapsulated by this object match the data in the
      * current row of the supplied <code>ResultSet</code>
@@ -58,5 +58,5 @@ interface RowData {
      *         <code>RowData</code> are to be compared
      */
     public boolean matchesResultSet(ResultSet rs) throws SQLException;
-      
+
 }

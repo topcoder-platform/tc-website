@@ -66,7 +66,7 @@ public class ProjectTrackerAccuracyTests extends TestCase {
             utils = new AccuracyTestUtils();
         } catch (Exception e) {
             throw new IllegalStateException(
-                "Could not initialize test utilities");
+                    "Could not initialize test utilities");
         }
     }
 
@@ -83,7 +83,7 @@ public class ProjectTrackerAccuracyTests extends TestCase {
         tracker.remove();
         super.tearDown();
     }
-    
+
     public void testGetProjectInfo_User() throws Exception {
         // test gets correct UPIs
         assertNotNull("Admin user object is null", adminUser);
@@ -163,15 +163,15 @@ public class ProjectTrackerAccuracyTests extends TestCase {
             assertPIsMatch(pi1[i], pi2[i]);
         }
         assertEquals("Manager IDs don't match", p1.getProjectManager().getId(),
-                     p2.getProjectManager().getId());
+                p2.getProjectManager().getId());
         assertEquals("Project names don't match", p1.getName(), p2.getName());
         assertEquals("Project versions don't match", p1.getVersion(),
-                     p2.getVersion());
+                p2.getVersion());
         assertEquals("Phase IDs don't match",
-                     p1.getCurrentPhase().getId(),
-                     p2.getCurrentPhase().getId());
+                p1.getCurrentPhase().getId(),
+                p2.getCurrentPhase().getId());
         assertEquals("Winner IDs don't match", p1.getProjectManager().getId(),
-                     p2.getProjectManager().getId());
+                p2.getProjectManager().getId());
         URL u1 = p1.getProjectInformationURL();
         URL u2 = p2.getProjectInformationURL();
         if (u1 == null) {
@@ -179,35 +179,35 @@ public class ProjectTrackerAccuracyTests extends TestCase {
         } else {
             assertNotNull("URLs don't match", u2);
             assertEquals("URLs don't match",
-                         p1.getProjectInformationURL().toString(),
-                         p2.getProjectInformationURL().toString());
+                    p1.getProjectInformationURL().toString(),
+                    p2.getProjectInformationURL().toString());
         }
         UserRole[] roles1 = p1.getParticipants();
         UserRole[] roles2 = p2.getParticipants();
         assertEquals("Numbers of participants don't match",
-                     roles1.length, roles2.length);
+                roles1.length, roles2.length);
         Arrays.sort(roles1, roleComparator);
         Arrays.sort(roles2, roleComparator);
         for (int i = 0; i < roles1.length; i++) {
             assertEquals("Participants don't match", roles1[i].getId(),
-                         roles2[i].getId());
+                    roles2[i].getId());
         }
         assertEquals("Overviews don't match", p1.getOverview(),
-                     p2.getOverview());
+                p2.getOverview());
         assertEquals("Notes don't match", p1.getNotes(), p2.getNotes());
         assertEquals("Project types don't match", p1.getProjectType().getId(),
-                     p2.getProjectType().getId());
+                p2.getProjectType().getId());
     }
 
     private void assertPIsMatch(PhaseInstance in1, PhaseInstance in2) {
         assertEquals("Phase IDs don't match", in1.getPhase().getId(),
-                     in2.getPhase().getId());
+                in2.getPhase().getId());
         assertEquals("Start dates don't match", in1.getStartDate(),
-                     in2.getStartDate());
+                in2.getStartDate());
         assertEquals("End dates don't match", in1.getEndDate(),
-                     in2.getEndDate());
+                in2.getEndDate());
     }
-    
+
     private void assertProjectFound(UserProjectInfo[] info, Project proj)
             throws Exception {
         long pid = proj.getId();
@@ -215,9 +215,9 @@ public class ProjectTrackerAccuracyTests extends TestCase {
         for (int i = 0; i < info.length; i++) {
             if (info[i].getId() == pid) {
                 assertEquals("UPI name incorrect", proj.getName(),
-                             info[i].getProjectName());
+                        info[i].getProjectName());
                 assertEquals("UPI version incorrect", proj.getVersion(),
-                             info[i].getProjectVersion());
+                        info[i].getProjectVersion());
                 return;
             }
         }

@@ -1,14 +1,14 @@
 package com.topcoder.web.privatelabel.controller.request.googleindia05;
 
-import com.topcoder.web.privatelabel.controller.request.FullReg;
-import com.topcoder.web.privatelabel.Constants;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.privatelabel.Constants;
+import com.topcoder.web.privatelabel.controller.request.FullReg;
 
-import java.util.Map;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Map;
 
 /**
  * @author  dok
@@ -33,7 +33,6 @@ public class Reg extends FullReg {
             setNextPage(Constants.GOOGLE_INDIA_05_REG_PAGE);
             setIsNextPageInContext(true);
         }
-
 
 
     }

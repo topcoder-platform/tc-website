@@ -1,12 +1,12 @@
 package com.topcoder.web.tc.controller.request;
 
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.controller.request.util.TCCC05ComponentTerms;
-import com.topcoder.web.tc.controller.request.util.TCCC05AlgorithmTerms;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.request.util.TCCC05AlgorithmTerms;
+import com.topcoder.web.tc.controller.request.util.TCCC05ComponentTerms;
 
 public class Home extends Base {
 
@@ -25,7 +25,7 @@ public class Home extends Base {
     protected void loadPublicData() throws TCWebException {
         try {
             CachedDataAccess nextRoundDai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
-            nextRoundDai.setExpireTime(30*60*1000);
+            nextRoundDai.setExpireTime(30 * 60 * 1000);
             Request nextRoundReq = new Request();
             nextRoundReq.setContentHandle("next_srm");
             getRequest().setAttribute("Next_SRM", nextRoundDai.getData(nextRoundReq).get("Next_SRM"));

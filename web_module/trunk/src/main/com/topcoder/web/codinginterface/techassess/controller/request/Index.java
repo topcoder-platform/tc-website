@@ -1,15 +1,14 @@
 package com.topcoder.web.codinginterface.techassess.controller.request;
 
-import com.topcoder.web.codinginterface.techassess.Constants;
-import com.topcoder.web.codinginterface.techassess.model.ProblemSetInfo;
-import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 import com.topcoder.shared.netCommon.screening.request.ScreeningGetProblemSetsRequest;
 import com.topcoder.shared.netCommon.screening.response.ScreeningGetProblemSetsResponse;
 import com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemSet;
+import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.codinginterface.techassess.Constants;
+import com.topcoder.web.codinginterface.techassess.model.ProblemSetInfo;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * User: dok
@@ -23,7 +22,7 @@ public class Index extends Base {
 
         if (getUser().isAnonymous()) {
             setNextPage(buildProcessorRequestString(Constants.RP_LOGIN,
-                    new String[] {Constants.COMPANY_ID}, new String[]{String.valueOf(getCompanyId())}));
+                    new String[]{Constants.COMPANY_ID}, new String[]{String.valueOf(getCompanyId())}));
             setIsNextPageInContext(false);
         } else {
 
@@ -35,12 +34,12 @@ public class Index extends Base {
 
             showProcessingPage();
 
-            ScreeningGetProblemSetsResponse response = (ScreeningGetProblemSetsResponse)receive(5000);
+            ScreeningGetProblemSetsResponse response = (ScreeningGetProblemSetsResponse) receive(5000);
 
 
             ScreeningProblemSet[] serverSets = response.getProblemSets();
             ArrayList a = new ArrayList(serverSets.length);
-            for (int i=0; i<serverSets.length; i++) {
+            for (int i = 0; i < serverSets.length; i++) {
                 a.add(new ProblemSetInfo(serverSets[i].getProblemSetDesc(), serverSets[i].getProblemSetName(),
                         serverSets[i].getStartTime(), serverSets[i].getCompletionTime().longValue(),
                         serverSets[i].getStatus(), serverSets[i].getType().intValue(),
@@ -52,7 +51,7 @@ public class Index extends Base {
             setLanguages(getLanguages(response.getAllowedLanguages()));
 
             closeProcessingPage(buildProcessorRequestString(Constants.RP_INDEX_RESPONSE,
-                    new String[] {Constants.MESSAGE_ID}, new String[]{String.valueOf(getMessageId())}));
+                    new String[]{Constants.MESSAGE_ID}, new String[]{String.valueOf(getMessageId())}));
 
         }
 

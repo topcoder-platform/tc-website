@@ -1,7 +1,7 @@
 package com.topcoder.web.codinginterface.techassess.model;
 
-import com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemLabel;
 import com.topcoder.shared.netCommon.screening.ScreeningConstants;
+import com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemLabel;
 
 import java.io.Serializable;
 
@@ -36,8 +36,8 @@ public class ProblemSetInfo implements Serializable {
     }
 
     public int getCompletedCount() {
-        int count =0;
-        for (int i=0; i<problems.length; i++) {
+        int count = 0;
+        for (int i = 0; i < problems.length; i++) {
             int status = problems[i].getStatus().intValue();
             if (status == ScreeningConstants.SUBMITTED ||
                     status == ScreeningConstants.OUT_OF_TIME ||
@@ -80,8 +80,8 @@ public class ProblemSetInfo implements Serializable {
 
     public long getTimeRemaining() {
         long ret = 0;
-        if (startTime>0) {
-            ret = System.currentTimeMillis()+time-startTime;
+        if (startTime > 0) {
+            ret = System.currentTimeMillis() + time - startTime;
         } else {
             ret = time;
         }

@@ -21,9 +21,10 @@ public class Constants {
         for (int i = 0; i < f.length; i++)
             try {
                 f[i].set(null, sc.getInitParameter(f[i].getName()));
-                if (f[i].get(null)==null)
+                if (f[i].get(null) == null)
                     log.debug("did not load " + f[i].getName() + " constant");
-                else log.debug("loaded " + f[i].getName() + " constant with value " + f[i].get(null));
+                else
+                    log.debug("loaded " + f[i].getName() + " constant with value " + f[i].get(null));
             } catch (Exception e) {
                 /* probably harmless, could just be a type or modifier mismatch */
                 e.printStackTrace();

@@ -3,18 +3,16 @@ package com.topcoder.web.corp.controller.request.screening;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.security.User;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.corp.common.Constants;
 import com.topcoder.web.corp.common.Util;
 import com.topcoder.web.corp.model.ProblemInfo;
 import com.topcoder.web.corp.model.ProfileInfo;
-import com.topcoder.web.corp.controller.request.screening.BaseProfileProcessor;
-import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.TCWebException;
 
-import javax.servlet.ServletRequest;
 import java.util.ArrayList;
 import java.util.Map;
 

@@ -2,9 +2,9 @@ package com.topcoder.ejb.Util;
 
 import com.topcoder.common.web.util.DateTime;
 import com.topcoder.shared.ejb.BaseEJB;
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.rmi.RemoteException;
 import java.sql.PreparedStatement;
@@ -32,10 +32,10 @@ public class UtilBean extends BaseEJB {
 
         query = new StringBuffer();
         query.append(" SELECT 'foo'");
-        query.append(  " FROM invite_list");
-        query.append( " WHERE coder_id = ?");
+        query.append(" FROM invite_list");
+        query.append(" WHERE coder_id = ?");
 //        query.append(   " AND round_id = ?");
-        query.append(   " AND contest_id = ?");
+        query.append(" AND contest_id = ?");
 
         try {
             conn = DBMS.getConnection();
@@ -56,7 +56,7 @@ public class UtilBean extends BaseEJB {
                 query = new StringBuffer();
                 query.append(" INSERT");
 //                query.append(  " INTO invite_list (coder_id, contest_id, round_id)");
-                query.append(  " INTO invite_list (coder_id, contest_id)");
+                query.append(" INTO invite_list (coder_id, contest_id)");
 //                query.append(" VALUES (?, ?, ?)");
                 query.append(" VALUES (?, ?)");
                 ps = conn.prepareStatement(query.toString());
@@ -150,12 +150,6 @@ public class UtilBean extends BaseEJB {
         }
 
     }
-
-
-
-
-
-
 
 
     public java.sql.Date getCurrentDate() throws RemoteException {

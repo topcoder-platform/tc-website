@@ -10,27 +10,27 @@ import com.topcoder.dde.persistencelayer.interfaces.LocalDDEDocTypesHome;
 
 public final class DDEDocTypesTest extends DDEServerTestCase {
 
-    static final int DOCUMENT_TYPE_ID=0;
-    
-    private static final String DESCRIPTION="DocTypesDesc0";
-    private static final long STATUS_ID=DDEStatusTest.STATUS_ID;
-    
+    static final int DOCUMENT_TYPE_ID = 0;
+
+    private static final String DESCRIPTION = "DocTypesDesc0";
+    private static final long STATUS_ID = DDEStatusTest.STATUS_ID;
+
     private LocalDDEDocTypesHome docTypesHome;
 
     DDEDocTypesTest() {
     }
-    
+
     static LocalDDEDocTypes create() throws CreateException {
         try {
-            LocalDDEDocTypesHome docTypesHome=lookup();
+            LocalDDEDocTypesHome docTypesHome = lookup();
             return docTypesHome.create(DOCUMENT_TYPE_ID, DESCRIPTION, STATUS_ID);
         } catch (NamingException e) {
-            throw new CreateException(""+e);
+            throw new CreateException("" + e);
         }
     }
 
     protected void setUp() throws NamingException {
-        docTypesHome=lookup();
+        docTypesHome = lookup();
     }
 
     private static LocalDDEDocTypesHome lookup() throws NamingException {
@@ -38,16 +38,16 @@ public final class DDEDocTypesTest extends DDEServerTestCase {
     }
 
     public void test() throws Exception {
-        String description=DESCRIPTION;
-        long status=STATUS_ID;
+        String description = DESCRIPTION;
+        long status = STATUS_ID;
         LocalDDEDocTypes docTypes;
         try {
-            docTypes=docTypesHome.findByPrimaryKey(new Long(DOCUMENT_TYPE_ID));
+            docTypes = docTypesHome.findByPrimaryKey(new Long(DOCUMENT_TYPE_ID));
             docTypes.remove();
         } catch (FinderException e) {
         }
-        docTypes=create();
-        Long primaryKey=testGetPrimaryKey(docTypes);
+        docTypes = create();
+        Long primaryKey = testGetPrimaryKey(docTypes);
         testGetDescription(docTypes, description);
         testGetStatus(docTypes, status);
         testRemove(docTypes, primaryKey);
@@ -55,18 +55,18 @@ public final class DDEDocTypesTest extends DDEServerTestCase {
     }
 
     private void testGetStatus(LocalDDEDocTypes docTypes, long status) {
-        long status2=docTypes.getStatusId();
+        long status2 = docTypes.getStatusId();
         assertEquals(status, status2);
     }
 
     private void testGetDescription(LocalDDEDocTypes docTypes, String description) {
-        String description2=docTypes.getDescription();
+        String description2 = docTypes.getDescription();
         assertEquals(description, description2);
     }
 
     private Long testGetPrimaryKey(LocalDDEDocTypes docTypes) throws FinderException {
-        Long primaryKey=(Long) docTypes.getPrimaryKey();
-        LocalDDEDocTypes docTypes2=docTypesHome.findByPrimaryKey(primaryKey);
+        Long primaryKey = (Long) docTypes.getPrimaryKey();
+        LocalDDEDocTypes docTypes2 = docTypesHome.findByPrimaryKey(primaryKey);
         assertTrue(docTypes.isIdentical(docTypes2));
         return primaryKey;
     }

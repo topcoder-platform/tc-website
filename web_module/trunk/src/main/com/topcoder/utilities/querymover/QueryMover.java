@@ -1,23 +1,23 @@
 package com.topcoder.utilities.querymover;
 
-import com.topcoder.web.query.bean.*;
-import com.topcoder.web.ejb.query.Query;
-import com.topcoder.web.ejb.query.QueryInput;
-import com.topcoder.web.ejb.query.CommandQuery;
-import com.topcoder.web.ejb.query.Command;
-import com.topcoder.web.ejb.query.Input;
-import com.topcoder.web.ejb.query.CommandGroup;
-import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.ejb.query.*;
+import com.topcoder.web.query.bean.InputBean;
+import com.topcoder.web.query.bean.QueryBean;
+import com.topcoder.web.query.bean.QueryInputBean;
 
-import javax.naming.Context;
-import javax.naming.NamingException;
-import javax.naming.InitialContext;
 import javax.ejb.CreateException;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import java.rmi.RemoteException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class QueryMover {
     private static Logger log = Logger.getLogger(QueryMover.class);

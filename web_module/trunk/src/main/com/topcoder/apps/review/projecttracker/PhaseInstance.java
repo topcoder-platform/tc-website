@@ -1,15 +1,15 @@
 /*
  * PhaseInstance.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.projecttracker;
 
+import com.topcoder.apps.review.persistence.Common;
+
 import java.io.Serializable;
 import java.util.Date;
-
-import com.topcoder.apps.review.persistence.Common;
 
 /**
  * The PhaseInstance represents a phase as regards a specific project.
@@ -75,7 +75,7 @@ public class PhaseInstance implements Serializable {
      * <p>
      * Return the phase.
      * </p>
-     * 
+     *
      * @return the phase.
      */
     public Phase getPhase() {
@@ -86,7 +86,7 @@ public class PhaseInstance implements Serializable {
      * <p>
      * Return the start date.
      * </p>
-     * 
+     *
      * @return a Date with the start date.
      */
     public Date getStartDate() {
@@ -97,7 +97,7 @@ public class PhaseInstance implements Serializable {
      * <p>
      * Set the start date.
      * </p>
-     * 
+     *
      * @param startDate The start date.
      */
     public void setStartDate(Date newStartDate) {
@@ -111,7 +111,7 @@ public class PhaseInstance implements Serializable {
      * <p>
      * Return the end date.
      * </p>
-     * 
+     *
      * @return a Date with the end date.
      */
     public Date getEndDate() {
@@ -122,7 +122,7 @@ public class PhaseInstance implements Serializable {
      * <p>
      * Set the end date.
      * </p>
-     * 
+     *
      * @param endDate The end date.
      */
     public void setEndDate(Date newEndDate) {

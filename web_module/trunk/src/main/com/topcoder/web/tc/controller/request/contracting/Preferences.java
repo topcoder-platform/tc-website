@@ -6,21 +6,20 @@
 
 package com.topcoder.web.tc.controller.request.contracting;
 
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.tc.Constants;
-
-import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
-import com.topcoder.shared.dataAccess.resultSet.*;
-
-import com.topcoder.web.tc.model.*;
-
-import com.topcoder.web.ejb.resume.ResumeServices;
-
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.ejb.resume.ResumeServices;
+import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.model.CoderSessionInfo;
+import com.topcoder.web.tc.model.Preference;
+import com.topcoder.web.tc.model.PreferenceGroup;
+import com.topcoder.web.tc.model.PreferenceValue;
 
-import java.util.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -87,13 +86,13 @@ public class Preferences extends ContractingBase {
                 getRequest().setAttribute("hasResume", "true");
             }
 
-            CoderSessionInfo info = (CoderSessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
-            boolean isRated = info.getRating()>0 || info.getDevRating()>0 || info.getDesignRating()>0;
+            CoderSessionInfo info = (CoderSessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
+            boolean isRated = info.getRating() > 0 || info.getDevRating() > 0 || info.getDesignRating() > 0;
 
             getRequest().setAttribute("isRated", String.valueOf(isRated));
             if (!isRated) {
                 CachedDataAccess nextRoundDai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
-                nextRoundDai.setExpireTime(30*60*1000);
+                nextRoundDai.setExpireTime(30 * 60 * 1000);
                 Request nextRoundReq = new Request();
                 nextRoundReq.setContentHandle("next_srm");
                 getRequest().setAttribute("Next_SRM", nextRoundDai.getData(nextRoundReq).get("Next_SRM"));

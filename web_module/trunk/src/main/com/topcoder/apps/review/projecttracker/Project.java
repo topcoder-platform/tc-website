@@ -6,12 +6,10 @@
  */
 package com.topcoder.apps.review.projecttracker;
 
-import java.io.Serializable;
-
-import java.net.URL;
-
-import com.topcoder.apps.review.document.ScorecardTemplate;
 import com.topcoder.apps.review.persistence.Common;
+
+import java.io.Serializable;
+import java.net.URL;
 
 
 /**
@@ -58,7 +56,7 @@ public class Project implements Serializable {
      * @param winner DOCUMENT ME!
      * @param timeline DOCUMENT ME!
      * @param currentPhase DOCUMENT ME!
-     * @param userRole DOCUMENT ME! 
+     * @param userRole DOCUMENT ME!
      * @param notes DOCUMENT ME!
      * @param overView DOCUMENT ME!
      * @param projectType DOCUMENT ME!
@@ -66,11 +64,11 @@ public class Project implements Serializable {
      * @param versionId DOCUMENT ME!
      */
     public Project(long id, long componentId, long forumId, long compVersId, String name, String version,
-            User projectManager, User winner,
-            PhaseInstance[] timeline, PhaseInstance currentPhase, UserRole[] userRole, String notes, String overView,
-            ProjectType projectType, ProjectStatus projectStatus, boolean notificationSent,
-            long screeningTemplateId, long reviewTemplateId,
-            long requestorId, long versionId, long levelId, boolean autopilot) {
+                   User projectManager, User winner,
+                   PhaseInstance[] timeline, PhaseInstance currentPhase, UserRole[] userRole, String notes, String overView,
+                   ProjectType projectType, ProjectStatus projectStatus, boolean notificationSent,
+                   long screeningTemplateId, long reviewTemplateId,
+                   long requestorId, long versionId, long levelId, boolean autopilot) {
         this.id = id;
         this.componentId = componentId;
         this.forumId = forumId;
@@ -94,20 +92,20 @@ public class Project implements Serializable {
         this.levelId = levelId;
         this.autopilot = autopilot;
     }
-    
+
     public boolean getAutoPilot() {
         return autopilot;
     }
-    
+
     public void setAutoPilot(boolean autopilot) {
         this.dirtyFlag = true;
         this.autopilot = autopilot;
     }
-    
+
     protected long getLevelId() {
         return levelId;
     }
-    
+
     protected void setLevelId(long levelId) {
         this.dirtyFlag = true;
         this.levelId = levelId;
@@ -145,7 +143,7 @@ public class Project implements Serializable {
      * Return the id of this project.
      * This id maps to the component version id in comp_versions.comp_vers_id
      * </p>
-     * 
+     *
      * @return the id of this project.
      */
     public long getId() {
@@ -157,7 +155,7 @@ public class Project implements Serializable {
      * Return the component id for this project.
      * This id is the component id in comp_catalog.component_id
      * </p>
-     * 
+     *
      * @return the component version id for this project.
      */
     public long getCatalogueId() {
@@ -176,7 +174,7 @@ public class Project implements Serializable {
      * Return the component version id for this project.
      * This id is the one in comp_versions.comp_vers_id
      * </p>
-     * 
+     *
      * @return the component version id for this project.
      */
     public long getCompVersId() {
@@ -187,7 +185,7 @@ public class Project implements Serializable {
      * <p>
      * Return the timeline of this project.
      * </p>
-     * 
+     *
      * @return a PhaseInstance[] with the timeline of this project.
      */
     public PhaseInstance[] getTimeline() {
@@ -198,7 +196,7 @@ public class Project implements Serializable {
      * <p>
      * Return the project manager of this project.
      * </p>
-     * 
+     *
      * @return the project manager of this project.
      */
     public User getProjectManager() {
@@ -209,7 +207,7 @@ public class Project implements Serializable {
      * <p>
      * Return the name of this project.
      * </p>
-     * 
+     *
      * @return the name of this project.
      */
     public String getName() {
@@ -220,7 +218,7 @@ public class Project implements Serializable {
      * <p>
      * Return the version of this project.
      * </p>
-     * 
+     *
      * @return the version of this project.
      */
     public String getVersion() {
@@ -231,7 +229,7 @@ public class Project implements Serializable {
      * <p>
      * Return the current phase of this project.
      * </p>
-     * 
+     *
      * @return the current phase of this project.
      */
     public Phase getCurrentPhase() {
@@ -242,7 +240,7 @@ public class Project implements Serializable {
      * <p>
      * Set the current phase of this project.
      * </p>
-     * 
+     *
      * @param phase The current phase of this project.
      */
     public void setCurrentPhase(Phase phase) {
@@ -269,7 +267,7 @@ public class Project implements Serializable {
      * <p>
      * Return the winner of this project.
      * </p>
-     * 
+     *
      * @return the winner of this project.
      */
     public User getWinner() {
@@ -280,7 +278,7 @@ public class Project implements Serializable {
      * <p>
      * Set the winner of this project.
      * </p>
-     * 
+     *
      * @param winner The winner of this project.
      */
     public void setWinner(User submitter) {
@@ -292,7 +290,7 @@ public class Project implements Serializable {
      * <p>
      * Return the URL of this project's information.
      * </p>
-     * 
+     *
      * @return the URL of this project's information.
      */
     public URL getProjectInformationURL() {
@@ -303,7 +301,7 @@ public class Project implements Serializable {
      * <p>
      * Set the URL of this project's information.
      * </p>
-     * 
+     *
      * @param url The URL of this project's information.
      */
     public void setProjectInformationURL(URL url) {
@@ -317,7 +315,7 @@ public class Project implements Serializable {
      * <p>
      * Return the list of participants.
      * </p>
-     * 
+     *
      * @return the list of participants.
      */
     public UserRole[] getParticipants() {
@@ -328,7 +326,7 @@ public class Project implements Serializable {
      * <p>
      * Set the list of participants.
      * </p>
-     * 
+     *
      * @param participants The list of participants.
      */
     public void setParticipants(UserRole[] participants) {
@@ -340,7 +338,7 @@ public class Project implements Serializable {
      * <p>
      * Return the project overview.
      * </p>
-     * 
+     *
      * @return the project overview.
      */
     public String getOverview() {
@@ -351,7 +349,7 @@ public class Project implements Serializable {
      * <p>
      * Return the project notes.
      * </p>
-     * 
+     *
      * @return the project notes.
      */
     public String getNotes() {
@@ -362,7 +360,7 @@ public class Project implements Serializable {
      * <p>
      * Set the project notes.
      * </p>
-     * 
+     *
      * @param notes The project notes to be set.
      */
     public void setNotes(String notes) {
@@ -376,7 +374,7 @@ public class Project implements Serializable {
      * <p>
      * Return the project type (design/develop).
      * </p>
-     * 
+     *
      * @return the project type.
      */
     public ProjectType getProjectType() {
@@ -387,7 +385,7 @@ public class Project implements Serializable {
      * <p>
      * Set the project type (design/develop).
      * </p>
-     * 
+     *
      * @param type The project type to be set.
      */
     public void setProjectType(ProjectType type) {
@@ -399,7 +397,7 @@ public class Project implements Serializable {
      * <p>
      * Return the project status .
      * </p>
-     * 
+     *
      * @return the project status.
      */
     public ProjectStatus getProjectStatus() {
@@ -410,7 +408,7 @@ public class Project implements Serializable {
      * <p>
      * Set the project status.
      * </p>
-     * 
+     *
      * @param type The project status to be set.
      */
     public void setProjectStatus(ProjectStatus status) {
@@ -424,7 +422,7 @@ public class Project implements Serializable {
      * <p>
      * Return whether project notification has been sent.
      * </p>
-     * 
+     *
      * @return whether the project notification has been sent.
      */
     public boolean isNotificationSent() {
@@ -435,7 +433,7 @@ public class Project implements Serializable {
      * <p>
      * Set whether the project notification has been sent.
      * </p>
-     * 
+     *
      * @param isPMReviewed Whether the project notification has been sent.
      */
     public void setNotificationSent(boolean isSent) {
@@ -452,6 +450,7 @@ public class Project implements Serializable {
     public long getReviewTemplateId() {
         return reviewTemplateId;
     }
+
     /**
      * @param reviewTemplateId The reviewTemplateId to set.
      */
@@ -468,6 +467,7 @@ public class Project implements Serializable {
     public long getScreeningTemplateId() {
         return screeningTemplateId;
     }
+
     /**
      * @param screeningeTemplateId The screeningeTemplateId to set.
      */
@@ -492,7 +492,7 @@ public class Project implements Serializable {
     public void setCatalog(String catalog) {
         this.catalog = catalog;
     }
-    
+
     /* (non-Javadoc)
      * @see java.lang.Object#equals(java.lang.Object)
      */

@@ -18,14 +18,14 @@ import com.topcoder.apps.review.accuracytests.ejb.*;
  * @author  valeriy
  */
 public class FinalReviewTest extends AbstractAccuracyTest {
-    
+
     private FinalReview finalReviewModel;
-    
+
     /** Creates a new instance of FinalReviewTest */
     public FinalReviewTest(String name) {
         super(name);
     }
-    
+
     public void setUp() throws Exception {
         super.setUp();
         setUpUsers();
@@ -34,7 +34,7 @@ public class FinalReviewTest extends AbstractAccuracyTest {
         setUpDocuments();
         finalReviewModel = new FinalReview();
     }
-    
+
     public void testFinalReview1() throws Exception {
         try {
             project.setCurrentPhase(phases[7]);
@@ -47,11 +47,11 @@ public class FinalReviewTest extends AbstractAccuracyTest {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
 
     }
-    
+
     public void testFinalReview2() throws Exception {
         try {
             project.setCurrentPhase(phases[7]);
@@ -64,7 +64,7 @@ public class FinalReviewTest extends AbstractAccuracyTest {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
     }
 
@@ -77,13 +77,13 @@ public class FinalReviewTest extends AbstractAccuracyTest {
             if (!(res instanceof FinalReviewRetrieval)) {
                 fail("FinalReviewRetrieval expected, but was ", res);
             }
-            FinalReviewRetrieval retr = (FinalReviewRetrieval)res;
+            FinalReviewRetrieval retr = (FinalReviewRetrieval) res;
             if (retr.getFinalReview() != finalReview) {
-                fail("Wrong review "+retr.getFinalReview()+":"+finalReview);
+                fail("Wrong review " + retr.getFinalReview() + ":" + finalReview);
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
     }
 
@@ -96,13 +96,13 @@ public class FinalReviewTest extends AbstractAccuracyTest {
             if (!(res instanceof FinalReviewRetrieval)) {
                 fail("FinalReviewRetrieval expected, but was ", res);
             }
-            FinalReviewRetrieval retr = (FinalReviewRetrieval)res;
+            FinalReviewRetrieval retr = (FinalReviewRetrieval) res;
             if (retr.getFinalReview() != finalReview) {
-                fail("Wrong review "+retr.getFinalReview()+":"+finalReview);
+                fail("Wrong review " + retr.getFinalReview() + ":" + finalReview);
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
     }
 

@@ -13,12 +13,12 @@ import javax.ejb.EJBLocalObject;
 
 final class ToString {
 
-    private static final Set PROHIBITED_PROPERTIES=getProhibitedProperties();
-    private static final Object[] NO_PARAMS=new Object[0];
-    private static final String ID_PROPERTY_NAME="id";
+    private static final Set PROHIBITED_PROPERTIES = getProhibitedProperties();
+    private static final Object[] NO_PARAMS = new Object[0];
+    private static final String ID_PROPERTY_NAME = "id";
 
     private static Set getProhibitedProperties() {
-        Set set=new HashSet();
+        Set set = new HashSet();
         set.add("proxyClass");
         set.add("invocationHandler");
         set.add("class");
@@ -31,10 +31,10 @@ final class ToString {
 
     static String toString(Object object) {
         if (object instanceof String) {
-            return "\""+object+"\"";
+            return "\"" + object + "\"";
         }
         if (object instanceof Timestamp) {
-            return "'"+object+"'";
+            return "'" + object + "'";
         }
         if (object instanceof EJBLocalObject) {
             return toStringEJBLocalObject(object);
@@ -43,55 +43,55 @@ final class ToString {
     }
 
     private static String toStringEJBLocalObject(Object object) {
-        Class aClass=object.getClass();
-        Method[] methods=aClass.getMethods();
-        List list=new ArrayList();
-        for (int i=0; i<methods.length; i++) {
-            Method method=methods[i];
-            Class[] parameterTypes=method.getParameterTypes();
-            if (parameterTypes.length>0) {
+        Class aClass = object.getClass();
+        Method[] methods = aClass.getMethods();
+        List list = new ArrayList();
+        for (int i = 0; i < methods.length; i++) {
+            Method method = methods[i];
+            Class[] parameterTypes = method.getParameterTypes();
+            if (parameterTypes.length > 0) {
                 continue;
             }
-            String methodName=method.getName();
+            String methodName = method.getName();
             if (!methodName.startsWith("get")) {
                 continue;
             }
-            String propertyName=methodName.substring(3);
-            if (propertyName.length()<=0) {
+            String propertyName = methodName.substring(3);
+            if (propertyName.length() <= 0) {
                 continue;
             }
-            propertyName=Character.toLowerCase(propertyName.charAt(0))+propertyName.substring(1);
+            propertyName = Character.toLowerCase(propertyName.charAt(0)) + propertyName.substring(1);
             if (PROHIBITED_PROPERTIES.contains(propertyName)) {
                 continue;
             }
             Object result;
             try {
-                result=method.invoke(object, NO_PARAMS);
+                result = method.invoke(object, NO_PARAMS);
                 if (propertyName.equals("primaryKey")) {
-                    propertyName=ID_PROPERTY_NAME;
+                    propertyName = ID_PROPERTY_NAME;
                 }
             } catch (IllegalAccessException e) {
-                throw new RuntimeException(""+e);
+                throw new RuntimeException("" + e);
             } catch (IllegalArgumentException e) {
-                throw new RuntimeException(""+e);
+                throw new RuntimeException("" + e);
             } catch (InvocationTargetException e) {
-                throw new RuntimeException(""+e);
+                throw new RuntimeException("" + e);
             }
             list.add(new Element(propertyName, result));
         }
         Collections.sort(list);
-        String message="";
-        boolean first=true;
-        for (Iterator iterator=list.iterator(); iterator.hasNext();) {
-            Element element=(Element) iterator.next();
+        String message = "";
+        boolean first = true;
+        for (Iterator iterator = list.iterator(); iterator.hasNext();) {
+            Element element = (Element) iterator.next();
             if (first) {
-                first=false;
+                first = false;
             } else {
-                message+=", ";
+                message += ", ";
             }
-            message+=element.getPropertyName()+"="+ToString.toString(element.getResult());
+            message += element.getPropertyName() + "=" + ToString.toString(element.getResult());
         }
-        return "["+message+"]";
+        return "[" + message + "]";
     }
 
     private static class Element implements Comparable {
@@ -100,8 +100,8 @@ final class ToString {
         private final Object result;
 
         private Element(String propertyName, Object result) {
-            this.propertyName=propertyName;
-            this.result=result;
+            this.propertyName = propertyName;
+            this.result = result;
         }
 
         private String getPropertyName() {
@@ -113,10 +113,10 @@ final class ToString {
         }
 
         public int compareTo(Object o) {
-            Element element=(Element) o;
-            String propertyName2=element.propertyName;
+            Element element = (Element) o;
+            String propertyName2 = element.propertyName;
             if (propertyName.equals(propertyName2)) {
-                throw new RuntimeException("identical properties: "+propertyName);
+                throw new RuntimeException("identical properties: " + propertyName);
             }
             if (propertyName.equals(ID_PROPERTY_NAME)) {
                 return -1;

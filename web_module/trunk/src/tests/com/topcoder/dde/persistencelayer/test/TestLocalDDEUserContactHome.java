@@ -9,6 +9,7 @@
 package com.topcoder.dde.persistencelayer.test;
 
 import com.topcoder.dde.persistencelayer.interfaces.*;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
@@ -28,7 +29,7 @@ public class TestLocalDDEUserContactHome extends PersistenceTestCase {
 
     /* an instance of the localHome interface implementation to work with */
     private LocalDDEUserContactHome localHome;
-    
+
     /* default field values for entity instances */
     private static final String DEF_INFO = "Don't call me -- I'll call you";
 
@@ -37,7 +38,7 @@ public class TestLocalDDEUserContactHome extends PersistenceTestCase {
      */
     TestLocalDDEUserContactHome() {
         this("testCreate");
-    } 
+    }
 
     /**
      * constructs a new TestLocalDDEUserContactHome configured to run the named
@@ -45,7 +46,7 @@ public class TestLocalDDEUserContactHome extends PersistenceTestCase {
      */
     public TestLocalDDEUserContactHome(String testName) {
         this(testName, null);
-    } 
+    }
 
     /**
      * constructs a new TestLocalDDECategoriesHome configured to run the named
@@ -60,7 +61,7 @@ public class TestLocalDDEUserContactHome extends PersistenceTestCase {
      */
     public void setUp() throws Exception {
         super.setUp();
-        synchronized(contextLock) {
+        synchronized (contextLock) {
             localHome = (LocalDDEUserContactHome) ctx.lookup(
                     LocalDDEUserContactHome.EJB_REF_NAME);
         }
@@ -70,10 +71,10 @@ public class TestLocalDDEUserContactHome extends PersistenceTestCase {
      * creates a LocalDDEUserContact entity with default parameters
      */
     LocalDDEUserContact createDefault(LocalDDEUserMaster master,
-            LocalDDEContactType type) throws Exception {
+                                      LocalDDEContactType type) throws Exception {
         return localHome.create(DEF_INFO, master, type);
     }
-    
+
     /**
      * tests all entity creation functionality of the bean
      */
@@ -90,8 +91,8 @@ public class TestLocalDDEUserContactHome extends PersistenceTestCase {
                 synchronized (TestLocalDDEContactTypeHome.class) {
                     LocalDDEContactType localType;
                     TestLocalDDEContactTypeHome typeHome =
-                        new TestLocalDDEContactTypeHome();
-                    
+                            new TestLocalDDEContactTypeHome();
+
                     typeHome.setUp();
                     localType = typeHome.createDefault();
                     assertNotNull(localType);
@@ -110,7 +111,7 @@ public class TestLocalDDEUserContactHome extends PersistenceTestCase {
                             } finally {
                                 local.remove();
                             }
-                    
+
                             /* test creation with null user */
                             local = createDefault(null, localType);
                             assertNotNull(local);
@@ -131,7 +132,7 @@ public class TestLocalDDEUserContactHome extends PersistenceTestCase {
             }
         }
     }
-    
+
     public void testFindByPrimaryKey() {
         fail("Test not yet implemented");
     }
@@ -141,22 +142,22 @@ public class TestLocalDDEUserContactHome extends PersistenceTestCase {
         Long contactTypeId;
         Long loginId;
         String contactInfo;
-        
+
         DDEUserContactData(Object id, Long type, Long login, String info) {
             this(keyToLong(id), type, login, info);
         }
-        
+
         DDEUserContactData(long id, Long type, Long login, String info) {
             userContactId = id;
             contactTypeId = type;
             loginId = login;
             contactInfo = info;
         }
-        
+
         DDEUserContactData(ResultSet rs) throws SQLException {
             readRowData(rs);
         }
-        
+
         public Object getPrimaryKey() {
             return new Long(userContactId);
         }
@@ -174,22 +175,22 @@ public class TestLocalDDEUserContactHome extends PersistenceTestCase {
             }
             rs.updateString("CONTACT_INFO", contactInfo);
         }
-        
+
         public void storeRowData(ResultSet rs) throws SQLException {
             updateResultSet(rs);
             rs.updateRow();
         }
-        
+
         public void insertRowData(ResultSet rs) throws SQLException {
             rs.moveToInsertRow();
             rs.updateLong("USER_CONTACT_ID", userContactId);
             updateResultSet(rs);
             rs.insertRow();
         }
-        
+
         public void readRowData(ResultSet rs) throws SQLException {
             long l;
-            
+
             userContactId = rs.getLong("USER_CONTACT_ID");
             l = rs.getLong("CONTACT_TYPE_ID");
             if (rs.wasNull()) {
@@ -205,24 +206,24 @@ public class TestLocalDDEUserContactHome extends PersistenceTestCase {
             }
             contactInfo = rs.getString("CONTACT_INFO");
         }
-        
+
         public boolean matchesResultSet(ResultSet rs) throws SQLException {
             return equals(new DDEUserContactData(rs));
         }
-        
+
         public boolean equals(Object o) {
-            if (! (o instanceof DDEUserContactData) ) {
+            if (!(o instanceof DDEUserContactData)) {
                 return false;
             }
             DDEUserContactData d = (DDEUserContactData) o;
             return (
-                (userContactId == d.userContactId)
-                && objectsMatch(contactTypeId, d.contactTypeId)
-                && objectsMatch(loginId, d.loginId)
-                && objectsMatch(contactInfo, d.contactInfo) );
+                    (userContactId == d.userContactId)
+                    && objectsMatch(contactTypeId, d.contactTypeId)
+                    && objectsMatch(loginId, d.loginId)
+                    && objectsMatch(contactInfo, d.contactInfo));
         }
-        
-        
+
+
     }
 
 }

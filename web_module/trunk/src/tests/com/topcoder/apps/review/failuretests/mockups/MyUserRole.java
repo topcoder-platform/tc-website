@@ -1,7 +1,7 @@
 /*
  * MyUserRole.java 1.0 7/2/2003
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review.failuretests.mockups;
 
@@ -21,20 +21,20 @@ import com.topcoder.apps.review.projecttracker.ReviewerResponsibility;
 public class MyUserRole extends UserRole {
     private Role role;
     private User user;
-    
-    public MyUserRole(User user,Role role) {
-        super(0,role,user,(PaymentInfo)null,
-              (ReviewerResponsibility)null,0);
+
+    public MyUserRole(User user, Role role) {
+        super(0, role, user, (PaymentInfo) null,
+                (ReviewerResponsibility) null, 0);
         this.user = user;
         this.role = role;
     }
-    
+
     public long getId() {
-        return(role.getId());
+        return (role.getId());
     }
 
     public Role getRole() {
-        return(role);
+        return (role);
     }
 
     public void setRole(Role role) {
@@ -42,7 +42,7 @@ public class MyUserRole extends UserRole {
     }
 
     public User getUser() {
-        return(user);
+        return (user);
     }
 
     public void setUser(User user) {
@@ -50,14 +50,14 @@ public class MyUserRole extends UserRole {
     }
 
     public PaymentInfo getPaymentInfo() {
-        return(null);
+        return (null);
     }
 
     public void setPaymentInfo(PaymentInfo info) {
     }
 
     public ReviewerResponsibility getReviewerResponsibility() {
-        return(null);
+        return (null);
     }
 
     public void setReviewerResponsibility(ReviewerResponsibility reviewerResponsibility) {

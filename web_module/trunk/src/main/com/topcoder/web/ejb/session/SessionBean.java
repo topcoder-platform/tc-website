@@ -1,15 +1,13 @@
 package com.topcoder.web.ejb.session;
 
-import com.topcoder.web.ejb.BaseEJB;
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
 import javax.ejb.EJBException;
+import javax.naming.Context;
+import javax.sql.DataSource;
 import java.sql.*;
 
 /**
@@ -172,7 +170,7 @@ public class SessionBean extends BaseEJB {
             close(ctx);
         }
     }
-    
+
     /**
      *
      * @param sessionId
@@ -630,7 +628,7 @@ public class SessionBean extends BaseEJB {
 
         return sessionProfileId;
     }
-    
+
     /**
      *
      * @param sessionId

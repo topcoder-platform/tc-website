@@ -2,12 +2,10 @@ package com.topcoder.web.tc.controller.legacy;
 
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.ejb.Util.Util;
-import com.topcoder.ejb.Util.UtilHome;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
@@ -98,7 +96,7 @@ public final class TourneyRegServlet extends HttpServlet {
 //                    rsc = (ResultSetContainer) resultMap.get("Invitational_Eligibility");
                     rsc = (ResultSetContainer) resultMap.get("Collegiate_Eligibility");
                     if (rsc.getItem(0, "is_eligible").toString().trim().equals("T")) {
-                        Util util = (Util)BaseProcessor.createEJB(ctx, Util.class);
+                        Util util = (Util) BaseProcessor.createEJB(ctx, Util.class);
 //                        util.registerForTourny(nav.getUserId(), intContestId, intRoundId);
                         util.registerForTourny(nav.getUserId(), intContestId);
                     } else {

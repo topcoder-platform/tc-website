@@ -4,19 +4,15 @@
 
 package com.topcoder.apps.review;
 
-import com.topcoder.util.log.Level;
 import com.topcoder.apps.review.document.Appeal;
-
+import com.topcoder.util.log.Level;
+import org.apache.struts.action.ActionErrors;
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForwards;
+import org.apache.struts.action.ActionMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.struts.action.ActionErrors;
-import org.apache.struts.action.ActionForm;
-import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionForwards;
-
-import java.util.List;
-import java.util.ArrayList;
 
 /**
  * <p>
@@ -52,13 +48,13 @@ public final class AppealScorecardListAction extends ReviewAction {
                                    ActionForwards forwards,
                                    OnlineReviewProjectData orpd) {
         log(Level.INFO, "ReviewScorecardListAction: User '"
-                        + orpd.getUser().getHandle() + "' in session "
-                        + request.getSession().getId());
+                + orpd.getUser().getHandle() + "' in session "
+                + request.getSession().getId());
 
         // Call the business logic
         BusinessDelegate businessDelegate = new BusinessDelegate();
         AppealData aData = new AppealData(orpd, null, -1, -1);
-        AppealsRetrieval ar = (AppealsRetrieval)businessDelegate.appealProject(aData);
+        AppealsRetrieval ar = (AppealsRetrieval) businessDelegate.appealProject(aData);
         Appeal[] appeals = ar.getAppeals();
 
 

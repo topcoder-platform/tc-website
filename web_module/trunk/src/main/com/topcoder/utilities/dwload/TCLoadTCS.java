@@ -23,14 +23,17 @@ package com.topcoder.utilities.dwload;
  * @author Christopher Hopkins [TCid: darkstalker] (chrism_hopkins@yahoo.com)
  * @version $Revision$
  */
+
+import com.topcoder.shared.distCache.CacheClient;
+import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 
-import com.topcoder.shared.distCache.*;
-
-import java.sql.*;
-import java.util.Hashtable;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 public class TCLoadTCS extends TCLoad {
     private static Logger log = Logger.getLogger(TCLoadCoders.class);
@@ -65,8 +68,7 @@ public class TCLoadTCS extends TCLoad {
             ps = prepareStatement(sSQL, SOURCE_DB);
             ResultSet rs = ps.executeQuery();
 
-            while(rs.next())
-            {
+            while (rs.next()) {
                 doLoadProject(rs.getLong("project_id"));
             }
 
@@ -80,8 +82,7 @@ public class TCLoadTCS extends TCLoad {
             ps = prepareStatement(sSQL, SOURCE_DB);
             rs = ps.executeQuery();
 
-            while(rs.next())
-            {
+            while (rs.next()) {
                 doLoadProjectResults(rs.getLong("project_id"));
             }
 
@@ -98,28 +99,28 @@ public class TCLoadTCS extends TCLoad {
 
             //fix problems with submission date
             sSQL = "update project_result " +
-                   "         set submit_timestamp = (select max(u.submission_date) " +
-                   "         from project p, " +
-                   "         user_component_score u " +
-                   "         where p.project_id = project_result.project_id " +
-                   "         and u.component_name = p.component_name " +
-                   "         and u.phase_id = p.phase_id " +
-                   "         and u.component_id = p.component_id " +
-                   "         and u.user_id = project_result.user_id " +
-                   "         and u.score = project_result.final_score " +
-                   "         group by p.project_id), submit_ind = 1 " +
-                   " where exists(  " +
-                   "         select max(u.submission_date) " +
-                   "         from project p, " +
-                   "         user_component_score u " +
-                   "         where p.project_id = project_result.project_id " +
-                   "         and u.component_name = p.component_name " +
-                   "         and u.phase_id = p.phase_id " +
-                   "         and u.component_id = p.component_id " +
-                   "         and u.user_id = project_result.user_id " +
-                   "         and u.score = project_result.final_score " +
-                   "         group by p.project_id " +
-                   " )";
+                    "         set submit_timestamp = (select max(u.submission_date) " +
+                    "         from project p, " +
+                    "         user_component_score u " +
+                    "         where p.project_id = project_result.project_id " +
+                    "         and u.component_name = p.component_name " +
+                    "         and u.phase_id = p.phase_id " +
+                    "         and u.component_id = p.component_id " +
+                    "         and u.user_id = project_result.user_id " +
+                    "         and u.score = project_result.final_score " +
+                    "         group by p.project_id), submit_ind = 1 " +
+                    " where exists(  " +
+                    "         select max(u.submission_date) " +
+                    "         from project p, " +
+                    "         user_component_score u " +
+                    "         where p.project_id = project_result.project_id " +
+                    "         and u.component_name = p.component_name " +
+                    "         and u.phase_id = p.phase_id " +
+                    "         and u.component_id = p.component_id " +
+                    "         and u.user_id = project_result.user_id " +
+                    "         and u.score = project_result.final_score " +
+                    "         group by p.project_id " +
+                    " )";
 
             ps = prepareStatement(sSQL, TARGET_DB);
             ps.execute();
@@ -132,7 +133,7 @@ public class TCLoadTCS extends TCLoad {
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
             setReasonFailed(("Load failed.\n" +
-                sqle.getMessage()));
+                    sqle.getMessage()));
             throw sqle;
         } catch (Exception ex) {
             setReasonFailed(ex.getMessage());
@@ -140,18 +141,17 @@ public class TCLoadTCS extends TCLoad {
         }
     }
 
-    public void doClearCache() throws Exception
-    {
+    public void doClearCache() throws Exception {
         CacheClient cc = CacheClientFactory.createCacheClient();
 
         String tempKey = null;
 
-        String[] keys = new String[] {"tccc05_", "usdc_", "component_history", "tcs_ratings_history", "member_profile", "public_home_data", "top_designers", "top_developers", "tco04" };
+        String[] keys = new String[]{"tccc05_", "usdc_", "component_history", "tcs_ratings_history", "member_profile", "public_home_data", "top_designers", "top_developers", "tco04"};
 
         ArrayList list = cc.getKeys();
-        for (int i=0; i<list.size(); i++) {
-            tempKey = (String)list.get(i);
-            for(int j = 0; j < keys.length; j++) {
+        for (int i = 0; i < list.size(); i++) {
+            tempKey = (String) list.get(i);
+            for (int j = 0; j < keys.length; j++) {
                 if (tempKey.indexOf(keys[j]) > -1) {
                     cc.remove(tempKey);
                     break;
@@ -160,8 +160,7 @@ public class TCLoadTCS extends TCLoad {
         }
     }
 
-    public void doLoadRoyalty() throws Exception
-    {
+    public void doLoadRoyalty() throws Exception {
         PreparedStatement ps, ps2;
         ResultSet rs;
         try {
@@ -170,8 +169,7 @@ public class TCLoadTCS extends TCLoad {
             ps = prepareStatement(sSQL, SOURCE_DB);
             rs = ps.executeQuery();
 
-            while(rs.next())
-            {
+            while (rs.next()) {
                 log.info("PROCESSING USER " + rs.getInt("user_id"));
 
                 //update record, if 0 rows affected, insert record
@@ -189,11 +187,10 @@ public class TCLoadTCS extends TCLoad {
                 ps2.close();
                 ps2 = null;
 
-                if(retVal == 0)
-                {
+                if (retVal == 0) {
                     //need to insert
                     sSQL = "insert into royalty (user_id, amount, description, royalty_date) " +
-                           "values (?, ?, ?, ?) ";
+                            "values (?, ?, ?, ?) ";
 
                     ps2 = prepareStatement(sSQL, TARGET_DB);
                     ps2.setLong(1, rs.getLong("user_id"));
@@ -219,8 +216,7 @@ public class TCLoadTCS extends TCLoad {
         }
     }
 
-    public void doLoadUserReliability() throws Exception
-    {
+    public void doLoadUserReliability() throws Exception {
         PreparedStatement ps, ps2;
         ResultSet rs;
 
@@ -230,8 +226,7 @@ public class TCLoadTCS extends TCLoad {
             ps = prepareStatement(sSQL, SOURCE_DB);
             rs = ps.executeQuery();
 
-            while(rs.next())
-            {
+            while (rs.next()) {
                 log.info("PROCESSING USER " + rs.getInt("user_id"));
 
                 //update record, if 0 rows affected, insert record
@@ -247,11 +242,10 @@ public class TCLoadTCS extends TCLoad {
                 ps2.close();
                 ps2 = null;
 
-                if(retVal == 0)
-                {
+                if (retVal == 0) {
                     //need to insert
                     sSQL = "insert into user_reliability (user_id, rating, modify_date, create_date) " +
-                           "values (?, ?, CURRENT, CURRENT) ";
+                            "values (?, ?, CURRENT, CURRENT) ";
 
                     ps2 = prepareStatement(sSQL, TARGET_DB);
                     ps2.setLong(1, rs.getLong("user_id"));
@@ -275,8 +269,7 @@ public class TCLoadTCS extends TCLoad {
         }
     }
 
-    public void doLoadUserRating() throws Exception
-    {
+    public void doLoadUserRating() throws Exception {
         PreparedStatement ps, ps2;
         ResultSet rs;
         try {
@@ -285,8 +278,7 @@ public class TCLoadTCS extends TCLoad {
             ps = prepareStatement(sSQL, SOURCE_DB);
             rs = ps.executeQuery();
 
-            while(rs.next())
-            {
+            while (rs.next()) {
                 log.info("PROCESSING USER " + rs.getInt("user_id"));
 
                 //update record, if 0 rows affected, insert record
@@ -308,11 +300,10 @@ public class TCLoadTCS extends TCLoad {
                 ps2.close();
                 ps2 = null;
 
-                if(retVal == 0)
-                {
+                if (retVal == 0) {
                     //need to insert
                     sSQL = "insert into user_rating (user_id, rating, phase_id, vol, rating_no_vol, num_ratings, last_rated_project_id, mod_date_time, create_date_time) " +
-                           "values (?, ?, ?, ?, ?, ?, ?, CURRENT, CURRENT) ";
+                            "values (?, ?, ?, ?, ?, ?, ?, CURRENT, CURRENT) ";
 
                     ps2 = prepareStatement(sSQL, TARGET_DB);
                     ps2.setLong(1, rs.getLong("user_id"));
@@ -341,8 +332,7 @@ public class TCLoadTCS extends TCLoad {
         }
     }
 
-    public void doLoadProject(long project_id) throws Exception
-    {
+    public void doLoadProject(long project_id) throws Exception {
         PreparedStatement ps, ps2;
         ResultSet rs;
 
@@ -351,44 +341,43 @@ public class TCLoadTCS extends TCLoad {
 
             //get data from source DB
             String sSQL = "select p.project_id, cc.component_id, cc.component_name, " +
-                            "(select count(*) from component_inquiry where project_id = p.project_id) as num_registrations, " +
-                            "(select count(*) from submission where cur_version = 1 and project_id = p.project_id and submission_type = 1 and is_removed = 0) as num_submissions, " +
-                            "(select count(*) from project_result where project_id = p.project_id and valid_submission_ind = 1) as num_valid_submissions, " +
-                            "(select avg(case when raw_score is null then 0 else raw_score end) from project_result where project_id = p.project_id and raw_score is not null) as avg_raw_score, " +
-                            "(select avg(case when final_score is null then 0 else final_score end) from project_result where project_id = p.project_id and final_score is not null) as avg_final_score, " +
-                            "case when p.project_type_id = 1 then 112 else 113 end as phase_id, " +
-                            "(select description from phase where phase_id = (case when p.project_type_id = 1 then 112 else 113 end)) as phase_desc, " +
-                            "cc.root_category_id as category_id, " +
-                            "(select category_name from categories where category_id = cc.root_category_id) as category_desc, " +
-                            "(select start_date from phase_instance where phase_id = 1 and cur_version = 1 and project_id = p.project_id) as posting_date, " +
-                            "(select end_date from phase_instance where phase_id = 1 and cur_version = 1 and project_id = p.project_id) as submitby_date, " +
-							"(select max(level_id) from comp_version_dates where comp_vers_id = p.comp_vers_id and phase_id = p.project_type_id + 111) as level_id, " +
-                            "p.complete_date, " +
-                            "rp.review_phase_id, " +
-                            "rp.review_phase_name," +
-                            "ps.project_stat_id," +
-                            "ps.project_stat_name " +
-                            "from project p, " +
-                            "comp_versions cv, " +
-                            "comp_catalog cc," +
-                            "phase_instance pi, " +
-                            "review_phase rp," +
-                            "project_status ps " +
-                            "where p.project_id = ? " +
-                            "and p.cur_version = 1  " +
-                            "and cv.comp_vers_id = p.comp_vers_id " +
-                            "and cc.component_id = cv.component_id " +
-                            "and pi.cur_version = 1 " +
-                            "and pi.phase_instance_id = p.phase_instance_id " +
-                            "and rp.review_phase_id = pi.phase_id " +
-                            "and ps.project_stat_id = p.project_stat_id";
+                    "(select count(*) from component_inquiry where project_id = p.project_id) as num_registrations, " +
+                    "(select count(*) from submission where cur_version = 1 and project_id = p.project_id and submission_type = 1 and is_removed = 0) as num_submissions, " +
+                    "(select count(*) from project_result where project_id = p.project_id and valid_submission_ind = 1) as num_valid_submissions, " +
+                    "(select avg(case when raw_score is null then 0 else raw_score end) from project_result where project_id = p.project_id and raw_score is not null) as avg_raw_score, " +
+                    "(select avg(case when final_score is null then 0 else final_score end) from project_result where project_id = p.project_id and final_score is not null) as avg_final_score, " +
+                    "case when p.project_type_id = 1 then 112 else 113 end as phase_id, " +
+                    "(select description from phase where phase_id = (case when p.project_type_id = 1 then 112 else 113 end)) as phase_desc, " +
+                    "cc.root_category_id as category_id, " +
+                    "(select category_name from categories where category_id = cc.root_category_id) as category_desc, " +
+                    "(select start_date from phase_instance where phase_id = 1 and cur_version = 1 and project_id = p.project_id) as posting_date, " +
+                    "(select end_date from phase_instance where phase_id = 1 and cur_version = 1 and project_id = p.project_id) as submitby_date, " +
+                    "(select max(level_id) from comp_version_dates where comp_vers_id = p.comp_vers_id and phase_id = p.project_type_id + 111) as level_id, " +
+                    "p.complete_date, " +
+                    "rp.review_phase_id, " +
+                    "rp.review_phase_name," +
+                    "ps.project_stat_id," +
+                    "ps.project_stat_name " +
+                    "from project p, " +
+                    "comp_versions cv, " +
+                    "comp_catalog cc," +
+                    "phase_instance pi, " +
+                    "review_phase rp," +
+                    "project_status ps " +
+                    "where p.project_id = ? " +
+                    "and p.cur_version = 1  " +
+                    "and cv.comp_vers_id = p.comp_vers_id " +
+                    "and cc.component_id = cv.component_id " +
+                    "and pi.cur_version = 1 " +
+                    "and pi.phase_instance_id = p.phase_instance_id " +
+                    "and rp.review_phase_id = pi.phase_id " +
+                    "and ps.project_stat_id = p.project_stat_id";
 
             ps = prepareStatement(sSQL, SOURCE_DB);
             ps.setLong(1, project_id);
 
             rs = ps.executeQuery();
-            if(rs.next())
-            {
+            if (rs.next()) {
                 //update record, if 0 rows affected, insert record
                 sSQL = "update project set component_name = ?,  num_registrations = ?, num_submissions = ?, num_valid_submissions = ?, avg_raw_score = ?, avg_final_score = ?, phase_id = ?, " +
                         "phase_desc = ?, category_id = ?, category_desc = ?, posting_date = ?, submitby_date = ?, complete_date = ?, component_id = ?, review_phase_id = ?, review_phase_name = ?, status_id = ?, status_desc = ?, level_id = ? where project_id = ? ";
@@ -412,7 +401,7 @@ public class TCLoadTCS extends TCLoad {
                 ps2.setString(16, rs.getString("review_phase_name"));
                 ps2.setLong(17, rs.getLong("project_stat_id"));
                 ps2.setString(18, rs.getString("project_stat_name"));
-				ps2.setLong(19, rs.getLong("level_id"));
+                ps2.setLong(19, rs.getLong("level_id"));
                 ps2.setLong(20, rs.getLong("project_id"));
 
                 int retVal = ps2.executeUpdate();
@@ -420,11 +409,10 @@ public class TCLoadTCS extends TCLoad {
                 ps2.close();
                 ps2 = null;
 
-                if(retVal == 0)
-                {
+                if (retVal == 0) {
                     //need to insert
                     sSQL = "insert into project (project_id, component_name, num_registrations, num_submissions, num_valid_submissions, avg_raw_score, avg_final_score, phase_id, phase_desc, " +
-                           "category_id, category_desc, posting_date, submitby_date, complete_date, component_id, review_phase_id, review_phase_name, status_id, status_desc, level_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
+                            "category_id, category_desc, posting_date, submitby_date, complete_date, component_id, review_phase_id, review_phase_name, status_id, status_desc, level_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
 
                     ps2 = prepareStatement(sSQL, TARGET_DB);
                     ps2.setLong(1, rs.getLong("project_id"));
@@ -446,7 +434,7 @@ public class TCLoadTCS extends TCLoad {
                     ps2.setString(17, rs.getString("review_phase_name"));
                     ps2.setLong(18, rs.getLong("project_stat_id"));
                     ps2.setString(19, rs.getString("project_stat_name"));
-					ps2.setLong(20, rs.getLong("level_id"));
+                    ps2.setLong(20, rs.getLong("level_id"));
 
                     ps2.execute();
 
@@ -468,8 +456,7 @@ public class TCLoadTCS extends TCLoad {
         }
     }
 
-     public void doLoadProjectResults(long project_id) throws Exception
-     {
+    public void doLoadProjectResults(long project_id) throws Exception {
         PreparedStatement ps, ps2;
         ResultSet rs;
 
@@ -522,70 +509,68 @@ public class TCLoadTCS extends TCLoad {
 
             rs = ps.executeQuery();
 
-            while(rs.next())
-            {
+            while (rs.next()) {
 
-                 sSQL = "update project_result set submit_ind = ?, valid_submission_ind = ?, raw_score = ?, final_score = ?, inquire_timestamp = ?, " +
-                 "submit_timestamp = ?, review_complete_timestamp = ?, payment = ?, old_rating = ?, new_rating = ?, old_reliability = ?, new_reliability = ?, " +
-                 "placed = ?, rating_ind = ?, reliability_ind = ? where project_id = ? and user_id = ?";
+                sSQL = "update project_result set submit_ind = ?, valid_submission_ind = ?, raw_score = ?, final_score = ?, inquire_timestamp = ?, " +
+                        "submit_timestamp = ?, review_complete_timestamp = ?, payment = ?, old_rating = ?, new_rating = ?, old_reliability = ?, new_reliability = ?, " +
+                        "placed = ?, rating_ind = ?, reliability_ind = ? where project_id = ? and user_id = ?";
 
-                 ps2 = prepareStatement(sSQL, TARGET_DB);
+                ps2 = prepareStatement(sSQL, TARGET_DB);
 
-                 ps2.setObject(1, rs.getObject("submit_ind"));
-                 ps2.setObject(2, rs.getObject("valid_submission_ind"));
-                 ps2.setObject(3, rs.getObject("raw_score"));
-                 ps2.setObject(4, rs.getObject("final_score"));
-                 ps2.setObject(5, rs.getObject("inquire_timestamp"));
-                 ps2.setObject(6, rs.getObject("submit_timestamp"));
-                 ps2.setObject(7, rs.getObject("review_completed_timestamp"));
-                 ps2.setObject(8, rs.getObject("payment"));
-                 ps2.setObject(9, rs.getObject("old_rating"));
-                 ps2.setObject(10, rs.getObject("new_rating"));
-                 ps2.setObject(11, rs.getObject("old_reliability"));
-                 ps2.setObject(12, rs.getObject("new_reliability"));
-                 ps2.setObject(13, rs.getObject("placed"));
-                 ps2.setObject(14, rs.getObject("rating_ind"));
-                 ps2.setObject(15, rs.getObject("reliability_ind"));
-                 ps2.setLong(16, project_id);
-                 ps2.setLong(17, rs.getLong("user_id"));
+                ps2.setObject(1, rs.getObject("submit_ind"));
+                ps2.setObject(2, rs.getObject("valid_submission_ind"));
+                ps2.setObject(3, rs.getObject("raw_score"));
+                ps2.setObject(4, rs.getObject("final_score"));
+                ps2.setObject(5, rs.getObject("inquire_timestamp"));
+                ps2.setObject(6, rs.getObject("submit_timestamp"));
+                ps2.setObject(7, rs.getObject("review_completed_timestamp"));
+                ps2.setObject(8, rs.getObject("payment"));
+                ps2.setObject(9, rs.getObject("old_rating"));
+                ps2.setObject(10, rs.getObject("new_rating"));
+                ps2.setObject(11, rs.getObject("old_reliability"));
+                ps2.setObject(12, rs.getObject("new_reliability"));
+                ps2.setObject(13, rs.getObject("placed"));
+                ps2.setObject(14, rs.getObject("rating_ind"));
+                ps2.setObject(15, rs.getObject("reliability_ind"));
+                ps2.setLong(16, project_id);
+                ps2.setLong(17, rs.getLong("user_id"));
 
-                 int retVal = ps2.executeUpdate();
+                int retVal = ps2.executeUpdate();
 
-                 ps2.close();
-                 ps2 = null;
+                ps2.close();
+                ps2 = null;
 
-                 if(retVal == 0)
-                 {
-                     sSQL = "insert into project_result (project_id, user_id, submit_ind, valid_submission_ind, raw_score, final_score, inquire_timestamp," +
-                     " submit_timestamp, review_complete_timestamp, payment, old_rating, new_rating, old_reliability, new_reliability, placed, rating_ind, " +
-                     "reliability_ind ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                if (retVal == 0) {
+                    sSQL = "insert into project_result (project_id, user_id, submit_ind, valid_submission_ind, raw_score, final_score, inquire_timestamp," +
+                            " submit_timestamp, review_complete_timestamp, payment, old_rating, new_rating, old_reliability, new_reliability, placed, rating_ind, " +
+                            "reliability_ind ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-                     ps2 = prepareStatement(sSQL, TARGET_DB);
+                    ps2 = prepareStatement(sSQL, TARGET_DB);
 
-                     ps2.setLong(1, project_id);
-                     ps2.setLong(2, rs.getLong("user_id"));
-                     ps2.setObject(3, rs.getObject("submit_ind"));
-                     ps2.setObject(4, rs.getObject("valid_submission_ind"));
-                     ps2.setObject(5, rs.getObject("raw_score"));
-                     ps2.setObject(6, rs.getObject("final_score"));
-                     ps2.setObject(7, rs.getObject("inquire_timestamp"));
-                     ps2.setObject(8, rs.getObject("submit_timestamp"));
-                     ps2.setObject(9, rs.getObject("review_completed_timestamp"));
-                     ps2.setObject(10, rs.getObject("payment"));
-                     ps2.setObject(11, rs.getObject("old_rating"));
-                     ps2.setObject(12, rs.getObject("new_rating"));
-                     ps2.setObject(13, rs.getObject("old_reliability"));
-                     ps2.setObject(14, rs.getObject("new_reliability"));
-                     ps2.setObject(15, rs.getObject("placed"));
-                     ps2.setObject(16, rs.getObject("rating_ind"));
-                     ps2.setObject(17, rs.getObject("reliability_ind"));
+                    ps2.setLong(1, project_id);
+                    ps2.setLong(2, rs.getLong("user_id"));
+                    ps2.setObject(3, rs.getObject("submit_ind"));
+                    ps2.setObject(4, rs.getObject("valid_submission_ind"));
+                    ps2.setObject(5, rs.getObject("raw_score"));
+                    ps2.setObject(6, rs.getObject("final_score"));
+                    ps2.setObject(7, rs.getObject("inquire_timestamp"));
+                    ps2.setObject(8, rs.getObject("submit_timestamp"));
+                    ps2.setObject(9, rs.getObject("review_completed_timestamp"));
+                    ps2.setObject(10, rs.getObject("payment"));
+                    ps2.setObject(11, rs.getObject("old_rating"));
+                    ps2.setObject(12, rs.getObject("new_rating"));
+                    ps2.setObject(13, rs.getObject("old_reliability"));
+                    ps2.setObject(14, rs.getObject("new_reliability"));
+                    ps2.setObject(15, rs.getObject("placed"));
+                    ps2.setObject(16, rs.getObject("rating_ind"));
+                    ps2.setObject(17, rs.getObject("reliability_ind"));
 
-                     ps2.execute();
+                    ps2.execute();
 
-                     ps2.close();
-                     ps2 = null;
+                    ps2.close();
+                    ps2 = null;
 
-                 }
+                }
             }
 
             rs.close();
@@ -623,46 +608,44 @@ public class TCLoadTCS extends TCLoad {
 
             rs = ps.executeQuery();
 
-            while(rs.next())
-            {
-                 sSQL = "update submission_review set raw_score = ?, final_score = ?, num_appeals = ?, num_successful_appeals = ? " +
-                 "where project_id = ? and user_id = ? and reviewer_id = ?";
+            while (rs.next()) {
+                sSQL = "update submission_review set raw_score = ?, final_score = ?, num_appeals = ?, num_successful_appeals = ? " +
+                        "where project_id = ? and user_id = ? and reviewer_id = ?";
 
-                 ps2 = prepareStatement(sSQL, TARGET_DB);
+                ps2 = prepareStatement(sSQL, TARGET_DB);
 
-                 ps2.setObject(1, rs.getObject("raw_score"));
-                 ps2.setObject(2, rs.getObject("final_score"));
-                 ps2.setObject(3, rs.getObject("num_appeals"));
-                 ps2.setObject(4, rs.getObject("num_successful_appeals"));
-                 ps2.setLong(5, project_id);
-                 ps2.setLong(6, rs.getLong("user_id"));
-                 ps2.setLong(7, rs.getLong("reviewer_id"));
+                ps2.setObject(1, rs.getObject("raw_score"));
+                ps2.setObject(2, rs.getObject("final_score"));
+                ps2.setObject(3, rs.getObject("num_appeals"));
+                ps2.setObject(4, rs.getObject("num_successful_appeals"));
+                ps2.setLong(5, project_id);
+                ps2.setLong(6, rs.getLong("user_id"));
+                ps2.setLong(7, rs.getLong("reviewer_id"));
 
-                 int retVal = ps2.executeUpdate();
+                int retVal = ps2.executeUpdate();
 
-                 ps2.close();
-                 ps2 = null;
+                ps2.close();
+                ps2 = null;
 
-                 if(retVal == 0)
-                 {
-                     sSQL = "insert into submission_review (project_id, user_id, reviewer_id, raw_score, final_score, num_appeals," +
-                     "num_successful_appeals ) values (?, ?, ?, ?, ?, ?, ?)";
+                if (retVal == 0) {
+                    sSQL = "insert into submission_review (project_id, user_id, reviewer_id, raw_score, final_score, num_appeals," +
+                            "num_successful_appeals ) values (?, ?, ?, ?, ?, ?, ?)";
 
-                     ps2 = prepareStatement(sSQL, TARGET_DB);
+                    ps2 = prepareStatement(sSQL, TARGET_DB);
 
-                     ps2.setLong(1, project_id);
-                     ps2.setLong(2, rs.getLong("user_id"));
-                     ps2.setLong(3, rs.getLong("reviewer_id"));
-                     ps2.setObject(4, rs.getObject("raw_score"));
-                     ps2.setObject(5, rs.getObject("final_score"));
-                     ps2.setObject(6, rs.getObject("num_appeals"));
-                     ps2.setObject(7, rs.getObject("num_successful_appeals"));
+                    ps2.setLong(1, project_id);
+                    ps2.setLong(2, rs.getLong("user_id"));
+                    ps2.setLong(3, rs.getLong("reviewer_id"));
+                    ps2.setObject(4, rs.getObject("raw_score"));
+                    ps2.setObject(5, rs.getObject("final_score"));
+                    ps2.setObject(6, rs.getObject("num_appeals"));
+                    ps2.setObject(7, rs.getObject("num_successful_appeals"));
 
-                     ps2.execute();
+                    ps2.execute();
 
-                     ps2.close();
-                     ps2 = null;
-                 }
+                    ps2.close();
+                    ps2 = null;
+                }
             }
 
             rs.close();
@@ -670,7 +653,7 @@ public class TCLoadTCS extends TCLoad {
             ps.close();
             ps = null;
 
-          //load contest_project_xref
+            //load contest_project_xref
             sSQL = "delete from contest_project_xref where project_id = ?";
 
             ps = prepareStatement(sSQL, TARGET_DB);
@@ -691,20 +674,19 @@ public class TCLoadTCS extends TCLoad {
 
             rs = ps.executeQuery();
 
-            while(rs.next())
-            {
-                 sSQL = "insert into contest_project_xref (contest_id, project_id) " +
-                 "values (?, ?)";
+            while (rs.next()) {
+                sSQL = "insert into contest_project_xref (contest_id, project_id) " +
+                        "values (?, ?)";
 
-                 ps2 = prepareStatement(sSQL, TARGET_DB);
+                ps2 = prepareStatement(sSQL, TARGET_DB);
 
-                 ps2.setLong(1, rs.getLong("contest_id"));
-                 ps2.setLong(2, project_id);
+                ps2.setLong(1, rs.getLong("contest_id"));
+                ps2.setLong(2, project_id);
 
-                 ps2.execute();
+                ps2.execute();
 
-                 ps2.close();
-                 ps2 = null;
+                ps2.close();
+                ps2 = null;
             }
 
             rs.close();
@@ -718,29 +700,27 @@ public class TCLoadTCS extends TCLoad {
         }
     }
 
-    public void doLoadContests() throws Exception
-    {
+    public void doLoadContests() throws Exception {
         PreparedStatement ps, ps2;
         ResultSet rs;
 
         try {
 
             String sSQL = "select c.contest_id, c.contest_name, " +
-                            "c.start_date as contest_start_timestamp, " +
-                            "c.end_date as contest_end_timestamp, " +
-                            "c.contest_type_id, " +
-                            "ct.contest_type_desc," +
-                            "c.phase_id," +
-                            "c.event_id  " +
-                            "from contest c, " +
-                            "contest_type_lu ct " +
-                            "where ct.contest_type_id = c.contest_type_id";
+                    "c.start_date as contest_start_timestamp, " +
+                    "c.end_date as contest_end_timestamp, " +
+                    "c.contest_type_id, " +
+                    "ct.contest_type_desc," +
+                    "c.phase_id," +
+                    "c.event_id  " +
+                    "from contest c, " +
+                    "contest_type_lu ct " +
+                    "where ct.contest_type_id = c.contest_type_id";
 
             ps = prepareStatement(sSQL, SOURCE_DB);
             rs = ps.executeQuery();
 
-            while(rs.next())
-            {
+            while (rs.next()) {
                 log.info("PROCESSING CONTEST " + rs.getInt("contest_id"));
 
                 //update record, if 0 rows affected, insert record
@@ -762,11 +742,10 @@ public class TCLoadTCS extends TCLoad {
                 ps2.close();
                 ps2 = null;
 
-                if(retVal == 0)
-                {
+                if (retVal == 0) {
                     //need to insert
                     sSQL = "insert into contest (contest_id, contest_name, contest_start_timestamp, contest_end_timestamp, contest_type_id, contest_type_desc, phase_id, event_id) " +
-                           "values (?, ?, ?, ?, ?, ?, ?, ?) ";
+                            "values (?, ?, ?, ?, ?, ?, ?, ?) ";
 
                     ps2 = prepareStatement(sSQL, TARGET_DB);
                     ps2.setLong(1, rs.getLong("contest_id"));
@@ -807,8 +786,7 @@ public class TCLoadTCS extends TCLoad {
             ps = prepareStatement(sSQL, SOURCE_DB);
             rs = ps.executeQuery();
 
-            while(rs.next())
-            {
+            while (rs.next()) {
                 //update record, if 0 rows affected, insert record
                 sSQL = "update user_contest_prize set prize_type_id = ?,  prize_description = ?, place = ?, prize_amount = ?, prize_payment = ? " +
                         " where contest_id = ? and user_id = ?";
@@ -827,11 +805,10 @@ public class TCLoadTCS extends TCLoad {
                 ps2.close();
                 ps2 = null;
 
-                if(retVal == 0)
-                {
+                if (retVal == 0) {
                     //need to insert
                     sSQL = "insert into user_contest_prize (contest_id, user_id, prize_type_id, prize_description, place, prize_amount, prize_payment) " +
-                           "values (?, ?, ?, ?, ?, ?, ?) ";
+                            "values (?, ?, ?, ?, ?, ?, ?) ";
 
                     ps2 = prepareStatement(sSQL, TARGET_DB);
                     ps2.setLong(1, rs.getLong("contest_id"));
@@ -861,21 +838,19 @@ public class TCLoadTCS extends TCLoad {
     }
 
 
-    public void doLoadEvents() throws Exception
-    {
+    public void doLoadEvents() throws Exception {
         PreparedStatement ps, ps2;
         ResultSet rs;
 
         try {
 
             String sSQL = "select * " +
-                            "from event e ";
+                    "from event e ";
 
             ps = prepareStatement(sSQL, SOURCE_DB);
             rs = ps.executeQuery();
 
-            while(rs.next())
-            {
+            while (rs.next()) {
                 log.info("PROCESSING EVENT " + rs.getInt("event_id"));
 
                 //update record, if 0 rows affected, insert record
@@ -891,11 +866,10 @@ public class TCLoadTCS extends TCLoad {
                 ps2.close();
                 ps2 = null;
 
-                if(retVal == 0)
-                {
+                if (retVal == 0) {
                     //need to insert
                     sSQL = "insert into event (event_id, event_name) " +
-                           "values (?, ?) ";
+                            "values (?, ?) ";
 
                     ps2 = prepareStatement(sSQL, TARGET_DB);
                     ps2.setLong(1, rs.getLong("event_id"));
@@ -920,8 +894,7 @@ public class TCLoadTCS extends TCLoad {
             ps = prepareStatement(sSQL, SOURCE_DB);
             rs = ps.executeQuery();
 
-            while(rs.next())
-            {
+            while (rs.next()) {
                 //update record, if 0 rows affected, insert record
                 sSQL = "update user_event_xref set create_date = ? " +
                         " where event_id = ? and user_id = ?";
@@ -936,11 +909,10 @@ public class TCLoadTCS extends TCLoad {
                 ps2.close();
                 ps2 = null;
 
-                if(retVal == 0)
-                {
+                if (retVal == 0) {
                     //need to insert
                     sSQL = "insert into user_event_xref (event_id, user_id, create_date) " +
-                           "values (?, ?, ?) ";
+                            "values (?, ?, ?) ";
 
                     ps2 = prepareStatement(sSQL, TARGET_DB);
                     ps2.setLong(1, rs.getLong("event_id"));

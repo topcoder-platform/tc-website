@@ -1,14 +1,15 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 
 package com.topcoder.apps.review;
 
-import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.ActionError;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Form bean for the user login page.  This form has the following fields,
@@ -23,9 +24,9 @@ import org.apache.struts.action.ActionMapping;
  */
 
 public final class LoginForm extends ActionForm {
-    
+
     // --------------------------------------------------- Instance Variables
-    
+
     /**
      * The password.
      */
@@ -35,12 +36,12 @@ public final class LoginForm extends ActionForm {
      * The username.
      */
     private String username = null;
-    
+
     // ----------------------------------------------------------- Properties
 
     /**
      * Return the password.
-     * 
+     *
      * @return the password.
      */
     public String getPassword() {
@@ -58,7 +59,7 @@ public final class LoginForm extends ActionForm {
 
     /**
      * Return the username.
-     * 
+     *
      * @return the username.
      */
     public String getUsername() {
@@ -96,14 +97,14 @@ public final class LoginForm extends ActionForm {
      *
      * @param mapping The mapping used to select this instance
      * @param request The servlet request we are processing
-     * 
+     *
      * @return an <code>ActionErrors</code> object that encapsulates any
      * validation errors that have been found.
      */
     public ActionErrors validate(ActionMapping mapping,
                                  HttpServletRequest request) {
         ActionErrors errors = new ActionErrors();
-        
+
         if ((username == null) || (username.length() < 1)) {
             errors.add("username", new ActionError("error.username.required"));
         }
@@ -113,12 +114,12 @@ public final class LoginForm extends ActionForm {
 
         return errors;
     }
-    
+
     // ------------------------------------------------------ Protected Methods
-    
+
     /**
      * Make the LoginData from the bean form.
-     * 
+     *
      * @return the LoginData made from the bean form.
      */
     protected LoginData toLoginData() {

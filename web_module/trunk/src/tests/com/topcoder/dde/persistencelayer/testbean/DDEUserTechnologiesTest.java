@@ -17,7 +17,7 @@ public final class DDEUserTechnologiesTest extends DDEServerTestCase {
     }
 
     protected void setUp() throws NamingException {
-        userTechnologiesHome=(LocalDDEUserTechnologiesHome) lookup(LocalDDEUserTechnologiesHome.EJB_REF_NAME);
+        userTechnologiesHome = (LocalDDEUserTechnologiesHome) lookup(LocalDDEUserTechnologiesHome.EJB_REF_NAME);
     }
 
     public void test() throws Exception {
@@ -26,13 +26,13 @@ public final class DDEUserTechnologiesTest extends DDEServerTestCase {
     }
 
     private void testCreateTwoUserTechnologies() throws Exception {
-        LocalDDEUserMaster userMaster=DDEUserMasterTest.create();
-        LocalDDETechnologyTypes technologyTypes1=DDETechnologyTypesTest.create();
-        LocalDDEUserTechnologies userTechnologies1=userTechnologiesHome.create(1100, 1, userMaster, technologyTypes1);
+        LocalDDEUserMaster userMaster = DDEUserMasterTest.create();
+        LocalDDETechnologyTypes technologyTypes1 = DDETechnologyTypesTest.create();
+        LocalDDEUserTechnologies userTechnologies1 = userTechnologiesHome.create(1100, 1, userMaster, technologyTypes1);
         userTechnologiesHome.findByPrimaryKey((Long) userTechnologies1.getPrimaryKey());
-        LocalDDETechnologyTypes technologyTypes2=DDETechnologyTypesTest.create();
-        LocalDDEUserTechnologies userTechnologies2=userTechnologiesHome.create(1200, 2, userMaster, technologyTypes2);
-        LocalDDEUserMaster userMaster2=userTechnologies1.getUserMaster();
+        LocalDDETechnologyTypes technologyTypes2 = DDETechnologyTypesTest.create();
+        LocalDDEUserTechnologies userTechnologies2 = userTechnologiesHome.create(1200, 2, userMaster, technologyTypes2);
+        LocalDDEUserMaster userMaster2 = userTechnologies1.getUserMaster();
         assertNotNull("was reset to null?", userMaster2);
         assertTrue(userMaster.isIdentical(userMaster2));
         userTechnologies2.remove();
@@ -42,12 +42,12 @@ public final class DDEUserTechnologiesTest extends DDEServerTestCase {
     }
 
     private void typicalTest() throws Exception {
-        LocalDDEUserMaster userMaster=DDEUserMasterTest.create();
-        LocalDDETechnologyTypes technologyTypes=DDETechnologyTypesTest.create();
-        int rating=14;
-        int months=15;
-        LocalDDEUserTechnologies userTechnologies=userTechnologiesHome.create(rating, months, userMaster, technologyTypes);
-        Long primaryKey=testGetPrimaryKey(userTechnologies);
+        LocalDDEUserMaster userMaster = DDEUserMasterTest.create();
+        LocalDDETechnologyTypes technologyTypes = DDETechnologyTypesTest.create();
+        int rating = 14;
+        int months = 15;
+        LocalDDEUserTechnologies userTechnologies = userTechnologiesHome.create(rating, months, userMaster, technologyTypes);
+        Long primaryKey = testGetPrimaryKey(userTechnologies);
         testGetUserMaster(userTechnologies, userMaster);
         testGetTechnologyTypes(userTechnologies, technologyTypes);
         testGetRating(userTechnologies, rating);
@@ -56,22 +56,22 @@ public final class DDEUserTechnologiesTest extends DDEServerTestCase {
     }
 
     private void testGetMonths(LocalDDEUserTechnologies userTechnologies, int months) {
-        int months2=userTechnologies.getMonths();
+        int months2 = userTechnologies.getMonths();
         assertEquals(months, months2);
     }
 
     private void testGetRating(LocalDDEUserTechnologies userTechnologies, int rating) {
-        int rating2=userTechnologies.getRating();
+        int rating2 = userTechnologies.getRating();
         assertEquals(rating, rating2);
     }
 
     private void testGetTechnologyTypes(LocalDDEUserTechnologies userTechnologies, LocalDDETechnologyTypes technologyTypes) {
-        LocalDDETechnologyTypes technologyTypes2=userTechnologies.getTechnologyTypes();
+        LocalDDETechnologyTypes technologyTypes2 = userTechnologies.getTechnologyTypes();
         assertTrue(technologyTypes.isIdentical(technologyTypes2));
     }
 
     private void testRemove(LocalDDEUserTechnologies userTechnologies, LocalDDETechnologyTypes technologyTypes,
-            Long primaryKey) throws RemoveException {
+                            Long primaryKey) throws RemoveException {
         userTechnologies.remove();
         technologyTypes.remove();
         try {
@@ -82,13 +82,13 @@ public final class DDEUserTechnologiesTest extends DDEServerTestCase {
     }
 
     private void testGetUserMaster(LocalDDEUserTechnologies userTechnologies, LocalDDEUserMaster userMaster) {
-        LocalDDEUserMaster userMaster2=userTechnologies.getUserMaster();
+        LocalDDEUserMaster userMaster2 = userTechnologies.getUserMaster();
         assertTrue(userMaster.isIdentical(userMaster2));
     }
 
     private Long testGetPrimaryKey(LocalDDEUserTechnologies userTechnologies) throws FinderException {
-        Long primaryKey=(Long) userTechnologies.getPrimaryKey();
-        LocalDDEUserTechnologies userTechnologies2=userTechnologiesHome.findByPrimaryKey(primaryKey);
+        Long primaryKey = (Long) userTechnologies.getPrimaryKey();
+        LocalDDEUserTechnologies userTechnologies2 = userTechnologiesHome.findByPrimaryKey(primaryKey);
         assertTrue(userTechnologies.isIdentical(userTechnologies2));
         return primaryKey;
     }

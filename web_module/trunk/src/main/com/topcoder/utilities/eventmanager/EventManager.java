@@ -1,18 +1,18 @@
 package com.topcoder.utilities.eventmanager;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.EmailEngine;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.ejb.userevent.UserEvent;
 
 import javax.naming.InitialContext;
-import java.util.Iterator;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Iterator;
 
 /**
  * @author dok
@@ -32,9 +32,9 @@ public class EventManager {
             InitialContext ctx = null;
             try {
                 ctx = TCContext.getInitial();
-                UserEvent userEvent = (UserEvent)BaseProcessor.createEJB(ctx, UserEvent.class);
-                for (Iterator it = events.iterator(); it.hasNext(); ) {
-                    event = (ResultSetContainer.ResultSetRow)it.next();
+                UserEvent userEvent = (UserEvent) BaseProcessor.createEJB(ctx, UserEvent.class);
+                for (Iterator it = events.iterator(); it.hasNext();) {
+                    event = (ResultSetContainer.ResultSetRow) it.next();
                     userEventId = event.getLongItem("user_event_id");
                     userId = event.getLongItem("user_id");
                     handler = event.getStringItem("event_handler");
@@ -61,7 +61,7 @@ public class EventManager {
         InitialContext ctx = null;
         try {
             ctx = TCContext.getInitial();
-            UserEvent userEvent = (UserEvent)BaseProcessor.createEJB(ctx, UserEvent.class);
+            UserEvent userEvent = (UserEvent) BaseProcessor.createEJB(ctx, UserEvent.class);
             return userEvent.getUserEventsByStatus(Constants.READY_FOR_PROCESSING,
                     DBMS.COMMON_OLTP_DATASOURCE_NAME);
         } finally {
@@ -122,7 +122,7 @@ public class EventManager {
             mail.setFromAddress("service@topcoder.com");
             EmailEngine.send(mail);
         } catch (Exception e) {
-            log.error("Couldn't send erorr email\n"+body, e);
+            log.error("Couldn't send erorr email\n" + body, e);
         }
 
     }

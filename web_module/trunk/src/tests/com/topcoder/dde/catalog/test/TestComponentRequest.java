@@ -26,7 +26,7 @@ public class TestComponentRequest extends TestComponentVersionRequest {
     protected static final String DEF_KEYWORDS =
             "bar" + ComponentInfo.KEYWORD_DELIMITER + "baz"
             + ComponentInfo.KEYWORD_DELIMITER + "scrumpdillyiscious";
-            
+
     public TestComponentRequest(String testName) {
         super(testName);
     }
@@ -51,9 +51,9 @@ public class TestComponentRequest extends TestComponentVersionRequest {
         assertEquals("Keywords are incorrect", DEF_KEYWORDS,
                 crequest.getKeywords());
         assertEquals("Constructed with categories", 0,
-                     crequest.getCategories().size());
+                crequest.getCategories().size());
     }
-    
+
     public void testConstr_NullName() throws Exception {
         try {
             crequest = new ComponentRequest(null, DEF_SHORTD, DEF_DESC,
@@ -64,7 +64,7 @@ public class TestComponentRequest extends TestComponentVersionRequest {
             /* the expected case */
         }
     }
-    
+
     public void testConstr_NullShortDesc() throws Exception {
         try {
             crequest = new ComponentRequest(DEF_NAME, null, DEF_DESC,
@@ -75,7 +75,7 @@ public class TestComponentRequest extends TestComponentVersionRequest {
             /* the expected case */
         }
     }
-    
+
     public void testConstr_NullDescription() throws Exception {
         try {
             crequest = new ComponentRequest(DEF_NAME, DEF_SHORTD, null,
@@ -86,7 +86,7 @@ public class TestComponentRequest extends TestComponentVersionRequest {
             /* the expected case */
         }
     }
-    
+
     public void testConstr_NullFunctionalDesc() throws Exception {
         try {
             crequest = new ComponentRequest(DEF_NAME, DEF_SHORTD, DEF_DESC,
@@ -97,7 +97,7 @@ public class TestComponentRequest extends TestComponentVersionRequest {
             /* the expected case */
         }
     }
-    
+
     public void testConstr_NullKeywords() throws Exception {
         try {
             crequest = new ComponentRequest(DEF_NAME, DEF_SHORTD, DEF_DESC,
@@ -108,56 +108,56 @@ public class TestComponentRequest extends TestComponentVersionRequest {
             /* the expected case */
         }
     }
-    
+
     public void testAddCategory() throws Exception {
         crequest.addCategory(13L);
         crequest.addCategory(17L);
         crequest.addCategory(27L);
         assertCollectionMatches(crequest.getCategories(),
-                new long[] {13L, 17L, 27L} );
+                new long[]{13L, 17L, 27L});
     }
-    
+
     public void testAddCategory_Duplicate() throws Exception {
         crequest.addCategory(13L);
         crequest.addCategory(13L);
         crequest.addCategory(17L);
         assertCollectionMatches(crequest.getCategories(),
-                new long[] {13L, 17L} );
+                new long[]{13L, 17L});
     }
-    
+
     public void testRemoveCategory() throws Exception {
         crequest.addCategory(13L);
         crequest.addCategory(13L);
         crequest.addCategory(17L);
         crequest.removeCategory(13L);
         assertCollectionMatches(crequest.getCategories(),
-                new long[] {17L} );
+                new long[]{17L});
     }
-    
+
     public void testRemoveCategory_Missing() throws Exception {
         crequest.addCategory(13L);
         crequest.addCategory(13L);
         crequest.addCategory(17L);
         crequest.removeCategory(19L);
         assertCollectionMatches(crequest.getCategories(),
-                new long[] {13L, 17L} );
+                new long[]{13L, 17L});
     }
-    
+
     public void testClearCategories() throws Exception {
         crequest.addCategory(13L);
         crequest.addCategory(17L);
         crequest.addCategory(27L);
         crequest.clearCategories();
         assertEquals("Categories not cleared", 0,
-                     crequest.getCategories().size());
+                crequest.getCategories().size());
     }
-    
+
     public void testSetDescription() throws Exception {
         crequest.setDescription("Spaghetti");
         assertEquals("Description not set correctly", "Spaghetti",
-                     crequest.getDescription());
+                crequest.getDescription());
     }
-    
+
     public void testSetDescription_Null() throws Exception {
         try {
             crequest.setDescription(null);
@@ -166,13 +166,13 @@ public class TestComponentRequest extends TestComponentVersionRequest {
             /* the expected case */
         }
     }
-    
+
     public void testSetFunctionalDescription() throws Exception {
         crequest.setFunctionalDescription("Provides carbohydrate");
         assertEquals("Description not set correctly", "Provides carbohydrate",
-                     crequest.getFunctionalDescription());
+                crequest.getFunctionalDescription());
     }
-        
+
     public void testSetFunctionalDescription_Null() throws Exception {
         try {
             crequest.setFunctionalDescription(null);
@@ -181,13 +181,13 @@ public class TestComponentRequest extends TestComponentVersionRequest {
             /* the expected case */
         }
     }
-    
+
     public void testSetKeywords() throws Exception {
         crequest.setKeywords("carbohydrate");
         assertEquals("Description not set correctly", "carbohydrate",
-                     crequest.getKeywords());
+                crequest.getKeywords());
     }
-    
+
     public void testSetKeywords_Null() throws Exception {
         try {
             crequest.setKeywords(null);
@@ -196,13 +196,13 @@ public class TestComponentRequest extends TestComponentVersionRequest {
             /* the expected case */
         }
     }
-    
+
     public void testSetName() throws Exception {
         crequest.setName("angel hair");
         assertEquals("Description not set correctly", "angel hair",
-                     crequest.getName());
+                crequest.getName());
     }
-    
+
     public void testSetName_Null() throws Exception {
         try {
             crequest.setName(null);
@@ -211,13 +211,13 @@ public class TestComponentRequest extends TestComponentVersionRequest {
             /* the expected case */
         }
     }
-    
+
     public void testSetShortDescription() throws Exception {
         crequest.setShortDescription("nourishes");
         assertEquals("Description not set correctly", "nourishes",
-                     crequest.getShortDescription());
+                crequest.getShortDescription());
     }
-    
+
     public void testSetShortDescription_Null() throws Exception {
         try {
             crequest.setShortDescription(null);
@@ -276,7 +276,7 @@ public class TestComponentRequest extends TestComponentVersionRequest {
         assertTrue("Expected objects to be unequal ", !crequest.equals(request2));
         request2.clearTechnologies();
     }
-    
+
     public void testHashCode() throws Exception {
         /*
          * overrides hashCode in TestComponentVersionRequest.  This version
@@ -284,5 +284,5 @@ public class TestComponentRequest extends TestComponentVersionRequest {
          * with the equals tests
          */
     }
-    
+
 }

@@ -1,18 +1,16 @@
 package com.topcoder.web.tc.controller.request.report;
 
-import com.topcoder.web.tc.controller.request.Base;
-import com.topcoder.web.common.*;
-import com.topcoder.common.web.data.report.*;
-import com.topcoder.shared.dataAccess.*;
+import com.topcoder.common.web.data.report.Constants;
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.*;
+import com.topcoder.web.tc.controller.request.Base;
 
-import javax.servlet.http.HttpUtils;
 import java.util.Map;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.HashMap;
 
 /**
  * User: dok
@@ -26,12 +24,12 @@ public class TCSProfileLookup extends Base {
 
         try {
 
-            if (((SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin()) {
+            if (((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin()) {
 
 
                 getProfile(getRequest());
                 getRequest().setAttribute(Constants.PROCESSED_KEY, new Boolean(true));
-                
+
                 setNextPage(Constants.JSP_ADDR + Constants.REPORT_TCS_PROFILE_ADDR);
                 setIsNextPageInContext(true);
             } else {
@@ -66,11 +64,11 @@ public class TCSProfileLookup extends Base {
 
         DataAccessInt dai = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
         Map mainMap = dai.getData(mainRequest);
-        ResultSetContainer profileList = (ResultSetContainer)mainMap.get("main_profile_info");
+        ResultSetContainer profileList = (ResultSetContainer) mainMap.get("main_profile_info");
 
         log.debug("found " + profileList.size() + " people matching search criteria");
         log.debug("request was: " + mainRequest.toString());
-        
+
         request.setAttribute(Constants.REPORT_PROFILE_LIST_KEY, profileList);
     }
 

@@ -1,22 +1,18 @@
 package com.topcoder.web.tc.controller.legacy;
 
-import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.docGen.xml.RecordTag;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpUtils;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.Map;
@@ -94,14 +90,11 @@ public class DataServlet extends HttpServlet {
 
                 buf = new StringBuffer(1000);
                 buf.append(getXML());
-                    response.setContentType("text/xml");
-                    o = response.getOutputStream();
+                response.setContentType("text/xml");
+                o = response.getOutputStream();
 
 
-
-
-
-                    o.write(asciiGetBytes(buf.toString()));
+                o.write(asciiGetBytes(buf.toString()));
 /*
                 } else {
                     request.setAttribute("DATA_DUMP", resultMap);
@@ -116,100 +109,100 @@ public class DataServlet extends HttpServlet {
     }
 
     private String getXML() {
-        String ret ="<?xml version=\"1.0\"?>" +
-"" +
-"<memberStats>" +
-   "<name memberColor=\"red\">schveiguy</name>" +
-   "<primaryStats>" +
-      "<rating>2344</rating>" +
-      "<volatilityFactor>281</volatilityFactor>" +
-      "<memberSince>03.25.02</memberSince>" +
-      "<totalEarnings>$1168.00</totalEarnings>" +
-      "<competitions>46</competitions>" +
-      "<avgPPC>496.01</avgPPC>" +
-      "<maxRating>2369</maxRating>" +
-      "<minRating>1173</minRating>" +
-   "</primaryStats>" +
-"" +
-   "<competitionStats>" +
-      "<div1SubInfo>" +
-         "<problem name=\"Level One\">" +
-            "<failedChallenge>4</failedChallenge>" +
-            "<failedSysTest>3</failedSysTest>" +
-            "<submitted>44</submitted>" +
-            "<success>84.09%</success>" +
-         "</problem>" +
-         "<problem name=\"Level Two\">" +
-            "<failedChallenge>2</failedChallenge>" +
-            "<failedSysTest>10</failedSysTest>" +
-            "<submitted>40</submitted>" +
-            "<success>70.00%</success>" +
-         "</problem>" +
-         "<problem name=\"Level Three\">" +
-            "<failedChallenge>3</failedChallenge>" +
-            "<failedSysTest>4</failedSysTest>" +
-            "<submitted>14</submitted>" +
-            "<success>50.00%</success>" +
-         "</problem>" +
-         "<problem name=\"Total\">" +
-            "<failedChallenge>9</failedChallenge>" +
-            "<failedSysTest>17</failedSysTest>" +
-            "<submitted>98</submitted>" +
-            "<success>73.47%</success>" +
-         "</problem>" +
-      "</div1SubInfo>" +
-"" +
-      "<div2SubInfo>" +
-         "<problem name=\"Level One\">" +
-            "<failedChallenge>0</failedChallenge>" +
-            "<failedSysTest>1</failedSysTest>" +
-            "<submitted>2</submitted>" +
-            "<success>50.00%</success>" +
-         "</problem>" +
-         "<problem name=\"Level Two\">" +
-            "<failedChallenge>0</failedChallenge>" +
-            "<failedSysTest>0</failedSysTest>" +
-            "<submitted>2</submitted>" +
-            "<success>100.00%</success>" +
-         "</problem>" +
-         "<problem name=\"Level Three\">" +
-            "<failedChallenge>0</failedChallenge>" +
-            "<failedSysTest>0</failedSysTest>" +
-            "<submitted>1</submitted>" +
-            "<success>100.00%</success>" +
-         "</problem>" +
-         "<problem name=\"Total\">" +
-            "<failedChallenge>0</failedChallenge>" +
-            "<failedSysTest>1</failedSysTest>" +
-            "<submitted>5</submitted>" +
-            "<success>80.00%</success>" +
-         "</problem>" +
-      "</div2SubInfo>" +
-"" +
-      "<challengeInfo>" +
-         "<problem name=\"Level One\">" +
-            "<failedChallenge>3</failedChallenge>" +
-            "<failedSysTest>10</failedSysTest>" +
-            "<success>70.00%</success>" +
-         "</problem>" +
-         "<problem name=\"Level Two\">" +
-            "<failedChallenge>0</failedChallenge>" +
-            "<failedSysTest>0</failedSysTest>" +
-            "<success>40.00%</success>" +
-         "</problem>" +
-         "<problem name=\"Level Three\">" +
-            "<failedChallenge>0</failedChallenge>" +
-            "<failedSysTest>0</failedSysTest>" +
-            "<success>100.00%</success>" +
-         "</problem>" +
-         "<problem name=\"Total\">" +
-            "<failedChallenge>0</failedChallenge>" +
-            "<failedSysTest>1</failedSysTest>" +
-            "<success>57.14%</success>" +
-         "</problem>" +
-      "</challengeInfo>" +
-   "</competitionStats>" +
-"</memberStats>";
+        String ret = "<?xml version=\"1.0\"?>" +
+                "" +
+                "<memberStats>" +
+                "<name memberColor=\"red\">schveiguy</name>" +
+                "<primaryStats>" +
+                "<rating>2344</rating>" +
+                "<volatilityFactor>281</volatilityFactor>" +
+                "<memberSince>03.25.02</memberSince>" +
+                "<totalEarnings>$1168.00</totalEarnings>" +
+                "<competitions>46</competitions>" +
+                "<avgPPC>496.01</avgPPC>" +
+                "<maxRating>2369</maxRating>" +
+                "<minRating>1173</minRating>" +
+                "</primaryStats>" +
+                "" +
+                "<competitionStats>" +
+                "<div1SubInfo>" +
+                "<problem name=\"Level One\">" +
+                "<failedChallenge>4</failedChallenge>" +
+                "<failedSysTest>3</failedSysTest>" +
+                "<submitted>44</submitted>" +
+                "<success>84.09%</success>" +
+                "</problem>" +
+                "<problem name=\"Level Two\">" +
+                "<failedChallenge>2</failedChallenge>" +
+                "<failedSysTest>10</failedSysTest>" +
+                "<submitted>40</submitted>" +
+                "<success>70.00%</success>" +
+                "</problem>" +
+                "<problem name=\"Level Three\">" +
+                "<failedChallenge>3</failedChallenge>" +
+                "<failedSysTest>4</failedSysTest>" +
+                "<submitted>14</submitted>" +
+                "<success>50.00%</success>" +
+                "</problem>" +
+                "<problem name=\"Total\">" +
+                "<failedChallenge>9</failedChallenge>" +
+                "<failedSysTest>17</failedSysTest>" +
+                "<submitted>98</submitted>" +
+                "<success>73.47%</success>" +
+                "</problem>" +
+                "</div1SubInfo>" +
+                "" +
+                "<div2SubInfo>" +
+                "<problem name=\"Level One\">" +
+                "<failedChallenge>0</failedChallenge>" +
+                "<failedSysTest>1</failedSysTest>" +
+                "<submitted>2</submitted>" +
+                "<success>50.00%</success>" +
+                "</problem>" +
+                "<problem name=\"Level Two\">" +
+                "<failedChallenge>0</failedChallenge>" +
+                "<failedSysTest>0</failedSysTest>" +
+                "<submitted>2</submitted>" +
+                "<success>100.00%</success>" +
+                "</problem>" +
+                "<problem name=\"Level Three\">" +
+                "<failedChallenge>0</failedChallenge>" +
+                "<failedSysTest>0</failedSysTest>" +
+                "<submitted>1</submitted>" +
+                "<success>100.00%</success>" +
+                "</problem>" +
+                "<problem name=\"Total\">" +
+                "<failedChallenge>0</failedChallenge>" +
+                "<failedSysTest>1</failedSysTest>" +
+                "<submitted>5</submitted>" +
+                "<success>80.00%</success>" +
+                "</problem>" +
+                "</div2SubInfo>" +
+                "" +
+                "<challengeInfo>" +
+                "<problem name=\"Level One\">" +
+                "<failedChallenge>3</failedChallenge>" +
+                "<failedSysTest>10</failedSysTest>" +
+                "<success>70.00%</success>" +
+                "</problem>" +
+                "<problem name=\"Level Two\">" +
+                "<failedChallenge>0</failedChallenge>" +
+                "<failedSysTest>0</failedSysTest>" +
+                "<success>40.00%</success>" +
+                "</problem>" +
+                "<problem name=\"Level Three\">" +
+                "<failedChallenge>0</failedChallenge>" +
+                "<failedSysTest>0</failedSysTest>" +
+                "<success>100.00%</success>" +
+                "</problem>" +
+                "<problem name=\"Total\">" +
+                "<failedChallenge>0</failedChallenge>" +
+                "<failedSysTest>1</failedSysTest>" +
+                "<success>57.14%</success>" +
+                "</problem>" +
+                "</challengeInfo>" +
+                "</competitionStats>" +
+                "</memberStats>";
         return ret;
     }
 

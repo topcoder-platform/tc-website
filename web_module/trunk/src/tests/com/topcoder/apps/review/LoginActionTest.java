@@ -18,7 +18,7 @@ public class LoginActionTest extends MockStrutsTestCase {
      * Business delegate instance.
      */
     private BusinessDelegate businessDelegate = null;
-    
+
     /**
      * Initialize the business delegate for the tests.
      */
@@ -27,7 +27,7 @@ public class LoginActionTest extends MockStrutsTestCase {
         businessDelegate = new BusinessDelegate();
         businessDelegate.setUseMockup(true);
     }
-    
+
     /**
      * Initialize for the tests.
      */
@@ -35,12 +35,12 @@ public class LoginActionTest extends MockStrutsTestCase {
         super.setUp();
         setConfigFile("conf/struts-config.xml");
     }
-    
+
     /**
      * Tear down for the tests.
      */
-    public void tearDown() throws Exception { 
-        super.tearDown(); 
+    public void tearDown() throws Exception {
+        super.tearDown();
     }
 
     /**
@@ -48,20 +48,20 @@ public class LoginActionTest extends MockStrutsTestCase {
      */
     public void testLoginSuccess() {
         Object user = null;
-        
+
         setRequestPathInfo("/login");
         addRequestParameter("username", "pzhao");
         addRequestParameter("password", "xxx");
         actionPerform();
-        
+
         verifyForward("success");
         user = getSession().getAttribute("user");
         assertTrue(user instanceof User);
         assertEquals("pzhao", ((User) user).getHandle());
-        
+
         verifyNoActionErrors();
     }
-    
+
     /**
      * Test the fail login.
      */
@@ -70,7 +70,7 @@ public class LoginActionTest extends MockStrutsTestCase {
         addRequestParameter("username", "pzhao");
         addRequestParameter("password", "xxx222");
         actionPerform();
-        
+
         verifyForward("login");
         verifyActionErrors(new String[]{"error.format"});
         assertNull(getSession().getAttribute("user"));

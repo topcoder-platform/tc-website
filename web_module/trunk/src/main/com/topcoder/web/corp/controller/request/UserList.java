@@ -5,16 +5,12 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.User;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.corp.Constants;
-import com.topcoder.web.corp.Util;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.corp.Constants;
 
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
 import java.util.Map;
 
 /**

@@ -1,23 +1,17 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
 import com.topcoder.apps.review.projecttracker.UserProjectInfo;
-import com.topcoder.apps.review.security.AdminPermission;
-import com.topcoder.apps.review.security.AggregationPermission;
-import com.topcoder.apps.review.security.FinalReviewPermission;
-import com.topcoder.apps.review.security.ReviewPermission;
-import com.topcoder.apps.review.security.ScreenPermission;
-import com.topcoder.apps.review.security.SubmitFinalFixPermission;
-import com.topcoder.apps.review.security.SubmitPermission;
-import com.topcoder.apps.review.security.ViewProjectPermission;
+import com.topcoder.apps.review.security.*;
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.policy.PolicyRemote;
-import java.rmi.RemoteException;
+
 import javax.ejb.CreateException;
 import javax.naming.NamingException;
+import java.rmi.RemoteException;
 
 /**
  * Helper class for checking permissions.
@@ -165,7 +159,7 @@ class PermissionHelper {
         return policy.checkPermission(user.getTCSubject(), new AggregationPermission(project.getId()));
     }
 
-     /**
+    /**
      * Checks if a user has final review permission for a project.
      *
      * @param user the user
@@ -184,7 +178,7 @@ class PermissionHelper {
         return policy.checkPermission(user.getTCSubject(), new FinalReviewPermission(project.getId()));
     }
 
-     /**
+    /**
      * Checks if a user has any reviewer permission for a project.
      *
      * @param user the user
@@ -200,7 +194,7 @@ class PermissionHelper {
     static final boolean hasAnyReviewerPermission(SecurityEnabledUser user, UserProjectInfo project)
             throws RemoteException, NamingException, CreateException, GeneralSecurityException {
         return hasScreenPermission(user, project) || hasReviewPermission(user, project)
-            || hasAggregationPermission(user, project) || hasFinalReviewPermission(user, project);
+                || hasAggregationPermission(user, project) || hasFinalReviewPermission(user, project);
     }
 
 }

@@ -17,14 +17,14 @@ import com.topcoder.apps.review.accuracytests.ejb.*;
  * @author  valeriy
  */
 public class RetrieveReviewScorecardsTest extends AbstractAccuracyTest {
-    
+
     private RetrieveReviewScorecards retrieveReviewScorecards;
-    
+
     /** Creates a new instance of RetrieveReviewScorecardsTest */
     public RetrieveReviewScorecardsTest(String name) {
         super(name);
     }
-    
+
     public void setUp() throws Exception {
         super.setUp();
         setUpUsers();
@@ -33,7 +33,7 @@ public class RetrieveReviewScorecardsTest extends AbstractAccuracyTest {
         setUpDocuments();
         retrieveReviewScorecards = new RetrieveReviewScorecards();
     }
-    
+
     public void testRetrieveReviewScorecards1() throws Exception {
         try {
             project.setCurrentPhase(phases[2]);
@@ -43,21 +43,21 @@ public class RetrieveReviewScorecardsTest extends AbstractAccuracyTest {
             if (!(res instanceof ReviewScorecardsRetrieval)) {
                 fail("ReviewScorecardsRetrieval expected, but was ", res);
             }
-            ReviewScorecardsRetrieval retr = (ReviewScorecardsRetrieval)res;
+            ReviewScorecardsRetrieval retr = (ReviewScorecardsRetrieval) res;
             ReviewScorecard[] cards = retr.getScorecards();
             if (cards.length != 2) {
-                fail("Wrong scorecards "+cards.length);
+                fail("Wrong scorecards " + cards.length);
             }
             if (reviewScorecards[0] != cards[0] || reviewScorecards[1] != cards[1]) {
-                fail("Wrong scorecards "+reviewScorecards[0]+":"+cards[0]+" "+reviewScorecards[1]+":"+cards[1]);
+                fail("Wrong scorecards " + reviewScorecards[0] + ":" + cards[0] + " " + reviewScorecards[1] + ":" + cards[1]);
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
 
     }
-    
+
     public void testRetrieveReviewScorecards2() throws Exception {
         try {
             project.setCurrentPhase(phases[2]);
@@ -67,17 +67,17 @@ public class RetrieveReviewScorecardsTest extends AbstractAccuracyTest {
             if (!(res instanceof ReviewScorecardsRetrieval)) {
                 fail("ReviewScorecardsRetrieval expected, but was ", res);
             }
-            ReviewScorecardsRetrieval retr = (ReviewScorecardsRetrieval)res;
+            ReviewScorecardsRetrieval retr = (ReviewScorecardsRetrieval) res;
             ReviewScorecard[] cards = retr.getScorecards();
             if (cards.length != 2) {
-                fail("Wrong scorecards "+cards.length);
+                fail("Wrong scorecards " + cards.length);
             }
             if (reviewScorecards[2] != cards[0] || reviewScorecards[3] != cards[1]) {
-                fail("Wrong scorecards "+reviewScorecards[2]+":"+cards[0]+" "+reviewScorecards[3]+":"+cards[1]);
+                fail("Wrong scorecards " + reviewScorecards[2] + ":" + cards[0] + " " + reviewScorecards[3] + ":" + cards[1]);
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
     }
 
@@ -90,19 +90,19 @@ public class RetrieveReviewScorecardsTest extends AbstractAccuracyTest {
             if (!(res instanceof ReviewScorecardsRetrieval)) {
                 fail("ReviewScorecardsRetrieval expected, but was ", res);
             }
-            ReviewScorecardsRetrieval retr = (ReviewScorecardsRetrieval)res;
+            ReviewScorecardsRetrieval retr = (ReviewScorecardsRetrieval) res;
             ReviewScorecard[] cards = retr.getScorecards();
             if (cards.length != 4) {
-                fail("Wrong scorecards "+cards.length);
+                fail("Wrong scorecards " + cards.length);
             }
             if (reviewScorecards[0] != cards[0] || reviewScorecards[1] != cards[1] ||
-                reviewScorecards[2] != cards[2] || reviewScorecards[3] != cards[3] ) {
-                fail("Wrong scorecards "+reviewScorecards[0]+":"+cards[0]+" "+reviewScorecards[1]+":"+cards[1]+
-                    " "+reviewScorecards[2]+":"+cards[2]+" "+reviewScorecards[3]+":"+cards[3]);
+                    reviewScorecards[2] != cards[2] || reviewScorecards[3] != cards[3]) {
+                fail("Wrong scorecards " + reviewScorecards[0] + ":" + cards[0] + " " + reviewScorecards[1] + ":" + cards[1] +
+                        " " + reviewScorecards[2] + ":" + cards[2] + " " + reviewScorecards[3] + ":" + cards[3]);
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
     }
 
@@ -119,17 +119,17 @@ public class RetrieveReviewScorecardsTest extends AbstractAccuracyTest {
             if (!(res instanceof ReviewScorecardsRetrieval)) {
                 fail("ReviewScorecardsRetrieval expected, but was ", res);
             }
-            ReviewScorecardsRetrieval retr = (ReviewScorecardsRetrieval)res;
+            ReviewScorecardsRetrieval retr = (ReviewScorecardsRetrieval) res;
             ReviewScorecard[] cards = retr.getScorecards();
             if (cards.length != 2) {
-                fail("Wrong scorecards "+cards.length);
+                fail("Wrong scorecards " + cards.length);
             }
             if (reviewScorecards[0] != cards[0] || reviewScorecards[2] != cards[1]) {
-                fail("Wrong scorecards "+reviewScorecards[0]+":"+cards[0]+" "+reviewScorecards[2]+":"+cards[1]);
+                fail("Wrong scorecards " + reviewScorecards[0] + ":" + cards[0] + " " + reviewScorecards[2] + ":" + cards[1]);
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
     }
 
@@ -146,17 +146,17 @@ public class RetrieveReviewScorecardsTest extends AbstractAccuracyTest {
             if (!(res instanceof ReviewScorecardsRetrieval)) {
                 fail("ReviewScorecardsRetrieval expected, but was ", res);
             }
-            ReviewScorecardsRetrieval retr = (ReviewScorecardsRetrieval)res;
+            ReviewScorecardsRetrieval retr = (ReviewScorecardsRetrieval) res;
             ReviewScorecard[] cards = retr.getScorecards();
             if (cards.length != 2) {
-                fail("Wrong scorecards "+cards.length);
+                fail("Wrong scorecards " + cards.length);
             }
             if (reviewScorecards[1] != cards[0] || reviewScorecards[3] != cards[1]) {
-                fail("Wrong scorecards "+reviewScorecards[1]+":"+cards[0]+" "+reviewScorecards[3]+":"+cards[1]);
+                fail("Wrong scorecards " + reviewScorecards[1] + ":" + cards[0] + " " + reviewScorecards[3] + ":" + cards[1]);
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
     }
 

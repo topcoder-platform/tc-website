@@ -59,11 +59,11 @@ public class QueryBean implements Serializable {
 
     public boolean equals(Object o) {
         if (o instanceof QueryBean) {
-            return ((QueryBean)o).getQueryId()==this.getQueryId() &&
-                   ((QueryBean)o).getName().equals(this.getName()) &&
-                   ((QueryBean)o).getText().equals(this.getText()) &&
-                   ((QueryBean)o).isRanking()==this.isRanking() &&
-                   ((QueryBean)o).getColumnIndex()==this.getColumnIndex();
+            return ((QueryBean) o).getQueryId() == this.getQueryId() &&
+                    ((QueryBean) o).getName().equals(this.getName()) &&
+                    ((QueryBean) o).getText().equals(this.getText()) &&
+                    ((QueryBean) o).isRanking() == this.isRanking() &&
+                    ((QueryBean) o).getColumnIndex() == this.getColumnIndex();
         } else {
             return false;
         }

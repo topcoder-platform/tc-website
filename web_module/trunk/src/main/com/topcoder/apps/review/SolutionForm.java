@@ -1,15 +1,13 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 
 package com.topcoder.apps.review;
 
-import javax.servlet.http.HttpServletRequest;
-import org.apache.struts.action.ActionError;
-import org.apache.struts.action.ActionErrors;
-import org.apache.struts.action.ActionForm;
-import org.apache.struts.upload.FormFile;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.upload.FormFile;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Form bean for the submission.
@@ -18,16 +16,16 @@ import org.apache.struts.action.ActionMapping;
  * @version 1.0
  */
 public final class SolutionForm extends ReviewForm {
-    
+
     // --------------------------------------------------- Instance Variables
-    
+
     /**
      * The file that the user has uploaded
      */
     protected FormFile submission;
-    
+
     // ----------------------------------------------------------- Properties
-    
+
     /**
      * Retrieve a representation of the file the user has uploaded
      */
@@ -41,7 +39,7 @@ public final class SolutionForm extends ReviewForm {
     public void setSubmission(FormFile submission) {
         this.submission = submission;
     }
-    
+
     // --------------------------------------------------------- Public Methods
 
     /**

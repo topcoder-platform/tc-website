@@ -28,12 +28,12 @@ public class TestWindowResponse extends Base {
                     getRequest().setAttribute(Constants.PROBLEM, getDefault(Constants.PROBLEM));
                     setNextPage(Constants.PAGE_TEST);
                     setIsNextPageInContext(true);
-                //this logic is mostly for the case that they hit refresh
+                    //this logic is mostly for the case that they hit refresh
                 } else if (hasParameter(Constants.PROBLEM_TYPE_ID) && hasParameter(Constants.COMPONENT_ID)) {
                     setNextPage(buildProcessorRequestString(Constants.RP_TEST_WINDOW,
-                            new String[] {Constants.PROBLEM_TYPE_ID, Constants.COMPONENT_ID},
-                            new String[] {getRequest().getParameter(Constants.PROBLEM_TYPE_ID),
-                                          getRequest().getParameter(Constants.COMPONENT_ID)}));
+                            new String[]{Constants.PROBLEM_TYPE_ID, Constants.COMPONENT_ID},
+                            new String[]{getRequest().getParameter(Constants.PROBLEM_TYPE_ID),
+                                         getRequest().getParameter(Constants.COMPONENT_ID)}));
                     setIsNextPageInContext(false);
 
                 }

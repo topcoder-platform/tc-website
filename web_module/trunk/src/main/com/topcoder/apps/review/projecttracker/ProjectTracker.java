@@ -12,10 +12,9 @@ import com.topcoder.apps.review.document.InvalidEditException;
 import com.topcoder.security.TCSubject;
 import com.topcoder.util.TCException;
 
+import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
 import java.sql.Date;
-
-import javax.ejb.EJBObject;
 
 
 /**
@@ -35,7 +34,7 @@ public interface ProjectTracker extends EJBObject {
      * @throws RemoteException DOCUMENT ME!
      */
     public Project getProject(UserProjectInfo projectInfo, TCSubject requestor)
-        throws RemoteException;
+            throws RemoteException;
 
     /**
      * DOCUMENT ME!
@@ -48,7 +47,7 @@ public interface ProjectTracker extends EJBObject {
      * @throws RemoteException DOCUMENT ME!
      */
     public Project getProjectById(long projectId, TCSubject requestor)
-        throws RemoteException;
+            throws RemoteException;
 
     /**
      * Retrieves the id of a project based on the component version id of a component and the project type
@@ -69,7 +68,7 @@ public interface ProjectTracker extends EJBObject {
      * @throws RemoteException DOCUMENT ME!
      */
     public UserProjectInfo[] getProjectInfo(TCSubject user)
-        throws RemoteException;
+            throws RemoteException;
 
     /**
      * DOCUMENT ME!
@@ -82,11 +81,11 @@ public interface ProjectTracker extends EJBObject {
      * @throws RemoteException DOCUMENT ME!
      */
     public void saveProject(Project project, String reason,
-            TCSubject requestor)
-        throws InvalidEditException,
-               GeneralSecurityException,
-               ConcurrentModificationException,
-               RemoteException;
+                            TCSubject requestor)
+            throws InvalidEditException,
+            GeneralSecurityException,
+            ConcurrentModificationException,
+            RemoteException;
 
     /**
      * Create a new Online Review Project.
@@ -107,7 +106,7 @@ public interface ProjectTracker extends EJBObject {
             Date[] dates,
             TCSubject requestor,
             long levelId)
-        throws TCException, RemoteException;
+            throws TCException, RemoteException;
 
     /**
      * @param userId
@@ -154,5 +153,6 @@ public interface ProjectTracker extends EJBObject {
 
     public void componentRename(long componentId, String oldName, String newName)
             throws RemoteException;
+
     public void finalizeScores(long projectId) throws RemoteException;
 }

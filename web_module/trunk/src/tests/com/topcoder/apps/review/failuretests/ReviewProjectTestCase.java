@@ -1,7 +1,7 @@
 /*
  * ReviewProjectTestCase.java 1.0 7/1/2003
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review.failuretests;
 
@@ -30,15 +30,15 @@ public class ReviewProjectTestCase extends PermissionTestCase {
      * <p>Returns an instance of ReviewProject.</p>
      */
     public Model getModel() {
-        return(new ReviewProject());
+        return (new ReviewProject());
     }
-    
+
     /**
      * <p>Returns an instance of OnlineReviewData.</p>
      */
     public ActionData getWrongActionData() {
-        MyUser user = new MyUser("temp","aaa");
-        return(ActionDataUtil.getOnlineReviewData(user));
+        MyUser user = new MyUser("temp", "aaa");
+        return (ActionDataUtil.getOnlineReviewData(user));
     }
 
     /**
@@ -47,25 +47,25 @@ public class ReviewProjectTestCase extends PermissionTestCase {
      */
     public ActionData[] getNullParams() {
         Project project = new MyProject("test");
-        MyUser user = new MyUser("screener","aaa");
-        MyUser submitter = new MyUser("submitter","bbb");
-        ReviewScorecard scorecard = new MyReviewScorecard(user,project); 
-        UserProjectInfo userProject = new MyUserProjectInfo(user,project);
+        MyUser user = new MyUser("screener", "aaa");
+        MyUser submitter = new MyUser("submitter", "bbb");
+        ReviewScorecard scorecard = new MyReviewScorecard(user, project);
+        UserProjectInfo userProject = new MyUserProjectInfo(user, project);
 
-        project.setCurrentPhase(REVIEW_PHASE);        
-        user.addPermission(new ReviewPermission(project.getId()));        
+        project.setCurrentPhase(REVIEW_PHASE);
+        user.addPermission(new ReviewPermission(project.getId()));
         user.addPermission(new ViewProjectPermission(project.getId()));
 
-        ReviewData data2 = ActionDataUtil.getReviewData(user,null,
-                                                        submitter.getId(),
-                                                        user.getId(),
-                                                        scorecard);
-        ReviewData data3 = ActionDataUtil.getReviewData(null,userProject,
-                                                        submitter.getId(),
-                                                        user.getId(),
-                                                        scorecard); 
+        ReviewData data2 = ActionDataUtil.getReviewData(user, null,
+                submitter.getId(),
+                user.getId(),
+                scorecard);
+        ReviewData data3 = ActionDataUtil.getReviewData(null, userProject,
+                submitter.getId(),
+                user.getId(),
+                scorecard);
 
-        return(new ActionData[] {data2, data3});
+        return (new ActionData[]{data2, data3});
     }
 
     /**
@@ -74,32 +74,32 @@ public class ReviewProjectTestCase extends PermissionTestCase {
      */
     public OnlineReviewData[] getWrongPermissions() {
         Project project = new MyProject("test");
-        MyUser usera = new MyUser("a","aaa");
-        MyUser userb = new MyUser("b","bbb");
-        MyUser submitter = new MyUser("submitter","cc");
-        ReviewScorecard scorecard1 = new MyReviewScorecard(usera,project);
-        ReviewScorecard scorecard2 = new MyReviewScorecard(userb,project);
-        
+        MyUser usera = new MyUser("a", "aaa");
+        MyUser userb = new MyUser("b", "bbb");
+        MyUser submitter = new MyUser("submitter", "cc");
+        ReviewScorecard scorecard1 = new MyReviewScorecard(usera, project);
+        ReviewScorecard scorecard2 = new MyReviewScorecard(userb, project);
+
         project.setCurrentPhase(REVIEW_PHASE);
         usera.addPermission(new ReviewPermission(project.getId() + 1));
         userb.addPermission(new ViewProjectPermission(project.getId()));
-        
 
-        UserProjectInfo userProject1 = new MyUserProjectInfo(usera,project);
-        UserProjectInfo userProject2 = new MyUserProjectInfo(userb,project);
-        
-        ReviewData data1 = ActionDataUtil.getReviewData(usera,userProject1,
-                                                        submitter.getId(),
-                                                        usera.getId(),
-                                                        scorecard1);
-        ReviewData data2 = ActionDataUtil.getReviewData(userb,userProject2,
-                                                        submitter.getId(),
-                                                        userb.getId(),
-                                                        scorecard2);
-        
-        return(new OnlineReviewData[] {data1, data2});
+
+        UserProjectInfo userProject1 = new MyUserProjectInfo(usera, project);
+        UserProjectInfo userProject2 = new MyUserProjectInfo(userb, project);
+
+        ReviewData data1 = ActionDataUtil.getReviewData(usera, userProject1,
+                submitter.getId(),
+                usera.getId(),
+                scorecard1);
+        ReviewData data2 = ActionDataUtil.getReviewData(userb, userProject2,
+                submitter.getId(),
+                userb.getId(),
+                scorecard2);
+
+        return (new OnlineReviewData[]{data1, data2});
     }
-    
+
     /**
      * <p>Tests the start method by trying to make a submission
      * for a project that is not in the Review phase.</p>
@@ -108,22 +108,22 @@ public class ReviewProjectTestCase extends PermissionTestCase {
         Model model = getModel();
 
         Project project = new MyProject("test");
-        MyUser user = new MyUser("screener","aaa");
-        MyUser submitter = new MyUser("submitter","bbb");
-        ReviewScorecard scorecard = new MyReviewScorecard(user,project); 
-        UserProjectInfo userProject = new MyUserProjectInfo(user,project);
+        MyUser user = new MyUser("screener", "aaa");
+        MyUser submitter = new MyUser("submitter", "bbb");
+        ReviewScorecard scorecard = new MyReviewScorecard(user, project);
+        UserProjectInfo userProject = new MyUserProjectInfo(user, project);
 
         project.setCurrentPhase(AGGREGATION_PHASE);
-        user.addPermission(new ReviewPermission(project.getId()));        
+        user.addPermission(new ReviewPermission(project.getId()));
         user.addPermission(new ViewProjectPermission(project.getId()));
 
-        ReviewData data = ActionDataUtil.getReviewData(user,userProject,
-                                                       submitter.getId(),
-                                                       user.getId(),
-                                                       scorecard);
+        ReviewData data = ActionDataUtil.getReviewData(user, userProject,
+                submitter.getId(),
+                user.getId(),
+                scorecard);
         ResultData result = model.start(data);
         assertFailureResult("Should only be able to submitt when the " +
-                            "project is not in the Review phase.", result);
+                "project is not in the Review phase.", result);
     }
 
     /**
@@ -132,6 +132,6 @@ public class ReviewProjectTestCase extends PermissionTestCase {
      * @return the TestSuite for this TestCase
      */
     public static Test suite() {
-        return(new TestSuite(ReviewProjectTestCase.class));
+        return (new TestSuite(ReviewProjectTestCase.class));
     }
 }

@@ -1,7 +1,7 @@
 /*
  * LoginTestCase.java 1.0 7/1/2003
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review.failuretests;
 
@@ -25,15 +25,15 @@ public class LoginTestCase extends BaseTestCase {
      * <p>Returns an instance of Login.</p>
      */
     public Model getModel() {
-        return(new Login());
+        return (new Login());
     }
-    
+
     /**
      * <p>Returns an instance of OnlineReviewData.</p>
      */
     public ActionData getWrongActionData() {
-        MyUser user = new MyUser("temp","aaa");
-        return(ActionDataUtil.getOnlineReviewData(user));
+        MyUser user = new MyUser("temp", "aaa");
+        return (ActionDataUtil.getOnlineReviewData(user));
     }
 
     /**
@@ -41,42 +41,42 @@ public class LoginTestCase extends BaseTestCase {
      * parameters set to null.</p>
      */
     public ActionData[] getNullParams() {
-        LoginData data1 = ActionDataUtil.getLoginData(null,"aaa");
-        LoginData data2 = ActionDataUtil.getLoginData("temp",null);
-        return(new ActionData[] {data1, data2});
+        LoginData data1 = ActionDataUtil.getLoginData(null, "aaa");
+        LoginData data2 = ActionDataUtil.getLoginData("temp", null);
+        return (new ActionData[]{data1, data2});
     }
-    
+
     /**
      * <p>Tests the start method with invalid username.</p>
      */
     public void testInvalidUserName() {
         Model model = getModel();
-        MyUser user = new MyUser("temp","aaa");
-        LoginData data = ActionDataUtil.getLoginData("tom","aaa");
-        
+        MyUser user = new MyUser("temp", "aaa");
+        LoginData data = ActionDataUtil.getLoginData("tom", "aaa");
+
         ResultData result = model.start(data);
-        assertFailureResult("Login should have failed",result);
+        assertFailureResult("Login should have failed", result);
     }
-    
+
     /**
      * <p>Tests the start method with a valid username but
      * incorrect password.</p>
      */
     public void testInvalidPassword() {
         Model model = getModel();
-        MyUser user = new MyUser("temp","aaa");
-        LoginData data = ActionDataUtil.getLoginData("temp","bbb");
-        
+        MyUser user = new MyUser("temp", "aaa");
+        LoginData data = ActionDataUtil.getLoginData("temp", "bbb");
+
         ResultData result = model.start(data);
-        assertFailureResult("Login should have failed",result);
+        assertFailureResult("Login should have failed", result);
     }
-    
+
     /**
      * <p>Returns the TestSuite for this TestCase.</p>
      *
      * @return the TestSuite for this TestCase
      */
     public static Test suite() {
-        return(new TestSuite(LoginTestCase.class));
+        return (new TestSuite(LoginTestCase.class));
     }
 }

@@ -1,13 +1,16 @@
 package com.topcoder.web.tc.controller.request.search;
 
-import com.topcoder.web.tc.controller.request.Base;
-import com.topcoder.web.tc.model.MemberSearch;
-import com.topcoder.web.tc.Constants;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.shared.dataAccess.*;
+import com.topcoder.shared.dataAccess.CachedQueryDataAccess;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.shared.dataAccess.QueryRequest;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.request.Base;
+import com.topcoder.web.tc.model.MemberSearch;
 
 import java.util.Map;
 
@@ -18,9 +21,9 @@ public class SimpleSearch extends Base {
 
             MemberSearch results = getResults();
             getRequest().setAttribute("memberSearch", results);
-            if (results.getTotal()==1) {
+            if (results.getTotal() == 1) {
                 long userId = results.getResults().getLongItem(0, "user_id");
-                setNextPage("/stat?c=member_profile&cr="+userId);
+                setNextPage("/stat?c=member_profile&cr=" + userId);
                 setIsNextPageInContext(false);
             } else {
                 setNextPage(Constants.SIMPLE_SEARCH_RESULTS);
@@ -37,7 +40,7 @@ public class SimpleSearch extends Base {
 
 
     protected void setDefaults(MemberSearch m) {
-        setDefault(Constants.HANDLE, m.getHandle()==null?"":m.getHandle());
+        setDefault(Constants.HANDLE, m.getHandle() == null ? "" : m.getHandle());
     }
 
 
@@ -52,16 +55,18 @@ public class SimpleSearch extends Base {
         String start = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
         if (start.equals(""))
             ret.setStart(new Integer(1));
-        else ret.setStart(new Integer(start));
+        else
+            ret.setStart(new Integer(start));
 
         String end = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.END_RANK));
         if (end.equals(""))
             ret.setEnd(new Integer(Constants.SEARCH_SCROLL_SIZE));
-        else ret.setEnd(new Integer(end));
+        else
+            ret.setEnd(new Integer(end));
 
         //make sure we like the size they they're searching for
-        if (ret.getEnd().intValue()-ret.getStart().intValue()>(Constants.SEARCH_SCROLL_SIZE-1)) {
-            ret.setEnd(new Integer(ret.getStart().intValue()+(Constants.SEARCH_SCROLL_SIZE-1)));
+        if (ret.getEnd().intValue() - ret.getStart().intValue() > (Constants.SEARCH_SCROLL_SIZE - 1)) {
+            ret.setEnd(new Integer(ret.getStart().intValue() + (Constants.SEARCH_SCROLL_SIZE - 1)));
         }
 
         String handle = StringUtils.checkNull(getRequest().getParameter(Constants.HANDLE));
@@ -121,13 +126,13 @@ public class SimpleSearch extends Base {
             queryBottom.append(" AND LOWER(c.handle) like LOWER('").append(StringUtils.replace(m.getHandle(), "'", "''")).append("')");
         queryBottom.append(" AND r.last_rated_round_id = ro.round_id");
         queryBottom.append(" AND r.rating BETWEEN ");
-        queryBottom.append(m.getMinRating()== null?"0":m.getMinRating().toString());
+        queryBottom.append(m.getMinRating() == null ? "0" : m.getMinRating().toString());
         queryBottom.append(" AND ");
-        queryBottom.append(m.getMaxRating()== null?String.valueOf(Integer.MAX_VALUE):m.getMaxRating().toString());
+        queryBottom.append(m.getMaxRating() == null ? String.valueOf(Integer.MAX_VALUE) : m.getMaxRating().toString());
         queryBottom.append(" AND r.num_ratings BETWEEN ");
-        queryBottom.append(m.getMinNumRatings()== null?"0":m.getMinNumRatings().toString());
+        queryBottom.append(m.getMinNumRatings() == null ? "0" : m.getMinNumRatings().toString());
         queryBottom.append(" AND ");
-        queryBottom.append(m.getMaxNumRatings()== null?String.valueOf(Integer.MAX_VALUE):m.getMaxNumRatings().toString());
+        queryBottom.append(m.getMaxNumRatings() == null ? String.valueOf(Integer.MAX_VALUE) : m.getMaxNumRatings().toString());
         if (m.getCountryCode() != null)
             queryBottom.append(" AND c.comp_country_code like '").append(StringUtils.replace(m.getCountryCode(), "'", "''")).append("'");
         if (m.getMaxDaysSinceLastComp() != null) {
@@ -157,8 +162,8 @@ public class SimpleSearch extends Base {
         QueryRequest r = new QueryRequest();
         r.addQuery("member_search", searchQuery.toString());
         r.addQuery("count", countQuery.toString());
-        r.setProperty("member_search"+DataAccessConstants.START_RANK, m.getStart().toString());
-        r.setProperty("member_search"+DataAccessConstants.END_RANK, m.getEnd().toString());
+        r.setProperty("member_search" + DataAccessConstants.START_RANK, m.getStart().toString());
+        r.setProperty("member_search" + DataAccessConstants.END_RANK, m.getEnd().toString());
 
 
         CachedQueryDataAccess cda = new CachedQueryDataAccess(DBMS.DW_DATASOURCE_NAME);
@@ -171,7 +176,7 @@ public class SimpleSearch extends Base {
         if (m.getEnd().intValue() > m.getTotal()) {
             m.setEnd(new Integer(m.getTotal()));
         }
-        if (m.getTotal()==0) {
+        if (m.getTotal() == 0) {
             m.setStart(new Integer(0));
         }
         return m;

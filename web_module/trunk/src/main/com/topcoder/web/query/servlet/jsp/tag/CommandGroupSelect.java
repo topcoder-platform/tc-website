@@ -19,11 +19,11 @@ public class CommandGroupSelect extends SelectTag {
     }
 
     protected String getOptionValue(Object o) {
-        return ((ResultSetContainer.ResultSetRow)o).getItem("command_group_id").toString();
+        return ((ResultSetContainer.ResultSetRow) o).getItem("command_group_id").toString();
     }
 
     protected String getOptionText(Object o) {
-        return ((ResultSetContainer.ResultSetRow)o).getItem("command_group_name").toString();
+        return ((ResultSetContainer.ResultSetRow) o).getItem("command_group_name").toString();
     }
 
     protected List getSelectOptions() throws JspException {

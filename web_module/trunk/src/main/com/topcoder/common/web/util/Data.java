@@ -1,21 +1,24 @@
 package com.topcoder.common.web.util;
 
-import com.topcoder.common.web.data.*;
-import com.topcoder.common.web.error.TCException;
+import com.topcoder.common.web.data.Contest;
+import com.topcoder.common.web.data.Modifiable;
+import com.topcoder.common.web.data.Navigation;
 import com.topcoder.common.web.data.User;
+import com.topcoder.common.web.error.TCException;
 import com.topcoder.ejb.UserServices.UserServices;
 import com.topcoder.ejb.UserServices.UserServicesHome;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.QueryDataAccess;
+import com.topcoder.shared.dataAccess.QueryRequest;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.docGen.xml.RecordTag;
 import com.topcoder.shared.docGen.xml.ValueTag;
+import com.topcoder.shared.problem.DataType;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.Transaction;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.dataAccess.*;
-import com.topcoder.shared.dataAccess.resultSet.*;
-import com.topcoder.shared.dataAccess.resultSet.*;
-import com.topcoder.shared.problem.DataType;
 
 import javax.naming.Context;
 import javax.transaction.Status;
@@ -142,7 +145,6 @@ public final class Data {
     }
 
 
-
     public static void initializeDataTypes() throws Exception {
         QueryRequest qr = null;
         DataAccessInt dai = null;
@@ -151,35 +153,35 @@ public final class Data {
         if (!hasBeenInitialized) {
             qr = new QueryRequest();
             qr.addQuery("Mappings", "SELECT data_type_id, language_id, display_value " +
-                                         "FROM data_type_mapping");
+                    "FROM data_type_mapping");
             qr.addQuery("Types", "SELECT data_type_id, data_type_desc FROM data_type");
             dai = new QueryDataAccess(DBMS.OLTP_DATASOURCE_NAME);
             resultMap = dai.getData(qr);
-           
-            ResultSetContainer mapRsc = (ResultSetContainer)resultMap.get("Mappings");
-    
+
+            ResultSetContainer mapRsc = (ResultSetContainer) resultMap.get("Mappings");
+
             HashMap mappings = new HashMap();
-        
-            for (int i=0; i<mapRsc.size(); i++) {
+
+            for (int i = 0; i < mapRsc.size(); i++) {
                 String dataTypeId = mapRsc.getItem(i, "data_type_id").toString();
                 String languageId = mapRsc.getItem(i, "language_id").toString();
                 String desc = mapRsc.getItem(i, "display_value").toString();
                 HashMap mapping = (HashMap) mappings.get(new Integer(dataTypeId));
-    
-                if(mapping == null) {
+
+                if (mapping == null) {
                     mapping = new HashMap();
                     mappings.put(new Integer(dataTypeId), mapping);
                 }
                 mapping.put(new Integer(languageId), desc);
             }
-           
-            ResultSetContainer typeRsc = (ResultSetContainer)resultMap.get("Types");
-            for (int i=0; i<typeRsc.size(); i++) {
+
+            ResultSetContainer typeRsc = (ResultSetContainer) resultMap.get("Types");
+            for (int i = 0; i < typeRsc.size(); i++) {
                 int dataTypeId = Integer.parseInt(typeRsc.getItem(i, "data_type_id").toString());
                 DataType type = new DataType(
                         dataTypeId,
                         typeRsc.getItem(i, "data_type_desc").toString(),
-                        (HashMap)mappings.get(new Integer(dataTypeId)));
+                        (HashMap) mappings.get(new Integer(dataTypeId)));
             }
             hasBeenInitialized = true;
         }

@@ -21,11 +21,11 @@ import com.topcoder.apps.review.projecttracker.User;
  * Window>Preferences>Java>Code Generation.
  */
 public class TestLogin extends MockStrutsTestCase {
-	
-	public TestLogin(String name) {
-		super(name);
-	}
-	
+
+    public TestLogin(String name) {
+        super(name);
+    }
+
     /**
      * Initialize for the tests.
      */
@@ -33,74 +33,74 @@ public class TestLogin extends MockStrutsTestCase {
         super.setUp();
         //setConfigFile("struts-config.xml");
         setConfigFile("conf/struts-config.xml");
-		BusinessDelegate businessDelegate = new BusinessDelegate();
-		businessDelegate.setUseMockup(true);
+        BusinessDelegate businessDelegate = new BusinessDelegate();
+        businessDelegate.setUseMockup(true);
     }
-    
+
     /**
      * Tear down for the tests.
      */
-    public void tearDown() throws Exception { 
-        super.tearDown(); 
+    public void tearDown() throws Exception {
+        super.tearDown();
     }
-    
+
     /**
      * Test the success login.
      */
     public void testLoginSuccess() {
         Object user = null;
-        
+
         setRequestPathInfo("/login");
         addRequestParameter("username", "pzhao");
         addRequestParameter("password", "xxx");
         actionPerform();
-        
+
         verifyForward("success");
         user = getSession().getAttribute("user");
         assertTrue(user instanceof User);
         assertEquals("pzhao", ((User) user).getHandle());
-        
+
         verifyNoActionErrors();
     }
+
     /**
      * Test wrong password.
      */
     public void testLoginBadPassword() {
         Object user = null;
-        
+
         setRequestPathInfo("/login");
         addRequestParameter("username", "pzhao");
         addRequestParameter("password", "xxx22");
         actionPerform();
-        
+
         verifyForward("login");
         user = getSession().getAttribute("user");
         assertNull(user);
     }
+
     /**
      * Test wrong password.
      */
     public void testLoginBadName() {
         Object user = null;
-        
+
         setRequestPathInfo("/login");
         addRequestParameter("username", "pzhao222");
         addRequestParameter("password", "xxx");
         actionPerform();
-        
+
         verifyForward("login");
         user = getSession().getAttribute("user");
         assertNull(user);
     }
-    
-   
+
 
     /**
      * @return a test suite (<code>TestSuite</code>) that includes all methods
      *         starting with "test"
      */
-    public static Test suite()
-    {
+    public static Test suite() {
         // All methods starting with "test" will be executed in the test suite.
         return new TestSuite(TestLogin.class);
     }

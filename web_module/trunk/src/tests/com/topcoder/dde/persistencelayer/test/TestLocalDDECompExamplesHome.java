@@ -9,6 +9,7 @@
 package com.topcoder.dde.persistencelayer.test;
 
 import com.topcoder.dde.persistencelayer.interfaces.*;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
@@ -28,17 +29,17 @@ public class TestLocalDDECompExamplesHome extends PersistenceTestCase {
 
     /* an instance of the localHome interface implementation to work with */
     private LocalDDECompExamplesHome localHome;
-    
+
     /* default field values for entity instances */
     static final private String DEF_DESCRIPTION = "Dummy Unit Test Example";
     static final private String DEF_URL = "file:/dev/null";
-    
+
     /**
      * a default constructor for use only by other test cases in this package
      */
     TestLocalDDECompExamplesHome() {
         this("testCreate");
-    } 
+    }
 
     /**
      * constructs a new TestLocalDDECompExamplesHome configured to run the named
@@ -46,7 +47,7 @@ public class TestLocalDDECompExamplesHome extends PersistenceTestCase {
      */
     public TestLocalDDECompExamplesHome(String testName) {
         this(testName, null);
-    } 
+    }
 
     /**
      * constructs a new TestLocalDDECategoriesHome configured to run the named
@@ -62,7 +63,7 @@ public class TestLocalDDECompExamplesHome extends PersistenceTestCase {
      */
     public void setUp() throws Exception {
         super.setUp();
-        synchronized(contextLock) {
+        synchronized (contextLock) {
             localHome = (LocalDDECompExamplesHome) ctx.lookup(
                     LocalDDECompExamplesHome.EJB_REF_NAME);
         }
@@ -75,7 +76,7 @@ public class TestLocalDDECompExamplesHome extends PersistenceTestCase {
             throws Exception {
         return localHome.create(DEF_URL, DEF_DESCRIPTION, version);
     }
-    
+
     /**
      * tests all entity creation functionality of the bean
      */
@@ -90,18 +91,18 @@ public class TestLocalDDECompExamplesHome extends PersistenceTestCase {
             TestLocalDDECompCatalogHome compHome
                     = new TestLocalDDECompCatalogHome();
             LocalDDECompCatalog localComp;
-            
+
             compHome.setUp();
             localComp = compHome.createDefault();
             assertNotNull(localComp);
             try {
                 synchronized (TestLocalDDECompVersionsHome.class) {
                     TestLocalDDECompVersionsHome versionsHome
-                        = new TestLocalDDECompVersionsHome();
+                            = new TestLocalDDECompVersionsHome();
                     LocalDDECompVersions localVersion;
-                    
+
                     versionsHome.setUp();
-                    localVersion = versionsHome.createDefault(localComp); 
+                    localVersion = versionsHome.createDefault(localComp);
                     assertNotNull(localVersion);
                     try {
                         synchronized (TestLocalDDECompExamplesHome.class) {
@@ -117,22 +118,22 @@ public class TestLocalDDECompExamplesHome extends PersistenceTestCase {
                                         localVersion));
                                 transactionBoundary();
                                 assertMatchesDB(new DDECompExamplesData(
-                                    local.getPrimaryKey(),
-                                    (Long) local.getCompVersions().getPrimaryKey(),
-                                    local.getUrl(),
-                                    local.getDescription()
+                                        local.getPrimaryKey(),
+                                        (Long) local.getCompVersions().getPrimaryKey(),
+                                        local.getUrl(),
+                                        local.getDescription()
                                 ));
                             } finally {
                                 local.remove();
                             }
                             /* test null version */
                             local = localHome.create(DEF_URL, DEF_DESCRIPTION,
-                                                     null);
+                                    null);
                             assertNotNull(local);
                             local.remove();
                             /* test blank URL */
                             local = localHome.create("", DEF_DESCRIPTION,
-                                                     localVersion);
+                                    localVersion);
                             assertNotNull(local);
                             local.remove();
                             /* test blank description */
@@ -141,8 +142,8 @@ public class TestLocalDDECompExamplesHome extends PersistenceTestCase {
                             local.remove();
                             /* test null URL */
                             try {
-                            local = localHome.create(null, DEF_DESCRIPTION,
-                                                     localVersion);
+                                local = localHome.create(null, DEF_DESCRIPTION,
+                                        localVersion);
                                 local.remove();
                                 fail("bean creation with null name should have failed");
                             } catch (CreateException ce) {
@@ -150,7 +151,7 @@ public class TestLocalDDECompExamplesHome extends PersistenceTestCase {
                             }
                             /* test null Description */
                             try {
-                            local = localHome.create(DEF_URL, null, localVersion);
+                                local = localHome.create(DEF_URL, null, localVersion);
                                 local.remove();
                                 fail("bean creation with null URL should have failed");
                             } catch (CreateException ce) {
@@ -160,7 +161,7 @@ public class TestLocalDDECompExamplesHome extends PersistenceTestCase {
                     } finally {
                         localVersion.remove();
                     }
-                }    
+                }
             } finally {
                 localComp.remove();
             }
@@ -173,7 +174,7 @@ public class TestLocalDDECompExamplesHome extends PersistenceTestCase {
     public void testFindByPrimaryKey() throws Exception {
         fail("Test not yet implemented");
     }
-    
+
     /**
      * tests the findByCompVersId finder method
      */
@@ -186,22 +187,22 @@ public class TestLocalDDECompExamplesHome extends PersistenceTestCase {
         Long compVersId;
         String url;
         String description;
-        
+
         DDECompExamplesData(Object id, Long version, String _url, String desc) {
             this(((Long) id).longValue(), version, _url, desc);
         }
-        
+
         DDECompExamplesData(long id, Long version, String _url, String desc) {
             exampleId = id;
             compVersId = version;
             url = _url;
             description = desc;
         }
-        
+
         DDECompExamplesData(ResultSet rs) throws SQLException {
             readRowData(rs);
         }
-        
+
         public Object getPrimaryKey() {
             return new Long(exampleId);
         }
@@ -215,19 +216,19 @@ public class TestLocalDDECompExamplesHome extends PersistenceTestCase {
             rs.updateString("URL", url);
             rs.updateString("DESCRIPTION", description);
         }
-        
+
         public void storeRowData(ResultSet rs) throws SQLException {
             updateResultSet(rs);
             rs.updateRow();
         }
-        
+
         public void insertRowData(ResultSet rs) throws SQLException {
             rs.moveToInsertRow();
             rs.updateLong("EXAMPLE_ID", exampleId);
             updateResultSet(rs);
             rs.insertRow();
         }
-        
+
         public void readRowData(ResultSet rs) throws SQLException {
             exampleId = rs.getLong("EXAMPLE_ID");
             compVersId = new Long(rs.getLong("COMP_VERS_ID"));
@@ -237,21 +238,21 @@ public class TestLocalDDECompExamplesHome extends PersistenceTestCase {
             url = rs.getString("URL");
             description = rs.getString("DESCRIPTION");
         }
-        
+
         public boolean matchesResultSet(ResultSet rs) throws SQLException {
             return equals(new DDECompExamplesData(rs));
         }
-        
+
         public boolean equals(Object o) {
-            if (! (o instanceof DDECompExamplesData) ) {
+            if (!(o instanceof DDECompExamplesData)) {
                 return false;
             }
             DDECompExamplesData d = (DDECompExamplesData) o;
             return (
-                (exampleId == d.exampleId)
-                && objectsMatch(compVersId, d.compVersId)
-                && objectsMatch(url, d.url)
-                && objectsMatch(description, d.description) );
+                    (exampleId == d.exampleId)
+                    && objectsMatch(compVersId, d.compVersId)
+                    && objectsMatch(url, d.url)
+                    && objectsMatch(description, d.description));
         }
     }
 

@@ -10,9 +10,8 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.corp.common.TCESConstants;
-import com.topcoder.web.corp.controller.request.tces.BaseTask;
+import com.topcoder.web.ejb.resume.ResumeServices;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -94,7 +93,7 @@ public class CoderDemographicsTask extends BaseTask implements Task, Serializabl
         viewCoderDemographics();
         ResumeServices rServices = null;
         try {
-            rServices = (ResumeServices)BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
+            rServices = (ResumeServices) BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
             setHasResume(rServices.hasResume(mid, getOltp()));
         } catch (Exception e) {
             log.error("could not determine if user has a resume or not");

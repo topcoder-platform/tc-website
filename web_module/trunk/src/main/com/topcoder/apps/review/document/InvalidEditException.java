@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 
 package com.topcoder.apps.review.document;
@@ -11,21 +11,21 @@ package com.topcoder.apps.review.document;
  * @version 1.0
  */
 public class InvalidEditException extends IllegalArgumentException {
-	/**
-	 * Default constructor
-	 */
-	public InvalidEditException() {
-		super();
-	}
+    /**
+     * Default constructor
+     */
+    public InvalidEditException() {
+        super();
+    }
 
-	/**
-	 * DOCUMENT ME!
-	 *
-	 * @param arg0
-	 */
-	public InvalidEditException(String arg0) {
-		super(arg0);
-	}
+    /**
+     * DOCUMENT ME!
+     *
+     * @param arg0
+     */
+    public InvalidEditException(String arg0) {
+        super(arg0);
+    }
 
 } // end InvalidEditException
 

@@ -1,14 +1,14 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.projecttracker.UserProjectInfo;
+import org.apache.struts.util.MessageResources;
+import org.apache.struts.util.RequestUtils;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.BodyTagSupport;
-import org.apache.struts.util.MessageResources;
-import org.apache.struts.util.RequestUtils;
 
 /**
  * <p>
@@ -21,12 +21,12 @@ import org.apache.struts.util.RequestUtils;
 public abstract class BaseBodyTag extends BodyTagSupport {
 
     // ----------------------------------------------------- Instance Variables
-    
+
     /**
      * The message resources for this package.
      */
     protected static MessageResources messages =
-        MessageResources.getMessageResources(Constants.MESSAGE_RESOURCE_KEY);
+            MessageResources.getMessageResources(Constants.MESSAGE_RESOURCE_KEY);
 
     /**
      * The body content of this tag (if any).
@@ -34,7 +34,7 @@ public abstract class BaseBodyTag extends BodyTagSupport {
     protected String text = null;
 
     // --------------------------------------------------------- Public Methods
-    
+
     /**
      * Render the beginning of the hyperlink.
      *
@@ -46,10 +46,10 @@ public abstract class BaseBodyTag extends BodyTagSupport {
         this.text = null;
         return (EVAL_BODY_BUFFERED);
     }
-    
+
     /**
      * Save the associated label from the body content.
-     * 
+     *
      * @return SKIP_BODY
      * @exception JspException if a JSP exception has occurred
      */
@@ -63,20 +63,20 @@ public abstract class BaseBodyTag extends BodyTagSupport {
 
         return (SKIP_BODY);
     }
-    
+
     /**
      * Get the user project info by project id.
-     * 
+     *
      * @param id The project id.
      * @return the user project info according to the project id, or null if
      * it can not be found.
      * @exception JspException if a JSP exception has occurred
      */
     protected UserProjectInfo getInfoById(long id) throws JspException {
-        UserProjectInfo[] infos = 
-            (UserProjectInfo[]) RequestUtils.lookup(pageContext, 
-                                                    Constants.PROJECT_LIST_KEY, 
-                                                    null);
+        UserProjectInfo[] infos =
+                (UserProjectInfo[]) RequestUtils.lookup(pageContext,
+                        Constants.PROJECT_LIST_KEY,
+                        null);
         if (infos != null) {
             for (int i = 0; i < infos.length; i++) {
                 if (infos[i].getId() == id) {

@@ -1,18 +1,18 @@
 package com.topcoder.web.tc.controller.request.report;
 
-import com.topcoder.web.tc.controller.request.Base;
-import com.topcoder.web.common.*;
 import com.topcoder.common.web.data.report.*;
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.*;
+import com.topcoder.web.tc.controller.request.Base;
 
 import javax.servlet.http.HttpUtils;
-import java.util.Map;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * User: dok
@@ -32,7 +32,7 @@ public class Legacy extends Base {
         try {
             task = getRequest().getParameter(Constants.TASK_NAME_KEY);
 
-            if (((SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin()) {
+            if (((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin()) {
 
                 response_addr = getRequest().getParameter(Constants.RESPONSE_ADDR_KEY);
 
@@ -50,7 +50,7 @@ public class Legacy extends Base {
                         response_addr = Constants.NEW_REPORT_HOME_ADDR;
                     } else {
                         DataAccessInt dai = new DataAccess(
-                                        dataRequest.getProperty(Constants.DB_KEY, DBMS.OLTP_DATASOURCE_NAME));
+                                dataRequest.getProperty(Constants.DB_KEY, DBMS.OLTP_DATASOURCE_NAME));
                         Map dataMap = null;
                         dataMap = dai.getData(dataRequest);
                         getRequest().setAttribute(Constants.REPORT_RESULT_KEY, dataMap);
@@ -169,7 +169,7 @@ public class Legacy extends Base {
 
         DataAccessInt dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
         Map mainMap = dai.getData(mainRequest);
-        ResultSetContainer profileList = (ResultSetContainer)mainMap.get("main_profile_info");
+        ResultSetContainer profileList = (ResultSetContainer) mainMap.get("main_profile_info");
 
         log.debug("found " + profileList.size() + " people matching search criteria");
         log.debug("request was: " + mainRequest.toString());
@@ -906,22 +906,22 @@ public class Legacy extends Base {
     private static final int[] MEMBER_COUNTS_WEEKLY_TYPES = {ResultItem.STRING, ResultItem.INT, ResultItem.STRING, ResultItem.STRING, ResultItem.INT, ResultItem.INT, ResultItem.INT};
     private static final String[] MEMBER_COUNTS_WEEKLY_HEADINGS = {"Year", "Week", "Start Date", "End Date", "Count", "Active", "International"};
     private static final String MEMBER_COUNTS_WEEKLY =
-       " select" +
-        "  cal.year," +
-        "  cal.week_of_year week_number," +
-         " min(cal.date) date_starting," +
-         " max(cal.date) date_ending," +
-         " count(*) total_reg," +
-         " sum(case when c.status = 'A' then 1 else 0 end) active_count," +
-         " sum(case when c.country_code in ('840','124') then 0 else 1 end) intl_count" +
-       " from" +
-       "   coder c," +
-        "  calendar cal" +
-        " where" +
-        "  date(c.member_since) = cal.date and" +
-        "  cal.date >= today - 730" +
-        " group by 1,2" +
-        " order by 1 desc, 2 desc";
+            " select" +
+            "  cal.year," +
+            "  cal.week_of_year week_number," +
+            " min(cal.date) date_starting," +
+            " max(cal.date) date_ending," +
+            " count(*) total_reg," +
+            " sum(case when c.status = 'A' then 1 else 0 end) active_count," +
+            " sum(case when c.country_code in ('840','124') then 0 else 1 end) intl_count" +
+            " from" +
+            "   coder c," +
+            "  calendar cal" +
+            " where" +
+            "  date(c.member_since) = cal.date and" +
+            "  cal.date >= today - 730" +
+            " group by 1,2" +
+            " order by 1 desc, 2 desc";
 
 
     private static final Integer REGISTRATION_BY_SCHOOL_ID = new Integer(8);
@@ -974,20 +974,20 @@ public class Legacy extends Base {
     private static final int[] REFERRAL_TYPES = {ResultItem.STRING, ResultItem.STRING, ResultItem.INT};
     private static final String[] REFERRAL_HEADINGS = {"Date", "Referral Type", "Count"};
     private static final String REFERRAL =
-           " SELECT TO_CHAR(c.member_since, '%iY-%m-%d')" +
-           " ,r.referral_desc" +
-           " ,COUNT(*)" +
-           " FROM coder c" +
-           " ,referral r" +
-           " ,coder_referral cr" +
-           " ,user u" +
-           " WHERE c.coder_id = cr.coder_id" +
-           " AND r.referral_id = cr.referral_id" +
-           " AND c.member_since > CURRENT-INTERVAL (30) DAY (2) TO DAY" +
-           " and c.coder_Id = u.user_id" +
-           " AND u.email NOT LIKE '%topcoder.com%' " +
-           " GROUP BY 1, 2" +
-           " ORDER BY 1 DESC, 2";
+            " SELECT TO_CHAR(c.member_since, '%iY-%m-%d')" +
+            " ,r.referral_desc" +
+            " ,COUNT(*)" +
+            " FROM coder c" +
+            " ,referral r" +
+            " ,coder_referral cr" +
+            " ,user u" +
+            " WHERE c.coder_id = cr.coder_id" +
+            " AND r.referral_id = cr.referral_id" +
+            " AND c.member_since > CURRENT-INTERVAL (30) DAY (2) TO DAY" +
+            " and c.coder_Id = u.user_id" +
+            " AND u.email NOT LIKE '%topcoder.com%' " +
+            " GROUP BY 1, 2" +
+            " ORDER BY 1 DESC, 2";
 
     private static final Integer OTHER_REFERRAL_ID = new Integer(11);
     private static final String OTHER_REFERRAL_TITLE = "Other Referrals";
@@ -1132,45 +1132,45 @@ public class Legacy extends Base {
     private static final int[] PRO_REG_INFO_TYPES = {ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING};
     private static final String[] PRO_REG_INFO_HEADINGS = {"Status", "Company", "Title", "First", "Last", "Email", "Handle", "City", "State", "Country", "Date Registered", "Referral Info"};
     private static final String PRO_REG_INFO =
-            " SELECT status "+
-            "  ,(SELECT dr.demographic_response "+
-             " FROM demographic_response dr "+
-             " WHERE dr.coder_id = u.user_id "+
-            " AND dr.demographic_question_id = 15) as company "+
-             " ,(SELECT dr.demographic_response "+
-             " FROM demographic_response dr "+
-             " WHERE dr.coder_id = u.user_id "+
-             " AND dr.demographic_question_id = 8) as title "+
-             " ,first_name "+
-             " ,last_name "+
-             " ,email "+
-             " ,handle "+
-             " ,city "+
-             " ,state_code "+
-             " ,country_name "+
-             " ,DATE(member_since) as date_registered "+
+            " SELECT status " +
+            "  ,(SELECT dr.demographic_response " +
+            " FROM demographic_response dr " +
+            " WHERE dr.coder_id = u.user_id " +
+            " AND dr.demographic_question_id = 15) as company " +
+            " ,(SELECT dr.demographic_response " +
+            " FROM demographic_response dr " +
+            " WHERE dr.coder_id = u.user_id " +
+            " AND dr.demographic_question_id = 8) as title " +
+            " ,first_name " +
+            " ,last_name " +
+            " ,email " +
+            " ,handle " +
+            " ,city " +
+            " ,state_code " +
+            " ,country_name " +
+            " ,DATE(member_since) as date_registered " +
             " , case when cr.referral_id = 10 or cr.referral_id = 50 then" +
             " cr.other" +
             " else" +
             " (SELECT r.referral_desc" +
-               " FROM referral r" +
-              " WHERE c.coder_id = cr.coder_id" +
-                " AND r.referral_id = cr.referral_id)" +
+            " FROM referral r" +
+            " WHERE c.coder_id = cr.coder_id" +
+            " AND r.referral_id = cr.referral_id)" +
             " end" +
-            " FROM user u "+
-             " ,coder c "+
-             " ,country co "+
+            " FROM user u " +
+            " ,coder c " +
+            " ,country co " +
             " ,coder_referral cr" +
-             " WHERE u.user_id = c.coder_id "+
-             " and c.coder_id = cr.coder_id" +
-             " AND c.coder_type_id = 2 "+
-             " AND DATE(member_since) >= today-14 "+
-             " AND handle NOT LIKE 'guest%' "+
-             " AND co.country_code = c.country_code "+
-             " AND LOWER(u.email) NOT LIKE '%topcoder.com' "+
-             " AND u.user_id NOT IN (SELECT g.user_id "+
-             " FROM group_user g "+
-             " WHERE g.group_id = 13) "+
+            " WHERE u.user_id = c.coder_id " +
+            " and c.coder_id = cr.coder_id" +
+            " AND c.coder_type_id = 2 " +
+            " AND DATE(member_since) >= today-14 " +
+            " AND handle NOT LIKE 'guest%' " +
+            " AND co.country_code = c.country_code " +
+            " AND LOWER(u.email) NOT LIKE '%topcoder.com' " +
+            " AND u.user_id NOT IN (SELECT g.user_id " +
+            " FROM group_user g " +
+            " WHERE g.group_id = 13) " +
             " ORDER BY 11 DESC";
 
 
@@ -1179,39 +1179,39 @@ public class Legacy extends Base {
     private static final int[] STUDENT_REG_INFO_TYPES = {ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING};
     private static final String[] STUDENT_REG_INFO_HEADINGS = {"Status", "Handle", "First", "Last", "Email", "Date Registered", "City", "State", "Country", "Referral Info"};
     private static final String STUDENT_REG_INFO =
-    " SELECT status " +
-    "     ,handle" +
-        " ,first_name" +
-        " ,last_name" +
-        " ,email" +
-        " ,date(member_since) as date_registered" +
-        " ,city" +
-        " ,state_code" +
-        " ,country_name" +
-        " , case when cr.referral_id = 10 or cr.referral_id = 50 then" +
-        " cr.other" +
-        " else" +
-        " (SELECT r.referral_desc" +
-           " FROM referral r" +
-          " WHERE c.coder_id = cr.coder_id" +
+            " SELECT status " +
+            "     ,handle" +
+            " ,first_name" +
+            " ,last_name" +
+            " ,email" +
+            " ,date(member_since) as date_registered" +
+            " ,city" +
+            " ,state_code" +
+            " ,country_name" +
+            " , case when cr.referral_id = 10 or cr.referral_id = 50 then" +
+            " cr.other" +
+            " else" +
+            " (SELECT r.referral_desc" +
+            " FROM referral r" +
+            " WHERE c.coder_id = cr.coder_id" +
             " AND r.referral_id = cr.referral_id)" +
-        " end" +
-        " FROM user u" +
-        " ,coder c" +
-        " ,country co" +
-        " ,coder_referral cr" +
-        " WHERE u.user_id = c.coder_id" +
-        " and cr.coder_id = c.coder_id" +
-        " AND c.coder_type_id = 1" +
-        " AND date(member_since) >= today-14" +
-        " AND handle not like 'guest%'" +
-        " AND co.country_code = c.country_code" +
-        " AND lower(u.email) not like '%topcoder.com'" +
-        " AND u.user_id NOT IN (" +
-        " SELECT g.user_id" +
-        " FROM group_user g" +
-        " WHERE g.group_id = 13)" +
-        " ORDER BY 6 DESC";
+            " end" +
+            " FROM user u" +
+            " ,coder c" +
+            " ,country co" +
+            " ,coder_referral cr" +
+            " WHERE u.user_id = c.coder_id" +
+            " and cr.coder_id = c.coder_id" +
+            " AND c.coder_type_id = 1" +
+            " AND date(member_since) >= today-14" +
+            " AND handle not like 'guest%'" +
+            " AND co.country_code = c.country_code" +
+            " AND lower(u.email) not like '%topcoder.com'" +
+            " AND u.user_id NOT IN (" +
+            " SELECT g.user_id" +
+            " FROM group_user g" +
+            " WHERE g.group_id = 13)" +
+            " ORDER BY 6 DESC";
 
     private static final Integer INVITATIONAL_INFO_ID = new Integer(18);
     private static final String INVITATIONAL_INFO_TITLE = "Invitational Registration Information";

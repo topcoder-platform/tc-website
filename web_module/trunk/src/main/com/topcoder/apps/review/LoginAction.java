@@ -4,20 +4,15 @@
 
 package com.topcoder.apps.review;
 
-import com.topcoder.util.log.Level;
 import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
-import com.topcoder.apps.review.projecttracker.User;
+import com.topcoder.util.log.Level;
+import org.apache.struts.action.*;
 
-import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.struts.action.ActionError;
-import org.apache.struts.action.ActionErrors;
-import org.apache.struts.action.ActionForm;
-import org.apache.struts.action.ActionForward;
-import org.apache.struts.action.ActionMapping;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
 
 /**
  * Extends from <strong>BaseAction</strong> that validates a user login.
@@ -48,20 +43,20 @@ public final class LoginAction extends BaseAction {
                                  ActionForm form,
                                  HttpServletRequest request,
                                  HttpServletResponse response)
-        throws IOException, ServletException {
-        
+            throws IOException, ServletException {
+
         // Validate the request parameters specified by the user
         ActionErrors errors = new ActionErrors();
 
-        try{
+        try {
             // Create the LoginData from the submitted form
             LoginData data = ((LoginForm) form).toLoginData();
-            
+
             // Call the business logic layer
             ResultData result = new BusinessDelegate().login(data);
             if (result instanceof FailureResult) {
                 log(Level.ERROR, "FailureResult.getCause(): "
-                                + String.valueOf(((FailureResult) result).getCause()));
+                        + String.valueOf(((FailureResult) result).getCause()));
                 if (((FailureResult) result).getMessage() != null) {
                     errors.add(ActionErrors.GLOBAL_ERROR,
                             new ActionError(Constants.MESSAGE_ERROR_KEY,
@@ -70,8 +65,8 @@ public final class LoginAction extends BaseAction {
                     errors.add(ActionErrors.GLOBAL_ERROR,
                             new ActionError("error.general"));
                 }
-            }    
-            
+            }
+
             // Report any errors we have discovered back to the original form
             if (!errors.empty()) {
                 saveErrors(request, errors);
@@ -80,13 +75,13 @@ public final class LoginAction extends BaseAction {
                 // Save our logged-in user in the session
                 HttpSession session = request.getSession();
                 SecurityEnabledUser user = ((LoginResult) result).getUser();
-                
+
                 session.setAttribute(Constants.USER_KEY, user);
-                session.setAttribute(Constants.UTILITY_KEY, 
-                                    new UtilityBean(user));
+                session.setAttribute(Constants.UTILITY_KEY,
+                        new UtilityBean(user));
 
                 log(Level.INFO, "LoginAction: User '" + data.getUserName()
-                                + "' logged on in session " + session.getId());
+                        + "' logged on in session " + session.getId());
 
                 // Remove the obsolete form bean
                 if (mapping.getAttribute() != null) {
@@ -100,7 +95,7 @@ public final class LoginAction extends BaseAction {
             e.printStackTrace();
             errors.add(ActionErrors.GLOBAL_ERROR, new ActionError("error.general"));
             saveErrors(request, errors);
-            return (mapping.findForward(Constants.LOGIN_KEY));          
+            return (mapping.findForward(Constants.LOGIN_KEY));
         }
     }
 }

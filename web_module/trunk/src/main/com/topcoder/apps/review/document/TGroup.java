@@ -1,14 +1,14 @@
 /*
  * TGroup.java
  *
- * Copyright © 2004, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2004, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.document;
 
 /**
  * Represents a ScorecardSectionGroup for scorecard editing.
- * 
+ *
  * @author FatClimber
  */
 public class TGroup {

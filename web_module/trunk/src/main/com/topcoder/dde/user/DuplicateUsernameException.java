@@ -12,11 +12,11 @@ import com.topcoder.dde.DDEException;
 public class DuplicateUsernameException extends DDEException {
 
     public DuplicateUsernameException() {
-	super();
+        super();
     }
 
     public DuplicateUsernameException(String message) {
-	super(message);
+        super(message);
     }
 
 }

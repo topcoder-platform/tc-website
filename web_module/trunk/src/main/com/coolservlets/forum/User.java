@@ -74,12 +74,12 @@ package com.coolservlets.forum;
  *
  */
 public interface User {
-   
+
     /**
      * Returns the user's rating.
      */
     public int getRating();
- 
+
     /**
      * Returns the user's id. All ids must be unique in the system.
      */
@@ -202,7 +202,7 @@ public interface User {
 
     /**
      * Returns the permissions for the user that correspond to the
-     * passed-in Authorization. 
+     * passed-in Authorization.
      *
      * @param authorization the auth token to look up permissions with.
      */

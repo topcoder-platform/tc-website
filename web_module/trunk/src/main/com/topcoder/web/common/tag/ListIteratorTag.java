@@ -16,7 +16,7 @@ public class ListIteratorTag extends IteratorTag {
     }
 
     public void setList(String name) {
-        this.list = (List)pageContext.findAttribute(name);
+        this.list = (List) pageContext.findAttribute(name);
     }
 
     public int doStartTag() throws JspException {

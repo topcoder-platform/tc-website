@@ -53,10 +53,12 @@
  * individuals on behalf of CoolServlets.com. For more information
  * on CoolServlets.com, please see <http://www.coolservlets.com>.
  */
- 
+
 package com.coolservlets.forum;
 
-import java.util.*;
+import java.util.Date;
+import java.util.Iterator;
+
 //JDK1.1// import com.sun.java.util.collections.*;
 
 /**

@@ -18,8 +18,8 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.idgenerator.IdGenerator;
 import com.topcoder.util.idgenerator.sql.SimpleDB;
 
-import javax.sql.DataSource;
 import javax.naming.InitialContext;
+import javax.sql.DataSource;
 import java.sql.*;
 import java.util.*;
 
@@ -49,8 +49,8 @@ public class TCLoadRequests extends TCLoad {
 
     private final static String GET_NAME =
             " select page_name" +
-              " from url " +
-             " where url = ?";
+            " from url " +
+            " where url = ?";
 
     private final static String REQUEST_LIST =
             " select user_id" +
@@ -427,7 +427,6 @@ public class TCLoadRequests extends TCLoad {
     }
 
 
-
     private static HashMap pageNameMap = new HashMap();
 
     static {
@@ -617,12 +616,12 @@ public class TCLoadRequests extends TCLoad {
                 //look through the other stuff that might indicate what page name to use
                 Map.Entry me = null;
                 String url = getUrl();
-                if (url==null) url = "";
+                if (url == null) url = "";
                 boolean found = false;
-                for (Iterator it = otherPageNameMap.entrySet().iterator(); it.hasNext()&&!found;) {
-                    me = (Map.Entry)it.next();
+                for (Iterator it = otherPageNameMap.entrySet().iterator(); it.hasNext() && !found;) {
+                    me = (Map.Entry) it.next();
                     if (url.equals(me.getKey())) {
-                        ret = (String)me.getKey();
+                        ret = (String) me.getKey();
                         found = true;
                     }
                 }

@@ -13,11 +13,13 @@ import com.topcoder.dde.catalog.ComponentInfo;
 import com.topcoder.dde.catalog.ComponentRequest;
 import com.topcoder.dde.catalog.ComponentSummary;
 import com.topcoder.dde.catalog.ComponentVersionInfo;
+
 import java.util.Iterator;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
-/** 
+/**
  * a JUnit test case that exercises the Catalog EJB's remote interface
  *
  * @author John C. Bollinger
@@ -31,7 +33,7 @@ public class TestCatalog extends RemoteCatalogTestCase {
     public TestCatalog(String testName) {
         super(testName);
     }
-    
+
     public void setUp() throws Exception {
         super.setUp();
         catalog = catalogHome.create();
@@ -39,7 +41,7 @@ public class TestCatalog extends RemoteCatalogTestCase {
                 DEF_COMP_DESC, DEF_COMP_FUNCTIONAL, DEF_COMP_KEYWORDS,
                 DEF_COMP_COMMENTS, DEF_COMP_VERSION, defaultUser.getId()));
     }
-    
+
     public void tearDown() throws Exception {
         if (summary != null) {
             catalog.removeComponent(summary.getComponentId());
@@ -52,8 +54,8 @@ public class TestCatalog extends RemoteCatalogTestCase {
         Iterator searchIterator = catalog.search("Kemosabe", null).iterator();
         boolean found;
         while (searchIterator.hasNext()) {
-            assertTrue("Component already indexed", 
-                       !(searchIterator.next().equals(summary)));
+            assertTrue("Component already indexed",
+                    !(searchIterator.next().equals(summary)));
         }
         catalog.approveComponent(summary.getComponentId());
         summary = catalog.getComponent(summary.getComponentId());
@@ -69,7 +71,7 @@ public class TestCatalog extends RemoteCatalogTestCase {
         }
         assertTrue("Component not indexed", found);
     }
-    
+
     public void testApproveComponent_Missing() throws Exception {
         try {
             catalog.approveComponent(idGen.nextId());
@@ -78,7 +80,7 @@ public class TestCatalog extends RemoteCatalogTestCase {
             /* the expected case */
         }
     }
-    
+
     public void testDeclineComponent_LongFalse() throws Exception {
         catalog.declineComponent(summary.getComponentId(), false);
         assertEquals("Component not approved", ComponentInfo.DECLINED,
@@ -90,7 +92,7 @@ public class TestCatalog extends RemoteCatalogTestCase {
          * have been approved in order to be indexed in the first place.
          */
     }
-    
+
     public void testDeclineComponent_LongTrue() throws Exception {
         catalog.declineComponent(summary.getComponentId(), true);
         assertEquals("Component not approved", ComponentInfo.DUPLICATE,
@@ -112,10 +114,10 @@ public class TestCatalog extends RemoteCatalogTestCase {
         }
     }
 
-/*    
+/*
  *  This test performed with the ComponentManager tests when a category assignment
  *  is tested.
- *  
+ *
  *  public void testGetCategoryComponents() throws Exception {
  *  }
  */
@@ -125,7 +127,7 @@ public class TestCatalog extends RemoteCatalogTestCase {
                 catalog.getComponentsByStatus(ComponentInfo.REQUESTED).contains(
                         summary));
     }
-    
+
     public void testRemoveComponent() throws Exception {
         Iterator searchIterator;
         catalog.approveComponent(summary.getComponentId());
@@ -135,11 +137,11 @@ public class TestCatalog extends RemoteCatalogTestCase {
                 summary.getStatus());
         searchIterator = catalog.search("Kemosabe", null).iterator();
         while (searchIterator.hasNext()) {
-            assertTrue("Component still indexed", 
-                       !(searchIterator.next().equals(summary)));
+            assertTrue("Component still indexed",
+                    !(searchIterator.next().equals(summary)));
         }
     }
-    
+
     public void testRemoveComponent_Missing() throws Exception {
         try {
             catalog.removeComponent(idGen.nextId());
@@ -156,5 +158,5 @@ public class TestCatalog extends RemoteCatalogTestCase {
     public static Test suite() {
         return new CatalogTestSetup(new TestSuite(TestCatalog.class));
     }
-    
+
 }

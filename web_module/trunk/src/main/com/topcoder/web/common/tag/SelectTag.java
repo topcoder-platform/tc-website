@@ -136,18 +136,18 @@ public abstract class SelectTag extends BaseTag {
         }
         s.append(">\n");
         s.append("<option value=\"");
-        s.append(topValue==null?"":topValue);
+        s.append(topValue == null ? "" : topValue);
         s.append("\"");
         if (selectedValue != null && topValue != null && selectedValue.equals(topValue) ||
                 selectedText != null && topText != null && selectedText.equals(topValue)) {
             s.append(" selected");
         }
         s.append(">");
-        s.append(topText==null?"":topText);
+        s.append(topText == null ? "" : topText);
         s.append("</option>");
         if (options != null) {
             if (selectedValue == null) {
-                selectedValue = getDefaultValue()==null?null:getDefaultValue().toString();
+                selectedValue = getDefaultValue() == null ? null : getDefaultValue().toString();
             }
             Iterator it = options.iterator();
             for (; it.hasNext();) {

@@ -1,24 +1,23 @@
 package com.topcoder.web.privatelabel.controller.request;
 
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.EmailEngine;
+import com.topcoder.shared.util.TCSEmailMessage;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.ejb.address.Address;
+import com.topcoder.web.ejb.user.User;
+import com.topcoder.web.ejb.user.UserAddress;
 import com.topcoder.web.privatelabel.Constants;
-import com.topcoder.web.privatelabel.model.FullRegInfo;
 import com.topcoder.web.privatelabel.model.DemographicResponse;
+import com.topcoder.web.privatelabel.model.FullRegInfo;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 import com.topcoder.web.privatelabel.model.VerizonRegInfo;
-import com.topcoder.web.ejb.user.UserAddress;
-import com.topcoder.web.ejb.user.User;
-import com.topcoder.web.ejb.address.Address;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.SessionInfo;
-import com.topcoder.web.common.BaseServlet;
-import com.topcoder.security.UserPrincipal;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.TCSEmailMessage;
-import com.topcoder.shared.util.EmailEngine;
-import com.topcoder.shared.util.ApplicationServer;
 
-import java.util.List;
 import java.util.Iterator;
+import java.util.List;
 
 public class VerizonRegSubmit extends FullRegSubmit {
 

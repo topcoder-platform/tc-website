@@ -1,9 +1,9 @@
 package com.topcoder.web.query.servlet;
 
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.query.common.Constants;
-import com.topcoder.shared.util.logging.Logger;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -26,7 +26,6 @@ public class Controller extends BaseServlet {
         super.init(config);
         Constants.init(config);
     }
-
 
 
     protected void handleLogin(HttpServletRequest request, HttpServletResponse response, SessionInfo info) throws Exception {

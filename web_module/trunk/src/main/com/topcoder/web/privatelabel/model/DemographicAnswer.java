@@ -8,7 +8,8 @@ public class DemographicAnswer extends Base implements Comparable {
 
     public static final DemographicAnswer DELINE = new DemographicAnswer(-1, "Decline to Answer");
 
-    public DemographicAnswer() {}
+    public DemographicAnswer() {
+    }
 
     private DemographicAnswer(long id, String text) {
         setAnswerId(id);
@@ -57,7 +58,7 @@ public class DemographicAnswer extends Base implements Comparable {
     }
 
     public int compareTo(Object o) {
-        DemographicAnswer other = (DemographicAnswer)o;
+        DemographicAnswer other = (DemographicAnswer) o;
         return new Integer(getSort()).compareTo(new Integer(other.getSort()));
     }
 

@@ -1,7 +1,7 @@
 /*
  * ProjectAdministrationTestCase.java 1.0 7/1/2003
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review.failuretests;
 
@@ -27,14 +27,14 @@ public class ProjectAdministrationTestCase extends PermissionTestCase {
      * <p>Returns an instance of ProjectAdministration.</p>
      */
     public Model getModel() {
-        return(new ProjectAdministration());
+        return (new ProjectAdministration());
     }
-    
+
     /**
      * <p>Returns an instance of LoginData.</p>
      */
     public ActionData getWrongActionData() {
-        return(ActionDataUtil.getLoginData("temp","aaa"));
+        return (ActionDataUtil.getLoginData("temp", "aaa"));
     }
 
     /**
@@ -42,15 +42,15 @@ public class ProjectAdministrationTestCase extends PermissionTestCase {
      * parameters set to null.</p>
      */
     public ActionData[] getNullParams() {
-        MyUser user = new MyUser("temp","aaa");
+        MyUser user = new MyUser("temp", "aaa");
         Project project = new MyProject("test");
-        
+
         user.addPermission(new AdminPermission());
-        ProjectData data1 = 
-            ActionDataUtil.getProjectData(user,null,"none");
-        ProjectData data2 = 
-            ActionDataUtil.getProjectData(null,project,"none");
-        return(new ActionData[] {data1, data2});
+        ProjectData data1 =
+                ActionDataUtil.getProjectData(user, null, "none");
+        ProjectData data2 =
+                ActionDataUtil.getProjectData(null, project, "none");
+        return (new ActionData[]{data1, data2});
     }
 
     /**
@@ -58,23 +58,23 @@ public class ProjectAdministrationTestCase extends PermissionTestCase {
      * that do not have AdminPermission.</p>
      */
     public OnlineReviewData[] getWrongPermissions() {
-        MyUser usera = new MyUser("a","aaa");
-        MyUser userb = new MyUser("b","bbb");
-        MyUser userc = new MyUser("c","ccc");
+        MyUser usera = new MyUser("a", "aaa");
+        MyUser userb = new MyUser("b", "bbb");
+        MyUser userc = new MyUser("c", "ccc");
         Project project = new MyProject("test");
-        
+
         userb.addPermission(new ViewProjectPermission(0));
         userc.addPermission(new ViewProjectPermission(0));
         userc.addPermission(new ReviewPermission(0));
-        
-        ProjectData data1 = 
-            ActionDataUtil.getProjectData(usera,project,"none");
-        ProjectData data2 = 
-            ActionDataUtil.getProjectData(userb,project,"none");
-        ProjectData data3 = 
-            ActionDataUtil.getProjectData(userc,project,"none");
-        
-        return(new OnlineReviewData[] {data1, data2, data3});
+
+        ProjectData data1 =
+                ActionDataUtil.getProjectData(usera, project, "none");
+        ProjectData data2 =
+                ActionDataUtil.getProjectData(userb, project, "none");
+        ProjectData data3 =
+                ActionDataUtil.getProjectData(userc, project, "none");
+
+        return (new OnlineReviewData[]{data1, data2, data3});
     }
 
     /**
@@ -83,6 +83,6 @@ public class ProjectAdministrationTestCase extends PermissionTestCase {
      * @return the TestSuite for this TestCase
      */
     public static Test suite() {
-        return(new TestSuite(ProjectAdministrationTestCase.class));
+        return (new TestSuite(ProjectAdministrationTestCase.class));
     }
 }

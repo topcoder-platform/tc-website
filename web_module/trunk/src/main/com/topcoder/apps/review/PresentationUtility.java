@@ -1,38 +1,15 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
-import com.topcoder.apps.review.document.AggregationApproval;
-import com.topcoder.apps.review.document.AggregationApprovalManager;
-import com.topcoder.apps.review.document.AggregationResponseStatus;
-import com.topcoder.apps.review.document.AggregationResponseStatusManager;
-import com.topcoder.apps.review.document.Evaluation;
-import com.topcoder.apps.review.document.EvaluationManager;
-import com.topcoder.apps.review.document.FinalFixStatus;
-import com.topcoder.apps.review.document.FinalFixStatusManager;
-import com.topcoder.apps.review.document.ResponseType;
-import com.topcoder.apps.review.document.ResponseTypeManager;
-import com.topcoder.apps.review.document.ScorecardSection;
-import com.topcoder.apps.review.document.ScorecardSectionManager;
-import com.topcoder.apps.review.document.ScorecardTemplate;
-import com.topcoder.apps.review.document.TestCaseApproval;
-import com.topcoder.apps.review.document.TestCaseApprovalManager;
+import com.topcoder.apps.review.document.*;
 import com.topcoder.apps.review.persistence.Common;
-import com.topcoder.apps.review.projecttracker.PaymentStatus;
-import com.topcoder.apps.review.projecttracker.PaymentStatusManager;
-import com.topcoder.apps.review.projecttracker.Phase;
-import com.topcoder.apps.review.projecttracker.PhaseManager;
-import com.topcoder.apps.review.projecttracker.ProjectStatus;
-import com.topcoder.apps.review.projecttracker.ProjectStatusManager;
-import com.topcoder.apps.review.projecttracker.ProjectType;
-import com.topcoder.apps.review.projecttracker.ProjectTypeManager;
-import com.topcoder.apps.review.projecttracker.ReviewerResponsibility;
-import com.topcoder.apps.review.projecttracker.ReviewerResponsibilityManager;
-import com.topcoder.apps.review.projecttracker.User;
-import java.rmi.RemoteException;
+import com.topcoder.apps.review.projecttracker.*;
+
 import javax.ejb.CreateException;
 import javax.naming.NamingException;
+import java.rmi.RemoteException;
 
 /**
  * The presentation utility class provides access to the enumeration classes instances from the persistance layer
@@ -304,7 +281,7 @@ public class PresentationUtility {
             throw new RuntimeException(e);
         }
     }
-    
+
     /**
      * Get a user by handle.
      *

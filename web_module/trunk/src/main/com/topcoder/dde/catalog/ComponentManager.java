@@ -10,8 +10,8 @@
 
 package com.topcoder.dde.catalog;
 
-import com.topcoder.dde.catalog.*;
-import com.topcoder.security.*;
+import com.topcoder.security.TCSubject;
+
 import java.rmi.RemoteException;
 import java.util.Collection;
 
@@ -56,7 +56,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * managed by this instance cannot be found
      */
     public void setRootCategory(long rootCategory)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Gets the "root category" that is managed by this instance of
@@ -69,7 +69,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * managed by this instance cannot be found
      */
     public long getRootCategory()
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Sets the "active version" that is managed by this instance of
@@ -87,7 +87,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * managed by this instance cannot be found
      */
     public void setVersion(long version)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Returns the number of versions for the component managed by this
@@ -97,7 +97,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * @throws CatalogException if the version information cannot be retrieved
      */
     public long getNumVersions()
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Returns the attributes of the component managed by this instance.
@@ -109,7 +109,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * @throws CatalogException if the component information cannot be retrieved
      */
     public ComponentInfo getComponentInfo()
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Returns the attributes of the active version of the component managed by
@@ -122,10 +122,10 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * @throws CatalogException if the version information cannot be retrieved
      */
     public ComponentVersionInfo getVersionInfo()
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     public VersionDateInfo getVersionDateInfo(long componentVersionId, long phaseId)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     public void updateVersionDatesInfo(VersionDateInfo versionDateInfo)
             throws RemoteException, CatalogException;
@@ -142,7 +142,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * @throws CatalogException if the version information cannot be retrieved
      */
     public Collection getAllVersionInfo()
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Creates a new version of the component managed by this instance. The
@@ -165,7 +165,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * the version cannot be created
      */
     public long createNewVersion(ComponentVersionRequest request)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Updates the attributes of the component managed by this instance.
@@ -179,7 +179,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * instance, or if the information cannot be updated
      */
     public void updateComponentInfo(ComponentInfo info)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * <p>Updates the attributes of the active version of the component managed
@@ -210,7 +210,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * updated
      */
     public void updateVersionInfo(ComponentVersionInfo info, TCSubject requestor, long levelId)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Returns the categories that are associated with the component managed by
@@ -226,7 +226,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * @throws CatalogException if the category information cannot be retrieved
      */
     public Collection getCategories()
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Returns the technologies that are associated with the active version of
@@ -242,7 +242,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * retrieved
      */
     public Collection getTechnologies()
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Returns the development roles that are associated with the active version
@@ -259,7 +259,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * retrieved
      */
     public Collection getTeamMemberRoles()
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Returns the documents that are associated with the active version of the
@@ -274,7 +274,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * @throws CatalogException if the document information cannot be retrieved
      */
     public Collection getDocuments()
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Returns the documents of the specified Id
@@ -285,7 +285,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * @throws CatalogException if the document information cannot be retrieved
      */
     public Document getDocument(long documentId)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Returns the download locations for the active version of the component
@@ -301,7 +301,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * @throws CatalogException if the download information cannot be retrieved
      */
     public Collection getDownloads()
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Returns the download location for the specified Id
@@ -312,7 +312,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * @throws CatalogException if the download information cannot be retrieved
      */
     public Download getDownload(long downloadId)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
 
     /**
@@ -330,7 +330,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * retrieved
      */
     public Collection getDependencies()
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
 
     /**
@@ -346,7 +346,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * @throws CatalogException if the example information cannot be retrieved
      */
     public Collection getExamples()
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Returns the reviews that are associated with the active version of the
@@ -361,7 +361,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * @throws CatalogException if the review information cannot be retrieved
      */
     public Collection getReviews()
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Returns the forum of the specified type that is associated with
@@ -380,7 +380,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * retrieved
      */
     public Forum getForum(int type)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Returns the active forum of the specified type that is associated with
@@ -399,7 +399,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * specified type, or if the forum information cannot be retrieved
      */
     public Forum getActiveForum(int type)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Returns all the closed forums of the specified type that are associated
@@ -417,7 +417,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * @throws CatalogException if the forum information cannot be retrieved
      */
     public Collection getClosedForums(int type)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Associates a category with the component managed by this instance.
@@ -429,7 +429,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * catalog, or if the association cannot be created
      */
     public void addCategory(long categoryId)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Associates a technology with the active version of the component managed
@@ -442,7 +442,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * the catalog, or if the association cannot be created
      */
     public void addTechnology(long technologyId)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Adds a development role to the active version of the component managed by
@@ -459,7 +459,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * (instead of constructed by the client), or if the role cannot be created
      */
     public TeamMemberRole addTeamMemberRole(TeamMemberRole role)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Adds a document to the active version of the component managed by this
@@ -477,7 +477,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * be created
      */
     public Document addDocument(Document document)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Adds an example to the active version of the component managed by this
@@ -495,7 +495,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * be created
      */
     public Example addExample(Example example)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Adds a download location to the active version of the component managed
@@ -513,7 +513,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * location cannot be created
      */
     public Download addDownload(Download download)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Declares a dependency relationship of the active version of the component
@@ -527,7 +527,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * catalog, or if the dependency relationship cannot be created
      */
     public void addDependency(long dependeeVersionId)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Adds a review to the active version of the component managed by this
@@ -545,7 +545,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * created
      */
     public Review addReview(Review review)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Updates a document in the catalog.
@@ -558,7 +558,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * the catalog (the document must exist before it can be updated)
      */
     public void updateDocument(Document document)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Updates an example in the catalog.
@@ -571,7 +571,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * catalog (the example must exist before it can be updated)
      */
     public void updateExample(Example example)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Updates a download location in the catalog.
@@ -585,7 +585,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * updated)
      */
     public void updateDownload(Download download)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Updates a review in the catalog.
@@ -598,7 +598,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * catalog (the review must exist before it can be updated)
      */
     public void updateReview(Review review)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Disassociates a category from the component managed by this instance.
@@ -610,7 +610,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * the component, or if the association cannot be removed
      */
     public void removeCategory(long categoryId)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Disassociates a technology from the active version of the component
@@ -623,7 +623,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * with the active version, or if the association cannot be removed
      */
     public void removeTechnology(long technologyId)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Removes a development role from the active version of the component
@@ -635,7 +635,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * @throws CatalogException if the development role cannot be removed
      */
     public void removeTeamMemberRole(long memberRoleId)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Removes a dependency from the active version of the component managed by
@@ -649,7 +649,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * if the dependency cannot be removed
      */
     public void removeDependency(long dependeeId)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Removes a document from the active version of the component managed by
@@ -662,7 +662,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * @return the url of the document to remove
      */
     public String removeDocument(long documentId)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Removes an example from the active version of the component managed by
@@ -674,7 +674,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * @throws CatalogException if the example cannot be removed
      */
     public void removeExample(long exampleId)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Removes a download location from the active version of the component
@@ -686,7 +686,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * @throws CatalogException if the download location cannot be removed
      */
     public void removeDownload(long downloadId)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Removes a review from the active version of the component managed by this
@@ -698,7 +698,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * @throws CatalogException if the review cannot be removed
      */
     public void removeReview(long reviewId)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Checks if a subject has permission to download the component managed by
@@ -713,7 +713,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * if the pemission cannot be checked
      */
     public boolean canDownload(TCSubject subject)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Tracks a download of the version of the component managed by this
@@ -727,10 +727,10 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * information cannot be created
      */
     public void trackDownload(long userId, long downloadId, long licenseId)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     public void updateDates()
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Gets the project id for the project of the given type associated with this component version
@@ -740,7 +740,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * @throws CatalogException
      */
     public long getProjectId(long projectType) throws RemoteException, CatalogException;
-    
+
     /**
      * Determines whether or not the project of the given type for this component version has yielded a
      * publicly readable aggregation worksheet

@@ -1,7 +1,7 @@
 /*
  * MyUser.java 1.0 7/1/2003
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review.failuretests.mockups;
 
@@ -33,16 +33,16 @@ public class MyUser extends SecurityEnabledUser {
      * @param username the username of the new user
      * @param password the password associated with the username
      */
-    public MyUser(String username,String password) {
-        super(count,"TC" + username, username, username,
-              username + "@testuser.com",new PermissionCollection(),
-              new TCSubject(count));
-        
-        count ++;
-        MyUserManager.addUser(getTCSubject(),this);
-        MyLoginImpl.addLogin(username,password,getTCSubject());
+    public MyUser(String username, String password) {
+        super(count, "TC" + username, username, username,
+                username + "@testuser.com", new PermissionCollection(),
+                new TCSubject(count));
+
+        count++;
+        MyUserManager.addUser(getTCSubject(), this);
+        MyLoginImpl.addLogin(username, password, getTCSubject());
     }
-    
+
     /**
      * <p>Assigns the specified permission to this user.</p>
      *
@@ -51,6 +51,6 @@ public class MyUser extends SecurityEnabledUser {
      */
     public void addPermission(TCPermission permission) {
         getPermissions().addPermission(permission);
-        MyPolicyImpl.addPermission(getTCSubject(),permission);
+        MyPolicyImpl.addPermission(getTCSubject(), permission);
     }
 }

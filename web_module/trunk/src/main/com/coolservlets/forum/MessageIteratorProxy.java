@@ -56,20 +56,19 @@
 
 package com.coolservlets.forum;
 
-import java.util.*;
+import java.util.Iterator;
 
 /**
  * Protection proxy for ForumMessage iterators.
  */
 class MessageIteratorProxy extends IteratorProxy {
-     public MessageIteratorProxy(Iterator iterator, Authorization
-            authorization, ForumPermissions permissions)
-    {
+    public MessageIteratorProxy(Iterator iterator, Authorization
+            authorization, ForumPermissions permissions) {
         super(iterator, authorization, permissions);
     }
 
     public Object next() throws java.util.NoSuchElementException {
-       ForumMessage message = (ForumMessage)iterator.next();
-       return new ForumMessageProxy(message, authorization, permissions);
+        ForumMessage message = (ForumMessage) iterator.next();
+        return new ForumMessageProxy(message, authorization, permissions);
     }
 }

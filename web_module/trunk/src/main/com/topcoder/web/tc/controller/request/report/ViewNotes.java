@@ -1,14 +1,14 @@
 package com.topcoder.web.tc.controller.request.report;
 
-import com.topcoder.web.common.*;
-import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.controller.request.Base;
-import com.topcoder.web.ejb.user.User;
-import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.*;
+import com.topcoder.web.ejb.user.User;
+import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.request.Base;
 
 /**
  * User: dok
@@ -20,7 +20,7 @@ public class ViewNotes extends Base {
     protected void businessProcessing() throws TCWebException {
         String userId = getRequest().getParameter(Constants.USER_ID);
 
-        if (!((SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin())
+        if (!((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin())
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
 
         try {
@@ -33,7 +33,7 @@ public class ViewNotes extends Base {
 
                 DataAccessInt dai = getDataAccess();
                 getRequest().setAttribute("note_list", dai.getData(r).get("note_list"));
-                User user = (User)createEJB(getInitialContext(), User.class);
+                User user = (User) createEJB(getInitialContext(), User.class);
                 getRequest().setAttribute(Constants.HANDLE, user.getHandle(Long.parseLong(userId), DBMS.OLTP_DATASOURCE_NAME));
                 getRequest().setAttribute(Constants.USER_ID, userId);
 
@@ -41,7 +41,7 @@ public class ViewNotes extends Base {
                 Request noteRequest = new Request();
                 noteRequest.setContentHandle("registered_for_placement");
                 noteRequest.setProperty(Constants.USER_ID, String.valueOf(userId));
-                ResultSetContainer hasNotesRSC = (ResultSetContainer)getDataAccess().getData(noteRequest).get("registered_for_placement");
+                ResultSetContainer hasNotesRSC = (ResultSetContainer) getDataAccess().getData(noteRequest).get("registered_for_placement");
                 getRequest().setAttribute("registered_for_placement", new Boolean(hasNotesRSC.getStringItem(0, "registered_for_placement").equals("1")));
 
 

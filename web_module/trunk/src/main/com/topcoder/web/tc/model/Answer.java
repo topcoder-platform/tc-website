@@ -8,7 +8,8 @@ public class Answer implements Serializable, Cloneable, Comparable {
     private String text;
     private int sort;
 
-    public Answer() {}
+    public Answer() {
+    }
 
     public Object clone() throws OutOfMemoryError {
         Answer ret = new Answer();

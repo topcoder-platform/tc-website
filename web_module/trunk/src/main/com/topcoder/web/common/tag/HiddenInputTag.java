@@ -11,14 +11,14 @@ public class HiddenInputTag extends BaseTag {
     public int doStartTag() {
         StringBuffer ret = new StringBuffer();
 
-            ret.append("<input type=\"hidden\" name=\"").append(name).append("\" ");
-            if (value == null) {
-                value = getDefaultValue()==null?null:getDefaultValue().toString();
-            }
-            if (value != null) {
-                ret.append("value=\"").append(value).append("\" ");
-            }
-            ret.append(">");
+        ret.append("<input type=\"hidden\" name=\"").append(name).append("\" ");
+        if (value == null) {
+            value = getDefaultValue() == null ? null : getDefaultValue().toString();
+        }
+        if (value != null) {
+            ret.append("value=\"").append(value).append("\" ");
+        }
+        ret.append(">");
         try {
             pageContext.getOut().print(ret.toString());
         } catch (java.io.IOException ioe) {

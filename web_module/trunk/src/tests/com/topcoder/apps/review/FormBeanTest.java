@@ -34,27 +34,27 @@ public class FormBeanTest extends TestCase {
      * Business delegate instance.
      */
     private BusinessDelegate businessDelegate = null;
-    
+
     /**
      * User instance for test.
      */
     private User user = null;
-    
+
     /**
      * UserProjectInfo instance for test.
      */
     private UserProjectInfo userProjectInfo = null;
-    
+
     /**
      * OnlineReviewData instance for test.
      */
     private OnlineReviewData ord = null;
-    
+
     /**
      * OnlineReviewProjectData instance for test.
      */
     private OnlineReviewProjectData orpd = null;
-    
+
     /**
      * Initialize the business delegate for the tests.
      */
@@ -63,7 +63,7 @@ public class FormBeanTest extends TestCase {
         businessDelegate.setUseMockup(true);
         user = businessDelegate.getUserByHandle("pzhao");
         ord = new OnlineReviewData((SecurityEnabledUser) user);
-        
+
         userProjectInfo = businessDelegate.getUserProjectInfos()[0];
         orpd = new OnlineReviewProjectData((SecurityEnabledUser) user, userProjectInfo);
     }
@@ -75,7 +75,7 @@ public class FormBeanTest extends TestCase {
         LoginForm form = new LoginForm();
         ActionErrors errors = null;
         LoginData data = null;
-        
+
         // Initial values
         assertNull(form.getUsername());
         assertNull(form.getPassword());
@@ -88,7 +88,7 @@ public class FormBeanTest extends TestCase {
         data = form.toLoginData();
         assertEquals("pzhao", data.getUserName());
         assertEquals("pzhaoxxx", data.getPassword());
-        // Reset        
+        // Reset
         form.reset(null, null);
         assertNull(form.getUsername());
         assertNull(form.getPassword());
@@ -96,25 +96,25 @@ public class FormBeanTest extends TestCase {
         errors = form.validate(null, null);
         assertEquals(2, errors.size());
     }
-    
+
     /**
      * Test the class ScreeningScorecardForm.
      */
     public void testScreeningScorecardForm() {
         ScreeningScorecardForm form = new ScreeningScorecardForm();
-        ScreeningScorecard scorecard = 
-            businessDelegate.getScreeningScorecards()[0];
-        ScorecardQuestion[] questions = 
-            businessDelegate.getScreeningQuestions();
+        ScreeningScorecard scorecard =
+                businessDelegate.getScreeningScorecards()[0];
+        ScorecardQuestion[] questions =
+                businessDelegate.getScreeningQuestions();
         ActionErrors errors = null;
         ScreeningData data = null;
-        
+
         form.fromScorecard(scorecard);
         // Accessor
         assertEquals(scorecard.getSubmission().getURL().toString(),
-                     form.getSubmissionURL());
+                form.getSubmissionURL());
         assertEquals(scorecard.getSubmission().getSubmitter().getHandle(),
-                     form.getSubmitter());
+                form.getSubmitter());
         assertTrue(scorecard.getProject() == form.getProject());
         assertNull(form.getAction());
         form.setAction("save");
@@ -126,15 +126,15 @@ public class FormBeanTest extends TestCase {
         form.setResponseIndex(1);
         assertEquals(1, form.getResponseIndex());
         assertEquals(questions.length, form.getQuestions().length);
-        
+
         for (int i = 0; i < questions.length; i++) {
             checkQuestionBean(questions[i], form.getQuestions()[i]);
         }
-        
+
         // toScreeningData
         data = form.toScreeningData(orpd);
         assertTrue(scorecard == data.getScreeningScorecard());
-        
+
         // Validate
         form.setAction("save");
         errors = form.validate(null, null);
@@ -143,25 +143,25 @@ public class FormBeanTest extends TestCase {
         errors = form.validate(null, null);
         assertTrue(errors.size() > 0);
     }
-    
+
     /**
      * Test the class ReviewScorecardForm.
      */
     public void testReviewScorecardForm() {
         ReviewScorecardForm form = new ReviewScorecardForm();
-        ReviewScorecard scorecard = 
-            businessDelegate.getReviewScorecards()[0];
-        ScorecardQuestion[] questions = 
-            businessDelegate.getReviewQuestions();
+        ReviewScorecard scorecard =
+                businessDelegate.getReviewScorecards()[0];
+        ScorecardQuestion[] questions =
+                businessDelegate.getReviewQuestions();
         ActionErrors errors = null;
         ReviewData data = null;
-        
+
         form.fromScorecard(scorecard);
         // Accessor
         assertEquals(scorecard.getSubmission().getURL().toString(),
-                     form.getSubmissionURL());
+                form.getSubmissionURL());
         assertEquals(scorecard.getSubmission().getSubmitter().getHandle(),
-                     form.getSubmitter());
+                form.getSubmitter());
         assertTrue(scorecard.getProject() == form.getProject());
         assertNull(form.getAction());
         form.setAction("save");
@@ -173,15 +173,15 @@ public class FormBeanTest extends TestCase {
         form.setResponseIndex(1);
         assertEquals(1, form.getResponseIndex());
         assertEquals(questions.length, form.getQuestions().length);
-        
+
         for (int i = 0; i < questions.length; i++) {
             checkQuestionBean(questions[i], form.getQuestions()[i]);
         }
-        
+
         // toReviewData
         data = form.toReviewData(orpd);
         assertTrue(scorecard == data.getReviewScorecard());
-        
+
         // Validate
         form.setAction("save");
         errors = form.validate(null, null);
@@ -190,30 +190,30 @@ public class FormBeanTest extends TestCase {
         errors = form.validate(null, null);
         assertTrue(errors.size() > 0);
     }
-    
+
     /**
      * Test the class TestCaseReviewForm.
      */
     public void testTestCaseReviewForm() {
         TestCaseReviewForm form = new TestCaseReviewForm();
-        TestCaseReview[] testCaseReviews = 
-            businessDelegate.getTestCaseReviews();
+        TestCaseReview[] testCaseReviews =
+                businessDelegate.getTestCaseReviews();
         ActionErrors errors = null;
         TestCaseReviewData data = null;
-        
+
         form.fromTestCaseReviews(testCaseReviews);
         assertTrue(testCaseReviews[0].getProject() == form.getProject());
         assertEquals(testCaseReviews.length, form.getTestCaseReviews().length);
-        
+
         for (int i = 0; i < testCaseReviews.length; i++) {
             checkTestCaseReviewBean(testCaseReviews[i],
-                                    form.getTestCaseReviews()[i]);
+                    form.getTestCaseReviews()[i]);
         }
-        
+
         // toTestCaseReviewData
         data = form.toTestCaseReviewData(orpd);
         assertTrue(testCaseReviews == data.getTestCaseReviews());
-        
+
         // Validate
         errors = form.validate(null, null);
         assertEquals(0, errors.size());
@@ -221,29 +221,29 @@ public class FormBeanTest extends TestCase {
         errors = form.validate(null, null);
         assertTrue(errors.size() > 0);
     }
-    
+
     /**
      * Test the class AggregationWorksheetForm.
      */
     public void testAggregationWorksheetForm() {
         AggregationWorksheetForm form = new AggregationWorksheetForm();
-        AggregationWorksheet worksheet = 
-            businessDelegate.getAggregationWorksheet();
+        AggregationWorksheet worksheet =
+                businessDelegate.getAggregationWorksheet();
         ActionErrors errors = null;
         AggregationData data = null;
         int num = 0;
         int i;
-        
+
         form.fromWorksheet(worksheet, null);
-        
+
         assertTrue(worksheet.getProject() == form.getProject());
         for (i = 0; i < worksheet.getProject().getParticipants().length; i++) {
             UserRole userRole = worksheet.getProject().getParticipants()[i];
             if (userRole.getRole().getId() == Constants.ROLE_REVIEWER) {
                 assertTrue(form.getReviewScorecards()[num].getReviewer()
-                                == userRole.getUser());
+                        == userRole.getUser());
                 assertTrue(form.getReviewScorecards()[num].getSubmitter()
-                                == worksheet.getProject().getWinner());
+                        == worksheet.getProject().getWinner());
                 num++;
             }
         }
@@ -253,16 +253,16 @@ public class FormBeanTest extends TestCase {
         form.setAction("save");
         assertEquals("save", form.getAction());
         assertEquals(worksheet.getAggregationResponses().length,
-                     form.getResponses().length);
+                form.getResponses().length);
         for (i = 0; i < form.getResponses().length; i++) {
             checkResponseBean(worksheet.getAggregationResponses()[i],
-                              form.getResponses()[i]);
+                    form.getResponses()[i]);
         }
-        
+
         // toAggregationData
         data = form.toAggregationData(orpd);
         assertTrue(worksheet == data.getAggregationWorksheet());
-        
+
         // Validate
         form.getResponses()[0].setResponseText("");
         form.setAction("save");
@@ -272,20 +272,20 @@ public class FormBeanTest extends TestCase {
         errors = form.validate(null, null);
         assertTrue(errors.size() > 0);
     }
-    
+
     /**
      * Test the class AggregationReviewForm.
      */
     public void testAggregationReviewForm() {
         AggregationReviewForm form = new AggregationReviewForm();
-        AggregationReview aggregationReview = 
-            businessDelegate.getAggregationReviews()[0];
+        AggregationReview aggregationReview =
+                businessDelegate.getAggregationReviews()[0];
         ActionErrors errors = null;
         AggregationReviewData data = null;
-        
+
         form.fromReview(aggregationReview);
         assertEquals(aggregationReview.getText(),
-                     form.getAggregationReviewText());
+                form.getAggregationReviewText());
         form.setAggregationReviewText("agg. review");
         assertEquals("agg. review", form.getAggregationReviewText());
         assertTrue(form.getValid());
@@ -293,7 +293,7 @@ public class FormBeanTest extends TestCase {
         // toAggregationReviewData
         data = form.toReviewData(orpd);
         assertTrue(aggregationReview == data.getAggregationReview());
-        
+
         // Validate
         form.setAggregationReviewText("");
         form.setAction("accept");
@@ -303,8 +303,8 @@ public class FormBeanTest extends TestCase {
         errors = form.validate(null, null);
         assertTrue(errors.size() > 0);
     }
-    
-     /**
+
+    /**
      * Test the class FinalReviewForm.
      */
     public void testFinalReviewForm() {
@@ -312,30 +312,30 @@ public class FormBeanTest extends TestCase {
         FinalReview finalReview = businessDelegate.getFinalReview();
         ActionErrors errors = null;
         FinalReviewData data = null;
-        
+
         form.fromReview(finalReview);
         for (int i = 0; i < finalReview.getFixCheckList().length; i++) {
-            FinalFixStatus status = 
-                finalReview.getFixCheckList()[i].getFinalFixStatus(); 
+            FinalFixStatus status =
+                    finalReview.getFixCheckList()[i].getFinalFixStatus();
             if (status != null) {
                 assertEquals(status.getName(), form.getFixItem(i));
             } else {
                 assertNull(form.getFixItem(i));
             }
             form.setFixItem(i, form.getFinalFixStatuses()[1].getName());
-            assertEquals(form.getFinalFixStatuses()[1].getName(), 
-                         form.getFixItem(i));
+            assertEquals(form.getFinalFixStatuses()[1].getName(),
+                    form.getFixItem(i));
         }
 
         // toFinalReviewData
         data = form.toReviewData(orpd);
         assertTrue(finalReview == data.getFinalReview());
-        
+
         // Validate
         errors = form.validate(null, null);
         assertEquals(0, errors.size());
     }
-    
+
     /**
      * Test the class ContactPMForm.
      */
@@ -343,7 +343,7 @@ public class FormBeanTest extends TestCase {
         ContactPMForm form = new ContactPMForm();
         ActionErrors errors = null;
         ContactPMData data = null;
-        
+
         // Initial values
         assertNull(form.getMessageText());
         assertNull(form.getSubject());
@@ -356,7 +356,7 @@ public class FormBeanTest extends TestCase {
         data = form.toContactPMData(orpd);
         assertEquals("subject", data.getSubject());
         assertEquals("text", data.getMessageText());
-        // Reset        
+        // Reset
         form.reset(null, null);
         assertNull(form.getMessageText());
         assertNull(form.getSubject());
@@ -364,10 +364,10 @@ public class FormBeanTest extends TestCase {
         errors = form.validate(null, null);
         assertEquals(2, errors.size());
     }
-    
+
     /**
      * Check the question bean is equal to the question.
-     * 
+     *
      * @param question The original question.
      * @param bean The created bean from the original question.
      */
@@ -378,7 +378,7 @@ public class FormBeanTest extends TestCase {
         bean.setEvaluation(bean.getEvaluationAnswers()[1]);
         assertEquals(bean.getEvaluationAnswers()[1], bean.getEvaluation());
         assertEquals(question.getScorecardSection().getName(),
-                     bean.getScorecardSection());
+                bean.getScorecardSection());
         if (question instanceof SubjectiveScorecardQuestion) {
             assertEquals("subjective", bean.getType());
             assertEquals(1, bean.getResponses().length);
@@ -386,15 +386,15 @@ public class FormBeanTest extends TestCase {
             assertEquals("objective", bean.getType());
             assertEquals(0, bean.getResponses().length);
         }
-        
+
         assertTrue(bean.getValid());
         bean.setValid(false);
         assertTrue(!bean.getValid());
     }
-    
+
     /**
      * Check the test case review bean is equal to the test case review.
-     * 
+     *
      * @param testCaseReview The original test case review.
      * @param bean The created bean from the original test case review.
      */
@@ -402,13 +402,13 @@ public class FormBeanTest extends TestCase {
                                          TestCaseReviewBean bean) {
         int userNum = testCaseReview.getProject().getParticipants().length;
         long revieweeId = testCaseReview.getReviewee().getId();
-        
+
         for (int i = 0; i < userNum; i++) {
-            UserRole userRole = 
-                testCaseReview.getProject().getParticipants()[i];
+            UserRole userRole =
+                    testCaseReview.getProject().getParticipants()[i];
             if (userRole.getUser().getId() == revieweeId) {
                 assertEquals(userRole.getReviewerResponsibility().getName(),
-                             bean.getTestCaseName());
+                        bean.getTestCaseName());
             }
         }
         assertEquals(testCaseReview.getReviewText(), bean.getReviewText());
@@ -416,35 +416,35 @@ public class FormBeanTest extends TestCase {
         assertEquals("review text", bean.getReviewText());
         if (testCaseReview.getTestCaseApproval() != null) {
             assertEquals(testCaseReview.getTestCaseApproval().getName(),
-                         bean.getTestCaseReviewStatus());
+                    bean.getTestCaseReviewStatus());
         } else {
             assertNull(bean.getTestCaseReviewStatus());
         }
         bean.setTestCaseReviewStatus(bean.getApprovalAnswers()[1]);
         assertEquals(bean.getApprovalAnswers()[1],
-                     bean.getTestCaseReviewStatus());
+                bean.getTestCaseReviewStatus());
         assertTrue(bean.getValid());
         bean.setValid(false);
         assertTrue(!bean.getValid());
     }
-    
+
     /**
      * Check the response bean is equal to the response.
-     * 
+     *
      * @param response The original response.
      * @param bean The created bean from the original response.
      */
     private void checkResponseBean(AggregationResponse response,
                                    AggregationResponseBean bean) {
-        assertTrue(response.getScorecardQuestion() 
-                        == bean.getQuestion());
+        assertTrue(response.getScorecardQuestion()
+                == bean.getQuestion());
         assertEquals(response.getSubjectiveResponse().getResponseText(),
-                     bean.getResponseText());
+                bean.getResponseText());
         bean.setResponseText("response text");
         assertEquals("response text", bean.getResponseText());
         if (response.getSubjectiveResponse().getResponseType() != null) {
-            String type = 
-                response.getSubjectiveResponse().getResponseType().getName();
+            String type =
+                    response.getSubjectiveResponse().getResponseType().getName();
             assertEquals(type, bean.getResponseType());
         } else {
             assertNull(bean.getResponseType());
@@ -459,10 +459,10 @@ public class FormBeanTest extends TestCase {
             assertNull(bean.getAggregationResponseStatus());
         }
         bean.setAggregationResponseStatus(bean.getStatusAnswers()[1]);
-        assertEquals(bean.getStatusAnswers()[1], 
-                     bean.getAggregationResponseStatus());
-        assertTrue(bean.getReviewScorecard().getReviewer() 
-                        == bean.getReviewer());
+        assertEquals(bean.getStatusAnswers()[1],
+                bean.getAggregationResponseStatus());
+        assertTrue(bean.getReviewScorecard().getReviewer()
+                == bean.getReviewer());
         assertTrue(bean.getValid());
         bean.setValid(false);
         assertTrue(!bean.getValid());

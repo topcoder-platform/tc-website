@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
@@ -71,7 +71,7 @@ public class FinalReview implements Model {
                     finalReview = documentManager.getFinalReview(project, true, user.getTCSubject());
                 else
                     finalReview = documentManager.getFinalReview(project, false, user.getTCSubject());
-                
+
 
                 if (finalReview != null) {
                     return new FinalReviewRetrieval(finalReview);
@@ -94,7 +94,7 @@ public class FinalReview implements Model {
                 return new SuccessResult();
             }
 
-        // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
+            // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
         } catch (RuntimeException e) {
             LogHelper.log("", e);
             throw e;

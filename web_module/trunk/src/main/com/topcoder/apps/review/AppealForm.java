@@ -4,36 +4,25 @@
 
 package com.topcoder.apps.review;
 
-import com.topcoder.apps.review.document.Appeal;
-import com.topcoder.apps.review.document.Evaluation;
-import com.topcoder.apps.review.document.ResponseType;
-import com.topcoder.apps.review.document.ScorecardQuestion;
-import com.topcoder.apps.review.document.SubjectiveResponse;
-import com.topcoder.apps.review.document.SubjectiveScorecardQuestion;
-import com.topcoder.apps.review.document.TestCaseScorecardQuestion;
+import com.topcoder.apps.review.document.*;
 import com.topcoder.apps.review.projecttracker.UserProjectInfo;
-
-import javax.servlet.http.HttpServletRequest;
-import org.apache.struts.action.ActionError;
 import org.apache.struts.action.ActionErrors;
-import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.util.MessageResources;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Form bean for the appeal page.
- * 
+ *
  * @author FatClimber
  * @version 1.0
  */
 
 public final class AppealForm extends ReviewForm {
-    
+
     // --------------------------------------------------- Instance Variables
-    
+
     /**
      * The appeal text.
      */
@@ -43,7 +32,7 @@ public final class AppealForm extends ReviewForm {
      * The appeal response.
      */
     private String appealResponse = null;
-    
+
     /**
      * The related project.
      */
@@ -59,10 +48,10 @@ public final class AppealForm extends ReviewForm {
      */
     private String[] evaluationAnswers = null;
     private Evaluation[] evaluations = null;
-    
+
     private Appeal appeal = null;
     // ----------------------------------------------------------- Properties
-    
+
     /**
      * @return Returns the appealResponse.
      */
@@ -93,7 +82,7 @@ public final class AppealForm extends ReviewForm {
 
     /**
      * Return the related project.
-     * 
+     *
      * @return the related project.
      */
     public UserProjectInfo getProject() {
@@ -108,11 +97,11 @@ public final class AppealForm extends ReviewForm {
     public void setProject(UserProjectInfo project) {
         this.project = project;
     }
-    
+
     public Appeal getAppeal() {
         return this.appeal;
     }
-    
+
     public ScorecardQuestion getQuestion() {
         return appeal.getQuestion();
     }
@@ -122,8 +111,10 @@ public final class AppealForm extends ReviewForm {
      */
     public String getEvaluation() {
         Evaluation eval = appeal.getQuestion().getEvaluation();
-        if (eval == null) return null;
-        else return eval.getName();
+        if (eval == null)
+            return null;
+        else
+            return eval.getName();
     }
 
     public void setEvaluation(String eval) {
@@ -134,28 +125,28 @@ public final class AppealForm extends ReviewForm {
             }
         }
     }
-    
+
     public String getResponseType(int idx) {
         ScorecardQuestion q = appeal.getQuestion();
         SubjectiveResponse resp = null;
         if (q instanceof SubjectiveScorecardQuestion) {
-            resp = ((SubjectiveScorecardQuestion)q).getResponses()[idx];
+            resp = ((SubjectiveScorecardQuestion) q).getResponses()[idx];
         } else if (q instanceof TestCaseScorecardQuestion) {
-            resp =((TestCaseScorecardQuestion)q).getResponses()[idx];
+            resp = ((TestCaseScorecardQuestion) q).getResponses()[idx];
         }
         if (resp != null) {
             return resp.getResponseType().getName();
         }
         return null;
     }
-    
+
     public void setResponseType(int idx, String text) {
         ScorecardQuestion q = appeal.getQuestion();
         SubjectiveResponse resp = null;
         if (q instanceof SubjectiveScorecardQuestion) {
-            resp = ((SubjectiveScorecardQuestion)q).getResponses()[idx];
+            resp = ((SubjectiveScorecardQuestion) q).getResponses()[idx];
         } else if (q instanceof TestCaseScorecardQuestion) {
-            resp =((TestCaseScorecardQuestion)q).getResponses()[idx];
+            resp = ((TestCaseScorecardQuestion) q).getResponses()[idx];
         }
         for (int i = 0; i < responseTypes.length; i++) {
             if (text.equals(responseTypes[i].getName())) {
@@ -164,33 +155,33 @@ public final class AppealForm extends ReviewForm {
             }
         }
     }
-    
+
     public int getTotalPass() {
         if (appeal.getQuestion() instanceof TestCaseScorecardQuestion) {
-            return ((TestCaseScorecardQuestion)appeal.getQuestion()).getTotalPass();
+            return ((TestCaseScorecardQuestion) appeal.getQuestion()).getTotalPass();
         }
         return -1;
     }
 
     public void setTotalPass(int nr) {
         if (appeal.getQuestion() instanceof TestCaseScorecardQuestion) {
-            ((TestCaseScorecardQuestion)appeal.getQuestion()).setTotalPass(nr);
+            ((TestCaseScorecardQuestion) appeal.getQuestion()).setTotalPass(nr);
         }
     }
-    
+
     public int getTotalTests() {
         if (appeal.getQuestion() instanceof TestCaseScorecardQuestion) {
-            return ((TestCaseScorecardQuestion)appeal.getQuestion()).getTotalTests();
+            return ((TestCaseScorecardQuestion) appeal.getQuestion()).getTotalTests();
         }
         return -1;
     }
 
     public void setTotalTests(int nr) {
         if (appeal.getQuestion() instanceof TestCaseScorecardQuestion) {
-            ((TestCaseScorecardQuestion)appeal.getQuestion()).setTotalTests(nr);
+            ((TestCaseScorecardQuestion) appeal.getQuestion()).setTotalTests(nr);
         }
     }
-    
+
     /**
      * @return Returns the evaluationAnswers.
      */
@@ -212,9 +203,9 @@ public final class AppealForm extends ReviewForm {
     public AppealForm() {
         super();
         MessageResources messages =
-            MessageResources.getMessageResources(Constants.MESSAGE_RESOURCE_KEY);
+                MessageResources.getMessageResources(Constants.MESSAGE_RESOURCE_KEY);
     }
-    
+
     // --------------------------------------------------------- Public Methods
 
     /**
@@ -235,27 +226,27 @@ public final class AppealForm extends ReviewForm {
      *
      * @param mapping The mapping used to select this instance
      * @param request The servlet request we are processing
-     * 
+     *
      * @return an <code>ActionErrors</code> object that encapsulates any
      * validation errors that have been found.
      */
     public ActionErrors validate(ActionMapping mapping,
                                  HttpServletRequest request) {
         ActionErrors errors = new ActionErrors();
-        
+
 /*
         if ((messageSubject == null) || (messageSubject.length() < 1)) {
-            errors.add("subject", 
+            errors.add("subject",
                        new ActionError("error.messageSubject.required"));
         }
         */
         return errors;
     }
-    
+
     /**
      * Creates the AppealData from this form bean.
-     * 
-     * @param orpd The OnlineReviewProjectData to create the 
+     *
+     * @param orpd The OnlineReviewProjectData to create the
      * AppealData.
      * @return the AppealData created from this form bean.
      */
@@ -286,7 +277,7 @@ public final class AppealForm extends ReviewForm {
         ScorecardQuestion question = appeal.getQuestion();
         if (question instanceof SubjectiveScorecardQuestion) {
             evaluations = new BusinessDelegate().getSubjectiveEvaluations(
-                    ((SubjectiveScorecardQuestion)question).getAnswerType());
+                    ((SubjectiveScorecardQuestion) question).getAnswerType());
         } else {
             evaluations = new Evaluation[0];
         }

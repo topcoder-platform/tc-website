@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
@@ -77,7 +77,7 @@ public class RetrieveReviewScorecards implements Model {
             System.arraycopy(scorecards, 0, temp, 0, j);
             return new ReviewScorecardsRetrieval(temp);
 
-        // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
+            // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
         } catch (RuntimeException e) {
             LogHelper.log("", e);
             throw e;

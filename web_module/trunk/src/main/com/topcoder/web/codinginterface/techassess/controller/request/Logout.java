@@ -1,12 +1,9 @@
 package com.topcoder.web.codinginterface.techassess.controller.request;
 
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.netCommon.screening.request.ScreeningLogoutRequest;
-import com.topcoder.shared.netCommon.screening.response.ScreeningLogoutResponse;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.techassess.Constants;
-import com.topcoder.web.common.SessionInfo;
-import com.topcoder.web.common.BaseServlet;
 
 /**
  * User: dok
@@ -38,7 +35,7 @@ public class Logout extends Base {
 
         //build the next page before we invalidate the session
         String nextPage = buildProcessorRequestString(Constants.RP_LOGIN,
-                new String[] {Constants.COMPANY_ID}, new String[]{String.valueOf(getCompanyId())});
+                new String[]{Constants.COMPANY_ID}, new String[]{String.valueOf(getCompanyId())});
 
         getRequest().getSession().invalidate();
 

@@ -6,23 +6,29 @@
 
 package com.topcoder.web.ejb.coderskill;
 
-import javax.ejb.EJBObject;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+
 import javax.ejb.EJBException;
+import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
 
-
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 /**
  *
  * @author  rfairfax
  */
 public interface CoderSkill extends EJBObject {
-    
-    void createCoderSkill(long coderId, int skillId, int ranking, String dataSource) throws EJBException,RemoteException;
-    void bulkCreateCoderSkill(long coderId, int[] skillId, int[] ranking, String dataSource) throws EJBException,RemoteException;
-    void removeCoderSkill(long coderId, int skillId, String dataSource) throws EJBException,RemoteException;
-    void bulkRemoveCoderSkill(long coderId, int[] skillId, String dataSource) throws EJBException,RemoteException;
-    void setRanking(long coderId, int skillId, int ranking, String dataSource) throws EJBException,RemoteException;
-    void bulkSetRanking(long coderId, int[] skillId, int[] ranking, String dataSource) throws EJBException,RemoteException;
-    ResultSetContainer getSkillsByType(long coderId, int skillTypeId, String dataSource) throws EJBException,RemoteException;
+
+    void createCoderSkill(long coderId, int skillId, int ranking, String dataSource) throws EJBException, RemoteException;
+
+    void bulkCreateCoderSkill(long coderId, int[] skillId, int[] ranking, String dataSource) throws EJBException, RemoteException;
+
+    void removeCoderSkill(long coderId, int skillId, String dataSource) throws EJBException, RemoteException;
+
+    void bulkRemoveCoderSkill(long coderId, int[] skillId, String dataSource) throws EJBException, RemoteException;
+
+    void setRanking(long coderId, int skillId, int ranking, String dataSource) throws EJBException, RemoteException;
+
+    void bulkSetRanking(long coderId, int[] skillId, int[] ranking, String dataSource) throws EJBException, RemoteException;
+
+    ResultSetContainer getSkillsByType(long coderId, int skillTypeId, String dataSource) throws EJBException, RemoteException;
 }

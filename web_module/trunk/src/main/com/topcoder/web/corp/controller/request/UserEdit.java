@@ -6,13 +6,13 @@ import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.web.common.StringUtils;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.corp.Constants;
 import com.topcoder.web.corp.Util;
@@ -31,7 +31,6 @@ import com.topcoder.web.ejb.user.UserHome;
 import javax.ejb.CreateException;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.sql.DataSource;
 import javax.transaction.Transaction;
 import java.rmi.RemoteException;
 import java.util.Enumeration;
@@ -374,7 +373,7 @@ public class UserEdit extends BaseProcessor {
                 );
         valid &=
                 checkItemValidity(KEY_EMAIL, email,
-                        StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN+"@", true, 1,
+                        StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN + "@", true, 1,
                         "Please enter a valid email address."
                 );
 
@@ -424,12 +423,12 @@ public class UserEdit extends BaseProcessor {
         // and additionally check against DB
         boolean techProblems = false;
         try {
-                success = false;
-                if (userExists(userName)) {
-                    addError(KEY_LOGIN, "Please enter another user name.");
-                } else {
-                    success = true;
-                }
+            success = false;
+            if (userExists(userName)) {
+                addError(KEY_LOGIN, "Please enter another user name.");
+            } else {
+                success = true;
+            }
         } catch (RemoteException re) {
             techProblems = true;
             log.error("RemoteException - user registration process");
@@ -468,7 +467,7 @@ public class UserEdit extends BaseProcessor {
 
         DataAccessInt dai = new DataAccess(DBMS.CORP_OLTP_DATASOURCE_NAME);
 
-        ResultSetContainer rsc = (ResultSetContainer)dai.getData(r).get("user exists");
+        ResultSetContainer rsc = (ResultSetContainer) dai.getData(r).get("user exists");
         return !rsc.isEmpty();
 
     }

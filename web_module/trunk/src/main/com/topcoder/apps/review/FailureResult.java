@@ -1,9 +1,9 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
-import com.topcoder.apps.review.document.DocumentAlreadySubmittedException;
 
+import com.topcoder.apps.review.document.DocumentAlreadySubmittedException;
 
 
 /**
@@ -54,7 +54,7 @@ public class FailureResult implements ResultData {
             this.message = "This document has been changed since you started working";
         } else if (cause instanceof DocumentAlreadySubmittedException) {
             this.message = "This document has already been submitted (and marked as complete) so it cannot be "
-                         + "resubmitted again without PM intervention";
+                    + "resubmitted again without PM intervention";
         }
         LogHelper.log("FailureResult: " + message + ": ", cause);
     }

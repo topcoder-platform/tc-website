@@ -1,7 +1,7 @@
 /*
  * AggregationWorksheet.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.document;
@@ -37,7 +37,7 @@ public class AggregationWorksheet implements Serializable {
      *
      */
     public AggregationWorksheet(long id, boolean isComplete, boolean isPMReviewed, User aggregator,
-        AggregationResponse[] aggResponse, Project project, long requestorId, long versionId) {
+                                AggregationResponse[] aggResponse, Project project, long requestorId, long versionId) {
         this.id = id;
         this.isComplete = isComplete;
         this.isPMReviewed = isPMReviewed;
@@ -96,7 +96,7 @@ public class AggregationWorksheet implements Serializable {
      * <p>
      * Return the id of the aggregation worksheet.
      * </p>
-     * 
+     *
      * @return the id of the aggregation worksheet.
      */
     public long getId() {
@@ -115,7 +115,7 @@ public class AggregationWorksheet implements Serializable {
      * <p>
      * Return whether this worksheet is completed.
      * </p>
-     * 
+     *
      * @return true if the worksheet is completed, otherwise false.
      */
     public boolean isCompleted() {
@@ -126,7 +126,7 @@ public class AggregationWorksheet implements Serializable {
      * <p>
      * Set whether this worksheet is completed.
      * </p>
-     * 
+     *
      * @param isCompleted Whether this worksheet is completed.
      */
     public void setCompleted(boolean completed) {
@@ -138,7 +138,7 @@ public class AggregationWorksheet implements Serializable {
      * <p>
      * Return whether the project manager has reviewed this worksheet.
      * </p>
-     * 
+     *
      * @return true if the project manager has reviewed this worksheet,
      * otherwise false.
      */
@@ -150,8 +150,8 @@ public class AggregationWorksheet implements Serializable {
      * <p>
      * Set whether the project manager has reviewed this worksheet.
      * </p>
-     * 
-     * @param isPMReviewed Whether the project manager has reviewed 
+     *
+     * @param isPMReviewed Whether the project manager has reviewed
      * this worksheet.
      */
     public void setPMReviewed(boolean pmReviewed) {
@@ -163,7 +163,7 @@ public class AggregationWorksheet implements Serializable {
      * <p>
      * Return the list of aggregation responses.
      * </p>
-     * 
+     *
      * @return a AggregationResponse[] with the list of aggregation responses.
      */
     public AggregationResponse[] getAggregationResponses() {
@@ -174,7 +174,7 @@ public class AggregationWorksheet implements Serializable {
      * <p>
      * Return the project related to this worksheet.
      * </p>
-     * 
+     *
      * @return a Project with the project related to this worksheet.
      */
     public Project getProject() {
@@ -185,7 +185,7 @@ public class AggregationWorksheet implements Serializable {
      * <p>
      * Return the aggregator of this worksheet.
      * </p>
-     * 
+     *
      * @return the aggregator of this worksheet.
      */
     public User getAggregator() {

@@ -57,12 +57,15 @@
 package com.coolservlets.forum.database;
 
 import com.coolservlets.forum.*;
-import com.coolservlets.util.*;
-
-import com.topcoder.shared.util.logging.Logger;
+import com.coolservlets.util.StringUtils;
 import com.topcoder.shared.util.DBMS;
-import java.sql.*;
+import com.topcoder.shared.util.logging.Logger;
+
 import java.io.Serializable;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  * Database implementation of the User interface. Additionally, it filters all
@@ -85,20 +88,20 @@ import java.io.Serializable;
 public class DbUser implements User, Serializable {
 
     private static final String LOAD_USER_BY_USERNAME =
-        "SELECT u.user_id, u.handle, u.password, u.email, r.rating FROM user u, rating r WHERE u.user_id = r.coder_id and u.handle=?";
+            "SELECT u.user_id, u.handle, u.password, u.email, r.rating FROM user u, rating r WHERE u.user_id = r.coder_id and u.handle=?";
     private static final String LOAD_USER_BY_ID =
-        "SELECT u.user_id, u.handle, u.password, u.email, r.rating FROM user u, rating r WHERE u.user_id = r.coder_id and u.user_id=?";
+            "SELECT u.user_id, u.handle, u.password, u.email, r.rating FROM user u, rating r WHERE u.user_id = r.coder_id and u.user_id=?";
 
     private static final String INSERT_USER =
-        "INSERT INTO jiveUser(userID,username,passwordHash,email,emailVisible," +
-        "nameVisible) VALUES(?,?,?,?,?,?)";
+            "INSERT INTO jiveUser(userID,username,passwordHash,email,emailVisible," +
+            "nameVisible) VALUES(?,?,?,?,?,?)";
     private static final String SAVE_USER =
-        "UPDATE jiveUser SET passwordHash=?,email=?,emailVisible=?,name=?," +
-        "nameVisible=? WHERE userID=?";        
+            "UPDATE jiveUser SET passwordHash=?,email=?,emailVisible=?,name=?," +
+            "nameVisible=? WHERE userID=?";
     private static final String DELETE_PERMISSIONS =
-        "DELETE FROM jiveUserPerm WHERE userID=?";
+            "DELETE FROM jiveUserPerm WHERE userID=?";
     private static final String INSERT_PERMISSION =
-        "INSERT INTO jiveUserPerm(userID,forumID,permission) VALUES(?,?,?)";
+            "INSERT INTO jiveUserPerm(userID,forumID,permission) VALUES(?,?,?)";
 
     /**
      * user id of -2 means no user id has been set yet. -1 is reserved for
@@ -120,9 +123,9 @@ public class DbUser implements User, Serializable {
      */
     protected DbUser(String username, String password, String email) {
         try {
-          this.userID = DBMS.getSeqId(DBMS.RTABLE_SEQ); 
+            this.userID = DBMS.getSeqId(DBMS.RTABLE_SEQ);
         } catch (Exception e) {
-          e.printStackTrace();
+            e.printStackTrace();
         }
         this.username = username;
         //Compute hash of password.
@@ -156,7 +159,7 @@ public class DbUser implements User, Serializable {
     }
 
     public boolean isAnonymous() {
-        return (userID==-1);
+        return (userID == -1);
     }
 
     public String getUsername() {
@@ -188,7 +191,7 @@ public class DbUser implements User, Serializable {
     }
 
     //public void resetPassword() {
-        //implement this eventually... :)
+    //implement this eventually... :)
     //}
 
     public String getEmail() {
@@ -210,10 +213,9 @@ public class DbUser implements User, Serializable {
     }
 
     public ForumPermissions getPermissions(Authorization authorization) {
-        if (authorization.getUserID() == userID || userID==-1 || userID==0) {
-            return new ForumPermissions(false,false,false,true,false,false,false,false);
-        }
-        else {
+        if (authorization.getUserID() == userID || userID == -1 || userID == 0) {
+            return new ForumPermissions(false, false, false, true, false, false, false, false);
+        } else {
             return ForumPermissions.none();
         }
     }
@@ -242,7 +244,7 @@ public class DbUser implements User, Serializable {
         }
         //Otherwise, a lookup by id
         else {
-           query = LOAD_USER_BY_ID;
+            query = LOAD_USER_BY_ID;
         }
         Connection conn = null;
         PreparedStatement ps = null;
@@ -252,37 +254,46 @@ public class DbUser implements User, Serializable {
             ps = conn.prepareStatement(query);
             if (username != null) {
                 ps.setString(1, username);
-            }
-            else {
+            } else {
                 ps.setInt(1, userID);
             }
 
             rs = ps.executeQuery();
-            if ( rs.next() ) {
+            if (rs.next()) {
 /*
                 throw new UserNotFoundException(
                     "Failed to read user " + userID + " from database."
                 );
 */
-              this.userID = rs.getInt("user_id");
-              this.username = rs.getString("handle");
-              this.passwordHash = rs.getString("password");
-              this.email = rs.getString("email");
-              this.rating = rs.getInt("rating");
+                this.userID = rs.getInt("user_id");
+                this.username = rs.getString("handle");
+                this.passwordHash = rs.getString("password");
+                this.email = rs.getString("email");
+                this.rating = rs.getInt("rating");
             }
-        }
-        catch( SQLException sqle ) {
+        } catch (SQLException sqle) {
             throw new UserNotFoundException(
-                "Failed to read user " + userID + " from database.", sqle
+                    "Failed to read user " + userID + " from database.", sqle
             );
-        }
-        finally {
-          try { if (rs   != null) rs.close();  } catch (Exception ignore) {log.debug("rs   close problem");}
-          try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
-          try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
-          rs = null; 
-          ps = null; 
-          conn = null; 
+        } finally {
+            try {
+                if (rs != null) rs.close();
+            } catch (Exception ignore) {
+                log.debug("rs   close problem");
+            }
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception ignore) {
+                log.debug("ps   close problem");
+            }
+            try {
+                if (conn != null) conn.close();
+            } catch (Exception ignore) {
+                log.debug("conn close problem");
+            }
+            rs = null;
+            ps = null;
+            conn = null;
         }
     }
 
@@ -299,19 +310,25 @@ public class DbUser implements User, Serializable {
             ps.setString(2, username);
             ps.setString(3, passwordHash);
             ps.setString(4, email);
-            ps.setInt(5, emailVisible?1:0);
-            ps.setInt(6, nameVisible?1:0);
+            ps.setInt(5, emailVisible ? 1 : 0);
+            ps.setInt(6, nameVisible ? 1 : 0);
             ps.executeUpdate();
-        }
-        catch( SQLException sqle ) {
+        } catch (SQLException sqle) {
             System.err.println("Error in DbUser:insertIntoDb()-" + sqle);
             sqle.printStackTrace();
-        }
-        finally {
-          try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
-          try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
-          ps = null; 
-          conn = null; 
+        } finally {
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception ignore) {
+                log.debug("ps   close problem");
+            }
+            try {
+                if (conn != null) conn.close();
+            } catch (Exception ignore) {
+                log.debug("conn close problem");
+            }
+            ps = null;
+            conn = null;
         }
     }
 
@@ -319,7 +336,7 @@ public class DbUser implements User, Serializable {
      * Save the user data to the database.
      */
     private void saveToDb() {
-        if ( userID == -1 || userID == 0 ) {
+        if (userID == -1 || userID == 0) {
             //"anonymous" or "all users", do nothing
             return;
         }
@@ -330,21 +347,27 @@ public class DbUser implements User, Serializable {
             ps = conn.prepareStatement(SAVE_USER);
             ps.setString(1, passwordHash);
             ps.setString(2, email);
-            ps.setInt(3, emailVisible?1:0);
+            ps.setInt(3, emailVisible ? 1 : 0);
             ps.setString(4, name);
-            ps.setInt(5, nameVisible?1:0);
+            ps.setInt(5, nameVisible ? 1 : 0);
             ps.setInt(6, userID);
             ps.executeUpdate();
-        }
-        catch( SQLException sqle ) {
-            System.err.println( "SQLException in DbUser.java:saveToDb(): " + sqle );
+        } catch (SQLException sqle) {
+            System.err.println("SQLException in DbUser.java:saveToDb(): " + sqle);
             sqle.printStackTrace();
-        }
-        finally {
-          try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
-          try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
-          ps = null; 
-          conn = null; 
+        } finally {
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception ignore) {
+                log.debug("ps   close problem");
+            }
+            try {
+                if (conn != null) conn.close();
+            } catch (Exception ignore) {
+                log.debug("conn close problem");
+            }
+            ps = null;
+            conn = null;
         }
     }
-} 
+}

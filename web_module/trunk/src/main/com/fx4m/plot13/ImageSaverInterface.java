@@ -16,7 +16,7 @@
 //package fi.faidon.jis;
 package com.fx4m.plot13;
 
-import java.awt.Image;
+import java.awt.*;
 
 /**
  * Abstract class that defines the methods supported by all classes that save

@@ -1,12 +1,19 @@
 package com.topcoder.web.tc.controller.legacy.stat.common;
 
-import com.topcoder.web.tc.controller.legacy.stat.bean.*;
+import com.topcoder.web.tc.controller.legacy.stat.bean.CoderRatingStyleBean;
+import com.topcoder.web.tc.controller.legacy.stat.bean.QuickStatBean;
+import com.topcoder.web.tc.controller.legacy.stat.bean.QuickStatListBean;
 import org.apache.xerces.parsers.DOMParser;
-import org.w3c.dom.*;
+import org.w3c.dom.Document;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-import java.io.*;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Hashtable;
 import java.util.Map;
 

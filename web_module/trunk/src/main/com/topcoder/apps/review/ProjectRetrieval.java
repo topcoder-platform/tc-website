@@ -1,12 +1,12 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.document.AbstractScorecard;
+import com.topcoder.apps.review.document.AbstractSubmission;
 import com.topcoder.apps.review.document.TestCase;
 import com.topcoder.apps.review.projecttracker.Project;
-import com.topcoder.apps.review.document.AbstractSubmission;
 
 /**
  * Retrieval class used by the Model classes to return a project and the scorecards for that project.
@@ -49,7 +49,7 @@ public class ProjectRetrieval extends SuccessResult {
      * @param submissions the submissions
      */
     ProjectRetrieval(Project project, AbstractScorecard[] scorecards, AbstractSubmission[] submissions,
-            TestCase[] testCases, long[] templateId) {
+                     TestCase[] testCases, long[] templateId) {
         this.project = project;
         this.scorecards = scorecards;
         this.submissions = submissions;
@@ -84,12 +84,13 @@ public class ProjectRetrieval extends SuccessResult {
         return submissions;
     }
 
-	/**
-	 * @return Returns the testCases.
-	 */
-	public TestCase[] getTestCases() {
-		return testCases;
-	}
+    /**
+     * @return Returns the testCases.
+     */
+    public TestCase[] getTestCases() {
+        return testCases;
+    }
+
     /**
      * @return Returns the templateId.
      */

@@ -6,7 +6,7 @@ import com.topcoder.shared.util.logging.Logger;
  * @author dok
  * Date: Apr 8, 2004
  */
-public class DefaultPriceComponent implements SoftwareComponent{
+public class DefaultPriceComponent implements SoftwareComponent {
     private static Logger log = Logger.getLogger(DefaultPriceComponent.class);
 
     private final static float[] DESIGN_PRICE_LOOKUP = {0f, 700f, 700f};
@@ -21,18 +21,20 @@ public class DefaultPriceComponent implements SoftwareComponent{
     private int submissionCount;
     private int submissionsPassedScreening;
 
-    protected DefaultPriceComponent() {}
+    protected DefaultPriceComponent() {
+    }
 
     public DefaultPriceComponent(int levelId, int submissionCount, int submissionsPassedScreening, int phaseId) {
         this();
         log.debug("level: " + level + " submissionCount: " + submissionCount + " submissionPassedScreening: " +
                 submissionsPassedScreening + " phaseId: " + phaseId);
         this.phaseId = phaseId;
-        if (levelId==LEVEL1) {
+        if (levelId == LEVEL1) {
             this.level = 1;
-        } else if (levelId==LEVEL2) {
+        } else if (levelId == LEVEL2) {
             this.level = 2;
-        } else throw new IllegalArgumentException("invalid level provided " + levelId);
+        } else
+            throw new IllegalArgumentException("invalid level provided " + levelId);
         this.submissionCount = submissionCount;
         this.submissionsPassedScreening = submissionsPassedScreening;
     }
@@ -45,7 +47,6 @@ public class DefaultPriceComponent implements SoftwareComponent{
         ret.submissionsPassedScreening = this.submissionsPassedScreening;
         return ret;
     }
-
 
 
     public float getPrice() {
@@ -99,7 +100,7 @@ public class DefaultPriceComponent implements SoftwareComponent{
 
     private float getScreeningPrimaryDevReviewCost() {
         float screeningSetupCost = 1.0f * DEV_REVIEW_RATE; // 60 minutes to set up
-        float screeningCost = (1f / 2f) * (float)submissionCount * DEV_REVIEW_RATE;  //30 minutes per submission
+        float screeningCost = (1f / 2f) * (float) submissionCount * DEV_REVIEW_RATE;  //30 minutes per submission
         return screeningSetupCost + screeningCost;
     }
 
@@ -109,7 +110,7 @@ public class DefaultPriceComponent implements SoftwareComponent{
     }
 
     private float getDevFinalReviewCost() {
-        float finalReviewCost = 2f*DEV_REVIEW_RATE;  //120 minutes to do final review
+        float finalReviewCost = 2f * DEV_REVIEW_RATE;  //120 minutes to do final review
         return finalReviewCost;
     }
 
@@ -118,7 +119,7 @@ public class DefaultPriceComponent implements SoftwareComponent{
      * @return
      */
     private float getDevCoreReviewCost() {
-        float reviewCost = (float)(level + 1) * (float)submissionsPassedScreening*DEV_REVIEW_RATE;
+        float reviewCost = (float) (level + 1) * (float) submissionsPassedScreening * DEV_REVIEW_RATE;
         float startupCost = DEV_REVIEW_RATE * 2; //120 minutes to "start up"
         float testCaseCost = DEV_REVIEW_RATE * 5; // 5 hours to write test cases
         debug("reviewCost " + reviewCost);
@@ -160,7 +161,7 @@ public class DefaultPriceComponent implements SoftwareComponent{
     }
 
     private float getDesignScreeningCost() {
-        float screeningCost = 0.75f * (float)submissionCount * DESIGN_REVIEW_RATE;  //45 minutes per submission
+        float screeningCost = 0.75f * (float) submissionCount * DESIGN_REVIEW_RATE;  //45 minutes per submission
         return screeningCost;
     }
 
@@ -181,7 +182,7 @@ public class DefaultPriceComponent implements SoftwareComponent{
      * @return
      */
     private float getCoreDesignReviewCost() {
-        float reviewCost = (float)(level + 2) * (float)submissionsPassedScreening*DESIGN_REVIEW_RATE;
+        float reviewCost = (float) (level + 2) * (float) submissionsPassedScreening * DESIGN_REVIEW_RATE;
         float startupCost = 2.0f * DESIGN_REVIEW_RATE; //120 minutes to "start up"
         debug("reviewCost " + reviewCost);
         debug("startupCost " + startupCost);
@@ -199,7 +200,7 @@ public class DefaultPriceComponent implements SoftwareComponent{
 */
 
     public static void main(String[] args) {
-        if (args.length!=4) {
+        if (args.length != 4) {
             System.out.println("usage: java " + SoftwareComponent.class.toString() + " " +
                     "<level> <numSubmissions> <numSubmissionPassScreening> <phaseId>");
             System.out.println("dev phaseId " + DEV_PHASE);
@@ -214,7 +215,7 @@ public class DefaultPriceComponent implements SoftwareComponent{
             DefaultPriceComponent sc = new DefaultPriceComponent(level, Integer.parseInt(args[1]),
                     Integer.parseInt(args[2]), Integer.parseInt(args[3]));
             System.out.println("-------------------------------------------------------------");
-            if (sc.phaseId==DEV_PHASE) {
+            if (sc.phaseId == DEV_PHASE) {
                 System.out.println("        Dev Cost:            |      " + sc.getPrice());
                 System.out.println("-----------------------------+-------------------------------");
                 System.out.println("     Dev Review Cost:        |      " + sc.getReviewPrice());
@@ -228,7 +229,7 @@ public class DefaultPriceComponent implements SoftwareComponent{
                 System.out.println(" Dev Primary Final Rev Cost  |      " + sc.getDevFinalReviewCost());
                 System.out.println("-----------------------------+-------------------------------");
                 System.out.println("     Dev Core Review Cost    |      " + sc.getDevCoreReviewCost());
-            } else if (sc.phaseId==DESIGN_PHASE) {
+            } else if (sc.phaseId == DESIGN_PHASE) {
                 System.out.println("      Design Cost:           |      " + sc.getPrice());
                 System.out.println("-----------------------------+-------------------------------");
                 System.out.println("   Design Review Cost:       |      " + sc.getReviewPrice());

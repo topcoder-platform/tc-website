@@ -2,9 +2,6 @@ package com.topcoder.web.common;
 
 import com.topcoder.web.common.security.WebAuthentication;
 
-import javax.servlet.ServletRequest;
-import javax.servlet.http.HttpServletRequest;
-
 /**
  * Classes that implement RequestProcessor should contain the
  * business logic to process a request from a servlet controller.

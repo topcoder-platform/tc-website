@@ -1,6 +1,6 @@
 package com.topcoder.web.hs.model;
 
-import java.util.*;
+
 
 /**
  * This class represents a bean container of Rating Brackets.
@@ -24,15 +24,16 @@ public class CoderRatingStyleBean {
         "coderTextRed"
     };
 
-    public CoderRatingStyleBean() { }
+    public CoderRatingStyleBean() {
+    }
 
     /**
      * Get the CSS style name for a given coder rating.
      */
     public String getStyle(int i) {
         int p;
-        for(p=0; p<bandLimits.length; p++)
-            if(i < bandLimits[p]) break;
+        for (p = 0; p < bandLimits.length; p++)
+            if (i < bandLimits[p]) break;
         return bandNames[p];
     }
 }

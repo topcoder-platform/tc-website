@@ -17,14 +17,14 @@ import com.topcoder.apps.review.accuracytests.ejb.*;
  * @author  valeriy
  */
 public class ProjectAdministrationTest extends AbstractAccuracyTest {
-    
+
     private ProjectAdministration projectAdministration;
-    
+
     /** Creates a new instance of ProjectAdministrationTest */
     public ProjectAdministrationTest(String name) {
         super(name);
     }
-    
+
     public void setUp() throws Exception {
         super.setUp();
         setUpUsers();
@@ -33,7 +33,7 @@ public class ProjectAdministrationTest extends AbstractAccuracyTest {
         setUpDocuments();
         projectAdministration = new ProjectAdministration();
     }
-    
+
     public void testProjectAdministration1() throws Exception {
         try {
             project.setCurrentPhase(phases[5]);
@@ -45,11 +45,11 @@ public class ProjectAdministrationTest extends AbstractAccuracyTest {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
 
     }
-    
+
     public void testProjectAdministration2() throws Exception {
         try {
             project.setCurrentPhase(phases[8]);
@@ -61,7 +61,7 @@ public class ProjectAdministrationTest extends AbstractAccuracyTest {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
     }
 
@@ -76,7 +76,7 @@ public class ProjectAdministrationTest extends AbstractAccuracyTest {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
     }
 
@@ -91,7 +91,7 @@ public class ProjectAdministrationTest extends AbstractAccuracyTest {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
     }
 
@@ -106,7 +106,7 @@ public class ProjectAdministrationTest extends AbstractAccuracyTest {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
     }
 
@@ -121,7 +121,7 @@ public class ProjectAdministrationTest extends AbstractAccuracyTest {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
     }
 
@@ -136,7 +136,7 @@ public class ProjectAdministrationTest extends AbstractAccuracyTest {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
     }
 }

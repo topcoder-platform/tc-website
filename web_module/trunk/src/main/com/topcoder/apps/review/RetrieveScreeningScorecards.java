@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
@@ -74,7 +74,7 @@ public class RetrieveScreeningScorecards implements Model {
 
             return new ScreeningScorecardsRetrieval(temp);
 
-        // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
+            // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
         } catch (RuntimeException e) {
             LogHelper.log("", e);
             throw e;

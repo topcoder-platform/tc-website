@@ -1,16 +1,16 @@
 package com.topcoder.web.ejb.note;
 
-import com.topcoder.web.ejb.BaseEJB;
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
 
-import javax.naming.Context;
 import javax.ejb.EJBException;
-import java.sql.PreparedStatement;
+import javax.naming.Context;
 import java.sql.Connection;
-import java.sql.SQLException;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -375,7 +375,7 @@ public class NoteBean extends BaseEJB {
     }
 
 
-    public void removeNote(long noteId,  String dataSource)
+    public void removeNote(long noteId, String dataSource)
             throws EJBException {
         log.debug("removeNote called. note id: " + noteId);
 
@@ -405,7 +405,6 @@ public class NoteBean extends BaseEJB {
             close(ctx);
         }
     }
-
 
 
 }

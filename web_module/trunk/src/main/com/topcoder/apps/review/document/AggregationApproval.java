@@ -1,7 +1,7 @@
 /*
  * AggregationApproval.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.document;
@@ -33,12 +33,12 @@ public class AggregationApproval implements Serializable {
     }
 
     /**
-    * <p>
-    * Return the name of the aggregation approval.
-    * </p>
-    * 
-    * @return a String with the name of the aggregation approval.
-    */
+     * <p>
+     * Return the name of the aggregation approval.
+     * </p>
+     *
+     * @return a String with the name of the aggregation approval.
+     */
     public String getName() {
         return name;
     }
@@ -47,7 +47,7 @@ public class AggregationApproval implements Serializable {
      * <p>
      * Return the id of the aggregation approval.
      * </p>
-     * 
+     *
      * @return the id of the aggregation approval.
      */
     public long getId() {

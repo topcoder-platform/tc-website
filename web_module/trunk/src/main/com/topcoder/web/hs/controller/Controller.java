@@ -1,13 +1,21 @@
 package com.topcoder.web.hs.controller;
 
-import java.io.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
-import com.topcoder.shared.security.*;
-import com.topcoder.web.hs.common.Constants;
-import com.topcoder.web.common.security.*;
-import com.topcoder.web.common.*;
+import com.topcoder.shared.security.Persistor;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.*;
+import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.hs.common.Constants;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpUtils;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  * All requests to the HS website pass through this servlet.
@@ -55,7 +63,7 @@ public class Controller extends HttpServlet {
             request.setAttribute("canonpath", canonpath);
 
             String query = request.getQueryString();
-            String qtail = (query==null) ? ("") : ("?"+query);
+            String qtail = (query == null) ? ("") : ("?" + query);
 
             StringBuffer loginfo = new StringBuffer(100);
             loginfo.append("[**** ");
@@ -77,23 +85,23 @@ public class Controller extends HttpServlet {
                 try {
 
                     String cmd = Constants.checkNull(request.getParameter("module"));
-                    if(cmd.equals("")) cmd = "Home";
-                    if(!Constants.isLegal(cmd)) throw new NavigationException();
-                    cmd = "com.topcoder.web.hs.controller.requests."+cmd;
+                    if (cmd.equals("")) cmd = "Home";
+                    if (!Constants.isLegal(cmd)) throw new NavigationException();
+                    cmd = "com.topcoder.web.hs.controller.requests." + cmd;
 
-                    log.debug("creating request processor of class "+cmd);
+                    log.debug("creating request processor of class " + cmd);
                     try {
-                        rp = (RequestProcessor)Class.forName(cmd).newInstance();
-                    } catch(Exception e) {
+                        rp = (RequestProcessor) Class.forName(cmd).newInstance();
+                    } catch (Exception e) {
                         log.debug("calling Class.forName()", e);
                         throw new NavigationException();
                     }
                     callProcess(rp, tcRequest);
 
-                } catch(PermissionException pe) {
+                } catch (PermissionException pe) {
                     log.debug("caught PermissionException");  // no stack trace to the logs
 
-                    if(pe.getUser()!=null && !pe.getUser().isAnonymous()) {
+                    if (pe.getUser() != null && !pe.getUser().isAnonymous()) {
                         log.info("already logged in, rethrowing");
                         throw pe;
                     }
@@ -107,14 +115,14 @@ public class Controller extends HttpServlet {
                 }
 
                 /* try this once here and hopefully display a pretty error if it fails */
-                if(rp.isNextPageInContext()) {
+                if (rp.isNextPageInContext()) {
                     getServletContext().getRequestDispatcher(response.encodeURL(rp.getNextPage())).forward(request, response);
                 } else {
                     response.sendRedirect(response.encodeRedirectURL(rp.getNextPage()));
                 }
                 return;  /* all done if we can get here */
 
-            } catch(Exception e) {
+            } catch (Exception e) {
                 log.error("caught exception, forwarding to error page", e);
 
                 request.setAttribute("exception", e);
@@ -125,18 +133,18 @@ public class Controller extends HttpServlet {
 
             /* only reporting errors at this point */
 
-            if(rp.isNextPageInContext()) {
+            if (rp.isNextPageInContext()) {
                 getServletContext().getRequestDispatcher(response.encodeURL(rp.getNextPage())).forward(request, response);
             } else {
                 response.sendRedirect(response.encodeRedirectURL(rp.getNextPage()));
             }
 
-        /* things are extremely broken, or perhaps some of the response
-         * buffer had already been flushed when an error was thrown,
-         * and the forward to error page failed.  in any event, make
-         * one last attempt to get an error message to the browser
-         */
-        } catch(Exception e) {
+            /* things are extremely broken, or perhaps some of the response
+             * buffer had already been flushed when an error was thrown,
+             * and the forward to error page failed.  in any event, make
+             * one last attempt to get an error message to the browser
+             */
+        } catch (Exception e) {
             log.fatal("forwarding to error page failed", e);
 
             response.setStatus(500);

@@ -13,7 +13,8 @@ public class CustomPriceComponent extends DefaultPriceComponent {
     private float primaryReviewerPrice;
     private float reviewerPrice;
 
-    protected CustomPriceComponent() {}
+    protected CustomPriceComponent() {
+    }
 
     public CustomPriceComponent(float primaryReviewerPrice, float reviewerPrice, int phaseId) {
         this.primaryReviewerPrice = primaryReviewerPrice;
@@ -36,7 +37,6 @@ public class CustomPriceComponent extends DefaultPriceComponent {
         ret.phaseId = this.phaseId;
         return ret;
     }
-
 
 
 }

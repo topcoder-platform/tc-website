@@ -1,7 +1,7 @@
 /*
  * MyUserManager.java 1.0 6/30/2003
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review.failuretests.mockups;
 
@@ -26,7 +26,7 @@ public class MyUserManager extends EJBBase implements UserManagerLocal {
      * <p>HashMap maping TCSubjects to Users</p>
      */
     private static HashMap map = new HashMap();
-    
+
     /**
      * <p>Returns the User specified by tcSubject.</p>
      *
@@ -35,7 +35,7 @@ public class MyUserManager extends EJBBase implements UserManagerLocal {
      */
     public SecurityEnabledUser getUser(TCSubject tcSubject) {
         Long id = new Long(tcSubject.getUserId());
-        return((SecurityEnabledUser)map.get(id));
+        return ((SecurityEnabledUser) map.get(id));
     }
 
     /**
@@ -46,21 +46,21 @@ public class MyUserManager extends EJBBase implements UserManagerLocal {
      */
     public User getUser(long userId) {
         Long id = new Long(userId);
-        return((User)map.get(id));
+        return ((User) map.get(id));
     }
-    
+
     public User getUser(String handle) {
         Iterator it = map.values().iterator();
-        
-        while(it.hasNext()) {
-            User user = (User)it.next();
-            if(handle.equals((String)user.getHandle())) {
-                return(user);
+
+        while (it.hasNext()) {
+            User user = (User) it.next();
+            if (handle.equals((String) user.getHandle())) {
+                return (user);
             }
         }
-        return(null);
+        return (null);
     }
-    
+
     /**
      * <p>Associates user with tcSubject.</p>
      *
@@ -68,9 +68,9 @@ public class MyUserManager extends EJBBase implements UserManagerLocal {
      * @param user the User that tcSubject maps to
      * @return none
      */
-    public static void addUser(TCSubject tcSubject,User user) {
+    public static void addUser(TCSubject tcSubject, User user) {
         Long id = new Long(tcSubject.getUserId());
-        map.put(id,user);
+        map.put(id, user);
     }
 
     /**
@@ -82,4 +82,4 @@ public class MyUserManager extends EJBBase implements UserManagerLocal {
     public static void clearUsers() {
         map.clear();
     }
-}    
+}

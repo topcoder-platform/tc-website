@@ -4,8 +4,8 @@
 
 package com.topcoder.apps.review;
 
-import com.topcoder.apps.review.projecttracker.Project;
 import com.topcoder.apps.review.document.AbstractSubmission;
+import com.topcoder.apps.review.projecttracker.Project;
 
 /**
  * <p>
@@ -18,12 +18,12 @@ import com.topcoder.apps.review.document.AbstractSubmission;
 public class ProjectData extends OnlineReviewData {
 
     // --------------------------------------------------- Instance Variables
-    
+
     /**
      * The project.
      */
     private Project project = null;
-    
+
     /**
      * The reason of project termination.
      */
@@ -33,7 +33,7 @@ public class ProjectData extends OnlineReviewData {
      * The submissions of this project.
      */
     private AbstractSubmission[] submissions = null;
-    
+
     /**
      * If mail notification should be sent.
      */
@@ -52,18 +52,18 @@ public class ProjectData extends OnlineReviewData {
      * @param submissions
      */
     // ------------------------------------------------------------ Constructor
-    
+
     /**
      * <p>
      * Creates the instance of <code>ProjectData</code> class.
      * </p>
-     * 
+     *
      * @param ord The OnlineReviewData to be set.
      * @param project The project.
      * @param reason The reason of project termination.
      */
-    public ProjectData(OnlineReviewData ord, Project project, 
-                          String reason, AbstractSubmission[] submissions) {
+    public ProjectData(OnlineReviewData ord, Project project,
+                       String reason, AbstractSubmission[] submissions) {
         super(ord);
         this.project = project;
         this.reason = reason;
@@ -76,21 +76,21 @@ public class ProjectData extends OnlineReviewData {
      * <p>
      * Return the wrapped project information.
      * </p>
-     * 
+     *
      * @return the wrapped project information.
      */
-    public Project getProject() {        
+    public Project getProject() {
         return project;
     } // end getProject
-    
+
     /**
      * <p>
      * Return the reason of project termination.
      * </p>
-     * 
+     *
      * @return the reason of project termination.
      */
-    public String getReason() {        
+    public String getReason() {
         return reason;
     } // end getReason
 
@@ -98,10 +98,10 @@ public class ProjectData extends OnlineReviewData {
      * <p>
      * Return the submissions of this project.
      * </p>
-     * 
+     *
      * @return the submissions of this project.
      */
-    public AbstractSubmission[] getSubmissions() {        
+    public AbstractSubmission[] getSubmissions() {
         return submissions;
     } // end getSubmissions
 
@@ -132,7 +132,7 @@ public class ProjectData extends OnlineReviewData {
     public void setSubmitterRemoval(boolean submitterRemoval) {
         this.submitterRemoval = submitterRemoval;
     }
-    
+
 } // end ProjectData
 
 

@@ -1,7 +1,7 @@
 /*
  * Evaluation.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.document;
@@ -38,7 +38,7 @@ public class Evaluation implements Serializable {
      * <p>
      * Return the name of evaluation.
      * </p>
-     * 
+     *
      * @return a String with the name of evaluation.
      */
     public String getName() {
@@ -49,7 +49,7 @@ public class Evaluation implements Serializable {
      * <p>
      * Return the id of this evaluation.
      * </p>
-     * 
+     *
      * @return the id of this evaluation.
      */
     public long getId() {
@@ -60,7 +60,7 @@ public class Evaluation implements Serializable {
      * <p>
      * Return the value of this evaluation.
      * </p>
-     * 
+     *
      * @return the value of this evaluation.
      */
     public double getValue() {

@@ -1,10 +1,9 @@
 /**
- * Copyright © 2004, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2004, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.document.DocumentManagerLocal;
-import com.topcoder.apps.review.document.ReviewScorecard;
 import com.topcoder.apps.review.document.TestCase;
 import com.topcoder.apps.review.projecttracker.Project;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerLocal;
@@ -20,7 +19,7 @@ import com.topcoder.apps.review.projecttracker.UserProjectInfo;
 public class RetrieveTestCases implements Model {
 
     /**
-     * Retrieves the testcases for a project. 
+     * Retrieves the testcases for a project.
      *
      * @param data a ReviewScorecardsData object with the populated user and project
      *
@@ -70,7 +69,7 @@ public class RetrieveTestCases implements Model {
             // return result
             return new TestCasesRetrieval(testcases);
 
-        // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
+            // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
         } catch (RuntimeException e) {
             LogHelper.log("", e);
             throw e;

@@ -1,13 +1,11 @@
 package com.topcoder.web.ejb.ComponentRegistrationServices;
 
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
 import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,7 +18,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
 
     private final static Logger log = Logger.getLogger(ComponentRegistrationServicesBean.class);
 
-    public boolean isUserRegistered(long projectId, long userId,  String dataSource) throws EJBException {
+    public boolean isUserRegistered(long projectId, long userId, String dataSource) throws EJBException {
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection conn = null;
@@ -34,7 +32,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             conn = DBMS.getConnection(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
-            
+
             query.append("select '1' ");
             query.append("from component_inquiry ci ");
             query.append("where ci.project_id = ? ");
@@ -57,8 +55,8 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
         }
 
         return userRegistered;
-    } 
-    
+    }
+
     public boolean hasUserReviewedProject(long projectId, long userId, String dataSource) throws EJBException {
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -73,11 +71,11 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             conn = DBMS.getConnection(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
-            
+
             //this checks that the user is eligible to register for a project, based on
             //whether or not they have reviewed the project previously, and the
             //repost status of the project
-            
+
             query.append("select * ");
             query.append("from r_user_role rur, ");
             query.append("project p ");
@@ -121,8 +119,8 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
         }
 
         return hasReviewed;
-    } 
-    
+    }
+
     public boolean isUserWinningDesigner(long projectId, long userId, String dataSource) throws EJBException {
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -137,9 +135,9 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             conn = DBMS.getConnection(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
-            
+
             //this checks if the user is the winning designer for the project
-            
+
             query.append("select * ");
             query.append("from project_result pr, project p ");
             query.append("where p.project_id = pr.project_id and p.cur_version = 1 ");
@@ -165,8 +163,8 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
         }
 
         return isWinningDesigner;
-    } 
-    
+    }
+
     public boolean isRegClosed(long projectId, String dataSource) throws EJBException {
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -181,8 +179,8 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             conn = DBMS.getConnection(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
-            
-  
+
+
             query.append("select '1' ");
             query.append("from project p ");
             query.append(", phase_instance pi1 ");
@@ -210,7 +208,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
 
         return regClosed;
     }
-    
+
     public int getMaxUnratedRegistrants(long projectId, String dataSource) throws EJBException {
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -225,8 +223,8 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             conn = DBMS.getConnection(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
-            
-  
+
+
             query.append("select max_unrated_registrants ");
             query.append("from project p ");
             query.append("where p.project_id = ? ");
@@ -236,8 +234,8 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             ps.setLong(1, projectId);
 
             rs = ps.executeQuery();
-            if(rs.next()) {
-                if(rs.getObject("max_unrated_registrants") != null)  {
+            if (rs.next()) {
+                if (rs.getObject("max_unrated_registrants") != null) {
                     max_reg = rs.getInt("max_unrated_registrants");
                 }
             }
@@ -253,7 +251,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
 
         return max_reg;
     }
-    
+
     public int getMaxRatedRegistrants(long projectId, String dataSource) throws EJBException {
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -268,8 +266,8 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             conn = DBMS.getConnection(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
-            
-  
+
+
             query.append("select max_rated_registrants ");
             query.append("from project p ");
             query.append("where p.project_id = ? ");
@@ -279,8 +277,8 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             ps.setLong(1, projectId);
 
             rs = ps.executeQuery();
-            if(rs.next()) {
-                if(rs.getObject("max_rated_registrants") != null)  {
+            if (rs.next()) {
+                if (rs.getObject("max_rated_registrants") != null) {
                     max_reg = rs.getInt("max_rated_registrants");
                 }
             }
@@ -311,7 +309,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             conn = DBMS.getConnection(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
-            
+
             query.append("select count(distinct user_id) ");
             query.append("from component_inquiry ci ");
             query.append("where ci.project_id = ? and rating <> 0");
@@ -320,7 +318,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             ps.setLong(1, projectId);
 
             rs = ps.executeQuery();
-            if(rs.next()) {
+            if (rs.next()) {
                 reg_count = rs.getInt(1);
             }
         } catch (SQLException _sqle) {
@@ -335,7 +333,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
 
         return reg_count;
     }
-    
+
     public int getUnratedRegistrantCount(long projectId, String dataSource) throws EJBException {
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -350,7 +348,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             conn = DBMS.getConnection(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
-            
+
             query.append("select count(distinct user_id) ");
             query.append("from component_inquiry ci ");
             query.append("where ci.project_id = ? and rating = 0");
@@ -359,7 +357,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             ps.setLong(1, projectId);
 
             rs = ps.executeQuery();
-            if(rs.next()) {
+            if (rs.next()) {
                 reg_count = rs.getInt(1);
             }
         } catch (SQLException _sqle) {

@@ -1,16 +1,15 @@
 /*
  * UserManager.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.projecttracker;
 
 import com.topcoder.security.TCSubject;
 
-import java.rmi.RemoteException;
-
 import javax.ejb.EJBObject;
+import java.rmi.RemoteException;
 
 
 /**
@@ -40,7 +39,7 @@ public interface UserManager extends EJBObject {
      * @throws RemoteException
      */
     public User getUser(long userId) throws RemoteException;
-    
+
     /**
      * DOCUMENT ME!
      *

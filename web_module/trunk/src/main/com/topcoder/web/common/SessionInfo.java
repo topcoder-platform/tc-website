@@ -1,15 +1,15 @@
 package com.topcoder.web.common;
 
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.security.RolePrincipal;
+import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.security.WebAuthentication;
 
-import java.util.Set;
+import java.io.Serializable;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Date;
-import java.io.Serializable;
+import java.util.Set;
 
 public class SessionInfo implements Serializable {
     private static Logger log = Logger.getLogger(SessionInfo.class);
@@ -22,7 +22,7 @@ public class SessionInfo implements Serializable {
     private String absoluteServletPath = null;
     private String queryString = null;
     private String requestString = null;
-    private Date date= null;
+    private Date date = null;
     private boolean isLoggedIn = false;
     /** group may be:
      * 'G' guest
@@ -48,7 +48,7 @@ public class SessionInfo implements Serializable {
         serverName = request.getServerName();
         servletPath = request.getContextPath() + request.getServletPath();
         String query = request.getQueryString();
-        queryString = (query==null) ? ("") : ("?"+query);
+        queryString = (query == null) ? ("") : ("?" + query);
         StringBuffer buf = new StringBuffer(200);
         buf.append("http://");        //todo any better way than a hardcode?
         buf.append(request.getServerName());
@@ -56,7 +56,7 @@ public class SessionInfo implements Serializable {
         buf.append(queryString);
         requestString = buf.toString();
 
-        absoluteServletPath = request.getServerName()+servletPath;
+        absoluteServletPath = request.getServerName() + servletPath;
 
         isLoggedIn = !authentication.getUser().isAnonymous();
         //log.debug("servername: " + getServerName() + " servletpath:" + getServletPath() + " query: " +
@@ -99,11 +99,11 @@ public class SessionInfo implements Serializable {
     }
 
     public String getAbsoluteServletPath() {
-        return "http://"+absoluteServletPath;
+        return "http://" + absoluteServletPath;
     }
 
     public String getSecureAbsoluteServletPath() {
-        return "https://"+absoluteServletPath;
+        return "https://" + absoluteServletPath;
     }
 
     public String getQueryString() {
@@ -128,7 +128,6 @@ public class SessionInfo implements Serializable {
         }
         return groupnames;
     }
-
 
 
 }

@@ -1,19 +1,18 @@
 package com.topcoder.web.common;
 
-import com.topcoder.web.common.RequestProcessor;
-import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.web.common.security.BasicAuthentication;
-import com.topcoder.shared.security.User;
 import com.topcoder.shared.security.Resource;
-import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.TCException;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.security.WebAuthentication;
 
+import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.naming.Context;
-import java.util.HashMap;
-import java.util.ArrayList;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public abstract class BaseProcessor implements RequestProcessor {
 
@@ -63,8 +62,8 @@ public abstract class BaseProcessor implements RequestProcessor {
      * @return the user
      */
     protected User getUser() {
-        if (user==null)
-            user=auth.getActiveUser();
+        if (user == null)
+            user = auth.getActiveUser();
         return user;
     }
 
@@ -196,7 +195,7 @@ public abstract class BaseProcessor implements RequestProcessor {
     }
 
     protected boolean hasErrors() {
-        log.debug(errors.size() + " errors found\n"+errors.keySet());
+        log.debug(errors.size() + " errors found\n" + errors.keySet());
         return !errors.isEmpty();
     }
 
@@ -249,7 +248,7 @@ public abstract class BaseProcessor implements RequestProcessor {
     }
 
     public static void close(Context ctx) {
-        if (ctx!=null) {
+        if (ctx != null) {
             try {
                 ctx.close();
             } catch (Exception e) {

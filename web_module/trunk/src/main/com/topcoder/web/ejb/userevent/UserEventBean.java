@@ -6,8 +6,8 @@ import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
 import java.rmi.RemoteException;
-import java.sql.Date;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -52,39 +52,39 @@ public class UserEventBean extends BaseEJB {
 
     public ResultSetContainer getUserEventsByStatus(int statusId, String dataSource) throws RemoteException {
         return selectSet("user_event",
-                new String[] {"user_event_id", "user_id", "event_id", "status_id", "event_date"},
-                new String[] {"status_id"},
-                new String[] {String.valueOf(statusId)}, dataSource);
+                new String[]{"user_event_id", "user_id", "event_id", "status_id", "event_date"},
+                new String[]{"status_id"},
+                new String[]{String.valueOf(statusId)}, dataSource);
     }
 
     public void setUserEventStatus(long userEventId, int statusId, String dataSource) throws RemoteException {
         update("user_event",
-                new String[] {"status_id"},
-                new String[] {String.valueOf(statusId)},
-                new String[] {"user_event_id"},
-                new String[] {String.valueOf(userEventId)}, dataSource);
+                new String[]{"status_id"},
+                new String[]{String.valueOf(statusId)},
+                new String[]{"user_event_id"},
+                new String[]{String.valueOf(userEventId)}, dataSource);
     }
 
     public void setUserId(long userEventId, long userId, String dataSource) throws RemoteException {
         update("user_event",
-                new String[] {"user_id"},
-                new String[] {String.valueOf(userId)},
-                new String[] {"user_event_id"},
-                new String[] {String.valueOf(userEventId)}, dataSource);
+                new String[]{"user_id"},
+                new String[]{String.valueOf(userId)},
+                new String[]{"user_event_id"},
+                new String[]{String.valueOf(userEventId)}, dataSource);
     }
 
     public void setEventId(long userEventId, int eventId, String dataSource) throws RemoteException {
         update("user_event",
-                new String[] {"event_id"},
-                new String[] {String.valueOf(eventId)},
-                new String[] {"user_event_id"},
-                new String[] {String.valueOf(userEventId)}, dataSource);
+                new String[]{"event_id"},
+                new String[]{String.valueOf(eventId)},
+                new String[]{"user_event_id"},
+                new String[]{String.valueOf(userEventId)}, dataSource);
     }
 
     public void setEventDate(long userEventId, Date eventDate, String dataSource) throws RemoteException {
         updateDate("user_event", "event_date", eventDate,
-                new String[] {"user_event_id"},
-                new String[] {String.valueOf(userEventId)}, dataSource);
+                new String[]{"user_event_id"},
+                new String[]{String.valueOf(userEventId)}, dataSource);
 
     }
 
@@ -116,8 +116,8 @@ public class UserEventBean extends BaseEJB {
 
     public Date getEventDate(long userEventId, String dataSource) throws RemoteException {
         return selectDate("user_event", "event_date",
-                new String[] {"user_event_id"},
-                new String[] {String.valueOf(userEventId)}, dataSource);
+                new String[]{"user_event_id"},
+                new String[]{String.valueOf(userEventId)}, dataSource);
     }
 
 }

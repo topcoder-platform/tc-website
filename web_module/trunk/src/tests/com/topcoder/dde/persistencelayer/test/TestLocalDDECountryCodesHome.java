@@ -11,6 +11,7 @@ package com.topcoder.dde.persistencelayer.test;
 
 import com.topcoder.dde.persistencelayer.interfaces.LocalDDECountryCodesHome;
 import com.topcoder.dde.persistencelayer.interfaces.LocalDDECountryCodes;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.ejb.CreateException;
@@ -25,20 +26,20 @@ import javax.ejb.SessionContext;
  * @version 1.0
  */
 public class TestLocalDDECountryCodesHome extends PersistenceTestCase {
-    
+
     /* descriptions used for testing the create method */
     private static final String DEF_DESC =
             "A very interesting, but ephemeral, virtual country";
-    
+
     /* an instance of the a local home implementation to test with */
     private LocalDDECountryCodesHome localHome;
-    
+
     /**
      * a default constructor for use only by other test cases in this package
      */
     TestLocalDDECountryCodesHome() {
         this("testCreate");
-    } 
+    }
 
     /**
      * constructs an instance that will execute the specified test
@@ -64,42 +65,42 @@ public class TestLocalDDECountryCodesHome extends PersistenceTestCase {
      */
     public void setUp() throws Exception {
         super.setUp();
-        synchronized(contextLock) {
+        synchronized (contextLock) {
             localHome = (LocalDDECountryCodesHome) ctx.lookup(
                     LocalDDECountryCodesHome.EJB_REF_NAME);
         }
         assertNotNull("Obtained null local home implementation", localHome);
     }
-    
+
     /*
      * creates a LocalDDECountryCodes entity with default parameters
      */
     LocalDDECountryCodes createDefault() throws Exception {
         return localHome.create(DEF_DESC);
     }
-    
+
     /**
      * tests the basic operation of the create method
-     */    
+     */
     public void testCreate() throws Exception {
-        synchronized(TestLocalDDECountryCodesHome.class) {
+        synchronized (TestLocalDDECountryCodesHome.class) {
             LocalDDECountryCodes local = createDefault();
             assertNotNull(local);
             try {
                 assertEquals(DEF_DESC, local.getDescription());
                 transactionBoundary();
                 assertMatchesDB(new DDECountryCodesData(
-                        local.getPrimaryKey(), DEF_DESC) );
+                        local.getPrimaryKey(), DEF_DESC));
             } finally {
                 local.remove();
             }
         }
     }
-    
+
     /**
      * tests the operation of the create method when invoked with a
      * <code>null</code> description argument
-     */    
+     */
     public void testCreateNullDescription() throws Exception {
         try {
             LocalDDECountryCodes local = localHome.create(null);
@@ -111,20 +112,20 @@ public class TestLocalDDECountryCodesHome extends PersistenceTestCase {
             /* The expected behavior */
         }
     }
-    
+
     /**
      * tests the operation of the create method when invoked with an empty
      * description argument
      */
     public void testCreateEmptyDescription() throws Exception {
-        synchronized(TestLocalDDECountryCodesHome.class) {
+        synchronized (TestLocalDDECountryCodesHome.class) {
             LocalDDECountryCodes local = localHome.create("");
             assertNotNull(local);
             try {
                 assertEquals("", local.getDescription());
                 transactionBoundary();
                 assertMatchesDB(new DDECountryCodesData(
-                        local.getPrimaryKey(), "") );
+                        local.getPrimaryKey(), ""));
             } finally {
                 local.remove();
             }
@@ -138,8 +139,8 @@ public class TestLocalDDECountryCodesHome extends PersistenceTestCase {
     public void testFindByPrimaryKeyNormal() throws Exception {
         DDECountryCodesData rowData =
                 new DDECountryCodesData(nextId(), DEF_DESC);
-                
-        synchronized(TestLocalDDECountryCodesHome.class) {
+
+        synchronized (TestLocalDDECountryCodesHome.class) {
             ensureInDB(rowData);
             try {
                 LocalDDECountryCodes local =
@@ -147,13 +148,13 @@ public class TestLocalDDECountryCodesHome extends PersistenceTestCase {
                                 (Long) rowData.getPrimaryKey());
                 assertNotNull("findByPrimaryKey lookup failed", local);
                 assertEquals(rowData, new DDECountryCodesData(
-                        (Long)local.getPrimaryKey(), local.getDescription()) );
+                        (Long) local.getPrimaryKey(), local.getDescription()));
             } finally {
                 deleteRow(rowData);
             }
         }
     }
-    
+
     /**
      * tests that findByPrimaryKey throws the correct exception if the requested
      * object is not in the database
@@ -161,7 +162,7 @@ public class TestLocalDDECountryCodesHome extends PersistenceTestCase {
     public void testFindByPrimaryKeyMissing() throws Exception {
         DDECountryCodesData rowData =
                 new DDECountryCodesData(nextId(), DEF_DESC);
-        synchronized(TestLocalDDECountryCodesHome.class) {
+        synchronized (TestLocalDDECountryCodesHome.class) {
             deleteRow(rowData); // does nothing if the row doesn't exist
             try {
                 LocalDDECountryCodes local =
@@ -176,15 +177,15 @@ public class TestLocalDDECountryCodesHome extends PersistenceTestCase {
 
     /**
      * a <code>RowData</code> implementation for the CONTACT_TYPE table
-     */    
+     */
     class DDECountryCodesData implements RowData {
         long countryCode;
         String description;
-        
+
         DDECountryCodesData(Object id, String desc) {
             this(keyToLong(id), desc);
         }
-        
+
         DDECountryCodesData(long id, String desc) {
             countryCode = id;
             description = desc;
@@ -193,11 +194,11 @@ public class TestLocalDDECountryCodesHome extends PersistenceTestCase {
         DDECountryCodesData(ResultSet rs) throws SQLException {
             readRowData(rs);
         }
-        
+
         public Object getPrimaryKey() {
             return new Long(countryCode);
         }
-        
+
         public void storeRowData(ResultSet rs) throws SQLException {
             updateResultSet(rs);
             rs.updateRow();
@@ -209,20 +210,20 @@ public class TestLocalDDECountryCodesHome extends PersistenceTestCase {
             updateResultSet(rs);
             rs.insertRow();
         }
-    
+
         private void updateResultSet(ResultSet rs) throws SQLException {
             rs.updateString("DESCRIPTION", description);
         }
-        
+
         public void readRowData(ResultSet rs) throws SQLException {
             countryCode = rs.getLong("COUNTRY_CODE");
             description = rs.getString("DESCRIPTION");
         }
-    
+
         public boolean matchesResultSet(ResultSet rs) throws SQLException {
             return equals(new DDECountryCodesData(rs));
         }
-        
+
         public boolean equals(Object o) {
             if (o instanceof DDECountryCodesData) {
                 DDECountryCodesData d = (DDECountryCodesData) o;
@@ -232,5 +233,5 @@ public class TestLocalDDECountryCodesHome extends PersistenceTestCase {
             return false;
         }
     }
-    
+
 }

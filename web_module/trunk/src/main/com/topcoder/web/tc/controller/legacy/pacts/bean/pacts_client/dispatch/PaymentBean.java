@@ -11,7 +11,10 @@ package com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
-import com.topcoder.web.tc.controller.legacy.pacts.common.*;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeader;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeaderList;
 
 public class PaymentBean implements PactsConstants {
     private static Logger log = Logger.getLogger(PaymentBean.class);

@@ -7,14 +7,14 @@
  */
 package com.topcoder.web.corp.controller.request.screening;
 
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.corp.common.Constants;
-import com.topcoder.web.corp.common.Util;
-import com.topcoder.web.corp.common.ScreeningException;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.corp.common.Constants;
+import com.topcoder.web.corp.common.ScreeningException;
+import com.topcoder.web.corp.common.Util;
 
 import java.util.Map;
 
@@ -107,7 +107,7 @@ public class PositionList extends BaseScreeningProcessor {
 
             // Execute the request for campaign details
             log.debug("Getting the details for campaign : " + campaignId + ", company : " + companyId + ", user : "
-                + userId);
+                    + userId);
             map = Util.getDataAccess(false).getData(dr);
 
             // Notify the user if something went wrong

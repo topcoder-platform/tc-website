@@ -1,12 +1,10 @@
 package com.topcoder.web.ejb.query;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.web.ejb.BaseEJB;
-import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.util.idgenerator.IdGenerator;
-import com.topcoder.util.idgenerator.sql.SimpleDB;
+import com.topcoder.web.ejb.BaseEJB;
+import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
 
 import javax.ejb.EJBException;
 import javax.naming.Context;

@@ -4,21 +4,18 @@ import com.topcoder.common.web.data.Navigation;
 import com.topcoder.common.web.data.Problem;
 import com.topcoder.common.web.data.Room;
 import com.topcoder.common.web.data.Round;
-import com.topcoder.web.common.NavigationException;
 import com.topcoder.common.web.util.Conversion;
 import com.topcoder.common.web.xml.HTMLRenderer;
 import com.topcoder.ejb.ContestAdminServices.ContestAdminServices;
-import com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome;
 import com.topcoder.shared.docGen.xml.RecordTag;
 import com.topcoder.shared.docGen.xml.ValueTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.admin.XSLConstants;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.NavigationException;
 
-import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -102,7 +99,7 @@ public final class Challenge {
         try {
             InitialContext ctx = TCContext.getInitial();
             try {
-                contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
+                contestEJB = (ContestAdminServices) BaseProcessor.createEJB(ctx, ContestAdminServices.class);
                 int roundId = Integer.parseInt(request.getParameter("roundid"));
                 int filter = Integer.parseInt(request.getParameter("filter"));
                 roomList = contestEJB.getRoomList(roundId);
@@ -152,7 +149,7 @@ public final class Challenge {
         try {
             InitialContext ctx = TCContext.getInitial();
             try {
-                contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
+                contestEJB = (ContestAdminServices) BaseProcessor.createEJB(ctx, ContestAdminServices.class);
 
                 try {
                     constraintId = Integer.parseInt(request.getParameter("constraintid"));
@@ -249,7 +246,7 @@ public final class Challenge {
         try {
             InitialContext ctx = TCContext.getInitial();
             try {
-                contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
+                contestEJB = (ContestAdminServices) BaseProcessor.createEJB(ctx, ContestAdminServices.class);
 
                 try {
                     constraintId = Integer.parseInt(request.getParameter("constraintid"));
@@ -346,7 +343,7 @@ public final class Challenge {
         try {
             InitialContext ctx = TCContext.getInitial();
             try {
-                contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
+                contestEJB = (ContestAdminServices) BaseProcessor.createEJB(ctx, ContestAdminServices.class);
 
                 try {
                     constraintId = Integer.parseInt(request.getParameter("constraintid"));
@@ -438,7 +435,7 @@ public final class Challenge {
         try {
             InitialContext ctx = TCContext.getInitial();
             try {
-                contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
+                contestEJB = (ContestAdminServices) BaseProcessor.createEJB(ctx, ContestAdminServices.class);
                 int challengeId = Integer.parseInt(request.getParameter("remove"));
                 contestEJB.nullifyChallenge(challengeId);
             } catch (Exception e) {
@@ -467,7 +464,7 @@ public final class Challenge {
 
         try {
             InitialContext ctx = TCContext.getInitial();
-            contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
+            contestEJB = (ContestAdminServices) BaseProcessor.createEJB(ctx, ContestAdminServices.class);
             try {
                 int challengeId = Integer.parseInt(request.getParameter("overturn"));
                 contestEJB.overturnChallenge(challengeId);
@@ -501,7 +498,7 @@ public final class Challenge {
         try {
             InitialContext ctx = TCContext.getInitial();
             try {
-                contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
+                contestEJB = (ContestAdminServices) BaseProcessor.createEJB(ctx, ContestAdminServices.class);
                 int roundId = 0;
                 try {
                     roundId = Integer.parseInt(request.getParameter("roundid"));
@@ -576,7 +573,7 @@ public final class Challenge {
         try {
             InitialContext ctx = TCContext.getInitial();
             try {
-                contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
+                contestEJB = (ContestAdminServices) BaseProcessor.createEJB(ctx, ContestAdminServices.class);
                 try {
                     roundId = Integer.parseInt(request.getParameter("roundid"));
                 } catch (Exception ignore) {
@@ -662,7 +659,7 @@ public final class Challenge {
         try {
             InitialContext ctx = TCContext.getInitial();
             try {
-                contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
+                contestEJB = (ContestAdminServices) BaseProcessor.createEJB(ctx, ContestAdminServices.class);
                 roundList = contestEJB.getRoundList();
             } catch (Exception e) {
                 log.error("Challenge: getRoundMenuScreen error retrieving contest list .");

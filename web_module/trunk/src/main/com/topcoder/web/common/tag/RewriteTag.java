@@ -1,11 +1,10 @@
 package com.topcoder.web.common.tag;
 
-import java.io.IOException;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
+import java.io.IOException;
 
 
 public class RewriteTag extends TagSupport {
@@ -84,7 +83,7 @@ public class RewriteTag extends TagSupport {
             throw new JspException(e.getMessage());
         }
 
-        this.page=null;
+        this.page = null;
         this.href = null;
 
         return super.doEndTag();

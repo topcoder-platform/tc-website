@@ -1,7 +1,7 @@
 package com.topcoder.web.codinginterface.techassess.controller.request;
 
-import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.codinginterface.techassess.Constants;
 
 /**
  * User: rfairfax

@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
@@ -15,7 +15,9 @@ import com.topcoder.apps.review.projecttracker.Project;
 import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
 import com.topcoder.apps.review.projecttracker.User;
 import com.topcoder.apps.review.projecttracker.UserProjectInfo;
+
 import java.io.File;
+
 import junit.framework.TestCase;
 
 /**
@@ -29,27 +31,27 @@ public class ActionDataFailureTest extends TestCase {
      * Business delegate instance.
      */
     private BusinessDelegate businessDelegate = null;
-    
+
     /**
      * User instance for test.
      */
     private User user = null;
-    
+
     /**
      * UserProjectInfo instance for test.
      */
     private UserProjectInfo userProjectInfo = null;
-    
+
     /**
      * OnlineReviewData instance for test.
      */
     private OnlineReviewData ord = null;
-    
+
     /**
      * OnlineReviewProjectData instance for test.
      */
     private OnlineReviewProjectData orpd = null;
-    
+
     /**
      * Initialize the business delegate for the tests.
      */
@@ -57,55 +59,55 @@ public class ActionDataFailureTest extends TestCase {
         businessDelegate = new BusinessDelegate();
         businessDelegate.setUseMockup(true);
         user = businessDelegate.getUserByHandle("pzhao");
-        ord = new OnlineReviewData((SecurityEnabledUser)user);
-        
+        ord = new OnlineReviewData((SecurityEnabledUser) user);
+
         userProjectInfo = businessDelegate.getUserProjectInfos()[0];
-        orpd = new OnlineReviewProjectData((SecurityEnabledUser)user,
-                                           userProjectInfo);
+        orpd = new OnlineReviewProjectData((SecurityEnabledUser) user,
+                userProjectInfo);
     }
-    
+
     /**
      * Test the class LoginData with null arguments
      */
     public void testLoginData1() {
         LoginData data = null;
         try {
-            data = new LoginData((String)null, "pass");
+            data = new LoginData((String) null, "pass");
             fail("Should throw NullPointerException!");
         } catch (NullPointerException npe) {
             // success
         }
         assertEquals(null, data);
     }
-    
+
     /**
      * Test the class LoginData with null arguments
      */
     public void testLoginData2() {
         LoginData data = null;
         try {
-            data = new LoginData("user", (String)null);
+            data = new LoginData("user", (String) null);
             fail("Should throw NullPointerException!");
         } catch (NullPointerException npe) {
             // success
         }
         assertEquals(null, data);
     }
-    
+
     /**
      * Test the class LoginData with null arguments
      */
     public void testLoginData3() {
         LoginData data = null;
         try {
-            data = new LoginData((String)null, (String)null);
+            data = new LoginData((String) null, (String) null);
             fail("Should throw NullPointerException!");
         } catch (NullPointerException npe) {
             // success
         }
         assertEquals(null, data);
     }
-    
+
     /**
      * Test the constructor of class OnlineReviewData with null OnlineReviewData
      * parameter.
@@ -113,14 +115,14 @@ public class ActionDataFailureTest extends TestCase {
     public void testOnlineReviewData1() {
         OnlineReviewData data = null;
         try {
-            data = new OnlineReviewData((OnlineReviewData)null);
+            data = new OnlineReviewData((OnlineReviewData) null);
             fail("Should throw NullPointerException!");
         } catch (NullPointerException npe) {
             // success
         }
         assertEquals(null, data);
     }
-    
+
     /**
      * Test the constructor of class OnlineReviewData with null User
      * parameter.
@@ -128,14 +130,14 @@ public class ActionDataFailureTest extends TestCase {
     public void testOnlineReviewData2() {
         OnlineReviewData data = null;
         try {
-            data = new OnlineReviewData((SecurityEnabledUser)null);
+            data = new OnlineReviewData((SecurityEnabledUser) null);
             fail("Should throw NullPointerException!");
         } catch (NullPointerException npe) {
             // success
         }
         assertEquals(null, data);
     }
-    
+
     /**
      * Test the constructor of class OnlineReviewProjectData with null
      * OnlineReviewProjectData parameter
@@ -150,7 +152,7 @@ public class ActionDataFailureTest extends TestCase {
         }
         assertEquals(null, data);
     }
-    
+
     /**
      * Test the constructor of class OnlineReviewProjectData with null
      * UserProjectInfo and User parameters
@@ -165,7 +167,7 @@ public class ActionDataFailureTest extends TestCase {
         }
         assertEquals(null, data);
     }
-    
+
     /**
      * Test the constructor of class OnlineReviewProjectData with null
      * UserProjectInfo and User parameters
@@ -173,20 +175,20 @@ public class ActionDataFailureTest extends TestCase {
     public void testOnlineReviewProjectData3() {
         OnlineReviewProjectData data = null;
         try {
-            data = new OnlineReviewProjectData((SecurityEnabledUser)user, null);
+            data = new OnlineReviewProjectData((SecurityEnabledUser) user, null);
             fail("Should throw NullPointerException!");
         } catch (NullPointerException npe) {
             // success
         }
         assertEquals(null, data);
     }
-    
+
     /**
      * Test the constructor of class ScreeningData with null arguments
      */
     public void testScreeningData1() {
         ScreeningScorecard scorecard =
-            businessDelegate.getScreeningScorecards()[0];
+                businessDelegate.getScreeningScorecards()[0];
         ScreeningData data = null;
         try {
             data = new ScreeningData(null, 3L, scorecard);
@@ -196,7 +198,7 @@ public class ActionDataFailureTest extends TestCase {
         }
         assertEquals(null, data);
     }
-    
+
     /**
      * Test the constructor of class ScreeningData with null arguments
      */
@@ -210,13 +212,13 @@ public class ActionDataFailureTest extends TestCase {
         }
         assertEquals(null, data);
     }
-    
+
     /**
      * Test the constructor of the class ReviewData
      */
     public void testReviewData1() {
         ReviewScorecard scorecard =
-            businessDelegate.getReviewScorecards()[0];
+                businessDelegate.getReviewScorecards()[0];
         ReviewData data = null;
         try {
             data = new ReviewData(null, 2L, 3L, scorecard);
@@ -226,7 +228,7 @@ public class ActionDataFailureTest extends TestCase {
         }
         assertEquals(null, data);
     }
-    
+
     /**
      * Test the constructor of the class ReviewData
      */
@@ -240,13 +242,13 @@ public class ActionDataFailureTest extends TestCase {
         }
         assertEquals(null, data);
     }
-    
+
     /**
      * Test the constructor of the class TestCaseReviewData.
      */
     public void testTestCaseReviewData1() {
         TestCaseReview[] testCaseReviews =
-            businessDelegate.getTestCaseReviews();
+                businessDelegate.getTestCaseReviews();
         TestCaseReviewData data = null;
         try {
             data = new TestCaseReviewData(null, testCaseReviews);
@@ -256,7 +258,7 @@ public class ActionDataFailureTest extends TestCase {
         }
         assertEquals(null, data);
     }
-    
+
     /**
      * Test the constructor of the class TestCaseReviewData.
      */
@@ -269,15 +271,15 @@ public class ActionDataFailureTest extends TestCase {
             // success
         }
         assertEquals(null, data);
-        
+
     }
-    
+
     /**
      * Test the class AggregationData.
      */
     public void testAggregationData1() {
         AggregationWorksheet aggregationWorksheet =
-            businessDelegate.getAggregationWorksheet();
+                businessDelegate.getAggregationWorksheet();
         AggregationData data = null;
         try {
             data = new AggregationData(null, aggregationWorksheet);
@@ -287,7 +289,7 @@ public class ActionDataFailureTest extends TestCase {
         }
         assertEquals(null, data);
     }
-    
+
     /**
      * Test the class AggregationData.
      */
@@ -301,13 +303,13 @@ public class ActionDataFailureTest extends TestCase {
         }
         assertEquals(null, data);
     }
-    
+
     /**
      * Test the class AggregationReviewData.
      */
     public void testAggregationReviewData1() {
         AggregationReview aggregationReview =
-            businessDelegate.getAggregationReviews()[0];
+                businessDelegate.getAggregationReviews()[0];
         AggregationReviewData data = null;
         try {
             data = new AggregationReviewData(null, aggregationReview);
@@ -317,7 +319,7 @@ public class ActionDataFailureTest extends TestCase {
         }
         assertEquals(null, data);
     }
-    
+
     /**
      * Test the class AggregationReviewData.
      */
@@ -331,7 +333,7 @@ public class ActionDataFailureTest extends TestCase {
         }
         assertEquals(null, data);
     }
-    
+
     /**
      * Test the class FinalReviewData.
      */
@@ -346,7 +348,7 @@ public class ActionDataFailureTest extends TestCase {
         }
         assertEquals(null, data);
     }
-    
+
     /**
      * Test the class FinalReviewData.
      */
@@ -360,7 +362,7 @@ public class ActionDataFailureTest extends TestCase {
         }
         assertEquals(null, data);
     }
-    
+
     /**
      * Test the class ScreeningScorecardsData.
      */
@@ -374,7 +376,7 @@ public class ActionDataFailureTest extends TestCase {
         }
         assertEquals(null, data);
     }
-    
+
     /**
      * Test the class ReviewScorecardsData.
      */
@@ -388,7 +390,7 @@ public class ActionDataFailureTest extends TestCase {
         }
         assertEquals(null, data);
     }
-    
+
     /**
      * Test the class SolutionData.
      */
@@ -404,7 +406,7 @@ public class ActionDataFailureTest extends TestCase {
         }
         assertEquals(null, data);
     }
-    
+
     /**
      * Test the class SolutionData.
      */
@@ -419,7 +421,7 @@ public class ActionDataFailureTest extends TestCase {
         }
         assertEquals(null, data);
     }
-    
+
     /**
      * Test the class SolutionData.
      */
@@ -434,7 +436,7 @@ public class ActionDataFailureTest extends TestCase {
         }
         assertEquals(null, data);
     }
-    
+
     /**
      * Test the class ProjectData.
      */
@@ -449,7 +451,7 @@ public class ActionDataFailureTest extends TestCase {
         }
         assertEquals(null, data);
     }
-    
+
     /**
      * Test the class ProjectData.
      */
@@ -463,7 +465,7 @@ public class ActionDataFailureTest extends TestCase {
         }
         assertEquals(null, data);
     }
-    
+
     /**
      * Test the class ProjectData.
      */
@@ -478,7 +480,7 @@ public class ActionDataFailureTest extends TestCase {
         }
         assertEquals(null, data);
     }
-    
+
     /**
      * Test the class ContactPMData.
      */
@@ -492,7 +494,7 @@ public class ActionDataFailureTest extends TestCase {
         }
         assertEquals(null, data);
     }
-    
+
     /**
      * Test the class ContactPMData.
      */
@@ -506,7 +508,7 @@ public class ActionDataFailureTest extends TestCase {
         }
         assertEquals(null, data);
     }
-    
+
     /**
      * Test the class ContactPMData.
      */

@@ -3,43 +3,44 @@ package com.topcoder.web.tc.controller.legacy;
 
 import com.topcoder.common.web.constant.TCServlet;
 import com.topcoder.common.web.data.Navigation;
-import com.topcoder.web.common.NavigationException;
 import com.topcoder.common.web.util.Conversion;
 import com.topcoder.common.web.util.Data;
 import com.topcoder.common.web.xml.HTMLRenderer;
+import com.topcoder.dde.catalog.*;
+import com.topcoder.dde.user.UserManagerRemote;
+import com.topcoder.dde.user.UserManagerRemoteHome;
 import com.topcoder.security.RolePrincipal;
 import com.topcoder.security.UserPrincipal;
-import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.admin.PrincipalMgrRemoteHome;
+import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.docGen.xml.RecordTag;
 import com.topcoder.shared.docGen.xml.ValueTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
+import com.topcoder.shared.security.PathResource;
+import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.*;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.dataAccess.*;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.security.SimpleUser;
-import com.topcoder.shared.security.PathResource;
-
-import com.topcoder.dde.catalog.*;
-import com.topcoder.dde.user.UserManagerRemoteHome;
-import com.topcoder.dde.user.UserManagerRemote;
-import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.tc.controller.request.development.Base;
-import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.model.SoftwareComponent;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServices;
-
-import javax.rmi.PortableRemoteObject;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.request.development.Base;
+import com.topcoder.web.tc.model.SoftwareComponent;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.rmi.PortableRemoteObject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.Map;
-
-import java.util.*;
 
 public final class TaskDevelopment {
 

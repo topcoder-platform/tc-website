@@ -1,7 +1,7 @@
 /*
  * MyLoginLocalHome.java 1.0 6/30/2003
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review.failuretests.mockups;
 
@@ -28,6 +28,6 @@ public class MyLoginLocalHome extends EJBHomeBase implements LoginLocalHome {
      * <p>Returns a new instance of MyLoginLocal.</p>
      */
     public LoginLocal create() throws CreateException {
-        return(new MyLoginLocal());
+        return (new MyLoginLocal());
     }
 }

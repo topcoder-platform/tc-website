@@ -1,7 +1,7 @@
 package com.topcoder.web.query.servlet.jsp.tag;
 
-import com.topcoder.web.query.bean.QueryBean;
 import com.topcoder.web.common.tag.SelectTag;
+import com.topcoder.web.query.bean.QueryBean;
 
 import javax.servlet.jsp.JspException;
 import java.util.List;
@@ -19,11 +19,11 @@ public class QuerySelect extends SelectTag {
     }
 
     protected String getOptionValue(Object o) {
-        return ""+((QueryBean)o).getQueryId();
+        return "" + ((QueryBean) o).getQueryId();
     }
 
     protected String getOptionText(Object o) {
-        return ((QueryBean)o).getName();
+        return ((QueryBean) o).getName();
     }
 
     protected List getSelectOptions() throws JspException {

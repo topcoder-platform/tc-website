@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
@@ -7,10 +7,10 @@ import com.topcoder.util.log.Level;
 import com.topcoder.util.log.Log;
 import com.topcoder.util.log.LogException;
 import com.topcoder.util.log.LogFactory;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.util.Date;
 
 /**
  * Helper class for logging using the Logging Wrapper component.
@@ -34,7 +34,7 @@ class LogHelper {
             log("BL starts logging ...");
         } catch (LogException e) {
             System.err.println("Exception " + e.toString() + ": " + e.getMessage() + " while logging. "
-                               + "Please check the Logging Wrapper configuration");
+                    + "Please check the Logging Wrapper configuration");
         }
     }
 

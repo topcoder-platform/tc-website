@@ -1,10 +1,11 @@
 package com.topcoder.web.tc.controller.legacy.pacts.bean;
 
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.web.tc.controller.legacy.pacts.common.*;
-import com.topcoder.web.ejb.pacts.*;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.ejb.pacts.PactsServices;
+import com.topcoder.web.ejb.pacts.PactsServicesBean;
+import com.topcoder.web.tc.controller.legacy.pacts.common.*;
 
 import javax.jms.JMSException;
 import javax.naming.InitialContext;
@@ -14,7 +15,9 @@ import java.rmi.RemoteException;
 import java.sql.SQLException;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
 
 /**
  * This class receives incoming requests from the dispatch beans
@@ -60,7 +63,7 @@ public class DataInterfaceBean implements PactsConstants {
     private PactsServices getEjbHandle() throws RemoteException {
         try {
             InitialContext c = TCContext.getInitial();
-            return (PactsServices)BaseProcessor.createEJB(c, PactsServices.class);
+            return (PactsServices) BaseProcessor.createEJB(c, PactsServices.class);
         } catch (Exception e) {
             e.printStackTrace();
             throw new RemoteException(e.getMessage());
@@ -1265,15 +1268,16 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServices ps = getEjbHandle();
         return ps.hasNotarizedAffidavit(userId, affidavitTypeId);
     }
+
     public boolean hasAllDemographicAnswers(long userId) throws RemoteException, SQLException {
         PactsServices ps = getEjbHandle();
         return ps.hasAllDemographicAnswers(userId);
     }
+
     public boolean hasTaxForm(long userId) throws RemoteException, SQLException {
         PactsServices ps = getEjbHandle();
         return ps.hasTaxForm(userId);
     }
-
 
 
     /**

@@ -29,7 +29,7 @@ public interface School extends EJBObject {
 
     public long createSchool(String dataSource, String idDataSource, String sortLetter, String city, String country, long userId, String name)
             throws EJBException, RemoteException;
-    
+
     public long getSchoolId(String name, String dataSource)
             throws EJBException, RemoteException;
 }

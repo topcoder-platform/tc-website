@@ -9,6 +9,7 @@
 package com.topcoder.dde.persistencelayer.test;
 
 import com.topcoder.dde.persistencelayer.interfaces.*;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -30,7 +31,7 @@ public class TestLocalDDECompCatalogHome extends PersistenceTestCase {
 
     /* an instance of the localHome interface implementation to work with */
     private LocalDDECompCatalogHome localHome;
-    
+
     /* default field values for entity instances */
     static final long DEF_VERSION = 42L;
     static final String DEF_NAME = "TEST COMPONENT";
@@ -41,14 +42,14 @@ public class TestLocalDDECompCatalogHome extends PersistenceTestCase {
             new Timestamp(System.currentTimeMillis());
     static final long DEF_STATUS = 1L;
     static final String DEF_SHORT = "imaginary component";
-    static final String DEF_FUNC =  "frobs widgets";
+    static final String DEF_FUNC = "frobs widgets";
 
     /**
      * a default constructor for use only by other test cases in this package
      */
     TestLocalDDECompCatalogHome() {
         this("testCreate");
-    } 
+    }
 
     /**
      * constructs a new TestLocalDDECompCatalogHome configured to run the named
@@ -56,7 +57,7 @@ public class TestLocalDDECompCatalogHome extends PersistenceTestCase {
      */
     public TestLocalDDECompCatalogHome(String testName) {
         this(testName, null);
-    } 
+    }
 
     /**
      * constructs a new TestLocalDDECategoriesHome configured to run the named
@@ -72,7 +73,7 @@ public class TestLocalDDECompCatalogHome extends PersistenceTestCase {
      */
     public void setUp() throws Exception {
         super.setUp();
-        synchronized(contextLock) {
+        synchronized (contextLock) {
             localHome = (LocalDDECompCatalogHome) ctx.lookup(
                     LocalDDECompCatalogHome.EJB_REF_NAME);
         }
@@ -83,16 +84,16 @@ public class TestLocalDDECompCatalogHome extends PersistenceTestCase {
      */
     LocalDDECompCatalog createDefault() throws Exception {
         return localHome.create(DEF_VERSION, DEF_NAME, DEF_DESC, DEF_CREATE,
-                DEF_STATUS, DEF_SHORT, DEF_FUNC,0);
+                DEF_STATUS, DEF_SHORT, DEF_FUNC, 0);
     }
-    
+
     /**
      * tests the basic entity creation functionality of the bean
      */
     public void testCreate() throws Exception {
-        synchronized(TestLocalDDECompCatalogHome.class) {
+        synchronized (TestLocalDDECompCatalogHome.class) {
             LocalDDECompCatalog local = createDefault();
-            assertNotNull("local bean reference is null" , local);
+            assertNotNull("local bean reference is null", local);
             try {
                 assertEquals(DEF_VERSION, local.getCurrentVersion());
                 assertEquals(DEF_NAME, local.getComponentName());
@@ -110,11 +111,11 @@ public class TestLocalDDECompCatalogHome extends PersistenceTestCase {
             }
         }
     }
-    
+
     /**
      * tests creation of a new DDECategory entity with a status that is not in
      * the status table
-     */    
+     */
     public void testCreateInvalidStatus() throws Exception {
         try {
             LocalDDECompCatalog local = localHome.create(DEF_VERSION, DEF_NAME,
@@ -128,7 +129,7 @@ public class TestLocalDDECompCatalogHome extends PersistenceTestCase {
 
     /**
      * tests creation of a new DDECategory entity with a null name
-     */    
+     */
     public void testCreateNullName() throws Exception {
         try {
             LocalDDECompCatalog local = localHome.create(DEF_VERSION, null,
@@ -142,7 +143,7 @@ public class TestLocalDDECompCatalogHome extends PersistenceTestCase {
 
     /**
      * tests creation of a new DDECategory entity with a null description
-     */    
+     */
     public void testCreateNullDescription() throws Exception {
         try {
             LocalDDECompCatalog local = localHome.create(DEF_VERSION, DEF_NAME,
@@ -156,7 +157,7 @@ public class TestLocalDDECompCatalogHome extends PersistenceTestCase {
 
     /**
      * tests creation of a new DDECategory entity with a null creation time
-     */    
+     */
     public void testCreateNullCreateTime() throws Exception {
         try {
             LocalDDECompCatalog local = localHome.create(DEF_VERSION, DEF_NAME,
@@ -176,7 +177,7 @@ public class TestLocalDDECompCatalogHome extends PersistenceTestCase {
         DDECompCatalogData rowData =
                 new DDECompCatalogData(nextId(), DEF_VERSION, DEF_SHORT, DEF_NAME,
                         DEF_DESC, DEF_FUNC, DEF_CREATE, DEF_STATUS);
-        synchronized(TestLocalDDECompCatalogHome.class) {
+        synchronized (TestLocalDDECompCatalogHome.class) {
             ensureInDB(rowData);
             try {
                 LocalDDECompCatalog local =
@@ -187,13 +188,13 @@ public class TestLocalDDECompCatalogHome extends PersistenceTestCase {
                         local.getPrimaryKey(), local.getCurrentVersion(),
                         local.getShortDesc(), local.getComponentName(),
                         local.getDescription(), local.getFunctionDesc(),
-                        local.getCreateTime(), local.getStatusId()) );
+                        local.getCreateTime(), local.getStatusId()));
             } finally {
                 deleteRow(rowData);
             }
         }
     }
-    
+
     /**
      * tests that findByPrimaryKey throws the correct exception if the requested
      * object is not in the database
@@ -202,7 +203,7 @@ public class TestLocalDDECompCatalogHome extends PersistenceTestCase {
         DDECompCatalogData rowData =
                 new DDECompCatalogData(nextId(), DEF_VERSION, DEF_SHORT, DEF_NAME,
                         DEF_DESC, DEF_FUNC, DEF_CREATE, DEF_STATUS);
-        synchronized(TestLocalDDECompCatalogHome.class) {
+        synchronized (TestLocalDDECompCatalogHome.class) {
             deleteRow(rowData); // does nothing if the row doesn't exist
             try {
                 LocalDDECompCatalog local =
@@ -238,15 +239,15 @@ public class TestLocalDDECompCatalogHome extends PersistenceTestCase {
         String functionDesc;
         Timestamp createTime;
         long statusId;
-        
+
         DDECompCatalogData(Object id, long version, String shortd, String name,
-                String desc, String function, Timestamp create, long status) {
+                           String desc, String function, Timestamp create, long status) {
             this(keyToLong(id), version, shortd, name, desc, function,
-                 create, status);
+                    create, status);
         }
-        
+
         DDECompCatalogData(long id, long version, String shortd, String name,
-                String desc, String function, Timestamp create, long status) {
+                           String desc, String function, Timestamp create, long status) {
             componentId = id;
             currentVersion = version;
             shortDesc = shortd;
@@ -256,11 +257,11 @@ public class TestLocalDDECompCatalogHome extends PersistenceTestCase {
             createTime = (Timestamp) create.clone();
             statusId = status;
         }
-        
+
         DDECompCatalogData(ResultSet rs) throws SQLException {
             readRowData(rs);
         }
-        
+
         public Object getPrimaryKey() {
             return new Long(componentId);
         }
@@ -274,19 +275,19 @@ public class TestLocalDDECompCatalogHome extends PersistenceTestCase {
             rs.updateTimestamp("CREATE_TIME", createTime);
             rs.updateLong("STATUS_ID", statusId);
         }
-        
+
         public void storeRowData(ResultSet rs) throws SQLException {
             updateResultSet(rs);
             rs.updateRow();
         }
-        
+
         public void insertRowData(ResultSet rs) throws SQLException {
             rs.moveToInsertRow();
             rs.updateLong("COMPONENT_ID", componentId);
             updateResultSet(rs);
             rs.insertRow();
         }
-        
+
         public void readRowData(ResultSet rs) throws SQLException {
             componentId = rs.getLong("COMPONENT_ID");
             currentVersion = rs.getLong("CURRENT_VERSION");
@@ -297,27 +298,27 @@ public class TestLocalDDECompCatalogHome extends PersistenceTestCase {
             createTime = rs.getTimestamp("CREATE_TIME");
             statusId = rs.getLong("STATUS_ID");
         }
-        
+
         public boolean matchesResultSet(ResultSet rs) throws SQLException {
             return equals(new DDECompCatalogData(rs));
         }
-        
+
         public boolean equals(Object o) {
-            if (! (o instanceof DDECompCatalogData) ) {
+            if (!(o instanceof DDECompCatalogData)) {
                 return false;
             }
             DDECompCatalogData d = (DDECompCatalogData) o;
             return (
-                (componentId == d.componentId)
-                && (currentVersion == d.currentVersion)
-                && objectsMatch(shortDesc, d.shortDesc)
-                && objectsMatch(componentName, d.componentName)
-                && objectsMatch(description, d.description)
-                && objectsMatch(functionDesc, d.functionDesc)
-                && objectsMatch(createTime, d.createTime)
-                && (statusId == d.statusId) );
+                    (componentId == d.componentId)
+                    && (currentVersion == d.currentVersion)
+                    && objectsMatch(shortDesc, d.shortDesc)
+                    && objectsMatch(componentName, d.componentName)
+                    && objectsMatch(description, d.description)
+                    && objectsMatch(functionDesc, d.functionDesc)
+                    && objectsMatch(createTime, d.createTime)
+                    && (statusId == d.statusId));
         }
-        
+
     }
 
 }

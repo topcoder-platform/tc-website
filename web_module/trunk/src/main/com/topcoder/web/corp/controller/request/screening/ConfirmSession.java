@@ -1,10 +1,9 @@
 package com.topcoder.web.corp.controller.request.screening;
 
-import com.topcoder.web.corp.common.Constants;
-import com.topcoder.web.corp.controller.request.screening.BaseSessionProcessor;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.corp.common.Constants;
 
 public class ConfirmSession extends BaseSessionProcessor {
     protected void screeningProcessing() throws TCWebException {

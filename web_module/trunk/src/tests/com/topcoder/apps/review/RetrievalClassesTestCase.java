@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
@@ -43,7 +43,7 @@ public class RetrievalClassesTestCase extends TestCase {
      * @throws Exception propagate exceptions to JUnit
      */
     public void testAggregationReviewRetrieval() throws Exception {
-        AggregationReview[] ars = new AggregationReview[] {MockupData.aggregationreview};
+        AggregationReview[] ars = new AggregationReview[]{MockupData.aggregationreview};
         AggregationReviewRetrieval arr = new AggregationReviewRetrieval(ars);
         assertTrue(ars == arr.getAggregationReviews());
     }
@@ -100,7 +100,7 @@ public class RetrievalClassesTestCase extends TestCase {
     public void testProjectRetrieval() throws Exception {
         Project p = MockupData.proj1;
         AbstractScorecard[] ascs = MockupData.reviews;
-        AbstractSubmission[] asbs = new AbstractSubmission[] {MockupData.submission};
+        AbstractSubmission[] asbs = new AbstractSubmission[]{MockupData.submission};
         ProjectRetrieval pr = new ProjectRetrieval(p, ascs, asbs);
         assertTrue(p == pr.getProject());
         assertTrue(ascs == pr.getScorecards());
@@ -157,7 +157,7 @@ public class RetrievalClassesTestCase extends TestCase {
      * @throws Exception propagate exceptions to JUnit
      */
     public void testScreeningScorecardsRetrieval() throws Exception {
-        ScreeningScorecard[] sss = new ScreeningScorecard[] {MockupData.screening};
+        ScreeningScorecard[] sss = new ScreeningScorecard[]{MockupData.screening};
         ScreeningScorecardsRetrieval ssr = new ScreeningScorecardsRetrieval(sss);
         assertTrue(sss == ssr.getScorecards());
     }
@@ -169,7 +169,7 @@ public class RetrievalClassesTestCase extends TestCase {
      */
     public void testTestCaseReviewRetrieval() throws Exception {
         com.topcoder.apps.review.document.TestCaseReview[] tcrs
-            = new com.topcoder.apps.review.document.TestCaseReview[] {MockupData.testreview};
+                = new com.topcoder.apps.review.document.TestCaseReview[]{MockupData.testreview};
         TestCaseReviewRetrieval tcrr = new TestCaseReviewRetrieval(tcrs);
         assertTrue(tcrs == tcrr.getTestCaseReviews());
     }

@@ -1,7 +1,7 @@
 /*
  * MyPolicyRemote.java 1.0 6/30/2003
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review.failuretests.mockups;
 
@@ -28,16 +28,16 @@ import com.topcoder.security.policy.PermissionCollection;
  */
 public class MyPolicyRemote extends EJBBase implements PolicyRemote {
     // PolicyRemote methods
-    
-    public boolean checkPermission(TCSubject subject, 
+
+    public boolean checkPermission(TCSubject subject,
                                    TCPermission permission) throws
-                                   RemoteException, GeneralSecurityException {
-        return(MyPolicyImpl.checkPermission(subject,permission));
+            RemoteException, GeneralSecurityException {
+        return (MyPolicyImpl.checkPermission(subject, permission));
     }
 
-    public boolean checkPermissions(TCSubject subject, 
-                                    PermissionCollection permissions)  throws
-                                    RemoteException, GeneralSecurityException {
-        return(MyPolicyImpl.checkPermissions(subject,permissions));
+    public boolean checkPermissions(TCSubject subject,
+                                    PermissionCollection permissions) throws
+            RemoteException, GeneralSecurityException {
+        return (MyPolicyImpl.checkPermissions(subject, permissions));
     }
 }

@@ -1,7 +1,9 @@
 package com.topcoder.web.email.bean;
 
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
 
 
 /**

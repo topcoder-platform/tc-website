@@ -53,15 +53,21 @@
  * individuals on behalf of CoolServlets.com. For more information
  * on CoolServlets.com, please see <http://www.coolservlets.com>.
  */
- 
+
 package com.coolservlets.forum.database;
 
-import java.util.*;
-import java.sql.*;
-import com.topcoder.shared.util.logging.Logger;
+import com.coolservlets.forum.ForumThread;
+import com.coolservlets.forum.ForumThreadNotFoundException;
 import com.topcoder.shared.util.DBMS;
-import com.coolservlets.util.*;
-import com.coolservlets.forum.*;
+import com.topcoder.shared.util.logging.Logger;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.ListIterator;
 
 /**
  * Database implementation to iterate through threads in a forum.
@@ -75,26 +81,25 @@ public class DbForumIterator implements Iterator, ListIterator {
 
     /** DATABASE QUERIES **/
     private static final String GET_THREADS =
-      " SELECT threadID" +
-             " ,creationDate" +
-             " ,modifiedDate" + 
-        " FROM jiveThread" +
-       " WHERE forumID = ?" +
-       " ORDER BY modifiedDate DESC";
+            " SELECT threadID" +
+            " ,creationDate" +
+            " ,modifiedDate" +
+            " FROM jiveThread" +
+            " WHERE forumID = ?" +
+            " ORDER BY modifiedDate DESC";
 
     //A reference to the forum object that the iterator was created from.
     //This is used to load thread objects.
     private DbForum forum;
     //maintain an array of thread ids to iterator through.
-    private int [] threads;
+    private int[] threads;
     //points to the current thread id that the user has iterated to.
     private int currentIndex = -1;
     private static Logger log = Logger.getLogger(DbForumIterator.class);
 
     DbForumFactory factory;
 
-    public DbForumIterator(DbForum forum, DbForumFactory factory)
-    {
+    public DbForumIterator(DbForum forum, DbForumFactory factory) {
         this.forum = forum;
         this.factory = factory;
         //We don't know how many results will be returned, so store them
@@ -105,31 +110,34 @@ public class DbForumIterator implements Iterator, ListIterator {
         try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(GET_THREADS);
-            ps.setInt(1,forum.getID());
+            ps.setInt(1, forum.getID());
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
                 tempThreads.add(new Integer(rs.getInt("threadID")));
             }
-        }
-        catch( SQLException sqle ) {
+        } catch (SQLException sqle) {
             System.err.println("Error in DbThreadIterator:constructor()-" + sqle);
-        }
-        finally {
-            try {  ps.close(); }
-            catch (Exception e) { e.printStackTrace(); }
-            try {  conn.close();   }
-            catch (Exception e) { e.printStackTrace(); }
+        } finally {
+            try {
+                ps.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                conn.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         threads = new int[tempThreads.size()];
-        for (int i=0; i<threads.length; i++) {
-            threads[i] = ((Integer)tempThreads.get(i)).intValue();
+        for (int i = 0; i < threads.length; i++) {
+            threads[i] = ((Integer) tempThreads.get(i)).intValue();
         }
     }
 
     public DbForumIterator(DbForum forum, DbForumFactory factory,
-            int startIndex, int numResults)
-    {
+                           int startIndex, int numResults) {
         this.forum = forum;
         this.factory = factory;
 
@@ -145,37 +153,46 @@ public class DbForumIterator implements Iterator, ListIterator {
         try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(GET_THREADS);
-            ps.setInt(1,forum.getID());
+            ps.setInt(1, forum.getID());
             rs = ps.executeQuery();
 
             //Move to start of index
-            for (int i=0; i<startIndex; i++) {
+            for (int i = 0; i < startIndex; i++) {
                 rs.next();
             }
             //Now read in desired number of results
-            for (int i=0; i<numResults; i++) {
+            for (int i = 0; i < numResults; i++) {
                 if (rs.next()) {
                     tempThreads[threadCount] = rs.getInt("threadID");
                     threadCount++;
-                }
-                else {
+                } else {
                     break;
                 }
             }
-        }
-        catch( SQLException sqle ) {
+        } catch (SQLException sqle) {
             System.err.println("Error in DbThreadIterator:constructor()-" + sqle);
-        }
-        finally {
-          try { if (rs   != null) rs.close();  } catch (Exception ignore) {log.debug("rs   close problem");}
-          try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
-          try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
-          rs = null; 
-          ps = null; 
-          conn = null; 
+        } finally {
+            try {
+                if (rs != null) rs.close();
+            } catch (Exception ignore) {
+                log.debug("rs   close problem");
+            }
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception ignore) {
+                log.debug("ps   close problem");
+            }
+            try {
+                if (conn != null) conn.close();
+            } catch (Exception ignore) {
+                log.debug("conn close problem");
+            }
+            rs = null;
+            ps = null;
+            conn = null;
         }
         threads = new int[threadCount];
-        for (int i=0; i<threadCount; i++) {
+        for (int i = 0; i < threadCount; i++) {
             threads[i] = tempThreads[i];
         }
     }
@@ -185,7 +202,7 @@ public class DbForumIterator implements Iterator, ListIterator {
     }
 
     public boolean hasNext() {
-        return (currentIndex+1 < threads.length);
+        return (currentIndex + 1 < threads.length);
     }
 
     public boolean hasPrevious() {
@@ -201,15 +218,14 @@ public class DbForumIterator implements Iterator, ListIterator {
         }
         try {
             thread = forum.getThread(threads[currentIndex]);
-        }
-        catch (ForumThreadNotFoundException tnfe) {
+        } catch (ForumThreadNotFoundException tnfe) {
             System.err.println(tnfe);
         }
         return thread;
     }
 
     public int nextIndex() {
-        return currentIndex+1;
+        return currentIndex + 1;
     }
 
     public Object previous() throws java.util.NoSuchElementException {
@@ -221,15 +237,14 @@ public class DbForumIterator implements Iterator, ListIterator {
         }
         try {
             thread = forum.getThread(threads[currentIndex]);
-        }
-        catch (ForumThreadNotFoundException tnfe) {
+        } catch (ForumThreadNotFoundException tnfe) {
             System.err.println(tnfe);
         }
         return thread;
     }
 
     public int previousIndex() {
-        return currentIndex-1;
+        return currentIndex - 1;
     }
 
     public void remove() throws UnsupportedOperationException {

@@ -1,43 +1,43 @@
 package com.topcoder.web.corp.controller;
 
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCSEmailMessage;
-import com.topcoder.shared.util.EmailEngine;
-import com.topcoder.shared.security.Authorization;
-import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.security.*;
+import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.shared.distCache.CacheClient;
+import com.topcoder.shared.distCache.CacheClientFactory;
+import com.topcoder.shared.security.Authorization;
+import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.EmailEngine;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.TCSEmailMessage;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.*;
+import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.common.security.TCSAuthorization;
+import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.corp.Constants;
 import com.topcoder.web.corp.Util;
 import com.topcoder.web.corp.model.TransactionInfo;
-import com.topcoder.web.ejb.product.*;
+import com.topcoder.web.ejb.address.Address;
+import com.topcoder.web.ejb.address.AddressHome;
+import com.topcoder.web.ejb.product.Purchase;
+import com.topcoder.web.ejb.product.PurchaseHome;
 import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.web.ejb.termsofuse.TermsOfUseHome;
-import com.topcoder.web.ejb.user.*;
-import com.topcoder.web.ejb.address.AddressHome;
-import com.topcoder.web.ejb.address.Address;
-import com.topcoder.web.common.security.SessionPersistor;
-import com.topcoder.web.common.security.BasicAuthentication;
-import com.topcoder.web.common.security.TCSAuthorization;
-import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.web.common.*;
-import com.topcoder.security.GeneralSecurityException;
-import com.topcoder.security.NoSuchUserException;
-import com.topcoder.security.RolePrincipal;
-import com.topcoder.security.TCSubject;
-import com.topcoder.security.NotAuthorizedException;
-import com.topcoder.security.UserPrincipal;
-import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.web.ejb.user.UserAddress;
+import com.topcoder.web.ejb.user.UserAddressHome;
+import com.topcoder.web.ejb.user.UserTermsOfUse;
+import com.topcoder.web.ejb.user.UserTermsOfUseHome;
 
 import javax.ejb.CreateException;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.rmi.PortableRemoteObject;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -45,13 +45,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpUtils;
 import javax.transaction.Transaction;
-import javax.rmi.PortableRemoteObject;
-
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.sql.Date;
-import java.util.*;
 import java.text.DecimalFormat;
+import java.util.*;
 
 /**
  * Credit card transaction servlet. Used for both client and VeriSign
@@ -148,7 +146,7 @@ public class TransactionServlet extends HttpServlet {
             try {
                 SessionPersistor store = new SessionPersistor(req.getSession(true));
                 auth = new BasicAuthentication(store, tcRequest, tcResponse, BasicAuthentication.CORP_SITE);
-                String retPage = txStatus(req,auth);
+                String retPage = txStatus(req, auth);
                 req.getRequestDispatcher(retPage).forward(req, resp);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -239,7 +237,7 @@ public class TransactionServlet extends HttpServlet {
             try {
                 SessionPersistor store = new SessionPersistor(request.getSession(true));
                 auth = new BasicAuthentication(store, tcRequest, tcResponse, BasicAuthentication.CORP_SITE);
-                String retPage = txStatus(request,auth);
+                String retPage = txStatus(request, auth);
                 response.sendRedirect(retPage);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -319,10 +317,12 @@ public class TransactionServlet extends HttpServlet {
                 response.setStatus(HttpServletResponse.SC_OK);
             } catch (Exception e) {
                 try {
-                    if (getTransaction(request)==null) e.printStackTrace();
-                    else getTransaction(request).setTcExc(e.getMessage());
+                    if (getTransaction(request) == null)
+                        e.printStackTrace();
+                    else
+                        getTransaction(request).setTcExc(e.getMessage());
                 } catch (Exception ex) {
-					ex.printStackTrace();
+                    ex.printStackTrace();
                 }
 
                 log.error("Can't complete CC Tx", e);
@@ -350,9 +350,9 @@ public class TransactionServlet extends HttpServlet {
         }
         if (!isSucessfulTransaction(request)) {
             sendEmail("Purchase rejected by VeriSign [return code: " + getReturnCode(request) +
-                    " response message: " + getResponseMessage(request)+ "]", auth);
+                    " response message: " + getResponseMessage(request) + "]", auth);
             throw new Exception("Rejected by VeriSign [return code: " + getReturnCode(request) +
-                    " response message: " + getResponseMessage(request)+ "]");
+                    " response message: " + getResponseMessage(request) + "]");
         }
         if (txInfo.getTcExc() != null) {
             // was not able to store tx info in the DB
@@ -368,18 +368,18 @@ public class TransactionServlet extends HttpServlet {
         return txInfo.getUserBackPage() == null ? defaultPageSuccess : txInfo.getUserBackPage();
     }
 
-    private void sendEmail(String body,WebAuthentication auth) {
+    private void sendEmail(String body, WebAuthentication auth) {
         try {
             TCSEmailMessage mail = new TCSEmailMessage();
             mail.setSubject("TopCoder Transaction Error");
             StringBuffer buf = new StringBuffer(300);
-            if (auth!=null) {
+            if (auth != null) {
                 buf.append(auth.getActiveUser().getUserName());
                 buf.append("(").append(auth.getActiveUser().getId()).append(")");
             } else {
                 buf.append(" an unknown user ");
             }
-            buf.append(" had the following problem " );
+            buf.append(" had the following problem ");
 
             mail.setBody(body);
             mail.addToAddress("service@topcoder.com", TCSEmailMessage.TO);
@@ -473,8 +473,8 @@ public class TransactionServlet extends HttpServlet {
             dbTx = Util.beginTransaction();
             Purchase purchaseTable = ((PurchaseHome) icEJB.lookup(PurchaseHome.EJB_REF_NAME)).create();
             long purchaseID;
-            purchaseID = purchaseTable.createPurchase(txInfo.getProductID(),txInfo.getBuyerID(),txInfo.getCost());
-            if (txInfo.getCompanyID()>0) {
+            purchaseID = purchaseTable.createPurchase(txInfo.getProductID(), txInfo.getBuyerID(), txInfo.getCost());
+            if (txInfo.getCompanyID() > 0) {
                 purchaseTable.setCompanyId(purchaseID, txInfo.getCompanyID());
             }
             Date startDate = purchaseTable.getCreateDate(purchaseID);
@@ -487,7 +487,7 @@ public class TransactionServlet extends HttpServlet {
             assignPerProductRoles(txInfo);
 
             dbTx.commit();
-            log.debug("CcTx completed, redirectURL is "+txInfo.getUserBackPage());
+            log.debug("CcTx completed, redirectURL is " + txInfo.getUserBackPage());
         } catch (Exception e) {
             if (dbTx != null) {
                 dbTx.rollback();
@@ -549,7 +549,7 @@ public class TransactionServlet extends HttpServlet {
         String key = req.getParameter(FRMKEY_CCTX_UID);
         if (key == null || key.trim().length() == 0) {
             key = req.getSession(true).getId();
-            log.debug("couldn't find key in request\nit is now\n"+key);
+            log.debug("couldn't find key in request\nit is now\n" + key);
         } else {
             log.debug("key was " + key);
         }
@@ -561,12 +561,12 @@ public class TransactionServlet extends HttpServlet {
         InitialContext context = new InitialContext();
 
         UserAddressHome uaHome = (UserAddressHome)
-            PortableRemoteObject.narrow(
-                context.lookup(UserAddressHome.class.getName()), UserAddressHome.class);
+                PortableRemoteObject.narrow(
+                        context.lookup(UserAddressHome.class.getName()), UserAddressHome.class);
         UserAddress userAddress = uaHome.create();
         AddressHome aHome = (AddressHome)
-            PortableRemoteObject.narrow(
-                context.lookup(AddressHome.class.getName()), AddressHome.class);
+                PortableRemoteObject.narrow(
+                        context.lookup(AddressHome.class.getName()), AddressHome.class);
         Address address = aHome.create();
         ResultSetContainer rsc = userAddress.getUserAddresses(userId, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
 
@@ -580,8 +580,8 @@ public class TransactionServlet extends HttpServlet {
         Map result = null;
         //go through all their addresses.  if any one is not eligible, then they are not eligible
         for (Iterator it = rsc.iterator(); it.hasNext();) {
-            ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow)it.next();
-            long addressId = ((Long)row.getItem("address_id").getResultData()).longValue();
+            ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) it.next();
+            long addressId = ((Long) row.getItem("address_id").getResultData()).longValue();
             dr.setProperty("countryID", address.getCountryCode(addressId, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME));
             result = dataAccess.getData(dr);
             /* the query returns a row only if the country is ineligible to purchase the product */
@@ -658,7 +658,7 @@ public class TransactionServlet extends HttpServlet {
      * @throws ServletException
      * @throws IOException
      */
-    private void fetchLoginPage(HttpServletRequest request,HttpServletResponse response)
+    private void fetchLoginPage(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setAttribute("message", "In order to continue, you must provide your user name " +
                 "and password, even if you've logged in already.");
@@ -679,9 +679,8 @@ public class TransactionServlet extends HttpServlet {
      * @param txInfo
      */
     private void assignPerProductRoles(TransactionInfo txInfo)
-    throws CreateException, NamingException,RemoteException,
-            GeneralSecurityException, NoSuchUserException, Exception
-    {
+            throws CreateException, NamingException, RemoteException,
+            GeneralSecurityException, NoSuchUserException, Exception {
         log.debug("assignPerProductRoles entered");
         PrincipalMgrRemote mgr = Util.getPrincipalManager();
         TCSubject buyerSubject = mgr.getUserSubject(txInfo.getBuyerID());
@@ -689,46 +688,44 @@ public class TransactionServlet extends HttpServlet {
         Set assignedRoles = buyerSubject.getPrincipals();
         TCSubject appSubject = Util.retrieveTCSubject(Constants.CORP_PRINCIPAL);
         Iterator i = txInfo.getRolesPerProduct().iterator();
-        log.debug("buyer ["+txInfo.getBuyerID()+"] has roles assigned "+assignedRoles);
-        log.debug("roles to be added on per product basis "+txInfo.getRolesPerProduct());
+        log.debug("buyer [" + txInfo.getBuyerID() + "] has roles assigned " + assignedRoles);
+        log.debug("roles to be added on per product basis " + txInfo.getRolesPerProduct());
 
         HashSet rollbackStore = new HashSet();
         Exception caught = null;
 
-        while( i.hasNext() ) {
-            RolePrincipal newRole = (RolePrincipal)i.next();
-            if( assignedRoles.contains(newRole) ) continue;
+        while (i.hasNext()) {
+            RolePrincipal newRole = (RolePrincipal) i.next();
+            if (assignedRoles.contains(newRole)) continue;
 
             // it is really new role - try to assign it
             try {
-                log.debug("trying to assign the role "+newRole);
+                log.debug("trying to assign the role " + newRole);
                 mgr.assignRole(buyerPrincipal, newRole, appSubject);
                 rollbackStore.add(newRole);
-            }
-            catch(Exception e) {
+            } catch (Exception e) {
                 caught = e;
                 break;
             }
         }
-        if( caught != null ) {
+        if (caught != null) {
             // some errors - rollback
             i = rollbackStore.iterator();
-            while(i.hasNext()) {
-                RolePrincipal role = (RolePrincipal)i.next();
+            while (i.hasNext()) {
+                RolePrincipal role = (RolePrincipal) i.next();
                 try {
                     mgr.unAssignRole(buyerPrincipal, role, appSubject);
-                }
-                catch(Exception ignore) {
+                } catch (Exception ignore) {
                     log.error(
-                        "Cant unassign role "+role+" within the bounds of transaction rollback"
+                            "Cant unassign role " + role + " within the bounds of transaction rollback"
                     );
                 }
             }
             // rethrow caught exception to provide entire transaction rollback
             throw caught;
         }
-        log.debug("leaving assignPerProductRoles. Role(s) succesfully assigned to user ["+
-            txInfo.getBuyerID()+"] "+rollbackStore
+        log.debug("leaving assignPerProductRoles. Role(s) succesfully assigned to user [" +
+                txInfo.getBuyerID() + "] " + rollbackStore
         );
     }
 
@@ -737,7 +734,7 @@ public class TransactionServlet extends HttpServlet {
         CacheClient cc = CacheClientFactory.createCacheClient();
         //keying based on the session id from the original request
         //verisign gives this back to us useing a parameter
-        return (TransactionInfo)cc.get(KEY_TRANSACTION_INFO+transactionKey(request));
+        return (TransactionInfo) cc.get(KEY_TRANSACTION_INFO + transactionKey(request));
 
     }
 
@@ -745,13 +742,13 @@ public class TransactionServlet extends HttpServlet {
         log.debug("add transaction for " + info.getBuyerID() + " " + info.getProductID());
         CacheClient cc = CacheClientFactory.createCacheClient();
         //keying based on the session id from the original request
-        cc.set(KEY_TRANSACTION_INFO+transactionKey(request), info, 1000*60*60);
+        cc.set(KEY_TRANSACTION_INFO + transactionKey(request), info, 1000 * 60 * 60);
     }
 
     private void removeTransaction(HttpServletRequest request) throws Exception {
         log.debug("remove transaction");
         CacheClient cc = CacheClientFactory.createCacheClient();
-        cc.remove(KEY_TRANSACTION_INFO+transactionKey(request));
+        cc.remove(KEY_TRANSACTION_INFO + transactionKey(request));
 
 
     }

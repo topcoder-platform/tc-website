@@ -1,12 +1,9 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 
 package com.topcoder.apps.review;
 
-import com.topcoder.apps.review.document.AbstractSubmission;
-
-import java.io.File;
 import java.io.InputStream;
 
 /**
@@ -18,37 +15,37 @@ import java.io.InputStream;
 public class SolutionData extends OnlineReviewProjectData {
 
     // --------------------------------------------------- Instance Variables
-    
+
     /**
      * The inputstream for the submitted file.
      */
     private InputStream is;
-    
+
     /**
      * The remote filename for the submitted file.
      */
     private String filename;
-    
+
     // ------------------------------------------------------------ Constructor
-    
+
     /**
      * <p>
      * Creates the instance of <code>SolutionData</code> class.
      * </p>
-     * 
+     *
      * @param orpd The OnlineReviewProjectData to be set.
      * @param solution The solution to be set.
      * @param is The inputstream for the jar file of the submission.
      */
-    protected SolutionData(OnlineReviewProjectData orpd, 
+    protected SolutionData(OnlineReviewProjectData orpd,
                            InputStream is,
                            String filename) {
         super(orpd);
-        
+
         if (is == null) {
             throw new NullPointerException();
         }
-        
+
         this.is = is;
         this.filename = filename;
     }
@@ -59,13 +56,13 @@ public class SolutionData extends OnlineReviewProjectData {
      * <p>
      * Return the inputstream for the submitted file.
      * </p>
-     * 
+     *
      * @return the inputstream for the submitted file.
      */
-    public InputStream getInputStream() {        
+    public InputStream getInputStream() {
         return is;
     } // end getInputStream
-    
+
     /**
      * @return Returns the filename.
      */

@@ -1,7 +1,7 @@
 /*
  * MyFinalReview.java 1.0 7/2/2003
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review.failuretests.mockups;
 
@@ -16,19 +16,19 @@ import com.topcoder.apps.review.document.AggregationWorksheet;
  * @version 1.0
  */
 public class MyFinalReview extends FinalReview {
-    
+
     public MyFinalReview() {
-        super(0,(FixItem[])null,(AggregationWorksheet)null,false,0,0);
+        super(0, (FixItem[]) null, (AggregationWorksheet) null, false, 0, 0);
     }
-    
+
     public FixItem[] getFixCheckList() {
-        return(new FixItem[0]);
+        return (new FixItem[0]);
     }
 
     public void setFixCheckList(FixItem[] item) {
     }
 
     public AggregationWorksheet getAggregationWorkSheet() {
-        return(null);
+        return (null);
     }
 }

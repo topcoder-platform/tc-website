@@ -3,47 +3,20 @@
  */
 package com.topcoder.apps.review;
 
-import com.topcoder.apps.review.document.AbstractSubmission;
-import com.topcoder.apps.review.document.AggregationApproval;
-import com.topcoder.apps.review.document.AggregationReview;
-import com.topcoder.apps.review.document.AggregationWorksheet;
-import com.topcoder.apps.review.document.Appeal;
-import com.topcoder.apps.review.document.DocumentManagerLocal;
-import com.topcoder.apps.review.document.FinalFixSubmission;
-import com.topcoder.apps.review.document.InitialSubmission;
-import com.topcoder.apps.review.document.ReviewScorecard;
-import com.topcoder.apps.review.document.ScreeningScorecard;
-import com.topcoder.apps.review.document.TestCase;
+import com.topcoder.apps.review.document.*;
 import com.topcoder.apps.review.persistence.Common;
-import com.topcoder.apps.review.projecttracker.Phase;
-import com.topcoder.apps.review.projecttracker.PhaseInstance;
-import com.topcoder.apps.review.projecttracker.PhaseManager;
-import com.topcoder.apps.review.projecttracker.Project;
-import com.topcoder.apps.review.projecttracker.ProjectTrackerLocal;
-import com.topcoder.apps.review.projecttracker.ProjectType;
-import com.topcoder.apps.review.projecttracker.Role;
-import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
-import com.topcoder.apps.review.projecttracker.User;
-import com.topcoder.apps.review.projecttracker.UserRole;
+import com.topcoder.apps.review.projecttracker.*;
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.RolePrincipal;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.admin.PrincipalMgrRemote;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Comparator;
-import java.util.Map;
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.transaction.SystemException;
 import javax.transaction.UserTransaction;
+import java.util.*;
 
 /**
  * This Model provides business logic through which users administers projects (only for admins).
@@ -145,7 +118,7 @@ public class ProjectAdministration implements Model {
                     && newProject.getCurrentPhase().getId() == Phase.ID_REVIEW) {
 
                 InitialSubmission[] submissions
-                    = documentManager.getInitialSubmissions(newProject, false, user.getTCSubject());
+                        = documentManager.getInitialSubmissions(newProject, false, user.getTCSubject());
 
                 // we must have at least one submission
                 if (submissions == null || submissions.length < 1) {
@@ -154,11 +127,11 @@ public class ProjectAdministration implements Model {
 
                 // check if all screening scorecards are PM reviewed
                 ScreeningScorecard[] scorecards =
-                    documentManager.getScreeningScorecard(newProject, user.getTCSubject());
+                        documentManager.getScreeningScorecard(newProject, user.getTCSubject());
                 for (int i = 0; i < scorecards.length; i++) {
                     if (!scorecards[i].isPMReviewed()) {
                         return new FailureResult(scorecards[i].getSubmission().getSubmitter().getHandle()
-                                                 + "'s scorecard is not PM reviewed");
+                                + "'s scorecard is not PM reviewed");
                     }
                 }
 
@@ -198,7 +171,7 @@ public class ProjectAdministration implements Model {
                             if (scorecards[j].getSubmission().equals(submissions[i]) && scorecards[j].isCompleted()) {
                                 ok = true;
                                 double minscore = ConfigHelper.getMinimumScore();
-                                if ((scorecards[j].getPassed() && scorecards[j].getScore() >= minscore) || ((InitialSubmission)submissions[i]).isAdvancedToReview() ) {
+                                if ((scorecards[j].getPassed() && scorecards[j].getScore() >= minscore) || ((InitialSubmission) submissions[i]).isAdvancedToReview()) {
                                     InitialSubmission sub = scorecards[j].getSubmission();
                                     sub.setPassedScreening(true);
                                     //sub.setAdvancedToReview(true);
@@ -234,7 +207,7 @@ public class ProjectAdministration implements Model {
 
                 if (message.length() > 0) {
                     return new FailureResult(message + " submission(s) either do(es) not have a screening scorecard "
-                                             + "or has(have) a NO objective question evaluation so it should be removed");
+                            + "or has(have) a NO objective question evaluation so it should be removed");
                 }
 
                 // we must have at least one non-removed submission
@@ -248,7 +221,7 @@ public class ProjectAdministration implements Model {
             // Check that all testcases are uploaded (if development project)
             if (oldProject.getCurrentPhase().getId() == Phase.ID_REVIEW &&
                     (newProject.getCurrentPhase().getId() == Phase.ID_APPEALS ||
-                     newProject.getCurrentPhase().getId() == Phase.ID_AGGREGATION)) {
+                    newProject.getCurrentPhase().getId() == Phase.ID_AGGREGATION)) {
 
                 if (newProject.getProjectType().getId() == ProjectType.ID_DEVELOPMENT) {
                     // Check that all testcases are uploaded (if development project)
@@ -333,7 +306,7 @@ public class ProjectAdministration implements Model {
 
             // check if aggregation is completed
             if (oldProject.getCurrentPhase().getId() == Phase.ID_AGGREGATION
-                        && newProject.getCurrentPhase().getId() == Phase.ID_AGGREGATION_REVIEW) {
+                    && newProject.getCurrentPhase().getId() == Phase.ID_AGGREGATION_REVIEW) {
                 if (!documentManager.getAggregation(newProject, user.getTCSubject()).isCompleted()) {
                     return new FailureResult("Aggregation is not completed yet");
                 }
@@ -341,7 +314,7 @@ public class ProjectAdministration implements Model {
 
             // check if aggregation reviews are completed and approve the aggregation
             if (oldProject.getCurrentPhase().getId() == Phase.ID_AGGREGATION_REVIEW
-                        && newProject.getCurrentPhase().getId() == Phase.ID_FINAL_FIXES) {
+                    && newProject.getCurrentPhase().getId() == Phase.ID_FINAL_FIXES) {
                 AggregationReview[] revs = documentManager.getAggregationReview(newProject, user.getTCSubject());
                 for (int i = 0; i < revs.length; i++) {
                     if (!revs[i].isCompleted()) {
@@ -384,13 +357,13 @@ public class ProjectAdministration implements Model {
                     oldProject.getCurrentPhase().getId() == Phase.ID_APPEALS ||
                     oldProject.getCurrentPhase().getId() == Phase.ID_APPEALS_RESPONSE ||
                     EJBHelper.isTestMode())
-                        && newProject.getCurrentPhase().getId() == Phase.ID_AGGREGATION)
+                    && newProject.getCurrentPhase().getId() == Phase.ID_AGGREGATION)
                     || (oldProject.getCurrentPhase().getId() == Phase.ID_AGGREGATION_REVIEW
-                        && newProject.getCurrentPhase().getId() == Phase.ID_FINAL_FIXES)) {
+                    && newProject.getCurrentPhase().getId() == Phase.ID_FINAL_FIXES)) {
 
 
                 InitialSubmission[] submissions =
-                    documentManager.getInitialSubmissions(oldProject, false, user.getTCSubject());
+                        documentManager.getInitialSubmissions(oldProject, false, user.getTCSubject());
                 if (submissions == null || submissions.length < 1) {
                     handleRollback(shouldRollback, ut);
                     return new FailureResult("Cannot establish the winner because there are no submissions");
@@ -448,7 +421,7 @@ public class ProjectAdministration implements Model {
                         documentManager.saveInitialSubmission(submissions[i], user.getTCSubject());
                     }
                 }
-                Item[] items = (Item[])itemList.toArray(new Item[itemList.size()]);
+                Item[] items = (Item[]) itemList.toArray(new Item[itemList.size()]);
 
                 // the winner must have at least MINSCORE (75.0 currently)
                 if (minscore < 0) {
@@ -460,55 +433,48 @@ public class ProjectAdministration implements Model {
                 }
 
                 Arrays.sort(items, new Comparator() {
-                            public int compare(Object obj1, Object obj2) {
-                                if(Double.compare(((Item) obj2).getScore(),
-                                        ((Item) obj1).getScore()) == 0)
-                                {
-                                    //break ties
-                                    int[] vals = new int[2];
-                                    for(int y = 0; y < scorecards.length; y++)
-                                    {
-                                            if(scorecards[y].getSubmission().equals(((Item)obj1).getSubmission()) && scorecards[y].isCompleted())
-                                            {
-                                                    double scr = scorecards[y].getScore();
-                                                    boolean good = true;
-                                                    for(int z = 0; z < scorecards.length; z++)
-                                                    {
-                                                        if((!scorecards[z].getSubmission().equals(((Item)obj1).getSubmission())) && scorecards[z].isCompleted()
-                                                            && scorecards[z].getAuthor().getId() == scorecards[y].getAuthor().getId() && (scr - scorecards[z].getScore()) < EPS
-                                                            && scorecards[z].getSubmission().getSubmitter().getId() == ((Item)obj2).getSubmission().getSubmitter().getId())
-                                                        {
-                                                            good = false;
-                                                        }
-                                                    }
-                                                    if(good)
-                                                        vals[0]++;
-                                            }
-
-                                            if(scorecards[y].getSubmission().equals(((Item)obj2).getSubmission()) && scorecards[y].isCompleted())
-                                            {
-                                                    double scr = scorecards[y].getScore();
-                                                    boolean good = true;
-                                                    for(int z = 0; z < scorecards.length; z++)
-                                                    {
-                                                        if((!scorecards[z].getSubmission().equals(((Item)obj2).getSubmission())) && scorecards[z].isCompleted()
-                                                            && scorecards[z].getAuthor().getId() == scorecards[y].getAuthor().getId() && (scr - scorecards[z].getScore()) < EPS
-                                                            && scorecards[z].getSubmission().getSubmitter().getId() == ((Item)obj1).getSubmission().getSubmitter().getId())
-                                                        {
-                                                            good = false;
-                                                        }
-                                                    }
-                                                    if(good)
-                                                        vals[1]++;
-                                            }
+                    public int compare(Object obj1, Object obj2) {
+                        if (Double.compare(((Item) obj2).getScore(),
+                                ((Item) obj1).getScore()) == 0) {
+                            //break ties
+                            int[] vals = new int[2];
+                            for (int y = 0; y < scorecards.length; y++) {
+                                if (scorecards[y].getSubmission().equals(((Item) obj1).getSubmission()) && scorecards[y].isCompleted()) {
+                                    double scr = scorecards[y].getScore();
+                                    boolean good = true;
+                                    for (int z = 0; z < scorecards.length; z++) {
+                                        if ((!scorecards[z].getSubmission().equals(((Item) obj1).getSubmission())) && scorecards[z].isCompleted()
+                                                && scorecards[z].getAuthor().getId() == scorecards[y].getAuthor().getId() && (scr - scorecards[z].getScore()) < EPS
+                                                && scorecards[z].getSubmission().getSubmitter().getId() == ((Item) obj2).getSubmission().getSubmitter().getId()) {
+                                            good = false;
+                                        }
                                     }
-                                    System.out.println(((Item)obj1).getSubmission().getSubmitter().getHandle() + "=" + vals[0]);
-                                    System.out.println(((Item)obj2).getSubmission().getSubmitter().getHandle() + "=" + vals[1]);
-                                    return vals[1] - vals[0];
+                                    if (good)
+                                        vals[0]++;
                                 }
-                                return Double.compare(((Item) obj2).getScore(),
-                                        ((Item) obj1).getScore());
-                            }});
+
+                                if (scorecards[y].getSubmission().equals(((Item) obj2).getSubmission()) && scorecards[y].isCompleted()) {
+                                    double scr = scorecards[y].getScore();
+                                    boolean good = true;
+                                    for (int z = 0; z < scorecards.length; z++) {
+                                        if ((!scorecards[z].getSubmission().equals(((Item) obj2).getSubmission())) && scorecards[z].isCompleted()
+                                                && scorecards[z].getAuthor().getId() == scorecards[y].getAuthor().getId() && (scr - scorecards[z].getScore()) < EPS
+                                                && scorecards[z].getSubmission().getSubmitter().getId() == ((Item) obj1).getSubmission().getSubmitter().getId()) {
+                                            good = false;
+                                        }
+                                    }
+                                    if (good)
+                                        vals[1]++;
+                                }
+                            }
+                            System.out.println(((Item) obj1).getSubmission().getSubmitter().getHandle() + "=" + vals[0]);
+                            System.out.println(((Item) obj2).getSubmission().getSubmitter().getHandle() + "=" + vals[1]);
+                            return vals[1] - vals[0];
+                        }
+                        return Double.compare(((Item) obj2).getScore(),
+                                ((Item) obj1).getScore());
+                    }
+                });
 
 
                 winner = items[0].getSubmission().getSubmitter();
@@ -525,14 +491,14 @@ public class ProjectAdministration implements Model {
 
                 for (int i = 0; i < items.length; i++) {
                     InitialSubmission sub = items[i].getSubmission();
-                    sub.setPlacement(i+1);
-                    sub.setFinalScore((float)items[i].getScore());
+                    sub.setPlacement(i + 1);
+                    sub.setFinalScore((float) items[i].getScore());
                     documentManager.saveInitialSubmission(sub, user.getTCSubject());
                     if (newProject.getCurrentPhase().getId() == Phase.ID_FINAL_FIXES) {
                         //mailQueue.add(new ProjectChangeMail(user, items[i].getSubmission().getSubmitter(), oldProject, newProject,
                         //                             projectData.getReason(), MailHelper.RESULT_NOTIFICATION));
                         mailQueue.add(new ResultsMail(user, items[i].getSubmission().getSubmitter(),
-                                                  items[i].getScore(), i + 1, newProject));
+                                items[i].getScore(), i + 1, newProject));
                     }
                 }
             } // END of set winner when phase changes from review/appeals to aggregation
@@ -580,7 +546,7 @@ public class ProjectAdministration implements Model {
             if (projectData.getSubmitterRemoval() && !problemSet.isEmpty()) {
                 LogHelper.log("Remove submitter roles");
                 UserRole[] keepRoles = new UserRole[newRoles.length - problemSet.size()];
-                int j=0;
+                int j = 0;
                 for (int i = 0; i < newRoles.length; i++) {
                     if (!(newRoles[i].getRole().getId() == Role.ID_DESIGNER_DEVELOPER &&
                             newRoles[i].getUser() != null &&
@@ -641,7 +607,7 @@ public class ProjectAdministration implements Model {
                     // when the roles change only the reviewers / PM should be notified
                     // when phase / timeline change everyone is notified
                     if ((!sendRoleChangeNotifications || RoleHelper.isReviewer(oldRoles[i])
-                             || RoleHelper.isProductManager(oldRoles[i])) && oldRoles[i].getUser() != null) {
+                            || RoleHelper.isProductManager(oldRoles[i])) && oldRoles[i].getUser() != null) {
                         users.add(oldRoles[i].getUser());
                     }
                 }
@@ -649,7 +615,7 @@ public class ProjectAdministration implements Model {
                     // when the roles change only the reviewers / PM should be notified
                     // when phase / timeline change everyone is notified
                     if ((!sendRoleChangeNotifications || RoleHelper.isReviewer(newRoles[i])
-                             || RoleHelper.isProductManager(newRoles[i])) && newRoles[i].getUser() != null) {
+                            || RoleHelper.isProductManager(newRoles[i])) && newRoles[i].getUser() != null) {
                         users.add(newRoles[i].getUser());
                     }
                 }
@@ -666,15 +632,15 @@ public class ProjectAdministration implements Model {
                                 && RoleHelper.isSubmitterOnly(rev, newProject)
                                 && !rev.equals(newProject.getWinner())) {
 */
-                      if (newProject.getCurrentPhase().getOrder() > phaseManager.getPhase(Phase.ID_APPEALS_RESPONSE).getOrder()
-                                && RoleHelper.isSubmitterOnly(rev, newProject)
-                                && !rev.equals(newProject.getWinner())) {
+                    if (newProject.getCurrentPhase().getOrder() > phaseManager.getPhase(Phase.ID_APPEALS_RESPONSE).getOrder()
+                            && RoleHelper.isSubmitterOnly(rev, newProject)
+                            && !rev.equals(newProject.getWinner())) {
                         LogHelper.log("Not sending mail to submitter " + rev.getHandle()
-                                    + " because the phase is past review and he is not a winner");
-                    // do not send mails to "fake" submitters
+                                + " because the phase is past review and he is not a winner");
+                        // do not send mails to "fake" submitters
                     } else if (!RoleHelper.isFakeSubmitter(rev, newProject, user)) {
                         mailQueue.add(new ProjectChangeMail(
-                                      user, rev, oldProject, newProject, projectData.getReason(), changeType));
+                                user, rev, oldProject, newProject, projectData.getReason(), changeType));
                     }
                 }
             }
@@ -692,7 +658,7 @@ public class ProjectAdministration implements Model {
                 for (int i = 0; i < oldRoles.length; i++) {
                     oldRolesMap.put(new Long(oldRoles[i].getId()), oldRoles[i]);
                     if (newRolesMap.containsKey(new Long(oldRoles[i].getId()))) {
-                        UserRole newUserRole = (UserRole)newRolesMap.get(new Long(oldRoles[i].getId()));
+                        UserRole newUserRole = (UserRole) newRolesMap.get(new Long(oldRoles[i].getId()));
                         if (!equals(oldRoles[i].getUser(), newUserRole.getUser())) {
                             if (oldRoles[i].getUser() != null) {
                                 removeSet.add(oldRoles[i]);
@@ -701,7 +667,7 @@ public class ProjectAdministration implements Model {
                                 addSet.add(newUserRole);
                             }
                         }
-                    } else if (oldRoles[i].getUser() != null){
+                    } else if (oldRoles[i].getUser() != null) {
                         removeSet.add(oldRoles[i]);
                     }
                 }
@@ -750,7 +716,7 @@ public class ProjectAdministration implements Model {
                             // add permission for the current role
                             UserPrincipal userPrincipal = principalMgr.getUser(addUserRole.getUser().getId());
                             RolePrincipal rolePrincipal =
-                                getRolePrincipal(addUserRole, newProject, user.getTCSubject());
+                                    getRolePrincipal(addUserRole, newProject, user.getTCSubject());
                             if (rolePrincipal != null) {
                                 // unassign and assign in case the user already had the role
                                 principalMgr.unAssignRole(userPrincipal, rolePrincipal, user.getTCSubject());
@@ -782,7 +748,7 @@ public class ProjectAdministration implements Model {
             // when phase goes back from aggregation review to aggregation, set aggregation and aggregation reviews
             // to non-completed to give the reviewers the opportunity to change them
             if (oldProject.getCurrentPhase().getId() == Phase.ID_AGGREGATION_REVIEW
-                        && newProject.getCurrentPhase().getId() == Phase.ID_AGGREGATION) {
+                    && newProject.getCurrentPhase().getId() == Phase.ID_AGGREGATION) {
                 AggregationWorksheet aw = documentManager.getAggregation(newProject, user.getTCSubject());
                 aw.setCompleted(false);
                 documentManager.saveAggregation(aw, user.getTCSubject());
@@ -805,7 +771,7 @@ public class ProjectAdministration implements Model {
                         documentManager.saveInitialSubmission((InitialSubmission) submissions[i], user.getTCSubject());
                     } else if (submissions[i] instanceof FinalFixSubmission) {
                         documentManager.saveFinalFixSubmission(
-                            (FinalFixSubmission) submissions[i], user.getTCSubject());
+                                (FinalFixSubmission) submissions[i], user.getTCSubject());
                     }
                 }
             }
@@ -825,7 +791,7 @@ public class ProjectAdministration implements Model {
                     if (obj instanceof ProjectChangeMail) {
                         ProjectChangeMail mail = (ProjectChangeMail) obj;
                         MailHelper.projectChangeMail(
-                            mail.from, mail.to, mail.newProject, mail.reason);
+                                mail.from, mail.to, mail.newProject, mail.reason);
                     } else {
                         ResultsMail mail = (ResultsMail) obj;
                         MailHelper.resultsMail(mail.from, mail.to, mail.score, mail.place, mail.project);
@@ -835,7 +801,7 @@ public class ProjectAdministration implements Model {
 
             return new SuccessResult();
 
-        // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
+            // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
         } catch (RuntimeException e) {
             handleRollback(shouldRollback, ut);
             LogHelper.log("", e);
@@ -859,8 +825,7 @@ public class ProjectAdministration implements Model {
                 } catch (SystemException e) {
                 }
             }
-        }
-        else if (ut != null) {
+        } else if (ut != null) {
             try {
                 LogHelper.log("Rolling back transaction ... hope it works");
                 try {
@@ -1029,6 +994,7 @@ class ProjectChangeMail {
         this.reason = reason;
         this.changeType = changeType;
     }
+
     SecurityEnabledUser from;
     User to;
     Project oldProject;
@@ -1045,6 +1011,7 @@ class ResultsMail {
         this.place = place;
         this.project = project;
     }
+
     SecurityEnabledUser from;
     User to;
     double score;

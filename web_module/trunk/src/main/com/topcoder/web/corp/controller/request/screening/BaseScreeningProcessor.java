@@ -4,16 +4,14 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.corp.common.Constants;
-import com.topcoder.web.corp.common.ScreeningException;
-import com.topcoder.web.corp.common.Util;
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.corp.common.Constants;
+import com.topcoder.web.corp.common.Util;
 
 import java.util.Map;
-import javax.servlet.http.HttpSession;
 
 /**
  * Processor that does usage type processing
@@ -47,7 +45,7 @@ public abstract class BaseScreeningProcessor extends BaseProcessor {
 
             log.debug("USAGE TYPE:" + usageType.longValue());
             usage = usageType.longValue();
-            
+
             //maybe set attribute here?
             getRequest().setAttribute(Constants.USAGE_TYPE, usageType);
 

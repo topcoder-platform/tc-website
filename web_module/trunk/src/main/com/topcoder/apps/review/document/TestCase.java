@@ -1,7 +1,7 @@
 /*
  * TestCase.java
  *
- * Copyright © 2004, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2004, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.document;
@@ -25,8 +25,8 @@ public class TestCase implements Serializable {
     private URL url;
     private Project project;
     private User reviewer;
-    private ReviewerResponsibility type; 
-    
+    private ReviewerResponsibility type;
+
     /** dirtyFlag */
     protected boolean dirtyFlag = false;
     private long versionId;
@@ -41,8 +41,8 @@ public class TestCase implements Serializable {
      * @param requestorId DOCUMENT ME!
      * @param versionId DOCUMENT ME!
      */
-    public TestCase(long id, URL url, User reviewer, Project project, 
-    		ReviewerResponsibility type, long versionId) {
+    public TestCase(long id, URL url, User reviewer, Project project,
+                    ReviewerResponsibility type, long versionId) {
         this.id = id;
         this.url = url;
         this.reviewer = reviewer;
@@ -106,7 +106,7 @@ public class TestCase implements Serializable {
      * <p>
      * Return the URL of this testcase.
      * </p>
-     * 
+     *
      * @return a String with the URL of this testcase.
      */
     public URL getURL() {
@@ -117,7 +117,7 @@ public class TestCase implements Serializable {
      * <p>
      * Set the URL of this testcase.
      * </p>
-     * 
+     *
      * @param url The URL of this testcase.
      */
     public void setURL(URL url) {
@@ -129,26 +129,26 @@ public class TestCase implements Serializable {
      * <p>
      * Return the reviewer.
      * </p>
-     * 
+     *
      * @return the reviewer.
      */
     public User getReviewer() {
         return reviewer;
     }
-    
-	/**
-	 * @return Returns the type.
-	 */
-	public ReviewerResponsibility getType() {
-		return type;
-	}
 
-	/**
-	 * @param type The type to set.
-	 */
-	public void setType(ReviewerResponsibility type) {
-		this.type = type;
-	}
+    /**
+     * @return Returns the type.
+     */
+    public ReviewerResponsibility getType() {
+        return type;
+    }
+
+    /**
+     * @param type The type to set.
+     */
+    public void setType(ReviewerResponsibility type) {
+        this.type = type;
+    }
 
     /**
      * <p>

@@ -3,14 +3,19 @@ package com.topcoder.ejb.DataCache;
 import com.topcoder.common.web.data.*;
 import com.topcoder.common.web.error.TCException;
 import com.topcoder.common.web.util.DateTime;
-import com.topcoder.common.web.data.Group;
 import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 
 import java.net.InetAddress;
-import java.sql.*;
-import java.util.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.TreeSet;
 
 
 public class DataCacheBean extends BaseEJB {
@@ -304,7 +309,6 @@ public class DataCacheBean extends BaseEJB {
     }
 
 
-
     public void resetMemberCount() throws TCException {
         log.debug("EJB DataCacheBean resetMemberCount called.");
         synchronized (this) {
@@ -490,9 +494,6 @@ public class DataCacheBean extends BaseEJB {
         }
         return result;
     }
-
-
-
 
 
     public ArrayList getAdContests() throws TCException {
@@ -964,7 +965,6 @@ public class DataCacheBean extends BaseEJB {
     }
 
 
-
     public ArrayList getDemographicAssignments(int coderTypeId) throws TCException {
         ArrayList result = null;
         try {
@@ -1128,7 +1128,6 @@ public class DataCacheBean extends BaseEJB {
     }
 
 
-
     public ArrayList getCountries() throws TCException {
         log.debug("EJB DataCacheBean getCountries called.");
         if (!this.countriesCached) {
@@ -1197,9 +1196,6 @@ public class DataCacheBean extends BaseEJB {
     }
 
 
-
-
-
     public ArrayList getStates() throws TCException {
         log.debug("EJB DataCacheBean getStates called.");
         try {
@@ -1266,8 +1262,6 @@ public class DataCacheBean extends BaseEJB {
         }
         return result;
     }
-
-
 
 
     public ArrayList getReferrals() throws TCException {
@@ -1476,7 +1470,6 @@ public class DataCacheBean extends BaseEJB {
     }
 
 
-
     /**
      ************************
      * Begin Degrees Code
@@ -1547,7 +1540,6 @@ public class DataCacheBean extends BaseEJB {
     }
 
 
-
     /**
      *********************************************************************************************
      * getLanguages
@@ -1616,7 +1608,6 @@ public class DataCacheBean extends BaseEJB {
         }
         return result;
     }
-
 
 
     private int popMemberCount() throws TCException {

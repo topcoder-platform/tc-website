@@ -6,19 +6,20 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.TCContext;
-import com.topcoder.web.corp.common.Constants;
-import com.topcoder.web.corp.common.Util;
-import com.topcoder.web.corp.model.ProfileInfo;
-import com.topcoder.web.corp.model.ProblemInfo;
-import com.topcoder.web.ejb.sessionprofile.SessionProfileProblemHome;
-import com.topcoder.web.ejb.sessionprofile.SessionProfileProblem;
-import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.corp.common.Constants;
+import com.topcoder.web.corp.common.Util;
+import com.topcoder.web.corp.model.ProblemInfo;
+import com.topcoder.web.corp.model.ProfileInfo;
+import com.topcoder.web.ejb.sessionprofile.SessionProfileProblem;
+import com.topcoder.web.ejb.sessionprofile.SessionProfileProblemHome;
 
-import javax.servlet.ServletRequest;
 import javax.rmi.PortableRemoteObject;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 public abstract class BaseProfileProcessor extends BaseScreeningProcessor {
     private static final int TEST_SET_B_PROBLEM_TYPE = 4;
@@ -103,12 +104,11 @@ public abstract class BaseProfileProcessor extends BaseScreeningProcessor {
                 Constants.PROFILE_LANGUAGE_QUERY_KEY);
         Map map = Util.getDataAccess(true).getData(profileLanguage);
         ResultSetContainer ret = null;
-        if(map != null) {
+        if (map != null) {
             ret = (ResultSetContainer) map.get(Constants.PROFILE_LANGUAGE_QUERY_KEY);
         }
         return ret;
     }
-
 
 
     protected boolean validateProfileInfo() throws Exception {
@@ -133,7 +133,7 @@ public abstract class BaseProfileProcessor extends BaseScreeningProcessor {
             }
 
             if (!info.hasTestSetA()) {
-                if (info.getTestSetB()==null || info.getTestSetB().length==0) {
+                if (info.getTestSetB() == null || info.getTestSetB().length == 0) {
                     success = false;
                     log.debug("If you do not select a Test Set A, you must select at least one problem for Test Set B.");
                     addError(Constants.TEST_SET_B,

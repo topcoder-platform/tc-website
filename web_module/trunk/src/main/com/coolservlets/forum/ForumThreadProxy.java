@@ -56,7 +56,9 @@
 
 package com.coolservlets.forum;
 
-import java.util.*;
+import java.util.Date;
+import java.util.Iterator;
+
 //JDK1.1// import com.sun.java.util.collections.*;
 
 /**
@@ -74,8 +76,7 @@ public class ForumThreadProxy implements ForumThread {
      * Creates a new proxy.
      */
     public ForumThreadProxy(ForumThread thread, Authorization authorization,
-            ForumPermissions permissions)
-    {
+                            ForumPermissions permissions) {
         this.thread = thread;
         this.authorization = authorization;
         this.permissions = permissions;
@@ -96,8 +97,8 @@ public class ForumThreadProxy implements ForumThread {
     public void setName(String name) throws UnauthorizedException {
         if (permissions.isSystemOrForumAdmin()) {
             thread.setName(name);
-        }
-        else throw new UnauthorizedException();
+        } else
+            throw new UnauthorizedException();
     }
 
     public Date getCreationDate() {
@@ -105,12 +106,11 @@ public class ForumThreadProxy implements ForumThread {
     }
 
     public void setCreationDate(Date creationDate)
-            throws UnauthorizedException
-    {
+            throws UnauthorizedException {
         if (permissions.isSystemOrForumAdmin()) {
             thread.setCreationDate(creationDate);
-        }
-        else throw new UnauthorizedException();
+        } else
+            throw new UnauthorizedException();
     }
 
     public Date getModifiedDate() {
@@ -118,12 +118,11 @@ public class ForumThreadProxy implements ForumThread {
     }
 
     public void setModifiedDate(Date modifiedDate)
-            throws UnauthorizedException
-    {
+            throws UnauthorizedException {
         if (permissions.isSystemOrForumAdmin()) {
             thread.setModifiedDate(modifiedDate);
-        }
-        else throw new UnauthorizedException();
+        } else
+            throw new UnauthorizedException();
     }
 
     public Forum getForum() {
@@ -140,25 +139,21 @@ public class ForumThreadProxy implements ForumThread {
         return new ForumMessageProxy(message, authorization, permissions);
     }
 
-    public void addMessage(ForumMessage parentMessage, ForumMessage newMessage)
-    {
+    public void addMessage(ForumMessage parentMessage, ForumMessage newMessage) {
         thread.addMessage(parentMessage, newMessage);
     }
 
     public void deleteMessage(ForumMessage message)
-            throws ForumMessageNotFoundException, UnauthorizedException
-    {
+            throws ForumMessageNotFoundException, UnauthorizedException {
         if (permissions.isSystemOrForumAdmin()) {
             thread.deleteMessage(message);
-        }
-        else {
+        } else {
             throw new UnauthorizedException();
         }
     }
 
     public ForumMessage getMessage(int messageID)
-            throws ForumMessageNotFoundException
-    {
+            throws ForumMessageNotFoundException {
         ForumMessage message = thread.getMessage(messageID);
         //Apply the protection proxy and return message.
         return new ForumMessageProxy(message, authorization, permissions);
@@ -185,4 +180,4 @@ public class ForumThreadProxy implements ForumThread {
     public String toString() {
         return thread.toString();
     }
-} 
+}

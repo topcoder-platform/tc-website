@@ -1,10 +1,10 @@
 package com.topcoder.dde.persistencelayer.interfaces;
 
-import java.sql.Timestamp;
-import java.util.Collection;
 import javax.ejb.CreateException;
 import javax.ejb.EJBLocalHome;
 import javax.ejb.FinderException;
+import java.sql.Timestamp;
+import java.util.Collection;
 
 /**
  * The local home interface representing the CMP bean for the comp_catalog table.
@@ -17,7 +17,7 @@ public interface LocalDDECompCatalogHome extends EJBLocalHome {
     /**
      * The EJB reference name.
      */
-    public static final String EJB_REF_NAME="java:comp/env/ejb/DDECompCatalogEJB";
+    public static final String EJB_REF_NAME = "java:comp/env/ejb/DDECompCatalogEJB";
 
     /**
      * Locates an entity object using a primary key.
@@ -43,7 +43,7 @@ public interface LocalDDECompCatalogHome extends EJBLocalHome {
      * @throws CreateException      an application level error occurred during the create operation.
      */
     LocalDDECompCatalog create(long currentVersion, String componentName, String description, Timestamp createTime, long statusId,
-            String shortDesc, String functionDesc, long rootCategory) throws CreateException;
+                               String shortDesc, String functionDesc, long rootCategory) throws CreateException;
 
     /**
      * Returns a Collection of active LocalDDECompCatalog with the given version.

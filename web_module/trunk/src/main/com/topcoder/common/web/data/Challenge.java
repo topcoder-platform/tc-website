@@ -2,7 +2,9 @@ package com.topcoder.common.web.data;
 
 import com.topcoder.common.web.util.Conversion;
 import com.topcoder.shared.dataAccess.StringUtilities;
-import com.topcoder.shared.docGen.xml.*;
+import com.topcoder.shared.docGen.xml.RecordTag;
+import com.topcoder.shared.docGen.xml.TagRenderer;
+import com.topcoder.shared.docGen.xml.ValueTag;
 
 import java.io.Serializable;
 import java.text.DecimalFormat;

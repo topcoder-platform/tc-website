@@ -1,11 +1,11 @@
 package com.topcoder.web.codinginterface.techassess.controller.request;
 
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.codinginterface.techassess.Constants;
-import com.topcoder.web.codinginterface.CodingInterfaceConstants;
 import com.topcoder.shared.netCommon.screening.request.ScreeningTestRequest;
 import com.topcoder.shared.netCommon.screening.response.ScreeningTestResponse;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
+import com.topcoder.web.codinginterface.CodingInterfaceConstants;
+import com.topcoder.web.codinginterface.techassess.Constants;
+import com.topcoder.web.common.NavigationException;
 
 import java.util.ArrayList;
 
@@ -45,10 +45,10 @@ public class Test extends Base {
 
             String arg = null;
             String dim = null;
-            for (int i=0; (arg=getRequest().getParameter(CodingInterfaceConstants.TEST_ARGUMENT+i))!=null; i++) {
-                dim = getRequest().getParameter(CodingInterfaceConstants.TEST_ARGUMENT_DIMENSION+i);
+            for (int i = 0; (arg = getRequest().getParameter(CodingInterfaceConstants.TEST_ARGUMENT + i)) != null; i++) {
+                dim = getRequest().getParameter(CodingInterfaceConstants.TEST_ARGUMENT_DIMENSION + i);
                 log.debug("arg " + i + " dimension is " + dim + " content is " + arg);
-                if (dim!=null&&dim.trim().length()>0&&Integer.parseInt(dim)>0) {
+                if (dim != null && dim.trim().length() > 0 && Integer.parseInt(dim) > 0) {
                     arguments.add(parseArrayInput(arg));
                 } else {
                     arguments.add(arg);
@@ -103,72 +103,72 @@ public class Test extends Base {
         for (int i = 0; i < text.length(); i++) {
             char ch = text.charAt(i);
             switch (state) {
-            case ESCAPE:
-                switch (ch) {
-                case '\\':
-                    buf.append('\\');
+                case ESCAPE:
+                    switch (ch) {
+                        case '\\':
+                            buf.append('\\');
+                            break;
+                        case '"':
+                            buf.append('"');
+                            break;
+                        default : //we'll just assume it was a mistake, problems really should not use tabs, line feeds, etc.
+                            buf.append('\\');
+                            buf.append(ch);
+                    }
+                    state = IN_QUOTE;
                     break;
-                case '"':
-                    buf.append('"');
+                case IN_QUOTE:
+                    switch (ch) {
+                        case '\\':
+                            state = ESCAPE;
+                            break;
+                        case '"':
+                            String param = buf.toString();
+                            buf.delete(0, buf.length());
+                            state = START;
+                            if (param.length() > 50 || param.length() == 0) {
+                                continue;
+                            }
+                            ret.add(param);
+                            break;
+                        default :
+                            buf.append(ch);
+                            break;
+                    }
                     break;
-                default : //we'll just assume it was a mistake, problems really should not use tabs, line feeds, etc.
-                    buf.append('\\');
-                    buf.append(ch);
-                }
-                state = IN_QUOTE;
-                break;
-            case IN_QUOTE:
-                switch (ch) {
-                case '\\':
-                    state = ESCAPE;
-                    break;
-                case '"':
-                    String param = buf.toString();
-                    buf.delete(0, buf.length());
-                    state = START;
-                    if (param.length() > 50 || param.length() == 0) {
+                case START:
+                    if (Character.isWhitespace(ch)) {
+                        if (buf.length() > 0) {
+                            String param = buf.toString().trim();
+                            buf.delete(0, buf.length());
+                            if (param.length() > 50) {
+                                continue;
+                            }
+                            ret.add(param);
+                        }
                         continue;
                     }
-                    ret.add(param);
-                    break;
-                default :
-                    buf.append(ch);
-                    break;
-                }
-                break;
-            case START:
-                if (Character.isWhitespace(ch)) {
-                    if (buf.length() > 0) {
-                        String param = buf.toString().trim();
-                        buf.delete(0, buf.length());
-                        if (param.length() > 50) {
-                            continue;
-                        }
-                        ret.add(param);
-                   }
-                    continue;
-                }
-                switch (ch) {
-                case '"':
-                    if (buf.length() > 0) {
-                        buf.append('"');
-                    } else {
-                        state = IN_QUOTE;
+                    switch (ch) {
+                        case '"':
+                            if (buf.length() > 0) {
+                                buf.append('"');
+                            } else {
+                                state = IN_QUOTE;
+                            }
+                            break;
+                        case ',':
+                            if (buf.length() > 0) {
+                                String param = buf.toString().trim();
+                                buf.delete(0, buf.length());
+                                if (param.length() > 50) {
+                                    continue;
+                                }
+                                ret.add(param);
+                            }
+                            break;
+                        default :
+                            buf.append(ch);
                     }
-                    break;
-                case ',':
-                    if (buf.length() > 0) {
-                        String param = buf.toString().trim();
-                        buf.delete(0, buf.length());
-                        if (param.length() > 50) {
-                            continue;
-                        }
-                        ret.add(param);
-                    }
-                    break;
-                default :
-                    buf.append(ch);
-                }
             }
         }
         if (buf.length() > 0) {
@@ -181,8 +181,6 @@ public class Test extends Base {
         }
         return ret;
     }
-
-
 
 
 }

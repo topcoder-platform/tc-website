@@ -56,7 +56,7 @@
 
 package com.coolservlets.forum;
 
-import java.util.*;
+import java.util.Iterator;
 
 /**
  * Protection proxy for User iterators.
@@ -64,16 +64,15 @@ import java.util.*;
 class UserIteratorProxy extends IteratorProxy {
 
     public UserIteratorProxy(Iterator iterator, Authorization
-        authorization, ForumPermissions permissions)
-    {
+            authorization, ForumPermissions permissions) {
         super(iterator, authorization, permissions);
     }
 
     public Object next() throws java.util.NoSuchElementException {
-        User user = (User)iterator.next();
+        User user = (User) iterator.next();
         ForumPermissions userPermissions = user.getPermissions(authorization);
         ForumPermissions newPermissions =
                 new ForumPermissions(permissions, userPermissions);
         return new UserProxy(user, authorization, newPermissions);
     }
-} 
+}

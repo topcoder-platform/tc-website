@@ -30,7 +30,7 @@
 
 package com.coolservlets.codeviewer;
 
-import java.util.*;
+import java.util.Hashtable;
 
 /**
  * A class that syntax highlights Java code into html.
@@ -68,7 +68,7 @@ public class CodeViewer {
     private boolean inMultiLineComment = false;
     private String backgroundColor = "#ffffff";
     private String commentStart = "<font color=\"#aa0000\"><i>";
-    private String commentEnd = "</font></i>";    
+    private String commentEnd = "</font></i>";
     private String stringStart = "<font color=\"#000099\">";
     private String stringEnd = "</font>";
     private String reservedWordStart = "<b>";
@@ -169,16 +169,16 @@ public class CodeViewer {
      * Passes off each line to the first filter.
      * @param   line    The line of Java code to be highlighted.
      */
-    public String syntaxHighlight( String line ) {
-       return htmlFilter(line);
+    public String syntaxHighlight(String line) {
+        return htmlFilter(line);
     }
 
     /*
      * Filter html tags that appear in the java source into more benign text
      * that won't disrupt the output.
-     */ 
-    private String htmlFilter( String line ) {
-        if( line == null || line.equals("") ) {
+     */
+    private String htmlFilter(String line) {
+        if (line == null || line.equals("")) {
             return "";
         }
         // replace ampersands with HTML escape sequence for ampersand;
@@ -190,7 +190,7 @@ public class CodeViewer {
 
         // replace the \\ with HTML escape sequences. fixes a problem when
         // backslashes preceed quotes.
-        line = replace(line, "\\\\", "&#92;&#92;" );
+        line = replace(line, "\\\\", "&#92;&#92;");
 
         // replace less-than signs which might be confused
         // by HTML as tag angle-brackets;
@@ -198,14 +198,14 @@ public class CodeViewer {
         // replace greater-than signs which might be confused
         // by HTML as tag angle-brackets;
         line = replace(line, ">", "&#62;");
-        
+
         return multiLineCommentFilter(line);
     }
 
     /*
      * Filter out multiLine comments. State is kept with a private boolean
      * variable.
-     */     
+     */
     private String multiLineCommentFilter(String line) {
         if (line == null || line.equals("")) {
             return "";
@@ -213,12 +213,12 @@ public class CodeViewer {
         StringBuffer buf = new StringBuffer();
         int index;
         //First, check for the end of a multi-line comment.
-        if (inMultiLineComment && (index = line.indexOf("*/")) > -1 && !isInsideString(line,index)) {
-            inMultiLineComment = false;               
-            buf.append(line.substring(0,index));
+        if (inMultiLineComment && (index = line.indexOf("*/")) > -1 && !isInsideString(line, index)) {
+            inMultiLineComment = false;
+            buf.append(line.substring(0, index));
             buf.append("*/").append(commentEnd);
-            if (line.length() > index+2) {
-                buf.append(inlineCommentFilter(line.substring(index+2)));
+            if (line.length() > index + 2) {
+                buf.append(inlineCommentFilter(line.substring(index + 2)));
             }
             return buf.toString();
         }
@@ -229,15 +229,15 @@ public class CodeViewer {
         }
         //We're not currently in a comment, so check to see if the start
         //of a multi-line comment is in this line.
-        else if ((index = line.indexOf("/*")) > -1 && !isInsideString(line,index)) {
+        else if ((index = line.indexOf("/*")) > -1 && !isInsideString(line, index)) {
             inMultiLineComment = true;
             //Return result of other filters + everything after the start
             //of the multiline comment. We need to pass the through the
             //to the multiLineComment filter again in case the comment ends
             //on the same line.
-            buf.append(inlineCommentFilter(line.substring(0,index)));
+            buf.append(inlineCommentFilter(line.substring(0, index)));
             buf.append(commentStart).append("/*");
-            buf.append(multiLineCommentFilter(line.substring(index+2)));
+            buf.append(multiLineCommentFilter(line.substring(index + 2)));
             return buf.toString();
         }
         //Otherwise, no useful multi-line comment information was found so
@@ -245,7 +245,7 @@ public class CodeViewer {
         else {
             return inlineCommentFilter(line);
         }
-    }      
+    }
 
     /*
      * Filter inline comments from a line and formats them properly.
@@ -256,17 +256,16 @@ public class CodeViewer {
         }
         StringBuffer buf = new StringBuffer();
         int index;
-        if ((index = line.indexOf("//")) > -1 && !isInsideString(line,index)) {
-            buf.append(stringFilter(line.substring(0,index)));
+        if ((index = line.indexOf("//")) > -1 && !isInsideString(line, index)) {
+            buf.append(stringFilter(line.substring(0, index)));
             buf.append(commentStart);
             buf.append(line.substring(index));
             buf.append(commentEnd);
-        }
-        else {
+        } else {
             buf.append(stringFilter(line));
         }
         return buf.toString();
-    } 
+    }
 
     /*
      * Filters strings from a line of text and formats them properly.
@@ -288,59 +287,58 @@ public class CodeViewer {
             //We found the beginning of a string
             if (startStringIndex == -1) {
                 startStringIndex = 0;
-                buf.append( stringFilter(line.substring(start,tempIndex)) );
+                buf.append(stringFilter(line.substring(start, tempIndex)));
                 buf.append(stringStart).append("\"");
-                line = line.substring(tempIndex+1);
+                line = line.substring(tempIndex + 1);
             }
             //Must be at the end
             else {
                 startStringIndex = -1;
                 endStringIndex = tempIndex;
-                buf.append(line.substring(0,endStringIndex+1));
+                buf.append(line.substring(0, endStringIndex + 1));
                 buf.append(stringEnd);
-                line = line.substring(endStringIndex+1);
+                line = line.substring(endStringIndex + 1);
             }
         }
-        buf.append( keywordFilter(line) );
+        buf.append(keywordFilter(line));
         return buf.toString();
     }
 
     /*
      * Filters keywords from a line of text and formats them properly.
      */
-    private String keywordFilter( String line ) {
-        if( line == null || line.equals("") ) {
+    private String keywordFilter(String line) {
+        if (line == null || line.equals("")) {
             return "";
         }
         StringBuffer buf = new StringBuffer();
         //HashMap usedReservedWords = new HashMap(); // >= Java2 only (not thread-safe)
         Hashtable usedReservedWords = new Hashtable(); // < Java2 (thread-safe)
-        int i=0, startAt=0;
+        int i = 0, startAt = 0;
         char ch;
         StringBuffer temp = new StringBuffer();
-        while( i < line.length() ) {
+        while (i < line.length()) {
             temp.setLength(0);
             ch = line.charAt(i);
             startAt = i;
             // 65-90, uppercase letters
             // 97-122, lowercase letters
-            while( i<line.length() && ( ( ch >= 65 && ch <= 90 )
-                    || ( ch >= 97 && ch <= 122 ) ) ) {
+            while (i < line.length() && ((ch >= 65 && ch <= 90)
+                    || (ch >= 97 && ch <= 122))) {
                 temp.append(ch);
                 i++;
-                if( i < line.length() ) {
+                if (i < line.length()) {
                     ch = line.charAt(i);
                 }
             }
             String tempString = temp.toString();
-            if( reservedWords.containsKey(tempString) && !usedReservedWords.containsKey(tempString)) {
-                usedReservedWords.put(tempString,tempString);
-                line = replace( line, tempString, (reservedWordStart+tempString+reservedWordEnd) );
+            if (reservedWords.containsKey(tempString) && !usedReservedWords.containsKey(tempString)) {
+                usedReservedWords.put(tempString, tempString);
+                line = replace(line, tempString, (reservedWordStart + tempString + reservedWordEnd));
                 i += (reservedWordStart.length() + reservedWordEnd.length());
-            }
-            else {
+            } else {
                 i++;
-            }            
+            }
         }
         buf.append(line);
         return buf.toString();
@@ -349,19 +347,18 @@ public class CodeViewer {
     /**
      * Replaces all instances of oldString with newString in line.
      */
-    public static final String replace( String line, String oldString, String newString )
-    {
-        int i=0;
-        if ( ( i=line.indexOf( oldString, i ) ) >= 0 ) {
-            char [] line2 = line.toCharArray();
-	        char [] newString2 = newString.toCharArray();
+    public static final String replace(String line, String oldString, String newString) {
+        int i = 0;
+        if ((i = line.indexOf(oldString, i)) >= 0) {
+            char[] line2 = line.toCharArray();
+            char[] newString2 = newString.toCharArray();
             int oLength = oldString.length();
             StringBuffer buf = new StringBuffer(line2.length);
             buf.append(line2, 0, i).append(newString2);
             i += oLength;
             int j = i;
-            while( ( i=line.indexOf( oldString, i ) ) > 0 ) {
-                buf.append(line2, j, i-j).append(newString2);
+            while ((i = line.indexOf(oldString, i)) > 0) {
+                buf.append(line2, j, i - j).append(newString2);
                 i += oLength;
                 j = i;
             }
@@ -380,24 +377,23 @@ public class CodeViewer {
             return false;
         }
         int index;
-        String left = line.substring(0,position);
+        String left = line.substring(0, position);
         String right = line.substring(position);
         int leftCount = 0;
         int rightCount = 0;
         while ((index = left.indexOf("\"")) > -1) {
-            leftCount ++;
-            left = left.substring(index+1); 
+            leftCount++;
+            left = left.substring(index + 1);
         }
         while ((index = right.indexOf("\"")) > -1) {
-            rightCount ++;
-            right = right.substring(index+1); 
+            rightCount++;
+            right = right.substring(index + 1);
         }
         if (rightCount % 2 != 0 && leftCount % 2 != 0) {
             return true;
-        }
-        else {
+        } else {
             return false;
-        }        
+        }
     }
 
     /*
@@ -405,53 +401,53 @@ public class CodeViewer {
      * in version 1.1 taken directly from Java language spec.
      */
     private static void loadKeywords() {
-        reservedWords.put( "abstract", "abstract" );
-        reservedWords.put( "boolean", "boolean" );
-        reservedWords.put( "break", "break" );
-        reservedWords.put( "byte", "byte" );
-        reservedWords.put( "case", "case" );
-        reservedWords.put( "catch", "catch" );
-        reservedWords.put( "char", "char" );
-        reservedWords.put( "class", "class" );
-        reservedWords.put( "const", "const" );
-        reservedWords.put( "continue", "continue" );
-        reservedWords.put( "default", "default" );
-        reservedWords.put( "do", "do" );
-        reservedWords.put( "double", "double" );
-        reservedWords.put( "else", "else" );
-        reservedWords.put( "extends", "extends" );
-        reservedWords.put( "final", "final" );
-        reservedWords.put( "finally", "finally" );
-        reservedWords.put( "float", "float" );
-        reservedWords.put( "for", "for" );
-        reservedWords.put( "goto", "goto" );
-        reservedWords.put( "if", "if" );
-        reservedWords.put( "implements", "implements" );
-        reservedWords.put( "import", "import" );
-        reservedWords.put( "instanceof", "instanceof" );
-        reservedWords.put( "int", "int" );
-        reservedWords.put( "interface", "interface" );
-        reservedWords.put( "long", "long" );
-        reservedWords.put( "native", "native" );
-        reservedWords.put( "new", "new" );
-        reservedWords.put( "package", "package" );
-        reservedWords.put( "private", "private" );
-        reservedWords.put( "protected", "protected" );
-        reservedWords.put( "public", "public" );
-        reservedWords.put( "return", "return" );
-        reservedWords.put( "short", "short" );
-        reservedWords.put( "static", "static" );
-        reservedWords.put( "strictfp", "strictfp" );
-        reservedWords.put( "super", "super" );
-        reservedWords.put( "switch", "switch" );
-        reservedWords.put( "synchronized", "synchronized" );
-        reservedWords.put( "this", "this" );
-        reservedWords.put( "throw", "throw" );
-        reservedWords.put( "throws", "throws" );
-        reservedWords.put( "transient", "transient" );
-        reservedWords.put( "try", "try" );
-        reservedWords.put( "void", "void" );
-        reservedWords.put( "volatile", "volatile" );
-        reservedWords.put( "while", "while" );
+        reservedWords.put("abstract", "abstract");
+        reservedWords.put("boolean", "boolean");
+        reservedWords.put("break", "break");
+        reservedWords.put("byte", "byte");
+        reservedWords.put("case", "case");
+        reservedWords.put("catch", "catch");
+        reservedWords.put("char", "char");
+        reservedWords.put("class", "class");
+        reservedWords.put("const", "const");
+        reservedWords.put("continue", "continue");
+        reservedWords.put("default", "default");
+        reservedWords.put("do", "do");
+        reservedWords.put("double", "double");
+        reservedWords.put("else", "else");
+        reservedWords.put("extends", "extends");
+        reservedWords.put("final", "final");
+        reservedWords.put("finally", "finally");
+        reservedWords.put("float", "float");
+        reservedWords.put("for", "for");
+        reservedWords.put("goto", "goto");
+        reservedWords.put("if", "if");
+        reservedWords.put("implements", "implements");
+        reservedWords.put("import", "import");
+        reservedWords.put("instanceof", "instanceof");
+        reservedWords.put("int", "int");
+        reservedWords.put("interface", "interface");
+        reservedWords.put("long", "long");
+        reservedWords.put("native", "native");
+        reservedWords.put("new", "new");
+        reservedWords.put("package", "package");
+        reservedWords.put("private", "private");
+        reservedWords.put("protected", "protected");
+        reservedWords.put("public", "public");
+        reservedWords.put("return", "return");
+        reservedWords.put("short", "short");
+        reservedWords.put("static", "static");
+        reservedWords.put("strictfp", "strictfp");
+        reservedWords.put("super", "super");
+        reservedWords.put("switch", "switch");
+        reservedWords.put("synchronized", "synchronized");
+        reservedWords.put("this", "this");
+        reservedWords.put("throw", "throw");
+        reservedWords.put("throws", "throws");
+        reservedWords.put("transient", "transient");
+        reservedWords.put("try", "try");
+        reservedWords.put("void", "void");
+        reservedWords.put("volatile", "volatile");
+        reservedWords.put("while", "while");
     }
 }

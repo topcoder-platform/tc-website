@@ -6,8 +6,12 @@ import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.shared.util.DBMS;
 
 import java.rmi.RemoteException;
-import java.sql.*;
-import java.util.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * The implementation for the AuthenticationServices EJB.
@@ -800,7 +804,6 @@ public class AuthenticationServicesBean extends BaseEJB {
         }
         return STAFF_GROUP_ID;
     }
-
 
 
 }

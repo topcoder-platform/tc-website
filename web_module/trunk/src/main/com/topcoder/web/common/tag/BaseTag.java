@@ -2,8 +2,8 @@ package com.topcoder.web.common.tag;
 
 import com.topcoder.web.common.BaseProcessor;
 
-import javax.servlet.jsp.tagext.BodyTagSupport;
 import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.tagext.BodyTagSupport;
 import java.util.HashMap;
 
 
@@ -37,7 +37,7 @@ public abstract class BaseTag extends BodyTagSupport {
         }
     }
 
-    public int doEndTag()  throws JspException {
+    public int doEndTag() throws JspException {
         this.name = null;
         init();
         return super.doEndTag();
@@ -49,7 +49,6 @@ public abstract class BaseTag extends BodyTagSupport {
      * end of execution
      */
     protected abstract void init();
-
 
 
 }

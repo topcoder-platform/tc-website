@@ -1,13 +1,13 @@
 package com.topcoder.utilities.pldwload;
 
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
 
-import java.util.Hashtable;
-import java.sql.Statement;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.PreparedStatement;
+import java.sql.Statement;
+import java.util.Hashtable;
 
 /**
  * TCLoadCoders.java
@@ -109,7 +109,6 @@ public class TCLoadCoders extends TCLoad {
     }
 
 
-
     private void loadState() throws Exception {
         int count = 0;
         int retVal = 0;
@@ -122,9 +121,9 @@ public class TCLoadCoders extends TCLoad {
         try {
             query = new StringBuffer(100);
             query.append("SELECT s.state_code ");
-            query.append(      " ,s.state_name ");
-            query.append(      " ,s.region_code ");
-            query.append( " FROM state s ");
+            query.append(" ,s.state_name ");
+            query.append(" ,s.region_code ");
+            query.append(" FROM state s ");
             query.append(" WHERE s.modify_date > ?");
             psSel = prepareStatement(query.toString(), SOURCE_DB);
             psSel.setTimestamp(1, fLastLogTime);
@@ -191,9 +190,9 @@ public class TCLoadCoders extends TCLoad {
         try {
             query = new StringBuffer(100);
             query.append("SELECT c.country_code ");
-            query.append(      " ,c.country_name ");
-            query.append(      " ,c.participating ");
-            query.append( " FROM country c ");
+            query.append(" ,c.country_name ");
+            query.append(" ,c.participating ");
+            query.append(" FROM country c ");
             query.append(" WHERE c.modify_date > ?");
             psSel = prepareStatement(query.toString(), SOURCE_DB);
             psSel.setTimestamp(1, fLastLogTime);
@@ -246,8 +245,6 @@ public class TCLoadCoders extends TCLoad {
                     sqle.getMessage());
         }
     }
-
-
 
 
     /**
@@ -644,7 +641,6 @@ public class TCLoadCoders extends TCLoad {
     }
 
 
-
     private void loadSchool() throws Exception {
         int count = 0;
         int retVal = 0;
@@ -657,10 +653,10 @@ public class TCLoadCoders extends TCLoad {
         try {
             query = new StringBuffer(100);
             query.append("SELECT s.school_id ");
-            query.append(      " ,s.state_code ");
-            query.append(      " ,s.full_name ");
-            query.append(      " ,s.short_name ");
-            query.append( " FROM school s ");
+            query.append(" ,s.state_code ");
+            query.append(" ,s.full_name ");
+            query.append(" ,s.short_name ");
+            query.append(" FROM school s ");
             query.append(" WHERE s.modify_date > ?");
             psSel = prepareStatement(query.toString(), SOURCE_DB);
             psSel.setTimestamp(1, fLastLogTime);
@@ -724,7 +720,6 @@ public class TCLoadCoders extends TCLoad {
     }
 
 
-
     private void loadCurrentSchool() throws Exception {
         int count = 0;
         int retVal = 0;
@@ -737,10 +732,10 @@ public class TCLoadCoders extends TCLoad {
         try {
             query = new StringBuffer(100);
             query.append("SELECT cs.coder_id ");
-            query.append(      " ,cs.school_name ");
-            query.append(      " ,cs.school_id ");
-            query.append(      " ,cs.degree_number ");
-            query.append( " FROM current_school cs ");
+            query.append(" ,cs.school_name ");
+            query.append(" ,cs.school_id ");
+            query.append(" ,cs.degree_number ");
+            query.append(" FROM current_school cs ");
             query.append(" WHERE cs.modify_date > ?");
             psSel = prepareStatement(query.toString(), SOURCE_DB);
             psSel.setTimestamp(1, fLastLogTime);
@@ -801,7 +796,6 @@ public class TCLoadCoders extends TCLoad {
             close(psUpd);
         }
     }
-
 
 
     private void setLastUpdateTime() throws Exception {

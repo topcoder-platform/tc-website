@@ -20,10 +20,12 @@ import com.topcoder.forum.Thread;
 import com.topcoder.forum.Topic;
 import com.topcoder.forum.ForumView;
 import com.topcoder.util.idgenerator.bean.*;
+
 import java.util.Collection;
 import java.util.List;
 import java.util.Iterator;
 import java.util.ArrayList;
+
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -43,7 +45,7 @@ public class TestSpecificationXMLAppender extends TestCase {
     public TestSpecificationXMLAppender(String testName) {
         super(testName);
     }
-    
+
     public void setUp() throws Exception {
         super.setUp();
         forum = ForumTestSetup.forum;
@@ -54,9 +56,9 @@ public class TestSpecificationXMLAppender extends TestCase {
         subtopic1 = ForumTestSetup.subtopic1;
         forum.clearPath();
         forum.pushPath(topic1);
-        doc1 =  ForumTestSetup.doc1;
-        doc2 =  ForumTestSetup.doc2;
-        doc3 =  ForumTestSetup.doc3;
+        doc1 = ForumTestSetup.doc1;
+        doc2 = ForumTestSetup.doc2;
+        doc3 = ForumTestSetup.doc3;
     }
 
     public void testVisitTopic() throws Exception {
@@ -67,11 +69,11 @@ public class TestSpecificationXMLAppender extends TestCase {
         SpecificationXMLAppender appender = new SpecificationXMLAppender("");
         String noDocString;
         String withDocString;
-        
+
         appender.visitTopic(st);
         noDocString = appender.getXML();
         assertTrue("No XML generated", noDocString.length() > 0);
-        
+
         appender = new SpecificationXMLAppender("");
         st.addDocument(doc1);
         appender.visitTopic(st);
@@ -80,7 +82,7 @@ public class TestSpecificationXMLAppender extends TestCase {
         assertTrue("No XML generated for a document",
                 withDocString.length() > noDocString.length());
     }
-    
+
     public static Test suite() {
         return new ForumTestSetup(new TestSuite(TestSpecificationXMLAppender.class));
     }

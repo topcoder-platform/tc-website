@@ -1,13 +1,12 @@
 /*
  * PhaseManager.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.projecttracker;
 
 import com.topcoder.apps.review.persistence.Common;
-
 import com.topcoder.util.cache.refreshable.RefreshException;
 import com.topcoder.util.cache.refreshable.Refreshable;
 
@@ -15,7 +14,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,8 +33,8 @@ public class PhaseManager implements Refreshable {
      * @return Phase[]
      */
     public Phase[] getPhases() {
-        Phase[] phase = (Phase[])phaseMap.values().toArray(new Phase[0]);
-        java.util.Arrays.sort(phase,new Comparator() {
+        Phase[] phase = (Phase[]) phaseMap.values().toArray(new Phase[0]);
+        java.util.Arrays.sort(phase, new Comparator() {
             public int compare(Object o1, Object o2) {
                 Phase p1 = (Phase) o1;
                 Phase p2 = (Phase) o2;

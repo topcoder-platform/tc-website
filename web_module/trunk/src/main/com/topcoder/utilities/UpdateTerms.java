@@ -1,13 +1,11 @@
 package com.topcoder.utilities;
 
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCContext;
 
 import javax.naming.Context;
-import javax.sql.DataSource;
-import java.sql.ResultSet;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 
 public class UpdateTerms {
@@ -63,7 +61,7 @@ public class UpdateTerms {
 
             int ret = ps.executeUpdate();
 
-            if (ret!=1) {
+            if (ret != 1) {
                 throw new Exception("altered " + ret + " rows, not 1");
             }
 

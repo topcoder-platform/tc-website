@@ -56,7 +56,9 @@
 
 package com.coolservlets.forum;
 
-import java.util.*;
+import java.util.Date;
+import java.util.Enumeration;
+
 //JDK1.1// import com.sun.java.util.collections.*;
 
 /**
@@ -64,7 +66,7 @@ import java.util.*;
  * associated with a particular user of the forum, or can be anonymous.
  */
 public interface ForumMessage {
-    
+
     /**
      * Returns the id of the message.
      */

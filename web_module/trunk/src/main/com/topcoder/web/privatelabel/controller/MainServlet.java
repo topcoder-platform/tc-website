@@ -1,23 +1,22 @@
 package com.topcoder.web.privatelabel.controller;
 
+import com.topcoder.shared.security.Resource;
+import com.topcoder.shared.util.TCResourceBundle;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
-import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.tc.model.CoderSessionInfo;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.TCResourceBundle;
-import com.topcoder.shared.security.Resource;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletResponse;
-import java.util.Set;
 import java.util.MissingResourceException;
+import java.util.Set;
 
 /**
  *

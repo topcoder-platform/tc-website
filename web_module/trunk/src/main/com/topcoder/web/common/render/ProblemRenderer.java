@@ -1,7 +1,10 @@
 package com.topcoder.web.common.render;
 
 import com.topcoder.shared.language.Language;
-import com.topcoder.shared.problem.*;
+import com.topcoder.shared.problem.Element;
+import com.topcoder.shared.problem.ElementRenderer;
+import com.topcoder.shared.problem.Problem;
+import com.topcoder.shared.problem.ProblemComponent;
 
 import java.awt.*;
 
@@ -47,7 +50,7 @@ public class ProblemRenderer extends BaseRenderer implements ElementRenderer {
         }
         ProblemComponent[] problemComponents = problem.getProblemComponents();
         ProblemComponentRenderer pcr = null;
-        for (int i = 0; i < problemComponents.length&&problemComponents[i]!=null; i++) {
+        for (int i = 0; i < problemComponents.length && problemComponents[i] != null; i++) {
             pcr = new ProblemComponentRenderer(problemComponents[i]);
             pcr.setTdClass(getTdClass());
             html.append(pcr.toHTML(language));

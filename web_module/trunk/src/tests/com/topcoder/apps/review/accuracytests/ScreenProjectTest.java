@@ -17,14 +17,14 @@ import com.topcoder.apps.review.accuracytests.ejb.*;
  * @author  valeriy
  */
 public class ScreenProjectTest extends AbstractAccuracyTest {
-    
+
     private ScreenProject screenProject;
-    
+
     /** Creates a new instance of ScreenProjectTest */
     public ScreenProjectTest(String name) {
         super(name);
     }
-    
+
     public void setUp() throws Exception {
         super.setUp();
         setUpUsers();
@@ -33,7 +33,7 @@ public class ScreenProjectTest extends AbstractAccuracyTest {
         setUpDocuments();
         screenProject = new ScreenProject();
     }
-    
+
     public void testScreenProject1() throws Exception {
         try {
             project.setCurrentPhase(phases[1]);
@@ -46,11 +46,11 @@ public class ScreenProjectTest extends AbstractAccuracyTest {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
 
     }
-    
+
     public void testScreenProject2() throws Exception {
         try {
             project.setCurrentPhase(phases[1]);
@@ -63,7 +63,7 @@ public class ScreenProjectTest extends AbstractAccuracyTest {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
     }
 
@@ -79,7 +79,7 @@ public class ScreenProjectTest extends AbstractAccuracyTest {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
     }
 
@@ -92,13 +92,13 @@ public class ScreenProjectTest extends AbstractAccuracyTest {
             if (!(res instanceof ScreeningScorecardRetrieval)) {
                 fail("ScreeningScorecardRetrieval expected, but was ", res);
             }
-            ScreeningScorecardRetrieval retr = (ScreeningScorecardRetrieval)res;
+            ScreeningScorecardRetrieval retr = (ScreeningScorecardRetrieval) res;
             if (retr.getScoreCard() != screeningScorecards[0]) {
                 fail("Wrong scorecard");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
     }
 
@@ -111,13 +111,13 @@ public class ScreenProjectTest extends AbstractAccuracyTest {
             if (!(res instanceof ScreeningScorecardRetrieval)) {
                 fail("ScreeningScorecardRetrieval expected, but was ", res);
             }
-            ScreeningScorecardRetrieval retr = (ScreeningScorecardRetrieval)res;
+            ScreeningScorecardRetrieval retr = (ScreeningScorecardRetrieval) res;
             if (retr.getScoreCard() != screeningScorecards[0]) {
                 fail("Wrong scorecard");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
     }
 

@@ -56,7 +56,7 @@
 
 package com.coolservlets.forum;
 
-import java.util.*;
+import java.util.Iterator;
 
 /**
  * Protection proxy for Iterator objects.
@@ -68,8 +68,7 @@ public abstract class IteratorProxy implements Iterator {
     protected ForumPermissions permissions;
 
     public IteratorProxy(Iterator iterator, Authorization authorization,
-            ForumPermissions permissions)
-    {
+                         ForumPermissions permissions) {
         this.iterator = iterator;
         this.authorization = authorization;
         this.permissions = permissions;

@@ -3,7 +3,10 @@ package com.topcoder.ejb.UserServices;
 import com.topcoder.common.web.data.User;
 import com.topcoder.shared.util.logging.Logger;
 
-import javax.ejb.*;
+import javax.ejb.CreateException;
+import javax.ejb.EntityBean;
+import javax.ejb.EntityContext;
+import javax.ejb.FinderException;
 import java.rmi.RemoteException;
 import java.util.Properties;
 

@@ -17,7 +17,9 @@ import javax.naming.NamingException;
 import java.io.*;
 import java.rmi.RemoteException;
 import java.sql.SQLException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
 
 class Page extends WebPageResource {
     List items;

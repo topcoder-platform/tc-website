@@ -53,11 +53,11 @@ public class Technology implements java.io.Serializable {
     public Technology(String name, String description) {
         if (name == null) {
             throw new IllegalArgumentException(
-            "Null specified for technology name");
+                    "Null specified for technology name");
         }
         if (description == null) {
             throw new IllegalArgumentException(
-            "Null specified for technology description");
+                    "Null specified for technology description");
         }
         this.name = name;
         this.description = description;
@@ -94,7 +94,7 @@ public class Technology implements java.io.Serializable {
     public void setName(String name) {
         if (name == null) {
             throw new IllegalArgumentException(
-            "Null specified for technology name");
+                    "Null specified for technology name");
         }
         this.name = name;
     }
@@ -118,7 +118,7 @@ public class Technology implements java.io.Serializable {
     public void setDescription(String description) {
         if (description == null) {
             throw new IllegalArgumentException(
-            "Null specified for technology description");
+                    "Null specified for technology description");
         }
         this.description = description;
     }
@@ -138,7 +138,7 @@ public class Technology implements java.io.Serializable {
         }
         Technology other = (Technology) object;
         return getName().equals(other.getName())
-            && getDescription().equals(other.getDescription());
+                && getDescription().equals(other.getDescription());
     }
 
     /**
@@ -155,7 +155,7 @@ public class Technology implements java.io.Serializable {
 
     public String toString() {
         return "Technology " + getId() + " - " + getName()
-            + " (" + getDescription() + ")";
+                + " (" + getDescription() + ")";
     }
 
 

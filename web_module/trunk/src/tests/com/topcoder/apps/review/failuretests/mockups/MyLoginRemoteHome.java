@@ -1,7 +1,7 @@
 /*
  * MyLoginRemoteHome.java 1.0 6/30/2003
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review.failuretests.mockups;
 
@@ -27,7 +27,7 @@ public class MyLoginRemoteHome extends EJBHomeBase implements LoginRemoteHome {
      * <p>Returns a new instance of MyLoginRemote.</p>
      */
     public LoginRemote create() throws RemoteException, CreateException {
-        return(new MyLoginRemote());
+        return (new MyLoginRemote());
     }
 
 }

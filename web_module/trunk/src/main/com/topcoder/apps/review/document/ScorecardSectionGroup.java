@@ -1,7 +1,7 @@
 /*
  * ScorecardSectionGroup.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.document;
@@ -33,7 +33,7 @@ public class ScorecardSectionGroup implements Serializable {
      * <p>
      * Return the location of this section group.
      * </p>
-     * 
+     *
      * @return the location of this section group.
      */
     public int getSequenceLocation() {
@@ -44,7 +44,7 @@ public class ScorecardSectionGroup implements Serializable {
      * <p>
      * Return the id of this scorecard section group.
      * </p>
-     * 
+     *
      * @return the id of this scorecard section group.
      */
     public long getId() {
@@ -55,7 +55,7 @@ public class ScorecardSectionGroup implements Serializable {
      * <p>
      * Return the name of scorecard section group.
      * </p>
-     * 
+     *
      * @return a String with the name of scorecard section group.
      */
     public String getName() {

@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
@@ -16,7 +16,7 @@ public class SubmitterRemovalResult extends SuccessResult {
     private Set submitterRemovalSet;
 
     /**
-     * 
+     *
      */
     public SubmitterRemovalResult(Set submitterRemovalSet) {
         super();

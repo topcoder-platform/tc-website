@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 
 package com.topcoder.apps.review;
@@ -16,7 +16,7 @@ import com.topcoder.apps.review.document.Appeal;
 public class AppealData extends OnlineReviewProjectData {
 
     // --------------------------------------------------- Instance Variables
-    
+
     /**
      * The wrapped Appeals.
      */
@@ -26,12 +26,12 @@ public class AppealData extends OnlineReviewProjectData {
     private long questionId;
     // ------------------------------------------------------------ Constructor
 
-    
+
     /**
      * <p>
      * Creates the instance of <code>AppealData</code> class.
      * </p>
-     * 
+     *
      * @param orpd The OnlineReviewProjectData to be set.
      * @param appeals The appeals to be saved, null to retrieve appeals.
      */
@@ -43,17 +43,17 @@ public class AppealData extends OnlineReviewProjectData {
     }
 
     // --------------------------------------------------------- Public Methods
-    
+
     /**
      * <p>
      * Return the wrapped appeals.
      * </p>
-     * 
+     *
      * @return Appeal[] the array with appeals.
      */
-    public Appeal[] getAppeals() {        
+    public Appeal[] getAppeals() {
         return appeals;
-    } // end getAppeals        
+    } // end getAppeals
 
     /**
      * @return Returns the appealerId.

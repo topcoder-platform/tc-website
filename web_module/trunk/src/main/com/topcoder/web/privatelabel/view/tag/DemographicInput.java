@@ -1,14 +1,15 @@
 package com.topcoder.web.privatelabel.view.tag;
 
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.tag.BaseTag;
+import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.DemographicAnswer;
 import com.topcoder.web.privatelabel.model.DemographicQuestion;
-import com.topcoder.web.privatelabel.Constants;
-import com.topcoder.web.common.tag.BaseTag;
-import com.topcoder.shared.util.logging.Logger;
 
 import javax.servlet.jsp.JspException;
-import java.util.*;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DemographicInput extends BaseTag {
     protected static Logger log = Logger.getLogger(DemographicInput.class);
@@ -43,25 +44,23 @@ public class DemographicInput extends BaseTag {
             throws JspException {
         if (question != null) {
             StringBuffer output = new StringBuffer(400);
-            setName(Constants.DEMOG_PREFIX+question.getId());
+            setName(Constants.DEMOG_PREFIX + question.getId());
             switch (question.getAnswerType()) {
                 case DemographicQuestion.FREE_FORM:
                     output.append(buildText());
                     break;
                 case DemographicQuestion.MULTIPLE_SELECT:
-                    if(showMulti)
-                    {
+                    if (showMulti) {
                         output.append(buildSelect(true));
-                    }
-                    else
-                    {
+                    } else {
                         output.append(buildSelect(false));
                     }
                     break;
                 case DemographicQuestion.SINGLE_SELECT:
                     output.append(buildSelect(false));
                     break;
-                default: break;
+                default:
+                    break;
             }
             try {
                 pageContext.getOut().print(output.toString());
@@ -83,7 +82,7 @@ public class DemographicInput extends BaseTag {
             s.append(" class=\"" + cssclass + "\"");
         }
         s.append(" value=\"");
-        s.append(getDefaultValue()==null?"":getDefaultValue());
+        s.append(getDefaultValue() == null ? "" : getDefaultValue());
         s.append("\"");
         s.append("/>");
         return s.toString();
@@ -110,20 +109,16 @@ public class DemographicInput extends BaseTag {
             if (!multiple) s.append("<option value=\"\"></option>");
             DemographicAnswer answer = null;
             for (int i = 0; i < answers.size(); i++) {
-                answer = (DemographicAnswer)answers.get(i);
+                answer = (DemographicAnswer) answers.get(i);
                 s.append("<option value=\"");
                 s.append(answer.getAnswerId());
                 s.append("\"");
-                if(!(question.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT))
-                {
-                    if (getDefaultValue()!=null && getDefaultValue().equals(String.valueOf(answer.getAnswerId()))) {
+                if (!(question.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT)) {
+                    if (getDefaultValue() != null && getDefaultValue().equals(String.valueOf(answer.getAnswerId()))) {
                         s.append(" selected");
                     }
-                }
-                else
-                {
-                    if(getDefaultValue()!=null && ((ArrayList) getDefaultValue()).contains(String.valueOf(answer.getAnswerId()) ) )
-                    {
+                } else {
+                    if (getDefaultValue() != null && ((ArrayList) getDefaultValue()).contains(String.valueOf(answer.getAnswerId()))) {
                         s.append(" selected");
                     }
                 }
@@ -138,9 +133,9 @@ public class DemographicInput extends BaseTag {
 
 
     protected void init() {
-        this.cssclass=null;
-        this.question=null;
-        this.showMulti=true;
+        this.cssclass = null;
+        this.question = null;
+        this.showMulti = true;
 
     }
 

@@ -28,8 +28,13 @@ package com.topcoder.utilities.hsdwload;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 
-import java.sql.*;
-import java.util.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Hashtable;
 
 public class TCLoadRound extends TCLoad {
     private static Logger log = Logger.getLogger(TCLoadRound.class);
@@ -175,7 +180,7 @@ public class TCLoadRound extends TCLoad {
 
             getLastUpdateTime();
 
-           clearRound();
+            clearRound();
 
             loadContest();
 
@@ -551,7 +556,7 @@ public class TCLoadRound extends TCLoad {
                 int submission_number = rs.getInt(14);
                 int last_submission = 0;
                 if (rs.getInt(8) > 0) {  //they submitted at least once
-                    last_submission = rs.getInt(8) == submission_number?1:0;
+                    last_submission = rs.getInt(8) == submission_number ? 1 : 0;
                 }
 
                 psDel.clearParameters();
@@ -1024,7 +1029,7 @@ public class TCLoadRound extends TCLoad {
             query.append("       ,viewable) ");         // 15
             query.append("VALUES (");
             query.append("?,?,?,?,?,?,?,?,?,?,");
-            query.append("?,?,?,?,?)");         
+            query.append("?,?,?,?,?)");
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
@@ -1479,8 +1484,8 @@ public class TCLoadRound extends TCLoad {
      * point_standard_deviation. We get these later on in the aggregate
      * load.
 
-important: dw:room_result.school_id comes from oltp:user_school_xref;
-if students change schools, reloading an old round will lose historical data
+     important: dw:room_result.school_id comes from oltp:user_school_xref;
+     if students change schools, reloading an old round will lose historical data
 
      */
     private void loadRoomResult() throws Exception {
@@ -1582,7 +1587,7 @@ if students change schools, reloading an old round will lose historical data
             query.append("  JOIN room r ON rr.round_id = r.round_id ");
             query.append("   AND rr.room_id = r.room_id ");
             query.append("  JOIN user_school_xref x ON rr.coder_id = x.user_id");
-            query.append("   AND x.current_ind = 1");    
+            query.append("   AND x.current_ind = 1");
             query.append(" WHERE r.room_type_id = " + CONTEST_ROOM);
             query.append("   AND rr.round_id = ?");
             query.append("   AND rr.attended = 'Y'");
@@ -1779,7 +1784,7 @@ if students change schools, reloading an old round will lose historical data
             query.append("           FROM round_segment rs");
             query.append("          WHERE rs.round_id = cs.round_id");
             query.append("            AND rs.segment_id = 2)");                  // coding segment...need constant
-            query.append("       ,cs.component_id ");                            
+            query.append("       ,cs.component_id ");
             query.append(" FROM component_state cs");
             query.append(" LEFT OUTER JOIN submission s ");
             query.append(" ON cs.component_state_id = s.component_state_id");
@@ -1867,7 +1872,7 @@ if students change schools, reloading an old round will lose historical data
                 component_id = rs.getInt("component_id");
                 // if they didn't submit, use the difference between open time and the end of the coding phase
                 // otherwise use the difference between open time and submit time
-                long elapsed_time = rs.getLong(10) == 0?rs.getDate(16).getTime() - rs.getLong(9):rs.getLong(11);
+                long elapsed_time = rs.getLong(10) == 0 ? rs.getDate(16).getTime() - rs.getLong(9) : rs.getLong(11);
 
                 psSel2.clearParameters();
                 psSel2.setInt(1, component_id);

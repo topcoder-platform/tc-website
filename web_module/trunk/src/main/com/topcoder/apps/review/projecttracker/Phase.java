@@ -1,7 +1,7 @@
 /*
  * Phase.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.projecttracker;
@@ -21,7 +21,7 @@ public class Phase implements Serializable {
     public static final long ID_REVIEW = 3;
     public static final long ID_AGGREGATION = 4;
     public static final long ID_AGGREGATION_REVIEW = 5;
-    public static final long ID_FINAL_FIXES= 6;
+    public static final long ID_FINAL_FIXES = 6;
     public static final long ID_FINAL_REVIEW = 7;
     public static final long ID_COMPONENT_PREPARATION = 8;
     public static final long ID_APPEALS = 9;

@@ -21,11 +21,13 @@ package com.topcoder.utilities.dwload;
  * @version $Revision$
  */
 
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
-import java.sql.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Hashtable;
 import java.util.Iterator;
 
@@ -506,24 +508,24 @@ public class TCLoadAggregate extends TCLoad {
 
             query = new StringBuffer(100);
             query.append(" INSERT ");
-            query.append(   " INTO coder_level ");
-            query.append(       " (coder_id ");                         // 1
-            query.append(       " ,division_id ");                     // 2
-            query.append(       " ,level_id ");                        // 3
-            query.append(       " ,problems_opened ");                 // 4
-            query.append(       " ,problems_submitted ");              // 5
-            query.append(       " ,problems_correct ");                // 6
-            query.append(       " ,problems_failed_by_challenge ");    // 7
-            query.append(       " ,problems_failed_by_system_test ");  // 8
-            query.append(       " ,problems_left_open ");              // 9
-            query.append(       " ,average_points ");                  // 10
-            query.append(       " ,submission_points ");               // 11
-            query.append(       " ,challenge_points ");                // 12
-            query.append(       " ,system_test_points ");              // 13
-            query.append(       " ,final_points ");                    // 14
-            query.append(       " ,point_standard_deviation ");        // 15
-            query.append(       " ,defense_points ");                  // 16
-            query.append(       " ,avg_time_elapsed) ");               // 16
+            query.append(" INTO coder_level ");
+            query.append(" (coder_id ");                         // 1
+            query.append(" ,division_id ");                     // 2
+            query.append(" ,level_id ");                        // 3
+            query.append(" ,problems_opened ");                 // 4
+            query.append(" ,problems_submitted ");              // 5
+            query.append(" ,problems_correct ");                // 6
+            query.append(" ,problems_failed_by_challenge ");    // 7
+            query.append(" ,problems_failed_by_system_test ");  // 8
+            query.append(" ,problems_left_open ");              // 9
+            query.append(" ,average_points ");                  // 10
+            query.append(" ,submission_points ");               // 11
+            query.append(" ,challenge_points ");                // 12
+            query.append(" ,system_test_points ");              // 13
+            query.append(" ,final_points ");                    // 14
+            query.append(" ,point_standard_deviation ");        // 15
+            query.append(" ,defense_points ");                  // 16
+            query.append(" ,avg_time_elapsed) ");               // 16
             query.append(" VALUES (");
             query.append("?,?,?,?,?,?,?,?,?,?,");  // 10 values
             query.append("?,?,?,?,?,?,?)");       // 17 total values
@@ -531,100 +533,100 @@ public class TCLoadAggregate extends TCLoad {
 
             query = new StringBuffer(100);
             query.append(" UPDATE coder_level");
-            query.append(   " SET problems_presented = ");
-            query.append(          " (SELECT count(*)");
-            query.append(             " FROM problem p ");
-            query.append(                  " ,room_result rr ");
-            query.append(            " WHERE p.round_id = rr.round_id ");
-            query.append(              " AND rr.coder_id = coder_level.coder_id");
-            query.append(              " AND rr.division_id = p.division_id");
-            query.append(              " AND p.level_id = coder_level.level_id");
-            query.append(              " AND p.division_id = coder_level.division_id)");
-            query.append(       " ,challenge_attempts_made = ");
-            query.append(          " (SELECT count(*) ");
-            query.append(             " FROM challenge c ");
-            query.append(                  " ,problem p ");
-            query.append(                  " ,room_result rr ");
-            query.append(            " WHERE c.challenger_id = rr.coder_id");
-            query.append(              " AND rr.coder_id = coder_level.coder_id");
-            query.append(              " AND c.round_id = rr.round_id");
-            query.append(              " AND rr.round_id = p.round_id");
-            query.append(              " AND rr.division_id = p.division_id");
-            query.append(              " AND p.problem_id = c.problem_id");
-            query.append(              " AND p.division_id = coder_level.division_id");
-            query.append(              " AND p.level_id = coder_level.level_id)");
-            query.append(       " ,challenges_made_successful = ");
-            query.append(          " (SELECT count(*) ");
-            query.append(             " FROM challenge c ");
-            query.append(                  " ,problem p ");
-            query.append(                  " ,room_result rr ");
-            query.append(            " WHERE c.challenger_id = rr.coder_id");
-            query.append(              " AND rr.coder_id = coder_level.coder_id");
-            query.append(              " AND c.round_id = rr.round_id");
-            query.append(              " AND rr.round_id = p.round_id");
-            query.append(              " AND rr.division_id = p.division_id");
-            query.append(              " AND p.problem_id = c.problem_id");
-            query.append(              " AND p.division_id = coder_level.division_id");
-            query.append(              " AND p.level_id = coder_level.level_id ");
-            query.append(              " AND c.succeeded = " + STATUS_SUCCEEDED + ")");
-            query.append(       " ,challenges_made_failed = ");
-            query.append(          " (SELECT count(*) ");
-            query.append(             " FROM challenge c ");
-            query.append(                  " ,problem p ");
-            query.append(                  " ,room_result rr ");
-            query.append(            " WHERE c.challenger_id = rr.coder_id");
-            query.append(              " AND rr.coder_id = coder_level.coder_id");
-            query.append(              " AND c.round_id = rr.round_id");
-            query.append(              " AND rr.round_id = p.round_id");
-            query.append(              " AND rr.division_id = p.division_id");
-            query.append(              " AND p.problem_id = c.problem_id");
-            query.append(              " AND p.division_id = coder_level.division_id");
-            query.append(              " AND p.level_id = coder_level.level_id ");
-            query.append(              " AND c.succeeded = " + STATUS_FAILED + ")");
-            query.append(       " ,challenge_attempts_received = ");
-            query.append(          " (SELECT count(*) ");
-            query.append(             " FROM challenge c ");
-            query.append(                  " ,problem p ");
-            query.append(                  " ,room_result rr ");
-            query.append(            " WHERE c.defendant_id = rr.coder_id");
-            query.append(              " AND rr.coder_id = coder_level.coder_id");
-            query.append(              " AND c.round_id = rr.round_id");
-            query.append(              " AND rr.round_id = p.round_id");
-            query.append(              " AND rr.division_id = p.division_id");
-            query.append(              " AND p.problem_id = c.problem_id");
-            query.append(              " AND p.division_id = coder_level.division_id");
-            query.append(              " AND p.level_id = coder_level.level_id) ");
-            query.append(       " ,challenges_received_successful = ");
-            query.append(          " (SELECT count(*) ");
-            query.append(             " FROM challenge c ");
-            query.append(                  " ,problem p ");
-            query.append(                  " ,room_result rr ");
-            query.append(            " WHERE c.defendant_id = rr.coder_id");
-            query.append(              " AND rr.coder_id = coder_level.coder_id");
-            query.append(              " AND c.round_id = rr.round_id");
-            query.append(              " AND rr.round_id = p.round_id");
-            query.append(              " AND rr.division_id = p.division_id");
-            query.append(              " AND p.problem_id = c.problem_id");
-            query.append(              " AND p.division_id = coder_level.division_id");
-            query.append(              " AND p.level_id = coder_level.level_id ");
-            query.append(              " AND c.succeeded = " + STATUS_SUCCEEDED + ")");
-            query.append(       " ,challenges_received_failed = ");
-            query.append(          " (SELECT count(*) ");
-            query.append(             " FROM challenge c ");
-            query.append(                  " ,problem p ");
-            query.append(                  " ,room_result rr ");
-            query.append(            " WHERE c.defendant_id = rr.coder_id");
-            query.append(              " AND rr.coder_id = coder_level.coder_id");
-            query.append(              " AND c.round_id = rr.round_id");
-            query.append(              " AND rr.round_id = p.round_id");
-            query.append(              " AND rr.division_id = p.division_id");
-            query.append(              " AND p.problem_id = c.problem_id");
-            query.append(              " AND p.division_id = coder_level.division_id");
-            query.append(              " AND p.level_id = coder_level.level_id ");
-            query.append(              " AND c.succeeded = " + STATUS_FAILED + ")");
-            query.append( " WHERE coder_id = ?");
-            query.append(   " AND division_id = ?");
-            query.append(   " AND level_id = ?");
+            query.append(" SET problems_presented = ");
+            query.append(" (SELECT count(*)");
+            query.append(" FROM problem p ");
+            query.append(" ,room_result rr ");
+            query.append(" WHERE p.round_id = rr.round_id ");
+            query.append(" AND rr.coder_id = coder_level.coder_id");
+            query.append(" AND rr.division_id = p.division_id");
+            query.append(" AND p.level_id = coder_level.level_id");
+            query.append(" AND p.division_id = coder_level.division_id)");
+            query.append(" ,challenge_attempts_made = ");
+            query.append(" (SELECT count(*) ");
+            query.append(" FROM challenge c ");
+            query.append(" ,problem p ");
+            query.append(" ,room_result rr ");
+            query.append(" WHERE c.challenger_id = rr.coder_id");
+            query.append(" AND rr.coder_id = coder_level.coder_id");
+            query.append(" AND c.round_id = rr.round_id");
+            query.append(" AND rr.round_id = p.round_id");
+            query.append(" AND rr.division_id = p.division_id");
+            query.append(" AND p.problem_id = c.problem_id");
+            query.append(" AND p.division_id = coder_level.division_id");
+            query.append(" AND p.level_id = coder_level.level_id)");
+            query.append(" ,challenges_made_successful = ");
+            query.append(" (SELECT count(*) ");
+            query.append(" FROM challenge c ");
+            query.append(" ,problem p ");
+            query.append(" ,room_result rr ");
+            query.append(" WHERE c.challenger_id = rr.coder_id");
+            query.append(" AND rr.coder_id = coder_level.coder_id");
+            query.append(" AND c.round_id = rr.round_id");
+            query.append(" AND rr.round_id = p.round_id");
+            query.append(" AND rr.division_id = p.division_id");
+            query.append(" AND p.problem_id = c.problem_id");
+            query.append(" AND p.division_id = coder_level.division_id");
+            query.append(" AND p.level_id = coder_level.level_id ");
+            query.append(" AND c.succeeded = " + STATUS_SUCCEEDED + ")");
+            query.append(" ,challenges_made_failed = ");
+            query.append(" (SELECT count(*) ");
+            query.append(" FROM challenge c ");
+            query.append(" ,problem p ");
+            query.append(" ,room_result rr ");
+            query.append(" WHERE c.challenger_id = rr.coder_id");
+            query.append(" AND rr.coder_id = coder_level.coder_id");
+            query.append(" AND c.round_id = rr.round_id");
+            query.append(" AND rr.round_id = p.round_id");
+            query.append(" AND rr.division_id = p.division_id");
+            query.append(" AND p.problem_id = c.problem_id");
+            query.append(" AND p.division_id = coder_level.division_id");
+            query.append(" AND p.level_id = coder_level.level_id ");
+            query.append(" AND c.succeeded = " + STATUS_FAILED + ")");
+            query.append(" ,challenge_attempts_received = ");
+            query.append(" (SELECT count(*) ");
+            query.append(" FROM challenge c ");
+            query.append(" ,problem p ");
+            query.append(" ,room_result rr ");
+            query.append(" WHERE c.defendant_id = rr.coder_id");
+            query.append(" AND rr.coder_id = coder_level.coder_id");
+            query.append(" AND c.round_id = rr.round_id");
+            query.append(" AND rr.round_id = p.round_id");
+            query.append(" AND rr.division_id = p.division_id");
+            query.append(" AND p.problem_id = c.problem_id");
+            query.append(" AND p.division_id = coder_level.division_id");
+            query.append(" AND p.level_id = coder_level.level_id) ");
+            query.append(" ,challenges_received_successful = ");
+            query.append(" (SELECT count(*) ");
+            query.append(" FROM challenge c ");
+            query.append(" ,problem p ");
+            query.append(" ,room_result rr ");
+            query.append(" WHERE c.defendant_id = rr.coder_id");
+            query.append(" AND rr.coder_id = coder_level.coder_id");
+            query.append(" AND c.round_id = rr.round_id");
+            query.append(" AND rr.round_id = p.round_id");
+            query.append(" AND rr.division_id = p.division_id");
+            query.append(" AND p.problem_id = c.problem_id");
+            query.append(" AND p.division_id = coder_level.division_id");
+            query.append(" AND p.level_id = coder_level.level_id ");
+            query.append(" AND c.succeeded = " + STATUS_SUCCEEDED + ")");
+            query.append(" ,challenges_received_failed = ");
+            query.append(" (SELECT count(*) ");
+            query.append(" FROM challenge c ");
+            query.append(" ,problem p ");
+            query.append(" ,room_result rr ");
+            query.append(" WHERE c.defendant_id = rr.coder_id");
+            query.append(" AND rr.coder_id = coder_level.coder_id");
+            query.append(" AND c.round_id = rr.round_id");
+            query.append(" AND rr.round_id = p.round_id");
+            query.append(" AND rr.division_id = p.division_id");
+            query.append(" AND p.problem_id = c.problem_id");
+            query.append(" AND p.division_id = coder_level.division_id");
+            query.append(" AND p.level_id = coder_level.level_id ");
+            query.append(" AND c.succeeded = " + STATUS_FAILED + ")");
+            query.append(" WHERE coder_id = ?");
+            query.append(" AND division_id = ?");
+            query.append(" AND level_id = ?");
 
 
             psUpd = prepareStatement(query.toString(), TARGET_DB);
@@ -888,7 +890,7 @@ public class TCLoadAggregate extends TCLoad {
             psSel2 = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
-            query.append("DELETE FROM streak WHERE streak_type_id in ("+CONSEC_WINS_DIV1+","+CONSEC_WINS_DIV2+")");
+            query.append("DELETE FROM streak WHERE streak_type_id in (" + CONSEC_WINS_DIV1 + "," + CONSEC_WINS_DIV2 + ")");
 
 
             psDel = prepareStatement(query.toString(), TARGET_DB);
@@ -1025,9 +1027,9 @@ public class TCLoadAggregate extends TCLoad {
             query.append("  FROM room_result rr ");
             query.append("       ,round r ");
             if (srmOnly)
-                query.append(" WHERE r.round_type_id in (" + SINGLE_ROUND_MATCH+")");
+                query.append(" WHERE r.round_type_id in (" + SINGLE_ROUND_MATCH + ")");
             else
-                query.append(" WHERE r.round_type_id in (" + SINGLE_ROUND_MATCH+", "+ TOURNAMENT_ROUND +")");
+                query.append(" WHERE r.round_type_id in (" + SINGLE_ROUND_MATCH + ", " + TOURNAMENT_ROUND + ")");
             query.append("   AND r.round_id = rr.round_id ");
             query.append(" ORDER BY rr.coder_id ");
             query.append("          ,r.calendar_id ");
@@ -1052,9 +1054,9 @@ public class TCLoadAggregate extends TCLoad {
 
             query = new StringBuffer(100);
             if (srmOnly)
-                query.append("DELETE FROM streak WHERE streak_type_id in ("+RATING_INCREASE_SRM_ONLY+")");
+                query.append("DELETE FROM streak WHERE streak_type_id in (" + RATING_INCREASE_SRM_ONLY + ")");
             else
-                query.append("DELETE FROM streak WHERE streak_type_id in ("+RATING_INCREASE+")");
+                query.append("DELETE FROM streak WHERE streak_type_id in (" + RATING_INCREASE + ")");
 
             psDel = prepareStatement(query.toString(), TARGET_DB);
 
@@ -1101,7 +1103,7 @@ public class TCLoadAggregate extends TCLoad {
                     end_round_id = round_id;
                 } else if (numConsecutive > 1) {  //we have a streak, load it up
                     int streak_type_id = -1;
-                    streak_type_id = srmOnly?RATING_INCREASE_SRM_ONLY:RATING_INCREASE;
+                    streak_type_id = srmOnly ? RATING_INCREASE_SRM_ONLY : RATING_INCREASE;
 
                     psIns.clearParameters();
                     psIns.setInt(1, cur_coder_id);
@@ -1120,7 +1122,7 @@ public class TCLoadAggregate extends TCLoad {
                                 " modified " + retVal + " rows, not one.");
                     }
 
-                    printLoadProgress(count, "rating increase "+(srmOnly?"(srm only)":"") +" streak");
+                    printLoadProgress(count, "rating increase " + (srmOnly ? "(srm only)" : "") + " streak");
 
                     // if this record is an increase, start a new streak
                     if (newRating > oldRating) {
@@ -1141,7 +1143,7 @@ public class TCLoadAggregate extends TCLoad {
                     numConsecutive = 0;
                 }
             }
-            log.info("Records loaded for rating increase "+(srmOnly?"(srm only)":"") + " streak: " + count);
+            log.info("Records loaded for rating increase " + (srmOnly ? "(srm only)" : "") + " streak: " + count);
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
             throw new Exception("Load of 'streak' table failed.\n" +
@@ -1178,9 +1180,9 @@ public class TCLoadAggregate extends TCLoad {
             query.append("  FROM room_result rr ");
             query.append("       ,round r ");
             if (srmOnly)
-                query.append(" WHERE r.round_type_id in (" + SINGLE_ROUND_MATCH+")");
+                query.append(" WHERE r.round_type_id in (" + SINGLE_ROUND_MATCH + ")");
             else
-                query.append(" WHERE r.round_type_id in (" + SINGLE_ROUND_MATCH+", "+ TOURNAMENT_ROUND +")");
+                query.append(" WHERE r.round_type_id in (" + SINGLE_ROUND_MATCH + ", " + TOURNAMENT_ROUND + ")");
             query.append("   AND r.round_id = rr.round_id ");
             query.append(" ORDER BY rr.coder_id ");
             query.append("          ,r.calendar_id ");
@@ -1205,9 +1207,9 @@ public class TCLoadAggregate extends TCLoad {
 
             query = new StringBuffer(100);
             if (srmOnly)
-                query.append("DELETE FROM streak WHERE streak_type_id in ("+RATING_DECREASE_SRM_ONLY+")");
+                query.append("DELETE FROM streak WHERE streak_type_id in (" + RATING_DECREASE_SRM_ONLY + ")");
             else
-                query.append("DELETE FROM streak WHERE streak_type_id in ("+RATING_DECREASE+")");
+                query.append("DELETE FROM streak WHERE streak_type_id in (" + RATING_DECREASE + ")");
 
             psDel = prepareStatement(query.toString(), TARGET_DB);
 
@@ -1254,7 +1256,7 @@ public class TCLoadAggregate extends TCLoad {
                     end_round_id = round_id;
                 } else if (numConsecutive > 1) {  //we have a streak, load it up
                     int streak_type_id = -1;
-                    streak_type_id = srmOnly?RATING_DECREASE_SRM_ONLY:RATING_DECREASE;
+                    streak_type_id = srmOnly ? RATING_DECREASE_SRM_ONLY : RATING_DECREASE;
 
                     psIns.clearParameters();
                     psIns.setInt(1, cur_coder_id);
@@ -1273,7 +1275,7 @@ public class TCLoadAggregate extends TCLoad {
                                 " modified " + retVal + " rows, not one.");
                     }
 
-                    printLoadProgress(count, "rating decrease "+(srmOnly?"(srm only)":"") +" streak");
+                    printLoadProgress(count, "rating decrease " + (srmOnly ? "(srm only)" : "") + " streak");
 
                     // if this record is an decrease, start a new streak
                     if (newRating < oldRating) {
@@ -1294,7 +1296,7 @@ public class TCLoadAggregate extends TCLoad {
                     numConsecutive = 0;
                 }
             }
-            log.info("Records loaded for rating decrease "+(srmOnly?"(srm only)":"") + " streak: " + count);
+            log.info("Records loaded for rating decrease " + (srmOnly ? "(srm only)" : "") + " streak: " + count);
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
             throw new Exception("Load of 'streak' table failed.\n" +
@@ -1306,8 +1308,6 @@ public class TCLoadAggregate extends TCLoad {
             close(psIns);
         }
     }
-
-
 
 
     /**
@@ -1720,9 +1720,9 @@ public class TCLoadAggregate extends TCLoad {
         try {
             query = new StringBuffer(100);
             query.append("SELECT cp.round_id ");    // 1
-            query.append(    " , cp.problem_id ");  // 2
-            query.append(    " , cp.division_id "); // 3
-            query.append(    " , cp.language_id "); // 4
+            query.append(" , cp.problem_id ");  // 2
+            query.append(" , cp.division_id "); // 3
+            query.append(" , cp.language_id "); // 4
             // 5: problems_submitted
             query.append(" ,SUM(CASE WHEN cp.end_status_id >= " + STATUS_SUBMITTED +
                     " THEN 1 ELSE 0 END)");
@@ -1908,20 +1908,19 @@ public class TCLoadAggregate extends TCLoad {
     }
 
 
-
     private static final String PROBLEM_QUERY =
             " select problem_id, division_id" +
-              " from problem" +
-             " where round_id = ?";
+            " from problem" +
+            " where round_id = ?";
 
 
     private static final String POINT_QUERY =
             " select coder_id, round_id, division_id, problem_id, final_points" +
-              " from coder_problem" +
-             " where round_id = ?" +
-               " and problem_id = ?" +
-               " and division_id = ?" +
-             " order by final_points desc";
+            " from coder_problem" +
+            " where round_id = ?" +
+            " and problem_id = ?" +
+            " and division_id = ?" +
+            " order by final_points desc";
 
     private static final String PROBLEM_RANK_UPDATE =
             "update coder_problem set placed = ? " +
@@ -1954,8 +1953,8 @@ public class TCLoadAggregate extends TCLoad {
             ResultSetContainer rankList = null;
             ResultSetContainer.ResultSetRow row = null;
             ResultSetContainer.ResultSetRow innerRow = null;
-            for(Iterator it = problems.iterator(); it.hasNext();) {
-                row = (ResultSetContainer.ResultSetRow)it.next();
+            for (Iterator it = problems.iterator(); it.hasNext();) {
+                row = (ResultSetContainer.ResultSetRow) it.next();
                 psSel.setLong(1, fRoundId);
                 psSel.setLong(2, row.getLongItem("problem_id"));
                 psSel.setInt(3, row.getIntItem("division_id"));
@@ -1963,7 +1962,7 @@ public class TCLoadAggregate extends TCLoad {
                 rankList = new ResultSetContainer(rs, 0, Integer.MAX_VALUE, 5);
 
                 for (Iterator it1 = rankList.iterator(); it1.hasNext();) {
-                    innerRow = (ResultSetContainer.ResultSetRow)it1.next();
+                    innerRow = (ResultSetContainer.ResultSetRow) it1.next();
                     psUpd.setInt(1, innerRow.getIntItem("rank"));
                     psUpd.setLong(2, fRoundId);
                     psUpd.setLong(3, innerRow.getLongItem("coder_id"));
@@ -1988,7 +1987,6 @@ public class TCLoadAggregate extends TCLoad {
             }
 
 
-
             log.info("coder_problem records copied = " + count);
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
@@ -2000,8 +1998,6 @@ public class TCLoadAggregate extends TCLoad {
             close(psUpd);
         }
     }
-
-
 
 
 }

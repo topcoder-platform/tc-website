@@ -8,7 +8,7 @@ package com.topcoder.apps.review.document;
 
 /**
  * Represents a scorecard template, used for scorecard editing.
- * 
+ *
  * @author FatClimber
  */
 public class ScorecardTemplate {
@@ -44,15 +44,15 @@ public class ScorecardTemplate {
         this.groups = groups;
         this.isDefault = isDefault;
     }
-    
+
     public boolean isDefault() {
         return isDefault;
     }
-    
+
     public void setDefault(boolean b) {
         this.isDefault = b;
     }
-    
+
     /**
      * @return Returns the id.
      */

@@ -1,8 +1,8 @@
 package com.topcoder.web.ejb.rating;
 
-import java.rmi.RemoteException;
 import javax.ejb.EJBException;
 import javax.ejb.EJBObject;
+import java.rmi.RemoteException;
 
 public interface Rating extends EJBObject {
 

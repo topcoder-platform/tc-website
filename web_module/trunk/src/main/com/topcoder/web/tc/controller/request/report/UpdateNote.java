@@ -1,16 +1,16 @@
 package com.topcoder.web.tc.controller.request.report;
 
+import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.Transaction;
 import com.topcoder.web.common.*;
-import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.web.ejb.note.Note;
 import com.topcoder.web.ejb.user.UserNote;
-import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.Transaction;
-import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.request.Base;
 
-import javax.transaction.UserTransaction;
 import javax.transaction.Status;
+import javax.transaction.UserTransaction;
 
 /**
  * User: dok

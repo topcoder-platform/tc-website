@@ -1,9 +1,8 @@
 package com.topcoder.web.tc.controller.request.tournament;
 
-import com.topcoder.web.tc.model.CoderSessionInfo;
-import com.topcoder.web.tc.Constants;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.tc.Constants;
 
 /**
  * @author  dok
@@ -21,7 +20,8 @@ public class TCCC05TravelInfoSubmit extends BaseSubmitTravelInfo {
         next.append(Constants.STATIC_PREFIX).append("4=travelInfoSent");
         return next.toString();
     }
+
     protected String[] getRecipients() {
-        return new String[] {"mluce@topcoder.com"};
+        return new String[]{"mluce@topcoder.com"};
     }
 }

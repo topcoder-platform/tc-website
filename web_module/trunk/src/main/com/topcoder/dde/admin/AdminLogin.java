@@ -10,10 +10,10 @@
 
 package com.topcoder.dde.admin;
 
-import com.topcoder.dde.admin.*;
-import com.topcoder.security.*;
+import com.topcoder.security.GeneralSecurityException;
+import com.topcoder.security.TCSubject;
+
 import java.rmi.RemoteException;
-import java.util.Collection;
 
 
 /**
@@ -45,7 +45,7 @@ public interface AdminLogin extends javax.ejb.EJBObject {
      * cannot be accessed
      */
     public TCSubject login(String username, String password)
-        throws RemoteException, GeneralSecurityException;
+            throws RemoteException, GeneralSecurityException;
 
 
 }

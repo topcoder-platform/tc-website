@@ -1,7 +1,7 @@
 /*
  * ProjectStatus.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.projecttracker;
@@ -14,7 +14,7 @@ import java.io.Serializable;
  * Object representation of the various options for the status of a project
  * stored within the system.
  * </p>
- * 
+ *
  * @author FatClimber
  * @version 1.0
  */
@@ -44,7 +44,7 @@ public class ProjectStatus implements Serializable {
      * <p>
      * Return the name of status.
      * </p>
-     * 
+     *
      * @return a String with the name of status;
      */
     public String getName() {
@@ -55,7 +55,7 @@ public class ProjectStatus implements Serializable {
      * <p>
      * Return the id of status.
      * </p>
-     * 
+     *
      * @return the id of status.
      */
     public long getId() {

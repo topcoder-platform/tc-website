@@ -3,10 +3,10 @@ package com.topcoder.web.corp.view.testing.tag;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.corp.model.TestSessionInfo;
 
-import javax.servlet.jsp.tagext.TagSupport;
 import javax.servlet.jsp.JspException;
-import java.util.Date;
+import javax.servlet.jsp.tagext.TagSupport;
 import java.io.IOException;
+import java.util.Date;
 
 public class SessionStatusLinkTag extends TagSupport {
     private ResultSetContainer.ResultSetRow row;

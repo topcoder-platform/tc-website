@@ -1,9 +1,13 @@
 package com.topcoder.web.email.bean;
 
-import com.topcoder.shared.docGen.xml.*;
+import com.topcoder.shared.docGen.xml.RecordTag;
+import com.topcoder.shared.docGen.xml.ValueTag;
+import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.email.servlet.EmailConstants;
-import org.w3c.dom.*;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -150,7 +154,7 @@ public class MemberData
 
     public String getValue(String field) {
         String value = (String) fieldValueMap.get(field);
-        return (value == null ?  "" : value);
+        return (value == null ? "" : value);
     }
 
     public void setValue(String field, String value) {

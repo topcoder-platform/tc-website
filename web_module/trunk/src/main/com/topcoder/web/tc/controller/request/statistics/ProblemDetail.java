@@ -1,13 +1,11 @@
 package com.topcoder.web.tc.controller.request.statistics;
 
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.tc.Constants;
-import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.security.ClassResource;
-
-import javax.servlet.http.HttpUtils;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.tc.Constants;
 
 /**
  * User: dok

@@ -4,14 +4,13 @@
 
 package com.topcoder.apps.review;
 
-import com.topcoder.util.format.PrimitiveFormatterFactory;
-import com.topcoder.util.format.PrimitiveFormatter;
-import com.topcoder.apps.review.projecttracker.Project;
 import com.topcoder.apps.review.document.AbstractScorecard;
 import com.topcoder.apps.review.document.AbstractSubmission;
 import com.topcoder.apps.review.document.ReviewScorecard;
 import com.topcoder.apps.review.document.TestCaseScorecardQuestion;
-
+import com.topcoder.apps.review.projecttracker.Project;
+import com.topcoder.util.format.PrimitiveFormatter;
+import com.topcoder.util.format.PrimitiveFormatterFactory;
 import org.apache.struts.util.MessageResources;
 
 import java.util.ArrayList;
@@ -28,12 +27,12 @@ import java.util.List;
 public class AdminReviewScorecardBean {
 
     // ------------------------------------------------ Instance Variables
-        
+
     /**
      * The review scorecards.
      */
     private AbstractScorecard[] scorecards = null;
-    
+
     /**
      * The submission.
      */
@@ -47,7 +46,7 @@ public class AdminReviewScorecardBean {
     /**
      * The formatter for the score.
      */
-    PrimitiveFormatter scoreFormatter = 
+    PrimitiveFormatter scoreFormatter =
             PrimitiveFormatterFactory.getFormatter(Constants.SCORE_FORMAT);
 
     /**
@@ -65,35 +64,35 @@ public class AdminReviewScorecardBean {
      * Whether the average score is ready.
      */
     private boolean avgScoreReady = true;
-    
+
     // ------------------------------------------------------------ Constructor
-    
+
     /**
      * <p>
      * Creates the instance of <code>AdminReviewScorecardBean</code> class.
      * </p>
-     * 
+     *
      * @param project The related project.
      * @param submission The submission to be set.
      * @param scorecards The scorecards to be set.
      */
     public AdminReviewScorecardBean(Project project,
-                                    AbstractSubmission submission, 
+                                    AbstractSubmission submission,
                                     AbstractScorecard[] scorecards) {
         List list = new ArrayList();
 
         this.submission = submission;
         for (int j = 0; j < project.getParticipants().length; j++) {
-            if (project.getParticipants()[j].getRole().getId() 
+            if (project.getParticipants()[j].getRole().getId()
                     == Constants.ROLE_REVIEWER) {
                 boolean found = false;
                 if (scorecards != null) {
                     for (int i = 0; i < scorecards.length; i++) {
-                        if (scorecards[i] instanceof ReviewScorecard 
+                        if (scorecards[i] instanceof ReviewScorecard
                                 && scorecards[i].getSubmission().getSubmitter().getId()
-                                        == submission.getSubmitter().getId()
+                                == submission.getSubmitter().getId()
                                 && scorecards[i].getAuthor().getId()
-                                        == project.getParticipants()[j].getUser().getId()) {
+                                == project.getParticipants()[j].getUser().getId()) {
                             list.add(scorecards[i]);
                             found = true;
                         }
@@ -123,14 +122,14 @@ public class AdminReviewScorecardBean {
             form.fromScorecard(this.scorecards[0]);
         }
     }
-    
+
     // ----------------------------------------------------- Public Methods
-    
+
     /**
      * <p>
      * Return the submission.
      * </p>
-     * 
+     *
      * @return the submission.
      */
     public AbstractSubmission getSubmission() {
@@ -145,12 +144,12 @@ public class AdminReviewScorecardBean {
     public Project getProject() {
         return submission.getProject();
     }
-    
+
     /**
      * <p>
      * Return whether the scorecard exists.
      * </p>
-     * 
+     *
      * @param index The index of scorecard.
      * @return whether the scorecard exists.
      */
@@ -162,7 +161,7 @@ public class AdminReviewScorecardBean {
      * <p>
      * Return the scorecards.
      * </p>
-     * 
+     *
      * @return the scorecards.
      */
     public AbstractScorecard[] getScorecards() {
@@ -182,7 +181,7 @@ public class AdminReviewScorecardBean {
      * <p>
      * Return the score.
      * </p>
-     * 
+     *
      * @param index The index of scorecard.
      * @return the score.
      */
@@ -198,7 +197,7 @@ public class AdminReviewScorecardBean {
      * <p>
      * Return the average score.
      * </p>
-     * 
+     *
      * @return the average score.
      */
     public String getAvgScore() {
@@ -213,7 +212,7 @@ public class AdminReviewScorecardBean {
      * <p>
      * Return whether the average score is ready.
      * </p>
-     * 
+     *
      * @return whether the average score is ready.
      */
     public boolean getAvgScoreReady() {
@@ -224,7 +223,7 @@ public class AdminReviewScorecardBean {
      * <p>
      * Return whether the PM has reviewed.
      * </p>
-     * 
+     *
      * @return whether the PM has reviewed.
      */
     public boolean getIsPMReviewed() {
@@ -239,7 +238,7 @@ public class AdminReviewScorecardBean {
      * <p>
      * Return the average score for each question.
      * </p>
-     * 
+     *
      * @param index The index of question.
      * @return the average score for each question.
      */
@@ -274,7 +273,7 @@ public class AdminReviewScorecardBean {
      * <p>
      * Return whether the specified question is test case scorecard question.
      * </p>
-     * 
+     *
      * @param index The index of question.
      * @return whether the specified question is test case scorecard question.
      */

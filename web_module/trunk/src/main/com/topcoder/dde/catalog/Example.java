@@ -49,11 +49,11 @@ public class Example implements Serializable {
     public Example(String description, String url) {
         if (description == null) {
             throw new IllegalArgumentException(
-            "Null specified for example description");
+                    "Null specified for example description");
         }
         if (url == null) {
             throw new IllegalArgumentException(
-            "Null specified for example URL");
+                    "Null specified for example URL");
         }
         this.description = description;
         this.url = url;
@@ -89,7 +89,7 @@ public class Example implements Serializable {
     public void setDescription(String description) {
         if (description == null) {
             throw new IllegalArgumentException(
-            "Null specified for example description");
+                    "Null specified for example description");
         }
         this.description = description;
     }
@@ -113,7 +113,7 @@ public class Example implements Serializable {
     public void setURL(String url) {
         if (url == null) {
             throw new IllegalArgumentException(
-            "Null specified for example URL");
+                    "Null specified for example URL");
         }
         this.url = url;
     }
@@ -133,7 +133,7 @@ public class Example implements Serializable {
         }
         Example other = (Example) object;
         return getDescription().equals(other.getDescription())
-            && getURL().equals(other.getURL());
+                && getURL().equals(other.getURL());
     }
 
     /**
@@ -150,7 +150,7 @@ public class Example implements Serializable {
 
     public String toString() {
         return "Example " + getId() + " - " + getDescription()
-            + " (" + getURL() + ")";
+                + " (" + getURL() + ")";
     }
 
 

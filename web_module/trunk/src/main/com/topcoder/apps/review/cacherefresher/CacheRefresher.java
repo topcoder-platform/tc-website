@@ -1,15 +1,14 @@
 package com.topcoder.apps.review.cacherefresher;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
-import org.apache.log4j.Logger;
-import org.jboss.system.ServiceMBeanSupport;
-
 import com.topcoder.apps.review.persistence.Common;
 import com.topcoder.util.cache.refreshable.RefreshException;
 import com.topcoder.util.cache.refreshable.RefreshManager;
 import com.topcoder.util.cache.refreshable.RefreshableCache;
+import org.apache.log4j.Logger;
+import org.jboss.system.ServiceMBeanSupport;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 /********************************************************************
  * This class creates a timer that will update the RefreshableCache.
@@ -65,6 +64,7 @@ public class CacheRefresher
      */
     private class RefreshTask extends TimerTask {
         private int refreshNr = 0;
+
         public void run() {
             logger.info("CacheRefresher: Starting refresh, refreshNr: " + refreshNr);
             try {
@@ -74,7 +74,7 @@ public class CacheRefresher
                 logger.info("CacheRefresher: Done refreshing caches, refreshNr: " + refreshNr++);
             } catch (RefreshException e) {
                 logger.error(
-                    "CacheRefresher: Could not refresh caches!\n" + e);
+                        "CacheRefresher: Could not refresh caches!\n" + e);
             }
         }
     }
@@ -92,13 +92,13 @@ public class CacheRefresher
             Common.getFromCache("ScorecardSectionGroupManager");
             Common.getFromCache("ScorecardSectionManager");
             Common.getFromCache("TestCaseApprovalManager");
-    
+
             Common.getFromCache("PaymentStatusManager");
             Common.getFromCache("PhaseManager");
             Common.getFromCache("ProjectStatusManager");
             Common.getFromCache("ProjectTypeManager");
             Common.getFromCache("ReviewerResponsibilityManager");
-    
+
             timer = new Timer();
             timer.schedule(new RefreshTask(), REFRESH_DELAY * 60 * 1000, //initial delay
                     REFRESH_DELAY * 60 * 1000); //subsequent rate

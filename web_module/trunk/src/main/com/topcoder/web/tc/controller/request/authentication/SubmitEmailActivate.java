@@ -1,19 +1,22 @@
 package com.topcoder.web.tc.controller.request.authentication;
 
-import com.topcoder.web.tc.controller.request.Base;
-import com.topcoder.web.tc.Constants;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.BaseServlet;
-import com.topcoder.shared.util.*;
-import com.topcoder.security.login.LoginRemote;
-import com.topcoder.security.TCSubject;
-import com.topcoder.ejb.UserServices.UserServicesHome;
-import com.topcoder.ejb.UserServices.UserServices;
 import com.topcoder.common.web.data.Coder;
+import com.topcoder.ejb.UserServices.UserServices;
+import com.topcoder.ejb.UserServices.UserServicesHome;
+import com.topcoder.security.TCSubject;
+import com.topcoder.security.login.LoginRemote;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.EmailEngine;
+import com.topcoder.shared.util.TCSEmailMessage;
+import com.topcoder.shared.util.Transaction;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.request.Base;
 
 import javax.transaction.UserTransaction;
-import java.util.*;
+import java.util.StringTokenizer;
 
 /**
  * User: dok
@@ -51,7 +54,7 @@ public class SubmitEmailActivate extends Base {
             }
             try {
                 UserServicesHome userServicesHome = (UserServicesHome) getInitialContext().lookup(ApplicationServer.USER_SERVICES);
-                UserServices userServices = userServicesHome.findByPrimaryKey(new Integer((int)subject.getUserId()));
+                UserServices userServices = userServicesHome.findByPrimaryKey(new Integer((int) subject.getUserId()));
                 com.topcoder.common.web.data.User user = userServices.getUser();
 
                 updateEmail(userServices, email);
@@ -95,7 +98,7 @@ public class SubmitEmailActivate extends Base {
         return ret;
     }
 
-    private void updateEmail(UserServices userServices , String email) throws Exception {
+    private void updateEmail(UserServices userServices, String email) throws Exception {
 
         UserTransaction transaction = null;
         try {
@@ -104,7 +107,7 @@ public class SubmitEmailActivate extends Base {
                 com.topcoder.common.web.data.User user = userServices.getUser();
                 user.setEmail(email);
                 user.setModified("U");
-                Coder tempCoder = (Coder)user.getUserTypeDetails().get("Coder");
+                Coder tempCoder = (Coder) user.getUserTypeDetails().get("Coder");
                 //just in case they have the old type activation code, update them to the new version
                 tempCoder.setActivationCode(StringUtils.getActivationCode(user.getUserId()));
                 tempCoder.setModified("U");

@@ -1,24 +1,23 @@
 package com.topcoder.utilities.cheaterChecker;
 
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.utilities.CommentStripper;
 
 import javax.sql.DataSource;
-import java.util.List;
-import java.util.ArrayList;
-import java.sql.SQLException;
-import java.sql.ResultSet;
-import java.sql.PreparedStatement;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Google {
     private static Logger log = Logger.getLogger(Contest.class);
 
     public static void main(String[] args) {
         String dataSourceName = null;
-        long[] rounds = new long[args.length-2];
+        long[] rounds = new long[args.length - 2];
         long componentId = 0;
         if (args.length < 3) {
             System.out.println("SYNTAX: java " + Contest.class.getName() + "<datasource> <component id> <round id> <round id> ");
@@ -26,14 +25,14 @@ public class Google {
         }
         dataSourceName = args[0];
         componentId = Long.parseLong(args[1]);
-        for (int i=2; i<args.length; i++) {
-            rounds[i-2]=Long.parseLong(args[i]);
+        for (int i = 2; i < args.length; i++) {
+            rounds[i - 2] = Long.parseLong(args[i]);
         }
 
         try {
             Fraud fraud = null;
             List submissions = getSubmissions(dataSourceName, rounds[0], componentId);
-            for (int i=1; i<rounds.length; i++) {
+            for (int i = 1; i < rounds.length; i++) {
                 submissions.addAll(getSubmissions(dataSourceName, rounds[i], componentId));
             }
             log.debug("got submissions");
@@ -41,7 +40,7 @@ public class Google {
                 Submission temp = (Submission) submissions.get(0);
                 StringBuffer buf = new StringBuffer();
                 buf.append("running contest fraud detect for round: ");
-                for (int i=0; i<rounds.length; i++) {
+                for (int i = 0; i < rounds.length; i++) {
                     buf.append(rounds[i]).append(",");
                 }
                 buf.append(" component: ");

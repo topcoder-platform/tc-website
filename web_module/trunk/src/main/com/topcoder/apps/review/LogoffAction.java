@@ -5,19 +5,16 @@
 package com.topcoder.apps.review;
 
 import com.topcoder.util.log.Level;
-
-import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Cookie;
-
-import org.apache.struts.action.ActionError;
-import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
 
 /**
  * Extends from <strong>BaseAction</strong> that logoff the user.
@@ -51,11 +48,11 @@ public final class LogoffAction extends BaseAction {
                                  ActionForm form,
                                  HttpServletRequest request,
                                  HttpServletResponse response)
-        throws IOException, ServletException {
-        
+            throws IOException, ServletException {
+
         HttpSession session = request.getSession();
         log(Level.INFO, "LogoffAction in session " + session.getId());
-        
+
         // Remove the user session
         session.removeAttribute(Constants.USER_KEY);
         session.removeAttribute(Constants.PROJECT_LIST_KEY);

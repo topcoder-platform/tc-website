@@ -13,7 +13,7 @@ import java.rmi.RemoteException;
  *
  * @author TCDEVELOPER
  * @version 1.0
- * @version Copyright © 2003, TopCoder Software, Inc. All rights reserved
+ * @version Copyright ï¿½ 2003, TopCoder Software, Inc. All rights reserved
  */
 public class ProjectTrackerHomeTester implements ProjectTrackerHome {
 
@@ -49,6 +49,6 @@ public class ProjectTrackerHomeTester implements ProjectTrackerHome {
     }
 
     public ProjectTracker create() throws CreateException, EJBException {
-        return (ProjectTracker)ProjectTrackerLocalHomeTester.getInstance().create();
+        return (ProjectTracker) ProjectTrackerLocalHomeTester.getInstance().create();
     }
 }

@@ -56,12 +56,20 @@
 
 package com.coolservlets.forum.database;
 
-import java.util.*;
-//JDK1.1// import com.sun.java.util.collections.*;
-import java.sql.*;
-import com.topcoder.shared.util.*;
-import com.coolservlets.forum.*;
-import com.coolservlets.util.*;
+import com.coolservlets.forum.ForumMessage;
+import com.coolservlets.forum.ForumMessageNotFoundException;
+import com.coolservlets.forum.PropertyManager;
+import com.coolservlets.forum.SearchIndexer;
+import com.coolservlets.util.StringUtils;
+import com.topcoder.shared.util.DBMS;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 /**
  * Right now this creates a thread that updates the database with the new
@@ -70,32 +78,32 @@ import com.coolservlets.util.*;
  * Default update rate will be once every two hours.
  * Note: will want to allow updates on a per-message basis as well
  */
-public class DbSearchIndexer extends Thread implements SearchIndexer{
+public class DbSearchIndexer extends Thread implements SearchIndexer {
 
     /** DATABASE QUERIES **/
     private static final String INSERT_WORD =
-        "INSERT INTO jiveWord(wordID,word) VALUES(?,?)";
+            "INSERT INTO jiveWord(wordID,word) VALUES(?,?)";
     private static final String INSERT_INDEX_RECORD =
-        "INSERT INTO jiveMessageWord(messageID, wordID, wordCount, forumID) " +
-        "VALUES(?,?,?,?)";
+            "INSERT INTO jiveMessageWord(messageID, wordID, wordCount, forumID) " +
+            "VALUES(?,?,?,?)";
     private static final String DELETE_INDEX1 =
-        "DELETE FROM jiveMessageWord";
+            "DELETE FROM jiveMessageWord";
     private static final String DELETE_INDEX2 =
-        "DELETE FROM jiveWord";
+            "DELETE FROM jiveWord";
     private static final String DELETE_PARTIAL_INDEX =
-        "DELETE FROM jiveMessageWord WHERE jiveMessageWord.messageID=?";
+            "DELETE FROM jiveMessageWord WHERE jiveMessageWord.messageID=?";
     private static final String FIND_WORD_ID =
-        "SELECT wordID FROM jiveWord WHERE word=?";
+            "SELECT wordID FROM jiveWord WHERE word=?";
     private static final String MESSAGES_BEFORE_DATE =
-        "SELECT messageID FROM jiveMessage WHERE modifiedDate < ?";
+            "SELECT messageID FROM jiveMessage WHERE modifiedDate < ?";
     private static final String MESSAGES_BEFORE_DATE_COUNT =
-        "SELECT count(messageID) FROM jiveMessage WHERE modifiedDate < ?";
+            "SELECT count(messageID) FROM jiveMessage WHERE modifiedDate < ?";
     private static final String MESSAGES_SINCE_DATE =
-        "SELECT messageID FROM jiveMessage WHERE modifiedDate > ? " +
-        "AND modifiedDate < ?";
+            "SELECT messageID FROM jiveMessage WHERE modifiedDate > ? " +
+            "AND modifiedDate < ?";
     private static final String MESSAGES_SINCE_DATE_COUNT =
-        "SELECT count(messageID) FROM jiveMessage WHERE modifiedDate > ? " +
-        "AND modifiedDate < ?";
+            "SELECT count(messageID) FROM jiveMessage WHERE modifiedDate > ? " +
+            "AND modifiedDate < ?";
 
     /**
      * Constant for a MINUTE (in milleseconds)
@@ -152,7 +160,7 @@ public class DbSearchIndexer extends Thread implements SearchIndexer{
      * properties then starts the indexing thread.
      */
     public DbSearchIndexer(DbForumFactory factory) {
-        this.factory = factory; 
+        this.factory = factory;
         wordCache = new HashMap();
 
         //Default to performing updates ever 10 minutes.
@@ -161,16 +169,15 @@ public class DbSearchIndexer extends Thread implements SearchIndexer{
         String updInterval = PropertyManager.getProperty("DbSearchIndexer.updateInterval");
         try {
             updateInterval = Long.parseLong(updInterval);
+        } catch (Exception e) { /* ignore */
         }
-        catch (Exception e) { /* ignore */ }
 
         wordCache = new HashMap();
         //Attempt to get the last updated time from the Jive properties
         String lastInd = PropertyManager.getProperty("DbSearchIndexer.lastIndexed");
         try {
             lastIndexed = Long.parseLong(lastInd);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             //Something went wrong. Therefore, set lastIndexed far into the past
             //so that we'll do a full index.
             lastIndexed = 0;
@@ -178,19 +185,19 @@ public class DbSearchIndexer extends Thread implements SearchIndexer{
         //Start the indexing thread.
         start();
     }
-    
+
     public int getHoursUpdateInterval() {
-        return (int)(updateInterval / HOUR);
+        return (int) (updateInterval / HOUR);
     }
 
     public int getMinutesUpdateInterval() {
-        return (int)((updateInterval - getHoursUpdateInterval()*HOUR) / MINUTE);
+        return (int) ((updateInterval - getHoursUpdateInterval() * HOUR) / MINUTE);
     }
 
     public void setUpdateInterval(int minutes, int hours) {
         updateInterval = (minutes * MINUTE) + (hours * HOUR);
         //Save it to the properties
-        PropertyManager.setProperty("DbSearchIndexer.updateInterval", ""+updateInterval);
+        PropertyManager.setProperty("DbSearchIndexer.updateInterval", "" + updateInterval);
     }
 
     public java.util.Date getLastIndexedDate() {
@@ -206,28 +213,28 @@ public class DbSearchIndexer extends Thread implements SearchIndexer{
     }
 
     public void indexMessage(ForumMessage message) {
-    //acquire the index lock so that no other indexing operations
-    //are performed. 
-    //      Connection con = null;
-    //        con =  DBMS.getConnection();
-    //        indexMessage(message, con);
-    //      try {  con.close(); }
-    //      catch (Exception e) { e.printStackTrace(); }
-          //Clear out word cache until next operation
-    //      wordCache.clear();
-    //      wordCache = new HashMap();
-   }
+        //acquire the index lock so that no other indexing operations
+        //are performed.
+        //      Connection con = null;
+        //        con =  DBMS.getConnection();
+        //        indexMessage(message, con);
+        //      try {  con.close(); }
+        //      catch (Exception e) { e.printStackTrace(); }
+        //Clear out word cache until next operation
+        //      wordCache.clear();
+        //      wordCache = new HashMap();
+    }
 
     public void updateIndex() {
         //acquire the index lock so that no other indexing operations
-        //are performed. 
+        //are performed.
         synchronized (indexLock) {
             long now = System.currentTimeMillis();
             updateIndex(lastIndexed, now);
             lastIndexed = now;
             //Save the time as a Jive property.
             PropertyManager.setProperty("DbSearchIndexer.lastIndexed",
-                "" + lastIndexed);
+                    "" + lastIndexed);
         }
     }
 
@@ -240,7 +247,7 @@ public class DbSearchIndexer extends Thread implements SearchIndexer{
             lastIndexed = now;
             //Save the time as a Jive property.
             PropertyManager.setProperty("DbSearchIndexer.lastIndexed",
-                "" + lastIndexed);
+                    "" + lastIndexed);
         }
     }
 
@@ -249,30 +256,30 @@ public class DbSearchIndexer extends Thread implements SearchIndexer{
      * action should take place.
      */
     public void run() {
-        while (true){
+        while (true) {
             //If auto indexing is on
             if (autoIndex && PropertyManager.getProperty("DbSearchIndexer.indexingOn").equals("true")) {
                 long now = System.currentTimeMillis();
                 //If we want to re-index everything.
                 if (lastIndexed == 0) {
-                    synchronized(indexLock) {
+                    synchronized (indexLock) {
                         rebuildIndex(now);
                         lastIndexed = now;
                         //Save the time as a Jive property.
                         PropertyManager.setProperty("DbSearchIndexer.lastIndexed",
-                            "" + lastIndexed);
+                                "" + lastIndexed);
                     }
                 }
                 //We only want to do an update.
                 else {
                     long nextIndex = lastIndexed + updateInterval;
                     if (now > nextIndex) {
-                        synchronized(indexLock) {
+                        synchronized (indexLock) {
                             updateIndex(lastIndexed, now);
                             lastIndexed = now;
                             //Save the time as a Jive property.
                             PropertyManager.setProperty("DbSearchIndexer.lastIndexed",
-                                "" + lastIndexed);
+                                    "" + lastIndexed);
                         }
                     }
                 }
@@ -280,8 +287,7 @@ public class DbSearchIndexer extends Thread implements SearchIndexer{
             //sleep for 1 minute and then check again.
             try {
                 this.sleep(60000);
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -297,9 +303,8 @@ public class DbSearchIndexer extends Thread implements SearchIndexer{
         int wordID = -1;
         //look for word in cache
         if (wordCache.containsKey(word)) {
-            wordID = ((Integer)wordCache.get(word)).intValue();
-        }
-        else {
+            wordID = ((Integer) wordCache.get(word)).intValue();
+        } else {
             PreparedStatement pstmt = null;
             try {
                 pstmt = con.prepareStatement(FIND_WORD_ID);
@@ -311,13 +316,16 @@ public class DbSearchIndexer extends Thread implements SearchIndexer{
                 }
                 //word is not in db, insert it then put it in cache
                 else {
-                    try {  pstmt.close(); }
-                    catch (Exception e) { e.printStackTrace(); }
+                    try {
+                        pstmt.close();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                     int nextWordID = 0;
                     try {
-                      nextWordID = DBMS.getSeqId(DBMS.RTABLE_SEQ); 
+                        nextWordID = DBMS.getSeqId(DBMS.RTABLE_SEQ);
                     } catch (Exception e) {
-                      e.printStackTrace();
+                        e.printStackTrace();
                     }
                     pstmt = con.prepareStatement(INSERT_WORD);
                     pstmt.setInt(1, nextWordID);
@@ -326,13 +334,14 @@ public class DbSearchIndexer extends Thread implements SearchIndexer{
                     wordCache.put(word, new Integer(nextWordID));
                     wordID = nextWordID;
                 }
-            }
-            catch( SQLException sqle ) {
+            } catch (SQLException sqle) {
                 sqle.printStackTrace();
-            }
-            finally {
-                try {  pstmt.close(); }
-                catch (Exception e) { e.printStackTrace(); }
+            } finally {
+                try {
+                    pstmt.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
         return wordID;
@@ -343,27 +352,26 @@ public class DbSearchIndexer extends Thread implements SearchIndexer{
      * passed in and will remain open after the method is done executing.
      */
     protected final void indexMessage(ForumMessage message, Connection con) {
-        String [] subjectWords = StringUtils.toLowerCaseWordArray(message.getSubject());
+        String[] subjectWords = StringUtils.toLowerCaseWordArray(message.getSubject());
         subjectWords = StringUtils.removeCommonWords(subjectWords);
-        String [] bodyWords = StringUtils.toLowerCaseWordArray(message.getBody());
+        String[] bodyWords = StringUtils.toLowerCaseWordArray(message.getBody());
         bodyWords = StringUtils.removeCommonWords(bodyWords);
 
         Map words = new HashMap(subjectWords.length);
         Map wordCount = new HashMap(subjectWords.length);
 
         //Loop through all words in subject.
-        for (int i=0; i<subjectWords.length; i++) {
+        for (int i = 0; i < subjectWords.length; i++) {
             String currentWord = subjectWords[i];
             boolean exists = (words.get(currentWord) != null);
             //Check if we already have an entry for this word in the cache
             if (exists) {
                 //increment the count since we found the word again
-                int count = ((Integer)wordCount.get(currentWord)).intValue();
-                count+=2; //count words in subject doubly
+                int count = ((Integer) wordCount.get(currentWord)).intValue();
+                count += 2; //count words in subject doubly
                 wordCount.remove(currentWord);
                 wordCount.put(currentWord, new Integer(count));
-            }
-            else {
+            } else {
                 //first time we've found the word, store it into cache
                 int count = 0;
                 int wordID = getWordID(currentWord, con);
@@ -372,16 +380,15 @@ public class DbSearchIndexer extends Thread implements SearchIndexer{
             }
         }
         //Loop through all words in body.
-        for (int i=0; i<bodyWords.length; i++) {
+        for (int i = 0; i < bodyWords.length; i++) {
             String currentWord = bodyWords[i];
             boolean exists = (words.get(currentWord) != null);
             if (exists) {
-                int count = ((Integer)wordCount.get(currentWord)).intValue();
+                int count = ((Integer) wordCount.get(currentWord)).intValue();
                 count++;
                 wordCount.remove(currentWord);
                 wordCount.put(currentWord, new Integer(count));
-            }
-            else {
+            } else {
                 int count = 0;
                 int wordID = getWordID(currentWord, con);
                 words.put(currentWord, new Integer(wordID));
@@ -397,24 +404,25 @@ public class DbSearchIndexer extends Thread implements SearchIndexer{
             pstmt = con.prepareStatement(INSERT_INDEX_RECORD);
             //insert all subject words
             Iterator iter = words.keySet().iterator();
-            while(iter.hasNext()) {
-                String word = (String)iter.next();
-                int tempWordID = ((Integer)words.get(word)).intValue();
-                int tempWordCount = ((Integer)wordCount.get(word)).intValue();
+            while (iter.hasNext()) {
+                String word = (String) iter.next();
+                int tempWordID = ((Integer) words.get(word)).intValue();
+                int tempWordCount = ((Integer) wordCount.get(word)).intValue();
                 pstmt.setInt(1, messageID);
                 pstmt.setInt(2, tempWordID);
                 pstmt.setInt(3, tempWordCount);
                 pstmt.setInt(4, forumID);
                 pstmt.execute();
             }
-        }
-        catch( SQLException sqle ) {
+        } catch (SQLException sqle) {
             System.err.println("Error in DbSearchIndexer:indexMessage-" + sqle);
             sqle.printStackTrace();
-        }
-        finally {
-            try {  pstmt.close(); }
-            catch (Exception e) { e.printStackTrace(); }
+        } finally {
+            try {
+                pstmt.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -428,7 +436,7 @@ public class DbSearchIndexer extends Thread implements SearchIndexer{
         try {
             //For a clean rebuild we delete the whole index table and also
             //the word table.
-            con =  DBMS.getConnection();
+            con = DBMS.getConnection();
             pstmt = con.prepareStatement(DELETE_INDEX1);
             pstmt.execute();
             pstmt.close();
@@ -438,40 +446,39 @@ public class DbSearchIndexer extends Thread implements SearchIndexer{
 
             //Now, find all messages that need to inserted
             pstmt = con.prepareStatement(MESSAGES_BEFORE_DATE_COUNT);
-            pstmt.setString(1, ""+end);
+            pstmt.setString(1, "" + end);
             ResultSet rs = pstmt.executeQuery();
             rs.next();
             int messageCount = rs.getInt(1);
             pstmt.close();
 
-            int [] messages = new int[messageCount];
+            int[] messages = new int[messageCount];
             pstmt = con.prepareStatement(MESSAGES_BEFORE_DATE);
-            pstmt.setString(1, ""+end);
+            pstmt.setString(1, "" + end);
             rs = pstmt.executeQuery();
-            for (int i=0; i<messages.length; i++) {
+            for (int i = 0; i < messages.length; i++) {
                 rs.next();
                 messages[i] = rs.getInt("messageID");
             }
             pstmt.close();
 
             //Finally, index all messages;
-            for (int i=0; i<messages.length; i++) {
+            for (int i = 0; i < messages.length; i++) {
                 ForumMessage message = factory.getMessage(messages[i]);
                 indexMessage(message, con);
             }
-        }
-        catch( ForumMessageNotFoundException fmnfe) {
+        } catch (ForumMessageNotFoundException fmnfe) {
             fmnfe.printStackTrace();
-        }
-        catch( SQLException sqle ) {
+        } catch (SQLException sqle) {
             System.err.println("Error in DbSearchIndexer:updateIndex()-" + sqle);
             sqle.printStackTrace();
-        }
-        finally {
-            try { 
-//                  con.commit();   
-                  con.close();   }
-            catch (Exception e) { e.printStackTrace(); }
+        } finally {
+            try {
+//                  con.commit();
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         //Clear out word cache until next operation
         wordCache.clear();
@@ -487,7 +494,7 @@ public class DbSearchIndexer extends Thread implements SearchIndexer{
         Connection con = null;
         PreparedStatement pstmt = null;
         try {
-            con =  DBMS.getConnection();
+            con = DBMS.getConnection();
             //For a clean update, we need to make sure that we first delete
             //and index entries that were made since we last updated. This
             //might happen if a process was calling indexMessage() between runs
@@ -495,45 +502,45 @@ public class DbSearchIndexer extends Thread implements SearchIndexer{
             //not be intermixed. However, we still perform this deletion to be
             //safe.
             pstmt = con.prepareStatement(MESSAGES_SINCE_DATE_COUNT);
-            pstmt.setString(1, ""+start);
-            pstmt.setString(2, ""+end);
+            pstmt.setString(1, "" + start);
+            pstmt.setString(2, "" + end);
             ResultSet rs = pstmt.executeQuery();
             rs.next();
             int messageCount = rs.getInt(1);
-            int [] messages = new int[messageCount];
+            int[] messages = new int[messageCount];
             pstmt.close();
             pstmt = con.prepareStatement(MESSAGES_SINCE_DATE);
-            pstmt.setString(1, ""+start);
-            pstmt.setString(2, ""+end);
+            pstmt.setString(1, "" + start);
+            pstmt.setString(2, "" + end);
             rs = pstmt.executeQuery();
-            for (int i=0; i<messages.length; i++) {
+            for (int i = 0; i < messages.length; i++) {
                 rs.next();
                 messages[i] = rs.getInt("messageID");
             }
             pstmt.close();
             pstmt = con.prepareStatement(DELETE_PARTIAL_INDEX);
-            for (int i=0; i<messages.length; i++) {
+            for (int i = 0; i < messages.length; i++) {
                 pstmt.setInt(1, messages[i]);
                 pstmt.execute();
             }
             pstmt.close();
 
             //Finally, index all messages;
-            for (int i=0; i<messages.length; i++) {
+            for (int i = 0; i < messages.length; i++) {
                 ForumMessage message = factory.getMessage(messages[i]);
                 indexMessage(message, con);
             }
-        }
-        catch( ForumMessageNotFoundException fmnfe) {
+        } catch (ForumMessageNotFoundException fmnfe) {
             fmnfe.printStackTrace();
-        }
-        catch( SQLException sqle ) {
+        } catch (SQLException sqle) {
             System.err.println("Error in DbSearchIndexer:updateIndex()-" + sqle);
             sqle.printStackTrace();
-        }
-        finally {
-            try {  con.close();   }
-            catch (Exception e) { e.printStackTrace(); }
+        } finally {
+            try {
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         //Clear out word cache until next operation
         wordCache.clear();

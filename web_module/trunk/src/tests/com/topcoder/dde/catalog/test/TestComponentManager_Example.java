@@ -1,4 +1,4 @@
-/* 
+/*
  * TestComponentManager_Example.java
  *
  * By John C. Bollinger
@@ -9,8 +9,10 @@ package com.topcoder.dde.catalog.test;
 
 import com.topcoder.dde.catalog.CatalogException;
 import com.topcoder.dde.catalog.Example;
+
 import java.util.Collection;
 import java.util.Iterator;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -22,8 +24,8 @@ import junit.framework.TestSuite;
  * @version 1.0
  */
 public class TestComponentManager_Example
-       extends RemoteComponentManagerTestCase {
-       
+        extends RemoteComponentManagerTestCase {
+
     protected Example example;
 
     /**
@@ -35,13 +37,13 @@ public class TestComponentManager_Example
     public TestComponentManager_Example(String testName) {
         super(testName);
     }
-    
+
     public void setUp() throws Exception {
         super.setUp();
         example = new Example("Test Example #" + idGen.nextId(),
                 "http://test.com/ex");
     }
-    
+
     /**
      * tests the normal functioning of the addExample method
      */
@@ -61,7 +63,7 @@ public class TestComponentManager_Example
      */
 /*
  * Objecting to this case is not required
- *    
+ *
     synchronized public void testAddExample_Exists() throws Exception {
         Example ex = manager1.addExample(example);
         try {
@@ -74,11 +76,11 @@ public class TestComponentManager_Example
         }
     }
  */
- 
+
     /**
      * tests the functioning of the addExample method when the argument is
      * <code>null</code>
-     */    
+     */
     public void testAddExample_Null() throws Exception {
         try {
             manager1.addExample(null);
@@ -91,24 +93,24 @@ public class TestComponentManager_Example
     /*
      * getExamples tested implicitly throughout this test case
      */
-    
+
     /**
      * tests the normal functioning of the removeExample method
      */
     synchronized public void testRemoveExample() throws Exception {
         Example ex = manager1.addExample(example);
         Collection examples;
-        
+
         manager1.removeExample(ex.getId());
         examples = manager1.getExamples();
-        
+
         assertTrue("Example not removed", !examples.contains(example));
     }
-    
+
     /**
      * tests the functioning of the removeExample method when no example
      * matching the argument exists
-     */    
+     */
     public void testRemoveExample_Missing() throws Exception {
         try {
             manager1.removeExample(idGen.nextId());
@@ -139,24 +141,24 @@ public class TestComponentManager_Example
         Example ex = manager1.addExample(example);
         Example ex2 = new Example(ex.getDescription(), ex.getURL());
         Collection examples;
-        
+
         try {
             ex.setURL("https://test.com/example/ex");
             manager1.updateExample(ex);
             examples = manager1.getExamples();
             assertTrue("Example not updated on the server",
-                       examples.contains(ex));
+                    examples.contains(ex));
             assertTrue("Example duplicated, not updated",
-                       !examples.contains(ex2));
+                    !examples.contains(ex2));
         } finally {
             manager1.removeExample(ex.getId());
         }
     }
-    
+
     /**
      * tests the functioning of the updateExample method when the argument is
      * <code>null</code>
-     */    
+     */
     public void testUpdateExample_Null() throws Exception {
         try {
             manager1.updateExample(null);
@@ -165,11 +167,11 @@ public class TestComponentManager_Example
             /* the expected case */
         }
     }
-    
+
     /**
      * tests the functioning of the updateExample method when no example
      * matching the argument exists
-     */    
+     */
     public void testUpdateExample_Missing() throws Exception {
         try {
             manager1.updateExample(example);
@@ -178,14 +180,14 @@ public class TestComponentManager_Example
             /* the expected case */
         }
     }
-    
+
     /**
      * tests the functioning of the updateExample method when the example
      * matching the argument is not associated with the component being managed
      */
 /*
  * Not a valid test -- the behavior is not required or expected
- *    
+ *
     synchronized public void testUpdateExample_NotOwned() throws Exception {
         Example ex = manager2.addExample(example);
         try {
@@ -199,9 +201,9 @@ public class TestComponentManager_Example
     }
  *
  */
- 
+
     public static Test suite() {
         return new ComponentManagerTestSetup(new TestSuite(TestComponentManager_Example.class));
     }
-    
+
 }

@@ -5,5 +5,5 @@ import javax.ejb.EJBLocalObject;
 
 public interface LocalDDESampleDownload extends EJBLocalObject {
 
-    
+
 }

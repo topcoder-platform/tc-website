@@ -1,28 +1,27 @@
 package com.topcoder.web.tc.controller.request;
 
-import com.topcoder.web.tc.controller.request.Base;
-import com.topcoder.web.tc.model.JobHitData;
-import com.topcoder.web.tc.model.CoderSessionInfo;
-import com.topcoder.web.tc.Constants;
-import com.topcoder.web.ejb.jobposting.JobPostingServices;
-import com.topcoder.web.ejb.resume.ResumeServices;
-import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.common.PermissionException;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.DataAccess;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.security.ClassResource;
 import com.topcoder.common.web.data.CoderRegistration;
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.common.web.data.User;
 import com.topcoder.common.web.util.Data;
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.ejb.jobposting.JobPostingServices;
+import com.topcoder.web.ejb.resume.ResumeServices;
+import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.model.CoderSessionInfo;
+import com.topcoder.web.tc.model.JobHitData;
 
-import java.util.Map;
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.Map;
 
 /**
  * User: dok
@@ -33,8 +32,8 @@ public class JobHit extends Base {
 
     protected void businessProcessing() throws TCWebException {
         JobPostingServices jpServices = null;
-        long jobId=0;
-        int hitType=0;
+        long jobId = 0;
+        int hitType = 0;
         ArrayList jobHits = new ArrayList();
 
 

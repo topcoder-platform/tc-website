@@ -17,14 +17,14 @@ import com.topcoder.apps.review.accuracytests.ejb.*;
  * @author  valeriy
  */
 public class AggregateProjectTest extends AbstractAccuracyTest {
-    
+
     private AggregateProject aggregateProject;
-    
+
     /** Creates a new instance of AggregateProjectTest */
     public AggregateProjectTest(String name) {
         super(name);
     }
-    
+
     public void setUp() throws Exception {
         super.setUp();
         setUpUsers();
@@ -33,7 +33,7 @@ public class AggregateProjectTest extends AbstractAccuracyTest {
         setUpDocuments();
         aggregateProject = new AggregateProject();
     }
-    
+
     public void testAggregateProject1() throws Exception {
         try {
             project.setCurrentPhase(phases[4]);
@@ -46,11 +46,11 @@ public class AggregateProjectTest extends AbstractAccuracyTest {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
 
     }
-    
+
     public void testAggregateProject2() throws Exception {
         try {
             project.setCurrentPhase(phases[4]);
@@ -63,7 +63,7 @@ public class AggregateProjectTest extends AbstractAccuracyTest {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
     }
 
@@ -76,13 +76,13 @@ public class AggregateProjectTest extends AbstractAccuracyTest {
             if (!(res instanceof AggregationWorksheetRetrieval)) {
                 fail("AggregationWorksheetRetrieval expected, but was ", res);
             }
-            AggregationWorksheetRetrieval retr = (AggregationWorksheetRetrieval)res;
+            AggregationWorksheetRetrieval retr = (AggregationWorksheetRetrieval) res;
             if (retr.getWorksheet() != aggregationWorksheet) {
                 fail("Wrong worksheet");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
     }
 
@@ -95,13 +95,13 @@ public class AggregateProjectTest extends AbstractAccuracyTest {
             if (!(res instanceof AggregationWorksheetRetrieval)) {
                 fail("AggregationWorksheetRetrieval expected, but was ", res);
             }
-            AggregationWorksheetRetrieval retr = (AggregationWorksheetRetrieval)res;
+            AggregationWorksheetRetrieval retr = (AggregationWorksheetRetrieval) res;
             if (retr.getWorksheet() != aggregationWorksheet) {
                 fail("Wrong worksheet");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
     }
 

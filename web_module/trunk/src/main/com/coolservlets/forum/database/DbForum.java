@@ -56,14 +56,20 @@
 
 package com.coolservlets.forum.database;
 
-import java.util.*;
-import java.sql.*;
-import java.io.*;
 import com.coolservlets.forum.*;
-import com.coolservlets.util.*;
-import com.coolservlets.forum.filter.*;
-import com.topcoder.shared.util.logging.Logger;
+import com.coolservlets.forum.filter.FilterHtml;
+import com.coolservlets.forum.filter.FilterNewline;
+import com.coolservlets.util.Cache;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Iterator;
+
 /**
  * Database implementation of the Forum interface.
  */
@@ -71,34 +77,34 @@ public class DbForum implements Forum {
 
     /** DATABASE QUERIES **/
     private static final String ADD_THREAD =
-        "UPDATE jiveThread set forumID=?, userID=? WHERE threadID=?";
+            "UPDATE jiveThread set forumID=?, userID=? WHERE threadID=?";
     private static final String DELETE_THREAD = "DELETE FROM jiveThread WHERE threadID=?";
     private static final String THREAD_COUNT =
-        "SELECT count(*) FROM jiveThread WHERE forumID=?";
+            "SELECT count(*) FROM jiveThread WHERE forumID=?";
     private static final String MESSAGE_COUNT =
-        "SELECT count(*) FROM jiveThread, jiveMessage WHERE " +
-        "jiveThread.forumID=? AND jiveThread.threadID=jiveMessage.threadID";
+            "SELECT count(*) FROM jiveThread, jiveMessage WHERE " +
+            "jiveThread.forumID=? AND jiveThread.threadID=jiveMessage.threadID";
     private static final String ADD_USER_PERM =
-        "INSERT INTO jiveUserPerm(forumID,userID,permission) VALUES(?,?,?)";
+            "INSERT INTO jiveUserPerm(forumID,userID,permission) VALUES(?,?,?)";
     private static final String REMOVE_USER_PERM =
-        "DELETE FROM jiveUserPerm WHERE forumID=? AND userID=? AND permission=?";
+            "DELETE FROM jiveUserPerm WHERE forumID=? AND userID=? AND permission=?";
     private static final String USERS_WITH_PERM =
-        "SELECT DISTINCT userID FROM jiveUserPerm WHERE forumID=? AND permission=?";
+            "SELECT DISTINCT userID FROM jiveUserPerm WHERE forumID=? AND permission=?";
     private static final String LOAD_FILTERS =
-        "SELECT filterObject, filterIndex FROM jiveFilter WHERE forumID=? ORDER BY filterIndex ASC";
+            "SELECT filterObject, filterIndex FROM jiveFilter WHERE forumID=? ORDER BY filterIndex ASC";
     private static final String DELETE_FILTERS = "DELETE FROM jiveFilter WHERE forumID=?";
     private static final String ADD_FILTER =
-        "INSERT INTO jiveFilter(forumID,filterIndex,filterObject) VALUES(?,?,?)";
+            "INSERT INTO jiveFilter(forumID,filterIndex,filterObject) VALUES(?,?,?)";
     private static final String LOAD_FORUM =
-        "SELECT name, description, creationDate, modifiedDate, moderated, userID FROM jiveForum WHERE forumID=?";
+            "SELECT name, description, creationDate, modifiedDate, moderated, userID FROM jiveForum WHERE forumID=?";
     private static final String ADD_FORUM =
-        "INSERT INTO jiveForum(forumID, name, description, creationDate, " +
-        "modifiedDate, moderated, userID) VALUES (?,?,?,?,?,?,?)";
+            "INSERT INTO jiveForum(forumID, name, description, creationDate, " +
+            "modifiedDate, moderated, userID) VALUES (?,?,?,?,?,?,?)";
     private static final String SAVE_FORUM =
-        "UPDATE jiveForum SET name=?, description=?, creationDate=?, " +
-        "modifiedDate=?, moderated=?, userID=? WHERE forumID=?";
+            "UPDATE jiveForum SET name=?, description=?, creationDate=?, " +
+            "modifiedDate=?, moderated=?, userID=? WHERE forumID=?";
     private static final String UPDATE_FORUM_MODIFIED_DATE =
-        "UPDATE jiveForum SET modifiedDate=?, userID=? WHERE forumID=?";
+            "UPDATE jiveForum SET modifiedDate=?, userID=? WHERE forumID=?";
 
 
     private int id = -1;
@@ -123,9 +129,9 @@ public class DbForum implements Forum {
      */
     protected DbForum(String name, String description, DbForumFactory factory) {
         try {
-          this.id = DBMS.getSeqId(DBMS.RTABLE_SEQ); 
+            this.id = DBMS.getSeqId(DBMS.RTABLE_SEQ);
         } catch (Exception e) {
-          e.printStackTrace();
+            e.printStackTrace();
         }
         this.name = name;
         this.description = description;
@@ -139,8 +145,7 @@ public class DbForum implements Forum {
         try {
             addForumMessageFilter(new FilterHtml(), 0);
             addForumMessageFilter(new FilterNewline(), 1);
-        }
-        catch (UnauthorizedException ue) {
+        } catch (UnauthorizedException ue) {
             ue.printStackTrace();
         }
     }
@@ -149,12 +154,10 @@ public class DbForum implements Forum {
      * Loads a forum with the specified id.
      */
     protected DbForum(int id, DbForumFactory factory)
-            throws ForumNotFoundException
-    {
+            throws ForumNotFoundException {
         this.id = id;
         this.factory = factory;
-        if (id != -1)
-        {
+        if (id != -1) {
             loadFromDb();
             loadFiltersFromDb();
         }
@@ -173,12 +176,10 @@ public class DbForum implements Forum {
         try {
             if (userID == -1) {
                 user = factory.getProfileManager().getAnonymousUser();
-            }
-            else {
+            } else {
                 user = factory.getProfileManager().getUser(userID);
             }
-        }
-        catch (UserNotFoundException unfe) {
+        } catch (UserNotFoundException unfe) {
             unfe.printStackTrace();
         }
         return user;
@@ -193,8 +194,7 @@ public class DbForum implements Forum {
         return description;
     }
 
-    public void setDescription(String description) throws UnauthorizedException
-    {
+    public void setDescription(String description) throws UnauthorizedException {
         this.description = description;
         saveToDb();
     }
@@ -204,10 +204,9 @@ public class DbForum implements Forum {
     }
 
     public void setCreationDate(java.util.Date creationDate)
-            throws UnauthorizedException
-    {
-       this.creationDate = creationDate;
-       saveToDb();
+            throws UnauthorizedException {
+        this.creationDate = creationDate;
+        saveToDb();
     }
 
     public java.util.Date getModifiedDate() {
@@ -215,8 +214,7 @@ public class DbForum implements Forum {
     }
 
     public void setModifiedDate(java.util.Date modifiedDate)
-            throws UnauthorizedException
-    {
+            throws UnauthorizedException {
         this.modifiedDate = modifiedDate;
         saveToDb();
     }
@@ -226,21 +224,19 @@ public class DbForum implements Forum {
     }
 
     public void setModerated(int type, boolean moderated)
-            throws UnauthorizedException
-    {
+            throws UnauthorizedException {
     }
 
     public ForumThread createThread(ForumMessage rootMessage)
-        throws UnauthorizedException
-    {
+            throws UnauthorizedException {
         //If the forum is moderated, the thread is not automatically
         //approved.
         boolean approved = true;
         return new DbForumThread(rootMessage, approved, this, factory);
     }
+
     public ForumMessage createMessage(User user)
-        throws UnauthorizedException
-    {
+            throws UnauthorizedException {
         //If the forum is moderated, the message is not automatically
         //approved.
         boolean approved = !isModerated(JiveConstants.MESSAGE);
@@ -254,32 +250,36 @@ public class DbForum implements Forum {
         try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(ADD_THREAD);
-            ps.setInt(1,id);
-            ps.setInt(2,thread.getUser().getID());
-            ps.setInt(3,thread.getID());
+            ps.setInt(1, id);
+            ps.setInt(2, thread.getUser().getID());
+            ps.setInt(3, thread.getID());
             ps.executeUpdate();
-        }
-        catch( SQLException sqle ) {
+        } catch (SQLException sqle) {
             System.err.println("Error in DbForum:addThread()-" + sqle);
-        }
-        finally {
-          try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
-          try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
-          ps = null; 
-          conn = null; 
+        } finally {
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception ignore) {
+                log.debug("ps   close problem");
+            }
+            try {
+                if (conn != null) conn.close();
+            } catch (Exception ignore) {
+                log.debug("conn close problem");
+            }
+            ps = null;
+            conn = null;
         }
         //Since we added a thread, update the modified date of this thread.
-        updateModifiedDate(thread.getUser().getID(),thread.getModifiedDate());
+        updateModifiedDate(thread.getUser().getID(), thread.getModifiedDate());
     }
 
     public ForumThread getThread(int threadID) throws
-            ForumThreadNotFoundException
-    {
+            ForumThreadNotFoundException {
         return factory.getThread(threadID, this);
     }
 
-    public void deleteThread(ForumThread thread) throws UnauthorizedException
-    {
+    public void deleteThread(ForumThread thread) throws UnauthorizedException {
         //First, delete from cache
         factory.threadCache.remove(thread.getID());
 
@@ -289,17 +289,23 @@ public class DbForum implements Forum {
         try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(DELETE_THREAD);
-            ps.setInt(1,thread.getID());
+            ps.setInt(1, thread.getID());
             ps.execute();
-        }
-        catch( Exception sqle ) {
+        } catch (Exception sqle) {
             System.err.println("Error in DbForum:deleteThread()-" + sqle);
-        }
-        finally {
-          try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
-          try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
-          ps = null; 
-          conn = null; 
+        } finally {
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception ignore) {
+                log.debug("ps   close problem");
+            }
+            try {
+                if (conn != null) conn.close();
+            } catch (Exception ignore) {
+                log.debug("conn close problem");
+            }
+            ps = null;
+            conn = null;
         }
 
         //Finally, delete all messages from the thread. We could do this
@@ -312,8 +318,7 @@ public class DbForum implements Forum {
         try {
             ForumMessage message = thread.getRootMessage();
             thread.deleteMessage(message);
-        }
-        catch (ForumMessageNotFoundException fmnfe) {
+        } catch (ForumMessageNotFoundException fmnfe) {
             fmnfe.printStackTrace();
         }
     }
@@ -321,7 +326,7 @@ public class DbForum implements Forum {
     public Iterator threads() {
         return new DbForumIterator(this, factory);
     }
-    
+
 
     public Iterator threads(int startIndex, int numResults) {
         return new DbForumIterator(this, factory, startIndex, numResults);
@@ -340,17 +345,27 @@ public class DbForum implements Forum {
             rs = ps.executeQuery();
             rs.next();
             threadCount = rs.getInt(1 /*"threadCount"*/);
-        }
-        catch( SQLException sqle ) {
+        } catch (SQLException sqle) {
             System.err.println("DbForum:getThreadCount() failed: " + sqle);
-        }
-        finally {
-          try { if (rs   != null) rs.close();  } catch (Exception ignore) {log.debug("rs   close problem");}
-          try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
-          try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
-          rs = null; 
-          ps = null; 
-          conn = null; 
+        } finally {
+            try {
+                if (rs != null) rs.close();
+            } catch (Exception ignore) {
+                log.debug("rs   close problem");
+            }
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception ignore) {
+                log.debug("ps   close problem");
+            }
+            try {
+                if (conn != null) conn.close();
+            } catch (Exception ignore) {
+                log.debug("conn close problem");
+            }
+            rs = null;
+            ps = null;
+            conn = null;
         }
         return threadCount;
     }
@@ -367,17 +382,27 @@ public class DbForum implements Forum {
             rs = ps.executeQuery();
             rs.next();
             messageCount = rs.getInt(1 /*"messageCount"*/);
-        }
-        catch( SQLException sqle ) {
+        } catch (SQLException sqle) {
             System.err.println("DbForum:getMessageCount() failed: " + sqle);
-        }
-        finally {
-          try { if (rs   != null) rs.close();  } catch (Exception ignore) {log.debug("rs   close problem");}
-          try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
-          try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
-          rs = null; 
-          ps = null; 
-          conn = null; 
+        } finally {
+            try {
+                if (rs != null) rs.close();
+            } catch (Exception ignore) {
+                log.debug("rs   close problem");
+            }
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception ignore) {
+                log.debug("ps   close problem");
+            }
+            try {
+                if (conn != null) conn.close();
+            } catch (Exception ignore) {
+                log.debug("conn close problem");
+            }
+            rs = null;
+            ps = null;
+            conn = null;
         }
         return messageCount;
     }
@@ -387,125 +412,142 @@ public class DbForum implements Forum {
     }
 
     public void addUserPermission(User user, int permissionType)
-            throws UnauthorizedException
-    {
+            throws UnauthorizedException {
         Connection conn = null;
         PreparedStatement ps = null;
         try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(ADD_USER_PERM);
-            ps.setInt(1,id);
-            ps.setInt(2,user.getID());
-            ps.setInt(3,permissionType);
+            ps.setInt(1, id);
+            ps.setInt(2, user.getID());
+            ps.setInt(3, permissionType);
             ps.execute();
             //Remove user permissions from cache since they've changed.
             userPermissionsCache.remove(user.getID());
-        }
-        catch( SQLException sqle ) {
+        } catch (SQLException sqle) {
             System.err.println("Error in DbForum.java:" + sqle);
             sqle.printStackTrace();
-        }
-        finally {
-          try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
-          try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
-          ps = null; 
-          conn = null; 
+        } finally {
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception ignore) {
+                log.debug("ps   close problem");
+            }
+            try {
+                if (conn != null) conn.close();
+            } catch (Exception ignore) {
+                log.debug("conn close problem");
+            }
+            ps = null;
+            conn = null;
         }
     }
 
     public void removeUserPermission(User user, int permissionType)
-            throws UnauthorizedException
-    {
+            throws UnauthorizedException {
         Connection conn = null;
         PreparedStatement ps = null;
         try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(REMOVE_USER_PERM);
-            ps.setInt(1,id);
-            ps.setInt(2,user.getID());
-            ps.setInt(3,permissionType);
+            ps.setInt(1, id);
+            ps.setInt(2, user.getID());
+            ps.setInt(3, permissionType);
             ps.execute();
             //Remove user permissions from cache since they've changed.
             userPermissionsCache.remove(user.getID());
-        }
-        catch( SQLException sqle ) {
+        } catch (SQLException sqle) {
             System.err.println("Error in DbForum.java:" + sqle);
             sqle.printStackTrace();
-        }
-        finally {
-          try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
-          try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
-          ps = null; 
-          conn = null; 
+        } finally {
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception ignore) {
+                log.debug("ps   close problem");
+            }
+            try {
+                if (conn != null) conn.close();
+            } catch (Exception ignore) {
+                log.debug("conn close problem");
+            }
+            ps = null;
+            conn = null;
         }
     }
 
     public int[] usersWithPermission(int permissionType)
-            throws UnauthorizedException
-    {
-        int [] users = new int[0];
+            throws UnauthorizedException {
+        int[] users = new int[0];
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(USERS_WITH_PERM);
-            ps.setInt(1,id);
-            ps.setInt(2,permissionType);
+            ps.setInt(1, id);
+            ps.setInt(2, permissionType);
             rs = ps.executeQuery();
             ArrayList userList = new ArrayList();
             while (rs.next()) {
                 userList.add(new Integer(rs.getInt("userID")));
             }
             users = new int[userList.size()];
-            for (int i=0; i<users.length; i++) {
-                users[i] = ((Integer)userList.get(i)).intValue();
+            for (int i = 0; i < users.length; i++) {
+                users[i] = ((Integer) userList.get(i)).intValue();
             }
-        }
-        catch( SQLException sqle ) {
+        } catch (SQLException sqle) {
             System.err.println("Error in DbForum.java:" + sqle);
             sqle.printStackTrace();
-        }
-        finally {
-          try { if (rs   != null) rs.close();  } catch (Exception ignore) {log.debug("rs   close problem");}
-          try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
-          try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
-          rs = null; 
-          ps = null; 
-          conn = null; 
+        } finally {
+            try {
+                if (rs != null) rs.close();
+            } catch (Exception ignore) {
+                log.debug("rs   close problem");
+            }
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception ignore) {
+                log.debug("ps   close problem");
+            }
+            try {
+                if (conn != null) conn.close();
+            } catch (Exception ignore) {
+                log.debug("conn close problem");
+            }
+            rs = null;
+            ps = null;
+            conn = null;
         }
         return users;
     }
 
     public ForumMessage applyFilters(ForumMessage message) {
         //Loop through filters and apply them
-        for (int i=0; i < filters.length; i++) {
+        for (int i = 0; i < filters.length; i++) {
             message = filters[i].clone(message);
         }
         return message;
     }
 
     public ForumMessageFilter[] getForumMessageFilters()
-            throws UnauthorizedException
-    {
-        ForumMessageFilter [] dbFilters = new ForumMessageFilter[filters.length];
-        for (int i=0; i<filters.length; i++) {
-            dbFilters[i] = new DbForumMessageFilter((ForumMessage)filters[i], this);
+            throws UnauthorizedException {
+        ForumMessageFilter[] dbFilters = new ForumMessageFilter[filters.length];
+        for (int i = 0; i < filters.length; i++) {
+            dbFilters[i] = new DbForumMessageFilter((ForumMessage) filters[i], this);
         }
         return dbFilters;
     }
 
     public void addForumMessageFilter(ForumMessageFilter filter)
-            throws UnauthorizedException
-    {
-        ArrayList newFilters = new ArrayList(filters.length+1);
-        for (int i=0; i<filters.length; i++) {
+            throws UnauthorizedException {
+        ArrayList newFilters = new ArrayList(filters.length + 1);
+        for (int i = 0; i < filters.length; i++) {
             newFilters.add(filters[i]);
         }
         newFilters.add(filter);
         ForumMessageFilter[] newArray = new ForumMessageFilter[newFilters.size()];
-        for (int i=0; i<newArray.length; i++) {
-            newArray[i] = (ForumMessageFilter)newFilters.get(i);
+        for (int i = 0; i < newArray.length; i++) {
+            newArray[i] = (ForumMessageFilter) newFilters.get(i);
         }
         //Finally, overwrite filters with the new array
         filters = newArray;
@@ -513,16 +555,15 @@ public class DbForum implements Forum {
     }
 
     public void addForumMessageFilter(ForumMessageFilter filter, int index)
-            throws UnauthorizedException
-    {
-        ArrayList newFilters = new ArrayList(filters.length+1);
-        for (int i=0; i<filters.length; i++) {
+            throws UnauthorizedException {
+        ArrayList newFilters = new ArrayList(filters.length + 1);
+        for (int i = 0; i < filters.length; i++) {
             newFilters.add(filters[i]);
         }
         newFilters.add(index, filter);
         ForumMessageFilter[] newArray = new ForumMessageFilter[newFilters.size()];
-        for (int i=0; i<newArray.length; i++) {
-            newArray[i] = (ForumMessageFilter)newFilters.get(i);
+        for (int i = 0; i < newArray.length; i++) {
+            newArray[i] = (ForumMessageFilter) newFilters.get(i);
         }
         //Finally, overwrite filters with the new array
         filters = newArray;
@@ -530,16 +571,15 @@ public class DbForum implements Forum {
     }
 
     public void removeForumMessageFilter(int index)
-            throws UnauthorizedException
-    {
+            throws UnauthorizedException {
         ArrayList newFilters = new ArrayList(filters.length);
-        for (int i=0; i<filters.length; i++) {
+        for (int i = 0; i < filters.length; i++) {
             newFilters.add(filters[i]);
         }
         newFilters.remove(index);
         ForumMessageFilter[] newArray = new ForumMessageFilter[newFilters.size()];
-        for (int i=0; i<newArray.length; i++) {
-            newArray[i] = (ForumMessageFilter)newFilters.get(i);
+        for (int i = 0; i < newArray.length; i++) {
+            newArray[i] = (ForumMessageFilter) newFilters.get(i);
         }
         //Finally, overwrite filters with the new array
         filters = newArray;
@@ -553,7 +593,7 @@ public class DbForum implements Forum {
         //Simple case: if cache is turned on and the user is already cached,
         //we can simply return the cached permissions.
         if (cacheEnabled && userPermissionsCache.containsKey(userID)) {
-            return (ForumPermissions)userPermissionsCache.get(userID);
+            return (ForumPermissions) userPermissionsCache.get(userID);
         }
 
         //Not so simple case: cache is not turned on or the user permissions
@@ -575,7 +615,7 @@ public class DbForum implements Forum {
         //Add in anonymous perms.
         ForumPermissions anonyPermissions;
         if (cacheEnabled && userPermissionsCache.containsKey(-1)) {
-            anonyPermissions = (ForumPermissions)userPermissionsCache.get(-1);
+            anonyPermissions = (ForumPermissions) userPermissionsCache.get(-1);
         }
         //Otherwise, do our own lookup.
         else {
@@ -591,7 +631,7 @@ public class DbForum implements Forum {
             ForumPermissions specialUserPermissions;
             //Check for cache
             if (cacheEnabled && userPermissionsCache.containsKey(0)) {
-                specialUserPermissions = (ForumPermissions)userPermissionsCache.get(0);
+                specialUserPermissions = (ForumPermissions) userPermissionsCache.get(0);
             }
             //Otherwise, do our own lookup.
             else {
@@ -632,23 +672,29 @@ public class DbForum implements Forum {
         try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(UPDATE_FORUM_MODIFIED_DATE);
-            ps.setString(1, ""+modifiedDate.getTime());
+            ps.setString(1, "" + modifiedDate.getTime());
             ps.setInt(2, userID);
             ps.setInt(3, id);
             ps.executeUpdate();
-        }
-        catch( SQLException sqle ) {
+        } catch (SQLException sqle) {
             System.err.println("Error in DbForum:updateModifiedDate()-" + sqle);
             sqle.printStackTrace();
-        }
-        finally {
-          try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
-          try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
-          ps = null; 
-          conn = null; 
+        } finally {
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception ignore) {
+                log.debug("ps   close problem");
+            }
+            try {
+                if (conn != null) conn.close();
+            } catch (Exception ignore) {
+                log.debug("conn close problem");
+            }
+            ps = null;
+            conn = null;
         }
     }
-    
+
     /**
      * Loads filters from the database.
      */
@@ -660,30 +706,39 @@ public class DbForum implements Forum {
         try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(LOAD_FILTERS);
-            ps.setInt(1,id);
+            ps.setInt(1, id);
             rs = ps.executeQuery();
-            while(rs.next()) {
-              newFilters.add(DBMS.getBlobObject(rs, 1));
+            while (rs.next()) {
+                newFilters.add(DBMS.getBlobObject(rs, 1));
             }
-        }
-        catch( SQLException sqle ) {
+        } catch (SQLException sqle) {
             sqle.printStackTrace();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             log.debug("On FORUM ID----- " + id);
             e.printStackTrace();
-        }
-        finally {
-            try { if (rs   != null) rs.close();  } catch (Exception ignore) {log.debug("rs   close problem");}
-            try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
-            try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
-            rs = null; 
-            ps = null; 
-            conn = null; 
+        } finally {
+            try {
+                if (rs != null) rs.close();
+            } catch (Exception ignore) {
+                log.debug("rs   close problem");
+            }
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception ignore) {
+                log.debug("ps   close problem");
+            }
+            try {
+                if (conn != null) conn.close();
+            } catch (Exception ignore) {
+                log.debug("conn close problem");
+            }
+            rs = null;
+            ps = null;
+            conn = null;
         }
         filters = new ForumMessageFilter[newFilters.size()];
-        for (int i=0; i<filters.length; i++) {
-            filters[i] = (ForumMessageFilter)newFilters.get(i);
+        for (int i = 0; i < filters.length; i++) {
+            filters[i] = (ForumMessageFilter) newFilters.get(i);
         }
         //Finally, save filters back to Db. Effectively, this deletes filters
         //from the database that failed to load. See note above.
@@ -696,47 +751,54 @@ public class DbForum implements Forum {
      * the database.
      */
     protected void saveFiltersToDb() {
-            //This should really be done as a transaction if the database
-            //supports them. Perhaps, we can have code in the future which
-            //will use transactions if they're supported.
-            Connection conn = null;
-            PreparedStatement ps = null;
-            try {
-                conn = DBMS.getConnection();
-                ps = conn.prepareStatement(DELETE_FILTERS);
-                ps.setInt(1,id);
-                ps.execute();
-                //Now insert new list of filters.
-                ps.close();
-                ps = conn.prepareStatement(ADD_FILTER);
-                for (int i=0; i<filters.length; i++) {
-                  try {
-                      ps.setInt(1,id);
-                      ps.setInt(2,i);
-                      ps.setBytes(3, DBMS.serializeBlobObject(filters[i]));
-                      ps.execute();
-                  }
-                  catch (Exception e) {
+        //This should really be done as a transaction if the database
+        //supports them. Perhaps, we can have code in the future which
+        //will use transactions if they're supported.
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = DBMS.getConnection();
+            ps = conn.prepareStatement(DELETE_FILTERS);
+            ps.setInt(1, id);
+            ps.execute();
+            //Now insert new list of filters.
+            ps.close();
+            ps = conn.prepareStatement(ADD_FILTER);
+            for (int i = 0; i < filters.length; i++) {
+                try {
+                    ps.setInt(1, id);
+                    ps.setInt(2, i);
+                    ps.setBytes(3, DBMS.serializeBlobObject(filters[i]));
+                    ps.execute();
+                } catch (Exception e) {
                     e.printStackTrace();
-                    try{
-                      conn.rollback();
-                    }catch(Exception e1){}
-                  }
-                   
+                    try {
+                        conn.rollback();
+                    } catch (Exception e1) {
+                    }
                 }
+
             }
-            catch( SQLException sqle ) {
-                sqle.printStackTrace();
-                try{
-                  conn.rollback();
-                }catch(Exception e1){}
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+            try {
+                conn.rollback();
+            } catch (Exception e1) {
             }
-            finally {
-              try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
-              try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
-              ps = null; 
-              conn = null; 
+        } finally {
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception ignore) {
+                log.debug("ps   close problem");
             }
+            try {
+                if (conn != null) conn.close();
+            } catch (Exception ignore) {
+                log.debug("conn close problem");
+            }
+            ps = null;
+            conn = null;
+        }
     }
 
     /**
@@ -749,38 +811,47 @@ public class DbForum implements Forum {
         try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(LOAD_FORUM);
-            ps.setInt(1,id);
+            ps.setInt(1, id);
             rs = ps.executeQuery();
-            if( !rs.next() ) {
+            if (!rs.next()) {
                 throw new ForumNotFoundException("Forum " + getID() +
-                    " could not be loaded from the database.");
+                        " could not be loaded from the database.");
             }
             name = rs.getString("name");
             description = rs.getString("description");
             this.creationDate =
-                new java.util.Date(Long.parseLong(rs.getString("creationDate")));
+                    new java.util.Date(Long.parseLong(rs.getString("creationDate")));
             this.modifiedDate =
-                new java.util.Date(Long.parseLong(rs.getString("modifiedDate")));
+                    new java.util.Date(Long.parseLong(rs.getString("modifiedDate")));
             moderated = rs.getInt("moderated");
             userID = rs.getInt("userID");
-        }
-        catch( SQLException sqle ) {
+        } catch (SQLException sqle) {
             sqle.printStackTrace();
             throw new ForumNotFoundException("Forum " + getID() +
-                " could not be loaded from the database.");
-        }
-        catch (NumberFormatException nfe) {
+                    " could not be loaded from the database.");
+        } catch (NumberFormatException nfe) {
             System.err.println("WARNING: In DbForum.loadFromDb() -- there " +
-                "was an error parsing the dates returned from the database. Ensure " +
-                "that they're being stored correctly.");
-        }
-        finally {
-              try { if (rs   != null) rs.close();  } catch (Exception ignore) {log.debug("rs   close problem");}
-              try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
-              try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
-              rs = null; 
-              ps = null; 
-              conn = null; 
+                    "was an error parsing the dates returned from the database. Ensure " +
+                    "that they're being stored correctly.");
+        } finally {
+            try {
+                if (rs != null) rs.close();
+            } catch (Exception ignore) {
+                log.debug("rs   close problem");
+            }
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception ignore) {
+                log.debug("ps   close problem");
+            }
+            try {
+                if (conn != null) conn.close();
+            } catch (Exception ignore) {
+                log.debug("conn close problem");
+            }
+            rs = null;
+            ps = null;
+            conn = null;
         }
     }
 
@@ -793,24 +864,30 @@ public class DbForum implements Forum {
         try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(ADD_FORUM);
-            ps.setInt(1,id);
-            ps.setString(2,name);
-            ps.setString(3,description);
-            ps.setString(4, ""+creationDate.getTime());
-            ps.setString(5, ""+modifiedDate.getTime());
+            ps.setInt(1, id);
+            ps.setString(2, name);
+            ps.setString(3, description);
+            ps.setString(4, "" + creationDate.getTime());
+            ps.setString(5, "" + modifiedDate.getTime());
             ps.setInt(6, moderated);
             ps.setInt(7, userID);
             ps.executeUpdate();
-        }
-        catch( SQLException sqle ) {
+        } catch (SQLException sqle) {
             System.err.println("Error in DbForum:insertIntoDb()-" + sqle);
             sqle.printStackTrace();
-        }
-        finally {
-              try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
-              try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
-              ps = null; 
-              conn = null; 
+        } finally {
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception ignore) {
+                log.debug("ps   close problem");
+            }
+            try {
+                if (conn != null) conn.close();
+            } catch (Exception ignore) {
+                log.debug("conn close problem");
+            }
+            ps = null;
+            conn = null;
         }
     }
 
@@ -825,22 +902,28 @@ public class DbForum implements Forum {
             ps = conn.prepareStatement(SAVE_FORUM);
             ps.setString(1, name);
             ps.setString(2, description);
-            ps.setString(3, ""+creationDate.getTime());
-            ps.setString(4, ""+modifiedDate.getTime());
+            ps.setString(3, "" + creationDate.getTime());
+            ps.setString(4, "" + modifiedDate.getTime());
             ps.setInt(5, moderated);
             ps.setInt(6, userID);
             ps.setInt(7, id);
             ps.executeUpdate();
-        }
-        catch( SQLException sqle ) {
+        } catch (SQLException sqle) {
             System.err.println("Error in DbForum:saveToDb()-" + sqle);
             sqle.printStackTrace();
-        }
-        finally {
-              try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
-              try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
-              ps = null; 
-              conn = null; 
+        } finally {
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception ignore) {
+                log.debug("ps   close problem");
+            }
+            try {
+                if (conn != null) conn.close();
+            } catch (Exception ignore) {
+                log.debug("conn close problem");
+            }
+            ps = null;
+            conn = null;
         }
     }
 }

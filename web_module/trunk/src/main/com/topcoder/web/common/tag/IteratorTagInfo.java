@@ -8,8 +8,8 @@ public class IteratorTagInfo extends TagExtraInfo {
 
     public VariableInfo[] getVariableInfo(TagData data) {
 
-        String type = (String)data.getAttribute("type");
-        if (type==null||type.trim().equals(""))
+        String type = (String) data.getAttribute("type");
+        if (type == null || type.trim().equals(""))
             type = Object.class.getName();
 
         return new VariableInfo[]{

@@ -17,14 +17,14 @@ import com.topcoder.apps.review.accuracytests.ejb.*;
  * @author  valeriy
  */
 public class ProjectDetailTest extends AbstractAccuracyTest {
-    
+
     private ProjectDetail projectDetail;
-    
+
     /** Creates a new instance of ProjectDetailTest */
     public ProjectDetailTest(String name) {
         super(name);
     }
-    
+
     public void setUp() throws Exception {
         super.setUp();
         setUpUsers();
@@ -33,7 +33,7 @@ public class ProjectDetailTest extends AbstractAccuracyTest {
         setUpDocuments();
         projectDetail = new ProjectDetail();
     }
-    
+
     public void testProjectDetail1() throws Exception {
         try {
             project.setCurrentPhase(phases[2]);
@@ -42,21 +42,21 @@ public class ProjectDetailTest extends AbstractAccuracyTest {
             if (!(res instanceof ProjectRetrieval)) {
                 fail("ProjectRetrieval expected, but was ", res);
             }
-            ProjectRetrieval retr = (ProjectRetrieval)res;
+            ProjectRetrieval retr = (ProjectRetrieval) res;
             if (project != retr.getProject()) {
-                fail("Wrong project "+project+":"+retr.getProject());
+                fail("Wrong project " + project + ":" + retr.getProject());
             }
             AbstractScorecard[] cards = retr.getScorecards();
             if (cards.length != 4) {
-                fail("Wrong scorecards "+cards.length);
+                fail("Wrong scorecards " + cards.length);
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
 
     }
-    
+
     public void testProjectDetail2() throws Exception {
         try {
             project.setCurrentPhase(phases[2]);
@@ -65,17 +65,17 @@ public class ProjectDetailTest extends AbstractAccuracyTest {
             if (!(res instanceof ProjectRetrieval)) {
                 fail("ProjectRetrieval expected, but was ", res);
             }
-            ProjectRetrieval retr = (ProjectRetrieval)res;
+            ProjectRetrieval retr = (ProjectRetrieval) res;
             if (project != retr.getProject()) {
-                fail("Wrong project "+project+":"+retr.getProject());
+                fail("Wrong project " + project + ":" + retr.getProject());
             }
             AbstractScorecard[] cards = retr.getScorecards();
             if (cards.length != 2) {
-                fail("Wrong scorecards "+cards.length);
+                fail("Wrong scorecards " + cards.length);
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
     }
 
@@ -87,17 +87,17 @@ public class ProjectDetailTest extends AbstractAccuracyTest {
             if (!(res instanceof ProjectRetrieval)) {
                 fail("ProjectRetrieval expected, but was ", res);
             }
-            ProjectRetrieval retr = (ProjectRetrieval)res;
+            ProjectRetrieval retr = (ProjectRetrieval) res;
             if (project != retr.getProject()) {
-                fail("Wrong project "+project+":"+retr.getProject());
+                fail("Wrong project " + project + ":" + retr.getProject());
             }
             AbstractScorecard[] cards = retr.getScorecards();
             if (cards.length != 6) {
-                fail("Wrong scorecards "+cards.length);
+                fail("Wrong scorecards " + cards.length);
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
     }
 
@@ -115,17 +115,17 @@ public class ProjectDetailTest extends AbstractAccuracyTest {
             if (!(res instanceof ProjectRetrieval)) {
                 fail("ProjectRetrieval expected, but was ", res);
             }
-            ProjectRetrieval retr = (ProjectRetrieval)res;
+            ProjectRetrieval retr = (ProjectRetrieval) res;
             if (project != retr.getProject()) {
-                fail("Wrong project "+project+":"+retr.getProject());
+                fail("Wrong project " + project + ":" + retr.getProject());
             }
             AbstractScorecard[] cards = retr.getScorecards();
             if (cards.length != 3) {
-                fail("Wrong scorecards "+cards.length);
+                fail("Wrong scorecards " + cards.length);
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
     }
 
@@ -143,17 +143,17 @@ public class ProjectDetailTest extends AbstractAccuracyTest {
             if (!(res instanceof ProjectRetrieval)) {
                 fail("ProjectRetrieval expected, but was ", res);
             }
-            ProjectRetrieval retr = (ProjectRetrieval)res;
+            ProjectRetrieval retr = (ProjectRetrieval) res;
             if (project != retr.getProject()) {
-                fail("Wrong project "+project+":"+retr.getProject());
+                fail("Wrong project " + project + ":" + retr.getProject());
             }
             AbstractScorecard[] cards = retr.getScorecards();
             if (cards.length != 3) {
-                fail("Wrong scorecards "+cards.length);
+                fail("Wrong scorecards " + cards.length);
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
     }
 

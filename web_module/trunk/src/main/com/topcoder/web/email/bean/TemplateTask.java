@@ -1,13 +1,20 @@
 package com.topcoder.web.email.bean;
 
-import com.topcoder.shared.ejb.EmailServices.*;
+import com.topcoder.shared.ejb.EmailServices.EmailTemplate;
+import com.topcoder.shared.ejb.EmailServices.EmailTemplateGroup;
+import com.topcoder.shared.ejb.EmailServices.EmailTemplateGroupHome;
+import com.topcoder.shared.ejb.EmailServices.EmailTemplateHome;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.email.servlet.EmailConstants;
 import com.topcoder.web.email.servlet.TaskRouter;
 
-import javax.naming.*;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.*;

@@ -4,7 +4,9 @@ package com.topcoder.web.email.servlet.jsp.tag;
 import com.topcoder.web.email.bean.IDName;
 
 import javax.servlet.jsp.JspException;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Map;
 
 
 /**

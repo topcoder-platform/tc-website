@@ -1,11 +1,11 @@
 package com.topcoder.sql.wrapper;
 
-import java.sql.*;
-import java.math.BigDecimal;
 import java.io.InputStream;
 import java.io.Reader;
-import java.util.Calendar;
+import java.math.BigDecimal;
 import java.net.URL;
+import java.sql.*;
+import java.util.Calendar;
 
 /**
  * Created by IntelliJ IDEA.

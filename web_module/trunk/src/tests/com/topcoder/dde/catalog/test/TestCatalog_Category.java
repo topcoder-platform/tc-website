@@ -10,9 +10,11 @@ package com.topcoder.dde.catalog.test;
 import com.topcoder.dde.catalog.Catalog;
 import com.topcoder.dde.catalog.Category;
 import com.topcoder.dde.catalog.CatalogException;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -30,19 +32,19 @@ public class TestCatalog_Category extends RemoteCatalogTestCase {
     public TestCatalog_Category(String testName) {
         super(testName);
     }
-    
+
     public void setUp() throws Exception {
         super.setUp();
         catalog = catalogHome.create();
         category = new Category("Test category #" + idGen.nextId(),
                 "A category for testing");
     }
-    
+
     public void tearDown() throws Exception {
         catalog.remove();
         super.tearDown();
     }
-    
+
     public void testAddCategory() throws Exception {
         Category l2 = catalog.addCategory(category);
         try {
@@ -52,12 +54,12 @@ public class TestCatalog_Category extends RemoteCatalogTestCase {
             catalog.removeCategory(l2.getId());
         }
     }
-    
+
     public void testAddCategory_LongCategory() throws Exception {
         Category l2 = catalog.addCategory(category);
         Category child = catalog.addCategory(l2.getId(),
                 new Category("Test category #" + idGen.nextId(),
-                             "A child category for testing"));
+                        "A child category for testing"));
         try {
             Iterator it = catalog.getCategoryPath(child.getId()).iterator();
             assertEquals("Bad category path", l2, it.next());
@@ -67,7 +69,7 @@ public class TestCatalog_Category extends RemoteCatalogTestCase {
             catalog.removeCategory(l2.getId());
         }
     }
-    
+
     public void testAddCategory_LongCategory_ParentMissing() throws Exception {
         try {
             catalog.addCategory(idGen.nextId(), category);
@@ -76,7 +78,7 @@ public class TestCatalog_Category extends RemoteCatalogTestCase {
             /* the expected case */
         }
     }
-    
+
     public void testAddCategory_Null() throws Exception {
         try {
             catalog.addCategory(null);
@@ -85,7 +87,7 @@ public class TestCatalog_Category extends RemoteCatalogTestCase {
             /* the expected case */
         }
     }
-    
+
     public void testAddCategory_Duplicate() throws Exception {
         Category c2 = catalog.addCategory(category);
         try {
@@ -97,12 +99,12 @@ public class TestCatalog_Category extends RemoteCatalogTestCase {
             catalog.removeCategory(c2.getId());
         }
     }
-    
+
     public void testGetCategories() throws Exception {
         ArrayList active = new ArrayList();
         ArrayList deleted = new ArrayList();
         Collection categories;
-        
+
         active.add(catalog.addCategory(category));
         active.add(catalog.addCategory(new Category("Test category #" + idGen.nextId(),
                 "A category for testing")));
@@ -116,13 +118,13 @@ public class TestCatalog_Category extends RemoteCatalogTestCase {
                 "A category for testing"));
         catalog.removeCategory(category.getId());
         deleted.add(category);
-        
+
         categories = catalog.getCategories();
-        
+
         try {
             Iterator it = categories.iterator();
             assertTrue("Missing active Categories",
-                       categories.containsAll(active) );
+                    categories.containsAll(active));
             deleted.retainAll(categories);
             assertEquals("Retrieved deleted Categories", 0, deleted.size());
             String last = ((Category) it.next()).getName();
@@ -139,7 +141,7 @@ public class TestCatalog_Category extends RemoteCatalogTestCase {
             }
         }
     }
-    
+
     public void testGetCategory_Missing() throws Exception {
         try {
             catalog.getCategory(idGen.nextId());
@@ -151,17 +153,17 @@ public class TestCatalog_Category extends RemoteCatalogTestCase {
 
 /*
  * removeCategory tested implicitly in the getCategories test
- * 
+ *
     public void testRemoveCategory() throws Exception {
         Category l2 = catalog.addCategory(category);
-        
+
         catalog.removeCategory(l2.getId());
         assertTrue("Category not removed",
                 !catalog.getCategories().contains(category));
-        
+
     }
 */
-    
+
     public void testRemoveCategory_Missing() throws Exception {
         try {
             catalog.removeCategory(idGen.nextId());
@@ -170,14 +172,14 @@ public class TestCatalog_Category extends RemoteCatalogTestCase {
             /* the expected case */
         }
     }
-    
+
     public void testUpdateCategory() throws Exception {
         Category l2 = catalog.addCategory(category);
         l2.setDescription("Updated description");
         catalog.updateCategory(l2);
         try {
             assertEquals("Category update not successful", l2,
-                         catalog.getCategory(l2.getId()));
+                    catalog.getCategory(l2.getId()));
         } finally {
             catalog.removeCategory(l2.getId());
         }
@@ -191,7 +193,7 @@ public class TestCatalog_Category extends RemoteCatalogTestCase {
             /* the expected case */
         }
     }
-    
+
     public void testUpdateCategory_Null() throws Exception {
         try {
             catalog.updateCategory(null);
@@ -204,5 +206,5 @@ public class TestCatalog_Category extends RemoteCatalogTestCase {
     public static Test suite() {
         return new CatalogTestSetup(new TestSuite(TestCatalog_Category.class));
     }
-    
+
 }

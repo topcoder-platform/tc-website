@@ -28,8 +28,14 @@ package com.topcoder.utilities.dwload;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 
-import java.sql.*;
-import java.util.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Hashtable;
 
 public class TCLoadRound extends TCLoad {
     private static Logger log = Logger.getLogger(TCLoadRound.class);
@@ -484,7 +490,7 @@ public class TCLoadRound extends TCLoad {
             // Get all the coders that participated in this round
             query = new StringBuffer(100);
             query.append(" select coder_id, rating, vol, num_ratings");
-            query.append( " from rating");
+            query.append(" from rating");
             query.append(" where num_ratings > 0");
             query.append("   AND NOT EXISTS ");
             query.append("       (SELECT 'pops' ");
@@ -530,7 +536,6 @@ public class TCLoadRound extends TCLoad {
             close(psSel);
         }
     }
-
 
 
     /**
@@ -618,7 +623,7 @@ public class TCLoadRound extends TCLoad {
                 int submission_number = rs.getInt(14);
                 int last_submission = 0;
                 if (rs.getInt(8) > 0) {  //they submitted at least once
-                    last_submission = rs.getInt(8) == submission_number?1:0;
+                    last_submission = rs.getInt(8) == submission_number ? 1 : 0;
                 }
 
                 psDel.clearParameters();
@@ -1673,18 +1678,18 @@ public class TCLoadRound extends TCLoad {
 
             query = new StringBuffer(100);
             query.append(" select count(*) as count");
-            query.append(    " , rr2.coder_id");
-            query.append( " from room_result rr2 ");
-            query.append(    " , calendar c1");
-            query.append(    " , calendar c2");
-            query.append(    " , round r1");
-            query.append(    " , round r2");
+            query.append(" , rr2.coder_id");
+            query.append(" from room_result rr2 ");
+            query.append(" , calendar c1");
+            query.append(" , calendar c2");
+            query.append(" , round r1");
+            query.append(" , round r2");
             query.append(" where rr2.round_id = r2.round_id");
-            query.append(  " and r1.calendar_id = c1.calendar_id");
-            query.append(  " and r2.calendar_id = c2.calendar_id");
-            query.append(  " and r1.round_id = ?");
-            query.append(  " and rr2.rated_flag = 1");
-            query.append(  " and c2.date < c1.date");
+            query.append(" and r1.calendar_id = c1.calendar_id");
+            query.append(" and r2.calendar_id = c2.calendar_id");
+            query.append(" and r1.round_id = ?");
+            query.append(" and rr2.rated_flag = 1");
+            query.append(" and c2.date < c1.date");
             query.append(" group by rr2.coder_id");
 
             psSel2 = prepareStatement(query.toString(), TARGET_DB);
@@ -1802,8 +1807,8 @@ public class TCLoadRound extends TCLoad {
                 int numRatings = 0;
                 Long tempCoderId = new Long(coder_id);
                 if (ratingsMap.containsKey(tempCoderId))
-                    numRatings = ((Integer)ratingsMap.get(tempCoderId)).intValue();
-                psIns.setInt(33, rs.getInt("rated_flag")==1?numRatings+1:numRatings);
+                    numRatings = ((Integer) ratingsMap.get(tempCoderId)).intValue();
+                psIns.setInt(33, rs.getInt("rated_flag") == 1 ? numRatings + 1 : numRatings);
                 psIns.setInt(34, rs.getInt("rated_flag"));
 
                 retVal = psIns.executeUpdate();
@@ -1822,8 +1827,8 @@ public class TCLoadRound extends TCLoad {
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
             throw new Exception("Load of 'room_result' table failed for coder_id " +
-                            coder_id + ", round_id " + round_id +
-                            ", room_id " + room_id + "\n" +
+                    coder_id + ", round_id " + round_id +
+                    ", room_id " + room_id + "\n" +
                     sqle.getMessage());
         } catch (Exception e) {
             e.printStackTrace();
@@ -2003,7 +2008,7 @@ public class TCLoadRound extends TCLoad {
                 component_id = rs.getInt("component_id");
                 // if they didn't submit, use the difference between open time and the end of the coding phase
                 // otherwise use the difference between open time and submit time
-                long elapsed_time = rs.getLong(10) == 0?rs.getDate(16).getTime() - rs.getLong(9):rs.getLong(11);
+                long elapsed_time = rs.getLong(10) == 0 ? rs.getDate(16).getTime() - rs.getLong(9) : rs.getLong(11);
 
                 psSel2.clearParameters();
                 psSel2.setInt(1, component_id);
@@ -2294,7 +2299,6 @@ public class TCLoadRound extends TCLoad {
             close(psDel);
         }
     }
-
 
 
     /**

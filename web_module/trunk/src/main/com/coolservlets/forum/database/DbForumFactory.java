@@ -53,15 +53,19 @@
  * individuals on behalf of CoolServlets.com. For more information
  * on CoolServlets.com, please see <http://www.coolservlets.com>.
  */
- 
+
 package com.coolservlets.forum.database;
 
-import com.coolservlets.util.*;
 import com.coolservlets.forum.*;
-import java.sql.*;
-import java.util.*;
-import java.io.*;
-import com.topcoder.shared.util.*;
+import com.coolservlets.util.Cache;
+import com.topcoder.shared.util.DBMS;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Iterator;
+
 //JDK1.1// import com.sun.java.util.collections.*;
 
 /**
@@ -73,10 +77,10 @@ public class DbForumFactory extends ForumFactory {
     private static final String FORUM_COUNT = "SELECT count(*) FROM jiveForum";
     private static final String DELETE_FORUM = "DELETE FROM jiveForum WHERE forumID=?";
     private static final String DELETE_FORUM_USER_PERMS =
-        "DELETE FROM jiveUserPerm WHERE forumID=?";
+            "DELETE FROM jiveUserPerm WHERE forumID=?";
     private static final String GET_USER_PERMS =
-         "SELECT DISTINCT permission FROM jiveUserPerm WHERE forumID=? " +
-         "AND userID=?";
+            "SELECT DISTINCT permission FROM jiveUserPerm WHERE forumID=? " +
+            "AND userID=?";
     //By default, cache is enabled.
     private boolean cacheEnabled = false;
     private boolean userPermCacheEnabled = true;
@@ -110,8 +114,7 @@ public class DbForumFactory extends ForumFactory {
     }
 
     public Forum createForum(String name, String description)
-            throws UnauthorizedException
-    {
+            throws UnauthorizedException {
         DbForum newForum = new DbForum(name, description, this);
         return newForum;
     }
@@ -123,7 +126,7 @@ public class DbForumFactory extends ForumFactory {
         //Delete all messages and threads in the forum.
         Iterator threads = forum.threads();
         while (threads.hasNext()) {
-            ForumThread thread = (ForumThread)threads.next();
+            ForumThread thread = (ForumThread) threads.next();
             forum.deleteThread(thread);
         }
         //Finally, delete the forum itself and all permissions
@@ -131,43 +134,45 @@ public class DbForumFactory extends ForumFactory {
         Connection con = null;
         PreparedStatement pstmt = null;
         try {
-            con =  DBMS.getConnection();
+            con = DBMS.getConnection();
             pstmt = con.prepareStatement(DELETE_FORUM);
-            pstmt.setInt(1,forum.getID());
+            pstmt.setInt(1, forum.getID());
             pstmt.execute();
             pstmt.close();
             //User perms
             pstmt = con.prepareStatement(DELETE_FORUM_USER_PERMS);
-            pstmt.setInt(1,forum.getID());
+            pstmt.setInt(1, forum.getID());
             pstmt.execute();
             pstmt.close();
-        }
-        catch( Exception sqle ) {
+        } catch (Exception sqle) {
             System.err.println("Error in DbForumFactory:deleteForum()-" + sqle);
-        }
-        finally {
-            try {  pstmt.close(); }
-            catch (Exception e) { e.printStackTrace(); }
-            try {  con.close();   }
-            catch (Exception e) { e.printStackTrace(); }
+        } finally {
+            try {
+                pstmt.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
     public Forum getForum(int forumID)
-            throws ForumNotFoundException, UnauthorizedException
-    {
+            throws ForumNotFoundException, UnauthorizedException {
         //If cache is not enabled, do a new lookup of object
         if (!cacheEnabled) {
             return new DbForum(forumID, this);
         }
         //Cache is enabled.
-        if(!forumCache.containsKey(forumID)) {
+        if (!forumCache.containsKey(forumID)) {
             DbForum forum = new DbForum(forumID, this);
             forumCache.add(forumID, forum);
             return forum;
-        }
-        else {
-            return (DbForum)forumCache.get(forumID);
+        } else {
+            return (DbForum) forumCache.get(forumID);
         }
     }
 
@@ -176,20 +181,24 @@ public class DbForumFactory extends ForumFactory {
         Connection con = null;
         PreparedStatement pstmt = null;
         try {
-            con =  DBMS.getConnection();
+            con = DBMS.getConnection();
             pstmt = con.prepareStatement(FORUM_COUNT);
             ResultSet rs = pstmt.executeQuery();
             rs.next();
             forumCount = rs.getInt(1);
-        }
-        catch( SQLException sqle ) {
+        } catch (SQLException sqle) {
             System.err.println("DbForumFactory:getForumCount() failed: " + sqle);
-        }
-        finally {
-            try {  pstmt.close(); }
-            catch (Exception e) { e.printStackTrace(); }
-            try {  con.close();   }
-            catch (Exception e) { e.printStackTrace(); }
+        } finally {
+            try {
+                pstmt.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         return forumCount;
     }
@@ -212,7 +221,7 @@ public class DbForumFactory extends ForumFactory {
         //Simple case: if cache is turned on and the user is already cached,
         //we can simply return the cached permissions.
         if (userPermCacheEnabled && userPermissionsCache.containsKey(userID)) {
-            return (ForumPermissions)userPermissionsCache.get(userID);
+            return (ForumPermissions) userPermissionsCache.get(userID);
         }
 
         //Not so simple case: cache is not turned on or the user permissions
@@ -232,7 +241,7 @@ public class DbForumFactory extends ForumFactory {
         //Add in anonymous perms.
         ForumPermissions anonyPermissions;
         if (userPermCacheEnabled && userPermissionsCache.containsKey(-1)) {
-            anonyPermissions = (ForumPermissions)userPermissionsCache.get(-1);
+            anonyPermissions = (ForumPermissions) userPermissionsCache.get(-1);
         }
         //Otherwise, do our own lookup.
         else {
@@ -246,7 +255,7 @@ public class DbForumFactory extends ForumFactory {
             ForumPermissions specialUserPermissions;
             //Check for cache
             if (userPermCacheEnabled && userPermissionsCache.containsKey(0)) {
-                specialUserPermissions = (ForumPermissions)userPermissionsCache.get(0);
+                specialUserPermissions = (ForumPermissions) userPermissionsCache.get(0);
             }
             //Otherwise, do our own lookup.
             else {
@@ -264,7 +273,7 @@ public class DbForumFactory extends ForumFactory {
         if (userPermCacheEnabled) {
             userPermissionsCache.add(userID, finalPermissions);
         }
-        
+
         return finalPermissions;
     }
 
@@ -300,7 +309,7 @@ public class DbForumFactory extends ForumFactory {
             //Now, iterate through all forums and clear their caches.
             Iterator iter = forums();
             while (iter.hasNext()) {
-                DbForum forum = (DbForum)iter.next();
+                DbForum forum = (DbForum) iter.next();
                 forum.userPermissionsCache.clear();
             }
         }
@@ -312,20 +321,18 @@ public class DbForumFactory extends ForumFactory {
      * on, it will use it.
      */
     public DbForumThread getThread(int threadID, DbForum forum) throws
-            ForumThreadNotFoundException
-    {
+            ForumThreadNotFoundException {
         //If cache is not enabled, do a new lookup of object
         if (!cacheEnabled) {
             return new DbForumThread(threadID, forum, this);
         }
         //Cache is enabled.
-        if(!threadCache.containsKey(threadID)) {
+        if (!threadCache.containsKey(threadID)) {
             DbForumThread thread = new DbForumThread(threadID, forum, this);
             threadCache.add(threadID, thread);
             return thread;
-        }
-        else {
-            return (DbForumThread)threadCache.get(threadID);
+        } else {
+            return (DbForumThread) threadCache.get(threadID);
         }
     }
 
@@ -336,20 +343,18 @@ public class DbForumFactory extends ForumFactory {
      * @param messageID the ID of the message to get from the thread.
      */
     protected DbForumMessage getMessage(int messageID)
-            throws ForumMessageNotFoundException
-    {
+            throws ForumMessageNotFoundException {
         //If cache is not enabled, do a new lookup of object
         if (!cacheEnabled) {
             return new DbForumMessage(messageID, this);
         }
         //Cache is enabled.
-        if(!messageCache.containsKey(messageID)) {
+        if (!messageCache.containsKey(messageID)) {
             DbForumMessage message = new DbForumMessage(messageID, this);
             messageCache.add(messageID, message);
             return message;
-        }
-        else {
-            return (DbForumMessage)messageCache.get(messageID);
+        } else {
+            return (DbForumMessage) messageCache.get(messageID);
         }
     }
 
@@ -360,7 +365,7 @@ public class DbForumFactory extends ForumFactory {
         System.err.println("Log event : " + message);
         e.printStackTrace();
     }
-      
+
     /**
      * Returns the permissions that a particular user has for the forum.
      */
@@ -368,30 +373,34 @@ public class DbForumFactory extends ForumFactory {
         Connection con = null;
         PreparedStatement pstmt = null;
         //Initialize a permissions array with no permissions.
-        boolean [] permissions = new boolean[8];
-        for (int i=0; i<permissions.length; i++) {
+        boolean[] permissions = new boolean[8];
+        for (int i = 0; i < permissions.length; i++) {
             permissions[i] = false;
         }
         try {
-            con =  DBMS.getConnection();
+            con = DBMS.getConnection();
             pstmt = con.prepareStatement(GET_USER_PERMS);
             pstmt.setInt(1, forumID);
             pstmt.setInt(2, userID);
             ResultSet rs = pstmt.executeQuery();
-            while(rs.next()) {
+            while (rs.next()) {
                 int newPerm = rs.getInt("permission");
                 permissions[newPerm] = true;
             }
-        }
-        catch( SQLException sqle ) {
+        } catch (SQLException sqle) {
             System.err.println("Error in DbForum.java:" + sqle);
             sqle.printStackTrace();
-        }
-        finally {
-            try {  pstmt.close(); }
-            catch (Exception e) { e.printStackTrace(); }
-            try {  con.close();   }
-            catch (Exception e) { e.printStackTrace(); }
+        } finally {
+            try {
+                pstmt.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         return new ForumPermissions(permissions);
     }

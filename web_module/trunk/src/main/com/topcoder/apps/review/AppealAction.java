@@ -7,13 +7,13 @@ package com.topcoder.apps.review;
 import com.topcoder.apps.review.document.Appeal;
 import com.topcoder.apps.review.projecttracker.Phase;
 import com.topcoder.util.log.Level;
+import org.apache.struts.action.ActionErrors;
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForwards;
+import org.apache.struts.action.ActionMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.struts.action.ActionErrors;
-import org.apache.struts.action.ActionForm;
-import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionForwards;
 
 /**
  * <p>
@@ -76,7 +76,7 @@ public final class AppealAction extends ReviewAction {
         AppealData data = new AppealData(orpd, null, aid, qid);
         ResultData result = businessDelegate.appealProject(data);
 
-        if (result instanceof SuccessResult)  {
+        if (result instanceof SuccessResult) {
             AppealsRetrieval ar = (AppealsRetrieval) result;
             Appeal[] appeals = ar.getAppeals();
             Appeal appeal = ar.getAppeals()[0];
@@ -84,7 +84,7 @@ public final class AppealAction extends ReviewAction {
             // Populate the form
             form = new AppealForm();
             ((AppealForm) form).fromAppeal(appeal, orpd.getProject().getId());
-            ((AppealForm)form).setProject(orpd.getProject());
+            ((AppealForm) form).setProject(orpd.getProject());
 
 /* by cucu
             if (appeal.getAppealer().getId() == orpd.getUser().getId() &&

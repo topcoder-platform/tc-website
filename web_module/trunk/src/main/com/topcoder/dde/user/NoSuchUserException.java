@@ -12,11 +12,11 @@ import com.topcoder.dde.DDEException;
 public class NoSuchUserException extends DDEException {
 
     public NoSuchUserException() {
-	super();
+        super();
     }
 
     public NoSuchUserException(String message) {
-	super(message);
+        super(message);
     }
 
 }

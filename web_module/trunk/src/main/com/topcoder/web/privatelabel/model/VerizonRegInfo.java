@@ -11,7 +11,7 @@ public class VerizonRegInfo extends FullRegInfo {
 
     public VerizonRegInfo(SimpleRegInfo info) {
         super(info);
-        isRegFull=false;
+        isRegFull = false;
     }
 
     public boolean isRegFull() {

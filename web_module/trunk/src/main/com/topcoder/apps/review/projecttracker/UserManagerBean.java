@@ -7,7 +7,6 @@
 package com.topcoder.apps.review.projecttracker;
 
 import com.topcoder.apps.review.persistence.Common;
-
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.RolePrincipal;
 import com.topcoder.security.TCSubject;
@@ -15,14 +14,20 @@ import com.topcoder.security.admin.PolicyMgrRemote;
 import com.topcoder.security.admin.PolicyMgrRemoteHome;
 import com.topcoder.security.policy.PermissionCollection;
 import com.topcoder.security.policy.TCPermission;
-
 import com.topcoder.util.log.Level;
 import com.topcoder.util.log.Log;
 import com.topcoder.util.log.LogException;
 import com.topcoder.util.log.LogFactory;
 
+import javax.ejb.CreateException;
+import javax.ejb.EJBException;
+import javax.ejb.SessionBean;
+import javax.ejb.SessionContext;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.rmi.PortableRemoteObject;
+import javax.sql.DataSource;
 import java.rmi.RemoteException;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -30,16 +35,6 @@ import java.sql.SQLException;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
-
-import javax.ejb.CreateException;
-import javax.ejb.EJBException;
-import javax.ejb.SessionBean;
-import javax.ejb.SessionContext;
-
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.rmi.PortableRemoteObject;
-import javax.sql.DataSource;
 
 
 /**
@@ -58,6 +53,7 @@ public class UserManagerBean implements SessionBean {
             e1.printStackTrace();
         }
     }
+
     private void debug(String msg) {
         try {
             log.log(Level.DEBUG, msg);
@@ -65,6 +61,7 @@ public class UserManagerBean implements SessionBean {
             e1.printStackTrace();
         }
     }
+
     private void error(String msg) {
         try {
             log.log(Level.ERROR, msg);
@@ -81,7 +78,7 @@ public class UserManagerBean implements SessionBean {
      * @return User
      */
     public SecurityEnabledUser getUser(TCSubject tcSubject) {
-        return (SecurityEnabledUser)getUser(tcSubject.getUserId(), null, tcSubject);
+        return (SecurityEnabledUser) getUser(tcSubject.getUserId(), null, tcSubject);
     }
 
     /**
@@ -178,7 +175,7 @@ public class UserManagerBean implements SessionBean {
                     for (Iterator iter = principals.iterator(); iter.hasNext();) {
                         RolePrincipal rolePrincipal = (RolePrincipal) iter.next();
                         if (rolePrincipal.getName().startsWith("com.topcoder.apps.review.security") ||
-                            rolePrincipal.getName().equals("Administrator")) {
+                                rolePrincipal.getName().equals("Administrator")) {
                             try {
                                 Collection permColl = policyMgr.getPermissions(rolePrincipal, tcSubject).getPermissions();
                                 for (Iterator i = permColl.iterator(); i.hasNext();) {
@@ -251,6 +248,6 @@ public class UserManagerBean implements SessionBean {
      * @see javax.ejb.SessionBean#setSessionContext(javax.ejb.SessionContext)
      */
     public void setSessionContext(SessionContext arg0)
-        throws EJBException, RemoteException {
+            throws EJBException, RemoteException {
     }
 }

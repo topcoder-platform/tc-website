@@ -1,17 +1,17 @@
 package com.topcoder.web.tc.controller.request.statistics;
 
+import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.*;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.shared.dataAccess.DataAccessConstants;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.resultSet.*;
 
-import java.util.Map;
-import java.util.ArrayList;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * User: dok
@@ -90,8 +90,8 @@ public class ProblemArchive extends Base {
                 setDefault(Constants.DIV2_LEVEL, div2Level);
             }
 
-            if (filters.size()>0) {
-                rsc = new ResultSetContainer(rsc, (ResultFilter[])filters.toArray(new ResultFilter[0]));
+            if (filters.size() > 0) {
+                rsc = new ResultSetContainer(rsc, (ResultFilter[]) filters.toArray(new ResultFilter[0]));
             }
 
             String start = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
@@ -105,8 +105,8 @@ public class ProblemArchive extends Base {
             //r.setProperty(DataAccessConstants.END_RANK, end);
 
             //make sure we like the size they they're searching for
-            if (Integer.parseInt(end)-Integer.parseInt(start)>(Constants.PROBLEM_ARCHIVE_SCROLL_SIZE-1)) {
-                r.setProperty(DataAccessConstants.END_RANK, String.valueOf(Integer.parseInt(start)+Constants.PROBLEM_ARCHIVE_SCROLL_SIZE-1));
+            if (Integer.parseInt(end) - Integer.parseInt(start) > (Constants.PROBLEM_ARCHIVE_SCROLL_SIZE - 1)) {
+                r.setProperty(DataAccessConstants.END_RANK, String.valueOf(Integer.parseInt(start) + Constants.PROBLEM_ARCHIVE_SCROLL_SIZE - 1));
             }
 
             rsc = new ResultSetContainer(rsc, Integer.parseInt(start), Integer.parseInt(end));
@@ -136,8 +136,10 @@ public class ProblemArchive extends Base {
 
     private BigDecimal makePercentage(String s) {
         BigDecimal temp = new BigDecimal(s);
-        if (temp.compareTo(new BigDecimal("1"))<0) return temp;
-        else return temp.divide(new BigDecimal("100"), 4, BigDecimal.ROUND_HALF_UP);
+        if (temp.compareTo(new BigDecimal("1")) < 0)
+            return temp;
+        else
+            return temp.divide(new BigDecimal("100"), 4, BigDecimal.ROUND_HALF_UP);
     }
 
 }

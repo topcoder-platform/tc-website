@@ -5,13 +5,11 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
-import javax.naming.NamingException;
 import javax.naming.InitialContext;
-import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class UserTermsOfUseBean extends BaseEJB {
 

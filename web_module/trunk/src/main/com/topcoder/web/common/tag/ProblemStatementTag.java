@@ -1,17 +1,14 @@
 package com.topcoder.web.common.tag;
 
-import java.io.StringReader;
-
-import javax.servlet.jsp.JspException;
-import javax.servlet.jsp.tagext.TagSupport;
-
 import com.topcoder.shared.language.*;
-
 import com.topcoder.shared.problem.Problem;
 import com.topcoder.shared.problem.ProblemComponent;
 import com.topcoder.shared.problemParser.ProblemComponentFactory;
-
 import com.topcoder.web.common.render.ProblemRenderer;
+
+import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.tagext.TagSupport;
+import java.io.StringReader;
 
 
 public class ProblemStatementTag extends TagSupport {
@@ -27,7 +24,7 @@ public class ProblemStatementTag extends TagSupport {
     }
 
     public void setProblem(String p) {
-        this.problem  = (Problem)pageContext.findAttribute(p);
+        this.problem = (Problem) pageContext.findAttribute(p);
     }
 
     /**
@@ -82,14 +79,14 @@ public class ProblemStatementTag extends TagSupport {
      *                  there is IO trouble writing out the tag.
      */
     public int doStartTag() throws JspException {
-        if (text == null&&problem==null) {
+        if (text == null && problem == null) {
             throw new JspException("Text or Problem must be set");
         }
         if (language == null) {
             throw new JspException(
                     "Language is not set or set to invalid value");
         }
-        if (problem==null) {
+        if (problem == null) {
             problem = new Problem();
             StringReader reader = new StringReader(text);
             ProblemComponent arrProblemComponent[] = new ProblemComponent[1];
@@ -120,7 +117,7 @@ public class ProblemStatementTag extends TagSupport {
         this.tdClass = null;
         this.text = null;
         this.language = null;
-        this.problem =null;
+        this.problem = null;
         return super.doEndTag();
     }
 }

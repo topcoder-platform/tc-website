@@ -6,8 +6,8 @@
 
 package com.topcoder.web.tc.controller.legacy.pacts.common;
 
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.resultSet.*;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.util.StringTokenizer;
 

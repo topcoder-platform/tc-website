@@ -1,12 +1,18 @@
 package com.topcoder.web.hs.model;
 
-import java.io.*;
-import java.util.*;
-import com.topcoder.shared.security.*;
-import com.topcoder.shared.dataAccess.*;
-import com.topcoder.shared.dataAccess.resultSet.*;
-import com.topcoder.shared.util.*;
+import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.security.User;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+
+import java.io.Serializable;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 
 /**
  * Holds some details about the current user for the benefit of curious JSPs.
@@ -27,28 +33,70 @@ public class SessionInfoBean implements Serializable {
     private char group = 'G';
     private int rating = 0;
 
-    public SessionInfoBean() { }
+    public SessionInfoBean() {
+    }
 
-    public String getHandle() { return handle; }
-    public void   setHandle(String handle) { this.handle = handle; }
-    public long    getUserId() { return userid; }
-    public void   setUserId(long userid) { this.userid = userid; }
-    public long    getSchoolId() { return schoolid; }
-    public void   setSchoolId(long schoolid) { this.schoolid = schoolid; }
-    public char   getGroup() { return group; }
-    public void   setGroup(char group) {
-        if(0>"GSCA".indexOf(group))
-            throw new IllegalArgumentException("no group class '"+group+"'");
+    public String getHandle() {
+        return handle;
+    }
+
+    public void setHandle(String handle) {
+        this.handle = handle;
+    }
+
+    public long getUserId() {
+        return userid;
+    }
+
+    public void setUserId(long userid) {
+        this.userid = userid;
+    }
+
+    public long getSchoolId() {
+        return schoolid;
+    }
+
+    public void setSchoolId(long schoolid) {
+        this.schoolid = schoolid;
+    }
+
+    public char getGroup() {
+        return group;
+    }
+
+    public void setGroup(char group) {
+        if (0 > "GSCA".indexOf(group))
+            throw new IllegalArgumentException("no group class '" + group + "'");
         this.group = group;
     }
-    public int    getRating() { return rating; }
-    public void   setRating(int rating) { this.rating = rating; }
 
-    public boolean isLoggedIn() { return group != 'G'; }
-    public boolean isGuest()    { return group == 'G'; }
-    public boolean isStudent()  { return group == 'S'; }
-    public boolean isCoach()    { return group == 'C'; }
-    public boolean isAdmin()    { return group == 'A'; }
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public boolean isLoggedIn() {
+        return group != 'G';
+    }
+
+    public boolean isGuest() {
+        return group == 'G';
+    }
+
+    public boolean isStudent() {
+        return group == 'S';
+    }
+
+    public boolean isCoach() {
+        return group == 'C';
+    }
+
+    public boolean isAdmin() {
+        return group == 'A';
+    }
 
     /**
      * This method has all the smarts.  It takes a User object and a
@@ -62,9 +110,12 @@ public class SessionInfoBean implements Serializable {
         setUserId(user.getId());
         setHandle(user.getUserName());
 
-        if(groups.contains("Admin")) setGroup('A');
-        else if(groups.contains("Student")) setGroup('S');
-        else if(groups.contains("Coach")) setGroup('C');
+        if (groups.contains("Admin"))
+            setGroup('A');
+        else if (groups.contains("Student"))
+            setGroup('S');
+        else if (groups.contains("Coach"))
+            setGroup('C');
         else {
             setGroup('G');
             setHandle("");  // anonymous looks nameless to the jsps
@@ -73,7 +124,7 @@ public class SessionInfoBean implements Serializable {
         setSchoolId(-1);
         setRating(0);
 
-        if(isGuest() || isAdmin()) return;
+        if (isGuest() || isAdmin()) return;
 
         try {
             Map qm = new TreeMap();
@@ -83,7 +134,7 @@ public class SessionInfoBean implements Serializable {
             DataAccessInt dai = new CachedDataAccess(DBMS.HS_OLTP_DATASOURCE_NAME);
 
             Map res = dai.getData(dataRequest);
-            ResultSetContainer rsc = (ResultSetContainer)res.get("user_details");
+            ResultSetContainer rsc = (ResultSetContainer) res.get("user_details");
             ResultSetContainer.ResultSetRow rr = rsc.getRow(0);
 
             setSchoolId(Integer.parseInt(rr.getItem("school_id").toString()));
@@ -91,7 +142,7 @@ public class SessionInfoBean implements Serializable {
 
             /* the query also returns school name and state code */
 
-        } catch(Exception e) {
+        } catch (Exception e) {
             log.warn("caught exception from database queries, some values left at defaults", e);
         }
     }

@@ -57,18 +57,20 @@
 package com.coolservlets.util;
 
 import com.topcoder.shared.distCache.CacheClient;
-import com.topcoder.shared.distCache.SimpleCacheClientImpl;
 import com.topcoder.shared.distCache.CacheClientFactory;
+import com.topcoder.shared.distCache.SimpleCacheClientImpl;
 import com.topcoder.shared.util.logging.Logger;
 
-import java.io.*;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.rmi.RemoteException;
 
 public class Cache {
 
     private CacheClient cache;
     private static final int MAX_SIZE = 10000;
-    private int timeOut= 1000*24*60*60*1000;
+    private int timeOut = 1000 * 24 * 60 * 60 * 1000;
 
     /* can only use distributed for users for now.
      * if we need to use it for others, then we'll
@@ -116,23 +118,25 @@ public class Cache {
     }
 
     private CacheClient getCache() {
-        if (isDistributed) return CacheClientFactory.createCacheClient();
-        else return cache;
+        if (isDistributed)
+            return CacheClientFactory.createCacheClient();
+        else
+            return cache;
     }
 
     public Object get(int uniqueID) {
         Object ret = null;
         try {
-            ret = getCache().get(CACHE_KEY_PREFIX+uniqueID);
+            ret = getCache().get(CACHE_KEY_PREFIX + uniqueID);
         } catch (RemoteException e) {
             e.printStackTrace();  //To change body of catch statement use Options | File Templates.
         }
         return ret;
     }
 
-	public void add(int uniqueID, Object object) {
+    public void add(int uniqueID, Object object) {
         try {
-            getCache().set(CACHE_KEY_PREFIX+uniqueID, object, timeOut);
+            getCache().set(CACHE_KEY_PREFIX + uniqueID, object, timeOut);
         } catch (RemoteException e) {
             e.printStackTrace();  //To change body of catch statement use Options | File Templates.
         }
@@ -141,16 +145,16 @@ public class Cache {
     public boolean containsKey(int key) {
         boolean ret = false;
         try {
-            ret = (getCache().containsKey(CACHE_KEY_PREFIX+key));
+            ret = (getCache().containsKey(CACHE_KEY_PREFIX + key));
         } catch (RemoteException e) {
             e.printStackTrace();  //To change body of catch statement use Options | File Templates.
         }
         return ret;
     }
 
-	public void remove(int uniqueID) {
+    public void remove(int uniqueID) {
         try {
-            getCache().remove(CACHE_KEY_PREFIX+uniqueID);
+            getCache().remove(CACHE_KEY_PREFIX + uniqueID);
         } catch (RemoteException e) {
             e.printStackTrace();  //To change body of catch statement use Options | File Templates.
         }
@@ -164,18 +168,18 @@ public class Cache {
         }
     }
 
-	private static int getSize(Object o) {
-		try {
-			ByteArrayOutputStream baos = new ByteArrayOutputStream();
-			ObjectOutputStream oos = new ObjectOutputStream(baos);
-			oos.writeObject(o);
-			oos.flush();
-			int size = baos.size();
-			oos.close();
-			return size;
-		} catch (IOException e) {
+    private static int getSize(Object o) {
+        try {
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            ObjectOutputStream oos = new ObjectOutputStream(baos);
+            oos.writeObject(o);
+            oos.flush();
+            int size = baos.size();
+            oos.close();
+            return size;
+        } catch (IOException e) {
 
-		}
-		return -1;
-	}
+        }
+        return -1;
+    }
 }

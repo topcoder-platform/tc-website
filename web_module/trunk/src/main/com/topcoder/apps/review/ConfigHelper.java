@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
@@ -263,25 +263,25 @@ public class ConfigHelper implements ConfigManagerInterface {
         return Collections.enumeration(props);
     }
 
-	/**
+    /**
      * Get the xsl mail template file for appeal creation.
      *
      * @return the name of the xsl file
-	 * @return
-	 */
-	public static String getAppealCreatedXSL() throws UnknownNamespaceException {
+     * @return
+     */
+    public static String getAppealCreatedXSL() throws UnknownNamespaceException {
         return ConfigManager.getInstance().getString(NAMESPACE, APPEAL_CREATED_XSL);
-	}
+    }
 
-	/**
+    /**
      * Get the xsl mail template file for appeal creation.
      *
      * @return the name of the xsl file
-	 * @return
-	 */
-	public static String getAppealResolvedXSL() throws UnknownNamespaceException {
+     * @return
+     */
+    public static String getAppealResolvedXSL() throws UnknownNamespaceException {
         return ConfigManager.getInstance().getString(NAMESPACE, APPEAL_RESOLVED_XSL);
-	}
+    }
 
 }
 

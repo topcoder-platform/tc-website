@@ -4,18 +4,15 @@
 
 package com.topcoder.apps.review;
 
-import com.topcoder.util.log.Level;
 import com.topcoder.servlet.request.FileUpload;
+import com.topcoder.util.log.Level;
+import org.apache.struts.action.ActionErrors;
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForwards;
+import org.apache.struts.action.ActionMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.struts.action.ActionErrors;
-import org.apache.struts.action.ActionForm;
-import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionForwards;
-
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.InputStream;
 
 /**
@@ -27,14 +24,14 @@ import java.io.InputStream;
  * @version 1.0
  */
 public final class SaveSolutionAction extends ReviewAction {
-    
+
     /**
      * <p>
      * Call the business logic layer and set session if possible.
      * </p>
      *
      * @return the result data.
-     * 
+     *
      * @param mapping The ActionMapping used to select this instance
      * @param form The optional ActionForm bean for this request (if any)
      * @param request The HTTP request we are processing
@@ -49,20 +46,20 @@ public final class SaveSolutionAction extends ReviewAction {
                                    HttpServletResponse response,
                                    ActionErrors errors,
                                    ActionForwards forwards,
-                                   OnlineReviewProjectData orpd) {        
-        log(Level.INFO, "SaveSolutionAction: User '" 
-                        + orpd.getUser().getHandle() + "' in session " 
-                        + request.getSession().getId());
-        
+                                   OnlineReviewProjectData orpd) {
+        log(Level.INFO, "SaveSolutionAction: User '"
+                + orpd.getUser().getHandle() + "' in session "
+                + request.getSession().getId());
+
         // Call the business logic
-        
+
         try {
             BusinessDelegate businessDelegate = new BusinessDelegate();
             FileUpload upload = new FileUpload(request, false);
             ResultData result = null;
             SolutionData data = null;
-//            File file = new File("" + upload.getUploadedFile("submission").getFile().getParent() 
-//                                    + File.separator + orpd.getUser().getId() + "_" 
+//            File file = new File("" + upload.getUploadedFile("submission").getFile().getParent()
+//                                    + File.separator + orpd.getUser().getId() + "_"
 //                                    + upload.getUploadedFile("submission").getFile().getName());
 
             //upload.getUploadedFile("submission").getFile().renameTo(file);
@@ -74,8 +71,8 @@ public final class SaveSolutionAction extends ReviewAction {
                 result = businessDelegate.submitSolution(data);
             } else {
                 result = businessDelegate.submitFinalFix(data);
-                
-                if(result instanceof SuccessResult) {
+
+                if (result instanceof SuccessResult) {
                     AutoPilot.finalFixes(data);
                 }
             }

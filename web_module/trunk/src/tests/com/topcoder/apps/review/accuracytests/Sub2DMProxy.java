@@ -38,7 +38,7 @@ import java.util.List;
 class Sub2DMProxy implements DMProxy {
 
     private final static String HOME_NAME =
-        "java:comp/env/document/DocumentManager";
+            "java:comp/env/document/DocumentManager";
     private DocumentManagerLocal bean;
 
     public Sub2DMProxy() throws Exception {
@@ -49,55 +49,55 @@ class Sub2DMProxy implements DMProxy {
     }
 
     public ScreeningScorecard[] getScreeningScorecard(Project project,
-            User requestor) {
+                                                      User requestor) {
         return bean.getScreeningScorecard(project,
-                                          new TCSubject(requestor.getId()));
+                new TCSubject(requestor.getId()));
     }
 
     public void saveScreeningScorecard(ScreeningScorecard scorecard,
-                User requestor) 
-             throws Exception {
+                                       User requestor)
+            throws Exception {
         bean.saveScreeningScorecard(scorecard,
-                                    new TCSubject(requestor.getId()));
+                new TCSubject(requestor.getId()));
     }
 
     public ReviewScorecard getReviewScorecard(Project project, long reviewerId,
-            long submitterId, User requestor) {
+                                              long submitterId, User requestor) {
         return bean.getReviewScorecard(project, reviewerId, submitterId,
                 new TCSubject(requestor.getId()));
     }
 
     public ReviewScorecard[] getReviewScorecard(Project project, User requestor) {
         return bean.getReviewScorecard(project,
-                                       new TCSubject(requestor.getId()));
+                new TCSubject(requestor.getId()));
     }
 
     public void saveReviewScorecard(ReviewScorecard scorecard,
-                User requestor)
+                                    User requestor)
             throws Exception {
         bean.saveReviewScorecard(scorecard, new TCSubject(requestor.getId()));
     }
 
     public TestCaseReview[] getTestCaseReview(Project project, User requestor) {
         return bean.getTestCaseReview(project,
-                                      new TCSubject(requestor.getId()));
+                new TCSubject(requestor.getId()));
     }
 
     public void saveTestCaseReview(TestCaseReview tcReview,
-                    User requestor) throws Exception {
+                                   User requestor) throws Exception {
         bean.saveTestCaseReview(tcReview, new TCSubject(requestor.getId()));
     }
 
     public InitialSubmission[] getInitialSubmission(Project project,
-            User requestor) {
+                                                    User requestor) {
         return bean.getInitialSubmissions(project,
-                                          new TCSubject(requestor.getId()));
+                new TCSubject(requestor.getId()));
     }
 
     public void saveSubmission(InitialSubmission submission,
-                    User requestor) throws Exception {
+                               User requestor) throws Exception {
         bean.saveInitialSubmission(submission,
-                                    new TCSubject(requestor.getId()));
+                new TCSubject(requestor.getId()));
     }
 
     public AggregationWorksheet getAggregation(Project project, User requestor) {
@@ -105,27 +105,27 @@ class Sub2DMProxy implements DMProxy {
     }
 
     public void saveAggregation(AggregationWorksheet worksheet,
-                    User requestor)
+                                User requestor)
             throws Exception {
         bean.saveAggregation(worksheet, new TCSubject(requestor.getId()));
     }
 
     public FinalFixSubmission getFinalFixes(Project project, User requestor) {
         return bean.getFinalFixSubmission(project,
-                                          new TCSubject(requestor.getId()));
+                new TCSubject(requestor.getId()));
     }
 
     public void saveFinalFixSubmission(FinalFixSubmission submission,
-                    User requestor) 
+                                       User requestor)
             throws Exception {
         bean.saveFinalFixSubmission(submission,
-                                    new TCSubject(requestor.getId()));
+                new TCSubject(requestor.getId()));
     }
 
     public AggregationReview[] getAggregationReview(Project project,
-                                                  User requestor) {
+                                                    User requestor) {
         return bean.getAggregationReview(project,
-                                         new TCSubject(requestor.getId()));
+                new TCSubject(requestor.getId()));
     }
 
     public void saveAggregationReview(AggregationReview aggReview,
@@ -138,7 +138,7 @@ class Sub2DMProxy implements DMProxy {
     }
 
     public void saveFinalReview(FinalReview finalReview,
-                    User requestor) throws Exception {
+                                User requestor) throws Exception {
         bean.saveFinalReview(finalReview, new TCSubject(requestor.getId()));
     }
 

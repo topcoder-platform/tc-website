@@ -1,13 +1,12 @@
 package com.topcoder.web.ejb.coder;
 
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.ejb.BaseEJB;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.RowNotFoundException;
+import com.topcoder.web.ejb.BaseEJB;
 
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
 import javax.ejb.EJBException;
+import javax.naming.InitialContext;
 import java.sql.*;
 
 /**
@@ -34,7 +33,7 @@ public class CoderBean extends BaseEJB {
         try {
             StringBuffer query = new StringBuffer(200);
             query.append("INSERT ");
-            query.append( " INTO coder (coder_id)");
+            query.append(" INTO coder (coder_id)");
             query.append(" VALUES (?) ");
 
             conn = DBMS.getConnection(dataSource);
@@ -68,8 +67,8 @@ public class CoderBean extends BaseEJB {
             StringBuffer query = new StringBuffer();
 
             query.append(" UPDATE coder ");
-            query.append(   " SET member_since = ?");
-            query.append( " WHERE coder_id = ?");
+            query.append(" SET member_since = ?");
+            query.append(" WHERE coder_id = ?");
 
             conn = DBMS.getConnection(dataSource);
             pstmt = conn.prepareStatement(query.toString());
@@ -109,8 +108,8 @@ public class CoderBean extends BaseEJB {
             StringBuffer query = new StringBuffer();
 
             query.append(" UPDATE coder ");
-            query.append(   " SET quote = ?");
-            query.append( " WHERE coder_id = ?");
+            query.append(" SET quote = ?");
+            query.append(" WHERE coder_id = ?");
 
             conn = DBMS.getConnection(dataSource);
             pstmt = conn.prepareStatement(query.toString());
@@ -145,8 +144,8 @@ public class CoderBean extends BaseEJB {
             StringBuffer query = new StringBuffer();
 
             query.append(" UPDATE coder ");
-            query.append(   " SET editor_id = ?");
-            query.append( " WHERE coder_id = ?");
+            query.append(" SET editor_id = ?");
+            query.append(" WHERE coder_id = ?");
 
             conn = DBMS.getConnection(dataSource);
             pstmt = conn.prepareStatement(query.toString());
@@ -164,9 +163,9 @@ public class CoderBean extends BaseEJB {
         } finally {
             close(pstmt);
             close(conn);
-            close(ctx);        }
+            close(ctx);
+        }
     }
-
 
 
     public void setLanguageId(long coderId, int languageId, String dataSource) {
@@ -181,8 +180,8 @@ public class CoderBean extends BaseEJB {
             StringBuffer query = new StringBuffer();
 
             query.append(" UPDATE coder ");
-            query.append(   " SET language_id = ?");
-            query.append( " WHERE coder_id = ?");
+            query.append(" SET language_id = ?");
+            query.append(" WHERE coder_id = ?");
 
             conn = DBMS.getConnection(dataSource);
             pstmt = conn.prepareStatement(query.toString());
@@ -216,8 +215,8 @@ public class CoderBean extends BaseEJB {
             StringBuffer query = new StringBuffer();
 
             query.append(" UPDATE coder ");
-            query.append(   " SET coder_type_id = ?");
-            query.append( " WHERE coder_id = ?");
+            query.append(" SET coder_type_id = ?");
+            query.append(" WHERE coder_id = ?");
 
             conn = DBMS.getConnection(dataSource);
             pstmt = conn.prepareStatement(query.toString());
@@ -240,7 +239,6 @@ public class CoderBean extends BaseEJB {
     }
 
 
-
     /**
      *
      * @param coderId
@@ -259,8 +257,8 @@ public class CoderBean extends BaseEJB {
             StringBuffer query = new StringBuffer();
 
             query.append(" SELECT member_since ");
-            query.append( " FROM coder ");
-            query.append( " WHERE coder_id = ?");
+            query.append(" FROM coder ");
+            query.append(" WHERE coder_id = ?");
 
             conn = DBMS.getConnection(dataSource);
             stmt = conn.prepareStatement(query.toString());
@@ -284,7 +282,8 @@ public class CoderBean extends BaseEJB {
             close(rs);
             close(stmt);
             close(conn);
-            close(ctx);        }
+            close(ctx);
+        }
         return memberSince;
     }
 
@@ -302,8 +301,8 @@ public class CoderBean extends BaseEJB {
             StringBuffer query = new StringBuffer();
 
             query.append(" SELECT quote");
-            query.append( " FROM coder ");
-            query.append( " WHERE coder_id = ?");
+            query.append(" FROM coder ");
+            query.append(" WHERE coder_id = ?");
 
             conn = DBMS.getConnection(dataSource);
             stmt = conn.prepareStatement(query.toString());
@@ -345,8 +344,8 @@ public class CoderBean extends BaseEJB {
             StringBuffer query = new StringBuffer();
 
             query.append(" SELECT editor_id ");
-            query.append( " FROM coder ");
-            query.append( " WHERE coder_id = ?");
+            query.append(" FROM coder ");
+            query.append(" WHERE coder_id = ?");
 
             conn = DBMS.getConnection(dataSource);
             stmt = conn.prepareStatement(query.toString());
@@ -389,8 +388,8 @@ public class CoderBean extends BaseEJB {
             StringBuffer query = new StringBuffer();
 
             query.append(" SELECT language_id ");
-            query.append( " FROM coder ");
-            query.append( " WHERE coder_id = ?");
+            query.append(" FROM coder ");
+            query.append(" WHERE coder_id = ?");
 
             conn = DBMS.getConnection(dataSource);
             stmt = conn.prepareStatement(query.toString());
@@ -399,7 +398,7 @@ public class CoderBean extends BaseEJB {
 
             rs = stmt.executeQuery();
             if (rs.next()) {
-                languageId= rs.getInt(1);
+                languageId = rs.getInt(1);
             } else {
                 throw new RowNotFoundException("EJBException in getLanguageId"
                         + " empty result set for query: " + query.toString());
@@ -432,8 +431,8 @@ public class CoderBean extends BaseEJB {
             StringBuffer query = new StringBuffer();
 
             query.append(" SELECT coder_type_id ");
-            query.append( " FROM coder ");
-            query.append( " WHERE coder_id = ?");
+            query.append(" FROM coder ");
+            query.append(" WHERE coder_id = ?");
 
             conn = DBMS.getConnection(dataSource);
             stmt = conn.prepareStatement(query.toString());
@@ -442,7 +441,7 @@ public class CoderBean extends BaseEJB {
 
             rs = stmt.executeQuery();
             if (rs.next()) {
-                languageId= rs.getInt(1);
+                languageId = rs.getInt(1);
             } else {
                 throw new RowNotFoundException("EJBException in getCoderTypeId"
                         + " empty result set for query: " + query.toString());
@@ -475,8 +474,8 @@ public class CoderBean extends BaseEJB {
             StringBuffer query = new StringBuffer();
 
             query.append(" SELECT activation_code ");
-            query.append( " FROM coder ");
-            query.append( " WHERE coder_id = ?");
+            query.append(" FROM coder ");
+            query.append(" WHERE coder_id = ?");
 
             conn = DBMS.getConnection(dataSource);
             stmt = conn.prepareStatement(query.toString());
@@ -520,8 +519,8 @@ public class CoderBean extends BaseEJB {
             StringBuffer query = new StringBuffer();
 
             query.append(" SELECT '1' ");
-            query.append( " FROM coder ");
-            query.append( " WHERE coder_id = ?");
+            query.append(" FROM coder ");
+            query.append(" WHERE coder_id = ?");
 
             conn = DBMS.getConnection(dataSource);
             stmt = conn.prepareStatement(query.toString());
@@ -545,7 +544,6 @@ public class CoderBean extends BaseEJB {
             close(ctx);
         }
     }
-
 
 
 }

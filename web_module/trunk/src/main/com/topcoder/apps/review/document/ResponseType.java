@@ -1,7 +1,7 @@
 /*
  * ResponseType.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.document;
@@ -32,7 +32,7 @@ public class ResponseType implements Serializable {
      * <p>
      * Return the name of the type of response.
      * </p>
-     * 
+     *
      * @return a String with the name of the type of response.
      */
     public String getName() {
@@ -43,7 +43,7 @@ public class ResponseType implements Serializable {
      * <p>
      * Return the id of this the type of response.
      * </p>
-     * 
+     *
      * @return the id of this the type of response.
      */
     public long getId() {

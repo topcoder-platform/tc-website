@@ -1,12 +1,10 @@
 /*
  * SubjectiveResponse.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.document;
-
-import com.topcoder.apps.review.document.ResponseType;
 
 import java.io.Serializable;
 
@@ -95,7 +93,7 @@ public class SubjectiveResponse implements Serializable {
      * <p>
      * Return the id of this subjective response.
      * </p>
-     * 
+     *
      * @return the id of this subjective response.
      */
     public long getId() {
@@ -114,7 +112,7 @@ public class SubjectiveResponse implements Serializable {
      * <p>
      * Return the text of response.
      * </p>
-     * 
+     *
      * @return a String with the text of response.
      */
     public String getResponseText() {
@@ -125,7 +123,7 @@ public class SubjectiveResponse implements Serializable {
      * <p>
      * Set the text of response.
      * </p>
-     * 
+     *
      * @param text The text of response.
      */
     public void setResponseText(String text) {
@@ -137,7 +135,7 @@ public class SubjectiveResponse implements Serializable {
      * <p>
      * Return the type of response.
      * </p>
-     * 
+     *
      * @return the type of response.
      */
     public ResponseType getResponseType() {
@@ -148,7 +146,7 @@ public class SubjectiveResponse implements Serializable {
      * <p>
      * Set the type of response.
      * </p>
-     * 
+     *
      * @param type The type of response.
      */
     public void setResponseType(ResponseType type) {

@@ -1,7 +1,8 @@
 package com.topcoder.web.tc.model;
 
 import java.io.Serializable;
-import java.util.*;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * A class to process job hits.
@@ -198,7 +199,7 @@ public class JobHitData implements Serializable {
     }
 
     public void addDemographic(Object key, Object value) {
-        demographics.put(key,value);
+        demographics.put(key, value);
     }
 
     public void setDemographics(Map demographics) {

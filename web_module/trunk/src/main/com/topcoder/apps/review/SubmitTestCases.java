@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
@@ -10,6 +10,7 @@ import com.topcoder.apps.review.projecttracker.ProjectTrackerLocal;
 import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
 import com.topcoder.apps.review.projecttracker.UserProjectInfo;
 import com.topcoder.util.format.FormatMethodFactory;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -89,7 +90,7 @@ public class SubmitTestCases implements Model {
             // retrieve the testcases-object
             TestCase[] testcases = documentManager.getTestCases(project, user.getId(), user.getTCSubject());
             if (testcases == null || testcases.length != 1
-                        || !testcases[0].getReviewer().equals(user)) {
+                    || !testcases[0].getReviewer().equals(user)) {
                 return new FailureResult("PL did not return exactly one testcases document as expected");
             }
 
@@ -97,11 +98,11 @@ public class SubmitTestCases implements Model {
             InputStream is = solutionData.getInputStream();
             String remoteName = solutionData.getFilename();
             String destFilename = "TestCases_" + userRoleId + "_"
-                + FormatMethodFactory.getDefaultDateFormatMethod("yyyy-MM-dd-HH-mm-ss-SSS").format(new Date())
-                + SubmissionDownload.getExtension(remoteName);
+                    + FormatMethodFactory.getDefaultDateFormatMethod("yyyy-MM-dd-HH-mm-ss-SSS").format(new Date())
+                    + SubmissionDownload.getExtension(remoteName);
             copy(is, ConfigHelper.getSubmissionPathPrefix() + destFilename);
             is.close();
-            
+
             testcases[0].setURL(new File(ConfigHelper.getSubmissionPathPrefix() + destFilename).toURL());
             documentManager.saveTestCase(testcases[0], user.getTCSubject());
             return new SuccessResult();

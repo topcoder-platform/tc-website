@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review.mockup;
 
@@ -7,7 +7,9 @@ import com.topcoder.apps.review.projecttracker.Project;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerLocal;
 import com.topcoder.apps.review.projecttracker.UserProjectInfo;
 import com.topcoder.security.TCSubject;
+
 import java.sql.Date;
+
 import com.topcoder.util.TCException;
 
 /**

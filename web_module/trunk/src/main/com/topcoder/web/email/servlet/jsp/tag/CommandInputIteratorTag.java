@@ -6,7 +6,9 @@ import com.topcoder.web.email.bean.StatisticsUtilities;
 
 import javax.servlet.ServletException;
 import javax.servlet.jsp.JspException;
-import java.util.*;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Custom tag to iterate through the list of parameter

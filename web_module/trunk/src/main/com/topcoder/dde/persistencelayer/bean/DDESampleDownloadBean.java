@@ -1,19 +1,18 @@
 package com.topcoder.dde.persistencelayer.bean;
 
-import java.sql.Timestamp;
 import javax.ejb.CreateException;
 
 /**
  * The bean implementation class representing the CMP bean for the sample download
- * 
- * @version     1.0  
+ *
+ * @version     1.0
  * @author      David Messinger
- */ 
-public abstract class DDESampleDownloadBean  extends DDEBaseEntityBean{
+ */
+public abstract class DDESampleDownloadBean extends DDEBaseEntityBean {
 
     /**
      * Creates a new instance.
-     */ 
+     */
     public DDESampleDownloadBean() {
     }
 
@@ -23,16 +22,18 @@ public abstract class DDESampleDownloadBean  extends DDEBaseEntityBean{
     public abstract void setCatalog(String catalog);
 
     public abstract int getContactMe();
+
     public abstract void setContactMe(int contactMe);
-    
+
     public abstract int getCountryId();
+
     public abstract void setCountryId(int contactMe);
 
     public abstract String getFirstName();
 
     public abstract void setFirstName(String firstName);
 
-    
+
     public abstract String getLastName();
 
     public abstract void setLastName(String lastName);
@@ -53,6 +54,6 @@ public abstract class DDESampleDownloadBean  extends DDEBaseEntityBean{
     }
 
 
-    public void ejbPostCreate(String catalog, String firstName, String lastName, String emailAddress,int countryId, int contactMe) throws CreateException {
+    public void ejbPostCreate(String catalog, String firstName, String lastName, String emailAddress, int countryId, int contactMe) throws CreateException {
     }
 }

@@ -1,13 +1,12 @@
 package com.topcoder.web.corp.model;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.web.corp.model.BaseModel;
 
-/** 
+/**
  * <p>
  * This is the model for candidate information.  Currently, candidate
  * info consists of user id, email address, and password. Also, if the
- * data contained is for a new candidate, isNew is true, else it isNew 
+ * data contained is for a new candidate, isNew is true, else it isNew
  * should be false.
  * </p>
  *
@@ -23,7 +22,7 @@ public class CandidateInfo extends BaseModel {
 
     /** Holds value of property noteList. */
     private ResultSetContainer noteList;
-    
+
     public CandidateInfo() {
         userName = "";
         password = "";
@@ -36,14 +35,14 @@ public class CandidateInfo extends BaseModel {
      *
      * @param val
      */
-    public void setUserName( String val ) {
+    public void setUserName(String val) {
         userName = val;
     }
-    
+
     public void setPreference(int p) {
         preference = p;
     }
-    
+
     public int getPreference() {
         return preference;
     }
@@ -51,7 +50,7 @@ public class CandidateInfo extends BaseModel {
     /**
      * Gets the value of <code>userName</code>.
      *
-     * @return 
+     * @return
      */
     public String getUserName() {
         return userName;
@@ -62,14 +61,14 @@ public class CandidateInfo extends BaseModel {
      *
      * @param val
      */
-    public void setPassword( String val ) {
+    public void setPassword(String val) {
         password = val;
     }
 
     /**
      * Gets the value of <code>password</code>.
      *
-     * @return 
+     * @return
      */
     public String getPassword() {
         return password;
@@ -80,14 +79,14 @@ public class CandidateInfo extends BaseModel {
      *
      * @param val
      */
-    public void setUserId( Long val ) {
+    public void setUserId(Long val) {
         userId = val;
     }
 
     /**
      * Gets the value of <code>userId</code>.
      *
-     * @return 
+     * @return
      */
     public Long getUserId() {
         return userId;
@@ -98,18 +97,16 @@ public class CandidateInfo extends BaseModel {
      *
      * @param val
      */
-    public void setReferrer( String val )
-    {
+    public void setReferrer(String val) {
         referrer = val;
     }
 
     /**
      * Gets the value of <code>referrer</code>.
      *
-     * @return 
+     * @return
      */
-    public String getReferrer()
-    {
+    public String getReferrer() {
         return referrer;
     }
 
@@ -119,12 +116,12 @@ public class CandidateInfo extends BaseModel {
     public ResultSetContainer getNoteList() {
         return this.noteList;
     }
-    
+
     /** Setter for property noteList.
      * @param noteList New value of property noteList.
      */
     public void setNoteList(ResultSetContainer noteList) {
         this.noteList = noteList;
     }
-    
+
 }

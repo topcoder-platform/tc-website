@@ -7,7 +7,6 @@ import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
 import javax.naming.Context;
-import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -32,7 +31,7 @@ public class UserAddressBean extends BaseEJB {
      * @param addressId address ID to insert into table
      */
     public void createUserAddress(long userId, long addressId, String dataSource) {
-        log.debug("createUserAddress("+userId+","+addressId+","+dataSource+") called...");
+        log.debug("createUserAddress(" + userId + "," + addressId + "," + dataSource + ") called...");
 
         Context ctx = null;
         PreparedStatement ps = null; // could just use Statement
@@ -72,7 +71,7 @@ public class UserAddressBean extends BaseEJB {
      * @param addressId address ID of entry to remove
      */
     public void removeUserAddress(long userId, long addressId, String dataSource) {
-        log.debug("removeUserAddress("+userId+","+addressId+","+dataSource+") called...");
+        log.debug("removeUserAddress(" + userId + "," + addressId + "," + dataSource + ") called...");
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -106,7 +105,7 @@ public class UserAddressBean extends BaseEJB {
     }
 
     public ResultSetContainer getUserAddresses(long userId, String dataSource) {
-        log.debug("getUserAddresses("+userId+","+dataSource+") called...");
+        log.debug("getUserAddresses(" + userId + "," + dataSource + ") called...");
 
         Context ctx = null;
         PreparedStatement ps = null; // could just use Statement

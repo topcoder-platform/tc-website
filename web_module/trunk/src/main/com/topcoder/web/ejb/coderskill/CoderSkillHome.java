@@ -6,14 +6,15 @@
 
 package com.topcoder.web.ejb.coderskill;
 
-import javax.ejb.EJBHome;
 import javax.ejb.CreateException;
+import javax.ejb.EJBHome;
 import java.rmi.RemoteException;
+
 /**
  *
  * @author  rfairfax
  */
 public interface CoderSkillHome extends EJBHome {
-    
+
     CoderSkill create() throws CreateException, RemoteException;
 }

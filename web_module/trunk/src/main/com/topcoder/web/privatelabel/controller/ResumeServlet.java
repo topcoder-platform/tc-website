@@ -1,14 +1,14 @@
 package com.topcoder.web.privatelabel.controller;
 
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.security.SimpleResource;
+import com.topcoder.servlet.request.FileUpload;
+import com.topcoder.servlet.request.InvalidContentTypeException;
 import com.topcoder.shared.security.Resource;
+import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.privatelabel.controller.request.resume.Base;
-import com.topcoder.servlet.request.FileUpload;
-import com.topcoder.servlet.request.InvalidContentTypeException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

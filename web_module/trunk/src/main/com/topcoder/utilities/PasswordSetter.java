@@ -1,13 +1,13 @@
 package com.topcoder.utilities;
 
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.utilities.cheaterChecker.Contest;
-import com.topcoder.security.admin.PrincipalMgrRemoteHome;
-import com.topcoder.security.admin.PrincipalMgrRemote;
-import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.TCSubject;
+import com.topcoder.security.UserPrincipal;
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.admin.PrincipalMgrRemoteHome;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.utilities.cheaterChecker.Contest;
 
 import javax.naming.Context;
 
@@ -18,6 +18,7 @@ import javax.naming.Context;
 public class PasswordSetter {
 
     private static Logger log = Logger.getLogger(PasswordSetter.class);
+
     public static void main(String[] args) {
         if (args.length != 2) {
             System.out.println("SYNTAX: java " + Contest.class.getName() + "<handle> <password>");
@@ -35,11 +36,10 @@ public class PasswordSetter {
         return;
 
 
-
     }
 
 
-   private static void setPassword(String handle, String password) throws Exception {
+    private static void setPassword(String handle, String password) throws Exception {
 
         Context context = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY,
                 ApplicationServer.SECURITY_PROVIDER_URL);

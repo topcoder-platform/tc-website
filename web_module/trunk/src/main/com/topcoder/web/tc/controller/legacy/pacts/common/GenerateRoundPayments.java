@@ -20,8 +20,8 @@ import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 
 public class GenerateRoundPayments {
     public void generatePayments(long roundId, boolean makeChanges) throws Exception {
-            DataInterfaceBean d = new DataInterfaceBean();
-            int pairsInserted = d.generateRoundPayments(roundId, makeChanges);
+        DataInterfaceBean d = new DataInterfaceBean();
+        int pairsInserted = d.generateRoundPayments(roundId, makeChanges);
 //            if (pairsInserted > 0) {
 //                System.out.println("GenerateRoundPayments: " + pairsInserted + " affidavit/payment pairs");
 //                if (!makeChanges) {

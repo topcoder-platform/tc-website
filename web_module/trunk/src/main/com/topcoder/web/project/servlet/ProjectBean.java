@@ -1,14 +1,15 @@
 package com.topcoder.web.project.servlet;
 
-import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.project.common.*;
 import com.topcoder.web.project.ejb.ProjectServices.ProjectServices;
-import com.topcoder.web.common.BaseProcessor;
 
 import javax.naming.InitialContext;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 
 public final class ProjectBean {
 

@@ -11,6 +11,7 @@
 package com.topcoder.dde;
 
 import com.topcoder.util.TCException;
+
 /**
  * <code>DDEException</code> is the superclass of checked exceptions that are
  * specific to the Distributed Development Environment.

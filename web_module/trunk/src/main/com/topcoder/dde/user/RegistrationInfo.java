@@ -32,7 +32,7 @@ public class RegistrationInfo implements Serializable {
     private boolean useConsultants;
     private boolean receiveNews;
     private boolean newsInHtml;
-    private long companySize; 
+    private long companySize;
     private Collection technologies;  //a collection of UserTechnology objects
     private PricingTier pricingTier;
     private long countryCode;
@@ -62,7 +62,7 @@ public class RegistrationInfo implements Serializable {
     public String getUsername() {
         return username;
     }
-    
+
     /**
      * Set username
      *
@@ -101,23 +101,23 @@ public class RegistrationInfo implements Serializable {
     public String getFirstName() {
         return firstName;
     }
-    
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-    
+
     public String getLastName() {
         return lastName;
     }
-    
+
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-    
+
     public String getCompany() {
         return company;
     }
-    
+
     public void setCompany(String company) {
         this.company = company;
     }
@@ -125,13 +125,12 @@ public class RegistrationInfo implements Serializable {
     public String getState() {
         return state;
     }
-    
+
     public void setState(String state) {
         this.state = state;
     }
-    
 
-    
+
     public String getAddress() {
         return address;
     }
@@ -139,7 +138,7 @@ public class RegistrationInfo implements Serializable {
     public String getAddress2() {
         return address2;
     }
-    
+
     public void setAddress(String address) {
         this.address = address;
     }
@@ -148,71 +147,71 @@ public class RegistrationInfo implements Serializable {
         this.address2 = address2;
     }
 
-    
+
     public String getCity() {
         return city;
     }
-    
+
     public void setCity(String city) {
         this.city = city;
     }
-    
+
     public String getPostalcode() {
         return postalcode;
     }
-    
+
     public void setPostalcode(String postalcode) {
         this.postalcode = postalcode;
     }
-    
+
     public String getPhoneCountry() {
         return phoneCountry;
     }
-    
+
     public void setPhoneCountry(String phoneCountry) {
         this.phoneCountry = phoneCountry;
     }
-    
+
     public String getPhoneArea() {
         return phoneArea;
     }
-    
+
     public void setPhoneArea(String phoneArea) {
         this.phoneArea = phoneArea;
     }
-    
+
     public String getPhoneNumber() {
         return phoneNumber;
     }
-    
+
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-    
+
     public boolean getUseComponents() {
         return useComponents;
     }
-    
+
     public void setUseComponents(boolean useComponents) {
         this.useComponents = useComponents;
     }
-    
+
     public boolean getUseConsultants() {
         return useConsultants;
     }
-    
+
     public void setUseConsultants(boolean useConsultants) {
         this.useConsultants = useConsultants;
     }
-    
+
     public boolean getReceiveNews() {
         return receiveNews;
     }
-    
+
     public void setReceiveNews(boolean receiveNews) {
         this.receiveNews = receiveNews;
     }
-    
+
     public boolean getNewsInHtml() {
         return newsInHtml;
     }
@@ -220,11 +219,11 @@ public class RegistrationInfo implements Serializable {
     public void setNewsInHtml(boolean newsInHtml) {
         this.newsInHtml = newsInHtml;
     }
-    
+
     public long getCompanySize() {
         return companySize;
     }
-    
+
     public void setCompanySize(long companySize) {
         this.companySize = companySize;
     }
@@ -266,11 +265,11 @@ public class RegistrationInfo implements Serializable {
     /**
      * Make sure that a RegistrationInfo is valid.  It is valid if all
      * of it's atttributes are not null.
-     * 
+     *
      * @return True if it is valid, false otherwise.
      */
     public boolean isValid() {
-        
+
         return (username != null &&
                 password != null &&
                 email != null &&
@@ -282,7 +281,7 @@ public class RegistrationInfo implements Serializable {
                 postalcode != null &&
                 phoneCountry != null &&
                 phoneArea != null &&
-                phoneNumber != null );
+                phoneNumber != null);
     }
-       
+
 }

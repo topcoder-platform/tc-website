@@ -2,15 +2,15 @@ package com.topcoder.dde.submission;
 
 import com.topcoder.util.idgenerator.bean.IdGenException;
 
-import javax.naming.NamingException;
 import javax.ejb.CreateException;
+import javax.naming.NamingException;
 import java.rmi.RemoteException;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.ResultSet;
 import java.sql.Connection;
-import java.util.List;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  */
@@ -45,9 +45,9 @@ public class SubmittersBean extends BaseBean {
             query.append("login_id=? AND comp_version_id=? AND phase_id=?");
 
             ps = getConnection().prepareStatement(query.toString());
-            ps.setLong(1,login_id);
-            ps.setLong(2,comp_ver_id);
-            ps.setLong(3,phase_id);
+            ps.setLong(1, login_id);
+            ps.setLong(2, comp_ver_id);
+            ps.setLong(3, phase_id);
 
             rs = ps.executeQuery();
 
@@ -64,24 +64,37 @@ public class SubmittersBean extends BaseBean {
                         query.append("(submitter_id, login_id, comp_version_id, phase_id) ");
                         query.append("VALUES (?,?,?,?)");
                         ps = c.prepareStatement(query.toString());
-                        ps.setLong(1,id);
-                        ps.setLong(2,login_id);
-                        ps.setLong(3,comp_ver_id);
-                        ps.setLong(4,phase_id);
+                        ps.setLong(1, id);
+                        ps.setLong(2, login_id);
+                        ps.setLong(3, comp_ver_id);
+                        ps.setLong(4, phase_id);
                         ps.executeUpdate();
                         if (!c.getAutoCommit()) c.commit();
                         return id;
                     } finally {
-                        try { if (ps != null) ps.close(); } catch (SQLException ignore) {}
+                        try {
+                            if (ps != null) ps.close();
+                        } catch (SQLException ignore) {
+                        }
                     }
-                } else throw new SubmitterDoesNotExistException();
+                } else
+                    throw new SubmitterDoesNotExistException();
             }
 
             return rs.getLong(1);
         } finally {
-            try { if (rs != null) rs.close(); } catch (SQLException ignore) {}
-            try { if (ps != null) ps.close(); } catch (SQLException ignore) {}
-            try { if (c != null) c.close(); } catch (SQLException ignore) {}
+            try {
+                if (rs != null) rs.close();
+            } catch (SQLException ignore) {
+            }
+            try {
+                if (ps != null) ps.close();
+            } catch (SQLException ignore) {
+            }
+            try {
+                if (c != null) c.close();
+            } catch (SQLException ignore) {
+            }
         }
     }
 
@@ -100,7 +113,7 @@ public class SubmittersBean extends BaseBean {
             query.append("submitter_id=?");
 
             ps = getConnection().prepareStatement(query.toString());
-            ps.setLong(1,submitter_id);
+            ps.setLong(1, submitter_id);
 
             rs = ps.executeQuery();
 
@@ -108,9 +121,18 @@ public class SubmittersBean extends BaseBean {
 
             return new Submitter(submitter_id, rs.getLong(1), rs.getLong(2), rs.getLong(3));
         } finally {
-            try { if (rs != null) rs.close(); } catch (SQLException ignore) {}
-            try { if (ps != null) ps.close(); } catch (SQLException ignore) {}
-            try { if (c != null) c.close(); } catch (SQLException ignore) {}
+            try {
+                if (rs != null) rs.close();
+            } catch (SQLException ignore) {
+            }
+            try {
+                if (ps != null) ps.close();
+            } catch (SQLException ignore) {
+            }
+            try {
+                if (c != null) c.close();
+            } catch (SQLException ignore) {
+            }
         }
     }
 
@@ -135,7 +157,7 @@ public class SubmittersBean extends BaseBean {
 
             ps = c.prepareStatement(query.toString());
 
-            int pos=1;
+            int pos = 1;
             if (filter.getSubmitterId() >= 0) ps.setLong(pos++, filter.getSubmitterId());
             if (filter.getLoginId() >= 0) ps.setLong(pos++, filter.getLoginId());
             if (filter.getComponentVersionId() >= 0) ps.setLong(pos++, filter.getComponentVersionId());
@@ -147,9 +169,18 @@ public class SubmittersBean extends BaseBean {
             while (rs.next()) rv.add(new Submitter(rs.getLong(1), rs.getLong(2), rs.getLong(3), rs.getLong(4)));
             return rv;
         } finally {
-            try { if (rs != null) rs.close(); } catch (SQLException ignore) {}
-            try { if (ps != null) ps.close(); } catch (SQLException ignore) {}
-            try { if (c != null) c.close(); } catch (SQLException ignore) {}
+            try {
+                if (rs != null) rs.close();
+            } catch (SQLException ignore) {
+            }
+            try {
+                if (ps != null) ps.close();
+            } catch (SQLException ignore) {
+            }
+            try {
+                if (c != null) c.close();
+            } catch (SQLException ignore) {
+            }
         }
     }
 }

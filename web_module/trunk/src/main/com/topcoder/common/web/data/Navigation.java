@@ -1,25 +1,28 @@
 package com.topcoder.common.web.data;
 
+import com.topcoder.common.web.error.TCException;
 import com.topcoder.ejb.UserServices.UserServices;
 import com.topcoder.ejb.UserServices.UserServicesHome;
+import com.topcoder.security.TCSubject;
+import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.common.web.error.TCException;
+import com.topcoder.web.common.HttpObjectFactory;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.common.HttpObjectFactory;
 import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.security.Constants;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.web.common.security.Constants;
 import com.topcoder.web.tc.model.CoderSessionInfo;
-import com.topcoder.security.admin.PrincipalMgrRemote;
-import com.topcoder.security.TCSubject;
 
 import javax.naming.Context;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSessionBindingEvent;
+import javax.servlet.http.HttpSessionBindingListener;
 import java.io.Serializable;
 import java.util.HashMap;
 
@@ -50,7 +53,7 @@ public final class Navigation
         msg.append("user.getUserId:");
         msg.append(user.getUserId());
         log.debug(msg.toString());
-        if (getUser().getLoggedIn().equals("Y") && user.getUserId()!=0) {
+        if (getUser().getLoggedIn().equals("Y") && user.getUserId() != 0) {
             Context ctx = null;
             try {
                 ctx = TCContext.getInitial();
@@ -107,6 +110,7 @@ public final class Navigation
             throw new TCException();
         }
     }
+
     public Navigation(TCRequest request, HttpServletResponse response) throws TCException {
         this();
         try {
@@ -125,7 +129,7 @@ public final class Navigation
 
     private void init(TCRequest request) {
         String appName = StringUtils.checkNull(request.getParameter("AppName"));
-        if (browser==null) {
+        if (browser == null) {
             browser = new Browser();
             browser.setAppName(appName);
             browser.setAppVersion(StringUtils.checkNull(request.getParameter("AppVersion")));
@@ -159,7 +163,7 @@ public final class Navigation
      */
     public boolean userIsSerializable() {
         return true;
-       // return this.serializable;
+        // return this.serializable;
     }
 
     public Browser getBrowser() {
@@ -167,7 +171,7 @@ public final class Navigation
     }
 
     public int getUserId() {
-        return (int)info.getUserId();
+        return (int) info.getUserId();
     }
 
     public boolean isIdentified() {
@@ -182,7 +186,7 @@ public final class Navigation
 //        if (serializable) {
 //            return this.userSerializable;
 //        } else {
-            return this.user;
+        return this.user;
 //        }
     }
 
@@ -236,8 +240,8 @@ public final class Navigation
 //            this.userSerializable = user;
 //            log.debug("common.Navigation:setUser:serializable user set");
 //        } else {
-            this.user = user;
-            log.debug("common.Navigation:setUser:user set");
+        this.user = user;
+        log.debug("common.Navigation:setUser:user set");
 //        }
     }
 

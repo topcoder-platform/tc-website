@@ -5,11 +5,11 @@ import com.topcoder.shared.util.logging.Logger;
 import javax.servlet.ServletConfig;
 import java.lang.reflect.Field;
 
-public class Constants
-{
+public class Constants {
 
     //don't instantiate this class
-    private Constants() { }
+    private Constants() {
+    }
 
     private static boolean isInitialized;
 
@@ -21,7 +21,7 @@ public class Constants
     //URL Parameter constants
     public static String USER_ID;
     public static String CANDIDATE_ID;
-    
+
     public static int STUDENT;
     public static int PROFESSIONAL;
 
@@ -66,16 +66,16 @@ public class Constants
     public static String SESSION_ID;
     public static String SEARCH_PAGE;
     public static String SEARCH_RESULTS_PAGE;
-    
+
     public static String DEMOGRAPHICS_PAGE;
-    
+
     public static String FIRST_NAME;
     public static String LAST_NAME;
-    
+
     public static String CITY;
     public static int AREA_OF_INTEREST_ID;
     public static int DEGREE_ID;
-    
+
     public static String DEMOG_PREFIX;
 
     //Candidate constants
@@ -90,7 +90,7 @@ public class Constants
     public static String CREATE_CANDIDATE_PROCESSOR;
     public static String POPULATE_CANDIDATE_PROCESSOR;
     public static String CHECK_COMPANY_USER_QUERY_KEY;
-    
+
     public static int SEARCH_SCROLL_SIZE;
 
     /**
@@ -162,7 +162,7 @@ public class Constants
      * @since Screening Tool 1.1
      */
     public static String CANDIDATE_PROBLEMS_INFO;
-    
+
     public static String CANDIDATE_PREFERENCE_INFO;
 
     /**
@@ -438,7 +438,7 @@ public class Constants
     public static int PROBLEM_TYPE_TEST_SET_A_ID;
     public static String ACCURACY_INFO_QUERY_KEY;
     public static String CHECK_ACCESS_QUERY_KEY;
-    
+
     //Results constants
     public static String PROBLEM_RESULT_PAGE;
     public static String TC_PROBLEM_RESULT_PAGE;
@@ -491,7 +491,7 @@ public class Constants
 
     public static String ERRORS;
     public static String DEBUG;
-    
+
     public static String USAGE_TYPE;
     public static int USAGE_TYPE_TESTING;
     public static int USAGE_TYPE_SCREENING;
@@ -512,9 +512,10 @@ public class Constants
                 } else {
                     throw new Exception("Unrecognized type: " + f[i].getType().getName());
                 }
-                if (f[i].get(null)==null)
+                if (f[i].get(null) == null)
                     log.error("**DID NOT LOAD** " + f[i].getName() + " constant");
-                else log.debug(f[i].getName() + " <== " + f[i].get(null));
+                else
+                    log.debug(f[i].getName() + " <== " + f[i].get(null));
             } catch (Exception e) {
                 /* probably harmless, could just be a type or modifier mismatch */
                 e.printStackTrace();

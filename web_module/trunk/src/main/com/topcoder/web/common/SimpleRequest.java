@@ -1,8 +1,8 @@
 package com.topcoder.web.common;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.servlet.http.Cookie;
 import java.util.Enumeration;
 
 /**
@@ -13,6 +13,7 @@ import java.util.Enumeration;
 public class SimpleRequest implements TCRequest {
 
     protected HttpServletRequest request = null;
+
     public SimpleRequest(HttpServletRequest request) {
         this.request = request;
     }

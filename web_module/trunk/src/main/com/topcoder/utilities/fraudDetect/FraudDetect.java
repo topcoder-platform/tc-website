@@ -1,16 +1,18 @@
 package com.topcoder.utilities.fraudDetect;
 
-import java.io.*;
-import java.util.*;
-import java.sql.*;
-
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.utilities.CommentStripper;
-
 import org.apache.log4j.Category;
 
 import javax.sql.DataSource;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.*;
 
 
 public class FraudDetect {

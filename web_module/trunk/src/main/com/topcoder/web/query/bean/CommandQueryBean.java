@@ -50,10 +50,10 @@ public class CommandQueryBean implements Serializable {
 
     public boolean equals(Object o) {
         if (o instanceof CommandQueryBean) {
-            return ((CommandQueryBean)o).getCommandId()==this.getCommandId() &&
-                   ((CommandQueryBean)o).getQueryName().equals(this.getQueryName()) &&
-                   ((CommandQueryBean)o).getQueryId()==this.getQueryId() &&
-                   ((CommandQueryBean)o).getSortOrder()==this.getSortOrder();
+            return ((CommandQueryBean) o).getCommandId() == this.getCommandId() &&
+                    ((CommandQueryBean) o).getQueryName().equals(this.getQueryName()) &&
+                    ((CommandQueryBean) o).getQueryId() == this.getQueryId() &&
+                    ((CommandQueryBean) o).getSortOrder() == this.getSortOrder();
         } else {
             return false;
         }

@@ -1,7 +1,7 @@
 /*
  * User.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.projecttracker;
@@ -43,7 +43,7 @@ public class User implements Serializable {
      * <p>
      * Return the Id of this user.
      * </p>
-     * 
+     *
      * @return the Id of this user.
      */
     public long getId() {
@@ -54,7 +54,7 @@ public class User implements Serializable {
      * <p>
      * Return the handle of this user.
      * </p>
-     * 
+     *
      * @return a String with the handle of this user.
      */
     public String getHandle() {
@@ -65,7 +65,7 @@ public class User implements Serializable {
      * <p>
      * Return the first name of this user.
      * </p>
-     * 
+     *
      * @return a String with the first name of this user.
      */
     public String getFirstName() {
@@ -76,7 +76,7 @@ public class User implements Serializable {
      * <p>
      * Return the last name of this user.
      * </p>
-     * 
+     *
      * @return a String with the last name of this user.
      */
     public String getLastName() {
@@ -87,7 +87,7 @@ public class User implements Serializable {
      * <p>
      * Return the email of this user.
      * </p>
-     * 
+     *
      * @return a String with the email of this user.
      */
     public String getEmail() {

@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
@@ -9,10 +9,9 @@ import com.topcoder.apps.review.projecttracker.Project;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerLocal;
 import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
 import com.topcoder.apps.review.projecttracker.UserProjectInfo;
-import com.topcoder.apps.review.projecttracker.UserRole;
 import com.topcoder.util.format.FormatMethodFactory;
+
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -90,9 +89,9 @@ public class SubmitSolution implements Model {
 
             // retrieve the initial submission
             InitialSubmission[] initialSubmissions =
-                documentManager.getInitialSubmissions(project, false, user.getTCSubject());
+                    documentManager.getInitialSubmissions(project, false, user.getTCSubject());
             if (initialSubmissions == null || initialSubmissions.length != 1
-                        || !initialSubmissions[0].getSubmitter().equals(user)) {
+                    || !initialSubmissions[0].getSubmitter().equals(user)) {
                 return new FailureResult("PL did not return exactly one submission document as expected");
             }
 
@@ -104,11 +103,11 @@ public class SubmitSolution implements Model {
 //                return new FailureResult("Invalid submission file, it seems to have no data");
 //            }
             String destFilename = "Submitter_" + userRoleId + "_"
-                + FormatMethodFactory.getDefaultDateFormatMethod("yyyy-MM-dd-HH-mm-ss-SSS").format(new Date())
-                + SubmissionDownload.getExtension(remoteName);
+                    + FormatMethodFactory.getDefaultDateFormatMethod("yyyy-MM-dd-HH-mm-ss-SSS").format(new Date())
+                    + SubmissionDownload.getExtension(remoteName);
             copy(is, ConfigHelper.getSubmissionPathPrefix() + destFilename);
             is.close();
-            
+
             //initialSubmissions[0].setURL(new URL(ConfigHelper.getSubmissionURLPrefix() + destFilename));
             initialSubmissions[0].setURL(new File(ConfigHelper.getSubmissionPathPrefix() + destFilename).toURL());
             documentManager.saveInitialSubmission(initialSubmissions[0], user.getTCSubject());

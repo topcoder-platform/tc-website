@@ -1,7 +1,7 @@
 /*
  * MyPolicyImpl.java 1.0 6/30/2003
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review.failuretests.mockups;
 
@@ -39,15 +39,15 @@ public class MyPolicyImpl {
      * want to check TCSubject for
      * @return true if subject is associated with permission
      */
-    public static boolean checkPermission(TCSubject subject, 
-                                          TCPermission permission) 
-                                          throws GeneralSecurityException {
+    public static boolean checkPermission(TCSubject subject,
+                                          TCPermission permission)
+            throws GeneralSecurityException {
         Long id = new Long(subject.getUserId());
-        PermissionCollection pc = (PermissionCollection)map.get(id);
-        if(pc == null) {
-            return(false);
+        PermissionCollection pc = (PermissionCollection) map.get(id);
+        if (pc == null) {
+            return (false);
         }
-        return(pc.getPermissions().contains(permission));
+        return (pc.getPermissions().contains(permission));
     }
 
     /**
@@ -61,33 +61,33 @@ public class MyPolicyImpl {
      */
     public static boolean checkPermissions(TCSubject subject,
                                            PermissionCollection permissions)
-                                           throws GeneralSecurityException {
+            throws GeneralSecurityException {
         Long id = new Long(subject.getUserId());
-        PermissionCollection pc = (PermissionCollection)map.get(id);
-        if(pc == null) {
-            return(false);
+        PermissionCollection pc = (PermissionCollection) map.get(id);
+        if (pc == null) {
+            return (false);
         }
-        return(pc.getPermissions().containsAll(permissions.getPermissions()));
+        return (pc.getPermissions().containsAll(permissions.getPermissions()));
     }
-    
+
     /**
      * <p>Associates the given TCSubject with the given TCPermission.</p>
-     *     
+     *
      * @param subject the subject
-     * @param permission the permission to associate with subject 
+     * @param permission the permission to associate with subject
      * @return none
      */
     public static void addPermission(TCSubject subject,
                                      TCPermission permission) {
         Long id = new Long(subject.getUserId());
-        PermissionCollection pc = (PermissionCollection)map.get(id);
-        if(pc == null) {
+        PermissionCollection pc = (PermissionCollection) map.get(id);
+        if (pc == null) {
             pc = new PermissionCollection();
-            map.put(id,pc);
+            map.put(id, pc);
         }
         pc.addPermission(permission);
     }
-    
+
     /**
      * <p>Clears all Permissions</p>
      *

@@ -56,10 +56,12 @@
 
 package com.coolservlets.forum.filter;
 
-import java.util.*;
-
-import com.coolservlets.forum.*;
+import com.coolservlets.forum.ForumMessage;
+import com.coolservlets.forum.ForumMessageFilter;
 import com.coolservlets.util.StringUtils;
+
+import java.util.Enumeration;
+import java.util.Properties;
 
 /**
  * A ForumMessageFilter that converts ASCII faces into images.
@@ -98,8 +100,7 @@ public class FilterSmileyFace extends ForumMessageFilter {
      * @param propertyDescriptions the property descriptions for the filter.
      */
     public FilterSmileyFace(ForumMessage message, Properties props,
-            Properties propDescriptions)
-    {
+                            Properties propDescriptions) {
         super(message);
         this.props = new Properties(props);
         this.propDescriptions = new Properties(propDescriptions);
@@ -111,7 +112,7 @@ public class FilterSmileyFace extends ForumMessageFilter {
      *
      * @param message the ForumMessage to wrap the new filter around.
      */
-    public ForumMessageFilter clone(ForumMessage message){
+    public ForumMessageFilter clone(ForumMessage message) {
         return new FilterSmileyFace(message, props, propDescriptions);
     }
 
@@ -189,8 +190,7 @@ public class FilterSmileyFace extends ForumMessageFilter {
      *    exist.
      */
     public void setFilterProperty(String name, String value)
-            throws IllegalArgumentException
-    {
+            throws IllegalArgumentException {
         if (props.getProperty(name) == null) {
             throw new IllegalArgumentException();
         }
@@ -217,58 +217,56 @@ public class FilterSmileyFace extends ForumMessageFilter {
      * Creates properties and sets their descriptions.
      */
     private void initializeProperties() {
-        props.put("happyURL","");
-        props.put("sadURL","");
-        props.put("coolURL","");
+        props.put("happyURL", "");
+        props.put("sadURL", "");
+        props.put("coolURL", "");
 
-        propDescriptions.put("happyURL","URL of the desired :) image");
-        propDescriptions.put("sadURL","URL of the desired :( image");
-        propDescriptions.put("coolURL","URL of the desired 8) image");
+        propDescriptions.put("happyURL", "URL of the desired :) image");
+        propDescriptions.put("sadURL", "URL of the desired :( image");
+        propDescriptions.put("coolURL", "URL of the desired 8) image");
     }
 
     /**
-    * This method takes a string which may contain ':)' and
-    * converts them to smiley face images.
-    *
-    * @param input The text to be converted.
-    * @return The input string with the ':)' replaced
-    * with smiley face images.
-    */
-    private String addSmileyFace( String input ) {
-    	String happy = props.getProperty("happyURL");
-    	String sad = props.getProperty("sadURL");
-    	String cool = props.getProperty("coolURL");
+     * This method takes a string which may contain ':)' and
+     * converts them to smiley face images.
+     *
+     * @param input The text to be converted.
+     * @return The input string with the ':)' replaced
+     * with smiley face images.
+     */
+    private String addSmileyFace(String input) {
+        String happy = props.getProperty("happyURL");
+        String sad = props.getProperty("sadURL");
+        String cool = props.getProperty("coolURL");
 
         // Check if the string is null or zero length -- if so, return what was sent in.
-        if( input == null || input.length() == 0 ) {
+        if (input == null || input.length() == 0) {
             return input;
         }
         // Use a StringBuffer in lieu of String concatenation -- it is much more efficient this way.
         StringBuffer buf = new StringBuffer();
         char ch = ' ', ch2 = ' ';
         int index;
-        for(index = 0; index<input.length()-1; index++ ) {
-            ch = input.charAt(index); ch2 = input.charAt(index+1);
+        for (index = 0; index < input.length() - 1; index++) {
+            ch = input.charAt(index);
+            ch2 = input.charAt(index + 1);
             if (happy != null && happy.length() > 0 && ch == ':' && ch2 == ')') {
                 buf.append("<img src=\"").append(happy).append("\">");
                 index++; // Skip a character
-            }
-            else if (sad != null && sad.length() > 0 && ch == ':' && ch2 == '(') {
+            } else if (sad != null && sad.length() > 0 && ch == ':' && ch2 == '(') {
                 buf.append("<img src=\"").append(sad).append("\">");
                 index++; // Skip a character
-            }
-            else if (cool != null && cool.length() > 0 && ch == '8' && ch2 == ')') {
+            } else if (cool != null && cool.length() > 0 && ch == '8' && ch2 == ')') {
                 buf.append("<img src=\"").append(cool).append("\">");
                 index++; // Skip a character
-            }
-            else {
-                buf.append( ch );
+            } else {
+                buf.append(ch);
             }
         }
         //Append last character if needed.
         if (index != input.length()) {
-            buf.append(input.charAt(input.length()-1));
+            buf.append(input.charAt(input.length() - 1));
         }
         return buf.toString();
     }
-} 
+}

@@ -4,22 +4,21 @@
 
 package com.topcoder.apps.review;
 
-import com.topcoder.util.log.Level;
 import com.topcoder.apps.review.document.ReviewScorecard;
 import com.topcoder.apps.review.projecttracker.Phase;
 import com.topcoder.apps.review.projecttracker.ProjectType;
 import com.topcoder.apps.review.projecttracker.Role;
 import com.topcoder.apps.review.projecttracker.UserRole;
+import com.topcoder.util.log.Level;
+import org.apache.struts.action.ActionErrors;
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForwards;
+import org.apache.struts.action.ActionMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.struts.action.ActionErrors;
-import org.apache.struts.action.ActionForm;
-import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionForwards;
-
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>
@@ -55,12 +54,12 @@ public final class ReviewScorecardListAction extends ReviewAction {
                                    ActionForwards forwards,
                                    OnlineReviewProjectData orpd) {
         log(Level.INFO, "ReviewScorecardListAction: User '"
-                        + orpd.getUser().getHandle() + "' in session "
-                        + request.getSession().getId());
+                + orpd.getUser().getHandle() + "' in session "
+                + request.getSession().getId());
 
         // Call the business logic
         ResultData result =
-            new BusinessDelegate().getReviewList(new ReviewScorecardsData(orpd));
+                new BusinessDelegate().getReviewList(new ReviewScorecardsData(orpd));
         String action = Constants.ACTION_EDIT;
         if (request.getParameter(Constants.ACTION_KEY) != null) {
             action = request.getParameter(Constants.ACTION_KEY).toString();
@@ -90,8 +89,8 @@ public final class ReviewScorecardListAction extends ReviewAction {
                 if (rsr.getScorecards()[i].getAuthor().getId() == orpd.getUser().getId()
                         || rsr.getScorecards()[i].getSubmission().getSubmitter().getId() == orpd.getUser().getId()
                         || (isSubmitter && (
-                            (orpd.getProject().getCurrentPhaseInstance().getPhase().getId() == Phase.ID_APPEALS) ||
-                            (orpd.getProject().getCurrentPhaseInstance().getPhase().getId() == Phase.ID_APPEALS_RESPONSE)))) {
+                        (orpd.getProject().getCurrentPhaseInstance().getPhase().getId() == Phase.ID_APPEALS) ||
+                        (orpd.getProject().getCurrentPhaseInstance().getPhase().getId() == Phase.ID_APPEALS_RESPONSE)))) {
                     list.add(rsr.getScorecards()[i]);
                 }
             }

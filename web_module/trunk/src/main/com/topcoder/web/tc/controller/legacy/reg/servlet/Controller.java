@@ -3,23 +3,26 @@ package com.topcoder.web.tc.controller.legacy.reg.servlet;
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.common.web.data.User;
 import com.topcoder.common.web.util.Data;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.security.TCSubject;
+import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.*;
+import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.security.Constants;
+import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.tc.controller.legacy.reg.bean.Task;
 import com.topcoder.web.tc.controller.legacy.reg.bean.TaskException;
 import com.topcoder.web.tc.model.CoderSessionInfo;
-import com.topcoder.web.common.*;
-import com.topcoder.web.common.security.Constants;
-import com.topcoder.web.common.security.BasicAuthentication;
-import com.topcoder.web.common.security.SessionPersistor;
-import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.security.admin.PrincipalMgrRemote;
-import com.topcoder.security.TCSubject;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Enumeration;
 
@@ -47,7 +50,7 @@ public class Controller
         Navigation nav = null;
         try {
             session = request.getSession(true);
-            nav = (Navigation)session.getAttribute("navigation");
+            nav = (Navigation) session.getAttribute("navigation");
             if (nav == null) nav = new Navigation(request, response);
 
             /* we're doing this basically just so that we can get the right page for redirect if
@@ -72,7 +75,7 @@ public class Controller
             if (request.getContentType() == null || request.getContentType().indexOf(MULTIPART_FORM_DATA) < 0) {
                 String taskName = request.getParameter(TASK);
                 if (taskName == null) {
-                    taskName= "Registration";  // handle null task gracefully
+                    taskName = "Registration";  // handle null task gracefully
                 } else if (!isWord(taskName)) {
                     log.debug(TASK + " not found in request.");
                     forwardToError(request, response, new TaskException(TASK + " not found in request."));
@@ -133,7 +136,7 @@ public class Controller
         } catch (PermissionException pe) {
             log.debug("caught PermissionException");
             try {
-                if (nav==null)
+                if (nav == null)
                     nav = new Navigation(request, response);
                 if (!nav.isLoggedIn()) {
                     CoderSessionInfo info = nav.getSessionInfo();
@@ -147,10 +150,10 @@ public class Controller
                     fetchRegularPage(request, response, "/tc", true);
                     return;
 
-                 } else {
+                } else {
                     log.info("already logged in, rethrowing");
                     throw pe;
-                 }
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -165,7 +168,7 @@ public class Controller
     }
 
     protected final void fetchRegularPage(HttpServletRequest request, HttpServletResponse response, String dest,
-                                  boolean forward) throws Exception {
+                                          boolean forward) throws Exception {
 
         if (forward) {
             if (!dest.startsWith("/")) {
@@ -227,10 +230,10 @@ public class Controller
                 navigation = new Navigation();
                 session.setAttribute(NAVIGATION, navigation);
             }
-            log.debug("navigation is serializable: " + ((Navigation)navigation).userIsSerializable());
+            log.debug("navigation is serializable: " + ((Navigation) navigation).userIsSerializable());
             if (navigation instanceof Navigation) {
 //                ((Navigation) navigation).makeUserSerializable();
-                Data.loadUser((Navigation)navigation);
+                Data.loadUser((Navigation) navigation);
                 User user = ((Navigation) navigation).getUser();
                 log.debug("loaded user " + user.getUserId());
                 if (user.getUserId() == 0) {

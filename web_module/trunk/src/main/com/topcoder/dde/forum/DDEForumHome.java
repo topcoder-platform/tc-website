@@ -10,8 +10,8 @@
 
 package com.topcoder.dde.forum;
 
-import com.topcoder.dde.forum.*;
-import javax.ejb.*;
+import javax.ejb.CreateException;
+import javax.ejb.EJBHome;
 import java.rmi.RemoteException;
 
 
@@ -43,7 +43,7 @@ public interface DDEForumHome extends EJBHome {
      * @throws CreateException if the session cannot be created
      */
     public DDEForum create()
-        throws RemoteException, CreateException;
+            throws RemoteException, CreateException;
 
 
 }

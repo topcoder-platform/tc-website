@@ -53,7 +53,7 @@
  * individuals on behalf of CoolServlets.com. For more information
  * on CoolServlets.com, please see <http://www.coolservlets.com>.
  */
- 
+
 package com.coolservlets.forum;
 
 /**
@@ -66,6 +66,6 @@ public class ForumMessageNotFoundException extends Exception {
     }
 
     public ForumMessageNotFoundException(String msg) {
-        super( msg );
+        super(msg);
     }
 }

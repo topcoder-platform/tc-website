@@ -10,7 +10,10 @@
 
 package com.topcoder.dde.catalog;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 
 /**
@@ -42,12 +45,12 @@ public class Category implements java.io.Serializable {
 
 
     Category(long id, String name, String description,
-            Collection subcategories) {
+             Collection subcategories) {
         this(name, description);
         this.id = id;
         this.subcategories = (subcategories == null)
-            ? Collections.EMPTY_LIST
-            : subcategories;
+                ? Collections.EMPTY_LIST
+                : subcategories;
     }
 
     /**
@@ -61,11 +64,11 @@ public class Category implements java.io.Serializable {
     public Category(String name, String description) {
         if (name == null) {
             throw new IllegalArgumentException(
-            "Null specified for category name");
+                    "Null specified for category name");
         }
         if (description == null) {
             throw new IllegalArgumentException(
-            "Null specified for category description");
+                    "Null specified for category description");
         }
         id = -1;
         this.name = name;
@@ -102,7 +105,7 @@ public class Category implements java.io.Serializable {
     public void setName(String name) {
         if (name == null) {
             throw new IllegalArgumentException(
-            "Null specified for category name");
+                    "Null specified for category name");
         }
         this.name = name;
     }
@@ -127,7 +130,7 @@ public class Category implements java.io.Serializable {
     public void setDescription(String description) {
         if (description == null) {
             throw new IllegalArgumentException(
-            "Null specified for category description");
+                    "Null specified for category description");
         }
         this.description = description;
     }
@@ -179,7 +182,7 @@ public class Category implements java.io.Serializable {
         }
         Category other = (Category) object;
         return getName().equals(other.getName())
-            && getDescription().equals(other.getDescription());
+                && getDescription().equals(other.getDescription());
     }
 
     /**
@@ -195,7 +198,7 @@ public class Category implements java.io.Serializable {
 
     public String toString() {
         return "Category " + getId() + " - " + getName()
-            + " (" + getDescription() + ")";
+                + " (" + getDescription() + ")";
     }
 
 

@@ -1,16 +1,14 @@
 package com.topcoder.web.ejb.user;
 
-import com.topcoder.web.ejb.BaseEJB;
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.ejb.BaseEJB;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
 import javax.ejb.EJBException;
-import java.sql.PreparedStatement;
+import javax.naming.Context;
+import javax.sql.DataSource;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 /**

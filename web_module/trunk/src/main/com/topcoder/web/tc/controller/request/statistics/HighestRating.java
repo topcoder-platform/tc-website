@@ -1,13 +1,12 @@
 package com.topcoder.web.tc.controller.request.statistics;
 
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.model.SortInfo;
-import com.topcoder.web.tc.Constants;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.tc.Constants;
 
 import java.util.Map;
 
@@ -28,9 +27,9 @@ public class HighestRating extends Base {
         }
 
         try {
-            CachedDataAccess da = (CachedDataAccess)getDataAccess(true);
+            CachedDataAccess da = (CachedDataAccess) getDataAccess(true);
             Map m = da.getData(r);
-            ResultSetContainer rsc = (ResultSetContainer)m.get("highest_rating");
+            ResultSetContainer rsc = (ResultSetContainer) m.get("highest_rating");
             getRequest().setAttribute("ratingInfo", rsc);
         } catch (Exception e) {
             throw new TCWebException(e);

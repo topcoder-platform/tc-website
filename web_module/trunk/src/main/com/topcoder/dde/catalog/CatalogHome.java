@@ -10,8 +10,8 @@
 
 package com.topcoder.dde.catalog;
 
-import com.topcoder.dde.catalog.*;
-import javax.ejb.*;
+import javax.ejb.CreateException;
+import javax.ejb.EJBHome;
 import java.rmi.RemoteException;
 
 

@@ -70,7 +70,7 @@ public class UnauthorizedException extends Exception {
         super();
     }
 
-    public UnauthorizedException( String msg ) {
+    public UnauthorizedException(String msg) {
         super(msg);
     }
 
@@ -103,4 +103,4 @@ public class UnauthorizedException extends Exception {
             nestedThrowable.printStackTrace(pw);
         }
     }
-} 
+}

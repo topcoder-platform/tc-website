@@ -8,13 +8,10 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.BaseProcessor;
 
 import javax.naming.InitialContext;
-import javax.rmi.PortableRemoteObject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.sql.DataSource;
 import java.util.Map;
 
 public abstract class ResumeTask {
@@ -35,7 +32,7 @@ public abstract class ResumeTask {
     }
 
     protected String getRequestParameter(HttpServletRequest request, String key) {
-        if (fileUpload==null) {
+        if (fileUpload == null) {
             return request.getParameter(key);
         } else {
             return fileUpload.getParameter(key);
@@ -106,8 +103,8 @@ public abstract class ResumeTask {
         r.setProperty("dstid", "2");  //non jts transactional datasource
         //not sure if this db is ok...we'll see
         Map m = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true).getData(r);
-        ResultSetContainer rsc = (ResultSetContainer)m.get("company_datasource");
-        if (rsc==null || rsc.isEmpty()) {
+        ResultSetContainer rsc = (ResultSetContainer) m.get("company_datasource");
+        if (rsc == null || rsc.isEmpty()) {
             throw new Exception("Could not find datasource for company: " + companyId);
         } else {
             return rsc.getStringItem(0, "datasource_name");

@@ -10,8 +10,9 @@
 
 package com.topcoder.dde.catalog;
 
-import com.topcoder.dde.catalog.*;
-import java.util.*;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Iterator;
 
 
 /**

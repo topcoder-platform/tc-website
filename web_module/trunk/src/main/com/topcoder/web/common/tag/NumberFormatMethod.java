@@ -2,8 +2,8 @@ package com.topcoder.web.common.tag;
 
 import com.topcoder.util.format.ObjectFormatMethod;
 
-import java.text.NumberFormat;
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 
 public class NumberFormatMethod implements ObjectFormatMethod {
     /* the SimpleDateFormat to use to format numbers */
@@ -18,7 +18,7 @@ public class NumberFormatMethod implements ObjectFormatMethod {
 
     public NumberFormatMethod(String format) {
         nf = NumberFormat.getInstance();
-        ((DecimalFormat)nf).applyPattern(format);
+        ((DecimalFormat) nf).applyPattern(format);
     }
 
     public String format(Number num) {
@@ -29,6 +29,6 @@ public class NumberFormatMethod implements ObjectFormatMethod {
         if (!(obj instanceof Number)) {
             throw new IllegalArgumentException("expected Number");
         }
-        return format((Number)obj);
+        return format((Number) obj);
     }
 }

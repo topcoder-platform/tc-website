@@ -21,7 +21,7 @@ public class TestUserTechnology extends TestCase {
     final static long DEF_TECH_ID = 1721L;
     final static int DEF_RATING = 17;
     final static int DEF_MONTHS = 21;
-    
+
     protected UserTechnology tech;
 
     public void setUp() {
@@ -31,15 +31,15 @@ public class TestUserTechnology extends TestCase {
     public TestUserTechnology(String testName) {
         super(testName);
     }
-    
+
     public void testGetMonths() {
         assertEquals("Wrong # months", DEF_MONTHS, tech.getMonths());
     }
-    
+
     public void testGetRating() {
         assertEquals("Wrong rating", DEF_RATING, tech.getRating());
     }
-    
+
     public void testGetTechnologyId() {
         assertEquals("Wrong id", DEF_TECH_ID, tech.getTechnologyId());
     }

@@ -1,15 +1,13 @@
 package com.topcoder.web.corp.controller.request.tces;
 
+import com.topcoder.security.NotAuthorizedException;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.corp.common.JSPUtils;
-import com.topcoder.web.corp.common.TCESAuthenticationException;
 import com.topcoder.web.corp.common.TCESConstants;
-import com.topcoder.web.corp.controller.request.tces.BaseTask;
-import com.topcoder.security.NotAuthorizedException;
+import com.topcoder.web.ejb.resume.ResumeServices;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -315,7 +313,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
 
         ResumeServices rServices = null;
         try {
-            rServices = (ResumeServices)BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
+            rServices = (ResumeServices) BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
             hasResume = rServices.hasResume(memberID, getOltp());
         } catch (Exception e) {
             log.error("could not determine if user has a resume or not");
@@ -357,8 +355,9 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
 
         oltpRSC = (ResultSetContainer) oltpResultMap.get("TCES_Company_Name");
         if (super.getSessionInfo().isAdmin())
-			setCompanyName(TCESConstants.ADMIN_COMPANY);
-		else setCompanyName(oltpRSC.getItem(0, "company_name").toString());
+            setCompanyName(TCESConstants.ADMIN_COMPANY);
+        else
+            setCompanyName(oltpRSC.getItem(0, "company_name").toString());
 
         oltpRSC = (ResultSetContainer) oltpResultMap.get("TCES_Position_Name");
         setJobName(oltpRSC.getItem(0, "job_desc").toString());

@@ -7,7 +7,7 @@
  */
 package com.topcoder.web.corp.common;
 
-import com.topcoder.web.corp.common.ScreeningException;
+
 
 /**
  * <p>An exception to be thrown to indicate that no preference level for specified candidate relevant to specified

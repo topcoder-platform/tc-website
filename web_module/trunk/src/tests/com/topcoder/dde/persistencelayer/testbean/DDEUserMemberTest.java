@@ -16,15 +16,15 @@ public final class DDEUserMemberTest extends DDEServerTestCase {
     }
 
     protected void setUp() throws NamingException {
-        userMemberHome=(LocalDDEUserMemberHome) lookup(LocalDDEUserMemberHome.EJB_REF_NAME);
+        userMemberHome = (LocalDDEUserMemberHome) lookup(LocalDDEUserMemberHome.EJB_REF_NAME);
     }
 
     public void test() throws Exception {
-        LocalDDEUserMaster userMaster=DDEUserMasterTest.create();
-        int tcRating=14;
-        int tcsRating=15;
-        LocalDDEUserMember userMember=userMemberHome.create(tcRating, tcsRating, userMaster);
-        Long primaryKey=testGetPrimaryKey(userMember);
+        LocalDDEUserMaster userMaster = DDEUserMasterTest.create();
+        int tcRating = 14;
+        int tcsRating = 15;
+        LocalDDEUserMember userMember = userMemberHome.create(tcRating, tcsRating, userMaster);
+        Long primaryKey = testGetPrimaryKey(userMember);
         testGetUserMaster(userMember, userMaster);
         testGetTcRating(userMember, tcRating);
         testGetTcsRating(userMember, tcsRating);
@@ -32,12 +32,12 @@ public final class DDEUserMemberTest extends DDEServerTestCase {
     }
 
     private void testGetTcsRating(LocalDDEUserMember userMember, int tcsRating) {
-        int tcsRating2=userMember.getTcsRating();
+        int tcsRating2 = userMember.getTcsRating();
         assertEquals(tcsRating, tcsRating2);
     }
 
     private void testGetTcRating(LocalDDEUserMember userMember, int tcRating) {
-        int tcRating2=userMember.getTcRating();
+        int tcRating2 = userMember.getTcRating();
         assertEquals(tcRating, tcRating2);
     }
 
@@ -51,13 +51,13 @@ public final class DDEUserMemberTest extends DDEServerTestCase {
     }
 
     private void testGetUserMaster(LocalDDEUserMember userMember, LocalDDEUserMaster userMaster) {
-        LocalDDEUserMaster userMaster2=userMember.getUserMaster();
+        LocalDDEUserMaster userMaster2 = userMember.getUserMaster();
         assertTrue(userMaster.isIdentical(userMaster2));
     }
 
     private Long testGetPrimaryKey(LocalDDEUserMember userMember) throws FinderException {
-        Long primaryKey=(Long) userMember.getPrimaryKey();
-        LocalDDEUserMember userMember2=userMemberHome.findByPrimaryKey(primaryKey);
+        Long primaryKey = (Long) userMember.getPrimaryKey();
+        LocalDDEUserMember userMember2 = userMemberHome.findByPrimaryKey(primaryKey);
         assertTrue(userMember.isIdentical(userMember2));
         return primaryKey;
     }

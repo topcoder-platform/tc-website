@@ -1,7 +1,7 @@
 package com.topcoder.web.privatelabel;
 
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.TCResourceBundle;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.lang.reflect.Field;
 
@@ -221,9 +221,10 @@ public class Constants {
                         throw new Exception("Unrecognized type: " + f[i].getType().getName());
                     }
                 }
-                if (f[i].get(null)==null)
+                if (f[i].get(null) == null)
                     log.error("**DID NOT LOAD** " + f[i].getName() + " constant");
-                else log.debug(f[i].getName() + " <== " + f[i].get(null));
+                else
+                    log.debug(f[i].getName() + " <== " + f[i].get(null));
             } catch (Exception e) {
                 /* probably harmless, could just be a type or modifier mismatch */
                 e.printStackTrace();
@@ -238,12 +239,11 @@ public class Constants {
 
     private static boolean ignore(String name) {
         boolean found = false;
-        for (int i=0; i<ignoreList.length&&!found; i++) {
+        for (int i = 0; i < ignoreList.length && !found; i++) {
             found |= ignoreList[i].equals(name);
         }
         return found;
     }
-
 
 
 }

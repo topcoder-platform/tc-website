@@ -4,7 +4,7 @@
  *
  * Java source created by Kary FRAMLING 6/6/1998
  *
- * Copyright 1998-2003 Kary Främling
+ * Copyright 1998-2003 Kary Frï¿½mling
  * Source code distributed under GNU LESSER GENERAL PUBLIC LICENSE,
  * included in the LICENSE.txt file in the topmost directory
  *
@@ -12,17 +12,14 @@
 
 package com.topcoder.utilities.graph;
 
-import java.io.*;
-import java.awt.Image;
-import java.awt.image.ImageProducer;
-import java.awt.image.ImageConsumer;
-import java.awt.image.ImageObserver;
-import java.awt.image.ColorModel;
-import java.awt.image.IndexColorModel;
-import java.util.Hashtable;
-import java.awt.Toolkit;
+import java.awt.image.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.io.Serializable;
-import java.util.zip.*;
+import java.util.Hashtable;
+import java.util.zip.CRC32;
+import java.util.zip.Deflater;
 
 //import fi.faidon.util.ByteArrayConversion;
 

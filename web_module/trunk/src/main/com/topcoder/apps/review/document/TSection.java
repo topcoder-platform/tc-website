@@ -1,14 +1,14 @@
 /*
  * TSection.java
  *
- * Copyright © 2004, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2004, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.document;
 
 /**
  * Represents a ScorecardSection for scorecard editing.
- * 
+ *
  * @author FatClimber
  */
 public class TSection {
@@ -41,7 +41,7 @@ public class TSection {
         this.sectionSeqLoc = sectionSeqLoc;
         this.groupId = groupId;
     }
-    
+
     /**
      * @return Returns the groupId.
      */

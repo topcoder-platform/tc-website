@@ -1,9 +1,13 @@
 package com.topcoder.common.web.render;
 
 import com.topcoder.shared.language.Language;
-import com.topcoder.shared.problem.*;
+import com.topcoder.shared.problem.Element;
+import com.topcoder.shared.problem.ElementRenderer;
+import com.topcoder.shared.problem.NodeElement;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
 
 /**
  * Handles the display of a <code>com.topcoder.shared.problem.NodeElementRenderer</code>
@@ -22,7 +26,7 @@ public class NodeElementRenderer extends BaseRenderer implements ElementRenderer
     }
 
     public void setElement(Element element) throws Exception {
-        nodeElement= (NodeElement) element;
+        nodeElement = (NodeElement) element;
     }
 
     public String toHTML(Language language) throws Exception {

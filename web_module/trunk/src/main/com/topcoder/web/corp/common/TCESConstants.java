@@ -230,22 +230,22 @@ public class TCESConstants {
 
         JSP_ROOT = servletConfig.getInitParameter("jsp_root");
         TCES_PACKAGE = servletConfig.getInitParameter("tces_package");
-        ERROR_PAGE = JSP_ROOT+servletConfig.getInitParameter("error_page");
+        ERROR_PAGE = JSP_ROOT + servletConfig.getInitParameter("error_page");
 
         LOGIN_PAGE = servletConfig.getInitParameter("login_page");
-        MAIN_PAGE = JSP_ROOT+servletConfig.getInitParameter("main_page");
-        CAMPAIGN_DETAIL_PAGE = JSP_ROOT+servletConfig.getInitParameter("campaign_detail_page");
-        POSITION_INTEREST_PAGE = JSP_ROOT+servletConfig.getInitParameter("position_interest_page");
-        CAMPAIGN_INTEREST_PAGE = JSP_ROOT+servletConfig.getInitParameter("campaign_interest_page");
-        DEMOGRAPHIC_PAGE = JSP_ROOT+servletConfig.getInitParameter("demographic_page");
-        MEMBER_PROFILE_PAGE = JSP_ROOT+servletConfig.getInitParameter("member_profile_page");
-        CODER_DEMOGRAPHICS_PAGE = JSP_ROOT+servletConfig.getInitParameter("coder_demographics_page");
-        COMPETITION_HISTORY_PAGE = JSP_ROOT+servletConfig.getInitParameter("competition_history_page");
-        COMPETITION_STATISTICS_PAGE = JSP_ROOT+servletConfig.getInitParameter("competition_statistics_page");
-        PROBLEM_SUBMISSIONS_PAGE = JSP_ROOT+servletConfig.getInitParameter("problem_submissions_page");
-        PROBLEM_STATISTICS_PAGE = JSP_ROOT+servletConfig.getInitParameter("problem_statistics_page");
-        PROBLEM_STATEMENT_PAGE = JSP_ROOT+servletConfig.getInitParameter("problem_statement_page");
-        MEMBER_INTEREST_PAGE = JSP_ROOT+servletConfig.getInitParameter("member_interest_page");
+        MAIN_PAGE = JSP_ROOT + servletConfig.getInitParameter("main_page");
+        CAMPAIGN_DETAIL_PAGE = JSP_ROOT + servletConfig.getInitParameter("campaign_detail_page");
+        POSITION_INTEREST_PAGE = JSP_ROOT + servletConfig.getInitParameter("position_interest_page");
+        CAMPAIGN_INTEREST_PAGE = JSP_ROOT + servletConfig.getInitParameter("campaign_interest_page");
+        DEMOGRAPHIC_PAGE = JSP_ROOT + servletConfig.getInitParameter("demographic_page");
+        MEMBER_PROFILE_PAGE = JSP_ROOT + servletConfig.getInitParameter("member_profile_page");
+        CODER_DEMOGRAPHICS_PAGE = JSP_ROOT + servletConfig.getInitParameter("coder_demographics_page");
+        COMPETITION_HISTORY_PAGE = JSP_ROOT + servletConfig.getInitParameter("competition_history_page");
+        COMPETITION_STATISTICS_PAGE = JSP_ROOT + servletConfig.getInitParameter("competition_statistics_page");
+        PROBLEM_SUBMISSIONS_PAGE = JSP_ROOT + servletConfig.getInitParameter("problem_submissions_page");
+        PROBLEM_STATISTICS_PAGE = JSP_ROOT + servletConfig.getInitParameter("problem_statistics_page");
+        PROBLEM_STATEMENT_PAGE = JSP_ROOT + servletConfig.getInitParameter("problem_statement_page");
+        MEMBER_INTEREST_PAGE = JSP_ROOT + servletConfig.getInitParameter("member_interest_page");
 
         LOGIN_TASK = servletConfig.getInitParameter("login_task");
         LOGIN_TASK_STEP_VIEW = servletConfig.getInitParameter("login_task_step_view");

@@ -2,30 +2,27 @@ package com.topcoder.web.tc.controller.legacy.stat.servlet;
 
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.common.web.util.Data;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.tc.controller.legacy.stat.bean.CoderRatingStyleBean;
-import com.topcoder.web.tc.controller.legacy.stat.bean.QuickStatListBean;
-import com.topcoder.web.tc.controller.legacy.stat.common.StatXMLParser;
-import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.web.common.security.BasicAuthentication;
-import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.HttpObjectFactory;
 import com.topcoder.web.common.RequestTracker;
 import com.topcoder.web.common.TCRequest;
-import com.topcoder.shared.util.DBMS;
-
-
+import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.tc.controller.legacy.stat.bean.CoderRatingStyleBean;
+import com.topcoder.web.tc.controller.legacy.stat.bean.QuickStatListBean;
+import com.topcoder.web.tc.controller.legacy.stat.common.StatXMLParser;
 import org.w3c.dom.Document;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.util.Map;
 import java.util.Properties;
 
@@ -47,7 +44,7 @@ public class StatisticsHttpServlet extends HttpServlet {
     }
 
 
-     /**
+    /**
      * This method initializes global variables
      *
      */
@@ -149,10 +146,11 @@ public class StatisticsHttpServlet extends HttpServlet {
                         BasicAuthentication.MAIN_SITE);
                 RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
 
-                session.setAttribute("navigation", nav);;
+                session.setAttribute("navigation", nav);
+                ;
 
                 log.info("[**** stats **** " + dataRequest.getContentHandle() + " **** " +
-                        (nav.isIdentified()?nav.getSessionInfo().getHandle():" ") + " **** " +
+                        (nav.isIdentified() ? nav.getSessionInfo().getHandle() : " ") + " **** " +
                         request.getRemoteHost() + " ****]");
 
                 //hoke so that we can reload the properties file on the fly

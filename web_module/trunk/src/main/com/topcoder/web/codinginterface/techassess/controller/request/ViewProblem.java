@@ -1,12 +1,12 @@
 package com.topcoder.web.codinginterface.techassess.controller.request;
 
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.codinginterface.techassess.Constants;
-import com.topcoder.web.codinginterface.techassess.model.ProblemInfo;
 import com.topcoder.shared.netCommon.screening.request.ScreeningOpenComponentForCodingRequest;
 import com.topcoder.shared.netCommon.screening.response.ScreeningOpenComponentResponse;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
+import com.topcoder.web.codinginterface.techassess.Constants;
+import com.topcoder.web.codinginterface.techassess.model.ProblemInfo;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.StringUtils;
 
 /**
  * User: dok
@@ -19,7 +19,7 @@ public class ViewProblem extends Base {
 
         if (getUser().isAnonymous()) {
             setNextPage(buildProcessorRequestString(Constants.RP_LOGIN,
-                    new String[] {Constants.COMPANY_ID}, new String[]{String.valueOf(getCompanyId())}));
+                    new String[]{Constants.COMPANY_ID}, new String[]{String.valueOf(getCompanyId())}));
             setIsNextPageInContext(false);
         } else {
 
@@ -47,7 +47,7 @@ public class ViewProblem extends Base {
 
             showProcessingPage();
 
-            ScreeningOpenComponentResponse response = (ScreeningOpenComponentResponse)receive(5000);
+            ScreeningOpenComponentResponse response = (ScreeningOpenComponentResponse) receive(5000);
 
             ProblemInfo problem = new ProblemInfo(StringUtils.checkNull(response.getCode()), componentId,
                     response.getLanguageID().intValue(), response.getProblem(), problemTypeId);
@@ -57,7 +57,7 @@ public class ViewProblem extends Base {
             setDefault(Constants.PROBLEM, problem);
 
             closeProcessingPage(buildProcessorRequestString(Constants.RP_VIEW_PROBLEM_RESPONSE,
-                    new String[] {Constants.MESSAGE_ID, Constants.COMPONENT_ID, Constants.PROBLEM_TYPE_ID},
+                    new String[]{Constants.MESSAGE_ID, Constants.COMPONENT_ID, Constants.PROBLEM_TYPE_ID},
                     new String[]{String.valueOf(getMessageId()), String.valueOf(componentId), String.valueOf(problemTypeId)}));
 
         }

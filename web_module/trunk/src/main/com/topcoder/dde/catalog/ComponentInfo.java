@@ -57,9 +57,9 @@ public class ComponentInfo implements java.io.Serializable {
 
 
     ComponentInfo(long id, long currentVersion, String name,
-            String shortDescription, String description,
-            String functionalDescription, String keywords,
-            long status) {
+                  String shortDescription, String description,
+                  String functionalDescription, String keywords,
+                  long status) {
         this.id = id;
         this.currentVersion = currentVersion;
         this.name = name;
@@ -107,7 +107,7 @@ public class ComponentInfo implements java.io.Serializable {
     public void setName(String name) {
         if (name == null) {
             throw new IllegalArgumentException(
-            "Null specified for component name");
+                    "Null specified for component name");
         }
         this.name = name;
     }
@@ -129,9 +129,9 @@ public class ComponentInfo implements java.io.Serializable {
      * <code>null</code>
      */
     public void setShortDescription(String shortDescription) {
-        if (shortDescription== null) {
+        if (shortDescription == null) {
             throw new IllegalArgumentException(
-            "Null specified for short description");
+                    "Null specified for short description");
         }
         this.shortDescription = shortDescription;
     }
@@ -155,7 +155,7 @@ public class ComponentInfo implements java.io.Serializable {
     public void setDescription(String description) {
         if (description == null) {
             throw new IllegalArgumentException(
-            "Null specified for component description");
+                    "Null specified for component description");
         }
         this.description = description;
     }
@@ -179,7 +179,7 @@ public class ComponentInfo implements java.io.Serializable {
     public void setFunctionalDescription(String functionalDescription) {
         if (functionalDescription == null) {
             throw new IllegalArgumentException(
-            "Null specified for functional description");
+                    "Null specified for functional description");
         }
         this.functionalDescription = functionalDescription;
     }
@@ -206,7 +206,7 @@ public class ComponentInfo implements java.io.Serializable {
     public void setKeywords(String keywords) {
         if (keywords == null) {
             throw new IllegalArgumentException(
-            "Null specified for component keywords");
+                    "Null specified for component keywords");
         }
         this.keywords = keywords;
     }
@@ -233,7 +233,7 @@ public class ComponentInfo implements java.io.Serializable {
             this.status = status;
         else
             throw new IllegalArgumentException(
-            "Invalid value specified for component status");
+                    "Invalid value specified for component status");
     }
 
     /**
@@ -252,13 +252,13 @@ public class ComponentInfo implements java.io.Serializable {
         }
         ComponentInfo other = (ComponentInfo) object;
         return getId() == other.getId() && getName().equals(other.getName())
-            && getShortDescription().equals(other.getShortDescription())
-            && getDescription().equals(other.getDescription())
-            && getFunctionalDescription().equals(
-                other.getFunctionalDescription())
-            && getCurrentVersion() == other.getCurrentVersion()
-            && getKeywords().equals(other.getKeywords())
-            && getStatus() == other.getStatus();
+                && getShortDescription().equals(other.getShortDescription())
+                && getDescription().equals(other.getDescription())
+                && getFunctionalDescription().equals(
+                        other.getFunctionalDescription())
+                && getCurrentVersion() == other.getCurrentVersion()
+                && getKeywords().equals(other.getKeywords())
+                && getStatus() == other.getStatus();
     }
 
     /**
@@ -274,7 +274,7 @@ public class ComponentInfo implements java.io.Serializable {
 
     public String toString() {
         return "Component " + getId() + " - " + getName()
-            + " (" + getShortDescription() + ")";
+                + " (" + getShortDescription() + ")";
     }
 
 

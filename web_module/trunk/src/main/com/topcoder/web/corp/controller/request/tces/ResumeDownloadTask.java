@@ -8,10 +8,9 @@ import com.topcoder.web.common.HttpObjectFactory;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.corp.common.TCESConstants;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.tc.controller.legacy.resume.bean.Resume;
-import com.topcoder.web.corp.common.TCESConstants;
-import com.topcoder.web.corp.controller.request.tces.BaseTask;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
@@ -27,7 +26,7 @@ public class ResumeDownloadTask extends BaseTask {
     private int campaignId = -1;
     private int memberId = -1;
 
-    public ResumeDownloadTask() throws Exception{
+    public ResumeDownloadTask() throws Exception {
         super();
     }
 
@@ -44,7 +43,7 @@ public class ResumeDownloadTask extends BaseTask {
             log.debug("User not logged in, can't download a file.");
             throw new Exception("User not logged in, can't download a file.");
         } else {
-            userId = (int)authToken.getActiveUser().getId();
+            userId = (int) authToken.getActiveUser().getId();
         }
 
 
@@ -59,19 +58,18 @@ public class ResumeDownloadTask extends BaseTask {
 
         ResultSetContainer oltpRSC = (ResultSetContainer) oltpResultMap.get("TCES_Verify_Member_Access");
         if (oltpRSC.getRowCount() == 0 && !super.getSessionInfo().isAdmin()) {
-            throw new Exception (" mid="+Integer.toString(getMemberId())
-                                 + " jid="+Integer.toString(getJobId())
-                                 + " cid="+Integer.toString(getCampaignId())
-                                 + "does not belong to uid="+Integer.toString(getUserId()) );
+            throw new Exception(" mid=" + Integer.toString(getMemberId())
+                    + " jid=" + Integer.toString(getJobId())
+                    + " cid=" + Integer.toString(getCampaignId())
+                    + "does not belong to uid=" + Integer.toString(getUserId()));
         }
-
 
 
     }
 
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        response.setHeader("content-disposition","inline; filename="+resume.getFileName());
+        response.setHeader("content-disposition", "inline; filename=" + resume.getFileName());
         response.setContentType(resume.getMimeType());
         ServletOutputStream sos = response.getOutputStream();
         sos.write(resume.getFile());
@@ -84,7 +82,7 @@ public class ResumeDownloadTask extends BaseTask {
     }
 
     public void processStep(String step) throws Exception {
-        ResumeServices resumeServices = (ResumeServices)BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
+        ResumeServices resumeServices = (ResumeServices) BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
         resume = resumeServices.getResume(getMemberId(), getOltp());
 
     }
@@ -95,7 +93,7 @@ public class ResumeDownloadTask extends BaseTask {
      */
     public void setAttributes(String paramName, String paramValues[]) {
         String value = paramValues[0];
-        value = (value == null?"":value.trim());
+        value = (value == null ? "" : value.trim());
         if (paramName.equalsIgnoreCase(TCESConstants.CAMPAIGN_ID_PARAM))
             setCampaignId(Integer.parseInt(value));
         if (paramName.equalsIgnoreCase(TCESConstants.JOB_ID_PARAM))

@@ -59,15 +59,14 @@ package com.coolservlets.forum;
 /**
  * Protection proxy for TreeWalker ojbects
  */
-public class TreeWalkerProxy implements TreeWalker{
+public class TreeWalkerProxy implements TreeWalker {
 
     private TreeWalker treeWalker;
     private Authorization authorization;
     private ForumPermissions permissions;
 
     public TreeWalkerProxy(TreeWalker treeWalker, Authorization authorization,
-            ForumPermissions permissions)
-    {
+                           ForumPermissions permissions) {
         this.treeWalker = treeWalker;
         this.authorization = authorization;
         this.permissions = permissions;
@@ -99,4 +98,4 @@ public class TreeWalkerProxy implements TreeWalker{
         return treeWalker.isLeaf(node);
     }
 
-} 
+}

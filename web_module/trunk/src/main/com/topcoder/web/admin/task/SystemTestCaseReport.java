@@ -1,22 +1,19 @@
 package com.topcoder.web.admin.task;
 
+import com.topcoder.common.web.data.Authentication;
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.common.web.data.Problem;
 import com.topcoder.common.web.data.Round;
-import com.topcoder.web.common.NavigationException;
 import com.topcoder.common.web.util.Conversion;
 import com.topcoder.common.web.xml.HTMLRenderer;
-import com.topcoder.common.web.data.Authentication;
 import com.topcoder.ejb.ContestAdminServices.ContestAdminServices;
-import com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome;
 import com.topcoder.shared.docGen.xml.RecordTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.NavigationException;
 
-import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -85,7 +82,7 @@ public final class SystemTestCaseReport {
         try {
             InitialContext ctx = TCContext.getInitial();
             try {
-                contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
+                contestEJB = (ContestAdminServices) BaseProcessor.createEJB(ctx, ContestAdminServices.class);
                 int roundId = 0;
                 int problemId = 0;
                 int coderId = 0;
@@ -167,7 +164,7 @@ public final class SystemTestCaseReport {
         try {
             InitialContext ctx = TCContext.getInitial();
             try {
-                contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
+                contestEJB = (ContestAdminServices) BaseProcessor.createEJB(ctx, ContestAdminServices.class);
                 int roundId = 0;
                 int problemId = 0;
                 try {
@@ -235,7 +232,7 @@ public final class SystemTestCaseReport {
         try {
             InitialContext ctx = TCContext.getInitial();
             try {
-                contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
+                contestEJB = (ContestAdminServices) BaseProcessor.createEJB(ctx, ContestAdminServices.class);
                 int roundId = 0;
                 int filter = 0;
                 try {
@@ -297,7 +294,7 @@ public final class SystemTestCaseReport {
         try {
             InitialContext ctx = TCContext.getInitial();
             try {
-                contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
+                contestEJB = (ContestAdminServices) BaseProcessor.createEJB(ctx, ContestAdminServices.class);
                 int roundId = Integer.parseInt(request.getParameter("roundid"));
                 int coderId = Integer.parseInt(request.getParameter("coderid"));
                 int problemId = Integer.parseInt(request.getParameter("problemid"));
@@ -333,7 +330,7 @@ public final class SystemTestCaseReport {
         try {
             InitialContext ctx = TCContext.getInitial();
             try {
-                contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
+                contestEJB = (ContestAdminServices) BaseProcessor.createEJB(ctx, ContestAdminServices.class);
                 roundList = contestEJB.getRoundList();
             } catch (Exception e) {
                 throw new NavigationException(e);

@@ -1,15 +1,16 @@
 package com.topcoder.web.corp.controller.request;
 
-import com.topcoder.shared.security.*;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.web.common.StringUtils;
+import com.topcoder.shared.security.LoginException;
+import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.corp.Constants;
 
@@ -35,10 +36,10 @@ public class Login extends BaseProcessor {
 
         /* if not null, we got here via a form submit;
          * otherwise, skip this and just draw the login form */
-        if(username != null) {
+        if (username != null) {
 
             password = StringUtils.checkNull(password);
-            if(username.equals("") || password.equals("")) {
+            if (username.equals("") || password.equals("")) {
                 getRequest().setAttribute("message", "You must enter a username and a password.");
 
             } else {
@@ -51,17 +52,17 @@ public class Login extends BaseProcessor {
                     /* no need to reset user or sessioninfo, since we immediately proceed to a new page */
                     String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
                     log.debug("dest param was: " + dest);
-                    if (dest==null) dest = StringUtils.checkNull((String)getRequest().getAttribute(BaseServlet.NEXT_PAGE_KEY));
+                    if (dest == null) dest = StringUtils.checkNull((String) getRequest().getAttribute(BaseServlet.NEXT_PAGE_KEY));
                     log.debug("on successfull login, going to " + dest);
                     setNextPage(dest);
                     setIsNextPageInContext(false);
                     return;
 
-                } catch(LoginException e) {
+                } catch (LoginException e) {
 
                     /* the login failed, so tell them what happened */
                     getRequest().setAttribute(BaseServlet.MESSAGE_KEY, e.getMessage());
-                } catch(Exception e) {
+                } catch (Exception e) {
                     throw new TCWebException(e);
                 }
             }
@@ -83,9 +84,9 @@ public class Login extends BaseProcessor {
 
         Map map = dAccess.getData(dataRequest);
 
-        if(map != null && map.size() == 1) {
-            ResultSetContainer result = (ResultSetContainer)map.get("active_user");
-            return !(result==null || result.isEmpty());
+        if (map != null && map.size() == 1) {
+            ResultSetContainer result = (ResultSetContainer) map.get("active_user");
+            return !(result == null || result.isEmpty());
         } else {
             return false;
         }

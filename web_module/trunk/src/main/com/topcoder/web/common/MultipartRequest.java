@@ -1,14 +1,13 @@
 package com.topcoder.web.common;
 
-import javax.servlet.http.HttpServletRequest;
-import java.util.Enumeration;
-import java.util.Iterator;
-import java.util.ArrayList;
-
 import com.topcoder.servlet.request.FileUpload;
 import com.topcoder.servlet.request.UploadedFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.Iterator;
 
 /**
  * @author rfairfax

@@ -1,22 +1,19 @@
 package com.topcoder.web.corp.controller.request.screening;
 
+import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.corp.common.Constants;
 import com.topcoder.web.corp.common.Util;
 import com.topcoder.web.corp.model.ProfileInfo;
-import com.topcoder.web.corp.controller.request.screening.BaseProfileProcessor;
-import com.topcoder.web.ejb.sessionprofile.SessionProfileHome;
 import com.topcoder.web.ejb.sessionprofile.SessionProfile;
-import com.topcoder.web.ejb.sessionprofile.SessionProfileLanguageHome;
+import com.topcoder.web.ejb.sessionprofile.SessionProfileHome;
 import com.topcoder.web.ejb.sessionprofile.SessionProfileLanguage;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.web.ejb.sessionprofile.SessionProfileLanguageHome;
 
 import javax.rmi.PortableRemoteObject;
-import javax.naming.InitialContext;
-import javax.naming.Context;
 import java.util.Iterator;
 import java.util.Map;
 

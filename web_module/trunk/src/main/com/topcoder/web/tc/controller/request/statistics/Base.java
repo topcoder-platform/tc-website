@@ -1,14 +1,10 @@
 package com.topcoder.web.tc.controller.request.statistics;
 
-import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.util.DBMS;
-
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
-import javax.rmi.PortableRemoteObject;
+import com.topcoder.web.common.BaseProcessor;
 
 abstract public class Base extends BaseProcessor {
 

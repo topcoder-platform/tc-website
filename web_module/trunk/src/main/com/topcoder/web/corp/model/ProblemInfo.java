@@ -1,24 +1,17 @@
 package com.topcoder.web.corp.model;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.HashSet;
-
-import javax.naming.InitialContext;
-import javax.rmi.PortableRemoteObject;
-import javax.sql.DataSource;
-
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.User;
-
 import com.topcoder.shared.util.logging.Logger;
-
 import com.topcoder.web.corp.common.Constants;
 import com.topcoder.web.corp.common.PermissionDeniedException;
 import com.topcoder.web.corp.common.ScreeningException;
-import com.topcoder.web.corp.model.BaseModel;
+
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
 
 public class ProblemInfo extends BaseModel {
     private static Logger log = Logger.getLogger(ProblemInfo.class);
@@ -58,7 +51,7 @@ public class ProblemInfo extends BaseModel {
     /**
      * Gets the value of <code>roundId</code>.
      *
-     * @return 
+     * @return
      */
     public Long getRoundId() {
         return roundId;
@@ -76,7 +69,7 @@ public class ProblemInfo extends BaseModel {
     /**
      * Gets the value of <code>problemId</code>.
      *
-     * @return 
+     * @return
      */
     public Long getProblemId() {
         return problemId;
@@ -95,7 +88,7 @@ public class ProblemInfo extends BaseModel {
     /**
      * Gets the value of <code>problemName</code>.
      *
-     * @return 
+     * @return
      */
     public String getProblemName() {
         return problemName;
@@ -113,7 +106,7 @@ public class ProblemInfo extends BaseModel {
     /**
      * Gets the value of <code>divisionDesc</code>.
      *
-     * @return 
+     * @return
      */
     public String getDivisionDesc() {
         return divisionDesc;
@@ -131,7 +124,7 @@ public class ProblemInfo extends BaseModel {
     /**
      * Gets the value of <code>difficultyDesc</code>.
      *
-     * @return 
+     * @return
      */
     public String getDifficultyDesc() {
         return difficultyDesc;
@@ -149,7 +142,7 @@ public class ProblemInfo extends BaseModel {
     /**
      * Gets the value of <code>categoryDesc</code>.
      *
-     * @return 
+     * @return
      */
     public String getCategoryDesc() {
         return categoryDesc;
@@ -167,7 +160,7 @@ public class ProblemInfo extends BaseModel {
     /**
      * Gets the value of <code>problemStatement</code>.
      *
-     * @return 
+     * @return
      */
     public String getProblemStatement() {
         return problemStatement;
@@ -185,7 +178,7 @@ public class ProblemInfo extends BaseModel {
     /**
      * Gets the value of <code>submissionAccuracy</code>.
      *
-     * @return 
+     * @return
      */
     public String getSubmissionAccuracy() {
         return submissionAccuracy;
@@ -203,7 +196,7 @@ public class ProblemInfo extends BaseModel {
     /**
      * Gets the value of <code>submission</code>.
      *
-     * @return 
+     * @return
      */
     public String getSubmission() {
         return submission;
@@ -221,7 +214,7 @@ public class ProblemInfo extends BaseModel {
     /**
      * Gets the value of <code>overallAccuracy</code>.
      *
-     * @return 
+     * @return
      */
     public String getOverallAccuracy() {
         return overallAccuracy;
@@ -258,13 +251,12 @@ public class ProblemInfo extends BaseModel {
         if (category == null) return;
         businessCategories.add(category);
     }
-    
+
     public static ProblemInfo createProblemInfo(User user,
                                                 long roundId,
-                                                long problemId) throws Exception
-    {
+                                                long problemId) throws Exception {
         return createProblemInfo(user, roundId, problemId, false);
-        
+
     }
 
     public static ProblemInfo createProblemInfo(User user,
@@ -295,7 +287,7 @@ public class ProblemInfo extends BaseModel {
         if (dwAccess == null) {
             dwAccess = new CachedDataAccess(Constants.DW_DATA_SOURCE);
         }
-        
+
         DataAccessInt dwNew = new DataAccess(Constants.DATA_SOURCE);
 
         //first check permissions on given problem
@@ -362,8 +354,7 @@ public class ProblemInfo extends BaseModel {
         }
 
         Request accuracyInfo = new Request();
-        if(!screening)
-        {
+        if (!screening) {
             accuracyInfo.setProperty(DataAccessConstants.COMMAND,
                     Constants.ACCURACY_INFO_QUERY_KEY);
 
@@ -387,9 +378,7 @@ public class ProblemInfo extends BaseModel {
             info.setSubmissionAccuracy(row.getItem("submission_accuracy").toString());
             info.setSubmission(row.getItem("submission_percentage").toString());
             info.setOverallAccuracy(row.getItem("overall_accuracy").toString());
-        }
-        else
-        {
+        } else {
             accuracyInfo.setProperty(DataAccessConstants.COMMAND,
                     "problem_statistics_by_company");
 

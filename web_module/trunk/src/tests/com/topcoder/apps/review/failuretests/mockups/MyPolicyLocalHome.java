@@ -1,7 +1,7 @@
 /*
  * MyPolicyLocalHome.java 1.0 6/30/2003
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review.failuretests.mockups;
 
@@ -27,6 +27,6 @@ public class MyPolicyLocalHome extends EJBHomeBase implements PolicyLocalHome {
      * <p>Returns a new instance of MyPolicyLocal.</p>
      */
     public PolicyLocal create() throws CreateException {
-        return(new MyPolicyLocal());
+        return (new MyPolicyLocal());
     }
 }

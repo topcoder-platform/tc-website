@@ -4,15 +4,12 @@
 
 package com.topcoder.apps.review;
 
-import com.topcoder.util.format.PrimitiveFormatterFactory;
-import com.topcoder.util.format.PrimitiveFormatter;
 import com.topcoder.apps.review.document.AbstractScorecard;
 import com.topcoder.apps.review.document.AbstractSubmission;
-import com.topcoder.apps.review.document.ScreeningScorecard;
-import com.topcoder.apps.review.document.ScorecardQuestion;
-import com.topcoder.apps.review.document.Evaluation;
 import com.topcoder.apps.review.document.InitialSubmission;
-
+import com.topcoder.apps.review.document.ScreeningScorecard;
+import com.topcoder.util.format.PrimitiveFormatter;
+import com.topcoder.util.format.PrimitiveFormatterFactory;
 import org.apache.struts.util.MessageResources;
 
 /**
@@ -26,12 +23,12 @@ import org.apache.struts.util.MessageResources;
 public class AdminScreeningScorecardBean {
 
     // ------------------------------------------------ Instance Variables
-        
+
     /**
      * The screening scorecards.
      */
     private AbstractScorecard scorecard = null;
-    
+
     /**
      * The submission.
      */
@@ -40,7 +37,7 @@ public class AdminScreeningScorecardBean {
     /**
      * The formatter for the score.
      */
-    PrimitiveFormatter scoreFormatter = 
+    PrimitiveFormatter scoreFormatter =
             PrimitiveFormatterFactory.getFormatter(Constants.SCORE_FORMAT);
 
     /**
@@ -53,54 +50,54 @@ public class AdminScreeningScorecardBean {
      * Whether the score is ready.
      */
     private boolean scoreReady = true;
-    
+
     // ------------------------------------------------------------ Constructor
-    
+
     /**
      * <p>
      * Creates the instance of <code>AdminScreeningScorecardBean</code> class.
      * </p>
-     * 
+     *
      * @param submission The submission to be set.
      * @param scorecards The scorecards to be set.
      */
-    public AdminScreeningScorecardBean(AbstractSubmission submission, 
+    public AdminScreeningScorecardBean(AbstractSubmission submission,
                                        AbstractScorecard[] scorecards) {
         this.submission = submission;
 
         if (scorecards != null) {
             for (int i = 0; i < scorecards.length; i++) {
-                if (scorecards[i] instanceof ScreeningScorecard 
+                if (scorecards[i] instanceof ScreeningScorecard
                         && scorecards[i].getSubmission().getSubmitter().getId()
-                                == submission.getSubmitter().getId()) {
-                    this.scorecard = scorecards[i];     
+                        == submission.getSubmitter().getId()) {
+                    this.scorecard = scorecards[i];
                 }
             }
         }
 
         if (this.scorecard == null || !this.scorecard.isCompleted()) {
             scoreReady = false;
-        } 
+        }
     }
-    
+
     // ----------------------------------------------------- Public Methods
-    
+
     /**
      * <p>
      * Return the submission.
      * </p>
-     * 
+     *
      * @return the submission.
      */
     public AbstractSubmission getSubmission() {
         return submission;
     }
-    
+
     /**
      * <p>
      * Return whether the scorecard exists.
      * </p>
-     * 
+     *
      * @param index The index of scorecard.
      * @return whether the scorecard exists.
      */
@@ -112,7 +109,7 @@ public class AdminScreeningScorecardBean {
      * <p>
      * Return the scorecard.
      * </p>
-     * 
+     *
      * @return the scorecard.
      */
     public AbstractScorecard getScorecard() {
@@ -123,13 +120,13 @@ public class AdminScreeningScorecardBean {
      * <p>
      * Return whether the submission passed the screening.
      * </p>
-     * 
+     *
      * @return whether the submission passed the screening.
      */
     public boolean getPassed() {
         if (scoreReady) {
             try {
-                return ((ScreeningScorecard)scorecard).getPassed() && scorecard.getScore() >= ConfigHelper.getMinimumScore();
+                return ((ScreeningScorecard) scorecard).getPassed() && scorecard.getScore() >= ConfigHelper.getMinimumScore();
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
@@ -149,7 +146,7 @@ public class AdminScreeningScorecardBean {
      * <p>
      * Return the score.
      * </p>
-     * 
+     *
      * @return the score.
      */
     public String getScore() {
@@ -159,16 +156,16 @@ public class AdminScreeningScorecardBean {
             return messages.getMessage("prompt.nonAvailable");
         }
     }
-    
+
     public String getAdvancedToReview() {
-        if(scoreReady && scorecard.isPMReviewed()) {
-            if(((InitialSubmission)submission).isAdvancedToReview()) {
+        if (scoreReady && scorecard.isPMReviewed()) {
+            if (((InitialSubmission) submission).isAdvancedToReview()) {
                 return "Yes";
             } else {
                 return "No";
             }
         } else {
-            if(((InitialSubmission)submission).isAdvancedToReview()) {
+            if (((InitialSubmission) submission).isAdvancedToReview()) {
                 return "Yes (Pending)";
             } else {
                 return "No (Pending)";
@@ -180,7 +177,7 @@ public class AdminScreeningScorecardBean {
      * <p>
      * Return whether the score is ready.
      * </p>
-     * 
+     *
      * @return whether the score is ready.
      */
     public boolean getScoreReady() {
@@ -191,7 +188,7 @@ public class AdminScreeningScorecardBean {
      * <p>
      * Return whether the PM has reviewed.
      * </p>
-     * 
+     *
      * @return whether the PM has reviewed.
      */
     public boolean getIsPMReviewed() {

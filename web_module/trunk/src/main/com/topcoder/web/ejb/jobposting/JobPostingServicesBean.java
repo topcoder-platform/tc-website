@@ -1,14 +1,15 @@
 package com.topcoder.web.ejb.jobposting;
 
-import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.ejb.BaseEJB;
 
 import javax.naming.InitialContext;
-import javax.sql.DataSource;
-import javax.rmi.PortableRemoteObject;
 import java.rmi.RemoteException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  * This class handles interaction with the database regarding Job Postings
@@ -38,7 +39,7 @@ public class JobPostingServicesBean extends BaseEJB {
         ResultSet rs = null;
 
         InitialContext ctx = null;
-        try{
+        try {
             conn = DBMS.getConnection(dataSource);
             /*
                check if this user has already "hit" this job
@@ -108,7 +109,7 @@ public class JobPostingServicesBean extends BaseEJB {
         query.append(" WHERE job_id = ?");
 
         InitialContext ctx = null;
-        try{
+        try {
             conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, jobId);
@@ -134,8 +135,6 @@ public class JobPostingServicesBean extends BaseEJB {
     }
 
 
-
-
     /**
      * Given a job id, check if that job exists and is active
      * @param jobId the particular job
@@ -149,13 +148,13 @@ public class JobPostingServicesBean extends BaseEJB {
         ResultSet rs = null;
 
         InitialContext ctx = null;
-        try{
+        try {
             conn = DBMS.getConnection(dataSource);
             query = new StringBuffer();
             query.append(" SELECT 'dok'");
-            query.append(  " FROM job");
-            query.append( " WHERE job_id = ?");
-            query.append(   " AND status_id = 1");
+            query.append(" FROM job");
+            query.append(" WHERE job_id = ?");
+            query.append(" AND status_id = 1");
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, jobId);
             rs = ps.executeQuery();
@@ -175,8 +174,6 @@ public class JobPostingServicesBean extends BaseEJB {
         }
 
     }
-
-
 
 
 }

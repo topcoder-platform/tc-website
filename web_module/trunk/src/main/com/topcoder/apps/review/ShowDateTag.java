@@ -1,15 +1,14 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
-import com.topcoder.util.format.FormatMethodFactory;
 import com.topcoder.util.format.DateFormatMethod;
-
-import javax.servlet.jsp.JspException;
+import com.topcoder.util.format.FormatMethodFactory;
 import org.apache.struts.util.RequestUtils;
 import org.apache.struts.util.ResponseUtils;
 
+import javax.servlet.jsp.JspException;
 import java.util.Date;
 
 /**
@@ -28,23 +27,23 @@ public class ShowDateTag extends BaseTag {
      * The attribute name.
      */
     private String name = Constants.PROJECT_KEY;
-    
+
     /**
      * Name of the property to be accessed on the specified bean.
      */
     protected String property = null;
-    
+
     /**
      * The formater for the date.
      */
-    private DateFormatMethod dateFormatter = 
-        FormatMethodFactory.getDefaultDateFormatMethod(Constants.DATE_FORMAT);
+    private DateFormatMethod dateFormatter =
+            FormatMethodFactory.getDefaultDateFormatMethod(Constants.DATE_FORMAT);
 
     // ------------------------------------------------------------- Properties
 
     /**
      * Return the attribute name.
-     * 
+     *
      * @return the attribute name.
      */
     public String getName() {
@@ -59,10 +58,10 @@ public class ShowDateTag extends BaseTag {
     public void setName(String name) {
         this.name = name;
     }
-    
+
     /**
      * Return the attribute property.
-     * 
+     *
      * @return the attribute property.
      */
     public String getProperty() {
@@ -87,20 +86,20 @@ public class ShowDateTag extends BaseTag {
      * @exception JspException if a JSP exception has occurred.
      */
     public int doStartTag() throws JspException {
-        Date date = 
-            (Date) RequestUtils.lookup(pageContext, name, property, null);
+        Date date =
+                (Date) RequestUtils.lookup(pageContext, name, property, null);
         String result = null;
 
         if (date == null) {
             return (SKIP_BODY);  // Nothing to output
         }
-        
+
         // Make the output string
         result = dateFormatter.format(date);
-        
+
         // Print this result to our output writer, suitably filtered
         ResponseUtils.write(pageContext, ResponseUtils.filter(result));
-        
+
         // Skip the body of this tag
         return (SKIP_BODY);
     }

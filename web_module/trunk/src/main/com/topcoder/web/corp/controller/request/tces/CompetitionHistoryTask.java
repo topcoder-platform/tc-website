@@ -6,16 +6,14 @@
 
 package com.topcoder.web.corp.controller.request.tces;
 
+import com.topcoder.security.NotAuthorizedException;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.corp.common.TCESConstants;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.ejb.user.Contact;
-import com.topcoder.web.corp.common.TCESAuthenticationException;
-import com.topcoder.web.corp.common.TCESConstants;
-import com.topcoder.web.corp.controller.request.tces.BaseTask;
-import com.topcoder.security.NotAuthorizedException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -105,9 +103,9 @@ public class CompetitionHistoryTask extends BaseTask implements Task, Serializab
         viewCompetitionHistory();
         ResumeServices rServices = null;
         try {
-            rServices = (ResumeServices)BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
+            rServices = (ResumeServices) BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
             setHasResume(rServices.hasResume(mid, getOltp()));
-            Contact contact = (Contact)BaseProcessor.createEJB(getInitialContext(), Contact.class);
+            Contact contact = (Contact) BaseProcessor.createEJB(getInitialContext(), Contact.class);
             setCompanyId(contact.getCompanyId(uid, getOltp()));
         } catch (Exception e) {
             log.error("could not determine if user has a resume or not");

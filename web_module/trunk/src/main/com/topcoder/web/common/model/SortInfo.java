@@ -15,7 +15,7 @@ public class SortInfo {
     }
 
     public String getDefault(int col) {
-        return (String)map.get(new Integer(col));
+        return (String) map.get(new Integer(col));
     }
 
 }

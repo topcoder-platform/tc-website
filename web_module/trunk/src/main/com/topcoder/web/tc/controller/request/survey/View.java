@@ -1,19 +1,18 @@
 package com.topcoder.web.tc.controller.request.survey;
 
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.*;
+import com.topcoder.web.ejb.survey.Response;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.Answer;
 import com.topcoder.web.tc.model.Question;
-import com.topcoder.web.ejb.survey.Response;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.security.ClassResource;
 
-import javax.naming.InitialContext;
-import java.util.List;
-import java.util.Iterator;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class View extends SurveyData {
     protected void surveyProcessing() throws TCWebException {
@@ -21,7 +20,7 @@ public class View extends SurveyData {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         try {
             if (alreadyResponded()) {
-                SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
+                SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
                 setNextPage(info.getServletPath() + "?" + Constants.MODULE_KEY + "=SurveyResults&" + Constants.SURVEY_ID + "=" + survey.getId());
                 setIsNextPageInContext(false);
             } else if (isSRMSurvey() && !hasSurveyClosed()) {
@@ -43,16 +42,16 @@ public class View extends SurveyData {
         DataAccessInt dataAccess = getDataAccess(true);
         req.setContentHandle("answers");
         req.setProperty("qid", String.valueOf(questionId));
-        ResultSetContainer rsc = (ResultSetContainer)dataAccess.getData(req).get("answer_info");
+        ResultSetContainer rsc = (ResultSetContainer) dataAccess.getData(req).get("answer_info");
         List ret = null;
-        if (rsc==null) {
+        if (rsc == null) {
             ret = new ArrayList(0);
         } else {
             ret = new ArrayList(rsc.size());
             ResultSetContainer.ResultSetRow row = null;
             Answer a = null;
             for (Iterator it = rsc.iterator(); it.hasNext();) {
-                row = (ResultSetContainer.ResultSetRow)it.next();
+                row = (ResultSetContainer.ResultSetRow) it.next();
                 a = new Answer();
                 a.setId(row.getLongItem("answer_id"));
                 a.setQuestionId(row.getLongItem("question_id"));
@@ -68,7 +67,7 @@ public class View extends SurveyData {
     protected final boolean isSRMSurvey() {
         Question q = null;
         boolean found = false;
-        for (Iterator it = questionInfo.iterator(); it.hasNext()&&!found;) {
+        for (Iterator it = questionInfo.iterator(); it.hasNext() && !found;) {
             q = (Question) it.next();
             found |= q.getTypeId() == Constants.SRM_SURVEY_QUESTION;
         }
@@ -86,7 +85,7 @@ public class View extends SurveyData {
             r.setProperty("cr", String.valueOf(getUser().getId()));
             ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("survey_list");
             ResultSetContainer.ResultSetRow row = null;
-            for (Iterator it = rsc.iterator(); it.hasNext()&&!found;) {
+            for (Iterator it = rsc.iterator(); it.hasNext() && !found;) {
                 row = (ResultSetContainer.ResultSetRow) it.next();
                 found |= row.getLongItem("survey_id") == survey.getId();
             }

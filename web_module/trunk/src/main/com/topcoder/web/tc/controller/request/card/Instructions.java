@@ -1,13 +1,13 @@
 package com.topcoder.web.tc.controller.request.card;
 
-import com.topcoder.web.tc.controller.request.Base;
-import com.topcoder.web.tc.Constants;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.RowNotFoundException;
-import com.topcoder.web.ejb.user.UserPreference;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.RowNotFoundException;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.ejb.user.UserPreference;
+import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.request.Base;
 
 import java.rmi.RemoteException;
 
@@ -21,7 +21,7 @@ public class Instructions extends Base {
 
         if (userIdentified()) {
             try {
-                UserPreference up = (UserPreference)createEJB(getInitialContext(), UserPreference.class);
+                UserPreference up = (UserPreference) createEJB(getInitialContext(), UserPreference.class);
                 boolean cardUnlocked = false;
                 try {
                     up.getValue(getUser().getId(), Constants.UNLOCK_CARD_PREFERENCE_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME);

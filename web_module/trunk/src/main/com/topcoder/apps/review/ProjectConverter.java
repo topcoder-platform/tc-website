@@ -6,30 +6,23 @@
  */
 package com.topcoder.apps.review;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.PrintStream;
-import java.rmi.RemoteException;
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Hashtable;
-
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.rmi.PortableRemoteObject;
-
 import com.topcoder.apps.review.persistence.Common;
 import com.topcoder.apps.review.projecttracker.ProjectTracker;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerHome;
 import com.topcoder.apps.review.projecttracker.ProjectType;
 import com.topcoder.security.TCSubject;
-import com.topcoder.util.TCException;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.rmi.PortableRemoteObject;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.rmi.RemoteException;
+import java.sql.*;
+import java.util.Hashtable;
 
 /**
  * This class is used to convert(create) online review projects
@@ -48,8 +41,9 @@ public class ProjectConverter {
         //conn.setAutoCommit(false);
         return conn;
     }
+
     private static ProjectTracker getProjectTracker() {
-        InitialContext initialContext=null;
+        InitialContext initialContext = null;
         ProjectTrackerHome ptHome;
         ProjectTracker pt = null;
         try {
@@ -61,11 +55,11 @@ public class ProjectConverter {
             //initialContext = new InitialContext();
 
             java.lang.Object objRef =
-                initialContext.lookup(ProjectTrackerHome.EJB_REF_NAME);
+                    initialContext.lookup(ProjectTrackerHome.EJB_REF_NAME);
             ptHome =
-                (ProjectTrackerHome) PortableRemoteObject.narrow(
-                    objRef,
-                    ProjectTrackerHome.class);
+                    (ProjectTrackerHome) PortableRemoteObject.narrow(
+                            objRef,
+                            ProjectTrackerHome.class);
             pt = ptHome.create();
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -88,7 +82,7 @@ public class ProjectConverter {
         FileOutputStream logFile;
         FileOutputStream removeFile;
         try {
-            logFile= new FileOutputStream("convert.log");
+            logFile = new FileOutputStream("convert.log");
             removeFile = new FileOutputStream("convert_remove.sql");
         } catch (FileNotFoundException e) {
             System.err.println("Unable to create log-files!");
@@ -158,7 +152,7 @@ public class ProjectConverter {
             Date[] dates;
             if (phaseId == 112) {
                 projectTypeId = ProjectType.ID_DESIGN;
-                dates = new Date[] {
+                dates = new Date[]{
                     postingDate,
                     initialSubmissionDate,
                     screeningCompleteDate,
@@ -171,7 +165,7 @@ public class ProjectConverter {
                 };
             } else if (phaseId == 113) {
                 projectTypeId = ProjectType.ID_DEVELOPMENT;
-                dates = new Date[] {
+                dates = new Date[]{
                     postingDate,
                     initialSubmissionDate,
                     screeningCompleteDate,
@@ -214,7 +208,7 @@ public class ProjectConverter {
             remove.println("DELETE FROM r_user_role WHERE project_id = " + projectId + ";");
             remove.println("DELETE FROM phase_instance WHERE project_id = " + projectId + ";");
             remove.println("DELETE FROM project WHERE project_id = " + projectId + ";");
-                String projectTypeString;
+            String projectTypeString;
             if (projectTypeId == 1)
                 projectTypeString = "Design";
             else

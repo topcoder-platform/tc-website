@@ -6,8 +6,8 @@
 
 package com.topcoder.web.ejb.user;
 
-import javax.ejb.EJBObject;
 import javax.ejb.EJBException;
+import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
 
 /**
@@ -15,7 +15,7 @@ import java.rmi.RemoteException;
  * @author  rfairfax
  */
 public interface UserEvent extends EJBObject {
-    
-    void createUserEvent(long userId, long eventId, String dataSource) throws EJBException,RemoteException;
-    
+
+    void createUserEvent(long userId, long eventId, String dataSource) throws EJBException, RemoteException;
+
 }

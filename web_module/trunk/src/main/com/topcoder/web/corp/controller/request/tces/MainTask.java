@@ -6,7 +6,6 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.corp.common.TCData;
 import com.topcoder.web.corp.common.TCESConstants;
-import com.topcoder.web.corp.controller.request.tces.BaseTask;
 
 import java.io.Serializable;
 import java.util.List;

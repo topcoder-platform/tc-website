@@ -1,21 +1,19 @@
 package com.topcoder.web.tc.controller.request.survey;
 
-import com.topcoder.web.common.TCWebException;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.web.tc.model.Question;
 import com.topcoder.web.tc.model.Survey;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.security.ClassResource;
 
-import java.util.Map;
-import java.util.Iterator;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 public abstract class SurveyData extends Base {
 

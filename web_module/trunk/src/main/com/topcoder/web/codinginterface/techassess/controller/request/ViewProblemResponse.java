@@ -27,5 +27,4 @@ public class ViewProblemResponse extends Base {
     }
 
 
-
 }

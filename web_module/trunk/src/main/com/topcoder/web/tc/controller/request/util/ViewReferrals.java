@@ -1,11 +1,11 @@
 package com.topcoder.web.tc.controller.request.util;
 
-import com.topcoder.web.tc.controller.request.Base;
-import com.topcoder.web.tc.Constants;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.PermissionException;
-import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.request.Base;
 
 /**
  * @author dok

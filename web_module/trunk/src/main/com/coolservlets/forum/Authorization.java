@@ -87,4 +87,4 @@ public interface Authorization {
      */
     public int getUserID();
 
-} 
+}

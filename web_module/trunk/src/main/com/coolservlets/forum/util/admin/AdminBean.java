@@ -1,4 +1,3 @@
-
 /**
  * AdminBean.java
  * July, 2000
@@ -6,13 +5,14 @@
 
 package com.coolservlets.forum.util.admin;
 
-import java.util.*;
-import com.coolservlets.forum.*;
-import com.coolservlets.forum.util.tree.*;
+import com.coolservlets.forum.Authorization;
+import com.coolservlets.forum.util.tree.Tree;
+
+import java.util.Hashtable;
 
 /**
  * The AdminBean is designed to be used in the Jive admin tool as a way
- * to keep state in various elements of the tool. 
+ * to keep state in various elements of the tool.
  */
 public class AdminBean {
 
@@ -26,20 +26,24 @@ public class AdminBean {
     public Authorization getAuthToken() {
         return this.authToken;
     }
-    public void setAuthToken( Authorization authToken ) {
+
+    public void setAuthToken(Authorization authToken) {
         this.authToken = authToken;
     }
+
     public void resetAuthToken() {
         this.authToken = null;
     }
 
-    public Tree getTree( String name ) {
-        return (Tree)trees.get(name);
+    public Tree getTree(String name) {
+        return (Tree) trees.get(name);
     }
-    public void addTree( String name, Tree tree ) {
-        this.trees.put(name,tree);
+
+    public void addTree(String name, Tree tree) {
+        this.trees.put(name, tree);
     }
-    public void removeTree( String name ) {
+
+    public void removeTree(String name) {
         this.trees.remove(name);
     }
 

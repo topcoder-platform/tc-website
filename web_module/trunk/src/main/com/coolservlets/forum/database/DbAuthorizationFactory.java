@@ -56,14 +56,15 @@
 
 package com.coolservlets.forum.database;
 
-import com.coolservlets.forum.*;
-import com.coolservlets.util.*;
-import com.topcoder.shared.util.*;
-import java.rmi.RemoteException;
-import java.security.*;
-import java.sql.*;
-import java.util.*;
-import java.io.*;
+import com.coolservlets.forum.Authorization;
+import com.coolservlets.forum.AuthorizationFactory;
+import com.coolservlets.forum.UnauthorizedException;
+import com.topcoder.shared.util.DBMS;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class DbAuthorizationFactory extends AuthorizationFactory {
 
@@ -76,8 +77,7 @@ public class DbAuthorizationFactory extends AuthorizationFactory {
      * @throws UnauthorizedException if authentication failed.
      */
     public Authorization getAuthorization(String username, String password)
-            throws UnauthorizedException
-    {
+            throws UnauthorizedException {
         if (username == null || password == null) {
             throw new UnauthorizedException();
         }
@@ -88,7 +88,7 @@ public class DbAuthorizationFactory extends AuthorizationFactory {
         try {
             con = getDbConnection();
             pstmt = con.prepareStatement(AUTHORIZE);
-   
+
             pstmt.setString(1, username);
 
             ResultSet rs = pstmt.executeQuery();
@@ -96,17 +96,21 @@ public class DbAuthorizationFactory extends AuthorizationFactory {
                 throw new UnauthorizedException();
             }
             userID = rs.getInt("user_ID");
-        }
-        catch( SQLException sqle ) {
+        } catch (SQLException sqle) {
             System.err.println("Exception in DbAuthorizationFactory:" + sqle);
             sqle.printStackTrace();
             throw new UnauthorizedException();
-        }
-        finally {
-            try {  pstmt.close(); }
-            catch (Exception e) { e.printStackTrace(); }
-            try {  con.close();   }
-            catch (Exception e) { e.printStackTrace(); }
+        } finally {
+            try {
+                pstmt.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         //Got this far, so the user must be authorized.
         return new DbAuthorization(userID);
@@ -121,15 +125,15 @@ public class DbAuthorizationFactory extends AuthorizationFactory {
 
     /**
      * Gets a database transaction connection.
-    private Connection getDbTransConnection() throws SQLException {
-      return Common.getTransConnection();
-    }
+     private Connection getDbTransConnection() throws SQLException {
+     return Common.getTransConnection();
+     }
      */
 
     /**
      * Gets a database connection.
      */
     private Connection getDbConnection() throws SQLException {
-      return DBMS.getConnection();
+        return DBMS.getConnection();
     }
-} 
+}

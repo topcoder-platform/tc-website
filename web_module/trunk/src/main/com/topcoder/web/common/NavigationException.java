@@ -36,7 +36,7 @@ public class NavigationException extends TCWebException {
     }
 
     public boolean hasUrl() {
-        return url!=null;
+        return url != null;
     }
 
     public String getUrl() {

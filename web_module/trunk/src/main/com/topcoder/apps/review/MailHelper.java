@@ -5,15 +5,7 @@ package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.document.Appeal;
 import com.topcoder.apps.review.document.InitialSubmission;
-import com.topcoder.apps.review.projecttracker.Phase;
-import com.topcoder.apps.review.projecttracker.PhaseInstance;
-import com.topcoder.apps.review.projecttracker.Project;
-import com.topcoder.apps.review.projecttracker.ProjectType;
-import com.topcoder.apps.review.projecttracker.ReviewerResponsibility;
-import com.topcoder.apps.review.projecttracker.Role;
-import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
-import com.topcoder.apps.review.projecttracker.User;
-import com.topcoder.apps.review.projecttracker.UserRole;
+import com.topcoder.apps.review.projecttracker.*;
 import com.topcoder.file.render.RecordTag;
 import com.topcoder.file.render.ValueTag;
 import com.topcoder.file.render.XMLDocument;
@@ -21,11 +13,8 @@ import com.topcoder.file.render.xsl.XSLTransformerWrapper;
 import com.topcoder.file.render.xsl.XSLTransformerWrapperException;
 import com.topcoder.message.email.EmailEngine;
 import com.topcoder.message.email.TCSEmailMessage;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
+
+import java.io.*;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -71,15 +60,19 @@ class MailHelper {
 
     private static String getPlaceString(int place) {
         switch (place % 10) {
-            case 1: return place + "st";
-            case 2: return place + "nd";
-            case 3: return place + "rd";
-            default: return place + "th";
+            case 1:
+                return place + "st";
+            case 2:
+                return place + "nd";
+            case 3:
+                return place + "rd";
+            default:
+                return place + "th";
         }
     }
 
     static void resultsMail(SecurityEnabledUser from, User to, double score, int place, Project project)
-                     throws Exception {
+            throws Exception {
         // fill common data into the xml
         XMLDocument xmlDocument = new XMLDocument("MAILDATA");
         xmlDocument.addTag(new ValueTag("CODER_HANDLE", to.getHandle()));
@@ -282,13 +275,13 @@ class MailHelper {
     private static void generatePhaseDetail(XMLDocument xmlDocument, Project proj) {
         PhaseInstance[] phases = proj.getTimeline();
         xmlDocument.addTag(new ValueTag("SCREENING_DATE",
-                           formatDate(phases[0].getStartDate()) + " - " + formatDate(phases[0].getEndDate())));
+                formatDate(phases[0].getStartDate()) + " - " + formatDate(phases[0].getEndDate())));
         xmlDocument.addTag(new ValueTag("REVIEW_DATE",
-                           formatDate(phases[1].getStartDate()) + " - " + formatDate(phases[1].getEndDate())));
+                formatDate(phases[1].getStartDate()) + " - " + formatDate(phases[1].getEndDate())));
         xmlDocument.addTag(new ValueTag("AGGREGATION_DATE",
-                           formatDate(phases[2].getStartDate()) + " - " + formatDate(phases[2].getEndDate())));
+                formatDate(phases[2].getStartDate()) + " - " + formatDate(phases[2].getEndDate())));
         xmlDocument.addTag(new ValueTag("FINAL_REVIEW_DATE",
-                           formatDate(phases[3].getStartDate()) + " - " + formatDate(phases[3].getEndDate())));
+                formatDate(phases[3].getStartDate()) + " - " + formatDate(phases[3].getEndDate())));
     }
 
     /**
@@ -308,7 +301,7 @@ class MailHelper {
      * @exception FileNotFoundException if the XSL file is not found
      */
     private static String formatBody(XMLDocument xmlDocument, String bodyXSL)
-                throws XSLTransformerWrapperException, FileNotFoundException {
+            throws XSLTransformerWrapperException, FileNotFoundException {
         String xmlData = xmlDocument.createXML();
         if (EJBHelper.isTestMode()) {
             LogHelper.log(xmlData);
@@ -339,7 +332,7 @@ class MailHelper {
                 RecordTag comp = new RecordTag("REVIEWER");
                 comp.addTag(new ValueTag("REVIEWER_ROLE", resp.getName()));
                 comp.addTag(new ValueTag("REVIEWER_HANDLE",
-                                         roles[i].getUser() == null ? "" : roles[i].getUser().getHandle()));
+                        roles[i].getUser() == null ? "" : roles[i].getUser().getHandle()));
                 int payment = (int) roles[i].getPaymentInfo().getPayment();
                 if (resp.getId() == ReviewerResponsibility.ID_FAILURE) {
                     payment += primaryExtraPayment;
@@ -360,7 +353,7 @@ class MailHelper {
      */
     private static String formatAddress(User user) {
         return "\"" + user.getFirstName() + " " + user.getLastName()
-            + " [" + user.getHandle() + "]\" <" + user.getEmail() + ">";
+                + " [" + user.getHandle() + "]\" <" + user.getEmail() + ">";
     }
 
     /**

@@ -1,8 +1,11 @@
 package com.topcoder.web.hs.controller.requests;
 
-import com.topcoder.shared.security.*;
-import com.topcoder.web.common.*;
-import com.topcoder.web.hs.common.*;
+import com.topcoder.shared.security.PathResource;
+import com.topcoder.shared.security.Resource;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.hs.common.Constants;
 
 /**
  * A RequestProcessor which builds a path to a static page out of a numbered series of parameters.

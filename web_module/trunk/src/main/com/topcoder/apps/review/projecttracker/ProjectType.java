@@ -1,7 +1,7 @@
 /*
  * ProjectType.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.projecttracker;
@@ -37,7 +37,7 @@ public class ProjectType implements Serializable {
      * <p>
      * Return the name of this project type.
      * </p>
-     * 
+     *
      * @return a String with the name of this project type.
      */
     public String getName() {
@@ -48,7 +48,7 @@ public class ProjectType implements Serializable {
      * <p>
      * Return the id of this project type.
      * </p>
-     * 
+     *
      * @return the id of this project type.
      */
     public long getId() {

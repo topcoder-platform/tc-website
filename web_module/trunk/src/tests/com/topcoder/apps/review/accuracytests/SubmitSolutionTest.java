@@ -17,14 +17,14 @@ import com.topcoder.apps.review.accuracytests.ejb.*;
  * @author  valeriy
  */
 public class SubmitSolutionTest extends AbstractAccuracyTest {
-    
+
     private SubmitSolution submitSolution;
-    
+
     /** Creates a new instance of SubmitSolutionTest */
     public SubmitSolutionTest(String name) {
         super(name);
     }
-    
+
     public void setUp() throws Exception {
         super.setUp();
         setUpUsers();
@@ -33,7 +33,7 @@ public class SubmitSolutionTest extends AbstractAccuracyTest {
         setUpDocuments();
         submitSolution = new SubmitSolution();
     }
-    
+
     public void testSubmitSolution1() throws Exception {
         try {
             project.setCurrentPhase(phases[0]);
@@ -48,11 +48,11 @@ public class SubmitSolutionTest extends AbstractAccuracyTest {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
 
     }
-    
+
     public void testSubmitSolution2() throws Exception {
         try {
             project.setCurrentPhase(phases[0]);
@@ -65,7 +65,7 @@ public class SubmitSolutionTest extends AbstractAccuracyTest {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
     }
 
@@ -81,7 +81,7 @@ public class SubmitSolutionTest extends AbstractAccuracyTest {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Unexpected exception "+e);
+            fail("Unexpected exception " + e);
         }
 
     }

@@ -1,7 +1,7 @@
 /*
  * DocumentManagerTest.java
  *
- * Copyright © 2002, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2002, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.projecttracker;
@@ -166,7 +166,7 @@ public class ProjectTrackerTest extends ServletTestCase {
     protected void setUp() throws Exception {
         Context ctx = new InitialContext();
         ProjectTrackerLocalHome home = (ProjectTrackerLocalHome) PortableRemoteObject.narrow(ctx.lookup(
-                    "com.topcoder.apps.review.projecttracker.ProjectTrackerLocalHome"), ProjectTrackerLocalHome.class);
+                "com.topcoder.apps.review.projecttracker.ProjectTrackerLocalHome"), ProjectTrackerLocalHome.class);
         this.projectTracker = home.create();
 
         try {
@@ -260,16 +260,16 @@ public class ProjectTrackerTest extends ServletTestCase {
         java.sql.Date _startDate2 = _endDate1;
         java.sql.Date _endDate2 = new java.sql.Date(103, 5, 30);
         insertPhaseInstance(conn, 1, 1, _startDate1, _endDate1,
-            1, ProjectTrackerTest.PROJECT_ID1,
-            ProjectTrackerTest.USER_ID1, true);
+                1, ProjectTrackerTest.PROJECT_ID1,
+                ProjectTrackerTest.USER_ID1, true);
         _pi1 = new PhaseInstance(1, _phase1, _startDate1, _endDate1, 1);
 
         insertPhaseInstance(conn, 2, 2, _startDate2, _endDate2,
-            2, ProjectTrackerTest.PROJECT_ID1,
-            ProjectTrackerTest.USER_ID1, true);
+                2, ProjectTrackerTest.PROJECT_ID1,
+                ProjectTrackerTest.USER_ID1, true);
         _pi2 = new PhaseInstance(2, _phase2, _startDate2, _endDate2, 2);
 
-        _piArr = new PhaseInstance[] { _pi1, _pi2 };
+        _piArr = new PhaseInstance[]{_pi1, _pi2};
 
         // CREATE USER_ROLES
         System.err.println("Create user_roles");
@@ -282,25 +282,25 @@ INSERT INTO R_USER_ROLE VALUES (
     CURRENT, 2059064, 1);
 INSERT INTO R_USER_ROLE VALUES (
     3, 3, 3, 1, 296745, 3, 2,
-    CURRENT, 2059064, 1);   
+    CURRENT, 2059064, 1);
 INSERT INTO R_USER_ROLE VALUES (
     4, 4, 3, 1, 278342, 4, 1,
     CURRENT, 2059064, 1);
 INSERT INTO R_USER_ROLE VALUES (
     5, 5, 3, 1, 279471, 5, 3,
-    CURRENT, 2059064, 1);   
+    CURRENT, 2059064, 1);
 INSERT INTO R_USER_ROLE VALUES (
     6, 6, 4, 1, 296745, 6, NULL,
     CURRENT, 2059064, 1);
 INSERT INTO R_USER_ROLE VALUES (
     7, 7, 5, 1, 296745, 7, NULL,
-    CURRENT, 2059064, 1);   
+    CURRENT, 2059064, 1);
 INSERT INTO R_USER_ROLE VALUES (
     8, 8, 6, 1, 296466, 8, NULL,
     CURRENT, 2059064, 1);
 INSERT INTO R_USER_ROLE VALUES (
     9, 9, 7, 1, 154322, 9, NULL,
-    CURRENT, 2059064, 1);   
+    CURRENT, 2059064, 1);
 */
         insertUserRole(conn, 1, 1, _role1.getId(),
                 ProjectTrackerTest.PROJECT_ID1,
@@ -320,7 +320,7 @@ INSERT INTO R_USER_ROLE VALUES (
                 ProjectTrackerTest.USER_ID3, true);
         _ur3 = new UserRole(3, _role6, _user3, _paymentInfo2, null, 3);
 
-        _userRoleArr = new UserRole[] { _ur1, _ur2, _ur3 };
+        _userRoleArr = new UserRole[]{_ur1, _ur2, _ur3};
 
         // CREATE PROJECTS
         System.err.println("Create projects");
@@ -449,6 +449,7 @@ INSERT INTO R_USER_ROLE VALUES (
             e.printStackTrace();
         }
     }
+
     /**
      * DOCUMENT ME!
      */
@@ -479,13 +480,13 @@ INSERT INTO R_USER_ROLE VALUES (
             project = projectTracker.getProjectById(PROJECT_ID1, _user2);
             checkProject("testSaveProject().save2:", _project, project);
             */
-            
+
             // Change phase to generate scorecards
             PhaseInstance[] pi = project.getTimeline();
             Phase newPhase = null;
             System.err.println("pi:length IS: " + pi.length);
             for (int i = 0; i < pi.length; i++) {
-                System.err.println("pi["+i+"].phase.id IS: " + pi[i].getPhase().getId());
+                System.err.println("pi[" + i + "].phase.id IS: " + pi[i].getPhase().getId());
                 if (pi[i].getPhase().getId() == 2) {
                     newPhase = pi[i].getPhase();
                     break;
@@ -630,7 +631,7 @@ INSERT INTO R_USER_ROLE VALUES (
             assertNull(s + "userrole.reviewerresponsibility", u2.getReviewerResponsibility());
         } else {
             checkReviewerResponsibility(s + "userrole.reviewerresponsibility:", u1.getReviewerResponsibility(),
-                   u2.getReviewerResponsibility());
+                    u2.getReviewerResponsibility());
         }
     }
 
@@ -736,8 +737,8 @@ INSERT INTO R_USER_ROLE VALUES (
      * @param curVersion DOCUMENT ME!
      */
     public static void insertProject(Connection conn, long project_v_id, long project_id, long compVersId, long phaseInstanceId,
-        long winnerId, String overview, String notes, long projectTypeId, long projectStatId, boolean notificationSent,
-        long modUserId, String modReason, boolean curVersion) {
+                                     long winnerId, String overview, String notes, long projectTypeId, long projectStatId, boolean notificationSent,
+                                     long modUserId, String modReason, boolean curVersion) {
         try {
             PreparedStatement ps = conn.prepareStatement("INSERT INTO project VALUES (" +
                     "?,?,?,?,?,?,?,?,?,?,current year to fraction(3),?,?,?)");
@@ -775,7 +776,7 @@ INSERT INTO R_USER_ROLE VALUES (
      * @param curVersion DOCUMENT ME!
      */
     public static void insertPhaseInstance(Connection conn, long phase_inst_v_id, long phase_instance_id,
-        java.sql.Date startDate, java.sql.Date endDate, long phaseId, long projectId, long modUserId, boolean curVersion) {
+                                           java.sql.Date startDate, java.sql.Date endDate, long phaseId, long projectId, long modUserId, boolean curVersion) {
         try {
             PreparedStatement ps = conn.prepareStatement("INSERT INTO phase_instance VALUES (" +
                     "?,?,?,?,?,?,current year to fraction(3),?,?)");
@@ -809,7 +810,7 @@ INSERT INTO R_USER_ROLE VALUES (
      * @param curVersion DOCUMENT ME!
      */
     public static void insertUserRole(Connection conn, long r_user_role_v_id, long r_user_role_id, long rRoleId,
-        long projectId, long loginId, long paymentInfoId, long rRespId, long modUserId, boolean curVersion) {
+                                      long projectId, long loginId, long paymentInfoId, long rRespId, long modUserId, boolean curVersion) {
         try {
             PreparedStatement ps = conn.prepareStatement("INSERT INTO r_user_role VALUES (" +
                     "?,?,?,?,?,?,?,current year to fraction(3),?,?)");
@@ -845,7 +846,7 @@ INSERT INTO R_USER_ROLE VALUES (
      * @param curVersion DOCUMENT ME!
      */
     public static void insertPaymentInfo(Connection conn, long payment_info_v_id, long payment_info_id, float payment,
-        long paymentStatId, long modUserId, boolean curVersion) {
+                                         long paymentStatId, long modUserId, boolean curVersion) {
         try {
             PreparedStatement ps = conn.prepareStatement("INSERT INTO payment_info VALUES (" +
                     "?,?,?,?,current year to fraction(3),?,?)");

@@ -6,27 +6,28 @@
 
 package com.topcoder.web.corp.controller.request.screening;
 
-import com.topcoder.web.corp.common.Constants;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.corp.controller.request.screening.BaseSessionProcessor;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.corp.common.ScreeningException;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.corp.common.Constants;
+import com.topcoder.web.corp.common.ScreeningException;
 import com.topcoder.web.corp.common.Util;
 import com.topcoder.web.corp.model.DemographicModel;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
+
 /**
  *
  * @author  rfairfax
  */
 public class Demographics extends BaseScreeningProcessor {
-    
+
     private static Logger log = Logger.getLogger(Demographics.class);
-    
+
     protected void screeningProcessing() throws com.topcoder.web.common.TCWebException {
         try {
             String campaignId = getRequest().getParameter(Constants.CAMPAIGN_ID);
@@ -35,7 +36,7 @@ public class Demographics extends BaseScreeningProcessor {
                 log.error("Campaign ID is not specified.");
                 throw new ScreeningException("No campaign ID had been specified.");
             }
-            
+
             log.debug("CAMPAIGN ID:" + campaignId);
 
             Request dataRequest = new Request();
@@ -63,10 +64,10 @@ public class Demographics extends BaseScreeningProcessor {
 
                 rsc = (ResultSetContainer) resultMap.get("campaign_coders_by_type");
                 ResultSetContainer.ResultSetRow coderCountRow = rsc.getRow(0);
-                
+
                 log.debug("CODER TYPE: " + types[typeI]);
-                log.debug("COUNT: " +coderCountRow.getItem("coder_type_count").toString());
-                
+                log.debug("COUNT: " + coderCountRow.getItem("coder_type_count").toString());
+
                 if (types[typeI] == Constants.STUDENT)
                     m.setStudentCount(Integer.parseInt(coderCountRow.getItem("coder_type_count").toString()));
                 else if (types[typeI] == Constants.PROFESSIONAL)
@@ -113,17 +114,15 @@ public class Demographics extends BaseScreeningProcessor {
                 throw new ScreeningException(" cid=" + campaignId +
                         "does not belong to uid=" + getUser().getId());
             }
-            
+
             getRequest().setAttribute("demographicInfo", m);
 
             setNextPage(Constants.DEMOGRAPHICS_PAGE);
-            setIsNextPageInContext(true); 
-        }
-        catch(Exception e)
-        {
+            setIsNextPageInContext(true);
+        } catch (Exception e) {
             throw new TCWebException(e);
         }
     }
-    
-    
+
+
 }

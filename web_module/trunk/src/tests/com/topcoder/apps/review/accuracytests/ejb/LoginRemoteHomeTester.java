@@ -12,7 +12,7 @@ import java.rmi.RemoteException;
  *
  * @author TCDEVELOPER
  * @version 1.0
- * @version Copyright © 2003, TopCoder Software, Inc. All rights reserved
+ * @version Copyright ï¿½ 2003, TopCoder Software, Inc. All rights reserved
  */
 public class LoginRemoteHomeTester implements LoginRemoteHome {
 
@@ -48,6 +48,6 @@ public class LoginRemoteHomeTester implements LoginRemoteHome {
     }
 
     public com.topcoder.security.login.LoginRemote create() throws CreateException, EJBException {
-        return (LoginRemote)LoginLocalHomeTester.getInstance().create();
+        return (LoginRemote) LoginLocalHomeTester.getInstance().create();
     }
 }

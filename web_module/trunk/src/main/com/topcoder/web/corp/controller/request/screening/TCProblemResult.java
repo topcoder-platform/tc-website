@@ -3,12 +3,11 @@ package com.topcoder.web.corp.controller.request.screening;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.corp.common.Constants;
 import com.topcoder.web.corp.common.ScreeningException;
 import com.topcoder.web.corp.common.Util;
 import com.topcoder.web.corp.model.SubmissionInfo;
-import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.TCWebException;
 
 import java.util.Map;
 

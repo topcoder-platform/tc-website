@@ -1,23 +1,21 @@
 package com.topcoder.web.privatelabel.controller.request;
 
+import com.topcoder.common.web.data.CoderRegistration;
+import com.topcoder.common.web.data.Country;
+import com.topcoder.common.web.data.State;
+import com.topcoder.ejb.UserServices.UserServices;
+import com.topcoder.ejb.UserServices.UserServicesHome;
+import com.topcoder.shared.util.*;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.ejb.coder.Coder;
+import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
-import com.topcoder.web.privatelabel.model.FullRegInfo;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.SessionInfo;
-import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.ejb.user.User;
-import com.topcoder.web.ejb.coder.Coder;
-import com.topcoder.shared.util.*;
-import com.topcoder.security.UserPrincipal;
-import com.topcoder.ejb.UserServices.UserServicesHome;
-import com.topcoder.ejb.UserServices.UserServices;
-import com.topcoder.common.web.data.CoderRegistration;
-import com.topcoder.common.web.data.State;
-import com.topcoder.common.web.data.Country;
 
-import javax.transaction.UserTransaction;
 import javax.transaction.Status;
+import javax.transaction.UserTransaction;
 
 public class GoogleRegSubmit extends FullRegSubmit {
 

@@ -1,11 +1,10 @@
 package com.topcoder.web.codinginterface.techassess.model;
 
-import com.topcoder.shared.problem.Problem;
-import com.topcoder.shared.problem.DataType;
-import com.topcoder.shared.language.Language;
 import com.topcoder.shared.language.BaseLanguage;
+import com.topcoder.shared.language.Language;
+import com.topcoder.shared.problem.DataType;
+import com.topcoder.shared.problem.Problem;
 import com.topcoder.web.common.render.DataTypeRenderer;
-import com.topcoder.web.common.render.TextElementRenderer;
 
 import java.io.Serializable;
 
@@ -101,9 +100,10 @@ public class ProblemInfo implements Serializable {
      * @return
      */
     public String getClassName() {
-        if (problem!=null) {
+        if (problem != null) {
             return problem.getComponent(0).getClassName();
-        } else return className;
+        } else
+            return className;
     }
 
     public void setClassName(String className) {
@@ -120,8 +120,8 @@ public class ProblemInfo implements Serializable {
 
     public long getTimeRemaining() {
         long ret = 0;
-        if (startTime>0) {
-            ret = System.currentTimeMillis()+time-startTime;
+        if (startTime > 0) {
+            ret = System.currentTimeMillis() + time - startTime;
         } else {
             ret = time;
         }

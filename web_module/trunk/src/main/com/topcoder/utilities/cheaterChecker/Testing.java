@@ -1,17 +1,16 @@
 package com.topcoder.utilities.cheaterChecker;
 
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.utilities.CommentStripper;
 
 import javax.sql.DataSource;
-import java.util.List;
-import java.util.ArrayList;
-import java.sql.ResultSet;
-import java.sql.PreparedStatement;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Testing {
     private static Logger log = Logger.getLogger(Testing.class);
@@ -26,7 +25,7 @@ public class Testing {
             return;
         }
         componentId = Long.parseLong(args[0]);
-        if (args.length==2)
+        if (args.length == 2)
             companyId = Long.parseLong(args[1]);
 
         try {
@@ -37,7 +36,7 @@ public class Testing {
             if (submissions != null && submissions.size() > 0) {
                 Submission temp = (Submission) submissions.get(0);
                 log.info("running testing fraud detect for component: " +
-                        temp.getClassName() + "(" + componentId + ")" + (companyId>0?" company: " + companyId:"") +
+                        temp.getClassName() + "(" + componentId + ")" + (companyId > 0 ? " company: " + companyId : "") +
                         " for " + submissions.size() + " submissions");
                 List normalizedSource = new ArrayList(submissions.size());
                 for (int i = 0; i < submissions.size(); i++) {
@@ -259,7 +258,7 @@ public class Testing {
             query.append(" AND scf.component_state_id = cc.component_state_id");
             query.append(" AND scf.sort_order = 1");
             query.append(" AND cc.component_id = co.component_id");
-            if (companyId>0) {
+            if (companyId > 0) {
                 query.append(" AND cc.session_id IN (SELECT session_id");
                 query.append("                FROM session_profile sp");
                 query.append("                   , session s");
@@ -270,7 +269,7 @@ public class Testing {
 
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, componentId);
-            if (companyId>0) {
+            if (companyId > 0) {
                 ps.setLong(2, companyId);
             }
 
@@ -325,7 +324,6 @@ public class Testing {
 
         return ret;
     }
-
 
 
 }

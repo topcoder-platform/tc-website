@@ -1,13 +1,12 @@
 /*
  * AggregationApprovalManager.java
  *
- * Copyright © 2002, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2002, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.document;
 
 import com.topcoder.apps.review.persistence.Common;
-
 import com.topcoder.util.cache.refreshable.RefreshException;
 import com.topcoder.util.cache.refreshable.Refreshable;
 
@@ -15,7 +14,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -79,6 +77,7 @@ public class AggregationApprovalManager implements Refreshable {
 
         aggregationApprovalMap = newMap;
     }
-     // end getAggregationApproval        
+    // end getAggregationApproval
 }
- // end AggregationApprovalManager
+
+// end AggregationApprovalManager

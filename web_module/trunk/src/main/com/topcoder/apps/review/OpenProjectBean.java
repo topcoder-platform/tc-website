@@ -1,11 +1,11 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 
 package com.topcoder.apps.review;
 
-import com.topcoder.apps.review.projecttracker.UserProjectInfo;
 import com.topcoder.apps.review.projecttracker.ProjectType;
+import com.topcoder.apps.review.projecttracker.UserProjectInfo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,19 +19,19 @@ import java.util.List;
 public class OpenProjectBean {
 
     // --------------------------------------------------- Instance Variables
-    
+
     /**
      * The project list.
      */
     private List list = new ArrayList();
-    
+
     /**
      * The project type.
      */
     private ProjectType type = null;
-    
+
     // --------------------------------------------------------- Constructor
-    
+
     /**
      * <p>
      * Creates the instance.
@@ -47,7 +47,7 @@ public class OpenProjectBean {
                 this.list.add(list[i]);
             }
         }
-        
+
         this.type = type;
     }
 
@@ -57,40 +57,40 @@ public class OpenProjectBean {
      * <p>
      * Return the project list information.
      * </p>
-     * 
+     *
      * @return the project list information.
      */
-    public List getProjectList() {        
+    public List getProjectList() {
         return list;
-    } // end getProject     
-    
+    } // end getProject
+
     /**
      * <p>
      * Return the type name.
      * </p>
-     * 
+     *
      * @return the type name.
      */
     public String getTypeName() {
         return type.getName();
     }
-    
+
     /**
      * <p>
      * Return the type id.
      * </p>
-     * 
+     *
      * @return the type id.
      */
     public long getTypeId() {
         return type.getId();
     }
-    
+
     /**
      * <p>
      * Return the number of projects in this type.
      * </p>
-     * 
+     *
      * @return the number of projects in this type.
      */
     public int getSize() {

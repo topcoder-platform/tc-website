@@ -1,16 +1,18 @@
 package com.topcoder.utilities.cheaterChecker;
 
-import java.io.FileOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ClassSource implements TokenizedSource {
     private List tokens = null;
+
     public ClassSource(byte[] file) throws Exception {
         File tempfile = null;
         Runtime rt = Runtime.getRuntime();
-        Process p = null;;
+        Process p = null;
+        ;
         FileOutputStream fos = null;
 
         tempfile = new File("./tempfile." + System.currentTimeMillis() + ".tmp");

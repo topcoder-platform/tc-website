@@ -1,6 +1,8 @@
 package com.topcoder.common.web.data.stat.coder;
 
-import com.topcoder.shared.docGen.xml.*;
+import com.topcoder.shared.docGen.xml.RecordTag;
+import com.topcoder.shared.docGen.xml.TagRenderer;
+import com.topcoder.shared.docGen.xml.ValueTag;
 
 import java.io.Serializable;
 import java.text.DateFormat;

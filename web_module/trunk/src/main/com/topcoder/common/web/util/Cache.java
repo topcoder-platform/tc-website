@@ -134,7 +134,7 @@ public class Cache {
     public static DataCache get(InitialContext ctx) throws Exception {
         DataCache result = null;
         try {
-            result = (DataCache)BaseProcessor.createEJB(ctx, DataCache.class);
+            result = (DataCache) BaseProcessor.createEJB(ctx, DataCache.class);
         } catch (Exception ex) {
             ex.printStackTrace();
             throw new Exception(

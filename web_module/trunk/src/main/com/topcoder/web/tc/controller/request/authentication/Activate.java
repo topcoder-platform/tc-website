@@ -1,25 +1,24 @@
 package com.topcoder.web.tc.controller.request.authentication;
 
-import com.topcoder.web.tc.controller.request.Base;
-import com.topcoder.web.tc.Constants;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.ejb.coder.Coder;
-import com.topcoder.web.ejb.user.User;
-import com.topcoder.web.ejb.email.Email;
+import com.topcoder.common.web.error.TCException;
+import com.topcoder.ejb.UserServices.UserServices;
+import com.topcoder.ejb.UserServices.UserServicesHome;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.Transaction;
-import com.topcoder.common.web.error.TCException;
-import com.topcoder.ejb.UserServices.UserServicesHome;
-import com.topcoder.ejb.UserServices.UserServices;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.ejb.coder.Coder;
+import com.topcoder.web.ejb.email.Email;
+import com.topcoder.web.ejb.user.User;
+import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.request.Base;
 
-import javax.naming.InitialContext;
 import javax.naming.Context;
-import javax.transaction.UserTransaction;
 import javax.transaction.Status;
+import javax.transaction.UserTransaction;
 import java.util.Arrays;
 
 public class Activate extends Base {
@@ -54,7 +53,7 @@ public class Activate extends Base {
                 User user = (User) createEJB(getInitialContext(), User.class);
                 char status = user.getStatus(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
                 if (Arrays.binarySearch(UNACTIVE_STATI, status) > 0) {
-                    doLegacyCrap((int)userId);
+                    doLegacyCrap((int) userId);
                     Email email = (Email) createEJB(getInitialContext(), Email.class);
                     email.setStatusId(email.getPrimaryEmailId(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME),
                             EmailActivate.ACTIVE_STATUS, DBMS.COMMON_OLTP_DATASOURCE_NAME);

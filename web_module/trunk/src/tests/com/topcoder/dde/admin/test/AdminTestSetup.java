@@ -15,7 +15,9 @@ import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.security.login.LoginRemote;
 import com.topcoder.security.login.LoginRemoteHome;
+
 import javax.rmi.PortableRemoteObject;
+
 import junit.framework.Test;
 
 /**
@@ -29,7 +31,7 @@ import junit.framework.Test;
 public class AdminTestSetup extends UserTestSetup {
 
     private static int adminInitializationCount = 0;
-    
+
     static PrincipalMgrRemote principalMgr;
     static AdminLogin adminLogin;
     static LoginRemote login;
@@ -46,16 +48,16 @@ public class AdminTestSetup extends UserTestSetup {
             if (adminInitializationCount++ == 0) {
                 PrincipalMgrRemoteHome principalMgrHome =
                         (PrincipalMgrRemoteHome) PortableRemoteObject.narrow(
-                        namingContext.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME),
-                        PrincipalMgrRemoteHome.class);
+                                namingContext.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME),
+                                PrincipalMgrRemoteHome.class);
                 AdminLoginHome adminLoginHome =
                         (AdminLoginHome) PortableRemoteObject.narrow(
-                        namingContext.lookup("AdminLoginEJB"),
-                        AdminLoginHome.class);
+                                namingContext.lookup("AdminLoginEJB"),
+                                AdminLoginHome.class);
                 LoginRemoteHome loginHome =
                         (LoginRemoteHome) PortableRemoteObject.narrow(
-                        namingContext.lookup(LoginRemoteHome.EJB_REF_NAME),
-                        LoginRemoteHome.class);
+                                namingContext.lookup(LoginRemoteHome.EJB_REF_NAME),
+                                LoginRemoteHome.class);
                 principalMgr = principalMgrHome.create();
                 adminLogin = adminLoginHome.create();
                 login = loginHome.create();
@@ -64,7 +66,7 @@ public class AdminTestSetup extends UserTestSetup {
             }
         }
     }
-    
+
     public void tearDown() throws Exception {
         synchronized (AdminTestSetup.class) {
             if (--adminInitializationCount == 0) {
@@ -75,5 +77,5 @@ public class AdminTestSetup extends UserTestSetup {
         }
         super.tearDown();
     }
-    
+
 }

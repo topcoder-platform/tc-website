@@ -1,18 +1,18 @@
 package com.topcoder.web.tc.controller.request.development;
 
-import com.topcoder.web.common.*;
-import com.topcoder.web.ejb.rboard.RBoardUser;
-import com.topcoder.web.ejb.rboard.RBoardApplication;
-import com.topcoder.web.ejb.user.UserTermsOfUse;
-import com.topcoder.web.ejb.termsofuse.TermsOfUse;
-import com.topcoder.web.tc.Constants;
-import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.*;
+import com.topcoder.web.ejb.rboard.RBoardApplication;
+import com.topcoder.web.ejb.rboard.RBoardUser;
+import com.topcoder.web.ejb.termsofuse.TermsOfUse;
+import com.topcoder.web.ejb.user.UserTermsOfUse;
+import com.topcoder.web.tc.Constants;
 
-import java.util.Map;
 import java.rmi.RemoteException;
+import java.util.Map;
 
 /**
  * @author dok

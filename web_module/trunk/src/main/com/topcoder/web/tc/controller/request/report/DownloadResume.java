@@ -1,12 +1,12 @@
 package com.topcoder.web.tc.controller.request.report;
 
-import com.topcoder.web.ejb.resume.ResumeServices;
-import com.topcoder.web.common.*;
-import com.topcoder.web.tc.controller.legacy.resume.bean.Resume;
-import com.topcoder.web.tc.controller.request.Base;
-import com.topcoder.web.tc.Constants;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.*;
+import com.topcoder.web.ejb.resume.ResumeServices;
+import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.legacy.resume.bean.Resume;
+import com.topcoder.web.tc.controller.request.Base;
 
 import javax.servlet.ServletOutputStream;
 
@@ -19,7 +19,7 @@ public class DownloadResume extends Base {
     protected void businessProcessing() throws com.topcoder.web.common.TCWebException {
 
         try {
-            if (((SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin()) {
+            if (((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin()) {
                 long uid = Long.parseLong(getRequest().getParameter(Constants.USER_ID));
 
                 ResumeServices resumeServices = (ResumeServices) BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);

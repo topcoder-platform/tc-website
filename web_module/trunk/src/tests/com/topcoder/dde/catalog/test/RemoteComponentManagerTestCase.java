@@ -24,6 +24,7 @@ import com.topcoder.dde.catalog.Download;
  * @author John C. Bollinger
  * @version 1.0
  */
+
 public class RemoteComponentManagerTestCase extends RemoteCatalogTestCase {
 
     protected long newVersionNumber;
@@ -38,7 +39,7 @@ public class RemoteComponentManagerTestCase extends RemoteCatalogTestCase {
     public RemoteComponentManagerTestCase(String testName) {
         super(testName);
     }
-    
+
     public void setUp() throws Exception {
         super.setUp();
         newVersionNumber = ComponentManagerTestSetup.newVersionNumber;
@@ -52,7 +53,7 @@ public class RemoteComponentManagerTestCase extends RemoteCatalogTestCase {
         manager3 = componentManagerHome.create(summary2.getComponentId(),
                 newVersionNumber);
     }
-    
+
     public void tearDown() throws Exception {
         manager1.remove();
         manager2.remove();

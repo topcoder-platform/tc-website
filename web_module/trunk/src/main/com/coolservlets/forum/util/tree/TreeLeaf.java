@@ -1,4 +1,3 @@
-
 /**
  *  TreeLeaf.java
  */
@@ -11,7 +10,7 @@ public class TreeLeaf extends TreeObject {
     private String name;
     private String link;
 
-    public TreeLeaf( String name, String link ) {
+    public TreeLeaf(String name, String link) {
         super(1);
         this.id = id;
         this.name = name;
@@ -21,14 +20,16 @@ public class TreeLeaf extends TreeObject {
     public int getId() {
         return this.id;
     }
-    public void setId( int id ) {
+
+    public void setId(int id) {
         this.id = id;
     }
 
     public String getName() {
         return name;
     }
+
     public String getLink() {
         return link;
     }
-} 
+}

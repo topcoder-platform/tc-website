@@ -1,43 +1,48 @@
 package com.topcoder.dde.user;
 
-import java.io.*;
-import java.rmi.RemoteException;
-import java.sql.Timestamp;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-import javax.rmi.PortableRemoteObject;
-import javax.sql.*;
-import java.util.*;
-import javax.ejb.*;
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.xml.transform.*;
-import javax.xml.transform.stream.*;
-
 import com.topcoder.apps.review.projecttracker.ProjectTracker;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerHome;
 import com.topcoder.dde.DDEException;
-import com.topcoder.dde.catalog.ComponentVersionInfo;
 import com.topcoder.dde.persistencelayer.interfaces.*;
 import com.topcoder.file.render.ValueTag;
 import com.topcoder.file.render.XMLDocument;
 import com.topcoder.message.email.EmailEngine;
 import com.topcoder.message.email.TCSEmailMessage;
-import com.topcoder.security.*;
-import com.topcoder.security.admin.*;
-import com.topcoder.security.login.*;
+import com.topcoder.security.GeneralSecurityException;
+import com.topcoder.security.GroupPrincipal;
+import com.topcoder.security.TCSubject;
+import com.topcoder.security.UserPrincipal;
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.admin.PrincipalMgrRemoteHome;
+import com.topcoder.security.login.AuthenticationException;
+import com.topcoder.security.login.LoginRemote;
+import com.topcoder.security.login.LoginRemoteHome;
 import com.topcoder.util.TCException;
 import com.topcoder.util.config.*;
-
-import com.topcoder.util.idgenerator.bean.*;
-import com.topcoder.util.idgenerator.sql.SimpleDB;
-
-
+import com.topcoder.util.idgenerator.bean.IdGen;
+import com.topcoder.util.idgenerator.bean.IdGenException;
+import com.topcoder.util.idgenerator.bean.IdGenHome;
 import org.apache.log4j.Logger;
+
+import javax.ejb.*;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.rmi.PortableRemoteObject;
+import javax.sql.DataSource;
+import javax.xml.transform.Source;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
+import java.io.File;
+import java.io.StringReader;
+import java.io.StringWriter;
+import java.rmi.RemoteException;
+import java.sql.*;
+import java.util.*;
+import java.util.Date;
 
 /**
  * Use this beans to register users, add customer information to an existing
@@ -51,10 +56,10 @@ import org.apache.log4j.Logger;
 public class UserManagerBean implements SessionBean, ConfigManagerInterface {
     private SessionContext ejbContext;
 
-    private static final String PROPERTIES_NAMESPACE="com.topcoder.dde.user.UserManagerBean";
-    private static final String PROPERTIES_FORMAT=ConfigManager.CONFIG_PROPERTIES_FORMAT;
-    private static final String EMAILENGINE_PROPERTIES_NAMESPACE="com.topcoder.message.email.EmailEngine";
-    private static final String EMAILENGINE_PROPERTIES_FORMAT=ConfigManager.CONFIG_XML_FORMAT;
+    private static final String PROPERTIES_NAMESPACE = "com.topcoder.dde.user.UserManagerBean";
+    private static final String PROPERTIES_FORMAT = ConfigManager.CONFIG_PROPERTIES_FORMAT;
+    private static final String EMAILENGINE_PROPERTIES_NAMESPACE = "com.topcoder.message.email.EmailEngine";
+    private static final String EMAILENGINE_PROPERTIES_FORMAT = ConfigManager.CONFIG_XML_FORMAT;
     private static final Logger logger = Logger.getLogger(UserManagerBean.class);
 
     /*
@@ -64,10 +69,18 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
     private static final String groupName = "Users";
     private static final long groupId = 2;
 
-    public void ejbCreate(){}
-    public void ejbRemove(){}
-    public void ejbActivate(){}
-    public void ejbPassivate(){}
+    public void ejbCreate() {
+    }
+
+    public void ejbRemove() {
+    }
+
+    public void ejbActivate() {
+    }
+
+    public void ejbPassivate() {
+    }
+
     public void setSessionContext(javax.ejb.SessionContext cntx) {
         this.ejbContext = cntx;
     }
@@ -100,8 +113,8 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
      * @return True if registration is successful, false otherwise
      */
     public User register(RegistrationInfo info, boolean sendActivationCode)
-        throws DDEException, DuplicateUsernameException,
-               InvalidRegistrationException, EJBException {
+            throws DDEException, DuplicateUsernameException,
+            InvalidRegistrationException, EJBException {
 
         logger.debug("UserManagerBean.register");
 
@@ -119,13 +132,13 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
 
         try {
             Context context = new InitialContext();
-    /*
-            Hashtable principalMgrEnvironment=new Hashtable();
-            principalMgrEnvironment.put(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
-            //Object url = contexts.getObject(key);
-            principalMgrEnvironment.put(Context.PROVIDER_URL, getProperty("securitymanagerip"));
-            Context principalContext  = new InitialContext(principalMgrEnvironment);
-      */
+            /*
+                    Hashtable principalMgrEnvironment=new Hashtable();
+                    principalMgrEnvironment.put(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
+                    //Object url = contexts.getObject(key);
+                    principalMgrEnvironment.put(Context.PROVIDER_URL, getProperty("securitymanagerip"));
+                    Context principalContext  = new InitialContext(principalMgrEnvironment);
+              */
 
             PrincipalMgrRemoteHome principalMgrHome = (PrincipalMgrRemoteHome) context.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
             PrincipalMgrRemote principalMgr = principalMgrHome.create();
@@ -139,7 +152,8 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
                 if (up != null) {
                     throw new DuplicateUsernameException(info.getUsername() + " already exists");
                 }
-            } catch (com.topcoder.security.NoSuchUserException ignore) {}
+            } catch (com.topcoder.security.NoSuchUserException ignore) {
+            }
             String activationCode = generateActivationCode();
 
             UserPrincipal up = principalMgr.createUser(info.getUsername(), info.getPassword(), tcs);
@@ -195,138 +209,177 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
                                                                         info.getNewsInHtml(), activationCode, info.getEmail(), userMaster, countryCodes,
                                                                         companySize, priceTiers);
                                                                         */
-        Connection conn = null;
-        PreparedStatement ps  = null;
-        PreparedStatement ps1  = null;
-        PreparedStatement ps2  = null;
-        PreparedStatement ps3  = null;
-        PreparedStatement ps4  = null;
-        PreparedStatement ps5  = null;
-        PreparedStatement ps6  = null;
-        try {
-logger.debug("get ds");
-            DataSource datasource = (DataSource) context.lookup("java:comp/env/jdbc/DefaultDS");
-logger.debug("got ds");
-            conn = datasource.getConnection();
-            logger.debug("id gen");
-            //LocalIdGenHome localIdGenHome=(LocalIdGenHome) context.lookup("local/LocalIdGenEJB");
-            logger.debug("id gen a");
-            //LocalIdGen localIdGen=localIdGenHome.create();
+            Connection conn = null;
+            PreparedStatement ps = null;
+            PreparedStatement ps1 = null;
+            PreparedStatement ps2 = null;
+            PreparedStatement ps3 = null;
+            PreparedStatement ps4 = null;
+            PreparedStatement ps5 = null;
+            PreparedStatement ps6 = null;
+            try {
+                logger.debug("get ds");
+                DataSource datasource = (DataSource) context.lookup("java:comp/env/jdbc/DefaultDS");
+                logger.debug("got ds");
+                conn = datasource.getConnection();
+                logger.debug("id gen");
+                //LocalIdGenHome localIdGenHome=(LocalIdGenHome) context.lookup("local/LocalIdGenEJB");
+                logger.debug("id gen a");
+                //LocalIdGen localIdGen=localIdGenHome.create();
 
-            IdGenHome idGenHome=(IdGenHome) context.lookup("idgenerator/IdGenEJB");
-            IdGen localIdGen=idGenHome.create();
-            /*
-            if (!IdGenerator.isInitialized()) {
-                IdGenerator.init(
-                        new SimpleDB(),
-                        datasource,
-                        "sequence_object",
-                        "name",
-                        "current_value",
-                        9999999999L,
-                        1,
-                        false
-                );
+                IdGenHome idGenHome = (IdGenHome) context.lookup("idgenerator/IdGenEJB");
+                IdGen localIdGen = idGenHome.create();
+                /*
+                if (!IdGenerator.isInitialized()) {
+                    IdGenerator.init(
+                            new SimpleDB(),
+                            datasource,
+                            "sequence_object",
+                            "name",
+                            "current_value",
+                            9999999999L,
+                            1,
+                            false
+                    );
+                }
+                */
+                logger.debug("user");
+                String query = " INSERT INTO  common_oltp:user (user_id,handle,status, first_name, last_name, activation_code)" +
+                        " VALUES (?,?,?,?,?,?)";
+                ps = conn.prepareStatement(query);
+                ps.setLong(1, userId);
+                ps.setString(2, info.getUsername());
+                ps.setString(3, "U");
+                ps.setString(4, info.getFirstName());
+                ps.setString(5, info.getLastName());
+                ps.setString(6, activationCode);
+                ps.execute();
+
+                logger.debug("user done");
+
+                long emailId = localIdGen.nextId("EMAIL_SEQ");
+
+                logger.debug("getting email id HERE 2");
+                String emailQuery = " INSERT INTO  common_oltp:email (email_id, user_id, address, primary_ind, email_type_id)" +
+                        " VALUES (?,?,?,?,?)";
+                ps1 = conn.prepareStatement(emailQuery);
+                ps1.setLong(1, emailId);
+                ps1.setLong(2, userId);
+                ps1.setString(3, info.getEmail());
+                ps1.setLong(4, 1L);
+                ps1.setLong(5, 1L);
+                ps1.execute();
+                logger.debug("email done");
+
+
+                long addressId = localIdGen.nextId("ADDRESS_SEQ");
+                String addressQuery = " INSERT INTO common_oltp:address (address_id, address_type_id, address1, address2, city, state_code, zip, country_code)" +
+                        " VALUES (?,?, ?,?, ?, ?,?,?)";
+                ps2 = conn.prepareStatement(addressQuery);
+                ps2.setLong(1, addressId);
+                ps2.setLong(2, 1L);
+                ps2.setString(3, info.getAddress());
+                ps2.setString(4, info.getAddress2());
+                ps2.setString(5, info.getCity());
+                ps2.setString(6, info.getState());
+                ps2.setString(7, info.getPostalcode());
+                ps2.setLong(8, info.getCountryCode());
+
+                ps2.execute();
+                logger.debug("address done");
+
+                String addressXref = "INSERT INTO common_oltp:user_address_xref (user_id, address_id) VALUES (?,?)";
+                ps3 = conn.prepareStatement(addressXref);
+                ps3.setLong(1, userId);
+                ps3.setLong(2, addressId);
+                ps3.execute();
+                logger.debug("address xref done");
+
+                long phoneId = localIdGen.nextId("PHONE_SEQ");
+                String phoneQuery = "INSERT INTO common_oltp:phone (user_id, phone_id, phone_number, primary_ind) VALUES(?,?,?,1)";
+                ps4 = conn.prepareStatement(phoneQuery);
+                ps4.setLong(1, userId);
+                ps4.setLong(2, phoneId);
+                ps4.setString(3, info.getPhoneCountry() + info.getPhoneArea() + info.getPhoneNumber());
+                ps4.execute();
+                logger.debug("phone done");
+
+
+                long companyId = localIdGen.nextId("COMPANY_SEQ");
+                ps5 = conn.prepareStatement("INSERT INTO common_oltp:company (company_id, primary_contact_id, company_name) " +
+                        "VALUES (?,?,?)");
+                ps5.setLong(1, companyId);
+                ps5.setLong(2, userId);
+                ps5.setString(3, info.getCompany());
+                ps5.execute();
+                logger.debug("company done");
+
+                ps6 = conn.prepareStatement("INSERT INTO common_oltp:contact (company_id, contact_id) " +
+                        "VALUES (?,?)");
+                ps6.setLong(1, companyId);
+                ps6.setLong(2, userId);
+                ps6.execute();
+
+
+                conn.close();
+                logger.debug("close done");
+
+            } catch (SQLException sqle) {
+                throw new DDEException("" + sqle);
+            } catch (IdGenException sqle) {
+                throw new DDEException("could not generate id" + sqle);
+            } catch (NamingException e) {
+                throw new EJBException("" + e);
+            } finally {
+                if (ps != null) try {
+                    ps.close();
+                } catch (SQLException sqle) {
+                } finally {
+                    ps = null;
+                }
+                if (ps1 != null) try {
+                    ps1.close();
+                } catch (SQLException sqle) {
+                } finally {
+                    ps1 = null;
+                }
+                if (ps2 != null) try {
+                    ps2.close();
+                } catch (SQLException sqle) {
+                } finally {
+                    ps2 = null;
+                }
+                if (ps3 != null) try {
+                    ps3.close();
+                } catch (SQLException sqle) {
+                } finally {
+                    ps3 = null;
+                }
+                if (ps4 != null) try {
+                    ps4.close();
+                } catch (SQLException sqle) {
+                } finally {
+                    ps4 = null;
+                }
+                if (ps5 != null) try {
+                    ps5.close();
+                } catch (SQLException sqle) {
+                } finally {
+                    ps5 = null;
+                }
+                if (ps6 != null) try {
+                    ps6.close();
+                } catch (SQLException sqle) {
+                } finally {
+                    ps6 = null;
+                }
+                if (conn != null) try {
+                    conn.close();
+                } catch (SQLException sqle) {
+                } finally {
+                    conn = null;
+                }
             }
-            */
-            logger.debug("user");
-            String query = " INSERT INTO  common_oltp:user (user_id,handle,status, first_name, last_name, activation_code)" +
-                           " VALUES (?,?,?,?,?,?)";
-            ps = conn.prepareStatement(query);
-            ps.setLong(1, userId);
-            ps.setString(2, info.getUsername());
-            ps.setString(3, "U");
-            ps.setString(4, info.getFirstName());
-            ps.setString(5, info.getLastName());
-            ps.setString(6, activationCode);
-            ps.execute();
-
-            logger.debug("user done");
-
-            long emailId =  localIdGen.nextId("EMAIL_SEQ");
-
-            logger.debug("getting email id HERE 2");
-            String emailQuery = " INSERT INTO  common_oltp:email (email_id, user_id, address, primary_ind, email_type_id)" +
-                           " VALUES (?,?,?,?,?)";
-            ps1 = conn.prepareStatement(emailQuery);
-            ps1.setLong(1, emailId);
-            ps1.setLong(2, userId);
-            ps1.setString(3, info.getEmail());
-            ps1.setLong(4, 1L);
-            ps1.setLong(5, 1L);
-            ps1.execute();
-            logger.debug("email done");
-
-
-            long addressId = localIdGen.nextId("ADDRESS_SEQ");
-            String addressQuery = " INSERT INTO common_oltp:address (address_id, address_type_id, address1, address2, city, state_code, zip, country_code)" +
-                           " VALUES (?,?, ?,?, ?, ?,?,?)";
-            ps2 = conn.prepareStatement(addressQuery);
-            ps2.setLong(1, addressId);
-            ps2.setLong(2, 1L);
-            ps2.setString(3, info.getAddress());
-            ps2.setString(4, info.getAddress2());
-            ps2.setString(5, info.getCity());
-            ps2.setString(6, info.getState());
-            ps2.setString(7, info.getPostalcode());
-            ps2.setLong(8, info.getCountryCode());
-
-            ps2.execute();
-            logger.debug("address done");
-
-            String addressXref = "INSERT INTO common_oltp:user_address_xref (user_id, address_id) VALUES (?,?)";
-            ps3 = conn.prepareStatement(addressXref);
-            ps3.setLong(1, userId);
-            ps3.setLong(2, addressId);
-            ps3.execute();
-            logger.debug("address xref done");
-
-            long phoneId = localIdGen.nextId("PHONE_SEQ");
-            String phoneQuery = "INSERT INTO common_oltp:phone (user_id, phone_id, phone_number, primary_ind) VALUES(?,?,?,1)";
-            ps4 = conn.prepareStatement(phoneQuery);
-            ps4.setLong(1, userId);
-            ps4.setLong(2, phoneId);
-            ps4.setString(3, info.getPhoneCountry()+ info.getPhoneArea() +info.getPhoneNumber());
-            ps4.execute();
-            logger.debug("phone done");
-
-
-
-            long companyId = localIdGen.nextId("COMPANY_SEQ");
-            ps5 = conn.prepareStatement("INSERT INTO common_oltp:company (company_id, primary_contact_id, company_name) " +
-                    "VALUES (?,?,?)");
-            ps5.setLong(1, companyId);
-            ps5.setLong(2, userId);
-            ps5.setString(3, info.getCompany());
-            ps5.execute();
-            logger.debug("company done");
-
-            ps6 = conn.prepareStatement("INSERT INTO common_oltp:contact (company_id, contact_id) " +
-                    "VALUES (?,?)");
-            ps6.setLong(1, companyId);
-            ps6.setLong(2, userId);
-            ps6.execute();
-
-
-            conn.close();
-            logger.debug("close done");
-
-        } catch (SQLException sqle) {
-            throw new DDEException("" + sqle);
-        } catch (IdGenException sqle) {
-            throw new DDEException("could not generate id" + sqle);
-        } catch (NamingException e) {
-            throw new EJBException("" + e);
-        } finally {
-            if (ps != null) try { ps.close(); } catch(SQLException sqle) {} finally { ps = null; }
-            if (ps1 != null) try { ps1.close(); } catch(SQLException sqle) {} finally { ps1 = null; }
-            if (ps2 != null) try { ps2.close(); } catch(SQLException sqle) {} finally { ps2 = null; }
-            if (ps3 != null) try { ps3.close(); } catch(SQLException sqle) {} finally { ps3 = null; }
-            if (ps4 != null) try { ps4.close(); } catch(SQLException sqle) {} finally { ps4 = null; }
-            if (ps5 != null) try { ps5.close(); } catch(SQLException sqle) {} finally { ps5 = null; }
-            if (ps6 != null) try { ps6.close(); } catch(SQLException sqle) {} finally { ps6 = null; }
-            if (conn != null) try { conn.close(); } catch(SQLException sqle) {} finally { conn = null; }
-        }
 
             //LocalDDEUserTechnologiesHome userTechnologiesHome = (LocalDDEUserTechnologiesHome) context.lookup(LocalDDEUserTechnologiesHome.EJB_REF_NAME);
             //LocalDDETechnologyTypesHome technologyTypesHome = (LocalDDETechnologyTypesHome) context.lookup(LocalDDETechnologyTypesHome.EJB_REF_NAME);
@@ -379,15 +432,15 @@ logger.debug("got ds");
      * @return the user
      */
     public User activate(String activationCode)
-        throws DDEException, NoSuchUserException, EJBException {
+            throws DDEException, NoSuchUserException, EJBException {
 
         final String sqlSelect = "select c.*" +
-                                  " from user_customer c" +
-                                 " where c.activation_code = ?";
+                " from user_customer c" +
+                " where c.activation_code = ?";
 
         final String sqlUpdate = "update common_oltp:user " +
-                                   " set status = 'A'" +
-                                 " where user_id = ?";
+                " set status = 'A'" +
+                " where user_id = ?";
 
         Connection conn = null;
         PreparedStatement ps = null;
@@ -421,9 +474,24 @@ logger.debug("got ds");
         } catch (NamingException e) {
             throw new EJBException("" + e);
         } finally {
-            if (rs != null) try { rs.close(); } catch(SQLException sqle) {} finally { rs = null; }
-            if (ps != null) try { ps.close(); } catch(SQLException sqle) {} finally { ps = null; }
-            if (conn != null) try { conn.close(); } catch(SQLException sqle) {} finally { conn = null; }
+            if (rs != null) try {
+                rs.close();
+            } catch (SQLException sqle) {
+            } finally {
+                rs = null;
+            }
+            if (ps != null) try {
+                ps.close();
+            } catch (SQLException sqle) {
+            } finally {
+                ps = null;
+            }
+            if (conn != null) try {
+                conn.close();
+            } catch (SQLException sqle) {
+            } finally {
+                conn = null;
+            }
         }
     }
 
@@ -436,8 +504,8 @@ logger.debug("got ds");
      *             other field is up to date.
      */
     public void updateUser(User user) throws DDEException, NoSuchUserException,
-                                             EJBException, InvalidRegistrationException {
-            throw new DDEException("method is not implemented");
+            EJBException, InvalidRegistrationException {
+        throw new DDEException("method is not implemented");
     }
 
     /**
@@ -449,7 +517,7 @@ logger.debug("got ds");
      * @param user The user to remove
      */
     public void removeUser(User user) throws DDEException, NoSuchUserException,
-                                             EJBException {
+            EJBException {
         throw new DDEException("Method not implemented");
     }
 
@@ -462,7 +530,7 @@ logger.debug("got ds");
      * @param username The username of the user to be removed.
      */
     public void removeUser(String username)
-        throws DDEException, NoSuchUserException, EJBException  {
+            throws DDEException, NoSuchUserException, EJBException {
         throw new DDEException("Method not implemented");
     }
 
@@ -475,9 +543,9 @@ logger.debug("got ds");
      * @return A User object
      */
     public User getUser(String username) throws DDEException, NoSuchUserException,
-                                                EJBException {
+            EJBException {
 
-        if (username==null) {
+        if (username == null) {
             throw new NoSuchUserException("There can not be any user's with null usernames");
         }
         try {
@@ -510,7 +578,7 @@ logger.debug("got ds");
      * @return A User object
      */
     public User getUser(long userId) throws DDEException, NoSuchUserException,
-                                            EJBException {
+            EJBException {
         User user = new User(userId);
         logger.debug("getting user: " + userId);
         RegistrationInfo ri = new RegistrationInfo();
@@ -569,7 +637,7 @@ logger.debug("got ds");
             //logger.debug("setCompanySize");
             LocalDDEPriceTiers priceTiers = userCustomer.getPriceTiers();
             PricingTier pricingTier = new PricingTier(((Long) priceTiers.getPrimaryKey()).longValue(),
-                                                      priceTiers.getDiscountPercent());
+                    priceTiers.getDiscountPercent());
             ri.setPricingTier(pricingTier);
 
             LocalDDECountryCodes countryCode = userCustomer.getCountryCodes();
@@ -658,15 +726,15 @@ logger.debug("got ds");
      * @return a TCSubject object
      */
     public TCSubject login(String username, String password)
-        throws AuthenticationException, DDEException, EJBException {
+            throws AuthenticationException, DDEException, EJBException {
 
         logger.debug("test");
-        if (username==null || password==null) {
+        if (username == null || password == null) {
             throw new AuthenticationException("Users with null username or password can not exist and therefor can not be logged in");
         }
         try {
 
-            Context context  = new InitialContext();
+            Context context = new InitialContext();
 
             LoginRemoteHome loginHome = (LoginRemoteHome) context.lookup(LoginRemoteHome.EJB_REF_NAME);
             LoginRemote login = loginHome.create();
@@ -676,21 +744,19 @@ logger.debug("got ds");
             long userId = user.getUserId();
             logger.debug("got user" + userId);
             LocalDDEUserMasterHome userMasterHome = (LocalDDEUserMasterHome) context.lookup(LocalDDEUserMasterHome.EJB_REF_NAME);
-            logger.debug("got master" );
+            logger.debug("got master");
             LocalDDEUserMaster userMaster = null;
-            try{
-               userMaster = userMasterHome.findByPrimaryKey(new Long(userId));
-            }
-            catch(ObjectNotFoundException onfe)
-            {
+            try {
+                userMaster = userMasterHome.findByPrimaryKey(new Long(userId));
+            } catch (ObjectNotFoundException onfe) {
                 Timestamp lastLoginTime = new Timestamp(System.currentTimeMillis());
                 userMaster = userMasterHome.create(userId, lastLoginTime, 1);
             }
             logger.debug("got master i");
 
             String sqlSelect = "select u.status" +
-                                      " from common_oltp:user u" +
-                                     " where u.user_id = ?";
+                    " from common_oltp:user u" +
+                    " where u.user_id = ?";
 
 
             Connection conn = null;
@@ -722,13 +788,25 @@ logger.debug("got ds");
             } catch (NamingException e) {
                 throw new EJBException("" + e);
             } finally {
-                if (rs != null) try { rs.close(); } catch(SQLException sqle) {} finally { rs = null; }
-                if (ps != null) try { ps.close(); } catch(SQLException sqle) {} finally { ps = null; }
-                if (conn != null) try { conn.close(); } catch(SQLException sqle) {} finally { conn = null; }
+                if (rs != null) try {
+                    rs.close();
+                } catch (SQLException sqle) {
+                } finally {
+                    rs = null;
+                }
+                if (ps != null) try {
+                    ps.close();
+                } catch (SQLException sqle) {
+                } finally {
+                    ps = null;
+                }
+                if (conn != null) try {
+                    conn.close();
+                } catch (SQLException sqle) {
+                } finally {
+                    conn = null;
+                }
             }
-
-
-
 
 
             logger.debug("Status for user " + userId + " is " + statusId);
@@ -765,15 +843,12 @@ logger.debug("got ds");
     }
 
 
-
-
-
     /**
      * Part of <code>ConfigManagerInterface</code>
      *
      * @return current namespace
      */
-    public String getNamespace(){
+    public String getNamespace() {
         return PROPERTIES_NAMESPACE;
     }
 
@@ -782,9 +857,8 @@ logger.debug("got ds");
      *
      * @return all known property keys in this namespace
      */
-    public Enumeration getConfigPropNames()
-    {
-        Vector propNames=new Vector();
+    public Enumeration getConfigPropNames() {
+        Vector propNames = new Vector();
         propNames.add("from");
         propNames.add("subject");
         propNames.add("url");
@@ -793,6 +867,7 @@ logger.debug("got ds");
         propNames.add("passwordmessage");
         return propNames.elements();
     }
+
     /**
      * Generate a pseudo random activation code.  This code is a 32 character
      * string that consists of a randomly generated alpha numeric string
@@ -824,7 +899,7 @@ logger.debug("got ds");
      * @param activationCode
      */
     private void sendActivationEmail(String email, String activationCode)
-        throws DDEException {
+            throws DDEException {
 
         logger.debug("sendActivationEmail to: " + email);
         String from = getProperty("from");
@@ -850,7 +925,7 @@ logger.debug("got ds");
      * @param activationCode
      */
     private String generateMessage(String activationCode)
-        throws DDEException {
+            throws DDEException {
 
         String path = getProperty("message");
         logger.debug(path);
@@ -879,7 +954,7 @@ logger.debug("got ds");
      * @param username
      */
     public void sendPasswordEmail(String username)
-        throws DDEException, NoSuchUserException {
+            throws DDEException, NoSuchUserException {
 
         TCSEmailMessage msg = new TCSEmailMessage();
         try {
@@ -943,7 +1018,7 @@ logger.debug("got ds");
         try {
             ConfigManager cm = getConfigManager();
             String prop = (String)
-            cm.getProperty(PROPERTIES_NAMESPACE, property);
+                    cm.getProperty(PROPERTIES_NAMESPACE, property);
             return prop;
         } catch (ConfigManagerException e) {
             throw new DDEException("" + e);
@@ -953,9 +1028,9 @@ logger.debug("got ds");
 
     public void registerInquiry(long userId, long componentId, long rating, long tcUserId,
                                 String comments, boolean agreeToTerms, long phase, long version, long projectId)
-        throws RemoteException, DDEException, NoSuchUserException,
-                EJBException {
-        try{
+            throws RemoteException, DDEException, NoSuchUserException,
+            EJBException {
+        try {
             Context context = new InitialContext();
             LocalDDEComponentInquiryHome componentInquiryHome = (LocalDDEComponentInquiryHome) context.lookup(LocalDDEComponentInquiryHome.EJB_REF_NAME);
             logger.debug("AgreeToTerms: " + agreeToTerms);
@@ -971,12 +1046,10 @@ logger.debug("got ds");
 
             pt.userInquiry(userId, projectId);
             logger.debug("ProjectTracker.userInquiry called");
-        }
-        catch(CreateException ce){
+        } catch (CreateException ce) {
             ejbContext.setRollbackOnly();
             throw new DDEException("Could not create Component Inquiry: " + ce.getMessage());
-        }
-        catch(NamingException ne){
+        } catch (NamingException ne) {
             ejbContext.setRollbackOnly();
             throw new DDEException("Could not create context: " + ne.getMessage());
         } catch (TCException e) {
@@ -1037,24 +1110,22 @@ logger.debug("got ds");
 
 
     public boolean sampleInquiry(String firstName, String lastName,
-                          String emailAddress, String catalog, int countryId, int contactMe)
-        throws RemoteException, EJBException{
+                                 String emailAddress, String catalog, int countryId, int contactMe)
+            throws RemoteException, EJBException {
 
-            boolean success = true;
-            try{
-                Context context = new InitialContext();
-                LocalDDESampleDownloadHome sampleDownloadHome = (LocalDDESampleDownloadHome) context.lookup(LocalDDESampleDownloadHome.EJB_REF_NAME);
-                LocalDDESampleDownload sampleDownload = sampleDownloadHome.create(catalog, firstName, lastName, emailAddress, countryId, contactMe);
-            }
-            catch(CreateException ce){
-                success = false;
-                logger.error("sample Inquiry:" + ce);
-            }
-            catch(NamingException ne){
-                success = false;
-                logger.error("sample Inquiry:" + ne);
-            }
-            return success;
+        boolean success = true;
+        try {
+            Context context = new InitialContext();
+            LocalDDESampleDownloadHome sampleDownloadHome = (LocalDDESampleDownloadHome) context.lookup(LocalDDESampleDownloadHome.EJB_REF_NAME);
+            LocalDDESampleDownload sampleDownload = sampleDownloadHome.create(catalog, firstName, lastName, emailAddress, countryId, contactMe);
+        } catch (CreateException ce) {
+            success = false;
+            logger.error("sample Inquiry:" + ce);
+        } catch (NamingException ne) {
+            success = false;
+            logger.error("sample Inquiry:" + ne);
+        }
+        return success;
 
     }
 

@@ -5,18 +5,16 @@
 package com.topcoder.apps.review;
 
 import com.topcoder.util.log.Level;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.ServletOutputStream;
-import org.apache.struts.action.ActionError;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
-import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionForwards;
+import org.apache.struts.action.ActionMapping;
 
-import java.io.InputStream;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Hashtable;
 
 /**
@@ -44,16 +42,16 @@ public class TestCasesDownloadAction extends ReviewAction {
      * Initializes the mime types.
      */
     private void init() {
-        htMimeTypes.put(".doc",  "application/msword");
-        htMimeTypes.put(".xls",  "application/msexcel");
-        htMimeTypes.put(".txt",  "text/plain");
-        htMimeTypes.put(".xml",  "text/xml");
-        htMimeTypes.put(".gif",  "image/gif");
-        htMimeTypes.put(".jpg",  "image/jpeg");
+        htMimeTypes.put(".doc", "application/msword");
+        htMimeTypes.put(".xls", "application/msexcel");
+        htMimeTypes.put(".txt", "text/plain");
+        htMimeTypes.put(".xml", "text/xml");
+        htMimeTypes.put(".gif", "image/gif");
+        htMimeTypes.put(".jpg", "image/jpeg");
         htMimeTypes.put(".jpeg", "image/jpeg");
-        htMimeTypes.put(".pdf",  "application/pdf");
-        htMimeTypes.put(".zip",  "application/x-zip-compressed");
-        htMimeTypes.put(".jar",  "application/x-zip-compressed");
+        htMimeTypes.put(".pdf", "application/pdf");
+        htMimeTypes.put(".zip", "application/x-zip-compressed");
+        htMimeTypes.put(".jar", "application/x-zip-compressed");
     }
 
     /**
@@ -79,8 +77,8 @@ public class TestCasesDownloadAction extends ReviewAction {
                                    ActionForwards forwards,
                                    OnlineReviewProjectData orpd) {
         log(Level.INFO, "TestCasesDownloadAction: User '"
-                        + orpd.getUser().getHandle() + "' in session "
-                        + request.getSession().getId());
+                + orpd.getUser().getHandle() + "' in session "
+                + request.getSession().getId());
 
         // Get the id parameter
         long rid = -1;
@@ -95,7 +93,7 @@ public class TestCasesDownloadAction extends ReviewAction {
         SubmissionDownloadData data = new SubmissionDownloadData(orpd, rid);
         ResultData result = businessDelegate.testCasesDownload(data);
 
-        if (result instanceof SuccessResult)  {
+        if (result instanceof SuccessResult) {
             SubmissionDownloadRetrieval sdr = (SubmissionDownloadRetrieval) result;
             String filename = sdr.getUserFilename();
             String mimeType = "";
@@ -114,7 +112,7 @@ public class TestCasesDownloadAction extends ReviewAction {
                 ServletOutputStream out = response.getOutputStream();
 
                 // Set headers
-                response.setHeader("Content-Disposition","attachment;filename=\"" + filename + "\"");
+                response.setHeader("Content-Disposition", "attachment;filename=\"" + filename + "\"");
                 response.setContentType(mimeType);
                 response.setContentLength(is.available());
 

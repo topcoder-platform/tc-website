@@ -16,13 +16,10 @@ public class HttpObjectFactory {
         //the request only to find out that it is not a multipart request
         if (contentType == null || !contentType.toLowerCase().startsWith("multipart/form-data")) {
             ret = new SimpleRequest(r);
-        } else if(contentType.toLowerCase().startsWith("multipart/form-data")) {
-            try
-            {
+        } else if (contentType.toLowerCase().startsWith("multipart/form-data")) {
+            try {
                 ret = new MultipartRequest(r);
-            }
-            catch(IOException ex)
-            {
+            } catch (IOException ex) {
                 return null;
             }
         } else {
@@ -31,7 +28,8 @@ public class HttpObjectFactory {
         }
         return ret;
     }
-    public static TCResponse createResponse(HttpServletResponse r ) {
+
+    public static TCResponse createResponse(HttpServletResponse r) {
         return new SimpleResponse(r);
     }
 }

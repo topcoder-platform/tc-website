@@ -1,17 +1,19 @@
 package com.topcoder.web.corp.controller.request;
 
-import com.topcoder.security.*;
+import com.topcoder.security.GeneralSecurityException;
+import com.topcoder.security.RolePrincipal;
+import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.web.common.StringUtils;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.corp.Constants;
 import com.topcoder.web.corp.Util;
 import com.topcoder.web.corp.controller.MisconfigurationException;
@@ -19,14 +21,13 @@ import com.topcoder.web.ejb.address.Address;
 import com.topcoder.web.ejb.address.AddressHome;
 import com.topcoder.web.ejb.company.Company;
 import com.topcoder.web.ejb.company.CompanyHome;
-import com.topcoder.web.ejb.user.*;
 import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.web.ejb.termsofuse.TermsOfUseHome;
+import com.topcoder.web.ejb.user.*;
 
 import javax.ejb.CreateException;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.sql.DataSource;
 import java.rmi.RemoteException;
 import java.util.Iterator;
 import java.util.Map;
@@ -117,7 +118,7 @@ public final class Registration extends UserEdit {
                     password = mgr.getPassword(targetUserID);
                     password2 = password;
                     userName = secTok.targetUser.getName();
-                    icEJB = (InitialContext)TCContext.getInitial();
+                    icEJB = (InitialContext) TCContext.getInitial();
                     retrieveUserDataFromDB(icEJB);
                 } finally {
                     Util.closeIC(icEJB);
@@ -148,7 +149,7 @@ public final class Registration extends UserEdit {
         InitialContext ic = null;
         ResultSetContainer rsc = null;
         try {
-            ic = (InitialContext)TCContext.getInitial();
+            ic = (InitialContext) TCContext.getInitial();
             DataAccessInt dai = new DataAccess(DBMS.CORP_OLTP_DATASOURCE_NAME);
             dataRequest.setContentHandle("cmd-states-list");
             Map resultMap = dai.getData(dataRequest);
@@ -160,10 +161,10 @@ public final class Registration extends UserEdit {
             rsc = (ResultSetContainer) resultMap.get("Country_List");
             getRequest().setAttribute("rsc-countries-list", rsc);
 
-            TermsOfUse terms = ((TermsOfUseHome)ic.lookup(TermsOfUseHome.EJB_REF_NAME)).create();
+            TermsOfUse terms = ((TermsOfUseHome) ic.lookup(TermsOfUseHome.EJB_REF_NAME)).create();
             setDefault(Constants.KEY_TERMS, terms.getText(Constants.CORP_SITE_TERMS_ID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME));
 
-            UserTermsOfUse userTerms = ((UserTermsOfUseHome)ic.lookup(UserTermsOfUseHome.EJB_REF_NAME)).create();
+            UserTermsOfUse userTerms = ((UserTermsOfUseHome) ic.lookup(UserTermsOfUseHome.EJB_REF_NAME)).create();
             if (userTerms.hasTermsOfUse(getAuthentication().getUser().getId(), Constants.CORP_SITE_TERMS_ID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME)) {
                 setDefault(Constants.KEY_AGREE_TO_TERMS, Boolean.TRUE.toString());
             } else {
@@ -215,7 +216,7 @@ public final class Registration extends UserEdit {
                 "and punctuation signs only (no more than 7 words)"
                 );
 
-        valid &=  simpleValidityCheck(KEY_ADDRLINE2,compAddress2,0,254, "Please enter a shorter address2.");
+        valid &= simpleValidityCheck(KEY_ADDRLINE2, compAddress2, 0, 254, "Please enter a shorter address2.");
 
         valid &= // city validity (required)
                 checkItemValidity(KEY_CITY, city,
@@ -303,7 +304,7 @@ public final class Registration extends UserEdit {
         boolean techProblems = false;
         boolean success = false;
         try {
-            ic = (InitialContext)TCContext.getInitial();
+            ic = (InitialContext) TCContext.getInitial();
             Request stateRequest = new Request();
             if (KEY_STATE.equals(key)) {
                 stateRequest.setContentHandle("cmd-state-name-from-id");
@@ -394,7 +395,7 @@ public final class Registration extends UserEdit {
                 String tmp = rsc.getItem(0, "address_id").getResultData().toString();
                 addressID = Long.parseLong(tmp);
             } catch (IndexOutOfBoundsException e) {
-				e.printStackTrace();
+                e.printStackTrace();
             }
         }
         if (addressID < 0) {
@@ -414,7 +415,7 @@ public final class Registration extends UserEdit {
         }
         addrTable.setZip(addressID, zip, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
 
-        UserTermsOfUse userTerms = ((UserTermsOfUseHome)ic.lookup(UserTermsOfUseHome.EJB_REF_NAME)).create();
+        UserTermsOfUse userTerms = ((UserTermsOfUseHome) ic.lookup(UserTermsOfUseHome.EJB_REF_NAME)).create();
         if (!userTerms.hasTermsOfUse(getAuthentication().getUser().getId(), Constants.CORP_SITE_TERMS_ID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME)) {
             userTerms.createUserTermsOfUse(targetUserID, Constants.CORP_SITE_TERMS_ID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
         }

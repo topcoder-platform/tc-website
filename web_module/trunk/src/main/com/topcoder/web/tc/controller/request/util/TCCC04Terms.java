@@ -1,14 +1,13 @@
 package com.topcoder.web.tc.controller.request.util;
 
-import com.topcoder.web.tc.controller.request.Base;
-import com.topcoder.web.tc.Constants;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.ejb.termsofuse.TermsOfUse;
-import com.topcoder.web.ejb.user.UserTermsOfUse;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.security.SimpleResource;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.ejb.termsofuse.TermsOfUse;
+import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.request.Base;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -33,7 +32,7 @@ public class TCCC04Terms extends Base {
                 } else {
                     if (!TCCC04TermsAgree.isRegistered(getUser().getId())) {
                         if (TCCC04TermsAgree.isEligible(getUser().getId())) {
-                            TermsOfUse terms = (TermsOfUse)createEJB(getInitialContext(), TermsOfUse.class);
+                            TermsOfUse terms = (TermsOfUse) createEJB(getInitialContext(), TermsOfUse.class);
                             getRequest().setAttribute("terms", terms.getText(Constants.TCCC04_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME));
                             setNextPage(Constants.TCCC04_TERMS);
                             setIsNextPageInContext(true);

@@ -1,4 +1,3 @@
-
 /**
  *  TreeObject.java
  */
@@ -12,7 +11,8 @@ public abstract class TreeObject {
     public TreeObject(int type) {
         this.type = type;
     }
+
     public int getType() {
         return type;
     }
-} 
+}

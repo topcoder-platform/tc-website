@@ -15,15 +15,15 @@ import java.text.SimpleDateFormat;
 import java.util.Map;
 
 public abstract class BaseSessionProcessor extends BaseScreeningProcessor {
-        private final static Logger log = Logger.getLogger(BaseSessionProcessor.class);
+    private final static Logger log = Logger.getLogger(BaseSessionProcessor.class);
     private static int BEGIN = 0;
     private static int END = 1;
 
     protected TestSessionInfo getSessionInfo() {
         HttpSession session = getRequest().getSession();
         TestSessionInfo info = (TestSessionInfo)
-            session.getAttribute(Constants.SESSION_INFO);
-        if(info == null) {
+                session.getAttribute(Constants.SESSION_INFO);
+        if (info == null) {
             info = new TestSessionInfo();
             session.setAttribute(Constants.SESSION_INFO, info);
         }
@@ -59,27 +59,27 @@ public abstract class BaseSessionProcessor extends BaseScreeningProcessor {
         TestSessionInfo info = getSessionInfo();
 
         boolean beginSuccess =
-            validateDate(BEGIN,
-                         info.getBeginMonth(),
-                         info.getBeginDay(),
-                         info.getBeginYear());
+                validateDate(BEGIN,
+                        info.getBeginMonth(),
+                        info.getBeginDay(),
+                        info.getBeginYear());
 
         boolean endSuccess =
-            validateDate(END,
-                         info.getEndMonth(),
-                         info.getEndDay(),
-                         info.getEndYear());
+                validateDate(END,
+                        info.getEndMonth(),
+                        info.getEndDay(),
+                        info.getEndYear());
 
         boolean success = (beginSuccess && endSuccess);
 
-        if(info.getBeginDate().compareTo(info.getEndDate()) >= 0) {
+        if (info.getBeginDate().compareTo(info.getEndDate()) >= 0) {
             addError("dateCompare",
                     "Begin Time must be earlier than End Time");
             success = false;
         }
 
         //check dates in db to see if we need to have them pick new ones
-        if(success) {
+        if (success) {
             SimpleDateFormat sdf = new SimpleDateFormat(DBMS.INFORMIX_DATETIME_FORMAT);
             Request dRequest = new Request();
             dRequest.setProperty(DataAccessConstants.COMMAND,
@@ -87,7 +87,7 @@ public abstract class BaseSessionProcessor extends BaseScreeningProcessor {
             dRequest.setProperty("spid", info.getProfileId());
             dRequest.setProperty("cid", info.getCandidateId());
             dRequest.setProperty("uid",
-               String.valueOf(getAuthentication().getUser().getId()));
+                    String.valueOf(getAuthentication().getUser().getId()));
             dRequest.setProperty("start", sdf.format(info.getBeginDate()));
             dRequest.setProperty("end", sdf.format(info.getEndDate()));
             log.debug("request: " + dRequest.toString());
@@ -96,19 +96,18 @@ public abstract class BaseSessionProcessor extends BaseScreeningProcessor {
 
             //first check to see if it is a dupe
             ResultSetContainer rsc = (ResultSetContainer)
-                map.get(Constants.SESSION_DUPE_CHECK_QUERY_KEY);
-            if(rsc.size() > 0) {
+                    map.get(Constants.SESSION_DUPE_CHECK_QUERY_KEY);
+            if (rsc.size() > 0) {
                 success = false;
                 addError("dateCompare", "This session already exists.");
-            }
-            else {
+            } else {
                 //if not a dupe check to see if it violates time window
                 rsc = (ResultSetContainer)
-                    map.get(Constants.SESSION_CHECK_CANDIDATE_TIME_QUERY_KEY);
-                if(rsc.size() > 0) {
+                        map.get(Constants.SESSION_CHECK_CANDIDATE_TIME_QUERY_KEY);
+                if (rsc.size() > 0) {
                     success = false;
                     addError("dateCompare",
-                        "The candidate is already scheduled during selected time period");
+                            "The candidate is already scheduled during selected time period");
                 }
             }
         }
@@ -122,30 +121,30 @@ public abstract class BaseSessionProcessor extends BaseScreeningProcessor {
                                    String year) {
         boolean success = true;
         String monthKey =
-            type == BEGIN?Constants.BEGIN_MONTH:Constants.END_MONTH;
+                type == BEGIN ? Constants.BEGIN_MONTH : Constants.END_MONTH;
         String dayKey =
-            type == BEGIN?Constants.BEGIN_DAY:Constants.END_DAY;
+                type == BEGIN ? Constants.BEGIN_DAY : Constants.END_DAY;
         String yearKey =
-            type == BEGIN?Constants.BEGIN_YEAR:Constants.END_YEAR;
+                type == BEGIN ? Constants.BEGIN_YEAR : Constants.END_YEAR;
 
-        if(month == null) {
+        if (month == null) {
             success = false;
             addError(monthKey, "Month must be set");
         }
 
-        if(day == null) {
+        if (day == null) {
             success = false;
             addError(dayKey, "Day must be set");
         }
 
-        if(year == null) {
+        if (year == null) {
             success = false;
             addError(yearKey, "Year must be set");
         }
 
-        if(success) {
+        if (success) {
             int dayInt = Integer.parseInt(day);
-            switch(Integer.parseInt(month)) {
+            switch (Integer.parseInt(month)) {
                 case 1:
                 case 3:
                 case 5:
@@ -157,7 +156,7 @@ public abstract class BaseSessionProcessor extends BaseScreeningProcessor {
                     break;
 
                 case 2:
-                    if(dayInt == 30 || dayInt == 31) {
+                    if (dayInt == 30 || dayInt == 31) {
                         success = false;
                         addError(dayKey, "Invalid day with given month");
                     }
@@ -165,9 +164,9 @@ public abstract class BaseSessionProcessor extends BaseScreeningProcessor {
                     int yearInt = Integer.parseInt(year);
                     //algorithm for leap year is, if divisible by 4 and
                     //not 100 unless also divisible by 400)
-                    if(dayInt == 29 &&
-                       !((yearInt % 4 == 0) &&
-                           ((yearInt % 100 != 0) || (yearInt % 400 == 0)))) {
+                    if (dayInt == 29 &&
+                            !((yearInt % 4 == 0) &&
+                            ((yearInt % 100 != 0) || (yearInt % 400 == 0)))) {
                         success = false;
                         addError(dayKey, "Given year is not a leap year");
                     }
@@ -177,7 +176,7 @@ public abstract class BaseSessionProcessor extends BaseScreeningProcessor {
                 case 6:
                 case 9:
                 case 11:
-                    if(dayInt == 31) {
+                    if (dayInt == 31) {
                         success = false;
                         addError(dayKey, "Invalid day with given month");
                     }

@@ -55,10 +55,10 @@ public class InputBean implements Serializable {
      */
     public boolean equals(Object o) {
         if (o instanceof QueryInputBean) {
-            return ((QueryInputBean)o).getInputId()==this.getInputId() &&
-                   ((QueryInputBean)o).getInputDesc().equals(this.getInputDesc()) &&
-                   ((QueryInputBean)o).getDataTypeId()==this.getDataTypeId() &&
-                   ((QueryInputBean)o).getInputCode().equals(this.getInputCode());
+            return ((QueryInputBean) o).getInputId() == this.getInputId() &&
+                    ((QueryInputBean) o).getInputDesc().equals(this.getInputDesc()) &&
+                    ((QueryInputBean) o).getDataTypeId() == this.getDataTypeId() &&
+                    ((QueryInputBean) o).getInputCode().equals(this.getInputCode());
         } else {
             return false;
         }

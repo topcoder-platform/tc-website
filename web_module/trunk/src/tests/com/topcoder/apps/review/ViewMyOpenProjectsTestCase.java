@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
@@ -90,7 +90,8 @@ public class ViewMyOpenProjectsTestCase extends TestCase {
      * @throws Exception propagate exceptions to JUnit
      */
     public void testBadRequest() throws Exception {
-        ResultData result = new ViewMyOpenProjects().start(new ActionData() { });
+        ResultData result = new ViewMyOpenProjects().start(new ActionData() {
+        });
         assertTrue(result instanceof FailureResult);
     }
 

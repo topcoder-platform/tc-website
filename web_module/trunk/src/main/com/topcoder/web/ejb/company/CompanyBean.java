@@ -201,7 +201,6 @@ public class CompanyBean extends BaseEJB {
     }
 
 
-
     /**
      *
      *

@@ -1,7 +1,7 @@
 package com.topcoder.web.query.servlet.jsp.tag;
 
-import com.topcoder.web.query.common.Constants;
 import com.topcoder.web.common.tag.SelectTag;
+import com.topcoder.web.query.common.Constants;
 
 import javax.servlet.jsp.JspException;
 import java.util.ArrayList;
@@ -16,19 +16,19 @@ public class DataTypeSelect extends SelectTag {
         super();
         list = new ArrayList();
         TreeMap m = null;
-        for (int i=0; i<Constants.DATA_TYPE_IDS.length; i++) {
+        for (int i = 0; i < Constants.DATA_TYPE_IDS.length; i++) {
             m = new TreeMap();
-            m.put(""+Constants.DATA_TYPE_IDS[i], Constants.DATA_TYPE_DESCS[i]);
+            m.put("" + Constants.DATA_TYPE_IDS[i], Constants.DATA_TYPE_DESCS[i]);
             list.add(m);
         }
     }
 
     protected String getOptionValue(Object o) {
-        return ((TreeMap)o).firstKey().toString();
+        return ((TreeMap) o).firstKey().toString();
     }
 
     protected String getOptionText(Object o) {
-        return ((TreeMap)o).get(((TreeMap)o).firstKey()).toString();
+        return ((TreeMap) o).get(((TreeMap) o).firstKey()).toString();
     }
 
     protected List getSelectOptions() throws JspException {

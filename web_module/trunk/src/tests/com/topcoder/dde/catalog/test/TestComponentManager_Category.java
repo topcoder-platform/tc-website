@@ -1,4 +1,4 @@
-/* 
+/*
  * TestComponentManager_Category.java
  *
  * By John C. Bollinger
@@ -10,8 +10,10 @@ package com.topcoder.dde.catalog.test;
 import com.topcoder.dde.catalog.Catalog;
 import com.topcoder.dde.catalog.CatalogException;
 import com.topcoder.dde.catalog.Category;
+
 import java.util.Collection;
 import java.util.Iterator;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -23,9 +25,9 @@ import junit.framework.TestSuite;
  * @version 1.0
  */
 public class TestComponentManager_Category
-       extends RemoteComponentManagerTestCase {
-    
-    protected Catalog catalog;   
+        extends RemoteComponentManagerTestCase {
+
+    protected Catalog catalog;
     protected Category category;
 
     /**
@@ -37,7 +39,7 @@ public class TestComponentManager_Category
     public TestComponentManager_Category(String testName) {
         super(testName);
     }
-    
+
     public void setUp() throws Exception {
         super.setUp();
         catalog = catalogHome.create();
@@ -45,13 +47,13 @@ public class TestComponentManager_Category
                 new Category("Test Category #" + idGen.nextId(),
                         "a category for use in testing"));
     }
-    
+
     public void tearDown() throws Exception {
         catalog.removeCategory(category.getId());
         catalog.remove();
         super.tearDown();
     }
-    
+
     /**
      * tests the normal functioning of the addCategory method
      */
@@ -68,7 +70,7 @@ public class TestComponentManager_Category
     /**
      * tests the functioning of the addCategory method when a category matching
      * the argument already exists
-     */    
+     */
     synchronized public void testAddCategory_Missing() throws Exception {
         try {
             manager1.addCategory(idGen.nextId());
@@ -90,24 +92,24 @@ public class TestComponentManager_Category
     /*
      * getCategories tested implicitly throughout this test case
      */
-    
+
     /**
      * tests the normal functioning of the removeCategory method
      */
     synchronized public void testRemoveCategory() throws Exception {
         manager1.addCategory(category.getId());
         Collection categories;
-        
+
         manager1.removeCategory(category.getId());
         categories = manager1.getCategories();
-        
+
         assertTrue("Category not removed", !categories.contains(category));
     }
-    
+
     /**
      * tests the functioning of the removeCategory method when no category
      * matching the argument exists
-     */    
+     */
     public void testRemoveCategory_Missing() throws Exception {
         try {
             manager1.removeCategory(idGen.nextId());
@@ -120,7 +122,7 @@ public class TestComponentManager_Category
     /**
      * tests the functioning of the removeCategory method when the category
      * matching the argument is not associated with the component being managed
-     */    
+     */
     synchronized public void testRemoveCategory_NotAssigned() throws Exception {
         manager2.addCategory(category.getId());
         try {
@@ -135,5 +137,5 @@ public class TestComponentManager_Category
     public static Test suite() {
         return new ComponentManagerTestSetup(new TestSuite(TestComponentManager_Category.class));
     }
-    
+
 }

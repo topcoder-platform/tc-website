@@ -1,19 +1,21 @@
 package com.topcoder.utilities;
 
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
-import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.idgenerator.IdGenerator;
 import com.topcoder.util.idgenerator.sql.SimpleDB;
 
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Connection;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.TreeMap;
 
 /**
  * @author  dok
@@ -28,7 +30,7 @@ public class TCCC05Payments {
 
     public static void main(String[] args) {
         TCCC05Payments p = new TCCC05Payments();
-        if (args.length!=4) {
+        if (args.length != 4) {
             p.printUsage();
         } else {
             try {
@@ -49,7 +51,7 @@ public class TCCC05Payments {
     }
 
     private void printUsage() {
-        log.info("usage: java "+ this.getClass().getName() + " <round_id> <1st money> <2nd money> <3rd money>");
+        log.info("usage: java " + this.getClass().getName() + " <round_id> <1st money> <2nd money> <3rd money>");
     }
 
     private void setRoundId(long roundId) {
@@ -71,14 +73,14 @@ public class TCCC05Payments {
 
     private final static String GET_COMPETITORS =
             "select rr.room_id, rr.round_id, rr.room_placed, rr.coder_id" +
-             " from room_result rr " +
-                " , room r " +
+            " from room_result rr " +
+            " , room r " +
             " where rr.round_id = ? " +
-              " and rr.round_id = r.round_id " +
-              " and rr.room_id = r.room_id " +
-              " and r.room_type_id = 2 " +
-              " and rr.point_total > 0 " +
-              " and rr.attended = 'Y' " +
+            " and rr.round_id = r.round_id " +
+            " and rr.room_id = r.room_id " +
+            " and r.room_type_id = 2 " +
+            " and rr.point_total > 0 " +
+            " and rr.attended = 'Y' " +
             " order by rr.room_id asc, rr.room_placed asc";
 
     private final static String ADD_PAYMENT =
@@ -106,7 +108,7 @@ public class TCCC05Payments {
             rs = psSel.executeQuery();
 
             ArrayList all = new ArrayList();
-            while(rs.next()) {
+            while (rs.next()) {
                 all.add(new Data(rs.getLong("room_id"), rs.getLong("coder_id"),
                         rs.getLong("round_id"), rs.getInt("room_placed")));
             }
@@ -128,13 +130,13 @@ public class TCCC05Payments {
                 );
             }
 
-            int count=0;
-            for (int i=0; i<winners.size(); i++) {
+            int count = 0;
+            for (int i = 0; i < winners.size(); i++) {
                 psIns.clearParameters();
-                psIns.setLong(1,IdGenerator.nextId("PAYMENT_ID_SEQ"));
-                psIns.setLong(2,((Data)winners.get(i)).getRoundId());
-                psIns.setLong(3,((Data)winners.get(i)).getCoderId());
-                psIns.setInt(4, ((Data)winners.get(i)).getPrize());
+                psIns.setLong(1, IdGenerator.nextId("PAYMENT_ID_SEQ"));
+                psIns.setLong(2, ((Data) winners.get(i)).getRoundId());
+                psIns.setLong(3, ((Data) winners.get(i)).getCoderId());
+                psIns.setInt(4, ((Data) winners.get(i)).getPrize());
                 psIns.setInt(5, 1); //Contest Payment	1
                 psIns.executeUpdate();
                 count++;
@@ -142,7 +144,7 @@ public class TCCC05Payments {
             log.debug("" + count + " total rows added");
 
         } finally {
-            if (rs!= null) {
+            if (rs != null) {
                 try {
                     rs.close();
                 } catch (Exception ignore) {
@@ -178,8 +180,6 @@ public class TCCC05Payments {
         }
 
 
-
-
     }
 
     private ArrayList getWinnerPaymentInfo(ArrayList all) {
@@ -188,44 +188,44 @@ public class TCCC05Payments {
         if (!all.isEmpty()) {
 
             TreeMap placeMap = new TreeMap();
-            Data[] data = (Data[])all.toArray(new Data[0]);
+            Data[] data = (Data[]) all.toArray(new Data[0]);
             ArrayList coders = null;
             HashSet rooms = new HashSet();
-            for (int i=0; i<data.length; i++) {
+            for (int i = 0; i < data.length; i++) {
                 //bucket everyone into room/placed buckets
-                coders = (ArrayList)placeMap.get(data[i].getRoomId()+" " + data[i].getPlaced());
+                coders = (ArrayList) placeMap.get(data[i].getRoomId() + " " + data[i].getPlaced());
                 rooms.add(new Long(data[i].getRoomId()));
-                if (coders==null) {
+                if (coders == null) {
                     coders = new ArrayList();
                 }
                 coders.add(data[i]);
-                placeMap.put(data[i].getRoomId()+" " + data[i].getPlaced(), coders);
+                placeMap.put(data[i].getRoomId() + " " + data[i].getPlaced(), coders);
             }
 
             Long currRoom = null;
             ArrayList currCoders = null;
             for (Iterator it = rooms.iterator(); it.hasNext();) {
-                currRoom = (Long)it.next();
+                currRoom = (Long) it.next();
                 int count = 0;
                 int currPlace = 1;
                 boolean done = false;
-                while (currPlace<=3&&count<=3&&!done) {
-                    currCoders = (ArrayList)placeMap.get(currRoom+" " + currPlace);
-                    if (currCoders==null) {
-                        done=true;
+                while (currPlace <= 3 && count <= 3 && !done) {
+                    currCoders = (ArrayList) placeMap.get(currRoom + " " + currPlace);
+                    if (currCoders == null) {
+                        done = true;
                     } else {
-                        count+=currCoders.size();
+                        count += currCoders.size();
                         //we'll just round everything down
                         int moneyPile = 0;
-                        for (int i=currPlace; i<currPlace+currCoders.size()&&i<money.length; i++) {
-                            moneyPile+=money[i];
+                        for (int i = currPlace; i < currPlace + currCoders.size() && i < money.length; i++) {
+                            moneyPile += money[i];
                         }
-                        int prize = (int)Math.ceil((double)moneyPile/(double)currCoders.size());
-                        for (int i=0; i<currCoders.size(); i++) {
-                            ((Data)currCoders.get(i)).setPrize(prize);
+                        int prize = (int) Math.ceil((double) moneyPile / (double) currCoders.size());
+                        for (int i = 0; i < currCoders.size(); i++) {
+                            ((Data) currCoders.get(i)).setPrize(prize);
                             ret.add(currCoders.get(i));
                         }
-                        currPlace+=currCoders.size();
+                        currPlace += currCoders.size();
                     }
                 }
             }
@@ -242,6 +242,7 @@ public class TCCC05Payments {
         private long roundId = 0;
         private int placed = 0;
         private int prize = 0;
+
         private Data(long roomId, long coderId, long roundId, int placed) {
             this.roomId = roomId;
             this.coderId = coderId;
@@ -264,12 +265,15 @@ public class TCCC05Payments {
         private int getPlaced() {
             return placed;
         }
+
         private int getPrize() {
             return prize;
         }
+
         private void setPrize(int prize) {
             this.prize = prize;
         }
+
         public String toString() {
             return "room " + roomId + " coder " + coderId + " round " +
                     roundId + " placed " + placed + " prize " + prize;

@@ -9,6 +9,7 @@
 package com.topcoder.dde.persistencelayer.test;
 
 import com.topcoder.dde.persistencelayer.interfaces.*;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -29,19 +30,19 @@ public class TestLocalDDEDownloadTrackingHome extends PersistenceTestCase {
 
     /* an instance of the localHome interface implementation to work with */
     private LocalDDEDownloadTrackingHome localHome;
-    
+
     /* default field values for entity instances */
     static final private Timestamp DEF_CREATE_TIME
             = new Timestamp(System.currentTimeMillis());
     static final private double DEF_PRICE = 1999.95d;
     static final private long DEF_UNIT_COST = 3L;
-    
+
     /**
      * a default constructor for use only by other test cases in this package
      */
     TestLocalDDEDownloadTrackingHome() {
         this("testCreate");
-    } 
+    }
 
     /**
      * constructs a new TestLocalDDEDownloadTrackingHome configured to run the named
@@ -49,7 +50,7 @@ public class TestLocalDDEDownloadTrackingHome extends PersistenceTestCase {
      */
     public TestLocalDDEDownloadTrackingHome(String testName) {
         this(testName, null);
-    } 
+    }
 
     /**
      * constructs a new TestLocalDDECategoriesHome configured to run the named
@@ -65,7 +66,7 @@ public class TestLocalDDEDownloadTrackingHome extends PersistenceTestCase {
      */
     public void setUp() throws Exception {
         super.setUp();
-        synchronized(contextLock) {
+        synchronized (contextLock) {
             localHome = (LocalDDEDownloadTrackingHome) ctx.lookup(
                     LocalDDEDownloadTrackingHome.EJB_REF_NAME);
         }
@@ -75,12 +76,12 @@ public class TestLocalDDEDownloadTrackingHome extends PersistenceTestCase {
      * creates a LocalDDEDownloadTracking entity with default parameters
      */
     LocalDDEDownloadTracking createDefault(LocalDDECompVersions version,
-            LocalDDEUserMaster master, LocalDDELicenseLevel license,
-            LocalDDECompDownload download) throws Exception {
+                                           LocalDDEUserMaster master, LocalDDELicenseLevel license,
+                                           LocalDDECompDownload download) throws Exception {
         return localHome.create(DEF_PRICE, DEF_CREATE_TIME, version, master,
                 license, download, DEF_UNIT_COST);
     }
-    
+
     /**
      * tests all entity creation functionality of the bean
      */
@@ -113,7 +114,7 @@ public class TestLocalDDEDownloadTrackingHome extends PersistenceTestCase {
                             TestLocalDDEUserMasterHome masterHome
                                     = new TestLocalDDEUserMasterHome();
                             masterHome.setUp();
-                            localMaster= masterHome.createDefault();
+                            localMaster = masterHome.createDefault();
                             assertNotNull(localMaster);
                             try {
                                 synchronized (TestLocalDDELicenseLevelHome.class) {
@@ -129,17 +130,17 @@ public class TestLocalDDEDownloadTrackingHome extends PersistenceTestCase {
                                             TestLocalDDECompDownloadHome downloadHome
                                                     = new TestLocalDDECompDownloadHome();
                                             downloadHome.setUp();
-                                            localDownload =downloadHome.createDefault(localVersion);
+                                            localDownload = downloadHome.createDefault(localVersion);
                                             assertNotNull(localDownload);
                                             try {
-                            
+
                                                 synchronized (TestLocalDDEDownloadTrackingHome.class) {
                                                     /* test normal creation */
                                                     LocalDDEDownloadTracking local =
                                                             createDefault(localVersion,
-                                                                          localMaster,
-                                                                          localLicense,
-                                                                          localDownload);
+                                                                    localMaster,
+                                                                    localLicense,
+                                                                    localDownload);
                                                     assertNotNull(local);
                                                     try {
                                                         assertEquals(DEF_CREATE_TIME,
@@ -163,7 +164,7 @@ public class TestLocalDDEDownloadTrackingHome extends PersistenceTestCase {
                                                     } finally {
                                                         local.remove();
                                                     }
-                        
+
                                                     /* test creation with null component version */
                                                     local = localHome.create(DEF_PRICE,
                                                             DEF_CREATE_TIME,
@@ -181,7 +182,7 @@ public class TestLocalDDEDownloadTrackingHome extends PersistenceTestCase {
                                                     assertNotNull(local);
                                                     local.remove();
                                                 }
-                                
+
                                             } finally {
                                                 localDownload.remove();
                                             }
@@ -203,7 +204,7 @@ public class TestLocalDDEDownloadTrackingHome extends PersistenceTestCase {
             }
         }
     }
-    
+
     public void testFindByPrimaryKey() {
         fail("Test not yet implemented");
     }
@@ -217,14 +218,14 @@ public class TestLocalDDEDownloadTrackingHome extends PersistenceTestCase {
         long unitCost;
         double price;
         Timestamp createTime;
-        
+
         DDEDownloadTrackingData(Object id, Long version, Long login,
-                Long license, Long download, long unit, double pr, Timestamp create) {
+                                Long license, Long download, long unit, double pr, Timestamp create) {
             this(keyToLong(id), version, login, license, download, unit, pr, create);
         }
-        
+
         DDEDownloadTrackingData(long id, Long version, Long login,
-                Long license, Long download, long unit, double pr, Timestamp create) {
+                                Long license, Long download, long unit, double pr, Timestamp create) {
             downloadTrackId = id;
             compVersId = version;
             loginId = login;
@@ -234,11 +235,11 @@ public class TestLocalDDEDownloadTrackingHome extends PersistenceTestCase {
             price = pr;
             createTime = (Timestamp) create.clone();
         }
-        
+
         DDEDownloadTrackingData(ResultSet rs) throws SQLException {
             readRowData(rs);
         }
-        
+
         public Object getPrimaryKey() {
             return new Long(downloadTrackId);
         }
@@ -268,22 +269,22 @@ public class TestLocalDDEDownloadTrackingHome extends PersistenceTestCase {
             rs.updateDouble("PRICE", price);
             rs.updateTimestamp("CREATE_TIME", createTime);
         }
-        
+
         public void storeRowData(ResultSet rs) throws SQLException {
             updateResultSet(rs);
             rs.updateRow();
         }
-        
+
         public void insertRowData(ResultSet rs) throws SQLException {
             rs.moveToInsertRow();
             rs.updateLong("DOWNLOAD_TRACK_ID", downloadTrackId);
             updateResultSet(rs);
             rs.insertRow();
         }
-        
+
         public void readRowData(ResultSet rs) throws SQLException {
             long l;
-            
+
             downloadTrackId = rs.getLong("DOWNLOAD_TRACK_ID");
             l = rs.getLong("COMP_VERS_ID");
             if (rs.wasNull()) {
@@ -313,27 +314,27 @@ public class TestLocalDDEDownloadTrackingHome extends PersistenceTestCase {
             price = rs.getDouble("PRICE");
             createTime = rs.getTimestamp("CREATE_TIME");
         }
-        
+
         public boolean matchesResultSet(ResultSet rs) throws SQLException {
             return equals(new DDEDownloadTrackingData(rs));
         }
-        
+
         public boolean equals(Object o) {
-            if (! (o instanceof DDEDownloadTrackingData) ) {
+            if (!(o instanceof DDEDownloadTrackingData)) {
                 return false;
             }
             DDEDownloadTrackingData d = (DDEDownloadTrackingData) o;
             return (
-                (downloadTrackId == d.downloadTrackId)
-                && objectsMatch(compVersId, d.compVersId)
-                && objectsMatch(loginId, d.loginId)
-                && objectsMatch(licenseLevelId, d.licenseLevelId)
-                && objectsMatch(downloadId, d.downloadId)
-                && (unitCost == d.unitCost)
-                && (Math.abs(price - d.price) < 0.001)
-                && objectsMatch(createTime, d.createTime));
+                    (downloadTrackId == d.downloadTrackId)
+                    && objectsMatch(compVersId, d.compVersId)
+                    && objectsMatch(loginId, d.loginId)
+                    && objectsMatch(licenseLevelId, d.licenseLevelId)
+                    && objectsMatch(downloadId, d.downloadId)
+                    && (unitCost == d.unitCost)
+                    && (Math.abs(price - d.price) < 0.001)
+                    && objectsMatch(createTime, d.createTime));
         }
-        
+
     }
 
 }

@@ -10,12 +10,10 @@
 
 package com.topcoder.dde.catalog;
 
-import com.topcoder.dde.catalog.*;
-
 import javax.naming.NamingException;
 import java.rmi.RemoteException;
-import java.util.Collection;
 import java.sql.SQLException;
+import java.util.Collection;
 
 
 /**
@@ -61,10 +59,10 @@ public interface Catalog extends javax.ejb.EJBObject {
      * be performed
      */
     public CatalogSearchView search(String searchtext, java.util.Map options)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     public CatalogSearchView searchComponents(String searchtext, long[] status, long[] catalog, long[] technology, String[] category)
-           throws RemoteException, CatalogException, NamingException, SQLException;
+            throws RemoteException, CatalogException, NamingException, SQLException;
 
     public String[] getUniqueCategoryNames(boolean includeBaseCategories) throws RemoteException, NamingException, SQLException;
 
@@ -86,7 +84,7 @@ public interface Catalog extends javax.ejb.EJBObject {
      * catalog, or if the summary information cannot be retrieved
      */
     public Collection getCategoryComponents(long categoryId)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Returns summary information for the current version of each components in
@@ -101,10 +99,10 @@ public interface Catalog extends javax.ejb.EJBObject {
      * catalog, or if the summary information cannot be retrieved
      */
     public CategorySummary getCategorySummary(long categoryId)
-        throws RemoteException, CatalogException, SQLException, NamingException;
+            throws RemoteException, CatalogException, SQLException, NamingException;
 
     public ComponentSummary[] getAllComponents()
-        throws RemoteException, CatalogException, SQLException, NamingException;
+            throws RemoteException, CatalogException, SQLException, NamingException;
 
     /**
      * Returns the summary information for the current version of each component
@@ -120,7 +118,7 @@ public interface Catalog extends javax.ejb.EJBObject {
      * @throws CatalogException if the summary information cannot be retrieved
      */
     public Collection getComponentsByStatus(long status)
-        throws RemoteException, CatalogException, SQLException, NamingException;
+            throws RemoteException, CatalogException, SQLException, NamingException;
 
     /**
      * Returns the summary information for the current version of each component
@@ -151,7 +149,7 @@ public interface Catalog extends javax.ejb.EJBObject {
      * the catalog, or if the summary information cannot be retrieved
      */
     public ComponentSummary getComponent(long componentId)
-        throws RemoteException, CatalogException, NamingException, SQLException;
+            throws RemoteException, CatalogException, NamingException, SQLException;
 
     /**
      * Returns the detailed information for the current version of the specified
@@ -165,7 +163,7 @@ public interface Catalog extends javax.ejb.EJBObject {
      * the catalog, or if the summary information cannot be retrieved
      */
     public ComponentDetail getComponentDetail(long componentId)
-        throws RemoteException, CatalogException, SQLException, NamingException;
+            throws RemoteException, CatalogException, SQLException, NamingException;
 
     /**
      * Returns the detailed information for the given version of the specified
@@ -180,7 +178,7 @@ public interface Catalog extends javax.ejb.EJBObject {
      * the catalog, or if the summary information cannot be retrieved
      */
     public ComponentDetail getComponentDetail(long componentId, long version)
-        throws RemoteException, CatalogException, SQLException, NamingException;
+            throws RemoteException, CatalogException, SQLException, NamingException;
 
     /**
      * Submits a request for a component. This method creates an entry for the
@@ -206,7 +204,7 @@ public interface Catalog extends javax.ejb.EJBObject {
      * if the component could not be created
      */
     public ComponentSummary requestComponent(ComponentRequest request)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Approves the specified component. The component's status is set to
@@ -221,7 +219,7 @@ public interface Catalog extends javax.ejb.EJBObject {
      * the catalog
      */
     public void approveComponent(long componentId)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Declines the specified component. The component's status is set to
@@ -238,7 +236,7 @@ public interface Catalog extends javax.ejb.EJBObject {
      * the catalog
      */
     public void declineComponent(long componentId, boolean isDuplicate)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Removes the specified component. The component's status is set to
@@ -252,7 +250,7 @@ public interface Catalog extends javax.ejb.EJBObject {
      * the catalog
      */
     public void removeComponent(long componentId)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Returns all the active (non-deleted) top-level categories that are
@@ -267,7 +265,7 @@ public interface Catalog extends javax.ejb.EJBObject {
      * @throws CatalogException if the category information cannot be retrieved
      */
     public Collection getCategories()
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Returns information on the specified category.
@@ -281,7 +279,7 @@ public interface Catalog extends javax.ejb.EJBObject {
      * catalog
      */
     public Category getCategory(long categoryId)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Returns the path of the specified category. The path begins with the
@@ -298,7 +296,7 @@ public interface Catalog extends javax.ejb.EJBObject {
      * the catalog, or if the category information cannot be retrieved
      */
     public Collection getCategoryPath(long categoryId)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Returns all the active (non-deleted) roles that are defined in the
@@ -311,7 +309,7 @@ public interface Catalog extends javax.ejb.EJBObject {
      * @throws CatalogException if the role information cannot be retrieved
      */
     public Collection getRoles()
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Returns information on the specified role.
@@ -324,7 +322,7 @@ public interface Catalog extends javax.ejb.EJBObject {
      * catalog
      */
     public Role getRole(long roleId)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Returns all the active (non-deleted) technologies that are defined in the
@@ -338,7 +336,7 @@ public interface Catalog extends javax.ejb.EJBObject {
      * retrieved
      */
     public Collection getTechnologies()
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Returns information on the specified technology.
@@ -352,7 +350,7 @@ public interface Catalog extends javax.ejb.EJBObject {
      * the catalog
      */
     public Technology getTechnology(long technologyId)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Returns all the active (non-deleted) license levels that are defined in
@@ -367,7 +365,7 @@ public interface Catalog extends javax.ejb.EJBObject {
      * retrieved
      */
     public Collection getLicenseLevels()
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Returns information on the specified license level.
@@ -381,7 +379,7 @@ public interface Catalog extends javax.ejb.EJBObject {
      * in the catalog
      */
     public LicenseLevel getLicenseLevel(long licenseId)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Returns information on the specified document.
@@ -395,7 +393,7 @@ public interface Catalog extends javax.ejb.EJBObject {
      * catalog, or if the document information cannot be retrieved
      */
     public Document getDocument(long documentId)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Returns information on the specified download location.
@@ -409,7 +407,7 @@ public interface Catalog extends javax.ejb.EJBObject {
      * catalog, or if the download information cannot be retrieved
      */
     public Download getDownload(long downloadId)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Adds a subcategory to the catalog.
@@ -429,7 +427,7 @@ public interface Catalog extends javax.ejb.EJBObject {
      * catalog
      */
     public Category addCategory(long parentId, Category category)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Addes a category to the catalog. Equivalent to <code>addCategory(-1,
@@ -446,7 +444,7 @@ public interface Catalog extends javax.ejb.EJBObject {
      * the catalog (instead of constructed by the client)
      */
     public Category addCategory(Category category)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Adds a role to the catalog.
@@ -462,7 +460,7 @@ public interface Catalog extends javax.ejb.EJBObject {
      * (instead of constructed by the client)
      */
     public Role addRole(Role role)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Adds a technology to the catalog.
@@ -478,7 +476,7 @@ public interface Catalog extends javax.ejb.EJBObject {
      * by the catalog (instead of constructed by the client)
      */
     public Technology addTechnology(Technology technology)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Adds a license level to the catalog.
@@ -495,7 +493,7 @@ public interface Catalog extends javax.ejb.EJBObject {
      * by the catalog (instead of constructed by the client)
      */
     public LicenseLevel addLicenseLevel(LicenseLevel license)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Updates a category in the catalog. Only the properties of the specified
@@ -510,7 +508,7 @@ public interface Catalog extends javax.ejb.EJBObject {
      * the catalog (the category must exist before it can be updated)
      */
     public void updateCategory(Category category)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Updates a role in the catalog.
@@ -523,7 +521,7 @@ public interface Catalog extends javax.ejb.EJBObject {
      * (the role must exist before it can be updated)
      */
     public void updateRole(Role role)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Updates a technology in the catalog.
@@ -536,7 +534,7 @@ public interface Catalog extends javax.ejb.EJBObject {
      * found in the catalog (the technology must exist before it can be updated)
      */
     public void updateTechnology(Technology technology)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Updates a license level in the catalog.
@@ -550,7 +548,7 @@ public interface Catalog extends javax.ejb.EJBObject {
      * updated)
      */
     public void updateLicenseLevel(LicenseLevel license)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Removes a category and all its subcategories from the catalog. The
@@ -563,7 +561,7 @@ public interface Catalog extends javax.ejb.EJBObject {
      * catalog
      */
     public void removeCategory(long categoryId)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Removes a role from the catalog. The role's status is set to
@@ -576,7 +574,7 @@ public interface Catalog extends javax.ejb.EJBObject {
      * catalog
      */
     public void removeRole(long roleId)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Removes a technology from the catalog. The technology's status is set to
@@ -589,7 +587,7 @@ public interface Catalog extends javax.ejb.EJBObject {
      * the catalog
      */
     public void removeTechnology(long technologyId)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
     /**
      * Removes a license level from the catalog. The license level's status is
@@ -602,7 +600,7 @@ public interface Catalog extends javax.ejb.EJBObject {
      * in the catalog
      */
     public void removeLicenseLevel(long licenseId)
-        throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException;
 
 
 }

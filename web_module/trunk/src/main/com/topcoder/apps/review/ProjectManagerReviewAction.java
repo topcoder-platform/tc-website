@@ -4,25 +4,24 @@
 
 package com.topcoder.apps.review;
 
-import com.topcoder.util.log.Level;
+import com.topcoder.apps.review.document.AbstractScorecard;
 import com.topcoder.apps.review.document.AbstractSubmission;
+import com.topcoder.apps.review.document.InitialSubmission;
+import com.topcoder.apps.review.document.ScreeningScorecard;
+import com.topcoder.util.log.Level;
+import org.apache.struts.action.ActionErrors;
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForwards;
+import org.apache.struts.action.ActionMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.struts.action.ActionErrors;
-import org.apache.struts.action.ActionForm;
-import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionForwards;
-
-import com.topcoder.apps.review.document.AbstractScorecard;
-import com.topcoder.apps.review.document.ScreeningScorecard;
-import com.topcoder.apps.review.document.InitialSubmission;
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * <p>
- * Extends from <strong>ReviewAction</strong> that let the admin review the 
+ * Extends from <strong>ReviewAction</strong> that let the admin review the
  * submission.
  * </p>
  *
@@ -30,14 +29,14 @@ import java.util.*;
  * @version 1.0
  */
 public final class ProjectManagerReviewAction extends ReviewAction {
-    
+
     /**
      * <p>
      * Call the business logic layer and set session if possible.
      * </p>
      *
      * @return the result data.
-     * 
+     *
      * @param mapping The ActionMapping used to select this instance
      * @param form The optional ActionForm bean for this request (if any)
      * @param request The HTTP request we are processing
@@ -52,17 +51,17 @@ public final class ProjectManagerReviewAction extends ReviewAction {
                                    HttpServletResponse response,
                                    ActionErrors errors,
                                    ActionForwards forwards,
-                                   OnlineReviewProjectData orpd) {        
-        log(Level.INFO, "ProjectManagerReviewAction: User '" 
-                        + orpd.getUser().getHandle() + "' in session " 
-                        + request.getSession().getId());
-        
+                                   OnlineReviewProjectData orpd) {
+        log(Level.INFO, "ProjectManagerReviewAction: User '"
+                + orpd.getUser().getHandle() + "' in session "
+                + request.getSession().getId());
+
         long sid = -1;
 
         // Get the id parameter
         try {
             sid = Long.parseLong
-                (String.valueOf(request.getParameter(Constants.SUBMITTER_ID_KEY)));
+                    (String.valueOf(request.getParameter(Constants.SUBMITTER_ID_KEY)));
         } catch (NumberFormatException e) {
             sid = -1;
         }
@@ -89,29 +88,29 @@ public final class ProjectManagerReviewAction extends ReviewAction {
             } else {
                 form = new SubmissionForm();
                 ((SubmissionForm) form).fromSubmission(submission, pr.getSubmissions(), pr.getScorecards());
-                
+
                 //set advanced flag if screening
-                if(((SubmissionForm) form).getIsScreening()) {
+                if (((SubmissionForm) form).getIsScreening()) {
                     //build scores array
                     //get top 5 scores first
                     ArrayList scores = new ArrayList();
-                    
+
                     AbstractScorecard[] scorecards = pr.getScorecards();
-                    
+
                     double minscore;
                     try {
                         minscore = ConfigHelper.getMinimumScore();
-                    } catch(Exception e) {
+                    } catch (Exception e) {
                         minscore = 75;
                     }
-                
-                    
-                    for(int i = 0; i < pr.getSubmissions().length; i++) {
+
+
+                    for (int i = 0; i < pr.getSubmissions().length; i++) {
                         if (!pr.getSubmissions()[i].isRemoved()) {
                             for (int j = 0; j < scorecards.length; j++) {
                                 if (scorecards[j].getSubmission().equals(pr.getSubmissions()[i]) && scorecards[j].isCompleted()) {
-                                    if(scorecards[j] instanceof ScreeningScorecard) {
-                                        if (((ScreeningScorecard)scorecards[j]).getPassed() && scorecards[j].getScore() >= minscore) {
+                                    if (scorecards[j] instanceof ScreeningScorecard) {
+                                        if (((ScreeningScorecard) scorecards[j]).getPassed() && scorecards[j].getScore() >= minscore) {
                                             scores.add(new Double(scorecards[j].getScore()));
                                         }
                                     }
@@ -124,27 +123,27 @@ public final class ProjectManagerReviewAction extends ReviewAction {
                     Collections.sort(scores);
                     Collections.reverse(scores);
                     //remove all but top five scores.  No need to check ties, this will gaurentee they advance
-                    while(scores.size() > 5) {                
+                    while (scores.size() > 5) {
                         scores.remove(5);
                     }
-                    
+
                     for (int i = 0; i < ((SubmissionForm) form).getScorecards().length; i++) {
                         AbstractScorecard scorecard = ((SubmissionForm) form).getScorecards()[i];
                         if (scorecard.getSubmission().getSubmitter().getId() == sid) {
-                            if(scorecard.isPMReviewed() == false) {
-                                if(scores.contains(new Double(scorecard.getScore()))) {
+                            if (scorecard.isPMReviewed() == false) {
+                                if (scores.contains(new Double(scorecard.getScore()))) {
                                     ((SubmissionForm) form).setAdvanced(true);
                                 } else {
                                     ((SubmissionForm) form).setAdvanced(false);
                                 }
                             } else {
-                                ((SubmissionForm) form).setAdvanced(((InitialSubmission)scorecard.getSubmission()).isAdvancedToReview());
+                                ((SubmissionForm) form).setAdvanced(((InitialSubmission) scorecard.getSubmission()).isAdvancedToReview());
                             }
-                            
+
                         }
                     }
                 }
-                
+
                 request.getSession().setAttribute(mapping.getAttribute(), form);
 
                 saveToken(request);

@@ -1,7 +1,7 @@
 package com.topcoder.web.ejb.coder;
 
-import javax.ejb.EJBHome;
 import javax.ejb.CreateException;
+import javax.ejb.EJBHome;
 import java.rmi.RemoteException;
 
 /**
@@ -10,9 +10,9 @@ import java.rmi.RemoteException;
  * @version $Revision$
  * Dec 19, 2002 11:31:25 PM
  */
-public interface CoderHome extends EJBHome{
+public interface CoderHome extends EJBHome {
 
-     public static final String EJB_REF_NAME = "com.topcoder.web.ejb.coder.CoderHome";
+    public static final String EJB_REF_NAME = "com.topcoder.web.ejb.coder.CoderHome";
 
     /**
      *

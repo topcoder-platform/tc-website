@@ -5,12 +5,12 @@ import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 
-import javax.sql.DataSource;
-import javax.naming.InitialContext;
-import javax.naming.Context;
 import javax.ejb.EJBException;
 import java.rmi.RemoteException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 
@@ -29,7 +29,7 @@ public class ReportingBean extends BaseEJB {
         Connection conn = null;
 
         try {
-            if (query.getDB()==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
+            if (query.getDB() == null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
             conn = DBMS.getConnection(query.getDB());
 
             log.debug("query:\n" + query.getQuery());

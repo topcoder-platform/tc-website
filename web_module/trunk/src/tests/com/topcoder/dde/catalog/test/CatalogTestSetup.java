@@ -12,11 +12,13 @@ import com.topcoder.dde.user.*;
 import com.topcoder.dde.user.test.UserTestSetup;
 import com.topcoder.security.admin.PolicyMgrRemoteHome;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
 import javax.naming.*;
 import javax.rmi.PortableRemoteObject;
+
 import junit.framework.Test;
 
 public class CatalogTestSetup extends UserTestSetup {
@@ -37,7 +39,7 @@ public class CatalogTestSetup extends UserTestSetup {
             "A component for testing the component catalog, Kemosabe";
     protected static final String DEF_COMP_FUNCTIONAL =
             "No function beyond testing";
-    protected static final String DEF_COMP_KEYWORDS = 
+    protected static final String DEF_COMP_KEYWORDS =
             "test" + ComponentInfo.KEYWORD_DELIMITER + "bacon";
     protected static final String DEF_COMP_COMMENTS = "testing 1, 2, 3 ...";
     protected static final String DEF_COMP_VERSION =
@@ -47,30 +49,30 @@ public class CatalogTestSetup extends UserTestSetup {
     public CatalogTestSetup(Test t) {
         super(t);
     }
-    
+
     public void setUp() throws Exception {
         super.setUp();
         synchronized (CatalogTestSetup.class) {
             if (catalogInitializationCount++ == 0) {
                 ComponentRequest request;
                 RegistrationInfo regInfo = new RegistrationInfo();
-            
+
                 catalogHome = (CatalogHome) PortableRemoteObject.narrow(
                         namingContext.lookup(CatalogHome.EJB_REF_NAME),
-                        CatalogHome.class );
+                        CatalogHome.class);
                 componentManagerHome =
                         (ComponentManagerHome) PortableRemoteObject.narrow(
-                        namingContext.lookup(ComponentManagerHome.EJB_REF_NAME),
-                        ComponentManagerHome.class );
+                                namingContext.lookup(ComponentManagerHome.EJB_REF_NAME),
+                                ComponentManagerHome.class);
                 policyManagerHome =
                         (PolicyMgrRemoteHome) PortableRemoteObject.narrow(
-                        namingContext.lookup(PolicyMgrRemoteHome.EJB_REF_NAME),
-                        PolicyMgrRemoteHome.class );
+                                namingContext.lookup(PolicyMgrRemoteHome.EJB_REF_NAME),
+                                PolicyMgrRemoteHome.class);
                 principalManagerHome =
                         (PrincipalMgrRemoteHome) PortableRemoteObject.narrow(
-                        namingContext.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME),
-                        PrincipalMgrRemoteHome.class );
-                  
+                                namingContext.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME),
+                                PrincipalMgrRemoteHome.class);
+
                 regInfo.setEmail("bert@pigeoninc.com");
                 regInfo.setFirstName("Bert");
                 regInfo.setLastName("Smith");
@@ -92,7 +94,7 @@ public class CatalogTestSetup extends UserTestSetup {
                 regInfo.setUseComponents(true);
                 regInfo.setUseConsultants(true);
                 extraUser = userManager.register(regInfo);
-                
+
                 myCatalog = catalogHome.create();
                 requestDate1 = new Date();
                 request = new ComponentRequest(DEF_COMP_NAME, DEF_COMP_SHORTD,
@@ -105,7 +107,7 @@ public class CatalogTestSetup extends UserTestSetup {
             }
         }
     }
-    
+
     public void tearDown() throws Exception {
         synchronized (CatalogTestSetup.class) {
             if (--catalogInitializationCount == 0) {

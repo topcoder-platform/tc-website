@@ -1,10 +1,14 @@
 /*
  * ProjectStatusManager.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.projecttracker;
+
+import com.topcoder.apps.review.persistence.Common;
+import com.topcoder.util.cache.refreshable.RefreshException;
+import com.topcoder.util.cache.refreshable.Refreshable;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,10 +16,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
-
-import com.topcoder.apps.review.persistence.Common;
-import com.topcoder.util.cache.refreshable.RefreshException;
-import com.topcoder.util.cache.refreshable.Refreshable;
 
 
 /**

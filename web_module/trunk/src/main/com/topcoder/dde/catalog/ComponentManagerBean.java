@@ -10,29 +10,39 @@
 
 package com.topcoder.dde.catalog;
 
-import com.topcoder.apps.review.projecttracker.ProjectTracker;
-import com.topcoder.apps.review.projecttracker.ProjectTrackerHome;
 import com.topcoder.apps.review.document.DocumentManager;
 import com.topcoder.apps.review.document.DocumentManagerHome;
-import com.topcoder.dde.forum.*;
+import com.topcoder.apps.review.projecttracker.ProjectTracker;
+import com.topcoder.apps.review.projecttracker.ProjectTrackerHome;
+import com.topcoder.dde.forum.ForumModeratePermission;
+import com.topcoder.dde.forum.ForumPostPermission;
 import com.topcoder.dde.persistencelayer.interfaces.*;
 import com.topcoder.forum.*;
-import com.topcoder.security.*;
-import com.topcoder.security.admin.*;
-import com.topcoder.security.policy.*;
-import com.topcoder.util.config.*;
+import com.topcoder.security.GeneralSecurityException;
+import com.topcoder.security.RolePrincipal;
+import com.topcoder.security.TCSubject;
+import com.topcoder.security.admin.PolicyMgrRemote;
+import com.topcoder.security.admin.PolicyMgrRemoteHome;
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.admin.PrincipalMgrRemoteHome;
+import com.topcoder.security.policy.PermissionCollection;
+import com.topcoder.security.policy.PolicyRemote;
+import com.topcoder.security.policy.PolicyRemoteHome;
 import com.topcoder.util.TCException;
-import java.util.*;
+import com.topcoder.util.config.*;
+
 import javax.ejb.*;
-import javax.naming.*;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.rmi.PortableRemoteObject;
-import java.rmi.RemoteException;
-import java.sql.Timestamp;
 import javax.sql.DataSource;
+import java.rmi.RemoteException;
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.PreparedStatement;
-import java.sql.Types;
+import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.util.*;
 
 /**
  * The implementation of the methods of ComponentManagerEJB.
@@ -43,12 +53,12 @@ import java.sql.Types;
  * @see     ComponentManagerHome
  */
 public class ComponentManagerBean
-       implements SessionBean, ConfigManagerInterface {
+        implements SessionBean, ConfigManagerInterface {
 
     private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(ComponentManagerBean.class);
 
     private static final String
-        CONFIG_NAMESPACE = "com.topcoder.dde.catalog.ComponentManagerBean";
+            CONFIG_NAMESPACE = "com.topcoder.dde.catalog.ComponentManagerBean";
 
     //Permission constants
     private static final long JAVA_PERM = 21;
@@ -95,60 +105,61 @@ public class ComponentManagerBean
     public long version;
 
 
-    public ComponentManagerBean() {}
+    public ComponentManagerBean() {
+    }
 
 
     private void lookupInterfaces() throws NamingException {
         Context homeBindings = new InitialContext();
 
         catalogHome = (LocalDDECompCatalogHome)
-            homeBindings.lookup(LocalDDECompCatalogHome.EJB_REF_NAME);
+                homeBindings.lookup(LocalDDECompCatalogHome.EJB_REF_NAME);
         versionsHome = (LocalDDECompVersionsHome)
-            homeBindings.lookup(LocalDDECompVersionsHome.EJB_REF_NAME);
+                homeBindings.lookup(LocalDDECompVersionsHome.EJB_REF_NAME);
 
         versionDatesHome = (LocalDDECompVersionDatesHome)
-            homeBindings.lookup(LocalDDECompVersionDatesHome.EJB_REF_NAME);
+                homeBindings.lookup(LocalDDECompVersionDatesHome.EJB_REF_NAME);
 
         versionDatesHistoryHome = (LocalDDECompVersionDatesHistoryHome)
-            homeBindings.lookup(LocalDDECompVersionDatesHistoryHome.EJB_REF_NAME);
+                homeBindings.lookup(LocalDDECompVersionDatesHistoryHome.EJB_REF_NAME);
 
 
         compcatsHome = (LocalDDECompCategoriesHome)
-            homeBindings.lookup(LocalDDECompCategoriesHome.EJB_REF_NAME);
+                homeBindings.lookup(LocalDDECompCategoriesHome.EJB_REF_NAME);
         keywordsHome = (LocalDDECompKeywordsHome)
-            homeBindings.lookup(LocalDDECompKeywordsHome.EJB_REF_NAME);
+                homeBindings.lookup(LocalDDECompKeywordsHome.EJB_REF_NAME);
         comptechHome = (LocalDDECompTechnologyHome)
-            homeBindings.lookup(LocalDDECompTechnologyHome.EJB_REF_NAME);
+                homeBindings.lookup(LocalDDECompTechnologyHome.EJB_REF_NAME);
         docHome = (LocalDDECompDocumentationHome)
-            homeBindings.lookup(LocalDDECompDocumentationHome.EJB_REF_NAME);
+                homeBindings.lookup(LocalDDECompDocumentationHome.EJB_REF_NAME);
         docforumHome = (LocalDDEDocForumXrefHome)
-            homeBindings.lookup(LocalDDEDocForumXrefHome.EJB_REF_NAME);
+                homeBindings.lookup(LocalDDEDocForumXrefHome.EJB_REF_NAME);
         exampleHome = (LocalDDECompExamplesHome)
-            homeBindings.lookup(LocalDDECompExamplesHome.EJB_REF_NAME);
+                homeBindings.lookup(LocalDDECompExamplesHome.EJB_REF_NAME);
         downloadHome = (LocalDDECompDownloadHome)
-            homeBindings.lookup(LocalDDECompDownloadHome.EJB_REF_NAME);
+                homeBindings.lookup(LocalDDECompDownloadHome.EJB_REF_NAME);
         depHome = (LocalDDECompDependenciesHome)
-            homeBindings.lookup(LocalDDECompDependenciesHome.EJB_REF_NAME);
+                homeBindings.lookup(LocalDDECompDependenciesHome.EJB_REF_NAME);
         reviewHome = (LocalDDECompReviewsHome)
-            homeBindings.lookup(LocalDDECompReviewsHome.EJB_REF_NAME);
+                homeBindings.lookup(LocalDDECompReviewsHome.EJB_REF_NAME);
         compforumHome = (LocalDDECompForumXrefHome)
-            homeBindings.lookup(LocalDDECompForumXrefHome.EJB_REF_NAME);
+                homeBindings.lookup(LocalDDECompForumXrefHome.EJB_REF_NAME);
         categoriesHome = (LocalDDECategoriesHome)
-            homeBindings.lookup(LocalDDECategoriesHome.EJB_REF_NAME);
+                homeBindings.lookup(LocalDDECategoriesHome.EJB_REF_NAME);
         technologiesHome = (LocalDDETechnologyTypesHome)
-            homeBindings.lookup(LocalDDETechnologyTypesHome.EJB_REF_NAME);
+                homeBindings.lookup(LocalDDETechnologyTypesHome.EJB_REF_NAME);
         rolesHome = (LocalDDERolesHome)
-            homeBindings.lookup(LocalDDERolesHome.EJB_REF_NAME);
+                homeBindings.lookup(LocalDDERolesHome.EJB_REF_NAME);
         userroleHome = (LocalDDEUserRoleHome)
-            homeBindings.lookup(LocalDDEUserRoleHome.EJB_REF_NAME);
+                homeBindings.lookup(LocalDDEUserRoleHome.EJB_REF_NAME);
         userHome = (LocalDDEUserMasterHome)
-            homeBindings.lookup(LocalDDEUserMasterHome.EJB_REF_NAME);
+                homeBindings.lookup(LocalDDEUserMasterHome.EJB_REF_NAME);
         trackingHome = (LocalDDEDownloadTrackingHome)
-            homeBindings.lookup(LocalDDEDownloadTrackingHome.EJB_REF_NAME);
+                homeBindings.lookup(LocalDDEDownloadTrackingHome.EJB_REF_NAME);
         licenseHome = (LocalDDELicenseLevelHome)
-            homeBindings.lookup(LocalDDELicenseLevelHome.EJB_REF_NAME);
+                homeBindings.lookup(LocalDDELicenseLevelHome.EJB_REF_NAME);
         forumadminHome = (ForumAdminLocalHome)
-            homeBindings.lookup(ForumAdminLocalHome.EJB_REF_NAME);
+                homeBindings.lookup(ForumAdminLocalHome.EJB_REF_NAME);
 /*
             /** SECURITY MANAGER
 		Hashtable principalMgrEnvironment=new Hashtable();
@@ -164,15 +175,15 @@ public class ComponentManagerBean
 		Context principalMgrContext = new InitialContext(principalMgrEnvironment);
   */
         principalmgrHome = (PrincipalMgrRemoteHome) PortableRemoteObject.narrow(
-            homeBindings.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME),
-            PrincipalMgrRemoteHome.class);
+                homeBindings.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME),
+                PrincipalMgrRemoteHome.class);
         policymgrHome = (PolicyMgrRemoteHome) PortableRemoteObject.narrow(
-            homeBindings.lookup(PolicyMgrRemoteHome.EJB_REF_NAME),
-            PolicyMgrRemoteHome.class);
+                homeBindings.lookup(PolicyMgrRemoteHome.EJB_REF_NAME),
+                PolicyMgrRemoteHome.class);
         policyHome = (PolicyRemoteHome)
-               PortableRemoteObject.narrow(
-                   homeBindings.lookup(PolicyRemoteHome.EJB_REF_NAME),
-                   PolicyRemoteHome.class);
+                PortableRemoteObject.narrow(
+                        homeBindings.lookup(PolicyRemoteHome.EJB_REF_NAME),
+                        PolicyRemoteHome.class);
 
         // Online Review
         projectTrackerHome = (ProjectTrackerHome) PortableRemoteObject.narrow(
@@ -186,67 +197,68 @@ public class ComponentManagerBean
     public void ejbCreate(long componentId) throws CreateException {
         try {
             lookupInterfaces();
-        } catch(NamingException exception) {
+        } catch (NamingException exception) {
             throw new EJBException(exception.toString());
         }
         LocalDDECompCatalog targetComp;
         try {
             targetComp =
-                catalogHome.findByPrimaryKey(new Long(componentId));
-        } catch(ObjectNotFoundException exception) {
+                    catalogHome.findByPrimaryKey(new Long(componentId));
+        } catch (ObjectNotFoundException exception) {
             throw new CreateException(
-            "Specified component does not exist in catalog: "
-            + exception.toString());
-        } catch(FinderException exception) {
+                    "Specified component does not exist in catalog: "
+                    + exception.toString());
+        } catch (FinderException exception) {
             throw new CreateException(exception.toString());
         }
         this.componentId = componentId;
         this.version = targetComp.getCurrentVersion();
         try {
             this.versionId = ((Long) versionsHome.
-                findByComponentIdAndVersion(componentId, version).
-                getPrimaryKey()).longValue();
+                    findByComponentIdAndVersion(componentId, version).
+                    getPrimaryKey()).longValue();
 
-        } catch(FinderException exception) {
+        } catch (FinderException exception) {
             throw new CreateException(exception.toString());
         }
     }
 
-    public void ejbCreate() throws CreateException{
+    public void ejbCreate() throws CreateException {
         try {
             lookupInterfaces();
-        } catch(NamingException exception) {
+        } catch (NamingException exception) {
             throw new EJBException(exception.toString());
         }
     }
+
     public void ejbCreate(long componentId, long version)
-           throws CreateException {
+            throws CreateException {
         try {
             lookupInterfaces();
-        } catch(NamingException exception) {
+        } catch (NamingException exception) {
             throw new EJBException(exception.toString());
         }
         try {
             LocalDDECompCatalog targetComp =
-                catalogHome.findByPrimaryKey(new Long(componentId));
-        } catch(ObjectNotFoundException exception) {
+                    catalogHome.findByPrimaryKey(new Long(componentId));
+        } catch (ObjectNotFoundException exception) {
             throw new CreateException(
-            "Specified component does not exist in the catalog: "
-            + exception.toString());
-        } catch(FinderException exception) {
+                    "Specified component does not exist in the catalog: "
+                    + exception.toString());
+        } catch (FinderException exception) {
             throw new CreateException(exception.toString());
         }
         this.componentId = componentId;
         this.version = version;
         try {
             this.versionId = ((Long) versionsHome.
-                findByComponentIdAndVersion(componentId, version).
-                getPrimaryKey()).longValue();
-        } catch(ObjectNotFoundException exception) {
+                    findByComponentIdAndVersion(componentId, version).
+                    getPrimaryKey()).longValue();
+        } catch (ObjectNotFoundException exception) {
             throw new CreateException(
-            "Specified version does not exist in the catalog: "
-            + exception.toString());
-        } catch(FinderException exception) {
+                    "Specified version does not exist in the catalog: "
+                    + exception.toString());
+        } catch (FinderException exception) {
             throw new CreateException(exception.toString());
         }
     }
@@ -264,11 +276,11 @@ public class ComponentManagerBean
             PrincipalMgrRemote principalManager = principalmgrHome.create();
             PolicyMgrRemote policyManager = policymgrHome.create();
 
-            catalogRole = principalManager.getRole( JAVA_CAT == rootCategory ? JAVA_PERM : NET_PERM );
-            oldCatalogRole = principalManager.getRole( JAVA_CAT == rootCategory ? NET_PERM : JAVA_PERM );
+            catalogRole = principalManager.getRole(JAVA_CAT == rootCategory ? JAVA_PERM : NET_PERM);
+            oldCatalogRole = principalManager.getRole(JAVA_CAT == rootCategory ? NET_PERM : JAVA_PERM);
 
-		//I don't think you need the line below since it will be created already
-		//role = principalManager.createRole("DDEComponentDownload " + componentId, null);
+            //I don't think you need the line below since it will be created already
+            //role = principalManager.createRole("DDEComponentDownload " + componentId, null);
             perms = new PermissionCollection();
             perms.addPermission(new DownloadPermission(componentId));
             policyManager.addPermissions(catalogRole, perms, null);
@@ -276,17 +288,17 @@ public class ComponentManagerBean
             //perms.addPermission(new DownloadPermission(componentId));
             //policyManager.removePermissions(oldCatalogRole, perms, null);
 
-        } catch(CreateException exception) {
+        } catch (CreateException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
-            "Failed to create security role for component: "
-            + exception.toString());
-        } catch(GeneralSecurityException exception) {
+                    "Failed to create security role for component: "
+                    + exception.toString());
+        } catch (GeneralSecurityException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
-            "Failed to create security role for component: "
-            + exception.toString());
-        } catch(RemoteException exception) {
+                    "Failed to create security role for component: "
+                    + exception.toString());
+        } catch (RemoteException exception) {
             throw new EJBException(exception.toString());
         } catch (FinderException e) {
             throw new CatalogException(e.toString());
@@ -307,14 +319,14 @@ public class ComponentManagerBean
     public void setVersion(long version) throws CatalogException {
         try {
             LocalDDECompVersions newVer =
-                versionsHome.findByComponentIdAndVersion(componentId, version);
+                    versionsHome.findByComponentIdAndVersion(componentId, version);
             this.versionId = ((Long) newVer.getPrimaryKey()).longValue();
             this.version = version;
-        } catch(ObjectNotFoundException exception) {
+        } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
-            "Specified version does not exist in the catalog: "
-            + exception.toString());
-        } catch(FinderException exception) {
+                    "Specified version does not exist in the catalog: "
+                    + exception.toString());
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
     }
@@ -323,14 +335,14 @@ public class ComponentManagerBean
         LocalDDECompCatalog comp;
         try {
             comp = catalogHome.findByPrimaryKey(new Long(componentId));
-        } catch(FinderException exception) {
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
         long number;
         try {
             number = versionsHome.findByComponentId(
-                ((Long) comp.getPrimaryKey()).longValue()).size();
-        } catch(FinderException exception) {
+                    ((Long) comp.getPrimaryKey()).longValue()).size();
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
         return number;
@@ -341,21 +353,21 @@ public class ComponentManagerBean
         try {
             StringBuffer keywords = new StringBuffer();
             Iterator wordIterator =
-                keywordsHome.findByComponentId(componentId).iterator();
+                    keywordsHome.findByComponentId(componentId).iterator();
             while (wordIterator.hasNext()) {
                 LocalDDECompKeywords wordBean =
-                    (LocalDDECompKeywords) wordIterator.next();
+                        (LocalDDECompKeywords) wordIterator.next();
                 keywords.append(wordBean.getKeyword());
                 keywords.append(ComponentInfo.KEYWORD_DELIMITER);
             }
 
             LocalDDECompCatalog compBean =
-                catalogHome.findByPrimaryKey(new Long(componentId));
+                    catalogHome.findByPrimaryKey(new Long(componentId));
             return new ComponentInfo(componentId, compBean.getCurrentVersion(),
-                compBean.getComponentName(), compBean.getShortDesc(),
-                compBean.getDescription(), compBean.getFunctionDesc(),
-                keywords.toString(), compBean.getStatusId());
-        } catch(FinderException exception) {
+                    compBean.getComponentName(), compBean.getShortDesc(),
+                    compBean.getDescription(), compBean.getFunctionDesc(),
+                    keywords.toString(), compBean.getStatusId());
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
     }
@@ -367,10 +379,10 @@ public class ComponentManagerBean
          * once this is corrected.
          */
         return new ComponentVersionInfo(
-                   ((Long) bean.getPrimaryKey()).longValue(),
-                   bean.getVersion(), bean.getVersionText().trim(),
-                   bean.getComments(), bean.getPhaseId(),
-                   new Date(bean.getPhaseTime().getTime()), bean.getPrice());
+                ((Long) bean.getPrimaryKey()).longValue(),
+                bean.getVersion(), bean.getVersionText().trim(),
+                bean.getComments(), bean.getPhaseId(),
+                new Date(bean.getPhaseTime().getTime()), bean.getPrice());
     }
 
     private VersionDateInfo generateVersionDateInfo(LocalDDECompVersionDates bean) {
@@ -380,51 +392,51 @@ public class ComponentManagerBean
          * once this is corrected.
          */
         Date estimatedDevDate = null;
-        if(bean.getEstimatedDevDate() != null){
+        if (bean.getEstimatedDevDate() != null) {
             estimatedDevDate = new Date(bean.getEstimatedDevDate().getTime());
         }
         Date screeningCompleteDate = null;
-        if(bean.getScreeningCompleteDate() != null){
+        if (bean.getScreeningCompleteDate() != null) {
             screeningCompleteDate = new Date(bean.getScreeningCompleteDate().getTime());
         }
         Date phaseCompleteDate = null;
-        if(bean.getPhaseCompleteDate() != null){
+        if (bean.getPhaseCompleteDate() != null) {
             phaseCompleteDate = new Date(bean.getPhaseCompleteDate().getTime());
         }
         Date aggregationCompleteDate = null;
-        if(bean.getAggregationCompleteDate() != null){
+        if (bean.getAggregationCompleteDate() != null) {
             aggregationCompleteDate = new Date(bean.getAggregationCompleteDate().getTime());
         }
         Date reviewCompleteDate = null;
-        if(bean.getReviewCompleteDate() != null){
+        if (bean.getReviewCompleteDate() != null) {
             reviewCompleteDate = new Date(bean.getReviewCompleteDate().getTime());
         }
         Date productionDate = null;
-        if(bean.getProductionDate() != null){
+        if (bean.getProductionDate() != null) {
             productionDate = new Date(bean.getProductionDate().getTime());
         }
 
         return new VersionDateInfo(
-                    ((Long) bean.getPrimaryKey()).longValue(),
-                    bean.getComponentVersionId(),
-                    bean.getPhaseId(),
-                    new Date(bean.getPostingDate().getTime()),
-                    new Date(bean.getInitialSubmissionDate().getTime()),
-                    new Date(bean.getFinalSubmissionDate().getTime()),
-                    new Date(bean.getWinnerAnnouncedDate().getTime()),
-                    estimatedDevDate,
-                    bean.getPrice(),
-                    bean.getStatusId(), bean.getLevelId(),
-                    screeningCompleteDate, phaseCompleteDate,
-                    aggregationCompleteDate, reviewCompleteDate,
-                    bean.getPhaseCompleteDateComment(),
-                    bean.getAggregationCompleteDateComment(),
-                    bean.getReviewCompleteDateComment(),
-                    bean.getScreeningCompleteDateComment(),
-                    bean.getInitialSubmissionDateComment(),
-                    bean.getFinalSubmissionDateComment(),
-                    bean.getWinnerAnnouncedDateComment(),
-                    productionDate, bean.getProductionDateComment());
+                ((Long) bean.getPrimaryKey()).longValue(),
+                bean.getComponentVersionId(),
+                bean.getPhaseId(),
+                new Date(bean.getPostingDate().getTime()),
+                new Date(bean.getInitialSubmissionDate().getTime()),
+                new Date(bean.getFinalSubmissionDate().getTime()),
+                new Date(bean.getWinnerAnnouncedDate().getTime()),
+                estimatedDevDate,
+                bean.getPrice(),
+                bean.getStatusId(), bean.getLevelId(),
+                screeningCompleteDate, phaseCompleteDate,
+                aggregationCompleteDate, reviewCompleteDate,
+                bean.getPhaseCompleteDateComment(),
+                bean.getAggregationCompleteDateComment(),
+                bean.getReviewCompleteDateComment(),
+                bean.getScreeningCompleteDateComment(),
+                bean.getInitialSubmissionDateComment(),
+                bean.getFinalSubmissionDateComment(),
+                bean.getWinnerAnnouncedDateComment(),
+                productionDate, bean.getProductionDateComment());
 
 
     }
@@ -433,19 +445,19 @@ public class ComponentManagerBean
     public ComponentVersionInfo getVersionInfo() throws CatalogException {
         try {
             LocalDDECompVersions versionBean =
-                versionsHome.findByPrimaryKey(new Long(versionId));
+                    versionsHome.findByPrimaryKey(new Long(versionId));
             return generateInfo(versionBean);
-        } catch(FinderException exception) {
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
     }
 
-    public VersionDateInfo getVersionDateInfo(long componentVersionId, long phaseId)  throws CatalogException {
+    public VersionDateInfo getVersionDateInfo(long componentVersionId, long phaseId) throws CatalogException {
         try {
             LocalDDECompVersionDates versionDatesBean =
-                versionDatesHome.findByComponentVersionId(componentVersionId, phaseId);
+                    versionDatesHome.findByComponentVersionId(componentVersionId, phaseId);
             return generateVersionDateInfo(versionDatesBean);
-        } catch(FinderException exception) {
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
     }
@@ -456,13 +468,13 @@ public class ComponentManagerBean
         Iterator versionIterator;
         try {
             versionIterator =
-                versionsHome.findByComponentId(componentId).iterator();
-        } catch(FinderException impossible) {
+                    versionsHome.findByComponentId(componentId).iterator();
+        } catch (FinderException impossible) {
             throw new CatalogException(impossible.toString());
         }
         while (versionIterator.hasNext()) {
             LocalDDECompVersions versionBean = (LocalDDECompVersions)
-                versionIterator.next();
+                    versionIterator.next();
             info.add(generateInfo(versionBean));
         }
         Collections.sort(info, new Comparators.VersionSorter());
@@ -508,7 +520,7 @@ public class ComponentManagerBean
                 if (publicForum)
                     policyManager.addPermissions(userRole, perms, null);
 
-                log.debug("TRUE/FALSE " +publicForum);
+                log.debug("TRUE/FALSE " + publicForum);
             }
 
             role = principalManager.createRole("ForumModerator " + forumId, null);
@@ -523,21 +535,21 @@ public class ComponentManagerBean
                 policyManager.addPermissions(collabModeratorRole, perms, null);
             }
 
-        } catch(ConfigManagerException exception) {
+        } catch (ConfigManagerException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
-            "Failed to obtain configuration data: " + exception.toString());
-        } catch(CreateException exception) {
+                    "Failed to obtain configuration data: " + exception.toString());
+        } catch (CreateException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
-            "Failed to create security roles for forum: "
-            + exception.toString());
-        } catch(GeneralSecurityException exception) {
+                    "Failed to create security roles for forum: "
+                    + exception.toString());
+        } catch (GeneralSecurityException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
-            "Failed to create security roles for forum: "
-            + exception.toString());
-        } catch(RemoteException exception) {
+                    "Failed to create security roles for forum: "
+                    + exception.toString());
+        } catch (RemoteException exception) {
             throw new EJBException(exception.toString());
         }
     }
@@ -546,26 +558,26 @@ public class ComponentManagerBean
             throws CatalogException {
         if (request == null) {
             throw new CatalogException(
-            "Null specified for version request");
+                    "Null specified for version request");
         }
 
         LocalDDECompCatalog comp;
         try {
             comp = catalogHome.findByPrimaryKey(new Long(componentId));
-        } catch(FinderException exception) {
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
 
         int latest;
         try {
             latest = versionsHome.findByComponentId(
-                ((Long) comp.getPrimaryKey()).longValue()).size();
-        } catch(FinderException exception) {
+                    ((Long) comp.getPrimaryKey()).longValue()).size();
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
         if (latest == Integer.MAX_VALUE) {
-            throw new CatalogException( // It could happen!
-            "Component has enough versions already. Get a life.");
+            throw new CatalogException(// It could happen!
+                    "Component has enough versions already. Get a life.");
         }
         long nextVersion = latest + 1;
         Timestamp currentTime = new Timestamp((new Date()).getTime());
@@ -573,16 +585,16 @@ public class ComponentManagerBean
         LocalDDECompVersions newVer;
         try {
             newVer = versionsHome.create(
-                nextVersion, // version number
-                currentTime, // create time
-                ComponentVersionInfo.COLLABORATION, // phase
-                currentTime, // phase time
-                0.0, // price
-                request.getComments(), // version comments
-                comp, // component bean reference
-                request.getVersionLabel() // version label
+                    nextVersion, // version number
+                    currentTime, // create time
+                    ComponentVersionInfo.COLLABORATION, // phase
+                    currentTime, // phase time
+                    0.0, // price
+                    request.getComments(), // version comments
+                    comp, // component bean reference
+                    request.getVersionLabel() // version label
             );
-        } catch(CreateException exception) {
+        } catch (CreateException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
         }
@@ -591,16 +603,16 @@ public class ComponentManagerBean
             Iterator techIterator = request.getTechnologies().iterator();
             while (techIterator.hasNext())
                 comptechHome.create(newVer, technologiesHome.
-                    findByPrimaryKey((Long) techIterator.next()));
-        } catch(ObjectNotFoundException exception) {
+                        findByPrimaryKey((Long) techIterator.next()));
+        } catch (ObjectNotFoundException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
-            "Specified technology does not exist in the catalog: "
-            + exception.toString());
-        } catch(FinderException exception) {
+                    "Specified technology does not exist in the catalog: "
+                    + exception.toString());
+        } catch (FinderException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
-        } catch(CreateException exception) {
+        } catch (CreateException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
         }
@@ -610,11 +622,11 @@ public class ComponentManagerBean
             com.topcoder.forum.Forum forum = new com.topcoder.forum.Forum();
             try {
                 forum = forumadminHome.create().createForum(forum,
-                            Long.parseLong(getConfigValue("collab_forum_template")));
-            } catch(ConfigManagerException cme) {
+                        Long.parseLong(getConfigValue("collab_forum_template")));
+            } catch (ConfigManagerException cme) {
                 log.warn("Encountered a configuration manager exception reading collab_forum_template property");
                 forum = forumadminHome.create().createForum(forum);
-            } catch(NumberFormatException nfe) {
+            } catch (NumberFormatException nfe) {
                 log.warn("Failed to parse the collab_forum_template property");
                 forum = forumadminHome.create().createForum(forum);
             }
@@ -622,29 +634,29 @@ public class ComponentManagerBean
             compforumHome.create(newForum, Forum.COLLABORATION, newVer);
             createForumRoles(newForum, Forum.COLLABORATION, true);
 
-        } catch(ForumException exception) {
+        } catch (ForumException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
-            "Failed to create collaboration forum: " + exception.toString());
-        } catch(CreateException exception) {
+                    "Failed to create collaboration forum: " + exception.toString());
+        } catch (CreateException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
         }
 
         try {
             LocalDDEUserMaster user = userHome.findByPrimaryKey(
-                new Long(request.getUserId()));
+                    new Long(request.getUserId()));
             LocalDDERoles roleBean = rolesHome.findByPrimaryKey(
-                new Long(Long.parseLong(getConfigValue("requestor_role_id"))));
+                    new Long(Long.parseLong(getConfigValue("requestor_role_id"))));
             userroleHome.create(0, user, newVer, roleBean);
-        } catch(ConfigManagerException exception) {
+        } catch (ConfigManagerException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
-            "Failed to obtain configuration data: " + exception.toString());
-        } catch(FinderException exception) {
+                    "Failed to obtain configuration data: " + exception.toString());
+        } catch (FinderException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
-        } catch(CreateException exception) {
+        } catch (CreateException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
         }
@@ -653,20 +665,20 @@ public class ComponentManagerBean
     }
 
     public void updateComponentInfo(ComponentInfo info)
-           throws CatalogException {
+            throws CatalogException {
         if (info == null) {
             throw new CatalogException(
-            "Null specified for component info");
+                    "Null specified for component info");
         }
         if (info.getId() != componentId) {
             throw new CatalogException(
-            "Specified component is not managed by this instance");
+                    "Specified component is not managed by this instance");
         }
 
         LocalDDECompCatalog compBean;
         try {
             compBean = catalogHome.findByPrimaryKey(new Long(componentId));
-        } catch(FinderException exception) {
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
 
@@ -678,7 +690,7 @@ public class ComponentManagerBean
                 pt.componentRename(componentId,
                         compBean.getComponentName(),
                         info.getName());
-            } catch(RemoteException e) {
+            } catch (RemoteException e) {
                 ejbContext.setRollbackOnly();
                 throw new CatalogException(e.toString());
             } catch (CreateException e) {
@@ -697,25 +709,25 @@ public class ComponentManagerBean
         Iterator oldIterator;
         try {
             oldIterator =
-                keywordsHome.findByComponentId(componentId).iterator();
-        } catch(FinderException exception) {
+                    keywordsHome.findByComponentId(componentId).iterator();
+        } catch (FinderException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
         }
         try {
             while (oldIterator.hasNext())
                 ((LocalDDECompKeywords) oldIterator.next()).remove();
-        } catch(RemoveException exception) {
+        } catch (RemoveException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
         }
 
         StringTokenizer newWords = new StringTokenizer(info.getKeywords(),
-            ComponentInfo.KEYWORD_DELIMITER);
+                ComponentInfo.KEYWORD_DELIMITER);
         try {
             while (newWords.hasMoreTokens())
                 keywordsHome.create(newWords.nextToken(), compBean);
-        } catch(CreateException exception) {
+        } catch (CreateException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
         }
@@ -725,17 +737,17 @@ public class ComponentManagerBean
             throws CatalogException {
         if (info == null) {
             throw new CatalogException(
-            "Null specified for version info");
+                    "Null specified for version info");
         }
         if (info.getVersionId() != versionId) {
             throw new CatalogException(
-            "Specified version info does refer to the active version");
+                    "Specified version info does refer to the active version");
         }
         LocalDDECompVersions versionBean;
         try {
             versionBean =
-                versionsHome.findByPrimaryKey(new Long(info.getVersionId()));
-        } catch(FinderException exception) {
+                    versionsHome.findByPrimaryKey(new Long(info.getVersionId()));
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
         // If the version is completed:
@@ -744,31 +756,31 @@ public class ComponentManagerBean
             LocalDDECompCatalog compBean;
             try {
                 compBean = catalogHome.findByPrimaryKey(new Long(componentId));
-            } catch(FinderException exception) {
+            } catch (FinderException exception) {
                 throw new CatalogException(exception.toString());
             }
             Iterator forumIterator;
             try {
                 forumIterator =
-                    compforumHome.findByCompVersId(versionId).iterator();
-            } catch(FinderException impossible) {
+                        compforumHome.findByCompVersId(versionId).iterator();
+            } catch (FinderException impossible) {
                 ejbContext.setRollbackOnly();
                 throw new CatalogException(impossible.toString());
             }
             ForumAdminLocal forumAdmin;
             try {
                 forumAdmin = forumadminHome.create();
-            } catch(CreateException exception) {
+            } catch (CreateException exception) {
                 ejbContext.setRollbackOnly();
                 throw new CatalogException(exception.toString());
             }
             try {
-                while(forumIterator.hasNext()) {
+                while (forumIterator.hasNext()) {
                     LocalDDECompForumXref forumRef =
-                        (LocalDDECompForumXref) forumIterator.next();
+                            (LocalDDECompForumXref) forumIterator.next();
                     forumAdmin.closeForum(forumAdmin.getForum(forumRef.getForumId()));
                 }
-            } catch(ForumException exception) {
+            } catch (ForumException exception) {
                 ejbContext.setRollbackOnly();
                 throw new CatalogException(exception.toString());
             }
@@ -795,7 +807,7 @@ public class ComponentManagerBean
                     indexDigest.append(CatalogSearchEngine.DELIMITER);
                 }
                 CatalogSearchEngine.getInstance().
-                    reIndex(componentId, indexDigest.toString());
+                        reIndex(componentId, indexDigest.toString());
             }
         }
 
@@ -807,8 +819,8 @@ public class ComponentManagerBean
             int numforums;
             try {
                 numforums = compforumHome.findByCompVersIdAndType(versionId,
-                    Forum.SPECIFICATION).size();
-            } catch(FinderException exception) {
+                        Forum.SPECIFICATION).size();
+            } catch (FinderException exception) {
                 ejbContext.setRollbackOnly();
                 throw new CatalogException(exception.toString());
             }
@@ -818,23 +830,23 @@ public class ComponentManagerBean
                     com.topcoder.forum.Forum forum = new com.topcoder.forum.Forum();
                     try {
                         forum = forumadminHome.create().createForum(forum,
-                                    Long.parseLong(getConfigValue("spec_forum_template")));
-                    } catch(ConfigManagerException cme) {
+                                Long.parseLong(getConfigValue("spec_forum_template")));
+                    } catch (ConfigManagerException cme) {
                         log.warn("Encountered a configuration manager exception reading spec_forum_template property");
                         forum = forumadminHome.create().createForum(forum);
-                    } catch(NumberFormatException nfe) {
+                    } catch (NumberFormatException nfe) {
                         log.warn("Failed to parse the spec_forum_template property");
                         forum = forumadminHome.create().createForum(forum);
                     }
                     newForum = forum.getId();
                     compforumHome.create(newForum, Forum.SPECIFICATION, versionBean);
                     createForumRoles(newForum, Forum.SPECIFICATION, info.getPublicForum());
-                } catch(ForumException exception) {
+                } catch (ForumException exception) {
                     ejbContext.setRollbackOnly();
                     throw new CatalogException(
-                    "Failed to create specification forum: "
-                    + exception.toString());
-                } catch(CreateException exception) {
+                            "Failed to create specification forum: "
+                            + exception.toString());
+                } catch (CreateException exception) {
                     ejbContext.setRollbackOnly();
                     throw new CatalogException(exception.toString());
                 }
@@ -848,7 +860,7 @@ public class ComponentManagerBean
                 pt.versionRename(info.getVersionId(),
                         versionBean.getVersionText().trim(),
                         info.getVersionLabel());
-            } catch(RemoteException e) {
+            } catch (RemoteException e) {
                 ejbContext.setRollbackOnly();
                 throw new CatalogException(e.toString());
             } catch (CreateException e) {
@@ -861,7 +873,7 @@ public class ComponentManagerBean
         if ((versionBean.getPhaseId() == ComponentVersionInfo.COLLABORATION
                 && info.getPhase() == ComponentVersionInfo.SPECIFICATION) ||
                 (versionBean.getPhaseId() == ComponentVersionInfo.SPECIFICATION
-                    && info.getPhase() == ComponentVersionInfo.DEVELOPMENT)) {
+                && info.getPhase() == ComponentVersionInfo.DEVELOPMENT)) {
 
             long projectTypeId;
             if (info.getPhase() == ComponentVersionInfo.SPECIFICATION) {
@@ -909,7 +921,7 @@ public class ComponentManagerBean
         versionBean.setComments(info.getComments());
         versionBean.setPhaseId(info.getPhase());
         versionBean.setPhaseTime(
-            new Timestamp(info.getPhaseDate().getTime()));
+                new Timestamp(info.getPhaseDate().getTime()));
         versionBean.setPrice(info.getPrice());
     }
 
@@ -919,217 +931,201 @@ public class ComponentManagerBean
 
         if (versionDateInfo == null) {
             throw new CatalogException(
-            "Null specified for version info");
+                    "Null specified for version info");
         }
-	if(ComponentVersionInfo.SPECIFICATION == versionDateInfo.getPhaseId() ||
-           ComponentVersionInfo.DEVELOPMENT == versionDateInfo.getPhaseId() ||
-           ComponentVersionInfo.COMPLETED == versionDateInfo.getPhaseId())
-	{
-           if(versionDateInfo.getPostingDate() == null ||
-              versionDateInfo.getInitialSubmissionDate() == null ||
-              versionDateInfo.getFinalSubmissionDate() == null ||
-              versionDateInfo.getWinnerAnnouncedDate() == null ||
-              versionDateInfo.getPrice() == 0)
-           {
-               throw new CatalogException("Postingdate, initial submissiondate, " +
-                                       "final submissiondate, winner announced date, and price is required");
-           }
-           if(versionDateInfo.getPhaseId() == ComponentVersionInfo.SPECIFICATION &&
-              versionDateInfo.getEstimatedDevDate() == null)
-           {
-               throw new CatalogException("estimated dev date is required for design phase");
-           }
+        if (ComponentVersionInfo.SPECIFICATION == versionDateInfo.getPhaseId() ||
+                ComponentVersionInfo.DEVELOPMENT == versionDateInfo.getPhaseId() ||
+                ComponentVersionInfo.COMPLETED == versionDateInfo.getPhaseId()) {
+            if (versionDateInfo.getPostingDate() == null ||
+                    versionDateInfo.getInitialSubmissionDate() == null ||
+                    versionDateInfo.getFinalSubmissionDate() == null ||
+                    versionDateInfo.getWinnerAnnouncedDate() == null ||
+                    versionDateInfo.getPrice() == 0) {
+                throw new CatalogException("Postingdate, initial submissiondate, " +
+                        "final submissiondate, winner announced date, and price is required");
+            }
+            if (versionDateInfo.getPhaseId() == ComponentVersionInfo.SPECIFICATION &&
+                    versionDateInfo.getEstimatedDevDate() == null) {
+                throw new CatalogException("estimated dev date is required for design phase");
+            }
 
-           LocalDDECompVersionDates versionDatesBean;
-           Timestamp estimatedDevDate = null;
-           Timestamp screeningDate = null;
-           Timestamp phaseCompleteDate = null;
-           Timestamp aggregationCompleteDate = null;
-           Timestamp reviewCompleteDate = null;
-           Timestamp productionDate = null;
-           if (versionDateInfo.getEstimatedDevDate()!=null)
-           {
-               estimatedDevDate = new Timestamp(versionDateInfo.getEstimatedDevDate().getTime());
-           }
-           if (versionDateInfo.getScreeningCompleteDate()!=null)
-           {
-               screeningDate = new Timestamp(versionDateInfo.getScreeningCompleteDate().getTime());
-           }
-           if (versionDateInfo.getPhaseCompleteDate()!=null)
-           {
-               phaseCompleteDate = new Timestamp(versionDateInfo.getPhaseCompleteDate().getTime());
-           }
-           if (versionDateInfo.getAggregationCompleteDate()!=null)
-           {
-               aggregationCompleteDate = new Timestamp(versionDateInfo.getAggregationCompleteDate().getTime());
-           }
-           if (versionDateInfo.getReviewCompleteDate()!=null)
-           {
-               reviewCompleteDate = new Timestamp(versionDateInfo.getReviewCompleteDate().getTime());
-           }
-           if (versionDateInfo.getProductionDate()!=null)
-           {
-               productionDate = new Timestamp(versionDateInfo.getProductionDate().getTime());
-           }
-           try {
-               versionDatesBean =
-                   versionDatesHome.findByComponentVersionId(versionDateInfo.getComponentVersionId(), versionDateInfo.getPhaseId());
-           } catch(FinderException exception) {
+            LocalDDECompVersionDates versionDatesBean;
+            Timestamp estimatedDevDate = null;
+            Timestamp screeningDate = null;
+            Timestamp phaseCompleteDate = null;
+            Timestamp aggregationCompleteDate = null;
+            Timestamp reviewCompleteDate = null;
+            Timestamp productionDate = null;
+            if (versionDateInfo.getEstimatedDevDate() != null) {
+                estimatedDevDate = new Timestamp(versionDateInfo.getEstimatedDevDate().getTime());
+            }
+            if (versionDateInfo.getScreeningCompleteDate() != null) {
+                screeningDate = new Timestamp(versionDateInfo.getScreeningCompleteDate().getTime());
+            }
+            if (versionDateInfo.getPhaseCompleteDate() != null) {
+                phaseCompleteDate = new Timestamp(versionDateInfo.getPhaseCompleteDate().getTime());
+            }
+            if (versionDateInfo.getAggregationCompleteDate() != null) {
+                aggregationCompleteDate = new Timestamp(versionDateInfo.getAggregationCompleteDate().getTime());
+            }
+            if (versionDateInfo.getReviewCompleteDate() != null) {
+                reviewCompleteDate = new Timestamp(versionDateInfo.getReviewCompleteDate().getTime());
+            }
+            if (versionDateInfo.getProductionDate() != null) {
+                productionDate = new Timestamp(versionDateInfo.getProductionDate().getTime());
+            }
+            try {
+                versionDatesBean =
+                        versionDatesHome.findByComponentVersionId(versionDateInfo.getComponentVersionId(), versionDateInfo.getPhaseId());
+            } catch (FinderException exception) {
 
-               try{
+                try {
 
-                   versionDatesHome.create(versionDateInfo.getComponentVersionId(),
-                                       versionDateInfo.getPhaseId(),
-                                       new Timestamp(versionDateInfo.getPostingDate().getTime()),
-                                       new Timestamp(versionDateInfo.getInitialSubmissionDate().getTime()),
-                                       new Timestamp(versionDateInfo.getFinalSubmissionDate().getTime()),
-                                       new Timestamp(versionDateInfo.getWinnerAnnouncedDate().getTime()),
-                                       estimatedDevDate,
-                                       versionDateInfo.getPrice(), versionDateInfo.getStatusId(), versionDateInfo.getLevelId(),
-                                       screeningDate, phaseCompleteDate, aggregationCompleteDate, reviewCompleteDate,
-                                       versionDateInfo.getPhaseCompleteDateComment(),
-                                       versionDateInfo.getAggregationCompleteDateComment(),
-                                       versionDateInfo.getReviewCompleteDateComment(),
-                                       versionDateInfo.getScreeningCompleteDateComment(),
-                                       versionDateInfo.getInitialSubmissionDateComment(),
-                                       versionDateInfo.getFinalSubmissionDateComment(),
-                                       versionDateInfo.getWinnerAnnouncedDateComment(), productionDate,
-                                       versionDateInfo.getProductionDateComment());
+                    versionDatesHome.create(versionDateInfo.getComponentVersionId(),
+                            versionDateInfo.getPhaseId(),
+                            new Timestamp(versionDateInfo.getPostingDate().getTime()),
+                            new Timestamp(versionDateInfo.getInitialSubmissionDate().getTime()),
+                            new Timestamp(versionDateInfo.getFinalSubmissionDate().getTime()),
+                            new Timestamp(versionDateInfo.getWinnerAnnouncedDate().getTime()),
+                            estimatedDevDate,
+                            versionDateInfo.getPrice(), versionDateInfo.getStatusId(), versionDateInfo.getLevelId(),
+                            screeningDate, phaseCompleteDate, aggregationCompleteDate, reviewCompleteDate,
+                            versionDateInfo.getPhaseCompleteDateComment(),
+                            versionDateInfo.getAggregationCompleteDateComment(),
+                            versionDateInfo.getReviewCompleteDateComment(),
+                            versionDateInfo.getScreeningCompleteDateComment(),
+                            versionDateInfo.getInitialSubmissionDateComment(),
+                            versionDateInfo.getFinalSubmissionDateComment(),
+                            versionDateInfo.getWinnerAnnouncedDateComment(), productionDate,
+                            versionDateInfo.getProductionDateComment());
 
-                   versionDatesHistoryHome.create(versionDateInfo.getComponentVersionId(),
-                                       versionDateInfo.getPhaseId(),
-                                       new Timestamp(versionDateInfo.getPostingDate().getTime()),
-                                       new Timestamp(versionDateInfo.getInitialSubmissionDate().getTime()),
-                                       new Timestamp(versionDateInfo.getFinalSubmissionDate().getTime()),
-                                       new Timestamp(versionDateInfo.getWinnerAnnouncedDate().getTime()),
-                                       estimatedDevDate,
-                                       versionDateInfo.getPrice(), versionDateInfo.getStatusId(), versionDateInfo.getLevelId(),
-                                       screeningDate, phaseCompleteDate, aggregationCompleteDate, reviewCompleteDate,
-                                       versionDateInfo.getPhaseCompleteDateComment(),
-                                       versionDateInfo.getAggregationCompleteDateComment(),
-                                       versionDateInfo.getReviewCompleteDateComment(),
-                                       versionDateInfo.getScreeningCompleteDateComment(),
-                                       versionDateInfo.getInitialSubmissionDateComment(),
-                                       versionDateInfo.getFinalSubmissionDateComment(),
-                                       versionDateInfo.getWinnerAnnouncedDateComment(),productionDate,
-                                       versionDateInfo.getProductionDateComment());
+                    versionDatesHistoryHome.create(versionDateInfo.getComponentVersionId(),
+                            versionDateInfo.getPhaseId(),
+                            new Timestamp(versionDateInfo.getPostingDate().getTime()),
+                            new Timestamp(versionDateInfo.getInitialSubmissionDate().getTime()),
+                            new Timestamp(versionDateInfo.getFinalSubmissionDate().getTime()),
+                            new Timestamp(versionDateInfo.getWinnerAnnouncedDate().getTime()),
+                            estimatedDevDate,
+                            versionDateInfo.getPrice(), versionDateInfo.getStatusId(), versionDateInfo.getLevelId(),
+                            screeningDate, phaseCompleteDate, aggregationCompleteDate, reviewCompleteDate,
+                            versionDateInfo.getPhaseCompleteDateComment(),
+                            versionDateInfo.getAggregationCompleteDateComment(),
+                            versionDateInfo.getReviewCompleteDateComment(),
+                            versionDateInfo.getScreeningCompleteDateComment(),
+                            versionDateInfo.getInitialSubmissionDateComment(),
+                            versionDateInfo.getFinalSubmissionDateComment(),
+                            versionDateInfo.getWinnerAnnouncedDateComment(), productionDate,
+                            versionDateInfo.getProductionDateComment());
                     return;
-               }
-               catch(CreateException ce)
-               {
-                   throw new CatalogException(ce.getMessage());
-               }
-           }
+                } catch (CreateException ce) {
+                    throw new CatalogException(ce.getMessage());
+                }
+            }
 
-           if(versionDateInfo.getPhaseId() != versionDatesBean.getPhaseId() || versionDateInfo.getId() == -1L){
+            if (versionDateInfo.getPhaseId() != versionDatesBean.getPhaseId() || versionDateInfo.getId() == -1L) {
 
-               try
-               {
-                   versionDatesHome.create(versionDatesBean.getComponentVersionId(),
-                                           versionDateInfo.getPhaseId(),
-                                           new Timestamp(versionDateInfo.getPostingDate().getTime()),
-                                           new Timestamp(versionDateInfo.getInitialSubmissionDate().getTime()),
-                                           new Timestamp(versionDateInfo.getFinalSubmissionDate().getTime()),
-                                           new Timestamp(versionDateInfo.getWinnerAnnouncedDate().getTime()),
-                                           estimatedDevDate,
-                                           versionDateInfo.getPrice(), versionDateInfo.getStatusId(), versionDateInfo.getLevelId(),
-                                           screeningDate, phaseCompleteDate, aggregationCompleteDate, reviewCompleteDate,
-                                           versionDateInfo.getPhaseCompleteDateComment(),
-                                       versionDateInfo.getAggregationCompleteDateComment(),
-                                       versionDateInfo.getReviewCompleteDateComment(),
-                                       versionDateInfo.getScreeningCompleteDateComment(),
-                                       versionDateInfo.getInitialSubmissionDateComment(),
-                                       versionDateInfo.getFinalSubmissionDateComment(),
-                                       versionDateInfo.getWinnerAnnouncedDateComment(),productionDate,
-                                       versionDateInfo.getProductionDateComment());
+                try {
+                    versionDatesHome.create(versionDatesBean.getComponentVersionId(),
+                            versionDateInfo.getPhaseId(),
+                            new Timestamp(versionDateInfo.getPostingDate().getTime()),
+                            new Timestamp(versionDateInfo.getInitialSubmissionDate().getTime()),
+                            new Timestamp(versionDateInfo.getFinalSubmissionDate().getTime()),
+                            new Timestamp(versionDateInfo.getWinnerAnnouncedDate().getTime()),
+                            estimatedDevDate,
+                            versionDateInfo.getPrice(), versionDateInfo.getStatusId(), versionDateInfo.getLevelId(),
+                            screeningDate, phaseCompleteDate, aggregationCompleteDate, reviewCompleteDate,
+                            versionDateInfo.getPhaseCompleteDateComment(),
+                            versionDateInfo.getAggregationCompleteDateComment(),
+                            versionDateInfo.getReviewCompleteDateComment(),
+                            versionDateInfo.getScreeningCompleteDateComment(),
+                            versionDateInfo.getInitialSubmissionDateComment(),
+                            versionDateInfo.getFinalSubmissionDateComment(),
+                            versionDateInfo.getWinnerAnnouncedDateComment(), productionDate,
+                            versionDateInfo.getProductionDateComment());
 
-                   versionDatesHistoryHome.create(versionDateInfo.getComponentVersionId(),
-                                       versionDateInfo.getPhaseId(),
-                                       new Timestamp(versionDateInfo.getPostingDate().getTime()),
-                                       new Timestamp(versionDateInfo.getInitialSubmissionDate().getTime()),
-                                       new Timestamp(versionDateInfo.getFinalSubmissionDate().getTime()),
-                                       new Timestamp(versionDateInfo.getWinnerAnnouncedDate().getTime()),
-                                       estimatedDevDate,
-                                       versionDateInfo.getPrice(), versionDateInfo.getStatusId(), versionDateInfo.getLevelId(),
-                                       screeningDate, phaseCompleteDate, aggregationCompleteDate, reviewCompleteDate,
-                                       versionDateInfo.getPhaseCompleteDateComment(),
-                                       versionDateInfo.getAggregationCompleteDateComment(),
-                                       versionDateInfo.getReviewCompleteDateComment(),
-                                       versionDateInfo.getScreeningCompleteDateComment(),
-                                       versionDateInfo.getInitialSubmissionDateComment(),
-                                       versionDateInfo.getFinalSubmissionDateComment(),
-                                       versionDateInfo.getWinnerAnnouncedDateComment(),productionDate,
-                                       versionDateInfo.getProductionDateComment());
+                    versionDatesHistoryHome.create(versionDateInfo.getComponentVersionId(),
+                            versionDateInfo.getPhaseId(),
+                            new Timestamp(versionDateInfo.getPostingDate().getTime()),
+                            new Timestamp(versionDateInfo.getInitialSubmissionDate().getTime()),
+                            new Timestamp(versionDateInfo.getFinalSubmissionDate().getTime()),
+                            new Timestamp(versionDateInfo.getWinnerAnnouncedDate().getTime()),
+                            estimatedDevDate,
+                            versionDateInfo.getPrice(), versionDateInfo.getStatusId(), versionDateInfo.getLevelId(),
+                            screeningDate, phaseCompleteDate, aggregationCompleteDate, reviewCompleteDate,
+                            versionDateInfo.getPhaseCompleteDateComment(),
+                            versionDateInfo.getAggregationCompleteDateComment(),
+                            versionDateInfo.getReviewCompleteDateComment(),
+                            versionDateInfo.getScreeningCompleteDateComment(),
+                            versionDateInfo.getInitialSubmissionDateComment(),
+                            versionDateInfo.getFinalSubmissionDateComment(),
+                            versionDateInfo.getWinnerAnnouncedDateComment(), productionDate,
+                            versionDateInfo.getProductionDateComment());
 
-                   return;
-               }
-               catch(CreateException ce)
-               {
-                   throw new CatalogException(ce.getMessage());
-               }
+                    return;
+                } catch (CreateException ce) {
+                    throw new CatalogException(ce.getMessage());
+                }
 
-           }
-           else{
+            } else {
 
-               versionDatesBean.setPostingDate(
-                   new Timestamp(versionDateInfo.getPostingDate().getTime()));
-               versionDatesBean.setInitialSubmissionDate(
-                   new Timestamp(versionDateInfo.getInitialSubmissionDate().getTime()));
-               versionDatesBean.setFinalSubmissionDate(
-                   new Timestamp(versionDateInfo.getFinalSubmissionDate().getTime()));
-               versionDatesBean.setWinnerAnnouncedDate(
-                   new Timestamp(versionDateInfo.getWinnerAnnouncedDate().getTime()));
-               versionDatesBean.setEstimatedDevDate(estimatedDevDate);
-               versionDatesBean.setPrice(versionDateInfo.getPrice());
-               versionDatesBean.setStatusId(versionDateInfo.getStatusId());
-               log.debug("level id" + versionDateInfo.getLevelId());
-               versionDatesBean.setLevelId(versionDateInfo.getLevelId());
+                versionDatesBean.setPostingDate(
+                        new Timestamp(versionDateInfo.getPostingDate().getTime()));
+                versionDatesBean.setInitialSubmissionDate(
+                        new Timestamp(versionDateInfo.getInitialSubmissionDate().getTime()));
+                versionDatesBean.setFinalSubmissionDate(
+                        new Timestamp(versionDateInfo.getFinalSubmissionDate().getTime()));
+                versionDatesBean.setWinnerAnnouncedDate(
+                        new Timestamp(versionDateInfo.getWinnerAnnouncedDate().getTime()));
+                versionDatesBean.setEstimatedDevDate(estimatedDevDate);
+                versionDatesBean.setPrice(versionDateInfo.getPrice());
+                versionDatesBean.setStatusId(versionDateInfo.getStatusId());
+                log.debug("level id" + versionDateInfo.getLevelId());
+                versionDatesBean.setLevelId(versionDateInfo.getLevelId());
 
 
-               versionDatesBean.setScreeningCompleteDate(screeningDate);
-               versionDatesBean.setPhaseCompleteDate(phaseCompleteDate);
-               log.debug("aggregationCompleteDate: " + aggregationCompleteDate);
-               versionDatesBean.setAggregationCompleteDate(aggregationCompleteDate);
-               versionDatesBean.setReviewCompleteDate(reviewCompleteDate);
-               versionDatesBean.setProductionDate(productionDate);
+                versionDatesBean.setScreeningCompleteDate(screeningDate);
+                versionDatesBean.setPhaseCompleteDate(phaseCompleteDate);
+                log.debug("aggregationCompleteDate: " + aggregationCompleteDate);
+                versionDatesBean.setAggregationCompleteDate(aggregationCompleteDate);
+                versionDatesBean.setReviewCompleteDate(reviewCompleteDate);
+                versionDatesBean.setProductionDate(productionDate);
 
 
-               versionDatesBean.setAggregationCompleteDateComment(versionDateInfo.getAggregationCompleteDateComment());
-               versionDatesBean.setPhaseCompleteDateComment(versionDateInfo.getPhaseCompleteDateComment());
-               versionDatesBean.setReviewCompleteDateComment(versionDateInfo.getReviewCompleteDateComment());
-               versionDatesBean.setWinnerAnnouncedDateComment(versionDateInfo.getWinnerAnnouncedDateComment());
-               versionDatesBean.setInitialSubmissionDateComment(versionDateInfo.getInitialSubmissionDateComment());
-               versionDatesBean.setScreeningCompleteDateComment(versionDateInfo.getScreeningCompleteDateComment());
-               versionDatesBean.setFinalSubmissionDateComment(versionDateInfo.getFinalSubmissionDateComment());
-               versionDatesBean.setProductionDateComment(versionDateInfo.getProductionDateComment());
+                versionDatesBean.setAggregationCompleteDateComment(versionDateInfo.getAggregationCompleteDateComment());
+                versionDatesBean.setPhaseCompleteDateComment(versionDateInfo.getPhaseCompleteDateComment());
+                versionDatesBean.setReviewCompleteDateComment(versionDateInfo.getReviewCompleteDateComment());
+                versionDatesBean.setWinnerAnnouncedDateComment(versionDateInfo.getWinnerAnnouncedDateComment());
+                versionDatesBean.setInitialSubmissionDateComment(versionDateInfo.getInitialSubmissionDateComment());
+                versionDatesBean.setScreeningCompleteDateComment(versionDateInfo.getScreeningCompleteDateComment());
+                versionDatesBean.setFinalSubmissionDateComment(versionDateInfo.getFinalSubmissionDateComment());
+                versionDatesBean.setProductionDateComment(versionDateInfo.getProductionDateComment());
 
-               try{
-               versionDatesHistoryHome.create(versionDateInfo.getComponentVersionId(),
-                                       versionDateInfo.getPhaseId(),
-                                       new Timestamp(versionDateInfo.getPostingDate().getTime()),
-                                       new Timestamp(versionDateInfo.getInitialSubmissionDate().getTime()),
-                                       new Timestamp(versionDateInfo.getFinalSubmissionDate().getTime()),
-                                       new Timestamp(versionDateInfo.getWinnerAnnouncedDate().getTime()),
-                                       estimatedDevDate,
-                                       versionDateInfo.getPrice(), versionDateInfo.getStatusId(), versionDateInfo.getLevelId(),
-                                       screeningDate, phaseCompleteDate, aggregationCompleteDate, reviewCompleteDate,
-                                       versionDateInfo.getPhaseCompleteDateComment(),
-                                       versionDateInfo.getAggregationCompleteDateComment(),
-                                       versionDateInfo.getReviewCompleteDateComment(),
-                                       versionDateInfo.getScreeningCompleteDateComment(),
-                                       versionDateInfo.getInitialSubmissionDateComment(),
-                                       versionDateInfo.getFinalSubmissionDateComment(),
-                                       versionDateInfo.getWinnerAnnouncedDateComment(),productionDate,
-                                       versionDateInfo.getProductionDateComment());
+                try {
+                    versionDatesHistoryHome.create(versionDateInfo.getComponentVersionId(),
+                            versionDateInfo.getPhaseId(),
+                            new Timestamp(versionDateInfo.getPostingDate().getTime()),
+                            new Timestamp(versionDateInfo.getInitialSubmissionDate().getTime()),
+                            new Timestamp(versionDateInfo.getFinalSubmissionDate().getTime()),
+                            new Timestamp(versionDateInfo.getWinnerAnnouncedDate().getTime()),
+                            estimatedDevDate,
+                            versionDateInfo.getPrice(), versionDateInfo.getStatusId(), versionDateInfo.getLevelId(),
+                            screeningDate, phaseCompleteDate, aggregationCompleteDate, reviewCompleteDate,
+                            versionDateInfo.getPhaseCompleteDateComment(),
+                            versionDateInfo.getAggregationCompleteDateComment(),
+                            versionDateInfo.getReviewCompleteDateComment(),
+                            versionDateInfo.getScreeningCompleteDateComment(),
+                            versionDateInfo.getInitialSubmissionDateComment(),
+                            versionDateInfo.getFinalSubmissionDateComment(),
+                            versionDateInfo.getWinnerAnnouncedDateComment(), productionDate,
+                            versionDateInfo.getProductionDateComment());
 
 
-              }
-              catch(CreateException ce){
-                 throw new CatalogException(ce.getMessage());
-              }
+                } catch (CreateException ce) {
+                    throw new CatalogException(ce.getMessage());
+                }
 
-           }
-       }
+            }
+        }
     }
 
 
@@ -1138,16 +1134,16 @@ public class ComponentManagerBean
         Iterator catIterator;
         try {
             catIterator =
-                compcatsHome.findByComponentId(componentId).iterator();
-        } catch(FinderException impossible) {
+                    compcatsHome.findByComponentId(componentId).iterator();
+        } catch (FinderException impossible) {
             throw new CatalogException(impossible.toString());
         }
-         while (catIterator.hasNext()) {
+        while (catIterator.hasNext()) {
             LocalDDECategories category = ((LocalDDECompCategories)
-                catIterator.next()).getCategories();
+                    catIterator.next()).getCategories();
             containers.add(new Category(
-                ((Long) category.getPrimaryKey()).longValue(),
-                category.getName(), category.getDescription(), null));
+                    ((Long) category.getPrimaryKey()).longValue(),
+                    category.getName(), category.getDescription(), null));
         }
         Collections.sort(containers, new Comparators.CategorySorter());
         return containers;
@@ -1158,15 +1154,15 @@ public class ComponentManagerBean
         Iterator techIterator;
         try {
             techIterator = comptechHome.findByCompVersId(versionId).iterator();
-        } catch(FinderException impossible) {
+        } catch (FinderException impossible) {
             throw new CatalogException(impossible.toString());
         }
         while (techIterator.hasNext()) {
             LocalDDETechnologyTypes technology = ((LocalDDECompTechnology)
-                techIterator.next()).getTechnologyTypes();
+                    techIterator.next()).getTechnologyTypes();
             technologies.add(new Technology(
-                ((Long) technology.getPrimaryKey()).longValue(),
-                technology.getName(), technology.getDescription()));
+                    ((Long) technology.getPrimaryKey()).longValue(),
+                    technology.getName(), technology.getDescription()));
         }
         Collections.sort(technologies, new Comparators.TechnologySorter());
         return technologies;
@@ -1177,28 +1173,28 @@ public class ComponentManagerBean
         Iterator roleIterator;
         try {
             roleIterator = userroleHome.findByCompVersId(versionId).iterator();
-        } catch(FinderException impossible) {
+        } catch (FinderException impossible) {
             throw new CatalogException(impossible.toString());
         }
         while (roleIterator.hasNext()) {
             LocalDDEUserRole role = (LocalDDEUserRole) roleIterator.next();
             long userId =
-                ((Long) role.getUserMaster().getPrimaryKey()).longValue();
+                    ((Long) role.getUserMaster().getPrimaryKey()).longValue();
             String username;
             try {
                 username =
-                    principalmgrHome.create().getUser(userId).getName();
-            } catch(RemoteException exception) {
+                        principalmgrHome.create().getUser(userId).getName();
+            } catch (RemoteException exception) {
                 throw new EJBException(exception.toString());
-            } catch(Exception exception) {
+            } catch (Exception exception) {
                 throw new CatalogException(exception.toString());
             }
             memberRoles.add(new TeamMemberRole(
-                ((Long) role.getPrimaryKey()).longValue(),
-                userId, username,
-                ((Long) role.getRoles().getPrimaryKey()).longValue(),
-                role.getRoles().getName(), role.getRoles().getDescription(),
-                role.getTcsRating()));
+                    ((Long) role.getPrimaryKey()).longValue(),
+                    userId, username,
+                    ((Long) role.getRoles().getPrimaryKey()).longValue(),
+                    role.getRoles().getName(), role.getRoles().getDescription(),
+                    role.getTcsRating()));
         }
         Collections.sort(memberRoles, new Comparators.TeamMemberRoleSorter());
         return memberRoles;
@@ -1209,28 +1205,28 @@ public class ComponentManagerBean
         Iterator docIterator;
         try {
             docIterator = docHome.findByCompVersId(versionId).iterator();
-        } catch(FinderException impossible) {
+        } catch (FinderException impossible) {
             throw new CatalogException(impossible.toString());
         }
         while (docIterator.hasNext()) {
             LocalDDECompDocumentation doc =
-                (LocalDDECompDocumentation) docIterator.next();
+                    (LocalDDECompDocumentation) docIterator.next();
             docs.add(new Document(
-                ((Long) doc.getPrimaryKey()).longValue(),
-                doc.getDocumentName(), doc.getUrl(),
-                doc.getDocumentTypeId()));
+                    ((Long) doc.getPrimaryKey()).longValue(),
+                    doc.getDocumentName(), doc.getUrl(),
+                    doc.getDocumentTypeId()));
         }
 
         //Add aggregation scorecard documents
         if (isAggregated(1)) {
             docs.add(new Document("Aggregate Design Scorecard",
-                                  "/review/publicaggregation.do?id=" + getProjectId(1),
-                                  Document.OTHER));
+                    "/review/publicaggregation.do?id=" + getProjectId(1),
+                    Document.OTHER));
         }
         if (isAggregated(2)) {
             docs.add(new Document("Aggregate Development Scorecard",
-                                  "/review/publicaggregation.do?id=" + getProjectId(2),
-                                  Document.OTHER));
+                    "/review/publicaggregation.do?id=" + getProjectId(2),
+                    Document.OTHER));
         }
 
         Collections.sort(docs, new Comparators.DocumentSorter());
@@ -1241,10 +1237,10 @@ public class ComponentManagerBean
         try {
             LocalDDECompDocumentation doc = docHome.findByPrimaryKey(new Long(documentId));
             return new Document(
-                ((Long) doc.getPrimaryKey()).longValue(),
-                doc.getDocumentName(), doc.getUrl(),
-                doc.getDocumentTypeId());
-        } catch(FinderException impossible) {
+                    ((Long) doc.getPrimaryKey()).longValue(),
+                    doc.getDocumentName(), doc.getUrl(),
+                    doc.getDocumentTypeId());
+        } catch (FinderException impossible) {
             throw new CatalogException(impossible.toString());
         }
     }
@@ -1254,15 +1250,15 @@ public class ComponentManagerBean
         Iterator downIterator;
         try {
             downIterator = downloadHome.findByCompVersId(versionId).iterator();
-        } catch(FinderException impossible) {
+        } catch (FinderException impossible) {
             throw new CatalogException(impossible.toString());
         }
         while (downIterator.hasNext()) {
             LocalDDECompDownload download =
-                (LocalDDECompDownload) downIterator.next();
+                    (LocalDDECompDownload) downIterator.next();
             downloads.add(new Download(
-                ((Long) download.getPrimaryKey()).longValue(),
-                download.getDescription(), download.getUrl()));
+                    ((Long) download.getPrimaryKey()).longValue(),
+                    download.getDescription(), download.getUrl()));
         }
         Collections.sort(downloads, new Comparators.DownloadSorter());
         return downloads;
@@ -1272,9 +1268,9 @@ public class ComponentManagerBean
         try {
             LocalDDECompDownload download = downloadHome.findByPrimaryKey(new Long(downloadId));
             return new Download(
-                ((Long) download.getPrimaryKey()).longValue(),
-                download.getDescription(), download.getUrl());
-        } catch(FinderException impossible) {
+                    ((Long) download.getPrimaryKey()).longValue(),
+                    download.getDescription(), download.getUrl());
+        } catch (FinderException impossible) {
             throw new CatalogException(impossible.toString());
         }
     }
@@ -1284,15 +1280,15 @@ public class ComponentManagerBean
         Iterator exIterator;
         try {
             exIterator = exampleHome.findByCompVersId(versionId).iterator();
-        } catch(FinderException impossible) {
+        } catch (FinderException impossible) {
             throw new CatalogException(impossible.toString());
         }
         while (exIterator.hasNext()) {
             LocalDDECompExamples example =
-                (LocalDDECompExamples) exIterator.next();
+                    (LocalDDECompExamples) exIterator.next();
             examples.add(new Example(
-                ((Long) example.getPrimaryKey()).longValue(),
-                example.getDescription(), example.getUrl()));
+                    ((Long) example.getPrimaryKey()).longValue(),
+                    example.getDescription(), example.getUrl()));
         }
         Collections.sort(examples, new Comparators.ExampleSorter());
         return examples;
@@ -1303,15 +1299,15 @@ public class ComponentManagerBean
         Iterator depIterator;
         try {
             depIterator = depHome.findByCompVersId(versionId).iterator();
-        } catch(FinderException impossible) {
+        } catch (FinderException impossible) {
             throw new CatalogException(impossible.toString());
         }
         while (depIterator.hasNext()) {
             LocalDDECompDependencies dependency =
-                (LocalDDECompDependencies) depIterator.next();
+                    (LocalDDECompDependencies) depIterator.next();
             LocalDDECompVersions dependee = dependency.getChildCompVersions();
             summaries.add(CatalogBean.generateSummary(
-                dependee.getCompCatalog(), dependee));
+                    dependee.getCompCatalog(), dependee));
         }
         Collections.sort(summaries, new Comparators.ComponentSummarySorter());
         return summaries;
@@ -1322,28 +1318,28 @@ public class ComponentManagerBean
         Iterator reviewIterator;
         try {
             reviewIterator = reviewHome.findByCompVersId(versionId).iterator();
-        } catch(FinderException impossible) {
+        } catch (FinderException impossible) {
             throw new CatalogException(impossible.toString());
         }
         while (reviewIterator.hasNext()) {
             LocalDDECompReviews review =
-                (LocalDDECompReviews) reviewIterator.next();
+                    (LocalDDECompReviews) reviewIterator.next();
             long userId =
-                ((Long) review.getUserMaster().getPrimaryKey()).longValue();
+                    ((Long) review.getUserMaster().getPrimaryKey()).longValue();
             String username;
             try {
                 username =
-                    principalmgrHome.create().getUser(userId).getName();
-            } catch(RemoteException exception) {
+                        principalmgrHome.create().getUser(userId).getName();
+            } catch (RemoteException exception) {
                 throw new EJBException(exception.toString());
-            } catch(Exception exception) {
+            } catch (Exception exception) {
                 throw new CatalogException(exception.toString());
             }
             reviews.add(new Review(
-                ((Long) review.getPrimaryKey()).longValue(),
-                userId, username,
-                new Date(review.getReviewTime().getTime()),
-                review.getRating(), review.getComments()));
+                    ((Long) review.getPrimaryKey()).longValue(),
+                    userId, username,
+                    new Date(review.getReviewTime().getTime()),
+                    review.getRating(), review.getComments()));
         }
         Collections.sort(reviews, new Comparators.ReviewSorter());
         return reviews;
@@ -1355,19 +1351,19 @@ public class ComponentManagerBean
         Iterator forumIterator;
         try {
             forumIterator = compforumHome.
-                findByCompVersIdAndType(versionId, type).iterator();
-        } catch(FinderException impossible) {
+                    findByCompVersIdAndType(versionId, type).iterator();
+        } catch (FinderException impossible) {
             throw new CatalogException(impossible.toString());
         }
-        while(forumIterator.hasNext()) {
+        while (forumIterator.hasNext()) {
             long forumId = ((LocalDDECompForumXref)
-                forumIterator.next()).getForumId();
+                    forumIterator.next()).getForumId();
             com.topcoder.forum.Forum forum = null;
             try {
                 forum = forumadminHome.create().getForum(forumId);
-            } catch(ForumException exception) {
+            } catch (ForumException exception) {
                 throw new CatalogException(exception.toString());
-            } catch(CreateException exception) {
+            } catch (CreateException exception) {
                 throw new CatalogException(exception.toString());
             }
             forums.add(new Forum(
@@ -1381,7 +1377,7 @@ public class ComponentManagerBean
 
         if (forums.size() > 1) {
             throw new CatalogException(
-            "The number of forums is greater than one");
+                    "The number of forums is greater than one");
         } else if (forums.size() == 0) {
             return null;
         }
@@ -1393,23 +1389,23 @@ public class ComponentManagerBean
         Iterator versionIterator = getAllVersionInfo().iterator();
         while (versionIterator.hasNext()) {
             ComponentVersionInfo info =
-                (ComponentVersionInfo) versionIterator.next();
+                    (ComponentVersionInfo) versionIterator.next();
             Iterator forumIterator;
             try {
                 forumIterator = compforumHome.findByCompVersIdAndType(
-                    info.getVersionId(), type).iterator();
-            } catch(FinderException impossible) {
+                        info.getVersionId(), type).iterator();
+            } catch (FinderException impossible) {
                 throw new CatalogException(impossible.toString());
             }
-            while(forumIterator.hasNext()) {
+            while (forumIterator.hasNext()) {
                 long forumId = ((LocalDDECompForumXref)
-                    forumIterator.next()).getForumId();
+                        forumIterator.next()).getForumId();
                 com.topcoder.forum.Forum forum = null;
                 try {
                     forum = forumadminHome.create().getForum(forumId);
-                } catch(ForumException exception) {
+                } catch (ForumException exception) {
                     throw new CatalogException(exception.toString());
-                } catch(CreateException exception) {
+                } catch (CreateException exception) {
                     throw new CatalogException(exception.toString());
                 }
                 if (forum.getStatus() == Forum.ACTIVE) {
@@ -1425,7 +1421,7 @@ public class ComponentManagerBean
         }
         if (forums.size() > 1) {
             throw new CatalogException(
-            "The number of forums is not exactly one");
+                    "The number of forums is not exactly one");
         } else if (forums.size() == 0) {
             return null;
         }
@@ -1437,23 +1433,23 @@ public class ComponentManagerBean
         Iterator versionIterator = getAllVersionInfo().iterator();
         while (versionIterator.hasNext()) {
             ComponentVersionInfo info =
-                (ComponentVersionInfo) versionIterator.next();
+                    (ComponentVersionInfo) versionIterator.next();
             Iterator forumIterator;
             try {
                 forumIterator = compforumHome.findByCompVersIdAndType(
-                    info.getVersionId(), type).iterator();
-            } catch(FinderException impossible) {
+                        info.getVersionId(), type).iterator();
+            } catch (FinderException impossible) {
                 throw new CatalogException(impossible.toString());
             }
-            while(forumIterator.hasNext()) {
+            while (forumIterator.hasNext()) {
                 long forumId = ((LocalDDECompForumXref)
-                    forumIterator.next()).getForumId();
+                        forumIterator.next()).getForumId();
                 com.topcoder.forum.Forum forum = null;
                 try {
                     forum = forumadminHome.create().getForum(forumId);
-                } catch(ForumException exception) {
+                } catch (ForumException exception) {
                     throw new CatalogException(exception.toString());
-                } catch(CreateException exception) {
+                } catch (CreateException exception) {
                     throw new CatalogException(exception.toString());
                 }
                 if (forum.getStatus() == Forum.CLOSED) {
@@ -1475,31 +1471,31 @@ public class ComponentManagerBean
         LocalDDECompCatalog component;
         try {
             component = catalogHome.findByPrimaryKey(new Long(componentId));
-        } catch(FinderException exception) {
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
 
         LocalDDECategories category;
         try {
             category = categoriesHome.findByPrimaryKey(new Long(categoryId));
-        } catch(FinderException exception) {
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
 
         boolean alreadyExists = true;
         try {
             compcatsHome.findByComponentIdAndCategoryId(componentId,
-                categoryId);
-        } catch(ObjectNotFoundException exception) {
+                    categoryId);
+        } catch (ObjectNotFoundException exception) {
             alreadyExists = false;
-        } catch(FinderException exception) {
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
 
         if (!alreadyExists) {
             try {
                 compcatsHome.create(component, category);
-            } catch(CreateException exception) {
+            } catch (CreateException exception) {
                 ejbContext.setRollbackOnly();
                 throw new CatalogException(exception.toString());
             }
@@ -1510,32 +1506,32 @@ public class ComponentManagerBean
         LocalDDECompVersions versionBean;
         try {
             versionBean = versionsHome.findByPrimaryKey(new Long(versionId));
-        } catch(FinderException exception) {
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
 
         LocalDDETechnologyTypes technology;
         try {
             technology =
-                technologiesHome.findByPrimaryKey(new Long(technologyId));
-        } catch(FinderException exception) {
+                    technologiesHome.findByPrimaryKey(new Long(technologyId));
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
 
         boolean alreadyExists = true;
         try {
             comptechHome.findByCompVersIdAndTechnologyId(versionId,
-                technologyId);
-        } catch(ObjectNotFoundException exception) {
+                    technologyId);
+        } catch (ObjectNotFoundException exception) {
             alreadyExists = false;
-        } catch(FinderException exception) {
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
 
         if (!alreadyExists) {
             try {
                 comptechHome.create(versionBean, technology);
-            } catch(CreateException exception) {
+            } catch (CreateException exception) {
                 ejbContext.setRollbackOnly();
                 throw new CatalogException(exception.toString());
             }
@@ -1543,20 +1539,20 @@ public class ComponentManagerBean
     }
 
     public TeamMemberRole addTeamMemberRole(TeamMemberRole role)
-           throws CatalogException {
+            throws CatalogException {
         if (role == null) {
             throw new CatalogException(
-            "Null specified for team member role");
+                    "Null specified for team member role");
         }
         if (role.getId() != -1) {
             throw new CatalogException(
-            "Specified role already exists for this version");
+                    "Specified role already exists for this version");
         }
 
         LocalDDECompVersions versionBean;
         try {
             versionBean = versionsHome.findByPrimaryKey(new Long(versionId));
-        } catch(FinderException exception) {
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
 
@@ -1564,22 +1560,22 @@ public class ComponentManagerBean
         String username;
         try {
             user = userHome.findByPrimaryKey(new Long(role.getUserId()));
-        } catch(FinderException exception) {
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
         try {
             username = principalmgrHome.create().getUser(role.getUserId()).
-                       getName();
-        } catch(RemoteException exception) {
+                    getName();
+        } catch (RemoteException exception) {
             throw new EJBException(exception.toString());
-        } catch(Exception exception) {
+        } catch (Exception exception) {
             throw new CatalogException(exception.toString());
         }
 
         LocalDDERoles roleBean;
-        try{
+        try {
             roleBean = rolesHome.findByPrimaryKey(new Long(role.getRoleId()));
-        } catch(FinderException exception) {
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
 
@@ -1587,11 +1583,11 @@ public class ComponentManagerBean
             LocalDDEUserRole userRole = userroleHome.create(
                     role.getTCSRating(), user, versionBean, roleBean);
             return new TeamMemberRole(
-                ((Long) userRole.getPrimaryKey()).longValue(),
-                role.getUserId(), username, role.getRoleId(),
-                roleBean.getName(), roleBean.getDescription(),
-                userRole.getTcsRating());
-        } catch(CreateException exception) {
+                    ((Long) userRole.getPrimaryKey()).longValue(),
+                    role.getUserId(), username, role.getRoleId(),
+                    roleBean.getName(), roleBean.getDescription(),
+                    userRole.getTcsRating());
+        } catch (CreateException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
         }
@@ -1603,24 +1599,24 @@ public class ComponentManagerBean
         }
         if (document.getId() != -1) {
             throw new CatalogException(
-            "Specified document already exists");
+                    "Specified document already exists");
         }
 
         LocalDDECompVersions versionBean;
         try {
             versionBean = versionsHome.findByPrimaryKey(new Long(versionId));
-        } catch(FinderException exception) {
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
 
         try {
             LocalDDECompDocumentation doc = docHome.create(
-                document.getType(), document.getName(),
-                document.getURL().toString(), versionBean);
+                    document.getType(), document.getName(),
+                    document.getURL().toString(), versionBean);
             return new Document(
-                ((Long) doc.getPrimaryKey()).longValue(), document.getName(),
-                document.getURL(), document.getType());
-        } catch(CreateException exception) {
+                    ((Long) doc.getPrimaryKey()).longValue(), document.getName(),
+                    document.getURL(), document.getType());
+        } catch (CreateException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
         }
@@ -1632,24 +1628,24 @@ public class ComponentManagerBean
         }
         if (example.getId() != -1) {
             throw new CatalogException(
-            "Specified example already exists");
+                    "Specified example already exists");
         }
 
         LocalDDECompVersions versionBean;
         try {
             versionBean = versionsHome.findByPrimaryKey(new Long(versionId));
-        } catch(FinderException exception) {
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
 
         try {
             LocalDDECompExamples exampleBean = exampleHome.create(
-                example.getURL().toString(),
-                example.getDescription(), versionBean);
+                    example.getURL().toString(),
+                    example.getDescription(), versionBean);
             return new Example(
-                ((Long) exampleBean.getPrimaryKey()).longValue(),
-                example.getDescription(), example.getURL());
-        } catch(CreateException exception) {
+                    ((Long) exampleBean.getPrimaryKey()).longValue(),
+                    example.getDescription(), example.getURL());
+        } catch (CreateException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
         }
@@ -1661,24 +1657,24 @@ public class ComponentManagerBean
         }
         if (download.getId() != -1) {
             throw new CatalogException(
-            "Specified download already exists");
+                    "Specified download already exists");
         }
 
         LocalDDECompVersions versionBean;
         try {
             versionBean = versionsHome.findByPrimaryKey(new Long(versionId));
-        } catch(FinderException exception) {
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
 
         try {
             LocalDDECompDownload downloadBean = downloadHome.create(
-                download.getURL().toString(),
-                download.getDescription(), versionBean);
+                    download.getURL().toString(),
+                    download.getDescription(), versionBean);
             return new Download(
-                ((Long) downloadBean.getPrimaryKey()).longValue(),
-                download.getDescription(), download.getURL());
-        } catch(CreateException exception) {
+                    ((Long) downloadBean.getPrimaryKey()).longValue(),
+                    download.getDescription(), download.getURL());
+        } catch (CreateException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
         }
@@ -1688,31 +1684,31 @@ public class ComponentManagerBean
         LocalDDECompVersions versionBean;
         try {
             versionBean = versionsHome.findByPrimaryKey(new Long(versionId));
-        } catch(FinderException exception) {
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
 
         LocalDDECompVersions dependee;
         try {
             dependee =
-                versionsHome.findByPrimaryKey(new Long(dependeeVersionId));
-        } catch(FinderException exception) {
+                    versionsHome.findByPrimaryKey(new Long(dependeeVersionId));
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
 
         boolean alreadyExists = true;
         try {
             depHome.findByCompVersIdAndChildId(versionId, dependeeVersionId);
-        } catch(ObjectNotFoundException exception) {
+        } catch (ObjectNotFoundException exception) {
             alreadyExists = false;
-        } catch(FinderException exception) {
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
 
         if (!alreadyExists) {
             try {
                 depHome.create(versionBean, dependee);
-            } catch(CreateException exception) {
+            } catch (CreateException exception) {
                 ejbContext.setRollbackOnly();
                 throw new CatalogException(exception.toString());
             }
@@ -1723,15 +1719,15 @@ public class ComponentManagerBean
         if (review == null) {
             throw new CatalogException("Null specified for review");
         }
-        if (review.getId() != -1 ) {
+        if (review.getId() != -1) {
             throw new CatalogException(
-            "specified review already exists");
+                    "specified review already exists");
         }
 
         LocalDDECompVersions versionBean;
         try {
             versionBean = versionsHome.findByPrimaryKey(new Long(versionId));
-        } catch(FinderException exception) {
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
 
@@ -1739,28 +1735,28 @@ public class ComponentManagerBean
         String username;
         try {
             user = userHome.findByPrimaryKey(new Long(review.getUserId()));
-        } catch(FinderException exception) {
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
         try {
             username = principalmgrHome.create().getUser(review.getUserId()).
-                       getName();
-        } catch(RemoteException exception) {
+                    getName();
+        } catch (RemoteException exception) {
             throw new EJBException(exception.toString());
-        } catch(Exception exception) {
+        } catch (Exception exception) {
             throw new CatalogException(exception.toString());
         }
 
         try {
             LocalDDECompReviews reviewBean = reviewHome.create(
-                new Timestamp((new Date()).getTime()),
-                review.getRating(), review.getComments(), versionBean, user);
+                    new Timestamp((new Date()).getTime()),
+                    review.getRating(), review.getComments(), versionBean, user);
             return new Review(
-                ((Long) reviewBean.getPrimaryKey()).longValue(),
-                review.getUserId(), username,
-                new Date(reviewBean.getReviewTime().getTime()),
-                review.getRating(), review.getComments());
-        } catch(CreateException exception) {
+                    ((Long) reviewBean.getPrimaryKey()).longValue(),
+                    review.getUserId(), username,
+                    new Date(reviewBean.getReviewTime().getTime()),
+                    review.getRating(), review.getComments());
+        } catch (CreateException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
         }
@@ -1772,13 +1768,13 @@ public class ComponentManagerBean
         }
         if (document.getId() == -1) {
             throw new CatalogException(
-            "Specified document does not exist in the catalog");
+                    "Specified document does not exist in the catalog");
         }
 
         LocalDDECompDocumentation docBean;
         try {
             docBean = docHome.findByPrimaryKey(new Long(document.getId()));
-        } catch(FinderException exception) {
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
         docBean.setDocumentName(document.getName());
@@ -1792,14 +1788,14 @@ public class ComponentManagerBean
         }
         if (example.getId() == -1) {
             throw new CatalogException(
-            "Specified example does not exist in the catalog");
+                    "Specified example does not exist in the catalog");
         }
 
         LocalDDECompExamples exampleBean;
         try {
             exampleBean =
-                exampleHome.findByPrimaryKey(new Long(example.getId()));
-        } catch(FinderException exception) {
+                    exampleHome.findByPrimaryKey(new Long(example.getId()));
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
         exampleBean.setDescription(example.getDescription());
@@ -1812,14 +1808,14 @@ public class ComponentManagerBean
         }
         if (download.getId() == -1) {
             throw new CatalogException(
-            "Specified download does not exist in the catalog");
+                    "Specified download does not exist in the catalog");
         }
 
         LocalDDECompDownload downloadBean;
         try {
             downloadBean =
-                downloadHome.findByPrimaryKey(new Long(download.getId()));
-        } catch(FinderException exception) {
+                    downloadHome.findByPrimaryKey(new Long(download.getId()));
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
         downloadBean.setDescription(download.getDescription());
@@ -1832,13 +1828,13 @@ public class ComponentManagerBean
         }
         if (review.getId() == -1) {
             throw new CatalogException(
-            "specified review does not exist in the catalog");
+                    "specified review does not exist in the catalog");
         }
 
         LocalDDECompReviews reviewBean;
         try {
             reviewBean = reviewHome.findByPrimaryKey(new Long(review.getId()));
-        } catch(FinderException exception) {
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
         reviewBean.setRating(review.getRating());
@@ -1849,14 +1845,14 @@ public class ComponentManagerBean
     public void removeCategory(long categoryId) throws CatalogException {
         try {
             compcatsHome.findByComponentIdAndCategoryId(componentId,
-                categoryId).remove();
-        } catch(ObjectNotFoundException exception) {
+                    categoryId).remove();
+        } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
-            "Specified category is not associated with this component: "
-            + exception.toString());
-        } catch(FinderException exception) {
+                    "Specified category is not associated with this component: "
+                    + exception.toString());
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
-        } catch(RemoveException exception) {
+        } catch (RemoveException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
         }
@@ -1865,30 +1861,30 @@ public class ComponentManagerBean
     public void removeTechnology(long technologyId) throws CatalogException {
         try {
             comptechHome.findByCompVersIdAndTechnologyId(versionId,
-                technologyId).remove();
-        } catch(ObjectNotFoundException exception) {
+                    technologyId).remove();
+        } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
-            "Specified technology is not associated with this component: "
-            + exception.toString());
-        } catch(FinderException exception) {
+                    "Specified technology is not associated with this component: "
+                    + exception.toString());
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
-        } catch(RemoveException exception) {
+        } catch (RemoveException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
         }
     }
 
     public void removeTeamMemberRole(long memberRoleId)
-           throws CatalogException {
+            throws CatalogException {
         try {
             userroleHome.findByPrimaryKey(new Long(memberRoleId)).remove();
-        } catch(ObjectNotFoundException exception) {
+        } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
-            "Specified team member role does not exist in the catalog: "
-            + exception.toString());
-        } catch(FinderException exception) {
+                    "Specified team member role does not exist in the catalog: "
+                    + exception.toString());
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
-        } catch(RemoveException exception) {
+        } catch (RemoveException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
         }
@@ -1897,12 +1893,12 @@ public class ComponentManagerBean
     public void removeDependency(long dependeeId) throws CatalogException {
         try {
             depHome.findByCompVersIdAndChildId(versionId, dependeeId).remove();
-        } catch(ObjectNotFoundException exception) {
+        } catch (ObjectNotFoundException exception) {
             throw new CatalogException("This component version is not dependent on specified component version: "
-            + exception.toString());
-        } catch(FinderException exception) {
+                    + exception.toString());
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
-        } catch(RemoveException exception) {
+        } catch (RemoveException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
         }
@@ -1912,22 +1908,22 @@ public class ComponentManagerBean
         String urlOfFile = null;
         try {
             Iterator xrefIterator =
-                docforumHome.findByDocumentId(documentId).iterator();
+                    docforumHome.findByDocumentId(documentId).iterator();
             while (xrefIterator.hasNext()) {
                 LocalDDEDocForumXref xref =
-                    (LocalDDEDocForumXref) xrefIterator.next();
+                        (LocalDDEDocForumXref) xrefIterator.next();
                 xref.remove();
             }
             LocalDDECompDocumentation compDoc = docHome.findByPrimaryKey(new Long(documentId));
             urlOfFile = compDoc.getUrl();
             compDoc.remove();
-        } catch(ObjectNotFoundException exception) {
+        } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
-            "Specified document does not exist in the catalog: "
-            + exception.toString());
-        } catch(FinderException exception) {
+                    "Specified document does not exist in the catalog: "
+                    + exception.toString());
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
-        } catch(RemoveException exception) {
+        } catch (RemoveException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
         }
@@ -1937,13 +1933,13 @@ public class ComponentManagerBean
     public void removeExample(long exampleId) throws CatalogException {
         try {
             exampleHome.findByPrimaryKey(new Long(exampleId)).remove();
-        } catch(ObjectNotFoundException exception) {
+        } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
-            "Specified example does not exist in the catalog: "
-            + exception.toString());
-        } catch(FinderException exception) {
+                    "Specified example does not exist in the catalog: "
+                    + exception.toString());
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
-        } catch(RemoveException exception) {
+        } catch (RemoveException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
         }
@@ -1952,13 +1948,13 @@ public class ComponentManagerBean
     public void removeDownload(long downloadId) throws CatalogException {
         try {
             downloadHome.findByPrimaryKey(new Long(downloadId)).remove();
-        } catch(ObjectNotFoundException exception) {
+        } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
-            "Specified download location does not exist in the catalog: "
-            + exception.toString());
-        } catch(FinderException exception) {
+                    "Specified download location does not exist in the catalog: "
+                    + exception.toString());
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
-        } catch(RemoveException exception) {
+        } catch (RemoveException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
         }
@@ -1967,13 +1963,13 @@ public class ComponentManagerBean
     public void removeReview(long reviewId) throws CatalogException {
         try {
             reviewHome.findByPrimaryKey(new Long(reviewId)).remove();
-        } catch(ObjectNotFoundException exception) {
+        } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
-            "Specified review does not exist in the catalog: "
-            + exception.toString());
-        } catch(FinderException exception) {
+                    "Specified review does not exist in the catalog: "
+                    + exception.toString());
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
-        } catch(RemoveException exception) {
+        } catch (RemoveException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
         }
@@ -1987,62 +1983,62 @@ public class ComponentManagerBean
         PolicyRemote checker;
         try {
             checker = policyHome.create();
-        } catch(CreateException exception) {
+        } catch (CreateException exception) {
             throw new CatalogException(exception.toString());
-        } catch(RemoteException exception) {
+        } catch (RemoteException exception) {
             throw new EJBException(exception.toString());
         }
 
         boolean hasPermission;
         try {
             hasPermission = checker.checkPermission(subject,
-                new DownloadPermission(componentId));
-        } catch(GeneralSecurityException exception) {
+                    new DownloadPermission(componentId));
+        } catch (GeneralSecurityException exception) {
             throw new CatalogException(exception.toString());
-        } catch(RemoteException exception) {
+        } catch (RemoteException exception) {
             throw new EJBException(exception.toString());
         }
         return hasPermission;
     }
 
     public void trackDownload(long userId, long downloadId, long licenseId)
-           throws CatalogException {
+            throws CatalogException {
         LocalDDECompVersions versionBean;
         try {
             versionBean = versionsHome.findByPrimaryKey(new Long(versionId));
-        } catch(FinderException exception) {
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
 
         LocalDDEUserMaster userBean;
         try {
             userBean = userHome.findByPrimaryKey(new Long(userId));
-        } catch(ObjectNotFoundException exception) {
+        } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
-            "Specified user does not exist: " + exception.toString());
-        } catch(FinderException exception) {
+                    "Specified user does not exist: " + exception.toString());
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
 
         LocalDDELicenseLevel licenseBean;
         try {
             licenseBean = licenseHome.findByPrimaryKey(new Long(licenseId));
-        } catch(ObjectNotFoundException exception) {
+        } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
-            "Specified license does not exist in the catalog: "
-            + exception.toString());
-        } catch(FinderException exception) {
+                    "Specified license does not exist in the catalog: "
+                    + exception.toString());
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
 
         LocalDDECompDownload downloadBean;
         try {
             downloadBean = downloadHome.findByPrimaryKey(new Long(downloadId));
-        } catch(ObjectNotFoundException exception) {
+        } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
-            "Specified download does not exist in the catalog: "
-            + exception.toString());
-        } catch(FinderException exception) {
+                    "Specified download does not exist in the catalog: "
+                    + exception.toString());
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
 
@@ -2051,19 +2047,19 @@ public class ComponentManagerBean
         LicenseLevel costCalculator;
         try {
             costCalculator = new LicenseLevel(
-                ((Long) licenseBean.getPrimaryKey()).longValue(),
-                licenseBean.getDescription(),
-                licenseBean.getPriceMultiplier(),
-                Double.parseDouble(getConfigValue("price_per_unit")));
-        } catch(ConfigManagerException exception) {
+                    ((Long) licenseBean.getPrimaryKey()).longValue(),
+                    licenseBean.getDescription(),
+                    licenseBean.getPriceMultiplier(),
+                    Double.parseDouble(getConfigValue("price_per_unit")));
+        } catch (ConfigManagerException exception) {
             throw new CatalogException(
-            "Failed to obtain configuration data: " + exception.toString());
+                    "Failed to obtain configuration data: " + exception.toString());
         }
         try {
             trackingHome.create(price, currentTime, versionBean, userBean,
-                licenseBean, downloadBean,
-                costCalculator.calculateUnitCost(price));
-        } catch(CreateException exception) {
+                    licenseBean, downloadBean,
+                    costCalculator.calculateUnitCost(price));
+        } catch (CreateException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
         }
@@ -2076,7 +2072,7 @@ public class ComponentManagerBean
             config.refresh(CONFIG_NAMESPACE);
         } else {
             config.add(CONFIG_NAMESPACE,
-                ConfigManager.CONFIG_PROPERTIES_FORMAT);
+                    ConfigManager.CONFIG_PROPERTIES_FORMAT);
         }
         return config.getString(CONFIG_NAMESPACE, name);
     }
@@ -2098,93 +2094,90 @@ public class ComponentManagerBean
 
 
     public void updateDates()
-        throws RemoteException, CatalogException {
+            throws RemoteException, CatalogException {
 
-            Context con = null;
-            Connection conn = null;
-            PreparedStatement ps = null;
-            ResultSet rs = null;
-    		try{
-    	        con = new InitialContext();
-    	        DataSource ds = (DataSource)con.lookup("java:InformixDS");
-    	        conn = ds.getConnection();
-        	    String query = "SELECT cv.component_id, " +
-        	                   "       cv.version " +
-                               "  FROM comp_version_dates cvd, " +
-                               "       comp_versions cv" +
-                               " WHERE initial_submission_date = EXTEND(CURRENT - 1 UNITS DAY, YEAR TO DAY)" +
-                               "   AND cv.comp_vers_id = cvd.comp_vers_id" +
-                               "   AND NOT EXISTS (SELECT s.submitter_id" +
-                               "              FROM submitters s, submissions sb" +
-                               "             WHERE s.comp_version_id = cvd.comp_vers_id" +
-                               "               AND sb.submitter_id = s.submitter_id" +
-                               "               AND sb.date >= cvd.posting_date " +
-                               "               AND s.phase_id = cvd.phase_id)";
-                ps = conn.prepareStatement(query);
-                rs = ps.executeQuery();
+        Context con = null;
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            con = new InitialContext();
+            DataSource ds = (DataSource) con.lookup("java:InformixDS");
+            conn = ds.getConnection();
+            String query = "SELECT cv.component_id, " +
+                    "       cv.version " +
+                    "  FROM comp_version_dates cvd, " +
+                    "       comp_versions cv" +
+                    " WHERE initial_submission_date = EXTEND(CURRENT - 1 UNITS DAY, YEAR TO DAY)" +
+                    "   AND cv.comp_vers_id = cvd.comp_vers_id" +
+                    "   AND NOT EXISTS (SELECT s.submitter_id" +
+                    "              FROM submitters s, submissions sb" +
+                    "             WHERE s.comp_version_id = cvd.comp_vers_id" +
+                    "               AND sb.submitter_id = s.submitter_id" +
+                    "               AND sb.date >= cvd.posting_date " +
+                    "               AND s.phase_id = cvd.phase_id)";
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
 
-                ComponentManagerHome componentManagerHome = (ComponentManagerHome)
+            ComponentManagerHome componentManagerHome = (ComponentManagerHome)
                     PortableRemoteObject.narrow(con.lookup("ComponentManagerEJB"),
-                    ComponentManagerHome.class);
-                ComponentManager componentManager = null;
-                while(rs.next() ){
+                            ComponentManagerHome.class);
+            ComponentManager componentManager = null;
+            while (rs.next()) {
 
-                    componentManager = componentManagerHome.create(rs.getLong("component_id"), rs.getLong("version"));
-                    ComponentVersionInfo ver = componentManager.getVersionInfo();
-                    VersionDateInfo verDateInfo = componentManager.getVersionDateInfo(ver.getVersionId(), ver.getPhase());
-                    // millis in a second *seconds in a minute * minutes in an hour * hours in a day * 7 days
-                    verDateInfo.setInitialSubmissionDate(new Date(verDateInfo.getInitialSubmissionDate().getTime() + 1000*60*60*24*7));
+                componentManager = componentManagerHome.create(rs.getLong("component_id"), rs.getLong("version"));
+                ComponentVersionInfo ver = componentManager.getVersionInfo();
+                VersionDateInfo verDateInfo = componentManager.getVersionDateInfo(ver.getVersionId(), ver.getPhase());
+// millis in a second *seconds in a minute * minutes in an hour * hours in a day * 7 days
+                verDateInfo.setInitialSubmissionDate(new Date(verDateInfo.getInitialSubmissionDate().getTime() + 1000 * 60 * 60 * 24 * 7));
 
-                    verDateInfo.setScreeningCompleteDate(new Date(verDateInfo.getScreeningCompleteDate().getTime() + 1000*60*60*24*7));
+                verDateInfo.setScreeningCompleteDate(new Date(verDateInfo.getScreeningCompleteDate().getTime() + 1000 * 60 * 60 * 24 * 7));
 
-                    verDateInfo.setReviewCompleteDate(new Date(verDateInfo.getReviewCompleteDate().getTime() + 1000*60*60*24*7));
+                verDateInfo.setReviewCompleteDate(new Date(verDateInfo.getReviewCompleteDate().getTime() + 1000 * 60 * 60 * 24 * 7));
 
-                    verDateInfo.setAggregationCompleteDate(new Date(verDateInfo.getAggregationCompleteDate().getTime() + 1000*60*60*24*7));
+                verDateInfo.setAggregationCompleteDate(new Date(verDateInfo.getAggregationCompleteDate().getTime() + 1000 * 60 * 60 * 24 * 7));
 
-                    if(verDateInfo.getWinnerAnnouncedDate() != null)
-                        verDateInfo.setWinnerAnnouncedDate(new Date(verDateInfo.getWinnerAnnouncedDate().getTime() + 1000*60*60*24*7));
+                if (verDateInfo.getWinnerAnnouncedDate() != null)
+                    verDateInfo.setWinnerAnnouncedDate(new Date(verDateInfo.getWinnerAnnouncedDate().getTime() + 1000 * 60 * 60 * 24 * 7));
 
-                    if(verDateInfo.getFinalSubmissionDate() != null)
-                        verDateInfo.setFinalSubmissionDate(new Date(verDateInfo.getFinalSubmissionDate().getTime() + 1000*60*60*24*7));
+                if (verDateInfo.getFinalSubmissionDate() != null)
+                    verDateInfo.setFinalSubmissionDate(new Date(verDateInfo.getFinalSubmissionDate().getTime() + 1000 * 60 * 60 * 24 * 7));
 
-                    if(verDateInfo.getEstimatedDevDate() != null)
-                        verDateInfo.setEstimatedDevDate(new Date(verDateInfo.getEstimatedDevDate().getTime() + 1000*60*60*24*7));
+                if (verDateInfo.getEstimatedDevDate() != null)
+                    verDateInfo.setEstimatedDevDate(new Date(verDateInfo.getEstimatedDevDate().getTime() + 1000 * 60 * 60 * 24 * 7));
 
-                    if(verDateInfo.getEstimatedDevDate() != null)
-                        verDateInfo.setPhaseCompleteDate(new Date(verDateInfo.getPhaseCompleteDate().getTime() + 1000*60*60*24*7));
+                if (verDateInfo.getEstimatedDevDate() != null)
+                    verDateInfo.setPhaseCompleteDate(new Date(verDateInfo.getPhaseCompleteDate().getTime() + 1000 * 60 * 60 * 24 * 7));
 
-                    verDateInfo.setStatusId(VersionDateInfo.RE_POSTING);
+                verDateInfo.setStatusId(VersionDateInfo.RE_POSTING);
 
-                    componentManager.updateVersionDatesInfo(verDateInfo);
-
-                }
-
+                componentManager.updateVersionDatesInfo(verDateInfo);
 
             }
-            catch(Exception e)
-            {
-                System.out.println("big error: " + e);
+
+
+        } catch (Exception e) {
+            System.out.println("big error: " + e);
+        } finally {
+            try {
+                if (rs != null) rs.close();
+            } catch (Exception ignore) {
+                System.out.println("rs   close problem " + ignore);
             }
-            finally {
-                try {
-                    if (rs != null) rs.close();
-                } catch (Exception ignore) {
-                    System.out.println("rs   close problem " + ignore);
-                }
-                try {
-                    if (ps != null) ps.close();
-                } catch (Exception ignore) {
-                    System.out.println("ps   close problem" + ignore);
-                }
-                try {
-                    if (conn != null) conn.close();
-                } catch (Exception ignore) {
-                    System.out.println("conn close problem" + ignore);
-                }
-                rs = null;
-                ps = null;
-                conn = null;
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception ignore) {
+                System.out.println("ps   close problem" + ignore);
             }
+            try {
+                if (conn != null) conn.close();
+            } catch (Exception ignore) {
+                System.out.println("conn close problem" + ignore);
+            }
+            rs = null;
+            ps = null;
+            conn = null;
+        }
 
     }
 
@@ -2198,7 +2191,7 @@ public class ComponentManagerBean
         try {
             ProjectTracker pt = projectTrackerHome.create();
             return pt.getProjectIdByComponentVersionId(getVersionInfo().getVersionId(), projectType);
-        } catch(RemoteException e) {
+        } catch (RemoteException e) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(e.toString());
         } catch (CreateException e) {
@@ -2221,7 +2214,7 @@ public class ComponentManagerBean
         try {
             DocumentManager dm = documentManagerHome.create();
             return dm.isProjectAggregated(projectId);
-        } catch(RemoteException e) {
+        } catch (RemoteException e) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(e.toString());
         } catch (CreateException e) {
@@ -2230,7 +2223,8 @@ public class ComponentManagerBean
         }
     }
 
-    public void ejbActivate() {}
+    public void ejbActivate() {
+    }
 
     public void ejbPassivate() {
         /*
@@ -2240,7 +2234,8 @@ public class ComponentManagerBean
          */
     }
 
-    public void ejbRemove() {}
+    public void ejbRemove() {
+    }
 
     public void setSessionContext(SessionContext context) {
         ejbContext = context;

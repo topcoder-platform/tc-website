@@ -53,10 +53,11 @@
  * individuals on behalf of CoolServlets.com. For more information
  * on CoolServlets.com, please see <http://www.coolservlets.com>.
  */
- 
+
 package com.coolservlets.forum;
 
-import java.util.*;
+import java.util.Iterator;
+
 //JDK1.1// import com.sun.java.util.collections.*;
 
 /**
@@ -70,19 +71,17 @@ public class ForumFactoryProxy extends ForumFactory {
     private ForumPermissions permissions;
 
     public ForumFactoryProxy(ForumFactory factory, Authorization authorization,
-            ForumPermissions permissions)
-    {
+                             ForumPermissions permissions) {
         this.factory = factory;
         this.authorization = authorization;
         this.permissions = permissions;
     }
 
     public Forum createForum(String name, String description)
-            throws UnauthorizedException
-    {
+            throws UnauthorizedException {
         //if (permissions.get(ForumPermissions.SYSTEM_ADMIN)) {
-            Forum newForum = factory.createForum(name, description);
-            return new ForumProxy(newForum, authorization, permissions);
+        Forum newForum = factory.createForum(name, description);
+        return new ForumProxy(newForum, authorization, permissions);
         //}
         //else {
         //    throw new UnauthorizedException();
@@ -91,16 +90,15 @@ public class ForumFactoryProxy extends ForumFactory {
 
     public void deleteForum(Forum forum) throws UnauthorizedException {
         //if (permissions.get(ForumPermissions.SYSTEM_ADMIN)) {
-            factory.deleteForum(forum);
+        factory.deleteForum(forum);
         //}
         //else {
-            //throw new UnauthorizedException();
+        //throw new UnauthorizedException();
         //}
     }
 
     public Forum getForum(int ID) throws ForumNotFoundException,
-            UnauthorizedException
-    {
+            UnauthorizedException {
         Forum forum = factory.getForum(ID);
         ForumPermissions forumPermissions = forum.getPermissions(authorization);
         //Create a new permissions object with the combination of the
@@ -110,11 +108,10 @@ public class ForumFactoryProxy extends ForumFactory {
         //Check and see if the user has READ permissions. If not, throw an
         //an UnauthorizedException.
         if (!(
-            newPermissions.get(ForumPermissions.READ) ||
-            newPermissions.get(ForumPermissions.FORUM_ADMIN) ||
-            newPermissions.get(ForumPermissions.SYSTEM_ADMIN)
-            ))
-        {
+                newPermissions.get(ForumPermissions.READ) ||
+                newPermissions.get(ForumPermissions.FORUM_ADMIN) ||
+                newPermissions.get(ForumPermissions.SYSTEM_ADMIN)
+                )) {
             throw new UnauthorizedException();
         }
         return new ForumProxy(forum, authorization, newPermissions);
@@ -130,12 +127,12 @@ public class ForumFactoryProxy extends ForumFactory {
 
     public ProfileManager getProfileManager() {
         ProfileManager profileManager = factory.getProfileManager();
-        return new ProfileManagerProxy(profileManager, authorization, permissions);    
+        return new ProfileManagerProxy(profileManager, authorization, permissions);
     }
 
     public SearchIndexer getSearchIndexer() throws UnauthorizedException {
         //if (permissions.get(ForumPermissions.SYSTEM_ADMIN)) {
-            return factory.getSearchIndexer();
+        return factory.getSearchIndexer();
         //}
         //else {
         //    throw new UnauthorizedException();
@@ -160,13 +157,12 @@ public class ForumFactoryProxy extends ForumFactory {
      * @throws UnauthorizedException if does not have ADMIN permissions.
      */
     public ForumFactory getUnderlyingForumFactory()
-            throws UnauthorizedException
-    {
+            throws UnauthorizedException {
         //if (permissions.get(ForumPermissions.SYSTEM_ADMIN)) {
-            return factory;
+        return factory;
         //}
         //else {
         //    throw new UnauthorizedException();
         //}
     }
-} 
+}

@@ -15,6 +15,7 @@ public class User {
     public User() {
 
     }
+
     public User(long userId, String handle) {
         this.userId = userId;
         this.handle = handle;
@@ -38,15 +39,15 @@ public class User {
 
     public boolean equals(Object obj) {
         log.debug("equals " + obj);
-        return ((User)obj).getUserId()==userId;
+        return ((User) obj).getUserId() == userId;
     }
 
     public String toString() {
-        return handle+"("+userId+")";
+        return handle + "(" + userId + ")";
     }
 
     public int hashCode() {
-        return (int)userId;
+        return (int) userId;
     }
 
 }

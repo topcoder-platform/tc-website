@@ -10,8 +10,8 @@
 
 package com.topcoder.dde.admin;
 
-import com.topcoder.dde.admin.*;
-import javax.ejb.*;
+import javax.ejb.CreateException;
+import javax.ejb.EJBHome;
 import java.rmi.RemoteException;
 
 
@@ -31,7 +31,7 @@ public interface AdminLoginHome extends EJBHome {
      * referenced to a different location.
      */
     public static final String EJB_REF_NAME =
-        "java:comp/env/ejb/AdminLoginEJB";
+            "java:comp/env/ejb/AdminLoginEJB";
 
     /**
      * Returns an instance of <code>AdminLogin</code>, the remote interface of
@@ -44,7 +44,7 @@ public interface AdminLoginHome extends EJBHome {
      * @throws CreateException if the session cannot be created
      */
     public AdminLogin create()
-        throws RemoteException, CreateException;
+            throws RemoteException, CreateException;
 
 
 }

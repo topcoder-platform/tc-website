@@ -2,9 +2,9 @@ package com.topcoder.web.privatelabel.model;
 
 import com.topcoder.web.privatelabel.Constants;
 
-import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class FullRegInfo extends SimpleRegInfo {
 
@@ -18,13 +18,11 @@ public class FullRegInfo extends SimpleRegInfo {
     public FullRegInfo(SimpleRegInfo info) {
         super(info);
         responses = new ArrayList();
-        
-        if(info instanceof FullRegInfo)
-        {
-            this.coderType = ((FullRegInfo)info).getCoderType();
-            List lst = ((FullRegInfo)info).getResponses();
-            for(int i = 0; i < lst.size(); i++)
-            {
+
+        if (info instanceof FullRegInfo) {
+            this.coderType = ((FullRegInfo) info).getCoderType();
+            List lst = ((FullRegInfo) info).getResponses();
+            for (int i = 0; i < lst.size(); i++) {
                 responses.add(lst.get(i));
             }
         }
@@ -39,19 +37,19 @@ public class FullRegInfo extends SimpleRegInfo {
     }
 
     public boolean isStudent() {
-        return coderType==Constants.STUDENT;
+        return coderType == Constants.STUDENT;
     }
 
     public boolean isProfessional() {
-        return coderType==Constants.PROFESSIONAL;
+        return coderType == Constants.PROFESSIONAL;
     }
 
     public List getResponses() {
         List list = null;
-        if (responses!=null) {
+        if (responses != null) {
             list = new ArrayList(responses.size());
-            for (int i=0; i<responses.size(); i++) {
-                list.add(((DemographicResponse)responses.get(i)).clone());
+            for (int i = 0; i < responses.size(); i++) {
+                list.add(((DemographicResponse) responses.get(i)).clone());
             }
         }
         Collections.sort(list);
@@ -59,15 +57,14 @@ public class FullRegInfo extends SimpleRegInfo {
     }
 
     public void removeResponses(long questionId) {
-        for (int i=0; i<responses.size(); i++) {
-            if (((DemographicResponse) responses.get(i)).getQuestionId()==questionId) {
+        for (int i = 0; i < responses.size(); i++) {
+            if (((DemographicResponse) responses.get(i)).getQuestionId() == questionId) {
                 responses.remove(i);
             }
         }
     }
-    
-    public void clearResponses()
-    {
+
+    public void clearResponses() {
         responses = new ArrayList();
     }
 
@@ -77,8 +74,8 @@ public class FullRegInfo extends SimpleRegInfo {
 
     public boolean hasResponse(long questionId) {
         boolean found = false;
-        for (int i=0; i<responses.size()&&!found; i++) {
-            found = ((DemographicResponse) responses.get(i)).getQuestionId()==questionId;
+        for (int i = 0; i < responses.size() && !found; i++) {
+            found = ((DemographicResponse) responses.get(i)).getQuestionId() == questionId;
         }
         return found;
     }

@@ -8,8 +8,10 @@
 package com.topcoder.dde.user.test;
 
 import com.topcoder.dde.user.*;
+
 import java.util.ArrayList;
 import java.util.Date;
+
 import junit.framework.*;
 
 /**
@@ -21,7 +23,7 @@ import junit.framework.*;
 public class TestUser extends TestCase {
 
     final static long DEF_USER_ID = 1313L;
-    
+
     protected User user;
 
     public void setUp() {
@@ -35,28 +37,28 @@ public class TestUser extends TestCase {
     public void testGetId() {
         assertEquals("Wrong id", DEF_USER_ID, user.getId());
     }
-    
+
     public void testGetId_NotSet() {
         user = new User();
         assertEquals("Wrong id", 0L, user.getId());
     }
-    
+
     public void testSetGetLastLogonTime() {
         Date testDate = new Date();
         user.setLastLogonTime(testDate);
         assertEquals("Wrong date", testDate, user.getLastLogonTime());
     }
-    
+
     public void testSetGetNumLogins() {
         int numLogins = 42;
         user.setNumLogins(numLogins);
         assertEquals("Wrong number of logins", numLogins, user.getNumLogins());
     }
-    
+
     public void testSetGetRegInfo() {
         RegistrationInfo regInfo = new RegistrationInfo();
         RegistrationInfo regInfo2;
-        
+
         regInfo.setEmail("test456@test.net");
         regInfo.setFirstName("T");
         regInfo.setLastName("T456");
@@ -77,7 +79,7 @@ public class TestUser extends TestCase {
         regInfo.setTechnologies(new ArrayList());
         regInfo.setUseComponents(true);
         regInfo.setUseConsultants(false);
-        
+
         user.setRegInfo(regInfo);
         regInfo2 = user.getRegInfo();
         assertEquals("Wrong registration info", regInfo.getEmail(), regInfo2.getEmail());
@@ -99,13 +101,13 @@ public class TestUser extends TestCase {
         assertEquals("Wrong registration info", regInfo.getUseComponents(), regInfo2.getUseComponents());
         assertEquals("Wrong registration info", regInfo.getUseConsultants(), regInfo2.getUseConsultants());
     }
-    
+
     public void testSetGetStatus() {
         int status = 432156789;
         user.setStatus(status);
         assertEquals("Wrong status", status, user.getStatus());
     }
-    
+
     public static Test suite() {
         return new TestSuite(TestUser.class);
     }

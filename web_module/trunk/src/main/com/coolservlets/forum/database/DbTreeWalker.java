@@ -53,12 +53,18 @@
  * individuals on behalf of CoolServlets.com. For more information
  * on CoolServlets.com, please see <http://www.coolservlets.com>.
  */
- 
+
 package com.coolservlets.forum.database;
-import java.sql.*;
-import com.coolservlets.forum.*;
-import com.coolservlets.util.*;
-import com.topcoder.shared.util.*;
+
+import com.coolservlets.forum.ForumMessage;
+import com.coolservlets.forum.ForumMessageNotFoundException;
+import com.coolservlets.forum.TreeWalker;
+import com.topcoder.shared.util.DBMS;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 /**
  * Database implementation of the TreeWalker interface. This class is relatively
  * inefficient compared to how it will eventually be implemented. However,
@@ -68,22 +74,24 @@ import com.topcoder.shared.util.*;
 public class DbTreeWalker implements TreeWalker {
     /** DATABASE QUERIES **/
     private static final String GET_CHILD =
-        "SELECT jiveMessageTree.childID, jiveMessage.creationDate FROM " +
-        "jiveMessageTree, jiveMessage WHERE " +
-        "jiveMessageTree.childID=jiveMessage.messageID AND " +
-        "jiveMessageTree.parentID=? ORDER BY jiveMessage.creationDate";
+            "SELECT jiveMessageTree.childID, jiveMessage.creationDate FROM " +
+            "jiveMessageTree, jiveMessage WHERE " +
+            "jiveMessageTree.childID=jiveMessage.messageID AND " +
+            "jiveMessageTree.parentID=? ORDER BY jiveMessage.creationDate";
     private static final String CHILD_COUNT =
-        "SELECT count(*) FROM jiveMessageTree WHERE parentID=?";
+            "SELECT count(*) FROM jiveMessageTree WHERE parentID=?";
     private static final String INDEX_OF_CHILD =
-        "SELECT jiveMessageTree.childID, jiveMessage.creationDate " +
-        "FROM jiveMessageTree, jiveMessage WHERE jiveMessageTree.childID=jiveMessage.messageID " +
-        "AND jiveMessageTree.parentID=? ORDER BY jiveMessage.creationDate";
+            "SELECT jiveMessageTree.childID, jiveMessage.creationDate " +
+            "FROM jiveMessageTree, jiveMessage WHERE jiveMessageTree.childID=jiveMessage.messageID " +
+            "AND jiveMessageTree.parentID=? ORDER BY jiveMessage.creationDate";
     private DbForumThread thread;
     private DbForumFactory factory;
+
     public DbTreeWalker(DbForumThread thread, DbForumFactory factory) {
         this.thread = thread;
         this.factory = factory;
     }
+
     /**
      * Returns the root of the tree. Returns null only if the tree has no nodes.
      *
@@ -92,11 +100,11 @@ public class DbTreeWalker implements TreeWalker {
     public ForumMessage getRoot() {
         try {
             return thread.getRootMessage();
-        }
-        catch (ForumMessageNotFoundException mnfe) {
+        } catch (ForumMessageNotFoundException mnfe) {
             return null;
         }
     }
+
     /**
      * Returns the child of parent at index index in the parent's child array.
      * This should not return null if index is a valid index for parent (that
@@ -122,20 +130,25 @@ public class DbTreeWalker implements TreeWalker {
                 int messageID = rs.getInt(1);
                 message = thread.getMessage(messageID);
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.err.println("Error in DbMessageTreeWalker:getChild("
-                + index + ")-" + e);
+                    + index + ")-" + e);
             e.printStackTrace();
-        }
-        finally {
-            try {  pstmt.close(); }
-            catch (Exception e) { e.printStackTrace(); }
-            try {  con.close();   }
-            catch (Exception e) { e.printStackTrace(); }
+        } finally {
+            try {
+                pstmt.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         return message;
     }
+
     /**
      * Returns the number of children of parent. Returns 0 if the node is a
      * leaf or if it has no children.
@@ -154,20 +167,25 @@ public class DbTreeWalker implements TreeWalker {
             ResultSet rs = pstmt.executeQuery();
             rs.next();
             childCount = rs.getInt(1);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.err.println("Error in DbTreeWalker:getChildCount()-"
-                + e);
+                    + e);
             e.printStackTrace();
-        }
-        finally {
-            try {  pstmt.close(); }
-            catch (Exception e) { e.printStackTrace(); }
-            try {  con.close();   }
-            catch (Exception e) { e.printStackTrace(); }
+        } finally {
+            try {
+                pstmt.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         return childCount;
     }
+
     /**
      * Returns the total number of recursive children of a parent. Returns 0
      * if there are no children. This method is not intended to aid in
@@ -177,14 +195,15 @@ public class DbTreeWalker implements TreeWalker {
         int numChildren = 0;
         int num = getChildCount(parent);
         numChildren += num;
-        for (int i=0; i<num; i++) {
-            ForumMessage child = getChild(parent,i);
+        for (int i = 0; i < num; i++) {
+            ForumMessage child = getChild(parent, i);
             if (child != null) {
                 numChildren += getRecursiveChildCount(child);
             }
         }
         return numChildren;
     }
+
     /**
      * Returns the index of child in parent.
      */
@@ -204,18 +223,23 @@ public class DbTreeWalker implements TreeWalker {
                 }
                 index++;
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.err.println("Error in DbTreeWalker:getIndexOfChild()-" + e);
-        }
-        finally {
-            try {  pstmt.close(); }
-            catch (Exception e) { e.printStackTrace(); }
-            try {  con.close();   }
-            catch (Exception e) { e.printStackTrace(); }
+        } finally {
+            try {
+                pstmt.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         return index;
     }
+
     /**
      * Returns true if node is a leaf. A node is a leaf when it has no children
      * messages.
@@ -226,4 +250,4 @@ public class DbTreeWalker implements TreeWalker {
     public boolean isLeaf(ForumMessage node) {
         return (getChildCount(node) > 0);
     }
-} 
+}

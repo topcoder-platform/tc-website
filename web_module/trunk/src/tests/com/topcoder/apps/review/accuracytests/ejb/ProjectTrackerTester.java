@@ -15,7 +15,7 @@ import java.rmi.RemoteException;
  *
  * @author TCDEVELOPER
  * @version 1.0
- * @version Copyright © 2003, TopCoder Software, Inc. All rights reserved
+ * @version Copyright ï¿½ 2003, TopCoder Software, Inc. All rights reserved
  */
 public class ProjectTrackerTester implements ProjectTrackerLocal, ProjectTracker {
 
@@ -68,48 +68,48 @@ public class ProjectTrackerTester implements ProjectTrackerLocal, ProjectTracker
     public Project getProjectById(long projectId, TCSubject requestor) {
         return project;
     }
-    
+
     public Project[] getAllProjects() {
-        return new Project[] {project};
+        return new Project[]{project};
     }
-    
+
     public Project getProject(long projectId, User requester) {
         return project;
     }
-    
+
     public javax.ejb.EJBLocalHome getEJBLocalHome() throws javax.ejb.EJBException {
         return null;
     }
-    
+
     public javax.ejb.EJBHome getEJBHome() throws javax.ejb.EJBException {
         return null;
     }
-    
+
     public Object getPrimaryKey() throws javax.ejb.EJBException {
         return null;
     }
-    
+
     public boolean isIdentical(javax.ejb.EJBLocalObject eJBLocalObject) throws javax.ejb.EJBException {
         return false;
     }
-    
+
     public boolean isIdentical(javax.ejb.EJBObject eJBLocalObject) throws javax.ejb.EJBException {
         return false;
     }
-    
+
     public void remove() throws javax.ejb.RemoveException, javax.ejb.EJBException {
     }
-    
+
     public javax.ejb.Handle getHandle() throws java.rmi.RemoteException {
         return null;
     }
-    
+
     public long createProject(String projectName, String projectVersion,
-            long compVersId, long projectTypeId, String overview, java.sql.Date[] dates,
-            TCSubject requestor) {
+                              long compVersId, long projectTypeId, String overview, java.sql.Date[] dates,
+                              TCSubject requestor) {
         return 0;
     }
-    
+
     public void userInquiry(long userId, long componentId, long version, long projectTypeId) {
     }
 

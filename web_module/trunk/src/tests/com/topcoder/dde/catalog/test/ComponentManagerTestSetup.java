@@ -23,7 +23,7 @@ public class ComponentManagerTestSetup extends CatalogTestSetup {
     public ComponentManagerTestSetup(Test t) {
         super(t);
     }
-    
+
     public void setUp() throws Exception {
         super.setUp();
         synchronized (ComponentManagerTestSetup.class) {
@@ -31,13 +31,13 @@ public class ComponentManagerTestSetup extends CatalogTestSetup {
                 ComponentManager manager;
                 ComponentRequest request;
                 ComponentVersionInfo versionInfo;
-                
+
                 catalog = catalogHome.create();
                 request = new ComponentRequest(DEF_COMP_NAME + idGen.nextId(),
                         DEF_COMP_SHORTD, DEF_COMP_DESC, DEF_COMP_FUNCTIONAL,
                         DEF_COMP_KEYWORDS, DEF_COMP_COMMENTS, DEF_COMP_VERSION,
                         defaultUser.getId());
-                summary1 =  catalog.requestComponent(request);
+                summary1 = catalog.requestComponent(request);
                 request = new ComponentRequest(DEF_COMP_NAME + idGen.nextId(),
                         DEF_COMP_SHORTD, DEF_COMP_DESC, DEF_COMP_FUNCTIONAL,
                         DEF_COMP_KEYWORDS, DEF_COMP_COMMENTS, DEF_COMP_VERSION,
@@ -45,7 +45,7 @@ public class ComponentManagerTestSetup extends CatalogTestSetup {
                 summary2 = catalog.requestComponent(request);
                 memberRole = catalog.addRole(
                         new Role("Test Role #" + idGen.nextId(),
-                                 "A role for use during component testing"));
+                                "A role for use during component testing"));
                 manager = componentManagerHome.create(summary2.getComponentId());
                 versionInfo = manager.getVersionInfo();
                 versionInfo.setPhase(ComponentVersionInfo.SPECIFICATION);
@@ -56,7 +56,7 @@ public class ComponentManagerTestSetup extends CatalogTestSetup {
                 manager.updateVersionInfo(versionInfo);
                 newVersionNumber = manager.createNewVersion(
                         new ComponentVersionRequest("new version time",
-                                "Version 867.53.09", defaultUser.getId()) );
+                                "Version 867.53.09", defaultUser.getId()));
                 defaultDownload = manager.addDownload(new Download(
                         "A default download for testing purposes",
                         "http://test.com/download/default"));
@@ -64,7 +64,7 @@ public class ComponentManagerTestSetup extends CatalogTestSetup {
             }
         }
     }
-    
+
     public void tearDown() throws Exception {
         synchronized (ComponentManagerTestSetup.class) {
             if (--componentManagerInitializationCount == 0) {
@@ -76,5 +76,5 @@ public class ComponentManagerTestSetup extends CatalogTestSetup {
         }
         super.tearDown();
     }
-    
+
 }

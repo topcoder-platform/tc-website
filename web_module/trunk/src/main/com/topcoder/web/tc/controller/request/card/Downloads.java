@@ -1,10 +1,10 @@
 package com.topcoder.web.tc.controller.request.card;
 
-import com.topcoder.web.common.TCWebException;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.shared.security.ClassResource;
 
 /**
  * @author dok
@@ -31,6 +31,6 @@ public class Downloads extends Preview {
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
-   }
+    }
 
 }

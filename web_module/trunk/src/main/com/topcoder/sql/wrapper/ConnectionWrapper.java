@@ -1,8 +1,8 @@
 package com.topcoder.sql.wrapper;
 
-import java.util.Map;
-import java.util.HashMap;
 import java.sql.*;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Wraps a Connection.<p>
@@ -150,7 +150,7 @@ public class ConnectionWrapper implements Connection {
 //                        ex.fillInStackTrace().printStackTrace();
 //                    }
 //                } catch (Exception e) {
-                    successful = false;
+                successful = false;
 //                    String message = "Unable to close Statement; please clean up after yourself.";
 //                    Exception ex = new ContentsNotClosedException(message, e);
 //                    ex.fillInStackTrace().printStackTrace();

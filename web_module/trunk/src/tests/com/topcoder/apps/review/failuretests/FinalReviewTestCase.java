@@ -1,7 +1,7 @@
 /*
  * FinalReviewTest.java 1.0 7/1/2003
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review.failuretests;
 
@@ -30,15 +30,15 @@ public class FinalReviewTestCase extends PermissionTestCase {
      * <p>Returns an instance of ScreenProject.</p>
      */
     public Model getModel() {
-        return(new com.topcoder.apps.review.FinalReview());
+        return (new com.topcoder.apps.review.FinalReview());
     }
-    
+
     /**
      * <p>Returns an instance of OnlineReviewData.</p>
      */
     public ActionData getWrongActionData() {
-        MyUser user = new MyUser("temp","aaa");
-        return(ActionDataUtil.getOnlineReviewData(user));
+        MyUser user = new MyUser("temp", "aaa");
+        return (ActionDataUtil.getOnlineReviewData(user));
     }
 
     /**
@@ -47,22 +47,22 @@ public class FinalReviewTestCase extends PermissionTestCase {
      */
     public ActionData[] getNullParams() {
         Project project = new MyProject("test");
-        MyUser user = new MyUser("screener","aaa");
-        MyUser submitter = new MyUser("submitter","bbb");
-        FinalReview finalReview = new MyFinalReview(); 
-        UserProjectInfo userProject = new MyUserProjectInfo(user,project);
+        MyUser user = new MyUser("screener", "aaa");
+        MyUser submitter = new MyUser("submitter", "bbb");
+        FinalReview finalReview = new MyFinalReview();
+        UserProjectInfo userProject = new MyUserProjectInfo(user, project);
 
-        project.setCurrentPhase(FINAL_REVIEW_PHASE);        
+        project.setCurrentPhase(FINAL_REVIEW_PHASE);
         user.addPermission(new ReviewPermission(project.getId()));
         user.addPermission(new FinalReviewPermission(project.getId()));
         user.addPermission(new ViewProjectPermission(project.getId()));
 
-        FinalReviewData data2 = 
-            ActionDataUtil.getFinalReviewData(user,null,finalReview);
-        FinalReviewData data3 = 
-            ActionDataUtil.getFinalReviewData(null,userProject,finalReview);
-            
-        return(new ActionData[] {data2, data3});
+        FinalReviewData data2 =
+                ActionDataUtil.getFinalReviewData(user, null, finalReview);
+        FinalReviewData data3 =
+                ActionDataUtil.getFinalReviewData(null, userProject, finalReview);
+
+        return (new ActionData[]{data2, data3});
     }
 
     /**
@@ -71,27 +71,27 @@ public class FinalReviewTestCase extends PermissionTestCase {
      */
     public OnlineReviewData[] getWrongPermissions() {
         Project project = new MyProject("test");
-        MyUser usera = new MyUser("a","aaa");
-        MyUser userb = new MyUser("b","bbb");
-        MyUser submitter = new MyUser("submitter","cc");
-        FinalReview finalReview1 = new MyFinalReview(); 
+        MyUser usera = new MyUser("a", "aaa");
+        MyUser userb = new MyUser("b", "bbb");
+        MyUser submitter = new MyUser("submitter", "cc");
+        FinalReview finalReview1 = new MyFinalReview();
         FinalReview finalReview2 = new MyFinalReview();
-        
+
         project.setCurrentPhase(FINAL_REVIEW_PHASE);
         usera.addPermission(new FinalReviewPermission(project.getId() + 1));
         userb.addPermission(new ViewProjectPermission(project.getId()));
-        
-        UserProjectInfo userProject1 = new MyUserProjectInfo(usera,project);
-        UserProjectInfo userProject2 = new MyUserProjectInfo(userb,project);
-        
-        FinalReviewData data1 = 
-            ActionDataUtil.getFinalReviewData(usera,userProject1,finalReview1);
-        FinalReviewData data2 = 
-            ActionDataUtil.getFinalReviewData(userb,userProject2,finalReview2);
-        
-        return(new OnlineReviewData[] {data1, data2});
+
+        UserProjectInfo userProject1 = new MyUserProjectInfo(usera, project);
+        UserProjectInfo userProject2 = new MyUserProjectInfo(userb, project);
+
+        FinalReviewData data1 =
+                ActionDataUtil.getFinalReviewData(usera, userProject1, finalReview1);
+        FinalReviewData data2 =
+                ActionDataUtil.getFinalReviewData(userb, userProject2, finalReview2);
+
+        return (new OnlineReviewData[]{data1, data2});
     }
-    
+
     /**
      * <p>Tests the start method by trying to make a submission
      * for a project that is not in the Final Review phase.</p>
@@ -100,21 +100,21 @@ public class FinalReviewTestCase extends PermissionTestCase {
         Model model = getModel();
 
         Project project = new MyProject("test");
-        MyUser user = new MyUser("screener","aaa");
-        MyUser submitter = new MyUser("submitter","bbb");
-        FinalReview finalReview = new MyFinalReview(); 
-        UserProjectInfo userProject = new MyUserProjectInfo(user,project);
+        MyUser user = new MyUser("screener", "aaa");
+        MyUser submitter = new MyUser("submitter", "bbb");
+        FinalReview finalReview = new MyFinalReview();
+        UserProjectInfo userProject = new MyUserProjectInfo(user, project);
 
         project.setCurrentPhase(SUBMIT_PHASE);
-        user.addPermission(new ReviewPermission(project.getId()));        
+        user.addPermission(new ReviewPermission(project.getId()));
         user.addPermission(new FinalReviewPermission(project.getId()));
         user.addPermission(new ViewProjectPermission(project.getId()));
 
-        FinalReviewData data = 
-            ActionDataUtil.getFinalReviewData(user,userProject,finalReview);
+        FinalReviewData data =
+                ActionDataUtil.getFinalReviewData(user, userProject, finalReview);
         ResultData result = model.start(data);
         assertFailureResult("Should only be able to submitt when the " +
-                            "project is not in the Final Review phase.", result);
+                "project is not in the Final Review phase.", result);
     }
 
     /**
@@ -123,6 +123,6 @@ public class FinalReviewTestCase extends PermissionTestCase {
      * @return the TestSuite for this TestCase
      */
     public static Test suite() {
-        return(new TestSuite(FinalReviewTestCase.class));
+        return (new TestSuite(FinalReviewTestCase.class));
     }
 }

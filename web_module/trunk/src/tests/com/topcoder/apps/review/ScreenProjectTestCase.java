@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
@@ -9,7 +9,9 @@ import com.topcoder.apps.review.projecttracker.Project;
 import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
 import com.topcoder.apps.review.projecttracker.User;
 import com.topcoder.apps.review.projecttracker.UserProjectInfo;
+
 import java.lang.reflect.Method;
+
 import junit.framework.TestCase;
 
 /**
@@ -42,7 +44,7 @@ public class ScreenProjectTestCase extends TestCase {
     public void testGetDocument() throws Exception {
         SecurityEnabledUser user = ((LoginResult) new Login().start(new LoginData("user1", "secret"))).getUser();
         ProjectsRetrieval projectsRetrieval =
-            (ProjectsRetrieval) new ViewMyOpenProjects().start(new OnlineReviewData(user));
+                (ProjectsRetrieval) new ViewMyOpenProjects().start(new OnlineReviewData(user));
         assertTrue(projectsRetrieval.getProjects().length == 3);
         UserProjectInfo proj = projectsRetrieval.getProjects()[0];
         User user3 = ((LoginResult) new Login().start(new LoginData("user3", "secret"))).getUser();
@@ -62,7 +64,7 @@ public class ScreenProjectTestCase extends TestCase {
     public void testSaveDocument() throws Exception {
         SecurityEnabledUser user = ((LoginResult) new Login().start(new LoginData("user1", "secret"))).getUser();
         ProjectsRetrieval projectsRetrieval =
-            (ProjectsRetrieval) new ViewMyOpenProjects().start(new OnlineReviewData(user));
+                (ProjectsRetrieval) new ViewMyOpenProjects().start(new OnlineReviewData(user));
         assertTrue(projectsRetrieval.getProjects().length == 3);
         UserProjectInfo proj = projectsRetrieval.getProjects()[0];
         User user3 = ((LoginResult) new Login().start(new LoginData("user3", "secret"))).getUser();
@@ -88,9 +90,9 @@ public class ScreenProjectTestCase extends TestCase {
         project.setCurrentPhase(phase.getPhase());
         try {
             // trick: override package private visibility of the UserProjectInfo.setPhase method
-            Method m = UserProjectInfo.class.getDeclaredMethod("setPhase", new Class[] {PhaseInstance.class});
+            Method m = UserProjectInfo.class.getDeclaredMethod("setPhase", new Class[]{PhaseInstance.class});
             m.setAccessible(true);
-            m.invoke(proj, new Object[] {phase});
+            m.invoke(proj, new Object[]{phase});
         } catch (Exception e) {
             System.out.println(e.getClass().getName() + ": " + e.getMessage());
         }

@@ -53,13 +53,22 @@
  * individuals on behalf of CoolServlets.com. For more information
  * on CoolServlets.com, please see <http://www.coolservlets.com>.
  */
- 
+
 package com.coolservlets.forum.database;
-import java.util.*;
-//JDK1.1// import com.sun.java.util.collections.*;
-import java.sql.*;
-import com.coolservlets.forum.*;
-import com.topcoder.shared.util.*;
+
+import com.coolservlets.forum.ProfileManager;
+import com.coolservlets.forum.User;
+import com.coolservlets.forum.UserNotFoundException;
+import com.topcoder.shared.util.DBMS;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.ListIterator;
+
 /**
  * An Iterator for all the users in the system. Those wishing to integrate
  * Jive into their own User system should also modify this class.
@@ -68,9 +77,10 @@ public class DbUserIterator implements Iterator, ListIterator {
     /** DATABASE QUERIES **/
     private static final String ALL_USERS = "SELECT user_id from user";
     private int currentIndex = -1;
-    private int [] users;
-    
+    private int[] users;
+
     private ProfileManager profileManager;
+
     protected DbUserIterator(ProfileManager profileManager) {
         this.profileManager = profileManager;
         //We don't know how many results will be returned, so store them
@@ -79,31 +89,35 @@ public class DbUserIterator implements Iterator, ListIterator {
         Connection con = null;
         PreparedStatement pstmt = null;
         try {
-            con =  DBMS.getConnection();
+            con = DBMS.getConnection();
             pstmt = con.prepareStatement(ALL_USERS);
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
                 tempUsers.add(new Integer(rs.getInt("user_ID")));
             }
-        }
-        catch( SQLException sqle ) {
+        } catch (SQLException sqle) {
             System.err.println("Error in DbUserIterator:constructor()-" + sqle);
-        }
-        finally {
-            try {  pstmt.close(); }
-            catch (Exception e) { e.printStackTrace(); }
-            try {  con.close();   }
-            catch (Exception e) { e.printStackTrace(); }
+        } finally {
+            try {
+                pstmt.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         //Now copy into an array.
         users = new int[tempUsers.size()];
-        for (int i=0; i<users.length; i++) {
-            users[i] = ((Integer)tempUsers.get(i)).intValue();
+        for (int i = 0; i < users.length; i++) {
+            users[i] = ((Integer) tempUsers.get(i)).intValue();
         }
     }
+
     protected DbUserIterator(ProfileManager profileManager, int startIndex,
-            int numResults)
-    {
+                             int numResults) {
         this.profileManager = profileManager;
 
         int[] tempUsers = new int[numResults];
@@ -116,50 +130,56 @@ public class DbUserIterator implements Iterator, ListIterator {
         PreparedStatement pstmt = null;
 
         try {
-            con =  DBMS.getConnection();
+            con = DBMS.getConnection();
             pstmt = con.prepareStatement(ALL_USERS);
-            ResultSet rs = pstmt.executeQuery();            
+            ResultSet rs = pstmt.executeQuery();
             //Move to start of index
-            for (int i=0; i<startIndex; i++) {
+            for (int i = 0; i < startIndex; i++) {
                 rs.next();
             }
             //Now read in desired number of results
-            for (int i=0; i<numResults; i++) {
+            for (int i = 0; i < numResults; i++) {
                 if (rs.next()) {
                     tempUsers[userCount] = rs.getInt("user_ID");
                     userCount++;
-                }
-                else {
+                } else {
                     break;
                 }
             }
-        }
-        catch( SQLException sqle ) {
+        } catch (SQLException sqle) {
             System.err.println("Error in DbUserIterator:constructor()-" + sqle);
-        }
-        finally {
-            try {  pstmt.close(); }
-            catch (Exception e) { e.printStackTrace(); }
-            try {  con.close();   }
-            catch (Exception e) { e.printStackTrace(); }
+        } finally {
+            try {
+                pstmt.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         users = new int[userCount];
-        for (int i=0; i<userCount; i++) {
+        for (int i = 0; i < userCount; i++) {
             users[i] = tempUsers[i];
         }
     }
+
     /**
      * Returns true if there are more users left to iteratate through forwards.
      */
     public boolean hasNext() {
-        return (currentIndex+1 < users.length);
+        return (currentIndex + 1 < users.length);
     }
+
     /**
      * Returns true if there are more users left to iteratore through backwards.
      */
     public boolean hasPrevious() {
         return (currentIndex > 0);
     }
+
     /**
      * Returns the next User.
      */
@@ -171,12 +191,12 @@ public class DbUserIterator implements Iterator, ListIterator {
         }
         try {
             user = profileManager.getUser(users[currentIndex]);
-        }
-        catch (UserNotFoundException gnfe) {
+        } catch (UserNotFoundException gnfe) {
             System.err.println(gnfe);
         }
         return user;
     }
+
     /**
      * For security reasons, the add operation is not supported. Use
      * ProfileManager instead.
@@ -186,6 +206,7 @@ public class DbUserIterator implements Iterator, ListIterator {
     public void add(Object o) throws UnsupportedOperationException {
         throw new UnsupportedOperationException();
     }
+
     /**
      * For security reasons, the remove operation is not supported. Use
      * ProfileManager instead.
@@ -195,6 +216,7 @@ public class DbUserIterator implements Iterator, ListIterator {
     public void remove() {
         throw new UnsupportedOperationException();
     }
+
     /**
      * For security reasons, the set operation is not supported. Use
      * ProfileManager instead.
@@ -204,12 +226,14 @@ public class DbUserIterator implements Iterator, ListIterator {
     public void set(Object o) throws UnsupportedOperationException {
         throw new UnsupportedOperationException();
     }
+
     /**
      * Returns the index number that would be returned with a call to next().
      */
     public int nextIndex() {
-        return currentIndex+1;
+        return currentIndex + 1;
     }
+
     /**
      * Returns the previous user.
      */
@@ -222,16 +246,16 @@ public class DbUserIterator implements Iterator, ListIterator {
         }
         try {
             user = profileManager.getUser(users[currentIndex]);
-        }
-        catch (UserNotFoundException gnfe) {
+        } catch (UserNotFoundException gnfe) {
             System.err.println(gnfe);
         }
         return user;
     }
+
     /**
      * Returns the index number that would be returned with a call to previous().
      */
     public int previousIndex() {
-        return currentIndex-1;
+        return currentIndex - 1;
     }
-} 
+}

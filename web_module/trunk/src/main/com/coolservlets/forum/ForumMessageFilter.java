@@ -56,8 +56,9 @@
 
 package com.coolservlets.forum;
 
-import java.util.*;
-import java.io.*;
+import java.io.Serializable;
+import java.util.Date;
+import java.util.Enumeration;
 
 /**
  * A filter acts as a layer between a forum skin and a real ForumMessage
@@ -151,7 +152,7 @@ public abstract class ForumMessageFilter implements ForumMessage, Serializable {
 
     /**
      * Sets a property of the filter. Each filter has a set number of
-     * properties that are determined by the filter author. 
+     * properties that are determined by the filter author.
      *
      * @param name the name of the property to set.
      * @param value the new value for the property.
@@ -183,8 +184,7 @@ public abstract class ForumMessageFilter implements ForumMessage, Serializable {
         return message.getCreationDate();
     }
 
-    public void setCreationDate(Date creationDate) throws UnauthorizedException
-    {
+    public void setCreationDate(Date creationDate) throws UnauthorizedException {
         message.setCreationDate(creationDate);
     }
 
@@ -192,8 +192,7 @@ public abstract class ForumMessageFilter implements ForumMessage, Serializable {
         return message.getModifiedDate();
     }
 
-    public void setModifiedDate(Date modifiedDate) throws UnauthorizedException
-    {
+    public void setModifiedDate(Date modifiedDate) throws UnauthorizedException {
         message.setModifiedDate(modifiedDate);
     }
 
@@ -201,7 +200,7 @@ public abstract class ForumMessageFilter implements ForumMessage, Serializable {
         return message.getSubject();
     }
 
-    public void setSubject(String subject) throws UnauthorizedException  {
+    public void setSubject(String subject) throws UnauthorizedException {
         message.setSubject(subject);
     }
 
@@ -228,7 +227,7 @@ public abstract class ForumMessageFilter implements ForumMessage, Serializable {
     public Enumeration propertyNames() {
         return message.propertyNames();
     }
-   
+
     public boolean isAnonymous() {
         return message.isAnonymous();
     }

@@ -80,4 +80,4 @@ public class JiveConstants {
      * Constant to represent the body of a message.
      */
     public static final int MESSAGE_BODY = 4;
-} 
+}

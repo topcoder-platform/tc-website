@@ -1,14 +1,14 @@
 package com.topcoder.web.codinginterface.techassess.controller.request;
 
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.codinginterface.techassess.Constants;
-import com.topcoder.web.codinginterface.techassess.model.ProblemInfo;
 import com.topcoder.shared.netCommon.screening.request.ScreeningSubmitRequest;
 import com.topcoder.shared.netCommon.screening.response.ScreeningSubmitResponse;
-import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 import com.topcoder.shared.problem.Problem;
 import com.topcoder.shared.problem.ProblemComponent;
+import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.codinginterface.techassess.Constants;
+import com.topcoder.web.codinginterface.techassess.model.ProblemInfo;
+import com.topcoder.web.common.NavigationException;
 
 /**
  * User: dok
@@ -22,7 +22,7 @@ public class Submit extends Base {
 
         if (getUser().isAnonymous()) {
             setNextPage(buildProcessorRequestString(Constants.RP_LOGIN,
-                    new String[] {Constants.COMPANY_ID}, new String[]{String.valueOf(getCompanyId())}));
+                    new String[]{Constants.COMPANY_ID}, new String[]{String.valueOf(getCompanyId())}));
             setIsNextPageInContext(false);
         } else {
 
@@ -65,22 +65,22 @@ public class Submit extends Base {
 
             showProcessingPage();
 
-            ScreeningSubmitResponse response = (ScreeningSubmitResponse)receive(5000);
+            ScreeningSubmitResponse response = (ScreeningSubmitResponse) receive(5000);
 
-            if (response.getStatus()==ScreeningSubmitResponse.SUCCESS) {
+            if (response.getStatus() == ScreeningSubmitResponse.SUCCESS) {
                 //go to the problem set
                 closeProcessingPage(buildProcessorRequestString(Constants.RP_VIEW_PROBLEM_SET,
-                        new String[] {Constants.PROBLEM_TYPE_ID},
-                        new String[] {String.valueOf(problemTypeId)}));
-            } else if (response.getStatus()==ScreeningSubmitResponse.ERROR) {
+                        new String[]{Constants.PROBLEM_TYPE_ID},
+                        new String[]{String.valueOf(problemTypeId)}));
+            } else if (response.getStatus() == ScreeningSubmitResponse.ERROR) {
                 addError(Constants.CODE, response.getMessage());
                 Problem p = new Problem();
-                p.setProblemComponents(new ProblemComponent[] {response.getProblemComponent()});
+                p.setProblemComponents(new ProblemComponent[]{response.getProblemComponent()});
                 setDefault(Constants.PROBLEM, new ProblemInfo(code, componentId, languageId, p, problemTypeId));
                 closeProcessingPage(buildProcessorRequestString(Constants.RP_VIEW_PROBLEM_RESPONSE,
-                        new String[] {Constants.MESSAGE_ID, Constants.COMPONENT_ID, Constants.PROBLEM_TYPE_ID},
+                        new String[]{Constants.MESSAGE_ID, Constants.COMPONENT_ID, Constants.PROBLEM_TYPE_ID},
                         new String[]{String.valueOf(getMessageId()), String.valueOf(componentId), String.valueOf(problemTypeId)}));
-            } else if (response.getStatus()==ScreeningSubmitResponse.RESUBMIT) {
+            } else if (response.getStatus() == ScreeningSubmitResponse.RESUBMIT) {
                 addError(Constants.CODE, response.getMessage());
                 setDefault(Constants.CODE, code);
                 setDefault(Constants.LANGUAGE_ID, String.valueOf(languageId));
@@ -89,8 +89,8 @@ public class Submit extends Base {
                 setDefault(Constants.SUBMIT_FLAG, String.valueOf(true));
                 log.debug("defaults: " + defaults);
                 closeProcessingPage(buildProcessorRequestString(Constants.RP_SUBMIT_RESPONSE,
-                        new String[] {Constants.MESSAGE_ID},
-                        new String[] {String.valueOf(getMessageId())}));
+                        new String[]{Constants.MESSAGE_ID},
+                        new String[]{String.valueOf(getMessageId())}));
             }
         }
     }

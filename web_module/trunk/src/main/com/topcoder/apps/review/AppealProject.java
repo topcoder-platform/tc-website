@@ -1,20 +1,16 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
-
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.transaction.UserTransaction;
 
 import com.topcoder.apps.review.document.Appeal;
 import com.topcoder.apps.review.document.DocumentManagerLocal;
 import com.topcoder.apps.review.document.ReviewScorecard;
-import com.topcoder.apps.review.projecttracker.Phase;
-import com.topcoder.apps.review.projecttracker.Project;
-import com.topcoder.apps.review.projecttracker.ProjectTrackerLocal;
-import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
-import com.topcoder.apps.review.projecttracker.UserProjectInfo;
+import com.topcoder.apps.review.projecttracker.*;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.transaction.UserTransaction;
 
 /**
  * This Model provides business logic through which users appeal projects.
@@ -113,7 +109,7 @@ public class AppealProject implements Model {
                     if (project.getCurrentPhase().getId() != Phase.ID_APPEALS) {
                         return new FailureResult("You can appeal only during the appeal phase");
                     }
-                } else if (user.getId() == appeal.getReviewer().getId() ) {
+                } else if (user.getId() == appeal.getReviewer().getId()) {
                     if (project.getCurrentPhase().getId() != Phase.ID_APPEALS_RESPONSE) {
                         return new FailureResult("You can reply appeals only during the appeal response phase");
                     }
@@ -163,7 +159,7 @@ public class AppealProject implements Model {
                 return new SuccessResult();
             }
 
-        // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
+            // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
         } catch (RuntimeException e) {
             LogHelper.log("", e);
             throw e;

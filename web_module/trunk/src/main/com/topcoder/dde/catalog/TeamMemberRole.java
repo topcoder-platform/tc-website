@@ -72,19 +72,19 @@ public class TeamMemberRole implements java.io.Serializable {
     public TeamMemberRole(User user, Role role, int tcsRating) {
         if (user == null) {
             throw new IllegalArgumentException(
-            "Null specified for user");
+                    "Null specified for user");
         }
         if (role == null) {
             throw new IllegalArgumentException(
-            "Null specified for role");
+                    "Null specified for role");
         }
         if (role.getId() == -1) {
             throw new IllegalArgumentException(
-            "Specified role does not exist in the catalog");
+                    "Specified role does not exist in the catalog");
         }
         if (tcsRating > MAX_RATING || tcsRating < MIN_RATING) {
-            throw new  IllegalArgumentException(
-            "Invalid value specified for rating");
+            throw new IllegalArgumentException(
+                    "Invalid value specified for rating");
         }
         id = -1;
         this.userId = user.getId();
@@ -178,8 +178,8 @@ public class TeamMemberRole implements java.io.Serializable {
         }
         TeamMemberRole other = (TeamMemberRole) object;
         return getUserId() == other.getUserId()
-            && getRoleId() == other.getRoleId()
-            && getTCSRating() == other.getTCSRating();
+                && getRoleId() == other.getRoleId()
+                && getTCSRating() == other.getTCSRating();
     }
 
     /**
@@ -195,8 +195,8 @@ public class TeamMemberRole implements java.io.Serializable {
 
     public String toString() {
         return "Development Role " + getId() + ": " + getUserId() + " "
-            + getTCSRating() + " - " + getRoleId() + " "
-            + getRoleName() + " (" + getRoleDescription() + ")";
+                + getTCSRating() + " - " + getRoleId() + " "
+                + getRoleName() + " (" + getRoleDescription() + ")";
     }
 
 

@@ -56,7 +56,7 @@
 
 package com.coolservlets.forum;
 
-import java.util.*;
+import java.util.Iterator;
 
 /**
  * Protection proxy for ForumThread iterators.
@@ -64,13 +64,12 @@ import java.util.*;
 class ThreadIteratorProxy extends IteratorProxy {
 
     public ThreadIteratorProxy(Iterator iterator, Authorization
-        authorization, ForumPermissions permissions)
-    {
+            authorization, ForumPermissions permissions) {
         super(iterator, authorization, permissions);
     }
 
     public Object next() throws java.util.NoSuchElementException {
-        ForumThread thread = (ForumThread)iterator.next();
+        ForumThread thread = (ForumThread) iterator.next();
         return new ForumThreadProxy(thread, authorization, permissions);
     }
 }

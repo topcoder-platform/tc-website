@@ -1,10 +1,9 @@
 package com.topcoder.web.common;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.ServletOutputStream;
-import java.io.PrintWriter;
+import javax.servlet.http.Cookie;
 import java.io.IOException;
-import java.util.Locale;
+import java.io.PrintWriter;
 
 /**
  * @author dok

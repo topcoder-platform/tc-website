@@ -1,7 +1,7 @@
 package com.topcoder.web.tc.model;
 
-import java.util.List;
 import java.io.Serializable;
+import java.util.List;
 
 public class Question implements Serializable {
     public static final int SINGLE_CHOICE = 1;
@@ -20,7 +20,8 @@ public class Question implements Serializable {
     private String imagePath;
     private String link;
 
-    public Question() {}
+    public Question() {
+    }
 
     public long getId() {
         return id;
@@ -71,11 +72,11 @@ public class Question implements Serializable {
     }
 
     public boolean isFreeForm() {
-         return isFreeForm(styleId);
+        return isFreeForm(styleId);
     }
 
     public static boolean isFreeForm(int styleId) {
-        return (styleId==Question.LONG_ANSWER||styleId==Question.SHORT_ANSWER);
+        return (styleId == Question.LONG_ANSWER || styleId == Question.SHORT_ANSWER);
     }
 
     public String getImagePath() {

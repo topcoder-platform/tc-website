@@ -1,7 +1,10 @@
 package com.topcoder.web.common.security;
 
+import com.topcoder.shared.security.LoginException;
+import com.topcoder.shared.security.Persistor;
+import com.topcoder.shared.security.Resource;
+import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.security.*;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
 
@@ -34,11 +37,10 @@ public class LightAuthentication extends BasicAuthentication {
     }
 
 
-
     /**
-      * Use the security component to log the supplied user in.
-      * If login succeeds, set a cookie if rememberUser is true, and record status in the persistor.
-      * If login fails, throw a LoginException.
+     * Use the security component to log the supplied user in.
+     * If login succeeds, set a cookie if rememberUser is true, and record status in the persistor.
+     * If login fails, throw a LoginException.
      * @param u
      * @throws LoginException
      */

@@ -1,4 +1,4 @@
-/* 
+/*
  * TestComponentManager_Review.java
  *
  * By John C. Bollinger
@@ -9,8 +9,10 @@ package com.topcoder.dde.catalog.test;
 
 import com.topcoder.dde.catalog.CatalogException;
 import com.topcoder.dde.catalog.Review;
+
 import java.util.Collection;
 import java.util.Iterator;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -22,8 +24,8 @@ import junit.framework.TestSuite;
  * @version 1.0
  */
 public class TestComponentManager_Review
-       extends RemoteComponentManagerTestCase {
-       
+        extends RemoteComponentManagerTestCase {
+
     protected Review review;
 
     /**
@@ -35,12 +37,12 @@ public class TestComponentManager_Review
     public TestComponentManager_Review(String testName) {
         super(testName);
     }
-    
+
     public void setUp() throws Exception {
         super.setUp();
         review = new Review(defaultUser, 10, "Test Review #" + idGen.nextId());
     }
-    
+
     /**
      * tests the normal functioning of the addReview method
      */
@@ -76,11 +78,11 @@ public class TestComponentManager_Review
         }
     }
  */
- 
+
     /**
      * tests the functioning of the addReview method when the argument is
      * <code>null</code>
-     */    
+     */
     public void testAddReview_Null() throws Exception {
         try {
             manager1.addReview(null);
@@ -93,24 +95,24 @@ public class TestComponentManager_Review
     /*
      * getReviews tested implicitly throughout this test case
      */
-    
+
     /**
      * tests the normal functioning of the removeReview method
      */
     synchronized public void testRemoveReview() throws Exception {
         Review rev = manager1.addReview(review);
         Collection reviews;
-        
+
         manager1.removeReview(rev.getId());
         reviews = manager1.getReviews();
-        
+
         assertTrue("Review not removed", !reviews.contains(review));
     }
-    
+
     /**
      * tests the functioning of the removeReview method when no review
      * matching the argument exists
-     */    
+     */
     public void testRemoveReview_Missing() throws Exception {
         try {
             manager1.removeReview(idGen.nextId());
@@ -123,7 +125,7 @@ public class TestComponentManager_Review
     /**
      * tests the functioning of the removeReview method when the review
      * matching the argument is not associated with the component being managed
-     */    
+     */
     synchronized public void testRemoveReview_NotOwned() throws Exception {
         Review rev = manager2.addReview(review);
         try {
@@ -133,33 +135,33 @@ public class TestComponentManager_Review
             throw e;
         }
     }
-    
+
     /**
      * tests the normal functioning of the updateReview method
      */
     synchronized public void testUpdateReview() throws Exception {
         Review rev = manager1.addReview(review);
         Review rev2 = new Review(defaultUser, rev.getRating(),
-                                 rev.getComments());
-                                 
+                rev.getComments());
+
         try {
             Collection reviews;
             rev.setRating(5);
             manager1.updateReview(rev);
             reviews = manager1.getReviews();
             assertTrue("Review not updated on the server",
-                       reviews.contains(rev));
+                    reviews.contains(rev));
             assertTrue("Review duplicated, not updated",
-                       !reviews.contains(rev2));
+                    !reviews.contains(rev2));
         } finally {
             manager1.removeReview(rev.getId());
         }
     }
-    
+
     /**
      * tests the functioning of the updateReview method when the argument is
      * <code>null</code>
-     */    
+     */
     public void testUpdateReview_Null() throws Exception {
         try {
             manager1.updateReview(null);
@@ -168,11 +170,11 @@ public class TestComponentManager_Review
             /* the expected case */
         }
     }
-    
+
     /**
      * tests the functioning of the updateReview method when no review
      * matching the argument exists
-     */    
+     */
     public void testUpdateReview_Missing() throws Exception {
         try {
             manager1.updateReview(review);
@@ -181,14 +183,14 @@ public class TestComponentManager_Review
             /* the expected case */
         }
     }
-    
+
     /**
      * tests the functioning of the updateReview method when the review
      * matching the argument is not associated with the component being managed
      */
 /*
  * Not a valid test -- the behavior is not required or expected
- *    
+ *
     synchronized public void testUpdateReview_NotOwned() throws Exception {
         Review rev = manager2.addReview(review);
         try {
@@ -206,5 +208,5 @@ public class TestComponentManager_Review
     public static Test suite() {
         return new ComponentManagerTestSetup(new TestSuite(TestComponentManager_Review.class));
     }
-    
+
 }

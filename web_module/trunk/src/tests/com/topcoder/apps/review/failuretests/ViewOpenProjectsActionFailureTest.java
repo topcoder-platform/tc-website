@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review.failuretests;
 
@@ -20,7 +20,7 @@ public class ViewOpenProjectsActionFailureTest extends MockStrutsTestCase {
      * Business delegate instance.
      */
     private BusinessDelegate businessDelegate = null;
-    
+
     /**
      * Initialize the business delegate for the tests.
      */
@@ -29,7 +29,7 @@ public class ViewOpenProjectsActionFailureTest extends MockStrutsTestCase {
         businessDelegate = new BusinessDelegate();
         businessDelegate.setUseMockup(true);
     }
-    
+
     /**
      * Initialize for the tests.
      */
@@ -37,14 +37,14 @@ public class ViewOpenProjectsActionFailureTest extends MockStrutsTestCase {
         super.setUp();
         setConfigFile("conf/struts-config.xml");
     }
-    
+
     /**
      * Tear down for the tests.
      */
     public void tearDown() throws Exception {
         super.tearDown();
     }
-    
+
     /**
      * Test the fail view with login required error caused by directly accessing
      * the viewOpenProjects path without previous login
@@ -52,9 +52,9 @@ public class ViewOpenProjectsActionFailureTest extends MockStrutsTestCase {
     public void testViewFail() {
         setRequestPathInfo("/viewOpenProjects");
         actionPerform();
-        
+
         verifyForward("login");
-        verifyActionErrors(new String[] {"error.login.required"});
+        verifyActionErrors(new String[]{"error.login.required"});
         assertNull(getRequest().getAttribute(Constants.PROJECT_TYPE_KEY));
         assertNull(getSession().getAttribute(Constants.PROJECT_LIST_KEY));
     }

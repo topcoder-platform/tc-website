@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review.mockup;
 
@@ -46,6 +46,7 @@ import com.topcoder.security.RolePrincipal;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.policy.PermissionCollection;
 import com.topcoder.security.policy.TCPermission;
+
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -138,6 +139,7 @@ public class MockupData {
     public static UserProjectInfo[] projinfos = {projinfo1, projinfo2, projinfo3, projinfo4, projinfo5};
 
     public static URL url = null;
+
     {
         try {
             url = new File("test_files/test.jar").toURL();
@@ -162,7 +164,7 @@ public class MockupData {
     public static ScorecardQuestion question5 = new TestCaseScorecardQuestion(5, ev1, "question5", 30, section3, 0, null, 15, 19, 0, 0);
     public static ScorecardQuestion question6 = new TestCaseScorecardQuestion(6, ev2, "question6", 55, section3, 0, null, 55, 60, 0, 0);
     public static ScorecardQuestion question7 = new ScorecardQuestion(6, ev6, "question6", 55, section3, 0, 0, 0);
-    public static ScorecardQuestion[] questions = new ScorecardQuestion[] {question1, question2, question3, question4, question5, question6}; //, question7};
+    public static ScorecardQuestion[] questions = new ScorecardQuestion[]{question1, question2, question3, question4, question5, question6}; //, question7};
 
     public static InitialSubmission submission = new InitialSubmission(1, url, "", "", user3, proj1, false, 0, 0);
     public static ScreeningScorecard screening = new ScreeningScorecard(2, true, true, questions, user1, proj1, submission, 95.34, 0, 0);
@@ -171,7 +173,7 @@ public class MockupData {
     public static ReviewScorecard review3 = new ReviewScorecard(5, !false, true, questions, user5, proj1, submission, 95.44, 0, 0);
     public static TestCaseReview testreview = new TestCaseReview(0, new TestCaseApproval(1, "yes"), proj1, "", user1, user3, true, user1.getId(), 0);
     public static AggregationWorksheet aggregation = new AggregationWorksheet(6, false, true, user1, new AggregationResponse[0], proj1, 0, 0);
-    public static AggregationReview aggregationreview = new AggregationReview(7,new AggregationApproval(1, "yes"), "", true, aggregation, false, user1, 0, 0);
+    public static AggregationReview aggregationreview = new AggregationReview(7, new AggregationApproval(1, "yes"), "", true, aggregation, false, user1, 0, 0);
     public static FinalFixSubmission finalfix = new FinalFixSubmission(1, url, "", "", user3, proj1, false, 0, 0);
     public static FinalReview finalreview = new FinalReview(1, new FixItem[0], aggregation, false, user1.getId(), 0);
 
@@ -301,7 +303,7 @@ public class MockupData {
 
     public static InitialSubmission[] getInitialSubmissions(Project project, TCSubject requestor) {
         if (project == proj1) {
-            return new InitialSubmission[] {submission};
+            return new InitialSubmission[]{submission};
         } else {
             return new InitialSubmission[0];
         }
@@ -309,7 +311,7 @@ public class MockupData {
 
     public static ScreeningScorecard[] getScreeningScorecards(Project project, TCSubject requestor) {
         if (project == proj1) {
-            return new ScreeningScorecard[] {screening};
+            return new ScreeningScorecard[]{screening};
         } else {
             return new ScreeningScorecard[0];
         }
@@ -317,7 +319,7 @@ public class MockupData {
 
     public static ReviewScorecard[] getReviewScorecards(Project project, TCSubject requestor) {
         if (project == proj1) {
-            return new ReviewScorecard[] {review1, review2, review3};
+            return new ReviewScorecard[]{review1, review2, review3};
         } else {
             return new ReviewScorecard[0];
         }
@@ -326,8 +328,8 @@ public class MockupData {
     public static ReviewScorecard getReviewScorecard(long submitterId, long projectId, long reviewerId, TCSubject requestor) {
         for (int i = 0; i < reviews.length; i++) {
             if (reviews[i].getSubmission().getSubmitter().getId() == submitterId
-                && reviews[i].getProject().getId() == projectId
-                && reviews[i].getAuthor().getId() == reviewerId) {
+                    && reviews[i].getProject().getId() == projectId
+                    && reviews[i].getAuthor().getId() == reviewerId) {
                 return reviews[i];
             }
         }
@@ -336,7 +338,7 @@ public class MockupData {
 
     public static TestCaseReview[] getTestCaseReviews(Project project, TCSubject requestor) {
         if (project == proj1) {
-            return new TestCaseReview[] {testreview};
+            return new TestCaseReview[]{testreview};
         } else {
             return new TestCaseReview[0];
         }
@@ -352,9 +354,9 @@ public class MockupData {
 
     public static AggregationReview[] getAggregationReview(Project project, TCSubject requestor) {
         if (project == proj1) {
-            return new AggregationReview[] {aggregationreview};
+            return new AggregationReview[]{aggregationreview};
         } else {
-            return new AggregationReview[] {new AggregationReview(7, null, "", false, getAggregation(project, requestor), false, getUser(requestor), 0, 0)};
+            return new AggregationReview[]{new AggregationReview(7, null, "", false, getAggregation(project, requestor), false, getUser(requestor), 0, 0)};
         }
     }
 

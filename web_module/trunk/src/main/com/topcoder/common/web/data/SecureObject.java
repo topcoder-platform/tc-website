@@ -49,6 +49,5 @@ public abstract class SecureObject implements java.io.Serializable {
     }
 
 
-
 }
 

@@ -1,16 +1,15 @@
 package com.topcoder.web.codinginterface.view.tag;
 
-import com.topcoder.shared.problem.Problem;
-import com.topcoder.shared.problem.DataType;
 import com.topcoder.shared.language.Language;
+import com.topcoder.shared.problem.DataType;
+import com.topcoder.shared.problem.Problem;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.render.DataTypeRenderer;
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.codinginterface.CodingInterfaceConstants;
+import com.topcoder.web.common.render.DataTypeRenderer;
 
-import javax.servlet.jsp.tagext.BodyTagSupport;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.PageContext;
+import javax.servlet.jsp.tagext.BodyTagSupport;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -67,7 +66,7 @@ public class ArgumentIterator extends BodyTagSupport {
         return process();
     }
 
-    private int process() throws JspException{
+    private int process() throws JspException {
         if (index < arguments.length) {
             pageContext.setAttribute(INDEX, String.valueOf(index), PageContext.PAGE_SCOPE);
             pageContext.setAttribute(ARGUMENT, new DataTypeRenderer(arguments[index]).toPlainText(language),

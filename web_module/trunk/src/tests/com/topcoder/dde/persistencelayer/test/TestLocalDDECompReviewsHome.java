@@ -9,6 +9,7 @@
 package com.topcoder.dde.persistencelayer.test;
 
 import com.topcoder.dde.persistencelayer.interfaces.*;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -29,7 +30,7 @@ public class TestLocalDDECompReviewsHome extends PersistenceTestCase {
 
     /* an instance of the localHome interface implementation to work with */
     private LocalDDECompReviewsHome localHome;
-    
+
     /* default field values for entity instances */
     static final private Timestamp DEF_REVIEW_TIME
             = new Timestamp(System.currentTimeMillis());
@@ -38,13 +39,13 @@ public class TestLocalDDECompReviewsHome extends PersistenceTestCase {
             "Foo component is the greatest thing since the widget --"
             + " and I mean the original, abstract widget, not these funky"
             + " UI component thingamabobs!";
-    
+
     /**
      * a default constructor for use only by other test cases in this package
      */
     TestLocalDDECompReviewsHome() {
         this("testCreate");
-    } 
+    }
 
     /**
      * constructs a new TestLocalDDECompReviewsHome configured to run the named
@@ -52,7 +53,7 @@ public class TestLocalDDECompReviewsHome extends PersistenceTestCase {
      */
     public TestLocalDDECompReviewsHome(String testName) {
         this(testName, null);
-    } 
+    }
 
     /**
      * constructs a new TestLocalDDECategoriesHome configured to run the named
@@ -67,7 +68,7 @@ public class TestLocalDDECompReviewsHome extends PersistenceTestCase {
      */
     public void setUp() throws Exception {
         super.setUp();
-        synchronized(contextLock) {
+        synchronized (contextLock) {
             localHome = (LocalDDECompReviewsHome) ctx.lookup(
                     LocalDDECompReviewsHome.EJB_REF_NAME);
         }
@@ -77,11 +78,11 @@ public class TestLocalDDECompReviewsHome extends PersistenceTestCase {
      * creates a LocalDDECompReviews entity with default parameters
      */
     LocalDDECompReviews createDefault(LocalDDECompVersions version,
-            LocalDDEUserMaster master) throws Exception {
+                                      LocalDDEUserMaster master) throws Exception {
         return localHome.create(DEF_REVIEW_TIME, DEF_RATING, DEF_COMMENTS,
-                                version, master);
+                version, master);
     }
-    
+
     /**
      * tests all entity creation functionality of the bean
      */
@@ -114,14 +115,14 @@ public class TestLocalDDECompReviewsHome extends PersistenceTestCase {
                             TestLocalDDEUserMasterHome masterHome
                                     = new TestLocalDDEUserMasterHome();
                             masterHome.setUp();
-                            localMaster= masterHome.createDefault();
+                            localMaster = masterHome.createDefault();
                             assertNotNull(localMaster);
                             try {
                                 synchronized (TestLocalDDECompReviewsHome.class) {
                                     /* test normal creation */
                                     LocalDDECompReviews local =
                                             createDefault(localVersion,
-                                                          localMaster);
+                                                    localMaster);
                                     assertNotNull(local);
                                     try {
                                         assertEquals(DEF_REVIEW_TIME,
@@ -137,7 +138,7 @@ public class TestLocalDDECompReviewsHome extends PersistenceTestCase {
                                         try {
                                             LocalDDECompReviews local2 =
                                                     createDefault(localVersion,
-                                                                  localMaster);
+                                                            localMaster);
                                             local2.remove();
                                             fail("Expected a CreateException");
                                         } catch (CreateException ce) {
@@ -146,7 +147,7 @@ public class TestLocalDDECompReviewsHome extends PersistenceTestCase {
                                     } finally {
                                         local.remove();
                                     }
-                        
+
                                     /* test creation with null component version */
                                     local = localHome.create(DEF_REVIEW_TIME,
                                             DEF_RATING, DEF_COMMENTS, null,
@@ -179,11 +180,11 @@ public class TestLocalDDECompReviewsHome extends PersistenceTestCase {
             }
         }
     }
-    
+
     public void testFindByPrimaryKey() {
         fail("Test not yet implemented");
     }
-    
+
 //    public void testFindByCompVersId() {
 //        fail("Test not yet implemented");
 //    }
@@ -195,12 +196,12 @@ public class TestLocalDDECompReviewsHome extends PersistenceTestCase {
         Timestamp reviewTime;
         int rating;
         String comments;
-        
+
         DDECompReviewsData(Object id, Long version, Long login,
                            Timestamp review, int rate, String com) {
             this(keyToLong(id), version, login, review, rate, com);
         }
-        
+
         DDECompReviewsData(long id, Long version, Long login,
                            Timestamp review, int rate, String com) {
             compReviewsId = id;
@@ -210,11 +211,11 @@ public class TestLocalDDECompReviewsHome extends PersistenceTestCase {
             rating = rate;
             comments = com;
         }
-        
+
         DDECompReviewsData(ResultSet rs) throws SQLException {
             readRowData(rs);
         }
-        
+
         public Object getPrimaryKey() {
             return new Long(compReviewsId);
         }
@@ -234,22 +235,22 @@ public class TestLocalDDECompReviewsHome extends PersistenceTestCase {
             rs.updateInt("RATING", rating);
             rs.updateString("COMMENTS", comments);
         }
-        
+
         public void storeRowData(ResultSet rs) throws SQLException {
             updateResultSet(rs);
             rs.updateRow();
         }
-        
+
         public void insertRowData(ResultSet rs) throws SQLException {
             rs.moveToInsertRow();
             rs.updateLong("COMP_REVIEWS_ID", compReviewsId);
             updateResultSet(rs);
             rs.insertRow();
         }
-        
+
         public void readRowData(ResultSet rs) throws SQLException {
             long l;
-            
+
             compReviewsId = rs.getLong("COMP_REVIEWS_ID");
             l = rs.getLong("COMP_VERS_ID");
             if (rs.wasNull()) {
@@ -267,25 +268,25 @@ public class TestLocalDDECompReviewsHome extends PersistenceTestCase {
             rating = rs.getInt("RATING");
             comments = rs.getString("COMMENTS");
         }
-        
+
         public boolean matchesResultSet(ResultSet rs) throws SQLException {
             return equals(new DDECompReviewsData(rs));
         }
-        
+
         public boolean equals(Object o) {
-            if (! (o instanceof DDECompReviewsData) ) {
+            if (!(o instanceof DDECompReviewsData)) {
                 return false;
             }
             DDECompReviewsData d = (DDECompReviewsData) o;
             return (
-                (compReviewsId == d.compReviewsId)
-                && objectsMatch(compVersId, d.compVersId)
-                && objectsMatch(loginId, d.loginId)
-                && objectsMatch(reviewTime, d.reviewTime)
-                && (rating == d.rating)
-                && objectsMatch(comments, d.comments) );
+                    (compReviewsId == d.compReviewsId)
+                    && objectsMatch(compVersId, d.compVersId)
+                    && objectsMatch(loginId, d.loginId)
+                    && objectsMatch(reviewTime, d.reviewTime)
+                    && (rating == d.rating)
+                    && objectsMatch(comments, d.comments));
         }
-        
+
     }
 
 }

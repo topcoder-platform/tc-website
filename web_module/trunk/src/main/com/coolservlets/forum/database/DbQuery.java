@@ -55,14 +55,18 @@
  */
 package com.coolservlets.forum.database;
 
-import java.util.*;
-//JDK1.1// import com.sun.java.util.collections.*;
-import java.sql.*;
-
-import com.coolservlets.util.*;
-import com.coolservlets.forum.*;
-import com.topcoder.shared.util.*;
+import com.coolservlets.forum.Forum;
+import com.coolservlets.forum.Query;
+import com.coolservlets.util.StringUtils;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Database implementation of the Query interface.

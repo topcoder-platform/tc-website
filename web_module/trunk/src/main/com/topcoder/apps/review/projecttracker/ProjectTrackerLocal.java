@@ -6,8 +6,6 @@
  */
 package com.topcoder.apps.review.projecttracker;
 
-import java.sql.Date;
-
 import com.topcoder.apps.review.ConcurrentModificationException;
 import com.topcoder.apps.review.GeneralSecurityException;
 import com.topcoder.apps.review.document.InvalidEditException;
@@ -15,6 +13,7 @@ import com.topcoder.security.TCSubject;
 import com.topcoder.util.TCException;
 
 import javax.ejb.EJBLocalObject;
+import java.sql.Date;
 
 
 /**
@@ -62,10 +61,10 @@ public interface ProjectTrackerLocal extends EJBLocalObject {
      * @throws GeneralSecurityException DOCUMENT ME!
      */
     public void saveProject(Project project, String reason,
-            TCSubject requestor)
-        throws InvalidEditException,
-               GeneralSecurityException,
-               ConcurrentModificationException;
+                            TCSubject requestor)
+            throws InvalidEditException,
+            GeneralSecurityException,
+            ConcurrentModificationException;
 
     /**
      * Create a new Online Review Project.

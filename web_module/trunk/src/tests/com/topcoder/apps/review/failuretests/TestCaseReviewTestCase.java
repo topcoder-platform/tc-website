@@ -1,7 +1,7 @@
 /*
  * TestCaseReviewTestCase.java 1.0 7/1/2003
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review.failuretests;
 
@@ -30,15 +30,15 @@ public class TestCaseReviewTestCase extends PermissionTestCase {
      * <p>Returns an instance of TestCaseReview.</p>
      */
     public Model getModel() {
-        return(new com.topcoder.apps.review.TestCaseReview());
+        return (new com.topcoder.apps.review.TestCaseReview());
     }
-    
+
     /**
      * <p>Returns an instance of OnlineReviewData.</p>
      */
     public ActionData getWrongActionData() {
-        MyUser user = new MyUser("temp","aaa");
-        return(ActionDataUtil.getOnlineReviewData(user));
+        MyUser user = new MyUser("temp", "aaa");
+        return (ActionDataUtil.getOnlineReviewData(user));
     }
 
     /**
@@ -47,21 +47,21 @@ public class TestCaseReviewTestCase extends PermissionTestCase {
      */
     public ActionData[] getNullParams() {
         Project project = new MyProject("test");
-        MyUser user = new MyUser("reviewer","aaa");
-        MyUser submitter = new MyUser("submitter","sss");
-        TestCaseReview review = new MyTestCaseReview(project,user,submitter); 
-        UserProjectInfo userProject = new MyUserProjectInfo(user,project);
+        MyUser user = new MyUser("reviewer", "aaa");
+        MyUser submitter = new MyUser("submitter", "sss");
+        TestCaseReview review = new MyTestCaseReview(project, user, submitter);
+        UserProjectInfo userProject = new MyUserProjectInfo(user, project);
 
-        project.setCurrentPhase(REVIEW_PHASE);        
-        user.addPermission(new ReviewPermission(project.getId()));        
+        project.setCurrentPhase(REVIEW_PHASE);
+        user.addPermission(new ReviewPermission(project.getId()));
         user.addPermission(new ViewProjectPermission(project.getId()));
 
-        TestCaseReviewData data2 = 
-            ActionDataUtil.getTestCaseReviewData(user,null,review);
-        TestCaseReviewData data3 = 
-            ActionDataUtil.getTestCaseReviewData(null,userProject,review); 
+        TestCaseReviewData data2 =
+                ActionDataUtil.getTestCaseReviewData(user, null, review);
+        TestCaseReviewData data3 =
+                ActionDataUtil.getTestCaseReviewData(null, userProject, review);
 
-        return(new ActionData[] {data2, data3});
+        return (new ActionData[]{data2, data3});
     }
 
     /**
@@ -70,30 +70,30 @@ public class TestCaseReviewTestCase extends PermissionTestCase {
      */
     public OnlineReviewData[] getWrongPermissions() {
         Project project = new MyProject("test");
-        MyUser usera = new MyUser("a","aaa");
-        MyUser userb = new MyUser("b","bbb");
-        MyUser submitter = new MyUser("submitter","sss");
-        TestCaseReview review1 = 
-            new MyTestCaseReview(project,usera,submitter);
-        TestCaseReview review2 = 
-            new MyTestCaseReview(project,userb,submitter);
-        
+        MyUser usera = new MyUser("a", "aaa");
+        MyUser userb = new MyUser("b", "bbb");
+        MyUser submitter = new MyUser("submitter", "sss");
+        TestCaseReview review1 =
+                new MyTestCaseReview(project, usera, submitter);
+        TestCaseReview review2 =
+                new MyTestCaseReview(project, userb, submitter);
+
         project.setCurrentPhase(REVIEW_PHASE);
         usera.addPermission(new ReviewPermission(project.getId() + 1));
         userb.addPermission(new ViewProjectPermission(project.getId()));
-        
 
-        UserProjectInfo userProject1 = new MyUserProjectInfo(usera,project);
-        UserProjectInfo userProject2 = new MyUserProjectInfo(userb,project);
-        
-        TestCaseReviewData data1 = 
-            ActionDataUtil.getTestCaseReviewData(usera,userProject1,review1);
-        TestCaseReviewData data2 = 
-            ActionDataUtil.getTestCaseReviewData(userb,userProject2,review2);
-        
-        return(new OnlineReviewData[] {data1, data2});
+
+        UserProjectInfo userProject1 = new MyUserProjectInfo(usera, project);
+        UserProjectInfo userProject2 = new MyUserProjectInfo(userb, project);
+
+        TestCaseReviewData data1 =
+                ActionDataUtil.getTestCaseReviewData(usera, userProject1, review1);
+        TestCaseReviewData data2 =
+                ActionDataUtil.getTestCaseReviewData(userb, userProject2, review2);
+
+        return (new OnlineReviewData[]{data1, data2});
     }
-    
+
     /**
      * <p>Tests the start method by trying to make a submission
      * for a project that is not in the Review phase.</p>
@@ -102,20 +102,20 @@ public class TestCaseReviewTestCase extends PermissionTestCase {
         Model model = getModel();
 
         Project project = new MyProject("test");
-        MyUser user = new MyUser("reviewer","aaa");
-        MyUser submitter = new MyUser("submitter","sss");
-        TestCaseReview review = new MyTestCaseReview(project,user,submitter); 
-        UserProjectInfo userProject = new MyUserProjectInfo(user,project);
+        MyUser user = new MyUser("reviewer", "aaa");
+        MyUser submitter = new MyUser("submitter", "sss");
+        TestCaseReview review = new MyTestCaseReview(project, user, submitter);
+        UserProjectInfo userProject = new MyUserProjectInfo(user, project);
 
         project.setCurrentPhase(SUBMIT_PHASE);
         user.addPermission(new ReviewPermission(project.getId()));
         user.addPermission(new ViewProjectPermission(project.getId()));
 
-        TestCaseReviewData data = 
-            ActionDataUtil.getTestCaseReviewData(user,userProject,review);
+        TestCaseReviewData data =
+                ActionDataUtil.getTestCaseReviewData(user, userProject, review);
         ResultData result = model.start(data);
         assertFailureResult("Should only be able to submitt when the " +
-                            "project is not in the Review phase.", result);
+                "project is not in the Review phase.", result);
     }
 
     /**
@@ -124,6 +124,6 @@ public class TestCaseReviewTestCase extends PermissionTestCase {
      * @return the TestSuite for this TestCase
      */
     public static Test suite() {
-        return(new TestSuite(TestCaseReviewTestCase.class));
+        return (new TestSuite(TestCaseReviewTestCase.class));
     }
 }

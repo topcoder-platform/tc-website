@@ -2,8 +2,8 @@ package com.topcoder.web.privatelabel.model;
 
 import com.topcoder.shared.util.logging.Logger;
 
-import java.lang.reflect.Method;
 import java.io.Serializable;
+import java.lang.reflect.Method;
 
 /**
  *
@@ -36,11 +36,11 @@ abstract public class Base implements Serializable, Cloneable {
                 methodName = m[i].getName();
                 if (methodName.startsWith("get") && m[i].isAccessible()) {
                     buf.append(m[i].getName().substring(3) + " = " + m[i].invoke(this, null).toString());
-                    if (i<m.length-1) buf.append(", ");
+                    if (i < m.length - 1) buf.append(", ");
                 }
             } catch (Exception e) {
                 buf.append(m[i].getName().substring(3) + " = ?????");
-                if (i<m.length-1) buf.append(", ");
+                if (i < m.length - 1) buf.append(", ");
             }
         }
         return buf.toString();

@@ -6,14 +6,8 @@ package com.topcoder.apps.review;
 import com.topcoder.apps.review.document.DocumentManagerLocal;
 import com.topcoder.apps.review.document.FinalFixSubmission;
 import com.topcoder.apps.review.document.InitialSubmission;
-import com.topcoder.apps.review.projecttracker.Phase;
-import com.topcoder.apps.review.projecttracker.Project;
-import com.topcoder.apps.review.projecttracker.ProjectTrackerLocal;
-import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
-import com.topcoder.apps.review.projecttracker.User;
-import com.topcoder.apps.review.projecttracker.UserProjectInfo;
-import com.topcoder.apps.review.projecttracker.UserRole;
-import java.io.File;
+import com.topcoder.apps.review.projecttracker.*;
+
 import java.net.URL;
 
 /**
@@ -32,7 +26,7 @@ public class SubmissionDownload implements Model {
      *
      * @return a SubmissionDownloadRetrieval if the project was retrieved successfully containing the filename that
      *         the user should see (instead of the real local filename) and an input stream from where to read the
-               submission data
+     submission data
      *         a FailureResult object if the data object is not populated correctly or if the user doesn't have
      *         project permission
      *         a FailureResult containing an exception in case one is thrown
@@ -64,7 +58,7 @@ public class SubmissionDownload implements Model {
             // check permission: admin, PM or any type of reviewer
             boolean isJustSubmitter = false;
             if (!PermissionHelper.isAdmin(user) && !PermissionHelper.hasAnyReviewerPermission(user, userProjectInfo)
-                        && !RoleHelper.isProductManager(user, userProjectInfo)) {
+                    && !RoleHelper.isProductManager(user, userProjectInfo)) {
                 if (!PermissionHelper.hasSubmitPermission(user, userProjectInfo)) {
                     return new FailureResult("You don't have permission to download submissions for this project");
                 } else {
@@ -85,12 +79,12 @@ public class SubmissionDownload implements Model {
             if (submissionDownloadData.getSubmissionId() > 0) {
                 // find the submission with that id
                 InitialSubmission initialSubmission =
-                    documentManager.getInitialSubmission(project, submissionDownloadData.getSubmissionId(), user.getTCSubject());
+                        documentManager.getInitialSubmission(project, submissionDownloadData.getSubmissionId(), user.getTCSubject());
                 if (initialSubmission != null) {
                     submissionURL = initialSubmission.getURL();
                     submitter = initialSubmission.getSubmitter();
                 }
-            // ID <= 0 means final fix submission
+                // ID <= 0 means final fix submission
             } else {
                 FinalFixSubmission submission = documentManager.getFinalFixSubmission(project, user.getTCSubject());
                 if (submission != null) {
@@ -103,7 +97,7 @@ public class SubmissionDownload implements Model {
                 return new FailureResult("Submission cannot be found or you don't have permission to access it");
             }
 
-            if (isJustSubmitter && (submitter.getId() != user.getId() && 
+            if (isJustSubmitter && (submitter.getId() != user.getId() &&
                     submissionDownloadData.getProject().getCurrentPhaseInstance().getPhase().getId() != Phase.ID_APPEALS)) {
                 return new FailureResult("A submitter can download only his/her submission");
             }
@@ -116,12 +110,12 @@ public class SubmissionDownload implements Model {
                 return new FailureResult("Cannot find the submitter user role for the submitter");
             }
             String userFilename = "Submitter_" + userRoleId + "_"
-                                + project.getName() + getExtension(submissionURL.getFile());
+                    + project.getName() + getExtension(submissionURL.getFile());
             //LogHelper.log("URL.toString() is " + submissionURL.toString());
             //LogHelper.log("URL.getFile() is " + submissionURL.getFile());
             return new SubmissionDownloadRetrieval(userFilename, submissionURL.openStream());
 
-        // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
+            // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
         } catch (RuntimeException e) {
             LogHelper.log("", e);
             throw e;

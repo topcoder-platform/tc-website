@@ -1,12 +1,12 @@
 package com.topcoder.web.tc.controller.request.util;
 
-import com.topcoder.web.common.TCWebException;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.ejb.user.UserEvent;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.shared.util.DBMS;
 
 import java.util.Calendar;
 
@@ -20,19 +20,19 @@ public class TCCC05ComponentTermsAgree extends TermsAgreeBase {
     private TCCC05ComponentTerms helper = new TCCC05ComponentTerms();
 
     //overload this event, will throw exception if unsuccessful
-     protected void businessProcessing() throws TCWebException {
-         try {
-             super.businessProcessing();
+    protected void businessProcessing() throws TCWebException {
+        try {
+            super.businessProcessing();
 
-             //if we're here, this is successful
-             UserEvent userEvent = (UserEvent)createEJB(getInitialContext(), UserEvent.class);
-             userEvent.createUserEvent(getUser().getId(), Constants.TCCC05_EVENT_ID, DBMS.TCS_OLTP_DATASOURCE_NAME);
-         } catch (TCWebException e) {
+            //if we're here, this is successful
+            UserEvent userEvent = (UserEvent) createEJB(getInitialContext(), UserEvent.class);
+            userEvent.createUserEvent(getUser().getId(), Constants.TCCC05_EVENT_ID, DBMS.TCS_OLTP_DATASOURCE_NAME);
+        } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
             throw new TCWebException(e);
         }
-     }
+    }
 
     /**
      * We need this method so that we can set the request on our

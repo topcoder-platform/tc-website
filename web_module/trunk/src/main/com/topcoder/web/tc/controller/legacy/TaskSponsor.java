@@ -1,18 +1,17 @@
 package com.topcoder.web.tc.controller.legacy;
 
-import com.topcoder.common.web.constant.TCServlet;
 import com.topcoder.common.web.data.Navigation;
-import com.topcoder.web.common.NavigationException;
 import com.topcoder.common.web.util.Conversion;
 import com.topcoder.common.web.xml.HTMLRenderer;
+import com.topcoder.ejb.Util.Util;
 import com.topcoder.shared.docGen.xml.ValueTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
-import com.topcoder.ejb.Util.Util;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.NavigationException;
 
+import javax.naming.InitialContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.naming.InitialContext;
 
 
 public final class TaskSponsor {
@@ -49,7 +48,7 @@ public final class TaskSponsor {
                     )
             ) {
                 ctx = new javax.naming.InitialContext();
-                Util util = (Util)BaseProcessor.createEJB(ctx, Util.class);
+                Util util = (Util) BaseProcessor.createEJB(ctx, Util.class);
                 util.incrementSponsorHitCount(link, refer);
             }
             result = TaskStatic.displayStatic(HTMLmaker, request, nav, document);

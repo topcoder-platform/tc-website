@@ -10,8 +10,8 @@
 
 package com.topcoder.dde.catalog;
 
-import com.topcoder.dde.catalog.*;
-import javax.ejb.*;
+import javax.ejb.CreateException;
+import javax.ejb.EJBHome;
 import java.rmi.RemoteException;
 
 
@@ -49,7 +49,7 @@ public interface ComponentManagerHome extends EJBHome {
      * created
      */
     public ComponentManager create(long componentId)
-        throws CreateException, RemoteException;
+            throws CreateException, RemoteException;
 
     /**
      * Creates an instance of <code>ComponentManager</code>, the remote
@@ -69,9 +69,9 @@ public interface ComponentManagerHome extends EJBHome {
      * <code>version</code>, or if the session cannot be created
      */
     public ComponentManager create(long componentId, long version)
-        throws CreateException, RemoteException;
+            throws CreateException, RemoteException;
 
     public ComponentManager create()
-        throws CreateException, RemoteException;
+            throws CreateException, RemoteException;
 
 }

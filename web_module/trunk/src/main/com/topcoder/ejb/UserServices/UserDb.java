@@ -2,19 +2,22 @@ package com.topcoder.ejb.UserServices;
 
 import com.topcoder.common.web.data.*;
 import com.topcoder.common.web.error.TCException;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.ejb.password.PasswordRemoteHome;
-import com.topcoder.web.ejb.password.PasswordRemote;
-import com.topcoder.web.ejb.user.UserHome;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.email.EmailHome;
+import com.topcoder.web.ejb.password.PasswordRemote;
+import com.topcoder.web.ejb.password.PasswordRemoteHome;
+import com.topcoder.web.ejb.user.UserHome;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -86,7 +89,7 @@ final class UserDb {
             log.debug("adding " + user.getHandle() + "(" + user.getUserId() + ")");
             query = new StringBuffer(100);
             query.append(" INSERT INTO security_user");
-            query.append(       " (login_id, user_id, password)");
+            query.append(" (login_id, user_id, password)");
             query.append(" VALUES (?, ?, ?)");
             ps1 = conn.prepareStatement(query.toString());
             ps1.setLong(1, user.getUserId());
@@ -96,7 +99,6 @@ final class UserDb {
             if (regVal != 1) {
                 log.error("insertUser():did not insert  security user record");
             }
-
 
 
             HashMap userTypeDetails = user.getUserTypeDetails();
@@ -201,15 +203,15 @@ final class UserDb {
 
                 query = new StringBuffer(100);
                 query.append(" UPDATE security_user");
-                query.append(   " SET user_id = ?");
-                if (password !=null)
-                    query.append(    "  , password = ?");
-                query.append( " WHERE login_id = ?");
+                query.append(" SET user_id = ?");
+                if (password != null)
+                    query.append("  , password = ?");
+                query.append(" WHERE login_id = ?");
                 ps1 = conn.prepareStatement(query.toString());
                 ps1.setString(1, user.getHandle());
                 if (password != null)
                     ps1.setString(2, password);
-                ps1.setLong(password!=null?3:2, user.getUserId());
+                ps1.setLong(password != null ? 3 : 2, user.getUserId());
                 regVal = ps1.executeUpdate();
                 if (regVal != 1) {
                     log.error("updateUser():did not update security user record:\n");
@@ -314,7 +316,7 @@ final class UserDb {
                 user.setUserTypeDetails(new HashMap(4));
                 loadGroupUsers(conn, user);
                 // if they have the coder user type, load their coder info
-                if (userType.getUserTypeId()==1) {
+                if (userType.getUserTypeId() == 1) {
                     UserDbCoder.loadCoder(conn, user);
                 }
             } else {
@@ -478,9 +480,6 @@ final class UserDb {
             }
         }
     }
-
-
-
 
 
     private static void insertSecureObject(Connection conn, User user)

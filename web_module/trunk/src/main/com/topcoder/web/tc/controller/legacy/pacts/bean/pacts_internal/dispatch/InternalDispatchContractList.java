@@ -15,7 +15,10 @@
 package com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch;
 
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
-import com.topcoder.web.tc.controller.legacy.pacts.common.*;
+import com.topcoder.web.tc.controller.legacy.pacts.common.ContractHeader;
+import com.topcoder.web.tc.controller.legacy.pacts.common.ContractHeaderList;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
+import com.topcoder.web.tc.controller.legacy.pacts.common.TCData;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

@@ -2,9 +2,9 @@ package com.topcoder.web.ejb.product;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
+import javax.ejb.EJBException;
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
-import javax.ejb.EJBException;
 
 
 /**

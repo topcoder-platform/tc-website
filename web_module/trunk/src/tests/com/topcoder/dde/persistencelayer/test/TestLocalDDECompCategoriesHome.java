@@ -9,6 +9,7 @@
 package com.topcoder.dde.persistencelayer.test;
 
 import com.topcoder.dde.persistencelayer.interfaces.*;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
@@ -28,7 +29,7 @@ public class TestLocalDDECompCategoriesHome extends PersistenceTestCase {
 
     /* an instance of the localHome interface implementation to work with */
     private LocalDDECompCategoriesHome localHome;
-    
+
     public TestLocalDDECompCategoriesHome() {
         this("");
     }
@@ -39,7 +40,7 @@ public class TestLocalDDECompCategoriesHome extends PersistenceTestCase {
      */
     public TestLocalDDECompCategoriesHome(String testName) {
         this(testName, null);
-    } 
+    }
 
     /**
      * constructs a new TestLocalDDECategoriesHome configured to run the named
@@ -54,7 +55,7 @@ public class TestLocalDDECompCategoriesHome extends PersistenceTestCase {
      */
     public void setUp() throws Exception {
         super.setUp();
-        synchronized(contextLock) {
+        synchronized (contextLock) {
             localHome = (LocalDDECompCategoriesHome) ctx.lookup(
                     LocalDDECompCategoriesHome.EJB_REF_NAME);
         }
@@ -84,7 +85,7 @@ public class TestLocalDDECompCategoriesHome extends PersistenceTestCase {
                     TestLocalDDECategoriesHome categoryHome =
                             new TestLocalDDECategoriesHome();
 
-                    categoryHome.setUp();                        
+                    categoryHome.setUp();
                     localCategory = categoryHome.createDefault();
                     assertNotNull(localCategory);
                     try {
@@ -93,7 +94,7 @@ public class TestLocalDDECompCategoriesHome extends PersistenceTestCase {
                             LocalDDECompCategories local = localHome.create(
                                     localComponent, localCategory);
                             assertNotNull("local bean reference is null",
-                                          local);
+                                    local);
                             try {
                                 assertTrue(localCategory.isIdentical(
                                         local.getCategories()));
@@ -107,7 +108,7 @@ public class TestLocalDDECompCategoriesHome extends PersistenceTestCase {
                             } finally {
                                 local.remove();
                             }
-                            
+
                             /* test creation with null component */
                             local = localHome.create(null, localCategory);
                             assertNotNull(local);
@@ -149,7 +150,7 @@ public class TestLocalDDECompCategoriesHome extends PersistenceTestCase {
                     TestLocalDDECategoriesHome categoryHome =
                             new TestLocalDDECategoriesHome();
 
-                    categoryHome.setUp();                        
+                    categoryHome.setUp();
                     localCategory = categoryHome.createDefault();
                     assertNotNull(localCategory);
                     try {
@@ -192,7 +193,7 @@ public class TestLocalDDECompCategoriesHome extends PersistenceTestCase {
             compHome.tearDown();
         }
     }
-    
+
     /**
      * tests the findByCurrentVersionActive finder method
      */
@@ -218,21 +219,21 @@ public class TestLocalDDECompCategoriesHome extends PersistenceTestCase {
         long compCategoriesId;
         Long componentId;
         Long categoryId;
-        
+
         DDECompCategoriesData(Object id, Long component, Long category) {
             this(((Long) id).longValue(), component, category);
         }
-        
+
         DDECompCategoriesData(long id, Long component, Long category) {
             compCategoriesId = id;
             componentId = component;
             categoryId = category;
         }
-        
+
         DDECompCategoriesData(ResultSet rs) throws SQLException {
             readRowData(rs);
         }
-        
+
         public Object getPrimaryKey() {
             return new Long(compCategoriesId);
         }
@@ -249,19 +250,19 @@ public class TestLocalDDECompCategoriesHome extends PersistenceTestCase {
                 rs.updateLong("CATEGORY_ID", categoryId.longValue());
             }
         }
-        
+
         public void storeRowData(ResultSet rs) throws SQLException {
             updateResultSet(rs);
             rs.updateRow();
         }
-        
+
         public void insertRowData(ResultSet rs) throws SQLException {
             rs.moveToInsertRow();
             rs.updateLong("COMP_CATEGORIES_ID", compCategoriesId);
             updateResultSet(rs);
             rs.insertRow();
         }
-        
+
         public void readRowData(ResultSet rs) throws SQLException {
             long l;
             compCategoriesId = rs.getLong("COMP_CATEGORIES_ID");
@@ -278,23 +279,23 @@ public class TestLocalDDECompCategoriesHome extends PersistenceTestCase {
                 categoryId = new Long(l);
             }
         }
-        
+
         public boolean matchesResultSet(ResultSet rs) throws SQLException {
             return equals(new DDECompCategoriesData(rs));
         }
-        
+
         public boolean equals(Object o) {
-            if (! (o instanceof DDECompCategoriesData) ) {
+            if (!(o instanceof DDECompCategoriesData)) {
                 return false;
             }
             DDECompCategoriesData d = (DDECompCategoriesData) o;
             return (
-                (compCategoriesId == d.compCategoriesId)
-                && objectsMatch(componentId, d.componentId)
-                && objectsMatch(categoryId, d.categoryId) );
+                    (compCategoriesId == d.compCategoriesId)
+                    && objectsMatch(componentId, d.componentId)
+                    && objectsMatch(categoryId, d.categoryId));
         }
-        
-        
+
+
     }
 
 }

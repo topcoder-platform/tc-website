@@ -86,7 +86,7 @@ public class ReviewBoardApplication {
 
 
     public boolean isSpotFilled() {
-        return userId!=0;
+        return userId != 0;
     }
 
     public float getReviewPrice() {
@@ -102,7 +102,7 @@ public class ReviewBoardApplication {
     }
 
     public SoftwareComponent getComponent() {
-        return (SoftwareComponent)component.clone();
+        return (SoftwareComponent) component.clone();
     }
 
 }

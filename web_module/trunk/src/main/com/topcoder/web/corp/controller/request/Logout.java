@@ -1,10 +1,10 @@
 package com.topcoder.web.corp.controller.request;
 
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.BaseServlet;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
 
 /**
  * class to process a log out request.  should simply be a call to an
