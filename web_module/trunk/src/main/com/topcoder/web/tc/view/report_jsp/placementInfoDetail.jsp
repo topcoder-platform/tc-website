@@ -40,72 +40,65 @@ List industryList = (List)request.getAttribute("industrySkills");
         </table>
 
         <table border=0 cellpadding=0 cellspacing=0 width="100%">
-		<tr>
-		<td valign=top width="50%">
-		<table width="100%" cellpadding="0" cellspacing="5" align="center" >
-
-
-
-            <tr>
-				<td align=right width="65%"><b>Preferences</b></td>
-				<td width="35%"></td>
-            </tr>
-            <tc:listIterator id="prefGroup" list="<%=prefList%>">
-            <tr>
-				<td align=right><b><%=((ContractingResponseGroup)prefGroup).getName()%></b></td>
-				<td valign=top>&#160;</td>
-             </tr>
-                        	<tc:listIterator id="pref" list="<%=((ContractingResponseGroup)prefGroup).getResponses()%>">
-                                  <tr>
+		    <tr>
+		        <td valign=top width="50%">
+		            <table width="100%" cellpadding="0" cellspacing="5" align="center" >
+                        <tr>
+                            <td align=right width="65%"><b>Preferences</b></td>
+                            <td width="35%"></td>
+                        </tr>
+                        <tc:listIterator id="prefGroup" list="<%=prefList%>">
+                            <tr>
+                                <td align=right><b><%=((ContractingResponseGroup)prefGroup).getName()%></b></td>
+                                <td valign=top>&#160;</td>
+                             </tr>
+                            <tc:listIterator id="pref" list="<%=((ContractingResponseGroup)prefGroup).getResponses()%>">
+                                <tr>
                                     <td align=right><%=((ContractingResponse)pref).getName()%>:</td>
                                     <td valign=top><%=((ContractingResponse)pref).getVal()%></td>
                                 </tr>
-				</tc:listIterator>
-            </tc:listIterator>
-	<tr>
-            <td align=right><b>Resume</b></td>
-            <td valign=top>&#160;</td>
-	</tr>
-              <tr>
-                <td valign=top align=center colspan=2>
-			<tr>
-				<td class=bodyText colspan=2 align=center>
+                            </tc:listIterator>
+                        </tc:listIterator>
+                        <tr>
+                                <td align=right><b>Resume</b></td>
+                                <td valign=top>&#160;</td>
+                        </tr>
+                        <tr>
+                            <td valign=top align=center colspan=2>
+                                <%if("true".equals(request.getAttribute("has_resume"))) {%>
+                                    <a href="/tc?module=DownloadResume&<%=Constants.USER_ID%>=<jsp:getProperty name="contractingInfo" property="userId" />">Download resume</a>
+                                <%} else { %>
+                                    No resume on file.
+                                <% } %>
+                            </td>
+                        </tr>
+			            <tr><td>&#160;</td></tr>
 
- 			<%if("true".equals(request.getAttribute("has_resume"))) {%>
-                <a href="/tc?module=DownloadResume&<%=Constants.USER_ID%>=<jsp:getProperty name="contractingInfo" property="userId" />">Download resume</a>
+                        <tr>
+                            <td align=right><b>Technology Skills</b></td>
+                            <td></td>
+                        </tr>
+                        <tc:listIterator id="tech" list="<%=techList%>">
+                            <tr>
+                                <td align=right><%=((ContractingResponse)tech).getName()%>:</td>
+                                <td valign=top><%=((ContractingResponse)tech).getVal()%></td>
+                            </tr>
+                        </tc:listIterator>
 
-			<%} else { %>
-                No resume on file.
-            <% } %>
-                </td>
-            </tr>
-			<tr><td>&#160;</td></tr>
+            			<tr><td>&#160;</td></tr>
 
-            <tr>
-				<td align=right><b>Technology Skills</b></td>
-				<td></td>
-            </tr>
-            <tc:listIterator id="tech" list="<%=techList%>">
-              <tr>
-                <td align=right><%=((ContractingResponse)tech).getName()%>:</td>
-                <td valign=top><%=((ContractingResponse)tech).getVal()%></td>
-            </tr>
-            </tc:listIterator>
-
-			<tr><td>&#160;</td></tr>
-
-            <tr>
-				<td align=right><b>Databases</b></td>
-				<td valign=top></td>
-            </tr>
-            <tc:listIterator id="db" list="<%=dbList%>">
-              <tr>
-                <td align=right><%=((ContractingResponse)db).getName()%>:</td>
-                <td valign=top><%=((ContractingResponse)db).getVal()%></td>
-            </tr>
-            </tc:listIterator>
-		</table>
-		</td>
+                        <tr>
+                            <td align=right><b>Databases</b></td>
+                            <td valign=top></td>
+                        </tr>
+                        <tc:listIterator id="db" list="<%=dbList%>">
+                            <tr>
+                                <td align=right><%=((ContractingResponse)db).getName()%>:</td>
+                                <td valign=top><%=((ContractingResponse)db).getVal()%></td>
+                            </tr>
+                        </tc:listIterator>
+		            </table>
+		        </td>
 		<td valign=top width="50%">
 		<table width="100%" cellpadding="0" cellspacing="5" align="center" >
             <tr>
