@@ -79,24 +79,6 @@
                         <P><BR/></P>
 					</td>
 
-					<td valign="top" class="statText" width="50%">
-						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=tc_corp">TopCoder Corporate</a><br/>
-						Posted: 12.02.2002<br/>
-						Inquiry Deadline: 12.06.2002<br/>
-						</p>    
-					</td>
-				</tr>
-				<tr>
-					<td valign="top" class="statText" width="50%">
-						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=tchs">TopCoder High School</a><br/>
-						Posted: 11.18.2002<br/>
-						Inquiry Deadline: 11.22.2002<br/>
-						</p>   
-                        <P><BR/></P>
-					</td>
-
 					<td valign="top" class="statText" width="50%">&#160;   
 					</td>
 				</tr>				
