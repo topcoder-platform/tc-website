@@ -71,20 +71,16 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
                 map.get(Constants.PROFILE_PROBLEM_SET_QUERY_KEY));
         }
 
-        profileTestSetA.setProperty("uid", String.valueOf(user.getId()));
-        if(info.getTestSetA() != null) {
-            profileTestSetA.setProperty("rid", 
-                    info.getTestSetA().toString());
-        }
-        else {
+        if(info.getTestSetA() == null) {
             ResultSetContainer rsc = info.getProblemSetList();
             if(rsc != null && rsc.size() > 0) {
                 ResultSetContainer.ResultSetRow row = 
                  (ResultSetContainer.ResultSetRow)rsc.get(0);
-                profileTestSetA.setProperty("rid", 
-                        row.getItem("round_id").toString());
+                info.setTestSetA(row.getItem("round_id").toString());
             }
         }
+        profileTestSetA.setProperty("rid", info.getTestSetA().toString());
+        profileTestSetA.setProperty("uid", String.valueOf(user.getId()));
 
         map = dAccess.getData(profileTestSetA);
 
