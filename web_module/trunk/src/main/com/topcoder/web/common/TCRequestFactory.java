@@ -2,6 +2,10 @@ package com.topcoder.web.common;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * Provide a way to get an implementation of the TCRequest interface given
+ * an http request.
+ */
 public class TCRequestFactory {
     public static TCRequest createRequest(HttpServletRequest r) {
         String contentType = r.getContentType();
