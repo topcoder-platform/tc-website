@@ -14,7 +14,7 @@ public class UserServicesBean implements EntityBean  {
   protected EntityContext ctx; 
   protected Properties props;
   protected User user;
-  final static boolean VERBOSE = false;
+  final static boolean VERBOSE = true;
 
 
   ///////////////////////////////////////////////////////////////           

@@ -14,7 +14,7 @@ import com.topcoder.common.*;
 
 final class UserDb {
 
-  private static boolean VERBOSE = false;
+  private static boolean VERBOSE = true;
 
   ///////////////////////////////////////////////////////////////
   static void insertUser ( User user ) throws TCException {
