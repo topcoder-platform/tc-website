@@ -394,7 +394,7 @@ the morning and afternoon drive-time slots for the past month...<a class="bodyGe
 				<tr valign="top">
 					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 					<td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296145">srowen</a></td>
-					<td class="statText" align="right">87.54</td>
+					<td class="statText" align="right">89.46</td>
 					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 				</tr>             
 							
@@ -419,7 +419,18 @@ the morning and afternoon drive-time slots for the past month...<a class="bodyGe
 					<td class="statText" align="right">82.40</td>
 					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 				</tr>             
+
+				<tr valign="top">
+					<td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
+				</tr>                             
 							
+				<tr valign="top">
+					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+					<td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=141163">darkstalker</a></td>
+					<td class="statText" align="right">81.89</td>
+					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+				</tr>     
+											
 				<tr valign="top">
 					<td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
 				</tr>                             
@@ -428,17 +439,6 @@ the morning and afternoon drive-time slots for the past month...<a class="bodyGe
 					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 					<td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=299180">isv</a></td>
 					<td class="statText" align="right">81.52</td>
-					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-				</tr>             
-							
-				<tr valign="top">
-					<td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
-				</tr>                             
-							
-				<tr valign="top">
-					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-					<td class="statText"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=302729">kislookhin</a></td>
-					<td class="statText" align="right">81.38</td>
 					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 				</tr>             
 											
