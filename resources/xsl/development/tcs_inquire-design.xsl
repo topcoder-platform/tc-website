@@ -181,17 +181,16 @@
                             <p><br /></p>
                            <p>
                                 <strong>
-                                Please email your submission to <a class="statText" href="mailto:submissions@topcodersoftware.com">submissions@topcodersoftware.com</a>
-                                <!--
+<!--                                Please email your submission to <a class="statText" href="mailto:submissions@topcodersoftware.com">submissions@topcodersoftware.com</a>
+                                -->
                                 <a class="statText" target="_new">  
                                     <xsl:attribute name="href"> 
-                                        <xsl:value-of select="concat('http://172.16.20.222:8081/pages/s_upload_submission.jsp?version=', $version, '&amp;phase=',
+                                        <xsl:value-of select="concat('http://software.topcoder.com/pages/s_upload_submission.jsp?version=', $version, '&amp;phase=',
  $phase, '&amp;compvers=', /TC/DEVELOPMENT/compvers, '&amp;comp_id=', $componentId, '&amp;Project=', $formattedName)"/>
 
                                     </xsl:attribute>
                                     Upload your submission! &gt;&gt;
                                 </a>
--->
                                </strong>
                             </p>
                         <p><br /></p>
