@@ -17,12 +17,20 @@
 <td class="bodyText" WIDTH="100%"><br>
   <table border="0" cellspacing="0" cellpadding="0" width="100%">
       <tr>
-         <td><img src="/i/clear.gif" width="240" height="1" border="0"><br>
+         <td>
             <p class="bodyText">
                 This list represents the top rated coders who have competed within the last 6 monthes.
             </p>
          </td>
       </tr>
+      <tr>
+         <td>
+            <p class="bodyText">
+                <a href="javascript:window.close();" class="bodyText">close</a>
+            </p>
+         </td>
+      </tr>
+
   </table>
 </td>
 <!-- Center Column Ends -->
