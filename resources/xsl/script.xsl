@@ -121,6 +121,9 @@ function goTo(selection)
   {
     arena();
   }
+
+
+  //quick stats
   else if (sel == "alltimewin")
   {
     window.location = "/stat?c=all_time_wins";
@@ -155,7 +158,7 @@ function goTo(selection)
   }
 
 
-
+  //sponsor 
   else if (sel == "general_charts")
   {
     window.location = "/index?t=about_tc&c=spons_demo_gen";
@@ -218,68 +221,7 @@ function goTo(selection)
   } 
   
 
-  else if (sel == "tourny_index")
-  {
-    window.location = "/index?t=schedule&c=tourny_index";
-  }
-  else if (sel == "tourny_regions")
-  {
-    window.location = "/index?t=schedule&c=tourny_regions";
-  }  
-  else if (sel == "tourny_spons")
-  {
-    window.location = "/index?t=schedule&c=tourny_spons";
-  }  
-  else if (sel == "tourny_rules_conditions")
-  {
-    window.location = "/index?t=schedule&c=tourny_rules_conditions";
-  } 
-  else if (sel == "tourny_rules_onsite")
-  {
-    window.location = "/index?t=schedule&c=tourny_rules_onsite";
-  } 
-  else if (sel == "tourny_rules_prizes")
-  {
-    window.location = "/index?t=schedule&c=tourny_rules_prizes";
-  } 
-  else if (sel == "tourny_rules_scoring")
-  {
-    window.location = "/index?t=schedule&c=tourny_rules_scoring";
-  }  
-  else if (sel == "tourny_rules_structure")
-  {
-    window.location = "/index?t=schedule&c=tourny_rules_structure";
-  } 
-  else if (sel == "tourny_sched")
-  {
-    window.location = "/index?t=schedule&c=tourny_sched";
-  }   
-  else if (sel == "tourny_overview")
-  {
-    window.location = "/index?t=schedule&c=tourny_overview";
-  }    
-  else if (sel == "tourny_rules_about")
-  {
-    window.location = "/index?t=schedule&c=tourny_rules_about";
-  } 
-  else if (sel == "srm_rules")
-  {
-    window.location = "/index?t=schedule&c=srm_rules";
-  }   
-  else if (sel == "srm_tccc")
-  {
-    window.location = "/index?t=schedule&c=srm_tccc";
-  }  
-  else if (sel == "registration")
-  {
-    window.location = "/reg/index.jsp";
-  }
-  else if (sel == "2002sun_tcccrules")
-  {
-    window.location = "/contest/2002sun_tcccrules.pdf";
-  }  
-  
-        
+  //schedule
   else if (sel == "jan_02")
   {
     window.location = "/index?t=schedule&c=jan_02";
@@ -317,124 +259,6 @@ function goTo(selection)
     window.location = "/index?t=schedule&c=sept_02";  
   } 
 
-
-
-  else if (sel == "thisweek")
-  {
-    window.location = "/index?t=statistics&c=coder_of_week";
-  }
-  else if (sel == "nov01week2")
-  {
-    window.location = "/index?t=statistics&c=coder_of_week111201";
-  }   
-  else if (sel == "nov01week3")
-  {
-    window.location = "/index?t=statistics&c=coder_of_week111901";
-  } 
-  else if (sel == "nov01week4")
-  {
-    window.location = "/index?t=statistics&c=coder_of_week112601";
-  }  
-  else if (sel == "dec01week4")
-  {
-    window.location = "/index?t=statistics&c=coder_of_week123101";
-  }  
-  else if (sel == "dec01week3")
-  {
-    window.location = "/index?t=statistics&c=coder_of_week122401";
-  }  
-  else if (sel == "dec01week2")
-  {
-    window.location = "/index?t=statistics&c=coder_of_week121701";
-  } 
-  else if (sel == "dec01week1")
-  {
-    window.location = "/index?t=statistics&c=coder_of_week121001";
-  } 
-  else if (sel == "dec01week5")
-  {
-    window.location = "/index?t=statistics&c=coder_of_week120301";  
-  } 
-  else if (sel == "jan02week2")
-  {
-    window.location = "/index?t=statistics&c=coder_of_week010702";
-  } 
-  else if (sel == "jan02week3")
-  {
-    window.location = "/index?t=statistics&c=coder_of_week011402";
-  } 
-  else if (sel == "jan02week4")
-  {
-    window.location = "/index?t=statistics&c=coder_of_week012102";
-  }
-  else if (sel == "jan02week5")
-  {
-    window.location = "/index?t=statistics&c=coder_of_week012802";
-  } 
-  else if (sel == "feb0402")
-  {
-    window.location = "/index?t=statistics&c=coder_of_week020402";
-  } 
-  else if (sel == "feb1102")
-  {
-    window.location = "/index?t=statistics&c=coder_of_week021102";
-  } 
-  else if (sel == "feb1802")
-  {
-    window.location = "/index?t=statistics&c=coder_of_week021802";
-  }  
-  else if (sel == "feb2502")
-  {
-    window.location = "/index?t=statistics&c=coder_of_week022502";
-  } 
-  else if (sel == "mar0402")
-  {
-    window.location = "/index?t=statistics&c=coder_of_week030402";
-  } 
-  else if (sel == "mar1102")
-  {
-    window.location = "/index?t=statistics&c=coder_of_week031102";
-  } 
-   else if (sel == "mar1802")
-  {
-    window.location = "/index?t=statistics&c=coder_of_week031802";
-  }
-   else if (sel == "mar2502")
-  {
-    window.location = "/index?t=statistics&c=coder_of_week032502";
-  } 
-   else if (sel == "apr0102")
-  {
-    window.location = "/index?t=statistics&c=coder_of_week040102";
-  }
-   else if (sel == "apr0802")
-  {
-    window.location = "/index?t=statistics&c=coder_of_week040802";
-  } 
-   else if (sel == "apr2202")
-  {
-    window.location = "/index?t=statistics&c=coder_of_week042202";
-  }
-   else if (sel == "apr2902")
-  {
-    window.location = "/index?t=statistics&c=coder_of_week042902";
-  }                                   
-   else if (sel == "may0602")
-  {
-    window.location = "/index?t=statistics&c=coder_of_week050602";
-  } 
-   else if (sel == "may1302")
-  {
-    window.location = "/index?t=statistics&c=coder_of_week051302";
-  }
-   else if (sel == "may2002")
-  {
-    window.location = "/index?t=statistics&c=coder_of_week052002";
-  } 
-   else if (sel == "may2702")
-  {
-    window.location = "/index?t=statistics&c=coder_of_week052702";
-  }                                          
   else
   {}
 }
