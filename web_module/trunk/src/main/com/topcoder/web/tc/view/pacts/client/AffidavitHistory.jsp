@@ -33,7 +33,7 @@ function goTo(selection){
        </TD>
        <TD WIDTH="4" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8" BORDER="0"></TD>
 <!-- Center Column Begins -->
-         <td class="cardCell" width="100%" align="center">
+         <td class="bodyText" width="100%" align="center">
 
         <jsp:include page="../../page_title.jsp" >
             <jsp:param name="image" value="pact_s"/>

@@ -32,16 +32,17 @@ function goTo(selection){
 			</jsp:include>
        </TD>
        <TD WIDTH="4" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8" BORDER="0"></TD>
-       <TD CLASS="bodyText" WIDTH="100%" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="1" VSPACE="5" BORDER="0"><BR/>
-        <jsp:include page="/body_top.jsp" >
-           <jsp:param name="image" value="pacts"/>
-           <jsp:param name="image1" value="steelblue"/>
-           <jsp:param name="title" value="Affidavit Detail"/>
+         <td class="bodyText" width="100%" align="center">
+
+        <jsp:include page="../../page_title.jsp" >
+            <jsp:param name="image" value="pact_s"/>
+            <jsp:param name="title" value="Affidavit Detail"/>
         </jsp:include>
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
+
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
 	<TR>
-		<TD BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-		<TD CLASS="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
+		<TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
+		<TD CLASS="bodyText" COLSPAN="2" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
 
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*" %>
 
@@ -60,7 +61,7 @@ function goTo(selection){
 	if(!a.affidavit._header._affirmed) {
 %>
 
-<P><B>Prize Payment Requirements:</B><P>
+<P class="bodyText"><B>Prize Payment Requirements:</B><P>
 All four requirements must be met for TopCoder to release payment.
                       <UL><LI><B>Valid member profile information.</B><BR>
 We will mail the check to the address in your TopCoder profile,
@@ -73,9 +74,9 @@ as well as a publicity release.  The affidavit must be postmarked no later than 
                             </B><BR>
     TopCoder requires all winners (both direct or through referral commissions) to have one notarized affidavit on file with TopCoder before the prize can be paid.  If you never had
  an affidavit notarized for TopCoder, you must do so for this Single Round Match before you will be paid.  You need only have one affidavit notarized.  <I>All subsequent winnings wi
-ll be paid upon receipt of a signed TopCoder affidavit.</I></LI><LI><B>One completed tax form on file with TopCoder.</B><BR><A class="statText" href="/?t=support&amp;c=form_faq">TopCoder FAQ regarding these forms >></A><BR>
-The <B>W-9 form</B> should be filled out by all U.S. Citizens, including U.S resident aliens.<BR><A class="statText" href="/contest/iw9.pdf">Click here for W-9 form instructions >></A><BR><A class="statText" href="/contest/fw9.pdf">Click here for the W-9 form >></A><BR>
-The <B>W-8BEN form</B> should be filled out by all non-U.S. Citizens.<BR><A class="statText" href="/contest/iw8ben.pdf">Click here for W-8BEN form instructions >></A><BR><A class="statText" href="/contest/fw8ben.pdf">Click here for the W-8BEN form >></A><BR></LI></UL>
+ll be paid upon receipt of a signed TopCoder affidavit.</I></LI><LI><B>One completed tax form on file with TopCoder.</B><BR><A class="bodyText" href="/?t=support&amp;c=form_faq">TopCoder FAQ regarding these forms >></A><BR>
+The <B>W-9 form</B> should be filled out by all U.S. Citizens, including U.S resident aliens.<BR><A class="bodyText" href="/contest/iw9.pdf">Click here for W-9 form instructions >></A><BR><A class="bodyText" href="/contest/fw9.pdf">Click here for the W-9 form >></A><BR>
+The <B>W-8BEN form</B> should be filled out by all non-U.S. Citizens.<BR><A class="bodyText" href="/contest/iw8ben.pdf">Click here for W-8BEN form instructions >></A><BR><A class="bodyText" href="/contest/fw8ben.pdf">Click here for the W-8BEN form >></A><BR></LI></UL>
 
 
                     Mailing address for forms and affidavits:  TopCoder, 703 Hebron Avenue, Glastonbury, CT 06033
@@ -106,7 +107,7 @@ a.affidavitText = new String("<form action=PactsMemberServlet?t=affidavit&c=affi
 				a.affidavitText = a.affidavitText.substring(0,idx) + "<input type=\"text\" name=\"family_name\" size=25 maxlength=25>" + a.affidavitText.substring(idx+(new String("FILL IN BELOW")).length());
 			}
 out.print("<p>" + a.affidavitText + "</p>");
-out.print("<center><table><tr><td class=\"statText\">");
+out.print("<center><table><tr><td class=\"bodyText\">");
 out.print("<input type=hidden name=" + PactsConstants.AFFIDAVIT_ID);
 out.print(" value=" + a.affidavit._header._id + ">");
 if(a.affidavit._birthday.length() <= 0) {
@@ -138,12 +139,12 @@ did not get affidavit
 		<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 	</TR>
 	<TR>
-		<TD COLSPAN="4" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
+		<TD COLSPAN="4" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
 	</TR>
 	<TR>
 		<TD VALIGN="top" BACKGROUND="" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-		<TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" BGCOLOR="#000033" WIDTH="14"><IMG SRC="/i/table_mid_left2x.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-		<TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" BGCOLOR="#000033" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+		<TD VALIGN="top" WIDTH="14"><IMG SRC="/i/table_mid_left2x.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
+		<TD VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
 		<TD VALIGN="top" BACKGROUND="" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
 	</TR>
 	<TR>
