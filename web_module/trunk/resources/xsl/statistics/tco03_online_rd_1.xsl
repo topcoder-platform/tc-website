@@ -227,7 +227,8 @@ def powsum(low, high, pow):
 
 <p>
 Then again, thanks to the properties of modulo arithmetic, this
-pseudocode yields correct results when implemented with 32-bit unsigned or signed integers. Proof is left as an exercise for the reader.
+pseudocode yields correct results when implemented with 32-bit unsigned or signed integers. Consider, for 
+example, that (x mod b + y mod b) mod b = (x + y) mod b. Full proof is left as an exercise for the reader.
 </p>
 
 <p>
@@ -477,30 +478,36 @@ if(s.equals("-0.000E0"))
 </pre>
 
 <p>
-There are many elaborate ways to accomplish the same in C++. Here, for
-example, is how <b>reid</b> pulled it off.
+There are many ways, some more broadly applicable than others, to
+accomplish the same in C++. Here's how <b>SnapDragon</b> pulled it off.
 </p>
 
 <pre>
-void format( char buf[], double x ) {
-    char buf2[256];
-    if (fabs( x ) &lt;= 0.5)
-        sprintf( buf2, "%.3fE0", x );
-    else {
-        sprintf( buf2, "%.3E", x );
-        char *p = strchr( buf2, 'E' );
-        int exp = atoi( p+1 );
-        sprintf( p+1, "%d", exp );
-    }
-    if (!strcmp( buf2, "-0.000E0" ))
-        strcpy( buf2, "0.000E0" );
-    strcpy( buf, buf2 );
+string dtos(double d) {
+    char buf[1000];
+    if( fabs(d) < 1.0 )
+        sprintf(buf, "%.3lfE00", d);
+    else
+        sprintf( buf, "%.3lE", d );
+    string s = buf;
+    int x = s.find('+');
+    if( x != -1 )
+        s.erase(x, 1);
+    x = s.find("E0");
+    if( x != -1 )
+        s.erase(x+1, 1);
+    if( s == "-0.000E0" ) return "0.000E0";
+    return s;
 }
 </pre>
 
 <p>
-This has the effect of printing <i>x</i>, properly formatted, into <i>buf</i>.
-</p> 
+After selecting a <i>printf</i> format based on the size of the number,
+<b>SnapDragon</b> erases any extraneous symbols from the string. These
+include a plus sign or leading zero in the exponent, or a minus sign in
+the special case of 0.000, against which the problem statement
+specifically warned.
+</p>
 
 
                         <p>
