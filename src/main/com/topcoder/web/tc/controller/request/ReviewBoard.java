@@ -21,7 +21,7 @@ public class ReviewBoard extends Base {
             r.setContentHandle("review_board_members");
             r.setProperty(Constants.PHASE_ID, phaseId);
             try {
-                DataAccessInt dai = getDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME, true);
+                DataAccessInt dai = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true);
                 getRequest().setAttribute("memberList", dai.getData(r).get("review_board_members"));
                 if (phaseId.equals(String.valueOf(SoftwareComponent.DESIGN_PHASE))) {
                     setNextPage("/review_board/design.jsp");
