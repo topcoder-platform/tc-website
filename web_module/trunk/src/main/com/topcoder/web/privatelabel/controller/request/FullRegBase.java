@@ -148,10 +148,11 @@ public abstract class FullRegBase extends SimpleRegBase {
 
     protected Map getQuestions() {
         try {
+            log.error(getRequestParameter(Constants.COMPANY_ID));
             if (questions==null)
                 questions=getQuestions(transDb, ((FullRegInfo)regInfo).getCoderType(), Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)));
         } catch (Exception e) {
-            log.error(getRequestParameter(Constants.COMPANY_ID));
+            
             throw new RuntimeException("failed to get the questions \n" + e.getMessage());
         }
         return questions;
