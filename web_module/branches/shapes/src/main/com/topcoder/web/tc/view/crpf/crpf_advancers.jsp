@@ -86,16 +86,16 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                     <td class="crpfAdvancersSort" width="50%" align="right" nowrap="nowrap">Points</td>
                </tr>
 <tr valign="top"><td class="sidebarText" align="left"><tc:ratingImage link='<%=sLink + 269788%>' bg='W' cid='269788' /></td><td class="sidebarText" align="right">1550.73</td></tr>
-<tr valign="top"><td class="sidebarText" align="left">kyky</td><td class="sidebarText" align="right">1533.18</td></tr>
-<tr valign="top"><td class="sidebarText" align="left">srowen</td><td class="sidebarText" align="right">1522.72</td></tr>
-<tr valign="top"><td class="sidebarText" align="left">po</td><td class="sidebarText" align="right">1498.53</td></tr>
-<tr valign="top"><td class="sidebarText" align="left">hamster</td><td class="sidebarText" align="right">1481.80</td></tr>
-<tr valign="top"><td class="sidebarText" align="left">haha</td><td class="sidebarText" align="right">1437.78</td></tr>
-<tr valign="top"><td class="sidebarText" align="left">John Dethridge</td><td class="sidebarText" align="right">1416.93</td></tr>
-<tr valign="top"><td class="sidebarText" align="left">Klinck</td><td class="sidebarText" align="right">1412.89</td></tr>
-<tr valign="top"><td class="sidebarText" align="left">Kavan</td><td class="sidebarText" align="right">1404.89</td></tr>
-<tr valign="top"><td class="sidebarText" align="left">dark_lord</td><td class="sidebarText" align="right">1404.07</td></tr>
-<tr valign="top"><td class="sidebarText" align="left">DjinnKahn</td><td class="sidebarText" align="right">1323.66</td></tr>
+<tr valign="top"><td class="sidebarText" align="left"><tc:ratingImage link='<%=sLink + 152342%>' bg='W' cid='152342' /></td><td class="sidebarText" align="right">1533.18</td></tr>
+<tr valign="top"><td class="sidebarText" align="left"><tc:ratingImage link='<%=sLink + 296145%>' bg='W' cid='296145' /></td><td class="sidebarText" align="right">1522.72</td></tr>
+<tr valign="top"><td class="sidebarText" align="left"><tc:ratingImage link='<%=sLink + 113178%>' bg='W' cid='113178' /></td><td class="sidebarText" align="right">1498.53</td></tr>
+<tr valign="top"><td class="sidebarText" align="left"><tc:ratingImage link='<%=sLink + 7475981%>' bg='W' cid='7475981' /></td><td class="sidebarText" align="right">1481.80</td></tr>
+<tr valign="top"><td class="sidebarText" align="left"><tc:ratingImage link='<%=sLink + 279471%>' bg='W' cid='279471' /></td><td class="sidebarText" align="right">1437.78</td></tr>
+<tr valign="top"><td class="sidebarText" align="left"><tc:ratingImage link='<%=sLink + 270505%>' bg='W' cid='270505' /></td><td class="sidebarText" align="right">1416.93</td></tr>
+<tr valign="top"><td class="sidebarText" align="left"><tc:ratingImage link='<%=sLink + 7428266%>' bg='W' cid='7428266' /></td><td class="sidebarText" align="right">1412.89</td></tr>
+<tr valign="top"><td class="sidebarText" align="left"><tc:ratingImage link='<%=sLink + 7358573%>' bg='W' cid='7358573' /></td><td class="sidebarText" align="right">1404.89</td></tr>
+<tr valign="top"><td class="sidebarText" align="left"><tc:ratingImage link='<%=sLink + 251832%>' bg='W' cid='251832' /></td><td class="sidebarText" align="right">1404.07</td></tr>
+<tr valign="top"><td class="sidebarText" align="left"><tc:ratingImage link='<%=sLink + 155275%>' bg='W' cid='155275' /></td><td class="sidebarText" align="right">1323.66</td></tr>
 <tr valign="top"><td class="sidebarText" align="left">frane</td><td class="sidebarText" align="right">1293.01</td></tr>
 <tr valign="top"><td class="sidebarText" align="left">dangelo</td><td class="sidebarText" align="right">1214.14</td></tr>
 <tr valign="top"><td class="sidebarText" align="left">abiczo</td><td class="sidebarText" align="right">1196.68</td></tr>
