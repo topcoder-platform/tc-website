@@ -113,7 +113,7 @@ public class StudentRegistration extends Base {
 
     _srb.setEditorList(editor_list);
     
-    rsc=(ResultSetContainer)data.get("editor_list");
+    rsc=(ResultSetContainer)data.get("language_list");
     List language_list=new ArrayList();
     for (Iterator i=rsc.iterator();i.hasNext();) {
       rsr=(ResultSetContainer.ResultSetRow)i.next();
