@@ -35,7 +35,7 @@ import com.topcoder.web.corp.Util;
  * server errors.
  * 
  * @author Greg Paul , modified by djFD
- * @version 1.1.2.42
+ * @version 1.1.2.49
  *
  */
 public class MainServlet extends HttpServlet {
@@ -118,12 +118,6 @@ public class MainServlet extends HttpServlet {
                 log.debug("user [id="+tcUser.getUserId()+"] has not enough "+
                     "permissions to work with module "+processorClassName
                 );
-                if (authToken.getActiveUser().isAnonymous()) {
-                    log.debug("unauthorized user not logged in, forwarding"+
-                               "to login page");
-                    fetchLoginPage(request,response);
-                    return;
-                }
                 throw new NotAuthorizedException("Not enough permissions to "+
                     "work with requested module"
                 );
@@ -132,14 +126,16 @@ public class MainServlet extends HttpServlet {
             processorModule = (RequestProcessor)
                 Class.forName(processorClassName).newInstance();
             log.debug("processing module "+processorClassName+" instantiated");
-        }
-        catch(Exception e) {
-            log.error("processing module instantiation exception ", e);
-            fetchErrorPage(request, response, e);
-            return;
-        }
 
-        try {
+//        }
+//        catch(Exception e) {
+//            log.error("processing module instantiation exception ", e);
+//            fetchErrorPage(request, response, e);
+//            return;
+//        }
+//
+//        try {
+
             // set main page in web.xml as homePage Attribute for Static Processor
             request.setAttribute("homePage",dest);
             processorModule.setRequest(request);
@@ -156,7 +152,26 @@ public class MainServlet extends HttpServlet {
             }
             fetchRegularPage(request, response, destination, forward);
         }
+        catch (NotAuthorizedException nae) {
+            if (authToken.getActiveUser().isAnonymous()) {
+                /* If the user is anonymous and tries to access a page they
+                   are not authorized to access, send them to the login page 
+                */
+                log.debug("user anonymous unauthorized to access resource, " +
+                          "forwarding to login page.");
+                fetchLoginPage(request,response);
+                return;
+            } else {
+                /* If the user is logged-in and tries to access a page they
+                   are not authorized to access, send them to an error page 
+                */
+                log.debug("logged-in user unauthorized to access resource, " +
+                          "forwarding to unauthorized error page");
+                fetchErrorPage(request, response, nae);
+            }
+        }
         catch(Exception e) {
+            /* For all other errors that occur, go to a general error page */
             log.error("exception during request processing ["
                 +processorName+"]", e
             );
