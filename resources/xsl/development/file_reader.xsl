@@ -416,7 +416,7 @@ Third Payment - $750.00<BR/>
 </P>
 
 <P>
-<B>Quality Assurance</B>  	<BR/>
+<B>Quality Assurance Developer</B>  	<BR/>
 Royalty Percentage - 14.00%<BR/>
 Quality Assurance Payment - $375.00<BR/>
 First Payment - $37.50<BR/>
