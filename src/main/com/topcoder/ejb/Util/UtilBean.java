@@ -15,6 +15,60 @@ public class UtilBean extends BaseEJB {
 
     private static Logger log = Logger.getLogger(UtilBean.class);
 
+
+    /**
+     * Registers a user for a tournament
+     *
+     * @param userId the user who is to be registered
+     * @throws RemoteException if the insert fails
+     */
+    public void registerForTourny(int userId) throws RemoteException {
+        log.debug("registerForTourny called");
+        StringBuffer query = null;
+        java.sql.Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        javax.naming.Context ctx = null;
+
+        query = new StringBuffer();
+        query.append(" SELECT 'foo'");
+        query.append(  " FROM invite_list");
+        query.append( " WHERE user_id = ?");
+
+        try {
+            ctx = TCContext.getInitial();
+            javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
+            conn = ds.getConnection();
+            ps = conn.prepareStatement(query.toString());
+            ps.setInt(1, userId);
+            rs = ps.executeQuery();
+            /*
+               check if this user has already registered
+             */
+            if (rs.next()) {
+                log.info("user_id: " + userId + " already registered.");
+            } else {
+                query = new StringBuffer();
+                query.append(" INSERT");
+                query.append(  " INTO invite_list (user_id, question_id, answer_id)");
+                query.append(" VALUES (?)");
+                ps = conn.prepareStatement(query.toString());
+                ps.setInt(1, userId);
+                int rowCount = ps.executeUpdate();
+                if (rowCount != 1) {
+                    throw new Exception("Wrong number of rows inserted into response: " + rowCount);
+                }
+            }
+        } catch (java.sql.SQLException se) {
+            DBMS.printSqlException(true, se);
+            throw new RemoteException("UtilBean.addResponse(int, int, int):ERROR: " + se);
+        } catch (Exception e) {
+            throw new RemoteException(e.getMessage());
+        }
+
+    }
+
+
     /**
      * Add a respone to the response for the given user and question.
      *
