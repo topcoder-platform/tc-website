@@ -11,7 +11,7 @@ import java.util.StringTokenizer;
 import java.util.List;
 
 import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.shared.security.User;
+
 
 
 /**
