@@ -8,7 +8,7 @@ import com.topcoder.web.tc.Constants;
  *
  * @author Ambrose Feinstein
  */
-public class Static extends BaseProcessor {
+public class Static extends Base {
 
     protected void businessProcessing() throws TCWebException {
 
