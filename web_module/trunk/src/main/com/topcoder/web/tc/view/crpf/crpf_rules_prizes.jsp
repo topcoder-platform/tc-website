@@ -58,7 +58,7 @@
                
 
                <blockquote>
-               <h2>Prizes<h2>
+               <h2>Prizes</h2>
                <p>All competitors who raise a minimum of $50 USD will be awarded a commemorative t-shirt.</p>
 
                <p>All competitors who raise a minimum of $100 USD will be put into a grand prize drawing.  A competitor will receive one 
