@@ -1,5 +1,7 @@
 package com.topcoder.web.corp.request;
 
+import java.util.Enumeration;
+
 /**
 * <p>Title: Static </p>
 * <p> Description: Handles "static" pages.  Serve up jsp's in essentially 
@@ -10,13 +12,13 @@ package com.topcoder.web.corp.request;
 * validates them, and then begin to process them.  In the above example, 
 * that would mean the static processor should serve up
 * <document_root>/statistics/tourney_overview/myPage.jsp
-* @version   1.2
+* @version   1.3
 * @author    Daniel Cohn
 */
 public class Static extends BaseProcessor { 
     
     /** Constructor sets pageInContext to true since all Static pages are in
-     * the same context 
+     *  the same context 
      */
     public Static() {
         pageInContext = true; 
@@ -25,8 +27,7 @@ public class Static extends BaseProcessor {
     private final String STATIC_PREFIX = "d";  // Prefix for parameters
 
     /** process() method in BaseProcessor calls this businessProcessing() 
-     *  method to define the next Page.  set next page to the Error Page 
-     *  if there is an error when processing the next page request.  
+     *  method to define the next Page.
      *  @throws Exception 
      */
     void businessProcessing() throws Exception {
@@ -43,32 +44,11 @@ public class Static extends BaseProcessor {
      */ 
     private String requestProcessor() throws Exception {
 
-        String staticRequest = request.getQueryString();
-        int levelsDeep = levelsDeep(staticRequest);  // see method below
+        int levelsDeep = levelsDeep();  // see method below
         
-        /* Check to make sure that if dx (where x = levelsDeep) is
-         * in the request, then d(x-1), d(x-2), ... , d1 must also
-         * exist in the request.  Throws IllegalArgumentException if
-         * this test fails.
-         */
-        StringBuffer paramNums = new StringBuffer(STATIC_PREFIX + 
-                                                  levelsDeep);
-        for (int i=levelsDeep-1; i>0; i--) { 
-            String lookFor = STATIC_PREFIX + i;
-            String requestDirectory = request.getParameter(lookFor);
-            if (requestDirectory.equals("") || requestDirectory == null) {
-                throw new IllegalArgumentException (
-                       "parameter(s) \"" + paramNums + 
-                       "\" found, but paramater \"" + lookFor + 
-                       "\" was not found in request: \"" + request +
-                       "\".");
-            }
-            paramNums.append(", " + lookFor);
-        }
-
         String page = request.getParameter(STATIC_PREFIX+levelsDeep);
         if (page == null) {
-            throw new IllegalArgumentException 
+            throw new Exception
                    ("no page specified in request.");
         }
 
@@ -76,13 +56,18 @@ public class Static extends BaseProcessor {
         StringBuffer ret = new StringBuffer("/");
         for (int i=1; i<levelsDeep; i++) {
             String cur = request.getParameter(STATIC_PREFIX+i);
+            if (cur.equals("") || cur == null) {
+                throw new Exception (
+                    "parameter \"" + STATIC_PREFIX + i + 
+                    "\" was not found in request.");
+            }
             int check = validParameter(cur);  // returns -1 if valid.
             if (check == -1) { 
                 ret.append(cur+"/");
             }
             else {
                 char invalidChar = cur.charAt(check);
-                throw new IllegalArgumentException ( 
+                throw new Exception ( 
                     "parameter #" + i + ": \"" + cur + 
                     "\" invalid character found: '" + invalidChar + "'.");
             }
@@ -92,7 +77,7 @@ public class Static extends BaseProcessor {
     }
 
 
-   /** returns -1 if parameter is valid, otherwise returns the index 
+   /** If parameter is valid return -1, otherwise returns the index 
     *  of the invalid character in the request.
     * @param param parameter to check for validity.
     * @return index of invalid character, or -1 if param is valid
@@ -111,21 +96,22 @@ public class Static extends BaseProcessor {
     /** Determine how many STATIC_PREFIX levels the static address has, 
      *  ie: /statistics/tourney_overview/myPage.jsp page is 3 
      *  static levels deep.                                       
-     * @param request String representing URL request
      * @return total levels deep of request (int).
      */
-    private int levelsDeep(String request) {
-        int lastIndex = request.lastIndexOf("&"+STATIC_PREFIX) 
-                        + STATIC_PREFIX.length()+1;
-        if (lastIndex == 1) { 
-            if (request.startsWith(STATIC_PREFIX+"1")) { 
-                return 1; 
-            } else {
-                return -1; 
+    private int levelsDeep() {
+        int curIndex = 0;
+        int lastIndex = 0;
+        int pL = STATIC_PREFIX.length();
+        Enumeration keys = request.getParameterNames(); 
+        while (keys.hasMoreElements()) {
+            String current = (String)keys.nextElement();
+            if (current.startsWith(STATIC_PREFIX)) { 
+                try { 
+                    curIndex = Integer.parseInt(current.substring(pL));
+                } catch (NumberFormatException e) { } // do nothing;
+            if (curIndex > lastIndex) { lastIndex = curIndex; }
             }
         }
-        int parseTill = request.indexOf("=",lastIndex);
-        String deepest = request.substring(lastIndex, parseTill);
-        return Integer.parseInt(deepest);
+        return lastIndex;
     }
 }
