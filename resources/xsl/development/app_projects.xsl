@@ -60,7 +60,7 @@
 				</tr>
 
 				<tr><td class="statText" colspan="2"><h1 class="devSubhead">Open Application Projects</h1></td></tr>
-				
+                <!--				
 				<tr valign="top">
 					<td class="statText" colspan="2">
 						<p>
@@ -69,11 +69,11 @@
 						<P><BR/></P>  
 					</td>
 				</tr>
-							
-				<!-- <tr>
+					-->		
+				<tr>
 					<td valign="top" class="statText" width="50%">
 						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=screening">Candidate Screening Tool</a><br/>
+						Project: <a class="statText" href="/index?t=development&amp;c=screening">Online Review</a><br/>
 						Posted: 12.09.2002<br/>
 						Inquiry Deadline: 12.14.2002<br/>
 						</p>   
@@ -82,7 +82,7 @@
 
 					<td valign="top" class="statText" width="50%">&#160;   
 					</td>
-				</tr> -->				
+				</tr> 
 				
 														
 			</table>
