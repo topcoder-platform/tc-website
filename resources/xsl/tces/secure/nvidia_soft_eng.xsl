@@ -63,7 +63,7 @@
 
 
 <P><B>SOFTWARE ENGINEER</B><br/>
-The platform storage software team designs system software for NVIDIA's Athlon motherboard chipsets (nForce, nForce2,  nForce3 Pro).  We work on cutting-edge storage technologies actively used by millions of enthusiasts.  We are looking for a brilliant and enthusiastic candidate who is excited about taking consumer disk performance to the next level.</p>
+The platform storage software team designs system software for NVIDIA's Athlon motherboard chipsets (nForce, nForce2,  nForce3 Pro).  We work on cutting-edge storage technologies actively used by millions of enthusiasts.  We are looking for a brilliant and enthusiastic candidate who is excited about taking consumer disk performance to the next level.</P>
 
 <p>Responsibilities:</p>
 <ul>
