@@ -27,7 +27,17 @@ public class Registration
     public static final String PROTOCOL = "http";
     public static final String HOST = ApplicationServer.SERVER_NAME;
     public static final String PATH = "/tces/";
-    
+
+		public static Hashtable htValidTasks = new Hashtable();
+		static {
+			htValidTasks.add("test");
+			htValidTasks.add("contact");
+			htValidTasks.add("employment");
+			htValidTasks.add("education");
+			htValidTasks.add("skills");
+			htValidTasks.add("job");
+		}
+	   
     // steps 
     public static final String STEP_0 = "0";
     public static final String STEP_1 = "1";

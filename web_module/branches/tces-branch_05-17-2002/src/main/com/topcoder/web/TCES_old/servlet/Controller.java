@@ -21,27 +21,23 @@ public class Controller
     public static final String STEP = "step";
     static final String CONTROLLER_ERROR_URL = "error.jsp";
     static final String TASK_PACKAGE = "com.topcoder.web.tces.bean";
-    
-    public void init(Servlet servletConfig)
-        throws ServletException
-    {
+		 
+    public void init(Servlet servletConfig) throws ServletException {
     }
 
-    public void service(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException
-    {
+    public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException {
       HttpSession session = null;
       try {
         if (request.getContentType()==null || request.getContentType().indexOf(MULTIPART_FORM_DATA) < 0)
         {
             String taskName = request.getParameter(TASK);
-            if (taskName == null || !isWord(taskName))
-            {
+            if (taskName == null || !Registration.htValidTasks.containsKey(taskName)) {
                 Log.msg(TASK+" not found in request.");
                 forwardToError(request,response,new TaskException(TASK+" not found in request."));
                 return;
             }
             session = request.getSession(true); // for now create a new session, later this'll be done in the front page
+/*
             Object taskObject = session.getAttribute(taskName);
             Task task = null;
             Class taskClass = null;
@@ -89,23 +85,12 @@ public class Controller
             {
                 String parameterName = parameterNames.nextElement().toString();
                 String[] parameterValues = request.getParameterValues(parameterName);
-                if (parameterValues != null)
-                {
-                    //if (parameterValues.length == 1)
-                    //{
-                        //task.setAttribute(parameterName,request.getParameter(parameterName));
-                    //}
-                    //else if (parameterValues.length > 1)
-                    //{
-
+                if (parameterValues != null) {
                     task.setAttributes(parameterName,parameterValues);
-
-                    //}
                 }
             }
 
-            try
-            {
+            try {
                 task.process();
             }
             catch (TaskException e)
@@ -113,8 +98,8 @@ public class Controller
                 Log.msg(e.getMessage());
                 forwardToError(request,response,e);
             }
-
-            forward(request,response,task.getNextPage());
+*/
+            forward(request,response,taskName + ".jsp");
          } 
       } catch ( ServletException se ) {
         throw se;
@@ -147,17 +132,12 @@ public class Controller
         response.setDateHeader ("Expires", 0);
         try
         {
-            if (url != null)
-            {
+            if (url != null) {
                 response.sendRedirect(response.encodeURL(url));
-            }
-            else
-            {
+            } else {
                 response.sendRedirect(response.encodeURL(CONTROLLER_ERROR_URL));
             }
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             Log.msg(e.getMessage());
             throw new ServletException(e);
         }
@@ -172,8 +152,7 @@ public class Controller
     void forwardToError(HttpServletRequest request, HttpServletResponse response, Throwable exception)
         throws ServletException
     {
-        if (request != null)
-        {
+        if (request != null) {
             request.setAttribute(EXCEPTION,exception);
         }
         forwardToError(request,response);
@@ -213,7 +192,5 @@ public class Controller
         }
     }
  
-    public void destroy()
-    {
-    }
+    public void destroy() {}
 }
