@@ -28,6 +28,9 @@ public interface User extends EJBObject {
     void setActivationCode(long userId, String code, String dataSource)
             throws EJBException, RemoteException;
 
+    void setPassword(long userId, String passwrd, String dataSource)
+            throws EJBException, RemoteException;
+
     public String getHandle(long userId, String dataSource)
             throws EJBException, RemoteException;
 
@@ -42,6 +45,8 @@ public interface User extends EJBObject {
     String getMiddleName(long userId, String dataSource) throws EJBException, RemoteException;
 
     String getActivationCode(long userId, String dataSource) throws EJBException, RemoteException;
+
+    String getPassword(long userId, String dataSource) throws EJBException, RemoteException;
 
     char getStatus(long userId, String dataSource)
             throws EJBException, RemoteException;
