@@ -84,7 +84,7 @@
 <%if(pIdx.intValue() % 3 == 0) {%>
 
                     <td>
-                        <table border="0" cellpadding="0" cellspacing="1" class="forumBkgd" width="100%">
+                        <table border="0" cellpadding="0" cellspacing="1" width="100%">
                             <tr valign="top">
                                 <td class="forumTitleCenter"><img src="images/clear.gif" alt="" width="1" height="1" border="0"></td>
                                 <td class="forumTitleCenter">
