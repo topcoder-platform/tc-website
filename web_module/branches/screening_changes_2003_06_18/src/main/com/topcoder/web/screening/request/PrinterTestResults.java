@@ -33,7 +33,7 @@ public class PrinterTestResults extends TestResults {
         Request dr = new Request();
         dr.setProperties(HttpUtils.parseQueryString(getRequest().getQueryString()));
         dr.setContentHandle("noteList");
-        dr.setProperty("uid", String.valueOf(getUser()));
+        dr.setProperty("uid", String.valueOf(getUser().getId()));
         dr.setProperty("cid", String.valueOf(cinfo.getUserId()));
 
 
