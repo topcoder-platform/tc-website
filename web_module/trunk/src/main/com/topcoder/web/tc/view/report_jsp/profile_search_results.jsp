@@ -1,9 +1,9 @@
 <%@  page
   language="java"
-  errorPage="/errorPage.jsp"
   import="java.util.*,
           com.topcoder.common.web.data.report.*,
-          com.topcoder.shared.dataAccess.resultSet.*"
+          com.topcoder.shared.dataAccess.resultSet.*,
+          com.topcoder.web.common.StringUtils"
 
 %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -26,7 +26,7 @@
 <html>
   <head>
 <style type="text/css">
-    TABLE.entry TD{ 
+    TABLE.entry TD{
         BORDER-BOTTOM: #777777 1px solid ;
 	    padding: 1px;
 	    font-size: 12px;
@@ -41,10 +41,10 @@
     }
     A:active {
             COLOR: #7777FF; TEXT-DECORATION: none
-    }   
+    }
     A:hover {
             COLOR: #7777FF; TEXT-DECORATION: none
-    }       
+    }
 
 </style>
 <script language="javascript">
