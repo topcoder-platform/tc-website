@@ -25,54 +25,54 @@ import java.util.*;
 public class Preferences extends ContractingBase {
     protected void contractingProcessing() throws TCWebException {
         try {
-        //load preference groups
-        ArrayList groups = new ArrayList();
-        
-        Request r = new Request();
-        r.setContentHandle("preference_groups");
-        
-        ResultSetContainer rsc = (ResultSetContainer)getDataAccess().getData(r).get("preference_groups");
-        for(int i = 0; i < rsc.size(); i++) {
-            PreferenceGroup grp = new PreferenceGroup();
-            
-            grp.setName(rsc.getStringItem(i, "preference_group_desc"));
-            
-            //load preferences here
-            Request rpref = new Request();
-            rpref.setContentHandle("preferences_by_group");
-            rpref.setProperty("prid", String.valueOf(rsc.getIntItem(i, "preference_group_id")));
-            
-            ResultSetContainer rscPref = (ResultSetContainer)getDataAccess().getData(rpref).get("preferences_by_group");
-            for(int j = 0; j < rscPref.size(); j++) {
-                Preference pref = new Preference();
-                
-                pref.setText(rscPref.getStringItem(j, "preference_desc"));
-                pref.setType(rscPref.getIntItem(j, "preference_type_id"));
-                pref.setID(rscPref.getIntItem(j, "preference_id"));
-                
-                //load answers 
-                Request rval = new Request();
-                rval.setContentHandle("preference_values");
-                rval.setProperty("prid", String.valueOf(rscPref.getIntItem(j, "preference_id")));
+            //load preference groups
+            ArrayList groups = new ArrayList();
 
-                ResultSetContainer rscVal = (ResultSetContainer)getDataAccess().getData(rval).get("preference_values");
+            Request r = new Request();
+            r.setContentHandle("preference_groups");
 
-                for(int x = 0; x < rscVal.size(); x++) {
-                    PreferenceValue pv = new PreferenceValue();
+            ResultSetContainer rsc = (ResultSetContainer)getDataAccess().getData(r).get("preference_groups");
+            for(int i = 0; i < rsc.size(); i++) {
+                PreferenceGroup grp = new PreferenceGroup();
 
-                    pv.setID(rscVal.getIntItem(x, "preference_value_id"));
+                grp.setName(rsc.getStringItem(i, "preference_group_desc"));
 
-                    pv.setText(rscVal.getStringItem(x, "value"));
+                //load preferences here
+                Request rpref = new Request();
+                rpref.setContentHandle("preferences_by_group");
+                rpref.setProperty("prid", String.valueOf(rsc.getIntItem(i, "preference_group_id")));
 
-                    pref.addPrefValue(pv);
+                ResultSetContainer rscPref = (ResultSetContainer)getDataAccess().getData(rpref).get("preferences_by_group");
+                for(int j = 0; j < rscPref.size(); j++) {
+                    Preference pref = new Preference();
+
+                    pref.setText(rscPref.getStringItem(j, "preference_desc"));
+                    pref.setType(rscPref.getIntItem(j, "preference_type_id"));
+                    pref.setID(rscPref.getIntItem(j, "preference_id"));
+
+                    //load answers 
+                    Request rval = new Request();
+                    rval.setContentHandle("preference_values");
+                    rval.setProperty("prid", String.valueOf(rscPref.getIntItem(j, "preference_id")));
+
+                    ResultSetContainer rscVal = (ResultSetContainer)getDataAccess().getData(rval).get("preference_values");
+
+                    for(int x = 0; x < rscVal.size(); x++) {
+                        PreferenceValue pv = new PreferenceValue();
+
+                        pv.setID(rscVal.getIntItem(x, "preference_value_id"));
+
+                        pv.setText(rscVal.getStringItem(x, "value"));
+
+                        pref.addPrefValue(pv);
+                    }
+
+                    grp.addPreference(pref);
                 }
-                
-                grp.addPreference(pref);
+
+
+                groups.add(grp);
             }
-            
-            
-            groups.add(grp);
-        }
         
         //set attribute with groups
         getRequest().setAttribute("groups", groups);

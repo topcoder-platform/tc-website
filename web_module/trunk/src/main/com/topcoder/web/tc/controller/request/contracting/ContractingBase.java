@@ -63,6 +63,8 @@ abstract public class ContractingBase extends BaseProcessor {
             if(errorCheck()) {
                 //errors occured
                 ContractingBase errorProcessor = getOldProcessor();
+                
+                log.debug("ERRORS FOUND, using " + errorProcessor);
                 errorProcessor.setRequest(getRequest());
                 errorProcessor.setResponse(getResponse());
                 
