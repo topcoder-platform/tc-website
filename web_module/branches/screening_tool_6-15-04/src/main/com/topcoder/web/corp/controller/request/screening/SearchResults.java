@@ -33,7 +33,7 @@ public class SearchResults extends BaseScreeningProcessor {
         setIsNextPageInContext(true); 
     }
     
-    private SearchModel getSearchModel() {
+    private SearchModel getSearchModel() throws Exception {
         SearchModel ret = new SearchModel();
         
         ret.setFirstName(StringUtils.checkNull(getRequest().getParameter(Constants.FIRST_NAME)));

@@ -34,7 +34,15 @@ public class Demog extends FullRegDemog {
         removeError(Constants.HANDLE);
         
         //generate handle
-        String handle = info.getFirstName().substring(0,1) + info.getLastName();
+        String handle = "";
+        if(info.getFirstName().length() != 0)
+        {
+            handle = info.getFirstName().substring(0,1) + info.getLastName();
+        }
+        else
+        {
+            handle = info.getLastName();
+        }
         
         if(handle.length() < Constants.MIN_HANDLE_LENGTH)
         {
