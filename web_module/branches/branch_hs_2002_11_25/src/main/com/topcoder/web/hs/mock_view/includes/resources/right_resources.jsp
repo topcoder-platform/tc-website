@@ -1,3 +1,5 @@
+        
+        <IMG SRC="/i/hs/tchs_sidebar.gif" WIDTH="200" HEIGHT="95" ALT="" BORDER="0">
         <TABLE CELLSPACING="0" CELLPADDING="0" BORDER="0" WIDTH="200">
             <TR>
                 <TD NOWRAP><IMG SRC="/i/hs/rl_heading.gif" WIDTH="200" HEIGHT="36" ALT="" BORDER="0"></TD>
@@ -23,7 +25,7 @@
                         <A HREF="http://www.mastercsharp.com/" TARGET="_blank" CLASS="resoursesnav">http://www.mastercsharp.com/</A><BR/>
                         <A HREF="http://www.c-sharpcorner.com/" TARGET="_blank" CLASS="resoursesnav">http://www.c-sharpcorner.com/</A><BR/>
                         <P ALIGN="right">
-                        <A HREF="/hs/resources/resources.jsp" CLASS="resoursesnav">More Resources>></A></P>
+                        <A HREF="/?module=Static&d1=resources&d2=resources" CLASS="resoursesnav">More Resources>></A></P>
                         </TD>
                     </TR>
                 </TABLE>
