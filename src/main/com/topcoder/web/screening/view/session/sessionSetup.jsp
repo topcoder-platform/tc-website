@@ -70,6 +70,9 @@ function submitSession() {
                 <tr valign="top">
                     <td class="bodyText">
                         <h1 class="testHead">Create a New Session</h1>
+                        <p>Each candidate is assigned to a Test Profile. Each Test Profile is assigned two sets of problems&#151;Test Set A, which is used to screen for 
+                        accuracy and speed, and Test Set B, which is used to screen for accuracy and style.</p>
+                        
                         <p>Here you will create a session by selecting a Test Profile and assigning a candidate to it by following these steps:</p>
                         <ol>
                             <li>Select a Test Profile. If you wish to create a new Test Profile, click <strong>Create a New Test Profile</strong>.</li>

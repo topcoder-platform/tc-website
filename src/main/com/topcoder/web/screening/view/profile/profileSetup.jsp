@@ -71,6 +71,9 @@ function submitConfirm() {
                 <tr valign="top">
                     <td class="bodyText">
                         <h1 class="testHead">Create a New Session - <font color="#000000">Set up a New Test Profile</font></h1>
+                        <p>Each candidate is assigned to a Test Profile. Each Test Profile is assigned two sets of problems&#151;Test Set A, which is used to screen for 
+                        accuracy and speed, and Test Set B, which is used to screen for accuracy and style.</p>
+                        
                         <p>To set up a new Test Profile, follow these steps:</p>
                         <ol>
                             <li>Choose an appropriate name for the Test Profile.</li>
