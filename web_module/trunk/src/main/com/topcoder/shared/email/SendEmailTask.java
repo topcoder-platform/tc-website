@@ -3,6 +3,7 @@ package com.topcoder.shared.email;
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.ejb.EmailServices.*;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
@@ -373,7 +374,7 @@ public class SendEmailTask extends EmailTask implements Runnable {
 
         Map listMap = null;
         RequestInt dataRequest = new Request(m);
-        DataAccessInt dai = new OLTPDataAccess();
+        DataAccessInt dai = new DataAccess((javax.sql.DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
         try {
             listMap = dai.getData(dataRequest);
         } catch (Exception ignore) {
