@@ -26,9 +26,9 @@ public class DBMS {
     public final static String CONTEST_ADMIN_DATASOURCE = getProperty("CONTEST_ADMIN_DATASOURCE", "OLTP");
     public final static String CORP_JTS_OLTP_DATASOURCE_NAME = getProperty("CORP_JTS_OLTP_DATASOURCE_NAME", "JTS_DS");
     public final static String CORP_OLTP_DATASOURCE_NAME = getProperty("CORP_OLTP_DATASOURCE_NAME", "DS");
-    public final static String HS_DW_DATASOURCE_NAME = getProperty("DW_DATASOURCE_NAME", "HS_DW");
-    public final static String HS_OLTP_DATASOURCE_NAME = getProperty("OLTP_DATASOURCE_NAME", "HS_OLTP");
-    public final static String HS_JTS_OLTP_DATASOURCE_NAME = getProperty("OLTP_DATASOURCE_NAME", "JTS_HS_OLTP");
+    public final static String HS_DW_DATASOURCE_NAME = getProperty("HS_DW_DATASOURCE_NAME", "HS_DW");
+    public final static String HS_OLTP_DATASOURCE_NAME = getProperty("HS_OLTP_DATASOURCE_NAME", "HS_OLTP");
+    public final static String HS_JTS_OLTP_DATASOURCE_NAME = getProperty("HS_JTS_OLTP_DATASOURCE_NAME", "JTS_HS_OLTP");
 
 
     public final static String JDBC_DRIVER = getProperty("JDBC_DRIVER", "weblogic.jdbc.jts.Driver");
