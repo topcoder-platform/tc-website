@@ -9,7 +9,7 @@
   import javax.transaction.UserTransaction;
   import javax.transaction.Status;
 
-  import com.topcoder.servlet.admin.*;
+  import com.topcoder.web.servlet.admin.*;
   import com.topcoder.common.*;
   import com.topcoder.common.web.data.*;
   import com.topcoder.common.web.xml.*;

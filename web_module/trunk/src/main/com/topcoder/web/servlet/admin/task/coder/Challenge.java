@@ -214,7 +214,8 @@
         try {
           contestEJB = contestHome.create();
           int challengeId = Integer.parseInt(request.getParameter("remove"));
-          contestEJB.removeChallenge(challengeId);
+          //contestEJB.removeChallenge(challengeId);
+System.out.println ( "  NOTE:  ContestAdminServicesBean.removeChallenge(challengeId) METHOD REMOVED" );
           contestHome = null;
         } catch (Exception e) {
           Log.msg("Challenge: removeChallenge error removing challenge .");
