@@ -61,6 +61,8 @@
 <!-- 2003 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2003</font></td></tr>
 
+                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_10_14_03">Talbots Licenses Component Catalog From TopCoder Software</A> [October 14]</td></tr>
+                            
                             <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_10_01_03">Artifact and Northface to sponsor TopCoder Open</A> [October 1]</td></tr>
                             
                             <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_09_29_03">Intel is the Title Sponsor for TopCoder Open</A> [September 29]</td></tr>
