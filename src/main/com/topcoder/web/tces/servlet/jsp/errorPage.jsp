@@ -84,7 +84,7 @@
 
                       <!-- Error message content pane -->
      An error has occurred.  If you would like to report this to TopCoder click <A CLASS="statText" HREF="mailto:service@topcoder.com">here</A>.
-
+<%if (exception!=null) exception.printStackTrace();%>
 <%--
 <!-- web-app debug time stack trace  BEGIN -->
 <hr><b><i>Trace information is provided for web application debug time only</i></b><br>
