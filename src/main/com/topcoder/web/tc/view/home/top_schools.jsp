@@ -1,6 +1,6 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
-<% ResultSetContainer schools = (ResultSetContainer)request.getAttribute("school_avg_rating");%>
+<% ResultSetContainer schools = (ResultSetContainer)request.getAttribute("School_Avg_Rating");%>
 
 <table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#555555">
     <tr valign="middle">
