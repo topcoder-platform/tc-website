@@ -14,12 +14,16 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tces.common.TCESConstants;
 import com.topcoder.web.tces.common.JSPUtils;
 import com.topcoder.web.tces.common.TCESAuthenticationException;
+import com.topcoder.shared.problem.*;
+import com.topcoder.shared.problemParser.*;
+import com.topcoder.shared.language.CStyleLanguage;
 
 import javax.servlet.http.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
+import java.io.StringReader;
 
 /** Processes the problem statement task.
  * @author George Dean
@@ -141,7 +145,13 @@ public class ProblemStatementTask extends BaseTask implements Task, Serializable
         setContestName( problemRow.getItem("contest_name").toString() );
         setDivisionName( problemRow.getItem("division_desc").toString() );
         setProblemName( problemRow.getItem("class_name").toString() );
-        setProblemText( formatProblemText(problemRow.getItem("problem_text").toString()) );
+
+        StringReader reader = new StringReader(problemRow.getItem("problem_text").toString());
+        ProblemComponent arrProblemComponent[] = new ProblemComponent[1];
+        arrProblemComponent[0] = new ProblemComponentFactory().buildFromXML(reader, true);
+        Problem problem = new Problem();
+        problem.setProblemComponents(arrProblemComponent);
+        setProblemText(problem.toHTML(new CStyleLanguage(Integer.parseInt(problemRow.getItem("language_id").toString()), "")));
 
         setNextPage( TCESConstants.PROBLEM_STATEMENT_PAGE );
     }
