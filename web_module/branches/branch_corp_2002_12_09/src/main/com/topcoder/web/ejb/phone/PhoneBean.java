@@ -330,8 +330,7 @@ public class PhoneBean implements SessionBean {
 
             ps = conn.prepareStatement("SELECT phone_number FROM phone " +
                                        "WHERE phone_id = ?");
-            ps.setLong(1, userId);
-            ps.setLong(2, phoneId);
+            ps.setLong(1, phoneId);
 
             rs = ps.executeQuery();
 

@@ -280,18 +280,19 @@ public class UnitBean implements SessionBean {
             }
         }
     }
-    
+
     /**
-     * 
+     *
      * @param unitTypeId
      * @return String
      * @throws RemoteException
      * @throws EJBException
      */
-    public String getUnitDescription(long unitTypeId)
+    public String getUnitDescription(long productId, long unitTypeId)
     throws RemoteException, EJBException
     {
-        log.debug("getUnitDescription called... unitTypeId: " + unitTypeId);
+        log.debug("getUnitDescription called... productId: " + productId +
+                  "unitTypeId: " + unitTypeId);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -308,7 +309,8 @@ public class UnitBean implements SessionBean {
             conn = ds.getConnection();
 
             ps = conn.prepareStatement(
-                "SELECT unit_type_desc FROM unit_type_lu WHERE unit_type_id = ?"
+                "SELECT unit_type_desc FROM unit_type_lu WHERE " +
+                "unit_type_id = ?"
             );
             ps.setLong(1, unitTypeId);
             rs = ps.executeQuery();
@@ -331,21 +333,24 @@ public class UnitBean implements SessionBean {
         finally {
             if (rs != null) {
                 try { rs.close(); } catch (Exception ignore) {
-                    log.error("FAILED to close ResultSet in getUnitDescription");
+                    log.error("FAILED to close ResultSet in " +
+                              "getUnitDescription");
                 }
             }
 
             if (ps != null) {
                 try { ps.close(); } catch (Exception ignore) {
                     log.error(
-                        "FAILED to close PreparedStatement in getUnitDescription"
+                        "FAILED to close PreparedStatement in " +
+                        "getUnitDescription"
                     );
                 }
             }
 
             if (conn != null) {
                 try { conn.close(); } catch (Exception ignore) {
-                    log.error("FAILED to close Connection in getUnitDescription");
+                    log.error("FAILED to close Connection in " +
+                              "getUnitDescription");
                 }
             }
 

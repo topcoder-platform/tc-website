@@ -102,7 +102,7 @@ public interface Purchase extends EJBObject {
      *
      * @see com.topcoder.web.ejb.product.PurchaseBean#getPaid
      */
-    long getPaid(long purchaseId) throws RemoteException, EJBException;
+    double getPaid(long purchaseId) throws RemoteException, EJBException;
 
     /**
      *

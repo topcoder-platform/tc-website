@@ -37,12 +37,9 @@ public interface Unit extends EJBObject {
         throws RemoteException, EJBException;
 
     /**
-     * 
-     * @param unitTypeId
-     * @return String
-     * @throws RemoteException
-     * @throws EJBException
-     */        
-    public String getUnitDescription(long unitTypeId)
+     *
+     * @see com.topcoder.web.ejb.product.UnitBean#getUnitDescription
+     */
+    public String getUnitDescription(long productId, long unitTypeId)
     throws RemoteException, EJBException;
 }

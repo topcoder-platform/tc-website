@@ -70,7 +70,7 @@ public class PurchaseBean implements SessionBean {
      * @return a long with the unique purchase ID created
      */
     public long createPurchase(long companyId, long productId,
-                               long contactId, double sum) {
+                               long contactId, double paid) {
         log.debug("createPurchase called...");
 
         Context ctx = null;
@@ -86,13 +86,15 @@ public class PurchaseBean implements SessionBean {
                 IdGenerator.init(
                                  new SimpleDB(),
                                  (DataSource)ctx.lookup((String)
-                                 ctx.lookup("java:comp/env/datasource_name")),
-                                 "sequence_object",
-                                 "name",
-                                 "current_value",
-                                 9999999999L,
-                                 1,
-                                 true);
+                                 ctx.lookup(
+                                     "java:comp/env/idgen_datasource_name")),
+                                     "sequence_object",
+                                     "name",
+                                     "current_value",
+                                     9999999999L,
+                                     1,
+                                     true
+                                 );
             }
 
             ret = IdGenerator.nextId("PURCHASE_SEQ");
@@ -109,7 +111,7 @@ public class PurchaseBean implements SessionBean {
             ps.setLong(2, companyId);
             ps.setLong(3, productId);
             ps.setLong(4, contactId);
-            ps.setDouble(5, sum);
+            ps.setDouble(5, paid);
 
             int rows = ps.executeUpdate();
 
@@ -894,5 +896,146 @@ public class PurchaseBean implements SessionBean {
         }
 
         return (ret);
+    }
+
+    public double getPaid(long purchaseId) {
+        log.debug("getPaid called... purchase_id: " + purchaseId);
+
+        Context ctx = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conn = null;
+        DataSource ds = null;
+        double ret = 0.0;
+
+        try {
+            ctx = new InitialContext();
+            ds = (DataSource)ctx.lookup((String)ctx.lookup(
+                "java:comp/env/datasource_name"));
+            conn = ds.getConnection();
+
+            ps = conn.prepareStatement("SELECT paid FROM purchase " +
+                                       "WHERE purchase_id = ?");
+            ps.setLong(1, purchaseId);
+
+            rs = ps.executeQuery();
+
+            if (rs.next())
+                ret = rs.getDouble("paid");
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(
+                                   true,
+                                   sqe);
+            throw new EJBException("SQLException getting paid");
+        } catch (NamingException e) {
+            throw new EJBException("NamingException getting paid");
+        } catch (Exception e) {
+            throw new EJBException("Exception getting paid\n" +
+                                   e.getMessage());
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet in getPaid");
+                }
+            }
+
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                              "getPaid");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in getPaid");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in getPaid");
+                }
+            }
+        }
+
+        return (ret);
+    }
+
+    /**
+     *
+     *
+     * @param purchaseId purchase ID of entry to set
+     * @param paid the paid value to set to
+     */
+    public void setPaid(long purchaseId, double paid) {
+        log.debug("setPaid called...purchaseId: " + purchaseId +
+                  " paid: " + paid);
+
+        Context ctx = null;
+        PreparedStatement ps = null;
+        Connection conn = null;
+        DataSource ds = null;
+
+        try {
+            ctx = new InitialContext();
+            ds = (DataSource)ctx.lookup((String)ctx.lookup(
+                "java:comp/env/datasource_name"));
+            conn = ds.getConnection();
+
+            ps = conn.prepareStatement("UPDATE purchase SET paid = ? " +
+                                       "WHERE purchase_id = ?");
+            ps.setDouble(1, paid);
+            ps.setLong(2, purchaseId);
+
+            int rows = ps.executeUpdate();
+
+            if (rows != 1)
+                throw new EJBException("Wrong number of rows in update: " +
+                                       rows);
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(
+                                   true,
+                                   sqe);
+            throw new EJBException("SQLException updating paid");
+        } catch (NamingException e) {
+            throw new EJBException("NamingException updating paid");
+        } catch (Exception e) {
+            throw new EJBException("Exception updating paid\n" +
+                                   e.getMessage());
+        } finally {
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                              "setPaid");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in setPaid");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in setPaid");
+                }
+            }
+        }
     }
 }
