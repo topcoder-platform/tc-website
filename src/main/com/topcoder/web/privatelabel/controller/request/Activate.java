@@ -58,15 +58,14 @@ abstract public class Activate extends RegistrationBase {
 
     abstract protected void setNextPage();
 
+    /**
+     * just returning null cuz we don't need registration info at this point.
+     * if that changes, we'll need to come up with a better implementation
+     * @return
+     * @throws Exception
+     */
     protected SimpleRegInfo makeRegInfo() throws Exception {
-        //get all reg info from the session, no changes should have been made at this point
-        FullRegInfo info = (FullRegInfo)getRegInfoFromPersistor();
-        if (info==null) {
-            SessionInfo sessInfo = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
-            throw new NavigationException("Sorry, your session has expired.", sessInfo.getServletPath());
-        }
-
-        return info;
+        return null;
     }
 
 }
