@@ -101,14 +101,21 @@ All four requirements must be met for TopCoder to release payment.
           You cannot affirm this affidavit online for the following reason(s):
           <ul>
       <% if (!a.hasNotarizedAffidavit()) { %>
+<%System.out.println("not notarized");%>
         <li>You do not have a notarized affidavit on file.</li>
       <% } else if (!a.hasTaxForm()) { %>
+<%System.out.println("missing tax form");%>
         <li>You do not have a tax form on file.</li>
       <% } else if (!a.hasAllDemographicAnswers()) { %>
+<%System.out.println("missing demographics");%>
         <li>Your demographic answers are incomplete.</li>
       <% } else if (a.affidavit._daysLeftToAffirm<=0) { %>
+<%System.out.println("no time");%>
         <li>This affidavit has expired.</li>
-      <% } %>
+      <% } else {
+          System.out.println("somethinge else");
+      } %>
+
       </ul>
         </p></b>
 <%
