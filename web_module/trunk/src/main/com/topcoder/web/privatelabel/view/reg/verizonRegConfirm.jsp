@@ -62,7 +62,7 @@
 
             <tr>
                 <td colspan="2" align="center">
-                    <a href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.FULL_REG_MAIN%>">edit<a/>
+                    <a href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.FULL_REG_MAIN%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="CompanyId"/>">edit<a/>
                 </td>
             </tr>
 
@@ -206,7 +206,7 @@
                     Demographics
                 </td>
                 <td align="center">
-                    <a href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.FULL_REG_DEMOG%>">edit<a/>
+                    <a href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.FULL_REG_DEMOG%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="CompanyId"/>">edit<a/>
                 </td>
             </tr>
             <tr>
