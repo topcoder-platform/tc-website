@@ -61,8 +61,8 @@
             <a name="sched"></a>
             <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr>
-                    <td class="sidebarTitle" width="30%">Round</td>
-                    <td class="sidebarTitle" width="30%">Date and Time*</td>
+                    <td class="sidebarTitle" width="25%">Round</td>
+                    <td class="sidebarTitle" width="35%">Date and Time*</td>
                     <td class="sidebarTitle" width="20%"># of Competitors</td>
                     <td class="sidebarTitle" width="20%"># of Advancers</td>
                 </tr>
@@ -89,8 +89,8 @@
 
             <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr>
-                    <td class="sidebarTitle" width="30%">Round</td>
-                    <td class="sidebarTitle" width="30%">Date and Time*</td>
+                    <td class="sidebarTitle" width="25%">Round</td>
+                    <td class="sidebarTitle" width="35%">Date and Time*</td>
                     <td class="sidebarTitle" width="20%"># of Competitors</td>
                     <td class="sidebarTitle" width="20%"># of Advancers</td>
                 </tr>
@@ -151,8 +151,8 @@
 
             <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr>
-                    <td class="sidebarTitle" width="30%">Round</td>
-                    <td class="sidebarTitle" width="30%">Date and Time*</td>
+                    <td class="sidebarTitle" width="25%">Round</td>
+                    <td class="sidebarTitle" width="35%">Date and Time*</td>
                     <td class="sidebarTitle" width="20%"># of Competitors</td>
                     <td class="sidebarTitle" width="20%"># of Advancers</td>
                 </tr>
