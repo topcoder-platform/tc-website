@@ -34,7 +34,7 @@ public class DemographicInput extends BaseTag {
             throws JspException {
         if (question != null) {
             StringBuffer output = new StringBuffer(400);
-            setName(PREFIX+question.getDemographicQuestionId());
+            setName(PREFIX+question.getQuestionId());
             switch (question.getAnswerType()) {
                 case DemographicQuestion.FREE_FORM:
                     output.append(buildText());
@@ -86,20 +86,20 @@ public class DemographicInput extends BaseTag {
         }
 
         s.append(">\n");
-        List answers = question.getDemographicAnswers();
+        List answers = question.getAnswers();
         if (answers != null) {
             s.append("<option value=\"\"></option>");
             DemographicAnswer answer = null;
             for (int i = 0; i < answers.size(); i++) {
                 answer = (DemographicAnswer)answers.get(i);
                 s.append("<option value=\"");
-                s.append(answer.getDemographicAnswerId());
+                s.append(answer.getAnswerId());
                 s.append("\"");
-                if (getDefaultValue()!=null && getDefaultValue().equals(String.valueOf(answer.getDemographicAnswerId()))) {
+                if (getDefaultValue()!=null && getDefaultValue().equals(String.valueOf(answer.getAnswerId()))) {
                     s.append(" selected");
                 }
                 s.append(">");
-                s.append(answer.getDemographicAnswerText());
+                s.append(answer.getText());
                 s.append("</option>\n");
             }
         }

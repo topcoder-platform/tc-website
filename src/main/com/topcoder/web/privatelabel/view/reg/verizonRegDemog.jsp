@@ -71,7 +71,7 @@
             <pl:questionIterator id="question" list="<%=questionList%>">
                 <tr>
                     <td align="right">
-                        <%=question.getDemographicQuestionText()%>
+                        <%=question.getText()%>
                     </td>
                     <td align="left">
                         <pl:demographicInput question="<%=question%>"/>

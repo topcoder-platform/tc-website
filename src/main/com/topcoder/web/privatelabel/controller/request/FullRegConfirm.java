@@ -1,12 +1,15 @@
 package com.topcoder.web.privatelabel.controller.request;
 
 import com.topcoder.web.privatelabel.Constants;
+import com.topcoder.web.privatelabel.view.tag.DemographicInput;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 import com.topcoder.web.privatelabel.model.FullRegInfo;
+import com.topcoder.web.privatelabel.model.DemographicResponse;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.servlet.request.UploadedFile;
 
 import java.util.Iterator;
+import java.util.List;
 
 /**
  *
@@ -77,5 +80,15 @@ public class FullRegConfirm extends FullRegBase {
         }
     }
 
+    protected void setDefaults(FullRegInfo info) {
+        setDefault(Constants.RESUME, info.getFileName());
+        setDefault(Constants.FILE_TYPE, String.valueOf(info.getFileType()));
+        List responses = info.getResponses();
+        DemographicResponse response = null;
+        for (Iterator it = responses.iterator(); it.hasNext();) {
+            response = (DemographicResponse)it.next();
+            setDefault(DemographicInput.PREFIX+response.getQuestionId(), String.valueOf(response.getAnswerId()));
+        }
+    }
 
 }

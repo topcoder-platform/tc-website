@@ -75,15 +75,15 @@ public class FullRegDemog extends FullRegBase {
 
     private DemographicQuestion makeQuestion(ResultSetContainer.ResultSetRow row) throws Exception {
         DemographicQuestion ret = new DemographicQuestion();
-        ret.setDemographicQuestionId(row.getLongItem("demographic_question_id"));
-        ret.setDemographicQuestionDesc(row.getStringItem("demographic_question_desc"));
-        ret.setDemographicQuestionText(row.getStringItem("demographic_question_text"));
+        ret.setQuestionId(row.getLongItem("demographic_question_id"));
+        ret.setDesc(row.getStringItem("demographic_question_desc"));
+        ret.setText(row.getStringItem("demographic_question_text"));
         ret.setSelectable(row.getStringItem("selectable"));
 
         DataAccessInt dataAccess = getDataAccess(true);
         Request r = new Request();
         r.setContentHandle("demographic_answer_list");
-        r.setProperty("dq", String.valueOf(ret.getDemographicQuestionId()));
+        r.setProperty("dq", String.valueOf(ret.getQuestionId()));
         Map aMap = dataAccess.getData(r);
         ResultSetContainer answers = (ResultSetContainer)aMap.get("demographic_answer_list");
 
@@ -93,15 +93,15 @@ public class FullRegDemog extends FullRegBase {
             aRow = (ResultSetContainer.ResultSetRow)it.next();
             answerList.add(makeAnswer(aRow));
         }
-        ret.setDemographicAnswers(answerList);
+        ret.setAnswers(answerList);
         return ret;
     }
 
     private DemographicAnswer makeAnswer(ResultSetContainer.ResultSetRow row) {
         DemographicAnswer ret = new DemographicAnswer();
-        ret.setDemographicAnswerId(row.getLongItem("demographic_answer_id"));
-        ret.setDemographicAnswerText(row.getStringItem("demographic_answer_text"));
-        ret.setDemographicQuestionId(row.getLongItem("demographic_question_id"));
+        ret.setAnswerId(row.getLongItem("demographic_answer_id"));
+        ret.setText(row.getStringItem("demographic_answer_text"));
+        ret.setQuestionId(row.getLongItem("demographic_question_id"));
         return ret;
     }
 }
