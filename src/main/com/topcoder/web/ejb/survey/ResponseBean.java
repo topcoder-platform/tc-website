@@ -72,7 +72,7 @@ public class ResponseBean extends BaseEJB {
             ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
             conn = ds.getConnection();
 
-            ps = conn.prepareStatement("INSERT INTO response (user_id, question_id, text) VALUES (?,?,?)");
+            ps = conn.prepareStatement("INSERT INTO response (user_id, question_id, response) VALUES (?,?,?)");
             ps.setLong(1, userId);
             ps.setLong(2, questionId);
             ps.setBytes(3, DBMS.serializeTextString(text));
