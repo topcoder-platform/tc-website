@@ -371,6 +371,7 @@
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
          </jar>
      </target>
 

@@ -12,11 +12,27 @@
             <session-type>Stateless</session-type>
             <transaction-type>Container</transaction-type>
         </session>
+        <session>
+            <ejb-name>CoderImage</ejb-name>
+            <home>com.topcoder.web.ejb.coder.CoderImageHome</home>
+            <remote>com.topcoder.web.ejb.coder.CoderImage</remote>
+            <ejb-class>com.topcoder.web.ejb.coder.CoderImageBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Container</transaction-type>
+        </session>
     </enterprise-beans>
     <assembly-descriptor>
         <container-transaction>
             <method>
                 <ejb-name>Coder</ejb-name>
+                <method-intf>Remote</method-intf>
+                <method-name>*</method-name>
+            </method>
+            <trans-attribute>Required</trans-attribute>
+        </container-transaction>
+        <container-transaction>
+            <method>
+                <ejb-name>CoderImage</ejb-name>
                 <method-intf>Remote</method-intf>
                 <method-name>*</method-name>
             </method>
