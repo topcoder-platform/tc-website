@@ -100,8 +100,8 @@
 									<a class="statText" href="/?&amp;t=about_tc&amp;c=membr_whyjoin">TopCoder Coding Competitions</a> attract the best programmers in the US and soon, the world. At each Single Round Match, 
 									members compete against the clock, and each other. The winner of each match adds points to their rating. The more a 
 									member competes, the better their rating can become. Ratings determine the initial elimination field for either the 
-									yearly TopCoder Invitational Tournament or Collegiate Challenge. The purse for these tournaments ranges anywhere 
-									from $100,000 to $250,000. <a class="statText" href="/?&amp;t=about_tc&amp;c=membr_whyjoin"><strong>&#160;::&#160;Read more</strong></a></p>
+									yearly TopCoder Invitational Tournament or Collegiate Challenge. The purse for these tournaments can be up to 
+									$100,000. <a class="statText" href="/?&amp;t=about_tc&amp;c=membr_whyjoin"><strong>&#160;::&#160;Read more</strong></a></p>
 
 									<p><strong>Component Development</strong><br />
 									Rated TopCoder members are eligible to participate in <a class="statText" href="/?&amp;t=development&amp;c=components">TopCoder Component Development</a>. Members submit design and 
