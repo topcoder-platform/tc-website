@@ -293,13 +293,13 @@
                                             So, assuming that you get the max flow part correctly, you then only have to determine how to draw edges from people to positions.  This can be done be examining the strings related to each person and position in a pair wise fashion.  If the person has a superset of the skills that the position requires, and his security clearance is greater than or equal to that required, then he can do the job.
                                         </p>
 
-                                        <IMG SRC="/i/m/lbackstrom_mug.jpg" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
+                                        <IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
                                         By&#160;lbackstrom
                                         <BR/>
                                         <DIV CLASS="smallText">
                                             <I>TopCoder Member</I>
                                             <BR/>
-                                            <A HREF="/stat?c=member_profile&amp;cr=251317" CLASS="smallText">Author Profile</A>
+                                            <A HREF="/stat?c=member_profile&amp;cr=159052" CLASS="smallText">Author Profile</A>
                                         </DIV>
                                         <BR CLEAR="all"/>
                                         <P>
