@@ -38,13 +38,13 @@ public class ProblemList extends BaseProcessor {
             
             ArrayList list = new ArrayList();
             if(result != null && result.size() > 0){
-                TCResultItem round;
+                String round;
                 int start=0;
                 while(start < result.size()){
-                    round = result.getItem(start,"session_round_id");
+                    round = result.getItem(start,"session_round_id").toString();
                     int end = start; 
                     while(end < result.size() && 
-                        round.equals(result.getItem(end,"session_round_id")))
+                        round.equals(result.getItem(end,"session_round_id").toString()))
                             end++;
                     list.add(result.subList(start,end));
                     start = end;
