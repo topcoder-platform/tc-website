@@ -56,14 +56,12 @@
 
 package com.coolservlets.forum;
 
-import com.coolservlets.util.SerializableObject;
-
 /**
  * Defines a set of permissions for objects in the forum system that
  * users can be granted. Forum permissions are used by the protection
  * proxy objects defined for each major component of the system.
  */
-public class ForumPermissions implements SerializableObject {
+public class ForumPermissions {
 
     /**
      * Permission to read object.

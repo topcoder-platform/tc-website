@@ -56,8 +56,6 @@
 
 package com.coolservlets.forum;
 
-import com.coolservlets.util.SerializableObject;
-
 import java.util.*;
 //JDK1.1// import com.sun.java.util.collections.*;
 
@@ -91,7 +89,7 @@ import java.util.*;
  *      they were created, etc.
  * </ul>
  */
-public interface ForumThread extends SerializableObject {
+public interface ForumThread {
 
     /**
      * Returns the id of the thread.
