@@ -1020,7 +1020,8 @@
         <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=components</xsl:attribute>Components:</A>
       </td>
     </tr>
-        <xsl:if test="$level2=components">
+        <xsl:if test="$level2='components'">
+            adflkadlkfjaldfjld
             <!-- Project Winners -->
                             <tr>
                                 <td id="leftSubnav">
