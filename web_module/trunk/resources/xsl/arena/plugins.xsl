@@ -51,11 +51,28 @@
 		<TD CLASS="statTextBig" COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>					
 					
 <P CLASS="statText">
-<A HREF="/contest/classes/Editor_Plugin_How_To.htm" CLASS="statText"> Click here for documentation on how to create your own >></A><BR/><BR/>
+<A HREF="/contest/classes/Editor_Plugin_How_To.htm" CLASS="statText"> Click here for documentation on how to create your own >></A>
+</P>
+
+<P CLASS="statText">
+Plugin Name: CodeProcessor<BR/>
+Description: Plugin that will allow you to write pre/post processing source code scripts for use with other editor plugins<BR/>
+Author: Pops<BR/>
+Date: 5/7/2002<BR/>
+Instructions: <A HREF="/contest/classes/CodeProcessor.htm" CLASS="statText">Documentation >></A><BR/>
+<!--Upgrade Release Notes: <A HREF="/contest/classes/PopsEdit_Upgrade_2_5.htm" CLASS="statText">Release Notes >></A><BR/>-->
+Version: 1.0<BR/>
+EntryPoint: codeprocessor.EntryPoint (case sensitive)<BR/>
+ClassPath: CodeProcessor.jar<BR/>
+<A HREF="/contest/classes/CodeProcessor.jar" CLASS="statText">CodeProcessor.jar Plugin >></A><BR/>
+</P>
+
+
+<P CLASS="statText">
 Plugin Name: PopsEdit<BR/>
 Description: Feature rich editor that has all the features Pops needs<BR/>
 Author: Pops<BR/>
-Date: 2/20/2002<BR/>
+Date: 5/6/2002<BR/>
 Instructions: <A HREF="/contest/classes/PopsEdit.htm" CLASS="statText">Documentation >></A><BR/>
 Upgrade Release Notes: <A HREF="/contest/classes/PopsEdit_Upgrade_2_5.htm" CLASS="statText">Release Notes >></A><BR/>
 Version: 2.5<BR/>
@@ -69,7 +86,7 @@ ClassPath: PopsEdit.jar<BR/>
 Plugin Name: FileEdit<BR/>
 Description: Plugin that will read/write the problem information to an external file. This allows you to use your favorite editor/IDE to code the solutions to the problems.<BR/>
 Author: Pops<BR/>
-Date: 2/25/2002<BR/>
+Date: 5/6/2002<BR/>
 Instructions: <A HREF="/contest/classes/FileEdit.htm" CLASS="statText">Documentation >></A><BR/>
 Upgrade Release Notes: <A HREF="/contest/classes/FileEdit_Upgrade_2_5.htm" CLASS="statText">Release Notes >></A><BR/>
 Version: 2.5<BR/>

@@ -154,7 +154,7 @@ Staffing
                                     <b>Eligibility</b>
                                     <BR/>
                                     <BR/>            
-You must be a rated TopCoder member, meeting all of the membership requirements and fit into one of the following categories:<BR/>
+You must be a rated TopCoder member, at least 18 years of age, meeting all of the membership requirements and fit into one of the following categories:<BR/>
                                     <ul>
                                         <li>A US Citizen.</li>
                                         <li>A Lawful Permanent Resident of the US (i.e., a Green Card holder).</li>
