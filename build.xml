@@ -75,7 +75,7 @@
       </javac>
 
    </target>
-   <target name="deploy" depends="servlets,jsp,moveStruts">
+   <target name="deploy" depends="servlets,jsp,moveStruts,moveReg">
    </target>
 
    <target name="servlets" depends="compile">
@@ -99,6 +99,14 @@
    <target name="moveStruts" depends="check_java_version">
       <copy todir="${public_html}/WEB-INF">
          <fileset dir="resources/stat" >
+                 <include name="**/*.tld" />
+         </fileset>
+      </copy>
+   </target>
+
+   <target name="moveReg" depends="check_java_version">
+      <copy todir="${public_html}/WEB-INF">
+         <fileset dir="resources/reg" >
                  <include name="**/*.tld" />
          </fileset>
       </copy>
@@ -438,21 +446,6 @@
             </zipfileset>
         </war>
     </target>
-
-    <target name="war.stats" depends="compile">
-        <war warfile="${war.dir}/${stats.war.name}" webxml="${resources}/stat/web.xml">
-            <fileset dir="${java}/com/topcoder/web/stat/servlet/jsp">
-                <include name="**/*.jsp"/>
-            </fileset>
-            <classes dir="${classes}">
-                <include name="com/topcoder/web/stat/**"/>
-            </classes>
-            <webinf dir="${resources}/stat">
-                <include name="*.tld"/>
-            </webinf>
-        </war>
-    </target>
-
 
 </project>
 
