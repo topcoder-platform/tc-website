@@ -88,8 +88,8 @@ public abstract class BaseProcessor implements RequestProcessor {
         HttpServletRequest rq = (HttpServletRequest)getRequest();
         
         String servletUrl = rq.getContextPath() + Constants.CONTROLLER_URL;
-        String className = this.getClass().getName().substring(
-            this.getClass().getPackage().getName().length()+1);
+        String className = this.getClass().getName();
+        className = className.substring(className.lastIndexOf('.')+1);
         String basicUrl = servletUrl + "?" +
             Constants.REQUEST_PROCESSOR + "=" + className;
         if(parameters != null && !parameters.equals("")){
@@ -98,9 +98,8 @@ public abstract class BaseProcessor implements RequestProcessor {
             }else{
                 return basicUrl + "&" + parameters;
             }
-        }else{
-            return basicUrl;
         }
+        return basicUrl;
     }
     
     /** Getter for property nextPageInContext.
