@@ -265,7 +265,7 @@
                                                             <td class="bodyText" nowrap="nowrap" align="left">08.10.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="bodyText" nowrap="nowrap">First Deliverable Due:</td>
+                                                            <td class="bodyText" nowrap="nowrap">First Deliverable Due: (all testing code + data classes)</td>
                                                             <td class="bodyText" nowrap="nowrap" align="left">08.17.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
