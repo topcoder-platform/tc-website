@@ -111,7 +111,7 @@ public class Controller extends HttpServlet {
                 Authorization authorize = new TCSAuthorization(tcUser);
 
                 info = new SessionInfo(request, authToken, tcUser.getPrincipals());
-                request.setAttribute("SessionInfo", info);
+                request.setAttribute(BaseServlet.SESSION_INFO_KEY, info);
 
                 Resource taskResource = new SimpleResource(taskClassName);
                 Task task = null;
