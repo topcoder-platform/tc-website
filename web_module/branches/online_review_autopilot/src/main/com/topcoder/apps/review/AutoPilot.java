@@ -234,7 +234,7 @@ public class AutoPilot {
             } 
             
             //get submission count
-            if((count * 3) != docManager.getInitialSubmissions(project, false, user.getTCSubject()).length)
+            if(count != (docManager.getInitialSubmissions(project, false, user.getTCSubject()).length * 3) )
                 return new SuccessResult();
 
             //lookup pm
