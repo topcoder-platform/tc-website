@@ -70,6 +70,7 @@ public class TCSAuthorization implements Authorization {
      * @see com.topcoder.shared.security.Authorization#hasPermission(com.topcoder.shared.security.Resource)
      */
     public boolean hasPermission(Resource rc) throws Exception {
+        log.debug("check access to " + rc.getName());
         InitialContext ic = null;
         try {
             return policy.checkPermission(
