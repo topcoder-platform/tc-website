@@ -83,22 +83,8 @@ public class UserEdit extends BaseProcessor {
 
         InitialContext icEJB = null;
         PrincipalMgrRemote mgr = secTok.man;
-        if (!"POST".equalsIgnoreCase(request.getMethod())) {
-            if (!secTok.createNew) {
-                try {
-                    password = mgr.getPassword(targetUserID);
-                    password2 = password;
-                    userName = secTok.targetUser.getName();
-                    icEJB = (InitialContext)TCContext.getInitial();
-                    retrieveUserDataFromDB(icEJB);
-                } finally {
-                    Util.closeIC(icEJB);
-                }
-            }
-            setFormFieldsDefaults();
-            nextPage = formPage;
-            return;
-        }
+
+        if (loadUserData()) return;
 
         if (!secTok.createNew) {
             userName = secTok.targetUser.getName();
@@ -144,6 +130,17 @@ public class UserEdit extends BaseProcessor {
             nextPage = null;
             pageInContext = false;
         }
+    }
+
+    /**
+     * this is a total hack to get this thing working.  what we really
+     * need to do is decouple more of registration and user edit.
+     * registration implements a real version of this.
+     * @return
+     * @throws Exception
+     */
+    protected boolean loadUserData() throws Exception {
+       return false;
     }
 
     /**
