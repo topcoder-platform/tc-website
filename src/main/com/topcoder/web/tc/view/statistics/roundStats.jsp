@@ -243,7 +243,7 @@ pageContext.setAttribute("resultSetDates", rsc);
              <A HREf="/stat?c=<%=sContentHandle%>_sorted&rd=<%=currRound%>&dn=<%=sDivision%>&sq=Round_Statistics_Data&sc=10&sd=<%= "10".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Point<br>Total</A>
            </TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="center">
-             <A HREF="/stat?c=<%=sContentHandle%>_sorted&rd=<%=currRound%>&dn=<%=sDivision%>&sq=Round_Statistics_Data&sc=16&sd=<%= "16".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Division<br/>Placed</A>
+             <A HREF="/stat?c=<%=sContentHandle%>_sorted&rd=<%=currRound%>&dn=<%=sDivision%>&sq=Round_Statistics_Data&sc=16&sd=<%= "16".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("asc") ?"desc":"asc"%>" CLASS="statText">Division<br/>Placed</A>
            </TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="center">
              Adv.
