@@ -30,6 +30,7 @@
         <table width="60%" border="0" cellpadding="0" cellspacing="0">
           <tr>
             <td class="statTextBig" colspan="2"><%=Constants.COMMAND_LIST_NAME%></td>
+            <tr><td class="errorText" colspan="4"><query:error task="<%=CommandList%>" key="<%=Constants.GROUP_ID_PARAM%>"/></td></tr>
             <td colspan="2">
               <form action="<jsp:getProperty name="SessionInfo" property="ServletPath"/>" method="get" name="CommandListForm" >
                 <input type="hidden" name="<%=Constants.TASK_PARAM%>" VALUE="<%=Constants.COMMAND_LIST_TASK%>">
