@@ -155,9 +155,12 @@ public class Constants {
         REMOVE_STEP = servletConfig.getInitParameter("remove_step");
 
         DB_LIST = new ArrayList();
-        DB_LIST.add(new DatabaseBean("DW", "Data Warehouse"));
-        DB_LIST.add(new DatabaseBean("OLTP", "Transactional"));
+        DB_LIST.add(new DatabaseBean("OLTP", "Common Transactional"));
+        DB_LIST.add(new DatabaseBean("DW", "Common Data Warehouse"));
+        DB_LIST.add(new DatabaseBean("HS_OLTP", "HS Transactional"));
+        DB_LIST.add(new DatabaseBean("HS_DW", "HS Data Warehouse"));
         DB_LIST.add(new DatabaseBean("TCS_CATALOG", "TCS Catalog"));
+
 
     }
 }
