@@ -43,7 +43,7 @@
 
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
 	<tr>
-		<td class=homeLogo><img src="http://www.topcoder.com/i/logo_r.gif" border=0 /></td>
+		<td class=homeLogo><A href="/"><img src="http://www.topcoder.com/i/logo_r.gif" border=0 /></A></td>
 	</tr>
 </table>
 
