@@ -545,8 +545,8 @@ public class TransactionServlet extends HttpServlet {
             long addressId = ((Long)row.getItem("address_id").getResultData()).longValue();
             dr.setProperty("countryID", address.getCountryCode(addressId));
             result = dataAccess.getData(dr);
-            /* the query returns a row only if the country is eligible to purchase the product */
-            eligible &= !((ResultSetContainer) result.get("eligible_country_for_product")).isEmpty();
+            /* the query returns a row only if the country is ineligible to purchase the product */
+            eligible &= ((ResultSetContainer) result.get("country_not_eligible_for_product")).isEmpty();
         }
         log.debug("user_id: " + userId + " product_id: " + productId + " eligible: " + eligible);
         return eligible;
