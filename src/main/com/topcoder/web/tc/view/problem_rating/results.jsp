@@ -108,7 +108,7 @@
                 div2Count = problemRatingResults.getIntItem(0,"div2_count");
             }
         %>
-        <tc-tags:problemRatingResultIterator list="<%=problemRatingResults%>" id="result">
+        <tc:problemRatingResultIterator list="<%=problemRatingResults%>" id="result">
         <tr>
             <td class="bodyText">
                 <jsp:getProperty name="result" property="Question"/>
@@ -123,7 +123,7 @@
                 <tc-tags:format object="<%=result.getDiv2Average()%>" format="0.00"/>
             </td>
         </tr>
-        </tc-tags:problemRatingResultIterator>
+        </tc:problemRatingResultIterator>
         <tr><td class="bodyTextBig" colspan="4" align="center"><%=count%> Total votes | <%=div1Count%> Div I Votes | <%=div2Count%> Div II Votes</td></tr>
     </table><br/>
          <center>
