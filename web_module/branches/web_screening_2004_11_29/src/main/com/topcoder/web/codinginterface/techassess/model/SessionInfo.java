@@ -35,4 +35,12 @@ public class SessionInfo implements Serializable, HttpSessionBindingListener {
         request.setSessionID(sessionId);
         sender.sendMessage(new HashMap(), request);
     }
+
+    public long getSessionId() {
+        return sessionId;
+    }
+
+    public void setSessionId(long sessionId) {
+        this.sessionId = sessionId;
+    }
 }
