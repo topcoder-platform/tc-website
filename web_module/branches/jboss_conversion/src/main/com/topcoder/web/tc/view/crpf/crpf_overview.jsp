@@ -7,17 +7,9 @@
 <jsp:include page="../script.jsp" />
 
 <SCRIPT type="text/javascript">
-if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
-  // Linux Stylesheets
-  document.write('<link type="text/css" rel="stylesheet" href="/css/style_linux.css"/>');
-  document.write('<link type="text/css" rel="stylesheet" href="/css/coders_linux.css"/>');
-  document.write('<link type="text/css" rel="stylesheet" href="/css/crpfStyle_linux.css"/>');
-} else {
-  // NonLinux Stylesheets
   document.write('<link type="text/css" rel="stylesheet" href="/css/style.css"/>');
   document.write('<link type="text/css" rel="stylesheet" href="/css/coders.css"/>');
   document.write('<link type="text/css" rel="stylesheet" href="/css/crpfStyle.css"/>');
-}
 </SCRIPT>
 
 </head>
@@ -84,15 +76,15 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                 <div align="center"><A href="/tc?module=CRPFStatic&d1=crpf&d2=crpf_donate" target="_top"><img src="/i/events/crpf03/button_donate_now.gif" alt="Donate Now" width="159" height="49" border="0"></A></div><br />
 
                 <p><strong>Coding for a cause</strong><br/>
-                TopCoder is always looking for ways to give something back to the community. Help us raise money for the Christopher Reeve Paralysis 
-                Foundation by putting your coding skills to the test. Get your friends, relatives and co-workers to donate money on your behalf. Donate 
-                by credit card on the <A href="http://www.crpf.org/contribute/contribute.cfm?orgid=TopCoderWebsite2003" target="_blank">CRPF site,</A> 
-                or download our <A href="/i/tournament/crpf03/donation_form.pdf" target="_blank">donation form</A> to pay by check. Then compete in 
-                the online tournament on November 11th, 13th, and 17th. All competitors who raise at least $50 will receive a commemorative TopCoder 
+                TopCoder is always looking for ways to give something back to the community. Help us raise money for the Christopher Reeve Paralysis
+                Foundation by putting your coding skills to the test. Get your friends, relatives and co-workers to donate money on your behalf. Donate
+                by credit card on the <A href="http://www.crpf.org/contribute/contribute.cfm?orgid=TopCoderWebsite2003" target="_blank">CRPF site,</A>
+                or download our <A href="/i/tournament/crpf03/donation_form.pdf" target="_blank">donation form</A> to pay by check. Then compete in
+                the online tournament on November 11th, 13th, and 17th. All competitors who raise at least $50 will receive a commemorative TopCoder
                 Charity Challenge t-shirt. You could also be one of ten lucky winners to mingle with the stars at <em>A Magical Evening!</em></p>
 
                 <p><strong>Experience the <em>Magic</em></strong><br/>
-                This year's star-studded gala ball will be held at the Marriott Marquis in New York City on November 24th. 
+                This year's star-studded gala ball will be held at the Marriott Marquis in New York City on November 24th.
                 Tickets to this event are valued at $1000 each! There are several ways to win the grand prize:</p>
 
                 <ul>
@@ -105,7 +97,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                 TopCoder will match every dollar our members raise up to $50,000!</p>
 
                 <p>Please read the <A href="/tc?&module=Static&d1=crpf&d2=crpf_rules_overview" target="_top">Rules</A> to get all the details about this exciting new event.</p>
-               
+
                </blockquote>
 
             <p><br /></p>
