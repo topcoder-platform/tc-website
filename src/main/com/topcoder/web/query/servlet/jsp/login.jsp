@@ -6,13 +6,6 @@
           com.topcoder.web.query.bean.*" %>
 <jsp:useBean id="LoginTask" scope="request" class="com.topcoder.web.query.bean.LoginTask" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%
-    if (session.isNew()) System.out.println("XXX new session");
-    else System.out.println("XXX old session");
-
-    System.out.println("XXX: " + Authentication.getErrorMessage());
-  System.out.println("XXX: " + Authentication.getRequestedURL());
-%>
 <HTML>
   <HEAD>
     <TITLE>Query Tool</TITLE>
