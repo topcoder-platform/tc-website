@@ -28,7 +28,7 @@
 
 
 <hr>
-<jsp:include="member-list.jsp" />
+<jsp:include page="member-list.jsp" />
 <p>
 <jsp:include page="../footer.jsp" />
 

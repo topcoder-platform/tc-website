@@ -503,8 +503,8 @@ public class EmailServerBean extends BaseEJB {
 
             sqlStmt.setLength(0);
             sqlStmt.append(" INSERT INTO");
-            sqlStmt.append(" archive_sched_job_detail");
-            sqlStmt.append(" SELECT *, '" + now.toString() + "' as insert_date");
+            sqlStmt.append(" archive_sched_job_detail (sched_job_id, sched_job_detail_id, sched_job_detail_status_id, data, reason, insert_date)");
+            sqlStmt.append(" SELECT sched_job_id, sched_job_detail_id, sched_job_detail_status_id, data, reason, '" + now.toString() + "' as insert_date");
             sqlStmt.append(" FROM");
             sqlStmt.append(" sched_job_detail");
             sqlStmt.append(" WHERE");
