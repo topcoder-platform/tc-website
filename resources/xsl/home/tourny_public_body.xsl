@@ -120,17 +120,18 @@
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText">
 <!-- <IMG SRC="/i/f/feat_050102_tn2.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/> -->   
-	<P>
-	<A HREF="/index?t=news_events&amp;c=feat_052202" CLASS="bodyGeneric"><B>Obfu-what?</B></A><BR/>
-	<I>Case studies and the TopCoder view point</I><BR/><BR/>
-	Wednesday, May 22, 2002<BR/>
-	By&#160;KaiEl,<I>Contributing Member</I><BR/>
-	</P>
 <P>
-It's the challenge phase.  At first glance the code you're looking at 
-seems horribly flawed.  A crucial if-statement is missing at the 
-beginning of a loop, making this coder's solution useless.  "How 
-could they have made such an obvious mistake,"...<A HREF="/index?t=news_events&amp;c=feat_052202" CLASS="bodyGeneric">full&#160;story</A></P>
+<A HREF="/index?t=news_events&amp;c=feat_052902" CLASS="bodyGeneric"><B>The Outsiders</B></A><BR/>
+<I>Non-Eligible Members Compete Despite Restrictions</I><BR/><BR/>
+Wednesday, May 29, 2002<BR/>
+By&#160;Adam Loss,<I>TopCoder Staff Writer</I><BR/>
+</P>
+<P>
+Ah, the excitement of going to an amusement parks as a kid.  You couldn't wait to climb 
+on your favorite ceramic horse and go up and down the Merry-Go-Round, crash into your 
+friends in the Bumper Boats, and show your parents your world class arm by knocking 
+down a bunch of stacked cans to win a stuffed animal.  What you really wanted, though, 
+was to experience the thrill of that supersonic roller coaster...<A HREF="/index?t=news_events&amp;c=feat_052902" CLASS="bodyGeneric">full&#160;story</A></P>
 <P><A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">Have an idea for the weekly feature?</A></P>	
 	</TD>
     <TD VALIGN="top" WIDTH="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
