@@ -943,7 +943,7 @@ if (action != null) {
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
 	<tr>
 		<td valign="middle" width="1%" class="adminBreadcrumb"><img src="/images/clear.gif" alt="" width="10" height="1" border="0"/></td>
-		<td valign="middle" width="1%" class="adminBreadcrumb" nowrap><a class="breadcrumbLinks" href="catalog.jsp">Catalog Admin</a> > <a class="breadcrumbLinks" href="javascript:history.back()">Component Description</a> > <strong>Component Version</strong></td>
+		<td valign="middle" width="1%" class="adminBreadcrumb" nowrap><a class="breadcrumbLinks" href="catalog.jsp">Catalog Admin</a> > <a class="breadcrumbLinks" href="component_admin.jsp?comp=<%=lngComponent%>">Component Admin</a> > <strong>Component Version</strong></td>
 		<td valign="middle" width="98%" class="adminBreadcrumb"><img src="/images/clear.gif" alt="" width="10" height="1" border="0"/></td>
 	</tr>
 </table>
