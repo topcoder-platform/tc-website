@@ -56,15 +56,20 @@
 </table>
 
 <% } else { %>
-<table width="180" border="0" cellspacing="0" cellpadding="3" bgcolor="#555555">
+<table width="180" border="0" cellspacing="0" cellpadding="5" bgcolor="#555555">
 <% CoderSessionInfo info = (CoderSessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);%>
     <tr>
-        <td class="statTextBig" bgcolor="#333333">&#160;Coder: <a href="/stat?c=member_profile&cr=<%=info.getUserId()%>" class="<tc:ratingStyle rating='<%=info.getRating()%>'/>"><%=info.getHandle()%></a></td>
+        <td class="statTextBig" bgcolor="#333333">Coder: <a href="/stat?c=member_profile&cr=<%=info.getUserId()%>" class="<tc:ratingStyle rating='<%=info.getRating()%>'/>"><%=info.getHandle()%></a></td>
     </tr>
 
     <tr>
-        <td class="statText">You are not rated for any TopCoder Competition. To learn more about Algorithm Competitions, go to the <a href="/?&t=support&c=comp_preview">Competition Preview.</a>
-        To learn more about Design and Development Competitions, go to <a href="/?&t=development&c=comp_meth">Component Methodology.</a></td>
+        <td class="statText">
+            <p>You are not rated for any TopCoder Competition.</p>
+            
+            <p>To learn more about Algorithm Competitions, go to the <a href="/?&t=support&c=comp_preview" class="statText">Competition Preview.</a></p>
+            
+            <p>To learn more about Design and Development Competitions, go to <a href="/?&t=development&c=comp_meth" class="statText">Component Methodology.</a></p>
+        </td>
     </tr>
 </table>
 
