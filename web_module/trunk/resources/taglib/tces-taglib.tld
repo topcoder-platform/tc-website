@@ -11,8 +11,8 @@
 
   <tag>
     <name>mapIterator</name>
-    <tagclass>com.topcoder.web.tces.servlet.jsp.tag.MapIteratorTag</tagclass>
-    <teiclass>com.topcoder.web.tces.servlet.jsp.tag.MapIteratorTagInfo</teiclass>
+    <tagclass>com.topcoder.web.corp.view.tces.tag.MapIteratorTag</tagclass>
+    <teiclass>com.topcoder.web.corp.view.tces.tag.MapIteratorTagInfo</teiclass>
     <bodycontent>JSP</bodycontent>
     <info>
       tag to iterate through a list of maps
@@ -31,8 +31,8 @@
 
   <tag>
     <name>rowIterator</name>
-    <tagclass>com.topcoder.web.tces.servlet.jsp.tag.RowIteratorTag</tagclass>
-    <teiclass>com.topcoder.web.tces.servlet.jsp.tag.RowIteratorTagInfo</teiclass>
+    <tagclass>com.topcoder.web.corp.view.tces.tag.RowIteratorTag</tagclass>
+    <teiclass>com.topcoder.web.corp.view.tces.tag.RowIteratorTagInfo</teiclass>
     <bodycontent>JSP</bodycontent>
     <info>
       Tag to iterate through a List of ResultSetRows
@@ -51,8 +51,8 @@
 
   <tag>
     <name>trailIterator</name>
-    <tagclass>com.topcoder.web.tces.servlet.jsp.tag.TrailIteratorTag</tagclass>
-    <teiclass>com.topcoder.web.tces.servlet.jsp.tag.TrailIteratorTagInfo</teiclass>
+    <tagclass>com.topcoder.web.corp.view.tces.tag.TrailIteratorTag</tagclass>
+    <teiclass>com.topcoder.web.corp.view.tces.tag.TrailIteratorTagInfo</teiclass>
     <bodycontent>JSP</bodycontent>
     <info>
       Tag to iterate through a List of TrailItems

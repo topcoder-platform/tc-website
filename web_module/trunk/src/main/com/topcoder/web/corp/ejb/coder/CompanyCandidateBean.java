@@ -1,4 +1,4 @@
-package com.topcoder.web.screening.ejb.coder;
+package com.topcoder.web.corp.ejb.coder;
 
 import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.shared.util.logging.Logger;
@@ -17,7 +17,7 @@ import java.sql.SQLException;
 /**
  *
  * @author Fred Wang (silentmobius)
- * @version $Revision$ 
+ * @version $Revision$
  * Jan 27, 2003 1:39:05 AM
  */
 

@@ -16,7 +16,7 @@
                 <jndi-name>JTS_SCREENING_OLTP</jndi-name>
             </resource-description>
         </reference-descriptor>
-        <jndi-name>com.topcoder.web.screening.ejb.coder.CoderHome</jndi-name>
+        <jndi-name>com.topcoder.web.corp.ejb.coder.CoderHome</jndi-name>
     </weblogic-enterprise-bean>
     <weblogic-enterprise-bean>
         <ejb-name>CompanyCandidate</ejb-name>
@@ -29,6 +29,6 @@
                 <jndi-name>JTS_SCREENING_OLTP</jndi-name>
             </resource-description>
         </reference-descriptor>
-        <jndi-name>com.topcoder.web.screening.ejb.coder.CompanyCandidateHome</jndi-name>
+        <jndi-name>com.topcoder.web.corp.ejb.coder.CompanyCandidateHome</jndi-name>
     </weblogic-enterprise-bean>
 </weblogic-ejb-jar>

@@ -1,4 +1,4 @@
-package com.topcoder.web.screening.ejb.coder;
+package com.topcoder.web.corp.ejb.coder;
 
 import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.shared.util.logging.Logger;

@@ -167,7 +167,7 @@
 
     <tag>
         <name>servletLink</name>
-        <tagclass>com.topcoder.web.screening.view.tag.ServletLinkTag</tagclass>
+        <tagclass>com.topcoder.web.corp.view.testing.tag.ServletLinkTag</tagclass>
         <bodycontent>JSP</bodycontent>
         <info>
             Tag to make it easier to link to the servlet
@@ -221,7 +221,7 @@
 
     <tag>
         <name>month</name>
-        <tagclass>com.topcoder.web.screening.view.tag.MonthTag</tagclass>
+        <tagclass>com.topcoder.web.corp.view.testing.tag.MonthTag</tagclass>
         <bodycontent>Empty</bodycontent>
         <info>
             Write out a select drop down for the months of the year
@@ -240,7 +240,7 @@
 
     <tag>
         <name>day</name>
-        <tagclass>com.topcoder.web.screening.view.tag.DayTag</tagclass>
+        <tagclass>com.topcoder.web.corp.view.testing.tag.DayTag</tagclass>
         <bodycontent>Empty</bodycontent>
         <info>
             Write out a select drop down for the days of the month
@@ -259,7 +259,7 @@
 
     <tag>
         <name>year</name>
-        <tagclass>com.topcoder.web.screening.view.tag.YearTag</tagclass>
+        <tagclass>com.topcoder.web.corp.view.testing.tag.YearTag</tagclass>
         <bodycontent>Empty</bodycontent>
         <info>
             Write out a select drop down for Years. Count is number of years
@@ -290,7 +290,7 @@
 
     <tag>
         <name>hour</name>
-        <tagclass>com.topcoder.web.screening.view.tag.HourTag</tagclass>
+        <tagclass>com.topcoder.web.corp.view.testing.tag.HourTag</tagclass>
         <bodycontent>Empty</bodycontent>
         <info>
             Write out a select drop down for the hours of the day
@@ -309,7 +309,7 @@
 
     <tag>
         <name>sessionStatus</name>
-        <tagclass>com.topcoder.web.screening.view.tag.SessionStatusTag</tagclass>
+        <tagclass>com.topcoder.web.corp.view.testing.tag.SessionStatusTag</tagclass>
         <bodycontent>Empty</bodycontent>
         <info>
             Write the status of a session given a resultsetcontainer row
@@ -323,7 +323,7 @@
 
     <tag>
         <name>sessionStatusLink</name>
-        <tagclass>com.topcoder.web.screening.view.tag.SessionStatusLinkTag</tagclass>
+        <tagclass>com.topcoder.web.corp.view.testing.tag.SessionStatusLinkTag</tagclass>
         <bodycontent>Empty</bodycontent>
         <info>
             Write the link text of a session given a resultsetcontainer row
@@ -377,7 +377,7 @@
     <tag>
         <name>problemInfoIterator</name>
         <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
-        <teiclass>com.topcoder.web.screening.view.tag.ProblemInfoIteratorTagInfo</teiclass>
+        <teiclass>com.topcoder.web.corp.view.testing.tag.ProblemInfoIteratorTagInfo</teiclass>
         <bodycontent>JSP</bodycontent>
         <info>
             Tag to iterate through a List of ProblemInfo beans

@@ -488,7 +488,7 @@
     <target name="package-EJB-ScreeningCoderBean" depends="compile">
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="ScreeningCoder"/>
-            <param name="unit-class-path" value="com/topcoder/web/screening/ejb/coder"/>
+            <param name="unit-class-path" value="com/topcoder/web/corp/ejb/coder"/>
         </antcall>
         <jar jarfile="${ejb_jars}/ScreeningCoder.jar" update="true">
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
@@ -662,12 +662,13 @@
                 <include name="errorPage.jsp"/>
                 <include name="menu.jsp"/>
             </fileset>
+            <fileset dir="${java}/com/topcoder/web/corp/view">
+                <include name="**/*"/>
+            </fileset>
 
-            <zipfileset dir="${java}/com/topcoder/web/corp/view/" includes="*, **/*" prefix="corp"/>
-            <zipfileset dir="${java}/com/topcoder/web/screening/view/" includes="*.jsp, **/*.jsp" prefix="testing"/>
-            <zipfileset dir="${java}/com/topcoder/web/tces/servlet/jsp/" includes="*.jsp, **/*.jsp" prefix="tces"/>
-            <zipfileset dir="${ejb_jars}" includes="*.jar" prefix="WEB-INF/ejb"/>
         </war>
+        <unwar src="${war.dir}/corp.war" dest="${public_html}/corp/" overwrite="yes"/>
+        <delete dir="${public_html}/corp/META-INF"/>
     </target>
 
     <target name="deploy-corp" depends="war-corp">
@@ -684,11 +685,6 @@
         <antcall target="package-EJB-NoteBean"/>
         <antcall target="package-EJB-SessionBean"/>
         <antcall target="package-EJB-SessionProfileBean"/>
-        <unwar src="${war.dir}/corp.war" dest="${public_html}/corp/" overwrite="yes"/>
-        <delete dir="${public_html}/corp/META-INF"/>
-
-        <unwar src="${war.dir}/query.war" dest="${public_html}/query/" overwrite="yes"/>
-        <delete dir="${public_html}/query/META-INF"/>
     </target>
 
     <target name="build-ejb-unit" depends="compile">
