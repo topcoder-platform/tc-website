@@ -75,7 +75,7 @@
                         technical resources designed to help you capitalize on today's technology trends&#58;</p>
                         
            
-                        <table border="0" cellpadding="0" cellspacing="0">
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
                             <tr valign="top">
                         <td align="center" width="100%"><img src="/i/sponsor/intel_ids/intel_centrino.gif" alt="Intel Developer Services--Maximize You Code" width="493" height="174" /></td>
                             </tr>
