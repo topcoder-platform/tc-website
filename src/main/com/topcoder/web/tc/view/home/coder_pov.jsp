@@ -9,8 +9,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/Kawigi_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
-                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=8416646"><strong>Kawigi</strong></a><br/>
+                        <img src="/i/m/brett1479_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
+                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=251317"><strong>brett1479</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -19,14 +19,17 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/index?t=statistics&c=srm220_prob">SRM 220 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Tuesday, November 23, 2004</p>
+                        <p><strong><font size="4"><a href="/index?t=statistics&c=srm221_prob">SRM 221 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Wedneday, December 1, 2004</p>
 
                         <p>
 
-						Slovakian speed coder <b>misof</b> let failed challenges trump him out of a win in his first match while <b>Shadowfax21</b> edged him out of the lead.  Almost 150 points behind them, new coder <b>pure_</b> took a convincing third place in Division 2.                        
+Before writing the match summary, I often go from room to room listening to what the competitors
+thought of the round.  The Division 2 coders seemed to have reached a consensus.  This was one of
+the most difficult SRMs in recent history.  Both the medium and hard problems had only 2 successful
+submissions.
 
-						<a href="/index?t=statistics&c=srm220_prob" class="bodyText"><strong>full&#160;story</strong></a>
+						<a href="/index?t=statistics&c=srm221_prob" class="bodyText"><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
