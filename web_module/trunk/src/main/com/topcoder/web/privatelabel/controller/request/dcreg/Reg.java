@@ -27,27 +27,19 @@ public class Reg extends FullReg {
         if (!(ret instanceof FullRegInfo)) {
             throw new TCWebException("hmm, we got a SimpleRegInfo object when it should have been Full");
         }
-        if (hasRequestParameter(Constants.CODER_TYPE)) {
-            String sCoderType = getRequestParameter(Constants.CODER_TYPE);
-            ((FullRegInfo)ret).setCoderType(Integer.parseInt(sCoderType == null ? "-1" : sCoderType));
+        //we have two "events", one for students, and one for pros.
+        //conveniently, the event_id matches with the appropriate coder type id
+        //we'll use that fact below, but it could be "fixed"
+        if (ret.getEventId()==Constants.STUDENT) {
+            ((FullRegInfo)ret).setCoderType(Constants.STUDENT);
+        } else if (ret.getEventId()==Constants.PROFESSIONAL) {
+            ((FullRegInfo)ret).setCoderType(Constants.PROFESSIONAL);
+        } else {
+            throw new TCWebException("hmm, we got an event id that does not map to a coder type");
         }
+
 
         return ret;
-    }
-
-    /**
-     * override to extend so that it checks to make sure we are checking for coder_type to
-     * be included in the request
-     * @param info
-     * @throws TCWebException
-     */
-    protected void checkRegInfo(SimpleRegInfo info) throws TCWebException {
-        super.checkRegInfo(info);
-        FullRegInfo fullInfo = (FullRegInfo)info;
-        if (!(fullInfo.getCoderType()==Constants.STUDENT || fullInfo.getCoderType()==Constants.PROFESSIONAL)) {
-            throw new TCWebException("invalid request, didn't include coder_type_id");
-        }
-
     }
 
 }
