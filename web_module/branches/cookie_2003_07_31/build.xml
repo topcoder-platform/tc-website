@@ -158,6 +158,11 @@
             <param name="unit-jar-name" value="JobPostingServices"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/jobposting"/>
         </antcall>
+        <jar jarfile="${ejb_jars}/JobPostingServices.jar" update="true">
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+        </jar>
     </target>
 
     <target name="package-EJB-ResumeServicesBean" depends="compile">
