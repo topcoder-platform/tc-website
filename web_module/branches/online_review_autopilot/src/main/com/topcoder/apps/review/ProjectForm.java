@@ -152,6 +152,8 @@ public final class ProjectForm extends ReviewForm {
      */
     private boolean sendMail = false;
     
+    private boolean autopilot = false;
+    
     /**
      * If a submitter role can be removed.
      * Used if admin assigns a submitter a review role.
@@ -961,6 +963,8 @@ public final class ProjectForm extends ReviewForm {
                 break;
             }
         }
+        
+        this.autopilot = project.getAutoPilot();
 
         setId(project.getId());
         // Default sending mail to false
@@ -981,6 +985,14 @@ public final class ProjectForm extends ReviewForm {
         pData.setSendMail(sendMail);
         pData.setSubmitterRemoval(submitterRemoval);
         return pData;
+    }
+    
+    public boolean getAutoPilot() {
+        return autopilot;
+    }
+    
+    public void setAutoPilot(boolean b) {
+        this.autopilot = b;
     }
 
     /**

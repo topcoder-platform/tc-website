@@ -230,6 +230,15 @@
                 <tr><td width="100%" class="forumTextEven"><strong>Explanation</strong> You must include an explanation if you make any changes to the project</td></tr>
                 <tr><td class="whiteBkgnd" align="left"><html:textarea property="reason" rows="10" cols="80" /></td></tr>
             </table>
+            
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tr><td class="whiteBkgnd"><img src="images/clear.gif" alt="" width="1" height="5" border="0"></td></tr>
+            </table>
+                        
+            <table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" class="forumBkgd">
+                <tr><td width="100%" class="forumTextEven"><strong>Auto Pilot</strong> <html:radio property='<%="autoPilot"%>' value="true" /> Enabled <html:radio property='<%="autoPilot"%>' value="false" /> Disabled  </td></tr>
+                <tr><td class="whiteBkgnd" align="left"><html:textarea property="reason" rows="10" cols="80" /></td></tr>
+            </table>
         </td>
     </tr>
                 
