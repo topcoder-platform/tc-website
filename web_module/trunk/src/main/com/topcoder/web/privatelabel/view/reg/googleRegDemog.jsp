@@ -16,13 +16,6 @@
 <link rel=stylesheet href="http://www.google.com/google.css">
 <jsp:include page="../nocache.jsp"/>
  <jsp:include page="../script.jsp" />
-<script>
-function openWin(url, name, w, h) {
-    win = window.open(url, 'biowin', "scrollbars=no,toolbar=no,resizable=no,menubar=no,width="+w+",height="+h);
-    win.location.href = url;
-    win.focus();
-}
-</script>
 
 <style><!--
 body,td,font,p,a
@@ -46,14 +39,6 @@ body,td,font,p,a
 	}
 //-->
 </style>
-
-<script>
-function openWin(url, name, w, h) {
-    win = window.open(url, 'biowin', "scrollbars=no,toolbar=no,resizable=no,menubar=no,width="+w+",height="+h);
-    win.location.href = url;
-    win.focus();
-}
-</script>
 
 </head>
 
