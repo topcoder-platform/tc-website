@@ -249,13 +249,13 @@ public class ProfileSearch extends Base {
         boolean like = false;;
         String rc, rv;
         if(cs){
-            rc = "'"+col+"'";
+            rc = col;
             rv = "'"+val+"'";
         }else if(col.equals("u.handle")){
             rc = "u.handle_lower";
             rv = "lower('"+val+"')";
         }else{
-            rc = "lower('"+col+"')";
+            rc = "lower("+col+")";
             rv = "lower('"+val+"')";
         }
         if(val.indexOf('%') != -1 || val.indexOf('_') != -1){
