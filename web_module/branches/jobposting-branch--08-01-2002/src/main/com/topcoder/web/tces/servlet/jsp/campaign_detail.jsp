@@ -46,7 +46,7 @@
         <jsp:include page="/body_top.jsp" >  
            <jsp:param name="image" value="tces"/>  
            <jsp:param name="image1" value="steelblue"/>  
-           <jsp:param name="title" value="<jsp:getProperty name="CampaignDetailTask" property="CompanyName"/>"/>
+           <jsp:param name="title" value="<%=CampaignDetailTask.getCompanyName()%>"/>
         </jsp:include>
         
         <p align="center">
