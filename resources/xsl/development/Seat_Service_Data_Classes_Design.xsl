@@ -333,7 +333,7 @@
                                                         <strong>Document and Templates </strong>
                                                         <br/>
                                                         View the
-                                                        <a target="_new" class="bodyText" href="/?t=development&amp;c=app_sample_docs">Documents and Templates</a> for the Application Development Methodology
+                                                        <a target="_new" class="bodyText" href="/tc?module=Static&amp;d1=dev&amp;d2=support&amp;d3=appDocumentation">Documents and Templates</a> for the Application Development Methodology
 
 
                                                     </p>
