@@ -95,6 +95,7 @@
                                     <strong>Match 210</strong><br />
                                     Register: 6:00&#160;PM<br />
                                     Compete: 9:00&#160;PM<br />
+                                    Sponsor: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=intel">Intel</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=5856&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">2</td>
