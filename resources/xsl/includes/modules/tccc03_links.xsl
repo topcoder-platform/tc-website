@@ -7,10 +7,11 @@
                     <td width="1"><a href="/?&amp;t=tournaments&amp;c=tccc03_sched"><img src="/i/tournament/tccc03/tccc03_home.gif" alt="" width="110" height="90" border="0" /></a></td>
                     <td valign="middle" class="statText" width="99%">
                         <p><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br />
-                        The 2003 TopCoder Collegiate Challenge Final Championship is almost upon us! The final field of 16 coders will be competing head-to-head this 
-                        Friday and Saturday at the University Hotel @ MIT in Cambridge, Massachusetts. The total prize purse for the Challenge is $100,000 and the 
+                        The 2003 TopCoder Collegiate Challenge Final Championship is almost upon us! The final field of 16 coders will be competing head-to-head this
+                        Friday and Saturday at the University Hotel @ MIT in Cambridge, Massachusetts. The total prize purse for the Challenge is $100,000 and the
                         Final Champion will walk away with $50,000. Check in all day Friday and Saturday for complete a play-by-play fo the semi-final and final rounds.<br />
                         <img src="/i/clear.gif" alt="" width="1" height="5" border="0" /></p>
+                        <p><strong>All members of TopCoder and their guests are welcome to attend the onsite rounds on April 4th and 5th</strong><br /></p>
                     </td>
                     <td width="1"><a href="/?&amp;t=tournaments&amp;c=tccc03_sched"><img src="/i/tournament/tccc03/sun03_home.gif" alt="Sun Microsystems" width="135" height="90" border="0" /></a></td>
                 </tr>
@@ -66,7 +67,7 @@
                     </td>
                 </tr>
             </table>
-            
+
 <!--                <tr>
 		<td width="25%" align="center" valign="middle" height="16" class="statTextBig" background="/i/steel_bluebv_bg.gif">
 			<xsl:attribute name="BACKGROUND">/i/<xsl:choose>
@@ -84,11 +85,11 @@
 			<xsl:when test="/TC/Command='tccc03_regions_w128'">orangebv_bg</xsl:when>
 			<xsl:when test="/TC/Command='tccc03_regions_mw128'">orangebv_bg</xsl:when>
 
-			<xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>		
+			<xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
 		<a href="/index?t=tournaments&amp;c=tccc03_regions" class="statTextBig">Regions</a></td>
 		<td width="25%" align="center" valign="middle" height="16" class="statTextBig" background="/i/steel_bluebv_bg.gif">
 
-			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='tccc03_sched'">orangebv_bg</xsl:when><xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>		
+			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='tccc03_sched'">orangebv_bg</xsl:when><xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
 		<a href="/index?t=tournaments&amp;c=tccc03_sched" class="statTextBig">Schedule</a></td>
 		<td width="25%" align="center" valign="middle" height="16" class="statTextBig">
 			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='tccc03_rules_overview'">orangebv_bg</xsl:when>
@@ -98,7 +99,7 @@
 			<xsl:when test="/TC/Command='tccc03_rules_prizes'">orangebv_bg</xsl:when>
 			<xsl:when test="/TC/Command='tccc03_rules_onsite'">orangebv_bg</xsl:when>
 			<xsl:when test="/TC/Command='tccc03_rules_structure'">orangebv_bg</xsl:when>
-			<xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>	
+			<xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
                         <a href="/index?t=tournaments&amp;c=tccc03_rules_overview" class="statTextBig">Rules</a>
                     </td>
                 </tr>
