@@ -1,0 +1,83 @@
+*******************  TODO ***********************
+
+6/5/2002 8:48 pm edt  jason n. evans
+Generate affidavits should not populate the affidavits directly. Affidavits should be pulled from the template table when viewing and saved to the affidavit table when affirmed.
+
+6/5/2002 8:49 pm edt  jason n. evans
+Chinese and New Zealand affidavits
+
+6/5/2002 8:57 pm edt  jason n. evans
+Create an affidavit jsp to enter and update affidavits
+
+6/5/2002 8:57 pm edt  jason n. evans
+Date filed on tax form should be user related not tax form related (Both Member and Internal)
+
+6/5/2002 8:57 pm edt  jason n. evans
+Date filed should be defaulted to current date if not filled in when TC Staff enter in a user tax form
+
+6/5/2002 8:57 pm edt  jason n. evans
+Forcing one active tax form on file
+
+6/5/2002 8:57 pm edt  jason n. evans
+Set focus on jsps (Internal)
+
+6/5/2002 8:57 pm edt  jason n. evans
+get rid of out.print lines in all jsps
+
+6/5/2002 8:57 pm edt  jason n. evans
+use encapsulation every where
+
+6/5/2002 8:57 pm edt  jason n. evans
+Add funtionality for user to decide to print all payments or just the payments on the screen
+
+6/5/2002 8:57 pm edt  jason n. evans
+store payment files based on user and time
+
+6/5/2002 9:58 pm edt  jason n. evans
+have a deleted status for payments
+
+6/5/2002 10:19 pm edt  jason n. evans
+the table strucure for payment, payment_detail, payment_address prohibits deletions due to circular
+foreign key refrences.  Also if detail records are deleted there is no way to find the relevetn payment_address records.
+Also, you cannot delete the payment_detail without deleting the payment_detail_xref, however, you would then loss the
+reference to find the detail records.
+
+6/6/2002 11:06 am edt  jason n. evans
+Print more meaningful errors for navigation errors for Memberside
+
+6/7/2002 7:35 pm edt jason n. evans
+Let's say we have a pacts administrator A and a topcoder contestant B.
+
+If A creates an affidavit manually for B without the necessary embedded xml in the affidavit text, when B subsequently
+tries to affirm it online, he sees a page "can not get affidavit" - this is a result of xml parsing exceptions
+on the server.
+
+Also, note that if A affirms an affidavit online on behalf of B and enters in a date of birth, this updates the
+coder table, so B might later on be surprised to find an incorrect birth date in his personal information if A got the
+date wrong.
+
+6/12/2002 01:19 edt jason n. evans
+Need an "edit affidavit template" internal pacts jsp.
+
+printing the payments does not mark them as unreviewed???
+
+fixed the formating of the due_date for printing payments
+added name to the vender list address
+move the print payments links
+
+
+
+****************** BEING WORKED ON  ***********************
+
+**************** TESTING ******************************
+
+
+
+
+*************** COMPLETED  ******************************
+6/6/2002 1:53 am edt  jason n. evans
+Put payments on hold if users do not have a tax form on file
+
+6/12/2002 01:10 edt jason n. evans
+Current school is not displayed on the affidavits.
+
