@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.web.corp.common.Constants,java.util.List"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -10,7 +11,7 @@
 
 <!-- Header begins -->
 <%--<jsp:include page="../includes/top.jsp" />--%>
-<jsp:include page="../includes/topTemp.jsp" />
+<jsp:include page="../includes/top.jsp" />
 <!-- Header ends -->
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -24,17 +25,23 @@
         <td width="100%" align="center"><img src="/i/corp/clear.gif" width="200" height="11" alt="" border="0"><br>
             <table border="0" cellspacing="0" cellpadding="0" width="600">
                 <tr valign="top">
-                    <td class="bodyText"> 
+                    <td class="bodyText">
                         <p><span class=testHead>Position List</span><br/>
-                        Company Name: Brooks<br/>
-                        Campaign Name: Operation FindCandidate<br/>
+                        <screen:resultSetRowIterator id="row"
+                                list="<%=(List) request.getAttribute(Constants.COMPANY_INFO)%>">
+                        Company Name: <screen:resultSetItem row="<%=row%>" name="company_name" /><br/>
+                        </screen:resultSetRowIterator>
+                        <screen:resultSetRowIterator id="row"
+                                list="<%=(List) request.getAttribute(Constants.CAMPAIGN_INFO)%>">
+                        Campaign Name: <screen:resultSetItem row="<%=row%>" name="campaign_name" /><br/>
+                        </screen:resultSetRowIterator>
                         </p>
                     </td>
                 </tr>
             </table>
 
             <br/>
-            
+
             <table cellspacing="0" cellpadding="0" width="600" class="screeningFrame">
                 <tr>
                     <td class="screeningHeader" width="33%">Position Name</td>
@@ -42,24 +49,26 @@
                     <td class="screeningHeader" width="33%" align=right>Candidates</td>
                 </tr>
 
-<script type="text/javascript">
-for (i = 1; i <= 10; i++)
-{
-    document.write("<tr>")
-    if(i%2==1)
-    {
-                    document.write("<td class='screeningCellOdd' nowrap=nowrap><A href='/corp/testing/results/positionResults.jsp'>position"+i+"</A></td> ")
-                    document.write("<td class='screeningCellOdd' align=center>06.21.2004 04:34</td>")
-                    document.write("<td class='screeningCellOdd' align=right>"+i+"</td>")
-    } else {
-                    document.write("<td class='screeningCellEven' nowrap=nowrap><A href='/corp/testing/results/positionResults.jsp'>position"+i+"</A></td> ")
-                    document.write("<td class='screeningCellEven' align=center>06.21.2004 04:34</td>")
-                    document.write("<td class='screeningCellEven' align=right>"+i+"</td>")
-    }
-    document.write("</tr>")
-}
-</script>
-
+                <%
+                    int counter = 0;
+                    String[] cssClasses = {"screeningCellEven", "screeningCellOdd"};
+                %>
+                <screen:resultSetRowIterator id="row"
+                        list="<%=(List) request.getAttribute(Constants.CAMPAIGN_POSITIONS_LIST)%>">
+                <tr>
+                    <td class="<%=cssClasses[counter % 2]%>" nowrap="nowrap">
+                        <a href="/corp/testing/results/positionResults.jsp?<%=Constants.JOB_POSITION_ID%>=<screen:resultSetItem row="<%=row%>" name="job_id" />">
+                            <screen:resultSetItem row="<%=row%>" name="job_name" />
+                        </a>
+                    </td>
+                    <td class="<%=cssClasses[counter % 2]%>" align="center">
+                        <screen:resultSetItem row="<%=row%>" name="most_recent_activity" />
+                    </td>
+                    <td class="<%=cssClasses[counter % 2]%>" nowrap="right">
+                        <screen:resultSetItem row="<%=row%>" name="candidates_num" />
+                    </td>
+                </tr>
+                </screen:resultSetRowIterator>
             </table>
 
             <p><br></p>
