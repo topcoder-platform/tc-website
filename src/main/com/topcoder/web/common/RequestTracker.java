@@ -89,7 +89,7 @@ public class RequestTracker {
             try {
                 ctx = TCContext.getInitial();
                 RequestServices rs = (RequestServices) BaseProcessor.createEJB(ctx, RequestServices.class);
-                log.debug("begin request batch load");
+                //log.debug("begin request batch load");
                 for (Iterator it = a.iterator(); it.hasNext();) {
                     UserRequest r = (UserRequest) it.next();
                     if (r.userId == GUEST.getId()) {
@@ -98,7 +98,7 @@ public class RequestTracker {
                         rs.createRequest(r.userId, r.url, new Timestamp(r.time), r.sessionId.substring(0, SESSION_ID_LENGTH), DBMS.COMMON_OLTP_DATASOURCE_NAME);
                     }
                 }
-                log.debug("end request batch load");
+                //log.debug("end request batch load");
 
             } catch (Exception e) {
                 log.error("Problem inserting request" + e);
@@ -140,7 +140,7 @@ public class RequestTracker {
             this.url = buf.toString();
             this.time = System.currentTimeMillis();
             this.sessionId=r.getSession().getId();
-            log.debug("session: " + this.sessionId);
+            //log.debug("session: " + this.sessionId);
         }
     }
 
