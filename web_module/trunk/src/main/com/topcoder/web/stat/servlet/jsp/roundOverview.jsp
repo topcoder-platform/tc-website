@@ -41,10 +41,12 @@
 <script language="JavaScript">
    function submitForm(){
  	var frm = document.coderRankForm;
-	  if (isNaN(parseInt(frm.er.value)))
+    if (isNaN(parseInt(frm.er.value)))
       alert(frm.er.value+" is not a valid integer");
-    else
+    else{
+      frm.er.value = parseInt(frm.er.value);
       frm.submit();
+    }
    }
 </script>
 
