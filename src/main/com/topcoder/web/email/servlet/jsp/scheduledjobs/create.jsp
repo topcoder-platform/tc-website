@@ -1,4 +1,5 @@
 <%@ page import="com.topcoder.web.email.servlet.*" %>
+<%@ page errorPage="../error.jsp" %>
 <jsp:useBean id="ScheduledJob" scope="session" class="com.topcoder.web.email.bean.ScheduledJobForm" />
 
 <html>

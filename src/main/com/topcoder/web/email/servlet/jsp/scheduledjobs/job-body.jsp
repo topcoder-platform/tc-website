@@ -1,4 +1,5 @@
 <%@ taglib uri="/email-taglib.tld" prefix="email"%>
+<%@ page errorPage="../error.jsp" %>
 <jsp:useBean id="ScheduledJob" scope="session" class="com.topcoder.web.email.bean.ScheduledJobForm" />
 <jsp:include page="../js/validate-js.jsp" />
 <%@ page import="java.util.*" %>
