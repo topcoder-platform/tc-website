@@ -1,4 +1,4 @@
-package com.topcoder.shared.email;
+package com.topcoder.server.email;
 
 import com.topcoder.shared.ejb.EmailServices.*;
 import javax.naming.*;

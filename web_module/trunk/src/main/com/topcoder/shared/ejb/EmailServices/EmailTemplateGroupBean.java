@@ -1,8 +1,8 @@
 package com.topcoder.shared.ejb.EmailServices;
 
 import java.util.*;
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.ejb.BaseEJB;
+import com.topcoder.shared.util.logging.Logger;
 import java.rmi.RemoteException;
 
 /**
@@ -12,15 +12,6 @@ import java.rmi.RemoteException;
  * @version  $Revision$
  * @internal Log of Changes:
  *           $Log$
- *           Revision 1.1.2.2  2002/07/09 23:41:27  gpaul
- *           switched to use com.topcoder.shared.util.logging.Logger
- *
- *           Revision 1.1.2.1  2002/07/09 14:39:25  gpaul
- *           no message
- *
- *           Revision 1.1  2002/05/21 15:45:15  steveb
- *           SB
- *
  *           Revision 1.4.2.2  2002/04/12 06:03:13  apps
  *           Fixed SQL DELETE syntax (added FROM)
  *
@@ -48,7 +39,7 @@ public class EmailTemplateGroupBean extends BaseEJB {
     public void ejbCreate () { }
     
     private static Logger log = Logger.getLogger(EmailTemplateGroupBean.class);
-    
+
     public int addGroup(String name) throws RemoteException {
         javax.naming.Context ctx = null;
         javax.sql.DataSource ds = null;

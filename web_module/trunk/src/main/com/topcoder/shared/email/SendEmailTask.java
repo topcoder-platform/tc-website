@@ -6,40 +6,39 @@ import java.lang.*;
 import java.io.*;
 import java.rmi.RemoteException;
 import javax.ejb.CreateException;
+
 import javax.naming.*;
 import javax.xml.transform.*;
 import javax.xml.transform.stream.*;
 import javax.xml.parsers.*;
 import org.xml.sax.*;
 import org.w3c.dom.*;
-import com.topcoder.shared.util.logging.Logger;
+
 import com.topcoder.shared.util.*;
-import com.topcoder.shared.ejb.EmailServices.*;
 import com.topcoder.shared.dataAccess.resultSet.*;
 import com.topcoder.shared.dataAccess.*;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.ejb.EmailServices.*;
 
 /**
- * The EmailJobScheduler is responsible for periodically checking
- * the database for email jobs and running them when found.
+ * The SendEmailTask is responsible for building the list of email
+ * destinations, creating the personalized emails, and passing the
+ * final emails onto the EmailEngine for sending.
+ *
+ * SendEmailTask supports both static lists and dynamic lists.
+ * Dynamic lists are built at run time by querying the database.
  * 
- * The EmailJobScheduler can be started from the command line and
- * remains resident until it is requested that it stop.
- *
- * Email jobs are run in separate threads from the scheduler, so 
- * multiple jobs may be processed in parallel.
- *
  * @author   Eric Ellingson
  * @version  $Revision$
  * @internal Log of Changes:
  *           $Log$
- *           Revision 1.1.2.2  2002/07/09 23:41:27  gpaul
- *           switched to use com.topcoder.shared.util.logging.Logger
+ *           Revision 1.1.2.24  2002/07/07 23:52:34  sord
+ *           Added EmailReportTask.
+ *           Split basic task functions into the base class EmailTask
  *
- *           Revision 1.1.2.1  2002/07/09 14:39:42  gpaul
- *           no message
- *
- *           Revision 1.1  2002/05/21 15:55:20  steveb
- *           SB
+ *           Revision 1.1.2.23  2002/06/12 06:43:52  sord
+ *           Added multiple scheduler feature that allows 2 or more schedulers to
+ *           share the work of running tasks and provide redundant service.
  *
  *           Revision 1.1.2.22  2002/05/06 05:33:54  sord
  *           Added archiveDetail request when the job is complete.
@@ -110,20 +109,16 @@ import com.topcoder.shared.dataAccess.*;
  *           Initial version.
  *
  */
-public class SendEmailTask implements Runnable  {
+public class SendEmailTask extends EmailTask implements Runnable  {
 
     private static Logger log = Logger.getLogger(SendEmailTask.class);
-    
-    private int jobId;
-    private Context ctx;
     
  /**
   * Creates a new object.  The object will be able to send a set of emails
   * when the run method is called (probably from a new thread).
   */
-    public SendEmailTask(Context ctx, int jobId) {
-        this.jobId = jobId;
-        this.ctx = ctx;
+    public SendEmailTask(Context ctx, EmailJobScheduler scheduler, int jobId, long controlId) {
+        super(ctx, scheduler, jobId, controlId);
     }
     
  /**
@@ -136,8 +131,8 @@ public class SendEmailTask implements Runnable  {
   *
   * Then it scans the detail records, sending an email for each record it finds.
   */
-    public void run() {
-        boolean completed = false;
+    public void doWork() {
+        boolean incomplete = true;
         try {
             EmailJob job = ((EmailJobHome) ctx.lookup("com.topcoder.shared.ejb.EmailServices.EmailJob")).create();
             EmailList list = ((EmailListHome) ctx.lookup("com.topcoder.shared.ejb.EmailServices.EmailList")).create();
@@ -156,7 +151,14 @@ public class SendEmailTask implements Runnable  {
             String templateXSL = template.getData(templateId);
         
             // The jobThrottle limits how many emails will be sent per second.
-            int jobThrottle = EmailJobScheduler.getMaxEmailsPerSecond();
+            int jobThrottle = scheduler.getMaxEmailsPerSecond();
+            
+            // verify that the job is still scheduled for this instance.
+            // if not, quit without updating anything.
+            if (!verifyJob(server)) {
+                incomplete = false;
+                return;
+            }
             
             TCSEmailMessage message = new TCSEmailMessage();
             message.setFromAddress(fromAddress, fromPersonal);
@@ -175,7 +177,7 @@ public class SendEmailTask implements Runnable  {
                 }
             }
             
-            /* Fetch the job results fromt the database.
+            /* Fetch the job results from the database.
              * For each receipient that hasn't been sent an email, fetch the
              * receipient's data from the database and send them an email.
              */
@@ -189,7 +191,7 @@ public class SendEmailTask implements Runnable  {
                     if (lastCheck < now) sleepTime = now-lastCheck;
                     if (sleepTime > 1000) sleepTime = 1000; // sleepTime should *NEVER* be more than a second, so just in case the clock got changed, limit it to a 1 second wait.
                     try { 
-                        Thread.sleep(sleepTime); 
+                        Thread.sleep(sleepTime);
                     } catch (InterruptedException e) {
                         // since catching the exception clears the status. Re-interrupt the thread.
                         Thread.currentThread().interrupt();
@@ -200,7 +202,7 @@ public class SendEmailTask implements Runnable  {
                 // Check if the thread has been asked to stop.
                 if (Thread.currentThread().isInterrupted()) {
                     server.setJobStatus(jobId, server.READY);
-                    completed = true;
+                    incomplete = false;
                     return;
                 }
 
@@ -211,10 +213,16 @@ public class SendEmailTask implements Runnable  {
                     lastCheck = now;
                     status = job.getStatusId(jobId);
                     if (status != server.ACTIVE) {
-                        completed = true;
+                        incomplete = false;
                         return;
                     }
                     cycleCount = 0;
+                    
+                    // verify that the job is still scheduled for this instance...
+                    if (!verifyJob(server)) {
+                        incomplete = false;
+                        return;
+                    }
                 }
                 
                 Object key = detailItr.next();
@@ -245,21 +253,19 @@ public class SendEmailTask implements Runnable  {
                 }
             }
             server.setJobStatus(jobId, server.COMPLETE);
-            completed = true;
+            incomplete = false;
 
             // archive records now that the job is done
             server.archiveDetail(jobId);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if (!completed && ctx != null) {
+            if (incomplete && ctx != null) {
                 try {
                     EmailServer server = ((EmailServerHome) ctx.lookup("com.topcoder.shared.ejb.EmailServices.EmailServer")).create();
                     server.setJobStatus(jobId, server.INCOMPLETE);
                 } catch (Exception ignore) {}
             }
-            if (ctx != null) { try { ctx.close(); } catch (Exception ignore) {} }
-            
         }
     }
 
@@ -347,13 +353,25 @@ public class SendEmailTask implements Runnable  {
         EmailJob job = ((EmailJobHome) ctx.lookup("com.topcoder.shared.ejb.EmailServices.EmailJob")).create();
         EmailList list = ((EmailListHome) ctx.lookup("com.topcoder.shared.ejb.EmailServices.EmailList")).create();
         EmailServer server = ((EmailServerHome) ctx.lookup("com.topcoder.shared.ejb.EmailServices.EmailServer")).create();
-    
+        long lastCheck = new Date().getTime();
+        
         server.clearDetailRecords(jobId);
+
+        if (!verifyJob(server)) return;
+        
         Set members = list.getMembers(listId);
         Iterator memberItr = members.iterator();
         for ( ; memberItr.hasNext(); ) {
             Object memberIdObj = memberItr.next();
             int memberId = 0;
+            
+            long now = new Date().getTime();
+            if (lastCheck+1000 < now) {
+                lastCheck = now;
+                if (!verifyJob(server)) {
+                    return;
+                }
+            }
             try {
                 // add each list member to the job
                 memberId = ((Integer)memberIdObj).intValue();
@@ -364,7 +382,7 @@ public class SendEmailTask implements Runnable  {
                 log.warn("Failed to add member " + memberIdObj);
             }
         }
-        server.setJobBuilt(jobId);
+        server.setJobType(jobId, EmailServer.EMAIL_JOB_TYPE_POST);
     }
 
  /**
@@ -378,13 +396,15 @@ public class SendEmailTask implements Runnable  {
         EmailList list = ((EmailListHome) ctx.lookup("com.topcoder.shared.ejb.EmailServices.EmailList")).create();
         EmailServer server = ((EmailServerHome) ctx.lookup("com.topcoder.shared.ejb.EmailServices.EmailServer")).create();
         StringBuffer memberData = new StringBuffer( 500 );
+        long lastCheck = new Date().getTime();
 
         server.clearDetailRecords(jobId);
+        if (!verifyJob(server)) return;
         
         String commandName = job.getCommandName(jobId);
         Map m = new HashMap();
         m.put("c", commandName);
-        
+
         Map inputs = job.getCommandParams(jobId);
         Iterator inputKeyItr = inputs.keySet().iterator();
         for ( ; inputKeyItr.hasNext(); ) {
@@ -409,12 +429,20 @@ public class SendEmailTask implements Runnable  {
                 // since catching the exception clears the status. Re-interrupt the thread.
                 Thread.currentThread().interrupt();
             }
+            if (!verifyJob(server)) return;
             listMap = dai.getData(dataRequest);
         }
         Iterator listItr = listMap.values().iterator();
         for ( ; listItr.hasNext(); ) {
             ResultSetContainer results = (ResultSetContainer) (listItr.next());
             for (int row=0; row < results.getRowCount(); row++) {
+                long now = new Date().getTime();
+                if (lastCheck+1000 < now) {
+                    lastCheck = now;
+                    if (!verifyJob(server)) {
+                        return;
+                    }
+                }
                 try {
                     // add each results member to the job
                     memberData.setLength(0);
@@ -437,7 +465,7 @@ public class SendEmailTask implements Runnable  {
                 }
             }
         }
-        server.setJobBuilt(jobId);
+        server.setJobType(jobId, EmailServer.EMAIL_JOB_TYPE_POST);
     }
 }
 

@@ -12,15 +12,6 @@ import java.rmi.RemoteException;
  * @version  $Revision$
  * @internal Log of Changes:
  *           $Log$
- *           Revision 1.1.2.2  2002/07/09 23:41:27  gpaul
- *           switched to use com.topcoder.shared.util.logging.Logger
- *
- *           Revision 1.1.2.1  2002/07/09 14:39:25  gpaul
- *           no message
- *
- *           Revision 1.1  2002/05/21 15:45:15  steveb
- *           SB
- *
  *           Revision 1.5.2.11  2002/04/21 22:21:58  apps
  *           Added functions to set job properties.
  *

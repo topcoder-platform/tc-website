@@ -1,9 +1,9 @@
 package com.topcoder.shared.ejb.EmailServices;
 
 import java.util.*;
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.ejb.BaseEJB;
 import java.rmi.RemoteException;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * @see EmailListGroup
@@ -12,15 +12,6 @@ import java.rmi.RemoteException;
  * @version  $Revision$
  * @internal Log of Changes:
  *           $Log$
- *           Revision 1.1.2.2  2002/07/09 23:41:27  gpaul
- *           switched to use com.topcoder.shared.util.logging.Logger
- *
- *           Revision 1.1.2.1  2002/07/09 14:39:25  gpaul
- *           no message
- *
- *           Revision 1.1  2002/05/21 15:45:15  steveb
- *           SB
- *
  *           Revision 1.4.2.2  2002/04/12 06:03:13  apps
  *           Fixed SQL DELETE syntax (added FROM)
  *

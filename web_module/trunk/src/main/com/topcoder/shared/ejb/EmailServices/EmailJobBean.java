@@ -12,14 +12,11 @@ import java.rmi.RemoteException;
  * @version  $Revision$
  * @internal Log of Changes:
  *           $Log$
- *           Revision 1.1.2.2  2002/07/09 23:41:27  gpaul
- *           switched to use com.topcoder.shared.util.logging.Logger
+ *           Revision 1.5.2.25  2002/07/08 08:48:30  sord
+ *           Fixed report creation job type.
  *
- *           Revision 1.1.2.1  2002/07/09 14:39:25  gpaul
- *           no message
- *
- *           Revision 1.1  2002/05/21 15:45:15  steveb
- *           SB
+ *           Revision 1.5.2.24  2002/07/07 23:53:48  sord
+ *           Added functions related to creating reports for EmailJobs
  *
  *           Revision 1.5.2.23  2002/05/08 02:50:37  sord
  *           Added getJobDetailResults(job, first, last) function.
@@ -123,6 +120,7 @@ public class EmailJobBean extends BaseEJB {
     // XXX the following need to come from the config file, not hardcoded!
     public static final int JOB_TYPE_EMAIL_PRE = 1;
     public static final int JOB_TYPE_EMAIL_POST = 2;
+    public static final int JOB_TYPE_EMAIL_REPORT = 3;
     public static final int JOB_STATUS_CREATING = 0;
     public static final int JOB_STATUS_READY = 1;
     public static final int JOB_STATUS_ACTIVE = 2;
@@ -137,8 +135,9 @@ public class EmailJobBean extends BaseEJB {
     public void ejbCreate () { }
     
     private static Logger log = Logger.getLogger(EmailJobBean.class);
+
     
-    public int createEmailJob(    int templateId, 
+    public int createEmailJob(  int templateId, 
                                 int listId, 
                                 int commandId, 
                                 Date startAfter, 
@@ -146,6 +145,18 @@ public class EmailJobBean extends BaseEJB {
                                 String fromAddress,
                                 String fromPersonal,
                                 String subject ) throws RemoteException {
+        return createJob(templateId, listId, commandId, startAfter, stopBefore, fromAddress, fromPersonal, subject, JOB_TYPE_EMAIL_PRE);
+    }
+
+    public int createJob(  int templateId, 
+                           int listId, 
+                           int commandId, 
+                           Date startAfter, 
+                           Date stopBefore, 
+                           String fromAddress,
+                           String fromPersonal,
+                           String subject,
+                           int jobType ) throws RemoteException {
         javax.naming.Context ctx = null;
         javax.sql.DataSource ds = null;
         java.sql.Connection conn = null;
@@ -248,7 +259,7 @@ public class EmailJobBean extends BaseEJB {
             
             // run ps2
             ps2.setInt(1, jobId);
-            ps2.setInt(2, JOB_TYPE_EMAIL_PRE);
+            ps2.setInt(2, jobType);
             ps2.setInt(3, JOB_STATUS_CREATING);
             ps2.setTimestamp(4, new java.sql.Timestamp(startAfter.getTime()));
             ps2.setTimestamp(5, new java.sql.Timestamp(stopBefore.getTime()));
@@ -304,6 +315,83 @@ public class EmailJobBean extends BaseEJB {
                 log.error("Failed to close database connection", connerr); }
             }
         }
+        return jobId;
+    }
+
+    public int createEmailReportJob(    
+                                int sourceJobId, 
+                                int templateId, 
+                                int listId, 
+                                int commandId, 
+                                Date startAfter, 
+                                Date stopBefore, 
+                                String fromAddress,
+                                String fromPersonal,
+                                String subject ) throws RemoteException {
+        javax.naming.Context ctx = null;
+        javax.sql.DataSource ds = null;
+        java.sql.Connection conn = null;
+        java.sql.PreparedStatement ps = null;
+        java.sql.ResultSet rs = null;
+        StringBuffer sqlStmt = new StringBuffer( 500 );
+        int rows;
+        int id = 0;
+
+        log.debug("createEmailReportJob("+sourceJobId+", ...)");
+           
+        int jobId = createJob(templateId, listId, commandId,
+                                   startAfter, stopBefore, fromAddress,
+                                   fromPersonal, subject, JOB_TYPE_EMAIL_REPORT);
+
+        try {
+            ctx = new javax.naming.InitialContext();
+            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
+            conn = ds.getConnection();
+
+            sqlStmt.setLength(0);            
+            sqlStmt.append(" EXECUTE PROCEDURE nextval(?)");
+            ps = conn.prepareStatement(sqlStmt.toString());
+            ps.setInt(1, EmailJobBean.JOB_DETAIL_SEQUENCE_ID);
+            rs = ps.executeQuery();
+            rs.next();
+            id = rs.getInt(1);
+            rs.close();
+            String data = ""+sourceJobId;
+
+            sqlStmt.setLength(0);
+            sqlStmt.append(" INSERT INTO");
+            sqlStmt.append(" sched_job_detail (");
+            sqlStmt.append(" sched_job_id");
+            sqlStmt.append(",");
+            sqlStmt.append(" sched_job_detail_id");
+            sqlStmt.append(",");
+            sqlStmt.append(" sched_job_detail_status_id");
+            sqlStmt.append(",");
+            sqlStmt.append(" data");
+            sqlStmt.append(") VALUES (?,?,?,?)");
+            ps = conn.prepareStatement(sqlStmt.toString());
+            ps.setInt(1, jobId);
+            ps.setInt(2, id);
+            ps.setInt(3, EmailServer.MSG_NONE);
+            ps.setBytes(4, data.getBytes());
+            rows = ps.executeUpdate();
+            if (rows != 1) {
+                throw new Exception("insert command affected " + rows + " rows.");
+            }
+        } catch ( Exception dberr ) {
+            String err = "Failed to add job detail record";
+            log.error(err, dberr);
+            throw new RemoteException(err, dberr);
+        } finally {
+            // Since the connections are pooled, make sure to close them in finally blocks
+            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
+                log.error("Failed to close database context", ctxerr); } 
+            }
+            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
+                log.error("Failed to close database connection", connerr); }
+            }
+        }
+        
         return jobId;
     }
     

@@ -14,12 +14,6 @@ import java.util.*;
  * @version  $Revision$
  * @internal Log of Changes:
  *           $Log$
- *           Revision 1.1.2.1  2002/07/09 14:39:25  gpaul
- *           no message
- *
- *           Revision 1.1  2002/05/21 15:45:15  steveb
- *           SB
- *
  *           Revision 1.2.2.1  2002/04/11 18:20:28  apps
  *           SB -- readded EmailServices
  *

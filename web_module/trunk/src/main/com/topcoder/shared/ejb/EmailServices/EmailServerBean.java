@@ -1,8 +1,8 @@
 package com.topcoder.shared.ejb.EmailServices;
 
 import java.util.*;
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.ejb.BaseEJB;
+import com.topcoder.shared.util.logging.Logger;
 import java.rmi.RemoteException;
 
 /**
@@ -12,14 +12,21 @@ import java.rmi.RemoteException;
  * @version  $Revision$
  * @internal Log of Changes:
  *           $Log$
- *           Revision 1.1.2.2  2002/07/09 23:41:27  gpaul
- *           switched to use com.topcoder.shared.util.logging.Logger
+ *           Revision 1.1.2.20  2002/07/10 04:05:32  sord
+ *           Get all job types in getJobs()
  *
- *           Revision 1.1.2.1  2002/07/09 14:39:25  gpaul
- *           no message
+ *           Revision 1.1.2.19  2002/07/07 23:53:48  sord
+ *           Added functions related to creating reports for EmailJobs
  *
- *           Revision 1.1  2002/05/21 15:45:15  steveb
- *           SB
+ *           Revision 1.1.2.18  2002/06/13 06:14:13  email
+ *           Fixed scope of SQLException so compiler can find it.
+ *
+ *           Revision 1.1.2.17  2002/06/13 06:10:56  email
+ *           Catch multiple job insertion SQLException.  It is ok, it just means the job
+ *           wasn't acquired (return false).
+ *
+ *           Revision 1.1.2.16  2002/06/12 06:44:35  sord
+ *           Added functions required for the multiple scheduler feature.
  *
  *           Revision 1.1.2.15  2002/05/06 05:36:00  sord
  *           Implemented archive_sched_job_detail related functions.
@@ -69,6 +76,7 @@ import java.rmi.RemoteException;
  *
  */
 public class EmailServerBean extends BaseEJB {
+    public static final int SCHEDULER_SEQUENCE_ID = 74;
 
     public void ejbCreate () { }
     
@@ -108,10 +116,6 @@ public class EmailServerBean extends BaseEJB {
             sqlStmt.append(" sched_job");
             sqlStmt.append(" WHERE");
             sqlStmt.append(" sched_job_status_id = ?");
-            sqlStmt.append(" AND");
-            sqlStmt.append(" (sched_job_type_id = ?");
-            sqlStmt.append(" OR");
-            sqlStmt.append(" sched_job_type_id = ?)");
             switch (dateRange) {
                 case EmailServer.ANYRANGE: 
                         break;
@@ -128,23 +132,6 @@ public class EmailServerBean extends BaseEJB {
             }
             ps = conn.prepareStatement(sqlStmt.toString());
             ps.setInt(1, status);
-            ps.setInt(2, EmailServer.EMAIL_JOB_TYPE_PRE);
-            ps.setInt(3, EmailServer.EMAIL_JOB_TYPE_POST);
-/*            switch (dateRange) {
-                case EmailServer.ANYRANGE: 
-                        break;
-                case EmailServer.BEFORERANGE:
-                        ps.setTimestamp(4, now);
-                        break;
-                case EmailServer.INRANGE: {
-                        Date tmp = new Date();
-                        ps.setTimestamp(4, now);
-                        ps.setTimestamp(5, now); 
-                        } break;
-                case EmailServer.AFTERRANGE: 
-                        ps.setTimestamp(4, now);
-                        break;
-            } */
             rs = ps.executeQuery();
             for ( ; rs.next(); ) {
                 ret.add(new Integer(rs.getInt(1)));
@@ -204,6 +191,56 @@ public class EmailServerBean extends BaseEJB {
             }
         } catch ( Exception dberr ) {
             String err = "Failed to update job status";
+            log.error(err, dberr);
+            throw new RemoteException(err, dberr);
+        } finally {
+            // Since the connections are pooled, make sure to close them in finally blocks
+            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
+                log.error("Failed to close database context", ctxerr); } 
+            }
+            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
+                log.error("Failed to close database connection", connerr); }
+            }
+        }
+    }
+
+    public void setJobType(int jobId, int type) throws RemoteException {
+        javax.naming.Context ctx = null;
+        javax.sql.DataSource ds = null;
+        java.sql.Connection conn = null;
+        java.sql.PreparedStatement ps = null;
+        java.sql.ResultSet rs = null;
+        StringBuffer sqlStmt = new StringBuffer( 500 );
+        int rows;
+
+        log.debug("setJobType (jobId " + jobId + ", type " + type + ")");
+           
+        try {
+            ctx = new javax.naming.InitialContext();
+            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
+            conn = ds.getConnection();
+
+            sqlStmt.setLength(0);
+            sqlStmt.append(" UPDATE");
+            sqlStmt.append(" sched_job");
+            sqlStmt.append(" SET");
+            sqlStmt.append(" sched_job_type_id");
+            sqlStmt.append(" = ?");
+            sqlStmt.append(" WHERE");
+            sqlStmt.append(" sched_job_id");
+            sqlStmt.append(" = ?");
+            ps = conn.prepareStatement(sqlStmt.toString());
+            ps.setInt(1, type);
+            ps.setInt(2, jobId);
+            rows = ps.executeUpdate();
+            if (rows == 0) {
+                log.debug("The update had no effect."
+                        + " Most likely the job does not exist.");
+                throw new Exception("The update command affected " 
+                        + rows + " rows.");
+            }
+        } catch ( Exception dberr ) {
+            String err = "Failed to update job type";
             log.error(err, dberr);
             throw new RemoteException(err, dberr);
         } finally {
@@ -492,6 +529,243 @@ public class EmailServerBean extends BaseEJB {
             String err = "Failed to archive detail records";
             log.error(err, dberr);
             throw new RemoteException(err, dberr);
+        } finally {
+            // Since the connections are pooled, make sure to close them in finally blocks
+            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
+                log.error("Failed to close database context", ctxerr); } 
+            }
+            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
+                log.error("Failed to close database connection", connerr); }
+            }
+        }
+    }
+
+    public long getSchedulerId() throws RemoteException {
+        javax.naming.Context ctx = null;
+        javax.sql.DataSource ds = null;
+        java.sql.Connection conn = null;
+        java.sql.PreparedStatement ps = null;
+        java.sql.ResultSet rs = null;
+        StringBuffer sqlStmt = new StringBuffer( 500 );
+
+        log.debug("getSchedulerId requested");
+
+        try {
+            ctx = new javax.naming.InitialContext();
+            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
+            conn = ds.getConnection();
+
+            sqlStmt.setLength(0);            
+            sqlStmt.append(" EXECUTE PROCEDURE nextval(?)");
+            ps = conn.prepareStatement(sqlStmt.toString());
+            ps.setInt(1, SCHEDULER_SEQUENCE_ID);
+            rs = ps.executeQuery();
+            rs.next();
+            long ret = rs.getLong(1);
+	    if (ret > 0L)
+		return ret;
+            sqlStmt.setLength(0);            
+            sqlStmt.append(" INSERT INTO");
+            sqlStmt.append(" sequence_object (");
+            sqlStmt.append(" id");
+            sqlStmt.append(",");
+            sqlStmt.append(" current_value");
+            sqlStmt.append(",");
+            sqlStmt.append(" name");
+            sqlStmt.append(") VALUES (?,?,?)");
+            ps = conn.prepareStatement(sqlStmt.toString());
+            ps.setInt(1, SCHEDULER_SEQUENCE_ID);
+            ps.setInt(2, 2);
+            ps.setString(3, "SCHEDULER_ID_SEQ");
+            int rows = ps.executeUpdate();
+            if (rows != 1) {
+                throw new Exception("insert command affected " + rows + " rows.");
+            }
+            return 1;
+        } catch ( Exception dberr ) {
+            log.error("Failed to get schedulerId", dberr);
+            throw new RemoteException("Failed to get schedulerId", dberr);
+        } finally {
+            // Since the connections are pooled, make sure to close them in finally blocks
+            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
+                log.error("Failed to close database context", ctxerr); } 
+            }
+            if ( rs != null ) { try { rs.close(); } catch (Exception rserr) {
+                log.error("Failed to close recordset", rserr); }
+            }
+            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
+                log.error("Failed to close database connection", connerr); }
+            }
+        }
+    }
+    
+    public boolean acquireJob(int jobId, long controlId) throws RemoteException {
+        javax.naming.Context ctx = null;
+        javax.sql.DataSource ds = null;
+        java.sql.Connection conn = null;
+        java.sql.PreparedStatement ps = null;
+        StringBuffer sqlStmt = new StringBuffer( 500 );
+
+        log.debug("acquireJob("+jobId+","+controlId+") requested");
+
+        try {
+            ctx = new javax.naming.InitialContext();
+            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
+            conn = ds.getConnection();
+
+            sqlStmt.setLength(0);            
+            sqlStmt.append(" INSERT INTO");
+            sqlStmt.append(" sched_control (");
+            sqlStmt.append(" sched_control_id");
+            sqlStmt.append(",");
+            sqlStmt.append(" sched_job_id");
+            sqlStmt.append(") VALUES (?,?)");
+            ps = conn.prepareStatement(sqlStmt.toString());
+            ps.setLong(1, controlId);
+            ps.setInt(2, jobId);
+            try {
+                int rows = ps.executeUpdate();
+                if (rows == 1) {
+                    return true;
+                } else if (rows > 1) {
+                    throw new Exception("insert command affected " + rows + " rows.");
+                }
+                return false;
+            } catch (java.sql.SQLException e) {
+                // this is probably an unique constraint exception caused
+                // by two schedulers trying to acquire the same job.
+                return false;
+            }
+        } catch ( Exception dberr ) {
+            throw new RemoteException("Error while attempting to acquireJob", dberr);
+        } finally {
+            // Since the connections are pooled, make sure to close them in finally blocks
+            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
+                log.error("Failed to close database context", ctxerr); } 
+            }
+            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
+                log.error("Failed to close database connection", connerr); }
+            }
+        }
+    }
+    
+    public boolean acquireJob(int jobId, long controlId, long oldId) throws RemoteException {
+        javax.naming.Context ctx = null;
+        javax.sql.DataSource ds = null;
+        java.sql.Connection conn = null;
+        java.sql.PreparedStatement ps = null;
+        StringBuffer sqlStmt = new StringBuffer( 500 );
+
+        log.debug("acquireJob("+jobId+","+controlId+","+oldId+") requested");
+        
+        if (oldId == 0 && acquireJob(jobId, controlId)) return true;
+
+        try {
+            ctx = new javax.naming.InitialContext();
+            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
+            conn = ds.getConnection();
+
+            sqlStmt.setLength(0);
+            sqlStmt.append(" UPDATE ");
+            sqlStmt.append(" sched_control");
+            sqlStmt.append(" SET");
+            sqlStmt.append(" sched_control_id = ?");
+            sqlStmt.append(" WHERE");
+            sqlStmt.append(" sched_job_id = ?");
+            sqlStmt.append(" AND");
+            sqlStmt.append(" sched_control_id = ?");
+            ps = conn.prepareStatement(sqlStmt.toString());
+            ps.setLong(1, controlId);
+            ps.setInt(2, jobId);
+            ps.setLong(3, oldId);
+            int rows = ps.executeUpdate();
+            if (rows >= 1) {
+                return true;
+            }
+            return false;
+        } catch ( Exception dberr ) {
+            throw new RemoteException("Error while attempting to acquireJob", dberr);
+        } finally {
+            // Since the connections are pooled, make sure to close them in finally blocks
+            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
+                log.error("Failed to close database context", ctxerr); } 
+            }
+            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
+                log.error("Failed to close database connection", connerr); }
+            }
+        }
+    }
+    
+    public long getJobControlId(int jobId) throws RemoteException {
+        javax.naming.Context ctx = null;
+        javax.sql.DataSource ds = null;
+        java.sql.Connection conn = null;
+        java.sql.PreparedStatement ps = null;
+        java.sql.ResultSet rs = null;
+        StringBuffer sqlStmt = new StringBuffer( 500 );
+
+        log.debug("getJobControlId("+jobId+") requested");
+        
+        try {
+            ctx = new javax.naming.InitialContext();
+            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
+            conn = ds.getConnection();
+
+            sqlStmt.setLength(0);
+            sqlStmt.append(" SELECT ");
+            sqlStmt.append(" sched_control_id");
+            sqlStmt.append(" FROM");
+            sqlStmt.append(" sched_control");
+            sqlStmt.append(" WHERE");
+            sqlStmt.append(" sched_job_id = ?");
+            ps = conn.prepareStatement(sqlStmt.toString());
+            ps.setInt(1, jobId);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getLong(1);
+            }
+            return 0;
+        } catch ( Exception dberr ) {
+            throw new RemoteException("Error while attempting to getJobControlId", dberr);
+        } finally {
+            // Since the connections are pooled, make sure to close them in finally blocks
+            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
+                log.error("Failed to close database context", ctxerr); } 
+            }
+            if ( rs != null ) { try { rs.close(); } catch (Exception rserr) {
+                log.error("Failed to close recordset", rserr); }
+            }
+            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
+                log.error("Failed to close database connection", connerr); }
+            }
+        }
+    }
+    
+    public void clearJobControlIds(long controlId) throws RemoteException {
+        javax.naming.Context ctx = null;
+        javax.sql.DataSource ds = null;
+        java.sql.Connection conn = null;
+        java.sql.PreparedStatement ps = null;
+        StringBuffer sqlStmt = new StringBuffer( 500 );
+
+        log.debug("clearJobControlIds("+controlId+") requested");
+        
+        try {
+            ctx = new javax.naming.InitialContext();
+            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
+            conn = ds.getConnection();
+
+            sqlStmt.setLength(0);
+            sqlStmt.append(" DELETE");
+            sqlStmt.append(" FROM");
+            sqlStmt.append(" sched_control");
+            sqlStmt.append(" WHERE");
+            sqlStmt.append(" sched_control_id < ?");
+            ps = conn.prepareStatement(sqlStmt.toString());
+            ps.setLong(1, controlId);
+            ps.executeUpdate();
+        } catch ( Exception dberr ) {
+            throw new RemoteException("Error while attempting to clearJobControlIds", dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
             if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
