@@ -4,6 +4,7 @@ import com.topcoder.web.privatelabel.model.*;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.view.tag.DemographicInput;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -25,9 +26,17 @@ abstract class FullRegBase extends SimpleRegBase {
     public FullRegBase() {
     }
 
-    protected void registrationProcessing() throws TCWebException {
+    protected void businessProcessing() throws TCWebException {
         try {
+            p = new SessionPersistor(getRequest().getSession(true));
+            //gotta do first just in case makeRegInfo() needs the database
+            long companyId = Long.parseLong(getRequestParameter(Constants.COMPANY_ID));
+            db = getCompanyDb(companyId);
+
             questions = getQuestions();
+            regInfo = makeRegInfo();
+            p.setObject(Constants.REGISTRATION_INFO, regInfo);
+            registrationProcessing();
         } catch (Exception e) {
             throw new TCWebException(e);
         }

@@ -16,8 +16,6 @@ public class FullRegDemog extends FullRegBase {
     protected static Logger log = Logger.getLogger(FullRegDemog.class);
 
     protected void registrationProcessing() throws TCWebException {
-        super.registrationProcessing();
-
         checkRegInfo(regInfo);
 
         if (hasErrors()) {
