@@ -662,7 +662,7 @@
     </target>
 
     <!-- hs -->
-    <target name="deploy-hs" depends="war_hs">
+    <target name="deploy-hs" depends="war-hs">
         <antcall target="package-EJB-UserBean"/>
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="HSTermsOfUse"/>
