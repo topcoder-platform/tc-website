@@ -60,7 +60,7 @@
 							<TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
 						</TR>					
 						<TR>
-							<TD VALIGN="middle" COLSPAN="3" HEIGHT="16" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig">&#160;May 20 - May 26, 2002</TD>
+							<TD VALIGN="middle" COLSPAN="3" HEIGHT="16" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig">&#160;May 13 - May 19, 2002</TD>
 						</TR>
 						<TR>
 							<TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
@@ -69,27 +69,20 @@
 							<TD VALIGN="top" COLSPAN="3" CLASS="statText">
 <!-- <A HREF="/stat?c=biggest_rating_gains&amp;dn=1" CLASS="statText">View the list of Division-I Rating Point Gain</A>
 <A HREF="/stat?c=impressive_debuts" CLASS="statText">View the list of Impressive Debuts</A> -->											
-<IMG SRC="/i/m/Brian_big.jpg" ALT="Coder of the Week" WIDTH="126" HEIGHT="140" ALIGN="left" HSPACE="10" VSPACE="10" BORDER="0"/>
+<IMG SRC="/i/m/Minsk_big.jpg" ALT="Coder of the Week" WIDTH="126" HEIGHT="140" ALIGN="left" HSPACE="10" VSPACE="10" BORDER="0"/>
 <P CLASS="statText">
-<B>Handle: </B><A HREF="/stat?c=member_profile&amp;cr=274068" CLASS="coderTextYellow">Brian</A><BR/>
-<B>Rating: </B>1906<BR/>
-<B>Member Since: </B>March&#160;28,&#160;2002<BR/>
-<B>Total Competitions: </B>6<BR/>
+<B>Handle: </B><A HREF="/stat?c=member_profile&amp;cr=283388" CLASS="coderTextYellow">Minsk</A><BR/>
+<B>Rating: </B>1888<BR/>
+<B>Member Since: </B>May&#160;9,&#160;2002<BR/>
+<B>Total Competitions: </B>1<BR/>
 </P>
-
-<P>TopCoder, Inc. announced today that <B>Brian</B>, based on his performance in Single Round Match 91, has been named the "Coder of the Week" for Single Round Matches 90 and 91, which took place between May 20 and May 26, 2002.</P>
-<P>In Single Round Match 91, <B>Brian</B> added 318 points to his rating, which is the 10th largest single round gain in Division-I (<A HREF="/stat?c=biggest_rating_gains&amp;dn=1" CLASS="statText">View the list of Division-I Rating Point Gain</A>).  <B>Brian</B> won Room 9 with 1404.28 final points.  He earned 235.65 points on the Level One problem, 399.07 on the Level Two problem, and 719.56 on the Level Three problem, for a total of 1354.28 points in the "Coding Phase".  <B>Brian</B> then added 50 points to his total with a successful challenge of the Level One submission of <A HREF="/stat?c=member_profile&amp;cr=266162" CLASS="coderTextYellow">rashok</A> in the "Challenge Phase".</P>
-<P>"I have been coding a lot more in the past week or so, than I was previously," said <B>Brian</B>.  "I may have been a little more warmed up at the time of the SRM.</P>
-<P>All three problems in SRM 91 were a good match for my programming style.  My knowledge of STL is a little rusty, so I tend to be slower at parsing and sorting problems.  I also tend to do better at mathematical problems than problems with letters and words.</P>
-<P>I found the third problem particularly interesting, and I had a solution coded for it very quickly, but the program wasn't efficient enough.  I enjoyed figuring out how to optimize the solution.  At the end of the competition, I enjoyed seeing how differently other people had approached the problem.  This problem was clearly one of my favorites!</P>
-<P>My biggest problem in SRM 91 was actually understanding the problems before starting to code.  I had some trouble with the first problem, but I particularly had trouble reading the second problem's description.  Eventually, it helped to think of the two races as G and T, but even then I got confused.</P>
-<P>On a good note, I actually successfully challenged another program.  My record on challenges isn't too good, so I tend to be careful.  This time, I was pretty sure I had found an issue."</P>
-<P><B>Brian</B> has been a TopCoder member since March 28, 2002, and has won $274.</P>
-<P>"I've been having a great time using TopCoder these last couple of months.</P>
-<P>I was amazed when a friend showed me the site.  I immediately started looking forward to my first opportunity to compete.</P>
-<P>I'm regularly impressed by the quality of the people who compete here; their willingness and excitement to discuss the problems and their solutions; and their encouragement of one another at the end of the match.</P>
-<P>It feels wonderful to be selected as 'Coder of the Week'.  Coding is a big part of who I am, and it's nice to have to use that skill in a competitive environment."</P> 
-<P>Other members nominated for "Coder of the Week" were: <A HREF="/stat?c=member_profile&amp;cr=283374" CLASS="coderTextYellow">indigo9</A>, who had a debut rating of 1845 in SRM 90, which is the 12th highest ever (<A HREF="/stat?c=impressive_debuts" CLASS="statText">View the list of Impressive Debuts</A>); and <A HREF="/stat?c=member_profile&amp;cr=264169" CLASS="coderTextBlue">Ninjak</A>, who had 1557.10 final points in SRM 91, the most of any Division-II member.</P>
+<P>TopCoder, Inc. announced today that <B>Minsk</B> has been named the "Coder of the Week" for Single Round Matches 88 and 89, which took place between May 13 and May 19, 2002.</P>
+<P>In Single Round Match 88, <B>Minsk</B>, in his initial TopCoder competition, earned the highest Division-II point total for the match (1370.61), producing a debut rating of 1888, the eighth highest ever (<A HREF="/stat?c=biggest_rating_gains&amp;dn=1" CLASS="statText">View Impressive Rating Point Gains</A>).  <B>Minsk</B> earned 275.77 points on the Level One problem, 423.47 on the Level Two problem, and 671.37 on the Level Three problem.</P>
+<P>"Over the past nine months, I spent a lot of time practicing with <A HREF="/stat?c=member_profile&amp;cr=268851" CLASS="coderTextBlue">gladius</A> and <A HREF="/stat?c=member_profile&amp;cr=269702" CLASS="coderTextYellow">coachbudka</A>," said <B>Minsk</B>.  "After the practices, problems from Division-II become typing contests.  Experience, being comfortable in both Java and C++, and a good typing speed gave me the edge I needed."</P>
+<P><B>Minsk</B> has been a TopCoder member since May 9, 2002, and has won $100.</P>
+<P>"TopCoder was originally proposed by one of my friends as a good way to focus on improving speed and reliability, as well as a fun experience.  Having the lobby available to chat with other contestants, plus the admins and question authors, creates a very enjoyable atmosphere.  Having had the experience, I am encouraging the rest of our group to join TopCoder as well.</P>
+<P>I have been very impressed both with the professionalism of TopCoder and the excellence of many of its members.  Being selected as Coder of the Week is an honor"</P>
+<P>Other members nominated for "Coder of the Week" were: <A HREF="/stat?c=member_profile&amp;cr=278938" CLASS="coderTextBlue">binaryni</A>, who had a Rating Point Gain of 460 in SRM 88, the second largest gain in Division-I (<A HREF="/stat?c=biggest_rating_gains&amp;dn=1" CLASS="statText">View the Division-I Rating Point Gain</A>); <A HREF="/stat?c=member_profile&amp;cr=263381" CLASS="coderTextBlue">fist</A>, who had a 350-point rating gain in SRM 88, the fifth largest gain in Division-I; <A HREF="/stat?c=member_profile&amp;cr=265504" CLASS="coderTextBlue">coderlemming</A>, who had a 343-point rating gain in SRM 88, which is the sixth largest in Division-I; <A HREF="/stat?c=member_profile&amp;cr=282718" CLASS="coderTextGray">rustyoldman</A>, who had a 506-point rating gain in SRM 88, the second largest in Division-II (<A HREF="/stat?c=biggest_rating_gains&amp;dn=2" CLASS="statText">View the Division-II Rating Point Gain</A>); jder, who had a 464-point rating gain in SRM 88, the fifth largest gain in Division-II; and <A HREF="/stat?c=member_profile&amp;cr=282715" CLASS="coderTextGray">The Llama</A>, who had a 450-point rating gain, which ties for the sixth largest gain in Division-II.</P>
 </TD>						
 						</TR>						
 					</TABLE>
