@@ -96,8 +96,148 @@
 <!-- Schedule ends -->
 
 <!-- Statistics begins -->
-    <!-- Statistics pages are JSP and use JSP version of left nav include -->
+        <xsl:when test="/TC/Task='statistics'">
+            <xsl:call-template name="left_nav_top_row" />
+            
+            <table width="180" cellspacing="0" cellpadding="0" border="0">
+                <xsl:call-template name="label_row"/>
+                <xsl:call-template name="sched_row"/>
+
+                <tr><td id="leftNavOn"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=round_overview</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0" />Statistics</A></td></tr>
+
+<!-- Round Overview -->
+                <tr>
+                    <td id="leftSubnav"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=round_overview</xsl:attribute>Round Overview</A></td>
+                </tr>
+
+<!-- Last Match Results -->
+                <tr>
+                    <td id="leftSubnav"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=last_match</xsl:attribute>Last Match Results</A></td>
+                </tr>
+
+<!-- Coder Rankings -->
+                <tr>
+                    <td id="leftSubnav"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=coder_ratings</xsl:attribute>Coder Rankings</A></td>
+                </tr>
+
+<!-- Overview -->
+                <tr>
+                    <td id="leftSubnav">
+                        <xsl:attribute name="id">
+                        <xsl:choose>
+                            <xsl:when test="/TC/Command='editorial_archive'">leftSubnavOn</xsl:when>
+                            <xsl:otherwise>leftSubnav</xsl:otherwise>
+                        </xsl:choose>
+                        </xsl:attribute>
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=statistics&amp;c=editorial_archive</xsl:attribute>Match Editorials</A>
+                    </td>
+                </tr>
+
+<!-- Overview -->
+                <tr>
+                    <td id="leftSubnav">
+                        <xsl:attribute name="id">
+                        <xsl:choose>
+                            <xsl:when test="/TC/Command='quick_stats'">leftSubnavOn</xsl:when>
+                            <xsl:otherwise>leftSubnav</xsl:otherwise>
+                        </xsl:choose>
+                        </xsl:attribute>
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=statistics&amp;c=quick_stats</xsl:attribute>Quick Stats</A>
+                    </td>
+                </tr>
+
+<!-- Advanced Member Search -->
+                <tr>
+                    <td id="leftSubnav"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=search</xsl:attribute>Advanced Member Search</A></td>
+                </tr>
+
+                <xsl:call-template name="feat_row"/>
+                <xsl:call-template name="dev_row"/>
+                <xsl:call-template name="tourney_row"/>
+                <xsl:call-template name="rtables_row"/>
+                <xsl:call-template name="rules_row"/>
+                <xsl:call-template name="corp_label_row"/>
+                <xsl:call-template name="about_row"/>
+                <xsl:call-template name="press_row"/>
+                <xsl:call-template name="contacts_row"/>
+            </table>
+
+            <xsl:call-template name="simple_search"/>
+            <xsl:call-template name="left_nav_btm_row"/>
+        </xsl:when>
 <!--  Statistics ends -->
+
+<!-- Advanced Member Search begins -->
+        <xsl:when test="/TC/Task='search'">
+            <xsl:call-template name="left_nav_top_row" />
+            
+            <table width="180" cellspacing="0" cellpadding="0" border="0">
+                <xsl:call-template name="label_row"/>
+                <xsl:call-template name="sched_row"/>
+
+                <tr><td id="leftNavOn"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=round_overview</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0" />Statistics</A></td></tr>
+
+<!-- Round Overview -->
+                <tr>
+                    <td id="leftSubnav"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=round_overview</xsl:attribute>Round Overview</A></td>
+                </tr>
+
+<!-- Last Match Results -->
+                <tr>
+                    <td id="leftSubnav"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=last_match</xsl:attribute>Last Match Results</A></td>
+                </tr>
+
+<!-- Coder Rankings -->
+                <tr>
+                    <td id="leftSubnav"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=coder_ratings</xsl:attribute>Coder Rankings</A></td>
+                </tr>
+
+<!-- Overview -->
+                <tr>
+                    <td id="leftSubnav">
+                        <xsl:attribute name="id">
+                        <xsl:choose>
+                            <xsl:when test="/TC/Command='editorial_archive'">leftSubnavOn</xsl:when>
+                            <xsl:otherwise>leftSubnav</xsl:otherwise>
+                        </xsl:choose>
+                        </xsl:attribute>
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=statistics&amp;c=editorial_archive</xsl:attribute>Match Editorials</A>
+                    </td>
+                </tr>
+
+<!-- Overview -->
+                <tr>
+                    <td id="leftSubnav">
+                        <xsl:attribute name="id">
+                        <xsl:choose>
+                            <xsl:when test="/TC/Command='quick_stats'">leftSubnavOn</xsl:when>
+                            <xsl:otherwise>leftSubnav</xsl:otherwise>
+                        </xsl:choose>
+                        </xsl:attribute>
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=statistics&amp;c=quick_stats</xsl:attribute>Quick Stats</A>
+                    </td>
+                </tr>
+
+<!-- Advanced Member Search -->
+                <tr>
+                    <td id="leftSubnavOn"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=search</xsl:attribute>Advanced Member Search</A></td>
+                </tr>
+
+                <xsl:call-template name="feat_row"/>
+                <xsl:call-template name="dev_row"/>
+                <xsl:call-template name="tourney_row"/>
+                <xsl:call-template name="rtables_row"/>
+                <xsl:call-template name="rules_row"/>
+                <xsl:call-template name="corp_label_row"/>
+                <xsl:call-template name="about_row"/>
+                <xsl:call-template name="press_row"/>
+                <xsl:call-template name="contacts_row"/>
+            </table>
+
+            <xsl:call-template name="simple_search"/>
+            <xsl:call-template name="left_nav_btm_row"/>
+        </xsl:when>
+<!--  Advanced Member Search ends -->
 
 <!-- Features begins -->
         <xsl:when test="/TC/Task='features'">
@@ -155,7 +295,7 @@
                 <xsl:call-template name="stats_row"/>
                 <xsl:call-template name="feat_row"/>
 
-                <tr><td id="leftNavOn"><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0" />Development:</td></tr>
+                <tr><td id="leftNavOn"><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0" />Development</td></tr>
 
 <!-- Overview -->
                 <tr>

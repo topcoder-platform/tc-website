@@ -7,434 +7,213 @@
           java.util.Iterator"
 %>
 
-    
-<TABLE WIDTH="170" CELLSPACING="0" CELLPADDING="0" BORDER="0" BGCOLOR="#000000"> 
+            <img alt="" width="180" height="5" src="/i/spacer.gif" border="0" /><br/>
+            <img alt="" width="170" height="11" src="/i/left_nav_top.gif" border="0" /><img alt="" width="10" height="11" src="/i/spacer.gif" border="0" /><br/>
+            
+            <table width="180" cellspacing="0" cellpadding="0" border="0">
+
+<!-- TCES begins -->
 <% if (request.getServletPath().indexOf("jobposting")>-1) { %>
-  <tr>
-    <td valign="top" bgcolor="#000000"><img alt="" width="6" height="1" src="/i/clear.gif" border="0"/></td>
-    <td valign="middle" height="18" class="statTextBig" bgcolor="#000000"><img alt="" width="10" height="10" src="/i/arrow_white_down.gif" border="0"/><font color="#FFFFFF">&#160;<a href="/?&amp;t=tces&amp;c=index" class="statTextBig">[TC] Employment Services</a></font></td>
-    <td valign="top" bgcolor="#000000"><img alt="" width="8" height="1" src="/i/clear.gif" border="0"/></td>
-  </tr>
-  <tr><td valign="top" colspan="3" bgcolor="#000000"><img alt="" width="1" height="1" src="/i/clear.gif" border="0"/></td></tr>
-  <tr><td valign="top" class="statText" bgcolor="#333333">&#160;</td>
-    <td valign="middle" height="15" class="statText" bgcolor="#333333" background="/i/clear.gif">
-    &#160;&#160;&#160;<a class="statText" href="?&amp;t=tces&amp;c=index">&#160;&#160;Jobs for Members</a></td>
-    <td valign="top" class="statText" bgcolor="#333333">&#160;</td>
-  </tr>
-  <tr><td valign="top" colspan="3" bgcolor="#000000"><img alt="" width="1" height="1" src="/i/clear.gif" border="0"/></td></tr>
-  <tr><td valign="top" class="statText" bgcolor="#333333">&#160;</td>
-    <td valign="middle" height="15" class="statText" bgcolor="#333333" background="/i/clear.gif">
-    &#160;&#160;&#160;<a class="statText" HREF="/?&amp;t=tces&amp;c=hiring">&#160;&#160;Hiring for Employers</a></td>
-    <td valign="top" class="statText" bgcolor="#333333">&#160;</td>
-  </tr>
-  <tr><td valign="top" colspan="3" bgcolor="#000000"><img alt="" width="1" height="1" src="/i/clear.gif" border="0"/></td></tr>
-            <tr>
-              <td valign="top" bgcolor="#666666"><img alt="" width="6" height="1" src="/i/clear.gif" border="0"/></td>
-              <td valign="middle" height="18" class="statTextBig" bgcolor="#666666"><font color="#000000">&#160;[TCES] Reporting</font></td>
-              <td valign="top" bgcolor="#666666"><img alt="" width="8" height="1" src="/i/clear.gif" border="0"/></td>
-            </tr>
-			<tr>
-			  <td valign="top" bgcolor="#666666" class="subNav" align="right">&#160;</td>
-			  <td valign="top" height="15" bgcolor="#666666" class="statText" width="100%">Employers <a href="/tces/tces?task=LoginTask" class="statText"><b>login</b></a> to access the [TCES] reporting application.<br/></td>
-			  <td valign="top" bgcolor="#666666" class="statText">&#160;</td>
-			</tr>
-            <tr><td colspan="2" bgcolor="#666666"><img src="/i/clear.gif" width="1" height="1" border="0" vspace="2"/></td><td width="1" bgcolor="#666666"><img src="/i/clear.gif" width="1" height="1" border="0"/></td></tr>
 
-    <TR>
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="6" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-      <TD VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BGCOLOR="#000000">What's INSIDE:</TD>
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="8" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-    </TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/?&t=schedule&c=index">Schedule</A></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/stat?&c=round_overview">Statistics</A></TD><TD VALIGN="top" CLASS="statText" >&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/?&t=features&c=index">Features</A></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
+                <tr><td id="leftNavOn"><a class="leftOn" href="?&amp;t=tces&amp;c=index"><img width="10" height="10" src="/i/nav_arrow_bottom.gif" alt="" border="0"/>Employment Services</a></td></tr>
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?&amp;t=tces&amp;c=hiring">Hiring for Employers</a></td></tr>
+                <tr><td id="leftSubnav"><a class="leftOn" href="http://corporate.topcoder.com/tces/?task=MainTask">TCES Reporting</a></td></tr>
 
-    <TR><TD VALIGN="top" CLASS="statText">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/?&t=development&c=index">Development</A></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
+                <tr><td id="leftNavTitle" >What's Inside:</td></tr>
+                <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Schedule</a></td></tr>
+                <tr><td id="leftNav"><a class="left" href="/stat?&c=round_overview"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Statistics</a></td><td valign="top" class="statText" ></td></tr>
+                <tr><td id="leftNav"><a class="left" href="/?&t=features&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Features</a></td></tr>
+                <tr><td id="leftNav"><a class="left" href="/?&t=development&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Development</a></td></tr>
+                <tr><td id="leftNav"><a class="left" href="/?&t=tournaments&c=tourny_index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Tournaments</a></td></tr>
+                <tr><td id="leftNav"><a class="left" href="/rtables/index.jsp">Round Tables</a><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/></td></tr>
+<!-- TCES ends -->
 
-    <TR><TD VALIGN="top" CLASS="statText">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/?&t=tournaments&c=tourny_index">Tournaments</A></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-
-    <TR><TD VALIGN="top" CLASS="statText">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/rtables/index.jsp">Round Tables</A></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
+<!-- Statistics begins -->
 <% } else if (request.getServletPath().indexOf("stat_jsp")>-1) {
      String task = request.getParameter("c")==null?"":request.getParameter("c");
    if (task.equals("round_overview")) { %>
-    <TR> 
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="6" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-      <TD VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BGCOLOR="#000000">What's INSIDE:</TD>
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="8" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-    </TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/?&t=schedule&c=index">Schedule</A></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>   
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white_down.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/stat?&c=round_overview"><FONT COLOR="#FFFFFF">&#160; Statistics</FONT></A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333" BACKGROUND="/i/graybv_lite_bg.gif">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=round_overview">&#160;&#160;Round Overview</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR> 
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=last_match">&#160;&#160;Last Match Results</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>      
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=coder_ratings">&#160;&#160;Coder Rankings</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=statistics&c=editorial_archive">&#160;&#160;Match Editorials</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>             
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=statistics&c=quick_stats">&#160;&#160;Quick Stats</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=search">&#160;&#160;Advanced Member Search</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>  
+ 
+               <tr><td id="leftNavTitle" >What's Inside:</td></tr>
+                <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Schedule</a></td></tr>
+                <tr><td id="leftNavOn"><a class="leftOn" href="/stat?&c=round_overview"><img width="10" height="10" src="/i/nav_arrow_bottom.gif" alt="" border="0"/>Statistics</a></td></tr>
+                <tr><td id="leftSubnavOn"><a class="leftOn" href="/stat?&c=round_overview">Round Overview</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=last_match">Last Match Results</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=coder_ratings">Coder Rankings</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=statistics&c=editorial_archive">Match Editorials</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=statistics&c=quick_stats">Quick Stats</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=search">Advanced Member Search</a></td></tr>  
 
 <%  } else if (task.equals("ratings_history")) { %>
-    <TR> 
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="6" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-      <TD VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BGCOLOR="#000000">What's INSIDE:</TD>
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="8" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-    </TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/?&t=schedule&c=index">Schedule</A></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white_down.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/stat?&c=round_overview"><FONT COLOR="#FFFFFF">&#160; Statistics</FONT></A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=round_overview">&#160;&#160;Round Overview</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR> 
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=last_match">&#160;&#160;Last Match Results</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>      
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=coder_ratings">&#160;&#160;Coder Rankings</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=statistics&c=editorial_archive">&#160;&#160;Match Editorials</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>             
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=statistics&c=quick_stats">&#160;&#160;Quick Stats</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=search">&#160;&#160;Advanced Member Search</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>  
+ 
+               <tr><td id="leftNavTitle" >What's Inside:</td></tr>
+                <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Schedule</a></td></tr>
+                <tr><td id="leftNavOn"><a class="leftOn" href="/stat?&c=round_overview"><img width="10" height="10" src="/i/nav_arrow_bottom.gif" alt="" border="0"/>Statistics</a></td></tr>
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=round_overview">Round Overview</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=last_match">Last Match Results</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=coder_ratings">Coder Rankings</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=statistics&c=editorial_archive">Match Editorials</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=statistics&c=quick_stats">Quick Stats</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=search">Advanced Member Search</a></td></tr>  
 
 <%  } else if (task.equals("earnings_history")) { %>
-    <TR> 
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="6" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-      <TD VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BGCOLOR="#000000">What's INSIDE:</TD>
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="8" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-    </TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/?&t=schedule&c=index">Schedule</A></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white_down.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/stat?&c=round_overview"><FONT COLOR="#FFFFFF">&#160; Statistics</FONT></A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=round_overview">&#160;&#160;Round Overview</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR> 
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=last_match">&#160;&#160;Last Match Results</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>      
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=coder_ratings">&#160;&#160;Coder Rankings</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=statistics&c=editorial_archive">&#160;&#160;Match Editorials</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>             
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=statistics&c=quick_stats">&#160;&#160;Quick Stats</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=search">&#160;&#160;Advanced Member Search</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>  
+ 
+               <tr><td id="leftNavTitle" >What's Inside:</td></tr>
+                <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Schedule</a></td></tr>
+                <tr><td id="leftNavOn"><a class="leftOn" href="/stat?&c=round_overview"><img width="10" height="10" src="/i/nav_arrow_bottom.gif" alt="" border="0"/>Statistics</a></td></tr>
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=round_overview">Round Overview</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=last_match">Last Match Results</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=coder_ratings">Coder Rankings</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=statistics&c=editorial_archive">Match Editorials</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=statistics&c=quick_stats">Quick Stats</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=search">Advanced Member Search</a></td></tr>  
     
 <%  } else if (task.equals("coder_room_stats")) { %>
-    <TR> 
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="6" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-      <TD VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BGCOLOR="#000000">What's INSIDE:</TD>
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="8" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-    </TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/?&t=schedule&c=index">Schedule</A></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white_down.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/stat?&c=round_overview"><FONT COLOR="#FFFFFF">&#160; Statistics</FONT></A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=round_overview">&#160;&#160;Round Overview</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR> 
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=last_match">&#160;&#160;Last Match Results</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>      
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=coder_ratings">&#160;&#160;Coder Rankings</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=statistics&c=editorial_archive">&#160;&#160;Match Editorials</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>             
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=statistics&c=quick_stats">&#160;&#160;Quick Stats</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=search">&#160;&#160;Advanced Member Search</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>  
+ 
+               <tr><td id="leftNavTitle" >What's Inside:</td></tr>
+                <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Schedule</a></td></tr>
+                <tr><td id="leftNavOn"><a class="leftOn" href="/stat?&c=round_overview"><img width="10" height="10" src="/i/nav_arrow_bottom.gif" alt="" border="0"/>Statistics</a></td></tr>
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=round_overview">Round Overview</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=last_match">Last Match Results</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=coder_ratings">Coder Rankings</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=statistics&c=editorial_archive">Match Editorials</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=statistics&c=quick_stats">Quick Stats</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=search">Advanced Member Search</a></td></tr>  
 
 <%  } else if (task.startsWith("round_stats")) { %>
-    <TR> 
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="6" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-      <TD VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BGCOLOR="#000000">What's INSIDE:</TD>
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="8" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-    </TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/?&t=schedule&c=index">Schedule</A></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white_down.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/stat?&c=round_overview"><FONT COLOR="#FFFFFF">&#160; Statistics</FONT></A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=round_overview">&#160;&#160;Round Overview</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR> 
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=last_match">&#160;&#160;Last Match Results</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>      
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=coder_ratings">&#160;&#160;Coder Rankings</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=statistics&c=editorial_archive">&#160;&#160;Match Editorials</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>             
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=statistics&c=quick_stats">&#160;&#160;Quick Stats</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=search">&#160;&#160;Advanced Member Search</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>  
+ 
+               <tr><td id="leftNavTitle" >What's Inside:</td></tr>
+                <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Schedule</a></td></tr>
+                <tr><td id="leftNavOn"><a class="leftOn" href="/stat?&c=round_overview"><img width="10" height="10" src="/i/nav_arrow_bottom.gif" alt="" border="0"/>Statistics</a></td></tr>
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=round_overview">Round Overview</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=last_match">Last Match Results</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=coder_ratings">Coder Rankings</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=statistics&c=editorial_archive">Match Editorials</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=statistics&c=quick_stats">Quick Stats</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=search">Advanced Member Search</a></td></tr>  
 
 <%  } else if (task.equals("room_stats")) { %>
-    <TR> 
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="6" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-      <TD VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BGCOLOR="#000000">What's INSIDE:</TD>
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="8" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-    </TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/?&t=schedule&c=index">Schedule</A></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white_down.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/stat?&c=round_overview"><FONT COLOR="#FFFFFF">&#160; Statistics</FONT></A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=round_overview">&#160;&#160;Round Overview</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR> 
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=last_match">&#160;&#160;Last Match Results</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>      
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=coder_ratings">&#160;&#160;Coder Rankings</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=statistics&c=editorial_archive">&#160;&#160;Match Editorials</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>             
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=statistics&c=quick_stats">&#160;&#160;Quick Stats</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=search">&#160;&#160;Advanced Member Search</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>  
+ 
+               <tr><td id="leftNavTitle" >What's Inside:</td></tr>
+                <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Schedule</a></td></tr>
+                <tr><td id="leftNavOn"><a class="leftOn" href="/stat?&c=round_overview"><img width="10" height="10" src="/i/nav_arrow_bottom.gif" alt="" border="0"/>Statistics</a></td></tr>
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=round_overview">Round Overview</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=last_match">Last Match Results</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=coder_ratings">Coder Rankings</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=statistics&c=editorial_archive">Match Editorials</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=statistics&c=quick_stats">Quick Stats</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=search">Advanced Member Search</a></td></tr>  
 
 <%  } else if (task.equals("last_match") || task.equals("last_match_sorted")) { %>
-    <TR> 
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="6" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-      <TD VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BGCOLOR="#000000">What's INSIDE:</TD>
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="8" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-    </TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/?&t=schedule&c=index">Schedule</A></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white_down.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/stat?&c=round_overview"><FONT COLOR="#FFFFFF">&#160; Statistics</FONT></A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=round_overview">&#160;&#160;Round Overview</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR> 
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333" BACKGROUND="/i/graybv_lite_bg.gif">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=last_match">&#160;&#160;Last Match Results</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>      
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=coder_ratings">&#160;&#160;Coder Rankings</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=statistics&c=editorial_archive">&#160;&#160;Match Editorials</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>             
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=statistics&c=quick_stats">&#160;&#160;Quick Stats</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=search">&#160;&#160;Advanced Member Search</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>  
+ 
+               <tr><td id="leftNavTitle" >What's Inside:</td></tr>
+                <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Schedule</a></td></tr>
+                <tr><td id="leftNavOn"><a class="leftOn" href="/stat?&c=round_overview"><img width="10" height="10" src="/i/nav_arrow_bottom.gif" alt="" border="0"/>Statistics</a></td></tr>
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=round_overview">Round Overview</a></td></tr>  
+                <tr><td id="leftSubnavOn"><a class="leftOn" href="/stat?&c=last_match">Last Match Results</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=coder_ratings">Coder Rankings</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=statistics&c=editorial_archive">Match Editorials</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=statistics&c=quick_stats">Quick Stats</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=search">Advanced Member Search</a></td></tr>  
 
 <%  } else if (task.equals("coder_ratings")) { %>
-    <TR> 
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="6" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-      <TD VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BGCOLOR="#000000">What's INSIDE:</TD>
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="8" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-    </TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/?&t=schedule&c=index">Schedule</A></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white_down.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/stat?&c=round_overview"><FONT COLOR="#FFFFFF">&#160; Statistics</FONT></A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=round_overview">&#160;&#160;Round Overview</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR> 
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=last_match">&#160;&#160;Last Match Results</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>      
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333" BACKGROUND="/i/graybv_lite_bg.gif">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=coder_ratings">&#160;&#160;Coder Rankings</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=statistics&c=editorial_archive">&#160;&#160;Match Editorials</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>             
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=statistics&c=quick_stats">&#160;&#160;Quick Stats</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=search">&#160;&#160;Advanced Member Search</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>  
+ 
+               <tr><td id="leftNavTitle" >What's Inside:</td></tr>
+                <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Schedule</a></td></tr>
+                <tr><td id="leftNavOn"><a class="leftOn" href="/stat?&c=round_overview"><img width="10" height="10" src="/i/nav_arrow_bottom.gif" alt="" border="0"/>Statistics</a></td></tr>
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=round_overview">Round Overview</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=last_match">Last Match Results</a></td></tr>  
+                <tr><td id="leftSubnavOn"><a class="leftOn" href="/stat?&c=coder_ratings">Coder Rankings</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=statistics&c=editorial_archive">Match Editorials</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=statistics&c=quick_stats">Quick Stats</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=search">Advanced Member Search</a></td></tr>  
 
 <%  } else if (task.equals("search")) { %>
-    <TR> 
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="6" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-      <TD VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BGCOLOR="#000000">What's INSIDE:</TD>
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="8" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-    </TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/?&t=schedule&c=index">Schedule</A></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white_down.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/stat?&c=round_overview"><FONT COLOR="#FFFFFF">&#160; Statistics</FONT></A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=round_overview">&#160;&#160;Round Overview</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR> 
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=last_match">&#160;&#160;Last Match Results</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>      
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=coder_ratings">&#160;&#160;Coder Rankings</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=statistics&c=editorial_archive">&#160;&#160;Match Editorials</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>             
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=statistics&c=quick_stats">&#160;&#160;Quick Stats</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333" BACKGROUND="/i/graybv_lite_bg.gif">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=search">&#160;&#160;Advanced Member Search</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>  
+ 
+               <tr><td id="leftNavTitle" >What's Inside:</td></tr>
+                <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Schedule</a></td></tr>
+                <tr><td id="leftNavOn"><a class="leftOn" href="/stat?&c=round_overview"><img width="10" height="10" src="/i/nav_arrow_bottom.gif" alt="" border="0"/>Statistics</a></td></tr>
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=round_overview">Round Overview</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=last_match">Last Match Results</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=coder_ratings">Coder Rankings</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=statistics&c=editorial_archive">Match Editorials</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=statistics&c=quick_stats">Quick Stats</a></td></tr>  
+                <tr><td id="leftSubnavOn"><a class="leftOn" href="/?t=search">Advanced Member Search</a></td></tr>  
 
 <%  } else if (task.equals("member_profile")) { %>
-    <TR> 
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="6" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-      <TD VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BGCOLOR="#000000">What's INSIDE:</TD>
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="8" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-    </TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/?&t=schedule&c=index">Schedule</A></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white_down.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/stat?&c=round_overview"><FONT COLOR="#FFFFFF">&#160; Statistics</FONT></A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=round_overview">&#160;&#160;Round Overview</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR> 
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=last_match">&#160;&#160;Last Match Results</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>      
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=coder_ratings">&#160;&#160;Coder Rankings</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=statistics&c=editorial_archive">&#160;&#160;Match Editorials</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>             
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=statistics&c=quick_stats">&#160;&#160;Quick Stats</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=search">&#160;&#160;Advanced Member Search</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>  
+ 
+               <tr><td id="leftNavTitle" >What's Inside:</td></tr>
+                <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Schedule</a></td></tr>
+                <tr><td id="leftNavOn"><a class="leftOn" href="/stat?&c=round_overview"><img width="10" height="10" src="/i/nav_arrow_bottom.gif" alt="" border="0"/>Statistics</a></td></tr>
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=round_overview">Round Overview</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=last_match">Last Match Results</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=coder_ratings">Coder Rankings</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=statistics&c=editorial_archive">Match Editorials</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=statistics&c=quick_stats">Quick Stats</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=search">Advanced Member Search</a></td></tr>  
 
 <%  } else if (task.equals("coder_room_stats")) { %>
-    <TR> 
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="6" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-      <TD VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BGCOLOR="#000000">What's INSIDE:</TD>
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="8" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-    </TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/?&t=schedule&c=index">Schedule</A></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white_down.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/stat?&c=round_overview"><FONT COLOR="#FFFFFF">&#160; Statistics</FONT></A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=round_overview">&#160;&#160;Round Overview</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR> 
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=last_match">&#160;&#160;Last Match Results</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>      
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=coder_ratings">&#160;&#160;Coder Rankings</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=statistics&c=editorial_archive">&#160;&#160;Match Editorials</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>             
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=statistics&c=quick_stats">&#160;&#160;Quick Stats</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=search">&#160;&#160;Advanced Member Search</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>  
+ 
+               <tr><td id="leftNavTitle" >What's Inside:</td></tr>
+                <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Schedule</a></td></tr>
+                <tr><td id="leftNavOn"><a class="leftOn" href="/stat?&c=round_overview"><img width="10" height="10" src="/i/nav_arrow_bottom.gif" alt="" border="0"/>Statistics</a></td></tr>
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=round_overview">Round Overview</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=last_match">Last Match Results</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=coder_ratings">Coder Rankings</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=statistics&c=editorial_archive">Match Editorials</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=statistics&c=quick_stats">Quick Stats</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=search">Advanced Member Search</a></td></tr>  
 
 <%  } else if (task.equals("problem_solution") || task.equals("problem_statement") ) { %>
-    <TR> 
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="6" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-      <TD VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BGCOLOR="#000000">What's INSIDE:</TD>
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="8" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-    </TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/?&t=schedule&c=index">Schedule</A></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white_down.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/stat?&c=round_overview"><FONT COLOR="#FFFFFF">&#160; Statistics</FONT></A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=round_overview">&#160;&#160;Round Overview</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR> 
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=last_match">&#160;&#160;Last Match Results</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>      
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=coder_ratings">&#160;&#160;Coder Rankings</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=statistics&c=editorial_archive">&#160;&#160;Match Editorials</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>             
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=statistics&c=quick_stats">&#160;&#160;Quick Stats</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>    
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=search">&#160;&#160;Advanced Member Search</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>  
+ 
+               <tr><td id="leftNavTitle" >What's Inside:</td></tr>
+                <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Schedule</a></td></tr>
+                <tr><td id="leftNavOn"><a class="leftOn" href="/stat?&c=round_overview"><img width="10" height="10" src="/i/nav_arrow_bottom.gif" alt="" border="0"/>Statistics</a></td></tr>
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=round_overview">Round Overview</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=last_match">Last Match Results</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=coder_ratings">Coder Rankings</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=statistics&c=editorial_archive">Match Editorials</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=statistics&c=quick_stats">Quick Stats</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=search">Advanced Member Search</a></td></tr>  
 
 <%  } else if (task.equals("all_time_wins") || task.equals("all_time_wins_by_div") || task.equals("winning_debuts") || task.equals("impressive_debuts") || task.equals("highest_totals") || task.equals("biggest_rating_gains") || task.equals("most_consecutive_wins") || task.equals("highest_accuracy") || task.equals("best_challengers")) { %>
-    <TR> 
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="6" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-      <TD VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BGCOLOR="#000000">What's INSIDE:</TD>
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="8" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-    </TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/?&t=schedule&c=index">Schedule</A></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white_down.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/stat?&c=round_overview"><FONT COLOR="#FFFFFF">&#160; Statistics</FONT></A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=round_overview">&#160;&#160;Round Overview</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR> 
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=last_match">&#160;&#160;Last Match Results</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>      
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=coder_ratings">&#160;&#160;Coder Rankings</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=statistics&c=editorial_archive">&#160;&#160;Match Editorials</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>             
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333" BACKGROUND="/i/graybv_lite_bg.gif">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=statistics&c=quick_stats">&#160;&#160;Quick Stats</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>    
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=search">&#160;&#160;Advanced Member Search</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR> 
+ 
+               <tr><td id="leftNavTitle" >What's Inside:</td></tr>
+                <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Schedule</a></td></tr>
+                <tr><td id="leftNavOn"><a class="leftOn" href="/stat?&c=round_overview"><img width="10" height="10" src="/i/nav_arrow_bottom.gif" alt="" border="0"/>Statistics</a></td></tr>
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=round_overview">Round Overview</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=last_match">Last Match Results</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=coder_ratings">Coder Rankings</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=statistics&c=editorial_archive">Match Editorials</a></td></tr>  
+                <tr><td id="leftSubnavOn"><a class="leftOn" href="/?t=statistics&c=quick_stats">Quick Stats</a></td></tr>  
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=search">Advanced Member Search</a></td></tr>  
 
 <%  } else if (task.equals("school_avg_rating") || task.equals("state_avg_rating") || task.equals("country_avg_rating")) { %>
-    <TR>
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="6" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-      <TD VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BGCOLOR="#000000">What's INSIDE:</TD>
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="8" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-    </TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/?&t=schedule&c=index">Schedule</A></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white_down.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/stat?&c=round_overview"><FONT COLOR="#FFFFFF">&#160; Statistics</FONT></A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=round_overview">&#160;&#160;Round Overview</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=last_match">&#160;&#160;Last Match Results</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/stat?&c=coder_ratings">&#160;&#160;Coder Rankings</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=statistics&c=editorial_archive">&#160;&#160;Match Editorials</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=statistics&c=quick_stats">&#160;&#160;Quick Stats</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/?t=search">&#160;&#160;Advanced Member Search</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
+                <tr><td id="leftNavTitle" >What's Inside:</td></tr>
+                <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Schedule</a></td></tr>
+                <tr><td id="leftNavOn"><a class="leftOn" href="/stat?&c=round_overview"><img width="10" height="10" src="/i/nav_arrow_bottom.gif" alt="" border="0"/>Statistics</a></td></tr>
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=round_overview">Round Overview</a></td></tr>
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=last_match">Last Match Results</a></td></tr>
+                <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=coder_ratings">Coder Rankings</a></td></tr>
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=statistics&c=editorial_archive">Match Editorials</a></td></tr>
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=statistics&c=quick_stats">Quick Stats</a></td></tr>
+                <tr><td id="leftSubnav"><a class="leftOn" href="/?t=search">Advanced Member Search</a></td></tr>
 
 <%  } %>
 
-    <TR><TD VALIGN="top" CLASS="statText">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/?&t=features&c=index">Features</A></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-
-    <TR><TD VALIGN="top" CLASS="statText">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/?&t=development&c=index">Development</A></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-
-    <TR><TD VALIGN="top" CLASS="statText">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/?&t=tournaments&c=tourny_index">Tournaments</A></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-
-    <TR><TD VALIGN="top" CLASS="statText">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/rtables/index.jsp">Round Tables</A></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-
+                <tr><td id="leftNav"><a class="left" href="/?&t=features&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Features</a></td></tr>
+                <tr><td id="leftNav"><a class="left" href="/?&t=development&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Development</a></td></tr>
+                <tr><td id="leftNav"><a class="left" href="/?&t=tournaments&c=tourny_index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Tournaments</a></td></tr>
+                <tr><td id="leftNav"><a class="left" href="/rtables/index.jsp"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Round Tables</a></td></tr>
 
 <%} else if (request.getServletPath().indexOf("rtables")>-1) { %>
-    <TR> 
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="6" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-      <TD VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BGCOLOR="#000000">What's INSIDE:</TD>
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="8" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-    </TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/?&t=schedule&c=index">Schedule</A></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#000000">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#000000"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/stat?&c=round_overview">Statistics</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#000000">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>        
-    <TR><TD VALIGN="top" CLASS="statText">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/?&t=features&c=index">Features</A></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>        
-    <TR><TD VALIGN="top" CLASS="statText">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/?&t=development&c=index">Development</A></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>    
-
-    <TR><TD VALIGN="top" CLASS="statText">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/?&t=tournaments&c=tourny_index">Tournaments</A></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    
-    <TR><TD VALIGN="top" CLASS="statText">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white_down.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/rtables/index.jsp"><FONT COLOR="#FFFFFF"> Round Tables</FONT></A></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
+ 
+               <tr><td id="leftNavTitle" >What's Inside:</td></tr>
+                <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Schedule</a></td></tr>
+                <tr><td id="leftNav"><a class="left" href="/stat?&c=round_overview"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Statistics</a></td></tr>
+                <tr><td id="leftNav"><a class="left" href="/?&t=features&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Features</a></td></tr>
+                <tr><td id="leftNav"><a class="left" href="/?&t=development&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Development</a></td></tr>
+                <tr><td id="leftNav"><a class="left" href="/?&t=tournaments&c=tourny_index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Tournaments</a></td></tr>
+                <tr><td id="leftNav"><a class="left" href="/rtables/index.jsp"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><font color="#FFFFFF"> Round Tables</font></a></td></tr>
 <%
   // do a login if all parameters are good
   Authorization aToken = (Authorization) session.getAttribute("jiveAuthorization");
@@ -476,81 +255,41 @@
     int fID = f.getID();
     String fName = f.getName();
     int messageCount = f.getMessageCount();
-
 %>
     
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A HREF="/rtables/viewForum.jsp?forum=<%= fID %>&mc=<%=messageCount%>" class="statText"><%=(fName!=null)?fName:"&nbsp;"%></A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR> 
-<%
-  }
-%>
+    <tr><td valign="middle" height="15" class="statText" bgcolor="#333333"><a href="/rtables/viewForum.jsp?forum=<%= fID %>&mc=<%=messageCount%>" class="statText"><%=(fName!=null)?fName:"&nbsp;"%></a></td></tr>
+
+<% } %>
 
 <%} else if (request.getServletPath().indexOf("pacts")>-1) { %>
-    <TR> 
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="6" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-      <TD VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BGCOLOR="#000000"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white_down.gif" BORDER="0"/>&#160;P.A.C.T.s:</TD>
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="8" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-    </TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;&#160;&#160;<A CLASS="statText" HREF="/PactsMemberServlet?t=payments&amp;c=payment_history">Payments</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;&#160;&#160;<A CLASS="statText" HREF="/PactsMemberServlet?t=affidavit&amp;c=affidavit_history">Affidavits</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR> 
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;&#160;&#160;<A CLASS="statText" HREF="/PactsMemberServlet?t=contracts&amp;c=contract_history">Contracts</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>        
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;&#160;&#160;<A CLASS="statText" HREF="/PactsMemberServlet?t=tax_forms&amp;c=tax_forms_history">Tax Forms</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>     
-    <TR> 
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="6" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-      <TD VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BGCOLOR="#000000">What's INSIDE:</TD>
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="8" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-    </TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/?&t=schedule&c=index">Schedule</A></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white_down.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/stat?&c=round_overview">Statistics</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/?&t=features&c=index">Features</A></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>    
-    
-    <TR><TD VALIGN="top" CLASS="statText">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/?&t=development&c=index">Development</A></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>    
 
-    <TR><TD VALIGN="top" CLASS="statText">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/?&t=tournaments&c=tourny_index">Tournaments</A></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#000000">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#000000"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/stat?&c=round_overview">Statistics</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#000000">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/rtables/index.jsp">Round Tables</A></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
+                <tr><td id="leftNavTitle">P.A.C.T.s:</td>
+                <tr><td id="leftSubnav"><a class="leftOn" href="/PactsMemberServlet?t=payments&amp;c=payment_history">Payments</a></td></tr>
+                <tr><td id="leftSubnav"><a class="leftOn" href="/PactsMemberServlet?t=affidavit&amp;c=affidavit_history">Affidavits</a></td></tr>
+                <tr><td id="leftSubnav"><a class="leftOn" href="/PactsMemberServlet?t=contracts&amp;c=contract_history">Contracts</a></td></tr>
+                <tr><td id="leftSubnav"><a class="leftOn" href="/PactsMemberServlet?t=tax_forms&amp;c=tax_forms_history">Tax Forms</a></td></tr>
 
+                <tr><td id="leftNavTitle">What's Inside:</td></tr>
+                <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Schedule</a></td></tr>
+                <tr><td id="leftNav"><a class="left" href="/stat?&c=round_overview"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Statistics</a></td></tr>
+                <tr><td id="leftNav"><a class="left" href="/?&t=features&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Features</a></td></tr>
+                <tr><td id="leftNav"><a class="left" href="/?&t=development&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Development</a></td></tr>
+                <tr><td id="leftNav"><a class="left" href="/?&t=tournaments&c=tourny_index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Tournaments</a></td></tr>
+                <tr><td id="leftNav"><a class="left" href="/rtables/index.jsp"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Round Tables</a></td></tr>
 
-<%} %>     
-    
+<% } %>     
 
-    <TR><TD VALIGN="top" CLASS="statText">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/?&t=support&c=index">Support/FAQs</A></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>  
-    <TR> 
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="6" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD><TD VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BGCOLOR="#000000">[TC] Corporate</TD><TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="8" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-    </TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR> 
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="6" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD><TD VALIGN="middle" HEIGHT="15" CLASS="statTextBig" BGCOLOR="#000000"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/?&t=about_tc&c=index">About Us</A></TD><TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="8" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-    </TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR> 
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="6" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD><TD VALIGN="middle" HEIGHT="15" CLASS="statTextBig" BGCOLOR="#000000"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/?&t=news_events&c=index">Press Room</A></TD><TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="8" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-    </TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR> 
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="6" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD><TD VALIGN="middle" HEIGHT="15" CLASS="statTextBig" BGCOLOR="#000000"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white.gif" BORDER="0"/>&#160;<A CLASS="statTextBig" HREF="/?&t=contacts&c=index">Contacts</A></TD><TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="8" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-    </TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR> 
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333" COLSPAN="3"><jsp:include page="../includes/modules/simpleSearch.jsp"/></TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
+                <tr><td id="leftNav"><a class="left" href="/?&t=support&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Support/FAQs</a></td></tr>
 
+<!-- TopCoder Info begins -->
+                <tr><td id="leftNavTitle">TopCoder Info:</td></tr>
+                <tr><td id="leftNav"><a class="left" href="/?&t=about_tc&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>About Us</a></td></tr>
+                <tr><td id="leftNav"><a class="left" href="/?&t=news_events&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Press Room</a></td></tr>
+                <tr><td id="leftNav"><a class="left" href="/?&t=contacts&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Contacts</a></td></tr>
+                <tr><td bgcolor="#990000"><jsp:include page="../includes/modules/simpleSearch.jsp"/></td></tr>  
+<!-- TopCoder Info ends -->
 
-</TABLE>
-            <IMG ALT="" WIDTH="170" HEIGHT="23" SRC="/i/left_nav_btm.gif" BORDER="0"/><BR/><BR/><IMG SRC="/i/logo_ghosted_bracket.gif" WIDTH="160" HEIGHT="77" ALT="[ TopCoder ]" VSPACE="10" BORDER="0"/>
+            </table>
+            
+            <img alt="" width="180" height="23" src="/i/left_nav_btm.gif" border="0"/><br /><br />
+            <div align="center"><img src="/i/logo_ghosted_bracket.gif" width="160" height="77" alt="[ TopCoder ]" vspace="10" border="0"/></div><br /><br />
