@@ -119,6 +119,7 @@ public class QueryMover {
                 e1.printStackTrace();
             }
             e.printStackTrace();
+/*
         } catch (NotSupportedException e) {
             e.printStackTrace();
         } catch (SystemException e) {
@@ -129,6 +130,7 @@ public class QueryMover {
             e.printStackTrace();
         } catch (HeuristicRollbackException e) {
             e.printStackTrace();
+*/
         } catch (CreateException e) {
             e.printStackTrace();
         }
