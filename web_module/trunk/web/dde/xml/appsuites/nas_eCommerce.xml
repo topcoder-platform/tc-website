@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<appSuite>
+	<name>eCommerce</name>
+	<catalog>dotnet</catalog>
+	<overview>This application suite is built from the ground up as an online business tool, encompassing every aspect needed to make your website a fully functional commerce center.&lt;br&gt;&lt;br&gt;TopCoder's member base is a distributed resource that spans over 150 countries. Unlike strictly off-shore development firms, it doesn't matter what country our members call home, as long as they've proven that they can deliver a better solution than their peers. Since our members work for TopCoder as contractors, not employees, our fixed costs are much lower than our competition.&lt;br&gt;&lt;br&gt;We've spent a year developing substantial catalogs of re-usable Java and .NET components. Re-using these bits of software over and over on client projects allows us to substantially shorten timelines and decrease costs. We then pass these savings onto our clients.&lt;br&gt;&lt;br&gt;Differentiating our members by talent through competition insures that only quality developers are working on our code. Each week, hundreds of TopCoder members compete in programming competitions, where they are rated based on the results. Only members with acceptable ratings are allowed to develop software for TopCoder Software. Our Component Catalogs are made up of the extremely high quality components developed by our members. These components are of such high quality due to the fact that they have been used and re-used in multiple applications. TopCoder strives to develop as many applications with re-usable components as possible.</overview>
+	<functionality>&lt;li&gt;Security&lt;/li&gt;&lt;li&gt;Credit Card Validation&lt;/li&gt;&lt;li&gt;Shopping Cart System&lt;/li&gt;&lt;li&gt;Inventory Database&lt;/li&gt;</functionality>
+	<sampleApp>
+		<doc file='http://172.16.20.20/i/development/Spreadsheet_Engine_Sequence_Diagram_1.jpg'>Sequence Diagram 01</doc>
+	</sampleApp>
+	<caseStudy file='http://www.topcoder.com/i/downloads/Gift_Card_Case_Study.pdf'/>
+	<componentList>
+		<component name='Address Book' ID='http://software.topcoder.com/catalog/c_component.jsp?comp=8603710&ver=1'/>
+		<component name='Auditor' ID=''/>
+		<component name='Authentication Factory' ID=''/>
+		<component name='Authorization' ID=''/>
+		<component name='Catalog' ID=''/>
+		<component name='Configuration Manager' ID=''/>
+		<component name='Connection Factory' ID=''/>
+		<component name='Credit Card Validation' ID=''/>
+		<component name='Data Access Interface' ID=''/>
+		<component name='Data Grouping' ID=''/>
+		<component name='Data Validation' ID=''/>
+		<component name='Document Generator' ID=''/>
+		<component name='Email Engine' ID=''/>
+		<component name='Encryption' ID=''/>
+		<component name='Event Engine' ID=''/>
+		<component name='File Upload' ID=''/>
+		<component name='ID Generator' ID=''/>
+		<component name='Logging Wrapper' ID=''/>
+		<component name='Multi-File Upload' ID=''/>
+		<component name='Object Formatter' ID=''/>
+		<component name='Password Validator' ID=''/>
+		<component name='Phonetic Pattern Matching' ID=''/>
+		<component name='Priority Queue' ID=''/>
+		<component name='Refreshable Cache' ID=''/>
+		<component name='Simple Cache' ID=''/>
+		<component name='Status Tracker' ID=''/>
+		<component name='Timer' ID=''/>
+	</componentList>
+&lt;br&gt;&lt;br&gt;
+	<compDiagram>
+		<appFunction name='Online Checkout' desc=''>
+			<component name='Address Book' details='http://software.topcoder.com/catalog/c_component.jsp?comp=8603710&ver=1' desc='The address book component allows for the creation and management of multiple address books and addresses for a specific entity. Books and addresses can be created, deleted or renamed. Any book can be set as the primary address book. Multiple addresses can be added to multiple address books.&lt;br&gt;&lt;br&gt;A user may create a profile on a website containing an address book. This user will then be able to create and edit all of their addresses and address book information online. Another example includes setting up a business as a contact with multiple addresses one for billing and one for shipping.'/>
+			<component name='Data Validation' details='' desc=''/>
+			<component name='Object Formatter' details='' desc=''/>
+			<component name='Timer' details='' desc=''/>
+		</appFunction>
+		<appFunction name='Product Browsing' desc=''>
+			<component name='Search Engine' details='' desc=''/>
+			<component name='Phonetic Pattern Matching' details='' desc=''/>
+			<component name='Catalog' details='' desc=''/>
+		</appFunction>
+		<appFunction name='Foundation' desc=''>
+			<component name='Configuration Manager' details='' desc=''/>
+			<component name='Simple Cache' details='' desc=''/>
+			<component name='Logging Wrapper' details='' desc=''/>
+			<component name='ID Generator' details='' desc=''/>
+			<component name='Connection Factory' details='' desc=''/>
+			<component name='Data Access Interface' details='' desc=''/>
+		</appFunction>
+		<appFunction name='Security' desc=''>
+			<component name='Authentication Factory' details='' desc=''/>
+			<component name='Authorization' details='' desc=''/>
+			<component name='Encryption' details='' desc=''/>
+			<component name='Password Validator' details='' desc=''/>
+		</appFunction>
+		<appFunction name='Order Processing' desc=''>
+			<component name='Status Tracker' details='' desc=''/>
+			<component name='Credit Card Validation' details='' desc=''/>
+		</appFunction>
+		<appFunction name='Administration' desc=''>
+			<component name='File Upload' details='' desc=''/>
+			<component name='Mulit-File Upload' details='' desc=''/>
+		</appFunction>
+		<appFunction name='Customer Communication' desc=''>
+			<component name='Event Engine' details='' desc=''/>
+			<component name='Document Generator' details='' desc=''/>
+			<component name='Email Engine' details='' desc=''/>
+			<component name='Priority Queue' details='' desc=''/>
+			<component name='Auditor' details='' desc=''/>
+		</appFunction>
+	</compDiagram>
+</appSuite>
