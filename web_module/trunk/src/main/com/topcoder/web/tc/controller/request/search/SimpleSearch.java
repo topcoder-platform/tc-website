@@ -35,8 +35,9 @@ public class SimpleSearch extends Base {
             Map res = cda.getData(r);
 
             ResultSetContainer rsc = (ResultSetContainer)res.get("member_search");
+            ResultSetContainer count = (ResultSetContainer)res.get("count");
             m.setResults(rsc);
-            m.setTotal(rsc.size());
+            m.setTotal(count.getIntItem(0, "count"));
             getRequest().setAttribute("memberSearch", m);
 
             setNextPage(Constants.SIMPLE_SEARCH_RESULTS);
