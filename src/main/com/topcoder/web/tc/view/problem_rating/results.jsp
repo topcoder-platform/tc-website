@@ -4,7 +4,7 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <jsp:useBean id="problemRatingResults" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" />
-<jsp:useBean id="overallDistribution" scope="request" class="java.util.List" />
+<jsp:useBean id="overallDistribution" scope="request" class="java.util.List" /> 
 <jsp:useBean id="competitorDistribution" scope="request" class="java.util.List" />
 <%
     int count = 0;
