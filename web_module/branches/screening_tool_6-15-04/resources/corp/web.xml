@@ -546,6 +546,12 @@
             <param-value>abcdefghijkmnopqrstuvwxyz23456789ABCDEFGHJKLMNPQRSTUVWXYZ_</param-value>
             <description></description>
         </init-param>
+        
+        <init-param>
+            <param-name>search_scroll_size</param-name>
+            <param-value>1</param-value>
+            <description></description>
+        </init-param>
 
         <init-param>
             <param-name>default_page</param-name>

@@ -26,6 +26,9 @@
  <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="10"border="0"><br>
                      <screen:form name='searchForm' method='get' action='<%=sessionInfo.getServletPath()%>'>
                         <INPUT type="hidden" name='<%=Constants.MODULE_KEY%>' value='SearchResults'/>
+                        <input type="hidden" name="<%=DataAccessConstants.START_RANK%>" value=""/>
+                        <input type="hidden" name="<%=DataAccessConstants.END_RANK%>" value=""/>
+
                           <jsp:include page="searchForm.jsp"/>
                           <br/>
                           <jsp:include page="resultsForm.jsp"/>

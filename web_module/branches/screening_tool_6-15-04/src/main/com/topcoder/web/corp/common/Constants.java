@@ -79,6 +79,8 @@ public class Constants
     public static String CREATE_CANDIDATE_PROCESSOR;
     public static String POPULATE_CANDIDATE_PROCESSOR;
     public static String CHECK_COMPANY_USER_QUERY_KEY;
+    
+    public static int SEARCH_SCROLL_SIZE;
 
     /**
      * <p>A <code>String</code> name of the command within <code>Query Tool</code> to be executed to get the content of

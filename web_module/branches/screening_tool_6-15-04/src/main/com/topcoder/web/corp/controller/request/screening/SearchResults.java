@@ -49,6 +49,21 @@ public class SearchResults extends BaseScreeningProcessor {
         
         ret.setUserId(getUser().getId());
         
+        String start = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
+        if (start.equals(""))
+            ret.setStart(1); 
+        else ret.setStart(Integer.parseInt(start));
+
+        String end = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.END_RANK));
+        if (end.equals("")) 
+            ret.setEnd(Constants.SEARCH_SCROLL_SIZE); 
+        else ret.setEnd(Integer.parseInt(end));
+
+        //make sure we like the size they they're searching for
+        if (ret.getEnd()-ret.getStart()>(Constants.SEARCH_SCROLL_SIZE-1)) {
+            ret.setEnd(ret.getStart()+(Constants.SEARCH_SCROLL_SIZE-1));
+        }
+        
         StringBuffer query = new StringBuffer(1000);
         //generate results
         query.append("select distinct u.first_name || ' ' || u.last_name as name, ");
@@ -116,8 +131,8 @@ public class SearchResults extends BaseScreeningProcessor {
         
         QueryRequest r = new QueryRequest();
         r.addQuery("search", query.toString());
-        //r.setProperty("member_search"+DataAccessConstants.START_RANK, m.getStart().toString());
-        //r.setProperty("member_search"+DataAccessConstants.END_RANK, m.getEnd().toString());
+        r.setProperty("search"+DataAccessConstants.START_RANK, String.valueOf(ret.getStart()));
+        r.setProperty("search"+DataAccessConstants.END_RANK, String.valueOf(ret.getEnd()));
 
         
         CachedQueryDataAccess cda = new CachedQueryDataAccess(Constants.DATA_SOURCE);
@@ -127,12 +142,12 @@ public class SearchResults extends BaseScreeningProcessor {
         
         ret.setResults(rsc);
         ret.setTotal(rsc.getRowCount());
-        /*if (m.getEnd().intValue() > m.getTotal()) {
-            m.setEnd(new Integer(m.getTotal()));
+        if (ret.getEnd() > ret.getTotal()) {
+            ret.setEnd(ret.getTotal());
         }
-        if (m.getTotal()==0) {
-            m.setStart(new Integer(0));
-        }*/
+        if (ret.getTotal()==0) {
+            ret.setStart(0);
+        }
         
         return ret;
     }

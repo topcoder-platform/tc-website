@@ -22,6 +22,9 @@ public class SearchModel extends BaseModel {
     private long total;
     private long userId;
     
+    private long start;
+    private long end;
+    
     /** Creates a new instance of SearchModel */
     public SearchModel() {
         firstName = "";
@@ -29,6 +32,22 @@ public class SearchModel extends BaseModel {
         emailAddress = "";
         total = 0;
         userId = 0;
+    }
+    
+    public void setStart(long i) {
+        start = i;
+    }
+    
+    public void setEnd(long i ) {
+        end = i;
+    }
+    
+    public long getStart() {
+        return start;
+    }
+    
+    public long getEnd() {
+        return end;
     }
     
     public void setUserId(long i) {

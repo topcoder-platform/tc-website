@@ -97,6 +97,9 @@ function getProblemDetail(id) {
 
           <table  border="0" cellspacing="0" cellpadding="0" width="600" align="center" class="screeningFrameNB">
               <tr valign="middle">
-                  <td class="screeningCellOdd" align="center"><A href="">prev</a>&#160;&#160;|&#160;&#160;<A href="">next</A></td>
+                  <td class="screeningCellOdd" align="center">
+                    <%=(results.croppedDataBefore()?"<a href=\"Javascript:previous()\" >&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+                    | <%=(results.croppedDataAfter()?"<a href=\"Javascript:next()\" >next &gt;&gt;</a>":"next &gt;&gt;")%>
+                  </td>
               </tr>
           </table>
