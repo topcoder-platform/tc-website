@@ -4,7 +4,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>Topcoder | Testing Application Management Tool</title>
+<title>Topcoder | Technical Assessment Application Management Tool</title>
 
 <jsp:include page="../includes/script.jsp" />
 
@@ -71,9 +71,9 @@ function submitConfirm() {
                 <tr valign="top">
                     <td class="bodyText">
                         <h1 class="testHead">Create a New Session - <font color="#000000">Set up a New Test Profile</font></h1>
-                        <p>Each candidate is assigned to a Test Profile. Each Test Profile is assigned two sets of problems&#151;Test Set A, which is used to screen for 
+                        <p>Each candidate is assigned to a Test Profile. Each Test Profile is assigned two sets of problems&#151;Test Set A, which is used to screen for
                         accuracy and speed, and Test Set B, which is used to screen for accuracy and style.</p>
-                        
+
                         <p>To set up a new Test Profile, follow these steps:</p>
                         <ol>
                             <li>Choose an appropriate name for the Test Profile.</li>
@@ -99,7 +99,7 @@ function submitConfirm() {
 
             <table cellspacing="0" cellpadding="3" width="70%" class="testFrame">
                 <tr><td class="testTableTitle" colspan="3">Test Profile</td></tr>
-                
+
                 <tr>
                     <td class="testTableSubtitleOdd">Name</td>
                     <td class="testTableOdd"><input type="text" name="profileName" value ="<jsp:getProperty name="profile" property="profileName" />" size="30" maxlength="100"></td>
@@ -167,7 +167,7 @@ function submitConfirm() {
                     <td width="1%" align="center" class="testFormHeader">&#160;</td>
                     <td width="10" class="testFormHeader"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
                  </tr>
-            
+
                 <input type="hidden" name="testSetBRemove" value="" >
                 <screen:listIterator id="testB" list="<%=profile.getTestSetBList()%>">
                 <input type="hidden" name="testSetB" value="<screen:beanWrite name="testB" property="roundId" />,<screen:beanWrite name="testB" property="problemId"/>" >
@@ -188,9 +188,9 @@ function submitConfirm() {
                     <td colspan="5" class="errorTextOdd"><screen:errors id="err" name="testSetB" ><%=err%></screen:errors></td>
                     <td width="10"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
                 </tr>
-            
+
                 <tr><td colspan="7"><img src="/i/corp/clear.gif" width="1" height="20" alt="" border="0"></td></tr>
-            
+
                 <tr>
                     <td width="10"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
                     <td colspan="5" align="center">
@@ -202,19 +202,19 @@ function submitConfirm() {
                     </td>
                     <td width="10"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
                 </tr>
-                
+
                   <tr>
                     <td width="10"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
                     <td colspan="5"><div align="center"><p class="button"><a href="JavaScript:submitAdd()" class="button">Add to Test Set B</a></p></div></td>
                     <td width="10"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
                 </tr>
-            
+
                 <tr><td colspan="7"><img src="/i/corp/clear.gif" width="1" height="20" alt="" border="0"></td></tr>
 
                 <tr>
                     <td class="testTableTitle" colspan="7">Available Languages</td>
                 </tr>
-                    
+
                 <screen:resultSetRowIterator id="row" list="<%=profile.getLanguageList()%>">
                 <tr>
                     <td width="10"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
@@ -228,7 +228,7 @@ function submitConfirm() {
                     <td width="10"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
                 </tr>
                 </screen:resultSetRowIterator>
-                
+
                 <tr>
                     <td width="10"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
                     <td colspan="5" class="errorTextOdd"><screen:errors id="err" name="language" ><%=err%></screen:errors></td>

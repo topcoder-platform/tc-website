@@ -4,7 +4,7 @@
 
 <head>
 
-<title>Testing Environment</title>
+<title>Technical Assessment Environment</title>
 
 <link rel="stylesheet" type="text/css" href="/css/corpStyle.css">
 
@@ -50,7 +50,7 @@
         <td background="/i/testBodyTop.gif" width="100%"><img src="/i/corp/clear.gif" alt="" width="10" height="10" alt="0" border="0"></td>
         <td><img src="/i/corp/testBodyTopRight.gif" alt="" width="10" height="10" alt="0" border="0"></td>
     </tr>
-      
+
     <tr>
         <td background="/i/testBodyLeft.gif" width="10"><img src="/i/corp/clear.gif" alt="" width="10" height="10" border="0"></td>
         <td width="100%" align="center">
@@ -72,8 +72,8 @@
                 <tr>
                     <td class="bodyText">
                         <h1 class="bodyTitle">Clearing the Code</h1>
-                        
-                        <p>Using the <strong>Clear</strong> button, you can quickly clear out the coding window.  Use this option <strong>ONLY</strong> if you wish to start 
+
+                        <p>Using the <strong>Clear</strong> button, you can quickly clear out the coding window.  Use this option <strong>ONLY</strong> if you wish to start
                         over on a particular problem.  <i>Warning:  Once you clear your code, there is no way to retrieve it!</i></p>
 
                     </td>
@@ -82,14 +82,14 @@
         </td>
         <td  background="/i/testBodyRight.gif" width="10"><img src="/i/corp/clear.gif" alt="" width="10" height="10" border="0"></td>
     </tr>
-      
+
     <tr>
         <td width="10"><img src="/i/corp/testBodyBottomLeft.gif" alt="" width="10" height="10" border="0"></td>
         <td width="100%" background="/i/testBodyBottom.gif"><img src="/i/corp/clear.gif" alt="" width="10" height="10" border="0"></td>
         <td width="10"><img src="/i/corp/testBodyBottomRight.gif" alt="" width="10" height="10" border="0"></td>
     </tr>
 </table>
-      
+
 </div>
 
 </body>

@@ -4,7 +4,7 @@
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <HTML>
 <HEAD>
-<title>Topcoder&#160;&#160;|&#160;&#160;Testing Application Management Tool</title>
+<title>Topcoder&#160;&#160;|&#160;&#160;Technical Assessment Application Management Tool</title>
 <jsp:include page="../includes/script.jsp"/>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <SCRIPT TYPE="text/javascript">
@@ -43,7 +43,7 @@ function getProblemDetail(id) {
                 <tr valign="top">
                     <td class="bodyText">
                <h1 class="testHead">Problem Sets</h1>
-            <P>Below is a list of Problem Sets available for use in the Testing Application.  Clicking on a Problem Name opens a window that
+            <P>Below is a list of Problem Sets available for use in the Technical Assessment Application.  Clicking on a Problem Name opens a window that
             displays statistical information about the Problem, as well as the Problem Statement.<br/><br/></P>
                     </td>
                 </tr>
@@ -82,8 +82,8 @@ function getProblemDetail(id) {
 	        </TR>
             </screen:problemInfoIterator>
         </screen:nestedListIterator>
-        </TABLE>                 
-</FORM>         
+        </TABLE>
+</FORM>
             <p><br></p>
         </td>
         <td width="50%"></td>

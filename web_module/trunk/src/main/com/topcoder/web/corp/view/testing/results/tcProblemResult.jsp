@@ -4,7 +4,7 @@
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <HTML>
 <HEAD>
-<title>Topcoder&#160;&#160;|&#160;&#160;Testing Application Management Tool</title>
+<title>Topcoder&#160;&#160;|&#160;&#160;Technical Assessment Application Management Tool</title>
 <jsp:include page="../includes/script.jsp"/>
 </HEAD>
 

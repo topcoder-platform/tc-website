@@ -2,7 +2,7 @@
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <HTML>
 <HEAD>
-<title>Topcoder&#160;&#160;|&#160;&#160;Testing Application Management Tool</title>
+<title>Topcoder&#160;&#160;|&#160;&#160;Technical Assessment Application Management Tool</title>
 <jsp:include page="../includes/script.jsp"/>
 </HEAD>
 
@@ -13,7 +13,7 @@
 
     <tr>
         <td width="15"><a name="top"></a><img src="/i/corp/clear.gif" width="15" height="1" alt="" border="0"></td>
-        <td width="206"><img src="/i/corp/logo_testing.gif" width="206" height="49" border="0" alt="TopCoder Testing Application" vspace="13"></TD>
+        <td width="206"><img src="/i/corp/logo_testing.gif" width="206" height="49" border="0" alt="TopCoder Technical Assessment Application" vspace="13"></TD>
         <td width="100%"><img src="/i/corp/clear.gif" width="1" height="1" alt="" border="0"></td>
     </tr>
 
@@ -49,7 +49,7 @@
                <TD ALIGN="center" CLASS="screeningHeader">Difficulty</TD>
                <TD ALIGN="center" CLASS="screeningHeader">Sub. %</TD>
                <TD ALIGN="center" CLASS="screeningHeader">Sub. Acc. %</TD>
-	       <TD ALIGN="center" CLASS="screeningHeader">Overall Accuracy %</TD>       
+	       <TD ALIGN="center" CLASS="screeningHeader">Overall Accuracy %</TD>
                <TD ALIGN="center" CLASS="screeningHeader">Algorithmic Categories</TD>
             </TR>
             <TR>

@@ -4,7 +4,7 @@
 
 <head>
 
-<title>Testing Environment</title>
+<title>Technical Assessment Environment</title>
 
 <link rel="stylesheet" type="text/css" href="/css/corpStyle.css">
 
@@ -50,7 +50,7 @@
         <td background="/i/testBodyTop.gif" width="100%"><img src="/i/corp/clear.gif" alt="" width="10" height="10" alt="0" border="0"></td>
         <td><img src="/i/corp/testBodyTopRight.gif" alt="" width="10" height="10" alt="0" border="0"></td>
     </tr>
-      
+
     <tr>
         <td background="/i/testBodyLeft.gif" width="10"><img src="/i/corp/clear.gif" alt="" width="10" height="10" border="0"></td>
         <td width="100%" align="center">
@@ -72,9 +72,9 @@
                 <tr>
                     <td class="bodyText">
                         <h1 class="bodyTitle">The Timer</h1>
-                        
-                        <p>The timer in the coding window will be always counting down to the end of the current testing phase.  Remember that there 
-                        is variable latency between your computer and our servers.  For that reason, it is ALWAYS best to perform any submissions 
+
+                        <p>The timer in the coding window will be always counting down to the end of the current testing phase.  Remember that there
+                        is variable latency between your computer and our servers.  For that reason, it is ALWAYS best to perform any submissions
                         with at least 30 seconds left on the timer.</p>
 
                     </td>
@@ -83,14 +83,14 @@
         </td>
         <td  background="/i/testBodyRight.gif" width="10"><img src="/i/corp/clear.gif" alt="" width="10" height="10" border="0"></td>
     </tr>
-      
+
     <tr>
         <td width="10"><img src="/i/corp/testBodyBottomLeft.gif" alt="" width="10" height="10" border="0"></td>
         <td width="100%" background="/i/testBodyBottom.gif"><img src="/i/corp/clear.gif" alt="" width="10" height="10" border="0"></td>
         <td width="10"><img src="/i/corp/testBodyBottomRight.gif" alt="" width="10" height="10" border="0"></td>
     </tr>
 </table>
-      
+
 </div>
 
 </body>

@@ -5,7 +5,7 @@
 <HTML>
 <HEAD>
 
-<title>Topcoder&#160;&#160;|&#160;&#160;Testing Application Management Tool</title>
+<title>Topcoder&#160;&#160;|&#160;&#160;Technical Assessment Application Management Tool</title>
 
 <jsp:include page="../includes/script.jsp"/>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
@@ -90,8 +90,8 @@ if ( plugin ) {
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
                 <tr valign="top">
                     <td class="bodyText">
-            <p class="testHead">Problem Results</p>                
-            <P>Below are the submitted code and system test results for the candidate.  Clicking on the point value in the Top TopCoder 
+            <p class="testHead">Problem Results</p>
+            <P>Below are the submitted code and system test results for the candidate.  Clicking on the point value in the Top TopCoder
             Solutions table opens a window that displays the submitted code and system test results for the highest TopCoder point-getter.</P>
                     </td>
                 </tr>
@@ -108,7 +108,7 @@ if ( plugin ) {
 	        <%if( request.getAttribute(Constants.USAGE_TYPE) != null && ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
 	        <tr>
                     <td class="bodyText">
-                        <strong>Preference Level:</strong> 
+                        <strong>Preference Level:</strong>
                         <SCRIPT language="JavaScript">
                         <!--
                         if ( MM_FlashCanPlay ) {
@@ -144,12 +144,12 @@ if ( plugin ) {
                         </SCRIPT>
                     </td>
 	        </tr>
-	        <% } %>	 
+	        <% } %>
 	        <TR>
 		       <TD VALIGN="top" CLASS="bodyText">
                            <B>Test Profile:</B> <jsp:getProperty name='profileInfo' property='profileName'/>
                        </TD>
-	        </TR>	                 
+	        </TR>
 	        <TR>
 		       <TD VALIGN="top" CLASS="bodyText">
                            <B>Problem Set:</B> <jsp:getProperty name='profileInfo' property='testSetAName'/>
@@ -203,7 +203,7 @@ if ( plugin ) {
 		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="screeningCellOdd" colspan='4'>
                            No system tests were performed on this problem.
                        </TD>
-	        </TR>	        
+	        </TR>
            <% } %>
          </table>
 
@@ -212,7 +212,7 @@ if ( plugin ) {
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
            <TR>
               <TD COLSPAN="4" CLASS="screeningTitle">Top TopCoder Solutions</TD>
-           </TR>	        
+           </TR>
 	        <TR>
 		       <TD ALIGN="center" CLASS="screeningHeader">Points</TD>
 		       <TD ALIGN="center" CLASS="screeningHeader">Division</TD>
@@ -236,11 +236,11 @@ if ( plugin ) {
 		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="screeningCellOdd" colspan='5'>
                            No TopCoder solutions available for this problem.
                        </TD>
-	        </TR>	        
+	        </TR>
            <% } %>
-         </TABLE>                 
+         </TABLE>
          <% } %>
-</FORM>         
+</FORM>
             <p><br></p>
         </td>
         <td width="50%"></td>
