@@ -61,7 +61,13 @@
   <BR/><BR/>
           <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="1">
             <TR>
-               <TD COLSPAN="4" VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif">&#160;&#160;<xsl:value-of select="/TC/SCHEDULE/Advancers/Advancer/contest_name"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Advancers/Advancer/round_name"/></TD>
+               <TD COLSPAN="4" VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif">
+               2002 TopCoder Inv Semifinal
+               <!--
+               &#160;&#160;<xsl:value-of select="/TC/SCHEDULE/Advancers/Advancer/contest_name"/>
+               &#160;<xsl:value-of select="/TC/SCHEDULE/Advancers/Advancer/round_name"/>-->
+
+</TD>
                <TD COLSPAN="3" ALIGN="right" VALIGN="middle" HEIGHT="18" CLASS="statTextBig"></TD>
             </TR>
             <TR>
@@ -90,54 +96,62 @@
           </TABLE>
 <BR/>
           <P class="statText">
-          The following competitors have advanced from <xsl:value-of select="/TC/SCHEDULE/Advancers/Advancer/round_name"/> to the next round.
-          <xsl:if test="/TC/SCHEDULE/Advancers/Advancer/round_id=4345">
-            <A HREF="/index?t=schedule&amp;c=invit02_final_64" class="statText">Click here to view a snapshot.</A>
-          </xsl:if>
-          <xsl:if test="/TC/SCHEDULE/Advancers/Advancer/round_id=4355">
-            <A HREF="/index?t=schedule&amp;c=invit02_final_16" class="statText">Click here to view a snapshot.</A>
-          </xsl:if>
-          </P>
+            The following competitors have advanced from the Semifinal to the Championship.
+         </P>
 
           <TABLE WIDTH="100%" BORDER="0" CELLPADDING="1" CELLSPACING="1" ALIGN="center">
             <TR>
               <TD ALIGN="center" VALIGN="middle" CLASS="statTextBig" HEIGHT="18" BGCOLOR="#666666">
-                <A class="statTextBig">
-                  <xsl:attribute name="HREF">/?&amp;t=schedule&amp;c=tourney_advancers&amp;rds=<xsl:value-of select="/TC/SCHEDULE/Advancers/Advancer/round_id"/>&amp;sc=sort_handle&amp;sdir=asc</xsl:attribute>
-                  Handle
-                </A>
+              Handle
               </TD>
               <TD ALIGN="center" VALIGN="middle" CLASS="statTextBig" BGCOLOR="#666666">
-                <A class="statTextBig">
-                  <xsl:attribute name="HREF">/?&amp;t=schedule&amp;c=tourney_advancers&amp;rds=<xsl:value-of select="/TC/SCHEDULE/Advancers/Advancer/round_id"/>&amp;sc=point_total&amp;sdir=desc</xsl:attribute>
-                  Points
-                </A>
+              Points
               </TD>              
               <TD ALIGN="center" VALIGN="middle" CLASS="statTextBig" BGCOLOR="#666666">
-                <A class="statTextBig">
-                  <xsl:attribute name="HREF">/?&amp;t=schedule&amp;c=tourney_advancers&amp;rds=<xsl:value-of select="/TC/SCHEDULE/Advancers/Advancer/round_id"/>&amp;sc=seed&amp;sdir=asc</xsl:attribute>
-                  Tourney Seed
-                </A>
-              </TD>              
+              Tourney Seed
+              </TD>
+              <TD ALIGN="center" VALIGN="middle" CLASS="statTextBig" BGCOLOR="#666666">
+              Room
+              </TD>                
             </TR>
-            <xsl:for-each select="/TC/SCHEDULE/Advancers/Advancer">
               <TR>
                 <TD CLASS="statText">
-                    <A>
-                      <xsl:attribute name="HREF">stat?c=member_profile&amp;cr=<xsl:value-of select="user_id"/></xsl:attribute>
-                      <xsl:attribute name="CLASS">statText</xsl:attribute>
-                      <FONT>
-                        <xsl:attribute name="color">
-                          <xsl:call-template name="GetRatingColor"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template>
-                        </xsl:attribute>
-                        <xsl:value-of select="handle"/>
-                      </FONT>
-                    </A>
+                    <A HREF="/stat?c=member_profile&amp;cr=272072" CLASS="coderTextRed">SnapDragon</A>
                   </TD>
-                <TD CLASS="statText" ALIGN="right"><xsl:value-of select="point_total"/></TD>
-                <TD CLASS="statText" ALIGN="right"><xsl:value-of select="seed"/></TD>
-              </TR>            
-            </xsl:for-each>
+                <TD CLASS="statText" ALIGN="right">1140.23</TD>
+                <TD CLASS="statText" ALIGN="center">1</TD>
+                <TD CLASS="statText" ALIGN="center">Room 1</TD>
+              </TR> 
+              <TR>
+                <TD CLASS="statText">
+                    <A HREF="/stat?c=member_profile&amp;cr=262936" CLASS="coderTextRed">dgarthur</A>
+                  </TD>
+                <TD CLASS="statText" ALIGN="right">1009.82</TD>
+                <TD CLASS="statText" ALIGN="center">16</TD>
+                <TD CLASS="statText" ALIGN="center">Room 2</TD>
+              </TR>
+            <!--  <TR>
+                <TD CLASS="statText">
+                    <A HREF="/stat?c=member_profile&amp;cr=120816" CLASS="coderTextRed">malpt</A>
+                  </TD>
+                <TD CLASS="statText" ALIGN="right">410.51</TD>
+                <TD CLASS="statText" ALIGN="right">Room 1</TD>
+              </TR>
+              <TR>
+                <TD CLASS="statText">
+                    <A HREF="/stat?c=member_profile&amp;cr=153505" CLASS="coderTextRed">ambrose</A>
+                  </TD>
+                <TD CLASS="statText" ALIGN="right">257.85</TD>
+                <TD CLASS="statText" ALIGN="right">Room 1</TD>
+              </TR>
+              <TR>
+                <TD CLASS="statText">
+                    <A HREF="/stat?c=member_profile&amp;cr=152342" CLASS="coderTextYellow">kyky</A>
+                  </TD>
+                <TD CLASS="statText" ALIGN="right">0.00</TD>
+                <TD CLASS="statText" ALIGN="right">Room 1</TD>
+              </TR>  -->
+<!--            </xsl:for-each>-->
           </TABLE><BR/>
             <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="1">
               <TR><TD VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">&#160;&#160;<A HREF="#top" CLASS="statText">Back to top</A></TD></TR>
