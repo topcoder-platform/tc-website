@@ -43,10 +43,10 @@
             <strong>Hello, </strong>
             <a href="/stat?c=member_profile&amp;cr=<%=sessionInfo.getUserId()%>" class="<%=styleClass%>" target="_parent"><%=sessionInfo.getHandle()%></a>
             &#160;&#160;|&#160;&#160;<a href="/tc?&amp;module=Logout" class="loginLinks" target="_parent">Logout</a>
-            &#160;&#160;|&#160;&#160;<a href="/reg/index.jsp" class="loginLinks" target="_parent">Update Profile</a>
+            &#160;&#160;|&#160;&#160;<a href="/Registration" class="loginLinks" target="_parent">Update Profile</a>
 <% } else { %>
             <a href="/tc?&module=Login" class="loginLinks" target="_parent">Login</a>
-            &#160;&#160;|&#160;&#160;<a href="/reg/index.jsp" class="loginLinks" target="_parent">Register</a>
+            &#160;&#160;|&#160;&#160;<a href="/Registration" class="loginLinks" target="_parent">Register</a>
 <%}%>
             
             &#160;&#160;|&#160;&#160;<a href="/" class="loginLinks" target="_parent">Home</a>

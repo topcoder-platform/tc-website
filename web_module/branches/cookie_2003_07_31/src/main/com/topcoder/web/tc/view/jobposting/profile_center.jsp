@@ -16,7 +16,7 @@
       competition statistics, your current and/or future member photo, and your current and/or future resume will also
       be available for viewing by the employer.<BR/>
       <BR/>
-      <B>If you would like to make changes to the information below, click <A HREF="/reg/index.jsp" class="statTextBig">here</A> to update your profile.</B><BR/>
+      <B>If you would like to make changes to the information below, click <A HREF="/Registration" class="statTextBig">here</A> to update your profile.</B><BR/>
       <BR/>
     </TD>
   </TR>
