@@ -35,6 +35,13 @@
 				<td class=tableTitle colspan=2>Login</td>
 			</tr>
 			<tr><td class=tableText colspan=2>&#160;</td></tr>
+
+            <tr>
+                <td class="brErrorText" colspan="2">
+                    <tc-webtag:errorIterator id="err" name="<%=Constants.HANDLE%>"><%=err%><br/></tc-webtag:errorIterator>
+                </td>
+            </tr>
+
 			<tr>
 				<td class=tableText align=right width="40%">Login:</td>
 				<td class=tableText width="60%">
@@ -74,5 +81,3 @@
 </body>
 </html>
 
-<%--
---%>

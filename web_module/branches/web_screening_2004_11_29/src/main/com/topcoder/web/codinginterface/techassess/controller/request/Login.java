@@ -36,27 +36,33 @@ public class Login extends Base {
             throw new NavigationException("Invalid request, missing required parameter.");
         }
 
-        ScreeningLoginRequest request = new ScreeningLoginRequest(handle, password, companyId);
-        request.setServerID(Constants.SERVER_ID);
-
-        log.debug("send message");
-        String messageId = send(request);
-        log.debug("sent message " + messageId);
-
-        log.debug(Thread.currentThread().toString());
-        ScreeningLoginResponse response = (ScreeningLoginResponse)receive(5000, messageId);
-        log.debug("response " + response);
-
-        if (response.isSuccess()) {
-            setNextPage(Constants.PAGE_INDEX);
-            setIsNextPageInContext(true);
-
-        } else {
-            addError(Constants.HANDLE, response.getMessage());
+        ScreeningLoginResponse response = null;
+        if (hasErrors()) {
             setNextPage(Constants.PAGE_LOGIN);
             setIsNextPageInContext(true);
-        }
+        } else {
 
+            ScreeningLoginRequest request = new ScreeningLoginRequest(handle, password, companyId);
+            request.setServerID(Constants.SERVER_ID);
+
+            log.debug("send message");
+            String messageId = send(request);
+            log.debug("sent message " + messageId);
+
+            log.debug(Thread.currentThread().toString());
+            response = (ScreeningLoginResponse)receive(5000, messageId);
+            log.debug("response " + response);
+
+            if (response.isSuccess()) {
+                setNextPage(Constants.PAGE_INDEX);
+                setIsNextPageInContext(true);
+
+            } else {
+                addError(Constants.HANDLE, response.getMessage());
+                setNextPage(Constants.PAGE_LOGIN);
+                setIsNextPageInContext(true);
+            }
+        }
     }
 
 }
