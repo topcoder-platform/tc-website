@@ -16,6 +16,8 @@ import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.*;
 import com.topcoder.shared.util.DBMS;
 
+import java.lang.StringBuilder;
+
 import java.util.ArrayList;
 import java.util.Map;
 /**

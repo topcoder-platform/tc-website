@@ -1,7 +1,12 @@
 <%@page contentType="text/html"%>
+<%@ page import="com.topcoder.web.tc.Constants,
+                 com.topcoder.web.tc.model.PlacementProfileSearchResults,
+                 java.util.List" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-
+<%
+List resultsList = (List)request.getAttribute("results");
+%>
 <html>
     <head><title>Placement Profile</title></head>
     <body>
@@ -19,7 +24,7 @@
                     <b>Handle:</b>
                 </td>
                 <td>
-                    <tc-webtag:textInput name="handle"  size="15" maxlength="50"/>
+                    <tc-webtag:textInput name="handle"  size="25" maxlength="50"/>
                 </td>
             </tr>
             <tr>
@@ -27,7 +32,7 @@
                     <b>First Name:</b>
                 </td>
                 <td>
-                    <tc-webtag:textInput name="firstname"  size="15" maxlength="50"/>
+                    <tc-webtag:textInput name="firstname"  size="25" maxlength="50"/>
                 </td>
             </tr>
             <tr>
@@ -35,7 +40,7 @@
                     <b>Last Name:</b>
                 </td>
                 <td>
-                    <tc-webtag:textInput name="lastname"  size="15" maxlength="50"/>
+                    <tc-webtag:textInput name="lastname"  size="25" maxlength="50"/>
                 </td>
             </tr>
             <tr>
@@ -47,6 +52,7 @@
                 </td>
             </tr>
         </table>
+        <%if(resultsList != null) {%>
         <br />
         <table border=0>
             <tr>
@@ -66,6 +72,7 @@
                 </td>
             </tr>
         </table>
+        <% }%>
         <br />
         <table border=0>
             <tr>
