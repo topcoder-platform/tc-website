@@ -11,7 +11,7 @@ public class StudentRegistrationBean implements Serializable {
 
   private String state_code=null;
 
-  private String school_id=null;
+  private Long school_id=null;
 
   private String handle=null;
 
@@ -23,9 +23,9 @@ public class StudentRegistrationBean implements Serializable {
 
   private String confirm_email=null;
 
-  private String editor_id=null;
+  private Integer editor_id=null;
 
-  private String language_id=null;
+  private Integer language_id=null;
 
   private List state_list=null;
 
@@ -63,11 +63,11 @@ public class StudentRegistrationBean implements Serializable {
     state_code=_state_code;
   }
 
-  public String getSchoolId() {
+  public Long getSchoolId() {
     return(school_id);
   }
 
-  public void setSchoolId(String _school_id) {
+  public void setSchoolId(Long _school_id) {
     school_id=_school_id;
   }
 
@@ -111,19 +111,19 @@ public class StudentRegistrationBean implements Serializable {
     confirm_email=_confirm_email;
   }
 
-  public String getEditorId() {
+  public Integer getEditorId() {
     return(editor_id);
   }
 
-  public void setEditorId(String _editor_id) {
+  public void setEditorId(Integer _editor_id) {
     editor_id=_editor_id;
   }
 
-  public String getLanguageId() {
+  public Integer getLanguageId() {
     return(language_id);
   }
 
-  public void setLanguageId(String _language_id) {
+  public void setLanguageId(Integer _language_id) {
     language_id=_language_id;
   }
 
