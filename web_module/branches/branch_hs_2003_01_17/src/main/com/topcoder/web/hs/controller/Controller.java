@@ -49,7 +49,7 @@ public class Controller extends HttpServlet {
             String loginfo = request.getRemoteHost()+" **** "+request.getMethod()+" "+HttpUtils.getRequestURL(request)+qtail+" ****]";
             log.debug("[**** "+loginfo);
             /* it gets logged again at info level once we have the user to prepend */
-            request.setAttribute(loginfo);
+            request.setAttribute("loginfo", loginfo);
 
             /* and those we perhaps can */
             try {
