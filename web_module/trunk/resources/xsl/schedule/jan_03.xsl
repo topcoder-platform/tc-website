@@ -98,7 +98,7 @@
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">22</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">23</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">24</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>25</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 130</B></SPAN><BR/>Register: 9:00&#160;AM<BR/>Compete: 12:00&#160;PM<BR/>Sponsored by: Solipsys &#38; NVIDIA<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?RoundId=4445&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>25</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 130</B></SPAN><BR/>Register: 9:00&#160;AM<BR/>Compete: 12:00&#160;PM<BR/>Sponsored by: Solipsys &#38; NVIDIA<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?RoundId=4447&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
               </TR>
               <TR BGCOLOR="#FFFFFF"> 
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">26</TD>
