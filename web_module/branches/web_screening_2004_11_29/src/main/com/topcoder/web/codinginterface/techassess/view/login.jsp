@@ -4,80 +4,91 @@
 <html>
 <head>
 <title>Technical Assessment</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link type="text/css" rel="stylesheet" href="/css/screening.css"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<link type="text/css" rel="stylesheet" href="/css/screening.css" >
+
+<script type="text/javascript">
+function submitEnter(e) {
+    var keycode;
+    if (window.event) keycode = window.event.keyCode;
+    else if (e) keycode = e.which;
+    else return true;
+    if (keycode == 13) {
+     document.loginForm.submit();
+     return false;
+    } else return true;
+  }
+</script>
+
 </head>
 <body>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<table width=800 align=center cellspacing=0 cellpadding=0 class=bodyTable>
+
+<table class=bodyCenter cellspacing=0 cellpadding=0>
 	<tr>
-		<td colspan=3>
+		<td align=center>
+
+
+<%-- TABS --%>
 		<jsp:include page="tabs.jsp" >
 		<jsp:param name="tabLev1" value="login"/>
 		</jsp:include>
-		</td>
-	</tr>
 
-	<tr><td colspan=3>&#160;</td></tr>
-
-	<tr>
-		<td><img src="/i/corp/screening/bodyTL.gif" /></td>
-		<td class=bodyT width="100%">&#160;</td>
-		<td><img src="/i/corp/screening/bodyTR.gif" /></td>
-	</tr>
-	<tr>
-		<td class=bodyL>&#160;</td>
-		<td class=bodyContent>
+		<table cellspacing=0 cellpadding=0 class=bodyTable>
+			<tr>
+				<td><img src="/i/corp/screening/bodyTL.gif" alt=""/></td>
+				<td class=bodyT>&#160;</td>
+				<td><img src="/i/corp/screening/bodyTR.gif" alt=""/></td>
+			</tr>
+			<tr>
+				<td class=bodyL>&#160;</td>
+<%-- CONTENT --%>
+				<td class=bodyContent>
+				<p class=pL>
+				<span class=bodyBigTitle>Welcome to the Testing Application.</span>
+				<br/><br/>
+				Please login to the Technical Assessment Tool below.  Your ID and PASSWORD are in the email that contained the link to this page.
+				<br/><br/>
+				</p>
 
         <form action="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>" method=post name=loginForm>
-		<table width="400" align=center cellspacing=0 cellpadding=0 class=tableFrame>
-			<tr>
-				<td class=tableTitle colspan=2>Login</td>
-			</tr>
-			<tr><td class=tableText colspan=2>&#160;</td></tr>
+				<table width="400" cellspacing=0 cellpadding=0 border=0 class=tableFrame>
+					<tr>
+						<td class=tableTitle colspan=2>Login</td>
+					</tr>
 
-            <tr>
-                <td class="brErrorText" colspan="2">
-                    <tc-webtag:errorIterator id="err" name="<%=Constants.HANDLE%>"><%=err%><br/></tc-webtag:errorIterator>
-                </td>
-            </tr>
+					<tr><td class=tableText colspan=2><p class=pC><span class=bigRed><tc-webtag:errorIterator id="err" name="<%=Constants.HANDLE%>"><%=err%><br/></tc-webtag:errorIterator></span></p></td></tr>
 
-			<tr>
-				<td class=tableText align=right width="40%">Login:</td>
-				<td class=tableText width="60%">
-				<tc-webtag:textInput name="<%=Constants.HANDLE%>" size="15" maxlength="15"/>
-				</td>
-			</tr>
-			<tr>
-				<td class=tableText align=right>Password:</td>
-				<td class=tableText>
-                <tc-webtag:textInput name="<%=Constants.PASSWORD%>" size="15" maxlength="15"/>
-				</td>
-			</tr>
-			<tr>
-				<td class=tableText align=right>
-				&#160;
-				</td>
-				<td class=tableText>
-				<img src="/i/corp/screening/buttonGo.gif" border=0 />
-				</td>
-			</tr>
-			<tr><td class=tableText colspan=2>&#160;</td></tr>
-		</table>
+					<tr>
+						<td class=loginLeft>Login:</td>
+						<td class=loginRight><tc-webtag:textInput name="<%=Constants.HANDLE%>" size="15" maxlength="15" onkeypress="submitEnter(event)"/></td>
+					</tr>
+					<tr>
+						<td class=loginLeft>Password:</td>
+						<td class=loginRight><tc-webtag:textInput name="<%=Constants.PASSWORD%>" size="15" maxlength="15" onkeypress="submitEnter(event)"/></td>
+					</tr>
+					<tr>
+						<td class=tableText align=right>&#160;</td>
+						<td class=loginRight><a href="javascript: document.loginForm.submit();"><img src="/i/corp/screening/buttonGo.gif" alt=""/></a></td>
+					</tr>
+					<tr><td class=tableText colspan=2>&#160;</td></tr>
+				</table>
 		</form>
+
+				</td>
+				<td class=bodyR>&#160;</td>
+			</tr>
+			<tr>
+				<td><img src="/i/corp/screening/bodyBL.gif" alt=""/></td>
+				<td class=bodyB>&#160;</td>
+				<td><img src="/i/corp/screening/bodyBR.gif" alt=""/></td>
+			</tr>
+		</table>
 
 
 		</td>
-		<td class=bodyR>&#160;</td>
-	</tr>
-	<tr>
-		<td><img src="/i/corp/screening/bodyBL.gif" /></td>
-		<td class=bodyB>&#160;</td>
-		<td><img src="/i/corp/screening/bodyBR.gif" /></td>
 	</tr>
 </table>
 
-</table>
 </body>
 </html>
-
