@@ -255,55 +255,55 @@
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Register By:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">06.21.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">06.28.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Member Acceptance:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">06.21.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">06.28.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Design Start:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">06.22.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">06.29.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Design Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">06.29.2004 &#160;&#160;9:00 AM ET</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Reviewer Screening Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">06.29.2004 &#160;&#160;9:00 AM ET</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Review Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.02.2004 &#160;&#160;9:00 AM ET</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Appeals Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.05.2004 &#160;&#160;9:00 AM ET</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Appeal Responses Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.05.2004 &#160;&#160;5:00 PM ET</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Winner Announced:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.05.2004 &#160;&#160;5:00 PM ET</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Final Fixes Due:</td>
                                                             <td class="bodyText" nowrap="nowrap" align="left">07.06.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
+                                                            <td class="bodyText" nowrap="nowrap">Reviewer Screening Due:</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.06.2004 &#160;&#160;9:00 AM ET</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="bodyText" nowrap="nowrap">Review Due:</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.09.2004 &#160;&#160;9:00 AM ET</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="bodyText" nowrap="nowrap">Appeals Due:</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.12.2004 &#160;&#160;9:00 AM ET</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="bodyText" nowrap="nowrap">Appeal Responses Due:</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.12.2004 &#160;&#160;5:00 PM ET</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="bodyText" nowrap="nowrap">Winner Announced:</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.12.2004 &#160;&#160;5:00 PM ET</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="bodyText" nowrap="nowrap">Final Fixes Due:</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.13.2004 &#160;&#160;9:00 AM ET</td>
+                                                        </tr>
+                                                        <tr>
                                                             <td class="bodyText" nowrap="nowrap">Reviewer Final Review Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.07.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.14.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Design Complete:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.07.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.14.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Estimated Development End Date:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">08.05.2004</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">08.12.2004</td>
                                                         </tr>
                                                     </table>
 
