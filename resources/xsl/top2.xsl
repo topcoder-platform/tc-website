@@ -120,7 +120,7 @@
             <IMG SRC="/i/label_download_applet.gif" ALT="Download the Applet" WIDTH="134" HEIGHT="17" BORDER="0"/>
           </A>
           <A TARGET="_parent" CLASS="registerNav">
-            <xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=practice_room</xsl:attribute>
+            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=practice_room</xsl:attribute>
             <IMG SRC="/i/label_visit_practice_room.gif" ALT="Visit the Practice Room" WIDTH="141" HEIGHT="17" BORDER="0"/>
           </A>
           <IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/>
