@@ -59,10 +59,10 @@ function getTCProblemResults(coderId, roundId, problemId) {
 
 <!-- Middle column begins -->
         <td width="100%" align="center"><img src="/i/corp/clear.gif" width="400" height="11" alt="" border="0"><br>
-            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrameNB">
                 <tr valign="top">
                     <td class="bodyText">
-            <h1 class="testHead">Problem Results</h1>                
+            <p class="testHead">Problem Results</p>                
             <P>Below are the submitted code and system test results for the candidate.  Clicking on the point value in the Top TopCoder 
             Solutions table opens a window that displays the submitted code and system test results for the highest TopCoder point-getter.</P>
                     </td>
@@ -71,7 +71,7 @@ function getTCProblemResults(coderId, roundId, problemId) {
 
 
             <FORM>
-            <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
+            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrameNB">
 	        <TR>
 		       <TD VALIGN="top" CLASS="bodyText">
                            <B>Candidate:</B> <screen:servletLink processor="PopulateCandidate" param="<%=Constants.CANDIDATE_ID+'='+candidateInfo.getUserId()%>" styleClass="bodyText"><jsp:getProperty name="candidateInfo" property="userName"/></screen:servletLink>
@@ -97,12 +97,12 @@ function getTCProblemResults(coderId, roundId, problemId) {
 	        </TR>
          </TABLE>
 
-         <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
+            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
            <TR>
-              <TD CLASS="testTableTitle">&#160;Code:</TD>
+              <TD align="left" CLASS="screeningTitle">&#160;Code:</TD>
            </TR>
            <TR>
-              <TD CLASS="testTableOdd" VALIGN="top">
+              <TD CLASS="screeningCellOdd" VALIGN="top">
               <PRE><%=StringUtils.htmlEncode(submissionInfo.getCode())%></PRE>
               </TD>
            </TR>
@@ -110,29 +110,29 @@ function getTCProblemResults(coderId, roundId, problemId) {
 
          <p></p>
 
-         <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
+            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
            <TR>
-              <TD COLSPAN="4" CLASS="testTableTitle"><B>System Test</B></TD>
+              <TD COLSPAN="4" CLASS="screeningTitle"><B>System Test</B></TD>
            </TR>
 	        <TR>
-		       <TD ALIGN="center" CLASS="testFormHeader">Args</TD>
-		       <TD ALIGN="center" CLASS="testFormHeader">Expected</TD>
-		       <TD ALIGN="center" CLASS="testFormHeader">Received</TD>
-		       <TD ALIGN="center" CLASS="testFormHeader">Status</TD>
+		       <TD ALIGN="left" CLASS="screeningHeader">Args</TD>
+		       <TD ALIGN="center" CLASS="screeningHeader">Expected</TD>
+		       <TD ALIGN="center" CLASS="screeningHeader">Received</TD>
+		       <TD ALIGN="center" CLASS="screeningHeader">Status</TD>
 	        </TR>
             <% boolean even = false; %>
            <screen:resultSetRowIterator id="testResult" list="<%= submissionInfo.getTestResults() %>">
 	        <TR>
-		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><%=StringUtils.htmlEncode((String)testResult.getItem("args").getResultData())%></TD>
-		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><%=StringUtils.htmlEncode((String)testResult.getItem("expected_result").getResultData())%></TD>
-		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><%=StringUtils.htmlEncode((String)testResult.getItem("received").getResultData())%></TD>
-		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=testResult%>" name="status" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><%=StringUtils.htmlEncode((String)testResult.getItem("args").getResultData())%></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><%=StringUtils.htmlEncode((String)testResult.getItem("expected_result").getResultData())%></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><%=StringUtils.htmlEncode((String)testResult.getItem("received").getResultData())%></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=testResult%>" name="status" /></TD>
 	        </TR>
             <% even = !even; %>
            </screen:resultSetRowIterator>
            <% if(submissionInfo.getTestResults().isEmpty()){ %>
 	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="testTableOdd" colspan='4'>
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="screeningCellOdd" colspan='4'>
                            No system tests were performed on this problem.
                        </TD>
 	        </TR>	        
@@ -141,31 +141,31 @@ function getTCProblemResults(coderId, roundId, problemId) {
 
          <p></p>
          <% if( request.getAttribute(Constants.USAGE_TYPE) == null || ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_TESTING) { %>
-         <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
+            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
            <TR>
-              <TD COLSPAN="4" CLASS="testTableTitle">Top TopCoder Solutions</TD>
+              <TD COLSPAN="4" CLASS="screeningTitle">Top TopCoder Solutions</TD>
            </TR>	        
 	        <TR>
-		       <TD ALIGN="center" CLASS="testFormHeader">Points</TD>
-		       <TD ALIGN="center" CLASS="testFormHeader">Division</TD>
-		       <TD ALIGN="center" CLASS="testFormHeader">Difficulty</TD>
-		       <TD ALIGN="center" CLASS="testFormHeader">Algorithmic Categories</TD>
+		       <TD ALIGN="center" CLASS="screeningHeader">Points</TD>
+		       <TD ALIGN="center" CLASS="screeningHeader">Division</TD>
+		       <TD ALIGN="center" CLASS="screeningHeader">Difficulty</TD>
+		       <TD ALIGN="center" CLASS="screeningHeader">Algorithmic Categories</TD>
 	        </TR>
            <screen:resultSetRowIterator id="solution" list="<%= submissionInfo.getTopTCSolutions() %>">
 	        <TR>
-		       <TD ALIGN="center" HEIGHT="15" CLASS="testTableOdd">
-                           <A HREF="JavaScript:getTCProblemResults('<screen:resultSetItem row="<%=solution%>" name="coder_id" />','<screen:resultSetItem row="<%=solution%>" name="round_id" />','<screen:resultSetItem row="<%=solution%>" name="problem_id" />')" CLASS="testTableOdd">
+		       <TD ALIGN="center" HEIGHT="15" CLASS="screeningCellOdd">
+                           <A HREF="JavaScript:getTCProblemResults('<screen:resultSetItem row="<%=solution%>" name="coder_id" />','<screen:resultSetItem row="<%=solution%>" name="round_id" />','<screen:resultSetItem row="<%=solution%>" name="problem_id" />')" CLASS="screeningCellOdd">
                                <screen:resultSetItem row="<%=solution%>" name="final_points" />
                            </A>
                        </TD>
-		       <TD ALIGN="center" CLASS="testTableOdd"><screen:resultSetItem row="<%=solution%>" name="division_desc" /></TD>
-		       <TD ALIGN="center" CLASS="testTableOdd"><screen:resultSetItem row="<%=solution%>" name="level_desc" /></TD>
-		       <TD ALIGN="center" CLASS="testTableOdd"><jsp:getProperty name="problemInfo" property="algorithmicCategoryList" /></TD>
+		       <TD ALIGN="center" CLASS="screeningCellOdd"><screen:resultSetItem row="<%=solution%>" name="division_desc" /></TD>
+		       <TD ALIGN="center" CLASS="screeningCellOdd"><screen:resultSetItem row="<%=solution%>" name="level_desc" /></TD>
+		       <TD ALIGN="center" CLASS="screeningCellOdd"><jsp:getProperty name="problemInfo" property="algorithmicCategoryList" /></TD>
 	        </TR>
            </screen:resultSetRowIterator>
            <% if(submissionInfo.getTopTCSolutions().isEmpty()){ %>
 	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="testTableOdd" colspan='5'>
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="screeningCellOdd" colspan='5'>
                            No TopCoder solutions available for this problem.
                        </TD>
 	        </TR>	        

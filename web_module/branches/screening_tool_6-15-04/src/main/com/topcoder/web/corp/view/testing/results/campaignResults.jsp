@@ -182,7 +182,7 @@ function getProblemDetail(id) {
                         <%=row.getStringItem("coder_type")%>
                     </td>
 
-                    <td class='<%=cssClasses[counter % 2]%>'>
+                    <td class='<%=cssClasses[counter % 2]%>' nowrap=nowrap>
                         <A href='?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.JOB_POSITION_ID%>=<%=row.getStringItem("job_id")%>'>
                             <%=row.getStringItem("job")%>
                         </A>
