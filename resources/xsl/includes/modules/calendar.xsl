@@ -79,7 +79,7 @@
                   <SPAN CLASS="smallFoot">More 
                     <A CLASS="smallFoot">
                       <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=index</xsl:attribute>
-                      2002 match dates&#160;&#160;
+                      2003 match dates&#160;&#160;
                     </A>
                   </SPAN>
                 </TD>
