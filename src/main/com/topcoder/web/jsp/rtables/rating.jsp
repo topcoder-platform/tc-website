@@ -10,7 +10,7 @@
       } else if ( u.getRating() > 1199 && u.getRating() < 1500 ) {
         color = "#66cccc";
       } else if ( u.getRating() > 899 && u.getRating() < 1200 ) {
-        color = "#ccff99";
+        color = "#99ff33";
       } else if (u.getRating() >= 0 && u.getRating() < 900 ) {
         color = "#cccccc";
       } else if (u.getRating() < 0) {
