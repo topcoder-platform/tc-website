@@ -209,7 +209,7 @@ public final class Registration extends UserEdit {
 
     private boolean checkTerms(boolean agree) {
         if (!agree) {
-            markFormFieldAsInvalid(KEY_AGREE_TO_TERMS, "You must agree to terms to register.");
+            markFormFieldAsInvalid(KEY_AGREE_TO_TERMS, "You must agree to terms in order to register.");
         }
         return agree;
     }
