@@ -161,7 +161,7 @@
                                         <!-- Register at TCS -->
                                         <p>
                                             <strong>View the
-                                                <a target="_new" class="statText" href="/i/development/downloads/Online-Review-Spec.html">Requirement Specification</a> for this application project &gt;&gt;
+                                                <a target="_new" class="statText" href="/i/development/downloads/AdminToolRequirementsSpecification-web.pdf">Requirement Specification</a> for this application project &gt;&gt;
                                             </strong>
                                         </p>
                                         <p>
