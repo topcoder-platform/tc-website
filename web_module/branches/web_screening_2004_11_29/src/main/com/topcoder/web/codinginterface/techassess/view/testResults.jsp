@@ -9,7 +9,7 @@
   </head>
   <body>
       <table border=0 width="100%">
-               <tr><td class="testWinTitle">Test Arguments</td></tr>
+               <tr><td class="testWinTitle">Test Results</td></tr>
           <tr>
               <td align="left">
 <pre>

@@ -69,24 +69,14 @@
 
             <%--startup, load variables from the parent--%>
 
-            <%--todo must finish up any other types that are missing here --%>
             for(var i = 0; i < numArgs; i++) {
-                switch(argTypes[i]) {
-                    case "String[]":
-                        if(getValue("window.opener.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i) != "") {
-                            setModify("<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i);
-                        }
-                        break;
-                    case "int[]":
-                        if(getValue("window.opener.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i) != "") {
-                            setModify("<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i);
-                        }
-                        break;
-                    case "int":
-                        putValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i, getValue("window.opener.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i));
-                        break;
-                    default:
-                        break;
+                if (argTypes[i].indexOf('[]')>0) {
+                    if(getValue("window.opener.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i) != "") {
+                        setModify("<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i);
+                        putValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i, getValue("window.opener.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i));
+                    }
+                } else {
+                    putValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i, getValue("window.opener.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i));
                 }
             }
 
@@ -152,8 +142,6 @@
                 we put it in the parent so that they can close the testing window and still have the values around.
 --%>
                 for(var i = 0; i < numArgs; i++) {
-                    <%--array fields won't work, and they've already been set by the arrayEntry page any, so do bother with them here.--%>
-                    if (getValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i)) {
                         switch(argTypes[i]) {
                             case "String[]":
                             case "int[]":
@@ -162,23 +150,22 @@
                                 break;
                             case "int":
                             case "long":
-                                putValue("window.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i, parseInt(getValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i)));
+                                putValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i, parseInt(getValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i)));
                                 putValue("window.opener.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i, parseInt(getValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i)));
                                 break;
                             case "double":
-                                putValue("window.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i, parseFloat(getValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i)));
+                                putValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i, parseFloat(getValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i)));
                                 putValue("window.opener.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i, parseFloat(getValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i)));
                                 break;
                             case "boolean":
-                                putValue("window.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i, getValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i));
+                                putValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i, getValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i));
                                 putValue("window.opener.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i, getValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i));
                                 break;
                             default:
-                                putValue("window.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i, getValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i).toLowerCase());
+                                putValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i, getValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i).toLowerCase());
                                 putValue("window.opener.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i, getValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i).toLowerCase());
                                 break;
                         }
-                    }
                 }
 
 <%--
