@@ -102,8 +102,9 @@ public abstract class Select extends TagSupport {
         s.append(">\n");
         if (options != null) {
             s.append("<option value=\"\"></option>");
-            for (int i = 0; i < options.size(); i++) {
-                Object option = options.get(i);
+            Iterator it = options.iterator();
+            for ( ;  it.hasNext(); ) {
+                Object option = it.next();
                 String optionValue = getOptionValue(option);
                 String optionText = getOptionText(option);
                 s.append("<option value=\"");
