@@ -51,8 +51,7 @@
 </jsp:include>
 
 <p>
-<a href="/tc?module=USDCResults">Contest Results</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-Contest Details - <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/>
+<a href="/tc?module=USDCResults">Contest Results</a>
 </p>
 
 <h2>Results</h2>

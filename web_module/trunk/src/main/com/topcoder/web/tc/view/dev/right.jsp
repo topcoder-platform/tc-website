@@ -3,7 +3,6 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-taglib.tld" prefix="tc" %>
-<% ResultSetContainer openProjects = (ResultSetContainer)request.getAttribute("OpenProjects");%>
 
 <div class="devRightSpacer">
 <%-- Read Me's begins --%>
