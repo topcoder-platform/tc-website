@@ -66,20 +66,21 @@ public class Authentication implements Serializable {
                 auth.setErrorMessage("Incorrect handle.  Please retry.");
                 throw new AuthenticationException("Incorrect handle.  Please retry.");
             } else {
-                String actualPassword = rsc.getItem(0, "password").toString();
-                if (actualPassword == null) {
+                if (rsc.isEmpty()) {
                     auth.setErrorMessage("Incorrect login.  Please retry.");
                     throw new AuthenticationException("Incorrect login.  Please retry.");
-                }
-
-                if (!actualPassword.trim().equals(password.trim())) {
-                    auth.setErrorMessage("Incorrect password.  Please retry.");
-                    throw new AuthenticationException("Incorrect password.  Please retry.");
+                } else {
+                    String actualPassword = rsc.getItem(0, "password").toString();
+                    if (!actualPassword.trim().equals(password.trim())) {
+                        auth.setErrorMessage("Incorrect password.  Please retry.");
+                        throw new AuthenticationException("Incorrect password.  Please retry.");
+                    } else {
+                        // record in this session that we have authenticated a user.
+                        auth.setUserId(((Long)rsc.getItem(0, "user_id").getResultData()).intValue());
+                    }
                 }
             }
 
-            // record in this session that we have authenticated a user.
-            auth.setUserId(((Long)rsc.getItem(0, "user_id").getResultData()).intValue());
         } catch (RemoteException e) {
             throw new AuthenticationException(e.getMessage());
         } catch (NamingException e) {
