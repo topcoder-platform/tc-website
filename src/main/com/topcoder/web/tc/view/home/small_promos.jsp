@@ -14,7 +14,7 @@
 		   </map>
 		</td>
 		<td width="10"><IMG src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-		<td height="150" align="center"><A href="/?t=sponsor&link=/i/downloads/tccc04_program.pdf&refer=homepage"><img src="/i/promos/tccc04_program.gif" alt="TCCC04 Program" width="170" height="150" border="0" /></A></td>
+		<td height="150" align="center"><A href="/?t=sponsor&c=link&link=/i/downloads/tccc04_program.pdf&refer=homepage"><img src="/i/promos/tccc04_program.gif" alt="TCCC04 Program" width="170" height="150" border="0" /></A></td>
 	</tr>
 </table>
             
