@@ -458,6 +458,7 @@ public class TCLoadRequests extends TCLoad {
         }
 
         public long getCoderId() {
+            log.debug("getCoderId called " + getUrl());
             long ret = -1;
             if (hasCoderId()) {
                 boolean found = false;
