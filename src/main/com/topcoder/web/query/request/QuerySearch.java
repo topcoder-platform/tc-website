@@ -112,7 +112,7 @@ public class QuerySearch extends BaseProcessor {
             if (temp.charAt(i)=='\"') {
                 inQuote = !inQuote;
             } else {
-                if (temp.charAt(i)!=' ')
+                if (inQuote || temp.charAt(i)!=' ')
                     word.append(temp.charAt(i));
             }
         }
