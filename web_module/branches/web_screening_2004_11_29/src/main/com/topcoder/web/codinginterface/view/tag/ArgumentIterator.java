@@ -79,7 +79,7 @@ public class ArgumentIterator extends BodyTagSupport {
                 input = "<a href=\"Javascript:launchArray(" + index +
                         ");\"><img src=\"/i/corp/screening/buttonCreate.gif\" alt=\"Create\"/></a>";
             } else {
-                String name = CodingInterfaceConstants.TEST_ARGUMENT + index;
+                String name = CodingInterfaceConstants.TEST_ARGUMENT_INPUT + index;
                 input = "<input type=\"text\" name=\"" + name + "\" size=\"20\" maxlength=\"50\" value=\"\">";
             }
             pageContext.setAttribute(INPUT, input, PageContext.PAGE_SCOPE);
