@@ -30,7 +30,7 @@
 			<!-- Tab bar links-->
 			<div align=center>
 			<jsp:include page="links.jsp" >
-			<jsp:param name="selectedTab" value="overview"/>
+			<jsp:param name="selectedTab" value=""/>
 			</jsp:include>
 			</div>
 
@@ -148,7 +148,7 @@ Once your code has been successfully compiled, you have the option of executing 
 <br><br>
 If your compiled code executes successfully (without errors) for the input parameters that you've provided, you will be presented with the return value(s) that your code produced. In the event that an error occurs during the execution of your code, you will be presented with the error message(s) that the execution of your code produced.
 <br><br>
-Important note: All code submissions must run in under eight (8) seconds for ALL test cases, otherwise the code submission will be marked as incorrect, and you will not receive any points.
+<i>Important note: All code submissions must run in under eight (8) seconds for ALL test cases, otherwise the code submission will be marked as incorrect, and you will not receive any points.</i>
 <br><br>
 <strong>NOTE:</strong> any standard output (i.e., System.out.println) from the execution of your class/method will be returned to you along with the results of your test. This may be useful for debugging your code.  You may want to remove these system outputs prior to submitting to increase the efficiency of your submission.
 <br><br>
@@ -202,7 +202,7 @@ Double click on any of the point values (shown in green) to view the source code
 You may only submit a challenge if you have at least zero points at the time of the challenge. A given submission may only be successfully challenged once. If any competitor has already successfully challenged a submission, it may not be further challenged. 
 <br><br>
 <span class="greenSubtitle">System Testing Phase</span><br>
-After the Challenge Phase, all submissions will be run through a series of test cases.  In the case of the qualification round, the system tests will be run following the entire length of the qualification period.  These test cases will compare an expected result against a received result to determine if the code submission works for each test case. Any submission that fails any test case will be deemed incorrect, and will result in a loss of all points for that submission. In addition, any submission that runs longer than eight (8) seconds for any test case will be deemed incorrect, and will result in a loss of all points. 
+After the Challenge Phase, all submissions will be run through a series of test cases.  In the case of the qualification round, the system tests will be run following the entire length of the qualification period.  These test cases will compare an expected result against a received result to determine if the code submission works for each test case. <i>Any submission that fails any test case will be deemed incorrect, and will result in a loss of all points for that submission. In addition, any submission that runs longer than eight (8) seconds for any test case will be deemed incorrect, and will result in a loss of all points</i>.
 <br><br>
 If your submission passes all of the test cases, you will keep the points that were assigned to you when you submitted the problem. Your final score for each round will cumulate the points remaining from the System Testing Phase and any points gained or lost during the Challenge Phase. 
 <br><br>
@@ -213,7 +213,7 @@ If you have a question during the competition about the problem statement or abo
 <br><br>
 An administrator will respond to your question in the chat area.
 <br><br>
-If you have a problem logging into the Arena or cannot access the chat interface, you may send an email to gicj05@topcoder.com . Please include a detailed description of the problem that you are having. 
+If you have a problem logging into the Arena or cannot access the chat interface, you may send an email to <A href="gicj05@topcoder.com">gicj05@topcoder.com</A> . Please include a detailed description of the problem that you are having. 
 
 			<br/><br/>
 			To find out more detailed information about the Google India Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=gicj05&d2=rules">Terms and Conditions</a>.
