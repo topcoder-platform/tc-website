@@ -42,7 +42,7 @@ function find(n) {
 
 			<img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
 			
-			<img src="/i/tournament/tco04/right_header.gif" alt="Great Opportunities are Available from our Sponsors" width="170" height="36" border="0" /><br />
+			<img src="/i/tournament/tco04/right_header.gif" alt="Great Opportunities are Available from our Sponsors" width="170" height="65" border="0" /><br />
             
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             
