@@ -17,7 +17,7 @@
 
                 <tr><td class="prHead"><A href="http://msn-cnet.com.com/2100-1032_3-5078400.html" target="_blank">Google seeking a few good code jockeys</A> [September 17]</td></tr>  
 
-                <tr><td class="prHead"><A href="http://www.sdtimes.com/cols/industrywatch_078.htm" target="_blank">TopCoder Software Thrives on Competition</A> [September 15]</td></tr>  
+                <tr><td class="prHead"><A href="http://www.sdtimes.com/news/086/story9.htm" target="_blank">TopCoder Software Thrives on Competition</A> [September 15]</td></tr>  
 
                 <tr><td class="prHead"><A href="http://www.informationweek.com/story/showArticle.jhtml?articleID=14704726" target="_blank">In-House Innovation</A> [September 15]</td></tr>  
 
