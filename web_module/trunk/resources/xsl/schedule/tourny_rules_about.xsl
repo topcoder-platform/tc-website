@@ -81,7 +81,7 @@
 						</TABLE></DIV><BR/><BR/>
 						Every competitor who is invited to compete in an online Regional round must log on to the TopCoder Competition Arena no later than ten minutes prior to the 
 						start of the online Regional round.  (See below for competition dates and times.)  TopCoder members from all over the country may be participating in these rounds, but all 
-						start times will be communicated as Eastern Standard Time, so contestants in different time zones must adjust accordingly.  If a coder does not participate, for any reason, in 
+						start times will be communicated as Eastern Time, so contestants in different time zones must adjust accordingly.  If a coder does not participate, for any reason, in
 						an online Regional round that they have advanced to, it will be treated as an automatic loss in that round of competition.  All competitors who have qualified for an online 
 						Regional round will be assigned to a specific room.  TopCoder will determine all room assignments prior to the start of each online Regional round, in a manner such that the 
 						average competitor rating (as of February 14, 2002) for each room will be similar.  The dates and times of the online Regional rounds of competition are further described 

@@ -88,7 +88,7 @@
               choose the option for 'Event Registration'.
               TopCoder members from all over the country will be participating
               in this event, but <B><I>all start times will be communicated as 
-              &#160;Eastern Standard Time, so contestants in different time zones must 
+              &#160;Eastern Time, so contestants in different time zones must
               adjust accordingly.</I></B>  
               All competitors who have registered for the online tournament 
               round will be assigned to a specific tournament room.  
