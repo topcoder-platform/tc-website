@@ -230,12 +230,7 @@ defamation or to otherwise review or edit such materials as appropriate, in our 
 <b>OTHER RESTRICTIONS ON CONDUCT</b><br/>
 You agree not to disrupt, modify or interfere with the functioning of our Web site or any services provided on or through
 our Web site or with any associated software, hardware or servers in any way and you agree not to impede or interfere with
-others' use of our Web site. This includes your agreement that you will not cheat; that the idea for the code and/or challenge(s) submitted by you is 
-yours alone.  This also includes your agreement that you will not provide your TopCoder information including, but not limited to, your TopCoder handle and rating, to any third 
-party for the purpose of pursuing employment opportunities without the written consent of TopCoder. 
-If you are contacted by a third-party regarding employment opportunities and/or media interest as a result in your 
-participation in TopCoder competitions (including, but not limited to, Single Round Matches and tournaments), you agree 
-to promptly notify TopCoder of such contact. You also agree not to alter or tamper with any information or materials on, or 
+others' use of our Web site. You also agree not to alter or tamper with any information or materials on, or 
 associated with our Web site or services provided on or through our Web site.
 <br/><br/>
 We do not necessarily endorse, support, sanction, encourage, verify or agree with the comments, opinions, or other
