@@ -156,12 +156,12 @@ public class USDCContestDetails extends StatBase {
             {
                 //reposition result->resultMap->contest_results_only_winners to contest_results so that the page doesn't have to know what
                 //type of contest this is
-                Map result =  (Map)getRequest().getAttribute("resultMap");
+                Map result2 =  (Map)getRequest().getAttribute("resultMap");
 
-                result.put("contest_results", result.get("contest_results_only_winners"));
+                result2.put("contest_results", result2.get("contest_results_only_winners"));
                 //result.remove("contest_results_only_winners");
 
-                getRequest().setAttribute("resultMap", result);
+                getRequest().setAttribute("resultMap", result2);
             }
         } catch (TCWebException e) {
             throw new TCWebException(e);
