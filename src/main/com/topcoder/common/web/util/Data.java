@@ -73,6 +73,50 @@ public final class Data {
     }
   }
 
+  public static void loadUser(Navigation nav) throws TCException {
+  
+    User user = null;
+    if (nav.getUser()==null) {
+      user = new User();
+      nav.setUser(user);
+    } else {
+      user = nav.getUser();
+    }
+    if ( user.getUserId()==0 ) {
+      Context ctx = null;
+      try {
+        /////////////////////////////////////////////////////
+        StringBuffer msg = new StringBuffer(250);
+        msg.append("tc: logged in user found with no user attributes:\n");
+        msg.append("tc: user id = ");
+        msg.append(nav.getUserId());
+        msg.append("\n");
+        msg.append("tc: Loading user attributes from user entity bean...");
+        Log.msg(VERBOSE, msg.toString());
+        /////////////////////////////////////////////////////
+        ctx = TCContext.getInitial();
+        UserServicesHome userHome = ( UserServicesHome ) ctx.lookup ( ApplicationServer.USER_SERVICES );
+        UserServices userEJB = (UserServices) userHome.findByPrimaryKey( new Integer(nav.getUserId()) );
+        user = userEJB.getUser();
+        nav.setUser(user);
+        /////////////////////////////////////////////////////
+        Log.msg(VERBOSE, "tc: user loaded from entity bean");
+        /////////////////////////////////////////////////////
+      } catch (Exception e) {
+        throw new NavigationException("tc:processCommands:ERROR READING DATABASE\n"+e,TCServlet.INTERNAL_ERROR_PAGE);
+      } finally {
+        if (ctx!=null) {
+          try {
+            ctx.close();
+          } catch (Exception ignore) {}
+        }
+      }
+    }
+  }
+
+
+
+
   ////////////////////////////////////////////////////////////////////////////////
   public static RecordTag getDynamicContestInfo(ArrayList contests) throws Exception {
   ////////////////////////////////////////////////////////////////////////////////
