@@ -47,13 +47,13 @@
         <td class="promoText" width="100%">
             <table width="100%" border="0" cellpadding="0" cellspacing="15">
 
-<!-- 2003 JavaOne Conference -->
+<!-- Revelation Software -->
                 <tr><td align="center"><A href="http://www.revelation.com/tcohome/tcoevent03" target="_blank"><img src="/i/tournament/tco03/sponsors/revelation_header.jpg" alt="Revelation Software is a corporate sponsor of the 2003 TopCoder Open" width="565" height="91" border="0" /></A></td></tr>
                             
                 <tr valign="top">
                     <td class="promoText" width="99%">
                         <p><font face="times"><strong>With more than 1.5 million users, at over 60,000 sites, on all seven continents, 
-                        <A href="http://www.revelation.com" target="_blank">Revelation Software</A> can be found in nearly 
+                        <A href="http://www.revelation.com/tcohome/tcoevent03" target="_blank">Revelation Software</A> can be found in nearly 
                         every industry imaginable. Revelation's flagship product, OpenInsight, is currently being taught at various colleges throughout 
                         the world including the University of D.C.</strong></font></p>
                     </td>
