@@ -1,8 +1,6 @@
 package com.topcoder.web.common.security;
 
-import java.util.Hashtable;
-import javax.naming.*;
-import com.topcoder.security.TCSubject;
+import com.topcoder.security.*;
 import com.topcoder.security.admin.*;
 import com.topcoder.security.policy.*;
 import com.topcoder.shared.security.*;
@@ -23,24 +21,16 @@ public class HSAuthorization implements Authorization {
     private PolicyRemote policy;
 
     /** Construct an instance which can be used to check access for the given user. */
-    public HSAuthorization(TCSubject sub) {
-        try {
-            this.user = sub;
-            policy = (PolicyRemote)Constants.createEJB(PolicyRemote.class);
-        } catch(Exception e) {
-            throw new RuntimeException(e.getMessage());  //@@@ use authexception?
-        }
+    public HSAuthorization(TCSubject sub) throws Exception {
+        this.user = sub;
+        policy = (PolicyRemote)Constants.createEJB(PolicyRemote.class);
     }
 
     /** Constructor which takes a User object and fetches the TCSubject for that user. */
-    public HSAuthorization(User user) {
-        try {
-            PrincipalMgrRemote pmgr = (PrincipalMgrRemote)Constants.createEJB(PrincipalMgrRemote.class);
-            this.user = pmgr.getUserSubject(user.getId());
-            policy = (PolicyRemote)Constants.createEJB(PolicyRemote.class);
-        } catch(Exception e) {
-            throw new RuntimeException(e.getMessage());  //@@@ use authexception?
-        }
+    public HSAuthorization(User user) throws Exception {
+        PrincipalMgrRemote pmgr = (PrincipalMgrRemote)Constants.createEJB(PrincipalMgrRemote.class);
+        this.user = pmgr.getUserSubject(user.getId());
+        policy = (PolicyRemote)Constants.createEJB(PolicyRemote.class);
     }
 
     /** Query the security component to determine whether the user can access this resource. */
@@ -48,7 +38,6 @@ public class HSAuthorization implements Authorization {
         try {
             TCPermission perm = new GenericPermission(r.getName());
             return policy.checkPermission(user, perm);
-
         } catch(Exception e) {
             return false;
         }

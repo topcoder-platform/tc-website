@@ -45,6 +45,8 @@ public final class Controller extends HttpServlet {
                 rp.setResponse(response);
                 rp.process();
 
+//@@@ need to catch some auth exceptions separately here
+
             } catch(Exception e) {
 
                 e.printStackTrace();

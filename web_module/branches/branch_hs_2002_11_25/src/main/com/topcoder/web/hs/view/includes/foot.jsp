@@ -26,7 +26,6 @@
 <TD BACKGROUND="/i/steel_gray_bg.gif" BGCOLOR="#43515E" VALIGN="top" WIDTH="20"><IMG BORDER="0" HEIGHT="1" WIDTH="20" SRC="/i/clear.gif"></TD>
 <TD BACKGROUND="/i/steel_gray_bg.gif" BGCOLOR="#43515E" ALIGN="left" VALIGN="top" WIDTH="100%"><IMG BORDER="0" HEIGHT="5" WIDTH="1" SRC="/i/clear.gif"><BR><SPAN CLASS="smallFoot">        
         &nbsp;&nbsp;<A HREF="?module=Static&d1=about&d2=about" CLASS="globalNavSmall">about [TCHS]</A>   
-<!--        &nbsp;&nbsp;::&nbsp;&nbsp;   <A HREF="?module=Static&d1=login&d2=login" CLASS="globalNavSmall">Log in</A>   -->
         &nbsp;&nbsp;::&nbsp;&nbsp;   <A HREF="?module=Static&d1=contacts&d2=contacts" CLASS="globalNavSmall">contacts</A>
         &nbsp;&nbsp;::&nbsp;&nbsp;   <A HREF="?module=Static&d1=home&d2=privacy" CLASS="globalNavSmall">privacy</A>
         &nbsp;&nbsp;::&nbsp;&nbsp;   <A HREF="?module=Static&d1=home&d2=terms" CLASS="globalNavSmall">terms</A>             

@@ -8,7 +8,7 @@ package com.topcoder.shared.security;
 public interface Authentication {
 
     /** Attempt to log in with the given user. */
-    public void login(User u) throws AuthenticationException;
+    public void login(User u) throws LoginException;
 
     /** Log out, if currently considered logged in. */
     public void logout();

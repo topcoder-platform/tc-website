@@ -8,6 +8,7 @@ package com.topcoder.shared.security;
  * @author Greg Paul
  */
 public interface Persistor {
+
     public Object getObject(String key);
     public void setObject(String key, Object value);
     public void removeObject(String key);

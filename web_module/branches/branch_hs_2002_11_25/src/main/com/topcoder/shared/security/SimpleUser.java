@@ -3,7 +3,7 @@ package com.topcoder.shared.security;
 /**
  * Simple container for a User.
  *
- * @author Greg Paul, Ambrose Feinstein
+ * @author Ambrose Feinstein
  */
 public class SimpleUser implements User {
 

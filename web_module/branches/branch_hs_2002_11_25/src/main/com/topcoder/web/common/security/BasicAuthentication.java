@@ -1,7 +1,5 @@
 package com.topcoder.web.common.security;
 
-import java.util.Hashtable;
-import javax.naming.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import com.topcoder.security.*;
@@ -40,7 +38,7 @@ public class BasicAuthentication implements WebAuthentication {
      *   2.  add user_id to Persistor as a value with key=request.getSession().getId()+"user_id"
      * if (!successfulLogin) throw AuthenticationException (or equivalent)
      */
-    public void login(User u) throws com.topcoder.shared.security.AuthenticationException {
+    public void login(User u) throws LoginException {
 
         try {
             TCSubject sub = login.login(u.getUserName(), u.getPassword());
@@ -50,7 +48,7 @@ public class BasicAuthentication implements WebAuthentication {
             persistor.setObject(request.getSession().getId()+"user_id", new Long(sub.getUserId()));
 
         } catch (Exception e) {
-            throw new com.topcoder.shared.security.AuthenticationException(e);
+            throw new LoginException(e);
         }
     }
 
@@ -105,7 +103,8 @@ public class BasicAuthentication implements WebAuthentication {
             UserPrincipal up = pmgr.getUser(id);
             return new SimpleUser(id, up.getName(), "");
         } catch(Exception e) {
-            throw new RuntimeException(e.getMessage());
+            System.out.println("@@@ caught in makeUser with id = "+id);
+            return new SimpleUser(id, "", "");
         }
     }
 }
