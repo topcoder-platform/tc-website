@@ -12,10 +12,12 @@ public class CPS implements Fraud {
     private List submissions = null;
     private static final double STD_DEV_THRESHHOLD = 2.0D;
     private ArrayList potentialViolators = new ArrayList();
+    private int reportCount;
 
-    public CPS(List submissions) {
+    public CPS(List submissions, int reportCount) {
         report = new StringBuffer(submissions.size() * 10);
         this.submissions = submissions;
+        this.reportCount = reportCount;
     }
 
     public void execute() throws Exception {
@@ -38,7 +40,7 @@ public class CPS implements Fraud {
         Collections.sort(results);
         double suspicious = avg + STD_DEV_THRESHHOLD * stddev;
         SimpleResult r = null;
-        for (int i = results.size() - 1, k = 0; i > -1 && k < MAX_REPORT; i--, k++) {
+        for (int i = results.size() - 1, k = 0; i > -1 && k < reportCount; i--, k++) {
             r = (SimpleResult) results.get(i);
             if (r.getValue() > suspicious) {
                 s1 = (Submission) submissions.get(r.getIndex());

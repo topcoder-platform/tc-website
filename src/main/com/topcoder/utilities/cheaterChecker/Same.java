@@ -11,11 +11,13 @@ public class Same implements Fraud {
     private List tokens = null;
     private List submissions = null;
     private ArrayList potentialViolators = new ArrayList();
+    private int reportCount;
 
-    public Same(List tokens, List submissions) {
+    public Same(List tokens, List submissions, int reportCount) {
         report = new StringBuffer(submissions.size() * 10);
         this.tokens = tokens;
         this.submissions = submissions;
+        this.reportCount = reportCount;
     }
 
     public void execute() throws Exception {
