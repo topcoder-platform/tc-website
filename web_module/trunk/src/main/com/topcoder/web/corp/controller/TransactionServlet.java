@@ -726,10 +726,12 @@ public class TransactionServlet extends HttpServlet {
     }
 
     private TransactionInfo getTransaction(HttpServletRequest request) {
+        log.debug("get transaction");
         return (TransactionInfo)getTransactions(request).get(transactionKey(request));
     }
 
     private void addTransaction(HttpServletRequest request, TransactionInfo info) {
+        log.debug("add transaction for " + info.getBuyerID() + " " + info.getProductID());
         getTransactions(request).put(transactionKey(request), info);
     }
 
