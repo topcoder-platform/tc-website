@@ -22,7 +22,7 @@ public class ProjectDetail extends Base {
         try {
             Request r = new Request();
             r.setContentHandle("project_detail");
-            r.setProperty("pj", StringUtils.checkNull(getRequest().getParameter("pj")));
+            r.setProperty(Constants.PROJECT_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID)));
 
             Map resultMap = getDataAccess().getData(r);
 
