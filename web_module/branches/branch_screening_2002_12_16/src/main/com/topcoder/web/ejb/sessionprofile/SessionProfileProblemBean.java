@@ -82,6 +82,8 @@ public class SessionProfileProblemBean extends BaseEJB {
             pstmt.setInt(4,sortOrder);
             pstmt.setLong(5,sessionRoundId);
 
+            pstmt.executeUpdate();
+            
         } catch (SQLException sqe) {
             StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("SQLException in createSessionProfileProblem. ");
