@@ -67,15 +67,15 @@ Keep in mind, TopCoder is paying significant money for these projects, and we ex
 </P>
 
 <P>
-Project: <A HREF="/index?t=development&amp;c=grant_process" CLASS="statTextBig">Grant Processing Application</A><BR/>
-Start Date: June 14, 2002<BR/>
-End Date: June 24, 2002<BR/>
+Project: <A HREF="/index?t=development&amp;c=architect" CLASS="statTextBig">Architect</A><BR/>
 Member Selection: <b>Open</b><BR/>
 Inquiry Deadline: TBD<BR/>
 </P>
 
 <P>
-Project: <A HREF="/index?t=development&amp;c=architect" CLASS="statTextBig">Architect</A><BR/>
+Project: <A HREF="/index?t=development&amp;c=grant_process" CLASS="statTextBig">Grant Processing Application</A><BR/>
+Start Date: June 14, 2002<BR/>
+End Date: June 24, 2002<BR/>
 Member Selection: <b>Open</b><BR/>
 Inquiry Deadline: TBD<BR/>
 </P>
