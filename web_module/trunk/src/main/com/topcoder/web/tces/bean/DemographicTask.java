@@ -1,10 +1,7 @@
 package com.topcoder.web.tces.bean;
 
-import com.topcoder.shared.dataAccess.DataAccess;
-import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tces.common.TCESAuthenticationException;
 import com.topcoder.web.tces.common.TCESConstants;
@@ -235,7 +232,6 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
         Request dataRequest = new Request();
         ResultSetContainer rsc = null;
         Map resultMap = null;
-        DataAccessInt dai = null;
 
         if (getJobID() >= 0) {
             // Position Demographics
@@ -257,8 +253,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
             dataRequest.setProperty("uid", Long.toString(uid));
             dataRequest.setProperty("cid", Integer.toString(getCampaignID()));
             dataRequest.setProperty("ct", Integer.toString(types[typeI]));
-            dai = new DataAccess((javax.sql.DataSource) getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
-            resultMap = dai.getData(dataRequest);
+            resultMap = getDataAccess(getOltp()).getData(dataRequest);
 
             if (super.getSessionInfo().isAdmin())
 			    setCompanyName(TCESConstants.ADMIN_COMPANY);

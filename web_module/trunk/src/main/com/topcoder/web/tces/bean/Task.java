@@ -1,7 +1,7 @@
 package com.topcoder.web.tces.bean;
 
-import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.security.WebAuthentication;
 
 import javax.naming.InitialContext;
 import javax.servlet.http.HttpServletRequest;

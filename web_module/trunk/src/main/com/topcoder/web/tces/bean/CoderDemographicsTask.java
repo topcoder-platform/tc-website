@@ -6,15 +6,12 @@
 
 package com.topcoder.web.tces.bean;
 
-import com.topcoder.shared.dataAccess.DataAccess;
-import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.tces.common.TCESConstants;
-import com.topcoder.web.common.BaseProcessor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -97,7 +94,7 @@ public class CoderDemographicsTask extends BaseTask implements Task, Serializabl
         ResumeServices rServices = null;
         try {
             rServices = (ResumeServices)BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
-            setHasResume(rServices.hasResume(mid, DBMS.OLTP_DATASOURCE_NAME));
+            setHasResume(rServices.hasResume(mid, getOltp()));
         } catch (Exception e) {
             log.error("could not determine if user has a resume or not");
             e.printStackTrace();
@@ -113,8 +110,7 @@ public class CoderDemographicsTask extends BaseTask implements Task, Serializabl
         Request dwDataRequest = new Request();
         dwDataRequest.setContentHandle("tces_member_profile");
         dwDataRequest.setProperty("mid", Integer.toString(getMemberID()));
-        DataAccessInt dw = new DataAccess((javax.sql.DataSource) getInitialContext().lookup(DBMS.DW_DATASOURCE_NAME));
-        Map dwResultMap = dw.getData(dwDataRequest);
+        Map dwResultMap = getDataAccess(getDw()).getData(dwDataRequest);
         ResultSetContainer dwRSC = null;
         dwRSC = (ResultSetContainer) dwResultMap.get("TCES_Coder_Stats");
         if (dwRSC.getRowCount() > 0) {
@@ -132,8 +128,7 @@ public class CoderDemographicsTask extends BaseTask implements Task, Serializabl
         dataRequest.setProperty("jid", Integer.toString(getJobID()));
         dataRequest.setProperty("mid", Integer.toString(getMemberID()));
 
-        DataAccessInt dai = new DataAccess((javax.sql.DataSource) getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
-        Map resultMap = dai.getData(dataRequest);
+        Map resultMap = getDataAccess(getOltp()).getData(dataRequest);
 
         ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_Member_Handle");
         if (rsc.getRowCount() == 0) {

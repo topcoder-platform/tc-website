@@ -6,11 +6,8 @@
 
 package com.topcoder.web.tces.bean;
 
-import com.topcoder.shared.dataAccess.DataAccess;
-import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tces.common.JSPUtils;
 import com.topcoder.web.tces.common.TCESAuthenticationException;
@@ -119,8 +116,7 @@ public class ProblemStatisticsTask extends BaseTask implements Task, Serializabl
         dataRequest.setProperty("mid", Integer.toString(getMemberID()));
         dataRequest.setProperty("pm", Integer.toString(getProblemID()));
 
-        DataAccessInt dai = new DataAccess((javax.sql.DataSource) getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
-        Map resultMap = dai.getData(dataRequest);
+        Map resultMap = getDataAccess(getOltp()).getData(dataRequest);
 
         ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_Member_Handle");
         if (rsc.getRowCount() == 0) {
@@ -137,8 +133,7 @@ public class ProblemStatisticsTask extends BaseTask implements Task, Serializabl
                     " does not belong to uid=" + Long.toString(uid));
         }
 
-        dai = new DataAccess((javax.sql.DataSource) getInitialContext().lookup(DBMS.DW_DATASOURCE_NAME));
-        resultMap = dai.getData(dataRequest);
+        resultMap = getDataAccess(getDw()).getData(dataRequest);
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Coder_Problem_Stats");
         if (rsc.getRowCount() == 0) {
@@ -147,7 +142,7 @@ public class ProblemStatisticsTask extends BaseTask implements Task, Serializabl
         setProblemStats(rsc.getRow(0));
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Problem_Stats_by_Language");
-        setProblemStatsByLanguage((List) rsc);
+        setProblemStatsByLanguage(rsc);
 
         setNextPage(TCESConstants.PROBLEM_STATISTICS_PAGE);
     }

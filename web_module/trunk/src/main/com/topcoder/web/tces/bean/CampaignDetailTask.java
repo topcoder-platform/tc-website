@@ -1,10 +1,7 @@
 package com.topcoder.web.tces.bean;
 
-import com.topcoder.shared.dataAccess.DataAccess;
-import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tces.common.TCESConstants;
 
@@ -190,8 +187,7 @@ public class CampaignDetailTask extends BaseTask implements Task, Serializable {
         dataRequest.setProperty("uid", Long.toString(uid));
         log.debug("User id set in CampaignDetailTask= " + uid);
         dataRequest.setProperty("cid", Integer.toString(getCampaignID()));
-        DataAccessInt dai = new DataAccess((javax.sql.DataSource) getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
-        Map resultMap = dai.getData(dataRequest);
+        Map resultMap = getDataAccess(getOltp()).getData(dataRequest);
 
         ResultSetContainer rsc = null;
 		if (super.getSessionInfo().isAdmin())
@@ -235,14 +231,14 @@ public class CampaignDetailTask extends BaseTask implements Task, Serializable {
             position.put("job_desc",
                     posListRow.getItem("job_desc").toString());
             position.put("hit_count",
-                    ((Long) posListRow.getItem("hit_count").getResultData()).toString());
+                    (posListRow.getItem("hit_count").getResultData()).toString());
             if (((Long) posListRow.getItem("hit_count").getResultData()).longValue() == 0) {
                 position.put("most_recent", "N/A");
             } else {
                 position.put("most_recent", getDate(posListRow, "most_recent"));
             }
             position.put("job_id",
-                    ((Long) posListRow.getItem("job_id").getResultData()).toString());
+                    (posListRow.getItem("job_id").getResultData()).toString());
 
             positionList.add(position);
         }

@@ -1,20 +1,19 @@
 package com.topcoder.web.tces.bean;
 
-import com.topcoder.web.ejb.resume.ResumeServices;
-import com.topcoder.web.resume.bean.Resume;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.DataAccess;
-import com.topcoder.web.tces.common.TCESConstants;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.web.common.security.BasicAuthentication;
-import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.ejb.resume.ResumeServices;
+import com.topcoder.web.resume.bean.Resume;
+import com.topcoder.web.tces.common.TCESConstants;
 
-import javax.servlet.http.*;
 import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 public class ResumeDownloadTask extends BaseTask {
@@ -52,8 +51,7 @@ public class ResumeDownloadTask extends BaseTask {
         oltpDataRequest.setProperty("cid", Integer.toString(getCampaignId()));
         oltpDataRequest.setProperty("mid", Integer.toString(getMemberId()));
 
-        DataAccess oltp = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
-        Map oltpResultMap = oltp.getData(oltpDataRequest);
+        Map oltpResultMap = getDataAccess(getOltp()).getData(oltpDataRequest);
 
         ResultSetContainer oltpRSC = (ResultSetContainer) oltpResultMap.get("TCES_Verify_Member_Access");
         if (oltpRSC.getRowCount() == 0 && !super.getSessionInfo().isAdmin()) {
@@ -83,7 +81,7 @@ public class ResumeDownloadTask extends BaseTask {
 
     public void processStep(String step) throws Exception {
         ResumeServices resumeServices = (ResumeServices)BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
-        resume = resumeServices.getResume(getMemberId(), DBMS.OLTP_DATASOURCE_NAME);
+        resume = resumeServices.getResume(getMemberId(), getOltp());
 
     }
 
