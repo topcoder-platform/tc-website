@@ -16,16 +16,7 @@
                 <ejb-ref-type>Session</ejb-ref-type>
                 <home>com.topcoder.security.policy.PolicyRemoteHome</home>
                 <remote>com.topcoder.security.policy.PolicyRemote</remote>
-            </ejb-ref>
-            
-            <transaction-type>Container</transaction-type>
-            <ejb-local-ref>
-                <ejb-ref-name>ejb/DDECompForumXrefEJB</ejb-ref-name>
-                <ejb-ref-type>Entity</ejb-ref-type>
-                <local-home>com.topcoder.dde.persistencelayer.interfaces.LocalDDECompForumXrefHome</local-home>
-                <local>com.topcoder.dde.persistencelayer.interfaces.LocalDDECompForumXref</local>
-                <ejb-link>DDECompForumXrefEJB</ejb-link>
-            </ejb-local-ref>
+            </ejb-ref>           
             <resource-ref>
                 <res-ref-name>jdbc/DefaultDS</res-ref-name>
                 <res-type>javax.sql.DataSource</res-type>
