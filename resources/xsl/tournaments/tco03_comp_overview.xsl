@@ -88,7 +88,7 @@
                     Two elimination rounds - online<br />
                     The Championship round will be held at the Mohegan Sun Casino and Resort in Uncasville, CT on December 5th.</li>
                 <li><strong>Prizes: </strong><br />
-                    Total Prize Purse: $100,000 in cash</li>
+                    Total Prize Purse: $20,000 in cash</li>
                 <li><strong>Finalists: </strong><br />
                     The top 2 finishers in the online rounds will advance to the onsite Championship rounds</li>
             </ul>
