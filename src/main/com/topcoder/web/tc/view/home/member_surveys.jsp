@@ -9,7 +9,7 @@
                 </tr>
             </table>
             
-            <table width="530" cellspacing="0" cellpadding="0" border="0">
+            <table width="530" cellspacing="0" cellpadding="0" border="0" class="surveyFrame">
                 <tr>
                     <td>
                         <p class="surveyText"><span class="surveyTextBig"><rsc:item name="date" row="<%=resultRow%>"/> - </span><rsc:item name="question_text" row="<%=resultRow%>"/></p>
