@@ -156,7 +156,7 @@
 		</p>
 
 
-		<a name="scoring"></a>
+		<a name="score"></a>
 		<p><span class="bodySubtitle">11 Determining Score</span><br/>
         The point value of a submission is dependent upon the problem's level of difficulty and the time it took to code a solution.
         The TopCoder server will calculate the time spent on a problem by counting the time between when the coder selects a
