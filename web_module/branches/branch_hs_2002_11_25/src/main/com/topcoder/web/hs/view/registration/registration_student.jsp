@@ -34,17 +34,19 @@
     } %>
  function changeState() {
   var idx=document.state.selectedIndex
+  var school=document.getObjectById("school");
+  var state=document.getObjectById("state");
   if (idx==-1) {
-   document.school.disabled=true
-   document.school.selectedIndex=0
-   document.school.options.length=1
+   school.disabled=true
+   school.selectedIndex=0
+   school.options.length=1
   }
   else {
-   document.school.disabled=false
-   document.school.options.length=schools[idx].size+1
+   school.disabled=false
+   school.options.length=schools[idx].size+1
    for (i=0;i<schools[idx].size;i++) {
-    document.school.options(i+1).text=schools[idx][i]
-    document.school.options(i+1).value=codes[idx][i]
+    school.options(i+1).text=schools[idx][i]
+    school.options(i+1).value=codes[idx][i]
    } 
   }
  }
