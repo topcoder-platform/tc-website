@@ -142,8 +142,8 @@ i++;
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%=tot_lev3_subs%></strong></td>
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%=tot_lev3_succ%></strong></td>
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong>Accuracy</strong></td>
-  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong>Subs</strong></td>
-  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong>Correct</strong></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%= tot_subs %></strong></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%= tot_succ %></strong></td>
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong>Accuracy</strong></td>
 </tr>
 </table>

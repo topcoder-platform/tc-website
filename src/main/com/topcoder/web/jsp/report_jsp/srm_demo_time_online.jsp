@@ -23,43 +23,45 @@
                     Map dataMap = null;
                     dataMap = dai.getData(dataRequest);
 					
-					ResultSetContainer rsc = (ResultSetContainer)dataMap.get("srm_demo_last_match");
+					ResultSetContainer rsc = (ResultSetContainer)dataMap.get("srm_demo_time_online");
 					
 					
 			%>	
-			
-			
+
+
+
 
 
 <table width="100%" class="srmFrame">
-<tr><td colspan="2" class="srmQuestion">Repeat Participant Aging</td></tr>
+<tr><td colspan="2" class="srmQuestion">Competitor Time Online</td></tr>
 <tr>
-<td class="bodyText"><strong>(days since last rated match before this one)</strong></td>
-<td class="bodyText"><strong>Count</strong></td>
+<td class="bodyText"><strong>Time</strong></td>
+<td class="bodyText"><strong>Number Logged In</strong></td>
+</tr>
+<tr>
+  <td class="srmTableEven">0-1 Hours</td>
+  <td class="srmTableEven" ><%= rsc.getItem(0,"one_hour") %></td>
+</tr>
+<tr>
+  <td class="srmTableOdd">1-2 Hours</td>
+  <td class="srmTableOdd" ><%= rsc.getItem(0,"two_hours") %></td>
+</tr>
+<tr>
+  <td class="srmTableEven">2-3 Hours</td>
+  <td class="srmTableEven" ><%= rsc.getItem(0,"three_hours") %></td>
+</tr>
+<tr>
+  <td class="srmTableOdd">3-4 Hours</td>
+  <td class="srmTableOdd" ><%= rsc.getItem(0,"four_hours") %></td>
+</tr>
+<tr>
+  <td class="srmTableEven">4-5 Hours</td>
+  <td class="srmTableEven" ><%= rsc.getItem(0,"five_hours") %></td>
+</tr>
+<tr>
+  <td class="srmTableOdd">5+ Hours</td>
+  <td class="srmTableOdd" ><%= rsc.getItem(0,"five_plus") %></td>
 </tr>
 
-<tr>
-<td class="srmTableEven">1 to 7 days</td>
-<td class="srmTableEven"><%= rsc.getItem(0,"onetoseven") %></td>
-</tr>
-<tr>
-<td class="srmTableOdd">8 to 14 days</td>
-<td class="srmTableOdd"><%= rsc.getItem(0,"eighttofourteen") %></td>
-</tr>
-<tr>
-<td class="srmTableEven">15 to 30 days</td>
-<td class="srmTableEven"><%= rsc.getItem(0,"fifteentothirty") %></td>
-</tr>
-<tr>
-<td class="srmTableOdd">31 to 60 days</td>
-<td class="srmTableOdd"><%= rsc.getItem(0,"thirtyonetosixty") %></td>
-</tr>
-<tr>
-<td class="srmTableEven">61 to 90 days</td>
-<td class="srmTableEven"><%= rsc.getItem(0,"sixtyonetoninety") %></td>
-</tr>
-<tr>
-<td class="srmTableOdd">more than 90 days</td>
-<td class="srmTableOdd"><%= rsc.getItem(0,"ninetyplus") %></td>
-</tr>
 </table>
+  
