@@ -69,6 +69,13 @@ public class ProjectReviewApply extends Base {
                                 throw new NavigationException("Sorry, you can not review this project because " +
                                         "you are not a Flash reviewer");
                             }
+                        } else if (catalog == Constants.APPLICATIONS_CATALOG_ID) {
+                            if (rbu.canReviewFlash(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId(), phaseId)) {
+                                applicationProcessing();
+                            } else {
+                                throw new NavigationException("Sorry, you can not review this project because " +
+                                        "you are not a Application reviewer");
+                            }
                         } else {
                             throw new TCWebException("unknown catalog found " + catalog);
                         }
