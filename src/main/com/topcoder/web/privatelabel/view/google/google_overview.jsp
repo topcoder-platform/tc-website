@@ -25,7 +25,7 @@
         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
-<!-- Left Column Begins-->
+<!-- Header -->
          <td width="100%" valign="top" class="bodyText" colspan="3">
        
          <table  width="100%" align="center" border="0" cellspacing="0" cellpadding="0" class="bodyText">
