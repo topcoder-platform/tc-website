@@ -61,7 +61,7 @@
                 </TR>
     
                 <tces:rowIterator id="campaignInfo" rowList="<%=MainTask.getCampaignInfoList()%>">
-                <% if (MainTask.hasManyCompanies) { %> 
+                <% if (MainTask.hasManyCompanies()) { %> 
                   <TR><TD colspan="5" class="statTextBig"><BR/><BR/></TD></TR>
                   <TR><TD colspan="5" class="statTextBig"><%= campaignInfo.getItem("company_name").toString() %></TD></TR><BR/><BR/>
                 <% } %>
