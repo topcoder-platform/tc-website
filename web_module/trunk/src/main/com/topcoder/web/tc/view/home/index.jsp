@@ -154,16 +154,16 @@
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
 			<tr>
 				<td class=homeArrow><img src="/i/home/triangle.gif" border=0 /></td>
-				<td class=homeTitle><A href="/?t=schedule&c=index" class=homeTitleLink>November Events:</A></td>
+				<td class=homeTitle><A href="/?t=schedule&c=index" class=homeTitleLink>December Events:</A></td>
 			</tr>
 			<tr>
 				<td class=homeArrow>&#160;</td>
 				<td class=homeText><br/>
-				<b>11/04</b> - SRM 218<br/><br/>
-				<b>11/11</b> - TCO04 Semifinals<br/><br/>
-				<b>11/12</b> - TCO04 Finals<br/><br/>
-				<b>11/20</b> - SRM 219<br/><br/>
-				<b>11/23</b> - SRM 220
+				<b>12/01</b> - SRM 221<br/><br/>
+				<b>12/07</b> - SRM 222<br/><br/>
+				<b>12/18</b> - SRM 223<br/><br/>
+				<b>12/22</b> - SRM 224<br/><br/>
+				<b>12/28</b> - SRM 225
 				</td>
 			</tr>
 			<tr>
