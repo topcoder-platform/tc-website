@@ -18,7 +18,6 @@ public class Controller
         extends HttpServlet {
     private static Logger log = Logger.getLogger(Controller.class);
     static final String MULTIPART_FORM_DATA = "multipart/form-data";
-    public static final String ALIAS = "/Registration";
     public static final String EXCEPTION = "exception";
     public static final String NAVIGATION = "navigation";
     public static final String TASK = "task";
@@ -99,12 +98,13 @@ public class Controller
     }
 
     void forwardToError(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException {
-        forward(request, response, CONTROLLER_ERROR_URL);
+            throws ServletException, IOException {
+        getServletContext().getContext("/").getRequestDispatcher(
+                response.encodeURL(CONTROLLER_ERROR_URL)).forward(request, response);
     }
 
     void forwardToError(HttpServletRequest request, HttpServletResponse response, Throwable exception)
-            throws ServletException {
+            throws ServletException, IOException {
         if (request != null) {
             request.setAttribute(EXCEPTION, exception);
         }
