@@ -6,10 +6,10 @@ import javax.ejb.EJBObject;
 
 public interface UserTermsOfUse extends EJBObject {
 
-  public void createUserTermsOfUse(long _user_id,long _terms_of_use_id)
+    public void createUserTermsOfUse(long userId,long termsOfUseId)
                                            throws EJBException, RemoteException;
 
-  public void removeUserTermsOfUse(long _user_id,long _terms_of_use_id)
+    public void removeUserTermsOfUse(long userId,long termsOfUseId)
                                            throws EJBException, RemoteException;
 
 };
