@@ -16,6 +16,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.common.web.data.CoderRegistration;
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.common.web.data.User;
+import com.topcoder.common.web.util.Data;
 
 import java.util.Map;
 import java.util.ArrayList;
@@ -59,6 +60,7 @@ public class JobHit extends Base {
             if (navigation == null)
                 navigation = new Navigation(getRequest(),
                         (CoderSessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY));
+            Data.loadUser(navigation);
             JobHitData hit = getData(navigation.getUser());
 
             log.debug("user rating: " + hit.getRating());
