@@ -161,10 +161,11 @@
                                 new components and component extensions necessary to implement functionality specific to the application.</li>
                             <li>An Architecture Review Board reviews and scores all design submissions. </li>
                             <li>The Architecture Review Board will submit feedback to the designers 3 days after each phase of design is completed</li>
+                            <li>The designer(s) incorporate Review Board suggestions into their design.</li>
                             <li>The Architecture Review Board selects a winning design submission and the top two entries are compensated.</li>
                             <li>If the new components are required for the application, they will be developed separately using the
                             <a class="statText" href="index?t=development&amp;c=comp_meth">Component Development Methodology</a>.</li>
-                            <li>The winning designer(s) incorporate Review Board suggestions into their design.</li>
+                            <li>The winning designer(s) incorporate Review Board suggestions into their final design.</li>
                             <li>The Architecture Review Board performs a final review and accepts the application design.</li>
                             <li>The winning design is posted as an Application Development Project.</li>
                         </ol>
