@@ -54,7 +54,7 @@
 						<td class=tableHeader align=right>Time Available</td>
 					</tr>
 					<tr>
-						<td class=tableTextOdd><img src="/i/corp/screening/buttonEnter.gif" alt="" /></td>
+						<td class=tableTextOdd><A href="/mockup/exampleDirections.jsp"><img src="/i/corp/screening/buttonEnter.gif" alt="" /></A></td>
 						<td class=tableTextOdd>Example Test</td>
 						<td class=tableTextOdd align=center>0/1</td>
 						<td class=tableTextOdd>Example Coding Problem Set</td>
@@ -62,7 +62,7 @@
 						<td class=tableTextOdd align=right>N/A</td>
 					</tr>		
 					<tr>
-						<td class=tableTextEven><img src="/i/corp/screening/buttonEnter.gif" alt="" /></td>
+						<td class=tableTextEven><A href="/mockup/exampleDirections.jsp"><img src="/i/corp/screening/buttonEnter.gif" alt="" /></A></td>
 						<td class=tableTextEven>Example Test</td>
 						<td class=tableTextEven align=center>0/1</td>
 						<td class=tableTextEven>Example Coding Problem Set</td>
@@ -70,7 +70,7 @@
 						<td class=tableTextEven align=right>N/A</td>
 					</tr>		
 					<tr>
-						<td class=tableTextOdd><img src="/i/corp/screening/buttonEnter.gif" alt="" /></td>
+						<td class=tableTextOdd><A href="/mockup/exampleDirections.jsp"><img src="/i/corp/screening/buttonEnter.gif" alt="" /></A></td>
 						<td class=tableTextOdd>Example Test</td>
 						<td class=tableTextOdd align=center>0/1</td>
 						<td class=tableTextOdd>Example Coding Problem Set</td>
