@@ -1586,18 +1586,20 @@ public class TCLoadRound extends TCLoad {
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
             query = new StringBuffer(100);
-            query.append("select count(*) as count");
-            query.append(    " , rr1.coder_id");
-            query.append( " from room_result rr1");
-            query.append(    " , round_segment rs1");
-            query.append(    " , round_segment rs2");
-            query.append(" where rs1.round_id = rr1.round_id");
-            query.append(  " and rs1.segment_id = 1");
-            query.append(  " and rs2.round_id = ?");
-            query.append(  " and rs2.segment_id = 1");
-            query.append(  " and rs1.start_time < rs2.start_time");
-            query.append(  " and rr1.rated_flag = 1");
-            query.append(" group by rr1.coder_id");
+            query.append(" select count(*) as count");
+            query.append(    " , rr2.coder_id");
+            query.append( " from room_result rr2 ");
+            query.append(    " , calendar c1");
+            query.append(    " , calendar c2");
+            query.append(    " , round r1");
+            query.append(    " , round r2");
+            query.append(" where rr2.round_id = r2.round_id");
+            query.append(  " and r1.calendar_id = c1.calendar_id");
+            query.append(  " and r2.calendar_id = c2.calendar_id");
+            query.append(  " and r1.round_id = ?");
+            query.append(  " and rr2.rated_flag = 1");
+            query.append(  " and c2.date < c1.date");
+            query.append(" group by rr2.coder_id");
 
             psSel = prepareStatement(query.toString(), TARGET_DB);
 
