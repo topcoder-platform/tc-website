@@ -2,6 +2,7 @@ package com.topcoder.web.ejb.query;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.ejb.BaseEJB;
+import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.idgenerator.IdGenerator;
@@ -378,25 +379,12 @@ public class InputBean extends BaseEJB {
     private long getNextValue() {
         log.debug("getNextValue called...");
 
-        Context ctx = null;
         long ret = 0;
         try {
-            ctx = new InitialContext();
-            if (!IdGenerator.isInitialized()) {
-                IdGenerator.init(new SimpleDB(), (DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME),
-                        "sequence_object", "name", "current_value", 9999999999L, 1, false);
-            }
-            ret = IdGenerator.nextId("INPUT_SEQ");
+            ret = IdGeneratorClient.getSeqId("INPUT_SEQ");
 
-        } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException getting sequence\n" + sqe.getMessage());
-        } catch (NamingException e) {
-            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + DBMS.OLTP_DATASOURCE_NAME);
         } catch (Exception e) {
             throw new EJBException("Exception getting sequence\n " + e.getMessage());
-        } finally {
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context");}}
         }
         return ret;
     }

@@ -4410,7 +4410,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             query.append("values (?, ?, ?)");
 
 
-            long affidavitTemplateId = IdGeneratorClient.getSeqId("AFFIDAVIT_TEMPLATE_SEQ", DBMS.OLTP_DATASOURCE_NAME);
+            long affidavitTemplateId = IdGeneratorClient.getSeqId("AFFIDAVIT_TEMPLATE_SEQ");
 
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, affidavitTemplateId);

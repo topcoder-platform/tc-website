@@ -5,6 +5,7 @@ import com.topcoder.util.idgenerator.sql.SimpleDB;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.BaseEJB;
+import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
 
 import javax.ejb.EJBException;
 import javax.naming.InitialContext;
@@ -25,16 +26,9 @@ public class SchoolBean extends BaseEJB {
 
         Connection conn = null;
         PreparedStatement ps = null;
-        InitialContext ctx = null;
         try {
-            ctx = new InitialContext();
 
-            if (!IdGenerator.isInitialized()) {
-                IdGenerator.init(new SimpleDB(), (DataSource) ctx.lookup(idDataSource), "sequence_object", "name",
-                        "current_value", 9999999999L, 1, false);
-            }
-
-            school_id = IdGenerator.nextId("SCHOOL_SEQ");
+            school_id = IdGeneratorClient.getSeqId("SCHOOL_SEQ");
 
             StringBuffer query = new StringBuffer(1024);
             query.append("INSERT ");
@@ -59,17 +53,13 @@ public class SchoolBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(ps);
             close(conn);
-            close(ctx);
         }
         return (school_id);
     }
-    
+
     public long createSchool(String dataSource, String idDataSource) throws EJBException {
         log.debug("create school called...");
 
@@ -77,16 +67,8 @@ public class SchoolBean extends BaseEJB {
 
         Connection conn = null;
         PreparedStatement ps = null;
-        InitialContext ctx = null;
         try {
-            ctx = new InitialContext();
-
-            if (!IdGenerator.isInitialized()) {
-                IdGenerator.init(new SimpleDB(), (DataSource) ctx.lookup(idDataSource), "sequence_object", "name",
-                        "current_value", 9999999999L, 1, false);
-            }
-
-            school_id = IdGenerator.nextId("SCHOOL_SEQ");
+            school_id = IdGeneratorClient.getSeqId("SCHOOL_SEQ");
 
             StringBuffer query = new StringBuffer(1024);
             query.append("INSERT ");
@@ -106,13 +88,9 @@ public class SchoolBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(ps);
             close(conn);
-            close(ctx);
         }
         return (school_id);
     }
@@ -299,7 +277,7 @@ public class SchoolBean extends BaseEJB {
         }
         return (full_name);
     }
-    
+
     public long getSchoolId(String name, String dataSource) throws EJBException {
         long ret = 0;
         Connection conn = null;
@@ -320,7 +298,7 @@ public class SchoolBean extends BaseEJB {
             rs = ps.executeQuery();
             if (rs.next()) {
                 ret = rs.getLong(1);
-            } 
+            }
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));

@@ -5,6 +5,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.idgenerator.IdGenerator;
 import com.topcoder.util.idgenerator.sql.SimpleDB;
 import com.topcoder.web.ejb.BaseEJB;
+import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
 
 import javax.ejb.EJBException;
 import javax.naming.InitialContext;
@@ -25,18 +26,10 @@ public class TermsOfUseBean extends BaseEJB {
 
         Connection conn = null;
         PreparedStatement ps = null;
-        InitialContext ctx = null;
 
         try {
 
-            ctx = new InitialContext();
-
-            if (!IdGenerator.isInitialized()) {
-                IdGenerator.init(new SimpleDB(), (DataSource) ctx.lookup(idDataSource), "sequence_object", "name",
-                        "current_value", 9999999999L, 1, false);
-            }
-
-            terms_of_use_id = IdGenerator.nextId("TERMS_OF_USE_SEQ");
+            terms_of_use_id = IdGeneratorClient.getSeqId("TERMS_OF_USE_SEQ");
 
             StringBuffer query = new StringBuffer(1024);
             query.append("INSERT ");
@@ -56,13 +49,9 @@ public class TermsOfUseBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(ps);
             close(conn);
-            close(ctx);
         }
         return (terms_of_use_id);
     }

@@ -22,7 +22,7 @@ public class UserBean extends BaseEJB {
     private final static Logger log = Logger.getLogger(UserBean.class);
 
     public long createNewUser(String handle, char status, String dataSource) throws EJBException {
-        long ret = IdGeneratorClient.getSeqId("main_sequence", dataSource);
+        long ret = IdGeneratorClient.getSeqId("main_sequence");
         createUser(ret, handle, status, dataSource);
         return ret;
     }
