@@ -136,7 +136,7 @@
                 
                 <tr valign="top">
                     <td class="statText">
-                        <p><b>Architecture and Design Phase:</b>  Self-defined TopCoder Software Design teams of one or more members create and 
+                        <p><b>Architecture and Design Phase:</b>  TopCoder Software Design teams of one or more members create and
                         submit application designs to TopCoder Software.</p>
 
                         <ol>
