@@ -99,12 +99,12 @@
                 </tr>
                 <tr>
                     <td width="50%" class="sidebarText">2<span class="super">nd</span> place finisher* in the Championship Round</td>
-                    <td width="50%" class="sidebarText" align="right">$3,000</td>
+                    <td width="50%" class="sidebarText" align="right">$5,000</td>
                 </tr>
 
                 <tr>
                     <td width="50%" class="sidebarText">1<span class="super">st</span> place finisher* - CDC Champion</td>
-                    <td width="50%" class="sidebarText" align="right">$7,000</td>
+                    <td width="50%" class="sidebarText" align="right">$10,000</td>
                 </tr>
 
                 <tr>
