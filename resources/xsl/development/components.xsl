@@ -136,7 +136,7 @@
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 					<td background="/i/steel_bluebv_bg.gif" class="statText" width="40%" height="18">&#160;&#160;Project Name</td>
 					<td background="/i/steel_bluebv_bg.gif" class="statText" width="15%" height="18" align="center">Total Submissions</td>
-					<td background="/i/steel_bluebv_bg.gif" class="statText" width="15%" height="18">Winner</td>
+					<td background="/i/steel_bluebv_bg.gif" class="statText" width="15%" height="18" align="center">Winner</td>
 					<td background="/i/steel_bluebv_bg.gif" class="statText" width="15%" height="18" align="center">Board Score</td>
 					<td background="/i/steel_bluebv_bg.gif" class="statText" width="15%" height="18" align="center">Total Earnings*</td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -150,6 +150,7 @@
 					<td background="/i/steel_darkblue_bg.gif" class="statText" height="18" align="center">94.39</td>
 					<td background="/i/steel_darkblue_bg.gif" class="statText" height="18" align="center">$936.00</td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+				</tr>
 
 				<tr><td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" height="5" colspan="7"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
 
