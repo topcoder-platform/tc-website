@@ -109,6 +109,7 @@
     <property name="searchengine.jar" value="${jardir}/searchengine.jar"/>
     <property name="configmanager.jar" value="${jardir}/tcs/configuration_manager.jar"/>
     <property name="emailengine.jar" value="${jardir}/tcs/email_engine.jar"/>
+    <property name="math_matrix.jar" value="${jardir}/tcs/math_matrix.jar"/>
     <property name="render.jar" value="${jardir}/render.jar"/>
     <property name="security.jar" value="${jardir}/security.jar" />
     <property name="forum.jar" value="${jardir}/tcs/forum.jar"/>
