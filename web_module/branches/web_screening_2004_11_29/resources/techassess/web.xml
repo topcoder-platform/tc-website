@@ -8,7 +8,7 @@
 
     <servlet>
         <servlet-name>main</servlet-name>
-        <servlet-class>com.topcoder.wb.codinginterface.screening.controller.MainServlet</servlet-class>
+        <servlet-class>com.topcoder.web.codinginterface.techassess.controller.MainServlet</servlet-class>
         <init-param>
             <param-name>module_key</param-name>
             <param-value>module</param-value>
@@ -33,7 +33,7 @@
         -->
         <init-param>
             <param-name>processor_path</param-name>
-            <param-value>com.topcoder.web.tc.controller.request.</param-value>
+            <param-value>com.topcoder.web.codinginterface.techassess.controller.request.</param-value>
             <description>the path to the processors for this app</description>
         </init-param>
         <init-param>
