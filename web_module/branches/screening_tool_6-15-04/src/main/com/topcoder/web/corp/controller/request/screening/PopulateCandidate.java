@@ -65,11 +65,10 @@ public class PopulateCandidate extends BaseProcessor {
             processUsageType1();
         } else if (usageType == 2) {
             processUsageType2();
+        } else {
+            // otherwise notify the user about the invalid usage type set for the company
+            throw new ScreeningException("The application usage type set for the company is not recognized.");
         }
-
-        // otherwise notify the user about the invalid usage type set for the company
-        throw new TCWebException("The application usage type set for the company is not recognized.");
-
     }
 
     /**
