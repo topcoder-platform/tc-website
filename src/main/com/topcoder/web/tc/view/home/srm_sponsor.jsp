@@ -1,1 +1,1 @@
-<a href="/?t=tces&c=index"><img src="/i/es/paypal/srm_promo_home.gif" alt="" width="170" height="100" border="0"></a>
+<a href="http://www.gentleware.com" target="_blank"><img src="/i/es/gentleware/srm_promo_home.gif" alt="" width="170" height="100" border="0"></a>
