@@ -40,7 +40,9 @@ public class UploadTask extends ResumeTask{
             log.debug("User not logged in, can't upload a file.");
             throw new Exception("User not logged in, can't upload a file.");
         } else {
-             userId = navigation.getUserId();
+            if (navigation.getLoggedIn())
+                userId = navigation.getUserId();
+            else userId = (int)auth.getActiveUser().getId();
         }
         if (getRequestParameter(request, "compid")!=null) {
             companyId = Long.parseLong(super.getFileUpload().getParameter("compid"));
