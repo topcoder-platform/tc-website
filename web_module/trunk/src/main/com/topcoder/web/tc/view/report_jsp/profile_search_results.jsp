@@ -7,11 +7,11 @@
 
 %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
-<%@ taglib uri="tc.tld" prefix="rsc" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
 <%
     Map m = (Map)request.getAttribute(Constants.REPORT_PROFILE_SEARCH_RESULTS_KEY);
     ResultSetContainer results = (ResultSetContainer)m.get("results");
-    List headers = (List)request.get("column_headers");
+    List headers = (List)request.getAttribute("column_headers");
 %>
 
 
@@ -25,7 +25,7 @@
     <tr>
     <tc:counter min="0" max="<%=results.getColumnCount()-1%>" id="i">
         <td>
-            <%=headers.get(i)%>
+            <%=headers.get(Integer.parseInt(i))%>
         </td>
     </tc:counter>
     </tr>
@@ -33,7 +33,7 @@
         <tr>
             <tc:counter min="0" max="<%=results.getColumnCount()-1%>" id="i">
                 <td>
-                    <%=resultRow.getStringItem(i)%>
+                    <%=resultRow.getStringItem(Integer.parseInt(i))%>
                 </td>
             </tc:counter>
         </tr>
