@@ -100,7 +100,7 @@
                                     Compete: 9:00&#160;PM<br />
                                     <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=4595&amp;t=schedule&amp;c=srm">Details</A></td>
+                                    <A href="/?RoundId=4598&amp;t=schedule&amp;c=srm">Details</A></td>
                                 <td id="calendar">7</td>
                                 <td id="calendar">8</td>
                                 <td id="calendar">9</td>
