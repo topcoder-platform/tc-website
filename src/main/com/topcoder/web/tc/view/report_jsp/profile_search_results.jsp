@@ -62,6 +62,11 @@
         document.revise['t'].value = 'profile_search';
         document.revise.submit();
     }
+    function viewList(){
+        document.revise['module'].value = 'ProfileSearch';
+        document.revise['count'].value = 'off';
+        document.revise.submit();
+    }
     -->
 </script>
     <title>TopCoder Reporting</title>
@@ -96,5 +101,8 @@
         </logic:iterate>
     </form>
     <a href="JavaScript:revise()">Revise query</a>
+    <% if("on".equals(request.getParameter("count"))){%>
+        <br/><a href="JavaScript:viewList()">View full List</a>
+    <% } %>
   </body>
 </html>
