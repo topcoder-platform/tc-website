@@ -40,7 +40,11 @@ public class UserSchoolBean implements SessionBean {
   }
 
   public void createUserSchool(long _user_id,long _school_id)
-                                                        throws RemoteException {
+                                          throws EJBException, RemoteException {
+
+    Connection con=null;
+    PreparedStatement ps=null;
+
     try {
 
       /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
@@ -52,33 +56,54 @@ public class UserSchoolBean implements SessionBean {
       query.append("INTO user_school_xref (user_id,school_id) ");
       query.append("VALUES (?,?)");
 
-      Connection con=ds.getConnection();
-      PreparedStatement ps=con.prepareStatement(query.toString());
+      con=ds.getConnection();
+      ps=con.prepareStatement(query.toString());
       ps.setLong(1,_user_id);
       ps.setLong(2,_school_id);
 
       int rc=ps.executeUpdate();
       if (rc!=1) {
-        throw(new RemoteException("Wrong number of rows inserted into "+
-                                  "'user_school_xref'. Inserted "+rc+", "+
-                                  "should have inserted 1."));
+        throw(new EJBException("Wrong number of rows inserted into "+
+                               "'user_school_xref'. Inserted "+rc+", "+
+                               "should have inserted 1."));
       }
     }
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
-      throw(new RemoteException(_sqle.getMessage()));
+      throw(new EJBException(_sqle.getMessage()));
     }
     catch (NamingException _ne) {
       _ne.printStackTrace();
-      throw(new RemoteException(_ne.getMessage()));
+      throw(new EJBException(_ne.getMessage()));
+    }
+    finally {
+      if (con!=null) {
+        try {
+          con.close();
+        }
+        catch (Exception _e) {
+          /* do nothing */
+        }
+      }
+      if (ps!=null) {
+        try {
+          ps.close();
+        }
+        catch (Exception _e) {
+          /* do nothing */
+        }
+      }
     }
     
   }
 
   public boolean isCurrent(long _user_id,long _school_id)
-                                                        throws RemoteException {
+                                          throws EJBException, RemoteException {
 
     boolean current=false;
+
+    Connection con=null;
+    PreparedStatement ps=null;
 
     try {
 
@@ -91,8 +116,8 @@ public class UserSchoolBean implements SessionBean {
       query.append("FROM user_school_xref ");
       query.append("WHERE user_id=? AND school_id=?");
 
-      Connection con=ds.getConnection();
-      PreparedStatement ps=con.prepareStatement(query.toString());
+      con=ds.getConnection();
+      ps=con.prepareStatement(query.toString());
       ps.setLong(1,_user_id);
       ps.setLong(2,_school_id);
 
@@ -101,24 +126,46 @@ public class UserSchoolBean implements SessionBean {
         current=rs.getBoolean(1);
       }
       else {
-        throw(new RemoteException("No rows found when selecting from "+
-                                  "'user_school_xref' with user_id="+_user_id+
+        throw(new EJBException("No rows found when selecting from "+
+                               "'user_school_xref' with user_id="+_user_id+
                                   " AND school_id="+_school_id+"."));
       }
     }
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
-      throw(new RemoteException(_sqle.getMessage()));
+      throw(new EJBException(_sqle.getMessage()));
     }
     catch (NamingException _ne) {
       _ne.printStackTrace();
-      throw(new RemoteException(_ne.getMessage()));
+      throw(new EJBException(_ne.getMessage()));
+    }
+    finally {
+      if (con!=null) {
+        try {
+          con.close();
+        }
+        catch (Exception _e) {
+          /* do nothing */
+        }
+      }
+      if (ps!=null) {
+        try {
+          ps.close();
+        }
+        catch (Exception _e) {
+          /* do nothing */
+        }
+      }
     }
     return(current);
   }
 
   public void setCurrent(long _user_id,long _school_id,boolean _current)
-                                                        throws RemoteException {
+                                          throws EJBException, RemoteException {
+
+    Connection con=null;
+    PreparedStatement ps=null;
+
     try {
 
       /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
@@ -130,30 +177,52 @@ public class UserSchoolBean implements SessionBean {
       query.append("SET current_ind=? ");
       query.append("WHERE user_id=? AND school_id=?");
 
-      Connection con=ds.getConnection();
-      PreparedStatement ps=con.prepareStatement(query.toString());
+      con=ds.getConnection();
+      ps=con.prepareStatement(query.toString());
       ps.setBoolean(1,_current);
       ps.setLong(2,_user_id);
       ps.setLong(3,_school_id);
 
       int rc=ps.executeUpdate();
       if (rc!=1) {
-        throw(new RemoteException("Wrong number of rows updated in "+
-                                  "'user_school_xref'. Updated "+rc+", should "+                                  "have updated 1."));
+        throw(new EJBException("Wrong number of rows updated in "+
+                               "'user_school_xref'. Updated "+rc+", should "+                                  "have updated 1."));
       }
     }
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
-      throw(new RemoteException(_sqle.getMessage()));
+      throw(new EJBException(_sqle.getMessage()));
     }
     catch (NamingException _ne) {
       _ne.printStackTrace();
-      throw(new RemoteException(_ne.getMessage()));
+      throw(new EJBException(_ne.getMessage()));
+    }
+    finally {
+      if (con!=null) {
+        try {
+          con.close();
+        }
+        catch (Exception _e) {
+          /* do nothing */
+        }
+      }
+      if (ps!=null) {
+        try {
+          ps.close();
+        }
+        catch (Exception _e) {
+          /* do nothing */
+        }
+      }
     }
   }
 
   public void removeUserSchool(long _user_id,long _school_id)
-                                                        throws RemoteException {
+                                          throws EJBException, RemoteException {
+
+    Connection con=null;
+    PreparedStatement ps=null;
+
     try {
 
       /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
@@ -165,25 +234,43 @@ public class UserSchoolBean implements SessionBean {
       query.append("FROM user_school_xref ");
       query.append("WHERE user_id=? AND school_id=?");
 
-      Connection con=ds.getConnection();
-      PreparedStatement ps=con.prepareStatement(query.toString());
+      con=ds.getConnection();
+      ps=con.prepareStatement(query.toString());
       ps.setLong(1,_user_id);
       ps.setLong(2,_school_id);
 
       int rc=ps.executeUpdate();
       if (rc!=1) {
-        throw(new RemoteException("Wrong number of rows deleted from "+
-                                  "'user_school_xref'. Deleted "+rc+", should "+
-                                  "have deleted 1."));
+        throw(new EJBException("Wrong number of rows deleted from "+
+                               "'user_school_xref'. Deleted "+rc+", should "+
+                               "have deleted 1."));
       }
     }
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
-      throw(new RemoteException(_sqle.getMessage()));
+      throw(new EJBException(_sqle.getMessage()));
     }
     catch (NamingException _ne) {
       _ne.printStackTrace();
-      throw(new RemoteException(_ne.getMessage()));
+      throw(new EJBException(_ne.getMessage()));
+    }
+    finally {
+      if (con!=null) {
+        try {
+          con.close();
+        }
+        catch (Exception _e) {
+          /* do nothing */
+        }
+      }
+      if (ps!=null) {
+        try {
+          ps.close();
+        }
+        catch (Exception _e) {
+          /* do nothing */
+        }
+      }
     }
   }
 
