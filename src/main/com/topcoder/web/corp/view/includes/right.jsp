@@ -29,14 +29,12 @@
 <% } %>
 <!-- Recruiting ends -->
 
-<!-- Recruiting begins-->
-<% if (level1.equals("sponsor")) { %>
-    <% if ((level2.equals("overview")) || (level2.startsWith("srm"))) { %>
+<!-- Sponsorship begins-->
+<% if ((level1.equals("sponsor")) || (level1.equals("srm")) || (level1.equals("tourny")) || (level1.equals("pbtc")) || (level1.equals("private_labelxs"))) { %>
                         <a href="http://www.topcoder.com/?t=tournaments&c=2003_open"><img src="/i/promo_2003_open.gif" alt="2003 TopCoder Open" width="170" height="195" border="0" class="corpRight"></a><br>
-    <% } %>
                         <a href="mailto:sponsorships@topcoder.com?"><img src="/i/promo_contact_sponsor.gif" alt="Contact Sponsorship sales" width="170" height="76" border="0" class="corpRight"></a><br>
 <% } %>
-<!-- Recruiting ends -->
+<!-- Sponsorship ends -->
 
                         <a href="/i/tc_demo_0203.pdf"><img src="/i/promo_demographics.gif" alt="Download Demographics" width="170" height="192" border="0" class="corpRight"></a><br>
                     </td>
