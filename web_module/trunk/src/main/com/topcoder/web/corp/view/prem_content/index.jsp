@@ -62,9 +62,11 @@ Oem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh eu
 <P><BR/></P>
 </td></tr>
 <tr><td>
+<%--
  <table>
          <tr><td width="100%" align ="center"><a href="<%=request.getContextPath()+"/Tx/?"+TransactionServlet.KEY_OPERATION+"="+TransactionServlet.OP_TERMS+"&back-to="+request.getAttribute(Constants.KEY_LINK_PREFIX)+"&prod-id=1"%>">buy it</a></td></tr>
        </table>
+       --%>
      </form>
 </td></tr>
      </TD>
