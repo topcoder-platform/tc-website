@@ -3,7 +3,7 @@ package com.topcoder.web.tc.controller.legacy;
 
 import com.topcoder.common.web.constant.TCServlet;
 import com.topcoder.common.web.data.Navigation;
-import com.topcoder.common.web.data.report.Constants;
+//import com.topcoder.common.web.data.report.Constants;
 import com.topcoder.common.web.data.report.Query;
 import com.topcoder.common.web.error.NavigationException;
 import com.topcoder.common.web.util.Conversion;
@@ -16,10 +16,7 @@ import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.docGen.xml.RecordTag;
 import com.topcoder.shared.docGen.xml.ValueTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
-import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.shared.util.EmailEngine;
-import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.util.TCSEmailMessage;
+import com.topcoder.shared.util.*;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -37,6 +34,7 @@ import com.topcoder.dde.user.UserManagerRemoteHome;
 import com.topcoder.dde.user.UserManagerRemote;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.tc.controller.request.development.Base;
+import com.topcoder.web.tc.Constants;
 
 import javax.rmi.PortableRemoteObject;
 import javax.servlet.http.HttpServletRequest;
@@ -166,8 +164,7 @@ public final class TaskDevelopment {
                     dataRequest = new Request();
                     dataRequest.setContentHandle("open_projects");
 
-                    DataAccessInt dai = new DataAccess(
-                                    dataRequest.getProperty(Constants.DB_KEY, Query.TCS_CATALOG));
+                    DataAccessInt dai = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
                     log.debug("got dai");
 
                     resultMap = dai.getData(dataRequest);
@@ -219,8 +216,7 @@ public final class TaskDevelopment {
                     dataRequest = new Request();
                     dataRequest.setContentHandle("open_projects");
 
-                    DataAccessInt dai = new DataAccess(
-                                    dataRequest.getProperty(Constants.DB_KEY, Query.TCS_CATALOG));
+                    DataAccessInt dai = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
                     log.debug("got dai");
 
                     resultMap = dai.getData(dataRequest);
@@ -286,8 +282,7 @@ public final class TaskDevelopment {
                 dataRequest = new Request();
                 dataRequest.setContentHandle("open_projects");
 
-                DataAccessInt dai = new DataAccess(
-                                dataRequest.getProperty(Constants.DB_KEY, Query.TCS_CATALOG));
+                DataAccessInt dai = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
                 log.debug("got dai");
 
                 resultMap = dai.getData(dataRequest);
@@ -300,8 +295,7 @@ public final class TaskDevelopment {
                 dataRequest.setContentHandle("Multiplier_Status");
                 dataRequest.setProperty("pj", request.getParameter("pj"));
 
-                dai = new DataAccess(
-                                dataRequest.getProperty(Constants.DB_KEY, Query.TCS_CATALOG));
+                dai = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
 
                 resultMap = dai.getData(dataRequest);
                 log.debug("got map");
@@ -313,8 +307,6 @@ public final class TaskDevelopment {
                 xsldocURLString = XSL_DIR + command + ".xsl";
 
 
-
-
             } else if (command.equals("comp_archive")) {
                 Request dataRequest = null;
                 ResultSetContainer rsc = null;
@@ -323,8 +315,7 @@ public final class TaskDevelopment {
                 dataRequest = new Request();
                 dataRequest.setContentHandle("open_projects");
 
-                DataAccessInt dai = new DataAccess(
-                                dataRequest.getProperty(Constants.DB_KEY, Query.TCS_CATALOG));
+                DataAccessInt dai = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
                 log.debug("got dai");
 
                 resultMap = dai.getData(dataRequest);
@@ -337,8 +328,7 @@ public final class TaskDevelopment {
                 dataRequest = new Request();
                 dataRequest.setContentHandle("project_status");
 
-                dai = new DataAccess(
-                                dataRequest.getProperty(Constants.DB_KEY, Query.TCS_CATALOG));
+                dai = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
 
                 resultMap = dai.getData(dataRequest);
                 log.debug("got map");
@@ -356,8 +346,7 @@ public final class TaskDevelopment {
                 dataRequest = new Request();
                 dataRequest.setContentHandle("open_projects");
 
-                DataAccessInt dai = new DataAccess(
-                                dataRequest.getProperty(Constants.DB_KEY, Query.TCS_CATALOG));
+                DataAccessInt dai = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
                 log.debug("got dai");
 
                 resultMap = dai.getData(dataRequest);
@@ -370,8 +359,7 @@ public final class TaskDevelopment {
                 dataRequest = new Request();
                 dataRequest.setContentHandle("component_winners");
 
-                dai = new DataAccess(
-                                dataRequest.getProperty(Constants.DB_KEY, Query.TCS_CATALOG));
+                dai = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
 
                 resultMap = dai.getData(dataRequest);
                 log.debug("got map");
@@ -393,8 +381,7 @@ public final class TaskDevelopment {
                 dataRequest = new Request();
                 dataRequest.setContentHandle("open_projects");
 
-                DataAccessInt dai = new DataAccess(
-                                dataRequest.getProperty(Constants.DB_KEY, Query.TCS_CATALOG));
+                DataAccessInt dai = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
                 log.debug("got dai");
 
                 resultMap = dai.getData(dataRequest);
@@ -407,102 +394,103 @@ public final class TaskDevelopment {
                 devTag.addTag(rsc.getTag("projects", "project"));
 
                 if (nav.isLoggedIn()) {
-                    String version = Conversion.checkNull(request.getParameter("version"));
-                    String phase = Conversion.checkNull(request.getParameter("phase"));
-                    long userId;
-                    devTag.addTag(new ValueTag("Project", project));
+                    long version = Long.parseLong(request.getParameter("version"));
+                    long phase = Long.parseLong(request.getParameter("phase"));
+                    long componentId = Long.parseLong(request.getParameter("comp"));
+                    if (!isProjectLockedOut(componentId, version, phase)) {
+                        long userId;
+                        devTag.addTag(new ValueTag("Project", project));
 
-                    //String handle = nav.getUser().getHandle();
-                    String handle = nav.getSessionInfo().getHandle();
-                    devTag.addTag(new ValueTag("handle", handle));
+                        //String handle = nav.getUser().getHandle();
+                        String handle = nav.getSessionInfo().getHandle();
+                        devTag.addTag(new ValueTag("handle", handle));
 
-                    Data.loadUser(nav);
-                    String from = nav.getUser().getEmail();
-                    String to = Conversion.checkNull(request.getParameter("To"));
-                    String comment = Conversion.clean(request.getParameter("Comment"));
-                    String activeForumId = "";
-
-
-                    StringBuffer msgText = new StringBuffer(1000);
-                    msgText.append(handle);
-                    msgText.append(" inquiry for project:  ");
-                    msgText.append(project);
-                    msgText.append("\n\n");
-                    boolean agreedToTerms = false;
-                    if (request.getParameter("terms") == null) {
-                        msgText.append("\n\nDid not agree to terms.\n");
-                        agreedToTerms = false;
-                    } else {
-                        msgText.append("\n\nAgreed to terms.\n");
-                        agreedToTerms = true;
-                    }
-                    msgText.append("\n\nComment:\n");
-                    msgText.append(comment);
-                    boolean permissionAdded = false;
-                    //User user = nav.getUser();
-                    //CoderRegistration coder = (CoderRegistration) user.getUserTypeDetails().get("Coder");
-                    log.debug("Get Rating");
-                    int rating = nav.getSessionInfo().getRating();
-                    log.debug("Got Rating");
-                    if (comp.length() > 0) {
-
-                        Context CONTEXT = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
+                        Data.loadUser(nav);
+                        String from = nav.getUser().getEmail();
+                        String to = Conversion.checkNull(request.getParameter("To"));
+                        String comment = Conversion.clean(request.getParameter("Comment"));
+                        String activeForumId = "";
 
 
-                        com.topcoder.security.UserPrincipal selectedPrincipal = null;
-
-                        //get principal manager
-                        Object objPrincipalManager = CONTEXT.lookup("security/PrincipalMgr");
-                        PrincipalMgrRemoteHome principalManagerHome = (PrincipalMgrRemoteHome) PortableRemoteObject.narrow(objPrincipalManager, PrincipalMgrRemoteHome.class);
-                        PrincipalMgrRemote PRINCIPAL_MANAGER = principalManagerHome.create();
-
-
-                        //get forum object
-                        //DDEForumHome ddeforumhome = (DDEForumHome) PortableRemoteObject.narrow(CONTEXT.lookup("dde/DDEForum"), DDEForumHome.class);
-                        //DDEForum ddeforum = ddeforumhome.create();
-
-                        //retrieve the coder registration information
-                        log.debug("terms: " + Conversion.checkNull(request.getParameter("terms")));
-
-
-                        log.debug("creating user");
-                        Object objUserManager = CONTEXT.lookup("dde/UserManager");
-                        UserManagerRemoteHome userManagerHome = (UserManagerRemoteHome) PortableRemoteObject.narrow(objUserManager, UserManagerRemoteHome.class);
-                        UserManagerRemote USER_MANAGER = userManagerHome.create();
-
-                        try {
-                            selectedPrincipal = PRINCIPAL_MANAGER.getUser(handle);
-                            userId = selectedPrincipal.getId();
-                            //PricingTier pt = new PricingTier(1, 5.0);
-                            log.debug("got user");
-                        } catch (NoSuchUserException noSuchUserException) {
-                            log.error("noSuchUserException: " + handle + noSuchUserException);
-                            throw noSuchUserException;
-
-                        } catch (Exception e) {
-                            throw e;
-
+                        StringBuffer msgText = new StringBuffer(1000);
+                        msgText.append(handle);
+                        msgText.append(" inquiry for project:  ");
+                        msgText.append(project);
+                        msgText.append("\n\n");
+                        boolean agreedToTerms = false;
+                        if (request.getParameter("terms") == null) {
+                            msgText.append("\n\nDid not agree to terms.\n");
+                            agreedToTerms = false;
+                        } else {
+                            msgText.append("\n\nAgreed to terms.\n");
+                            agreedToTerms = true;
                         }
+                        msgText.append("\n\nComment:\n");
+                        msgText.append(comment);
+                        boolean permissionAdded = false;
+                        //User user = nav.getUser();
+                        //CoderRegistration coder = (CoderRegistration) user.getUserTypeDetails().get("Coder");
+                        log.debug("Get Rating");
+                        int rating = nav.getSessionInfo().getRating();
+                        log.debug("Got Rating");
+                        if (comp.length() > 0) {
 
-                        long componentId = Long.parseLong(request.getParameter("comp"));
-
-
-                        //add the user to the appropriate role to view the specification
-                        java.util.HashSet rolesSet = (java.util.HashSet) PRINCIPAL_MANAGER.getRoles(null);
-                        RolePrincipal[] roles = (RolePrincipal[]) rolesSet.toArray(new RolePrincipal[0]);
-                        //String formattedProject = project.substring(0, project.lastIndexOf(' ')-1);
-
-                        log.debug("phase: " + phase);
-                        log.debug("version: " + version);
-                        USER_MANAGER.registerInquiry(userId, componentId, rating, (new Integer(nav.getUser().getUserId())).longValue(), comment, agreedToTerms, Long.parseLong(phase), Long.parseLong(version));
-
+                            Context CONTEXT = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
 
 
-                        //log.debug("FormattedProject: " + formattedProject);
+                            com.topcoder.security.UserPrincipal selectedPrincipal = null;
 
-                        int i = 0;
-                        boolean notFound = true;
-                        //if (rating > 0 || rating == -1) {
+                            //get principal manager
+                            Object objPrincipalManager = CONTEXT.lookup("security/PrincipalMgr");
+                            PrincipalMgrRemoteHome principalManagerHome = (PrincipalMgrRemoteHome) PortableRemoteObject.narrow(objPrincipalManager, PrincipalMgrRemoteHome.class);
+                            PrincipalMgrRemote PRINCIPAL_MANAGER = principalManagerHome.create();
+
+
+                            //get forum object
+                            //DDEForumHome ddeforumhome = (DDEForumHome) PortableRemoteObject.narrow(CONTEXT.lookup("dde/DDEForum"), DDEForumHome.class);
+                            //DDEForum ddeforum = ddeforumhome.create();
+
+                            //retrieve the coder registration information
+                            log.debug("terms: " + Conversion.checkNull(request.getParameter("terms")));
+
+
+                            log.debug("creating user");
+                            Object objUserManager = CONTEXT.lookup("dde/UserManager");
+                            UserManagerRemoteHome userManagerHome = (UserManagerRemoteHome) PortableRemoteObject.narrow(objUserManager, UserManagerRemoteHome.class);
+                            UserManagerRemote USER_MANAGER = userManagerHome.create();
+
+                            try {
+                                selectedPrincipal = PRINCIPAL_MANAGER.getUser(handle);
+                                userId = selectedPrincipal.getId();
+                                //PricingTier pt = new PricingTier(1, 5.0);
+                                log.debug("got user");
+                            } catch (NoSuchUserException noSuchUserException) {
+                                log.error("noSuchUserException: " + handle + noSuchUserException);
+                                throw noSuchUserException;
+
+                            } catch (Exception e) {
+                                throw e;
+
+                            }
+
+
+
+                            //add the user to the appropriate role to view the specification
+                            java.util.HashSet rolesSet = (java.util.HashSet) PRINCIPAL_MANAGER.getRoles(null);
+                            RolePrincipal[] roles = (RolePrincipal[]) rolesSet.toArray(new RolePrincipal[0]);
+                            //String formattedProject = project.substring(0, project.lastIndexOf(' ')-1);
+
+                            log.debug("phase: " + phase);
+                            log.debug("version: " + version);
+                            USER_MANAGER.registerInquiry(userId, componentId, rating, (new Integer(nav.getUser().getUserId())).longValue(), comment, agreedToTerms, phase, version);
+
+
+
+                            //log.debug("FormattedProject: " + formattedProject);
+
+                            int i = 0;
+                            boolean notFound = true;
+                            //if (rating > 0 || rating == -1) {
                             //get catalog object
                             Object objTechTypes = CONTEXT.lookup("ComponentManagerEJB");
                             ComponentManagerHome home = (ComponentManagerHome) PortableRemoteObject.narrow(objTechTypes, ComponentManagerHome.class);
@@ -541,24 +529,24 @@ public final class TaskDevelopment {
                                 }
                                 i++;
                             }
-                        //}
+                            //}
 
-                        if (!permissionAdded ) {
+                            if (!permissionAdded) {
 
-                            log.error("Could not find a match for the specific forum");
-                        }
-
-
-                        TCSEmailMessage mail = new TCSEmailMessage();
-                        log.debug("from: " + from);
-                        mail.addToAddress(from, TCSEmailMessage.TO);
-                        mail.setFromAddress(to);
-                        mail.setSubject(project);
+                                log.error("Could not find a match for the specific forum");
+                            }
 
 
-                        xsldocURLString = XSL_DIR + "inquiry_sent_pos.xsl";
+                            TCSEmailMessage mail = new TCSEmailMessage();
+                            log.debug("from: " + from);
+                            mail.addToAddress(from, TCSEmailMessage.TO);
+                            mail.setFromAddress(to);
+                            mail.setSubject(project);
 
-                            if (Long.parseLong(phase) == ComponentVersionInfo.SPECIFICATION) {
+
+                            xsldocURLString = XSL_DIR + "inquiry_sent_pos.xsl";
+
+                            if (phase == ComponentVersionInfo.SPECIFICATION) {
                                 mail.setBody("Your inquiry has been received. Thank You!\r\n\r\n" +
                                         "Thank you, " + handle + ", for your interest in the " + project + " component. You now have access to the Developer Forum ( http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/forum/c_forum.jsp?f=" + activeForumId + " ) which can be used to obtain design documentation (see the Design Phase Documents thread), as well as to ask questions regarding the component design. Please post your questions at any time and a product manager will respond within 24 hours. Any questions asked within 6 hours of the submission due date/time may not be answered in time, so get your questions in early!\r\n\r\n" +
                                         "The deadline for submitting a solution is " + date + " at 9:00 AM ET. Please upload your design using the project page found here: http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/review.  If you encounter any problems, please contact us at service@topcodersoftware.com.  All late submissions will be ignored.  Also, a reminder that this is a competition, and only the top three designers will receive payment.\r\n\r\n" +
@@ -575,20 +563,23 @@ public final class TaskDevelopment {
                             }
                             EmailEngine.send(mail);
 
-                        
+
+                        } else {
+                            TCSEmailMessage mail = new TCSEmailMessage();
+                            mail.addToAddress(to, TCSEmailMessage.TO);
+                            mail.setFromAddress(from);
+
+                            mail.setSubject("APPLICATION: " + project + " -- " + handle);
+                            msgText.append("\n\nRating: ");
+                            msgText.append(rating);
+                            mail.setBody(msgText.toString());
+
+                            xsldocURLString = XSL_DIR + "inquiry_app.xsl";
+                            EmailEngine.send(mail);
+
+                        }
                     } else {
-                        TCSEmailMessage mail = new TCSEmailMessage();
-                        mail.addToAddress(to, TCSEmailMessage.TO);
-                        mail.setFromAddress(from);
-
-                        mail.setSubject("APPLICATION: " + project + " -- " + handle);
-                        msgText.append("\n\nRating: ");
-                        msgText.append(rating);
-                        mail.setBody(msgText.toString());
-
-                        xsldocURLString = XSL_DIR + "inquiry_app.xsl";
-                        EmailEngine.send(mail);
-
+                        throw new NavigationException("Sorry, this project is full.", "http://"+ApplicationServer.SERVER_NAME);
                     }
                 } else {
                     requiresLogin = true;
@@ -623,6 +614,17 @@ public final class TaskDevelopment {
             throw new NavigationException(msg.toString(), TCServlet.INTERNAL_ERROR_PAGE);
         }
         return result;
+    }
+
+    static boolean isProjectLockedOut(long componentId, long version, long phase) throws Exception {
+        DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
+        Request r = new Request();
+        r.setContentHandle("inquiry_count");
+        r.setProperty("cd", String.valueOf(componentId));
+        r.setProperty("vid", String.valueOf(version));
+        r.setProperty("ph", String.valueOf(phase));
+        ResultSetContainer rsc = (ResultSetContainer)dAccess.getData(r).get("inquiry_count");
+        return rsc.getIntItem(0,"count")>=Constants.MAX_INQUIRIES;
     }
 
     static ComponentManager getComponentManager(long componentId) {
