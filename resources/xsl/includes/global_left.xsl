@@ -28,7 +28,7 @@
                             <xsl:otherwise>leftNavOn</xsl:otherwise>
                         </xsl:choose>
                         </xsl:attribute>
-                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=index</xsl:attribute><img alt="" width="10" height="10" src="/i/clear.gif" border="0" />Schedule</A>
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=index</xsl:attribute><img alt="" width="10" height="10" src="/i/clear.gif" border="0" />Calendar</A>
                     </td>
                 </tr>
 
@@ -642,7 +642,7 @@
 </xsl:template>
 
 <xsl:template name="sched_row">
-                <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=index</xsl:attribute>Schedule</A></td></tr>
+                <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=index</xsl:attribute>Calendar</A></td></tr>
 </xsl:template>
 
 <xsl:template name="stats_row">
