@@ -29,7 +29,7 @@
             else
                 out.print(", "+s[i]);
         }
-        out.print("</td></tr>\n");
+        out.print("}</td></tr>\n");
     }
 %>
 </table>
