@@ -155,7 +155,7 @@ public final class Navigation
      * @return
      */
     public boolean userIsSerializable() {
-        return false;
+        return true;
        // return this.serializable;
     }
 
@@ -234,7 +234,7 @@ public final class Navigation
 //            log.debug("common.Navigation:setUser:serializable user set");
 //        } else {
             this.user = user;
-            log.debug("common.Navigation:setUser:transient user set");
+            log.debug("common.Navigation:setUser:user set");
 //        }
     }
 
