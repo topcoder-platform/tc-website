@@ -45,9 +45,9 @@ public class Test extends Base {
             }
 
             ArrayList arguments = new ArrayList();
-            int i=0;
-            String arg = getRequest().getParameter(CodingInterfaceConstants.TEST_ARGUMENT_PREFIX+i);
-            for (; arg!=null; i++) {
+
+            String arg = null;
+            for (int i=0; (arg=getRequest().getParameter(CodingInterfaceConstants.TEST_ARGUMENT_PREFIX+i))!=null; i++) {
                 log.debug("arg " + i + " is " + arg);
                 arguments.add(arg);
             }
