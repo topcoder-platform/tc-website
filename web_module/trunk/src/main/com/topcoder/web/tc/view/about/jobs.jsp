@@ -62,7 +62,7 @@
 <%--                            
                             <li><a href="?&#38;t=about_tc&#38;c=tc_project_manager">Project Manager</a></li>
                             --%>
-                            <li><a href="?&#38;t=about_tc&#38;c=tc_salesperson">Salesperson</a></li>
+                            <li><a href="/tc?module=Static&d1=about&d2=tcs_salesdirector">Sales Director</a></li>
 
                             <li><A HREF="/?&amp;t=tces&amp;c=topcoder_developer&amp;a=secure">Developer</A></li>
                         </ul>
