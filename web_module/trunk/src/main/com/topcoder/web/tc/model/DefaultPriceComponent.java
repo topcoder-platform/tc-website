@@ -37,6 +37,17 @@ public class DefaultPriceComponent implements SoftwareComponent{
         this.submissionsPassedScreening = submissionsPassedScreening;
     }
 
+    public Object clone() throws OutOfMemoryError {
+        DefaultPriceComponent ret = new DefaultPriceComponent();
+        ret.phaseId = this.phaseId;
+        ret.level = this.level;
+        ret.submissionCount = this.submissionCount;
+        ret.submissionsPassedScreening = this.submissionsPassedScreening;
+        return ret;
+    }
+
+
+
     public float getPrice() {
         float ret = 0.0f;
         if (phaseId == DEV_PHASE) {

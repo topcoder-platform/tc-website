@@ -29,6 +29,14 @@ public class CustomPriceComponent extends DefaultPriceComponent {
         return reviewerPrice;
     }
 
+    public Object clone() throws OutOfMemoryError {
+        CustomPriceComponent ret = new CustomPriceComponent();
+        ret.primaryReviewerPrice = this.primaryReviewerPrice;
+        ret.reviewerPrice = this.reviewerPrice;
+        ret.phaseId = this.phaseId;
+        return ret;
+    }
+
 
 
 }
