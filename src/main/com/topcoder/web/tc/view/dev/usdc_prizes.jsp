@@ -42,7 +42,7 @@
 
 <h2>Prizes</h2>
 			
-<p>All Prizes are in addition to current project payments.</p>
+<p align="center"><strong>*All Prizes are in addition to current project payments.*</strong></p>
 			<table width="550" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td colspan="2" class="sidebarTitle"><strong>Design Contest</strong> - The Design contest will award the following prizes:</td>
@@ -88,7 +88,7 @@
             <p>*View scoring details <a href="/tc?module=Static&d1=dev&d2=usdc_rules">here</a>.</p>  
                     
             <img src="/i/clear.gif" width="400" height="10" vspace="5" border="0">
-<p>All Prizes are in addition to current project payments.</p>
+			<p align="center"><strong>*All Prizes are in addition to current project payments.*</strong></p>
 			<table width="550" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td colspan="2" class="sidebarTitle"><strong>Development Contest</strong> - The Development contest will award the following prizes:</td>
