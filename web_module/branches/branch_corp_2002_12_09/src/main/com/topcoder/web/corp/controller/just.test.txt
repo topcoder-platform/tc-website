@@ -1,1 +1,2 @@
 substitution options testing
+test check in with eclipse cvs clent
