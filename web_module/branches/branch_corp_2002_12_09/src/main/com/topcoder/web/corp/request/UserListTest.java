@@ -83,10 +83,7 @@ class UserList extends BaseProcessor {
         ResultSetContainer ret = null;
 
         StringBuffer query = new StringBuffer();
-        query.append("SELECT u.first_name, u.last_name, u.user_id
-                      FROM   user u, contact c
-                      WHERE  u.user_id = c.contact_id
-                       AND   c.company_id = ");
+        query.append("SELECT u.first_name, u.last_name, u.user_id FROM user u, contact c WHERE u.user_id = c.contact_id AND c.company_id=");
 
 //        query.append("SELECT u.user_id 
 //                           , su.user_id AS handle
