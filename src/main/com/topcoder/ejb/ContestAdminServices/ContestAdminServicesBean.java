@@ -873,7 +873,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
                 .append(" c.defendant_id, p.problem_id, d.data_type_desc, cp.class_name, c.succeeded, ")
                 .append(" c.submit_time, cp.method_name, c.args, c.message, c.expected, ")
                 .append(" c.received, c.challenger_points, c.defendant_points, ")
-                .append(" u1.handle, u2.handle, r.name, st.status_desc, c.status_id ")
+                .append(" u1.handle, u2.handle, r.name, st.status_desc, c.status_id, cp.component_id ")
                 .append(" FROM challenge c, room_result rs, user u1, user u2, room r, problem p, data_type d ")
                 .append(" , status_lu st, component cp ")
                 .append(" WHERE c.round_id  = ?  ")
@@ -917,7 +917,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
                 break;
         }
 
-        txtGetChallenges.append(" ORDER BY r.room_id, c.component_ids, c.challenge_id ");
+        txtGetChallenges.append(" ORDER BY r.room_id, c.component_id, c.challenge_id ");
 
         try {
             DataSource ds = (DataSource)getContext().lookup(DBMS.CONTEST_ADMIN_DATASOURCE);
