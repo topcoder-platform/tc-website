@@ -157,7 +157,7 @@ function getProblemDetail(id) {
                 <%
                     int counter = 0;
                     String[] cssClasses = {"screeningCellOdd", "screeningCellEven"};
-                    String[] swfFiles = {"/i/corp/screeningRatingEven.swf", "/i/corp/screeningRatingOdd.swf"};
+                    String[] swfFiles = {"/i/corp/screeningRatingOdd.swf", "/i/corp/screeningRatingEven.swf"};
 
                     for (int i = startIndex; i < startIndex + Constants.SEARCH_SCROLL_SIZE && i < info.size(); i++) {
                         row = (ResultSetContainer.ResultSetRow) info.get(i);
