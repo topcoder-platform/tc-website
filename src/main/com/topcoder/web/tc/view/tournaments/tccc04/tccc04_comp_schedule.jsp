@@ -111,10 +111,10 @@
                         Appeals due
                         </td>
                      <td class="sidebarText">
-                        02.08.04 11:00AM
+                        02.08.04 9:00AM
                         </td>
                      <td class="sidebarText">
-                        02.29.04 11:00PM
+                        02.29.04 9:00AM
                         </td>
                    </tr>
                  <tr>
@@ -183,10 +183,10 @@
                         Appeals due
                         </td>
                      <td class="sidebarText">
-                        02.29.04 11:00AM
+                        02.29.04 9:00AM
                         </td>
                      <td class="sidebarText">
-                        03.21.04 11:00PM
+                        03.21.04 9:00AM
                         </td>
                    </tr>
                   <tr>
