@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
-<%@ page import="com.topcoder.web.privatelabel.Constants" %>
+<%@ page import="com.topcoder.web.privatelabel.Constants,
+                 com.topcoder.shared.util.ApplicationServer" %>
 <%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="/privatelabel.tld" prefix="pl" %>
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
@@ -73,7 +74,7 @@
 
             <tr style="background: #eee;">
                  <td align="left" nowrap>Personal</td>
-                <td align="right"width="100%"><a href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.VERIZON_REG_MAIN%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="CompanyId"/>">edit<a/></td>
+                <td align="right"width="100%"><a href="https://<%=ApplicationServer.SERVER_NAME%><jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.VERIZON_REG_MAIN%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="CompanyId"/>">edit<a/></td>
             </tr>
             <tr>
                 <td align="right" nowrap>
