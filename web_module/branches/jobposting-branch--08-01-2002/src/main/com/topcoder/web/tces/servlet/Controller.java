@@ -59,6 +59,7 @@ log.debug("in doPost");
         InitialContext ctx = null;
         try {
 log.debug("getting initial context");
+log.debug("task = "+taskName);
             ctx = (InitialContext) TCContext.getInitial();
 
             if (taskName != null && taskName.trim().length() > 0) {
