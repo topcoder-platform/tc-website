@@ -95,7 +95,7 @@
         </jsp:include>
 
 <p class="header">Problem:&nbsp;<%= request.getAttribute("problemName") %></p>
-    <table  WIDTH="500" BORDER="0" CELLSPACING="0" CELLPADDING="5"align="center" class="formFrame">
+    <table  WIDTH="500" BORDER="0" CELLSPACING="2" CELLPADDING="6"align="center" class="sidebarBox">
         <tr>
            <td class="sidebarTitle" align="left" valign="bottom" nowrap>Question</td>
            <td class="sidebarTitle" align="right" valign="bottom" nowrap>Total Avg.<br/>Rating</td>
