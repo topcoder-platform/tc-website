@@ -362,6 +362,7 @@ public class ProblemInfo extends BaseModel {
         Request accuracyInfo = new Request();
         if(!screening)
         {
+            log.info("NORMAL_RESULTS");
             accuracyInfo.setProperty(DataAccessConstants.COMMAND,
                     Constants.ACCURACY_INFO_QUERY_KEY);
 
@@ -388,6 +389,8 @@ public class ProblemInfo extends BaseModel {
         }
         else
         {
+            log.info("COMPANY_RESULTS");
+            
             accuracyInfo.setProperty(DataAccessConstants.COMMAND,
                     "problem_statistics_by_company");
 
