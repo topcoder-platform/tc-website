@@ -21,11 +21,11 @@
         <tr>
             <td class="messageBoxText">
                 <% if (!isEligible) { %>
-                    you're not eligible
+                        <img src="/i/tournament/tccc04/messageNotEligible.gif" width="180" height="69" border="0"/>
                 <% } else if (isRegistered) { %>
-                    you're registered already
+                        <img src="/i/tournament/tccc04/messageReg.gif" width="180" height="69" border="0"/>
                 <% } else { %>
-                        <img src="/i/tournament/tccc04/message_not_reg.gif" width="180" height="69" border="0"/>
+                        <img src="/i/tournament/tccc04/messageNotReg.gif" width="180" height="69" border="0"/>
                 <% } %>
             </td>
         </tr>
