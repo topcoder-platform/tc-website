@@ -463,7 +463,7 @@ public class UserEdit extends BaseProcessor {
     /**
      * simplified validity check - does not use alphabets
      */
-    private final boolean simpleValidityCheck(
+    protected final boolean simpleValidityCheck(
             String itemKey,
             String itemValue,
             int minLen, int maxLen,
