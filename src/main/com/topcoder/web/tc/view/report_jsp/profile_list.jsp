@@ -1,4 +1,4 @@
-<%@  page 
+<%@  page
   language="java"
   errorPage="/errorPage.jsp"
   import="java.util.*,
@@ -13,13 +13,13 @@
     if (s==null || s.length()==0) return "";
     StringBuffer buf = new StringBuffer(150);
     for(int i=0; i<s.length(); i++) {
-      if (s.charAt(i)!='\'') 
+      if (s.charAt(i)!='\'')
         buf.append(s.charAt(i));
     }
     return buf.toString();
   }
 %>
-<%! 
+<%!
   boolean contains(String list, String key) {
     StringTokenizer st = new StringTokenizer(list, ",");
     HashSet hash = new HashSet();
@@ -28,7 +28,7 @@
     if (hash.contains(key)) return true;
     else return false;
   }
-%> 
+%>
 
 <%
   Map m = null;
@@ -42,7 +42,7 @@
   m = (Map)request.getAttribute(Constants.REPORT_PROFILE_LIST_KEY);
   if (m==null) {
     m = (Map)request.getAttribute(Constants.REPORT_PROFILE_LIST_MENU_KEY);
-    if (m!=null) { 
+    if (m!=null) {
       profiles = (ResultSetContainer)m.get("Profile_List");
       states = (ResultSetContainer)m.get("State_List");
       countries = (ResultSetContainer)m.get("Country_List");
@@ -67,7 +67,8 @@
       <TR><TD><FONT size="4"><b>Profile List</b></FONT></TD></TR>
       <TR>
         <TD ALIGN="left">
-          <FORM name="profileListForm" method="get" action="<%=Constants.SERVLET_ADDR%>">
+          <FORM name="profileListForm" method="get" action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>">
+            <input type="hidden" name="module" value="LegacyReport"/>
             <INPUT type="hidden" name="<%=Constants.TASK_NAME_KEY%>" value="<%=Constants.REPORT_PROFILE_LIST_KEY%>"/>
             <INPUT type="hidden" name="<%=Constants.REPORT_RELOCATE_KEY%>" value=""/>
             <TABLE WIDTH="60%" HEIGHT="100%" BORDER="1" CELLPADDING="0" CELLSPACING="0">
@@ -107,11 +108,11 @@
                 <TD colspan="2" align="center">
                   <b>Willing to relocate:</b><br/>
                     <SELECT NAME="relocateAnswers" SIZE="3" MULTIPLE="true">
-<%                 
+<%
                      String willingToRelocate = request.getParameter(Constants.REPORT_RELOCATE_KEY)==null?"":request.getParameter(Constants.REPORT_RELOCATE_KEY);
                      String selectedString = null;
                      it = relocateAnswers.iterator();
-                      while(it.hasNext()) { 
+                      while(it.hasNext()) {
                         rsr = (ResultSetContainer.ResultSetRow)it.next();
                         selectedString = contains(willingToRelocate, rsr.getItem("answer_id").toString())?" selected=\"true\"":"";
 %>
@@ -186,7 +187,7 @@
                     for (int k=0; k<profiles.getColumnCount(); k++) {
 %>
                     <OPTION value="<%=k%>"><%=profiles.getColumnName(k)%></OPTION>
-<%                  }  
+<%                  }
 %>
                   </SELECT>&#160;&#160;&#160;&#160;
                 </TD>
@@ -200,7 +201,7 @@
                     <OPTION value="<%=cols[j]%>"><%=profiles.getColumnName(Integer.parseInt(cols[j]))%></OPTION>
 <%
                       }
-                    }     
+                    }
 %>
                   </SELECT>
                 </TD>
@@ -365,18 +366,18 @@
             <TR><TD><FONT size="4"><b>Results</b></FONT></TD></TR>
             <TR>
             <TD></TD>
-<%        
+<%
             for (int j=0; j<columns.length; j++) {
 %>            <TD><b><%=profiles.getColumnName(Integer.parseInt(columns[j]))%></b></TD>
 <%          }
             it = profiles.iterator();
             int k=0;
-            while(it.hasNext()) { 
+            while(it.hasNext()) {
               k++;
               if (k%2==1)
 %>          <TR bgcolor="#ccffcc">
 <%
-              else 
+              else
 %>          <TR>
 
 <%
@@ -405,6 +406,6 @@
         </TD>
       </TR>
     </TABLE
-  </BODY> 
+  </BODY>
 </HTML>
 

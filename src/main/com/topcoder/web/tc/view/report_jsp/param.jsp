@@ -1,9 +1,9 @@
-<%--                   
+<%--
 /**
  *  profile.jsp
  */
 --%>
-<%@  page 
+<%@  page
   language="java"
   import="java.util.*,
           com.topcoder.common.web.data.report.*"
@@ -20,7 +20,7 @@
   reportId = new Integer(request.getParameter(Constants.REPORT_ID_KEY));
   report = reportList.findReport(reportId);
   parameters = report.getParameters();
-%>  
+%>
 
 <html>
   <head>
@@ -28,10 +28,11 @@
   </head>
   <body>
     <a href=<%=Constants.SERVLET_ADDR%><< back to main menu<a><br/><br/>
-    <form name="paramForm" method="get" action="<%=Constants.SERVLET_ADDR%>">
+    <form name="paramForm" method="get" action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>">
+      <input type="hidden" name="module" value="LegacyReport"/>
       <input type="hidden" name="<%=Constants.TASK_NAME_KEY%>" value="<%=Constants.REPORT_RESULT_KEY%>"/>
       <input type="hidden" name="<%=Constants.REPORT_ID_KEY%>" value="<%=request.getParameter(Constants.REPORT_ID_KEY)%>"/>
-      <table cellpadding="0" cellspacing="0" border="0" > 
+      <table cellpadding="0" cellspacing="0" border="0" >
         <tr>
           <td colspan="3">
             <b>Enter Report Parameters</b>
@@ -59,7 +60,7 @@
         <tr><td colspan="3"><center><a href="Javascript:document.paramForm.submit()">Submit</a></center></td></tr>
       </table>
     </form>
-  </body> 
+  </body>
 </html>
 
 
