@@ -29,7 +29,7 @@
                     <td class="tcoSubNav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td class="<%=tab.equals("overview")?"tcoSubNav_on":"tcoSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=SimpleStats&c=tco03_bracket&trans=true" class="topLink">Overview</a></td>
                     <td class="<%=tab.equals("qualification")?"tcoSubNav_on":"tcoSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_qualification" class="topLink">Qualification</a></td>
-                    <td class="<%=tab.equals("bracket")?"tcoSubNav_on":"tcoSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_bracket_interact" class="topLink">Bracket</a></td>
+<%--                    <td class="<%=tab.equals("bracket")?"tcoSubNav_on":"tcoSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_bracket_interact" class="topLink">Bracket</a></td>--%>
                     <td class="<%=tab.equals("radeye")?"tcoSubNav_on":"tcoSubNav"%>" width="1" nowrap="nowrap"><a href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_radeye_rd3','radeye3',900,600);" class="topLink">radeye's Odds</a></td>
                     <td class="tcoSubNav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
