@@ -29,7 +29,7 @@ isErrorPage="true"
         <TR>
           <TD VALIGN="middle" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
           <TD><IMG SRC="/i/clear.gif" WIDTH="72" HEIGHT="1" BORDER="0" VSPACE="20"/></TD>
-          <TD CLASS="time" VALIGN="middle" NOWRAP="" ALIGN="right"><BR CLEAR="all"/><BR/><SPAN CLASS="smallBrackets">[ </SPAN> <A HREF="<%="https://"+request.getServerName()+"/reg/index.jsp"%>" CLASS="registerToday" TARGET="_parent">Register Today</A> :<span class="time"><%@ include file="date_time.jsp" %></span><SPAN CLASS="smallBrackets">]</SPAN><BR CLEAR="ALL"/><BR CLEAR="ALL"/></TD><TD WIDTH="50" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/></TD>
+          <TD CLASS="time" VALIGN="middle" NOWRAP="" ALIGN="right"><BR CLEAR="all"/><BR/><SPAN CLASS="smallBrackets">[ </SPAN> <A HREF="<%="https://"+request.getServerName()+"/reg/index.jsp"%>" CLASS="registerToday" TARGET="_parent">Register Today</A> :<span class="time"><jsp:include page="date_time.jsp" /></span><SPAN CLASS="smallBrackets">]</SPAN><BR CLEAR="ALL"/><BR CLEAR="ALL"/></TD><TD WIDTH="50" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/></TD>
 
         </TR>
       </TABLE>

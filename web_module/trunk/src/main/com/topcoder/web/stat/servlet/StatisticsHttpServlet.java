@@ -1,8 +1,9 @@
 package com.topcoder.web.stat.servlet;
 
 import com.topcoder.common.web.data.Navigation;
-import com.topcoder.shared.dataAccess.*;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.stat.bean.CoderRatingStyleBean;
@@ -19,15 +20,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.Map;
-import java.util.HashMap;
 import java.util.Properties;
 
 
 public class StatisticsHttpServlet extends HttpServlet {
     private static Logger log = Logger.getLogger(StatisticsHttpServlet.class);
-    private static final String LAST_MOD_HDR = "Last-Modified";
     private static final String XML_FILE = ApplicationServer.BASE_DIR + "/resources/stat/statServlet.xml";
-    private static final String PUBLIC = "0";
     private static final String LOGGED_IN_ONLY = "1";
     private static final String ACCESS_MAP_KEY = "ACCESSCTRL";
     private Properties mProp = new Properties();
@@ -45,7 +43,6 @@ public class StatisticsHttpServlet extends HttpServlet {
      /**
      * This method initializes global variables
      *
-     * @return  none
      */
     public void init() {
         ServletContext srvctx = this.getServletContext();
@@ -62,7 +59,7 @@ public class StatisticsHttpServlet extends HttpServlet {
 
     /**
      * Reloads all the config info
-     * @param ServletContext the servlet context
+     * @param srvctx the servlet context
      */
     public static void reload(ServletContext srvctx) {
 
@@ -86,9 +83,8 @@ public class StatisticsHttpServlet extends HttpServlet {
     /**
      * This method implements the doGet method, which forwards the request to process
      *
-     * @param HttpServletRequest  Request object
-     * @param HttpServletResponse  Response object
-     * @return    none
+     * @param request object
+     * @param response object
      * @throws    ServletException
      * @throws    IOException
      */
@@ -99,9 +95,8 @@ public class StatisticsHttpServlet extends HttpServlet {
     /**
      * This method implements the doPost method, which forwards the request to process
      *
-     * @param HttpServletRequest  Request object
-     * @param HttpServletResponse  Response object
-     * @return    none
+     * @param request object
+     * @param response object
      * @throws    ServletException
      * @throws    IOException
      */
@@ -112,9 +107,8 @@ public class StatisticsHttpServlet extends HttpServlet {
     /**
      * This method handles the actual request processing
      *
-     * @param HttpServletRequest  Request object
-     * @param HttpServletResponse  Response object
-     * @return    none
+     * @param request object
+     * @param response object
      * @throws    ServletException
      * @throws    IOException
      */
