@@ -99,6 +99,7 @@ public final class SavePMReviewAction extends ReviewAction {
                             if (scorecard instanceof ScreeningScorecard) {
                                 if (((SubmissionForm) form).getIsScreening()) {
                                     ((InitialSubmission)((SubmissionForm) form).getSubmission()).setAdvancedToReview(((SubmissionForm) form).getAdvanced());
+                                    documentManager.saveInitialSubmission(((SubmissionForm) form).getSubmission(), user.getTCSubject());
                                     
                                     ScreeningData sData = new ScreeningData(orpd, sid, (ScreeningScorecard) scorecard);
                                     result = businessDelegate.screeningScorecard(sData);

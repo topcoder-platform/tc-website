@@ -201,7 +201,7 @@ public class ProjectAdministration implements Model {
                                 if (scorecards[j].getPassed() && scorecards[j].getScore() >= minscore ) {
                                     InitialSubmission sub = scorecards[j].getSubmission();
                                     sub.setPassedScreening(true);
-                                    sub.setAdvancedToReview(true);
+                                    //sub.setAdvancedToReview(true);
                                     documentManager.saveInitialSubmission(sub, user.getTCSubject());
                                 }
 //                                ok = true;
