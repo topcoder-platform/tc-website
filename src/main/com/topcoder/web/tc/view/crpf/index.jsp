@@ -9,7 +9,7 @@
 </head>
 
 <body>
- 
+
 <jsp:include page="../top.jsp" >
     <jsp:param name="level1" value="review_board"/>
 </jsp:include>
@@ -44,38 +44,52 @@
                   </tr>
                </table>
                
-<!-- Tab bar links-->
-<jsp:include page="crpfLinks.jsp" >
-   <jsp:param name="selectedTab" value="donate"/>
-</jsp:include>
-
-<!-- Tab bar sublinks-->
-<jsp:include page="crpfSublinks.jsp" >
-   <jsp:param name="selectedList" value=""/>
-   <jsp:param name="selectedTab" value=""/>
-</jsp:include>
-
-               
-
                <blockquote>
-               <p>Donations can be made by:<br />
+               <table>
+               <tr>
+               <td class="bodyText" width="100%">
+               <p>TopCoder is excited to announce the first ever TopCoder Charity
+               Challenge.  The Charity Challenge will benefit the Christopher Reeve
+               Paralysis Foundation ("CRPF").  This tournament is an unprecedented
+               collaboration of fund raising and competition, and one we think our
+               members will enjoy.</p>
+
+               <p>So how will it work?  Members will gather donations from friends, family
+               and colleagues.  These people will, in essence, sponsor you in this
+               competition.  All donations go to CRPF, and TopCoder will match all the
+               donations up to $50,000!  Members must raise a minimum of $25 to
+               compete.  A total of 10 members will win the grand prize - an expenses
+               paid trip to attend "A Magical Evening", the annual star-studded gala
+               ball benefiting CRPF, held in New York City.</p>
+
+               <p>How do you win?  Be one of the:
                <ul>
-               <li>Credit card online at <A href="https://www.virtualsprockets.com/Transactions/secure1.cfm?clientID=72&return=http://www.christopherreeve.org/&ContributeType=c&ContributeURL=https://www.virtualsprockets.com/Transactions/secure1.cfm&case=DEFAULT&category=2&origin=TopCoderWebsite2003&mx=0&H=0&source=C&email=$X$&O18=0&CTZ=0&mid=0&FN=2&FormType=C&ExecNum=x5s6&FA=0&ACT=0" target="_blank">www.christopherreeve.org/topcoder</A>.  
-               Donators will enter in the TopCoder member's name and/or handle so the donation can be matched with a TopCoder member.  
-               This is important as eligibility and prizes are determined based on how much money each member raises.</li>
-               <li>Check.  Please complete the donation form located at <A href="http://www.topcoder.com/crpf">www.topcoder.com/crpf</A> and submit the form and a check to:<br />
-                     <ul>
-                     <li>VirtualSprockets<br />
-                     17610 West Willard Road<br />
-                     Poolsville, MD  20837<br />
-                     ATTN:  CRPF DONATIONS</li>
-                     </ul></li>
+	         <li>4 highest scorers in Round 3</li>
+	         <li>4 highest fund-raisers (minimum donations raised of $500)</li>
+	         <li>2 lucky members who are chosen randomly.  Members will receive 
+	         1 entry for every $100 raised (minimum of 1 entry to be included in the
+               drawing)</li>
                </ul>
                </p>
+
+               <p>Click here for more information on the tournament, how to donate, and
+               who the top fund raisers are.  As always, best of luck to you in the
+               Arena!</p>
+               </td>
+               <td valign="top" align="right" width="208"><img src="/i/tournament/crpf03/indexlinks.gif" width="208" height="230" border="0" usemap="#indexlinks">
+               <map name="indexlinks">
+               <area shape="rect" coords="11,11,195,57" href="/reg/index.jsp" />
+               <area shape="rect" coords="59,75,194,144" href="/tc/?module=Static&d1=crpf&d2=crpf_overview" />
+               <area shape="rect" coords="60,175,188,215" href="/tc/?module=Static&d1=crpf&d2=crpf_donate" />
+               </map>
+            </td>                       
+               </tr>
+               </table>
+
                </blockquote>
             
             <p><br /></p>
-         </td>                       
+         </td>
 <!-- Center Column Ends -->
 
 <!-- Gutter -->

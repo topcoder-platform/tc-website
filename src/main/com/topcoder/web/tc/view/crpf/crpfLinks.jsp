@@ -13,21 +13,6 @@ function openWin(url, name, w, h) {
 </script>
 
 <table border="0" cellspacing="0" cellpadding="0" width="100%">
-   <tr>
-      <td class="bodyText">
-      <blockquote>
-         <p>Thank you for supporting the TopCoder Charity Challenge benefiting the Christopher Reeve Paralysis Foundation.  Your generous donation will 
-         allow CRPF to continue to fund the research of the world's most distinguished neuroscientists and support organizations around the country that 
-         improve the quality of life of people living with disabilities.  Every dollar brings them closer to the cure!</p>
-         <p>A donation from you will not only go directly to the Foundation, it will also help allow a programmer to compete in this prestigious tournament.  
-         Their involvement in this tournament will grant them a chance to attend 'A Magical Evening' as a special guest.  'A Magical Evening' is the annual, 
-         star-studded, gala ball in New York City to raise money and awareness for the Christopher Reeve Paralysis Foundation.</p>
-         <p><br /></p>
-      </blockquote>
-      </td>
-   </tr>
-</table>
-<table border="0" cellspacing="0" cellpadding="0" width="100%">
     <tr>
         <td width="49%"><img src="/i/clear.gif" alt="" width="5" height="10" border="0" /></td>
 
