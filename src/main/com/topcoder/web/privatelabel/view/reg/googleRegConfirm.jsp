@@ -190,10 +190,10 @@
 
             <tr>
                 <td align="right">
-                    Province
+                    State
                 </td>
                 <td align="left">
-                    <jsp:getProperty name="regInfo" property="Province"/>
+                    <jsp:getProperty name="regInfo" property="StateName"/>
                 </td>
             </tr>
 
