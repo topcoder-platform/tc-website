@@ -25,18 +25,20 @@
 </jsp:include><!-- Header Ends -->
 
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-    <tr valign="top">
+<table width=700 border=0 cellpadding=0 cellspacing=0 align=center>
+	<TR valign="top">
 <!-- Center Column Begins -->
         <td class="bodyText" width="100%" align=center>
 			<img src="/i/corp/clear.gif" width="400" height="11" alt="" border=0><br/>
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrameNB">
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
                 <tr valign="top">
                     <td class=bodyText>
-                        <p><span class=testHead>Position Interest</span><br/>
+                        <p>
                         <tces:trailIterator id="trailItem" trailList="<%=PositionInterestTask.getTrail()%>">
                             <a href="<jsp:getProperty name="trailItem" property="href"/>" class="bodyText"><jsp:getProperty name="trailItem" property="name"/></a> &gt;
                         </tces:trailIterator>
+						<br/>
+						<span class=testHead>Position Interest</span>
 						<br/><br/>
                         <strong>Campaign:</strong> <jsp:getProperty name="PositionInterestTask" property="CampaignName"/><br/>
                         <strong>Position:</strong> <jsp:getProperty name="PositionInterestTask" property="PositionName"/><br>
@@ -46,7 +48,7 @@
                 </tr>
             </table>
 
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                 <tr>
                   <td class="screeningHeader"><a href="<jsp:getProperty name="PositionInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=PositionInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=PositionInterestTask.getJobID()%>&<%=TCESConstants.SORT_PARAM%>=handle&<%=TCESConstants.SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_ASC%>" class="screeningHeader">Handle</a></td>
                   <td class="screeningHeader"><a href="<jsp:getProperty name="PositionInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=PositionInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=PositionInterestTask.getJobID()%>&<%=TCESConstants.SORT_PARAM%>=rating_sort&<%=TCESConstants.SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_DES%>" class="screeningHeader">Rating</a></td>

@@ -34,10 +34,12 @@
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
                 <tr valign="top">
                     <td class=bodyText colspan=2>
-                        <p><span class=testHead>Member Profile: <%= MemberInfo.getItem(0, "handle").toString()%> </span><br/>
+                        <p>
 						<tces:trailIterator id="trailItem" trailList="<%=MemberProfileTask.getTrail()%>">
 						  <A HREF="<jsp:getProperty name="trailItem" property="href"/>" class="bodyText"><jsp:getProperty name="trailItem" property="name"/></A> &gt;
 						</tces:trailIterator>
+						<br/>
+						<span class=testHead>Member Profile: <%= MemberInfo.getItem(0, "handle").toString()%> </span>
 						<br/><br/>
 					</td>
 				</tr>
