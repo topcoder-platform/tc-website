@@ -189,8 +189,8 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      */
     public ResultSetContainer(ResultSet rs, int start, int end,
                               int ranklistCol) throws Exception {
-        log.debug("ResultSetContainer(ResultSet, int, int, int) called...");
         this();
+        log.debug("ResultSetContainer(ResultSet, int, int, int) called...");
         if (start > end)
             throw new IllegalArgumentException("Start row cannot exceed end row");
         initializeMetaData(rs);
