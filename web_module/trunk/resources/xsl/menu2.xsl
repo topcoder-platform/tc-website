@@ -8,7 +8,7 @@
           <xsl:choose>
             <xsl:when test="/TC/LoggedIn='true'">
               <A CLASS="registerNav" TARGET="_parent">
-                <xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>
+                <xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp?&amp;<xsl:value-of select="/TC/UserId"/></xsl:attribute>
                 <IMG SRC="/i/menu_profile_on.gif" ALT="Update Profile" WIDTH="114" HEIGHT="21" BORDER="0"/>
               </A>  
             </xsl:when>
