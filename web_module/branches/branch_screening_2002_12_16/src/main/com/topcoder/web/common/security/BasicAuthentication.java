@@ -48,14 +48,12 @@ public class BasicAuthentication implements WebAuthentication {
                 if(cookies[i].getName().equals("loggedInStatus"))
                     loggedInCookie = cookies[i];
             }
-            if(userCookie == null || loggedInCookie == null)
-                return -1;
-            if(!loggedInCookie.getValue().equals("true"))
-                return -1;
-            return Long.parseLong(userCookie.getValue());
+            if(userCookie != null && loggedInCookie != null)
+                if(loggedInCookie.getValue().equals("true"))
+                    return Long.parseLong(userCookie.getValue());
         } catch (Exception e) {
-            return -1;
         }
+        return User.USER_ANONYMOUS_ID;
     }
     
     private long getIdFromPersistor(){
@@ -71,7 +69,7 @@ public class BasicAuthentication implements WebAuthentication {
             }
         } catch (Exception e) {
         }
-        return -1;
+        return User.USER_ANONYMOUS_ID;
     }
     
     /** Gets the current user's information.
@@ -79,7 +77,7 @@ public class BasicAuthentication implements WebAuthentication {
      */
     public User getUser() {
         long id = getIdFromPersistor();
-        if(id == -1)
+        if(id == User.USER_ANONYMOUS_ID)
             id = getIdFromCookie();
         
         return new SimpleUser(id,null,null);
