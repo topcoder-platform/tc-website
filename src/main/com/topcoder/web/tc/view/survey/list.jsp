@@ -47,7 +47,7 @@
              
             <table border="0" cellpadding="5" cellspacing="0"width="100%">
                <tr><td class="header">Archive</td></tr>
-            </table><br/>
+            </table>
 
             <table border="0" cellpadding="5" cellspacing="0" class="bodyText" width="500" align="center">
             <% boolean even = false; %>
