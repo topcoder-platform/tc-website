@@ -54,6 +54,8 @@
                scores at least 0 points, and everyone competes in every round they are
                eligible for.  This information is provided for entertainment purposes
                only.</p>
+
+               <p>NOTE: The "Earnings" column does not include the possible $30 a member wins for being among the top three scorers in each room</p>
             </td>
          </tr>
          <tr>
