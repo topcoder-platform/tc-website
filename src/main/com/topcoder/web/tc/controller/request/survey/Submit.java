@@ -57,6 +57,7 @@ public class Submit extends View {
             }
 
             if (hasErrors()) {
+                //set the defaults
                 setNextPage(Constants.SURVEY_VIEW);
                 setIsNextPageInContext(true);
             } else if (hasAllFreeForm) {
@@ -84,6 +85,7 @@ public class Submit extends View {
         List ret = null;
         if (answers != null) ret = new ArrayList(answers.length);
         for (int i = 0; i < answers.length; i++) {
+            log.debug("param: " + paramName + " value: " + answers[i]);
             long questionId = -1;
             long answerId = -1;
             StringTokenizer st = new StringTokenizer(paramName.substring(AnswerInput.PREFIX.length()), ",");
