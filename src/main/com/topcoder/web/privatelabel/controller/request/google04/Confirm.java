@@ -15,17 +15,17 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 public class Confirm extends FullRegConfirm {
     protected void setNextPage() {
         //reg closed
-/*
-        setNextPage(Constants.GOOGLE_REG_CLOSED_PAGE);
+        setNextPage(Constants.GOOGLE04_REG_CLOSED_PAGE);
         setIsNextPageInContext(true);
-*/
 
+/*
         if (hasErrors()) {
             setNextPage(Constants.GOOGLE04_REG_DEMOG_PAGE);
         } else {
             setNextPage(Constants.GOOGLE04_REG_CONFIRM_PAGE);
         }
         setIsNextPageInContext(true);
+*/
 
     }
     

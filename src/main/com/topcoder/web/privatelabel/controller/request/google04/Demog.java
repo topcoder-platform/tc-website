@@ -9,17 +9,17 @@ import com.topcoder.web.common.TCWebException;
 public class Demog extends FullRegDemog {
     protected void setNextPage() {
         //reg closed
-/*
-        setNextPage(Constants.GOOGLE_REG_CLOSED_PAGE);
+        setNextPage(Constants.GOOGLE04_REG_CLOSED_PAGE);
         setIsNextPageInContext(true);
-*/
 
+/*
         if (hasErrors()) {
             setNextPage(Constants.GOOGLE04_REG_PAGE);
         } else {
             setNextPage(Constants.GOOGLE04_REG_DEMOG_PAGE);
         }
         setIsNextPageInContext(true);
+*/
     }
     
     protected void checkRegInfo(SimpleRegInfo info) throws TCWebException {
