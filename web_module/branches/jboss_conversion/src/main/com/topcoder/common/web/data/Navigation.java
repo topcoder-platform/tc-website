@@ -4,17 +4,10 @@ import com.topcoder.common.web.error.TCException;
 import com.topcoder.ejb.UserServices.UserServices;
 import com.topcoder.ejb.UserServices.UserServicesHome;
 import com.topcoder.security.TCSubject;
-import com.topcoder.security.admin.PrincipalMgrRemote;
-import com.topcoder.security.admin.PrincipalMgrRemoteHome;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.HttpObjectFactory;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.common.TCResponse;
+import com.topcoder.web.common.*;
 import com.topcoder.web.common.security.BasicAuthentication;
-import com.topcoder.web.common.security.Constants;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.tc.model.CoderSessionInfo;
@@ -106,8 +99,7 @@ public final class Navigation
             TCResponse tcResponse = HttpObjectFactory.createResponse(response);
             WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(tcRequest.getSession()),
                     tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
-            PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
-            TCSubject user = pmgr.getUserSubject(authentication.getActiveUser().getId());
+            TCSubject user = SecurityHelper.getUserSubject(authentication.getActiveUser().getId());
             info = new CoderSessionInfo(tcRequest, authentication, user.getPrincipals());
             init(tcRequest);
         } catch (Exception e) {
@@ -121,8 +113,7 @@ public final class Navigation
             TCResponse tcResponse = HttpObjectFactory.createResponse(response);
             WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(request.getSession()),
                     request, tcResponse, BasicAuthentication.MAIN_SITE);
-            PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
-            TCSubject user = pmgr.getUserSubject(authentication.getActiveUser().getId());
+            TCSubject user = SecurityHelper.getUserSubject(authentication.getActiveUser().getId());
             info = new CoderSessionInfo(request, authentication, user.getPrincipals());
             init(request);
         } catch (Exception e) {

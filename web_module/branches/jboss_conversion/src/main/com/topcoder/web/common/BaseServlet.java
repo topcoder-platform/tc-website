@@ -1,7 +1,6 @@
 package com.topcoder.web.common;
 
 import com.topcoder.security.TCSubject;
-import com.topcoder.security.Util;
 import com.topcoder.shared.security.Authorization;
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.security.SimpleResource;
@@ -310,6 +309,6 @@ public abstract class BaseServlet extends HttpServlet {
     }
 
     protected TCSubject getUser(long id) throws Exception {
-        return Util.getUserSubject(id);
+        return SecurityHelper.getUserSubject(id);
     }
 }

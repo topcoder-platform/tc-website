@@ -18,6 +18,7 @@ import com.topcoder.shared.util.*;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.tc.view.reg.tag.Demographic;
@@ -1808,6 +1809,8 @@ public class Registration
                     UserPrincipal up = new UserPrincipal("", user.getUserId());
                     pmr.addUserToGroup(anonGroup, up, tcs);
                     pmr.addUserToGroup(userGroup, up, tcs);
+                    //refresh the cached object
+                    SecurityHelper.getUserSubject(user.getUserId(), true);
                 }
 
                 user.setModified("S");

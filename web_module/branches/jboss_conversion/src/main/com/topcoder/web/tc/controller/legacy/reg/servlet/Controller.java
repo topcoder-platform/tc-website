@@ -64,7 +64,7 @@ public class Controller
                     tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
             RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
             PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
-            TCSubject user = pmgr.getUserSubject(authentication.getActiveUser().getId());
+            TCSubject user = SecurityHelper.getUserSubject(authentication.getActiveUser().getId());
             CoderSessionInfo info = new CoderSessionInfo(tcRequest, authentication, user.getPrincipals());
             nav.setCoderSessionInfo(info);
             request.setAttribute(BaseServlet.SESSION_INFO_KEY, info);
