@@ -22,7 +22,7 @@
 				<tr>
 					<td width="49%"></td>
 					<td valign=bottom align=center><img border=0 src="/i/events/google2004/codejamLogo.gif" alt="Google Code Jam logo"></td>
-					<td width="49%" valign=bottom align=right><a href="/"><img align="right" src="/i/events/google2003/google_pbtc.gif" border="0"></a></td>
+					<td width="49%" valign=bottom align=right><a href="/"><img align="right" src="/i/events/google2004/google_pbtc.gif" border="0"></a></td>
 				</tr>
 			</table>
 		</td>
@@ -78,11 +78,11 @@
 
 			<!-- Qualification Rounds begins -->
 			<span class=greenSubtitle>Qualification Rounds</span><br/>
-			The top 100 scorers from each problem presented during the Qualification Round will be eligible to compete in Round 1 of the Code Jam 2003.</p>
+			The top 100 scorers from each problem set presented during the Qualification Round will be eligible to compete in Round 1 of the Code Jam 2004.</p>
 			<br/><br/>
 
 			<a name="sched"></a>
-			<table width="400" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+			<table width="450" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
 				<tr>
 					<td class="sidebarTitle" width="25%">Round</td>
 					<td class="sidebarTitle" width="35%">Date and Time*</td>
@@ -91,7 +91,7 @@
 				</tr>
 				<tr valign="top">
 					<td class="sidebarText">Qualification Round</td>
-					<td class="sidebarText">8:00 AM Friday, October 17 through<br />8:00 AM Monday, October 20<br /></td>
+					<td class="sidebarText" nowrap=nowrap>12:00 PM Wednesday, September 15<br/> through<br />12:00 PM Thursday, September 16<br /></td>
 					<td class="sidebarText" align="center">All eligible members</td>
 					<td class="sidebarText" align="center">500</td>
 				</tr>
@@ -107,7 +107,7 @@
 			Everyone who competes in Round 1 must log in to the TopCoder Competition Arena no later than ten minutes prior to the start of the online round.  All start times will be communicated as Eastern Time.  If a coder does not participate, for any reason, in an online round he/she has advanced to, it will be treated as an automatic loss in that round of competition.
 			<br/><br/>
 
-			<table width="400" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+			<table width="450" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
 				<tr>
 					<td class="sidebarTitle" width="25%">Round</td>
 					<td class="sidebarTitle" width="35%">Date and Time*</td>
@@ -116,15 +116,15 @@
 				</tr>
 				<tr valign="top">
 					<td class="sidebarText">Online Round 1</td>
-					<td class="sidebarText">Friday, October 24th<br />Register: 6:00 PM<br />START: 9:00 PM<br /></td>
+					<td class="sidebarText">Monday, September 20th<br />Register: 6:00 PM<br />START: 9:00 PM<br /></td>
 					<td class="sidebarText" align="center">500</td>
 					<td class="sidebarText" align="center">250</td>
 				</tr>
 				<tr valign="top">
 					<td class="sidebarText">Online Round 2</td>
-					<td class="sidebarText">Monday, October 27th<br />START: 9:00 PM<br /></td>
+					<td class="sidebarText">Thursday, September 23rd<br />START: 9:00 PM<br /></td>
 					<td class="sidebarText" align="center">250</td>
-					<td class="sidebarText" align="center">25</td>
+					<td class="sidebarText" align="center">50</td>
 				</tr>
 				<tr valign="top">
 					<td class="sidebarText" colspan="4">NOTE: All times are Eastern Time. In the event that an online round must be cancelled for any reason, the "raindate" will be the following day at the same time.</td>
@@ -136,10 +136,10 @@
 
 			<!-- Onsite Championship Round begins -->
 			<span class=greenSubtitle>Onsite Championship Round</span><br/>
-			Up to 25 coders will compete in the Championship Round being held onsite at Google's headquarters.  Each finalist is responsible for arriving at Google's headquarters to compete.
+			Up to 50 coders will compete in the Championship Round being held onsite at Google's headquarters.  Each finalist is responsible for arriving at Google's headquarters to compete.
 			<br/><br/>
 
-			<table width="400" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+			<table width="450" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
 				<tr>
 					<td class="sidebarTitle" width="25%">Round</td>
 					<td class="sidebarTitle" width="35%">Date and Time*</td>
@@ -148,8 +148,8 @@
 				</tr>
 				<tr valign="top">
 					<td class="sidebarText">Championship Round</td>
-					<td class="sidebarText">Friday, November 14th<br />START: 5:00 PM<br /></td>
-					<td class="sidebarText" align="center">25</td>
+					<td class="sidebarText">Friday, October 15th<br />START: 4:00 PM<br /></td>
+					<td class="sidebarText" align="center">50</td>
 					<td class="sidebarText" align="center">n/a</td>
 				</tr>
 				<tr valign="top">
