@@ -64,13 +64,14 @@
 					<td class="statText" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
 						<img src="/i/clear.gif" alt="" width="240" height="1" border="0" /><br />
 						<p><strong>Your inquiry has been sent. Thank You!</strong></p>
-						<p>Thanks for your interest in the <xsl:value-of select="/TC/DEVELOPMENT/Project"/> component.  You now have access to the Specification Forum (
+						<p>Thanks for your interest in the <xsl:value-of select="/TC/DEVELOPMENT/Project"/> component.  You now have access to the
     						<a>
     						    <xsl:attribute name="href">
     						        <xsl:value-of select="concat('http://www.topcodersoftware.com/pages/c_forum.jsp?f=',$FORUMID)"/>
                                 </xsl:attribute>
-    						</a>) 
-    						which can be used to obtain design documentation and ask any questions you may have regarding the component design.  Please post your questions at any time and I will respond within 24 hours.  However, any questions asked within 6 hours of the submission due date/time may not be answered, so get your questions in early!
+                                Specification Forum
+    						</a>
+    						which can be used to obtain design documentation and ask any questions you may have regarding the component design.  Please post your questions at any time and a product manager will respond within 24 hours.  However, any questions asked within 6 hours of the submission due date/time may not be answered, so get your questions in early!
 						</p>
                         <p>The deadline for submitting a design is <xsl:value-of select="/TC/DEVELOPMENT/date"/> at 11:59 PM EST.  Please submit your design to submissions@topcodersoftware.com  Your submission should consist of a jar file populated with the required documents in /docs and appropriate test cases in /src/java/tests.  Any late submissions will be ignored.  Also, a reminder that this is a competition, and only the winning designer will receive payment.</p>
 						
