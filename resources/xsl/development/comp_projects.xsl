@@ -161,7 +161,10 @@
                 </tr>
 -->
                 <tr>
-                    <td class="bodyText" colspan="6">*Total Payment (before royalties) </td>
+                    <td class="bodyText" colspan="6">
+                    	<p>*Total Payment (before royalties)</p>
+                    	<p><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=comp_des_rd1">View</A> TCCC04 project submitters.</p>
+                    </td>
                 </tr>
 
                 <tr><td colspan="6"><A name="tco_dev"><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></A></td></tr>

@@ -7,6 +7,7 @@
 <table border="0" cellspacing="0" cellpadding="0" width="100%">
 
 <!-- Headlines -->
+<%--
     <tr align="center">
       <td width="100%" align="center" colspan="5">
 <% if (tabLev1.equals("overview")) {%>
@@ -29,6 +30,7 @@
 
       </td>
    </tr>
+--%>
 
     <tr>
       <td width="100%" align="center" colspan="5"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"  vspace="0"/></td>
