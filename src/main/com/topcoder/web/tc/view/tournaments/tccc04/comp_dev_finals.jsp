@@ -48,40 +48,40 @@ function openWin(url, name) {
 <!-- Tab bar links-->
 <jsp:include page="tccc04links.jsp" >
    <jsp:param name="tabLev1" value="component"/>
-   <jsp:param name="tabLev2" value="design"/> 
+   <jsp:param name="tabLev2" value="development"/> 
    <jsp:param name="tabLev3" value="finals"/>
 </jsp:include> 
 
-            <h2>Design Finals</h2>
+            <h2>Development Finals</h2>
 
 <!-- Design Winners Begins -->
 
             <table border="0" cellspacing="0" cellpadding="3" width="400" align="center" class="formFrame">
                <tr>
-                  <td class="header" align="center" colspan="4">Design Finals</td>
+                  <td class="header" align="center" colspan="4">Development Finals</td>
                <tr>
                   <td class="advHeader" align="right" width="40%"></td>
-                  <td class="advHeader" align="right" width="20%"><A href="/stat?c=member_profile&cr=278342">adic</a>&#160;&#160;</td>
-                  <td class="advHeader" align="right"width="20%"><A href="/stat?c=member_profile&cr=277356">aksonov</a>&#160;&#160;</td>
-                  <td class="advHeader" align="right" width="20%"><A href="/stat?c=member_profile&cr=289824">MPhk</a>&#160;&#160;</td>
+                  <td class="advHeader" align="right" width="20%"><A href="/stat?c=member_profile&cr=268851">gladius</a>&#160;&#160;</td>
+                  <td class="advHeader" align="right"width="20%"><A href="/stat?c=member_profile&cr=153089">preben</a>&#160;&#160;</td>
+                  <td class="advHeader" align="right" width="20%"><A href="/stat?c=member_profile&cr=7389864">roma</a>&#160;&#160;</td>
                </tr>
                <tr>
                   <td class="advCell" align="left">Member since:</td>
-                  <td class="advCell" align="right">04.23.02&#160;&#160;</td>
-                  <td class="advCell" align="right">03.25.02&#160;&#160;</td>
-                  <td class="advCell" align="right">06.19.02&#160;&#160;</td>
+                  <td class="advCell" align="right">02.22.02&#160;&#160;</td>
+                  <td class="advCell" align="right">08.19.01&#160;&#160;</td>
+                  <td class="advCell" align="right">07.26.03&#160;&#160;</td>
                 </tr>
                 <tr>
-                  <td class="advCell" align="left">Design rating:</td>
-                  <td class="advCell" align="right">1690&#160;&#160;</td>
-                  <td class="advCell" align="right">1384&#160;&#160;</td>
-                  <td class="advCell" align="right">1353&#160;&#160;</td>
+                  <td class="advCell" align="left">Development rating:</td>
+                  <td class="advCell" align="right">714&#160;&#160;</td>
+                  <td class="advCell" align="right">819&#160;&#160;</td>
+                  <td class="advCell" align="right">997&#160;&#160;</td>
                 </tr>
                 <tr>
                   <td class="advCell" align="left">Algorithm rating:</td>
-                  <td class="advCell" align="right">2294&#160;&#160;</td>
-                  <td class="advCell" align="right">1636&#160;&#160;</td>
-                  <td class="advCell" align="right">1158&#160;&#160;</td>
+                  <td class="advCell" align="right">1797&#160;&#160;</td>
+                  <td class="advCell" align="right">814&#160;&#160;</td>
+                  <td class="advCell" align="right">1646&#160;&#160;</td>
                 </tr>
                 <tr>  
                   <td class="advCell" align="left">Initial score:</td>
@@ -97,9 +97,9 @@ function openWin(url, name) {
                 </tr>
                <tr>
                   <td class="advHeader"><strong>Submissions:</td>
-                  <td class="advHeader" align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=adic_init_doc1','pops',800,600);"><img src="/i/viewGray.gif" border="0" width="60" height="18"/></A></td>
-                  <td class="advHeader" align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=aksonov_init_doc1','kyky',800,600);"><img src="/i/viewGray.gif" border="0" width="60" height="18"/></A></td>
-                  <td class="advHeader" align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=MPhk_init_doc1','pops',800,600);"><img src="/i/viewGray.gif" border="0" width="60" height="18"/></A></td>
+                  <td class="advHeader" align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=gladius_init_doc1','pops',800,600);"><img src="/i/viewGray.gif" border="0" width="60" height="18"/></A></td>
+                  <td class="advHeader" align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=preben_init_doc1','kyky',800,600);"><img src="/i/viewGray.gif" border="0" width="60" height="18"/></A></td>
+                  <td class="advHeader" align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=roma_init_doc1','pops',800,600);"><img src="/i/viewGray.gif" border="0" width="60" height="18"/></A></td>
                </tr>
             </table>
          <p><br/></p>
