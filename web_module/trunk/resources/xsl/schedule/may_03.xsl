@@ -95,7 +95,7 @@
                                     <strong>Match 145</strong><br/>
                                     Register: 7:00&#160;PM<br/>
                                     Compete: 10:00&#160;PM<br/>
-                                    Sponsored by: Sun<br/> 
+                                    Sponsored by: Apex<br/>
                                     <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
                                     ..//<a href="/?RoundId=4530&amp;t=schedule&amp;c=srm">Details</a></td>
                                 <td id="calendar">7</td>
@@ -113,7 +113,7 @@
                                     <strong>Match 146</strong><br/>
                                     Register: 6:00&#160;PM<br/>
                                     Compete: 9:00&#160;PM<br/>
-                                    Sponsored by: Apex<br/>
+                                    Sponsored by: Nvidia<br/>
                                     <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
                                     ..//<a href="/?RoundId=4535&amp;t=schedule&amp;c=srm">Details</a></td>
                                 <td id="calendar">15</td>
@@ -131,7 +131,7 @@
                                     <strong>Match 147</strong><br/>
                                     Register: 5:00&#160;PM<br/>
                                     Compete: 8:00&#160;PM<br/>
-                                    Sponsored by: Solipsys<br/>
+                                    Sponsored by: Solipsys &amp; Sun<br/>
                                     <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
                                     ..//<a href="/?RoundId=4540&amp;t=schedule&amp;c=srm">Details</a></td>
                                 <td id="calendar">23</td>
