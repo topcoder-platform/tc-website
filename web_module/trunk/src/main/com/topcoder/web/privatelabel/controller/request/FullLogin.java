@@ -29,17 +29,19 @@ abstract class FullLogin extends FullReg {
 
         boolean ret = false;
         long userId = getUserId(handle);
-        char status = getStatus(userId);
-        if (Arrays.binarySearch(ACTIVE_STATI, status)>0) {
-            try {
-                getAuthentication().login(new SimpleUser(0, handle, password));
-                ret = true;
-            } catch(LoginException l) {
-                if (!hasError(Constants.HANDLE))
-                    addError(Constants.HANDLE, l.getMessage());
+        if (userId>0) {
+            char status = getStatus(userId);
+            if (Arrays.binarySearch(ACTIVE_STATI, status) > 0) {
+                try {
+                    getAuthentication().login(new SimpleUser(0, handle, password));
+                    ret = true;
+                } catch (LoginException l) {
+                    if (!hasError(Constants.HANDLE))
+                        addError(Constants.HANDLE, l.getMessage());
+                }
+            } else {
+                addError(Constants.HANDLE, "Account status not active.");
             }
-        } else {
-            addError(Constants.HANDLE, "Account status not active.");
         }
 
         return ret;
