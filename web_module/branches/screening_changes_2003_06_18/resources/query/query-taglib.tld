@@ -151,7 +151,7 @@
     <tag>
         <name>error</name>
         <tagclass>com.topcoder.web.common.tag.ErrorIteratorTag</tagclass>
-        <bodycontent>empty</bodycontent>
+        <bodycontent>JSP</bodycontent>
         <info>
             Tag to get an errors associated with a key
         </info>
