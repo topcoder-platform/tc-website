@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>Load Resources</title>
-    <%@ include file="script.jsp" %>
+    <jsp:include page="script.jsp" />
   </head>
   <body>
     <h1 class="header">Load Resources</h1>

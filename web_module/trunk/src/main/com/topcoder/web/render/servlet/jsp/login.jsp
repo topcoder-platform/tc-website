@@ -9,7 +9,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>Login to PageBuilder</title>
-    <%@ include file="script.jsp" %>
+    <jsp:include page="script.jsp" />
   </head>
   <body class="bodyText">
     <% String message = (String) request.getAttribute("message"); %>

@@ -1,4 +1,4 @@
-<%@ include file="nocache.jsp" %>
+<jsp:include page="nocache.jsp" />
 <%@ page session="true" %>
 <%@ page errorPage="error.jsp" %>
 <%@ taglib uri="tc-taglib.tld" prefix="tc" %>

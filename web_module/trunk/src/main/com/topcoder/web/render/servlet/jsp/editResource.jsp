@@ -22,7 +22,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>Edit Resource</title>
-    <%@ include file="script.jsp" %>
+    <jsp:include page="script.jsp" />
   </head>
   <body>
     <% String message = (String) request.getAttribute("message"); %>

@@ -20,13 +20,13 @@
 
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
 
-    <%@ include file="../script.jsp" %>
+    <jsp:include page="../script.jsp" />
 
   </HEAD>
 
   <BODY BGCOLOR=#CCCCCC TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
 
-    <%@ include file="../top.jsp" %>
+    <jsp:include page="../top.jsp" />
 
     <!--------main content table------------>
 
@@ -42,7 +42,7 @@
 
           <!-- Global Seconday Nav Begins -->
 
-          <%@ include file="left.jsp" %>
+          <jsp:include page="left.jsp" />
 
           <!-- Global Seconday Nav Ends -->
 
@@ -155,7 +155,7 @@
 
     </TABLE>
 
-    <%@ include file="../foot.jsp" %>
+    <jsp:include page="../foot.jsp" />
 
   </BODY>
 

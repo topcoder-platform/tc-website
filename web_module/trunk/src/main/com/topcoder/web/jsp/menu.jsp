@@ -1,6 +1,7 @@
 <%@  page
  language="java"
  errorPage="/errorPage.jsp"
+  import="com.topcoder.common.web.data.Navigation"
 %>
 <%
    Navigation nav = (Navigation) session.getAttribute ( "navigation" );
