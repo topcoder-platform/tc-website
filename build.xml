@@ -390,6 +390,36 @@
         </jar>
     </target>
 
+    <target name="package-EJB-CorpEmailBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="CorpEmail"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/email"/>
+            <param name="deploy-desc-path" value="com/topcoder/web/ejb/email/corp"/>
+        </antcall>
+        <jar jarfile="${ejb_jars}/CorpEmail.jar" update="true">
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
+        </jar>
+    </target>
+
+    <target name="package-EJB-ScreeningEmailBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="ScreeningEmail"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/email"/>
+            <param name="deploy-desc-path" value="com/topcoder/web/ejb/email/screening"/>
+        </antcall>
+        <jar jarfile="${ejb_jars}/CorpEmail.jar" update="true">
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
+        </jar>
+    </target>
+
     <target name="package-EJB-CorpAddressBean" depends="compile">
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="Address"/>
@@ -450,6 +480,76 @@
         </jar>
     </target>
 
+    <target name="package-EJB-ProductBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="Product"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/product"/>
+        </antcall>
+        <jar jarfile="${ejb_jars}/Product.jar" update="true">
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
+        </jar>
+    </target>
+
+    <target name="package-EJB-NoteBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="Note"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/note"/>
+        </antcall>
+        <jar jarfile="${ejb_jars}/Product.jar" update="true">
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
+        </jar>
+    </target>
+
+    <target name="package-EJB-SessionBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="Session"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/session"/>
+        </antcall>
+        <jar jarfile="${ejb_jars}/Product.jar" update="true">
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
+        </jar>
+    </target>
+
+    <target name="package-EJB-SessionProfileBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="SessionProfile"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/sessionprofile"/>
+        </antcall>
+        <jar jarfile="${ejb_jars}/Product.jar" update="true">
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
+        </jar>
+    </target>
+
+    <target name="package-EJB-CorpTermsOfUseBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="CorpTermsOfUse"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/termsofuse/corp"/>
+        </antcall>
+        <jar jarfile="${ejb_jars}/Product.jar" update="true">
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
+        </jar>
+    </target>
+
     <target name="package-EJB-CompanyBean" depends="compile">
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="Company"/>
@@ -464,6 +564,17 @@
         </jar>
     </target>
 
+    <target name="package-EJB-ScreeningCoderBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="ScreeningCoder"/>
+            <param name="unit-class-path" value="com/topcoder/web/screening/ejb/coder"/>
+        </antcall>
+        <jar jarfile="${ejb_jars}/Company.jar" update="true">
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+        </jar>
+    </target>
 
     <target name="package-EJB-UserServicesBean" depends="compile">
         <antcall target="build-ejb-unit">
@@ -664,10 +775,7 @@
         <!-- QueryServices ejb -->
         <antcall target="package-EJB-QueryServicesBean"/>
 
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="DataCache"/>
-            <param name="unit-class-path" value="com/topcoder/ejb/DataCache"/>
-        </antcall>
+        <antcall target="package-EJB-DataCacheBean"/>
 
         <!-- Resume ejb -->
         <antcall target="package-EJB-ResumeServicesBean"/>
@@ -679,56 +787,29 @@
         <antcall target="package-EJB-CompanyBean"/>
 
         <!-- Email ejb -->
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="CorpEmail"/>
-            <param name="unit-class-path" value="com/topcoder/web/ejb/email"/>
-            <param name="deploy-desc-path" value="com/topcoder/web/ejb/email/corp"/>
-        </antcall>
+        <antcall target="package-EJB-CorpEmailBean"/>
 
         <!-- Phone ejb -->
         <antcall target="package-EJB-CorpPhoneBean"/>
 
         <!-- Product ejb -->
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="Product"/>
-            <param name="unit-class-path" value="com/topcoder/web/ejb/product"/>
-        </antcall>
+        <antcall target="package-EJB-ProductBean"/>
 
         <!-- TermsOfUse ejb -->
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="CorpTermsOfUse"/>
-            <param name="unit-class-path" value="com/topcoder/web/ejb/termsofuse"/>
-            <param name="deploy-desc-path" value="com/topcoder/web/ejb/termsofuse/corp"/>
-        </antcall>
+        <antcall target="package-EJB-CorpTermsOfUseBean"/>
 
         <!-- User ejb -->
         <antcall target="package-EJB-UserBean"/>
 
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="ScreeningCoder"/>
-            <param name="unit-class-path" value="com/topcoder/web/screening/ejb/coder"/>
-        </antcall>
+        <antcall target="package-EJB-ScreeningCoderBean"/>
 
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="ScreeningEmail"/>
-            <param name="unit-class-path" value="com/topcoder/web/ejb/email"/>
-            <param name="deploy-desc-path" value="com/topcoder/web/ejb/email/screening"/>
-        </antcall>
+        <antcall target="package-EJB-ScreeningEmailBean"/>
 
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="Note"/>
-            <param name="unit-class-path" value="com/topcoder/web/ejb/note"/>
-        </antcall>
+        <antcall target="package-EJB-NoteBean"/>
 
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="Session"/>
-            <param name="unit-class-path" value="com/topcoder/web/ejb/session"/>
-        </antcall>
+        <antcall target="package-EJB-SessionBean"/>
 
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="SessionProfile"/>
-            <param name="unit-class-path" value="com/topcoder/web/ejb/sessionprofile"/>
-        </antcall>
+        <antcall target="package-EJB-SessionProfileBean"/>
 
         <antcall target="package-EJB-UserBean"/>
 
