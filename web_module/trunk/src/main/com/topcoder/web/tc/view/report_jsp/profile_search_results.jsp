@@ -45,7 +45,7 @@
     <tr>
     <tc:counter min="0" max="<%=results.getColumnCount()-1%>" id="i">
         <td>
-            <a href="JavaScript:sort('<%=i%>')">
+            <a href="JavaScript:sort('<%=i+1%>')">
                 <%=headers.get(Integer.parseInt(i))%>
             </a>
         </td>

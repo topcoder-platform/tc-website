@@ -105,7 +105,7 @@
   <body>
     <input type="hidden" name="module" value="ProfileSearch"/>
     <input type="hidden" name="t" value=""/>
-    <input type="hidden" name="order" value=""/>
+    <input type="hidden" name="order" value="1"/>
     <input type="hidden" name="sort" value="1"/>
     <input type="hidden" name="skill_names" value="<%=request.getParameter("skill_names")%>"/>
 
