@@ -69,7 +69,7 @@ if (o!=null) {
                     if (startTimes[i]==0) {
                       myTime = 0;
                     } else {
-                      if (countDown==true) {
+                      if (countDown) {
                         myTime = endTimes[i] - correctedLocalTime.getTime();
                         if (myTime < 0) myTime = 0;
                       } else {
@@ -77,7 +77,7 @@ if (o!=null) {
                         if (myTime>times[i]) myTime = times[i];
                       }
                     }
-                    if ((countDown==true&&myTime==0)||(countDown==false&&myTime==times[i])) {
+                    if ((countDown&&myTime==0)||(!countDown&&myTime==times[i])) {
                         text = "Expired";
                     } else {
                         text = convertToTimeString(myTime);
