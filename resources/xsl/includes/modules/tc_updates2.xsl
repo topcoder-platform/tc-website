@@ -2,10 +2,11 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:template name="tc_updates">
           <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" VALIGN="top" BGCOLOR="#FFFFFF">
-              <TR> 
+              <!-- <TR> 
                   <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
                   <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle"><FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>[TC] Updates</B></FONT></TD>
                 </TR>
+                
                       <TR>
                           <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
                         <TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">07.01.02</TD>
@@ -28,7 +29,7 @@
                         <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
                       </TR>                      
                                                        
-                      <!-- <TR>
+                      <TR>
                           <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
                         <TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">05.06.02</TD>
                         <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
@@ -102,11 +103,20 @@
                           <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
                       </TR> -->                      
               <TR><TD BGCOLOR="#FFFFFF" COLSPAN="5"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8" BORDER="0"/></TD></TR> 
-<!--             <TR> 
+             <TR> 
                   <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
                   <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle"><FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>Sponsor Related News</B></FONT></TD>
-                </TR> 
-                      <TR> 
+                </TR>
+                      <TR>
+                          <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+                        <TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">08.13.02</TD>
+                        <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+                        <TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="bottom">
+                        <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=pr_08_13_02</xsl:attribute>Sun Microsystems and TopCoder Host SunNetwork<sup>(SM)</sup> Coding Challenge</A>
+                        </TD>
+                        <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+                      </TR>                 
+ <!--                     <TR> 
                         <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
                         <TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">04.29.02</TD>
                         <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
