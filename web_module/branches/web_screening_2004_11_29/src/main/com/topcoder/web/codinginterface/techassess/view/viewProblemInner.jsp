@@ -27,7 +27,7 @@
       var h = 300;
       var left = (screen.availWidth - w) / 2;
       var top = (screen.availHeight - h) / 2;
-      windowHandle = window.open("testwindow.jsp?<%=Constants.COMPONENT_ID%>=" + document.problemForm.componentId.value, "", "statusbar=no,menubar=no,status=no,toolbar=no,width=" + w + ",height=" + h + ",screenX=" + left + ",screenY=" + top);
+      windowHandle = window.open("testwindow.jsp?<%=Constants.COMPONENT_ID%>=" + document.problemForm.<%=Constants.COMPONENT_ID%>.value, "", "statusbar=no,menubar=no,status=no,toolbar=no,width=" + w + ",height=" + h + ",screenX=" + left + ",screenY=" + top);
     }
 </SCRIPT>
 <jsp:include page="problemTimer.jsp">
