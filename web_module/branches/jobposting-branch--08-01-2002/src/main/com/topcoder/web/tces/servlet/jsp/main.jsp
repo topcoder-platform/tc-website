@@ -66,8 +66,9 @@
                   <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><b>Status</b></TD>
                 </TR>
+    
+                <tces:mapIterator id="campaignInfo" MapList="<jsp:getProperty name="MainTask" property="CampaignInfoList">">
 
-                <tces:mapIterator id="campaignInfo" MapList="<%=(List)request.getAttribute("CampaignInfo")%>">
                 <TR>
                   <TD class="statText" HEIGHT="18">&#160;
                     <%=(String)campaignInfo.get("campaign_name")%>
@@ -85,6 +86,7 @@
                     <b><A HREF="/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_DETAIL_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=(String)campaignInfo.get("campaign_id")%>" class="statText"><%=(String)campaignInfo.get("status_desc")%></A></b>
                   </TD>
                 </TR>
+
                 </tces:mapIterator>
 
               </TABLE>
