@@ -813,6 +813,7 @@ public class Registration
     }
 
     public void setSunConfirm(String value) {
+        log.debug("setSunConfirm to " + value);
         this.sunConfirm = checkNull(sunConfirm);
     }
 
@@ -1697,8 +1698,11 @@ public class Registration
         coder.setCoderType(coderType);
         ArrayList a = new ArrayList();
         CoderConfirmation c = new CoderConfirmation();
-        c.setCode(this.sunConfirm);
+        c.setCode(getSunConfirm());
         c.setContestId(SUN_CONTEST_ID);
+        try {
+          log.debug("sun confirm\n" + c.getXML());
+        } catch (Exception e) { }
         a.add(c);
         coder.setCoderConfirmations(a);
         if (isRegister())
