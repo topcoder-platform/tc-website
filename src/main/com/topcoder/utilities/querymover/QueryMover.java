@@ -28,8 +28,8 @@ public class QueryMover {
 //    private static final String sourceDSN = "HS_DW";
 //    private static final String targetDSN = "DW";
 
-    private static final String sourceDSN = "HS_OLTP";
-    private static final String targetDSN = "HS_OLTP";
+    private static final String sourceDSN = "OLTP";
+    private static final String targetDSN = "VERIZON_OLTP";
 
     private static final String sourceContextFactory = "weblogic.jndi.WLInitialContextFactory";
     private static final String targetContextFactory = "weblogic.jndi.WLInitialContextFactory";
@@ -38,7 +38,7 @@ public class QueryMover {
     //prod
     //private static final String targetContextURL = "t3://jma-cluster.topcoder.com:7030";
     //qa
-    private static final String targetContextURL = "t3://172.16.212.51:7030";
+    private static final String targetContextURL = "t3://172.16.20.41:7030";
 
     private Query sourceQ;
     private QueryInput sourceQI;
