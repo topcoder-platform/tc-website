@@ -65,7 +65,7 @@ function goTo(selection){
 		</tr>
 	    <tr>
 		  <td><jsp:include page="srm_chooser.jsp" >
-		  <jsp:param name="link" value="srm_lang_index"/>
+		  <jsp:param name="link" value="srm_index"/>
 		  <jsp:param name="rd" value="<%=round%>"/>
 		  </jsp:include></td>
 		</tr>
