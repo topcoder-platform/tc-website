@@ -57,8 +57,6 @@ public class Search extends BaseScreeningProcessor {
 
             List l = getQuestionList();
             Collections.sort(l);
-            
-            log.error("RYAN VAL IS " + l.size());
 
             ret.setQuestions(l);
         
