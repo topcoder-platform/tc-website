@@ -88,7 +88,7 @@ body,td,font,p,a
 
                       <table class=googleFrame bgcolor="#ffffff" cellpadding=5 cellspacing=2 border=0 width="400">
                         <tr>
-                           <td class="advancersTitle" align="left" colspan="2">Online Round 1</td>
+                           <td class="advancersTitle" align="left" colspan="2">Online Round 2</td>
                         </tr>
                         <tr>
                            <td class="google_round_id" width="30%">Handle</td>
