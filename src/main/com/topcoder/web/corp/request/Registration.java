@@ -86,7 +86,6 @@ public final class Registration extends UserEdit {
         zip = request.getParameter(KEY_ZIP);
         country = request.getParameter(KEY_COUNTRY);
 
-        log.debug("agree: " + request.getParameter(Constants.KEY_AGREE_TO_TERMS));
         agree = "on".equalsIgnoreCase(request.getParameter(Constants.KEY_AGREE_TO_TERMS));
         return super.getFormFields();
     }
