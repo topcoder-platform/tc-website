@@ -26,13 +26,6 @@
 <!-- Body Begins -->
 <TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#FFFFFF">
   <TR>
-    <!-- Left Column Begins -->
-    <TD WIDTH="180" VALIGN="top">
-  <!-- Global Seconday Nav Begins -->    
-<!-- Left Column Include Begins -->  
-    <!-- Global Seconday Nav Begins -->  
-        <xsl:call-template name="global_left"/>
-  <!-- Global Seconday Nav Ends -->  
 <!-- Left Column Begins -->
         <td width="180" valign="top">
             <xsl:call-template name="global_left"/>
