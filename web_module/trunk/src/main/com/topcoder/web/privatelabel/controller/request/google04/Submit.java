@@ -209,7 +209,6 @@ public class Submit extends FullRegSubmit {
 
             mail.setBody(buf.toString());
             mail.addToAddress(info.getEmail(), TCSEmailMessage.TO);
-            mail.setFromAddress("service@topcoder.com");
             mail.setFromAddress("googlecodejam@topcoder.com", "Google Code Jam Team");
             log.info("sent registration email to " + info.getEmail());
             EmailEngine.send(mail);
