@@ -1,4 +1,4 @@
-<%@ page 
+<%@ page
   language="java"
   import="com.topcoder.web.tc.controller.legacy.stat.common.JSPUtils
          ,com.topcoder.shared.dataAccess.*
@@ -7,7 +7,8 @@
          ,com.topcoder.shared.language.*
          ,com.topcoder.shared.problemParser.*
          ,com.topcoder.common.web.render.ProblemRenderer,
-          java.awt.*"
+          java.awt.*,
+          java.io.StringReader"
 
 %>
 
@@ -16,7 +17,7 @@
 <HTML>
  <HEAD>
    <TITLE>TopCoder Statistics - Problem Statement</TITLE>
-   <jsp:include page="baseHRef.jsp" />   
+   <jsp:include page="baseHRef.jsp" />
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
    <jsp:include page="../script.jsp" />
@@ -45,7 +46,7 @@
            </TR>
          </TABLE>
 <bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request"/>
-<% 
+<%
 ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Problem_Statement");
 ResultSetContainer.ResultSetRow resultRow_0 = null;
 String sClassName = null;
@@ -63,7 +64,7 @@ if (rsc!=null && !rsc.isEmpty()) {
   problem.setProblemComponents(arrProblemComponent);
 }
 
-%>		 
+%>
          <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35" WIDTH="100%">
            <TR>
              <TD VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"><BR>
@@ -112,9 +113,9 @@ if (rsc!=null && !rsc.isEmpty()) {
            </TR>
            <TR>
              <TD WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-           </TR>     
+           </TR>
          </TABLE>
-         
+
          <p><br></p>
 
          <!-- END BODY -->
@@ -126,7 +127,7 @@ if (rsc!=null && !rsc.isEmpty()) {
        </TD>
     <!-- Gutter -->
     <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->       
+    <!-- Gutter Ends -->
      </TR>
    </TABLE>
    <jsp:include page="../foot.jsp" />
