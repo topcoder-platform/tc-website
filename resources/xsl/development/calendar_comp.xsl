@@ -205,11 +205,11 @@ work is done to the component, as the total cost of the component will increase.
 
 <P>
 Architect<BR/>
-Royalty Percentage - 29.42%<BR/>
-Total Payment - $625.20<BR/>
-First Payment - $62.52<BR/>
-Second Payment - $250.08<BR/>
-Third Payment - $312.60<BR/>
+Royalty Percentage - 29.41%<BR/>
+Total Payment - $625.00<BR/>
+First Payment - $62.00<BR/>
+Second Payment - $250.00<BR/>
+Third Payment - $313.00<BR/>
 </P>
 	
 <P>
@@ -272,14 +272,14 @@ outstanding issues. The deadline entails integration of the developed components
 
 <P>
 Architect:<BR/>
-Project Start Date: June 31,2002<BR/>
-Project End Date: June 24, 2002<BR/>
+Project Start Date: June 5,2002<BR/>
+Project End Date: June 29, 2002<BR/>
 </P>
 
 <P>
 Developer / QA Developer<BR/>
-Project Start Date: June 4, 2002<BR/>
-Project End Date: June 24, 2002<BR/>
+Project Start Date: June 10, 2002<BR/>
+Project End Date: June 29, 2002<BR/>
 </P>
 
 

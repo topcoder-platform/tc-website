@@ -68,8 +68,10 @@ Keep in mind, TopCoder is paying significant money for these projects, and we ex
 
 <P>
 Project: <A HREF="/index?t=development&amp;c=calendar_comp" CLASS="statTextBig">Calendar Component</A><BR/>
+Start Date: June 5, 2002<BR/>
+End Date: June 29, 2002<BR/>
 Member Selection: <b>Open</b><BR/>
-Inquiry Deadline: TBD<BR/>
+Inquiry Deadline: June 4, 2002<BR/>
 </P>
 
 <P>
