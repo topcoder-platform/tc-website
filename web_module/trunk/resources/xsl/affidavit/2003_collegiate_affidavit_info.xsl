@@ -62,19 +62,22 @@
                 <tr valign="top">
                     <td width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
                     <td class="bodyText" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
+                        <p><strong>Please read all instructions carefully before proceeding.</strong></p>
 
                         <p>
-                            Congratulations on advancing in the 2003 Sun Microsystems and TopCoder Collegiate Challenge! You are eligible for a
+                            Congratulations on your performance in the 2003 Sun Microsystems and TopCoder Collegiate Challenge! You are eligible for a
                             cash award of at least $50.  If you are a resident of a country that we do not pay cash prizes to, then your prize
-                            will be donated to a charity of your choice in your name.  In order to receive your prize, you MUST complete the
-                            APPROPRIATE items below by Monday, March 17th at 12:00 PM EST: IF WE DO NOT RECEIVE ALL OF THE APPROPRIATE ITEMS
-                            BY 12:00 PM EST ON MONDAY, MARCH 17th, 2003, YOU WILL FORFEIT YOUR PRIZE AND YOUR SPOT IN THE TOURNAMENT.
+                            will be donated to a charity of your choice in your name.  In order for you or your charity to receive your prize, you MUST complete the
+                            APPROPRIATE items below by Friday, March 28th at 12:00 PM EST: IF WE DO NOT RECEIVE ALL OF THE APPROPRIATE ITEMS
+                            BY 12:00 PM EST ON FRIDAY, MARCH 28th, 2003, YOU WILL FORFEIT YOUR PRIZE.  If you are one of the final 16 and have
+                            been invited to the on site semifinals in Cambridge, MA, then you must complete item #4, the Travel Info Page, before
+                            Monday, March 17th.  If you have questions, please contact <a href="mailto:tlongo@topcoder.com" >Tom Longo</a>.
                         </p>
 
                         <ol>
                             <li>
                                 <p><strong>To be completed by everyone:</strong></p>
-                                <p><strong>AFFIDAVIT</strong> - must be postmarked on or before March 17, 2003</p>
+                                <p><strong>AFFIDAVIT</strong> - must be postmarked on or before March 28, 2003</p>
                                 <p>
                                 <xsl:choose>
                                     <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_notarized_affidavit)=0">
@@ -93,13 +96,13 @@
                                 <p><strong>To be completed by everyone:</strong></p>
 
                                 <p>
-                                    <strong>2003 TOPCODER COLLEGIATE CHALLENGE QUESTIONNAIRE</strong> - Form must be completed by 12:00 PM EST on Monday, March 17th:
+                                    <strong>2003 TOPCODER COLLEGIATE CHALLENGE QUESTIONNAIRE</strong> - Form must be completed by 12:00 PM EST on Monday, March 28th:
                                     View the <a href="/?&amp;t=affidavit&amp;c=2003_collegiate_questionaire">2003 TopCoder Collegiate Challenge Questionnaire</a>.  Complete ALL questions.
                                 </p>
                             </li>
                             <li>
                                 <p><strong>To be completed by those who will personally receive a cash prize:</strong></p>
-                                <p><strong>TAX FORM</strong> - must be postmarked on or before March 17, 2003:</p>
+                                <p><strong>TAX FORM</strong> - must be postmarked on or before March 28, 2003:</p>
                                 <xsl:choose>
                                     <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_tax_form)=0">
                                         <p>You must complete, sign and return the appropriate tax form (Form W-9 or Form W-8BEN) to the address below.  If you don't know the form 
@@ -145,9 +148,10 @@
                             Glastonbury, CT 06033
                         </div>
                         
-                        <p><strong>Reminder, you will not receive any prize money unless all five items above are completed by Monday, March 17th at 12:00PM EST.  Any
+                        <p><strong>Reminder, you will not receive any prize money unless all necessary items above are completed by Monday, March 17th at 12:00PM EST.  Any
                         items that need to be mailed via the postal service must be postmarked by this date.</strong></p>
 
+                        <p>If you have questions, please contact <a href="mailto:tlongo@topcoder.com" >Tom Longo</a>.</p>
 <!--
           <TABLE WIDTH="100%" BORDER="0" CELLPADDING="2" CELLSPACING="0" BGCOLOR="#FFFFFF">
             <TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>
