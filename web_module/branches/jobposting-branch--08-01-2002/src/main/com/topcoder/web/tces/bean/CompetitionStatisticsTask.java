@@ -45,7 +45,7 @@ public class CompetitionStatisticsTask extends BaseTask implements Task, Seriali
     private List overallStatsByLevel;
     
     public String getStatistic(String name){
-        return getCompetitionStatistics().getItem(name).toString();
+        return getCompetitionStats().getItem(name).toString();
     }
     
     /** Creates new CompetitionStatisticsTask */
