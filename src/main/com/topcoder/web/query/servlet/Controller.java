@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class Controller extends BaseServlet {
 
-    private static Logger log = Logger.getLogger(BaseServlet.class);
+    private static Logger log = Logger.getLogger(Controller.class);
 
     public synchronized void init(ServletConfig config) throws ServletException {
         super.init(config);
@@ -30,6 +30,7 @@ public class Controller extends BaseServlet {
 
 
     protected void handleLogin(HttpServletRequest request, HttpServletResponse response, SessionInfo info) throws Exception {
+        log.debug("handle login called");
         /* forward to the login page, with a message and a way back */
         request.setAttribute(MESSAGE_KEY, "In order to continue, you must provide your user name " +
                 "and password.");
