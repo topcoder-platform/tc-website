@@ -189,7 +189,7 @@ function submitEnter(e) {
                     <span class="errorText">*</span> Address1
                 </td>
                 <td align="left">
-                    <tc-webtag:textInput name="<%=Constants.ADDRESS1%>"  size="30" maxlength="50"/>
+                    <tc-webtag:textInput name="<%=Constants.ADDRESS1%>"  size="30" maxlength="100"/>
                 </td>
             </tr>
 
@@ -217,7 +217,7 @@ function submitEnter(e) {
                     Address3
                 </td>
                 <td align="left">
-                    <tc-webtag:textInput name="<%=Constants.ADDRESS3%>"  size="30" maxlength="50"/>
+                    <tc-webtag:textInput name="<%=Constants.ADDRESS3%>"  size="30" maxlength="100"/>
                 </td>
             </tr>
 
@@ -231,7 +231,7 @@ function submitEnter(e) {
                     <span class="errorText">*</span> City
                 </td>
                 <td align="left">
-                    <tc-webtag:textInput name="<%=Constants.CITY%>"  size="15" maxlength="50"/>
+                    <tc-webtag:textInput name="<%=Constants.CITY%>"  size="15" maxlength="100"/>
                 </td>
             </tr>
 
