@@ -121,7 +121,7 @@ The following section describes the required tasks.
        <UL>
 	     <LI> Student's registration will be based on a coach's registration.</LI>
        </UL>
-	<LI> JSP Conversion</LI>
+<!--	<LI> JSP Conversion</LI>
    <UL>
 	 <LI> All of the new TopCoder High School website will be rendered by JSP</LI>
 	 <LI> Existing static XSL topcoder.com pages will be converted to JSP and implemented on the High School Website.  Pages to convert are</LI>
@@ -134,7 +134,7 @@ The following section describes the required tasks.
          <LI> Contacts</LI> 
          <LI> Calendar</LI>                       
        </UL>
-   </UL>
+   </UL> -->
 	<LI> New Areas</LI>
    <UL>
 	 <LI> Member Tour</LI>
@@ -288,7 +288,7 @@ The Development phase begins when there is a finalized design document. During t
 </P>
 
 <P>
-All component source code undergoes testing. All code is reviewed to determine correct interpretation of the design, proper commenting and adherence to coding standards. It is expected that this will be an iterative phase where bug fixes and enhancements are added and regression tested. The result of this phase is a fully functional application or component assembly approved by all members of the development team. 
+All application source code undergoes testing. All code is reviewed to determine correct interpretation of the design, proper commenting and adherence to coding standards. It is expected that this will be an iterative phase where bug fixes and enhancements are added and regression tested. The result of this phase is a fully functional application or component assembly approved by all members of the development team. 
 </P>
 
 <P>
