@@ -223,7 +223,7 @@
                                                     <p>
                                                         <strong> Registration </strong>
                                                         <br/>
-                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=TopCoder%20Screening%20Application">here</a> to get selected as a designer and to obtain the information necessary to submit a solution.  Please be aware that this is a contract position so you should provide some information about your experience to aid the selection process.
+                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=TopCoder%20Screening%20Application">here</a> to get selected as a designer and to obtain the information necessary to submit a solution.  Please be aware that this is a contract position so you should provide information about your experience and how much time you have available per week to aid the selection process.
                                                     </p>
                                                 </td>
                                             </tr>
