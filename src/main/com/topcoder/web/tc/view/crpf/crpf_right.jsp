@@ -5,6 +5,7 @@
 
 <SCRIPT LANGUAGE="JavaScript"><!--
 var MM_contentVersion = 6;
+var MM_FlashCanPlay = false;
 var plugin = (navigator.mimeTypes && navigator.mimeTypes["application/x-shockwave-flash"]) ? navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin : 0;
 if ( plugin ) {
 		var words = navigator.plugins["Shockwave Flash"].description.split(" ");
@@ -14,7 +15,7 @@ if ( plugin ) {
 		continue;
 		var MM_PluginVersion = words[i];
 	    }
-	var MM_FlashCanPlay = MM_PluginVersion >= MM_contentVersion;
+	MM_FlashCanPlay = MM_PluginVersion >= MM_contentVersion;
 }
 else if (navigator.userAgent && navigator.userAgent.indexOf("MSIE")>=0
    && (navigator.appVersion.indexOf("Win") != -1)) {
