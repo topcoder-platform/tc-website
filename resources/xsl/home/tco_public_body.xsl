@@ -103,6 +103,9 @@
                         <p>Pops (Tim Roberts) will return home to North Carolina tomorrow with first prize and a $10,000 check. Asked where the money would go, he just
                         said "the kids." Pops praised the competition: "It's nice to be able to measure yourself against other people."
                         <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=summary&amp;d4=comp_final">Read the whole story</A></p>
+                        
+                        <p><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=summary&amp;d4=final_video">Watch video of tomek's win.</A>
+                        </p>
                     </td>
                 </tr>
             </table>
