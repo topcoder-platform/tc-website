@@ -108,7 +108,7 @@ public class LoginTask extends BaseTask implements Task, Serializable {
         if (rsc.getRowCount() == 0) {
             setMessage("User handle incorrect.  Please retry.");
 
-			setUserIdAuthenticated(-1);
+            setUserIdAuthenticated(-1);
 
             setNextPage(TCESConstants.JSP_ROOT + TCESConstants.LOGIN_PAGE);
 
