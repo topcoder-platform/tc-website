@@ -202,7 +202,7 @@
 
                             <tr valign="top">
                                 <td class="statText">Rating:</td>
-                                <td class="statText" align="right">1150</td>
+                                <td class="statText" align="right">1455</td>
                                 <td class="statText">&#160;&#160;<a href="/stat?c=ratings_history&amp;cr=2058651" class="statText">[ ratings history ]</a></td>
                             </tr>
 
@@ -277,7 +277,7 @@
                 <tr valign="middle">
                     <td class="statText">
                         <p><strong>HTTP Utility</strong><br />
-                         Simplifies interaction with any HTTP server including HTML pages, servlets, ASPs, JSPs and CGI scripts..  Check out <a href="http://software.topcoder.com/pages/c_component.jsp?comp=5501553" target="parent" class="statText">HTTP Utility</a> on the TopCoder Software web site.</p>
+                         Simplifies interaction with any HTTP server including HTML pages, servlets, ASPs, JSPs and CGI scripts.  Check out <a href="http://software.topcoder.com/pages/c_component.jsp?comp=5501553" target="parent" class="statText">HTTP Utility</a> on the TopCoder Software web site.</p>
 
 
                         
