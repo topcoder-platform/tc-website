@@ -110,7 +110,7 @@
                                         <font size="+2">
                                             <b>MedianOfMedians</b>
                                         </font>
-                                        <BR>
+                                        <BR></BR>
                                             Used as: Division 2 - Level 1:
                                             <blockquote>
                                                 <table cellspacing="2">
@@ -148,7 +148,7 @@
                                             <font size="+2">
                                                 <b>PQNumbers</b>
                                             </font>
-                                            <BR>
+                                            <BR></BR>
                                                 Used as: Division 2 - Level 2:
                                                 <blockquote>
                                                     <table cellspacing="2">
@@ -188,7 +188,7 @@
                                                     <b>ViscoverExpress</b>
                                                 </font>
                                                 <BR></BR>
-                                                </blockquote>Used as: Division 2 - Level 3:
+                                                <blockquote>Used as: Division 2 - Level 3:
                                                 <blockquote>
                                                     <table cellspacing="2">
                                                         <tr>
@@ -261,7 +261,7 @@
                                             <font size="+2">
                                                 <b>Rendezvous</b>
                                             </font>
-                                            <BR>
+                                            <BR></BR>
                                                 Used as: Division 1 - Level 1:
                                                 <blockquote>
                                                     <table cellspacing="2">
