@@ -148,7 +148,7 @@
 
              <table border="0" cellspacing="0" cellpadding="3" width="100%">
                 <tr valign="top">
-                    <td width="55" class="bodyText">
+                    <td width="55" class="bodyText"  valign="top">
 
 		    <img src="/i/m/lbackstrom_mug.jpg" alt="" width="55" height="61" border="0" vspace="5"/><br />
                         By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=159052"><strong>lbackstrom</strong></a><br/>
@@ -160,7 +160,7 @@
 
                     </td>
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-                    <td width="99%" class="bodyText">
+                    <td width="99%" class="bodyText" valign="top">
                         <p><font size="4"><strong>Single Round Match 147</strong></font><br />
                         <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm147_prob</xsl:attribute><font size="4"><strong>Problem Set Analysis &amp; Opinion</strong></font></a></p>
 
@@ -178,7 +178,7 @@
 <!--            <hr width="100%" size="1px" color="43515E" />  -->
 
 <!-- Feature -->
-            <table width="100%" border="0" cellspacing="0" cellpadding="3">
+            <table border="0" cellspacing="0" cellpadding="3" width="100%">
                 <tr valign="middle">
                     <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Feature</font></td>
                     <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/?t=features&amp;c=index" class="bodyText"><strong>View All</strong></a></td>
@@ -187,28 +187,31 @@
 
             <table border="0" cellspacing="0" cellpadding="3" width="100%">
                 <tr>
-                    <td valign="top" width="55" align="left" class="bodyText">
-                        <a href="/?&amp;t=features&amp;c=feat_topics"><img src="/i/writers_wanted.gif" alt="" width="55" height="61" border="0" vspace="5" /></a></td>
+                    <td width="55" class="bodyText"  valign="top">
+                        <!--<a href="/?&amp;t=features&amp;c=feat_topics"><img src="/i/writers_wanted.gif" alt="" width="55" height="61" border="0" vspace="5" /></a>-->
+                        <img src="/i/m/schveiguy_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
+                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=273217"><strong>schveiguy</strong></a>&#160;<br/>
+                        <span class="smallText"><em>TopCoder Member</em></span>
+                        </td>
 
-                    <td valign="top" width="3"><img src="/i/clear.gif" alt="" width="3" height="1" border="0" /></td>
+                    <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
-                    <td valign="top" width="100%" align="left" class="bodyText">
-                        <p><a class="bodyText"><xsl:attribute name="href">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_040803</xsl:attribute><font size="4"><strong>TopCoder Competitions vs. The Real World</strong></font></a><br />
-                        Tuesday, April 8, 2003</p>
+                    <td  width="99%" class="bodyText"  valign="top">
+                        <p><a class="bodyText"><xsl:attribute name="href">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_052703</xsl:attribute><font size="4"><strong>Threads and Atomicity</strong></font></a><br />
+                        Tuesday, May 27, 2003</p>
 
-                        <p>By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=303718"><strong>nicomp</strong></a><br />
-                        <span class="smallText"><em>TopCoder Member</em></span></p>
-
-                        <p>Reality Television has become extremely popular. TV networks combine groups of 'average' people, place them under
-                        modest duress, and film the proceedings. Of course the stress of surviving on a jungle island or selecting a beau from
-                        50 attractive strangers pales in comparison to cranking out the 1000 point problem in the last 15 minutes of an SRM.
-                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_040803</xsl:attribute><strong>full&#160;story</strong></a></p>
+                        <p>It has been quite a while since I was introduced to the concept of threads.
+                        Since then, I have learned many interesting features -- and headaches --
+                        associated with them.  This article discusses probably the most important
+                        concept that you as a thread programmer need to know: atomicity.
+                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_052703</xsl:attribute><strong>full&#160;story</strong></a></p>
                     </td>
                 </tr>
 
                 <tr><td colspan="3"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>
             </table>
 <!-- Feature ends -->
+
 
 <!-- Press Room Highlights Include -->
             <xsl:call-template name="tc_updates"/>
