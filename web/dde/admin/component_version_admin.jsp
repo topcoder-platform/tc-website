@@ -1589,10 +1589,10 @@ if (action != null) {
                 <tr><td colspan="2" height="15"><img src="../images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
             </table>--%>
 
-<%--
 <form action="<%= page_name %>" method="POST">
 <input type="hidden" name="comp" value="<%= lngComponent %>">
 <input type="hidden" name="ver" value="<%= ver.getVersion() %>">
+<%--
 <!-- Examples begins -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
                 <tr><td class="adminSubhead">Examples</td></tr>
