@@ -110,7 +110,7 @@ if (srb.getProperty("sq")!=null){
 	sortString+="&sc=" + srb.getProperty("sc");
 	sortString+="&sd=" + srb.getProperty("sd", "desc");	
 }
-String sSortUrl = "/stat?c=tcs_rating_history&cr="+srb.getProperty("cr")+"&sq=tcs_rating_history";
+String sSortUrl = "/stat?c=tcs_ratings_history&cr="+srb.getProperty("cr")+"&sq=tcs_ratings_history";
 %>
           
                
@@ -118,8 +118,10 @@ String sSortUrl = "/stat?c=tcs_rating_history&cr="+srb.getProperty("cr")+"&sq=tc
   		<% if (!bEmpty) { %>
                  <TR>
                    <TD BACKGROUND="/i/steel_gray_bg3.gif" CLASS="statTextBig" COLSPAN="6" HEIGHT="18">&#160;Ratings History
+<!--
                      <A HREF="JavaScript:getGraph('/graph?c=rating_history_graph&amp;cr=<%=pageContext.getAttribute("coder_id")%>','800','600', 'history')" class="statText">&#160;&#160;rating history graph</a>
                      <A HREF="JavaScript:getGraph('/graph?c=rating_distribution_graph','600','400', 'distribution')" class="statText">&#160;&#160;distribution graph</a>
+-->
 </TD>
                 </TR>
                  <TR>
@@ -157,7 +159,7 @@ String sSortUrl = "/stat?c=tcs_rating_history&cr="+srb.getProperty("cr")+"&sq=tc
                      <A HREF="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME %>/catalog/c_component.jsp?comp=<bean:write name="resultRow2" property='<%= "item[" + 2 /* component id */ + "]" %>'/>" CLASS="statText"><bean:write name="resultRow2" property='<%= "item[" + 4 /* contest name */ + "]" %>'/></A>
                    </TD>
                    <TD CLASS="statText" VALIGN="middle" ALIGN="center">
-                     <A HREF="/stat?c=coder_room_stats&cr=<%=pageContext.getAttribute("coder_id").toString() %>&rd=<bean:write name="resultRow2" property='<%= "item[" + 0 /* round id */ + "]" %>'/>&rm=<bean:write name="resultRow2" property='<%= "item[" + 6 /* room id */ + "]" %>'/>" CLASS="statText"><bean:write name="resultRow2" property='<%= "item[" + 1 /* round name */ + "]" %>'/></A>
+                       <bean:write name="resultRow2" property='<%= "item[" + 1 /* competition type*/ + "]" %>'/>
                    </TD>
                    <TD CLASS="statText" VALIGN="middle" ALIGN="right"><bean:write name="resultRow2" property='<%= "item[" + 5 /* new Rating */ + "]" %>'/></TD>
                    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
