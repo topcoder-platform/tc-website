@@ -80,7 +80,7 @@ else
                                 <td class="sidebarText" align=center ><%=result.getComplete()%></td>
                                 <td class="sidebarText" align=center ><%=result.getIncomplete()%></td>
                                 <td class="sidebarText" align=right><%=result.getPayment()%></td>
-                                <td class="sidebarText" align=center><a href="/tc?module=TCO04MemberResults&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&cr=<%=result.getUserID()%>">results</a></td>
+                                <td class="sidebarText" align=center><a href="/tc?module=TCCC05MemberResults&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&cr=<%=result.getUserID()%>">results</a></td>
                             </tr>
                             <% }%>
                         </table>
