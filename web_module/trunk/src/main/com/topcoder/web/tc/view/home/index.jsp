@@ -29,7 +29,7 @@
                     <span class=time>Current Member Count</span>&#160;:&#160;<%=new DecimalFormat("#,##0").format(sessionInfo.getMemberCount())%> -
                     <tc:format object="<%=sessionInfo.getDate()%>" format="MMMM d, yyyy"/>
                 </td>
-				<td class=homeTopBar align=right><A href="/?t=about_tc&c=index" class="loginLinks">About TopCoder</A></td>
+				<td class=homeTopBar align=right><A href="/tc?module=Static&d1=about_tc&d2=index" class="loginLinks">About TopCoder</A></td>
 			</tr>
 			<tr>
 				<td class=homeLogo colspan=2><img src="/i/logo_r.gif" border=0 /></td>
@@ -142,7 +142,7 @@
 	            <area shape="rect" alt="Photos" coords="110,180,165,205" href="/tc?module=Static&d1=tournaments&d2=tco04&d3=photos" />
 	            <area shape="rect" alt="Videos" coords="180,180,230,205" href="/tc?module=Static&d1=tournaments&d2=tco04&d3=movies" />
 	            <area shape="rect" alt="Videos" coords="50,205,220,230" href="/tc?module=Static&d1=tournaments&d2=tco04&d3=spec_showdown" />
-	            </map>                        
+	            </map>
 			<tr><td class=homeBigPromo><img src="/i/home/promos/tco04_onsite.gif" border=0 usemap="#tco04_onsite" /></td></tr>
 
 <%-- Regular homepage
@@ -190,8 +190,8 @@
             <A href="/tc?module=Static&d1=about&d2=index" class="footerLinks">About TopCoder</A>&#160;&#160;|&#160;&#160;
             <A href="/?t=news_events&c=index" class="footerLinks">Press Room</A>&#160;&#160;|&#160;&#160;
             <A href="/?t=contacts&c=index" class="footerLinks">Contact Us</A>&#160;&#160;|&#160;&#160;
-            <A href="/?t=about_tc&c=privacy" class="footerLinks">Privacy</A>&#160;&#160;|&#160;&#160;
-            <A href="/?t=about_tc&c=terms" class="footerLinks">Terms</A>
+            <A href="/tc?module=Static&d1=about_tc&d2=privacy" class="footerLinks">Privacy</A>&#160;&#160;|&#160;&#160;
+            <A href="/tc?module=Static&d1=about_tc&d2=terms" class="footerLinks">Terms</A>
 			<br/>
             <A href="/tc" class="footerLinks">Developer Center</A>&#160;&#160;|&#160;&#160;
             <A href="/corp/?module=Static&d1=corp&d2=index" class="footerLinks">Corporate Services</A>

@@ -40,27 +40,27 @@ body,td,font,p,a
 </head>
 
     <body class=corporate bgcolor="#ffffff" text="#000000" link="#0000CC" vlink="#800080" alink="#ff0000" topmargin=2>
-	
+
 	<div align="center">
 <%-- Google Header--%>
 <img src="/i/events/google2003/codejam_logo.gif" alt="Google Code Jam logo">
 
 <table border=0 cellspacing=5 width="740">
-   <tr> 
+   <tr>
       <td style="background-color: #006633">
          <table class=sidebar bgcolor="#ffffff" cellpadding=15 cellspacing=0 border=0 width="100%">
             <tr>
                <td valign="top">
-                  <div class=content> 
+                  <div class=content>
                   <div align="center">
-                  
+
                   <!-- Tab bar links-->
                   <jsp:include page="googlelinks.jsp" >
                      <jsp:param name="selectedTab" value="arena"/>
                   </jsp:include>
-                  
+
                   </div><br><br>
-                  
+
                   <table border=0 cellspacing=0 width="100%">
                      <tr>
                         <td valign="top">
@@ -95,12 +95,12 @@ body,td,font,p,a
    </tr>
 </table>
 </div>
-<p><div class=footer> 
-<small> &copy;2003 Google - 
-<a href="http://www.google.com/">Home</a> - 
-<a href="http://www.google.com/about.html">All About Google</a> - 
-<a href="/?t=about_tc&c=index">About TopCoder</a> -
-<a href="http://www.google.com/jobs/">We're Hiring</a> 
+<p><div class=footer>
+<small> &copy;2003 Google -
+<a href="http://www.google.com/">Home</a> -
+<a href="http://www.google.com/about.html">All About Google</a> -
+<a href="/tc?module=Static&d1=about_tc&d2=index">About TopCoder</a> -
+<a href="http://www.google.com/jobs/">We're Hiring</a>
 </small>
 </p>
 </div>

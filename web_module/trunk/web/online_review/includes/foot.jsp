@@ -8,12 +8,12 @@
         <td width="100%" align="center" bgcolor="#43515E"><img src="images/clear.gif" width="1" height="5" border="0"/><br/>
             <div class="smallFoot">
             <A href="http://www.topcoder.com" class="smallFoot">Home</A>&#160;&#160;|&#160;&#160;
-            <A href="http://www.topcoder.com/?t=about_tc&c=index" class="smallFoot">About TopCoder</A>&#160;&#160;|&#160;&#160;
+            <A href="http://www.topcoder.com/tc?module=Static&d1=about_tc&d2=index" class="smallFoot">About TopCoder</A>&#160;&#160;|&#160;&#160;
             <a href="http://www.topcoder.com/tc/?d1=review_board&d2=competition" class="smallFoot">Review Boards</A>&#160;&#160;|&#160;&#160;
             <A href="http://www.topcoder.com/?t=news_events&c=index" class="smallFoot">Press Room</A>&#160;&#160;|&#160;&#160;
             <A href="/http://www.topcoder.com?t=contacts&c=index" class="smallFoot">Contact Us</A>&#160;&#160;|&#160;&#160;
-            <A href="http://www.topcoder.com/?t=about_tc&c=privacy" class="smallFoot">Privacy</A>&#160;&#160;|&#160;&#160;
-            <A href="http://www.topcoder.com/?t=about_tc&c=terms" class="smallFoot">Terms</A><br /><br />
+            <A href="http://www.topcoder.com/tc?module=Static&d1=about_tc&d2=privacy" class="smallFoot">Privacy</A>&#160;&#160;|&#160;&#160;
+            <A href="http://www.topcoder.com/tc?module=Static&d1=about_tc&d2=terms" class="smallFoot">Terms</A><br /><br />
 
             <A href="http://www.topcoder.com" class="smallFoot">Competition</A>&#160;&#160;|&#160;&#160;
             <A href="http://www.topcoder.com/?t=development&c=index" class="smallFoot">Development</A>&#160;&#160;|&#160;&#160;

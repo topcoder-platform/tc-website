@@ -9,7 +9,7 @@
         <td height="25" width="100%" class="copyright">
             Copyright &#169; 2001-2003, TopCoder, Inc. All rights reserved. &#160;&#160;|&#160;&#160;
             <A href="http://www.verizon.com" class="copyrightLink">Home</A>&#160;&#160;|&#160;&#160;
-            <A href="/?t=about_tc&c=index" class="copyrightLink">About TopCoder</A>&#160;&#160;|&#160;&#160;
+            <A href="/tc?module=Static&d1=about_tc&d2=index" class="copyrightLink">About TopCoder</A>&#160;&#160;|&#160;&#160;
             <A href="?&module=Static&d1=verizon&d2=vcc03_contact" class="copyrightLink">Contact Us</A>&#160;&#160;|&#160;&#160;
             <A href="http://www22.verizon.com/privacy/" class="copyrightLink">Privacy Policy</A>&#160;&#160;|&#160;&#160;
             <A href="http://www22.verizon.com/About/Privacy/terms/" class="copyrightLink">Terms</A>
