@@ -61,7 +61,7 @@ function submitEnter(e) {
                 <form method="post" name="frmPass" action="/tc">
                     <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="PasswordEmail"/>
                     <tr>
-                        <td>
+                        <td class="errorText">
                             <tc-webtag:errorIterator id="err" name="<%=Constants.FIRST_NAME%>"><%=err%></tc-webtag:errorIterator>
                         </td>
                     </tr>
@@ -75,7 +75,7 @@ function submitEnter(e) {
                     </tr>
 
                     <tr>
-                        <td>
+                        <td class="errorText">
                             <tc-webtag:errorIterator id="err" name="<%=Constants.LAST_NAME%>"><%=err%></tc-webtag:errorIterator>
                         </td>
                     </tr>
@@ -89,7 +89,7 @@ function submitEnter(e) {
                     </tr>
 
                     <tr>
-                        <td>
+                        <td class="errorText">
                             <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL%>"><%=err%></tc-webtag:errorIterator>
                         </td>
                     </tr>
@@ -103,11 +103,15 @@ function submitEnter(e) {
                     </tr>
                     <tr>
                         <td>
+                            <p>(This must be the same information you used when you registered.)</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
                             <a href="javascript void document.frmPass.submit()">Submit</a>
                         </td>
                     </tr>
                 </form>
-                <p>(This must be the same information you used when you registered.)</p>
             </table>
         </td>
 <!-- Center Column ends -->
