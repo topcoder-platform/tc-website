@@ -1083,6 +1083,12 @@
             <fileset dir="${classes}/"
                 includes="com/topcoder/web/forums/**/*.class"
                 />
+            <fileset dir="${classes}/"
+                includes="com/topcoder/web/common/**/*.class"
+                />
+            <fileset dir="${classes}/"
+                includes="com/topcoder/shared/**/*.class"
+                />
             <fileset dir="${java}/com/topcoder/web/forums"
                 includes="**/*.jsp"
             />
