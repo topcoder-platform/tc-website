@@ -118,7 +118,12 @@ public class PositionResults extends BaseScreeningProcessor {
             // Check if the results list should be sorted
             String sortBy = request.getParameter(Constants.SORT_BY);
             if (sortBy != null) {
-                result.sortByColumn(sortBy, true);
+                if(sortBy.equals("preference"))
+                {
+                    result.sortByColumn(sortBy, false);
+                }
+                else
+                    result.sortByColumn(sortBy, true);
                 request.setAttribute(Constants.SORT_BY, sortBy);
             }
 
