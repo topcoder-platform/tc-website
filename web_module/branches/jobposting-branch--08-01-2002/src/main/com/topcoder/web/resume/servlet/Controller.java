@@ -43,7 +43,7 @@ public class Controller
         HttpSession session = null;
         try {
             log.debug("In com.topcoder.web.resume.servlet.Controller.service()");
-            if (request.getContentType() != null && request.getContentType().indexOf(MULTIPART_FORM_DATA) >= 0) {
+//            if (request.getContentType() != null && request.getContentType().indexOf(MULTIPART_FORM_DATA) >= 0) {
                 FileUpload fu = new FileUpload(request, false);
                 String taskName = fu.getParameter(TASK);
                 log.debug(taskName);
@@ -81,7 +81,7 @@ public class Controller
                     return;
                 }
                 task.getNextPage(request,response);
-            }
+//            }
         } catch (ServletException se) {
             throw se;
         } catch (Exception e) {

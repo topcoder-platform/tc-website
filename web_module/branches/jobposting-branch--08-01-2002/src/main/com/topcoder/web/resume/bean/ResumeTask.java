@@ -12,7 +12,7 @@ public abstract class ResumeTask {
     protected User user;
     public abstract void process()
             throws ResumeTaskException;
-    public abstract void getNextPage(HttpServletRequest request, HttpServletResponse response);
+    public abstract void getNextPage(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException;
     public void setUser(User user){
         this.user = user;
     }
