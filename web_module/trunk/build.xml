@@ -838,6 +838,7 @@
                 <include name="foot.jsp"/>
                 <include name="date_time.jsp"/>
                 <include name="script.jsp"/>
+                <include name="includes/global_left.jsp"/>
             </fileset>
             <classes dir="${classes}">
                 <include name="com/topcoder/shared/util/"/>
