@@ -9,8 +9,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/brett1479_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
-                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=251317"><strong>brett1479</strong></a><br/>
+                        <img src="/i/m/timmac_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
+                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=10407399"><strong>timmac</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -19,17 +19,17 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/index?t=statistics&c=srm221_prob">SRM 221 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Wedneday, December 1, 2004</p>
+                        <p><strong><font size="4"><a href="/index?t=statistics&c=srm222_prob">SRM 222 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Tuesday, December 7, 2004</p>
 
                         <p>
 
-Before writing the match summary, I often go from room to room listening to what the competitors
-thought of the round.  The Division 2 coders seemed to have reached a consensus.  This was one of
-the most difficult SRMs in recent history.  Both the medium and hard problems had only 2 successful
-submissions.
+In Division 2, <b>astaroth</b> took top honors, narrowly edging out <b>jachor</b>, and
+<b>palo</b> in third.  Each of the top three solved all three problems correctly.  <b>cbudin</b>,
+who finished in fourth was the last correct entry for the hard problem, although his easy fell
+to system tests.
 
-						<a href="/index?t=statistics&c=srm221_prob" class="bodyText"><strong>full&#160;story</strong></a>
+						<a href="/index?t=statistics&c=srm222_prob" class="bodyText"><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
