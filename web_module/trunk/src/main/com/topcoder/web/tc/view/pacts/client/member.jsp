@@ -1,6 +1,5 @@
-<%@ page 
+<%@ page
   language="java"
-  errorPage="/errorPage.jsp"
 %>
 
 <HTML>
@@ -18,9 +17,9 @@ function goTo(selection){
   }
 }
 // -->
-</script>   
+</script>
  </HEAD>
- <BODY BGCOLOR="#CCCCCC" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
+ <BODY>
    <jsp:include page="../../top.jsp" />
    <TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
      <TR>
@@ -29,7 +28,7 @@ function goTo(selection){
        </TD>
        <TD WIDTH="4" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8" BORDER="0"></TD>
        <TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="1" VSPACE="5" BORDER="0"><BR/>
- 
+
 <!-- body goes here -->
 
        </TD>
@@ -39,10 +38,10 @@ function goTo(selection){
        </TD>
     <!-- Gutter -->
     <TD WIDTH="25" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->       
+    <!-- Gutter Ends -->
      </TR>
    </TABLE>
-   <jsp:include page="/foot.jsp" /> 
+   <jsp:include page="/foot.jsp" />
  </BODY>
 </HTML>
 
