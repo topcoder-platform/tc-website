@@ -89,7 +89,7 @@
     try {
     String subject = message.getSubject();
     boolean msgIsAnonymous = message.isAnonymous();
-    User author = message.getUser();
+    com.coolservlets.forum.User author = message.getUser();
     String authorName = author.getUsername();
 
 
@@ -315,7 +315,7 @@
 %>
 <%  /////////////////////
   // get root message properties
-  User author = rootMessage.getUser();
+  com.coolservlets.forum.User author = rootMessage.getUser();
 
   int rootMsgAuthorID = author.getID();
   String authorName = null;
