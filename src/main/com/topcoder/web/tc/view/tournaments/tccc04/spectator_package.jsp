@@ -47,7 +47,7 @@
                 <h2><img src="/i/tournament/tccc04/spectator_images.jpg" width="285" height="392" border="0" align="right">Join the excitement onsite!</h2>
 
                 <p>Would you like to see the 2004 Collegiate Challenge finals in-person? Would you like to spend two days with 32 other TopCoder members discussing algorithms, games, and everything TopCoder? 
-                TopCoder is now offering a special spectator package for our members to join us at the most exciting TopCoder tournament yet!</p>
+                TopCoder is now offering a spectator package for our members to join us at the most exciting TopCoder tournament yet!</p>
             
                 <p><span class="bodySubtitle">What does the package include?</span><br/>
                 <ul>
