@@ -48,6 +48,9 @@ function submitSession() {
 //-->
 </script>
 
+<link rel="Stylesheet" href="/css/style.css" type="text/css">
+<link rel="Stylesheet" href="/css/coders.css" type="text/css">
+
 </head>
 
 <body>
