@@ -91,105 +91,101 @@ public class TCESServlet extends HttpServlet {
             ctx = TCContext.getInitial();
 
             if (taskName != null && taskName.trim().length() > 0) {
-
-                String taskClassName = TCESConstants.TCES_PACKAGE + "."
-                        + taskName;
-
-                /* User authorization checking */
-                SessionPersistor persistor = new SessionPersistor(
-                        request.getSession(true)
-                );
-                TCRequest tcRequest = HttpObjectFactory.createRequest(request);
-                TCResponse tcResponse = HttpObjectFactory.createResponse(response);
-                WebAuthentication authToken
-                        = new BasicAuthentication(persistor, tcRequest, tcResponse, BasicAuthentication.CORP_SITE);
-                RequestTracker.trackRequest(authToken.getActiveUser(), tcRequest);
-                TCSubject tcUser = Util.retrieveTCSubject(
-                        authToken.getActiveUser().getId()
-                );
-
-
-                Authorization authorize = new TCSAuthorization(tcUser);
-
-                info = new SessionInfo(tcRequest, authToken, tcUser.getPrincipals());
-                request.setAttribute(BaseServlet.SESSION_INFO_KEY, info);
-
-                StringBuffer loginfo = new StringBuffer(100);
-                loginfo.append("[**** ");
-                loginfo.append(info.getHandle());
-                loginfo.append(" **** ");
-                loginfo.append(request.getRemoteHost());
-                loginfo.append(" **** ");
-                loginfo.append(request.getMethod());
-                loginfo.append(" ");
-                loginfo.append(info.getRequestString());
-                loginfo.append(" ****]");
-                log.info(loginfo);
-
-                Resource taskResource = new SimpleResource(taskClassName);
-                Task task = null;
-                try {
-                    if (!authorize.hasPermission(taskResource)) {
-                        if (authToken.getActiveUser().isAnonymous()) {
-                            throw new TCESAuthenticationException(
-                                    "Anonymous user does not have permision");
-                        }
-                        throw new NotAuthorizedException(
-                                "User " + tcUser.getUserId() + " not Authorized for access to resource: "
-                                + taskName);
-                    }
-
-                    // process a task
-                    Class taskClass = null;
-                    taskClass = Class.forName(taskClassName);
-                    task = (Task) taskClass.newInstance();
-                    task.setInitialContext(ctx);
-                    task.setSessionInfo(info);
-
-                    Enumeration parameterNames = request.getParameterNames();
-                    while (parameterNames.hasMoreElements()) {
-                        String parameterName =
-                                parameterNames.nextElement().toString();
-                        String[] parameterValues =
-                                request.getParameterValues(parameterName);
-                        if (parameterValues != null) {
-                            task.setAttributes(parameterName, parameterValues);
-                        }
-                    }
-
-                    task.setServletPath(request.getContextPath()
-                            + request.getServletPath());
-
-                    task.setAuthToken(authToken);
-
-                    task.servletPreAction(request, response);
-
-                    task.processStep(taskStepName);
-                } catch (TCESAuthenticationException authex) {
-                    authex.printStackTrace();
-                    request.setAttribute("message", "In order to continue, you must provide your user name " +
-                            "and password, even if you've logged in already.");
-                    request.setAttribute(BaseServlet.NEXT_PAGE_KEY,
-                            HttpUtils.getRequestURL(request) + "?" + request.getQueryString());
-                    request.setAttribute(com.topcoder.web.corp.Constants.KEY_MODULE, "Login");
-                    boolean forward = true;
-                    fetchRegularPage(request, response, "/", forward);
-                    return;
-                }
-
-                task.servletPostAction(request, response);
-
-                request.setAttribute(taskName, task);
-
-                if (!response.isCommitted()) {
-                    fetchRegularPage(request, response, task.getNextPage(), true);
-                }
-
-            } else {
-                forwardToErrorPage(request, response,
-                        new Exception("missing " + TCESConstants.TASK_PARAM
-                        + " parameter in request"), false);
+                taskName = "MainTask";
             }
+            String taskClassName = TCESConstants.TCES_PACKAGE + "."
+                    + taskName;
+
+            /* User authorization checking */
+            SessionPersistor persistor = new SessionPersistor(
+                    request.getSession(true)
+            );
+            TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+            TCResponse tcResponse = HttpObjectFactory.createResponse(response);
+            WebAuthentication authToken
+                    = new BasicAuthentication(persistor, tcRequest, tcResponse, BasicAuthentication.CORP_SITE);
+            RequestTracker.trackRequest(authToken.getActiveUser(), tcRequest);
+            TCSubject tcUser = Util.retrieveTCSubject(
+                    authToken.getActiveUser().getId()
+            );
+
+
+            Authorization authorize = new TCSAuthorization(tcUser);
+
+            info = new SessionInfo(tcRequest, authToken, tcUser.getPrincipals());
+            request.setAttribute(BaseServlet.SESSION_INFO_KEY, info);
+
+            StringBuffer loginfo = new StringBuffer(100);
+            loginfo.append("[**** ");
+            loginfo.append(info.getHandle());
+            loginfo.append(" **** ");
+            loginfo.append(request.getRemoteHost());
+            loginfo.append(" **** ");
+            loginfo.append(request.getMethod());
+            loginfo.append(" ");
+            loginfo.append(info.getRequestString());
+            loginfo.append(" ****]");
+            log.info(loginfo);
+
+            Resource taskResource = new SimpleResource(taskClassName);
+            Task task = null;
+            try {
+                if (!authorize.hasPermission(taskResource)) {
+                    if (authToken.getActiveUser().isAnonymous()) {
+                        throw new TCESAuthenticationException(
+                                "Anonymous user does not have permision");
+                    }
+                    throw new NotAuthorizedException(
+                            "User " + tcUser.getUserId() + " not Authorized for access to resource: "
+                            + taskName);
+                }
+
+                // process a task
+                Class taskClass = null;
+                taskClass = Class.forName(taskClassName);
+                task = (Task) taskClass.newInstance();
+                task.setInitialContext(ctx);
+                task.setSessionInfo(info);
+
+                Enumeration parameterNames = request.getParameterNames();
+                while (parameterNames.hasMoreElements()) {
+                    String parameterName =
+                            parameterNames.nextElement().toString();
+                    String[] parameterValues =
+                            request.getParameterValues(parameterName);
+                    if (parameterValues != null) {
+                        task.setAttributes(parameterName, parameterValues);
+                    }
+                }
+
+                task.setServletPath(request.getContextPath()
+                        + request.getServletPath());
+
+                task.setAuthToken(authToken);
+
+                task.servletPreAction(request, response);
+
+                task.processStep(taskStepName);
+            } catch (TCESAuthenticationException authex) {
+                authex.printStackTrace();
+                request.setAttribute("message", "In order to continue, you must provide your user name " +
+                        "and password, even if you've logged in already.");
+                request.setAttribute(BaseServlet.NEXT_PAGE_KEY,
+                        HttpUtils.getRequestURL(request) + "?" + request.getQueryString());
+                request.setAttribute(com.topcoder.web.corp.Constants.KEY_MODULE, "Login");
+                boolean forward = true;
+                fetchRegularPage(request, response, "/", forward);
+                return;
+            }
+
+            task.servletPostAction(request, response);
+
+            request.setAttribute(taskName, task);
+
+            if (!response.isCommitted()) {
+                fetchRegularPage(request, response, task.getNextPage(), true);
+            }
+
         } catch (NotAuthorizedException ae) {
             log.debug("TCES Authorization failure! ", ae);
             forwardToErrorPage(request, response, ae, true);
