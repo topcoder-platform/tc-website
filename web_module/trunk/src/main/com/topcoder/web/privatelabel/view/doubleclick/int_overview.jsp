@@ -28,7 +28,7 @@
          
          <p>It's bigger and better than before!  For this year's tournament, we have teamed up with TopCoder - the leader in online programming competitions - to bring you an exciting contest with two online rounds and fantastic prizes for the 10 best performers.</p>
 
-         <p>For those who make it to the finals, the bounty is great: great prizes, recognition among co-workers and the satisfaction of having beaten DoubleClick employees from around the world.  As an added twist to the 2004 Coding Challenge, you'll have the chance to check your skills against some of New York City's brightest minds.  While you won't be competing for the same prizes, you will be asked to solve the same problems as participants from Columbia and NYU.</p>
+         <p>For those who make it to the finals, the bounty is great: prizes, recognition among co-workers and the satisfaction of having beaten DoubleClick employees from around the world.  As an added twist to the 2004 Coding Challenge, you'll have the chance to check your skills against some of New York City's brightest minds.  While you won't be competing for the same prizes, you will be asked to solve the same problems as participants from Columbia and NYU.</p>
 
          <p>The DoubleClick 2004 Coding Challenge, Powered by TopCoder&#174;, is your chance to prove you are the best!  Are you up to the challenge?</p>
 
@@ -62,12 +62,28 @@
          <p><span class="dc_subTitle">Prizes</span><br/>
          All participants in the Main Competition Round will receive a "DoubleClick 2004 Coding Challenge" T-shirt.  The participants in the Final Round will receive the following prizes:</p>
 
-         <ul>
-         <li>1st place - Sony 32" WEGA&#153; Integrated Plasma TV</li>
-         <li>2nd through 4th place - Garmin iQue 3600 Palm with integrated GPS, 512 MB, and a wireless card</li>
-         <li>5th through 10th place - CHOICE OF: Canon PowerShot S400 digital camera or Apple 30 GB iPod</li>
-         </ul>
+            <table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+                <tr>
+                    <td width="50%" class="sidebarTitle">Participant(s)</td>
+                    <td width="50%" class="sidebarTitle" align="right">Prize</td>
+                </tr>
 
+                <tr>
+                    <td width="50%" class="sidebarText">1st place finisher - Tournament Champion</td>
+                    <td width="50%" class="sidebarText" align="right">Sony 32" WEGA&#153; Integrated Plasma TV</td>
+                </tr>
+
+                <tr>
+                    <td width="50%" class="sidebarText">2nd - 4th place finishers in the Final Round (3 people)</td>
+                    <td width="50%" class="sidebarText" align="right">Garmin iQue 3600 Palm with integrated GPS, 512MB, and a wireless card</td>
+                </tr>
+
+                <tr>
+                    <td width="50%" class="sidebarText">5th - 10th place finishers in the Final Round (6 people)</td>
+                    <td width="50%" class="sidebarText" align="right">CHOICE OF: Canon PowerShot S400 digital camera or Apple 30 GB iPod</td>
+                </tr>
+            </table>
+			         		
          <p>To find out more detailed information about the DoubleClick 2004 Coding Challenge, please read the <a class="bodyText_link" href="/pl/?&module=Static&d1=doubleclick&d2=col_rules">Official Rules and Regulations</a>.</p>
 
 		</td>
