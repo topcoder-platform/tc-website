@@ -273,6 +273,7 @@ public class TransactionServlet extends HttpServlet {
         if (!userTerms.hasTermsOfUse(txInfo.getContactID(), Constants.GENERAL_PRODUCT_TERMS_ID)) {
             userTerms.createUserTermsOfUse(txInfo.getContactID(), Constants.GENERAL_PRODUCT_TERMS_ID);
         }
+        txInfo.setAgreed(true);
         req.setAttribute(Constants.KEY_CCTX_SUM, "" + (txInfo.getCost() * txInfo.getQtty()));
 //        req.setAttribute(Constants.KEY_CCTX_LOGIN, Constants.CCTX_LOGIN);
 //        req.setAttribute(Constants.KEY_CCTX_PARTNER, Constants.CCTX_PARTNER);
@@ -401,6 +402,12 @@ public class TransactionServlet extends HttpServlet {
         InitialContext ic = (InitialContext) TCContext.getInitial();
         TermsOfUse terms = ((TermsOfUseHome) ic.lookup(TermsOfUseHome.EJB_REF_NAME)).create();
         txInfo.setTerms(terms.getText(Constants.GENERAL_PRODUCT_TERMS_ID));
+        UserTermsOfUse userTerms = ((UserTermsOfUseHome)ic.lookup(UserTermsOfUseHome.EJB_REF_NAME)).create();
+        if (userTerms.hasTermsOfUse(txInfo.getContactID(), Constants.GENERAL_PRODUCT_TERMS_ID)) {
+            txInfo.setAgreed(true);
+        } else {
+            txInfo.setAgreed(false);
+        }
         return txInfo;
     }
 
