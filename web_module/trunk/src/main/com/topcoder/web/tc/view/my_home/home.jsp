@@ -45,8 +45,8 @@
             
             <table border=0 cellpadding=5 cellspacing=0 width="100%">
                 <tr>
-                    <td class="bodyText" valign=top width=150><A href="/"><img src="/i/my_home/referrals.gif" border=0/></A></td>
-                    <td class="bodyText" valign=top>The TopCoder Referral Program is designed to increase the number of  top-performing coders who participate in TopCoder competitions, and to reward those TopCoder members who spread the word. The referring member (you) will receive a referral commission equal to 10% of any amounts earned or won by the referred member during the 12 months following registration. Click <A href="/">here</A> to find out more.</td>
+                    <td class="bodyText" valign=top width=150><A href="/tc?module=Static&d1=my_home&d2=referrals"><img src="/i/my_home/referrals.gif" border=0/></A></td>
+                    <td class="bodyText" valign=top>The TopCoder Referral Program is designed to increase the number of  top-performing coders who participate in TopCoder competitions, and to reward those TopCoder members who spread the word. The referring member (you) will receive a referral commission equal to 10% of any amounts earned or won by the referred member during the 12 months following registration. Click <A href="/tc?module=Static&d1=my_home&d2=referrals">here</A> to find out more.</td>
                 </tr>
             </table>
             
