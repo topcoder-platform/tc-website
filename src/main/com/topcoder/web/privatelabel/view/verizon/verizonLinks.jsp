@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
+<%@ page import="com.topcoder.web.privatelabel.Constants" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%
     String selectedTab = request.getParameter("selectedTab")==null?"":request.getParameter("selectedTab");
@@ -75,9 +76,9 @@ function openWin(url, name, w, h) {
 
 <!-- Register Now tab -->
             <% if (selectedTab.equals("register_now")) {%>
-                 <tr><td class="statTextBig" width="127"><A href="/pl/?&module=FullReg&eid=1&cid=1747"class="statTextBig"><img src="/i/events/verizon2003/tab_register_now_on.gif" alt="register_now" width="127" height="25" border="0" /></A></td></tr>
+                 <tr><td class="statTextBig" width="127"><A href="?&<%=Constants.MODULE_KEY+"="+Constants.VERIZON_REG_MAIN+"&"+Constants.COMPANY_ID+"=1747&"+Constants.EVENT_ID+"=1"%>"><img src="/i/events/verizon2003/tab_register_now_on.gif" alt="register_now" width="127" height="25" border="0" /></A></td></tr>
             <% } else { %>
-                 <tr><td class="statTextBig" width="127"><A href="/pl/?&module=FullReg&eid=1&cid=1747"class="statTextBig"><img src="/i/events/verizon2003/tab_register_now_off.gif" alt="register_now" width="127" height="25" border="0" /></A></td></tr>
+                 <tr><td class="statTextBig" width="127"><A href="?&<%=Constants.MODULE_KEY+"="+Constants.VERIZON_REG_MAIN+"&"+Constants.COMPANY_ID+"=1747&"+Constants.EVENT_ID+"=1"%>"><img src="/i/events/verizon2003/tab_register_now_off.gif" alt="register_now" width="127" height="25" border="0" /></A></td></tr>
             <% } %>
             
 <!-- Practice Arena tab -->
