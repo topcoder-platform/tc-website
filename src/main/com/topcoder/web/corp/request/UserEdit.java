@@ -121,14 +121,8 @@ public class UserEdit extends BaseProcessor {
             Util.closeIC(icEJB);
         }
 
-        // for create operations will redirect to the page specified in web.xml
-        // for edit ops just return to previous page
-        if (secTok.createNew) {
-            nextPage = successPage;
-        } else {
-            nextPage = null;
-            pageInContext = false;
-        }
+        pageInContext = false;
+        nextPage = successPage;
     }
 
     /**
