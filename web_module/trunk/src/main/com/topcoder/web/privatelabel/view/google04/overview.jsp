@@ -50,7 +50,7 @@
 			<br/><br/>
 			Do you have exceptional programming skills? Can you make computers perform like silicon puppets with just a few well-expressed commands? Are you at ease when faced with a hard stop and a group of peers evaluating every line of your code? Here’s your opportunity to display the grace of the true professional in a reward-rich environment.
 			<br/><br/>
-			Google is looking for engineers with the programming skill to rewrite the world's information infrastructure. The Google Code Jam 2004 is one way we hope to find them. While we don't impose arbitrary deadlines on our engineers, we do put a premium on well-implemented code. And we appreciate the thought process required to create it. In fact, we appreciate clear thinking in all its forms, from <a href="http://www.google.com/puzzles/">puzzle solving</a> to chess mastery (one of our interns was an International Grand Master).
+			Google is looking for engineers with the programming skill to rewrite the world's information infrastructure. The Google Code Jam 2004 is one way we hope to find them. While we don't impose arbitrary deadlines on our engineers, we do put a premium on well-implemented code. And we appreciate the thought process required to create it. In fact, we appreciate clear thinking in all its forms, from puzzle solving to chess mastery (one of our interns was an International Grand Master).
 			<br/><br/>
 			<span class=greenSubtitle>Say it your way</span>
 			<br/><br/>
