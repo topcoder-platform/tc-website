@@ -21,14 +21,14 @@
           <table  border="0" cellspacing="0" cellpadding="5" width="510" align="center" class="formFrame">
               <tr>
                   <td class="searchHeaders" valign="middle" width="20%">Handle</td>
-                  <td class="searchHeaders" valign="middle" align="right" width="15%">Algorithm Rating</td>
+                  <td class="searchHeaders" valign="middle" align="right" width="15%">Algorithm<br /> Rating</td>
+                  <td class="searchHeaders" valign="middle" align="center" width="12%">Design<br />Rating</td>
+                  <td class="searchHeaders" valign="middle" align="center" width="12%">Development<br />Rating</td>
                   <td class="searchHeaders" valign="middle" align="center" width="15%">State</td>
                   <td class="searchHeaders" valign="middle" align="left" width="25%">Country</td>
-                  <td class="searchHeaders" valign="middle" align="center" width="12%">Rated<br/>Events</td>
-                  <td class="searchHeaders" valign="middle" align="center" width="12%">Last<br/>Event</td>
+                  <td class="searchHeaders" valign="middle" align="center" width="12%">Rated<br />Events</td>
+                  <td class="searchHeaders" valign="middle" align="center" width="12%">Last<br />Event</td>
                   <%--<td class="searchHeaders" valign="middle" align="center" width="12%">School</td>--%>
-                  <td class="searchHeaders" valign="middle" align="center" width="12%">Design<br/>Rating</td>
-                  <td class="searchHeaders" valign="middle" align="center" width="12%">Development<br/>Rating</td>
               </tr>
 
               <%boolean even = false;%>
@@ -38,13 +38,13 @@
                       <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>' context="algorithm"/>
                   </td>
                   <td class="formHandleEven" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="rating"/>&#160;&#160;</td>
+                  <td class="formHandleEven" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="design_rating" ifNull="Unrated"/>&#160;&#160;</td>
+                  <td class="formHandleEven" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="dev_rating" ifNull="Unrated"/>&#160;&#160;</td>
                   <td class="formHandleEven" valign="middle" align="center"><rsc:item row="<%=resultRow%>" name="state_code"/></td>
                   <td class="formHandleEven" valign="middle" align="left" nowrap><rsc:item row="<%=resultRow%>" name="country_name"/></td>
                   <td class="formHandleEven" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="num_ratings"/>&#160;&#160;&#160;&#160;&#160;&#160;</td>
                   <td class="formHandleEven" valign="middle" align="center"><rsc:item row="<%=resultRow%>" name="last_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
                   <%--<td class="formHandleEven" valign="middle" align="center"><rsc:item row="<%=resultRow%>" name="school_name" ifNull="N/A"/></td>--%>
-                  <td class="formHandleEven" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="design_rating" ifNull="Unrated"/>&#160;&#160;</td>
-                  <td class="formHandleEven" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="dev_rating" ifNull="Unrated"/>&#160;&#160;</td>
               </tr>
               <%even=!even;%>
               </rsc:iterator>
