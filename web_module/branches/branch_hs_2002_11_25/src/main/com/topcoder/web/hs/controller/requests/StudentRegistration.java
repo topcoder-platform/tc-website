@@ -502,7 +502,7 @@ public class StudentRegistration extends Base {
       ctx=TCContext.getInitial();
 
       UserHome uh=(UserHome)ctx.lookup(UserHome.EJB_REF_NAME);
-      User user=uh.create(user_id,_srb.getHandle(),'1');
+      UserBean ub=uh.create();
 
     }
     catch (RemoteException _re) {
