@@ -9,7 +9,7 @@
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
 <%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
-<%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib uri="tc.tld" prefix="tc.tld" %>
 <HTML>
  <HEAD>
    <TITLE>TopCoder Statistics - Round Overview</TITLE>
@@ -189,8 +189,8 @@ function goTo(selection){
                             
                             <bean:define id="nameColor" name="CODER_COLORS" scope="application" toScope="page"/>
 
-                            <% //this part creates the top scorers for the round in each division 
-                            String sLink = "/stat?c=member_profile&cr=";%>
+                            <% //this part creates the top scorers for the round in each division
+                            String sLink = "/stat?c=member_profile&cr=";
                             for(int i = 0; i<topN;i++){%>
                             <TR>
                                 <%for(int j = 0; j<divisions;j++){
@@ -209,7 +209,7 @@ function goTo(selection){
                                 </TD>
 
                                 <TD VALIGN="middle" NOWRAP="0" WIDTH="30%" HEIGHT="15" CLASS="statText">
-                                <tc:ratingImage link='<%=sLink + coderIDs[j][i]%>' bg='B' cid='<%=coderIDs[j][i]%>' />
+                                    <tc:ratingImage link='<%=sLink + coderIDs[j][i]%>' bg='B' cid='<%=coderIDs[j][i]%>' />
                                 </TD>
                                 <TD VALIGN="middle" NOWRAP="0" WIDTH="10%" HEIGHT="15" CLASS="statText" ALIGN="right"><%= scores[j][i] %> &#160;&#160;</TD>
                                 <TD VALIGN="middle" NOWRAP="0" WIDTH="10%" HEIGHT="15" CLASS="statText">&#160;<%= rooms[j][i] %></TD>
