@@ -92,10 +92,11 @@ public final class GraphServlet extends HttpServlet {
             Graph.setLicenseKey(LICENSE_KEY);
             dataRequest = new Request(HttpUtils.parseQueryString(request.getQueryString()));
             nav = (Navigation) request.getSession().getAttribute("navigation");
-            if (nav == null)
-                log.info("[*** graph *** " + dataRequest.getContentHandle() + " *** " + " ***]");
-            else
-                log.info("[*** graph *** " + dataRequest.getContentHandle() + " *** " + nav.getUser().getHandle() + " ***]");
+            if (nav == null) {
+                nav = new Navigation(request, response);
+                request.getSession(true).setAttribute("navigation", nav);
+            }
+            log.info("[*** graph *** " + dataRequest.getContentHandle() + " *** " + nav.getSessionInfo().getHandle() + " ***]");
 
             /***********************************************************************/
             if (dataRequest.getContentHandle().equals("rating_distribution_graph")) {
