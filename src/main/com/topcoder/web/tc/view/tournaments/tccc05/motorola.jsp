@@ -11,8 +11,8 @@
 <!-- Tab barlinks-->
 <jsp:include page="links.jsp" >
 <jsp:param name="tabLev1" value="overview"/>
-<jsp:param name="tabLev2" value="details"/>
-<jsp:param name="tabLev3" value=""/>
+<jsp:param name="tabLev2" value="sponsors"/>
+<jsp:param name="tabLev3" value="motorola"/>
 </jsp:include>
 
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
@@ -24,20 +24,17 @@
         			
                <div align="center"><img src="/i/tournament/tccc05/motorola_header.gif" alt="" border="0" /></div>
 
-        			<p>As an elite TopCoder, you represent the best and the brightest of
-        			the coding world. Microsoft welcomes the participants to the 2004 TopCoder Open
-        			and wishes you luck as you go head-to-head in this year's competition.  You've
-        			already come a long way; how much farther can you go?</p>
-
-					<p>Imagine having the resources to create tomorrow's technology today, using
-					your skills to create products and solutions that will touch the lives of
-					millions of people. And having fun while you do it. That's Microsoft. People
-					at Microsoft love their work because they get to think big and dream big. A
-					proud sponsor of this year's competition, Microsoft is looking for the next
-					generation of technology innovators. If you have talent and a passion for
-					technology, this could be your big moment.</p>
-					
-					<p>Check out the <a href="/">jobs available to TopCoder members</a>.</p>
+               <p class=bigTitle>MOTOMOVIN'</p>
+        			<p>
+               Motorola is honored to welcome the best of the best of the coding world to this year's TopCoder competition.  Good luck in your head-to-head matches throughout the competition.  These finals may be just the beginning!
+               <br><br>
+              When you're mobile you don't wait for your future.  You create it.  Make your move.  Our vision for the future is clear...   harness the power of wireless, multi-media and entertainment, broadband and the Internet to deliver embedded chip, system level, and end-to-end network communications solutions for the individual, work team, vehicle and home.
+               <br><br>
+               Exciting career opportunities present themselves to ambitious, driven individuals eager to revolutionize technology with an industry leader.  Our Global Software Group will provide the challenges that keep will keep you an elite TopCoder. 
+               <br><br>
+               Motorola is looking to hire 
+               <a href="JavaScript:void window.open('/tc?module=Static&d1=member_photos&d2=index','Photo_Info','top=2,left=2,width=300,height=400,status=0');" >Software Engineers</A>, Software Design Engineers, Sr. Staff Software Engineers, and Engineering Interns.  If would like to be considered for a job at Motorola, <A href="/">apply now</A>.
+               </p>
 
         </div>
 		</td>
