@@ -71,17 +71,19 @@
                    <td width="20%" align="center" class="testTableOdd"><screen:resultSetItem row="<%=row%>" name="begin_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></td> 
                    <td width="20%" align="center" class="testTableOdd"><screen:resultSetItem row="<%=row%>" name="end_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></td> 
                    <td width="10%" align="center" class="testTableOdd"><screen:sessionStatus row="<%=row%>" /></td>
-                   <td width="10%" align="center" class="testTableOdd"><screen:servletLink processor="NoteList" param="<%=params%>"><%=hasNotes?"View":"None"%></screen:servletLink></td> 
+                   <td width="10%" align="center" class="testTableOdd"><screen:servletLink processor="PopulateCandidate" param="<%=params%>"><%=hasNotes?"View":"None"%></screen:servletLink></td>
                 </tr>
 
             </screen:resultSetRowIterator>
             </table>
-             
-            <table border="0" cellspacing="10" cellpadding="0" width="70%">
-                 <tr>
-                    <td><div align="center"><p class="button"><screen:servletLink processor="PopulateCandidate" param="referrer=BuildCandidateList" styleClass="button">Add Candidate</screen:servletLink></p></div></td>
-                </tr>
-            </table>
+
+            <% if (candidateList.size() > 10) { %>
+                <table border="0" cellspacing="10" cellpadding="0" width="70%">
+                     <tr>
+                        <td><div align="center"><p class="button"><screen:servletLink processor="PopulateCandidate" param="referrer=BuildCandidateList" styleClass="button">Add Candidate</screen:servletLink></p></div></td>
+                    </tr>
+                </table>
+            <% } %>
             <p><br></p>
         </td>
 <!-- Middle Column ends -->

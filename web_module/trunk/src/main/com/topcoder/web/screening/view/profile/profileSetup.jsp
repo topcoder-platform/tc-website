@@ -91,16 +91,12 @@ function submitConfirm() {
 
             <jsp:useBean id="profile" class="com.topcoder.web.screening.model.ProfileInfo" scope="request" />
             
-             <table border="0" cellspacing="0" cellpadding="0" width="70%">
-                <tr><screen:form name="profileSetupForm" method="GET" action="<%=Constants.CONTROLLER_URL%>">
-                    <input type="hidden" name="rp" value="" >
-                    <% if(!profile.isNew()) { %>
-                        <input type="hidden" name="profileId" value="<jsp:getProperty name="profile" property="profileId" />" >
-                    <% } %>
-                    <td width="100%"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"></td>
-                </tr>
-            </table>
- 
+            <screen:form name="profileSetupForm" method="GET" action="<%=Constants.CONTROLLER_URL%>">
+            <input type="hidden" name="rp" value="" >
+            <% if(!profile.isNew()) { %>
+               <input type="hidden" name="profileId" value="<jsp:getProperty name="profile" property="profileId" />" >
+            <% } %>
+
             <table cellspacing="0" cellpadding="3" width="70%" class="testFrame">
                 <tr><td class="testTableTitle" colspan="3">Test Profile</td></tr>
                 
@@ -139,32 +135,17 @@ function submitConfirm() {
                     <td width="20%" align="center" class="testFormHeader">Division</td>
                     <td width="20%" align="center" class="testFormHeader">Difficulty</td>
                     <td colspan="2" align="center" class="testFormHeader">Algorithmic Categories</td>
- <%--               <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Business Categories</B></TD> --%>
-                    <td width="10" class="testFormHeader"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+                     <td width="10" class="testFormHeader"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
                  </tr>
             
                 <screen:listIterator id="testA" list="<%=profile.getTestSetAList()%>">
-<%-- This while loop changes the color of every other row in table
-                <% if(row.getItem("num_sessions").toString().equals("0")){ %>
-                <TR>
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-                    <TD COLSPAN="6" VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC">No sessions scheduled for this profile.</TD>               
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-                </TR>
-                <% } else { %>
-          <%
-              String cparam = Constants.CANDIDATE_ID + '=' + row.getItem("user_id");
-              String sparam = Constants.SESSION_ID + '=' + row.getItem("session_id");
 
-              String color = (even) ? "BGCOLOR='#CCCCCC'" : ""; 
-          %> --%>
                 <tr>
                     <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
                     <td class="testTableOdd"><a href="JavaScript:getProblemDetail('<screen:beanWrite name="testA" property="roundId" />,<screen:beanWrite name="testA" property="problemId"/>')" class="bodyText"><screen:beanWrite name="testA" property="problemName"/></a></td>
                     <td align="center" class="testTableOdd"><screen:beanWrite name="testA" property="divisionDesc" /></td>
                     <td align="center" class="testTableOdd"><screen:beanWrite name="testA" property="difficultyDesc" /></td>
                     <td colspan="2" align="center" class="testTableOdd"><screen:beanWrite name="testA" property="algorithmicCategoryList" /></td>
- <%--               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name="testA" property="businessCategoryList" /></TD> --%>
                     <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
                 </tr>
                 </screen:listIterator>

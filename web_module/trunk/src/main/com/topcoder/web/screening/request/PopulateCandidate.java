@@ -3,14 +3,15 @@ package com.topcoder.web.screening.request;
 import com.topcoder.security.UserPrincipal;
 
 import com.topcoder.web.common.security.PrincipalMgr;
-import com.topcoder.web.ejb.email.Email;
-import com.topcoder.web.ejb.email.EmailHome;
 import com.topcoder.web.screening.common.Constants;
+import com.topcoder.web.screening.common.PermissionDeniedException;
 import com.topcoder.web.screening.model.CandidateInfo;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
-import javax.naming.InitialContext;
-import javax.rmi.PortableRemoteObject;
 import javax.servlet.ServletRequest;
+import java.util.Map;
 
 /** 
  * <p>
@@ -39,7 +40,6 @@ public class PopulateCandidate extends BaseProcessor {
                 long userId = Long.parseLong(uId);
 
                 //do some kind of db lookup
-                InitialContext context = new InitialContext();
                 PrincipalMgr principalMgr = new PrincipalMgr();
                 
                 //will throw exception or return null?
@@ -49,6 +49,26 @@ public class PopulateCandidate extends BaseProcessor {
                 if(user != null) {
                     info.setUserName(user.getName());
                     info.setPassword(principalMgr.getPassword(userId));
+                }
+
+                DataAccessInt dAccess = getDataAccess();
+
+                Request dr = new Request();
+                dr.setProperties(getParameterMap());
+                dr.setContentHandle("noteList");
+                dr.setProperty("uid", String.valueOf(getAuthentication().getActiveUser().getId()));
+
+                Map map = dAccess.getData(dr);
+
+                if(map != null) {
+                    ResultSetContainer result = (ResultSetContainer)map.get("candidateInfo");
+                    if(result.getRowCount() == 0){
+                        throw new PermissionDeniedException(getAuthentication().getActiveUser(),
+                            "User not authorized to view information about candidate: " +
+                                dr.getProperty("cid")==null?"?":dr.getProperty("cid"));
+                    }
+                    result = (ResultSetContainer)map.get("noteList");
+                    info.setNoteList(result);
                 }
             }
 

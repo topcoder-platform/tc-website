@@ -21,6 +21,8 @@ import java.util.Date;
 public class TestResults extends BaseProcessor {
     private final static Logger log = Logger.getLogger(TestResults.class);
 
+    protected CandidateInfo cinfo = new CandidateInfo();
+
     /** Implements the processing step.
      * @throws Exception
      */
@@ -35,9 +37,8 @@ public class TestResults extends BaseProcessor {
         if(map == null)
             throw new ScreeningException("getData failed!");
         
-        ResultSetContainer result =
-            (ResultSetContainer)map.get("sessionInfo");
-        if(result.getRowCount() == 0){
+        ResultSetContainer result = (ResultSetContainer)map.get("sessionInfo");
+        if(result.isEmpty()) {
             throw new PermissionDeniedException(
                 "You are not authorized to view information about this session.");
         }
@@ -57,7 +58,7 @@ public class TestResults extends BaseProcessor {
         if(map == null)
             throw new ScreeningException("getData failed!");
         
-        CandidateInfo cinfo = new CandidateInfo();
+        cinfo = new CandidateInfo();
         cinfo.setUserName(result.getItem(0,"handle").toString());
         cinfo.setUserId(Long.valueOf(result.getItem(0,"user_id").toString()));
         getRequest().setAttribute("candidateInfo",cinfo);

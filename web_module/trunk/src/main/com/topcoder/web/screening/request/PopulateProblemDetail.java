@@ -31,7 +31,7 @@ public class PopulateProblemDetail extends BaseProcessor {
                                           problemId);
 
         request.setAttribute(Constants.PROBLEM_INFO, info);
-        setNextPage(Constants.PROBLEM_DETAIL_PAGE);
+        setNextPage(Constants.PRINTER_RESULTS_PAGE);
         setNextPageInContext(true);
     }
 }

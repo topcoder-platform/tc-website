@@ -33,27 +33,8 @@ public class ProfileList extends BaseProcessor {
         ResultSetContainer result = 
             (ResultSetContainer)map.get("profileList");
 
-        ArrayList list = new ArrayList();
-        if(result != null && result.size() > 0){
-            String profile;
-            int start=0;
-            /*
-             * this requires profiles be "next"
-             * to each other in the ResultSetContainer, so be sure to sort by that first
-             */
-            while(start < result.size()){
-                int end = start;
-                profile = result.getItem(start,"session_profile_id").toString();
-                while(end < result.size() &&
-                    profile.equals(result.getItem(end,"session_profile_id").toString())){
-                        end++;
-                }
-                list.add(result.subList(start,end));
-                start = end;
-            }
-        }
 
-        getRequest().setAttribute("profileList", list);
+        getRequest().setAttribute("profileList", result);
 
         setNextPage(Constants.PROFILE_LIST_PAGE);
         setNextPageInContext(true);
