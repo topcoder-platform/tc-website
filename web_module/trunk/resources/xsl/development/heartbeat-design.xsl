@@ -62,7 +62,7 @@
 
 <!-- Overview -->
                         <INPUT TYPE="hidden" NAME="DesWinner">
-                            <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/DesWinner""/></xsl:attribute>
+                            <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/DesWinner"/></xsl:attribute>
                         </INPUT>
                         <INPUT TYPE="hidden" NAME="DesFinal">
                             <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/DesFinal"/></xsl:attribute>
