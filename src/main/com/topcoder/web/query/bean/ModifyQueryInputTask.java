@@ -52,6 +52,10 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
             log.debug("User not authenticated for access to query tool resource.");
             throw new AuthenticationException("User not authenticated for access to query tool resource.");
         }
+
+        QueryInputHome qiHome = (QueryInputHome) getInitialContext().lookup(ApplicationServer.Q_QUERY_INPUT);
+        QueryInput qi = qiHome.create();
+        setCurrentInputList(qi.getInputsForQuery(getQueryId()));
 	}
 
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -81,6 +85,7 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
         } else if (step!=null && step.equals(Constants.REMOVE_STEP)) {
             qi.removeQueryInput(getQueryId(), getInputId());
         }
+
         setCurrentInputList(qi.getInputsForQuery(getQueryId()));
         setOtherInputList(i.getAllInputs());
 
