@@ -154,7 +154,7 @@
                     <td class="<%=tabLev3.equals("bracket")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_comp_dev_bracket" class="topLink">Bracket</a></td>
             <% } else if (tabLev2.equals("coaches")) {%>
                     <td class="<%=tabLev3.equals("description")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_comp_coaches" class="topLink">Description</a></td>
-                    <td class="<%=tabLev3.equals("request")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_comp_coachreq" class="topLink">Request a coach</a></td>
+                    <td class="<%=tabLev3.equals("request")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_comp_coachesreq" class="topLink">Request a coach</a></td>
             <% } else { %>
                      <td width="100%"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
             <% } %>
