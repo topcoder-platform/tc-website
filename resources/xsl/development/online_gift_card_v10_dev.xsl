@@ -91,7 +91,7 @@
                                             <br/>
                                             TopCoder Software has engaged with a customer to build and integrate an online gift card order processing application using existing components from the TopCoder Component Catalog as well as specific code to interface with the client's environment. </p>
 
-                                            <p>The Online Gift Card application project Design Phase is almost complete will enter Development Phase soon.  The functional requirements for the Online Gift Card Application have been separated into two groups.  Two members will be selected for each functional group in order to compete for the winning submission.  The TopCoder Project Manager will provide all of the design documents to the selected members once the inquiry phase has completed.  In order to inquire for this project please click on the appropriate link at the bottom of this page.</p>
+                                            <p>The Online Gift Card application project Design Phase is almost complete and will enter Development Phase soon.  The functional requirements for the Online Gift Card Application have been separated into two groups.  Two members will be selected for each functional group in order to compete for the winning submission.  The TopCoder Project Manager will provide all of the design documents to the selected members once the inquiry phase has completed.  In order to inquire for this project please click on the appropriate link at the bottom of this page.</p>
 
                                         <p>
                                             <strong>View the
@@ -99,7 +99,7 @@
                                             </strong>
                                         </p>
                                         <p>
-                                            <strong>Group 1</strong> - Must implement the following functionality according to the design:
+                                            <strong>Site Development</strong> - Must implement the following functionality according to the design:
                                             <br/>
                                             &#160;&#160;&#160;Order Placement and Persistence
                                             <br/>
@@ -109,7 +109,7 @@
                                         </p>
 
                                         <p>
-                                            <strong>Group 2</strong> - Must implement the following functionality according to the design:
+                                            <strong>Supporting Operations</strong> - Must implement the following functionality according to the design:
                                             <br/>
                                             &#160;&#160;&#160;Order Confirmation and Shipment Notification Emails
                                             <br/>
@@ -163,7 +163,7 @@
                                         </p>
 
                                         <p>
-                                            <strong>Group 1<br/><br/>
+                                            <strong>Site Development<br/><br/>
                                             Winning Developer</strong>
                                             <br/>
                                             Total Payment - $833.00
@@ -192,7 +192,7 @@
                                         </p>
                                         <p></p>
                                         <p>
-                                            <strong>Group 2<br/><br/>
+                                            <strong>Supporting Operations<br/><br/>
                                             Winning Developer</strong>
                                             <br/>
                                             Total Payment - $333.00
@@ -327,12 +327,12 @@
 
                                         <p>
                                             <strong>
-                                               <a href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Online%20Gift%20Card%20Group1">Inquire for the Group 1 Development Tasks of the Online Gift Card Sales Project</a> to get selected as a developer and to obtain the information necessary to submit a solution.
+                                               <a href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Online%20Gift%20Card%20Site%20Development">Inquire for the Site Development Development Tasks of the Online Gift Card Sales Project</a> to get selected as a developer and to obtain the information necessary to submit a solution.
                                             </strong>
                                         </p>
                                         <p>
                                             <strong>
-                                               <a href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Online%20Gift%20Card%20Group2">Inquire for the Group 2 Development Tasks of the Online Gift Card Sales Project</a> to get selected as a developer and to obtain the information necessary to submit a solution.
+                                               <a href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Online%20Gift%20Card%20Supporting%20Operations">Inquire for the Supporting Operations Development Tasks of the Online Gift Card Sales Project</a> to get selected as a developer and to obtain the information necessary to submit a solution.
                                             </strong>
                                         </p>                                        
                                         <!--
