@@ -37,7 +37,7 @@
         <jsp:include page="../body_top.jsp" >
            <jsp:param name="image" value="problem_rating"/>  
            <jsp:param name="image1" value="white"/>  
-           <jsp:param name="title" value=""/>  
+           <jsp:param name="title" value="Results"/>  
         </jsp:include>
 
 <p class="header">Problem:&nbsp;<%= request.getAttribute("problemName") %></p>
