@@ -27,14 +27,6 @@ public class ClassResource extends SimpleResource {
         return resource.getName();
     }
 
-    /**
-     *
-     * @return the Role of this Permission (static, processor, processor_group)
-     */
-    public String getRole() {
-        return SimpleResource.PROCESSOR_ROLE;
-    }
-
     public static void main(String[] args) {
         ClassResource r = new ClassResource(String.class);
         String name = r.getName();

@@ -22,12 +22,4 @@ public class SimpleResource implements Resource {
     public String getName() {
         return null;
     }
-
-    /**
-     *
-     * @return Resource role
-     */
-    public String getRole() {
-        return null;
-    }
 }
