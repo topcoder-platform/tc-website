@@ -107,7 +107,7 @@ public class TCLoadTCS extends TCLoad {
                    "         and u.component_id = p.component_id " +
                    "         and u.user_id = project_result.user_id " +
                    "         and u.score = project_result.final_score " +
-                   "         group by p.project_id) " +
+                   "         group by p.project_id), submit_ind = 1 " +
                    " where exists(  " +
                    "         select max(u.submission_date) " +
                    "         from project p, " +
