@@ -20,7 +20,7 @@ public class View extends SurveyData {
     protected List makeAnswerInfo(long surveyId, long questionId) throws Exception {
         log.debug("makeAnswerInfo called");
         Request req = new Request();
-        DataAccessInt dataAccess = getDataAccess();
+        DataAccessInt dataAccess = getDataAccess(true);
         req.setContentHandle("answers");
         req.setProperty("qid", String.valueOf(questionId));
         ResultSetContainer rsc = (ResultSetContainer)dataAccess.getData(req).get("answer_info");
