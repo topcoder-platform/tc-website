@@ -44,7 +44,7 @@
 						<li>Abuse Prevention Engineering</li>      
 					</ul>
 
-					<p>Most of our openings require a bachelor's degree, master’s degree or PhD.  We also look for candidates 
+					<p>Most of our openings require a bachelor's degree, master's degree or PhD.  We also look for candidates 
 					who possess a strong hands-on development background within a Unix environment.  Please remember to review 
 					your resume and list examples of the technical skills throughout your resume.  Yahoo! looks for candidates 
 					who possess a strong working knowledge of what it means to work on highly scalable and reliable web applications.</p>
