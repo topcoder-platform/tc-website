@@ -302,7 +302,7 @@ public class ProjectBean extends BaseEJB {
 
             StringBuffer query = new StringBuffer(1024);
             
-            query.append("select count(distinct user_id)' ");
+            query.append("select count(distinct user_id) ");
             query.append("from component_inquiry ci ");
             query.append("where ci.project_id = ? and rating <> 0");
 
