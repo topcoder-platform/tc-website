@@ -151,21 +151,21 @@
   <tr>
     <td valign="top" width="8" rowspan="2"><img src="/i/clear.gif" alt="" width="8" height="1" border="0"/></td>  
     <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/Logan_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br /> 
-    By&#160;Logan<br /><i>[TC]&#160;Member</i><br /></td>
+    By&#160;Brett<br /><i>[TC]&#160;Member</i><br /></td>
     <td valign="top" width="8" rowspan="2"><img src="/i/clear.gif" alt="" width="8" height="1" border="0"/></td> 
     <td valign="top" width="100%" align="left" class="bodyText" colspan="2">
-    <font size="2" color="#000000" face="tahoma, verdana"><strong>SRM 130</strong></font> 
+    <font size="2" color="#000000" face="tahoma, verdana"><strong>SRM 131</strong></font>
     </td>
   </tr>      
   <tr>
     <td valign="top" class="bodyText" width="100%">
 	<a class="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm130_prob</xsl:attribute>
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm131_prob</xsl:attribute>
         <strong>Problem Set Analysis &amp; Opinion</strong>
       </a><br />
 
 <p>
-This is one of the easier contests I've seen. The Division-II problems were rather trivial, and 
+My New Text Will be here!!!This is one of the easier contests I've seen. The Division-II problems were rather trivial, and
 only the Division-I Level 3 problem seemed difficult at all. Of all the Division-II coders that 
 submitted at least one problem, only two had a final score of 0, which surely made this a much 
 more satisfying match for most Division-II coders
