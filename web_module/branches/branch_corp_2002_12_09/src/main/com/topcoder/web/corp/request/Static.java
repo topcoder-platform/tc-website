@@ -1,4 +1,5 @@
 package com.topcoder.web.corp.request;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.util.Enumeration;
 
@@ -32,6 +33,7 @@ public class Static extends BaseProcessor {
      */
     void businessProcessing() throws Exception {
         nextPage = requestProcessor();
+        log.debug("--------- next page set to: "+nextPage);
     }
 
     /**
@@ -48,7 +50,7 @@ public class Static extends BaseProcessor {
         String cur = null;
 
         /* start generating the return string containing the URL.    */
-        StringBuffer ret = new StringBuffer();
+        StringBuffer ret = new StringBuffer("");
         for (int i=1; !found; ++i) {
             cur = request.getParameter(PREFIX+i);
             if (cur == null) {
