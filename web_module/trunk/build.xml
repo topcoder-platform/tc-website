@@ -682,6 +682,7 @@
                 <include name="tc-webtags.tld"/>
                 <include name="screening.tld"/>
                 <include name="tces-taglib.tld"/>
+                <include name="tc-taglib.tld"/>
                 <include name="rsc-taglib.tld"/>
             </webinf>
 
@@ -1033,6 +1034,32 @@
     <target name="whitespace" depends="compile">
         <java classname="com.topcoder.utilities.RemoveWhiteSpace" fork="false">
             <arg value="${file}"/>
+            <classpath>
+                <pathelement location="${classes}"/>
+                <pathelement location="${resources}"/>
+                <fileset dir="${jars.dir}">
+                    <include name="**/*.jar"/>
+                </fileset>
+                <pathelement path="${env.CLASSPATH}"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="CheckProblem" depends="compile">
+        <java classname="com.topcoder.utilities.CheckProblem" fork="false">
+            <classpath>
+                <pathelement location="${classes}"/>
+                <pathelement location="${resources}"/>
+                <fileset dir="${jars.dir}">
+                    <include name="**/*.jar"/>
+                </fileset>
+                <pathelement path="${env.CLASSPATH}"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="NumRatingsFix" depends="compile">
+        <java classname="com.topcoder.utilities.NumRatingsFix" fork="false">
             <classpath>
                 <pathelement location="${classes}"/>
                 <pathelement location="${resources}"/>
