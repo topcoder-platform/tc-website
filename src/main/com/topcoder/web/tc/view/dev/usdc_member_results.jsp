@@ -50,9 +50,21 @@
    <jsp:param name="selectedTab" value="results"/>
 </jsp:include>
 
-<h2><rsc:item name="handle" row="<%=rscUser.getRow(0)%>" /> <br><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>" /> Results</h2>
+<%--
+<h2><rsc:item name="handle" row="<%=rscUser.getRow(0)%>" /> <br><span class=bodyText><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>" /> Results</span></h2>
+--%>
 
+                        <br/>
                         <table width="510" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+                            <tr>
+                                <td class="header" colspan=5 align=left>
+                                Handle: 
+                                <A href="/" class=header><rsc:item name="handle" row="<%=rscUser.getRow(0)%>" /></A>
+                                <br/>
+                                Contest:
+                                <A href="/" class=header><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>" /> Results</A>
+                                </td>
+                            </tr>
                             <tr>
                                 <td class="sidebarTitle" nowrap=nowrap>Component Name</td>                              
                                 <td class="sidebarTitle" align=center>Submit Date</td>
