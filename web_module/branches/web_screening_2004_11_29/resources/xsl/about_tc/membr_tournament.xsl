@@ -2,17 +2,17 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:import href="../top.xsl"/>
   <xsl:import href="../script.xsl"/>
-  <xsl:import href="../includes/body_top.xsl"/>  
+  <xsl:import href="../includes/body_top.xsl"/>
   <xsl:import href="../foot.xsl"/>
   <xsl:import href="../includes/modules/practice_room.xsl"/>
   <xsl:import href="../includes/modules/calendar.xsl"/>
-  <xsl:import href="../includes/global_left.xsl"/> 
-  <xsl:import href="../includes/public_right_col.xsl"/>     
+  <xsl:import href="../includes/global_left.xsl"/>
+  <xsl:import href="../includes/public_right_col.xsl"/>
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
     <HTML>
       <HEAD>
-        <xsl:call-template name="Preload"/>      
+        <xsl:call-template name="Preload"/>
         <TITLE>TopCoder :: About TopCoder</TITLE>
         <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
         <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
@@ -26,11 +26,11 @@
   <TR>
     <!-- Left Column Begins -->
     <TD WIDTH="180" VALIGN="top">
-  <!-- Global Seconday Nav Begins -->    
-<!-- Left Column Include Begins -->  
-    <!-- Global Seconday Nav Begins -->  
+  <!-- Global Seconday Nav Begins -->
+<!-- Left Column Include Begins -->
+    <!-- Global Seconday Nav Begins -->
         <xsl:call-template name="global_left"/>
-  <!-- Global Seconday Nav Ends -->  
+  <!-- Global Seconday Nav Ends -->
 <!-- Left Column Include Ends -->
       </TD>
   <!-- Left Column Ends -->
@@ -39,7 +39,7 @@
     <!-- Gutter Ends -->
 
 <!-- Body Area -->
-  <!-- Center Column Begins -->  
+  <!-- Center Column Begins -->
     <TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#FFFFFF" VALIGN="top"><img src="/i/clear.gif" width="240" height="1" VSPACE="5" BORDER="0"/><BR/>
 <xsl:call-template name="BodyTop">
   <xsl:with-param name="image1">white</xsl:with-param>
@@ -55,14 +55,14 @@
  	<TR>
         <TD ROWSPAN="5" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
         <TD COLSPAN="2" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
-    </TR> 
-                <TR> 
+    </TR>
+                <TR>
           			<TD COLSPAN="2" BGCOLOR="#999999" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="150" HEIGHT="1" BORDER="0"/></TD>
                 </TR>
 	            <TR>
                     <TD VALIGN="top" BGCOLOR="#999999" CLASS="moduleTitle">&#160; &#160;</TD>
 		            <TD BGCOLOR="#999999" VALIGN="top" CLASS="moduleTitle">QUESTIONS?:</TD>
-	            </TR>                    
+	            </TR>
 	            <TR>
                     <TD COLSPAN="2" VALIGN="top" BGCOLOR="#999999">
 					<TABLE BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#FFFFFF">
@@ -70,20 +70,19 @@
 							<TD VALIGN="top" CLASS="smallText">&#160;&#160;</TD>
 							<TD COLSPAN="2" VALIGN="top" CLASS="bodyText"><A HREF="mailto:service@topcoder.com" CLASS="bodyText">Contact member services</A></TD>
 						</TR>
-						<TR><TD VALIGN="top" COLSPAN="3" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>    		
+						<TR><TD VALIGN="top" COLSPAN="3" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>
 					</TABLE>
 		          	</TD>
         		</TR>
- 	<TR><TD COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>                
+ 	<TR><TD COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>
 </TABLE>
 <!--end contextual links-->
 		  <BR/><BR/>
           <B>Tournaments</B>
           <P>Currently, TopCoder hosts two major tournaments annually. The first is the Collegiate Challenge, which is then followed by the Invitational Tournament. The Collegiate Challenge is open to rated members who are full-time students attending a college or university in the United States, while the Invitational Tournament is open to all rated members.</P>
-          <P>The prize structure for a tournament differs from the <A HREF="/index?t=about_tc&amp;c=membr_match" CLASS="bodyText">Single Round Match</A>.  Competitors are given a chance to earn cash with each successful completion of an elimination round, all the way up and through the final round where the champion is awarded a Grand Prize of $100,000! Total tournament purses have been as much as $250,000.</P>
           <P>Tournaments take place over three months with the elimination matches running concurrently with regularly scheduled weekly matches. Normally, a tournament related match replaces one of the normally scheduled single round matches.</P>
           <B>What Tournaments Offer</B>
-          <P>Aside from the obvious chance at a &#36;100,000 grand prize, tournaments offer:<UL>
+          <P>Aside from the obvious chance at the grand prize, tournaments offer:<UL>
           <LI>Exposure and recognition as a talented developer</LI>
           <LI>Strong differentiator on your resume</LI>
           <LI>Enormous earning potential</LI></UL>
@@ -167,13 +166,13 @@
         </TR>
         <TR>
           <TD COLSPAN="4" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-        </TR>     
+        </TR>
         <TR>
           <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
           <TD VALIGN="top" WIDTH="75"><IMG SRC="/i/table_mid_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
           <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
           <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-        </TR>  
+        </TR>
         <TR>
           <TD VALIGN="top" WIDTH="11" ALIGN="right" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
           <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
@@ -190,9 +189,9 @@
     <!-- Gutter Ends -->
   <!-- Right Column Begins -->
     <TD WIDTH="170" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><br/>
-<!-- Right Column Include Begins --> 
-        <xsl:call-template name="public_right_col"/>       
-<!-- Right Column Include Ends -->        
+<!-- Right Column Include Begins -->
+        <xsl:call-template name="public_right_col"/>
+<!-- Right Column Include Ends -->
         </TD>
   <!-- Right Column Ends -->
   <!-- Gutter -->
