@@ -144,25 +144,27 @@ example of payouts based on the member's Reliability Rating:</p>
 	<ul>
 	<li>Must be at least 18 years of age (as of May 6, 2004)</li>
 	<li>Must not have been permanently suspended from participating in TopCoder Component Development projects</li>
-	<li>Must not be otherwise prohibited from performing independent software development services as an independent contractor</li>
+	<li>You are either (i) a U.S. citizen, (ii) a lawful permanent resident of the U.S., (iii) a temporary resident, asylee, 
+	refugee of the U.S., or have a lawfully issued work authorization card permitting unrestricted employment in the U.S., 
+	or (iv) a non-U.S. resident authorized to perform services as an independent contractor.</li>
 	</ul>
 <p>The Contest is void in the Quebec province of Canada, and elsewhere where prohibited by applicable law.  
 Cash prizes will not be paid to residents of Cuba, Iran, Iraq, Libya, North Korea, Sudan, or Syria. </p>
 
 <p>Employees of TopCoder, Inc. and those involved in the production (including prize suppliers), implementation and distribution of 
-this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or 
-affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or 
-persons living in the same household as such persons, are ineligible to enter the tournament.</p>
+this contest and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or 
+affiliates, or any other persons or entities directly associated with the contest and members of the immediate families and/or 
+persons living in the same household as such persons, are ineligible to enter the contest.</p>
 
 <p><strong>Conditions of Participation</strong><br/>
 By participating in the contest, you agree to be bound by these rules and to all decisions of TopCoder, which are final, binding and 
-conclusive in all matters.Contestants must not cheat. All ideas for any component design or development solution submitted must be 
+conclusive in all matters. Contestants must not cheat. All ideas for any component design or development solution submitted must be 
 the contestant's alone. All decisions relating to the viability of submissions, the ranking of submissions and all other matters 
-pertaining to the tournament shall be within the sole discretion of TopCoder or its designee and shall be final and binding in all respects.</p>
+pertaining to the contest shall be within the sole discretion of TopCoder or its designee and shall be final and binding in all respects.</p>
 
-<p>As a condition of participation in the tournament, all information provided in each competitor's TopCoder member profile must be 
+<p>As a condition of participation in the contest, all information provided in each competitor's TopCoder member profile must be 
 comprehensive, accurate and up-to-date. TopCoder may require each competitor to complete an additional registration form to register 
-for the tournament. In order to be eligible to participate in the tournament, each competitor must have completed any and all 
+for the contest. In order to be eligible to participate in the contest, each competitor must have completed any and all 
 registration forms required by TopCoder.</p>
 
 <p>As a condition of winning and redeeming a cash prize, winners will be required to return a completed (i) notarized Affidavit of 
@@ -170,8 +172,8 @@ Eligibility and Liability and Publicity Release, and (ii) IRS Form W-9, W-8BEN, 
 file with TopCoder. In completing the Affidavit of Eligibility and Liability and Publicity Release, a winner (i) confirms his/her 
 eligibility, (ii) represents and warrants that he/she has not cheated; that the idea for the component design and/or development 
 solution submitted is his/hers alone, (iii) verifies the accuracy of the demographic information submitted to, and contained in, 
-the TopCoder member database, (iv) authorizes TopCoder to publicize the tournament's results, (v) agrees to sign any applicable 
-forms required by tax authorities, (vi) assigns to TopCoder all rights to all information submitted during the tournament 
+the TopCoder member database, (iv) authorizes TopCoder to publicize the contest's results, (v) agrees to sign any applicable 
+forms required by tax authorities, (vi) assigns to TopCoder all rights to all information submitted during the contest 
 (including rights to source code and other executables), and (vii) releases TopCoder from liability arising out of any prize won. 
 TopCoder requires contestants to complete the Form W-9, W-8BEN, or W-8ECI for tax reporting purposes. If prize notification is 
 returned as undeliverable, or if the winner fails to return the Affidavit, or the appropriate tax form, the winner will be 
@@ -182,12 +184,12 @@ process or in the required forms described in this paragraph will disqualify a w
 subsidiaries, advertising and promotion agencies, sponsors, and prize suppliers, and all of their respective directors, officers, 
 employees, representatives and agents, from and against any and all liability for any loss, property damage or damage to person, 
 including without limitation, death and injury, due in whole or in part, directly or indirectly, from or arising out of participation 
-in this tournament, or participation in any contest-related activity, or the receipt, use or misuse of a prize. TopCoder specifically 
+in this contest, or participation in any contest-related activity, or the receipt, use or misuse of a prize. TopCoder specifically 
 disclaims all liability associated with, and makes no warranties with regard to, any prize given.</p>
 
 <p>In addition, all prizewinners agree to cooperate with TopCoder's publicity efforts, without further compensation. This 
 includes the agreement to use their name, handle, address (city and state) and likeness for publicity purposes, where legal, 
-for this or similar future tournaments, and to use the statements made by, or attributed to, the winners relating to TopCoder and 
+for this or similar future contests, and to use the statements made by, or attributed to, the winners relating to TopCoder and 
 any and all rights to said use, without further compensation. Furthermore, all prizewinners agree to promptly notify TopCoder if a 
 third-party contacts the prizewinner regarding employment opportunities and/or media interest as a result of the prizewinner's 
 participation in the contest.</p>
