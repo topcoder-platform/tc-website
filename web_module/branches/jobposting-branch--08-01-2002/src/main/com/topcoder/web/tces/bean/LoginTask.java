@@ -89,6 +89,7 @@ public class LoginTask extends BaseTask implements Task, Serializable {
 	public void servletPreAction(HttpServletRequest request, HttpServletResponse response) throws Exception
 	{
         if (Authentication.getRequestedURL(request.getSession(true)).trim().length()>0) {
+log.debug(Authentication.getRequestedURL(request.getSession(true)));
             setNextPage(Authentication.getRequestedURL(request.getSession(true)).trim());
             customRedir=true;
         }
