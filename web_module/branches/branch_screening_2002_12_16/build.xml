@@ -672,13 +672,13 @@
                 <include name="**/*.gif"/>
             </fileset>
             <classes dir="${classes}">
-                <include name="com/topcoder/web/screening/**"/>
+                <include name="com/topcoder/web/screening/"/>
+                <include name="com/topcoder/web/common/tag/"/>
             </classes>
-            <!-- uncomment if we have any taglibs
-            <webinf dir="${resources}/query">
-                <include name="query-taglib.tld"/>
+
+            <webinf dir="${resources}/screening">
+                <include name="screening.tld"/>
             </webinf>
-            -->
         </war>
     </target>
 
