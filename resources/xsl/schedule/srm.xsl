@@ -79,6 +79,12 @@
                               <xsl:when test="RoundId='4220'">
                                 <a href="/?&amp;t=sponsor&amp;c=link&amp;link=http://idenphones.motorola.com/iden/developer/developer_home.jsp&amp;refer=srm100"><IMG SRC="/i/srm100_motorola.gif" ALT="" WIDTH="414" HEIGHT="172" BORDER="0" /></a>
                               </xsl:when>
+                              <xsl:when test="RoundId='4275'">
+                                <IMG SRC="/i/srm_banner_sun.gif" ALT="" WIDTH="428" HEIGHT="80" BORDER="0" />
+                              </xsl:when>
+                              <xsl:when test="RoundId='4282'">
+                                <IMG SRC="/i/srm_banner_sun.gif" ALT="" WIDTH="428" HEIGHT="80" BORDER="0" />
+                              </xsl:when>
                               <xsl:otherwise>
                                 <IMG SRC="/i/srm_banner.jpg" ALT="" WIDTH="428" HEIGHT="80" BORDER="0" />
                                 <TR BGCOLOR="#CCCCCC">
