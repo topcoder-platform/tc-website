@@ -1,11 +1,10 @@
 package com.topcoder.web.query.request;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.query.common.AuthenticationException;
 import com.topcoder.web.query.bean.CommandQueryBean;
 import com.topcoder.web.query.common.Constants;
+import com.topcoder.web.query.common.Util;
 import com.topcoder.web.query.bean.QueryBean;
 import com.topcoder.web.query.ejb.QueryServices.*;
 import com.topcoder.web.common.BaseProcessor;
@@ -59,14 +58,9 @@ public class ModifyCommandQuery extends BaseProcessor {
 
     protected void businessProcessing() throws Exception {
         String step = request.getParameter(Constants.STEP_PARAM);
-        QueryHome qHome = (QueryHome) getInitialContext().lookup(ApplicationServer.Q_QUERY);
-        Query q = qHome.create();
-
-        CommandQueryHome cqHome = (CommandQueryHome) getInitialContext().lookup(ApplicationServer.Q_COMMAND_QUERY);
-        CommandQuery cq = cqHome.create();
-
-        CommandHome cHome = (CommandHome) getInitialContext().lookup(ApplicationServer.Q_COMMAND);
-        Command c = cHome.create();
+        CommandQuery cq = (CommandQuery)Util.createEJB(getInitialContext(), CommandQuery.class);
+        Command c = (Command)Util.createEJB(getInitialContext(), Command.class);
+        Query q = (Query)Util.createEJB(getInitialContext(), Query.class);
 
         setCommandDesc(c.getCommandDesc(getCommandId(), getDb()));
 
@@ -298,8 +292,7 @@ public class ModifyCommandQuery extends BaseProcessor {
      */
     public ArrayList getCurrentQueryList() throws Exception {
         if (currentQueryList==null) {
-            CommandQueryHome cqHome = (CommandQueryHome) getInitialContext().lookup(ApplicationServer.Q_COMMAND_QUERY);
-            CommandQuery cq = cqHome.create();
+            CommandQuery cq = (CommandQuery)Util.createEJB(getInitialContext(), CommandQuery.class);
             setCurrentQueryList(cq.getQueriesForCommand(getCommandId(), getDb()));
         }
         return currentQueryList;

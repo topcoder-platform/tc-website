@@ -1,14 +1,11 @@
 package com.topcoder.web.query.request;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.query.common.AuthenticationException;
 import com.topcoder.web.query.common.Constants;
+import com.topcoder.web.query.common.Util;
 import com.topcoder.web.query.ejb.QueryServices.Command;
 import com.topcoder.web.query.ejb.QueryServices.CommandGroup;
-import com.topcoder.web.query.ejb.QueryServices.CommandGroupHome;
-import com.topcoder.web.query.ejb.QueryServices.CommandHome;
 import com.topcoder.web.common.BaseProcessor;
 
 import java.util.Enumeration;
@@ -52,11 +49,9 @@ public class ModifyCommand extends BaseProcessor {
 
     protected void businessProcessing() throws Exception {
         String step = request.getParameter(Constants.STEP_PARAM);
-        CommandHome cHome = (CommandHome) getInitialContext().lookup(ApplicationServer.Q_COMMAND);
-        Command c = cHome.create();
+        Command c = (Command)Util.createEJB(getInitialContext(), Command.class);
+        CommandGroup cg = (CommandGroup)Util.createEJB(getInitialContext(), CommandGroup.class);
 
-        CommandGroupHome cgHome = (CommandGroupHome) getInitialContext().lookup(ApplicationServer.Q_COMMAND_GROUP);
-        CommandGroup cg = cgHome.create();
 
         setGroups(cg.getAllCommandGroups(getDb()));
 
