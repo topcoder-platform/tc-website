@@ -47,6 +47,7 @@
 </head>
 
 <BODY>
+    
     <xsl:call-template name="Top" />
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -74,8 +75,140 @@
             </xsl:call-template>
 
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                <tr><td><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></td></tr>
+                <tr><td><A name="tco_des"><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></A></td></tr>
 
+                <tr>
+                    <xsl:variable name="priceFormat" select="'$###,###.00'" />
+                    <td class="bodyText" colspan="5">
+                        <p><strong>Only the projects below designated as TCO Component Projects qualify for the 2003 TCO Component Competition.</strong> 
+                        You must submit at least two projects, with at least one being a Level 2 project, to qualify. <A href="/index?t=tournaments&amp;c=tco03_comp_overview">Click here</A> 
+                        for more information about the 2003 TCO Component Competition. At the <A href="#comp_des">bottom</A> of this page are regular component projects that do not qualify for the TCO.</p>
+                    </td>
+                </tr>
+
+                <tr><td><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr>
+            </table>
+            
+            <table border="0" cellspacing="0" cellpadding="3" width="100%">
+
+<!-- TCO Design Begins -->
+                <tr>
+                    <td class="statText" colspan="6" bgcolor="#004B33"><a name="design"></a><font size="3"><strong>2003 TopCoder Open Component Design Projects</strong></font></td>
+                </tr>
+
+                <tr valign="middle">
+                    <td background="/i/graybv_bg.gif" width="30%" class="statTextLarge">Design Projects</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Catalog</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center"># of Inquiries</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Payment*</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Complexity</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Submit by</td>
+                </tr>
+                 
+                <xsl:variable name="priceFormat" select="'$###,###.00'" />
+                <xsl:variable name="design-phase" select="'112'" />
+                <xsl:variable name="dev-phase" select="'113'" />
+                <xsl:for-each select="/TC/DEVELOPMENT/projects/project">
+                    <xsl:if test="./phase_id=$design-phase">
+                        <xsl:variable name="initial_submission">
+                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template>
+                        </xsl:variable>
+                        <xsl:variable name="posting_date">
+                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="posting_date"/></xsl:call-template>
+                        </xsl:variable>
+                        <xsl:variable name="winner_announced">
+                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="winner_announced_date"/></xsl:call-template>
+                        </xsl:variable>
+                        <xsl:variable name="final_submission">
+                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="final_submission_date"/></xsl:call-template>
+                        </xsl:variable>
+                        <xsl:variable name="estimated_dev">
+                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="estimated_dev_date"/></xsl:call-template>
+                        </xsl:variable>
+                        <tr valign="top">
+                            <td class="formTextOdd">
+                                <a>
+                                    <xsl:attribute name="href"> 
+                                        <xsl:value-of select="concat('/index?t=development&amp;c=tcs_inquire-design&amp;comp=', ./component_id, '&amp;phase=', ./phase_id, '&amp;docId=', ./document_id, '&amp;version=', ./version, '&amp;payment=', ./price, '&amp;compvers=', ./comp_vers_id, '&amp;date=', $initial_submission, '&amp;final_submission=', $final_submission, '&amp;winner_announced=', $winner_announced, '&amp;posting_date=', $posting_date, '&amp;estimated_dev=', $estimated_dev)"/>
+                                    </xsl:attribute><xsl:value-of select="./component_name"/>
+                                    <xsl:if test="number(./version) &gt;  number('1')">
+                                        Version&#160;<xsl:value-of select="./version"/>
+                                    </xsl:if>
+                                </a>
+                            </td>
+                            <td class="formTextOdd" align="center"><xsl:value-of select="./catalog_name"/></td>
+                            <td class="formTextOdd" align="center"><xsl:value-of select="./total_inquiries"/></td>
+                            <td class="formTextOdd" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
+                            <td class="formTextOdd" align="center"><xsl:value-of select="./description"/></td>
+                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
+                        </tr>
+                    </xsl:if>
+                </xsl:for-each>
+
+                <tr>
+                    <td class="bodyText" colspan="5">*Total Payment (before royalties) </td>
+                </tr>
+
+                <tr><td colspan="5"><A name="tco_dev"><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></A></td></tr>
+<!-- TCO Design Ends -->
+
+<!-- TCO Development Begins -->
+                <tr>
+                    <td class="statText" colspan="6" bgcolor="#004B33"><font size="3"><strong>2003 TopCoder Open Component Development Projects</strong></font></td>
+                </tr>
+
+                <tr valign="middle">
+                    <td background="/i/graybv_bg.gif" width="30%" class="statTextLarge">Development Projects</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Catalog</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center"># of Inquiries</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Payment*</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Complexity</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Submit by</td>
+                </tr>
+
+                <xsl:for-each select="/TC/DEVELOPMENT/projects/project">
+                    <xsl:if test="./phase_id=$dev-phase">
+                        <xsl:variable name="initial_submission">
+                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template>
+                        </xsl:variable>
+                        <xsl:variable name="posting_date">
+                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="posting_date"/></xsl:call-template>
+                        </xsl:variable>
+                        <xsl:variable name="winner_announced">
+                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="winner_announced_date"/></xsl:call-template>
+                        </xsl:variable>
+                        <xsl:variable name="final_submission">
+                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="final_submission_date"/></xsl:call-template>
+                        </xsl:variable>
+
+                        <tr valign="top">
+                            <td class="formTextOdd">
+                                <a>
+                                    <xsl:attribute name="href"> 
+                                        <xsl:value-of select="concat('/index?t=development&amp;c=tcs_inquire-dev&amp;comp=', ./component_id, '&amp;docId=', ./document_id, '&amp;version=', ./version, '&amp;phase=', ./phase_id, '&amp;payment=', ./price, '&amp;compvers=', ./comp_vers_id, '&amp;date=', $initial_submission, '&amp;final_submission=', $final_submission, '&amp;winner_announced=', $winner_announced, '&amp;posting_date=', $posting_date)"/>
+                                    </xsl:attribute><xsl:value-of select="./component_name"/>
+                                    <xsl:if test="number(./version) &gt;  number('1')">
+                                        Version&#160;<xsl:value-of select="./version"/>
+                                    </xsl:if>
+                                </a>
+                            </td>
+                            <td class="formTextOdd" align="center"><xsl:value-of select="./catalog_name"/></td>
+                            <td class="formTextOdd" align="center"><xsl:value-of select="./total_inquiries"/></td>
+                            <td class="formTextOdd" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
+                            <td class="formTextOdd" align="center"><xsl:value-of select="./description"/></td>
+                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
+                        </tr>
+                    </xsl:if>
+                </xsl:for-each>
+
+                <tr>
+                    <td class="bodyText" colspan="5">*Total Payment (before royalties) </td>
+                </tr>
+
+                <tr><td colspan="5"><A name="comp_des"><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></A></td></tr>
+<!-- TCO Development Ends -->
+
+<!-- Open Component Design Projects begins -->
                 <tr>
                     <xsl:variable name="priceFormat" select="'$###,###.00'" />
                     <td class="bodyText" colspan="5">
@@ -85,11 +218,9 @@
                 </tr>
 
                 <tr><td><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr>
-            </table>
-
-            <table border="0" cellspacing="0" cellpadding="3" width="100%">
+                
                 <tr>
-                    <td class="statText" colspan="6" bgcolor="#999999"><a name="design"></a><font size="3"><strong>Open Component Design Projects</strong></font></td>
+                    <td class="statText" colspan="6" bgcolor="#999999"><font size="3"><strong>Component Design Projects</strong></font></td>
                 </tr>
 
 <!--                <tr valign="top">
@@ -152,7 +283,7 @@
                     <td class="bodyText" colspan="5">*Total Payment (before royalties) </td>
                 </tr>
 
-                <tr><td colspan="5"><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></td></tr>
+                <tr><td colspan="5"><A name="comp_dev"><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></A></td></tr>
 <!-- Open Component Design Projects ends -->
 
 <!-- Open Component Development Projects begins -->
@@ -163,7 +294,7 @@
                 </tr>  -->
 
                 <tr>
-                    <td class="statText" colspan="6" bgcolor="#999999"><a name="design"></a><font size="3"><strong>Open Component Development Projects</strong></font></td>
+                    <td class="statText" colspan="6" bgcolor="#999999"><font size="3"><strong>Component Development Projects</strong></font></td>
                 </tr>
 
                 <tr valign="middle">
