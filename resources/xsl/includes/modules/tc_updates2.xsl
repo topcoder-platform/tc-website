@@ -9,6 +9,8 @@
             </table>
 
             <table width="100%" border="0" cellspacing="0" cellpadding="4">   
+                <tr><td class="prHead"><A href="http://www.bayarea.com/mld/mercurynews/business/7269666.htm" target="_blank">Google puts coders to the test</A> [November 15]</td></tr>  
+
                 <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_11_12_03">TopCoder Announces Finalists in International Programming Tournament</A> [November 12]</td></tr>  
 
                 <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_11_06_03">AT&amp;T Foundation to Sponsor TopCoder Charity Tournament</A> [November 6]</td></tr>  
@@ -18,8 +20,6 @@
                 <tr><td class="prHead"><A href="http://www.masshightech.com/displayarticledetail.asp?Art_ID=63819" target="_blank">A Call for Leadership</A> [October 20]</td></tr>  
 
                 <tr><td class="prHead"><A href="http://www.cio.com/archive/101503/tl_winner.html" target="_blank">Winner's Circle for Sale</A> [October 15]</td></tr>  
-
-                <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_10_14_03">Talbots Licenses Component Catalog From TopCoder Software</A> [October 14]</td></tr>  
 
                 <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr> 
           </table>
