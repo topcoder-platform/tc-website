@@ -243,7 +243,7 @@ public class TCLoadTCS extends TCLoad {
                 log.info("PROCESSING USER " + rs.getInt("user_id"));
 
                 //update record, if 0 rows affected, insert record
-                sSQL = "update user_rating set rating = ?,  phase_id = ?, vol = ?, rating_no_vol = ?, num_ratings = ?, last_component_rated = ?, mod_date_time = CURRENT " +
+                sSQL = "update user_rating set rating = ?,  phase_id = ?, vol = ?, rating_no_vol = ?, num_ratings = ?, mod_date_time = CURRENT " +
                         " where user_id = ? and phase_id = ? ";
 
                 ps2 = prepareStatement(sSQL, TARGET_DB);
@@ -252,9 +252,9 @@ public class TCLoadTCS extends TCLoad {
                 ps2.setObject(3, rs.getObject("vol"));
                 ps2.setObject(4, rs.getObject("rating_no_vol"));
                 ps2.setObject(5, rs.getObject("num_ratings"));
-                ps2.setObject(6, rs.getObject("last_component_rated"));
-                ps2.setLong(7, rs.getLong("user_id"));
-                ps2.setObject(8, rs.getObject("phase_id"));
+                //ps2.setObject(6, rs.getObject("last_component_rated"));
+                ps2.setLong(6, rs.getLong("user_id"));
+                ps2.setObject(7, rs.getObject("phase_id"));
 
                 int retVal = ps2.executeUpdate();
 
@@ -264,7 +264,7 @@ public class TCLoadTCS extends TCLoad {
                 if(retVal == 0)
                 {
                     //need to insert
-                    sSQL = "insert into user_rating (user_id, rating, phase_id, vol, rating_no_vol, num_ratings, last_component_rated, mod_date_time, create_date_time) " +
+                    sSQL = "insert into user_rating (user_id, rating, phase_id, vol, rating_no_vol, num_ratings, mod_date_time, create_date_time) " +
                            "values (?, ?, ?, ?, ?, ?, ?, CURRENT, CURRENT) ";
 
                     ps2 = prepareStatement(sSQL, TARGET_DB);
@@ -274,7 +274,6 @@ public class TCLoadTCS extends TCLoad {
                     ps2.setObject(4, rs.getObject("vol"));
                     ps2.setObject(5, rs.getObject("rating_no_vol"));
                     ps2.setObject(6, rs.getObject("num_ratings"));
-                    ps2.setObject(7, rs.getObject("last_component_rated"));
 
                     ps2.execute();
 
@@ -436,7 +435,7 @@ public class TCLoadTCS extends TCLoad {
             ps.close();
             ps = null;
 
-            sSQL = "delete from project_result where project_id = ?";
+            /*sSQL = "delete from project_result where project_id = ?";
 
             ps = prepareStatement(sSQL, TARGET_DB);
             ps.setLong(1, project_id);
@@ -444,7 +443,7 @@ public class TCLoadTCS extends TCLoad {
             ps.execute();
 
             ps.close();
-            ps = null;
+            ps = null; */
 
             //insert project_result records for this project
             sSQL = "select pr.project_id, pr.user_id, " +
@@ -479,42 +478,77 @@ public class TCLoadTCS extends TCLoad {
 
             while(rs.next())
             {
-                 sSQL = "insert into project_result (project_id, user_id, submit_ind, valid_submission_ind, raw_score, final_score, inquire_timestamp," +
-                 " submit_timestamp, review_complete_timestamp, payment, old_rating, new_rating, old_reliability, new_reliability, placed, rating_ind, " +
-                 "reliability_ind ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
+                
+                 sSQL = "update project_result set submit_ind = ?, valid_submission_ind = ?, raw_score = ?, final_score = ?, inquire_timestamp = ?, " +
+                 "submit_timestamp = ?, review_complete_timestamp = ?, payment = ?, old_rating = ?, new_rating = ?, old_reliability = ?, new_reliability = ?, " +
+                 "placed = ?, rating_ind = ?, reliability_ind = ? where project_id = ? and user_id = ?";
+                
                  ps2 = prepareStatement(sSQL, TARGET_DB);
-
-                 ps2.setLong(1, project_id);
-                 ps2.setLong(2, rs.getLong("user_id"));
-                 ps2.setObject(3, rs.getObject("submit_ind"));
-                 ps2.setObject(4, rs.getObject("valid_submission_ind"));
-                 ps2.setObject(5, rs.getObject("raw_score"));
-                 ps2.setObject(6, rs.getObject("final_score"));
-                 ps2.setObject(7, rs.getObject("inquire_timestamp"));
-                 ps2.setObject(8, rs.getObject("submit_timestamp"));
-                 ps2.setObject(9, rs.getObject("review_completed_timestamp"));
-                 ps2.setObject(10, rs.getObject("payment"));
-                 ps2.setObject(11, rs.getObject("old_rating"));
-                 ps2.setObject(12, rs.getObject("new_rating"));
-                 ps2.setObject(13, rs.getObject("old_reliability"));
-                 ps2.setObject(14, rs.getObject("new_reliability"));
-                 ps2.setObject(15, rs.getObject("placed"));
-                 ps2.setObject(16, rs.getObject("rating_ind"));
-                 ps2.setObject(17, rs.getObject("reliability_ind"));
-
-                 ps2.execute();
-
+                 
+                 ps2.setObject(1, rs.getObject("submit_ind"));
+                 ps2.setObject(2, rs.getObject("valid_submission_ind"));
+                 ps2.setObject(3, rs.getObject("raw_score"));
+                 ps2.setObject(4, rs.getObject("final_score"));
+                 ps2.setObject(5, rs.getObject("inquire_timestamp"));
+                 ps2.setObject(6, rs.getObject("submit_timestamp"));
+                 ps2.setObject(7, rs.getObject("review_completed_timestamp"));
+                 ps2.setObject(8, rs.getObject("payment"));
+                 ps2.setObject(9, rs.getObject("old_rating"));
+                 ps2.setObject(10, rs.getObject("new_rating"));
+                 ps2.setObject(11, rs.getObject("old_reliability"));
+                 ps2.setObject(12, rs.getObject("new_reliability"));
+                 ps2.setObject(13, rs.getObject("placed"));
+                 ps2.setObject(14, rs.getObject("rating_ind"));
+                 ps2.setObject(15, rs.getObject("reliability_ind"));
+                 ps2.setLong(16, project_id);
+                 ps2.setLong(17, rs.getLong("user_id"));
+                 
+                 int retVal = ps2.executeUpdate();
+                 
                  ps2.close();
                  ps2 = null;
+                 
+                 if(retVal == 0)
+                 {
+                     sSQL = "insert into project_result (project_id, user_id, submit_ind, valid_submission_ind, raw_score, final_score, inquire_timestamp," +
+                     " submit_timestamp, review_complete_timestamp, payment, old_rating, new_rating, old_reliability, new_reliability, placed, rating_ind, " +
+                     "reliability_ind ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+                     ps2 = prepareStatement(sSQL, TARGET_DB);
+
+                     ps2.setLong(1, project_id);
+                     ps2.setLong(2, rs.getLong("user_id"));
+                     ps2.setObject(3, rs.getObject("submit_ind"));
+                     ps2.setObject(4, rs.getObject("valid_submission_ind"));
+                     ps2.setObject(5, rs.getObject("raw_score"));
+                     ps2.setObject(6, rs.getObject("final_score"));
+                     ps2.setObject(7, rs.getObject("inquire_timestamp"));
+                     ps2.setObject(8, rs.getObject("submit_timestamp"));
+                     ps2.setObject(9, rs.getObject("review_completed_timestamp"));
+                     ps2.setObject(10, rs.getObject("payment"));
+                     ps2.setObject(11, rs.getObject("old_rating"));
+                     ps2.setObject(12, rs.getObject("new_rating"));
+                     ps2.setObject(13, rs.getObject("old_reliability"));
+                     ps2.setObject(14, rs.getObject("new_reliability"));
+                     ps2.setObject(15, rs.getObject("placed"));
+                     ps2.setObject(16, rs.getObject("rating_ind"));
+                     ps2.setObject(17, rs.getObject("reliability_ind"));
+
+                     ps2.execute();
+
+                     ps2.close();
+                     ps2 = null;
+                     
+                 }
             }
 
             rs.close();
             rs = null;
             ps.close();
             ps = null;
+           
             //load submission_review
-            sSQL = "delete from submission_review where project_id = ?";
+            /*sSQL = "delete from submission_review where project_id = ?";
 
             ps = prepareStatement(sSQL, TARGET_DB);
             ps.setLong(1, project_id);
@@ -522,7 +556,7 @@ public class TCLoadTCS extends TCLoad {
             ps.execute();
 
             ps.close();
-            ps = null;
+            ps = null;*/
 
             //insert project_result records for this project
             sSQL = "select sc.project_id, " +
@@ -545,23 +579,44 @@ public class TCLoadTCS extends TCLoad {
 
             while(rs.next())
             {
-                 sSQL = "insert into submission_review (project_id, user_id, reviewer_id, raw_score, final_score, num_appeals," +
-                 "num_successful_appeals ) values (?, ?, ?, ?, ?, ?, ?)";
-
+                 sSQL = "update submission_review set reviewer_id = ?, raw_score = ?, final_score = ?, num_appeals = ?, num_successful_appeals = ? " +
+                 "where project_id = ? and user_id = ?";
+                
                  ps2 = prepareStatement(sSQL, TARGET_DB);
 
-                 ps2.setLong(1, project_id);
-                 ps2.setLong(2, rs.getLong("user_id"));
-                 ps2.setLong(3, rs.getLong("reviewer_id"));
-                 ps2.setObject(4, rs.getObject("raw_score"));
-                 ps2.setObject(5, rs.getObject("final_score"));
-                 ps2.setObject(6, rs.getObject("num_appeals"));
-                 ps2.setObject(7, rs.getObject("num_successful_appeals"));
+                 ps2.setLong(1, rs.getLong("reviewer_id"));
+                 ps2.setObject(2, rs.getObject("raw_score"));
+                 ps2.setObject(3, rs.getObject("final_score"));
+                 ps2.setObject(4, rs.getObject("num_appeals"));
+                 ps2.setObject(5, rs.getObject("num_successful_appeals"));
+                 ps2.setLong(6, project_id);
+                 ps2.setLong(7, rs.getLong("user_id"));
 
-                 ps2.execute();
+                 int retVal = ps2.executeUpdate();
 
                  ps2.close();
                  ps2 = null;
+                 
+                 if(retVal == 0)
+                 {
+                     sSQL = "insert into submission_review (project_id, user_id, reviewer_id, raw_score, final_score, num_appeals," +
+                     "num_successful_appeals ) values (?, ?, ?, ?, ?, ?, ?)";
+
+                     ps2 = prepareStatement(sSQL, TARGET_DB);
+
+                     ps2.setLong(1, project_id);
+                     ps2.setLong(2, rs.getLong("user_id"));
+                     ps2.setLong(3, rs.getLong("reviewer_id"));
+                     ps2.setObject(4, rs.getObject("raw_score"));
+                     ps2.setObject(5, rs.getObject("final_score"));
+                     ps2.setObject(6, rs.getObject("num_appeals"));
+                     ps2.setObject(7, rs.getObject("num_successful_appeals"));
+
+                     ps2.execute();
+
+                     ps2.close();
+                     ps2 = null;
+                 }
             }
 
             rs.close();
