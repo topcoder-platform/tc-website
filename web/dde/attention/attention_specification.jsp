@@ -17,7 +17,7 @@
 <%
     // STANDARD PAGE VARIABLES
     String page_name = "error_specification.jsp";
-    String action = request.getParameter("a");    
+    String action = request.getParameter("a");
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -32,7 +32,7 @@
 <body class="body">
 
 <!-- Header begins -->
-<%@ include file="/includes/top.jsp" %>
+<jsp:include page="/includes/top.jsp"/>
 <jsp:include page="/includes/menu.jsp" >
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
@@ -60,10 +60,10 @@
                 <tr><td class="normal"><img src="/images/headAttention.gif" alt="Attention" width="545" height="35" border="0" /></td></tr>
                 <tr><td class="subhead">You need permission to participate in this Developer Forum</td></tr>
                 <tr><td class="normal">
-                        <p>TopCoder Software selects a few experienced individuals to participate in each Developer Forum. You always have access 
+                        <p>TopCoder Software selects a few experienced individuals to participate in each Developer Forum. You always have access
                         to <a href="c_active_collab.jsp">Customer Forums.</a></p>
 
-                        <p>Contact us at <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a> to find out how you 
+                        <p>Contact us at <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a> to find out how you
                         can participate in future Developer Forums.</p>
                     </td>
                 </tr>
@@ -76,7 +76,7 @@
 <!-- Gutter 3 ends -->
     </tr>
 </table>
-    
+
 <!-- Footer begins -->
 <jsp:include page="/includes/foot.jsp" flush="true" />
 <!-- Footer ends -->

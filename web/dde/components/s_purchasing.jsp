@@ -14,7 +14,7 @@
 <%
     // STANDARD PAGE VARIABLES
     String page_name = "s_purchasing.jsp";
-    String action = request.getParameter("a");    
+    String action = request.getParameter("a");
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -29,7 +29,7 @@
 <body class="body">
 
 <!-- Header begins -->
-<%@ include file="/includes/top.jsp" %>
+<jsp:include page="/includes/top.jsp"/>
 <jsp:include page="/includes/menu.jsp" >
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
@@ -68,47 +68,47 @@
                 <tr><td class="normal"><img src="/images/headLearnComponents.gif" alt="Learn About Components" width="545" height="32" border="0" /></td></tr>
                 <tr><td class="subhead">Affordable Software Solutions</td></tr>
                 <tr><td class="normal">
-                        <p>The key to success in driving down the cost of high quality software applications is in the re-use of software components. 
-                        The most efficient (cost effective) method for component re-use is to utilize components that exist in an environment 
+                        <p>The key to success in driving down the cost of high quality software applications is in the re-use of software components.
+                        The most efficient (cost effective) method for component re-use is to utilize components that exist in an environment
                         where multiple organizations share the cost of component development.</p>
 
-                        <p>If a component does not exist within your development environment, the two alternative choices are to buy or to build. 
-                        Buying components allows your internal software development resources, or external integration partners, to concentrate 
+                        <p>If a component does not exist within your development environment, the two alternative choices are to buy or to build.
+                        Buying components allows your internal software development resources, or external integration partners, to concentrate
                         on the customization necessary to give your company a competitive advantage.</p>
 
-                        <p>Internal resources are typically constrained, while external resources are costly. Purchasing re-usable components 
-                        improves the productivity of those resources. In addition, the leverage that TopCoder Software gets from marketing 
+                        <p>Internal resources are typically constrained, while external resources are costly. Purchasing re-usable components
+                        improves the productivity of those resources. In addition, the leverage that TopCoder Software gets from marketing
                         components to multiple customers allows those components to be sold for less.</p>
 
                         <p><span class="normalHead"><strong>Thinking outside the box</strong></span><br />
-                        TopCoder Software offers several services in addition to our Component Catalog. These services provide valuable enhancements to 
+                        TopCoder Software offers several services in addition to our Component Catalog. These services provide valuable enhancements to
                         our components if you need them:</p>
-                        
+
                         <p><strong>Component Management Services</strong><br />
-                        TopCoder employs component development experts as Product Managers. Product Managers are responsible 
-                        for managing the components developed by the TopCoder Member Base using the TopCoder Component Development 
-                        Methodology.  Product Managers are available to you to help maximize the value of the Component Catalog.  They 
-                        will identify component opportunities and specify component requirements.  Their extensive knowledge of the Component Catalog 
-                        allows them to identify the components that will be of the highest value to you. You already get three days of 
+                        TopCoder employs component development experts as Product Managers. Product Managers are responsible
+                        for managing the components developed by the TopCoder Member Base using the TopCoder Component Development
+                        Methodology.  Product Managers are available to you to help maximize the value of the Component Catalog.  They
+                        will identify component opportunities and specify component requirements.  Their extensive knowledge of the Component Catalog
+                        allows them to identify the components that will be of the highest value to you. You already get three days of
                         Component Management Services FREE with a subscription to the Component Catalog. Additional time can be purchased separately.</p>
 
                         <!-- <p><strong>Component Customization (comment this out)</strong><br />
-                        TopCoder Software Components are built with re-usability as the highest priority.  They have been painstakingly developed to 
-                        encourage extension and customization.  Generic TopCoder components will often be extended and customized to meet a specific 
-                        customerÕs needs.  TopCoder is available to extend and customize catalog components for individual customers. -->
+                        TopCoder Software Components are built with re-usability as the highest priority.  They have been painstakingly developed to
+                        encourage extension and customization.  Generic TopCoder components will often be extended and customized to meet a specific
+                        customerï¿½s needs.  TopCoder is available to extend and customize catalog components for individual customers. -->
 
                         <p><strong>Component Integration</strong><br />
-                        TopCoder is constantly integrating components into both internal applications and more complex components for the Component 
-                        Catalog.  In cases where you need help integrating TopCoder Components into your organization, TopCoder Software Integration 
+                        TopCoder is constantly integrating components into both internal applications and more complex components for the Component
+                        Catalog.  In cases where you need help integrating TopCoder Components into your organization, TopCoder Software Integration
                         Teams are available to help.</p>
 
                         <p><strong>Productivity Tools</strong><br />
-                        TopCoder Software is developing productivity tools to help improve the development process. The first tool is the TopCoder Rules 
-                        Engine. The Rules Engine centralizes and manages business logic for use in multiple applications. The Rules Engine is available 
+                        TopCoder Software is developing productivity tools to help improve the development process. The first tool is the TopCoder Rules
+                        Engine. The Rules Engine centralizes and manages business logic for use in multiple applications. The Rules Engine is available
                         for purchase separately from the component catalog.</p>
 
                         <p>Get the <a href="s_subscriptions.jsp" class="bodyText">subscription details</a>.</p>
-                        
+
                         <p>&#160;</p>
 
                         <p>See what is available today. Visit our <a href="c_showroom.jsp">Component Sales Catalog</a></p>
@@ -126,7 +126,7 @@
 <!-- Gutter 3 ends -->
     </tr>
 </table>
-    
+
 <!-- Footer begins -->
 <jsp:include page="/includes/foot.jsp" flush="true" />
 <!-- Footer ends -->

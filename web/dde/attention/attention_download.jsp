@@ -17,7 +17,7 @@
 <%
     // STANDARD PAGE VARIABLES
     String page_name = "error_download.jsp";
-    String action = request.getParameter("a");    
+    String action = request.getParameter("a");
 %>
 
 <html>
@@ -25,7 +25,7 @@
     <title>TopCoder Software</title>
 
 <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css">
-  
+
 <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js">
 </script>
 
@@ -34,7 +34,7 @@
 <body class="body" marginheigh="0" marginwidth="0">
 
 <!-- Header begins -->
-<%@ include file="/includes/top.jsp" %>
+<jsp:include page="/includes/top.jsp"/>
 <jsp:include page="/includes/menu.jsp" >
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
@@ -56,7 +56,7 @@
 <!-- Gutter ends -->
     </tr>
 </table>
-    
+
 <!-- Footer begins -->
 <jsp:include page="/includes/foot.jsp" flush="true" />
 <!-- Footer ends -->

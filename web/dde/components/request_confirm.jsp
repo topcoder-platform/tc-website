@@ -14,7 +14,7 @@
 <%
     // STANDARD PAGE VARIABLES
     String page_name = "request_confirm.jsp";
-    String action = request.getParameter("a");    
+    String action = request.getParameter("a");
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -29,7 +29,7 @@
 <body class="body">
 
 <!-- Header begins -->
-<%@ include file="/includes/top.jsp" %>
+<jsp:include page="/includes/top.jsp"/>
 <jsp:include page="/includes/menu.jsp" >
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
@@ -58,7 +58,7 @@
                 <tr><td class="normal"><img src="/images/headRequestNewComp.gif" alt="Request a New Component" width="545" height="32" border="0" /></td></tr>
                 <tr><td class="subhead">Confirmation</td></tr>
                 <tr><td class="normal">
-                        <p>Thank you. We have received your request and will process it over the next few days. If we decide to add your 
+                        <p>Thank you. We have received your request and will process it over the next few days. If we decide to add your
                         component idea to the TopCoder Software catalog, we will notify you by email.</p>
 
                         <p>Contact us at <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a> for more information. </p>
@@ -73,7 +73,7 @@
 <!-- Gutter 3 ends -->
     </tr>
 </table>
-    
+
 <!-- Footer begins -->
 <jsp:include page="/includes/foot.jsp" flush="true" />
 <!-- Footer ends -->

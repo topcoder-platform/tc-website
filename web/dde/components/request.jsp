@@ -14,7 +14,7 @@
 <%
     // STANDARD PAGE VARIABLES
     String page_name = "request.jsp";
-    String action = request.getParameter("a");    
+    String action = request.getParameter("a");
 %>
 
 <% // PAGE SPECIFIC DECLARATIONS %>
@@ -39,7 +39,7 @@
     fieldsRequest.add("name", new Field("Name", "name", "", true));
     fieldsRequest.add("desc", new Field("Description", "desc",  "", true));
     fieldsRequest.add("comments", new Field("Comments", "comments",  "", false));
-        
+
     boolean requestError = false;
     String strRequestError = "";
     String strRequestMsg = "";
@@ -64,7 +64,7 @@
                     catalog.requestComponent(
                                 new ComponentRequest(
                                     fieldsRequest.get("name").getValue(),
-                                    "",                     // Short description 
+                                    "",                     // Short description
                                     fieldsRequest.get("desc").getValue(),
                                     "",                     // Functional description
                                     "",                     // keywords
@@ -94,7 +94,7 @@
 <html>
 <head>
     <title>TopCoder Software</title>
- 
+
 <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css">
 
 <script language="JavaScript" src="/scripts/javascript.js">
@@ -105,7 +105,7 @@
 <body class="body" marginheight="0" marginwidth="0" onLoad="frmCompRequest.name.focus()">
 
 <!-- Header begins -->
-<%@ include file="/includes/top.jsp" %>
+<jsp:include page="/includes/top.jsp"/>
 <jsp:include page="/includes/menu.jsp" >
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
@@ -134,7 +134,7 @@
                 <tr><td class="normal"><img src="/images/headComponents.gif" alt="Components" width="545" height="32" border="0" /></td></tr>
                 <tr><td class="subhead">Suggest a Component</td></tr>
             </table>
-            
+
             <div align="center">
             <img src="/images/clear.gif" alt="" width="530" height="15" border="0"/>
             <table border="0" cellpadding="0" cellspacing="0"><form name="frmCompRequest" action="<%=page_name%>" method="post">
@@ -149,18 +149,18 @@
                     <td class="registerLabel"><%=fieldsRequest.get("name").getLabel()%><br/>
                         <input type="text" class="registerElement" name="<%=fieldsRequest.get("name").getName()%>" value="" size="40" maxlength="50"></td>
                 </tr>
-                            
+
 <!-- Description Error Text -->
                 <tr>
                     <td class="registerError"><%=fieldsRequest.get("desc").getError()%></td>
                 </tr>
-                            
+
 <!-- Description Field -->
                 <tr>
                     <td class="registerLabel"><%=fieldsRequest.get("desc").getLabel()%><br/>
                         <textarea class="registerElement" name="<%=fieldsRequest.get("desc").getName()%>" value="" cols="40" rows="6"></textarea></td>
                 </tr>
-                            
+
 <!-- Comment Field -->
                 <tr>
                     <td class="registerLabel"><%= fieldsRequest.get("comments").getLabel() %><br/>
@@ -172,9 +172,9 @@
                 </tr>
             </form></table>
             </div>
-            
-            <p><br/></p>        
-        
+
+            <p><br/></p>
+
         </td>
 <!-- Middle Column ends -->
 </form>
@@ -196,7 +196,7 @@
 <!-- Gutter 3 ends -->
     </tr>
 </table>
-    
+
 <jsp:include page="/includes/foot.jsp" flush="true" />
 
 </body>

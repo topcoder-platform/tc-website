@@ -1,9 +1,10 @@
 <%@ page import="com.topcoder.dde.util.Constants"%>
+<%@ page language="java"  %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<%@ include file="../includes/util.jsp" %>
-<%@ include file="../includes/session.jsp" %>
+<%@ include file="/includes/util.jsp" %>
+<%@ include file="/includes/session.jsp" %>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -15,7 +16,7 @@
 <body class="body">
 
 <!-- Header begins -->
-<%@ include file="../includes/top.jsp" %>
+<jsp:include page="/includes/top.jsp"/>
 <jsp:include page="../includes/menu.jsp" >
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>

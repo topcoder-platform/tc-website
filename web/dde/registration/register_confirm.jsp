@@ -15,7 +15,7 @@
 <%
     // STANDARD PAGE VARIABLES
     String page_name = "register_confirm.jsp";
-    String action = request.getParameter("a");    
+    String action = request.getParameter("a");
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -30,7 +30,7 @@
 <body class="body">
 
 <!-- Header begins -->
-<%@ include file="/includes/top.jsp" %>
+<jsp:include page="/includes/top.jsp"/>
 <jsp:include page="/includes/menu.jsp" >
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
@@ -58,13 +58,13 @@
                 <tr><td class="normal"><img src="/images/headRegNewAcct.gif" alt="Register New Account" width="545" height="35" border="0" /></td></tr>
                 <tr><td class="subhead">Activate your New Account</td></tr>
             </table>
-                
+
             <table width="100%" cellpadding="0" cellspacing="6" align="center" border="0">
                 <tr valign="top">
                     <td class="normal">
                         <p><strong>Thank you for registering your New TopCoder Software Account.</strong></p>
 
-                        <p>A confirmation email has been sent to the email address that you provided to us on the New Account Registration 
+                        <p>A confirmation email has been sent to the email address that you provided to us on the New Account Registration
                         Form. When you receive that email, click the link at the bottom of the email to Activate your account.</p>
 
                         <p>If you have any questions about Activating your TopCoder Software Account, call us at 866-TOP-CODE (866-867-2633).</p>
@@ -95,7 +95,7 @@
 <!-- Footer ends -->
     </tr>
 </table>
-    
+
 <!-- Footer begins -->
 <jsp:include page="/includes/foot.jsp" flush="true" />
 <!-- Footer ends -->

@@ -40,7 +40,7 @@
 <body class="body" marginheight="0" marginwidth="0">
 
 <!-- Header begins -->
-<%@ include file="/includes/top.jsp" %>
+<jsp:include page="/includes/top.jsp"/>
 <jsp:include page="/includes/menu.jsp" >
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
@@ -74,7 +74,7 @@
             <form action="/catalog/c_showroom_search.jsp" method="post" name="frmSiteSearch">
             <input type="hidden" name="a" value="search"/>
             <table width="80%" border="0" cellpadding="0" cellspacing="1" align="center" class="forumBkgd">
-                
+
                 <tr valign="top"><td class="forumTitle">Status</td></tr>
 
                 <tr valign="top">
@@ -84,9 +84,9 @@
 <!-- Status begins -->
                             <tr valign="middle">
                                 <td width="49%"><input type="checkbox" name="status_all" value="true" onclick="checkallclicked(this, comp_status)"/><font color="#CC0000"><strong> Select All</strong></font></td>
-                                
+
                                 <td width="10"><img src="/images/clear.gif" width="10" height="3" alt="" border="0"></td>
-                                
+
                                 <td width="49%"> </td>
                             </tr>
 
@@ -95,9 +95,9 @@
                                     <input type="checkbox" name="comp_status" value="<%= ComponentVersionInfo.COLLABORATION %>" onclick="singleclicked(this, status_all)" /> Collaboration<br>
                                     <input type="checkbox" name="comp_status" value="<%= ComponentVersionInfo.SPECIFICATION %>" onclick="singleclicked(this, status_all)" /> Design and Architecture<br>
                                 </td>
-                                
+
                                 <td width="10"><img src="/images/clear.gif" width="10" height="3" alt="" border="0"></td>
-                                
+
                                 <td width="49%">
                                     <input type="checkbox" name="comp_status" value="<%= ComponentVersionInfo.DEVELOPMENT %>" onclick="singleclicked(this, status_all)" /> Development and Testing<br>
                                     <input type="checkbox" name="comp_status" value="<%= ComponentVersionInfo.COMPLETED %>" onclick="singleclicked(this, status_all)" /> Complete<br>
@@ -120,9 +120,9 @@
 <!-- Catalog begins -->
                             <tr valign="middle">
                                 <td width="49%"><input type="checkbox" name="catalog_all" value="true"  onclick="checkallclicked(this, catalog)"/><font color="#CC0000"><strong> Select All</strong></font></td>
-                                
+
                                 <td width="10"><img src="/images/clear.gif" width="10" height="3" alt="" border="0"></td>
-                                
+
                                 <td width="49%"> </td>
                             </tr>
 
@@ -135,15 +135,15 @@
                                 <td width="49%"><input type="checkbox" name="catalog" value="<%= baseCategories[i].getId() %>" onclick="singleclicked(this, catalog_all)" /> <%= baseCategories[i].getName() %></td>
 <% } else { %>
                                 <td width="10"><img src="/images/clear.gif" width="10" height="3" alt="" border="0"></td>
-                                
+
                                 <td width="49%"><input type="checkbox" name="catalog" value="<%= baseCategories[i].getId() %>" onclick="singleclicked(this, catalog_all)" /> <%= baseCategories[i].getName() %></td>
                             </tr>
 <%      }
     }
-    if (baseCategories.length % 2 == 1) { 
+    if (baseCategories.length % 2 == 1) {
  %>
                                 <td width="10"><img src="/images/clear.gif" width="10" height="3" alt="" border="0"></td>
-                                
+
                                 <td width="49%"> </td>
                             </tr>
 <%  }  %>
@@ -164,9 +164,9 @@
 <!-- Technology begins -->
                             <tr valign="middle">
                                 <td width="49%"><input type="checkbox" name="technology_all" value="true" onclick="checkallclicked(this, technology)" /><font color="#CC0000"><strong> Select All</strong></font></td>
-                                
+
                                 <td width="10"><img src="/images/clear.gif" width="10" height="3" alt="" border="0"></td>
-                                
+
                                 <td width="49%"> </td>
                             </tr>
 
@@ -179,15 +179,15 @@
                                 <td width="49%"><input type="checkbox" name="technology" value="<%= technologies[i].getId() %>" onclick="singleclicked(this, technology_all)" /> <%= technologies[i].getName() %></td>
 <% } else { %>
                                 <td width="10"><img src="/images/clear.gif" width="10" height="3" alt="" border="0"></td>
-                                
+
                                 <td width="49%"><input type="checkbox" name="technology" value="<%= technologies[i].getId() %>" onclick="singleclicked(this, technology_all)" /> <%= technologies[i].getName() %></td>
                             </tr>
 <%      }
     }
-    if (technologies.length % 2 == 1) { 
+    if (technologies.length % 2 == 1) {
 %>
                                 <td width="10"><img src="/images/clear.gif" width="10" height="3" alt="" border="0"></td>
-                                
+
                                 <td width="49%"> </td>
                             </tr>
 <%  }  %>
@@ -207,9 +207,9 @@
  <!-- Caterogy begins -->
                             <tr valign="middle">
                                 <td width="49%"><input type="checkbox" name="category_all" value="true" onclick="checkallclicked(this, category)" /><font color="#CC0000"><strong> Select All</strong></font></td>
-                                
+
                                 <td width="10"><img src="/images/clear.gif" width="10" height="3" alt="" border="0"></td>
-                                
+
                                 <td width="49%"> </td>
                             </tr>
 
@@ -222,7 +222,7 @@
                                 <td width="49%"><input type="checkbox" name="category" value="<%= categories[i] %>" onclick="singleclicked(this, category_all)" /> <%= categories[i] %></td>
 <% } else { %>
                                 <td width="10"><img src="/images/clear.gif" width="10" height="3" alt="" border="0"></td>
-                                
+
                                 <td width="49%"><input type="checkbox" name="category" value="<%= categories[i] %>" onclick="singleclicked(this, category_all)" /> <%= categories[i] %></td>
                             </tr>
 <%      }
@@ -230,7 +230,7 @@
     if (categories.length % 2 == 1) {
 %>
                                 <td width="10"><img src="/images/clear.gif" width="10" height="3" alt="" border="0"></td>
-                                
+
                                 <td width="49%"> </td>
                             </tr>
 <%  }  %>

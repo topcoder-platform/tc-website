@@ -14,7 +14,7 @@
 <%
     // STANDARD PAGE VARIABLES
     String page_name = "s_terms.jsp";
-    String action = request.getParameter("a");    
+    String action = request.getParameter("a");
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -29,7 +29,7 @@
 <body class="body">
 
 <!-- Header begins -->
-<%@ include file="/includes/top.jsp" %>
+<jsp:include page="/includes/top.jsp"/>
 <jsp:include page="/includes/menu.jsp" >
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
@@ -65,22 +65,22 @@
                 <tr><td class="normal">
                         <p>&nbsp;</p>
 
-                        <p>By using this Web site you are indicating your agreement to these Terms of Use ("Terms"). If you do not agree to these Terms, 
+                        <p>By using this Web site you are indicating your agreement to these Terms of Use ("Terms"). If you do not agree to these Terms,
                         please do not use the site and exit now.</p>
 
-                        <p>This site is controlled and operated by TopCoder Software, Inc. from its offices within the United States of America.  We make 
-                        no representation that materials in the site are appropriate or available for use in other locations. Those who choose to access this 
-                        site from other locations do so on their own initiative and are responsible for compliance with local laws, if and to the extent local 
-                        laws are applicable. Software from this site is subject to U.S. export controls.  No software from this site may be downloaded or 
+                        <p>This site is controlled and operated by TopCoder Software, Inc. from its offices within the United States of America.  We make
+                        no representation that materials in the site are appropriate or available for use in other locations. Those who choose to access this
+                        site from other locations do so on their own initiative and are responsible for compliance with local laws, if and to the extent local
+                        laws are applicable. Software from this site is subject to U.S. export controls.  No software from this site may be downloaded or
                         otherwise exported or reexported into (or to a national or resident of) Cuba, Iraq, Libya, North Korea, Iran, Syria or any other
-                        country to which the U.S. has embargoed goods or to anyone on the U.S. Treasury Department's list of Specially Designated National 
-                        or the U.S. Commerce Department's Table of Deny Orders.  By downloading or using the software, you represent and warrant that 
+                        country to which the U.S. has embargoed goods or to anyone on the U.S. Treasury Department's list of Specially Designated National
+                        or the U.S. Commerce Department's Table of Deny Orders.  By downloading or using the software, you represent and warrant that
                         you are not located in, under the control of, or a national or resident of any such country or on any such list.</p>
 
-                        <p>We may revise these Terms at any time without prior notice by updating this page and such revisions will be effective upon 
-                        posting to this page. Please check this page periodically for any changes. Your continued use of this Web site following the 
-                        posting of any revisions to these Terms will mean you accept those changes. We reserve the right to alter, suspend or 
-                        discontinue any aspect of software.topcoder.com, including your access to it. Unless explicitly stated, any new features will 
+                        <p>We may revise these Terms at any time without prior notice by updating this page and such revisions will be effective upon
+                        posting to this page. Please check this page periodically for any changes. Your continued use of this Web site following the
+                        posting of any revisions to these Terms will mean you accept those changes. We reserve the right to alter, suspend or
+                        discontinue any aspect of software.topcoder.com, including your access to it. Unless explicitly stated, any new features will
                         be subject to these terms and conditions.</p>
 
                         <p><strong>Privacy</strong><br />
@@ -89,27 +89,27 @@
                         <p><strong>Copyright, Trademark And Other Intellectual Property</strong></p>
 
                         <p><strong>Protection</strong><br />
-                        Except as otherwise indicated, this Web site and its entire contents (including, but not limited to, the text, information, software, 
-                        graphics, images, sound, and animation) are owned by us and are protected by domestic and international copyright, trademark, 
-                        patent, and other intellectual property laws. All copyrightable text and graphics, the selection, arrangement, and presentation of 
-                        all materials (including information in the public domain), and the overall design of this Web site are &#169;2002 TopCoder 
-                        Software. All rights reserved. Permission is granted to download and print materials from this Web site for the sole purposes of 
-                        viewing, reading, and retaining for reference. Any other copying, distribution, retransmission, or modification of information or 
-                        materials on this Web site, whether in electronic or other form, without our express prior written permission is strictly 
+                        Except as otherwise indicated, this Web site and its entire contents (including, but not limited to, the text, information, software,
+                        graphics, images, sound, and animation) are owned by us and are protected by domestic and international copyright, trademark,
+                        patent, and other intellectual property laws. All copyrightable text and graphics, the selection, arrangement, and presentation of
+                        all materials (including information in the public domain), and the overall design of this Web site are &#169;2002 TopCoder
+                        Software. All rights reserved. Permission is granted to download and print materials from this Web site for the sole purposes of
+                        viewing, reading, and retaining for reference. Any other copying, distribution, retransmission, or modification of information or
+                        materials on this Web site, whether in electronic or other form, without our express prior written permission is strictly
                         prohibited.</p>
 
                         <p><strong>Notice</strong><br />
-                        All trademarks, service marks, and trade names are proprietary to us or other respective owners that have granted us the right 
+                        All trademarks, service marks, and trade names are proprietary to us or other respective owners that have granted us the right
                         and license to use their marks.</p>
 
                         <p><strong>Copyright Complaints</strong><br />
-                            We respect the intellectual property of others, and we ask you to do the same. We may, in appropriate circumstances and at 
+                            We respect the intellectual property of others, and we ask you to do the same. We may, in appropriate circumstances and at
                             our sole discretion, terminate the access of users who infringe the copyright rights of others.</p>
 
-                        <p>If you believe that your work has been copied and is accessible at our Web site in a way that constitutes copyright 
-                        infringement, or that our Web site contains links or other references to another online location that contains material or 
-                        activity that infringes your copyright rights, you may notify us by providing our copyright agent the information required 
-                        by the U.S. Online Copyright Infringement Liability Limitation Act of the U.S. Digital Millennium Copyright Act, 17 U.S.C. ?512 
+                        <p>If you believe that your work has been copied and is accessible at our Web site in a way that constitutes copyright
+                        infringement, or that our Web site contains links or other references to another online location that contains material or
+                        activity that infringes your copyright rights, you may notify us by providing our copyright agent the information required
+                        by the U.S. Online Copyright Infringement Liability Limitation Act of the U.S. Digital Millennium Copyright Act, 17 U.S.C. ?512
                         Our agent for notice of claims of copyright infringement on or regarding this Web site can be reached as follows:</p>
 
                         <p>By email: <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a><br />
@@ -122,29 +122,29 @@
                         <p>Repeat infringers will be blocked from accessing the TopCoder Software web site.</p>
 
                         <p><strong>Indemnification and Release</strong><br />
-                        By accessing our Web site, you agree to indemnify us and any parent, subsidiary or affiliated entities, our officers and 
-                        employees, and officers and employees of any parent, subsidiary or affiliated entities and hold them harmless from any and 
-                        all claims and expenses, including attorney's fees, arising from your use of our Web site including any material (including 
-                        third party material) that you post on our Web site and any services or products available through our Web site. In addition, 
-                        you hereby release us and any parent, subsidiary or affiliated entities, our officers and employees, and officers and employees 
-                        of any parent, subsidiary or affiliated entities from any and all claims, demands, debts, obligations, damages (actual or 
-                        consequential), costs, and expenses of any kind or nature whatsoever, whether known or unknown, suspected or unsuspected, 
-                        disclosed or undisclosed, that you may have against them arising out of or in any way related to such disputes and/or to any 
+                        By accessing our Web site, you agree to indemnify us and any parent, subsidiary or affiliated entities, our officers and
+                        employees, and officers and employees of any parent, subsidiary or affiliated entities and hold them harmless from any and
+                        all claims and expenses, including attorney's fees, arising from your use of our Web site including any material (including
+                        third party material) that you post on our Web site and any services or products available through our Web site. In addition,
+                        you hereby release us and any parent, subsidiary or affiliated entities, our officers and employees, and officers and employees
+                        of any parent, subsidiary or affiliated entities from any and all claims, demands, debts, obligations, damages (actual or
+                        consequential), costs, and expenses of any kind or nature whatsoever, whether known or unknown, suspected or unsuspected,
+                        disclosed or undisclosed, that you may have against them arising out of or in any way related to such disputes and/or to any
                         services or products available at our Web site. You hereby agree to waive all laws that may limit the efficacy of such releases.</p>
 
                         <p><strong>Disclaimer</strong><br />
-                        The materials and services on our web site are provided "as is" and without warranties of any kind either 
-                        express or implied. To the fullest extent permissible pursuant to applicable law, we disclaim all 
-                        warranties, express or implied, including, but not limited to, implied warranties of merchantability and 
-                        fitness for a particular purpose. We do not warrant that the functions contained in the materials will be 
-                        uninterrupted or error-free, that defects will be corrected, or that this web site or the server(s) that 
-                        makes our web site available or any advertised or hyperlinked site are free of viruses or other harmful 
-                        components or that our site, server(s), advertised or hyperlinked sites will be accessible at all times. 
-                        We do not warrant that such errors, defects or interruptions in service will not affect the results of 
-                        our competitions, and we disclaim any responsibility for reduced performance in competitions due to such 
-                        problems. We do not warrant or make any representations regarding the use or the results of our web site 
-                        with respect to correctness, accuracy, reliability or otherwise. You assume the entire cost of all necessary 
-                        servicing, repair or correction. To the extent that applicable law may not allow the exclusion of implied 
+                        The materials and services on our web site are provided "as is" and without warranties of any kind either
+                        express or implied. To the fullest extent permissible pursuant to applicable law, we disclaim all
+                        warranties, express or implied, including, but not limited to, implied warranties of merchantability and
+                        fitness for a particular purpose. We do not warrant that the functions contained in the materials will be
+                        uninterrupted or error-free, that defects will be corrected, or that this web site or the server(s) that
+                        makes our web site available or any advertised or hyperlinked site are free of viruses or other harmful
+                        components or that our site, server(s), advertised or hyperlinked sites will be accessible at all times.
+                        We do not warrant that such errors, defects or interruptions in service will not affect the results of
+                        our competitions, and we disclaim any responsibility for reduced performance in competitions due to such
+                        problems. We do not warrant or make any representations regarding the use or the results of our web site
+                        with respect to correctness, accuracy, reliability or otherwise. You assume the entire cost of all necessary
+                        servicing, repair or correction. To the extent that applicable law may not allow the exclusion of implied
                         warranties, the above exclusions may not apply to you.</p>
 
                         <p>Documents, graphics and other materials appearing at our Web site may include technical inaccuracies, typographical errors, and out-of-date information and use of such documents, graphics or other materials is at your own risk.</p>
@@ -205,7 +205,7 @@
 <!-- Gutter 3 ends -->
     </tr>
 </table>
-    
+
 <!-- Footer begins -->
 <jsp:include page="/includes/foot.jsp" flush="true" />
 <!-- Footer ends -->

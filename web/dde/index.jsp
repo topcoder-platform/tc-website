@@ -15,7 +15,7 @@
 <%
     // STANDARD PAGE VARIABLES
     String page_name = "s_index.jsp";
-    String action = request.getParameter("a");    
+    String action = request.getParameter("a");
 %>
 
 <%
@@ -43,7 +43,7 @@
 <body class="body">
 
 <!-- Header begins -->
-<%@ include file="/includes/top.jsp" %>
+<jsp:include page="/includes/top.jsp"/>
 <jsp:include page="/includes/menu.jsp" >
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
@@ -72,12 +72,12 @@
                         <a href="/applications/index.jsp"><img src="images/promos/promo_home_A.gif" alt="" width="530" height="76" border="0" /><br/>
                         <img src="images/promos/promo_home_B.jpg" alt="" width="530" height="217" border="0" /></a><br/>
                         <img src="/images/clear.gif" alt="" width="10" height="10" border="0" /><br/>
-                        <strong>Using our member base of thousands of highly-skilled developers from all over the world, our competition-based 
-                        methodology, and our catalogs of re-usable components, TopCoder delivers high-quality software at a lower cost than the competition. 
+                        <strong>Using our member base of thousands of highly-skilled developers from all over the world, our competition-based
+                        methodology, and our catalogs of re-usable components, TopCoder delivers high-quality software at a lower cost than the competition.
                         <a href="/applications/index.jsp">Learn more</a></strong>
                     </td>
                 </tr>
-            
+
 <!-- Small promos begins -->
             <jsp:include page="/includes/small_promos.jsp" flush="true" />
 <!-- Small promos ends -->
@@ -92,7 +92,7 @@
 <!-- Press Highlights ends -->
 
             <p><br></p>
-            
+
         </td>
 <!-- Middle Column ends -->
 

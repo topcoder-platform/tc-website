@@ -15,9 +15,9 @@
 <%
     // STANDARD PAGE VARIABLES
     String page_name = "s_index.jsp";
-    String action = request.getParameter("a");    
+    String action = request.getParameter("a");
 
-    
+
 %>
 
 <%
@@ -34,12 +34,12 @@
     int country_code = 0;
     try{
        country_code = Integer.parseInt(country);
-       if(country_code == 434 || 
-          country_code == 368 || 
-          country_code == 408 || 
-          country_code == 192 || 
-          country_code == 736 || 
-          country_code == 760 || 
+       if(country_code == 434 ||
+          country_code == 368 ||
+          country_code == 408 ||
+          country_code == 192 ||
+          country_code == 736 ||
+          country_code == 760 ||
           country_code ==  364)
        {
           //cannot export to these countries
@@ -56,36 +56,36 @@
         lastName = "";
     }
     if(firstName == null){
-        firstName = ""; 
+        firstName = "";
     }
     boolean validEmail = false;
     if(emailAddress == null){
         emailAddress = "";
-    } 
+    }
     else{
-        com.topcoder.message.email.validator.SyntaxValidator syntax = 
-              new com.topcoder.message.email.validator.SyntaxValidator(); 
-        validEmail = syntax.validateSyntax(emailAddress); 
+        com.topcoder.message.email.validator.SyntaxValidator syntax =
+              new com.topcoder.message.email.validator.SyntaxValidator();
+        validEmail = syntax.validateSyntax(emailAddress);
     }
     if (code == null) {
         code = "";
     }
     if (action != null) {
         if (action.equalsIgnoreCase("post") && lastName != null && !lastName.equals("") &&
-            firstName != null && !firstName.equals("") && 
-            emailAddress != null && !emailAddress.equals("")  && validEmail 
+            firstName != null && !firstName.equals("") &&
+            emailAddress != null && !emailAddress.equals("")  && validEmail
             && component != null && country_code != -1 && country_code != -2) {
 
                      int contactMeId = 0;
                      if(contactMe.equals("checked")){
                          contactMeId = 1;
-                     } 
+                     }
                      boolean success = USER_MANAGER.sampleInquiry(firstName, lastName,
-                              emailAddress, component, country_code, contactMeId);           
+                              emailAddress, component, country_code, contactMeId);
                      if(success && component.equals("java")){
                           response.sendRedirect("/samples/TopCoder_Java_Samples.zip");
                      }
-   
+
                      else if(success){
                           response.sendRedirect("/samples/TopCoder_.NET_Samples.zip");
                      }
@@ -115,11 +115,11 @@
    {
       document.Form1.action = "free_components.jsp?a=post&s=" + subscription;
       document.Form1.submit();
-   } 
+   }
 
 </script>
 <!-- Header begins -->
-<%@ include file="/includes/top.jsp" %>
+<jsp:include page="/includes/top.jsp"/>
 <jsp:include page="/includes/menu.jsp" >
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
@@ -152,32 +152,32 @@
             <table width="545" border="0" cellpadding="0" cellspacing="0">
                 <tr>
                     <td class="bodyText">
-                        <strong>To illustrate the rigorous process that goes into every TopCoder component we have provided these sample 
-                        components for free. They are full working versions for your personal use. All documentation is included. We've also 
+                        <strong>To illustrate the rigorous process that goes into every TopCoder component we have provided these sample
+                        components for free. They are full working versions for your personal use. All documentation is included. We've also
                         provided <a href="#links">links</a> to the tools you need to get a .NET&#8482; or Java&#8482; environment up and running.</strong><br/>
                         <img src="/images/clear.gif" alt="" width="10" height="10" border="0" />
                     </td>
                 </tr>
             </table>
-                        
+
             <table border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="360" class="bodyText">
-                        <p>These samples are only a few of the dozens of components available in our .NET&#8482; and Java&#8482; <a href="/catalog/c_showroom.jsp">component catalogs.</a> To 
+                        <p>These samples are only a few of the dozens of components available in our .NET&#8482; and Java&#8482; <a href="/catalog/c_showroom.jsp">component catalogs.</a> To
                         access all of our components or to use them in a commercial application, purchase a <a href="/components/subscriptions.jsp">subscription</a> to either of the catalogs.</p>
 
-                        <p>Use our <a href="/forum/c_active_collab.jsp">Customer Forums</a> to discuss component features and usage or to report bugs. For issues with the downloads or to speak 
+                        <p>Use our <a href="/forum/c_active_collab.jsp">Customer Forums</a> to discuss component features and usage or to report bugs. For issues with the downloads or to speak
                         with a component product manager, contact us at <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com.</a></p>
-                        
+
                         <hr width="100%" size="1" color="#999999" noshade>
-                        
+
                         <table border="0" cellpadding="0" cellspacing="0" width="360">
                             <tr valign="top">
                                 <td class="registerTitle" width="99%">Register for the Free Components</td>
                                 <td class="registerSmall" width="1%" nowrap><a href="/components/s_privacy.jsp">Privacy Policy</a></td>
                             </tr>
-                        </table>                        
-                        
+                        </table>
+
                         <div align="center">
                         <img src="/images/clear.gif" alt="" width="10" height="5" border="0" />
                         <form id=Form1 name=Form1 method="post"><table border="0" cellpadding="3" cellspacing="0" width="100">
@@ -207,12 +207,12 @@
                                 <td class="registerLabel">First Name <span class="registerLabelRequired">(required)</span><br/>
                                     <input type="text" size="33" name="firstName" value="<%=firstName%>" class="registerElement" /></td>
                             </tr>
-                            
+
                             <tr valign="middle">
                                 <td class="errorSymbol" width="1">
                                 <% if(action.equals("post") && lastName.equals("")){ %>
-                                    <img src="/images/errorSymbol.gif" alt="&gt;" width="22" height="22" hspace="10" 
-                                    border="0" /> 
+                                    <img src="/images/errorSymbol.gif" alt="&gt;" width="22" height="22" hspace="10"
+                                    border="0" />
 
                                 <%
                                     }
@@ -221,13 +221,13 @@
                                 <td class="registerLabel">Last Name <span class="registerLabelRequired">(required)</span><br/>
                                     <input type="text" size="33" name="lastName" value="<%=firstName%>" class="registerElement" /></td>
                             </tr>
-                            
+
                             <tr valign="middle">
                                 <td class="errorSymbol" width="1">
-                                
+
                                 <% if(action.equals("post") && (!validEmail || emailAddress.equals(""))){ %>
-                                     <img src="/images/errorSymbol.gif" alt="&gt;" width="22" height="22" hspace="10" 
-                                         border="0" /> 
+                                     <img src="/images/errorSymbol.gif" alt="&gt;" width="22" height="22" hspace="10"
+                                         border="0" />
                                 <%
                                     }
                                 %>
@@ -235,24 +235,24 @@
                                 <td class="registerLabel">Email Address <span class="registerLabelRequired">(required)</span><br/>
                                     <input type="text" size="33" name="emailAddress" value="<%=emailAddress%>" class="registerElement" /></td>
                             </tr>
-                            
+
                             <tr valign="middle">
                                 <td class="errorSymbol" width="1"></td>
                                 <td class="registerLabel"><input type="checkbox" size="5" name="contactMe" value="checked" checked="<%=contactMe%>" class="registerElement" /> I would like to receive news, updates, and other special offers from TopCoder.</td>
                             </tr>
-                            
-                            <% if(action.equals("post") && country_code==-2){%> 
+
+                            <% if(action.equals("post") && country_code==-2){%>
                             <tr valign="middle">
                                 <td class="errorSymbol" width="1"></td>
                                 <td class="registerError">Your country does not have download permissions</td>
                             </tr>
                            <% country_code = -1;
                              } %>
-                           
+
                             <tr valign="middle">
                                 <td class="errorSymbol" width="1">
                                 <% if(action.equals("post") && country_code==-1){%>
-                                    <img src="/images/errorSymbol.gif" alt="&gt;" width="22" height="22" hspace="10" border="0" /> 
+                                    <img src="/images/errorSymbol.gif" alt="&gt;" width="22" height="22" hspace="10" border="0" />
                                 <%
                                     }
                                 %>
@@ -261,18 +261,18 @@
                                    <%@ include file="/includes/countryList.jsp" %>
                                 </td>
                             </tr>
-                        </table> 
+                        </table>
                         <img src="/images/clear.gif" alt="" width="10" height="10" border="0" />
-                        </div>                       
-                        
+                        </div>
+
                         <strong>Select Download:</strong>
-                        
+
                         <table border="0" cellpadding="0" cellspacing="8" width="360">
                             <tr valign="top">
-                                <td class="small" width="168" align="center"><a href="javascript:submitForm('dotnet')"> 
+                                <td class="small" width="168" align="center"><a href="javascript:submitForm('dotnet')">
                                     <img src="/images/button_samp_comp_dotnet.gif" alt=".NET Components" width="145" height="66" border="0" vspace="2" /></a><br/>
                                     File Size: 1.1MB<br/><br/></td>
-                            
+
                                 <td width="1" bgcolor="#999999" rowspan="3"><img src="/images/clear.gif" alt="" width="1" border="0" /></td>
 
                                 <td class="small" width="167" align="center"><a href="javascript:submitForm('java')">
@@ -288,7 +288,7 @@
                                     <a href="/catalog/c_component.jsp?comp=4208949">Email Engine</a><br/>
                                     <a href="/catalog/c_component.jsp?comp=5904431">Math Expression Evaluator</a><br/><br/>
                                 </td>
-                            
+
                                 <td class="bodyText">
                                     <strong>Components included in the Java&#8482; package:</strong><br/>
                                     <a href="/catalog/c_component.jsp?comp=7311989">Priority Queue</a><br/>
@@ -307,7 +307,7 @@
                                     <a href="http://sourceforge.net/projects/nunit" target="_blank">NUnit 2.0+</a><br/>
                                     <a href="http://nunit2report.sourceforge.net/" target="_blank">NUnitReport 1.2+</a><br/>
                                 </td>
-                            
+
                                 <td class="bodyText">
                                     <strong>Java&#8482; Requirements</strong><br/>
                                     <a href="http://java.sun.com/j2ee/download.html" target="_blank">JDK 1.3+</a><br/>
@@ -316,11 +316,11 @@
                                 </td>
                             </tr>
                          </table></form>
-                        
+
                         <hr width="100%" size="1" color="#999999" noshade>
-                        
+
                        <strong>Other helpful links:</strong>
-                        
+
                         <table border="0" cellpadding="0" cellspacing="8" width="360">
                             <tr valign="top">
                                 <td class="bodyText">
@@ -328,10 +328,10 @@
                                 </td>
                             </tr>
                         </table>
-                        
+
                         <img src="/images/clear.gif" alt="" width="360" height="1" border="0" />
                     </td>
-                    
+
                     <td width="10"><img src="/images/clear.gif" alt="" width="10" height="10" border="0" /></td>
 
                     <td width="175" class="bodyText">
@@ -340,7 +340,7 @@
 
                             <tr valign="top">
                                 <td class="sidebarText">
-                                    <p>TopCoder Components are built using the TopCoder Software Component Development Methodology. The <a href="/components/methodology.jsp">methodology</a> 
+                                    <p>TopCoder Components are built using the TopCoder Software Component Development Methodology. The <a href="/components/methodology.jsp">methodology</a>
                                     requires that all components have the following consistent and standard deliverables:</p>
 
                                     <strong>Documentation:</strong>
@@ -350,7 +350,7 @@
                                         <li>Class Diagrams</li>
                                         <li>Sequence Diagrams</li>
                                     </ul>
-                         
+
                                     <strong>Test Suite:</strong>
                                     <ul>
                                         <li>Unit Test Cases</li>
@@ -373,7 +373,7 @@
                                 </td>
                             </tr>
                         </table>
-                        
+
                         <img src="/images/clear.gif" alt="" width="175" height="1" border="0" />
 
                     </td>
@@ -381,7 +381,7 @@
             </table>
 
             <p><br></p>
-            
+
         </td>
 <!-- Middle Column ends -->
 

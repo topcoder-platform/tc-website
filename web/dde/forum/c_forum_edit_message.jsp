@@ -32,7 +32,7 @@
 <%@ page import="java.text.SimpleDateFormat" %>
 <%!
     private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm a");
-    
+
     String textToHtml(String txt) {
         StringBuffer out = new StringBuffer();
         boolean leading = true;
@@ -47,7 +47,7 @@
                         leading = false;
                     }
                     break;
-                case '<':   
+                case '<':
                     out.append("&lt;");
                     leading = false;
                     break;
@@ -77,7 +77,7 @@
 
 <%!
     public static final int MAX_MSG_LENGTH = 1024*16;
-    
+
     MessageFormat replyFormat = new MessageFormat("\n\n     =====================================\n     On {0} {1} wrote:\n     {2}");
 
 %>
@@ -92,7 +92,7 @@
     /////////////////////////////////////////////
     //Get parameter data;
     /////////////////////////////////////////////
-    
+
     long forumId = 0;
     long threadId = 0;
     long postId = 0;
@@ -108,7 +108,7 @@
 
             FileUpload fu = new FileUpload(request, false);
             //strMessage += "File was uploaded.";
-            
+
             debug.addMsg("post message", "file upload processed");
             try {
                 forumId = Long.parseLong(fu.getParameter("f"));
@@ -136,15 +136,15 @@
             fileAttachments = fu.getAllUploadedFiles();
             action = fu.getParameter("a");
             msg = fu.getParameter("taMessage");
-            
+
             DDEForumHome ddeforumhome = (DDEForumHome) PortableRemoteObject.narrow(
                     CONTEXT.lookup(DDEForumHome.EJB_REF_NAME), DDEForumHome.class);
             DDEForum ddeforum = ddeforumhome.create();
             ForumComponent forumComponent = ddeforum.getLinkedComponent(forumId);
-            
+
             rootDir = fu.getCurrentDefaultDir();
             if (!rootDir.endsWith("/")) {
-                rootDir += "/"; 
+                rootDir += "/";
             }
             pathAttachments += forumComponent.getComponentId() + "/";
             pathAttachments += forumComponent.getVersionId() + "/";
@@ -209,16 +209,16 @@
         }
         msg = request.getParameter("taMessage");
     }
-        
+
     DDEForumHome ddeforumhome = (DDEForumHome) PortableRemoteObject.narrow(
             CONTEXT.lookup(DDEForumHome.EJB_REF_NAME), DDEForumHome.class);
     DDEForum ddeforum = ddeforumhome.create();
-    
+
     ForumRemoteHome forumHome = (ForumRemoteHome) PortableRemoteObject.narrow(
             CONTEXT.lookup(ForumRemoteHome.EJB_REF_NAME), ForumRemoteHome.class);
     ForumRemote forumBean = forumHome.create();
-    
-    
+
+
     /////////////////////////////////////////////
     //Check for permissions
     /////////////////////////////////////////////
@@ -230,13 +230,13 @@
     long collabForumId = 0;
     long prevThreadId = 0;
     long nextThreadId = 0;
-    
+
     if (loggedOn) {
         canPost = ddeforum.canPost(forumId,tcSubject);
         canModerate = ddeforum.canModerate(forumId,tcSubject);
     }
-    
-    
+
+
     /////////////////////////////////////////////
     //Get linked component information
     /////////////////////////////////////////////
@@ -248,7 +248,7 @@
     } else {
         forumType = com.topcoder.dde.catalog.Forum.SPECIFICATION;
     }
-    
+
     if (forumType == com.topcoder.dde.catalog.Forum.SPECIFICATION) {
         if (!loggedOn) {
             //Redirect to logon page
@@ -265,18 +265,18 @@
     } else {
         //Handle Error here
     }
-    
+
     /////////////////////////////////////////////
     //Process actions
     /////////////////////////////////////////////
 
     com.topcoder.forum.Thread thread = forumBean.getThread(threadId);
-    
+
     Post post = null;
     if (postId != 0) {
         post = forumBean.getPost(postId);
     }
-    
+
     Post reply = null;
     if (replyId != 0) {
         reply = forumBean.getPost(replyId);
@@ -293,22 +293,22 @@
     if (msg.length() > MAX_MSG_LENGTH) {
         msg = msg.substring(0, MAX_MSG_LENGTH-1);
     }
-    
+
     // process action
     if (action == null) {
         action = "new";
     } else if (action.equalsIgnoreCase("post reply")) {
         if (msg.length() > 0 && msg.length() <= MAX_MSG_LENGTH) {
             Post newPost = new Post();
-            
+
             newPost.setText(msg);
             newPost.setUserId(tcUser.getId());
-            
+
             //Create the directories if they do not already exist.
             new File(rootDir + pathAttachments).mkdirs();
-            
+
             boolean error = false;
-            
+
             // handle attachments
             while (fileAttachments.hasNext()) {
                 UploadedFile uf = (UploadedFile)fileAttachments.next();
@@ -324,12 +324,12 @@
                     }
                     fos.close();
                     is.close();
-                    
+
                     Attachment attach = new Attachment();
                     attach.setName(uf.getRemoteFileName());
                     attach.setUrl(url);
                     newPost.addAttachment(attach);
-                    
+
                 } else {
                     error = true;
                     strError = "File " + f.getName() + " already exists.  ";
@@ -371,7 +371,7 @@
         // handle attachments
 
         boolean error = false;
-            
+
         if (fileAttachments.hasNext()) {
             //Delete any previous attachments
             Iterator itr = post.attachmentIterator();
@@ -380,10 +380,10 @@
                 f.delete();
             }
             post.clearAttachments();
-            
+
             //Create the directories if they do not already exist.
             new File(rootDir + pathAttachments).mkdirs();
-            
+
             while (fileAttachments.hasNext()) {
                 UploadedFile uf = (UploadedFile)fileAttachments.next();
                 InputStream is = uf.getInputStream();
@@ -398,7 +398,7 @@
                     }
                     fos.close();
                     is.close();
-                    
+
                     Attachment attach = new Attachment();
                     attach.setName(uf.getRemoteFileName());
                     attach.setUrl(url);
@@ -439,7 +439,7 @@ function textLimit(field, maxlen) {
 <body class="body" marginheight="0" marginwidth="0" onLoad="frmMessage.taMessage.focus()">
 
 <!-- Header begins -->
-<%@ include file="/includes/top.jsp" %>
+<jsp:include page="/includes/top.jsp"/>
 <jsp:include page="/includes/menu.jsp" >
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
@@ -456,7 +456,7 @@ function textLimit(field, maxlen) {
             </jsp:include>
         </td>
 <!-- Left Column ends -->
-    
+
 <!-- Gutter begins -->
         <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0"></td>
 <!-- Gutter ends -->

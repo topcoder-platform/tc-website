@@ -14,7 +14,7 @@
 <%
     // STANDARD PAGE VARIABLES
     String page_name = "s_methodology.jsp";
-    String action = request.getParameter("a");    
+    String action = request.getParameter("a");
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -29,7 +29,7 @@
 <body class="body">
 
 <!-- Header begins -->
-<%@ include file="/includes/top.jsp" %>
+<jsp:include page="/includes/top.jsp"/>
 <jsp:include page="/includes/menu.jsp" >
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
@@ -69,56 +69,56 @@
                     <td><img src="/images/meth_collaboration.gif" width="177" height="67" alt="Collaboration" border="0" /></td>
                     <td rowspan="3"><img src="/images/clear.gif" width="50" height="204" alt="" /></td>
                 </tr>
-                            
+
                 <tr>
                     <td><img src="/images/meth_software_04.gif" width="161" height="56" alt="" /></td>
                     <td><img src="/images/meth_software_05.gif" width="118" height="56" alt="" /></td>
                     <td><img src="/images/meth_software_06.gif" width="177" height="56" alt="" /></td>
                 </tr>
-                            
+
                 <tr>
                     <td><img src="/images/meth_development.gif" width="161" height="81" alt="Development" border="0" /></td>
                     <td><img src="/images/meth_software_8.gif" width="118" height="81" alt="" /></td>
                     <td><img src="/images/meth_design.gif" width="177" height="81" alt="Design" border="0" /></td>
                 </tr>
             </table></div>
-            
+
              <hr width="100%" size="1px" noshade>
-            
+
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr valign="top">
                     <td class="bodyText">
 <!-- Collaboration begins -->
                         <p><strong>Specification</strong><br>
-                        TopCoder Project Managers (PM) moderate the TopCoder <a href="/forum/c_active_collab.jsp">Customer Forums</a> to gather 
-                        requirements about a new Component Project. Once the project scope has been determined, the PM creates a Requirements Specification 
+                        TopCoder Project Managers (PM) moderate the TopCoder <a href="/forum/c_active_collab.jsp">Customer Forums</a> to gather
+                        requirements about a new Component Project. Once the project scope has been determined, the PM creates a Requirements Specification
                         for the Design Phase of the project. New projects are regularly posted to the TopCoder <a href="http://www.topcoder.com/?t=development&c=index">Software Development site</a>
                         and emails are sent out to members notifying them of the new projects.</p>
 <!-- Collaboration ends -->
 
 <!-- Design begins -->
                         <p><strong>Architecture and Design</strong><br>
-                        The PM creates an Architecture Review Board made up of three TopCoder members who regularly submit designs for TopCoder Software 
+                        The PM creates an Architecture Review Board made up of three TopCoder members who regularly submit designs for TopCoder Software
                         Projects. Submitted designs are scored using a standardized <a href="http://www.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=desReviewSample">scorecard</a>. The design with the best score above the TopCoder Software
-                        Minimum Score is chosen for the project. The winning designer is given additional time to incorporate suggestions from the 
-                        Review Board.  If the time frame is not met, the designer will be disqualified and the next design in order of score will be declared the 
+                        Minimum Score is chosen for the project. The winning designer is given additional time to incorporate suggestions from the
+                        Review Board.  If the time frame is not met, the designer will be disqualified and the next design in order of score will be declared the
                         winner. Once a winning design is determined, the PM posts the Development Phase of the project on the TopCoder Software Development site.</p>
 <!-- Design ends -->
 
 <!-- Development begins -->
                         <p><strong>Development and Testing</strong><br>
-                        The PM creates a Development Review Board made up of three TopCoder members who regularly submit development proposals for TopCoder Software 
+                        The PM creates a Development Review Board made up of three TopCoder members who regularly submit development proposals for TopCoder Software
                         Projects. Submitted development solutions are scored using a standardized <a href="http://www.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=devReviewSample">scorecard</a>. The development submission with the best score above the TopCoder
-                        Software Miniumum Score is chosen for the project. The winning developer is given additional time to incorporate suggestions from the 
+                        Software Miniumum Score is chosen for the project. The winning developer is given additional time to incorporate suggestions from the
                         Review Board. If the time frame is not met, the developer is disqualified and the next design in order of score will be declared the winner.</p>
 <!-- Development ends -->
 
 <!-- Complete begins -->
                         <p><strong>Complete</strong><br>
-                        A complete TopCoder Software Component is added to a Component Catalog and is ready for download by subscribers. It has been thoroughly 
-                        tested to ensure acceptable performance, accuracy of results, and abillity to handle bad data and incorrect usage. Extensive documentation 
-                        is downloaded along with the component. Customers, the PM and other TopCoder members interact in the 
-                        <a href="/forum/c_active_collab.jsp">Customer Forums</a> to discuss the current complete version of the component, as well as make 
+                        A complete TopCoder Software Component is added to a Component Catalog and is ready for download by subscribers. It has been thoroughly
+                        tested to ensure acceptable performance, accuracy of results, and abillity to handle bad data and incorrect usage. Extensive documentation
+                        is downloaded along with the component. Customers, the PM and other TopCoder members interact in the
+                        <a href="/forum/c_active_collab.jsp">Customer Forums</a> to discuss the current complete version of the component, as well as make
                         suggestions for future versions of the component.</li>
 <!-- Complete ends -->
                     </td>
@@ -156,7 +156,7 @@
 
     </tr>
 </table>
-    
+
 <!-- Footer begins -->
 <jsp:include page="/includes/foot.jsp" flush="true" />
 <!-- Footer ends -->

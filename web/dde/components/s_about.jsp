@@ -14,7 +14,7 @@
 <%
 	// STANDARD PAGE VARIABLES
 	String page_name = "s_about.jsp";
-	String action = request.getParameter("a");	
+	String action = request.getParameter("a");
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -29,7 +29,7 @@
 <body class="body">
 
 <!-- Header begins -->
-<%@ include file="/includes/top.jsp" %>
+<jsp:include page="/includes/top.jsp"/>
 <jsp:include page="/includes/menu.jsp" >
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
@@ -68,23 +68,23 @@
 				<tr><td class="normal"><img src="/images/headAboutUs.gif" alt="About Us" width="545" height="32" border="0" /></td></tr>
 				<tr><td class="subhead">How software will be built</td></tr>
 				<tr><td class="normal">
-						<p>TopCoder Software, a division of TopCoder, Inc. is committed to driving down the cost of software development by 
+						<p>TopCoder Software, a division of TopCoder, Inc. is committed to driving down the cost of software development by
 						manufacturing and distributing high quality, frameworks based re-usable software components.</p>
 
 						<p><strong>The Vision</strong><br />
-						TopCoder Software's focus is to drive software development to the middle of the software development spectrum. In this 
-						way, companies can get the flexibility, performance and functionality of custom software at a cost commensurate with 
-						packaged solutions. TopCoder Software will deliver this vision by utilizing the TopCoder distributed member base to 
-						create reusable business and infrastructure components. This approach, using the highest quality developers to deliver 
+						TopCoder Software's focus is to drive software development to the middle of the software development spectrum. In this
+						way, companies can get the flexibility, performance and functionality of custom software at a cost commensurate with
+						packaged solutions. TopCoder Software will deliver this vision by utilizing the TopCoder distributed member base to
+						create reusable business and infrastructure components. This approach, using the highest quality developers to deliver
 						component based software, can drive down the cost of the solution while delivering extremely flexible, high quality software.</p>
-						
+
 						<p><strong>Who Benefits</strong><br />
-						Companies in all industries can benefit from the increased <a href="s_productivity.jsp">productivity</a>, 
-						use of standard frameworks and <a href="s_reuse.jsp">reuse</a> of components while software 
+						Companies in all industries can benefit from the increased <a href="s_productivity.jsp">productivity</a>,
+						use of standard frameworks and <a href="s_reuse.jsp">reuse</a> of components while software
 						integrators can benefit by adding more value for their customers.</p>
-						
+
 						<p>For examples and to see what's available, visit our <a href="c_showroom.jsp">Component Catalog</a>.</p>
-						
+
 						<div align="center"><img src="/images/valueSpectrum2.gif" alt="" width="450" height="250" border="0" /></div></td>
 				</tr>
 				<tr><td><img src="/images/clear.gif" alt="" width="10" height="40" border="0" /></td></tr>
@@ -98,7 +98,7 @@
 <!-- Gutter 3 ends -->
 	</tr>
 </table>
-	
+
 <!-- Footer begins -->
 <jsp:include page="/includes/foot.jsp" flush="true" />
 <!-- Footer ends -->

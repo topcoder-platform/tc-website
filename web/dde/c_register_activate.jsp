@@ -15,7 +15,7 @@
 <%
     // STANDARD PAGE VARIABLES
     String page_name = "c_register_activate.jsp";
-    String action = request.getParameter("a");    
+    String action = request.getParameter("a");
 %>
 
 <%
@@ -24,7 +24,7 @@
     TCSubject requestor = null;
     String strMsg = null;
     boolean activated = false;
-                                                
+
     // LOGIN USER AND SET SESSION
     try {
           tcUser = USER_MANAGER.activate(code);
@@ -56,7 +56,7 @@
     <title>TopCoder Software</title>
 
 <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css">
-  
+
 <script language="JavaScript" src="/scripts/javascript.js">
 </script>
 
@@ -65,7 +65,7 @@
 <body class="body">
 
 <!-- Header begins -->
-<%@ include file="/includes/top.jsp" %>
+<jsp:include page="/includes/top.jsp"/>
 <jsp:include page="/includes/menu.jsp" >
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
@@ -97,15 +97,15 @@
                 <tr><td class="subhead">Invalid Activation Code!</td></tr>
 <%  } %>
             </table>
-                
+
             <table width="100%" cellpadding="0" cellspacing="6" align="center" border="0">
                 <tr valign="top">
                     <td class="normal">
 <%  if (activated) { %>
                         <p><strong>Congratulations! Your new TopCoder Software Account has been activated.</strong></p>
 
-                        <p>Start experiencing the TopCoder Difference today! Visit our <a href="catalog/c_showroom.jsp">Component Catalog,</a> 
-                        participate in an online <a href="forum/c_active_collab.jsp">Collaboration Forum</a> or purchase a 
+                        <p>Start experiencing the TopCoder Difference today! Visit our <a href="catalog/c_showroom.jsp">Component Catalog,</a>
+                        participate in an online <a href="forum/c_active_collab.jsp">Collaboration Forum</a> or purchase a
                         <a href="components/subscriptions.jsp">subscription package</a> so you can start downloading components.</p>
 <%  } else { %>
                         <p><strong>Please verify that you have entered the supplied URL correctly.</strong></p>
@@ -122,7 +122,7 @@
 <!-- Gutter 2 ends -->
     </tr>
 </table>
-    
+
 <!-- Footer begins -->
 <jsp:include page="/includes/footer.jsp" flush="true" />
 <!-- Footer ends -->

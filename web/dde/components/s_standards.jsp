@@ -14,7 +14,7 @@
 <%
 	// STANDARD PAGE VARIABLES
 	String page_name = "s_standards.jsp";
-	String action = request.getParameter("a");	
+	String action = request.getParameter("a");
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -29,7 +29,7 @@
 <body class="body">
 
 <!-- Header begins -->
-<%@ include file="/includes/top.jsp" %>
+<jsp:include page="/includes/top.jsp"/>
 <jsp:include page="/includes/menu.jsp" >
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
@@ -68,13 +68,13 @@
 				<tr><td class="normal"><img src="/images/headAboutUs.gif" alt="About Us" width="545" height="32" border="0" /></td></tr>
 				<tr><td class="subhead">Use of standard frameworks</td></tr>
 				<tr><td class="normal">
-						<p>An important advantage to re-usable components is the flexibility they bring to business solutions. The utilization of 
-						industry frameworks such as J2EE, .NET/COM+ and Web Services enforces the creation of flexible and easily 
-						customizable software.  The use of frameworks based software components can speed up the development cycle. These 
-						components can be easily extended for additional functionality as well as quickly bundled together to create full business 
+						<p>An important advantage to re-usable components is the flexibility they bring to business solutions. The utilization of
+						industry frameworks such as J2EE, .NET/COM+ and Web Services enforces the creation of flexible and easily
+						customizable software.  The use of frameworks based software components can speed up the development cycle. These
+						components can be easily extended for additional functionality as well as quickly bundled together to create full business
 						solutions.</p>
 
-						<p>TopCoder Software is the premier source for these enterprise software components. Whether EJB, COM+ or Web 
+						<p>TopCoder Software is the premier source for these enterprise software components. Whether EJB, COM+ or Web
 						Services TopCoder Software provides high quality, flexible components for the enterprise.</p>
 
 						<p>See what is available today. Visit our <a href="c_showroom.jsp">Component Catalog</a>.</p></td>
@@ -90,7 +90,7 @@
 <!-- Gutter 3 ends -->
 	</tr>
 </table>
-	
+
 <!-- Footer begins -->
 <jsp:include page="/includes/foot.jsp" flush="true" />
 <!-- Footer ends -->

@@ -14,7 +14,7 @@
 <%
     // STANDARD PAGE VARIABLES
     String page_name = "c_comp_cat.jsp";
-    String action = request.getParameter("a");    
+    String action = request.getParameter("a");
 %>
 
 <% // PAGE SPECIFIC DECLARATIONS %>
@@ -38,7 +38,7 @@
         // not found, redirect to main page
         response.sendRedirect("c_showroom.jsp");
     }
-    
+
     Collection colComponents = catalog.getCategoryComponents(selectedCategory.getId());
     ComponentSummary arrComponent[] = (ComponentSummary[])colComponents.toArray(new ComponentSummary[0]);
 %>
@@ -56,7 +56,7 @@
 <body class="body">
 
 <!-- Header begins -->
-<%@ include file="/includes/top.jsp" %>
+<jsp:include page="/includes/top.jsp"/>
 <jsp:include page="/includes/menu.jsp" >
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
@@ -73,11 +73,11 @@
             </jsp:include>
         </td>
 <!-- Left Column ends -->
-    
+
 <!-- Gutter begins -->
         <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0"></td>
 <!-- Gutter ends -->
-    
+
 <!-- Center Column begins -->
         <td width="99%">
             <img src="/images/clear.gif" alt="" width="1" height="1" border="0"/><br/>
@@ -97,7 +97,7 @@
                     <td colspan="2" height="16"><img src="/images/headChooseComp.gif" alt="now Choose a Component" width="173" height="16" border="0" /></td>
                 </tr>
             </table>
-                
+
             <table width="100%" cellpadding="0" cellspacing="6" align="center" border="0">
 
                 <tr><td colspan="2" bgcolor="#CCCCCC"><img src="/images/clear.gif" alt="" width="1" height="1" border="0" /></td></tr>

@@ -14,7 +14,7 @@
 <%
     // STANDARD PAGE VARIABLES
     String page_name = "s_productivity.jsp";
-    String action = request.getParameter("a");    
+    String action = request.getParameter("a");
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -29,7 +29,7 @@
 <body class="body">
 
 <!-- Header begins -->
-<%@ include file="/includes/top.jsp" %>
+<jsp:include page="/includes/top.jsp"/>
 <jsp:include page="/includes/menu.jsp" >
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
@@ -68,20 +68,20 @@
                 <tr><td class="normal"><img src="/images/headAboutUs.gif" alt="About Us" width="545" height="32" border="0" /></td></tr>
                 <tr><td class="subhead">Productivity: Lowering the cost of development</td></tr>
                 <tr><td class="normal">
-                        <p>Custom software development is expensive due to the high cost of the software development team. Developers, Senior 
-                        Developers, Project Managers, Technical Writers, Account Managers and the like all combine to form a costly structure 
+                        <p>Custom software development is expensive due to the high cost of the software development team. Developers, Senior
+                        Developers, Project Managers, Technical Writers, Account Managers and the like all combine to form a costly structure
                         for the development of software.</p>
-                        
-                        <p>Use of TopCoder Software components can drive down the cost of software development in two ways. The first way is 
-                        by introducing re-usable components to the development life cycle. TopCoder Software components can drive down the 
-                        cost of development as well as time to market by reducing the amount of software that must be built. The development 
+
+                        <p>Use of TopCoder Software components can drive down the cost of software development in two ways. The first way is
+                        by introducing re-usable components to the development life cycle. TopCoder Software components can drive down the
+                        cost of development as well as time to market by reducing the amount of software that must be built. The development
                         team can focus on customizing and integrating these components into a business solution.</p>
-                        
-                        <p>The other way TopCoder Software can drive down the cost of development is by lowering the cost of the components 
-                        themselves. TopCoder Software utilizes the extensive TopCoder member base as a distributed development resource. In 
-                        this way, the components themselves can be developed at a lower cost, and that cost can then be leveraged over multiple 
+
+                        <p>The other way TopCoder Software can drive down the cost of development is by lowering the cost of the components
+                        themselves. TopCoder Software utilizes the extensive TopCoder member base as a distributed development resource. In
+                        this way, the components themselves can be developed at a lower cost, and that cost can then be leveraged over multiple
                         customers.  The result is lower cost, high quality software components.</p>
-                        
+
                         <p>Utilizing Component Based Development to reduce the amount of software to be written and taking advantage of low
                          cost high quality components from TopCoder Software can greatly decrease the total cost of the business solution.</p>
 
@@ -98,7 +98,7 @@
 <!-- Gutter 3 ends -->
     </tr>
 </table>
-    
+
 <!-- Footer begins -->
 <jsp:include page="/includes/foot.jsp" flush="true" />
 <!-- Footer ends -->
