@@ -64,6 +64,13 @@ public interface Address extends EJBObject {
     /**
      *
      *
+     * @see com.topcoder.web.ejb.address.AddressBean#getProvince
+     */
+    String getProvince(long addressId) throws RemoteException, EJBException;
+
+    /**
+     *
+     *
      * @see com.topcoder.web.ejb.address.AddressBean#getZip
      */
     String getZip(long addressId) throws RemoteException, EJBException;
@@ -121,6 +128,14 @@ public interface Address extends EJBObject {
      * @see com.topcoder.web.ejb.address.AddressBean#setStateCode
      */
     void setStateCode(long addressId, String stateCode)
+            throws RemoteException, EJBException;
+
+    /**
+     *
+     *
+     * @see com.topcoder.web.ejb.address.AddressBean#setProvince
+     */
+    void setProvince(long addressId, String province)
             throws RemoteException, EJBException;
 
     /**

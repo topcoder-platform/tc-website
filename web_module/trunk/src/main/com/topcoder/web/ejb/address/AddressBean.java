@@ -391,6 +391,60 @@ public class AddressBean extends BaseEJB {
         return (ret);
     }
 
+
+    /**
+     *
+     *
+     * @param addressId the address ID of the entry
+     *
+     * @return a String with the entry's province
+     *
+     * @throws EJBException
+     */
+    public String getProvince(long addressId) {
+        log.debug("getProvince called...address_id: " + addressId);
+
+        Context ctx = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conn = null;
+        DataSource ds = null;
+        String ret = null;
+
+        try {
+            ctx = new InitialContext();
+            ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            conn = ds.getConnection();
+
+            ps = conn.prepareStatement("SELECT province FROM address " +
+                    "WHERE address_id = ?");
+            ps.setLong(1, addressId);
+
+            rs = ps.executeQuery();
+
+            if (rs.next())
+                ret = rs.getString("province");
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
+            throw new EJBException("SQLException getting province");
+        } catch (NamingException e) {
+            throw new EJBException("NamingException getting province");
+        } catch (Exception e) {
+            throw new EJBException("Exception getting province\n" +
+                    e.getMessage());
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
+        }
+
+        return (ret);
+    }
+
+
+
+
     /**
      *
      *
@@ -791,6 +845,59 @@ public class AddressBean extends BaseEJB {
             close(ctx);
         }
     }
+
+
+    /**
+     *
+     *
+     * @param addressId address ID of entry to set
+     * @param privince the province to set to
+     *
+     * @throws EJBException
+     */
+    public void setProvince(long addressId, String privince) {
+        log.debug("setProvince called...addressId: " + addressId +
+                " privince: " + privince);
+
+        Context ctx = null;
+        PreparedStatement ps = null;
+        Connection conn = null;
+        DataSource ds = null;
+
+        try {
+            ctx = new InitialContext();
+            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            conn = ds.getConnection();
+
+            ps = conn.prepareStatement("UPDATE address SET privince = ? " +
+                    "WHERE address_id = ?");
+            ps.setString(1, privince);
+            ps.setLong(2, addressId);
+
+            int rows = ps.executeUpdate();
+
+            if (rows != 1)
+                throw new EJBException("Wrong number of rows in update: " +
+                        rows + " for address_id: " + addressId +
+                        " privince: " + privince);
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
+            throw new EJBException("SQLException updating address_id: '" +
+                    addressId + "' privince: " + privince);
+        } catch (NamingException e) {
+            throw new EJBException("NamingException updating state code");
+        } catch (Exception e) {
+            throw new EJBException("Exception updating address_id: " +
+                    addressId + " privince: " + privince +
+                    "\n" + e.getMessage());
+        } finally {
+            close(ps);
+            close(conn);
+            close(ctx);
+        }
+    }
+
+
 
     /**
      *
