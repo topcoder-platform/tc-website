@@ -92,12 +92,8 @@ View consecutive rating increase streaks for <A CLASS="statText" HREF="/stat?c=c
             </TR>
             <TR VALIGN="middle">
                 <TD CLASS="statText" background="/i/steel_bluebv_bg.gif" ALIGN="center" WIDTH="10" HEIGHT="18">&nbsp;</TD>
-                <TD CLASS="statText" background="/i/steel_bluebv_bg.gif" ALIGN="center" WIDTH="20%">
-                    <a href="/stat?c=consecutive_rating_increases&wst=<%=streakType%>&sq=consecutive_rating_increases&sc=0&sd=<%= "0".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" class="statText">Handle</a>
-                </TD>
-                <TD CLASS="statText" background="/i/steel_bluebv_bg.gif" ALIGN="center" WIDTH="15%">
-                    <a href="/stat?c=consecutive_rating_increases&wst=<%=streakType%>&sq=consecutive_rating_increases&sc=2&sd=<%= "2".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" class="statText">Consecutive Rating Increases</a>
-                </TD>
+                <TD CLASS="statText" background="/i/steel_bluebv_bg.gif" ALIGN="center" WIDTH="20%">Handle</TD>
+                <TD CLASS="statText" background="/i/steel_bluebv_bg.gif" ALIGN="center" WIDTH="15%">Consecutive Rating Increases</TD>
                 <TD colspan="3" CLASS="statText" background="/i/steel_bluebv_bg.gif" ALIGN="center" WIDTH="40%">Round Duration</TD>
                 <TD CLASS="statText" background="/i/steel_bluebv_bg.gif" ALIGN="center" WIDTH="25%">Start/End Date</TD>
             </TR>
