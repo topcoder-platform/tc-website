@@ -77,11 +77,11 @@ public class CampaignList extends BaseScreeningProcessor {
 
             // Notify the user if there is more than 1 company
             if (result.size() != 1) {
-                log.error("The user " + userId + " has more than 1 company associated with him.");
-                log.error("The following companies had been found:");
+                log.debug("The user " + userId + " has more than 1 company associated with him.");
+                log.debug("The following companies had been found:");
                 for (int i = 0; i < result.size(); i++) {
                     ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) result.get(i);
-                    log.error(row.getStringItem("company_name"));
+                    log.debug(row.getStringItem("company_name"));
                 }
                 throw new ScreeningException("The user should be associated only with 1 company at once.");
             }

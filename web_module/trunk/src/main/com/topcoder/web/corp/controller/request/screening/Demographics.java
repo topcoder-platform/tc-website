@@ -36,7 +36,7 @@ public class Demographics extends BaseScreeningProcessor {
                 throw new ScreeningException("No campaign ID had been specified.");
             }
             
-            log.info("CAMPAIGN ID:" + campaignId);
+            log.debug("CAMPAIGN ID:" + campaignId);
 
             Request dataRequest = new Request();
             ResultSetContainer rsc = null;
@@ -64,8 +64,8 @@ public class Demographics extends BaseScreeningProcessor {
                 rsc = (ResultSetContainer) resultMap.get("campaign_coders_by_type");
                 ResultSetContainer.ResultSetRow coderCountRow = rsc.getRow(0);
                 
-                log.info("CODER TYPE: " + types[typeI]);
-                log.info("COUNT: " +coderCountRow.getItem("coder_type_count").toString());
+                log.debug("CODER TYPE: " + types[typeI]);
+                log.debug("COUNT: " +coderCountRow.getItem("coder_type_count").toString());
                 
                 if (types[typeI] == Constants.STUDENT)
                     m.setStudentCount(Integer.parseInt(coderCountRow.getItem("coder_type_count").toString()));

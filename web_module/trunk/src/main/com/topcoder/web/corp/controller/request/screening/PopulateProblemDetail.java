@@ -30,13 +30,13 @@ public class PopulateProblemDetail extends BaseScreeningProcessor {
         try {
             if(super.getUsageType() == Constants.USAGE_TYPE_SCREENING)
             {
-                log.info("GOOD");
+                log.debug("GOOD");
                 info =
                     ProblemInfo.createProblemInfo(getUser(), roundId, problemId, true);
             }
             else
             {
-                log.info("BAD");
+                log.debug("BAD");
                 info =
                     ProblemInfo.createProblemInfo(getUser(), roundId, problemId);
             }

@@ -57,11 +57,11 @@ public class PositionResults extends BaseScreeningProcessor {
         String positionId = request.getParameter(Constants.JOB_POSITION_ID);
         if (positionId == null) {
             // notify the user about the error
-            log.info("Position ID is not specified.");
+            log.debug("Position ID is not specified.");
             throw new ScreeningException("No job position ID had been specified.");
         }
 
-        log.info("Got the request to get the results for position : " + positionId + ", user : " + userId);
+        log.debug("Got the request to get the results for position : " + positionId + ", user : " + userId);
         request.setAttribute(Constants.JOB_POSITION_ID, positionId);
 
         // Construct a request for position details
@@ -76,7 +76,7 @@ public class PositionResults extends BaseScreeningProcessor {
 
             // Notify the user if something went wrong
             if (map == null || map.size() != 1) {
-                log.info("The details retrieval for position " + positionId + " failed." );
+                log.debug("The details retrieval for position " + positionId + " failed." );
                 throw new ScreeningException("Position details retrieval error for position : " + positionId);
             }
 
@@ -86,7 +86,7 @@ public class PositionResults extends BaseScreeningProcessor {
 
             // Notify the user if there is an empty result
             if (result.size() == 0) {
-                log.info("The details retrieval for position " + positionId + " failed." );
+                log.debug("The details retrieval for position " + positionId + " failed." );
                 throw new ScreeningException("Position details retrieval error for position : " + positionId);
             }
 
@@ -107,7 +107,7 @@ public class PositionResults extends BaseScreeningProcessor {
 
             // Notify the user if something went wrong
             if (map == null) {
-                log.info("The search for results for position " + positionId + " returned null.");
+                log.debug("The search for results for position " + positionId + " returned null.");
                 throw new ScreeningException("Position results retrieval error for position : " + positionId
                         + ", company : " + companyId + ", campaign : " + campaignId);
             }
