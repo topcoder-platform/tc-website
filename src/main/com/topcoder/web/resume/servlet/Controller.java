@@ -28,7 +28,7 @@ public class Controller
         String taskName = null;
         String taskStepName = null;
         try {
-            log.debug("In com.topcoder.web.resume.servlet.Controller.service()");
+            log.info("[**** resume **** " + taskName + " **** " + request.getRemoteHost() + " ****]");    
             try {
                 fu = new FileUpload(request, false);
             } catch (InvalidContentTypeException ignore) {
