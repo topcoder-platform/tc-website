@@ -2,6 +2,7 @@ package com.topcoder.web.tc.controller.legacy;
 
 import com.topcoder.common.web.constant.TCServlet;
 import com.topcoder.common.web.data.Navigation;
+import com.topcoder.common.web.data.report.Query;
 import com.topcoder.common.web.error.NavigationException;
 import com.topcoder.common.web.util.Cache;
 import com.topcoder.common.web.util.Conversion;
@@ -38,6 +39,7 @@ public final class TaskHome {
         DataAccessInt dai = null;
 //        DataAccessInt transDai = null;
         DataAccessInt cTransDai = null;
+        DataAccessInt tcsDai = null;
         Request dataRequest = null;
         ResultSetContainer rsc = null;
         Map resultMap = null;
@@ -76,6 +78,7 @@ public final class TaskHome {
                 dai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.DW_DATASOURCE_NAME));
 //                transDai = new DataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
                 cTransDai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
+                tcsDai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(Query.TCS_CATALOG));
                 if (nav.isIdentified()) {
 
                     dataRequest = new Request();
@@ -146,6 +149,12 @@ public final class TaskHome {
                 resultMap = dai.getData(dataRequest);
                 rsc = (ResultSetContainer) resultMap.get("School_Avg_Rating");
                 homeTag.addTag(rsc.getTag("TopRankedSchools", "School"));
+
+                dataRequest = new Request();
+                dataRequest.setContentHandle("project_totals");
+                resultMap = tcsDai.getData(dataRequest);
+                rsc = (ResultSetContainer) resultMap.get("total_component_prices");
+                homeTag.addTag(rsc.getTag("Project", "Total"));
 
 /*
                 dataRequest = new Request();
