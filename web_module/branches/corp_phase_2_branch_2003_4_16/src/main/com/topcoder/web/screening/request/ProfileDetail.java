@@ -68,7 +68,7 @@ public class ProfileDetail extends BaseProfileProcessor {
 
         ResultSetContainer ret = null;
         if (map != null) {
-            ret = (ResultSetContainer)map.get(Constants.PROFILE_TEST_SET_A_QUERY_KEY);
+            ret = (ResultSetContainer)map.get(Constants.PROFILE_SESSION_LIST_QUERY_KEY);
         }
         return ret;
     }
