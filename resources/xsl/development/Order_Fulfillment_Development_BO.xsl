@@ -306,8 +306,25 @@ o
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Development Complete:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.11.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.12.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
+                                                        <tr>
+                                                            <td class="bodyText" nowrap="nowrap">Integration Start:</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.12.2004 &#160;&#160;9:00 AM ET</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="bodyText" nowrap="nowrap">Integration End:</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.19.2004 &#160;&#160;9:00 AM ET</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="bodyText" nowrap="nowrap">Certification Start:</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.19.2004 &#160;&#160;9:00 AM ET</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="bodyText" nowrap="nowrap">Certification End:</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.26.2004 &#160;&#160;9:00 AM ET</td>
+                                                        </tr>
+
                                                     </table>
 
                                                     <!-- Register at TCS -->
