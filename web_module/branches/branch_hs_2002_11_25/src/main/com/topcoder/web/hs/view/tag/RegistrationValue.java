@@ -41,7 +41,7 @@ public class RegistrationValue extends TagSupport {
     return(getText(value,list));
   }
 
-  String getText(String _value,List _list) {
+  String getText(Object _value,List _list) {
     if (_value==null) {
       return("");
     }
