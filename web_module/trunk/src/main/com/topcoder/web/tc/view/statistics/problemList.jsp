@@ -43,7 +43,7 @@
         Map.Entry me = null;
         for (Iterator it = h.entrySet().iterator(); it.hasNext();) {
             me = (Map.Entry)it.next();
-            System.out.println("key: " + me.getKey() + " valu: " + (String)me.getValue());
+            //System.out.println("key: " + me.getKey() + " valu: " + (String)me.getValue());
             String[] sArray = null;
 
             if (me.getValue() instanceof String) {
