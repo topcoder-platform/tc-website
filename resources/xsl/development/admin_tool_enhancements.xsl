@@ -90,6 +90,9 @@
                                         <ul>
                                             <li>Java 1.4</li>
                                             <li>J2EE</li>
+                                            <li>C#</li>
+                                            <li>SQL</li>
+                                            <li>Shell Scripts</li>
                                         </ul>
                                         <!-- Payment -->
                                         <p>
