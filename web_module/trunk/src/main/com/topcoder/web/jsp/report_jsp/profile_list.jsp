@@ -298,8 +298,10 @@
                 ocl = document.profileListForm[othercol].length;
                 cl = document.profileListForm[col].length;
                 var sl;
+                var columnsSelected = 0;
                 for(sl=0;sl< document.profileListForm[col].options.length;sl++){
                   if(!document.profileListForm[col].options[sl].selected || !document.profileListForm[col].options[sl].value > "")continue;
+                  columnsSelected++;
                   pText = document.profileListForm[col].options[sl].text;
                   pValue = document.profileListForm[col].options[sl].value;
                   if (document.profileListForm[col].options[sl].value > "" && select == 0) {
@@ -333,6 +335,9 @@
                     op.text = pText;
                     document.profileListForm[othercol].options[ocl++] = op;
                   }
+                }
+                if(columnsSelected==0){
+                  alert("Please select a column");
                 }
               }
             // -->
