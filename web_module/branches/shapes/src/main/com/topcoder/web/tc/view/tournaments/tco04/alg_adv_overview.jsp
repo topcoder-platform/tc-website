@@ -52,43 +52,43 @@
                 <%boolean even = false;%>
 				<% String sLink = "/stat?c=member_profile&cr=";%>
                 <rsc:iterator list="<%=rsc%>" id="resultRow">
-<tr><td align="center" class="<%=even?"formHandleEven":"formHandleOdd"%>" ><rsc:item name="seed" row="<%=resultRow%>"/></td>
-<td class="<%=even?"formHandleEven":"formHandleOdd"%>" ><tc:ratingImage link='<%=sLink + resultRow.getIntItem("user_id")%>' bg='W' cid='<%=resultRow.getIntItem("user_id")%>' /></td>
-<td align="right" class="<%=even?"formHandleEven":"formHandleOdd"%>" ><rsc:item name="rating" row="<%=resultRow%>"/>&#160;&#160;</td>
+<tr><td align="center" class="<%=even?"advDK":"advLT"%>" ><rsc:item name="seed" row="<%=resultRow%>"/></td>
+<td class="<%=even?"advDK":"advLT"%>" ><tc:ratingImage link='<%=sLink + resultRow.getIntItem("user_id")%>' bg='W' cid='<%=resultRow.getIntItem("user_id")%>' /></td>
+<td align="right" class="<%=even?"advDK":"advLT"%>" ><rsc:item name="rating" row="<%=resultRow%>"/>&#160;&#160;</td>
 <% if (StringUtils.checkNull(resultRow.getStringItem("round1")).equals("Eliminated")) { %>
-<td  class="<%=even?"eliminateDk":"eliminateLt"%>"><rsc:item name="round1" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"elimDK":"elimLT"%>"><rsc:item name="round1" row="<%=resultRow%>"/></td>
 <% } else { %>
-<td  class="<%=even?"advanceDk":"advanceLt"%>"><rsc:item name="round1" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"advDK":"advLT"%>"><rsc:item name="round1" row="<%=resultRow%>"/></td>
 <% } %>
 <% if (StringUtils.checkNull(resultRow.getStringItem("round2")).equals("Eliminated")) { %>
-<td  class="<%=even?"eliminateDk":"eliminateLt"%>"><rsc:item name="round2" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"elimDK":"elimLT"%>"><rsc:item name="round2" row="<%=resultRow%>"/></td>
 <% } else { %>
-<td  class="<%=even?"advanceDk":"advanceLt"%>"><rsc:item name="round2" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"advDK":"advLT"%>"><rsc:item name="round2" row="<%=resultRow%>"/></td>
 <% } %>
 <% if (StringUtils.checkNull(resultRow.getStringItem("round3")).equals("Eliminated")) { %>
-<td  class="<%=even?"eliminateDk":"eliminateLt"%>"><rsc:item name="round3" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"elimDK":"elimLT"%>"><rsc:item name="round3" row="<%=resultRow%>"/></td>
 <% } else { %>
-<td  class="<%=even?"advanceDk":"advanceLt"%>"><rsc:item name="round3" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"advDK":"advLT"%>"><rsc:item name="round3" row="<%=resultRow%>"/></td>
 <% } %>
 <% if (StringUtils.checkNull(resultRow.getStringItem("round4")).equals("Eliminated")) { %>
-<td  class="<%=even?"eliminateDk":"eliminateLt"%>"><rsc:item name="round4" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"elimDK":"elimLT"%>"><rsc:item name="round4" row="<%=resultRow%>"/></td>
 <% } else { %>
-<td  class="<%=even?"advanceDk":"advanceLt"%>"><rsc:item name="round4" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"advDK":"advLT"%>"><rsc:item name="round4" row="<%=resultRow%>"/></td>
 <% } %>
 <% if (StringUtils.checkNull(resultRow.getStringItem("semi")).equals("Eliminated")) { %>
-<td  class="<%=even?"eliminateDk":"eliminateLt"%>"><rsc:item name="semi" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"elimDK":"elimLT"%>"><rsc:item name="semi" row="<%=resultRow%>"/></td>
 <% } else { %>
-<td  class="<%=even?"advanceDk":"advanceLt"%>"><rsc:item name="semi" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"advDK":"advLT"%>"><rsc:item name="semi" row="<%=resultRow%>"/></td>
 <% } %>
 <% if (StringUtils.checkNull(resultRow.getStringItem("wildcard")).equals("Eliminated")) { %>
-<td  class="<%=even?"eliminateDk":"eliminateLt"%>"><rsc:item name="wildcard" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"elimDK":"elimLT"%>"><rsc:item name="wildcard" row="<%=resultRow%>"/></td>
 <% } else { %>
-<td  class="<%=even?"advanceDk":"advanceLt"%>"><rsc:item name="wildcard" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"advDK":"advLT"%>"><rsc:item name="wildcard" row="<%=resultRow%>"/></td>
 <% } %>
 <% if (StringUtils.checkNull(resultRow.getStringItem("final")).equals("Eliminated")) { %>
-<td  class="<%=even?"eliminateDk":"eliminateLt"%>"><rsc:item name="final" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"elimDK":"elimLT"%>"><rsc:item name="final" row="<%=resultRow%>"/></td>
 <% } else { %>
-<td  class="<%=even?"advanceDk":"advanceLt"%>"><rsc:item name="final" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"advDK":"advLT"%>"><rsc:item name="final" row="<%=resultRow%>"/></td>
 <% } %>
 </tr>
 <%even=!even;%>
