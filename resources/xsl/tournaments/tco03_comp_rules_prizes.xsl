@@ -6,21 +6,20 @@
   <xsl:import href="../foot.xsl"/>
   <xsl:import href="../includes/modules/practice_room.xsl"/>
   <xsl:import href="../includes/modules/calendar.xsl"/>
-  <xsl:import href="../includes/modules/tco03_suplinks.xsl"/>
   <xsl:import href="../includes/modules/tco03_links.xsl"/>
-  <xsl:import href="../includes/modules/tco03_sublinks.xsl"/>  
-  <xsl:import href="../includes/global_left.xsl"/> 
-  <xsl:import href="../includes/public_right_col.xsl"/>     
+  <xsl:import href="../includes/modules/tco03_sublinks.xsl"/>
+  <xsl:import href="../includes/global_left.xsl"/>
+  <xsl:import href="../includes/public_right_col.xsl"/>
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
 <html>
 <head>
 
-<xsl:call-template name="Preload"/>      
+<xsl:call-template name="Preload"/>
 
 <title>2003 TopCoder Open - Computer Programming Tournament - Rules - Prizes</title>
 
-<xsl:call-template name="CSS"/>      
+<xsl:call-template name="CSS"/>
 
 <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
 <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
@@ -52,16 +51,16 @@
         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
-<!-- Center Column Begins -->  
+<!-- Center Column Begins -->
         <td class="bodyText">
-        
 
-<!-- TCO Header 
+
+<!-- TCO Header
              <div align="center">
             <img src="/i/tournament/tco03/tco_promo_big2.gif" alt="2003 TopCoder Open" width="550" height="160" border="0" vspace="15" usemap="#tco_links" />
             <map name="tco_links">
             <area shape="rect" coords="30,100,220,155" href="/index?t=tournaments&amp;c=tco03_overview" />
-            <area shape="rect" coords="355,100,545,155" href="/index?t=tournaments&amp;c=tco03_comp_overview" />            
+            <area shape="rect" coords="355,100,545,155" href="/index?t=tournaments&amp;c=tco03_comp_overview" />
             </map>
             </div>
 -->
@@ -103,14 +102,14 @@
                 <xsl:with-param name="selectedList">component_rules</xsl:with-param>
                 <xsl:with-param name="selectedTab">prizes</xsl:with-param>
             </xsl:call-template>
-    
+
             <blockquote>
             <h2>About the Prizes</h2>
-            
-            <p>The tournament will award $30,000 in cash prizes.  $15,000 will be awarded for each of the design and development competitions.  
-            Any and all applicable taxes on prizes, including the cost of a guest attending the onsite rounds, are the sole responsibility of the 
+
+            <p>The tournament will award $30,000 in cash prizes.  $15,000 will be awarded for each of the design and development competitions.
+            Any and all applicable taxes on prizes, including the cost of a guest attending the onsite rounds, are the sole responsibility of the
             prizewinner.  Prizes will be distributed as follows:</p>
-            
+
             <table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td width="50%" class="sidebarTitle">Competitor(s)</td>
@@ -127,14 +126,14 @@
                 </tr>
 
                 <tr>
-                    <td colspan="2" class="sidebarText">* Prizes will be awarded at the conclusion of the Championship Round. 
+                    <td colspan="2" class="sidebarText">* Prizes will be awarded at the conclusion of the Championship Round.
                         Winners must be present at the onsite rounds to receive prize.</td>
                 </tr>
             </table>
             </blockquote>
 
             <p><br/></p>
-            
+
         </td>
 <!-- Center Column Ends -->
 

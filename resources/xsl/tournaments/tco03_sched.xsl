@@ -6,21 +6,20 @@
   <xsl:import href="../foot.xsl"/>
   <xsl:import href="../includes/modules/practice_room.xsl"/>
   <xsl:import href="../includes/modules/calendar.xsl"/>
-  <xsl:import href="../includes/modules/tco03_suplinks.xsl"/>
   <xsl:import href="../includes/modules/tco03_links.xsl"/>
-  <xsl:import href="../includes/modules/tco03_sublinks.xsl"/>  
-  <xsl:import href="../includes/global_left.xsl"/> 
-  <xsl:import href="../includes/public_right_col.xsl"/>     
+  <xsl:import href="../includes/modules/tco03_sublinks.xsl"/>
+  <xsl:import href="../includes/global_left.xsl"/>
+  <xsl:import href="../includes/public_right_col.xsl"/>
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
 <html>
 <head>
 
-<xsl:call-template name="Preload"/>      
+<xsl:call-template name="Preload"/>
 
 <title>2003 TopCoder Open - Computer Programming Tournament - Schedule</title>
 
-<xsl:call-template name="CSS"/>      
+<xsl:call-template name="CSS"/>
 
 <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
 <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
@@ -52,7 +51,7 @@
         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
-<!-- Center Column Begins -->  
+<!-- Center Column Begins -->
         <td class="bodyText">
             <div align="center">
                 <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br />
@@ -91,15 +90,15 @@
             <xsl:call-template name="tco03_sublinks">
                 <xsl:with-param name="selectedTab"></xsl:with-param>
             </xsl:call-template>
-    
+
             <blockquote>
             <h2>Schedule</h2>
-            
+
 <!-- Qualification Rounds begins -->
            <p><span class="bodySubtitle">Qualification Rounds</span></p>
 
             <p><a name="berths"></a><strong>Automatic Berths</strong> - The 100 highest rated TopCoder members as of October 7th (who are 18 years of age or older) will receive an automatic berth into
-            <A href="#online">Online Round #1.</A> The 100 highest rated members must have competed in at least three TopCoder rated events (i.e., 
+            <A href="#online">Online Round #1.</A> The 100 highest rated members must have competed in at least three TopCoder rated events (i.e.,
             Single Round Matches and/or previous tournaments) prior to October 7th with at least one (1) of those events being between July 7th
             and October 7th.  Any member receiving an automatic berth will not be permitted to compete in the Qualification Rounds.</p>
 
@@ -107,7 +106,7 @@
             Rounds will be held, and the top 200 scorers from each Qualification Round will win a spot in Online Round #1 of the TCO.  Please note
             that the top 100 rated members with an automatic berth will not be allowed to compete in the Qualification Rounds.  Also, those members
             who qualify for the tournament during Qualification Round #1 will not be allowed to compete in Qualification Round #2.</p>
-            
+
             <a name="sched"></a>
             <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr>
@@ -140,7 +139,7 @@
 
                 <tr valign="top">
                     <td class="sidebarText" colspan="4">
-                        *NOTE: All times are Eastern Time. In the event a Qualification Round must be cancelled for any reason, the "raindate" 
+                        *NOTE: All times are Eastern Time. In the event a Qualification Round must be cancelled for any reason, the "raindate"
                         will be the following day at the same time.
                     </td>
                 </tr>
@@ -149,9 +148,9 @@
 
 <!-- Online Elimination Rounds begins -->
             <A name="online"></A><p><span class="bodySubtitle">Online Elimination Rounds</span><br />
-            Up to 500 TopCoder members will compete in Online Round #1 of the Coding Tournament.  The field will be comprised of 100 automatic 
+            Up to 500 TopCoder members will compete in Online Round #1 of the Coding Tournament.  The field will be comprised of 100 automatic
             berths and 400 qualification spots. Each room winner and the next highest scorers in each round will advance.</p>
-            
+
             <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td class="sidebarTitle" width="25%">Round</td>
@@ -206,7 +205,7 @@
 
                 <tr valign="top">
                     <td class="sidebarText" colspan="4">
-                        *NOTE: All times are Eastern Time. In the event a Qualification Round must be cancelled for any reason, the "raindate" 
+                        *NOTE: All times are Eastern Time. In the event a Qualification Round must be cancelled for any reason, the "raindate"
                         will be the following day at the same time.
                     </td>
                 </tr>
@@ -215,9 +214,9 @@
 
 <!-- Onsite Semifinal and Championship Rounds begins -->
             <p><span class="bodySubtitle">Onsite Semifinal and Championship Rounds</span><br />
-            The 16 advancers from Online Round #4 will travel to Mohegan Sun on Wednesday, December 3rd to compete in the Semifinal round 
+            The 16 advancers from Online Round #4 will travel to Mohegan Sun on Wednesday, December 3rd to compete in the Semifinal round
             of the tournament being held on Thursday, December 4th.</p>
-            
+
             <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td class="sidebarTitle" width="25%">Round</td>
@@ -285,7 +284,7 @@
             </blockquote>
 
             <p><br/></p>
-            
+
         </td>
 <!-- Center Column Ends -->
 
