@@ -4,49 +4,49 @@
    <enterprise-beans>
       <session>
          <ejb-name>Query</ejb-name>
-         <home>com.topcoder.web.query.ejb.QueryServices.QueryHome</home>
-         <remote>com.topcoder.web.query.ejb.QueryServices.Query</remote>
-         <ejb-class>com.topcoder.web.query.ejb.QueryServices.QueryBean</ejb-class>
+         <home>com.topcoder.web.ejb.query.QueryHome</home>
+         <remote>com.topcoder.web.ejb.query.Query</remote>
+         <ejb-class>com.topcoder.web.ejb.query.QueryBean</ejb-class>
          <session-type>Stateless</session-type>
          <transaction-type>Container</transaction-type>
       </session>
       <session>
          <ejb-name>QueryInput</ejb-name>
-         <home>com.topcoder.web.query.ejb.QueryServices.QueryInputHome</home>
-         <remote>com.topcoder.web.query.ejb.QueryServices.QueryInput</remote>
-         <ejb-class>com.topcoder.web.query.ejb.QueryServices.QueryInputBean</ejb-class>
+         <home>com.topcoder.web.ejb.query.QueryInputHome</home>
+         <remote>com.topcoder.web.ejb.query.QueryInput</remote>
+         <ejb-class>com.topcoder.web.ejb.query.QueryInputBean</ejb-class>
          <session-type>Stateless</session-type>
          <transaction-type>Container</transaction-type>
       </session>
       <session>
          <ejb-name>Command</ejb-name>
-         <home>com.topcoder.web.query.ejb.QueryServices.CommandHome</home>
-         <remote>com.topcoder.web.query.ejb.QueryServices.Command</remote>
-         <ejb-class>com.topcoder.web.query.ejb.QueryServices.CommandBean</ejb-class>
+         <home>com.topcoder.web.ejb.query.CommandHome</home>
+         <remote>com.topcoder.web.ejb.query.Command</remote>
+         <ejb-class>com.topcoder.web.ejb.query.CommandBean</ejb-class>
          <session-type>Stateless</session-type>
          <transaction-type>Container</transaction-type>
       </session>
       <session>
          <ejb-name>CommandGroup</ejb-name>
-         <home>com.topcoder.web.query.ejb.QueryServices.CommandGroupHome</home>
-         <remote>com.topcoder.web.query.ejb.QueryServices.CommandGroup</remote>
-         <ejb-class>com.topcoder.web.query.ejb.QueryServices.CommandGroupBean</ejb-class>
+         <home>com.topcoder.web.ejb.query.CommandGroupHome</home>
+         <remote>com.topcoder.web.ejb.query.CommandGroup</remote>
+         <ejb-class>com.topcoder.web.ejb.query.CommandGroupBean</ejb-class>
          <session-type>Stateless</session-type>
          <transaction-type>Container</transaction-type>
       </session>
       <session>
          <ejb-name>Input</ejb-name>
-         <home>com.topcoder.web.query.ejb.QueryServices.InputHome</home>
-         <remote>com.topcoder.web.query.ejb.QueryServices.Input</remote>
-         <ejb-class>com.topcoder.web.query.ejb.QueryServices.InputBean</ejb-class>
+         <home>com.topcoder.web.ejb.query.InputHome</home>
+         <remote>com.topcoder.web.ejb.query.Input</remote>
+         <ejb-class>com.topcoder.web.ejb.query.InputBean</ejb-class>
          <session-type>Stateless</session-type>
          <transaction-type>Container</transaction-type>
       </session>
       <session>
          <ejb-name>CommandQuery</ejb-name>
-         <home>com.topcoder.web.query.ejb.QueryServices.CommandQueryHome</home>
-         <remote>com.topcoder.web.query.ejb.QueryServices.CommandQuery</remote>
-         <ejb-class>com.topcoder.web.query.ejb.QueryServices.CommandQueryBean</ejb-class>
+         <home>com.topcoder.web.ejb.query.CommandQueryHome</home>
+         <remote>com.topcoder.web.ejb.query.CommandQuery</remote>
+         <ejb-class>com.topcoder.web.ejb.query.CommandQueryBean</ejb-class>
          <session-type>Stateless</session-type>
          <transaction-type>Container</transaction-type>
       </session>

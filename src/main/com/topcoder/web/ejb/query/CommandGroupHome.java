@@ -1,4 +1,4 @@
-package com.topcoder.web.query.ejb.QueryServices;
+package com.topcoder.web.ejb.query;
 
 import javax.ejb.CreateException;
 import javax.ejb.EJBHome;
