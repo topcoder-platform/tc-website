@@ -68,7 +68,7 @@
 <b>Introduction</b><br />
 The TopCoder Design Contest #2 was a very different contest than  the 
 previous one due to changes in the contest rules, design requirements, and judging. 
-The top 3 designers were awarded payments of $3000,. $2000 and $1000, based 
+The top 3 designers were awarded payments of $3000, $2000 and $1000, based 
 on the average of the top 5 submission scores from each designer. Design requirements
 changed by removing the need for functional tests.  The scorecard added new categories,
 relaxed the wording on others and a much needed appeals process was put into place.  Altogether,
@@ -147,7 +147,7 @@ very creative project because it does not simply follow some industry standards 
 That always gives me a good feeling".  <strong>isv's</strong>  favorite design was the modifications to the config manager version 3.0.  In <strong>isv's</strong>  words, "making modifications to 
 existing designs/code is one of my favorite kinds of jobs". <strong> srowen</strong>  thought the Generic Event Manager was the most rewarding one - "It showcases one of Java's 
 little-known but powerful reflection-related capabilities -- dynamic proxies and the Proxy class. Everything about that design really came together nicely".
-In summary, the TopCoder Design Contest &#38; was a great success in introducing new people to the design process, a success to all of the designers who won 
+In summary, the TopCoder Design Contest #2 was a great success in introducing new people to the design process, a success to all of the designers who won 
 money on each individual winning design, a success to the top three designers who received a bonus and a clear success to the potential customers who will be 
 using the resulting high-quality components made from those designs.
 </p>
