@@ -77,12 +77,12 @@
 	<% } else { %>
                 <td class="nav" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_register" class="statTextBig"><img src="/i/tournament/tco04/tab_register_off.gif" alt="registration" width="88" height="22" border="0" /></A></td>
 	<% } %>
-	<%--
 	<% if (tabLev2.equals("advancers")) {%>
                 <td class="statTextBig" width="88"><A href="" class="statTextBig"><img src="/i/tournament/tco04/tab_advancers_on.gif" alt="advancers" width="88" height="22" border="0" /></A></td>
 	<% } else { %>
                 <td class="statTextBig" width="88"><A href="" class="statTextBig"><img src="/i/tournament/tco04/tab_advancers_off.gif" alt="advancers" width="88" height="22" border="0" /></A></td>
 	<% } %>
+	<%--
 	<% if (tabLev2.equals("summary")) {%>
                 <td class="statTextBig" width="88"><A href="" class="statTextBig"><img src="/i/tournament/tco04/tab_summary_on.gif" alt="details" width="88" height="22" border="0" /></A></td>
 	<% } else { %>
