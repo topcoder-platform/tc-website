@@ -91,6 +91,7 @@ public class Confirm extends FullRegConfirm {
                     log.info("COUNT+1");
                     count++;
                 }
+                log.info("R=" + r.getQuestionId());
             }
             
             if(count != 0 && count > 3)
