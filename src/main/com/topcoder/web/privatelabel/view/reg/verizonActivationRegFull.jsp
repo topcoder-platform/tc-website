@@ -65,7 +65,7 @@
 
                             Thank you for your interest.<br/><br/><br/><br/><br/><br/><br/>
 
-                            <p style="font-size:10px">Questions?  Contact us at <a href="mailto:service@topcoder.com">service@topcoder.com</a></p>
+                            <p style="font-size:10px">Questions?  Contact us at <a href="mailto:vcc@topcoder.com?subject=VCC Question">vcc@topcoder.com</a></p>
 
                         <p><img src="/i/clear.gif" width="427" height="20" border="0"/></p>
                     </td>
