@@ -1,6 +1,6 @@
 <%@ page errorPage="../home/error.jsp" %>
-<%-- @ taglib uri="/search-taglib.tld" prefix="adv" --%>
-<%--jsp:useBean id="search" type="com.topcoder.web.hs.model.SearchBean" scope="request"/--%>
+<%@ taglib uri="/search-taglib.tld" prefix="adv" %>
+<% jsp:useBean id="search" type="com.topcoder.web.hs.model.SearchBean" scope="request"/ %>
 <%@ include file="head.inc" %>
 <P><BR></P>   
 <P>Enter search criteria below then click the go button. Search results matching the criteria selections will be returned. Click on a Handle to view information about the Coder.</P>
