@@ -200,6 +200,8 @@
     <TD COLSPAN="5" ALIGN="center" CLASS="statText">
       Viewing top&#160;
 <FORM name="coderRankForm" action="/stat" method="get">
+<INPUT TYPE="HIDDEN" NAME="rd" VALUE="<%=roundID%>">
+<INPUT TYPE="HIDDEN" NAME="c" VALUE="index">
 <INPUT TYPE="text" NAME="er" MAXLENGTH="4" SIZE="4" value="<%=topN%>">
 </FORM>
       &#160;to&#160;
