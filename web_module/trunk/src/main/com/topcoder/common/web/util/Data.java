@@ -6,6 +6,7 @@ import com.topcoder.common.web.xml.*;
 import com.topcoder.common.web.constant.*;
 import com.topcoder.common.web.error.*;
 import com.topcoder.ejb.UserServices.*;
+import com.topcoder.ejb.AuthenticationServices.*;
 import com.topcoder.common.*;
 import javax.naming.*;
 import javax.transaction.*;
