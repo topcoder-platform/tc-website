@@ -1,10 +1,5 @@
 package com.topcoder.web.privatelabel.model;
 
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.privatelabel.Constants;
-
-import javax.servlet.http.HttpServletRequest;
-
 /**
  *
  * @author gpaul 06.26.2003
@@ -30,25 +25,6 @@ public class SimpleRegInfo extends Base{
 
     public SimpleRegInfo() {
     }
-
-    public SimpleRegInfo(HttpServletRequest request) {
-        this();
-        setHandle(StringUtils.checkNull(request.getParameter(Constants.HANDLE)));
-        setPassword(StringUtils.checkNull(request.getParameter(Constants.PASSWORD)));
-        setPasswordConfirm(StringUtils.checkNull(request.getParameter(Constants.PASSWORD_CONFIRM)));
-        setEmail(StringUtils.checkNull(request.getParameter(Constants.EMAIL)));
-        setEmailConfirm(StringUtils.checkNull(request.getParameter(Constants.EMAIL_CONFIRM)));
-        setFirstName(StringUtils.checkNull(request.getParameter(Constants.FIRST_NAME)));
-        setLastName(StringUtils.checkNull(request.getParameter(Constants.LAST_NAME)));
-        setAddress1(StringUtils.checkNull(request.getParameter(Constants.ADDRESS1)));
-        setAddress2(StringUtils.checkNull(request.getParameter(Constants.ADDRESS2)));
-        setCountryCode(StringUtils.checkNull(request.getParameter(Constants.COUNTRY_CODE)));
-        setStateCode(StringUtils.checkNull(request.getParameter(Constants.STATE_CODE)));
-        setCity(StringUtils.checkNull(request.getParameter(Constants.CITY)));
-        setZip(StringUtils.checkNull(request.getParameter(Constants.ZIP)));
-        setCompanyId(Long.parseLong(StringUtils.checkNull(request.getParameter(Constants.COMPANY_ID))));
-    }
-
 
     public String getHandle() {
         return handle;

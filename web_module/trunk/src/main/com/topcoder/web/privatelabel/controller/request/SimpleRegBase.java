@@ -4,6 +4,7 @@ import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.security.NoSuchUserException;
 
 import java.util.StringTokenizer;
 
@@ -32,13 +33,27 @@ abstract class SimpleRegBase extends RegistrationBase {
         setDefault(Constants.ZIP, info.getZip());
     }
 
-    protected SimpleRegInfo makeRegInfo() {
-        return new SimpleRegInfo(getRequest());
+    protected SimpleRegInfo makeRegInfo() throws Exception {
+        SimpleRegInfo info = new SimpleRegInfo();
+        info.setHandle(StringUtils.checkNull(getRequestParameter(Constants.HANDLE)));
+        info.setPassword(StringUtils.checkNull(getRequestParameter(Constants.PASSWORD)));
+        info.setPasswordConfirm(StringUtils.checkNull(getRequestParameter(Constants.PASSWORD_CONFIRM)));
+        info.setEmail(StringUtils.checkNull(getRequestParameter(Constants.EMAIL)));
+        info.setEmailConfirm(StringUtils.checkNull(getRequestParameter(Constants.EMAIL_CONFIRM)));
+        info.setFirstName(StringUtils.checkNull(getRequestParameter(Constants.FIRST_NAME)));
+        info.setLastName(StringUtils.checkNull(getRequestParameter(Constants.LAST_NAME)));
+        info.setAddress1(StringUtils.checkNull(getRequestParameter(Constants.ADDRESS1)));
+        info.setAddress2(StringUtils.checkNull(getRequestParameter(Constants.ADDRESS2)));
+        info.setCountryCode(StringUtils.checkNull(getRequestParameter(Constants.COUNTRY_CODE)));
+        info.setStateCode(StringUtils.checkNull(getRequestParameter(Constants.STATE_CODE)));
+        info.setCity(StringUtils.checkNull(getRequestParameter(Constants.CITY)));
+        info.setZip(StringUtils.checkNull(getRequestParameter(Constants.ZIP)));
+        info.setCompanyId(Long.parseLong(StringUtils.checkNull(getRequestParameter(Constants.COMPANY_ID))));
+        return info;
     }
 
     protected void checkRegInfo(SimpleRegInfo info) throws TCWebException {
         //check handle
-        //TODO check if handle exists
         if (info.getHandle().length() > Constants.MAX_HANDLE_LENGTH ||
                 info.getHandle().length() < Constants.MIN_HANDLE_LENGTH) {
             addError(Constants.HANDLE, "Your handle must contain between " +
@@ -47,6 +62,14 @@ abstract class SimpleRegBase extends RegistrationBase {
         if (!StringUtils.containsOnly(info.getHandle(), Constants.HANDLE_ALPHABET, false)) {
             addError(Constants.HANDLE,
                     "Please limit the characters in your handle to letter, numbers and common punctuation symbols.");
+        }
+        try {
+            getPrincipalManager().getUser(info.getHandle());
+            addError(Constants.HANDLE, "Please choose another handle.");
+        } catch (NoSuchUserException ne) {
+            //ignore, this just means they user doesn't exist, so this is good.
+        } catch (Exception e) {
+            throw new TCWebException(e);
         }
 
         //check password
@@ -112,5 +135,6 @@ abstract class SimpleRegBase extends RegistrationBase {
             addError(Constants.ZIP, "Please enter your zip code.");
         }
     }
+
 
 }
