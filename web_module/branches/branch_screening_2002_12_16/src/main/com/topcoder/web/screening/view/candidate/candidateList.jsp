@@ -55,11 +55,15 @@
            </TR>            
             <jsp:useBean id="candidateList" type="java.util.List" scope="request" />
             <screen:resultSetRowIterator id="row" list="<%=candidateList%>">
-            <% String params = Constants.CANDIDATE_ID + "=" + row.getItem("user_id") + "&referrer=BuildCandidateList";%>
+            <%
+              String params = Constants.CANDIDATE_ID + "=" + row.getItem("user_id") + "&referrer=BuildCandidateList";
+              String trparams = Constants.SESSION_ID + "=" + row.getItem("session_id") + "&referrer=BuildCandidateList";
+              boolean hasSession = !row.getItem("has_session").toString().equals("0");
+            %>
             <TR>
                <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;</TD>
                <TD VALIGN="middle" CLASS="bodyText">&#160;<screen:servletLink processor="PopulateCandidate" param="<%=params%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="handle" /></screen:servletLink></TD>               
-               <TD VALIGN="middle" CLASS="bodyText">&#160;<screen:servletLink processor="TestResults" param="<%=params%>" styleClass="bodyText">See Results</screen:servletLink></TD>       
+               <TD VALIGN="middle" CLASS="bodyText">&#160;<% if(hasSession){ %><screen:servletLink processor="TestResults" param="<%=trparams%>" styleClass="bodyText">See Results</screen:servletLink><% } %></TD>       
                <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="begin_time" /></TD>
                <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="end_time" /></TD>               
                <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="status" /></TD>
