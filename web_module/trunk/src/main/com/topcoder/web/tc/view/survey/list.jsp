@@ -24,8 +24,8 @@
 <!-- Left Column Begins -->
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value=""/>
-                <jsp:param name="level2" value=""/>
+                <jsp:param name="level1" value="statistics"/>
+                <jsp:param name="level2" value="member_surveys"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -41,9 +41,9 @@
                         <td class ="bodyText" width="100%"><img src="/i/header_questions.gif" width="210" height="26" border="0"></td>
                      </tr>
                   </table>
-            <p>Each week, we poll TopCoder competitors to find out answers to questions that are important to the coding community.  
-            The following is a list of those questions.  Feel free to click "Results" next to any question to see how the TopCoder member 
-            base responded or click "Vote" to participate in any survey.  Any survey you have already participated in will not have a "Vote" 
+            <p>Each week, we poll TopCoder competitors to find out answers to questions that are important to the coding community.
+            The following is a list of those questions.  Feel free to click "Results" next to any question to see how the TopCoder member
+            base responded or click "Vote" to participate in any survey.  Any survey you have already participated in will not have a "Vote"
             button next to it.</p>
 
             <table border="0" cellpadding="5" cellspacing="0"width="100%">
