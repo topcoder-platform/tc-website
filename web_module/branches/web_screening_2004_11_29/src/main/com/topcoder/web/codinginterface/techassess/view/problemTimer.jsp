@@ -30,7 +30,7 @@
         var problemLocalTime = new Date();
 
         var problemServerOffset = -5; //hours from GMT
-        var problemOffset = localTime.getTimezoneOffset();
+        var problemOffset = problemLocalTime.getTimezoneOffset();
         problemOffset = problemOffset / 60;
         problemOffset = problemOffset * -1
 
