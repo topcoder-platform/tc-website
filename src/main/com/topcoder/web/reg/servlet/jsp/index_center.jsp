@@ -1,5 +1,6 @@
 <%@ include file="nocache.jsp" %>
 <%@ page errorPage="error.jsp" %>
+<%@ page session="true" %>
 <%@ taglib uri="tc-taglib.tld" prefix="tc" %>
 <%@ page import="com.topcoder.web.reg.servlet.*" %>
 <jsp:useBean id="Registration" scope="session" class="com.topcoder.web.reg.bean.Registration" />
@@ -403,7 +404,6 @@ Founder and Chairman, TopCoder, Inc.
   </tr>
 
 
-<%--
   <tr valign="middle">
     <td colspan="4" class="statTextBig" valign="middle" background="/i/steel_bluebv_bg.gif" height="16">&nbsp;Confirmation Code</td>
   </tr>
@@ -414,7 +414,6 @@ Founder and Chairman, TopCoder, Inc.
     <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Sun Confirmation Code&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
     <td colpsan="2" class="statTextBig" align="left" valign="middle"><input type="text" name="<%=Registration.SUN_CONFIRMATION%>" value ="<jsp:getProperty name="Registration" property="SunConfirm" />" size="30" maxlength="100"></td>
   </tr>
---%>
 
 
 
