@@ -10,7 +10,6 @@ import com.topcoder.ejb.DataCache.DataCache;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.docGen.xml.RecordTag;
 import com.topcoder.shared.docGen.xml.ValueTag;
@@ -37,7 +36,7 @@ public final class TaskHome {
         String result = null;
         Context ctx = null;
         DataAccessInt dai = null;
-        DataAccessInt transDai = null;
+//        DataAccessInt transDai = null;
         DataAccessInt cTransDai = null;
         Request dataRequest = null;
         ResultSetContainer rsc = null;
@@ -75,7 +74,7 @@ public final class TaskHome {
             try {
                 ctx = TCContext.getInitial();
                 dai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.DW_DATASOURCE_NAME));
-                transDai = new DataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
+//                transDai = new DataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
                 cTransDai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
                 if (nav.isIdentified()) {
 
@@ -128,7 +127,7 @@ public final class TaskHome {
                     rsc = (ResultSetContainer) resultMap.get("Top_Scorers");
                     homeTag.addTag(rsc.getTag("Div2TopScorers", "Coder"));
 
-                    homeTag.addTag(getTourneyInfo(transDai, nav.getUserId()));
+//                    homeTag.addTag(getTourneyInfo(transDai, nav.getUserId()));
 
                 }
 
@@ -207,7 +206,7 @@ public final class TaskHome {
         return result;
     }
 
-
+/*
     private static RecordTag getTourneyInfo(DataAccessInt dai, long userId) throws Exception {
         Request dataRequest = null;
         Map resultMap = null;
@@ -286,7 +285,7 @@ public final class TaskHome {
 //        rsc = (ResultSetContainer) resultMap.get("Invitational_Eligibility");
 //        invitationalInfo.addTag(rsc.getTag("Invitational_Eligibility", "Info"));
     }
-
+*/
 
     static void getContestDates(RecordTag tag) {
         try {
