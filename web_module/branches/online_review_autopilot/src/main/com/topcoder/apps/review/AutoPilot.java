@@ -49,7 +49,7 @@ public class AutoPilot {
             }
 
             //override, change me
-            email = "rfairfax@topcoder.com";
+            //email = "rfairfax@topcoder.com";
 
 
             //check if nothing passed, send email
@@ -559,7 +559,7 @@ public class AutoPilot {
             }
 
             //override, change me
-            email = "rfairfax@topcoder.com";
+            //email = "rfairfax@topcoder.com";
 
 
             //check if nothing passed, send email
@@ -651,7 +651,7 @@ public class AutoPilot {
             }
 
             //override, change me
-            email = "rfairfax@topcoder.com";
+            //email = "rfairfax@topcoder.com";
 
 
             //check if nothing passed, send email
