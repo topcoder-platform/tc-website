@@ -547,7 +547,7 @@ When calculating
 ISO week numbers by hand, the chief difficulty is that although most
 years have 52 calendar weeks, some have 53. It helps to observe that
 such a "long year" can only be one that begins or ends on a Thursday,
-since a leap year has 366=52*7+2 days and a non-leap year has 365=52+1.
+since a leap year has 366=52*7+2 days and a non-leap year has 365=52*7+1.
 Consider that in a non-leap year, if January 1 is a Thursday, then
 exactly 52 weeks later comes another Thursday, hence the start of a 53rd week.
 </p>
@@ -601,8 +601,8 @@ over to 1 only on a Monday that falls between December 29 and January
 4, inclusive.
 </p>
 <pre>
-    int months = [[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
-                  [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]]
+    months = [[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
+              [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]]
 
     def week_forward(year, month, day):
         y = 1642; m = 12; d = 26; wd = 1; wn = 52; leap = 0
@@ -664,8 +664,8 @@ the underlying simplicity of our superficially quirky calendar.
 
 
                         <p>
-                        <img src="/i/m/eeyore_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" /><br />
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=273434"><strong>eeyore</strong></a><br />
+                        <img src="/i/m/Eeyore_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" /><br />
+                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=273434"><strong>Eeyore</strong></a><br />
                         <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
                         </p>
                     </td>
