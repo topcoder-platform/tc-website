@@ -42,9 +42,11 @@
             <TR><TD CLASS="statTextBig" COLSPAN="2"><%=Constants.MODIFY_COMMAND_QUERY_NAME%></TD></TR>
             <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
             <TR><TD CLASS="statTextBig" COLSPAN="2" ALIGN="center">Command: <jsp:getProperty name="ModifyCommandQueryTask" property="CommandDesc"/></TD></TR>
+            <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
             <TR>
               <TD CLASS="statText" ALIGN="center" COLSPAN="2">DB: <jsp:getProperty name="ModifyCommandQueryTask" property="Db"/></TD>
             </TR>
+            <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
             <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyCommandQueryTask%>" key="<%=Constants.COMMAND_ID_PARAM%>"/></TD></TR>
             <TR>
               <TD COLSPAN="2">
@@ -55,6 +57,7 @@
                     <TD CLASS="statTextBig">Sort Order</TD>
                     <TD CLASS="statTextBig"></TD>
                   </TR>
+                  <TR><TD COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
                   <query:commandQueryIterator id="commandQuery" list="<%=ModifyCommandQueryTask.getCurrentQueryList()%>">
                     <TR><TD CLASS="errorText" COLSPAN="4"><query:error task="<%=ModifyCommandQueryTask%>" key="<%=Constants.SORT_ORDER_PARAM+commandQuery.getQueryId()%>"/></TD></TR>
                     <TR>
@@ -82,6 +85,7 @@
                         </A>
                     </TD>
                   </TR>
+                  <TR><TD COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
                 </TABLE>
               </TD>
             </TR>
