@@ -579,7 +579,7 @@
 
      <target name="package-EJB-PasswordBean" depends="compile">
          <jar
-             jarfile="${ejb_jars}/password.jar"
+             jarfile="${ejb_jars}/Password.jar"
              basedir="${classes}"
              includes="com/topcoder/web/ejb/password/**">
              <metainf dir="${java}/com/topcoder/web/ejb/password" includes="*.xml"/>
