@@ -42,7 +42,7 @@
 <% if ( !sessionInfo.isAnonymous() ) { %>
             <strong>Hello, </strong>
             <a href="/stat?c=member_profile&amp;cr=<%=sessionInfo.getUserId()%>" class="<%=styleClass%>" target="_parent"><%=sessionInfo.getHandle()%></a>
-            &#160;&#160;|&#160;&#160;<a href="/?t=authentication&amp;c=submit_logout" class="loginLinks" target="_parent">Logout</a>
+            &#160;&#160;|&#160;&#160;<a href="/tc?&amp;module=Logout" class="loginLinks" target="_parent">Logout</a>
             &#160;&#160;|&#160;&#160;<a href="/reg/index.jsp" class="loginLinks" target="_parent">Update Profile</a>
 <% } else { %>
             <a href="/?t=authentication&amp;c=login" class="loginLinks" target="_parent">Login</a>

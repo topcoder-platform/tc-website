@@ -127,13 +127,9 @@ public class Login extends Base {
     private void doLegacyCrap(HttpServletRequest request) throws Exception {
         PrincipalMgrRemote pmgr = (PrincipalMgrRemote)
                 com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
-log.debug("XXX activeuserid: " + getAuthentication().getActiveUser().getId());
         TCSubject user = pmgr.getUserSubject(getAuthentication().getActiveUser().getId());
-log.debug("XXX subject id: " + user.getUserId());
         CoderSessionInfo ret = new CoderSessionInfo(request, getAuthentication(), user.getPrincipals());
-log.debug("XXX sessioninfo id: " + ret.getUserId());
         Navigation nav = new Navigation(request, ret);
-log.debug("XXX nav id: " + nav.getUserId());
         request.getSession(true).setAttribute("navigation", nav);
     }
 
