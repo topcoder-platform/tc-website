@@ -74,6 +74,21 @@
                <tr><td bgcolor="#666666" width="100%" height="3" class="bodyText"><img src="/i/clear.gif" alt="" width="1" height="3" border="0" /></td></tr> 
             </table>
 
+    <% } else if (list.equals("comp_summary")) { %>
+            <table width="100%" border="0" cellspacing="0" cellpadding="2" class="tcoSubNav">
+                <tr>
+                    <td class="tcoSubNav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+
+                    <td class="<%=tab.equals("comp_final")?"tcoSubNav_on":"tcoSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=comp_final" class="topLink">Component Final Round</a></td>
+                    <td class="<%=tab.equals("awards")?"tcoSubNav_on":"tcoSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=awards" class="topLink">Awards Dinner</a></td>
+
+                    <td class="tcoSubNav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+            </table>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="bodyText">
+               <tr><td bgcolor="#666666" width="100%" height="3" class="bodyText"><img src="/i/clear.gif" alt="" width="1" height="3" border="0" /></td></tr> 
+            </table>
+
     <% } else if (list.equals("onsite")) { %>
             <table width="100%" border="0" cellspacing="0" cellpadding="2" class="tcoSubNav">
                 <tr>
