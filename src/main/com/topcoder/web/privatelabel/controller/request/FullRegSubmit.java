@@ -50,7 +50,7 @@ abstract class FullRegSubmit extends SimpleRegSubmit {
 
         DemographicResponse r = null;
         DemographicQuestion q = null;
-        Map questions = FullRegBase.getQuestions(transDb);
+        Map questions = FullRegBase.getQuestions(transDb, regInfo.getCompanyId());
         for (Iterator it = ((FullRegInfo)regInfo).getResponses().iterator(); it.hasNext();) {
             r = (DemographicResponse) it.next();
             q = (DemographicQuestion) questions.get(new Long(r.getQuestionId()));

@@ -93,6 +93,7 @@ abstract class FullRegConfirm extends FullRegBase {
         Request r = new Request();
         r.setContentHandle("demographic_answer_list");
         r.setProperty("dq", String.valueOf(response.getQuestionId()));
+        r.setProperty("cm", String.valueOf(regInfo.getCompanyId()));
         Map aMap = dataAccess.getData(r);
         ResultSetContainer answers = (ResultSetContainer) aMap.get("demographic_answer_list");
 
