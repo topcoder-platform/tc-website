@@ -13,10 +13,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import javax.naming.Context;
 import javax.naming.NamingException;
 import javax.ejb.CreateException;
-import javax.jts.UserTransaction;
-import javax.jts.TransactionRolledbackException;
-import javax.jts.HeuristicMixedException;
-import javax.jts.HeuristicRollbackException;
+import javax.transaction.*;
 import java.rmi.RemoteException;
 import java.util.*;
 
@@ -79,26 +76,59 @@ public class QueryMover {
                 q.moveCommand(command);
             }
             utx.commit();
-        } catch (TransactionRolledbackException e) {
-            utx.rollback();
-            e.printStackTrace();
-        } catch (HeuristicMixedException e) {
-            utx.rollback();
-            e.printStackTrace();
-        } catch (HeuristicRollbackException e) {
-            utx.rollback();
-            e.printStackTrace();
         } catch (SecurityException e) {
-            utx.rollback();
+            try {
+                utx.rollback();
+            } catch (IllegalStateException e1) {
+                e1.printStackTrace();
+            } catch (SecurityException e1) {
+                e1.printStackTrace();
+            } catch (SystemException e1) {
+                e1.printStackTrace();
+            }
             e.printStackTrace();
         } catch (IllegalStateException e) {
-            utx.rollback();
+            try {
+                utx.rollback();
+            } catch (IllegalStateException e1) {
+                e1.printStackTrace();
+            } catch (SecurityException e1) {
+                e1.printStackTrace();
+            } catch (SystemException e1) {
+                e1.printStackTrace();
+            }
             e.printStackTrace();
         } catch (NamingException e) {
-            utx.rollback();
+            try {
+                utx.rollback();
+            } catch (IllegalStateException e1) {
+                e1.printStackTrace();
+            } catch (SecurityException e1) {
+                e1.printStackTrace();
+            } catch (SystemException e1) {
+                e1.printStackTrace();
+            }
             e.printStackTrace();
         } catch (RemoteException e) {
-            utx.rollback();
+            try {
+                utx.rollback();
+            } catch (IllegalStateException e1) {
+                e1.printStackTrace();
+            } catch (SecurityException e1) {
+                e1.printStackTrace();
+            } catch (SystemException e1) {
+                e1.printStackTrace();
+            }
+            e.printStackTrace();
+        } catch (NotSupportedException e) {
+            e.printStackTrace();
+        } catch (SystemException e) {
+            e.printStackTrace();
+        } catch (RollbackException e) {
+            e.printStackTrace();
+        } catch (HeuristicMixedException e) {
+            e.printStackTrace();
+        } catch (HeuristicRollbackException e) {
             e.printStackTrace();
         }
     }
