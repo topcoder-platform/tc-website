@@ -14,6 +14,8 @@ import com.topcoder.web.tc.Constants;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.PermissionException;
 
+import com.topcoder.shared.security.ClassResource;
+
 import com.topcoder.web.tc.model.ContractingInfo;
 /**
  *
