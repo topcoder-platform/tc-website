@@ -39,7 +39,7 @@
 
   <init-param>
     <param-name>auth_failed_page</param-name>
-    <param-value>/tces?task=LoginTask</param-value>
+    <param-value>/tces?task=LoginTask&step=ar</param-value>
     <description>
       URI to the page for a failed authentication
     </description>
@@ -195,7 +195,14 @@
     <param-name>login_task_step_auth</param-name>
     <param-value>a</param-value>
     <description>
-      Idenitifier for the view step of the login task
+      Idenitifier for the auth step of the login task
+    </description>
+  </init-param>
+  <init-param>
+    <param-name>login_task_step_authredir</param-name>
+    <param-value>ar</param-value>
+    <description>
+      Idenitifier for the auth/redir step of the login task
     </description>
   </init-param>
   <init-param>
