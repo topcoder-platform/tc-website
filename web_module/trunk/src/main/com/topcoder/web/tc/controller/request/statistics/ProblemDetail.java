@@ -19,7 +19,7 @@ public class ProblemDetail extends Base {
     protected void businessProcessing() throws TCWebException {
 
         try {
-            if (!userLoggedIn())
+            if (!userIdentified())
                 throw new PermissionException(getUser(), new ClassResource(this.getClass()));
 
             Request r = new Request();
