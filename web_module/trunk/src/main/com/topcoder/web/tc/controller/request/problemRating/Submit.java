@@ -58,7 +58,7 @@ public class Submit extends Base {
             setIsNextPageInContext(true);
         }catch(Exception e){
             if(e.getMessage().equals("Not enough answers")){
-                request.addAttribute("redoError","Please answer all of the questions.");
+//                request.addAttribute("redoError","Please answer all of the questions.");
                 setNextPage("");
                 setIsNextPageInContext(true);
             }else{
