@@ -100,12 +100,12 @@
 	<% } else { %>
                 <td class="nav" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=tco04_sponsors" class="statTextBig"><img src="/i/tournament/tco04/tab_sponsors_off.gif" alt="about" width="88" height="22" border="0" /></A></td>
 	<% } %>
---%>
 	<% if (tabLev2.equals("onsite_events")) {%>
                 <td class="nav" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=reception" class="statTextBig"><img src="/i/tournament/tco04/tab_onsiteevents_on.gif" alt="about" width="88" height="22" border="0" /></A></td>
 	<% } else { %>
                 <td class="nav" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=reception" class="statTextBig"><img src="/i/tournament/tco04/tab_onsiteevents_off.gif" alt="about" width="88" height="22" border="0" /></A></td>
 	<% } %>
+--%>
 <% } %>
 
 				<td class=nav width="49%"><img src="/i/clear.gif" alt="" width="5" height="10" border="0" /></td>
@@ -166,14 +166,14 @@
 		<%--
 		<td class="<%=tabLev3.equals("spectator")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=spectator_package" class="subNavLink">Spectator Package</a></td>
 		--%>
-		<td class="<%=tabLev3.equals("schedule")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=tco04_onsite_schedule" class="subNavLink">Schedule</a></td>
-		<td class="<%=tabLev3.equals("directions")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=tco04_directions" class="subNavLink">Directions</a></td>
-		<td class="<%=tabLev3.equals("transportation")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=tco04_transportation" class="subNavLink">Transportation</a></td>
-		<td class="<%=tabLev3.equals("hotels")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=tco04_hotels" class="subNavLink">Hotels</a></td>
+		<td class="<%=tabLev3.equals("schedule")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=onsite_schedule" class="subNavLink">Schedule</a></td>
+		<td class="<%=tabLev3.equals("directions")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=directions" class="subNavLink">Directions</a></td>
+		<td class="<%=tabLev3.equals("transportation")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=transportation" class="subNavLink">Transportation</a></td>
+		<td class="<%=tabLev3.equals("hotels")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=hotels" class="subNavLink">Hotels</a></td>
 	<% } else if (tabLev2.equals("onsite_events")) {%>
 		<td class="<%=tabLev3.equals("reception")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=reception" class="subNavLink">Reception</a></td>
 		<td class="<%=tabLev3.equals("photos")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=photos" class="subNavLink">Photos</a></td>
-		<td class="<%=tabLev3.equals("movies")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=tco04_movies" class="subNavLink">Movies</a></td>
+		<td class="<%=tabLev3.equals("movies")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=movies" class="subNavLink">Movies</a></td>
 	<% } else { %>
 		<td width="100%"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
 	<% } %>
