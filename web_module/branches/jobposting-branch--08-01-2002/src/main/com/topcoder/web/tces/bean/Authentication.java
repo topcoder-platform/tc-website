@@ -84,7 +84,10 @@ public class Authentication implements Serializable {
     public static String getErrorMessage(HttpSession session) {
         Authentication auth = (Authentication)session.getAttribute("tces_auth");
 
-        return auth.errorMessage;
+        if (auth==null)
+            return "";
+        else
+            return auth.errorMessage;
     }
 
     private void setUserId(int userId) {
