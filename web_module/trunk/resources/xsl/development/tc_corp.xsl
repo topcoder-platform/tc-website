@@ -65,7 +65,7 @@
 	TopCoder plans on creating a corporate site where corporate
 members of the TopCoder community will be able to access premium
 services.  The corporate site will be designed to provide content and
-information as well as provide the 	require authentication with the
+information as well as provide the 	required authentication with the
 proper authorization for the corporate members.
 </P>
 
@@ -138,7 +138,7 @@ The following section describes the required tasks.
 </P>
 
 <P>
-The purpose of the Application definition and understanding phase is to finalize the system design and test cases, to get acclimated to the development environment and to outline deliverable dates.  
+The purpose of the TopCoder Environment Training Phase is to finalize the system design and test cases, to get acclimated to the development environment and to outline deliverable dates.  
 </P>
 
 <P>
@@ -275,7 +275,7 @@ Also during this phase, the QA Developer should be creating the automated and ma
 </P>
 
 <P>
-All component source code undergoes testing. All code is reviewed to determine correct interpretation of the design, proper commenting and adherence to coding standards. It is expected that this will be an iterative phase where bug fixes and enhancements are added and regression tested. The result of this phase is a fully functional application or component assembly approved by all members of the development team. 
+All application component source code undergoes testing. All code is reviewed to determine correct interpretation of the design, proper commenting and adherence to coding standards. It is expected that this will be an iterative phase where bug fixes and enhancements are added and regression tested. The result of this phase is a fully functional application or component assembly approved by all members of the development team. 
 </P>
 
 <P>
