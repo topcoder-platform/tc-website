@@ -110,6 +110,21 @@
     </javac>
   </target>
 
+  <target name="test" depends="init,compile_tests">
+    <junit fork="yes" haltonerror="true">
+      <classpath>
+        <pathelement location="${testclasses}"/>
+        <pathelement path="${java.class.path}"/>
+      </classpath>
+      <batchtest>
+        <formatter type="plain" usefile="false"/>
+        <fileset dir="${testclasses}">
+          <include name="**/AllTests*"/>
+        </fileset>
+      </batchtest>
+    </junit>
+  </target>
+
    <target name="full_deploy" depends="build_ejbs,deploy">
    </target>
 
