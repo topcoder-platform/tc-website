@@ -72,16 +72,15 @@ ClassPath: CodeProcessor.jar; FileEdit.jar; ProblemParser.jar<BR/>
 Plugin Name: ProblemParser<BR/>
 Description: A plugin to parse the problem statement.<BR/>
 Author: kyky<BR/>
-Date: 6/11/2002<BR/>
-Instructions: <A HREF="/contest/classes/ProblemParser.htm" CLASS="statText">Documentation >></A><BR/>
-Upgrade Release Notes: <A HREF="/contest/classes/ProblemParser_1_0_0a.htm" CLASS="statText">Release Notes >></A><BR/>
-Version: 1.00a<BR/>
-Source: <A HREF="/contest/classes/src.zip" CLASS="statText">Source &gt;&gt;</A><BR/>
+Date: 8/08/2002<BR/>
+Instructions: <A HREF="/contest/classes/ProblemParser/ProblemParser.html" CLASS="statText">Documentation >></A><BR/>
+Upgrade Release Notes: <A HREF="/contest/classes/ProblemParser/ReleaseNotes.html" CLASS="statText">Release Notes >></A><BR/>
+Version: 1.01<BR/>
+Source: <A HREF="/contest/classes/ProblemParser/ProblemParser.zip" CLASS="statText">Source &gt;&gt;</A><BR/>
 EntryPoint: codeprocessor.EntryPoint (case sensitive)<BR/>
 ClassPath: CodeProcessor.jar; FileEdit.jar; ProblemParser.jar<BR/>
-<A HREF="/contest/classes/ProblemParser.jar" CLASS="statText">ProblemParser.jar Plugin &gt;&gt;</A><BR/>
+<A HREF="/contest/classes/ProblemParser/ProblemParser.jar" CLASS="statText">ProblemParser.jar Plugin &gt;&gt;</A><BR/>
 </P>
-
 
 <P CLASS="statText">
 Plugin Name: CodeProcessor<BR/>
