@@ -6,6 +6,7 @@
 
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
 <HTML>
  <HEAD>
    <TITLE>TopCoder Statistics - Coder Rankings</TITLE>
@@ -143,6 +144,7 @@ try{
                  <TR>
                    <TD COLSPAN="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
+		<% String sLink = "/stat?c=member_profile&cr=";%>
        <logic:iterate name="resultSet" id="resultRow" type="ResultSetContainer.ResultSetRow">
 	        <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 2 /*"coder_score"*/ + "]" %>'/>
                  <TR>
