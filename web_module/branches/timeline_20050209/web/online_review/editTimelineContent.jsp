@@ -45,10 +45,6 @@
                 </tr>
                             
                 <tr>
-                    <td class="bodyText" colspan="4"><strong><bean:message key="prompt.overview" /></strong><br>
-                        <review:showString name="projectForm" property="overview" /></td>
-                </tr>
-                <tr>
                     <td colspan="4"><img src="images/clear.gif" alt="" width="1" height="1" border="0"></td>
                 </tr>
             </table>
