@@ -56,7 +56,7 @@
                         <p>You're not currently registered for the 2004 Top Coder Open.</p>
 
                         <p>You must register for the TCO for this component to count towards your point total. <a href="/tc?module=TCO04ComponentTerms">Click here to register</a></p>
-                        <p>If you don't want to participate in the TCO, <a >
+                        <p>If you don't want to participate in the TCO but still want to register for this component, <a >
                         <xsl:attribute name="href">/?t=development&amp;version=<xsl:value-of select="/TC/DEVELOPMENT/version"/>&amp;phase=<xsl:value-of select="/TC/DEVELOPMENT/phase"/>&amp;comp=<xsl:value-of select="/TC/DEVELOPMENT/comp"/>&amp;c=tcs_inquire&amp;Project=<xsl:value-of select="/TC/DEVELOPMENT/Project"/>&amp;projectId=<xsl:value-of select="/TC/DEVELOPMENT/projectId"/>&amp;continue=true</xsl:attribute>click here</a>.</p>
 
                         <p><br /></p>
