@@ -104,7 +104,7 @@
         </CENTER>
         <BR/>
         <BR/>
-        <TABLE border="0" cellspacing="3" cellpadding="0" width="70%">
+        <TABLE border="0" cellspacing="3" cellpadding="0" width="100%">
     <FORM name="questForm" method="POST" action="/">
         <INPUT TYPE="hidden" NAME="t" VALUE="affidavit"/>
         <INPUT TYPE="hidden" NAME="c" VALUE="2003_collegiate_submit_info"/>
