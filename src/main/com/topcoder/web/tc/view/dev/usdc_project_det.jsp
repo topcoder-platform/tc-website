@@ -53,7 +53,7 @@
 
 <p>
 <a href="/tc?module=USDCResults">Contest Results</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-<a href="/tc?module=USDCContestDetails&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">Contest Details - <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></a>
+<a href="/tc?module=USDCContestProjects&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">Contest Projects - <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></a>
 </p>
 
 <h2>Results</h2>
