@@ -31,7 +31,7 @@ public abstract class BaseServlet extends HttpServlet {
     private String LOGIN_SERVLET = null;
     public static final String MESSAGE_KEY = "message";
     public static final String NEXT_PAGE_KEY = "nextpage";
-    public static final String SESSION_INFO_KEY = "SessionInfo";
+    public static final String SESSION_INFO_KEY = "sessionInfo";
 
     private static Logger log = Logger.getLogger(BaseServlet.class);
 
