@@ -57,8 +57,8 @@
 
   <tag>
     <name>iterator</name>
-    <tagclass>com.topcoder.web.common.tag.IteratorTag</tagclass>
-    <teiclass>com.topcoder.web.common.tag.IteratorTagInfo</teiclass>
+	<tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
+    <teiclass>com.topcoder.web.common.tag.ResultSetRowIteratorTagInfo</teiclass>
     <bodycontent>JSP</bodycontent>
     <info>
       generic iterator tag iterates through elements of a Collection

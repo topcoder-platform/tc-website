@@ -1,7 +1,6 @@
 package com.topcoder.web.common.tag;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.logging.Logger;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
@@ -9,7 +8,6 @@ import java.io.IOException;
 
 public class ResultSetItemTag extends TagSupport  {
 
-    private static Logger log = Logger.getLogger(ResultSetItemTag.class);
     private ResultSetContainer.ResultSetRow row;
     private String name;
 
