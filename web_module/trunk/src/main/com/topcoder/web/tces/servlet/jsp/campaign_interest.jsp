@@ -54,73 +54,74 @@
                 </tr>
             </table>
 
+            <h2>Campaign Interest</h2>
+
             <table border="0" cellspacing="10" cellpadding="0">
                 <tr valign="top">
-                    <td class="bodyText"><img src="/i/clear.gif" alt="" width="400" height="1" border="0">
-                        <h2>Campaign Interest</h2>
-              
+                    <td class="bodyText">
                         <p>
                             <strong><%=CampaignInterestTask.getCampaignName()%></strong><br>
                             <a href="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.DEMOGRAPHIC_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CampaignInterestTask.getCampaignID()%>" class="bodyText">View collective demographic info</a><BR>
                         </p>
+                    </td>
+                </tr>
+            </table>
                         
-                        <table id="datatable" cellspacing="0" cellpadding="3" border="0">               
-                            <tr>
-                                <td class="testTableTitle"><A HREF="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.SORT_PARAM%>=handle&<%=TCESConstants.SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_ASC%>" class="testTableTitle"><strong>Handle</strong></a></td>
-                                <td class="testTableTitle">&#160;&#160;</td>
-                                <td class="testTableTitle"><a href="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.SORT_PARAM%>=rating_sort&<%=TCESConstants.SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_DES%>" class="testTableTitle"><strong>Rating</strong></a></td>
-                                <td class="testTableTitle">&#160;&#160;</td>
-                                <td class="testTableTitle"><a href="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.SORT_PARAM%>=state_code_sort" class="testTableTitle"><strong>State</strong></a></td>
-                                <td class="testTableTitle">&#160;&#160;</td>
-                                <td class="testTableTitle"><a href="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.SORT_PARAM%>=country" class="testTableTitle"><strong>Country</strong></a></td>                  
-                                <td class="testTableTitle">&#160;&#160;</td>
-                                <td class="testTableTitle"><a href="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.SORT_PARAM%>=coder_type_desc" class="testTableTitle"><strong>Type</strong></a></td>                  
-                                <td class="testTableTitle">&#160;&#160;</td>
-                                <td class="testTableTitle"><a href="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.SORT_PARAM%>=coder_type_desc&<%=TCESConstants.SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_DES%>&<%=TCESConstants.BACK_SORT_PARAM%>=school_name_sort&<%=TCESConstants.BACK_SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_ASC%>" class="testTableTitle"><strong>School</strong></a></td>
-                                <td class="testTableTitle">&#160;&#160;</td>
-                                <td class="testTableTitle"><a href="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.SORT_PARAM%>=job_desc&<%=TCESConstants.SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_ASC%>" class="testTableTitle"><strong>Position</strong></a></td>                  
-                                <td class="testTableTitle">&#160;&#160;</td>
-                                <td class="testTableTitle"><a href="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.SORT_PARAM%>=hit_date_sort&<%=TCESConstants.SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_DES%>" class="testTableTitle"><strong>Hit Date</strong></a></td>                                    
-                            </tr>
+            <table id="datatable" cellspacing="0" cellpadding="5" border="0">               
+                <tr>
+                    <td class="testTableTitle"><A HREF="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.SORT_PARAM%>=handle&<%=TCESConstants.SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_ASC%>" class="tableColLink"><strong>Handle</strong></a></td>
+                    <td class="testTableTitle">&#160;</td>
+                    <td class="testTableTitle"><a href="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.SORT_PARAM%>=rating_sort&<%=TCESConstants.SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_DES%>" class="tableColLink"><strong>Rating</strong></a></td>
+                    <td class="testTableTitle">&#160;</td>
+                    <td class="testTableTitle"><a href="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.SORT_PARAM%>=state_code_sort" class="tableColLink"><strong>State</strong></a></td>
+                    <td class="testTableTitle">&#160;</td>
+                    <td class="testTableTitle"><a href="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.SORT_PARAM%>=country" class="tableColLink"><strong>Country</strong></a></td>                  
+                    <td class="testTableTitle">&#160;</td>
+                    <td class="testTableTitle"><a href="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.SORT_PARAM%>=coder_type_desc" class="tableColLink"><strong>Type</strong></a></td>                  
+                    <td class="testTableTitle">&#160;</td>
+                    <td class="testTableTitle"><a href="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.SORT_PARAM%>=coder_type_desc&<%=TCESConstants.SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_DES%>&<%=TCESConstants.BACK_SORT_PARAM%>=school_name_sort&<%=TCESConstants.BACK_SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_ASC%>" class="tableColLink"><strong>School</strong></a></td>
+                    <td class="testTableTitle">&#160;</td>
+                    <td class="testTableTitle"><a href="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.SORT_PARAM%>=job_desc&<%=TCESConstants.SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_ASC%>" class="tableColLink"><strong>Position</strong></a></td>                  
+                    <td class="testTableTitle">&#160;</td>
+                    <td class="testTableTitle"><a href="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.SORT_PARAM%>=hit_date_sort&<%=TCESConstants.SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_DES%>" class="tableColLink"><strong>Hit Date</strong></a></td>                                    
+                </tr>
 
-                            <% int i=0; %>
-                            <tces:rowIterator id="hit" rowList="<%=CampaignInterestTask.getHitList()%>">
-                            <% i++; %>
+                <% int i=0; %>
+                <tces:rowIterator id="hit" rowList="<%=CampaignInterestTask.getHitList()%>">
+                <% i++; %>
                 
-                            <tr>
-                                <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><a href="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.MEMBER_PROFILE_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<%=hit.getItem("job_id").toString()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=hit.getItem("coder_id").toString()%>" class="bodyText"><%= hit.getItem("handle").toString() %></a></td>
-                                <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;&#160;</td>
-                                <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= hit.getItem("rating").toString() %></td>
-                                <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;&#160;</td>
-                                <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= hit.getItem("state_code").toString() %></td>
-                                <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;&#160;</td>
-                                <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= hit.getItem("country").toString() %></td>                  
-                                <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;&#160;</td>
-                                <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= hit.getItem("coder_type_desc").toString() %></td>                  
-                                <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;&#160;</td>
-                                <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= hit.getItem("school_name").toString() %></td> 
-                                <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;&#160;</td>
-                                <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><A HREF="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<%=hit.getItem("job_id").toString()%>" class="bodyText"><%= hit.getItem("job_desc").toString() %></a></td>                                   
-                                <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;&#160;</td>
-                                <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= hit.getItem("hit_date").toString() %></td>
-                            </tr>
+                <tr>
+                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><a href="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.MEMBER_PROFILE_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<%=hit.getItem("job_id").toString()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=hit.getItem("coder_id").toString()%>" class="bodyText"><%= hit.getItem("handle").toString() %></a></td>
+                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;</td>
+                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= hit.getItem("rating").toString() %></td>
+                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;</td>
+                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= hit.getItem("state_code").toString() %></td>
+                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;</td>
+                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= hit.getItem("country").toString() %></td>                  
+                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;</td>
+                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= hit.getItem("coder_type_desc").toString() %></td>                  
+                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;</td>
+                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= hit.getItem("school_name").toString() %></td> 
+                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;</td>
+                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><A HREF="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<%=hit.getItem("job_id").toString()%>" class="bodyText"><%= hit.getItem("job_desc").toString() %></a></td>                                   
+                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;</td>
+                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= hit.getItem("hit_date").toString() %></td>
+                </tr>
                 
-                            </tces:rowIterator>
+                </tces:rowIterator>
 
-                            <% if(CampaignInterestTask.getHitList().isEmpty()){ %>
+                <% if(CampaignInterestTask.getHitList().isEmpty()){ %>
                             
-                            <tr><td class="bodyText" HEIGHT="18" COLSPAN="20"><BR></td></tr>                
+                <tr><td class="bodyText" HEIGHT="18" COLSPAN="20"><BR></td></tr>                
                             
-                            <tr><td class="bodyText" HEIGHT="18" align="center" colspan="20">No hits available.</td></tr>
+                <tr><td class="bodyText" HEIGHT="18" align="center" colspan="20">No hits available.</td></tr>
                             
-                            <% } %>
+                <% } %>
 
-                            </table>
+            </table>
                             
-                            <p><br></p>
-                            
-                        </td>
-                    </tr>
+            <p><br></p>
+
             </table>
         </td>
 <!-- Center Column Ends -->

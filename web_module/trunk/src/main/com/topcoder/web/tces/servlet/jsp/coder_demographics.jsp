@@ -34,7 +34,7 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-        <td class="bodytext" width="100%" align="center"><img src="/i/clear.gif" width="400" height="1" alt="" border="0"><br>
+        <td class="bodytext" width="100%" align="center">
         
             <table border="0" cellspacing="10" cellpadding="0" width="100%">
                 <tr valign="top">
@@ -68,29 +68,26 @@
             </table>
 
 <% if (CoderDemographicsTask.getIsRanked()) { %>
-            <table id="linksTable" cellspacing="10" cellpadding="0" border="0">
+            <table id="linksTable" cellspacing="0" cellpadding="0" border="0">
                 <tr>
                     <td class="bodyText" align="center" width="33%">
-                        <a href="<jsp:getProperty name="CoderDemographicsTask" property="ServletPath" />?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CODER_DEMOGRAPHICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CoderDemographicsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=CoderDemographicsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=CoderDemographicsTask.getMemberID()%>" class="bodyText">
-                        Coder Demographic Info</a>
+                        <p><font size="3">Coder Demographic Info</font></p>
                     </td>
                         
                     <td class="bodyText" align="center" width="33%">
-                        <a href="<jsp:getProperty name="CoderDemographicsTask" property="ServletPath" />?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_HISTORY_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CoderDemographicsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=CoderDemographicsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=CoderDemographicsTask.getMemberID()%>" class="bodyText">
-                        Coder Competition History</a>
+                        <p class="button"><A href="<jsp:getProperty name="CoderDemographicsTask" property="ServletPath" />?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_HISTORY_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CoderDemographicsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=CoderDemographicsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=CoderDemographicsTask.getMemberID()%>" class="button">Coder Competition History</A></p>
                     </td>
                     
                     <td class="bodyText" align="center" width="33%">
-                        <a href="<jsp:getProperty name="CoderDemographicsTask" property="ServletPath" />?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_SUBMISSIONS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CoderDemographicsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=CoderDemographicsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=CoderDemographicsTask.getMemberID()%>" class="bodyText">
-                        Coder Problem Submissions</a>
+                        <p class="button"><A href="<jsp:getProperty name="CoderDemographicsTask" property="ServletPath" />?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_SUBMISSIONS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CoderDemographicsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=CoderDemographicsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=CoderDemographicsTask.getMemberID()%>" class="button">Coder Problem Submissions</A></p>
                     </td>
                 </tr>
             </table>             
 <% } %>
              
-            <h2>Demographic Info</h2>
+            <h2>Coder Demographic Info</h2>
                         
-            <table id="dataTable" cellspacing="0" cellpadding="3" border="0">               
+            <table id="dataTable" cellspacing="0" cellpadding="5" border="0">               
                 <tr>
                     <td class="testTableTitle">Question</td>
                     <td class="testTableTitle">&#160;&#160;</td>
