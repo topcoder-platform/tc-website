@@ -54,7 +54,6 @@ public class ViewProblemSet extends Base {
                 if (problemSets[i].getType().intValue()==problemType) {
                     //ok, we found the set, now we need to get the actual problems
                     problems = Arrays.asList(problemSets[i].getProblemLabels());
-                    ScreeningProblemLabel a = new ScreeningProblemLabel();
                 }
             }
             log.debug("there are " + problems.size() + " problems");
