@@ -74,8 +74,8 @@ public class TCLoadRequests extends TCLoad {
 
     fSql.setLength(0);
     fSql.append("select timestamp from update_log where log_id = ");
-    fSql.append("(select max(log_id) from update_log) ");
-    fSql.append("and log_type_id = 3");
+    fSql.append("(select max(log_id) from update_log ");
+    fSql.append("where log_type_id = 3)");
 
     try {
       stmt = createStatement(TARGET_DB);
@@ -130,9 +130,23 @@ public class TCLoadRequests extends TCLoad {
       fSql.append("       ,rt.close_window ");        //11
       fSql.append("  FROM request rt ");
       fSql.append("   WHERE timestamp > ?");
+        fSql.append("   AND NOT EXISTS ");
+        fSql.append("       (SELECT * ");
+        fSql.append("          FROM group_user gu ");
+        fSql.append("         WHERE gu.user_id = rt.coder_id ");
+        fSql.append("           AND gu.group_id = 13)");
+        fSql.append("   AND NOT EXISTS ");
+        fSql.append("       (SELECT * ");
+        fSql.append("          FROM group_user gu ");
+        fSql.append("         WHERE gu.user_id = rt.coder_id ");
+        fSql.append("           AND gu.group_id = 14)");
+      fSql.append("   AND NOT EXISTS ");
+      fSql.append("       (SELECT * ");
+      fSql.append("          FROM room ro ");
+      fSql.append("         WHERE ro.room_id = rt.room_id ");
+      fSql.append("           AND ro.room_type_id <> 1)");
 
       psSel = prepareStatement(fSql.toString(), SOURCE_DB);
-
       // Our insert statement
       fSql.setLength(0);
       fSql.append("INSERT INTO request ");
@@ -168,13 +182,17 @@ public class TCLoadRequests extends TCLoad {
 	psDel.clearParameters();
 	psDel.setInt(1, request_id);
 	psDel.executeUpdate();
-	
+          int round_id = rs.getInt(4);
+//          System.out.println(round_id);
+          int room_id = rs.getInt(5);
+//          System.out.println(room_id);
+
 	psIns.clearParameters();
 	psIns.setInt      (1,  request_id        );  // request_id
 	psIns.setInt      (2,  rs.getInt      (2));  // request_type_id
 	psIns.setInt      (3,  rs.getInt      (3));  // coder_id
-	psIns.setInt      (4,  rs.getInt      (4));  // round_id
-	psIns.setInt      (5,  rs.getInt      (5));  // room_id
+	psIns.setInt      (4,  round_id);  // round_id
+	psIns.setInt      (5,  room_id);  // room_id
 	psIns.setTimestamp(6,  rs.getTimestamp(6));  // open_window
 	psIns.setTimestamp(7,  rs.getTimestamp(7));  // open_period
 	psIns.setInt      (8,  rs.getInt      (8));  // connection_id
@@ -184,10 +202,10 @@ public class TCLoadRequests extends TCLoad {
 
 	//System.out.println(rs.getInt(1)+" "+rs.getInt(2)+" "+rs.getInt(3)+" "+rs.getInt(4)+" "+rs.getInt(5)+rs.getTimestamp(10).toString());
 
-        retVal = psIns.executeUpdate();
+            retVal = psIns.executeUpdate();
         count += retVal;
         if (retVal != 1) {
-          throw new SQLException("TCLoadRequests: Insert for "+
+          System.out.println("TCLoadRequests: Insert for "+
                                  "request_id " + request_id +
                                  " modified " + retVal + " rows, not one.");
         }
