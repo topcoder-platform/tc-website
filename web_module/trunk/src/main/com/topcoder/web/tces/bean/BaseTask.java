@@ -205,7 +205,7 @@ public abstract class BaseTask implements Task {
         Request r = new Request();
         r.setContentHandle("contact_datasource");
         r.setProperty("uid", String.valueOf(getAuthenticityToken().getActiveUser().getId()));
-        r.setProperty("dsid", String.valueOf(type));
+        r.setProperty("dstid", String.valueOf(type));
         Map m = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true).getData(r);
         ResultSetContainer rsc = (ResultSetContainer)m.get("contact_datasource");
         String ret = null;
