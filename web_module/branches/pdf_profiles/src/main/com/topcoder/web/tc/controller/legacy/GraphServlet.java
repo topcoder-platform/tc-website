@@ -948,7 +948,11 @@ public final class GraphServlet extends HttpServlet {
                 }
             }
             
-            int rs = 4;
+            int rating = Integer.parseInt(dataRequest.getProperty("rt"));
+            
+            int rs = rating / 100;
+            if(rating > 2900)
+                rs = 30;
             
             baos = new ByteArrayOutputStream();
             PNGOutput out = new PNGOutput(600, 400, Color.black, baos);
