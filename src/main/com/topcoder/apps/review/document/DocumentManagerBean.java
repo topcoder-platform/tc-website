@@ -1350,17 +1350,20 @@ public class DocumentManagerBean implements SessionBean {
         "s.final_score, s.placement, s.passed_screening, " +
         "s.submission_v_id, " +
         "su.login_id, su.user_id, " +
-        "uc.first_name, uc.last_name, e.address email_address " +
+        "uc.first_name, uc.last_name, e.address email_address, rur.r_user_role_id " +
         "FROM submission s, security_user su, common_oltp:user uc, " +
-        "    common_oltp:email e  " +
+        "    common_oltp:email e, r_user_role rur  " +
         "WHERE s.cur_version = 1 AND " +
         "s.project_id = ? AND " +
         "s.submission_type = ? AND " +
         "e.primary = 1 AND " +
         "e.user_id = uc.user_id AND " +
         "su.login_id = uc.user_id AND " +
+        "su.login_id = rur.login_id AND " +
+        "rur.project_id = s.project_id AND " +
+        "rur.cur_version = 1 AND " +
         "su.login_id = s.submitter_id ";
-    static String SQLEnd = "ORDER BY s.submission_id";
+    static String SQLEnd = "ORDER BY rur.r_user_role_id";
     static String SQLSub = "AND s.submitter_id = ? ";
     static String SQLNotRemoved = "AND s.is_removed = 0 ";
     static String SQLAdmin = SQLStart + SQLNotRemoved + SQLEnd;
