@@ -1158,7 +1158,7 @@ public final class ReportServlet extends HttpServlet {
             " ORDER BY 1 DESC, link ASC, refer ASC";
 
 
-    private static final int[] PROFILE_LIST_TYPES = {ResultItem.STRING, ResultItem.STRING, ResultItem.STRING};
+    private static final int[] PROFILE_LIST_TYPES = {ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING};
     private static final String PROFILE_LIST =
             " SELECT u.handle, c.first_name, c.last_name, u.email" +
             " FROM user u" +
