@@ -68,7 +68,7 @@
             <ul>
             <li>Must be at least 18 years of age (as of January 27, 2004); AND</li>
             <li>Must be matriculated full-time at an accredited college or university; AND</li>
-            <li>Must be living in the country of residence…can't be on student visa; AND</li>
+            <li>Must be living in the country of residence...can't be on student visa; AND</li>
             <li>Must not have been permanently suspended from participating in TopCoder Component Development projects</li>
             </ul>
             
