@@ -2,7 +2,6 @@ package com.topcoder.web.common;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import java.util.List;
 
 /** Interface for classes that process a servlet request.
  * @author Porgery

@@ -4,8 +4,6 @@ import com.topcoder.web.common.RequestProcessor;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import java.util.List;
-import java.util.ArrayList;
 
 /** Provides some of the basic methods and data common to request processors.
  * @author Porgery
