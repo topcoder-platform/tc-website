@@ -2422,7 +2422,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
         session.setAttribute(PACTS_QUICKBOOKS_FILES, files);
 
-        String message = "</font><html><head><title>PACTS</title></head><body><h1>PACTS</h1><h2>Files</h2>\n";
+        String message = "<h2>Files</h2>\n";
 
         String filename, ext, date;
         Date d;
@@ -2456,12 +2456,10 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
             message += "<a href=\"" + INTERNAL_SERVLET_URL + "?" + TASK_STRING;
             message += "=" + PAYMENT_TASK + "&" + CMD_STRING + "=" + FILE_CMD;
-            message += "&file_num=" + fileNum + "\">" + filename + "</a><br>\n";
+            message += "&file_num=" + fileNum + "\">" + filename + "</a></ br>\n";
 
 
         }
-
-        message += "</body></html><font>";
 
         throw new NavigationException(message);
 
