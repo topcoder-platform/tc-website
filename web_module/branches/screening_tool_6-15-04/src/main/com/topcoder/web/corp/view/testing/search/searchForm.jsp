@@ -45,7 +45,7 @@
                                 <tr>
                                     <td class="screeningCellOdd" align=right>Last Name:</td>
                                     <td class="screeningCellOdd">
-<%-- LAST NAME TEXT BOX--%>
+                                        <input type="text" name="lastName" size="30" maxlength="50" value="">
                                     </td>
                                 </tr>
 
@@ -54,7 +54,7 @@
                                 <tr>
                                     <td class="screeningCellEven" align=right>Email Address:</td>
                                     <td class="screeningCellEven">
-<%-- EMAIL ADDRESS TEXT BOX--%>
+                                        <input type="text" name="emailAddress" size="30" maxlength="50" value="">
                                     </td>
                                 </tr>
                             </table>
