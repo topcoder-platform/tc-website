@@ -15,6 +15,9 @@ package com.topcoder.utilities.dwload;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.1  2002/04/02 21:54:14  gpaul
+ *           moving the load over from 153 cvs
+ *
  *           Revision 1.1.2.3  2002/03/19 18:30:42  gpaul
  *           Log.msg instead of system.out.println
  *
@@ -1052,17 +1055,19 @@ public class TCLoadCoders extends TCLoad {
 
     try {
       fSql.setLength(0);
-      fSql.append("SELECT cix.coder_id ");           // 1
-      fSql.append("       ,cix.image_id ");         // 2
+      fSql.append("SELECT cix.coder_id ");          // 1
+      fSql.append(      " ,cix.image_id ");         // 2
+      fSql.append(      " ,cix.display_flag ");     // 3
       fSql.append("  FROM coder_image_xref cix ");
       psSel = prepareStatement(fSql.toString(), SOURCE_DB);
 
       fSql.setLength(0);
       fSql.append("INSERT INTO coder_image_xref ");
-      fSql.append("      (coder_id ");               // 1
-      fSql.append("       ,image_id) ");              // 4
+      fSql.append(          " (coder_id ");         // 1
+      fSql.append(          " ,image_id ");         // 2
+      fSql.append(          " ,display_flag) ");     // 3
       fSql.append("VALUES (");
-      fSql.append("?,?)");  // 2 values
+      fSql.append("?,?,?)");  // 3 values
       psIns = prepareStatement(fSql.toString(), TARGET_DB);
 
       fSql.setLength(0);
@@ -1074,9 +1079,11 @@ public class TCLoadCoders extends TCLoad {
       while (rs.next()) {
         int coder_id = rs.getInt(1);
         int image_id = rs.getInt(2);
+        int display_flag = rs.getInt(3);
 
         psIns.setInt(1, coder_id);
         psIns.setInt(2, image_id);
+        psIns.setInt(3, display_flag);
        
         psDel.setInt(1, coder_id);
         psDel.setInt(2, image_id);
