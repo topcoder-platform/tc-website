@@ -327,9 +327,10 @@ public class Registration extends BaseProcessor {
             corpAppSubject = Util.retrieveTCSubject(Constants.CORP_PRINCIPAL);
         }
         catch(Exception cause) {
+            cause.printStackTrace();
             throw new MisconfigurationException(
-                "Can't retrieve TCSubject for corp web application",
-                cause
+                "Can't retrieve TCSubject for corp web application"
+//                , cause
             );
         }
         

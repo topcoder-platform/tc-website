@@ -10,7 +10,9 @@ public class MisconfigurationException extends Exception {
     public MisconfigurationException(String msg) {
         super(msg);
     }
-    public MisconfigurationException(String msg, Exception causedBy) {
-        super(msg, causedBy);
-    }
+    
+//    // starting from 1.4
+//    public MisconfigurationException(String msg, Exception causedBy) {
+//        super(msg, causedBy);
+//    }
 }
