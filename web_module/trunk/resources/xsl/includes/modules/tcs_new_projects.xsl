@@ -16,21 +16,19 @@
 
     <xsl:template name="tcs_new_projects">
     <xsl:param name="projects"/>
-            <table width="244" border="0" cellspacing="0" cellpadding="0" bgcolor="#000000"> 
-                <tr valign="middle"><td height="46"><img src="/i/development/right_col_head_tcs.gif" alt="TopCoder Software" width="244" height="46" border="0" /></td></tr>
-                
-                <tr><td background="" height="10"><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr>
+            <img src="/i/clear.gif" width="1" height="6" alt="" border="0" /><br />
                 
 <!-- Component Design Projects begins -->
-                <tr valign="middle"><td height="28"><img src="/i/development/head_new_components.gif" alt="NEW Component Projects" width="244" height="28" border="0" /></td></tr>
-            </table>
+            <img src="/i/development/head_new_components.gif" alt="NEW Component Projects" width="244" height="28" border="0" /><br />
                 
-            <table width="244" border="0" cellspacing="0" cellpadding="0" bgcolor="#000000"> 
+            <A class="statText" href="/index?t=development&amp;c=des_bonus_contest_2"><img src="/i/development/tcs_des_bonus2_devpromo.gif" alt="Component Design Bonus Contest" width="240" height="97" border="0" /></A><br />
+                
+            <table width="244" border="0" cellspacing="0" cellpadding="0" bgcolor="#093158"> 
                 <tr valign="middle">
-                    <td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
-                    <td background="/i/graybv_bg.gif" bgcolor="#666666" width="164" class="statText">Design Projects</td>
-                    <td background="/i/graybv_bg.gif" bgcolor="#666666" width="70" class="statText" align="center">Submit by</td>
-                    <td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
+                    <td background="/i/development/bluebv_lite_bg.gif" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
+                    <td background="/i/development/bluebv_lite_bg.gif" width="164" class="statText">New Projects</td>
+                    <td background="/i/development/bluebv_lite_bg.gif" width="70" class="statText" align="center">Submit by</td>
+                    <td background="/i/development/bluebv_lite_bg.gif" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
                 </tr>
 
                 <xsl:variable name="priceFormat" select="'$###,###.00'" />
@@ -81,15 +79,25 @@
                     </xsl:if>
                 </xsl:for-each>
 
-                <tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr>
+                <tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
+
+                <tr valign="top">
+                    <td width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+                    <td colspan="2" class="statText" align="right"><a class="openProjects" href="/index?t=development&amp;c=comp_projects">View all Component Design Projects</a></td>
+                    <td width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+                </tr>
+            </table>
 <!-- Component Design Projects ends -->
 
+            <img src="/i/clear.gif" width="1" height="6" alt="" border="0" /><br />
+
 <!-- Component Development Projects begins -->
+            <table width="244" border="0" cellspacing="0" cellpadding="0" bgcolor="#093158"> 
                 <tr valign="middle">
-                    <td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
-                    <td background="/i/graybv_bg.gif" bgcolor="#666666" width="164" class="statText">Development Projects</td>
-                    <td background="/i/graybv_bg.gif" bgcolor="#666666" width="70" class="statText" align="center">Submit by</td>
-                    <td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
+                    <td background="/i/development/bluebv_lite_bg.gif" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
+                    <td background="/i/development/bluebv_lite_bg.gif" width="164" class="statText">New Projects</td>
+                    <td background="/i/development/bluebv_lite_bg.gif" width="70" class="statText" align="center">Submit by</td>
+                    <td background="/i/development/bluebv_lite_bg.gif" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
                 </tr>
 
                 <xsl:for-each select="/TC/DEVELOPMENT/projects/project">
@@ -133,13 +141,13 @@
 
                 <tr valign="top">
                     <td width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-                    <td colspan="2" class="openProjects"><a class="openProjects" href="/index?t=development&amp;c=comp_projects">View all open Component Projects</a></td>
+                    <td colspan="2" class="statText" align="right"><a class="openProjects" href="/index?t=development&amp;c=comp_projects">View all Component Development Projects</a></td>
                     <td width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                 </tr>
-                            
-                <tr><td colspan="4" background="" height="15"><img src="/i/clear.gif" width="1" height="15" alt="" border="0" /></td></tr>
             </table>
 <!-- Component Development Projects ends -->
+
+            <img src="/i/clear.gif" width="1" height="6" alt="" border="0" /><br />
 
 <!-- Application Projects begins -->
             <table width="244" border="0" cellspacing="0" cellpadding="0" bgcolor="#000000"> 
@@ -148,10 +156,10 @@
 
             <table width="244" cellspacing="0" cellpadding="0" border="0" bgcolor="#000000">                
                 <tr valign="middle">
-                    <td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
-                    <td background="/i/graybv_bg.gif" bgcolor="#666666" width="164" class="statText">Project Title</td>
-                    <td background="/i/graybv_bg.gif" bgcolor="#666666" width="70" class="statText" align="center">Submit by</td>
-                    <td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
+                    <td background="/i/development/bluebv_lite_bg.gif" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
+                    <td background="/i/development/bluebv_lite_bg.gif" width="164" class="statText">New Projects</td>
+                    <td background="/i/development/bluebv_lite_bg.gif" width="70" class="statText" align="center">Submit by</td>
+                    <td background="/i/development/bluebv_lite_bg.gif" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
                 </tr>
                             
                 <tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
