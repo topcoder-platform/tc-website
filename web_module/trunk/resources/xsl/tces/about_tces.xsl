@@ -54,7 +54,7 @@
           <TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/><BR/>
 
 <P>
-<B>About TCES:</B>
+<B>About TCES</B>
 </P>
 
 <P>

@@ -130,8 +130,14 @@ We don't want to interfere with your recruiting process, but we do want to suppl
 </P>
 
 <P>
-By utilizing the Candidate Recruiting Program, you will be able to differentiate programmers through the 
-use of detailed statistics and code samples.  TopCoder's rating serves to objectively and dynamically gauge 
+Certifications have long been a means of differentiating between the skills of individuals.  However, TopCoder 
+demonstrates how competitions offer a different view on skills and abilities.  By utilizing the Candidate 
+Recruiting Program, you will be able to differentiate programmers through the use of detailed statistics and 
+code samples.  Read our view on <A HREF="/index?t=about_tc&c=empl_difference" class="bodyText">Certification vs. Competition</A>. 
+</P>
+
+<P>
+TopCoder's rating serves to objectively and dynamically gauge 
 a programmer's real-world competency.  Making use of our Candidate Recruiting Program provides an additional 
 level of evaluation you would not otherwise have, supplying you with an overall picture of a potential hire's 
 ability and talent beyond their resume.
