@@ -22,10 +22,10 @@
      <property name="Jive.jar" value="${bin}/Jive.jar"/>
      <property name="shared.jar" value="${bin}/shared.jar"/>
      <property name="web" value="src/main/com/topcoder/web"/>
-<!--
-     <property name="tc_cluster" value="../weblogic_apps/tc_cluster"/>
-     <property name="public_html" value="../weblogic_apps/tc_cluster/public_html"/>
--->
+     <!--
+          <property name="tc_cluster" value="../weblogic_apps/tc_cluster"/>
+          <property name="public_html" value="../weblogic_apps/tc_cluster/public_html"/>
+     -->
      <property name="jboss_home" value="../jboss-4.0.1"/>
      <property name="jboss_deploy" value="${jboss_home}/server/default/deploy"/>
      <property name="jboss_lib" value="${jboss_home}/server/default/lib"/>
@@ -67,10 +67,10 @@
          <pathelement location="${jars.dir}/tcs/catalog.jar"/>
          <pathelement location="${jars.dir}/tcs/user.jar"/>
 
-	    <!-- file conversion component -->
-        <pathelement location="${jars.dir}/fileconvert.jar"/>
-        <pathelement location="${jars.dir}/httpunit.jar"/>
-        <pathelement location="${jars.dir}/itext-1.1.jar"/>
+         <!-- file conversion component -->
+         <pathelement location="${jars.dir}/fileconvert.jar"/>
+         <pathelement location="${jars.dir}/httpunit.jar"/>
+         <pathelement location="${jars.dir}/itext-1.1.jar"/>
      </path>
 
      <target name="init">
@@ -105,6 +105,23 @@
          <rmic classname="com.topcoder.shared.distCache.CacheClientImpl" base="${classes}"/>
          <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${classes}"/>
      </target>
+
+
+     <target name="compile_dde" depends="compile_shared">
+         <echo message="java.vm.version=${java.vm.version}"/>
+         <javac srcdir="${java}"
+             destdir="${classes}"
+             classpathref="buildlibs"
+             debug="${debug}"
+             deprecation="true">
+             <include name="com/topcoder/dde/**"/>
+             <include name="com/topcoder/util/**"/>
+             <include name="com/topcoder/web/common/**"/>
+             <exclude name="com/topcoder/web/common/render/**"/>
+             <exclude name="com/topcoder/web/common/tag/**"/>
+         </javac>
+     </target>
+
 
      <target name="compile_techassess" depends="init">
          <javac
@@ -170,15 +187,28 @@
          </jar>
      </target>
 
+     <target name="package-EJB-Catalog" depends="compile_dde">
+         <jar jarfile="${ejb_jars}/catalog.jar">
+             <zipfileset dir="${classes}" includes="com/topcoder/dde/catalog/*.class"/>
+             <metainf dir="${java}/com/topcoder/dde/catalog" includes="*.xml"/>
+         </jar>
+     </target>
+     <target name="package-EJB-SoftwareUser" depends="compile_dde">
+         <jar jarfile="${ejb_jars}/user.jar">
+             <zipfileset dir="${classes}" includes="com/topcoder/dde/user/*.class"/>
+             <metainf dir="${java}/com/topcoder/dde/user" includes="*.xml"/>
+         </jar>
+     </target>
+
      <target name="package-EJB-FileConversionBean" depends="compile">
-        <jar jarfile="${ejb_jars}/FileConversion.jar">
-            <zipfileset dir="${classes}" includes="com/topcoder/file/convert/*.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
-    	    <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/fileconversion/**"/>
-	        <metainf dir="${java}/com/topcoder/web/ejb/fileconversion" includes="*.xml"/>
-        </jar>
-    </target>
+         <jar jarfile="${ejb_jars}/FileConversion.jar">
+             <zipfileset dir="${classes}" includes="com/topcoder/file/convert/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/fileconversion/**"/>
+             <metainf dir="${java}/com/topcoder/web/ejb/fileconversion" includes="*.xml"/>
+         </jar>
+     </target>
 
      <target name="package-EJB-QueryServicesBean" depends="compile">
          <jar jarfile="${ejb_jars}/QueryServices.jar">
@@ -853,8 +883,6 @@
      </target>
 
 
-
-
      <target name="war-techassess" depends="jar_shared, compile_techassess">
          <war warfile="${war.dir}/techassess.war" webxml="${resources}/techassess/web.xml">
              <classes dir="${classes}">
@@ -903,7 +931,6 @@
          <unwar src="${war.dir}/techassess.war" dest="${jboss_home}/server/default/deploy/techassess.war/" overwrite="yes"/>
          <delete dir="${jboss_home}/server/default/deploy/techassess.war/META-INF"/>
      </target>
-
 
 
      <target name="compile_tests" depends="compile">
@@ -1019,7 +1046,7 @@
          </javac>
          <jar jarfile="${jars.dir}/idgenerator.jar">
              <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/**"/>
-             <metainf dir="${java}/com/topcoder/util/idgenerator/bean/" includes="*.xml" />
+             <metainf dir="${java}/com/topcoder/util/idgenerator/bean/" includes="*.xml"/>
          </jar>
      </target>
 
@@ -1144,6 +1171,7 @@
      <target name="deploy-tc" depends="compile">
          <antcall target="package-EJB-AddressBean"/>
          <antcall target="package-EJB-AuthenticationServicesBean"/>
+         <antcall target="package-EJB-Catalog"/>
          <antcall target="package-EJB-CoderBean"/>
          <antcall target="package-EJB-CoderSkillBean"/>
          <antcall target="package-EJB-ComponentRegistrationServicesBean"/>
@@ -1161,11 +1189,12 @@
          <antcall target="package-EJB-ReportingBean"/>
          <antcall target="package-EJB-ResumeServicesBean"/>
          <antcall target="package-EJB-SearchBean"/>
+         <antcall target="package-EJB-SoftwareUser"/>
          <antcall target="package-EJB-SurveyBean"/>
          <antcall target="package-EJB-UserBean"/>
-<!--
-         <antcall target="package-EJB-UserEvent"/>
--->
+         <!--
+                  <antcall target="package-EJB-UserEvent"/>
+         -->
          <antcall target="package-EJB-UserServicesBean"/>
          <antcall target="package-EJB-UtilBean"/>
 
@@ -1173,6 +1202,7 @@
              <fileset dir="${ejb_jars}">
                  <include name="Address.jar"/>
                  <include name="AuthenticationServices.jar"/>
+                 <include name="Catalog.jar"/>
                  <include name="Coder.jar"/>
                  <include name="CoderSkill.jar"/>
                  <include name="ComponentRegistration.jar"/>
@@ -1192,9 +1222,10 @@
                  <include name="Search.jar"/>
                  <include name="Survey.jar"/>
                  <include name="User.jar"/>
-<!--
-                 <include name="UserEvent.jar"/>
--->
+                 <include name="user.jar"/>
+                 <!--
+                                  <include name="UserEvent.jar"/>
+                 -->
                  <include name="UserServices.jar"/>
                  <include name="Util.jar"/>
              </fileset>
