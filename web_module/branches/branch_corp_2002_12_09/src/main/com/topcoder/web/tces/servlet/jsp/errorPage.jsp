@@ -80,17 +80,15 @@
                   <TD class="statText" HEIGHT="18" COLSPAN="20"><BR></TD>                  
                 </TR>                
                 <TR>
-                  <TD class="statText" HEIGHT="18" align="left" colspan="20">
+                  <TD class="errorText" HEIGHT="18" align="left" colspan="20">
 
                       <!-- Error message content pane -->
-                   <DIV CLASS="headerWhite">    
                         An error has occured while processing your request<br>
                         If you think this page was shown by mistake, please contact us<br>
                         We are sorry for any inconveniences caused by this<br>
                         site administration<br><br>
-                   </DIV CLASS="headerWhite">
 
-
+<%--
 <!-- web-app debug time stack trace  BEGIN -->
 <hr><b><i>Trace information is provided for web application debug time only</i></b><br>
 <pre>
@@ -104,6 +102,7 @@ else if ( exception!=null ) exception.printStackTrace(new java.io.PrintWriter(ou
 </pre>
 <hr>
 <!-- web-app debug time stack trace END -->
+--%>
 
 
                   </TD>
