@@ -135,8 +135,8 @@
 <%-- Right Column --%>
 		<td class=homeRightCol>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
-			<tr><td class=homeBigPromo><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/home/promos/tccc05_LG.gif" border=0 /></A></td></tr>
-			<tr><td class=homeSmallPromo><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=spec_showdown"><img src="/i/home/promos/tco04Movies_SM.gif" border=0 /></A></td></tr>
+			<tr><td class=homeBigPromo><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=overview"><img src="/i/home/promos/tccc05_LG.gif" border=0 /></A></td></tr>
+			<tr><td class=homeSmallPromo><A href="/i/tournament/tco04/onsite_movies/tomekfinal.mov"><img src="/i/home/promos/tco04Movies_SM.gif" border=0 /></A></td></tr>
 		</table>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
 			<tr>
