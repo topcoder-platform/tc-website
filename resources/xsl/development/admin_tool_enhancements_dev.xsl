@@ -61,16 +61,16 @@
                                         <p>
                                             <font size="-2">&#160;&#160;&#160;&#160;
                                                 <a href="#overview">Overview</a> |
-                                                <a href="#about">Project Type</a> |
-                                                <a href="#prizes">Payment</a> |
-                                                <a href="#conditions">Eligibility</a> |
-                                                <a href="#conditions">Timeline</a> |
-                                                <a href="#conditions">Requirement Specification</a>
+                                                <a href="#projecttype">Project Type</a> |
+                                                <a href="#payment">Payment</a> |
+                                                <a href="#eligibility">Eligibility</a> |
+                                                <a href="#timeline">Timeline</a> |
+                                                <a href="#requirementspecification">Requirement Specification</a>
                                             </font>
                                         </p>
                                         <!-- Overview -->
                                         <p>
-                                            <strong><a href="#overview">Overview</a></strong>
+                                            <strong><a name="overview">Overview</a></strong>
                                             <br/>
                                             The Admin Tool Enhancements project has one major goal in mind; allow users to
                                             administer TopCoder competitions over the Internet without requiring any access
@@ -118,7 +118,7 @@
                                         </p>
                                         <!-- Project Type -->
                                         <p>
-                                            <strong>Project Type</strong>
+                                            <strong><a name="projecttype">Project Type</a></strong>
                                             <br/>
                                             Application Development Project: Provide a completed development solution according to the design requirements
                                             for the Admin Tool application.   Please review the TopCoder Software
@@ -137,7 +137,7 @@
                                         </ul>
                                         <!-- Payment -->
                                         <p>
-                                            <strong>Payment</strong>
+                                            <strong><a name="payment">Payment</a></strong>
                                             <br/>
                                         </p>
                                         <p>TopCoder will compensate the member with the winning solution as well as the second place developer.
@@ -181,7 +181,7 @@
                                         </ul>
                                         <!-- Eligibility Requirements -->
                                         <p>
-                                            <strong>Eligibility</strong>
+                                            <strong><a name="eligibility">Eligibility</a></strong>
                                             <br/>
                                             You must be a rated TopCoder member, at least 18 years of age, meeting all of the membership requirements and fit into one of the following categories:
                                         </p>
@@ -193,7 +193,7 @@
                                         </ol>
                                         <!-- Time Line -->
                                         <p>
-                                            <strong>Time Line</strong>
+                                            <strong><a name="timeline">Time Line</a></strong>
                                             <br/>
                                             The Development Submission must be submitted on time. All questions submitted
                                             prior to 6PM EDT on the Submission Due Dates will be answered. Following review
@@ -267,7 +267,7 @@
                                             </table>
                                         </p>
                                         <!-- Register at TCS -->
-                                        <p>
+                                        <p> <a name="requirementspecification"></a>
                                             <strong>View the
                                                 <a target="_new" class="bodyText" href="/i/development/downloads/AdminToolRequirementsSpecification-web.pdf">Requirement Specification</a> for this application project &gt;&gt;
                                             </strong>
