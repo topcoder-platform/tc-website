@@ -94,8 +94,6 @@ public class TCESServlet extends HttpServlet {
             ctx = (InitialContext) TCContext.getInitial();
 
             if (taskName != null && taskName.trim().length() > 0) {
-                log.info("[**** tces **** " + taskName + " **** " +
-                        request.getRemoteHost() + " ****]");
 
                 String taskClassName = TCESConstants.TCES_PACKAGE + "."
                         + taskName;
@@ -111,10 +109,24 @@ public class TCESServlet extends HttpServlet {
                 TCSubject tcUser = Util.retrieveTCSubject(
                         authToken.getActiveUser().getId()
                 );
+
+
                 Authorization authorize = new TCSAuthorization(tcUser);
 
                 info = new SessionInfo(tcRequest, authToken, tcUser.getPrincipals());
                 request.setAttribute(BaseServlet.SESSION_INFO_KEY, info);
+
+                StringBuffer loginfo = new StringBuffer(100);
+                loginfo.append("[**** ");
+                loginfo.append(info.getHandle());
+                loginfo.append(" **** ");
+                loginfo.append(request.getRemoteHost());
+                loginfo.append(" **** ");
+                loginfo.append(request.getMethod());
+                loginfo.append(" ");
+                loginfo.append(info.getRequestString());
+                loginfo.append(" ****]");
+                log.info(loginfo);
 
                 Resource taskResource = new SimpleResource(taskClassName);
                 Task task = null;
@@ -157,7 +169,7 @@ public class TCESServlet extends HttpServlet {
                     task.processStep(taskStepName);
                 } catch (TCESAuthenticationException authex) {
                     request.setAttribute("message", "In order to continue, you must provide your user name " +
-                            "and password, even if you’ve logged in already.");
+                            "and password, even if youï¿½ve logged in already.");
                     request.setAttribute(BaseServlet.NEXT_PAGE_KEY,
                             HttpUtils.getRequestURL(request) + "?" + request.getQueryString());
                     request.setAttribute(com.topcoder.web.corp.Constants.KEY_MODULE, "Login");
