@@ -43,7 +43,7 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->    
-        <td width="100%">
+        <td width="9%">
             
             <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1">white</xsl:with-param>
@@ -53,7 +53,7 @@
             
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr valign="top">
-                    <td class="bodyText" width="100%"><IMG src="/i/clear.gif" alt="" width="240" height="10" border="0" />
+                    <td class="bodyText" width="100%"><IMG src="/i/clear.gif" alt="" width="240" height="1" border="0" />
                     <p>TopCoder is fast becoming the major league for programming competitions. TopCoder brings members together once a week to compete online 
                     &#40;Single Round Match&#41; and twice a year both online and on location &#40;Tournaments&#41;.</p>
                     
