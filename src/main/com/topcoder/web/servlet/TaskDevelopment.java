@@ -174,7 +174,7 @@ public final class TaskDevelopment {
                     String project = Conversion.checkNull(request.getParameter("Project"));
                     String to = Conversion.checkNull(request.getParameter("To"));
                     String comment = Conversion.clean(request.getParameter("Comment"));
-
+                    String activeForumId = "";
 
                     TCSEmailMessage mail = new TCSEmailMessage();
                     StringBuffer msgText = new StringBuffer(1000);
@@ -342,7 +342,8 @@ public final class TaskDevelopment {
                                 
                                    log.debug("Role: " + roleName);
                                    log.debug("FormName:  FormUser " +activeForum.getId()); 
-                                   if(roleName.equalsIgnoreCase("ForumUser " + activeForum.getId())){
+                                   activeForumId= activeForum.getId()
+                                   if(roleName.equalsIgnoreCase("ForumUser " + activeForumId)){
                                       log.debug("--->got a match");
                                       notFound = false;
                                       RolePrincipal roleToAdd = roles[i];
@@ -370,16 +371,16 @@ public final class TaskDevelopment {
                      }
                     }
                     
-                   if(!permissionAdded) 
+                   if(!permissionAdded && rating > 0) 
                    {
                       msgText.append("\n\nCould not find a match for the forum");
                       log.error("Could not find a match for the forum");
                    }
-                   else{
+                   else if(rating > 0){
                       msgText.append("\n\nUser permissions were added");
                    }
 
-                    mail.setSubject(project + " -- " + handle + " permission successfully added: " + permissionAdded );
+                    mail.setSubject(project + " -- " + handle + " permission successfully added: " + permissionAdded);
                     msgText.append("\n\nRating: ");
                     msgText.append(rating);
                     mail.setBody(msgText.toString());
@@ -389,7 +390,9 @@ public final class TaskDevelopment {
                     if (rating <= 0)
                         xsldocURLString = XSL_DIR + "inquiry_sent_neg.xsl";
                     else
-                        xsldocURLString = XSL_DIR + "inquiry_sent_pos.xsl";
+                        response.sendRedirect("http://172.16.20.222:8080/pages/c_forum.jsp?f=" +activeForumId);
+
+                        //xsldocURLString = XSL_DIR + "inquiry_sent_pos.xsl";
                } else {
                     requiresLogin = true;
                 }
