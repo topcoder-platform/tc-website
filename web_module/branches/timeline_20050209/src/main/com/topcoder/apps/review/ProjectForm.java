@@ -1281,7 +1281,7 @@ log (Level.INFO, "adjustStartDates [" + i+"]: " +adjustStartDates[i]);
 
                 // Just change the date if it is after the last phase start.  If not, it would give an error.
                 // If the date for the phase is earlier than the date for a previous phase, it is not taken into account.
-                if (newStartDate.after(startDate)) {
+                if (newStartDate.after(startDate) || (i == 0)) {
                     startDate = newStartDate;
                 } else {
                     adjustStartDates[i] = true;
