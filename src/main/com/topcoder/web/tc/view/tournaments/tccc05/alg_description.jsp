@@ -26,12 +26,12 @@
             Once again, 24 of the world's best collegiate coders will be invited to compete live at the onsite finals in Santa Clara, CA, USA.</p>
             <ul>
                 <li><strong>Registration</strong><br />
-                    STARTS: Monday, December 20, 2004 at 9:00 AM ET<br/>
-                    ENDS: Tuesday, January 11, 2005 at 9:00 AM ET</li>
+                    STARTS: Monday, December 20, 2004 at 9:00 AM EST<br/>
+                    ENDS: Tuesday, January 11, 2005 at 9:00 AM EST</li>
                     
                 <li><strong>Qualification Round</strong><br />
-                    STARTS: Tuesday, January 11, 2005 at 12:00 PM ET (noon)<br/>
-                    ENDS: Wednesday, January 12, 2005 at 12:00 PM ET (noon)</li>
+                    STARTS: Tuesday, January 11, 2005 at 12:00 PM EST (noon)<br/>
+                    ENDS: Wednesday, January 12, 2005 at 12:00 PM EST (noon)</li>
                     
                 <li><strong>Elimination Rounds</strong><br/>
                      January 15<br/>

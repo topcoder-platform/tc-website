@@ -33,8 +33,8 @@
                 <tr valign="top">
                     <td class="sidebarText" width="25%">Registration</td>
                     <td class="sidebarText" width="75%">
-                        OPENS: Monday, December 20, 2004 at 9:00 AM ET<br /><br/>
-                        CLOSES: Tuesday, January 11, 2005 at 9:00 AM ET
+                        OPENS: Monday, December 20, 2004 at 9:00 AM EST<br /><br/>
+                        CLOSES: Tuesday, January 11, 2005 at 9:00 AM EST
                     </td>
                 </tr>
             </table>
@@ -55,9 +55,9 @@
                     <td class="sidebarText">Qualification Round</td>
                     <td class="sidebarText">
                         START: Tuesday, January 11, 2005<br />
-                        12:00 PM ET (noon)<br /><br/>
+                        12:00 PM EST (noon)<br /><br/>
                         END: Wednesday, January 12, 2005<br />
-                        12:00 PM ET (noon)
+                        12:00 PM EST (noon)
                     </td>
                     <td class="sidebarText">All eligible registered competitors</td>
                     <td class="sidebarText">Top 100 scorers in each of 5 Qualification Round Problem Sets</td>
@@ -78,7 +78,7 @@
                 <tr valign="top">
                     <td class="sidebarText">Online Round #1</td>
                     <td class="sidebarText">
-						Saturday, January 15th<br/>Register: 9:00 - 11:55 AM ET<br/>START: 12:00 PM ET (Noon)
+						Saturday, January 15th<br/>Register: 9:00 - 11:55 AM EST<br/>START: 12:00 PM EST (Noon)
                     <td class="sidebarText">500</td>
                     <td class="sidebarText">200</td>
                     </td>
@@ -87,7 +87,7 @@
                 <tr valign="top">
                     <td class="sidebarText">Online Round #2</td>
                     <td class="sidebarText">
-                        Wednesday, January 19th<br/>Register:  6:30 - 9:25 PM ET<br/>START: 9:30 PM ET
+                        Wednesday, January 19th<br/>Register:  6:30 - 9:25 PM EST<br/>START: 9:30 PM EST
                     </td>
                     <td class="sidebarText">200</td>
                     <td class="sidebarText">100</td>
@@ -96,7 +96,7 @@
                 <tr valign="top">
                     <td class="sidebarText">Online Round #3</td>
                     <td class="sidebarText">
-                        Wednesday, January 26th<br/>Register:  6:30 - 9:25 PM ET<br/>START: 9:30 PM ET
+                        Wednesday, January 26th<br/>Register:  6:30 - 9:25 PM EST<br/>START: 9:30 PM EST
                     </td>
                     <td class="sidebarText">100</td>
                     <td class="sidebarText">50</td>
@@ -105,7 +105,7 @@
                 <tr valign="top">
                     <td class="sidebarText">Online Round #4</td>
                     <td class="sidebarText">
-                        Wednesday, February 2nd<br/>Register:  6:30 - 9:25 PM ET<br/>START: 9:30 PM ET
+                        Wednesday, February 2nd<br/>Register:  6:30 - 9:25 PM EST<br/>START: 9:30 PM EST
                     </td>
                     <td class="sidebarText">50</td>
                     <td class="sidebarText">24</td>
@@ -131,7 +131,7 @@
                     <td class="sidebarText" nowrap=nowrap>Semifinal Room #1</td>
                     <td class="sidebarText">
                         Thursday, March 10th<br />
-                        Compete: 10:00 AM PT<br />
+                        Compete: 10:00 AM PST<br />
                     </td>
                     <td class="sidebarText">8</td>
                     <td class="sidebarText">1 - Championship Round<br/>
@@ -142,7 +142,7 @@
                     <td class="sidebarText" nowrap=nowrap>Semifinal Room #2</td>
                     <td class="sidebarText">
                         Thursday, March 10th<br />
-                        Compete: 1:00 PM PT<br />
+                        Compete: 1:00 PM PST<br />
                     </td>
                     <td class="sidebarText">8</td>
                     <td class="sidebarText">1 - Championship Round<br/>
@@ -153,7 +153,7 @@
                     <td class="sidebarText" nowrap=nowrap>Semifinal Room #3</td>
                     <td class="sidebarText">
                         Thursday, March 10th<br />
-                        Compete: 4:00 PM PT<br />
+                        Compete: 4:00 PM PST<br />
                     </td>
                     <td class="sidebarText">8</td>
                     <td class="sidebarText">1 - Championship Round<br/>
@@ -164,7 +164,7 @@
                     <td class="sidebarText" nowrap=nowrap>Wildcard Round</td>
                     <td class="sidebarText">
                         Thursday, March 10th<br />
-                        Compete: 10:00 AM PT<br />
+                        Compete: 10:00 AM PST<br />
                     </td>
                     <td class="sidebarText">6</td>
                     <td class="sidebarText">1 - Championship Round</td>
@@ -174,7 +174,7 @@
                     <td class="sidebarText"><strong>Championship Round</strong></td>
                     <td class="sidebarText">
                         <strong>Friday, March 11th<br />
-                        Compete: 2:30 PM PT<br /></strong>
+                        Compete: 2:30 PM PST<br /></strong>
                     </td>
                     <td class="sidebarText"><strong>4</strong></td>
                     <td class="sidebarText"><strong>1 - Champion</strong></td>
