@@ -93,7 +93,10 @@ function goTo(selection){
 	table.setBgcolor("\"#001935\"");
 	table.setCellSpacing("0");
 	table.setCellPadding("2");
-	table.setRowColor(0,"\"#093158\"");	
+	table.setRowColor(0,"\"#093158\"");
+	table.setWidth("100%");		
+	table.setColumnWidth(0,"50%");
+	table.setColumnWidth(1,"50%");		
 	table.setBorder("0");
 	table.setFontSize("0");
 	table.setClassName("statText");	
