@@ -46,6 +46,7 @@
 <%
 String nextpage = (String)request.getAttribute("nextpage");
 if(nextpage==null) nextpage = request.getParameter("nextpage");
+if(nextpage==null) nextpage = request.getHeader("Referer");
 if(nextpage==null) nextpage = "http://"+request.getServerName()+request.getAttribute("canonpath");
 String message = (String)request.getAttribute("message");
 if(message==null) message = "";
