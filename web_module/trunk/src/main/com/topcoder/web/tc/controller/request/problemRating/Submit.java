@@ -63,8 +63,6 @@ public class Submit extends Base {
             }
         }catch(Exception e){
             e.printStackTrace();
-        }catch(Exception e){
-            e.printStackTrace();
         }
     }
 }

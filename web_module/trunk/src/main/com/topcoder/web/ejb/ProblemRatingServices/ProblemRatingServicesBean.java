@@ -23,7 +23,7 @@ public class ProblemRatingServicesBean implements SessionBean {
     protected String getTag() {
         return TAG;
     }
-    public void submitAnswers(int[] questions, int[] ratings, long coderID, int problemID) throws Exception{
+    public boolean submitAnswers(int[] questions, int[] ratings, long coderID, int problemID) throws Exception{
         StringBuffer insertQuery = new StringBuffer(250);
         StringBuffer countQuery = new StringBuffer(250);
         /***********************Informix*******************************/
@@ -44,14 +44,16 @@ public class ProblemRatingServicesBean implements SessionBean {
             ps = conn.prepareStatement(countQuery.toString());
             rs = ps.executeQuery();
             rs.next();
-            if(questions.length!=rs.getInt(1))
-                throw new IllegalArgumentException("Not enough answers");
+            if(questions.length!=rs.getInt(1)){
+                return false;
+            }
             ps = conn.prepareStatement(insertQuery.toString());
             for(int i = 0; i<questions.length; i++){
                 ps.setInt(1,questions[i]);
                 ps.setInt(2,ratings[i]);
                 ps.executeUpdate();
             }
+            return true;
         } catch (SQLException ex) {
             ex.printStackTrace();
             throw new NavigationException("You may only rate a problem once,");
@@ -76,6 +78,7 @@ public class ProblemRatingServicesBean implements SessionBean {
                     log.error("cx NOT closed...");
                 }
             }
+            return false;
         }
     }
     //*************************************************************************
