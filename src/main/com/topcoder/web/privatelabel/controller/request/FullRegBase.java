@@ -68,22 +68,24 @@ public abstract class FullRegBase extends SimpleRegBase {
                 }
             }
             question = findQuestion(response.getQuestionId(), questions);
-            if (question.getAnswerType() == DemographicQuestion.SINGLE_SELECT) {
-                setDefault(Constants.DEMOG_PREFIX + response.getQuestionId(), String.valueOf(response.getAnswerId()));
-            } else if (question.getAnswerType() == DemographicQuestion.FREE_FORM) {
-                setDefault(Constants.DEMOG_PREFIX + response.getQuestionId(), response.getText());
-            } else if (question.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
-                //todo handle multiple select
-                ArrayList al = new ArrayList();
-                if(multiAnswerMap.containsKey(new Long(response.getQuestionId())))
-                {
-                    al = (ArrayList)multiAnswerMap.get(new Long(response.getQuestionId()));
+            if(question != null) {
+                if (question.getAnswerType() == DemographicQuestion.SINGLE_SELECT) {
+                    setDefault(Constants.DEMOG_PREFIX + response.getQuestionId(), String.valueOf(response.getAnswerId()));
+                } else if (question.getAnswerType() == DemographicQuestion.FREE_FORM) {
+                    setDefault(Constants.DEMOG_PREFIX + response.getQuestionId(), response.getText());
+                } else if (question.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
+                    //todo handle multiple select
+                    ArrayList al = new ArrayList();
+                    if(multiAnswerMap.containsKey(new Long(response.getQuestionId())))
+                    {
+                        al = (ArrayList)multiAnswerMap.get(new Long(response.getQuestionId()));
+                    }
+                    al.add(String.valueOf(response.getAnswerId()));
+                    multiAnswerMap.put(new Long(response.getQuestionId()), al);
+                    //setDefault(Constants.DEMOG_PREFIX + response.getQuestionId(), String.valueOf(response.getAnswerId()));
+                } else {
+                    //todo something is wrong, we don't recognize that kind of question
                 }
-                al.add(String.valueOf(response.getAnswerId()));
-                multiAnswerMap.put(new Long(response.getQuestionId()), al);
-                //setDefault(Constants.DEMOG_PREFIX + response.getQuestionId(), String.valueOf(response.getAnswerId()));
-            } else {
-                //todo something is wrong, we don't recognize that kind of question
             }
         }
         for(Iterator it = multiAnswerMap.keySet().iterator(); it.hasNext();) {
