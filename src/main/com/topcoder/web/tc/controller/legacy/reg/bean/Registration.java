@@ -1660,6 +1660,7 @@ public class Registration
                 InitialContext ctx = TCContext.getInitial();
                 com.topcoder.web.ejb.user.User userbean = (com.topcoder.web.ejb.user.User) BaseProcessor.createEJB(ctx, com.topcoder.web.ejb.user.User.class);
                 char status = userbean.getStatus(coder.getCoderId(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                log.debug("HERE WITH STATUS " + status);
                 if (Arrays.binarySearch(UNACTIVE_STATI, status) > 0) {
                     doLegacyCrap((int)coder.getCoderId());
                     Email email = (Email) BaseProcessor.createEJB(ctx, Email.class);
