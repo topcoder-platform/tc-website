@@ -8,6 +8,7 @@ import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.corp.Util;
+import com.topcoder.web.corp.Constants;
 
 
 /**
@@ -37,7 +38,8 @@ public class Static extends BaseProcessor {
             if(!isLegal(p)) throw new NavigationException("disallowed path component: "+ p);
             path.append("/").append(p);
         }
-        if(path.equals("")) throw new NavigationException("path must have at least one component");
+        if(path.equals(""))
+            path.append(Constants.WELCOME_PAGE):;
         path.append(".jsp");
 
         log.debug("next page: " + path.toString());
