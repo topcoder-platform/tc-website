@@ -10,7 +10,6 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Counter extends BaseTag {
-    public static final String COUNTER = "counter";
     protected static Logger log = Logger.getLogger(AnswerInput.class);
 
     private int min;
@@ -53,7 +52,7 @@ public class Counter extends BaseTag {
             return wrapItUp();
         }else{
             cur = min;
-            pageContext.setAttribute(COUNTER,String.valueOf(cur));
+            pageContext.setAttribute(getId(),String.valueOf(cur));
             return EVAL_BODY_TAG;
         }
     }
@@ -63,7 +62,7 @@ public class Counter extends BaseTag {
         if(cur>max){
             return wrapItUp();
         }else{
-            pageContext.setAttribute(COUNTER,String.valueOf(cur));
+            pageContext.setAttribute(getId(),String.valueOf(cur));
             return EVAL_BODY_TAG;
         }
     }

@@ -1,15 +1,15 @@
 package com.topcoder.web.ejb.ProblemRatingServices;
 
+import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.common.NavigationException;
 
 import javax.ejb.*;
 import java.rmi.RemoteException;
 import java.sql.*;
 import java.util.*;
 
-public class ProblemRatingServicesBean implements SessionBean {
+public class ProblemRatingServicesBean extends BaseEJB{
     private static Logger log = Logger.getLogger(ProblemRatingServicesBean.class);
 
     private static final String TAG = "ProblemRatingServicesBean";
@@ -23,86 +23,63 @@ public class ProblemRatingServicesBean implements SessionBean {
     protected String getTag() {
         return TAG;
     }
-    public boolean submitAnswers(int[] questions, int[] ratings, long coderID, int problemID) throws Exception{
+    public void createProblemRating(int questionID, long coderID, int problemID) throws Exception{
         StringBuffer insertQuery = new StringBuffer(250);
         /***********************Informix*******************************/
-        insertQuery.append(" INSERT INTO problem_rating ( question_id, coder_id, problem_id, problem_rating)");
-        insertQuery.append(" VALUES (?,");
+        insertQuery.append(" INSERT INTO problem_rating ( question_id, coder_id, problem_id)");
+        insertQuery.append(" VALUES (");
+        insertQuery.append(questionID);
+        insertQuery.append(',');
         insertQuery.append(coderID);
         insertQuery.append(',');
         insertQuery.append(problemID);
-        insertQuery.append(",?)");
-
-        String countQuery = "SELECT count(*) FROM problem_rating_question";
+        insertQuery.append(")");
+        /**************************************************************/
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = DBMS.getConnection();
+            ps = conn.prepareStatement(insertQuery.toString());
+            int rows = ps.executeUpdate();
+            if(rows!=1){
+                throw new EJBException("Wrong number of rows in insert: " + rows);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            throw ex;
+        } finally {
+            close(ps);
+            close(conn);
+        }
+    }
+    public void setProblemRating(int questionID, long coderID, int problemID, int rating) throws Exception{
+        StringBuffer updateQuery = new StringBuffer(250);
+        /***********************Informix*******************************/
+        updateQuery.append(" UPDATE problem_rating SET problem_rating = ?");
+        updateQuery.append(" WHERE question_id = ?");
+        updateQuery.append(" AND coder_id = ?");
+        updateQuery.append(" AND problem_id = ?");
         /**************************************************************/
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
             conn = DBMS.getConnection();
-            ps = conn.prepareStatement(countQuery);
-            rs = ps.executeQuery();
-            rs.next();
-            if(questions.length!=rs.getInt(1)){
-                return false;
+            ps = conn.prepareStatement(updateQuery.toString());
+            ps.setInt(1,questionID);
+            ps.setLong(2,coderID);
+            ps.setInt(3,problemID);
+            ps.setInt(4,rating);
+            int rows = ps.executeUpdate();
+            if(rows!=1){
+                throw new EJBException("Wrong number of rows in insert: " + rows);
             }
-            ps = conn.prepareStatement(insertQuery.toString());
-            for(int i = 0; i<questions.length; i++){
-                ps.setInt(1,questions[i]);
-                ps.setInt(2,ratings[i]);
-                ps.executeUpdate();
-            }
-            return true;
-        } catch (SQLException ex) {
-            throw new NavigationException("You may only rate a problem once.");
         } catch (Exception ex) {
             ex.printStackTrace();
             throw ex;
         } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception ignore) {
-                }
-            }
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                    log.debug("cx closed...");
-                } catch (Exception ignore) {
-                    log.error("cx NOT closed...");
-                }
-            }
+            close(ps);
+            close(conn);
         }
-    }
-    //*************************************************************************
-    //                                 EJB lifecycle
-    //*************************************************************************
-
-    public void ejbActivate() {
-        System.out.println(getTag() + ":  ejbActivate called");
-    }
-
-    public void ejbPassivate() {
-        System.out.println(getTag() + ":  ejbPassivate called");
-    }
-
-    public void ejbCreate() throws CreateException {
-        System.out.println(getTag() + ":  ejbCreate called");
-    }
-
-    public void ejbRemove() throws RemoteException {
-        System.out.println(getTag() + ":  ejbRemove called");
-    }
-
-    public void setSessionContext(SessionContext ctx) throws RemoteException {
-        System.out.println(getTag() + ":  setSessionContext called");
-        this.ctx = ctx;
     }
 }
