@@ -7,7 +7,7 @@ import java.util.*;
 import com.topcoder.web.stat.bean.*;
 import com.topcoder.web.stat.common.*;
 import com.topcoder.common.web.data.Navigation;
-import com.topcoder.common.Log;
+import com.topcoder.common.*;
 import org.w3c.dom.*;
 import org.apache.xerces.parsers.*;
 import org.xml.sax.*;
@@ -16,7 +16,7 @@ import javax.xml.parsers.*;
 
 public class StatisticsHttpServlet extends HttpServlet{
   private static final String LAST_MOD_HDR = "Last-Modified";
-  private static final String XML_FILE = "/usr/web/resources/stat/statServlet.xml";
+  private static final String XML_FILE = ApplicationServer.BASE_DIR+"/resources/stat/statServlet.xml";
   private static final String PUBLIC = "0";
   private static final String LOGGED_IN_ONLY = "1";
   private static final String ACCESS_MAP_KEY = "ACCESSCTRL";
