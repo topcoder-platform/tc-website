@@ -68,8 +68,10 @@ public class SimpleRegSubmit extends SimpleRegBase {
             Transaction.begin(tx);
             PrincipalMgrRemote mgr = getPrincipalManager();
             if (regInfo.isNew()) {
+                log.debug("RYAN NEW");
                 newUser = mgr.createUser(regInfo.getHandle(), regInfo.getPassword(), CREATE_USER);
             } else {
+                log.debug("RYAN OLD");
                 newUser = mgr.getUser(regInfo.getHandle());
             }
             store(regInfo, newUser);
