@@ -33,7 +33,7 @@
             address provided during registration. You <b>will not</b> be able to compete if you
             do not activate your account.
         </p>
-         <span class="dc_errorText"><b>OPTIONAL:</b></span> If you would like to upload a resume, click <a class="bodyText_link" href="JavaScript:void window.open('<jsp:getProperty name="sessionInfo" property="ServletPath"/>resume?&<%=Constants.MODULE_KEY%>=ViewUpload&<%=Constants.COMPANY_ID%>=2998','Resume_Upload','top=2,left=2,width=350,height=300,status=0');">here</a><br/><br/>
+         <span class="dc_errorText"><b>OPTIONAL:</b></span> If you would like to upload a resume, click <a class="bodyText_link" href="JavaScript:void window.open('<jsp:getProperty name="sessionInfo" property="ServletPath"/>resume?&<%=Constants.MODULE_KEY%>=ViewUpload&<%=Constants.COMPANY_ID%>=2998','Resume_Upload','top=2,left=2,width=350,height=300,status=0');">here</a></p>
 
         <p>
         Be sure to spend time in the Practice Room by clicking the Practice Arena link above.<br/><br/>

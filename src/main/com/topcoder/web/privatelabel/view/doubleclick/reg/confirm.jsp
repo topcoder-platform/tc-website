@@ -124,6 +124,12 @@
                     <td class="dc_regTableQuestion">Country</td>
                     <td class="dc_regTableAnswer"><jsp:getProperty name="regInfo" property="CountryName"/></td>
                 </tr>
+             </table>
+             
+             <p><br/></p>
+
+                
+             <table width="100%" cellpadding="0" cellspacing="3">
                 <tr>
                     <td class="dc_regTableQuestion"><b>Demographics</b></td>
                     <td class="dc_regTableAnswer">
