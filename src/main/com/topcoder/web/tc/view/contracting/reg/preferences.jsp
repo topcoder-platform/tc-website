@@ -111,6 +111,8 @@ return false;
 				<td class=<%=cssClasses[i++ % 2]%>>
                                         <tc:preferenceInput preference="<%=pref%>" />
 				</td>
+				<% } else if(pref.getType() == Constants.PREFERENCE_TEXT_ANSWER) { %>
+				<td width="100%" colspan=2 class=<%=cssClasses[i++ % 2]%>><%=pref.getText()%><br/><tc:preferenceInput preference="<%=pref%>" /></td>
 				<% } else { %>
 				<td width="100%" class=<%=cssClasses[i % 2]%>><label><tc:preferenceInput preference="<%=pref%>" /> <%=pref.getText()%></label></td>
 				<td class=<%=cssClasses[i++ % 2]%>>

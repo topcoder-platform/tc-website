@@ -46,6 +46,8 @@ public class PreferenceInput extends BaseTag {
             setName(Constants.PREFERENCE_PREFIX+preference.getID()); 
             if(preference.getType() == Constants.PREFERENCE_MULTIPLE_ANSWER) {
                 output.append(buildSelect());
+            } else if (preference.getType() == Constants.PREFERENCE_TEXT_ANSWER) {
+                output.append(buildText());
             } else {
                 output.append(buildCheckbox());
             }
@@ -57,6 +59,24 @@ public class PreferenceInput extends BaseTag {
             }
         }
         return SKIP_BODY;
+    }
+    
+    private String buildText() {
+        StringBuffer s = new StringBuffer(500);
+        s.append("<input type=\"text\" ");
+        s.append(" name=\"");
+        s.append(name);
+        s.append("\"");
+        if (cssclass != null) {
+            s.append(" class=\"" + cssclass + "\"");
+        }
+        s.append(" value=\"");
+        if(getDefaultValue() != null) {
+            s.append(getDefaultValue());
+        }
+        s.append("\" ");
+        s.append("/>");
+        return s.toString();
     }
 
 
