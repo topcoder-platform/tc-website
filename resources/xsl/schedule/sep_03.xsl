@@ -76,7 +76,14 @@
                             <tr> 
                                 <td id="calendarBlank">&#160;</td>
                                 <td id="calendar">1</td>
-                                <td id="calendar">2</td>
+                                <td id="calendarTCO03">
+                                    <span id="calendarTCO03Date">2</span><br />
+                                    <strong>2003 TCO: Development</strong><br />
+                                    Online Round #1<br />
+                                    Projects posted: 12:00&#160;AM<br />
+                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/?t=tournaments&amp;c=tco03_comp_sched" class="statText">Details</A></td>
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">3</span><br />
                                     <strong>Match 162</strong><br />
@@ -85,7 +92,14 @@
                                     <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4615&amp;t=schedule&amp;c=srm">Details</A></td>
-                                <td id="calendar">4</td>
+                                <td id="calendarTCO03">
+                                    <span id="calendarTCO03Date">4</span><br />
+                                    <strong>2003 TCO: Design</strong><br />
+                                    Online Round #1<br />
+                                    Projects posted: 12:00&#160;AM<br />
+                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/?t=tournaments&amp;c=tco03_comp_sched" class="statText">Details</A></td>
                                 <td id="calendar">5</td>
                                 <td id="calendar">6</td>
                             </tr>
@@ -109,9 +123,23 @@
                             
                             <tr> 
                                 <td id="calendar">14</td>
-                                <td id="calendar">15</td>
+                                <td id="calendarTCO03">
+                                    <span id="calendarTCO03Date">15</span><br />
+                                    <strong>2003 TCO: Development</strong><br />
+                                    Online Round #1<br />
+                                    Submissions deadline: 11:59&#160;PM<br />
+                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/?t=tournaments&amp;c=tco03_comp_sched" class="statText">Details</A></td>
                                 <td id="calendar">16</td>
-                                <td id="calendar">17</td>
+                                <td id="calendarTCO03">
+                                    <span id="calendarTCO03Date">17</span><br />
+                                    <strong>2003 TCO: Design</strong><br />
+                                    Online Round #1<br />
+                                    Submissions deadline: 11:59&#160;PM<br />
+                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/?t=tournaments&amp;c=tco03_comp_sched" class="statText">Details</A></td>
                                 <td id="calendar">18</td>
                                 <td id="calendar">19</td>
                                 <td id="calendarSRM">
