@@ -7,7 +7,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder | Corporate Services</title>
+<title>Sponsor a TopCoder Computer Programming Tournament</title>
 
 <jsp:include page="../includes/css.jsp" />
 
@@ -18,17 +18,19 @@
 <body>
 
 <!-- Top begins -->
-<jsp:include page="../includes/top.jsp"/>
+<jsp:include page="../includes/top.jsp" >
+  <jsp:param name="isSponsorPage" value="true"/>
+</jsp:include>
 <!-- Top ends -->
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
 
 <!-- Left Column Begins -->
-        <td width="180">
+        <td width="170">
             <jsp:include page="../includes/left.jsp">
-                <jsp:param name="level1" value="private_label"/>
-                <jsp:param name="level2" value="index"/>
+                <jsp:param name="level1" value="tourny"/>
+                <jsp:param name="level2" value="onsite"/> 
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -47,35 +49,38 @@
                     <td class="bodyText" width="99%">
                         <img src="/i/clear.gif" width="1" height="10" alt="" border="0"><br>
                         
-                        <h2 class="corpHead">Private Label Competitions</h2>
+                        <h2 class="corpHead">Tournaments - Onsite Branding</h2>
 
-                        <p>TopCoder can develop and administer customized developer competitions for your company.  These competitions are 
-                        designed to allow your developers to establish bragging rights, build morale, and identify top/hidden talent internally 
-                        within your organization.</p>
-
-                        <p>TopCoder will open a practice room one week prior to each competition where only your developers will be 
-                        allowed to hone their skills using problems from previous competitions.  TopCoder staff will be available to 
-                        answer any questions during this time. This will allow your developers to become familiar with the competition arena 
-                        and you to promote the event in advance.</p>
-
-                        <p>TopCoder's technical team will coordinate setting up the competition prior to the event. They will also be 
-                        available during each competition to answer any questions, and resolve any technical issues immediately, should 
-                        they arise.</p>
-
-                        <p>The advantage of running a competition using this program is the ability to focus on your business goals 
-                        rather than the logistical hurdles of putting on such an event.</p>
+                        <p>TopCoder's onsite arena is designed to give the competitors a degree of privacy while offering spectators 
+                        viewing of coders and what they're coding.</p>
                         
+                        <p>TopCoder has the following elements present for all onsite matches:</p>
+                        
+                        <ul>
+                            <li>Co-branded onsite signage directing spectators to location</li>
+                            <li>Co-branded information and collateral (TopCoder and Sponsors) area</li>
+                            <li>Co-branded kiosk in lobby with match, sponsor, and competitor information</li>
+                            <li>50" Video Display - co-branded panels surrounding the live digital score board</li>
+                            <li>Viewing Islands - 2 monitors per coder showing their efforts in real-time</li>
+                            <li>Competitor stage - co-branded pillars</li>
+                            <li>See Sample Tournament Setup below</li>
+                        </ul>
+                        
+                        <div align="center"><img src="/i/arena.gif" alt="" width="450" height="370" border="0"/></div>
+                        
+                        <p><a href="?module=Static&d1=corp&d2=spon_prog&d3=srm_index">What is the SRM Program?</a></p>
+
                         <p><br/></p>
                     </td>
 
-<!-- Gutter -->
+<!-- Gutter Begins -->
                     <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column begins -->
                     <jsp:include page="../includes/right.jsp">
-                        <jsp:param name="level1" value="private_label"/>
-                        <jsp:param name="level2" value="index"/> 
+                        <jsp:param name="level1" value="tourny"/>
+                        <jsp:param name="level2" value="onsite"/> 
                     </jsp:include>
 <!-- Right Column ends -->
 
