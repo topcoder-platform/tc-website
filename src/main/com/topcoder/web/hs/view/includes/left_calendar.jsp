@@ -5,7 +5,8 @@
                <TD VALIGN="top">
                   <TABLE WIDTH="100%" BORDER="0" CELLSPACING="1" CELLPADDING="0">
                  <TR> 
-                      <TD BGCOLOR="#333333" CLASS="moduleTitle" COLSPAN="7" HEIGHT="17" VALIGN="middle"><IMG SRC="/i/hs/module_labels_march_date.gif" ALT="December Dates" WIDTH="166" HEIGHT="17" BORDER="0"/></TD>
+<%--                      <TD BGCOLOR="#333333" CLASS="moduleTitle" COLSPAN="7" HEIGHT="17" VALIGN="middle"><IMG SRC="/i/hs/module_labels_march_date.gif" ALT="December Dates" WIDTH="166" HEIGHT="17" BORDER="0"/></TD>--%>
+                      <TD BGCOLOR="#333333" CLASS="moduleTitle" COLSPAN="7" HEIGHT="17" VALIGN="middle">March 2003 Match Dates</TD>
                    </TR>
                       <TR BGCOLOR="#333366"> 
                         <TD BACKGROUND="/i/hs/s_calendar_bg.gif" CLASS="moduleTitle" ALIGN="center" WIDTH="16"><FONT COLOR="#FFFFFF">S</FONT></TD>
