@@ -74,7 +74,7 @@
                                 </tr>
                                 <tr valign="middle">
                                     <td class="projectCells">
-                                        <a href="?t=development&amp;c=Team_App_EDI_Certification_Website">Seat Service Shell</a>
+                                        <a href="?t=development&amp;c=Team_App_Seat_Service_Shell">Seat Service Shell</a>
                                     </td>
                                     <td class="projectCells" align="right">$9,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$6,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
