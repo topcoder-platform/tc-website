@@ -17,10 +17,9 @@
               <OPTION VALUE="july_02">&#160;July</OPTION>
               <OPTION VALUE="aug_02">&#160;August</OPTION>
               <OPTION VALUE="sept_02">&#160;September</OPTION>
-<!--
               <OPTION VALUE="oct_02">&#160;October</OPTION>
               <OPTION VALUE="nov_02">&#160;November</OPTION>
-              <OPTION VALUE="dec_02">&#160;December</OPTION> -->
+<!--              <OPTION VALUE="dec_02">&#160;December</OPTION> -->
 </select>
 </form></DIV>
   </xsl:template>
