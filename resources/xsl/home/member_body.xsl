@@ -14,10 +14,12 @@
   <xsl:import href="../includes/modules/arena2.xsl"/>
   <xsl:import href="../includes/modules/calendar.xsl"/>
   <xsl:import href="../includes/modules/simple_search.xsl"/>
-  <!-- <xsl:import href="../includes/modules/editorials.xsl"/> -->
-  <!-- <xsl:import href="../includes/modules/top_room_wins.xsl"/> -->
   <xsl:import href="../includes/modules/top_scorers.xsl"/>
   <xsl:import href="../includes/global_left.xsl"/>
+  <xsl:import href="../includes/modules/srm_sponsor.xsl"/>
+  <xsl:import href="../includes/modules/coder_of_month.xsl"/>
+  <xsl:import href="../includes/modules/srm_best_worst.xsl"/>
+  <xsl:import href="../includes/modules/coder_pov.xsl"/>
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template name="MemberBody">
 
@@ -31,7 +33,7 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="6"><img src="/i/clear.gif" width="6" height="1" border="0" /></td>
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
@@ -49,11 +51,11 @@
                 <tr><td colspan="3" height="20"><img src="/i/promos/catalog_intro/catalog_intro_nav.gif" alt="" width="556" height="20" border="0" usemap="#catalog_intro_map" /></td></tr>
             </table>
 
-<map name="catalog_intro_map">
-    <area shape="rect" alt="Buy now" coords="334,0,396,18" href="http://software.topcoder.com/pages/s_subscriptions.jsp" target="_top" />
-    <area shape="rect" alt="Browse catalog" coords="235,0,333,18" href="http://software.topcoder.com/pages/c_showroom.jsp" target="_top" />
-    <area shape="rect" alt="Learn more" coords="158,0,234,18" href="http://software.topcoder.com/pages/s_learn.jsp" target="_top" />
-</map>
+            <map name="catalog_intro_map">
+                <area shape="rect" alt="Buy now" coords="334,0,396,18" href="http://software.topcoder.com/pages/s_subscriptions.jsp" target="_top" />
+                <area shape="rect" alt="Browse catalog" coords="235,0,333,18" href="http://software.topcoder.com/pages/c_showroom.jsp" target="_top" />
+                <area shape="rect" alt="Learn more" coords="158,0,234,18" href="http://software.topcoder.com/pages/s_learn.jsp" target="_top" />
+            </map>
 <!-- Catalog Intro ends -->
 
             <img src="/i/clear.gif" alt="" width="1" height="15" border="0" /><br />
@@ -360,147 +362,37 @@
             <img src="/i/clear.gif" alt="" width="1" height="6" border="0"/><br />
 
 <!-- Summary/Best/Worst Begins  -->
-            <table width="100%" border="0" cellspacing="0" cellpadding="3">
-                <tr valign="middle">
-                    <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 148</font></td>
-                    <td class="bodyText" bgcolor="#999999" width="50%" align="right"><A HREF="/stat?&amp;c=last_match" class="bodyText"><strong>View Summary</strong></A></td>
-                </tr>
-            </table>
-
-                <table border="0" cellspacing="0" cellpadding="3" width="100%">
-                    <tr>
-                        <td valign="top" colspan="3" class="bodyText">Wednesday, May 28, 2003</td>
-                    </tr>
-
-                    <tr><td colspan="3"><img src="/i/clear.gif" alt="" width="1" height="3" border="0" /></td></tr>
-
-                    <tr>
-                        <td valign="middle" align="center" bgcolor="#093158" width="33%" nowrap="nowrap" height="15">
-                            <a class="statTextBig">
-                            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=round_overview#leaders</xsl:attribute>Division Leaders</a>
-                        </td>
-                        <td valign="middle" align="center" bgcolor="#093158" width="34%" nowrap="nowrap">
-                            <a class="statTextBig">
-                            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=round_overview#problem_stats</xsl:attribute>Problem Stats</a>
-                        </td>
-                        <td valign="middle" align="center" bgcolor="#093158" width="33%" nowrap="nowrap">
-                            <a class="statTextBig">
-                            <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute>Results</a>
-                        </td>
-                    </tr>
-            </table>
-
-            <table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#001935">
-                    <tr><td align="center" colspan="5" class="statTextBig" background="/i/steel_bluebv_bg.gif">Best / Worst Rating Change</td></tr>
-
-                    <xsl:for-each select="/TC/HOME/GainersAndLosers/Coder">
-
-                    <tr valign="middle">
-                        <td width="20%" class="statTextBig" nowrap="nowrap">&#160;&#160;&#160;<xsl:value-of select="division"/></td>
-                        <td width="10%" class="statText">&#160;&#160;<xsl:value-of select="change_type"/>:</td>
-                        <td width="35%" class="statText" nowrap="nowrap">
-                            <A>
-                            <xsl:attribute name="HREF">stat?c=member_profile&amp;cr=<xsl:value-of select="coder_id"/></xsl:attribute>
-                            <xsl:attribute name="CLASS">
-                                <xsl:call-template name="GetRatingClass">
-                                    <xsl:with-param name="rating">
-                                    <xsl:value-of select="rating"/>
-                                    </xsl:with-param>
-                                </xsl:call-template>
-                            </xsl:attribute>
-                            <xsl:value-of select="handle"/>
-                            </A>
-                        </td>
-                        <td width="15%" class="statText" align="center"><xsl:value-of select="change"/></td>
-                        <td width="20%" class="statText" nowrap="nowrap"><xsl:value-of select="room_name"/></td>
-                    </tr>
-
-                    </xsl:for-each>
-            </table>
+            <xsl:call-template name="srm_best_worst"/>
 <!-- Summary/Best/Worst Ends -->
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br />
 
 <!-- Coder Point of View Begins-->
-            <table width="100%" border="0" cellspacing="0" cellpadding="3">
-                <tr valign="middle">
-                    <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Coders Point of View</font></td>
-                    <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>View All</strong></a></td>
-                </tr>
-            </table>
-
-             <table border="0" cellspacing="0" cellpadding="3" width="100%">
-                <tr valign="top">
-                    <td width="55" class="bodyText"  valign="top">
-
-		     <img src="/i/m/brett1479_mug.jpg" alt="" width="55" height="61" border="0" vspace="5" /><br />
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=251317"><strong>brett1479</strong></a><br/>
-                        <span class="smallText"><em>TopCoder Member</em></span>
-                        
-                        
-                        <!--<img src="/i/m/lbackstrom_mug.jpg" alt="" width="55" height="61" border="0" vspace="5"/><br />
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=159052"><strong>lbackstrom</strong></a><br/>
-                        <span class="smallText"><em>TopCoder Member</em></span>-->
-
-                        <!--<img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=269554"><strong>Yarin</strong></a><br/>
-                        <span class="smallText"><em>TopCoder Member</em></span> -->
-
-                    </td>
-                    <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-                    <td width="99%" class="bodyText" valign="top">
-                        <p><font size="4"><strong>Single Round Match 148</strong></font><br />
-                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm148_prob</xsl:attribute><font size="4"><strong>Problem Set Analysis &amp; Opinion</strong></font></a></p>
-
-                      <p>SRM 148 went off without a hitch.  The division one set featured a deceivingly hard 1100 point problem that stumped most of the coders.  <b>SnapDragon</b>, who won the match, finished the first two problems before most 
-coders finished the first.  He successfully finished every problem quicker than all other coders.  <b>SnapDragon</b> was on pace to complete the entire round in 30 minutes until he ran into the 1100 point problem.  
-Numerous other coders also sped through the first two, later to be stopped in their tracks by the hard.  Once the challenge phase ended very few 1100 submissions still remained.  In division two, a new coder by the name 
-<b>bogklug</b> scored 1733.52 winning his division by a wide margin.  Division two coders did remarkably well on a relatively difficult set lending credence to the theory that their average ability is increasing steadily.
-
- <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm148_prob</xsl:attribute><strong>full&#160;story</strong></a></p>
-                    </td>
-                </tr>
-                <tr><td colspan="3"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>
-            </table>
- <!-- End of Point of View -->
+            <xsl:call-template name="coder_pov"/>
+<!-- Coder of Point of View Ends -->
  
- 
-<!-- Java Web Start Include -->
+<!-- Java Web Start Begins -->
             <xsl:call-template name="arena"/>
+<!-- Java Web Start Ends -->
 
             <p><br /></p>
         </td>
   <!-- Center Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="6"><img src="/i/clear.gif" width="6" height="1" border="0" /></td>
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
         <td valign="top" class="statText" width="244" bgcolor="#001935">
 
 <!--SRM Sponsor Starts-->
-            <img src="/i/es/srmanimation_home.gif" alt="" width="244" height="142" border="0" usemap="#srmanimation_home" /><br />
-            <map name="srmanimation_home">
-            <!-- <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="javascript:void window.open('http://www.gentleware.com')" />  -->
-            <!-- <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="/?RoundId=4540&amp;t=schedule&amp;c=srm" /> -->
-            <area shape="rect" alt="Intel Developer Services" coords="1,1,243,85" href="/?t=sponsor&amp;c=intel_ids" />
-            <area shape="rect" alt="SRM Match 146" coords="0,93,243,141" href="/?RoundId=4545&amp;t=schedule&amp;c=srm" />
-            </map>
+            <xsl:call-template name="srm_sponsor"/>
 <!--SRM Sponsor Ends-->
 
-
 <!-- Coder of the Month Begins -->
-            <a href="/stat?c=member_profile&amp;cr=2058672"><img src="/i/codermonth.gif" alt="Coder of the Month" width="244" height="119" border="0" /></a><br />
+            <xsl:call-template name="coder_of_month"/>
 <!-- Coder of the Month ends -->
-
-<!-- TCES Quote Begins
-            <map name="tcesMap">
-            <area shape="rect" alt="" coords="33,89,159,104" href="/?t=schedule&amp;c=index"></area>
-            <area shape="rect" alt="" coords="3,3,239,23" href="/?t=tces&amp;c=index"></area>
-            </map>
-            <img src="/i/tces_quote.gif" width="244" height="138" alt="Only rated members can apply for TCES jobs" border="0" usemap="#tcesMap" />
- TCES Quote Ends -->
 
 <!-- TCS Promo Begins -->
             <a href="?t=development&amp;c=index"><img src="/i/header_software_development.gif" alt="Software Development" width="244" height="20" border="0" /></a><br />
@@ -551,8 +443,6 @@ Numerous other coders also sped through the first two, later to be stopped in th
                     <td class="statText" align="center">3</td>
                     <td class="statText" align="right">88.37</td>
                 </tr>
-                
-               
 
                 <tr valign="top">
                     <td width="25%" colspan="4"><img src="/i/clear.gif" width="1" height="3" border="0" /></td>
@@ -563,7 +453,6 @@ Numerous other coders also sped through the first two, later to be stopped in th
                 <tr><td height="20" class="moduleTitle"><a href="?t=development&amp;c=comp_projects"><img src="/i/tcs_contest_promo_bottom.gif" alt="Win $2000" width="244" height="22" border="0" /></a></td></tr>
             </table>
  <!-- Bonus Contest Ends-->
-
 
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr><td><img src="/i/clear.gif" alt="" width="1" height="3" border="0" /></td></tr>
