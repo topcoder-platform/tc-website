@@ -73,7 +73,7 @@ Perform characterization under different input conditions.  Interface with syste
 <P><B>Qualifications: GPA: 3.5</B></P>
 <P>Pursuing BS/MS/PhD in Electrical Engineering.  Experience working with scopes, spectrum analyzers, proficient with soldering and other lab duties.  Must be interested in hands-on lab work.</P>
 
-<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=111&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_openings_intern&amp;a=secure" CLASS="bodyText">more Intern/Co-op Positions</A></P>
+<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=111&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_openings_intern_soft&amp;a=secure" CLASS="bodyText">More Positions at NVIDIA</A></P>   
 
 <!--end contextual links-->
           

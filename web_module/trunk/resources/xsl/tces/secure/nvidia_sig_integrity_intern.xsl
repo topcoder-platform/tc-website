@@ -72,7 +72,7 @@
 <P><B>Qualifications: GPA: 3.5</B></P>
 <P>MSEE (PhD preferred) with combined lab or internship related experience.  Must be proficient with signal integrity simulation tools using SpecctraQuest, ANSOFT, XTK, HSPICE.  Must have good interpersonal skills and the ability to explain results and methods to other engineers.  Preferred experience in model validation software such as IConnect. </P>
 
-<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=111&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_openings_intern&amp;a=secure" CLASS="bodyText">more Intern/Co-op Positions</A></P>
+<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=111&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_openings_intern_soft&amp;a=secure" CLASS="bodyText">More Positions at NVIDIA</A></P>   
 
 <!--end contextual links-->
           

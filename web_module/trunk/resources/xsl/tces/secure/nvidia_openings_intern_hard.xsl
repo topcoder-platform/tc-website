@@ -58,7 +58,7 @@
                         <xsl:call-template name="nvidia_links"/>
 <!-- Nvidia Ends -->
 
-<DIV ALIGN="CENTER"><IMG SRC="/i/es/nvidia/intern_hard_banner.gif" WIDTH="510" HEIGHT="100" ALT="" BORDER="0" VSPACE="10" /></DIV><BR/>       
+<DIV ALIGN="CENTER"><IMG SRC="/i/es/nvidia/intern_hard_banner.gif" WIDTH="510" HEIGHT="100" ALT="" BORDER="0" VSPACE="10" /></DIV>      
 
                 <p>We are reinventing the visual experience beyond the bleeding-edge with the best hardware and software innovation.  The culture promotes 
                         and inspires our driven team of world-class engineers and developers to be at the top of their game...and to have fun along the way!  We are shaping 
