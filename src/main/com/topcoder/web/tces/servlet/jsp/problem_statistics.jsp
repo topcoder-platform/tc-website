@@ -156,7 +156,7 @@ function openWnd(pageUrl) {
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= JSPUtils.autoFormat(language.getItem("overall_accuracy")) %>%
+                        <%= JSPUtils.autoFormat(language.getItem("overall_accuracy")) %>
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
