@@ -23,7 +23,14 @@
             </p>
          </td>
       </tr>
-
+      <br/>
+      <tr>
+         <td align="center">
+            <p class="bodyText">
+                <a href="javascript:window.close();" class="bodyText">close</a>
+            </p>
+         </td>
+      </tr>
   </table>
 </td>
 <!-- Center Column Ends -->
@@ -36,13 +43,6 @@
       <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
 <!-- Gutter Ends -->
     </tr>
-      <tr valign="bottom">
-         <td align="center">
-            <p class="bodyText">
-                <a href="javascript:window.close();" class="bodyText">close</a>
-            </p>
-         </td>
-      </tr>
 </table>
 
 </body>
