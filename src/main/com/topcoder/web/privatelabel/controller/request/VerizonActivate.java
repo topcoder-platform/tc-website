@@ -17,11 +17,11 @@ import java.util.Map;
 
 public class VerizonActivate extends Activate {
     protected void setNextPage() {
-        VerizonRegInfo regInfo = (VerizonRegInfo)regInfo;
+        VerizonRegInfo info = (VerizonRegInfo)regInfo;
 
-        if (!(regInfo).isRegFull()&&regInfo.isEligible()) {
+        if (!info.isRegFull()&&info.isEligible()) {
             setNextPage(Constants.VERIZON_ACTIVATION_PAGE);
-        } else if (regInfo.isRegFull()&&regInfo.isEligible()) {
+        } else if (info.isRegFull()&&info.isEligible()) {
             setNextPage(Constants.VERIZON_ACTIVATION_REG_FULL_PAGE);
         } else {
             setNextPage(Constants.VERIZON_ACTIVATION_INELIGIBLE_PAGE);
