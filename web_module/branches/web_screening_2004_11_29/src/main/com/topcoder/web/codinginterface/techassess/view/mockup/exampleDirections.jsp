@@ -54,7 +54,7 @@
                   <td class=tableHeader align=center>Coding Time</td>
                </tr>
                <tr>
-                  <td class=tableTextOdd><A href="/mockup/exampleDirections.jsp"><img src="/i/corp/screening/buttonOpen.gif" alt="" /></A></td>
+                  <td class=tableTextOdd><a href="/mockup/codingRoom.jsp"><img src="/i/corp/screening/buttonOpen.gif" alt="" /></a></td>
                   <td class=tableTextOdd>Average</td>
                   <td class=tableTextOdd>Un-Opened</td>
                   <td class=tableTextOdd align=center><span class=bigRed>00:00</span></td>

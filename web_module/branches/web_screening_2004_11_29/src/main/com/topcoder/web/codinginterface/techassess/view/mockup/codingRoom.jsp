@@ -32,16 +32,106 @@
 <%-- CONTENT --%>
             <td class=bodyContent>
             <p class=pL>
-            <span class=bodyBigTitle>Coding Room</span>
-            <br/><br/>
-
+            <span class=bodySmallTitle>Problem Statement</span><br />
             <iframe src="/i/corp/screening/probState.html" width="100%" height="200px" scrolling="auto" frameborder="1">
-            [Your user agent does not support frames or is currently configured not to display frames. However, you may visit <A href="foo.html">the related document.</A>]
+            [Your user agent does not support frames or is currently configured not to display frames. However, you may visit <a href="/i/corp/screening/probState.html">the related document.</a>]
             </iframe>
 
             <br/><br/>
+            <span class=bodySmallTitle>Input Area</span><br />
+            <textarea class=codingArea name="code" rows="21" cols="42">
+using System;
+using System.Collections;
+using System.Text.RegularExpressions;
 
-            <textarea width="100%" height="200x" style="width:100%;height:200px" name="code" wrap="logical" rows="21" cols="42"></textarea>
+public class Cyberline 
+{
+  public string lastCyberword(string cyberline) 
+  {
+    string ret = "";
+    //string strOK = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    char[] work = cyberline.ToCharArray();
+    int length = work.Length;
+    int x;
+    for(int i = 0; i < length; ++i)
+    {
+      int dum = 0;
+      char ch = work[i];
+      if('a' <= ch && ch <= 'z')
+        dum = 1;
+      else if('A' <= ch && ch <= 'Z')
+        dum = 1;
+      else if('0' <= ch && ch <= '9')
+        dum = 1;
+      else if(ch == '-')
+        dum = 1;
+      else if(ch == '@')
+        dum = 1;
+      else
+        work[i] = ' ';
+      x = dum;
+    }
+
+    string w2 = new String(work);
+    w2 = w2.TrimStart();
+    w2 = w2.TrimEnd();
+    string[] words = w2.Split(" ".ToCharArray());
+    int numWords = words.Length;
+
+    bool bFound = false;
+    int index = 0;
+    int use = 0;
+    for(index = numWords - 1,bFound = false; index >=0 && !bFound; --index)
+    {
+      bool bWordOK = false;
+      string testWord = words[index];
+      length = testWord.Length;
+      for(int i = 0; i < length; ++i)
+      {
+        char ch = testWord[i];
+        if('a' <= ch && ch <= 'z')
+          bWordOK = true;
+        else if('A' <= ch && ch <= 'Z')
+          bWordOK = true;
+        else if('0' <= ch && ch <= '9')
+          bWordOK = true;
+        else if(ch == '@')
+          bWordOK = true;
+      }
+
+      if(bWordOK)
+        bFound = true;
+
+      if(bFound)
+        use = index;
+    }
+
+    ret = words[use];
+
+    // remove all -
+    while((index = ret.IndexOf('-')) > 0)
+      ret = ret.Remove(index,1);
+
+    // rules to make a word
+
+    return ret;  
+  }
+}
+            </textarea>
+
+            <br /><br />
+
+            <table cellspacing=0 cellpadding=0 border=0 class=codingButtons>
+               <tr>
+                  <td><a href="/mockup/codingRoom.jsp"><img src="/i/corp/screening/buttonFind.gif" alt="" /></a></td>
+                  <td><a href="/mockup/codingRoom.jsp"><img src="/i/corp/screening/buttonGoTo.gif" alt="" /></a></td>
+                  <td><a href="/mockup/codingRoom.jsp"><img src="/i/corp/screening/buttonSave.gif" alt="" /></a></td>
+                  <td><a href="/mockup/codingRoom.jsp"><img src="/i/corp/screening/buttonCompile.gif" alt="" /></a></td>
+                  <td><a href="/mockup/codingRoom.jsp"><img src="/i/corp/screening/buttonTest.gif" alt="" /></a></td>
+                  <td><a href="/mockup/codingRoom.jsp"><img src="/i/corp/screening/buttonClear.gif" alt="" /></a></td>
+                  <td><a href="/mockup/codingRoom.jsp"><img src="/i/corp/screening/buttonSubmit.gif" alt="" /></a></td>
+               </tr>
+            </table>
 
             </td>
             <td class=bodyR>&#160;</td>
