@@ -82,7 +82,6 @@ function getProblemDetail(id) {
                 </tr>
             </table>
 
-            <br/>
             <%
                 info = (List) request.getAttribute(Constants.CAMPAIGN_RESULTS_LIST);
             %>
@@ -112,7 +111,6 @@ function getProblemDetail(id) {
                 </tr>
             </table>
 
-            <br/>
 
             <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
                 <tr>
