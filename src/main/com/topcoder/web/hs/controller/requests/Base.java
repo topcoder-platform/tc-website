@@ -82,9 +82,6 @@ public abstract class Base implements RequestProcessor {
             user = getAuthUser();
             hsa = new HSAuthorization(user);
         }
-
-        log.info("[**** "+user.getUserName()+" **** "+request.getAttribute("loginfo"));
-
         info = new SessionInfoBean();
         request.setAttribute("SessionInfo", info);
         Set groups = ((HSAuthorization)hsa).getGroups();
