@@ -11,6 +11,7 @@ import com.topcoder.apps.review.document.AbstractSubmission;
 import com.topcoder.apps.review.document.ScreeningScorecard;
 import com.topcoder.apps.review.document.ScorecardQuestion;
 import com.topcoder.apps.review.document.Evaluation;
+import com.topcoder.apps.review.document.InitialSubmission;
 
 import org.apache.struts.util.MessageResources;
 
@@ -156,6 +157,22 @@ public class AdminScreeningScorecardBean {
             return scoreFormatter.format(scorecard.getScore());
         } else {
             return messages.getMessage("prompt.nonAvailable");
+        }
+    }
+    
+    public String getAdvancedToReview() {
+        if(scoreReady) {
+            if(((InitialSubmission)submission).isAdvancedToReview()) {
+                return "Yes";
+            } else {
+                return "No";
+            }
+        } else {
+            if(((InitialSubmission)submission).isAdvancedToReview()) {
+                return "Yes (Pending)";
+            } else {
+                return "No (Pending)";
+            }
         }
     }
 
