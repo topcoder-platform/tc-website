@@ -124,7 +124,7 @@ function getProblemDetail(url,wd,ht) {
               <TD COLSPAN="4" CLASS="bodyText"><B>Top TopCoder Solutions </B></TD>
            </TR>	        
 	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Name</B></TD>
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Points</B></TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Division</B></TD>		       
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Difficulty</B></TD>		       
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Category</B></TD>		       
@@ -132,8 +132,9 @@ function getProblemDetail(url,wd,ht) {
            <TR>
               <TD COLSPAN="4"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
            </TR>	        
+           <screen:resultSetRowIterator id="solution" list="<%= submissionInfo.getTopTCSolutions() %>">
 	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="JavaScript:getProblemDetail('/eval/tc_prob_results.jsp','600','500')" CLASS="bodyText">Problem A</A></TD>
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="JavaScript:getProblemDetail('/eval/tc_prob_results.jsp','600','500')" CLASS="bodyText">328.45</A></TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;I</TD>		       
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Level 2</TD>		       
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Category Name</TD>		       	        
@@ -141,6 +142,7 @@ function getProblemDetail(url,wd,ht) {
            <TR>
               <TD COLSPAN="4"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
            </TR>          	        	        	        
+           </screen:resultSetRowIterator>
          </TABLE>                 
 </FORM>         
 <P><BR/></P>    

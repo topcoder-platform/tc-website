@@ -15,6 +15,9 @@ public class SubmissionInfo implements java.io.Serializable {
     /** Holds value of property testResults. */
     private ResultSetContainer testResults;
     
+    /** Holds value of property topTCSolutions. */
+    private ResultSetContainer topTCSolutions;
+    
     /** Getter for property code.
      * @return Value of property code.
      */
@@ -41,6 +44,20 @@ public class SubmissionInfo implements java.io.Serializable {
      */
     public void setTestResults(ResultSetContainer testResults) {
         this.testResults = testResults;
+    }
+    
+    /** Getter for property topTCSolutions.
+     * @return Value of property topTCSolutions.
+     */
+    public ResultSetContainer getTopTCSolutions() {
+        return this.topTCSolutions;
+    }
+    
+    /** Setter for property topTCSolutions.
+     * @param topTCSolutions New value of property topTCSolutions.
+     */
+    public void setTopTCSolutions(ResultSetContainer topTCSolutions) {
+        this.topTCSolutions = topTCSolutions;
     }
     
 }
