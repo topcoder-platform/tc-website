@@ -35,7 +35,7 @@
 <table border="0" cellspacing="0" cellpadding="0" width="100%">
     <tr>
       <td width="49%" align="right"><img src="/i/clear.gif" alt="" width="5" height="10" border="0" /></td>
-<!-- Summary tab -->
+<!-- Overview tab -->
             <% if (selectedTab.equals("coding_overview")) {%>
                  <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_overview" class="statTextBig"><img src="/i/tournament/tco03/tab_overview_on.gif" alt="Overview" width="88" height="22" border="0" /></A></td>
             <% } else { %>
@@ -47,6 +47,13 @@
                  <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_schedule" class="statTextBig"><img src="/i/tournament/tco03/tab_schedule_on.gif" alt="Schedule" width="88" height="22" border="0" /></A></td>
             <% } else { %>
                  <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_schedule" class="statTextBig"><img src="/i/tournament/tco03/tab_schedule_off.gif" alt="Schedule" width="88" height="22" border="0" /></A></td>
+            <% } %>
+
+<!-- Onsite tab -->
+            <% if (selectedTab.equals("coding_onsite")) {%>
+                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=onsite&d4=overview" class="statTextBig"><img src="/i/tournament/tco03/tab_onsite_on.gif" alt="Schedule" width="88" height="22" border="0" /></A></td>
+            <% } else { %>
+                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=onsite&d4=overview" class="statTextBig"><img src="/i/tournament/tco03/tab_onsite_off.gif" alt="Schedule" width="88" height="22" border="0" /></A></td>
             <% } %>
 
 <!-- Rules tab -->
@@ -71,7 +78,7 @@
 <table border="0" cellspacing="0" cellpadding="0" width="100%">
     <tr>
       <td width="49%" align="right"><img src="/i/clear.gif" alt="" width="5" height="10" border="0" /></td>
-<!-- Summary tab -->
+<!-- Overview tab -->
             <% if (selectedTab.equals("component_overview")) {%>
                  <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_comp_overview" class="statTextBig"><img src="/i/tournament/tco03/tab_overview_on.gif" alt="Overview" width="88" height="22" border="0" /></A></td>
             <% } else { %>
@@ -84,6 +91,9 @@
             <% } else { %>
                  <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_comp_schedule" class="statTextBig"><img src="/i/tournament/tco03/tab_schedule_off.gif" alt="Schedule" width="88" height="22" border="0" /></A></td>
             <% } %>
+
+<!-- Onsite tab -->
+                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=onsite&d4=overview" class="statTextBig"><img src="/i/tournament/tco03/tab_onsite_off.gif" alt="Schedule" width="88" height="22" border="0" /></A></td>
 
 <!-- Rules tab -->
             <% if (selectedTab.equals("component_rules")) {%>
