@@ -27,7 +27,6 @@
          styleClass = "coderTextOrange";
        }
      }
-   }
 %>
 
 <a name="top"/>
