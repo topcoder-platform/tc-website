@@ -17,7 +17,7 @@ import	javax.naming.*;
 import	javax.sql.DataSource;
 import	com.topcoder.web.render.ejb.Group;
 import	com.topcoder.web.render.ejb.GroupObject;
-import	com.topcoder.common.DBMS;
+import	com.topcoder.shared.util.DBMS;
 
 public class GroupBean implements javax.ejb.SessionBean {
 
@@ -44,7 +44,7 @@ public class GroupBean implements javax.ejb.SessionBean {
 		String	insert = "INSERT INTO GROUP VALUES (  " + group_id + ", '" + group_desc + "', " + access_id + " )";
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( insert );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
@@ -63,7 +63,7 @@ public class GroupBean implements javax.ejb.SessionBean {
 		PreparedStatement	ps = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( delete );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
@@ -158,7 +158,7 @@ public class GroupBean implements javax.ejb.SessionBean {
 		InputStream	is = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
@@ -225,7 +225,7 @@ public class GroupBean implements javax.ejb.SessionBean {
 			return( 0 );
 		int	rc = 0;
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( update.toString() );
 			int	index = 1;
 			rc = ps.executeUpdate();
@@ -248,7 +248,7 @@ public class GroupBean implements javax.ejb.SessionBean {
 		String	query = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			if( group_desc.indexOf( '%' ) >= 0 )
 				query = "SELECT GROUP_ID FROM GROUP WHERE GROUP_DESC LIKE '" + group_desc + "'";
 			else

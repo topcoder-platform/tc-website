@@ -10,7 +10,6 @@ import java.text.FieldPosition;
 public final class ValueTag extends Tag
 {
 
-  private static final boolean VERBOSE = false;
   private String name;
   private String value;
   private static final String DATE_FORMAT = "MM/dd/yyyy hh:mm:ss aaa";

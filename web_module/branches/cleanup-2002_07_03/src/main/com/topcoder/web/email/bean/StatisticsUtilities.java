@@ -7,9 +7,9 @@ import javax.servlet.http.*;
 import javax.naming.*;
 
 import com.topcoder.web.email.servlet.*;
-import org.apache.log4j.Category;
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.*;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * Utilities for running statistics queries.
@@ -20,7 +20,7 @@ import com.topcoder.shared.dataAccess.resultSet.*;
 
 public class StatisticsUtilities
 {
-    static Category trace = Category.getInstance(StatisticsUtilities.class);
+    private static Logger log = Logger.getLogger(StatisticsUtilities.class);
 
     /**
      * Runs a statistics query and returns the result map.
@@ -44,7 +44,7 @@ public class StatisticsUtilities
             resultMap = dai.getData(dataRequest);
             return resultMap;
         } catch (Exception e) {
-            trace.error("Error running stats query", e);
+            log.error("Error running stats query", e);
             throw new ServletException(e.toString());
         }
 
@@ -80,7 +80,7 @@ public class StatisticsUtilities
                 return "Error looking up query name";
             }
         } catch (Exception e) {
-            trace.error("Error getting command description", e);
+            log.error("Error getting command description", e);
             throw new ServletException(e.toString());
         }
 
@@ -126,7 +126,7 @@ public class StatisticsUtilities
                 commandInputSet.add(commandInput);
             }
         } catch (Exception e) {
-            trace.error("Error getting command metadata", e);
+            log.error("Error getting command metadata", e);
             throw new ServletException(e.toString());
         }
 
@@ -160,7 +160,7 @@ public class StatisticsUtilities
                 commandMap.put(new Integer(command_id.toString()), command_desc.toString());
             }
         } catch (Exception e) {
-            trace.error("Error getting command listing", e);
+            log.error("Error getting command listing", e);
             throw new ServletException(e.toString());
         }
 

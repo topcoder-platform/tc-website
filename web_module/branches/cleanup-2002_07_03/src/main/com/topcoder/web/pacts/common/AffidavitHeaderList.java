@@ -10,13 +10,11 @@
 package com.topcoder.web.pacts.common;
 
 import java.util.*;
-//import com.topcoder.web.stat.common.*;
 import com.topcoder.web.common.*;
-import org.apache.log4j.*;
+import com.topcoder.shared.util.logging.Logger;
 
 public class AffidavitHeaderList implements PactsConstants {
-    private static Category log =
-	Category.getInstance(AffidavitHeaderList.class.getName());
+    private static Logger log = Logger.getLogger(AffidavitHeaderList.class);
 
     public AffidavitHeader[] headerList=null;
 

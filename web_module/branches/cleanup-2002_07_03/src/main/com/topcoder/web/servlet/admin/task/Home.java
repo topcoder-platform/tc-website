@@ -2,7 +2,7 @@ package com.topcoder.web.servlet.admin.task;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
 import com.topcoder.shared.docGen.xml.*;
 import com.topcoder.common.web.data.*;
 import com.topcoder.common.web.error.*;

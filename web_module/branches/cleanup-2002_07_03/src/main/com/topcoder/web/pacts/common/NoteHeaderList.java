@@ -15,14 +15,13 @@
 
 package com.topcoder.web.pacts.common;
 
-import org.apache.log4j.*;
 import com.topcoder.web.common.*;
 import java.util.*;
+import com.topcoder.shared.util.logging.Logger;
 
 public class NoteHeaderList implements PactsConstants {
 
-	private static Category log =
-		Category.getInstance(NoteHeaderList.class.getName());
+        private static Logger log = Logger.getLogger(NoteHeaderList.class);
 
 	public NoteHeader headerList[];
 

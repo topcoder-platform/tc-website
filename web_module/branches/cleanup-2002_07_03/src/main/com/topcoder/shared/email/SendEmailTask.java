@@ -6,15 +6,13 @@ import java.lang.*;
 import java.io.*;
 import java.rmi.RemoteException;
 import javax.ejb.CreateException;
-
 import javax.naming.*;
 import javax.xml.transform.*;
 import javax.xml.transform.stream.*;
 import javax.xml.parsers.*;
 import org.xml.sax.*;
 import org.w3c.dom.*;
-
-import org.apache.log4j.Category;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.*;
 import com.topcoder.shared.ejb.EmailServices.*;
 import com.topcoder.shared.dataAccess.resultSet.*;
@@ -34,6 +32,9 @@ import com.topcoder.shared.dataAccess.*;
  * @version  $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.1.2.1  2002/07/09 14:39:42  gpaul
+ *           no message
+ *
  *           Revision 1.1  2002/05/21 15:55:20  steveb
  *           SB
  *
@@ -88,7 +89,7 @@ import com.topcoder.shared.dataAccess.*;
  *           Fixes to parsing of memberXML data.
  *
  *           Revision 1.1.2.6  2002/04/27 07:42:49  sord
- *           Added printing of stack traces for debugging purposes.
+ *           Added printing of stack logs for debugging purposes.
  *
  *           Revision 1.1.2.5  2002/04/27 07:28:27  sord
  *           Added parsing of the member XML to get the email address to send to.
@@ -108,7 +109,7 @@ import com.topcoder.shared.dataAccess.*;
  */
 public class SendEmailTask implements Runnable  {
 
-    private static Category trace = Category.getInstance( SendEmailTask.class.getName() );
+    private static Logger log = Logger.getLogger(SendEmailTask.class);
     
     private int jobId;
     private Context ctx;
@@ -223,7 +224,7 @@ public class SendEmailTask implements Runnable  {
                         String memberXML = job.getJobDetailData(jobId, detailId);
                         sendMessage(message, templateXSL, memberXML);
                         server.setDetailStatus(jobId, detailId, server.MSG_SENT, "Sent");
-                        trace.debug("Job " + jobId + ", Detail " + detailId 
+                        log.debug("Job " + jobId + ", Detail " + detailId 
                                 + ": sent to (" 
                                 + message.getToAddress(TCSEmailMessage.TO)[0] 
                                 + ")");
@@ -233,7 +234,7 @@ public class SendEmailTask implements Runnable  {
                     }
                 } catch (Exception e) {
                    e.printStackTrace();
-                   trace.warn("Failed to send email to " + key + " (" + e.toString() + ")");
+                   log.warn("Failed to send email to " + key + " (" + e.toString() + ")");
                    if (detailId != 0) {
                        // mark as failed for unknown reasons
                        server.setDetailStatus(jobId, detailId, server.MSG_FAILED, e.toString());
@@ -357,7 +358,7 @@ public class SendEmailTask implements Runnable  {
                 server.addDetailRecord(jobId, memberData);
             } catch (Exception e) {
                 e.printStackTrace();
-                trace.warn("Failed to add member " + memberIdObj);
+                log.warn("Failed to add member " + memberIdObj);
             }
         }
         server.setJobBuilt(jobId);
@@ -429,7 +430,7 @@ public class SendEmailTask implements Runnable  {
                     server.addDetailRecord(jobId, memberData.toString());
                 } catch (Exception e) {
                     e.printStackTrace();
-                    trace.warn("Failed to add member " + row + ": " + memberData.toString());
+                    log.warn("Failed to add member " + row + ": " + memberData.toString());
                 }
             }
         }

@@ -1,7 +1,7 @@
 package com.topcoder.shared.ejb.EmailServices;
 
 import java.util.*;
-import org.apache.log4j.Category;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.ejb.BaseEJB;
 import java.rmi.RemoteException;
 
@@ -12,6 +12,9 @@ import java.rmi.RemoteException;
  * @version  $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.1.2.1  2002/07/09 14:39:25  gpaul
+ *           no message
+ *
  *           Revision 1.1  2002/05/21 15:45:15  steveb
  *           SB
  *
@@ -41,7 +44,7 @@ import java.rmi.RemoteException;
 public class EmailTemplateGroupBean extends BaseEJB {
     public void ejbCreate () { }
     
-    private static Category trace = Category.getInstance( EmailTemplateGroupBean.class.getName() );
+    private static Logger log = Logger.getLogger(EmailTemplateGroupBean.class);
     
     public int addGroup(String name) throws RemoteException {
         javax.naming.Context ctx = null;
@@ -54,7 +57,7 @@ public class EmailTemplateGroupBean extends BaseEJB {
         int rows;
         int id = 1;
 
-        trace.debug("Add template group requested (name " + name + ")");
+        log.debug("Add template group requested (name " + name + ")");
            
         try {
             ctx = new javax.naming.InitialContext();
@@ -71,7 +74,7 @@ public class EmailTemplateGroupBean extends BaseEJB {
             if (rs.next())
                 id = rs.getInt(1) + 1;
             else
-                trace.warn("Failed to get max email template group id,"
+                log.warn("Failed to get max email template group id,"
                         + " using default value of 1.");
             rs.close();
 
@@ -91,15 +94,15 @@ public class EmailTemplateGroupBean extends BaseEJB {
             }
         } catch ( Exception dberr ) {
             String err = "Failed to add template group"; 
-            trace.error(err, dberr);
+            log.error(err, dberr);
             result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
             if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                trace.error("Failed to close database context", ctxerr); } 
+                log.error("Failed to close database context", ctxerr); } 
             }
             if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                trace.error("Failed to close database connection", connerr); }
+                log.error("Failed to close database connection", connerr); }
             }
             
             if (result != null) throw result;
@@ -118,7 +121,7 @@ public class EmailTemplateGroupBean extends BaseEJB {
         StringBuffer sqlStmt = new StringBuffer( 500 );
         int rows;
 
-        trace.debug("Update template group requested (id " + id + ", name " + name + ")");
+        log.debug("Update template group requested (id " + id + ", name " + name + ")");
            
         try {
             ctx = new javax.naming.InitialContext();
@@ -137,28 +140,28 @@ public class EmailTemplateGroupBean extends BaseEJB {
             ps.setInt(2, id);
             rows = ps.executeUpdate();
             if (rows == 0) {
-                trace.debug("Update of template group " + id 
+                log.debug("Update of template group " + id 
                         + " had no effect."
                         + " Most likely the group does not exist.");
                 throw new Exception("update command affected " + rows + " rows.");
             } else {
                 if (rows != 1) {
-                    trace.warn("Update request did not update just a single"
+                    log.warn("Update request did not update just a single"
                             + " record (id " + id + ", " + rows
                             + " records updated).");
                 }
             }
         } catch ( Exception dberr ) {
             String err = "Failed to update template group"; 
-            trace.error(err, dberr);
+            log.error(err, dberr);
             result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
             if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                trace.error("Failed to close database context", ctxerr); } 
+                log.error("Failed to close database context", ctxerr); } 
             }
             if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                trace.error("Failed to close database connection", connerr); }
+                log.error("Failed to close database connection", connerr); }
             }
             
             if (result != null) throw result;
@@ -175,7 +178,7 @@ public class EmailTemplateGroupBean extends BaseEJB {
         StringBuffer sqlStmt = new StringBuffer( 500 );
         int rows;
 
-        trace.debug("Remove template group requested (id " + id + ")");
+        log.debug("Remove template group requested (id " + id + ")");
            
         try {
             ctx = new javax.naming.InitialContext();
@@ -191,28 +194,28 @@ public class EmailTemplateGroupBean extends BaseEJB {
             ps.setInt(1, id);
             rows = ps.executeUpdate();
             if (rows == 0) {
-                trace.debug("Removal of template group " + id 
+                log.debug("Removal of template group " + id 
                         + " had no effect."
                         + " Most likely the group does not exist.");
                 throw new Exception("delete command affected " + rows + " rows.");
             } else {
                 if (rows != 1) {
-                    trace.warn("Update request did not remove just a single"
+                    log.warn("Update request did not remove just a single"
                             + " record (id " + id + ", " + rows
                             + " records removed).");
                 }
             }
         } catch ( Exception dberr ) {
             String err = "Failed to remove template group"; 
-            trace.error(err, dberr);
+            log.error(err, dberr);
             result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
             if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                trace.error("Failed to close database context", ctxerr); } 
+                log.error("Failed to close database context", ctxerr); } 
             }
             if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                trace.error("Failed to close database connection", connerr); }
+                log.error("Failed to close database connection", connerr); }
             }
             
             if (result != null) throw result;
@@ -230,7 +233,7 @@ public class EmailTemplateGroupBean extends BaseEJB {
         int rows;
         Map ret = new HashMap();
 
-        trace.debug("getGroups for template groups requested");
+        log.debug("getGroups for template groups requested");
            
         try {
             ctx = new javax.naming.InitialContext();
@@ -254,15 +257,15 @@ public class EmailTemplateGroupBean extends BaseEJB {
             rs.close();
         } catch ( Exception dberr ) {
             String err = "Failed to get template group names"; 
-            trace.error(err, dberr);
+            log.error(err, dberr);
             result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
             if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                trace.error("Failed to close database context", ctxerr); } 
+                log.error("Failed to close database context", ctxerr); } 
             }
             if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                trace.error("Failed to close database connection", connerr); }
+                log.error("Failed to close database connection", connerr); }
             }
             
             if (result != null) throw result;
@@ -282,7 +285,7 @@ public class EmailTemplateGroupBean extends BaseEJB {
         int rows;
         String name = null;
 
-        trace.debug("getName for template group requested (id " + id + ")");
+        log.debug("getName for template group requested (id " + id + ")");
            
         try {
             ctx = new javax.naming.InitialContext();
@@ -307,15 +310,15 @@ public class EmailTemplateGroupBean extends BaseEJB {
             rs.close();
         } catch ( Exception dberr ) {
             String err = "Failed to get template group name"; 
-            trace.error(err, dberr);
+            log.error(err, dberr);
             result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
             if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                trace.error("Failed to close database context", ctxerr); } 
+                log.error("Failed to close database context", ctxerr); } 
             }
             if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                trace.error("Failed to close database connection", connerr); }
+                log.error("Failed to close database connection", connerr); }
             }
             
             if (result != null) throw result;

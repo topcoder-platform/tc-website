@@ -6,7 +6,8 @@ import java.net.*;
 import javax.transaction.*;
 import javax.naming.*;
 import javax.jms.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.common.web.error.*;
 import javax.mail.*;
 import javax.mail.internet.*;
@@ -16,7 +17,7 @@ import com.topcoder.shared.messaging.*;
 
 public class Sender extends Thread {
 
-  private static boolean VERBOSE = true;
+  private static Logger log = Logger.getLogger(Sender.class);
   private static boolean active = true;
   private int senderCnt;
   private boolean invokating = false;
@@ -38,7 +39,7 @@ public class Sender extends Thread {
   //////////////////////////////////////////////////////////////////////////////// 
   Sender () throws TCException {
   //////////////////////////////////////////////////////////////////////////////// 
-    if (VERBOSE) Log.msg("In Sender constructor...");
+    log.debug("In Sender constructor...");
     senderCnt = 0;
 
     Properties props = new Properties();
@@ -56,7 +57,7 @@ public class Sender extends Thread {
       eMailTransport = eMailSession.getTransport(SMTP_MAIL);
       eMailTransport.connect(SMTP_HOST, 25, USER, PASSWORD);
     }catch(Exception e) {
-      Log.msg("ERROR: Could not start email services!");
+      log.debug("ERROR: Could not start email services!");
       e.printStackTrace();
       throw new TCException();
     }
@@ -69,19 +70,19 @@ public class Sender extends Thread {
     try {
 
       Sender sender = new Sender();
-      Log.msg("Starting email sender...");
+      log.debug("Starting email sender...");
       sender.start();
 
     } catch (Exception e) {
-      Log.msg("email.Sender:main:ERROR:\n"+e);
+      log.debug("email.Sender:main:ERROR:\n"+e);
     }
   }
 
   ////////////////////////////////////////////////////////////////////////////////
   public void JMSInit() {
   ////////////////////////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "In Sender.JMSInit...");
-    InitialContext ctx = null;
+    log.debug("In Sender.JMSInit...");
+    Context ctx = null;
 
     try{
       ctx = TCContext.getInitial();
@@ -89,7 +90,7 @@ public class Sender extends Thread {
       e.printStackTrace();
     }
 
-    this.qmr = new QueueMessageReceiver(ApplicationServer.JMS_FACTORY, DBMS.EMAIL_QUEUE, ctx);
+    this.qmr = new QueueMessageReceiver(ApplicationServer.JMS_FACTORY, DBMS.EMAIL_QUEUE, (InitialContext)ctx);
     this.qmr.setFaultTolerant(false);
     this.qmr.setPersistent(true);
     this.qmr.setConsoleMessageTime(120000);
@@ -100,7 +101,7 @@ public class Sender extends Thread {
   ////////////////////////////////////////////////////////////////////////////////
   public void mailInit() {
   ////////////////////////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "In Sender.mailInit...");
+    log.debug("In Sender.mailInit...");
     boolean retVal = false;
 
     Properties props = new Properties();
@@ -119,7 +120,7 @@ public class Sender extends Thread {
     while (true)
     {
 
-      Log.msg("Attempting to start email services...");
+      log.debug("Attempting to start email services...");
 
       if (!(eMailTransport == null))
       {
@@ -137,11 +138,11 @@ public class Sender extends Thread {
         eMailMessage.setFrom( new InternetAddress(FROM_NAME) );
         eMailTransport = eMailSession.getTransport(SMTP_MAIL);
         eMailTransport.connect(SMTP_HOST, 25, USER, PASSWORD);
-        Log.msg("Email services have been successfully started.");
+        log.debug("Email services have been successfully started.");
         break;
 
       }catch(Exception e) {
-        Log.msg("ERROR: Could not start email services... trying again.");
+        log.debug("ERROR: Could not start email services... trying again.");
         
         try{
           Thread.sleep(10000);
@@ -157,7 +158,7 @@ public class Sender extends Thread {
   //////////////////////////////////////////////////////////////////////////////// 
   public void run() {
   //////////////////////////////////////////////////////////////////////////////// 
-    Log.msg(VERBOSE, "In Sender.run...");
+    log.debug("In Sender.run...");
 
     JMSInit();
     mailInit();
@@ -175,16 +176,16 @@ public class Sender extends Thread {
       // Continuously block on the message queue
       while ( isActive() ) 
       {
-        Log.msg("Listening...");
+        log.debug("Listening...");
         ObjectMessage msg = qmr.getMessage(2000);
 
         //*********check and send msg**********
         if (msg == null) {
           qmr.commit();
         }else{
-          Log.msg("Got message.");
+          log.debug("Got message.");
           senderCnt++;
-          Log.msg( VERBOSE, "Sender #"+senderCnt );
+          log.debug("Sender #"+senderCnt );
           invokating = true;
           try {
             sendMail(msg);
@@ -234,7 +235,7 @@ public class Sender extends Thread {
     } catch ( Exception e ) {
       throw new TCException ( "email.Sender:sendMail:ERROR:\n"+e );
     }
-    Log.msg ( "Mail sent to " + mailToAddress );
+    log.debug ( "Mail sent to " + mailToAddress );
   }
 
   ///////////////////////////////////////////////////////////////////////////
@@ -242,16 +243,16 @@ public class Sender extends Thread {
   ///////////////////////////////////////////////////////////////////////////
   {
     try{
-      Log.msg("**********************************************************************");
-      Log.msg("BAD EMAIL MESSAGE:");
-      Log.msg("TO: " + mail.getStringProperty("MailToAddress"));
-      Log.msg("DATE: " + mail.getLongProperty("MailSentDate"));
-      Log.msg("SUBJECT: " + mail.getStringProperty("MailSubject"));
-      Log.msg("TEXT:");
-      Log.msg((String)mail.getObject());
-      Log.msg("**********************************************************************");
+      log.debug("**********************************************************************");
+      log.debug("BAD EMAIL MESSAGE:");
+      log.debug("TO: " + mail.getStringProperty("MailToAddress"));
+      log.debug("DATE: " + mail.getLongProperty("MailSentDate"));
+      log.debug("SUBJECT: " + mail.getStringProperty("MailSubject"));
+      log.debug("TEXT:");
+      log.debug((String)mail.getObject());
+      log.debug("**********************************************************************");
     }catch(Exception e){
-      Log.msg("ERROR: Could not log bad message!!!");
+      log.debug("ERROR: Could not log bad message!!!");
       e.printStackTrace();
     }
   }
@@ -259,7 +260,7 @@ public class Sender extends Thread {
   ////////////////////////////////////////////////////////////////////////////////
   synchronized static public void deactivate() {
   ////////////////////////////////////////////////////////////////////////////////
-    if (VERBOSE) Log.msg("In Sender.deactivate...");
+    log.debug("In Sender.deactivate...");
     Sender.active = false;
   }
 

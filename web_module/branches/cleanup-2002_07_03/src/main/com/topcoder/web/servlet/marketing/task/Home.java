@@ -1,7 +1,7 @@
 package com.topcoder.web.servlet.marketing.task;
 
 import com.topcoder.web.servlet.marketing.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
 import com.topcoder.common.web.util.*;
 import com.topcoder.common.web.error.*;
 import com.topcoder.shared.docGen.xml.*;

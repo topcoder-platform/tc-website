@@ -20,13 +20,14 @@ import com.topcoder.web.render.ejb.*;
 import java.sql.SQLException;
 import java.rmi.RemoteException;
 import javax.ejb.CreateException;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.*;
 
 
 public class CmStateBean implements Serializable, HttpSessionBindingListener,
 AuthenticationIfc {
 
-private final static boolean VERBOSE = true;
+private static Logger log = Logger.getLogger(CmStateBean.class);
 private final static int REQUIRED_ACCESS_LEVEL = 20;
 private final static boolean DEBUG = true;
 private final static String[] CONFIG_PROD_IP = { "cm_const.xml", "cma", "prod", "ip" };
@@ -70,9 +71,7 @@ private void configProd()
   {
     PROD_IP = config.get ( CONFIG_PROD_IP );
     PROD_PORT = config.get ( CONFIG_PROD_PORT );
-    if (VERBOSE) {
-      System.out.println ( "PROD="+PROD_IP+":"+PROD_PORT );
-    }
+    log.debug ( "PROD="+PROD_IP+":"+PROD_PORT );
   }
 }
 
@@ -82,7 +81,7 @@ private void configQA()
   { 
     QA_IP = config.get ( CONFIG_QA_IP );
     QA_PORT = config.get ( CONFIG_QA_PORT );
-    System.out.println ( "QA="+QA_IP+":"+QA_PORT );
+    log.debug ( "QA="+QA_IP+":"+QA_PORT );
   }
 }
 
@@ -92,7 +91,7 @@ private void configDev()
   { 
     DEV_IP = config.get ( CONFIG_DEV_IP );
     DEV_PORT = config.get ( CONFIG_DEV_PORT );
-    System.out.println ( "DEV="+DEV_IP+":"+DEV_PORT );
+    log.debug ( "DEV="+DEV_IP+":"+DEV_PORT );
   }
 }
 
@@ -100,7 +99,7 @@ private void configDev()
 public CmStateBean() throws NamingException {
     if (context == null)
     {
-        //context = com.topcoder.common.TCContext.getInitial();
+        //context = com.topcoder.shared.util.TCContext.getInitial();
         context = new InitialContext();
     }
     session = null;
@@ -640,8 +639,8 @@ protected void processEditResourceFormProd(Map params, String url) throws Authen
       return;
   }
   try {
-    selectedResource.connect ( com.topcoder.common.TCContext.getInitial(url)  );
-    if (VERBOSE) System.out.println ( "CONNECTED TO " + url );
+    selectedResource.connect ( com.topcoder.shared.util.TCContext.getInitial(url)  );
+    log.debug ( "CONNECTED TO " + url );
     processEditResourceFormParams ( params );
     selectedResource.storeProd(userid);
   } catch ( Exception e ) {
@@ -649,9 +648,9 @@ protected void processEditResourceFormProd(Map params, String url) throws Authen
     throw new AuthenticationException ( "processEditResourceFormProd:  Unable to get connection to prod..." );
   } finally {
     try {
-      //selectedResource.connect ( com.topcoder.common.TCContext.getInitial() );
+      //selectedResource.connect ( com.topcoder.shared.util.TCContext.getInitial() );
       selectedResource.connect ( new InitialContext() );
-System.out.println ( "CONNECTED TO LOCAL ... " );
+log.debug ( "CONNECTED TO LOCAL ... " );
     } catch ( Exception eCx ) {
       eCx.printStackTrace();
       throw new AuthenticationException ( "processEditResourceFormProd:  Connection to CM lost while updating prod..." );
@@ -1241,7 +1240,7 @@ protected void processNewStoredResourceForm(Map params) throws AuthenticationExc
 }
 
 protected void processPageHitsForm (Map params) throws AuthenticationException {
-    if ( VERBOSE ) System.out.println ( "processPageHitsForm called..." );
+    log.debug ( "processPageHitsForm called..." );
     if ( ! authenticated ) throw new AuthenticationException("Not Authenticated");
     int pageInx;
     String sel = getUniqueParameter("selected", params);
@@ -1255,12 +1254,12 @@ protected void processPageHitsForm (Map params) throws AuthenticationException {
             currentPage = new Page((WebPageResource) pageHits.get(pageInx));
         */
         //currentPage = new RestrictedPage((WebPageResource) pageHits.get(pageInx));
-        if ( VERBOSE ) System.out.println ( "creating new JSP..." );
+        log.debug ( "creating new JSP..." );
         currentPage = new JSPPage((WebPageResource) pageHits.get(pageInx));
         try {
-            if ( VERBOSE ) System.out.println ( "reading JSP code..." );
+            log.debug ( "reading JSP code..." );
             currentPage.read(context);
-            if ( VERBOSE ) System.out.println ( "JSP code: \n\n" + currentPage.getText() );
+            log.debug ( "JSP code: \n\n" + currentPage.getText() );
             Set unique = new HashSet(currentPage.getItems());
             unique.removeAll(resourceList);
             resourceList.addAll(unique);

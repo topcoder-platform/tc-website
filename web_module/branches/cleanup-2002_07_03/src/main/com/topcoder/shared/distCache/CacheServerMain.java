@@ -1,13 +1,13 @@
 package com.topcoder.shared.distCache;
 
-import org.apache.log4j.Category;
+import com.topcoder.shared.util.logging.Logger;
 
 public class CacheServerMain
 {
-    static Category log = Category.getInstance("com.server.topcoder.distCache");
+    private static Logger log = Logger.getLogger(CacheServerMain.class);
     
     public static void main(String[] args) {
-        // log.debug("CACHE STARTING");
+        log.debug("CACHE STARTING");
         int mode = CacheServer.MODE_PRIMARY;
         for (int i=0; i<args.length; i++) {
             if (args[i].equals("-primary")) {
@@ -17,7 +17,7 @@ public class CacheServerMain
                 mode = CacheServer.MODE_SECONDARY;
 
             } else {
-                System.out.println("INVALID ARGUMENT: " + args[i]);
+                log.info("INVALID ARGUMENT: " + args[i]);
                 return;
             }
         }

@@ -9,8 +9,6 @@ import com.topcoder.shared.docGen.xml.*;
 public final class Scroll implements Serializable, Base {
 //////////////////////////////////////////////////////
   
-  private static final boolean VERBOSE = false;
-
   private boolean Next;
   private int     Row;
   private int     Returns;

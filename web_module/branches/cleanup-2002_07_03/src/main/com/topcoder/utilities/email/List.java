@@ -3,7 +3,7 @@ package com.topcoder.utilities.email;
 import java.io.*;
 import java.util.*;
 import java.sql.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
 import com.topcoder.common.web.data.*;
 import com.topcoder.common.web.util.*;
 import com.topcoder.utilities.email.*;

@@ -4,11 +4,12 @@ import java.util.*;
 import java.io.*;
 import javax.jms.*;
 import javax.naming.*;
-
-import com.topcoder.common.*;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.*;
 
 public class QueueMessageReceiver {
 
+  private static Logger log = Logger.getLogger(QueueMessageReceiver.class);
   private static final int PRIMARY = 0;
   private static final int BACKUP = 1;
 
@@ -34,7 +35,6 @@ public class QueueMessageReceiver {
 
   private ReceiverController controller;
   private ReceiverController controller_BKP;
-  public static boolean verbose = true;
 
   private boolean ctxCreated = true;
 
@@ -44,7 +44,7 @@ public class QueueMessageReceiver {
   public QueueMessageReceiver (String factoryName, String queueName) throws NamingException
   ////////////////////////////////////////////////////////////////////////////////
   {
-    this.ctx = TCContext.getInitial();
+    this.ctx = (InitialContext)TCContext.getInitial();
     this.ctxCreated = true;
     initObject(factoryName, queueName, "");
   }
@@ -163,7 +163,7 @@ public class QueueMessageReceiver {
   private synchronized void setPrimaryController() 
   ////////////////////////////////////////////////////////////////////////////////
   {
-    //Log.msg(verbose,"Initializing primary receiver.");
+    //log.debug("Initializing primary receiver.");
     controller = new ReceiverController(factoryName, queueName, this.transacted, ctx, selector);
 
     if (this.pollTime > 0) { controller.setPollTime(this.pollTime); }
@@ -178,7 +178,7 @@ public class QueueMessageReceiver {
   private synchronized void setBackupController()
   ////////////////////////////////////////////////////////////////////////////////
   {
-    //Log.msg(verbose,"Initializing backup receiver.");
+    //log.debug("Initializing backup receiver.");
     controller_BKP = new ReceiverController(factoryName_BKP, queueName_BKP, this.transacted, ctx, selector);
 
     if (this.pollTime > 0) { controller_BKP.setPollTime(this.pollTime); }
@@ -205,7 +205,7 @@ public class QueueMessageReceiver {
       }
 
     }catch(Exception e) {
-      Log.msg("ERROR:  Could not commit JMS transaction.");
+      log.error("ERROR:  Could not commit JMS transaction.");
       e.printStackTrace();
       retVal = false;
     }

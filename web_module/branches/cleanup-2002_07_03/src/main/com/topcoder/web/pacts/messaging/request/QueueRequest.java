@@ -11,8 +11,8 @@ import javax.jms.*;
 import com.topcoder.shared.messaging.QueueMessageReceiver;
 import com.topcoder.web.pacts.messaging.handler.*;
 import com.topcoder.web.pacts.common.*;
-import com.topcoder.common.*;
-import org.apache.log4j.*;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.*;
 
 /**
 ********************************************************************************
@@ -26,7 +26,7 @@ import org.apache.log4j.*;
 */
 public class QueueRequest {
 
-  private static final Category log = Category.getInstance(QueueRequest.class.getName());
+  private static Logger log = Logger.getLogger(QueueRequest.class);
   private static final long EXPIRED_TIME = 10000;
   //private static final long MAIN_WAIT = 200;
   private String queueType = "";

@@ -7,6 +7,7 @@ import java.sql.*;
 import java.util.Properties;
 import javax.naming.InitialContext;
 import javax.naming.Context;
+import com.topcoder.shared.util.logging.Logger;
 
 
 /**
@@ -16,14 +17,7 @@ import javax.naming.Context;
  * @author  Jess Evans
  */
 public abstract class BaseEJB implements SessionBean {
-
-//****************************************************************************
-//                                 Constants
-//****************************************************************************
-
-	private static final boolean VERBOSE = false;
-
-
+    private static Logger log = Logger.getLogger(BaseEJB.class);
 
 //****************************************************************************
 //                               Protected  Members
@@ -35,14 +29,14 @@ public abstract class BaseEJB implements SessionBean {
  * using a jdbc connection string.  This is faster and should be used for
  * services which don't require perform multiple inserts/updates to the db.
  *
- * @param pool	the connection pool name
- * @return 		a database Connection object.
+ * @param pool    the connection pool name
+ * @return         a database Connection object.
  *
  */
-	protected static Connection getConnection(String pool) throws SQLException
-	{
-		return DriverManager.getConnection("jdbc:weblogic:pool:" + pool);
-	}
+    protected static Connection getConnection(String pool) throws SQLException
+    {
+        return DriverManager.getConnection("jdbc:weblogic:pool:" + pool);
+    }
 
 
 /**
@@ -52,136 +46,136 @@ public abstract class BaseEJB implements SessionBean {
  * must be performed in one transaction.  JTS will ensure that a bean
  * failure results in a full db rollback.
  *
- * @param pool	the connection pool name
- * @return 		a database Connection object.
+ * @param pool    the connection pool name
+ * @return         a database Connection object.
  *
  */
-	protected static Connection getTransConnection(String pool) throws SQLException
-	{
-		return DriverManager.getConnection("jdbc:weblogic:jts:" + pool);
-	}
+    protected static Connection getTransConnection(String pool) throws SQLException
+    {
+        return DriverManager.getConnection("jdbc:weblogic:jts:" + pool);
+    }
 
 
 /**
  * This class returns the context.
  */
-	protected Context getContext()
-	{
-		try {
-			if (InitContext == null)
-				InitContext = new InitialContext();
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("Error occurred getting context");
-		}
+    protected Context getContext()
+    {
+        try {
+            if (InitContext == null)
+                InitContext = new InitialContext();
+        } catch (Exception e) {
+            e.printStackTrace();
+            log.debug("Error occurred getting context");
+        }
 
-		return InitContext;
-	}
+        return InitContext;
+    }
 
 
 /**
  * Returns the tag to append to the default debug statement.
  * This may be overridden for verbose debugging.
  */
-	protected String getTag()
-	{
-		return TAG;
-	}
+    protected String getTag()
+    {
+        return TAG;
+    }
 
 
 //****************************************************************************
 //                                 Get / Set
 //****************************************************************************
 
-	protected void setString(PreparedStatement ps, int index, String s) throws SQLException
-	{
-		if (s == null || s.equals(""))
-			ps.setString(index,null);
-		else
-			ps.setString(index,s);
-	}
+    protected void setString(PreparedStatement ps, int index, String s) throws SQLException
+    {
+        if (s == null || s.equals(""))
+            ps.setString(index,null);
+        else
+            ps.setString(index,s);
+    }
 
-	protected void setInt(PreparedStatement ps, int index, Integer i) throws SQLException
-	{
-		if (i == null)
-			ps.setNull(index,java.sql.Types.INTEGER);
-		else
-			ps.setInt(index,i.intValue());
-	}
+    protected void setInt(PreparedStatement ps, int index, Integer i) throws SQLException
+    {
+        if (i == null)
+            ps.setNull(index,java.sql.Types.INTEGER);
+        else
+            ps.setInt(index,i.intValue());
+    }
 
-	protected void setFloat(PreparedStatement ps, int index, Float f) throws SQLException
-	{
-		if (f == null)
-			ps.setNull(index,java.sql.Types.FLOAT);
-		else
-			ps.setFloat(index,f.floatValue());
-	}
+    protected void setFloat(PreparedStatement ps, int index, Float f) throws SQLException
+    {
+        if (f == null)
+            ps.setNull(index,java.sql.Types.FLOAT);
+        else
+            ps.setFloat(index,f.floatValue());
+    }
 
-	protected void setLong(PreparedStatement ps, int index, Long l) throws SQLException
-	{
-		if (l == null)
-			ps.setNull(index,java.sql.Types.INTEGER);
-		else
-			ps.setLong(index,l.longValue());
-	}
+    protected void setLong(PreparedStatement ps, int index, Long l) throws SQLException
+    {
+        if (l == null)
+            ps.setNull(index,java.sql.Types.INTEGER);
+        else
+            ps.setLong(index,l.longValue());
+    }
 
-	protected void setDate(PreparedStatement ps, int index, java.sql.Date date) throws SQLException
-	{
-		if (date == null)
-			ps.setNull(index,java.sql.Types.DATE);
-		else
-			ps.setDate(index,date);
-	}
+    protected void setDate(PreparedStatement ps, int index, java.sql.Date date) throws SQLException
+    {
+        if (date == null)
+            ps.setNull(index,java.sql.Types.DATE);
+        else
+            ps.setDate(index,date);
+    }
 
-	protected void setObject(PreparedStatement ps, int index, Object obj) throws SQLException
-	{
-		if (obj == null)
-			ps.setNull(index,java.sql.Types.OTHER);
-		else
-			ps.setObject(index,obj);
-	}
+    protected void setObject(PreparedStatement ps, int index, Object obj) throws SQLException
+    {
+        if (obj == null)
+            ps.setNull(index,java.sql.Types.OTHER);
+        else
+            ps.setObject(index,obj);
+    }
 
-	protected Object getObject(ResultSet rs, int index) throws SQLException
-	{
-		return rs.getObject(index);
-	}
+    protected Object getObject(ResultSet rs, int index) throws SQLException
+    {
+        return rs.getObject(index);
+    }
 
-	protected java.sql.Date getDate(ResultSet rs, int index) throws SQLException
-	{
-		return rs.getDate(index);
-	}
+    protected java.sql.Date getDate(ResultSet rs, int index) throws SQLException
+    {
+        return rs.getDate(index);
+    }
 
-	protected String getString(ResultSet rs, int index) throws SQLException
-	{
-		return rs.getString(index);
-	}
+    protected String getString(ResultSet rs, int index) throws SQLException
+    {
+        return rs.getString(index);
+    }
 
-	protected Integer getInt(ResultSet rs, int index) throws SQLException
-	{
-		int i = rs.getInt(index);
-		if (rs.wasNull())
-			return null;
-		else
-			return new Integer(i);
-	}
+    protected Integer getInt(ResultSet rs, int index) throws SQLException
+    {
+        int i = rs.getInt(index);
+        if (rs.wasNull())
+            return null;
+        else
+            return new Integer(i);
+    }
 
-	protected Float getFloat(ResultSet rs, int index) throws SQLException
-	{
-		float f = rs.getFloat(index);
-		if (rs.wasNull())
-			return null;
-		else
-			return new Float(f);
-	}
+    protected Float getFloat(ResultSet rs, int index) throws SQLException
+    {
+        float f = rs.getFloat(index);
+        if (rs.wasNull())
+            return null;
+        else
+            return new Float(f);
+    }
 
-	protected Long getLong(ResultSet rs, int index) throws SQLException
-	{
-		long l = rs.getLong(index);
-		if (rs.wasNull())
-			return null;
-		else
-			return new Long(l);
-	}
+    protected Long getLong(ResultSet rs, int index) throws SQLException
+    {
+        long l = rs.getLong(index);
+        if (rs.wasNull())
+            return null;
+        else
+            return new Long(l);
+    }
 
 
 
@@ -189,10 +183,10 @@ public abstract class BaseEJB implements SessionBean {
 //                                 Data Members
 //****************************************************************************
 
-	private SessionContext ctx;
-	//private transient Properties props;
-	private transient Context InitContext;
-	private static final String TAG = "BaseEJB";
+    private SessionContext ctx;
+    //private transient Properties props;
+    private transient Context InitContext;
+    private static final String TAG = "BaseEJB";
 
 
 
@@ -204,20 +198,20 @@ public abstract class BaseEJB implements SessionBean {
  * This method is required by the EJB Specification
  *
  */
-	public void ejbActivate()
-	{
-		if (VERBOSE) System.out.println(getTag()+":  ejbActivate called");
-	}
+    public void ejbActivate()
+    {
+        log.debug(getTag()+":  ejbActivate called");
+    }
 
 
 /**
  * This method is required by the EJB Specification
  *
  */
-	public void ejbPassivate()
-	{
-		if (VERBOSE) System.out.println(getTag()+":  ejbPassivate called");
-	}
+    public void ejbPassivate()
+    {
+        log.debug(getTag()+":  ejbPassivate called");
+    }
 
 
 /**
@@ -225,22 +219,22 @@ public abstract class BaseEJB implements SessionBean {
  * Used to get the context ... for dynamic connection pools.
  *
  */
-	public void ejbCreate () throws CreateException
-	{
-		if (VERBOSE) System.out.println(getTag()+":  ejbCreate called");
+    public void ejbCreate () throws CreateException
+    {
+        log.debug(getTag()+":  ejbCreate called");
 
-		InitContext = getContext();
-	}
+        InitContext = getContext();
+    }
 
 
 /**
  * This method is required by the EJB Specification
  *
  */
-	public void ejbRemove()
-	{
-		if (VERBOSE) System.out.println(getTag()+":  ejbRemove called");
-	}
+    public void ejbRemove()
+    {
+        log.debug(getTag()+":  ejbRemove called");
+    }
 
 
 /**
@@ -248,46 +242,46 @@ public abstract class BaseEJB implements SessionBean {
  * Sets the transient Properties.
  *
  */
-	public void setSessionContext(SessionContext ctx)
-	{
-		if (VERBOSE) System.out.println("setSessionContext called");
-		this.ctx = ctx;
-		//props = ctx.getEnvironment();
-	}
+    public void setSessionContext(SessionContext ctx)
+    {
+        log.debug("setSessionContext called");
+        this.ctx = ctx;
+        //props = ctx.getEnvironment();
+    }
 
 
 //****************************************************************************
 //                         Dynamic Connection Pooling
 //****************************************************************************
 
-	/*
-	 * Check to see the the connection pool exists.
-	 * @param poolName - connection pool name
-	 * @return true if pool exists, false otherwise.
-	 */
-	public boolean poolExists(String poolName)
-	{
-		boolean exists = true;
+    /*
+     * Check to see the the connection pool exists.
+     * @param poolName - connection pool name
+     * @return true if pool exists, false otherwise.
+     */
+    public boolean poolExists(String poolName)
+    {
+        boolean exists = true;
 
-		try {
-			weblogic.jdbc.common.JdbcServices jdbc = (weblogic.jdbc.common.JdbcServices) InitContext.lookup("weblogic.jdbc.JdbcServices");
+        try {
+            weblogic.jdbc.common.JdbcServices jdbc = (weblogic.jdbc.common.JdbcServices) InitContext.lookup("weblogic.jdbc.JdbcServices");
 
-			if (jdbc.poolExists(poolName)) {
-				exists = true;
-			} else {
-				exists = false;
-				System.out.println(poolName+" Does Not exists");
-			}
-		} catch (Exception e) {
-			System.out.println("Error checking connection pool existence.");
-		}
+            if (jdbc.poolExists(poolName)) {
+                exists = true;
+            } else {
+                exists = false;
+                log.debug(poolName+" Does Not exists");
+            }
+        } catch (Exception e) {
+            log.debug("Error checking connection pool existence.");
+        }
 
-		return exists;
-	}
+        return exists;
+    }
 
 
-	static
-	{
-		new weblogic.jdbc.jts.Driver();	// force static initialization
-	}
+    static
+    {
+        new weblogic.jdbc.jts.Driver();    // force static initialization
+    }
 }

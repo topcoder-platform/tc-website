@@ -4,7 +4,6 @@ import java.util.*;
 import java.net.*;
 import java.lang.*;
 import java.io.*;
-import org.apache.log4j.Category;
 import javax.mail.*;
 import javax.mail.internet.*;
 import javax.mail.internet.MimeUtility;
@@ -16,6 +15,9 @@ import javax.mail.internet.MimeUtility;
  * @version  $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.1  2002/07/03 00:30:04  gpaul
+ *           moving over here
+ *
  *           Revision 1.1  2002/05/21 18:42:50  steveb
  *           SB
  *
@@ -28,7 +30,6 @@ import javax.mail.internet.MimeUtility;
  */
 public class TCSEmailMessage extends TCSMessage {
 
-    private static Category trace = Category.getInstance( TCSEmailMessage.class.getName() );
     private InternetAddress from = null;
     private InternetAddress to[][] = new InternetAddress[3][0];
     private String subject = "";

@@ -1,7 +1,7 @@
 package com.topcoder.mpsqas.compiler;
 
 import com.topcoder.mpsqas.common.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.logging.Logger;
 import java.util.ArrayList;
 import java.net.*;
 import java.io.*;
@@ -15,6 +15,7 @@ import java.io.*;
  */
 public class CompilerConnection extends Thread
 {
+  private static Logger log = Logger.getLogger(CompilerConnection.class);
   /**
    * The constructor stores some information about the compile and sockets.
    *
@@ -55,7 +56,7 @@ public class CompilerConnection extends Thread
     }
     catch(Exception e1)
     {
-      Log.msg("Error setting up compile: ");
+      log.error("Error setting up compile: ");
       e1.printStackTrace(); 
       doCompile=false;
     }
@@ -66,20 +67,20 @@ public class CompilerConnection extends Thread
       try
       {
         compileObject=waiterIn.readObject();
-        Log.msg("Got compile from CompilerWaiter.");
+        log.debug("Got compile from CompilerWaiter.");
         
         compilerOut.writeObject(compileObject);
         compilerOut.flush();
   
         compileResponse=compilerIn.readObject();
-        Log.msg("Got compile results from Compiler.");
+        log.debug("Got compile results from Compiler.");
   
         waiterOut.writeObject(compileResponse);
         waiterOut.flush();
       }
       catch(Exception e2)
       {
-        Log.msg("Error performing compile: ");
+        log.error("Error performing compile: ");
         e2.printStackTrace();
       }
     } 

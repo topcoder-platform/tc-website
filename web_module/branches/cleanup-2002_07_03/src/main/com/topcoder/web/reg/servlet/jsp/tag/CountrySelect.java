@@ -5,7 +5,7 @@ import javax.naming.*;
 import javax.servlet.jsp.*;
 import javax.servlet.jsp.tagext.*;
 
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
 import com.topcoder.common.web.data.*;
 import com.topcoder.ejb.DataCache.*;
 

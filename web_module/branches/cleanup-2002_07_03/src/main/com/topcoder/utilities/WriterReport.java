@@ -3,13 +3,15 @@ package com.topcoder.utilities;
 import java.io.*;
 import java.util.*;
 import java.sql.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
+import com.topcoder.shared.util.logging.Logger;
 import java.text.DateFormat;
 import java.text.*;
 import com.topcoder.shared.util.TCResourceBundle;
 
 public class WriterReport {
 
+  private static Logger log = Logger.getLogger(WriterReport.class);
 
   public static void main(String args[]) throws SQLException, Exception {
     WriterReport wr = new WriterReport();
@@ -18,7 +20,7 @@ public class WriterReport {
 
   private void printReport() {
 
-    Log.msg("In printReport");
+    log.info("In printReport");
     java.sql.Connection conn = null;
     PreparedStatement ps = null;
     PreparedStatement ps1 = null;

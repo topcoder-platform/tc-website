@@ -22,14 +22,13 @@ import java.io.*;
 import java.util.*;
 //import com.topcoder.web.stat.common.*;
 import com.topcoder.web.pacts.bean.*;
-import org.apache.log4j.*;
+import com.topcoder.shared.util.logging.Logger;
 
 public class InternalDispatchUserProfileHeader implements PactsConstants {
 	HttpServletRequest request;
 	HttpServletResponse response;
 
-	public static Category log =
-		Category.getInstance(InternalDispatchUserProfileHeader.class.getName());
+        private static Logger log = Logger.getLogger(InternalDispatchUserProfileHeader.class);
 
 	public InternalDispatchUserProfileHeader (HttpServletRequest request,
 			HttpServletResponse response) {

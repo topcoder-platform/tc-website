@@ -2,7 +2,7 @@ package com.topcoder.common.web.data;
 
 import java.io.Serializable;
 import com.topcoder.shared.docGen.xml.*;
-import com.topcoder.common.Log;
+import com.topcoder.shared.util.logging.Logger;
 
 public final class Forum implements Serializable, Base {
 
@@ -12,6 +12,7 @@ public final class Forum implements Serializable, Base {
   private int ForumThreads;
   private int ForumMessages;
   private java.sql.Date ForumUpdated;
+  private static Logger log = Logger.getLogger(Forum.class);
 
   public Forum() {
     ForumId = 0;
@@ -35,7 +36,7 @@ public final class Forum implements Serializable, Base {
       result.setForumMessages( getForumMessages() );
       result.setForumUpdated( getForumUpdated() );
     } catch (Exception e) {
-      Log.msg("common.attr.Forum:clone:ERROR:\n"+e);
+      log.debug("common.attr.Forum:clone:ERROR:\n"+e);
     }
     return result;
   }

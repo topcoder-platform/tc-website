@@ -5,7 +5,7 @@ import java.util.*;
 import javax.naming.*;
 import java.io.Serializable;
 import com.topcoder.shared.docGen.xml.*;
-import com.topcoder.common.Log;
+import com.topcoder.shared.util.logging.Logger;
 
 
 /**
@@ -37,7 +37,7 @@ public final class CoderRegistration extends Coder
   private boolean SessionCoderSchoolsLoaded;
   private boolean SessionExperiencesLoaded;
   private boolean SessionCoderSkillsLoaded;
-  static final boolean VERBOSE = false;
+  private static Logger log = Logger.getLogger(CoderRegistration.class);
 
 
   //////////////////////////////////////////////////////////////////////////
@@ -66,7 +66,7 @@ public final class CoderRegistration extends Coder
   //////////////////////////////////////////////////////////////////////////
   public void setAllModifiedStable() throws Exception {
   //////////////////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "common.web.data.CoderRegistration:setAllModifiedStable:called");
+    log.debug("common.web.data.CoderRegistration:setAllModifiedStable:called");
     try {
       super.setAllModifiedStable();
       LastSchoolLetterCriteria="";
@@ -115,7 +115,7 @@ public final class CoderRegistration extends Coder
       result.setSessionExperiencesLoaded( SessionExperiencesLoaded );
       result.setSessionCoderSkillsLoaded( SessionCoderSkillsLoaded );
     } catch (Exception e) {
-      Log.msg("common.web.data.CoderRegistration:clone:ERROR:\n"+e);
+      log.error("common.web.data.CoderRegistration:clone:ERROR:\n"+e);
     }
     return result;
   }

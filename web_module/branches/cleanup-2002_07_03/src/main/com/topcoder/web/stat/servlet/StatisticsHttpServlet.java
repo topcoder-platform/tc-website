@@ -5,7 +5,7 @@ import javax.servlet.http.*;
 import java.io.*;
 import java.util.*;
 import com.topcoder.common.web.data.Navigation;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
 import org.w3c.dom.*;
 import org.apache.xerces.parsers.*;
 import org.xml.sax.*;
@@ -14,9 +14,11 @@ import com.topcoder.web.stat.bean.*;
 import com.topcoder.web.stat.common.*;
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.*;
+import com.topcoder.shared.util.logging.Logger;
 
 
 public class StatisticsHttpServlet extends HttpServlet{
+  private static Logger log = Logger.getLogger(StatisticsHttpServlet.class);
   private static final String LAST_MOD_HDR = "Last-Modified";
   private static final String XML_FILE = ApplicationServer.BASE_DIR+"/resources/stat/statServlet.xml";
   private static final String PUBLIC = "0";
@@ -130,8 +132,8 @@ public class StatisticsHttpServlet extends HttpServlet{
         if (nav.getLoggedIn())
           com.topcoder.common.web.util.Data.loadUser(nav);
         if (nav.getUser() == null)
-          Log.msg("[*** stats *** " + dataRequest.getContentHandle() + " ***  ***]");
-        else Log.msg("[*** stats *** " + dataRequest.getContentHandle() + " *** " + nav.getUser().getHandle() + " ***]");
+          log.info("[*** stats *** " + dataRequest.getContentHandle() + " ***  ***]");
+        else log.info("[*** stats *** " + dataRequest.getContentHandle() + " *** " + nav.getUser().getHandle() + " ***]");
      
         //hoke so that we can reload the properties file on the fly 
         if (dataRequest.getContentHandle().equals("reload")) {

@@ -9,20 +9,19 @@ import javax.naming.*;
 import javax.jms.*;
 import java.sql.Timestamp;
 import java.text.DecimalFormat;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
 import com.topcoder.common.web.data.*; 
 import com.topcoder.shared.messaging.*;
 import com.topcoder.ejb.AuthenticationServices.*;
-import org.apache.log4j.*;
+import com.topcoder.shared.util.logging.Logger;
 
 
-public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
+public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
   private Context InitContext;
   private SessionContext ctx;
-  private static Category log = Category.getInstance( ContestAdminServicesBean.class.getName() );
+  private static Logger log = Logger.getLogger(ContestAdminServicesBean.class);
 
 
-  static final boolean VERBOSE = false;
   static final int NUM_PROBLEMS = 3;
 
     
@@ -49,7 +48,7 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
   ******************************************************************************************
   **/
   public int saveContest (ContestAdmin ca) throws RemoteException {
-    Log.msg(VERBOSE, "Contest: saveContest() called ... ");
+    log.debug( "Contest: saveContest() called ... ");
     java.sql.Connection conn = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
@@ -112,256 +111,6 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
     return contest_id;
   }
 
-  /*****************************************************************************************
-  * Saves a round.
-  *
-  * @param ra - Round
-  * @exception RemoteException
-  * @return int round_id
-  ******************************************************************************************
-  **/
-  /*
-  public int saveRound (com.topcoder.common.web.data.Round ra) throws RemoteException {
-    Log.msg(VERBOSE, "Contest: saveRound() called ... ");
-    java.sql.Connection conn = null;
-    PreparedStatement ps = null;
-    ResultSet rs = null;
-    int retVal = 0;
-    int round_id = 0;
-
-
-    try {
-      conn = DBMS.getConnection();
-
-      StringBuffer query = new StringBuffer(120);
-      if(ra.getModified() == "M") {
-        query.append( " UPDATE round SET round_desc = ? ").
-              append("  WHERE  contest_id = ? AND round_id = ? ");
-
-        round_id = ra.getRoundId();
-      }
-      else {
-        query.append( " INSERT INTO round (round_desc, contest_id, round_id) ").
-              append( " VALUES (?,?,?) ");
-
-        //contest_id = getNextContestId();
-        round_id = DBMS.getSeqId(conn, DBMS.JMA_SEQ);
-      }
-
-      ps = conn.prepareStatement( query.toString() ) ;
-      ps.setString   (1, ra.getRoundDesc());
-      ps.setInt      (2, ra.getContestId());
-      ps.setInt      (3, round_id);
-
-      retVal = ps.executeUpdate();
-      if (retVal != 1)
-          throw new SQLException("ContestBean saveRound retval = "+retVal);
-    } catch (Exception e) {
-        e.printStackTrace();
-        throw new RemoteException ("Contest: saveRound: Error:\n"+e);
-    } finally {
-        try {
-           if (ps != null) { ps.close(); ps = null; }
-        } catch (Exception Ignore) {
-            System.out.println("Contest: saveRound: ps close error in finally");Ignore.printStackTrace();
-        }
-        try {
-           if (conn != null) { conn.close(); conn = null; }
-        } catch (Exception Ignore) { System.out.println("Contest: saveRound: conn close error in finally");Ignore.printStackTrace();  }
-    }
-
-    return round_id;
-  }
-  */
-  /*****************************************************************************************
-  * Saves a RoundSegment.
-  *
-  * @param rsa - RoundSegment
-  * @exception RemoteException
-  * @return int contest_id
-  ******************************************************************************************
-  **/
-  /*
-  public void saveRoundSegment (RoundSegment rsa) throws RemoteException {
-    Log.msg(VERBOSE, "Contest: saveRoundSegment() called ... ");
-    java.sql.Connection conn = null;
-    PreparedStatement ps = null;
-    ResultSet rs = null;
-    int retVal = 0;
-
-    try {
-      conn = DBMS.getConnection();  
- 
-      StringBuffer query = new StringBuffer(120);
-      if(DBMS.DB == DBMS.POSTGRES) {
-        if(rsa.getModified() == "M") {
-          query.append( " UPDATE round_segments SET start_time = ?, end_time = ?, ").
-                append("                     status = ?, int_end_time = ? ").
-                append("  WHERE  round_type = ? AND contest_id = ? AND round_id = ? ");
-
-        }
-        else {
-          query.append( " INSERT INTO round_segments (start_time, end_time, status, ").
-                append( " int_end_time, round_type, contest_id, round_id) ").
-                append( " VALUES (?,?,?,?,?,?,?) ");
-
-        }
-      }
-      else {
-        if(rsa.getModified() == "M") {
-          query.append( " UPDATE round_segment SET start_time = ?, end_time = ?, ").
-                append("                     status = ?, intermission_end_time = ? ").
-                append("  WHERE  round_type = ? AND contest_id = ? AND round_id = ? ");
-
-        }
-        else {
-          query.append( " INSERT INTO round_segment (start_time, end_time, status, ").
-                append( " intermission_end_time, round_type, contest_id, round_id) ").
-                append( " VALUES (?,?,?,?,?,?,?) ");
-
-        }
-      }
-
-      ps = conn.prepareStatement( query.toString() ) ;
-      ps.setTimestamp(1, rsa.getStartTimestamp());
-      ps.setTimestamp(2, rsa.getEndTimestamp());
-      ps.setString   (3, rsa.getStatus());
-      ps.setTimestamp(4, rsa.getIntEndTimestamp());
-      ps.setString   (5, rsa.getRoundType());
-      ps.setInt      (6, rsa.getContestId());
-      ps.setInt      (7, rsa.getRoundId());
-
-      retVal = ps.executeUpdate();
-      if (retVal != 1)
-          throw new SQLException("ContestBean saveRoundSegment retval = "+retVal);
-    } catch (Exception e) {
-        e.printStackTrace();
-        throw new RemoteException ("Contest: saveRoundSegment: Error:\n"+e);
-    } finally {
-        try {
-           if (ps != null) { ps.close(); ps = null; }
-        } catch (Exception Ignore) { 
-            System.out.println("Contest: saveRoundSegment: ps close error in finally");
-            Ignore.printStackTrace();  
-        }
-        try {
-           if (conn != null) { conn.close(); conn = null; }
-        } catch (Exception Ignore) { 
-           System.out.println("Contest: saveRoundSegment: conn close error in finally");
-           Ignore.printStackTrace();  
-        }
-    }
-
-  }
-
-*/
-/**
-   *****************************************************************************************
-   *  method: getContestCoder
-   *  input:  int contestId, int coderId
-   *  output: ContestCoder
-   *  Author: Steven Michael Burrows
-   *  Created: January 31, 2001
-   *  Last Modified:
-   *  Modified By:
-   *  Reason:
-   *
-   *  Description:  This method will get a Contest Coder for given contest id and coder id.
-   *****************************************************************************************
-   **/
-/*
-  ///////////////////////////////////////////////////////////////
-  public ContestCoder getContestCoder(int contestId, int coderId) 
-    throws RemoteException {
-  ///////////////////////////////////////////////////////////////
-    ContestCoder result = null;
-    Log.msg(VERBOSE, "ejb.Contest:getContestCoder(int,int)called...");
-    java.sql.Connection conn = null;
-    PreparedStatement ps = null;
-    ResultSet rs = null;
-    StringBuffer sqlStr = new StringBuffer(750);
-*/
-    /**************************************************************/
-    /************************Postgres******************************/
-    /**************************************************************/
-/*
-    if ( DBMS.DB == DBMS.POSTGRES ) {
-      sqlStr.append( " SELECT "                                                       );
-      sqlStr.append(   " contest_coders.country_code"                                 ); 
-      sqlStr.append(   " ,countries.country_name"                                     );
-      sqlStr.append(   " ,contest_coders.state_code"                                  ); 
-      sqlStr.append(   " ,states.state_name"                                          );
-      sqlStr.append(   " ,contest_coders.contest_coder_status"                        ); 
-      sqlStr.append(   " ,contest_coders.terms"                                       );
-      sqlStr.append( " FROM"                                                          );
-      sqlStr.append(   " contest_coders"                                              );
-      sqlStr.append(     " LEFT OUTER JOIN states"                                    );
-      sqlStr.append(       " ON contest_coders.state_code = states.state_code"        );
-      sqlStr.append(     " INNER JOIN countries"                                      );
-      sqlStr.append(       " ON contest_coders.country_code = countries.country_code" );
-      sqlStr.append( " WHERE"                                                         );
-      sqlStr.append(   " contest_coders.contest_id = ?"                               );
-      sqlStr.append(   " AND contest_coders.coder_id = ?"                             );
-    }
-*/
-    /**************************************************************/
-    /************************Informix******************************/
-    /**************************************************************/
-/*
-    else if ( DBMS.DB == DBMS.INFORMIX ) {
-      sqlStr.append( " SELECT "                                                       );
-      sqlStr.append(   " contest_coders.country_code"                                 );
-      sqlStr.append(   " ,countries.country_name"                                     );
-      sqlStr.append(   " ,contest_coders.state_code"                                  );
-      sqlStr.append(   " ,states.state_name"                                          );
-      sqlStr.append(   " ,contest_coders.contest_coder_status"                        );
-      sqlStr.append(   " ,contest_coders.terms"                                       );
-      sqlStr.append( " FROM"                                                          );
-      sqlStr.append(   " contest_coders"                                              );
-      sqlStr.append(   " ,countries"                                                  );
-      sqlStr.append(   " ,OUTER states"                                               );
-      sqlStr.append( " WHERE"                                                         );
-      sqlStr.append(   " contest_coders.contest_id = ?"                               );
-      sqlStr.append(   " AND contest_coders.coder_id = ?"                             );
-      sqlStr.append(   " AND contest_coders.country_code = countries.country_code"    );
-      sqlStr.append(   " AND contest_coders.state_code = states.state_code"           );
-    }
-    
-    try  {
-      conn = DBMS.getConnection();
-      ps = conn.prepareStatement(sqlStr.toString());
-      ps.setInt   (1, contestId );
-      ps.setInt   (2, coderId   );
-      rs = ps.executeQuery();
-      if (rs.next()) {
-        result = new ContestCoder();
-        Country country = result.getCountry();
-        State state = result.getState();
-        result.setContestId    ( contestId        );
-        result.setCoderId      ( coderId          );
-        country.setCountryCode ( rs.getString (1) );
-        country.setCountryName ( rs.getString (2) );
-        state.setStateCode     ( rs.getString (3) );
-        state.setStateName     ( rs.getString (4) );
-        result.setStatus       ( rs.getString (5) );
-        result.setTerms        ( rs.getString (6) );
-        result.setModified     ( "S"              );
-      }
-    } catch (Exception ex)  {
-      throw new
-        RemoteException("ejb.Contest:getContestCoder(int,int):failed:\n"+ex);
-    } finally {
-      try {if(rs!=null) rs.close();} catch(Exception ignore){}
-      try {if(ps!=null) ps.close();} catch(Exception ignore){}
-      try {if(conn!=null) conn.close();} catch(Exception ignore){}
-    }
-    return result;
-  }
-*/
-
-
-
-
 /**
    *****************************************************************************************
    *  method: getContestList
@@ -378,7 +127,7 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
    *****************************************************************************************
    **/
   public ArrayList getContestList() throws RemoteException {
-    Log.msg(VERBOSE, "Contest: getContestList() called ... ");
+    log.debug( "Contest: getContestList() called ... ");
    
     ArrayList results = new ArrayList();
     java.sql.Connection conn = null;
@@ -633,49 +382,6 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
     return retVal;            
   
   } 
-
-/*
-   ///////////////////////////////////////////////////////////////
-  public void insertContestCoder(ContestCoder contestCoder) 
-    throws RemoteException {
-  ///////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "ejb.Contest:insertContestCoder():called...");
-    java.sql.Connection conn = null;
-    PreparedStatement ps = null;
-  
-    StringBuffer sqlStr = new StringBuffer(125);
-    sqlStr.append( "INSERT INTO "              );
-    sqlStr.append(   "contest_coders ("        );
-    sqlStr.append(     "contest_id"            ); 
-    sqlStr.append(     ",coder_id"             ); 
-    sqlStr.append(     ",country_code"         ); 
-    sqlStr.append(     ",state_code"           ); 
-    sqlStr.append(     ",contest_coder_status" ); 
-    sqlStr.append(     ",terms"                );
-    sqlStr.append(   ") "                      ); 
-    sqlStr.append( "VALUES "                   );
-    sqlStr.append(   "(?,?,?,?,?,?)"           );
-  
-    try {
-      conn = DBMS.getConnection();
-      ps = conn.prepareStatement( sqlStr.toString() );
-      ps.setInt    (1, contestCoder.getContestId                ());
-      ps.setInt    (2, contestCoder.getCoderId                  ());
-      ps.setString (3, contestCoder.getCountry().getCountryCode ());
-      ps.setString (4, contestCoder.getState().getStateCode     ());
-      ps.setString (5, "S"                                        );
-      ps.setString (6, contestCoder.getTerms                    ());
-      ps.executeUpdate();
-      contestCoder.setModified("S");
-    } catch (Exception ex) {
-      throw new
-        RemoteException("ejb.Contest:insertContestCoder():failed:\n"+ex);
-    } finally {
-      try {if(ps!=null) ps.close();} catch(Exception ignore){}
-      try {if(conn!=null) conn.close();} catch(Exception ignore){}
-    }
-  } 
-*/
 
    /*****************************************************************************************
     * Retrieves all rounds and corresponding characteristics from the
@@ -1244,7 +950,7 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
     **/
     public ArrayList getLanguages() throws RemoteException
     {
-      if (VERBOSE) Log.msg("Contest.getLanguages() called ...");
+      log.debug("Contest.getLanguages() called ...");
 
       java.sql.Connection conn = null;
       PreparedStatement ps = null;
@@ -1293,7 +999,7 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
     **/
     public int getNextContestId() throws RemoteException
     {
-      if (VERBOSE) Log.msg("Contest.getNextContestId() called ...");
+      log.debug("Contest.getNextContestId() called ...");
 
       int retVal = -1;
 
@@ -1343,7 +1049,7 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
     **/
     public int getNextRoundId() throws RemoteException
     {
-      if (VERBOSE) Log.msg("Contest.getNextRoundId() called ...");
+      log.debug("Contest.getNextRoundId() called ...");
 
       int retVal = -1;
 
@@ -1393,7 +1099,7 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
      *****************************************************************************************
      */
     public ArrayList getCoderCompilations(int roundId, int coderId) throws RemoteException {
-      Log.msg(VERBOSE, "ejb.ContestAdminBean.getCompilations called...");
+      log.debug( "ejb.ContestAdminBean.getCompilations called...");
 
       ArrayList result = new ArrayList();
       com.topcoder.common.web.data.admin.Compilation compilation = null;
@@ -1450,7 +1156,7 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
 
 
         conn = DBMS.getConnection();
-        Log.msg(VERBOSE,"\n" + query.toString());
+        log.debug("\n" + query.toString());
         ps = conn.prepareStatement(query.toString());
         ps.setInt(1,roundId);
         ps.setInt(2,coderId);
@@ -1483,9 +1189,9 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
         e.printStackTrace();
         throw new RemoteException (e.getMessage());
       } finally {
-        try { if (rs   != null) rs.close();  } catch (Exception ignore) {Log.msg(VERBOSE, "rs   close problem");}
-        try { if (ps   != null) ps.close();  } catch (Exception ignore) {Log.msg(VERBOSE, "ps   close problem");}
-        try { if (conn != null) conn.close();} catch (Exception ignore) {Log.msg(VERBOSE, "conn close problem");}
+        try { if (rs   != null) rs.close();  } catch (Exception ignore) {log.error( "rs   close problem");}
+        try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.error( "ps   close problem");}
+        try { if (conn != null) conn.close();} catch (Exception ignore) {log.error( "conn close problem");}
         rs = null;
         ps = null;
         conn = null;
@@ -1504,7 +1210,7 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
      *****************************************************************************************
      */
     public ArrayList getRounds() throws RemoteException {
-      Log.msg(VERBOSE, "ejb.ContestAdminBean.getRounds called...");
+      log.debug( "ejb.ContestAdminBean.getRounds called...");
 
       ArrayList result = new ArrayList();
       Round round = null;
@@ -1521,7 +1227,7 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
         query.append("     ON c.contest_id = r.contest_id");
         query.append("  ORDER By round_id DESC");
         conn = DBMS.getConnection();
-        Log.msg(VERBOSE,"\n" + query.toString());
+        log.debug("\n" + query.toString());
         ps = conn.prepareStatement(query.toString());
         rs = ps.executeQuery();
         while (rs.next()) {
@@ -1538,9 +1244,9 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
         e.printStackTrace();
         throw new RemoteException (e.getMessage());
       } finally {
-        try { if (rs   != null) rs.close();  } catch (Exception ignore) {Log.msg(VERBOSE, "rs   close problem");}
-        try { if (ps   != null) ps.close();  } catch (Exception ignore) {Log.msg(VERBOSE, "ps   close problem");}
-        try { if (conn != null) conn.close();} catch (Exception ignore) {Log.msg(VERBOSE, "conn close problem");}
+        try { if (rs   != null) rs.close();  } catch (Exception ignore) {log.error( "rs   close problem");}
+        try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.error( "ps   close problem");}
+        try { if (conn != null) conn.close();} catch (Exception ignore) {log.error( "conn close problem");}
         rs = null;
         ps = null;
         conn = null;
@@ -1557,7 +1263,7 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
      *****************************************************************************************
      */
     public ArrayList getCodersByRound(int roundId) throws RemoteException {
-      Log.msg(VERBOSE, "ejb.ContestAdminBean.getCodersByRound called...");
+      log.debug( "ejb.ContestAdminBean.getCodersByRound called...");
 
       ArrayList result = new ArrayList();
       com.topcoder.common.web.data.admin.Coder coder = null;
@@ -1574,7 +1280,7 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
         query.append("     ON ps.coder_id = u.user_id");
         query.append("   AND ps.round_id = ?");
         conn = DBMS.getConnection();
-        Log.msg(VERBOSE,"\n" + query.toString());
+        log.debug("\n" + query.toString());
         ps = conn.prepareStatement(query.toString());
         ps.setInt(1,roundId);
         rs = ps.executeQuery();
@@ -1591,9 +1297,9 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
         e.printStackTrace();
         throw new RemoteException (e.getMessage());
       } finally {
-        try { if (rs   != null) rs.close();  } catch (Exception ignore) {Log.msg(VERBOSE, "rs   close problem");}
-        try { if (ps   != null) ps.close();  } catch (Exception ignore) {Log.msg(VERBOSE, "ps   close problem");}
-        try { if (conn != null) conn.close();} catch (Exception ignore) {Log.msg(VERBOSE, "conn close problem");}
+        try { if (rs   != null) rs.close();  } catch (Exception ignore) {log.error( "rs   close problem");}
+        try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.error( "ps   close problem");}
+        try { if (conn != null) conn.close();} catch (Exception ignore) {log.error( "conn close problem");}
         rs = null;
         ps = null;
         conn = null;
@@ -1608,7 +1314,7 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
     ***************************************************************************************
     **/
     public ArrayList getRoomList(int round_id) throws RemoteException {
-      if(VERBOSE) Log.msg("Contest.getRoomList(round_id) called ... ");
+      log.debug("Contest.getRoomList(round_id) called ... ");
 
       ArrayList rooms = new ArrayList();
       Room roomAttr = null;
@@ -1705,7 +1411,7 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
     }
 
     public ArrayList getCoderList(int roundId, int problemId) throws RemoteException {
-      if(VERBOSE) Log.msg("Contest.getCoderList(roundId,problemId) called ... ");
+      log.debug("Contest.getCoderList(roundId,problemId) called ... ");
 
       ArrayList coders = new ArrayList();
       SystemTestCaseReport sysAttr = null;
@@ -1818,7 +1524,7 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
     ***************************************************************************************
     **/
     public ArrayList getSystemTestCaseReportList(int roundId, int problemId, int coderId, int filter ) throws RemoteException {
-      if(VERBOSE) Log.msg("Contest.getSystemTestResultList(round_id, filter) called ... ");
+      log.debug("Contest.getSystemTestResultList(round_id, filter) called ... ");
 
        ArrayList systemTestCaseReportList = new ArrayList();
        SystemTestCaseReport systemTestCaseReportAttr = null;

@@ -18,6 +18,9 @@ import com.topcoder.shared.distCache.CacheClientFactory;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.1  2002/07/03 00:30:22  gpaul
+ *           moving over here
+ *
  * @see     RequestInt
  */
 public class OLTPCachedDataAccess implements DataAccessInt {
@@ -35,7 +38,6 @@ public class OLTPCachedDataAccess implements DataAccessInt {
      */
     private static CacheClient client;
     private long expireTime;
-    private static final boolean VERBOSE = true;
     public OLTPCachedDataAccess()
     {
         this(86400000);                 //one day in ms

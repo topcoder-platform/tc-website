@@ -18,6 +18,9 @@ import com.topcoder.shared.distCache.CacheClientFactory;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.1  2002/07/03 00:30:22  gpaul
+ *           moving over here
+ *
  *           Revision 1.7  2002/06/27 18:25:52  gpaul
  *           adjustments for a correct ApplicationSever.properties file and DBMS.properties file
  *
@@ -55,7 +58,6 @@ public class DWCachedDataAccess implements DataAccessInt {
      */
     private static CacheClient client;
     private long expireTime;
-    private static final boolean VERBOSE = true;
     public DWCachedDataAccess()
     {
         this(86400000);                 //one day in ms

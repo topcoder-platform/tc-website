@@ -8,8 +8,8 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.naming.*;
 
-import com.topcoder.server.ejb.EmailServices.*;
-import org.apache.log4j.Category;
+import com.topcoder.shared.ejb.EmailServices.*;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * TemplateTask.java
@@ -24,7 +24,7 @@ import org.apache.log4j.Category;
 public class TemplateTask
 	implements Task, Serializable
 {
-	static Category trace = Category.getInstance(TemplateTask.class);
+    private static Logger log = Logger.getLogger(TemplateTask.class);
 
 	public TaskRouter perform(HttpServlet servlet,
 				HttpServletRequest request,
@@ -51,7 +51,7 @@ public class TemplateTask
 				nextPage = delete(request, response);
 			}
 		} catch (Exception e) {
-			trace.debug("Template task error", e);
+			log.debug("Template task error", e);
 			throw new ServletException(e.toString());
 		}
 
@@ -73,13 +73,13 @@ public class TemplateTask
 	{
 		String group = request.getParameter(EmailConstants.GROUP);
 		if (group == null) {
-			trace.debug("No group specified - choosing first group");
+			log.debug("No group specified - choosing first group");
 
 			group = String.valueOf(getFirstTemplateGroupId());
 		}
 		request.setAttribute(EmailConstants.GROUP, group);
 
-		trace.debug("Listing templates for group: " + group);
+		log.debug("Listing templates for group: " + group);
 
 		return EmailConstants.EMAILTEMPLATE_LIST_PAGE;
 	}
@@ -103,7 +103,7 @@ public class TemplateTask
 		// clear error list
 		request.setAttribute("Error", null);
 
-		trace.debug("Creating new template...");
+		log.debug("Creating new template...");
 
 		// forward to the template creation page
 		return EmailConstants.EMAILTEMPLATE_CREATE_PAGE;
@@ -133,7 +133,7 @@ public class TemplateTask
 			ArrayList errorList = template.validate();
 			if (errorList.size() > 0) {
 				// error - go back
-				trace.debug("Template validation failed - errors: " + errorList);
+				log.debug("Template validation failed - errors: " + errorList);
 
 				// set error list attribute
 				request.setAttribute("Error", errorList);
@@ -141,7 +141,7 @@ public class TemplateTask
 				// forward back to template creation page
 				return EmailConstants.EMAILTEMPLATE_CREATE_PAGE;
 			} else {
-				trace.debug("Adding template:\n" + template);
+				log.debug("Adding template:\n" + template);
 
 				int templateId = createTemplate(template);
 				template.setId(String.valueOf(templateId));
@@ -152,7 +152,7 @@ public class TemplateTask
 				return list(request, response);
 			}
 		} else {
-			trace.debug("Already added template.");
+			log.debug("Already added template.");
 
 			// forward to the template list page
 			return list(request, response);
@@ -185,7 +185,7 @@ public class TemplateTask
 		// clear error list
 		request.setAttribute("Error", null);
 
-		trace.debug("Editing template:\n" + template);
+		log.debug("Editing template:\n" + template);
 
 		// forward to the template editing page
 		return EmailConstants.EMAILTEMPLATE_EDIT_PAGE;
@@ -221,7 +221,7 @@ public class TemplateTask
 		ArrayList errorList = template.validate();
 		if (errorList.size() > 0) {
 			// error - go back
-			trace.debug("Template validation failed - errors: " + errorList);
+			log.debug("Template validation failed - errors: " + errorList);
 
 			// set error list parameter
 			request.setAttribute("Error", errorList);
@@ -229,7 +229,7 @@ public class TemplateTask
 			// forward back to template creation page
 			return EmailConstants.EMAILTEMPLATE_EDIT_PAGE;
 		} else {
-			trace.debug("Saving template:\n" + template);
+			log.debug("Saving template:\n" + template);
 
 			saveTemplate(templateId, template);
 
@@ -257,7 +257,7 @@ public class TemplateTask
 			throw new ServletException(e.toString());	
 		}
 
-		trace.debug("Deleting template:\n" + templateId);
+		log.debug("Deleting template:\n" + templateId);
 		
 		deleteTemplate(templateId);
 
@@ -292,7 +292,7 @@ public class TemplateTask
 							template.getName(),
 							template.getTemplate());
 		} catch (Exception e) {
-			trace.debug("Error adding template:\n" + template, e);
+			log.debug("Error adding template:\n" + template, e);
 			throw new ServletException(e.toString());
 		} finally {
 			if (context != null) {
@@ -333,7 +333,7 @@ public class TemplateTask
 			template.setTemplate(emailTemplate.getData(templateId));
 
 		} catch (Exception e) {
-			trace.debug("Error retrieving template:\n" + template, e);
+			log.debug("Error retrieving template:\n" + template, e);
 			throw new ServletException(e.toString());
 		} finally {
 			if (context != null) {
@@ -374,7 +374,7 @@ public class TemplateTask
 			emailTemplate.setData(templateId,
 						template.getTemplate());
 		} catch (Exception e) {
-			trace.debug("Error saving template", e);
+			log.debug("Error saving template", e);
 			throw new ServletException(e.toString());
 		} finally {
 			if (context != null) {
@@ -407,7 +407,7 @@ public class TemplateTask
 			emailTemplate.setGroupId(templateId,
 						EmailConstants.DELETED_GROUP_ID);
 		} catch (Exception e) {
-			trace.debug("Error deleting template", e);
+			log.debug("Error deleting template", e);
 			throw new ServletException(e.toString());
 		} finally {
 			if (context != null) {
@@ -433,7 +433,7 @@ public class TemplateTask
 	{
 		Map templateMap;
 
-		trace.debug("Retrieving templates of group: " + group);
+		log.debug("Retrieving templates of group: " + group);
 
 		Context context = null;
 		try {
@@ -442,7 +442,7 @@ public class TemplateTask
 			EmailTemplate emailTemplate = emailTemplateHome.create();
 			templateMap = emailTemplate.getTemplates(group);
 		} catch (Exception e) {
-			trace.error("Error getting template listing", e);
+			log.error("Error getting template listing", e);
 			throw new ServletException(e.toString());
 		} finally {
 			if (context != null) {
@@ -479,7 +479,7 @@ public class TemplateTask
 			EmailTemplateGroup emailTemplateGroup = emailTemplateGroupHome.create();
 			groupMap = emailTemplateGroup.getGroups();
 		} catch (Exception e) {
-			trace.error("Error getting template group listing", e);
+			log.error("Error getting template group listing", e);
 			throw new ServletException(e.toString());
 		} finally {
 			if (context != null) {
@@ -536,7 +536,7 @@ public class TemplateTask
 			EmailTemplate emailTemplate = emailTemplateHome.create();
 			name = emailTemplate.getTemplateName(templateId);
 		} catch (Exception e) {
-			trace.error("Error getting template name", e);
+			log.error("Error getting template name", e);
 			throw new ServletException(e.toString());
 		} finally {
 			if (context != null) {

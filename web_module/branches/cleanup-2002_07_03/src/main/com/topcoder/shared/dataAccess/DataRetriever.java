@@ -18,6 +18,9 @@ import com.topcoder.shared.util.TCResourceBundle;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.1  2002/07/03 00:30:22  gpaul
+ *           moving over here
+ *
  *           Revision 1.5  2002/05/09 03:19:22  steveb
  *           SB -- added check for STRING data type
  *
@@ -107,13 +110,11 @@ import com.topcoder.shared.util.TCResourceBundle;
  */
 
 public class DataRetriever implements DataRetrieverInt {
-    private static final boolean VERBOSE = true;
     private Connection conn;
     private PreparedStatement ps;
     private ResultSet rs;
     /* Keeps track of the most recent query run, for exception handling purposes */
     private StringBuffer query;
-    private final static String DEFAULT_DATA_SOURCE = "DW";
     private TCResourceBundle dataBundle = new TCResourceBundle("DataAccess");
 
     public DataRetriever(Connection conn) {

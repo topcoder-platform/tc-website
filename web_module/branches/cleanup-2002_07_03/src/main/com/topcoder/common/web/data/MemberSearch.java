@@ -19,9 +19,6 @@ public class MemberSearch implements Base, Serializable {
   private Scroll scroll;
   private boolean isResult;
   private ArrayList coders;
-
-  private static final boolean VERBOSE = false;
-
   //////////////////////////////////////////////////////////////////////////
   public MemberSearch() {
   //////////////////////////////////////////////////////////////////////////

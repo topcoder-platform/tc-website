@@ -1,7 +1,6 @@
 package com.topcoder.shared.util;
 
-import org.apache.log4j.Category;
-
+import com.topcoder.shared.util.logging.Logger;
 /**
  * The TCSMessage is the base class for messaging services
  *
@@ -9,6 +8,9 @@ import org.apache.log4j.Category;
  * @version  $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.1  2002/07/03 00:30:04  gpaul
+ *           moving over here
+ *
  *           Revision 1.1  2002/05/21 18:42:50  steveb
  *           SB
  *
@@ -18,6 +20,6 @@ import org.apache.log4j.Category;
  */
 public abstract class TCSMessage {
 
-    private static Category trace = Category.getInstance( TCSMessage.class.getName() );
+    private static Logger log = Logger.getLogger(TCSMessage.class);
     
 }

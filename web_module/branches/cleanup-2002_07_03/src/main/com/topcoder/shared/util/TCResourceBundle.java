@@ -2,12 +2,11 @@ package com.topcoder.shared.util;
 
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
-
-import org.apache.log4j.Category;
+import com.topcoder.shared.util.logging.Logger;
 
 public final class TCResourceBundle {
     
-    private static final Category LOG=Category.getInstance(TCResourceBundle.class);
+    private static Logger log = Logger.getLogger(TCResourceBundle.class);
     
     private ResourceBundle bundle;
 
@@ -36,7 +35,7 @@ public final class TCResourceBundle {
     }
 
     private static void error(Object message, Throwable t) {
-        LOG.error(message, t);
+        log.error(message, t);
     }
 
 }

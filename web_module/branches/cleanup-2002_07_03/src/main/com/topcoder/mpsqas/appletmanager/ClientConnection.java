@@ -3,7 +3,7 @@ package com.topcoder.mpsqas.appletmanager;
 import com.topcoder.mpsqas.common.*;
 import java.io.*;
 import java.net.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * ClientConnection
@@ -16,6 +16,7 @@ import com.topcoder.common.*;
  */
 public class ClientConnection extends Thread
 {
+  private static Logger log = Logger.getLogger(ClientConnection.class);
   /**
    * The constructor sets up the ClietConnection so it 
    * will be all set to deal with the client when the Thread
@@ -28,7 +29,7 @@ public class ClientConnection extends Thread
    */
   public ClientConnection(Socket socket, int id, MainAppletProcessor map) throws Exception
   {
-    Log.msg("Creating new ClientConnection with Id "+id);
+    log.info("Creating new ClientConnection with Id "+id);
 
     clientSocket=socket;
     connectionId=id;
@@ -80,7 +81,7 @@ public class ClientConnection extends Thread
   {
     Object o;
 
-    Log.msg("ClientConnection with id "+connectionId+" is starting to listen.");
+    log.info("ClientConnection with id "+connectionId+" is starting to listen.");
     while(!isInterrupted())
     {
       try
@@ -91,28 +92,28 @@ public class ClientConnection extends Thread
       }
       catch(StreamCorruptedException sce)
       {
-        Log.msg("Bad Object in ClientConnection "+connectionId);
+        log.error("Bad Object in ClientConnection "+connectionId);
       }
       catch(InterruptedIOException iioe)
       {
       }
       catch(EOFException eofe)        
       {
-        Log.msg("Client no longer available in ClientConnection "+connectionId);
+        log.error("Client no longer available in ClientConnection "+connectionId);
         kill();
       }
       catch(IOException ioe)
       {
-        Log.msg("Client no longer available in ClientConnection "+connectionId);
+        log.error("Client no longer available in ClientConnection "+connectionId);
         kill();
       }
       catch(Exception e)
       {
-        Log.msg("Unknown exception in ClientConnection "+connectionId);
+        log.error("Unknown exception in ClientConnection "+connectionId);
         e.printStackTrace();
       }
     }
-    Log.msg("This is ClientConnection.run(), signing off. "+connectionId);
+    log.info("This is ClientConnection.run(), signing off. "+connectionId);
   }
 
   /**
@@ -138,13 +139,13 @@ public class ClientConnection extends Thread
       }
       catch(Exception e)
       { //give up
-        Log.msg("Lost connection to " + connectionId + ".");
+        log.error("Lost connection to " + connectionId + ".");
         kill();
       }
     }
     catch(Exception e)
     {
-      Log.msg("Unknown exception sending object:");
+      log.error("Unknown exception sending object:");
       e.printStackTrace();
     }
   }
@@ -163,7 +164,7 @@ public class ClientConnection extends Thread
     }
     catch (Exception e0)
     {
-      Log.msg("Error killing communicationProcessor: ");
+      log.error("Error killing communicationProcessor: ");
       e0.printStackTrace();
     }
 

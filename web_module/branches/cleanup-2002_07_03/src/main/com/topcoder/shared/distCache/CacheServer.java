@@ -7,9 +7,10 @@ import java.net.MalformedURLException;
 
 import java.rmi.registry.Registry;
 import java.rmi.registry.LocateRegistry;
+import com.topcoder.shared.util.logging.Logger;
 
-public class CacheServer
-{
+public class CacheServer {
+    private static Logger log = Logger.getLogger(CacheServer.class);
     static final int MODE_PRIMARY   = 1;
     static final int MODE_SECONDARY = 2;
 
@@ -93,7 +94,7 @@ public class CacheServer
         _cache = findCache();
         long end = System.currentTimeMillis();
 
-        System.out.println("CACHE xfer took " +  (end-start) + "ms");
+        log.info("CACHE xfer took " +  (end-start) + "ms");
 
         try {
             CacheClientImpl     client    = new CacheClientImpl(_cache);
@@ -103,16 +104,16 @@ public class CacheServer
             String              serverurl = getLocalServerURL();
 
             // wont get exception on fail...  how then ?
-	    System.out.println("BINDING @ " + clienturl);
+	    log.info("BINDING @ " + clienturl);
             Naming.rebind(clienturl, client); 
-            System.out.println("registered " + clienturl);
+            log.info("registered " + clienturl);
 
-	    System.out.println("BINDING @ " + serverurl);
+	    log.info("BINDING @ " + serverurl);
             Naming.rebind(serverurl, server);
-            System.out.println("registered " + serverurl);
+            log.info("registered " + serverurl);
 
         } catch (Exception e) {
-            System.out.println("Exception: " + e.getMessage());
+            log.error("Exception: " + e.getMessage());
 	    
         }
 
@@ -135,7 +136,7 @@ public class CacheServer
         try {
             peer = getPeer(getRemoteServerURL());
         } catch (Exception e) {
-            System.out.println("Peer not located: " + e.getMessage());
+            log.error("Peer not located: " + e.getMessage());
         }
 	return peer;
     }
@@ -152,28 +153,28 @@ public class CacheServer
     Cache findCache() {
         try {
             CacheServerSync sync = getPeer(getRemoteServerURL());
-            System.out.println("located peer, getting cache");
+            log.info("located peer, getting cache");
             return sync.getCache();
             
         } catch (MalformedURLException e) {
-            System.out.println("problem A w/ peer - " + e.getMessage());
+            log.error("problem A w/ peer - " + e.getMessage());
         } catch (NotBoundException e) {
-            System.out.println("problem B w/ peer - " + e.getMessage());
+            log.error("problem B w/ peer - " + e.getMessage());
         } catch (RemoteException e) {
-            System.out.println("problem C w/ peer - " + e.getMessage());
+            log.error("problem C w/ peer - " + e.getMessage());
         }
 
 
-        System.out.println("No peer located");
+        log.info("No peer located");
         return new Cache(_size);
     }
 
     void initRegistry() {
 	try {
 	    Registry reg = LocateRegistry.getRegistry(getLocalPort());
-	    System.out.println("Found registry - " + reg);
+	    log.info("Found registry - " + reg);
 
-	    System.out.println("LIST: " + reg.list());
+	    log.info("LIST: " + reg.list());
 	    return;
 
 	} catch (RemoteException e) {
@@ -181,12 +182,12 @@ public class CacheServer
 
 	try {
 	    Registry reg = LocateRegistry.createRegistry(getLocalPort());
-	    System.out.println("Created Registry!!");
+	    log.info("Created Registry!!");
 	    return;
 	} catch (RemoteException e) {
 	}
 
-	System.out.println("local registry not found, can't create - exit!");
+	log.info("local registry not found, can't create - exit!");
 	System.exit(0);
 
     }

@@ -62,8 +62,8 @@ import java.io.*;
 import com.coolservlets.forum.*;
 import com.coolservlets.util.*;
 import com.coolservlets.forum.filter.*;
-
-import com.topcoder.common.*;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
 /**
  * Database implementation of the Forum interface.
  */
@@ -116,6 +116,7 @@ public class DbForum implements Forum {
     private DbForumFactory factory;
 
     protected Cache userPermissionsCache = new Cache();
+    private static Logger log = Logger.getLogger(DbForum.class);
 
     /**
      * Creates a new forum with the specified name and description.
@@ -262,8 +263,8 @@ public class DbForum implements Forum {
             System.err.println("Error in DbForum:addThread()-" + sqle);
         }
         finally {
-          try { if (ps   != null) ps.close();  } catch (Exception ignore) {Log.msg("ps   close problem");}
-          try { if (conn != null) conn.close();} catch (Exception ignore) {Log.msg("conn close problem");}
+          try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
+          try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
           ps = null; 
           conn = null; 
         }
@@ -295,8 +296,8 @@ public class DbForum implements Forum {
             System.err.println("Error in DbForum:deleteThread()-" + sqle);
         }
         finally {
-          try { if (ps   != null) ps.close();  } catch (Exception ignore) {Log.msg("ps   close problem");}
-          try { if (conn != null) conn.close();} catch (Exception ignore) {Log.msg("conn close problem");}
+          try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
+          try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
           ps = null; 
           conn = null; 
         }
@@ -344,9 +345,9 @@ public class DbForum implements Forum {
             System.err.println("DbForum:getThreadCount() failed: " + sqle);
         }
         finally {
-          try { if (rs   != null) rs.close();  } catch (Exception ignore) {Log.msg("rs   close problem");}
-          try { if (ps   != null) ps.close();  } catch (Exception ignore) {Log.msg("ps   close problem");}
-          try { if (conn != null) conn.close();} catch (Exception ignore) {Log.msg("conn close problem");}
+          try { if (rs   != null) rs.close();  } catch (Exception ignore) {log.debug("rs   close problem");}
+          try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
+          try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
           rs = null; 
           ps = null; 
           conn = null; 
@@ -371,9 +372,9 @@ public class DbForum implements Forum {
             System.err.println("DbForum:getMessageCount() failed: " + sqle);
         }
         finally {
-          try { if (rs   != null) rs.close();  } catch (Exception ignore) {Log.msg("rs   close problem");}
-          try { if (ps   != null) ps.close();  } catch (Exception ignore) {Log.msg("ps   close problem");}
-          try { if (conn != null) conn.close();} catch (Exception ignore) {Log.msg("conn close problem");}
+          try { if (rs   != null) rs.close();  } catch (Exception ignore) {log.debug("rs   close problem");}
+          try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
+          try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
           rs = null; 
           ps = null; 
           conn = null; 
@@ -405,8 +406,8 @@ public class DbForum implements Forum {
             sqle.printStackTrace();
         }
         finally {
-          try { if (ps   != null) ps.close();  } catch (Exception ignore) {Log.msg("ps   close problem");}
-          try { if (conn != null) conn.close();} catch (Exception ignore) {Log.msg("conn close problem");}
+          try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
+          try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
           ps = null; 
           conn = null; 
         }
@@ -432,8 +433,8 @@ public class DbForum implements Forum {
             sqle.printStackTrace();
         }
         finally {
-          try { if (ps   != null) ps.close();  } catch (Exception ignore) {Log.msg("ps   close problem");}
-          try { if (conn != null) conn.close();} catch (Exception ignore) {Log.msg("conn close problem");}
+          try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
+          try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
           ps = null; 
           conn = null; 
         }
@@ -466,9 +467,9 @@ public class DbForum implements Forum {
             sqle.printStackTrace();
         }
         finally {
-          try { if (rs   != null) rs.close();  } catch (Exception ignore) {Log.msg("rs   close problem");}
-          try { if (ps   != null) ps.close();  } catch (Exception ignore) {Log.msg("ps   close problem");}
-          try { if (conn != null) conn.close();} catch (Exception ignore) {Log.msg("conn close problem");}
+          try { if (rs   != null) rs.close();  } catch (Exception ignore) {log.debug("rs   close problem");}
+          try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
+          try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
           rs = null; 
           ps = null; 
           conn = null; 
@@ -637,8 +638,8 @@ public class DbForum implements Forum {
             sqle.printStackTrace();
         }
         finally {
-          try { if (ps   != null) ps.close();  } catch (Exception ignore) {Log.msg("ps   close problem");}
-          try { if (conn != null) conn.close();} catch (Exception ignore) {Log.msg("conn close problem");}
+          try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
+          try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
           ps = null; 
           conn = null; 
         }
@@ -665,13 +666,13 @@ public class DbForum implements Forum {
             sqle.printStackTrace();
         }
         catch (Exception e) {
-            Log.msg("On FORUM ID----- " + id);
+            log.debug("On FORUM ID----- " + id);
             e.printStackTrace();
         }
         finally {
-            try { if (rs   != null) rs.close();  } catch (Exception ignore) {Log.msg("rs   close problem");}
-            try { if (ps   != null) ps.close();  } catch (Exception ignore) {Log.msg("ps   close problem");}
-            try { if (conn != null) conn.close();} catch (Exception ignore) {Log.msg("conn close problem");}
+            try { if (rs   != null) rs.close();  } catch (Exception ignore) {log.debug("rs   close problem");}
+            try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
+            try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
             rs = null; 
             ps = null; 
             conn = null; 
@@ -727,8 +728,8 @@ public class DbForum implements Forum {
                 }catch(Exception e1){}
             }
             finally {
-              try { if (ps   != null) ps.close();  } catch (Exception ignore) {Log.msg("ps   close problem");}
-              try { if (conn != null) conn.close();} catch (Exception ignore) {Log.msg("conn close problem");}
+              try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
+              try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
               ps = null; 
               conn = null; 
             }
@@ -770,9 +771,9 @@ public class DbForum implements Forum {
                 "that they're being stored correctly.");
         }
         finally {
-              try { if (rs   != null) rs.close();  } catch (Exception ignore) {Log.msg("rs   close problem");}
-              try { if (ps   != null) ps.close();  } catch (Exception ignore) {Log.msg("ps   close problem");}
-              try { if (conn != null) conn.close();} catch (Exception ignore) {Log.msg("conn close problem");}
+              try { if (rs   != null) rs.close();  } catch (Exception ignore) {log.debug("rs   close problem");}
+              try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
+              try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
               rs = null; 
               ps = null; 
               conn = null; 
@@ -802,8 +803,8 @@ public class DbForum implements Forum {
             sqle.printStackTrace();
         }
         finally {
-              try { if (ps   != null) ps.close();  } catch (Exception ignore) {Log.msg("ps   close problem");}
-              try { if (conn != null) conn.close();} catch (Exception ignore) {Log.msg("conn close problem");}
+              try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
+              try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
               ps = null; 
               conn = null; 
         }
@@ -832,8 +833,8 @@ public class DbForum implements Forum {
             sqle.printStackTrace();
         }
         finally {
-              try { if (ps   != null) ps.close();  } catch (Exception ignore) {Log.msg("ps   close problem");}
-              try { if (conn != null) conn.close();} catch (Exception ignore) {Log.msg("conn close problem");}
+              try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.debug("ps   close problem");}
+              try { if (conn != null) conn.close();} catch (Exception ignore) {log.debug("conn close problem");}
               ps = null; 
               conn = null; 
         }

@@ -17,7 +17,7 @@ import	javax.naming.*;
 import	javax.sql.DataSource;
 import	com.topcoder.web.render.ejb.Coder;
 import	com.topcoder.web.render.ejb.CoderObject;
-import	com.topcoder.common.DBMS;
+import	com.topcoder.shared.util.DBMS;
 
 public class CoderBean implements javax.ejb.SessionBean {
 
@@ -44,7 +44,7 @@ public class CoderBean implements javax.ejb.SessionBean {
 		String	insert = "INSERT INTO CODER VALUES (  " + coder_id + ", '" + state_code + "', '" + country_code + "', '" + first_name + "', '" + last_name + "', '" + home_phone + "', '" + work_phone + "', '" + address1 + "', '" + address2 + "', '" + city + "', '" + zip + "', '" + middle_name + "', '" + activation_code + "', ?, '" + notify + "', '" + quote + "', '" + employer_search + "', '" + relocate + "', ?, " + referral_id + ", " + editor_id + ", '" + notify_inquiry + "', " + referral_user_id + ", " + language_id + ", " + coder_type_id + " )";
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( insert );
 			ps.setDate( 1, member_since );
 			ps.setDate( 2, modify_date );
@@ -65,7 +65,7 @@ public class CoderBean implements javax.ejb.SessionBean {
 		PreparedStatement	ps = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( delete );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
@@ -468,7 +468,7 @@ public class CoderBean implements javax.ejb.SessionBean {
 		InputStream	is = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
@@ -777,7 +777,7 @@ public class CoderBean implements javax.ejb.SessionBean {
 			return( 0 );
 		int	rc = 0;
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( update.toString() );
 			int	index = 1;
 			rc = ps.executeUpdate();

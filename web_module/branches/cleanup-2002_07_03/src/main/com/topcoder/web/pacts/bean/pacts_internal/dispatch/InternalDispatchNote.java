@@ -20,16 +20,14 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
 import java.util.*;
-//import com.topcoder.web.stat.common.*;
 import com.topcoder.web.pacts.bean.*;
-import org.apache.log4j.*;
+import com.topcoder.shared.util.logging.Logger;
 
 public class InternalDispatchNote implements PactsConstants {
 	HttpServletRequest request;
 	HttpServletResponse response;
 
-	public static Category log =
-		Category.getInstance(InternalDispatchNote.class.getName());
+        private static Logger log = Logger.getLogger(InternalDispatchNote.class);
 
 	public InternalDispatchNote (HttpServletRequest request,
 			HttpServletResponse response) {

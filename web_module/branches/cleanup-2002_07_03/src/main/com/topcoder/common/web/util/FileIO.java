@@ -9,7 +9,7 @@ import weblogic.common.*;
 import com.topcoder.common.web.error.*;
 import com.topcoder.common.web.xml.WebPage;
 import com.topcoder.shared.docGen.xml.*;
-import com.topcoder.common.TCContext;
+import com.topcoder.shared.util.TCContext;
 
 
 public final class FileIO {

@@ -8,14 +8,15 @@ import javax.ejb.*;
 import com.topcoder.ejb.DataCache.*;
 import java.util.*;
 
-import com.topcoder.common.*;
-import com.topcoder.common.Log;
-import com.topcoder.common.TCContext;
+import com.topcoder.shared.util.*;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.logging.Logger;
 
 ///////////////
 public class Cache {
 ///////////////
 
+  private static Logger log = Logger.getLogger(Cache.class);
 
   /////////////////////////////////////////////////////////////////////////
   private static final String[] validArg = { "xsl", "data" };
@@ -110,12 +111,12 @@ public class Cache {
             for ( int j = 0; j < host.length; j++ ) {
               if ( byteArraysEqual(cacheIp,host[j].getAddress()) ) {
                 found[j]=true;
-                Log.msg ( Conversion.ipBytesToString( cacheIp )+" REFRESHED" );
+                log.debug ( Conversion.ipBytesToString( cacheIp )+" REFRESHED" );
                 break;
               }
             }
           } catch ( Exception e ) {
-            Log.msg("ERROR: An error occured while refreshing!");
+            log.error("ERROR: An error occured while refreshing!");
             e.printStackTrace();
             throw e;
           }

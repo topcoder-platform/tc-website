@@ -1,12 +1,11 @@
 package com.topcoder.shared.util;
 
 import java.util.*;
-
-import org.apache.log4j.Category;
+import com.topcoder.shared.util.logging.Logger;
 
 public class StageQueue
 {
-    protected static Category trace = Category.getInstance( StageQueue.class.getName() );
+    private static Logger log = Logger.getLogger(StageQueue.class);
     protected static List s_taskList = Collections.synchronizedList( new LinkedList() );
     protected static ArrayList s_taskRunners = new ArrayList();
 
@@ -41,7 +40,7 @@ public class StageQueue
                             }
                             catch( InterruptedException ie )
                             {
-                                trace.debug( "Interrupted waiting for tasks", ie );
+                                log.debug( "Interrupted waiting for tasks", ie );
                             }
                         }
                         if( !s_taskList.isEmpty() )
@@ -57,14 +56,14 @@ public class StageQueue
                         }
                         catch( Throwable t )
                         {
-                            trace.error( "Error occured while running task:", t );
+                            log.error( "Error occured while running task:", t );
                         }
                     }
                 }
             }
             finally
             {
-                trace.debug( "Exiting run" );
+                log.debug( "Exiting run" );
             }
         }
 

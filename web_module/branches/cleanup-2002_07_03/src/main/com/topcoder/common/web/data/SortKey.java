@@ -9,8 +9,6 @@ import com.topcoder.shared.docGen.xml.*;
 public final class SortKey implements Serializable, Base {
 //////////////////////////////////////////////////////
   
-  private static final boolean VERBOSE = false;
-
   private int  key;
   private char dir;
 

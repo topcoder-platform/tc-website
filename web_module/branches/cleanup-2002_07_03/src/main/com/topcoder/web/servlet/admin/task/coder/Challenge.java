@@ -8,22 +8,20 @@
   import javax.naming.*;
   import javax.transaction.UserTransaction;
   import javax.transaction.Status;
-
   import com.topcoder.ejb.ContestAdminServices.*;
-  import com.topcoder.common.*;
   import com.topcoder.common.web.util.*; 
   import com.topcoder.shared.docGen.xml.*; 
   import com.topcoder.common.web.data.*;
   import com.topcoder.common.web.error.*;
   import com.topcoder.common.web.xml.HTMLRenderer;
-  import com.topcoder.common.TCContext;
+  import com.topcoder.shared.util.TCContext;
   import com.topcoder.web.servlet.admin.*;
-  import org.apache.log4j.*;
+  import com.topcoder.shared.util.logging.Logger;
+  import com.topcoder.shared.util.*;
   
 
   public final class Challenge  {
 
-    private static final boolean  VERBOSE               = false;
     private static final String   DIR                    = XSL.DIR+"challenge/";
     private static final String   CHALLENGE_MENU_PAGE    = DIR+"challengemenu.xsl";
     private static final String   ROOM_MENU_PAGE         = DIR+"roommenu.xsl";
@@ -32,7 +30,7 @@
     private static final String   CODER_MENU_PAGE        = DIR+"challengecodermenu.xsl";
     private static final String   ROUNDSEGMENT_MENU_PAGE = DIR+"roundsegmentmenu.xsl";
     private static final String   CONTEST_RESULTS_PAGE   = DIR+"contestresults.xsl";
-    private static Category log   = Category.getInstance( Challenge.class.getName() );
+    private static Logger log = Logger.getLogger(Challenge.class);
 
 
     ///////////////////////////////////////////////////////////////////////////////////

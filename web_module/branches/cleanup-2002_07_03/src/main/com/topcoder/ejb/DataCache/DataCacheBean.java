@@ -7,9 +7,10 @@ import java.io.Serializable;
 import java.util.*;
 import java.sql.*;
 import java.net.*;
-import com.topcoder.ejb.BaseEJB;
+import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.ejb.AuthenticationServices.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.common.web.constant.*;
 import com.topcoder.common.web.util.*;
 import com.topcoder.common.web.data.*;
@@ -20,8 +21,6 @@ import com.topcoder.common.web.error.*;
 ////////////////////////////////////////////
 public class DataCacheBean extends BaseEJB {
 ////////////////////////////////////////////
-
-  private static final boolean VERBOSE = false;
 
   private static ArrayList notifications;
   private static ArrayList rounds;
@@ -93,6 +92,7 @@ public class DataCacheBean extends BaseEJB {
   private static Calendar roundsLastRefresh;
   private static final int ROUND_REFRESH_INTERVAL = 1800000;
 
+  private static Logger log = Logger.getLogger(DataCacheBean.class);
 
   //////////////////////////////////////////////////////////
   public int getMemberCount ( ) throws TCException {
@@ -134,7 +134,7 @@ public class DataCacheBean extends BaseEJB {
   //////////////////////////////////////////////////////////
   private ArrayList popRounds() throws TCException {
   //////////////////////////////////////////////////////////
-    Log.msg ( VERBOSE, "ejb.DataCache.DataCacheBean:popRounds():called." );
+    log.debug("ejb.DataCache.DataCacheBean:popRounds():called." );
     ArrayList results = new ArrayList();
     java.sql.Connection conn = null;
     PreparedStatement ps = null;
@@ -191,7 +191,7 @@ public class DataCacheBean extends BaseEJB {
   private void popRoundSegments ( Connection conn, Round round )
     throws TCException {
   //////////////////////////////////////////////////////////
-    Log.msg ( VERBOSE, "ejb.DataCache.DataCacheBean:popRoundSegments():called." );
+    log.debug("ejb.DataCache.DataCacheBean:popRoundSegments():called." );
     PreparedStatement ps = null;
     ResultSet rs = null;
     RoundSegment roundSegment = null;
@@ -273,7 +273,7 @@ public class DataCacheBean extends BaseEJB {
   */
   public byte[] resetAll() throws TCException {
     byte[] result = null;
-    Log.msg(VERBOSE, "EJB DataCacheBean resetAll called.");
+    log.debug( "EJB DataCacheBean resetAll called.");
     synchronized (this) {
       this.notificationsCached = false;
       this.roundsCached = false;
@@ -309,7 +309,7 @@ public class DataCacheBean extends BaseEJB {
       this.memberCount = 0;
       this.memberCountLastRefresh = null;
     }
-    Log.msg("ejb.DataCacheBean:resetAll:completed.");
+    log.debug("ejb.DataCacheBean:resetAll:completed.");
     try {
       InetAddress localHost = InetAddress.getLocalHost();
       result = localHost.getAddress();
@@ -326,7 +326,7 @@ public class DataCacheBean extends BaseEJB {
   /////////////////////////////////////////////////////////////////
   public void resetNotifications() throws TCException {
   /////////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "EJB DataCacheBean resetNotifications called.");
+    log.debug( "EJB DataCacheBean resetNotifications called.");
     synchronized (this) {
       this.notificationsCached = false;
     }
@@ -336,7 +336,7 @@ public class DataCacheBean extends BaseEJB {
   /////////////////////////////////////////////////////////////////
   public void resetRounds() throws TCException {
   /////////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "EJB DataCacheBean resetRounds called.");
+    log.debug( "EJB DataCacheBean resetRounds called.");
     synchronized (this) {
       this.roundsCached = false;
     }
@@ -347,7 +347,7 @@ public class DataCacheBean extends BaseEJB {
   /////////////////////////////////////////////////////////////////
   public void resetCoderTypes() throws TCException {
   /////////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "EJB DataCacheBean resetCoderTypes called.");
+    log.debug( "EJB DataCacheBean resetCoderTypes called.");
     synchronized (this) {
       this.coderTypesCached = false;
     }
@@ -357,7 +357,7 @@ public class DataCacheBean extends BaseEJB {
   /////////////////////////////////////////////////////////////////
   public void resetMemberCount() throws TCException {
   /////////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "EJB DataCacheBean resetMemberCount called.");
+    log.debug( "EJB DataCacheBean resetMemberCount called.");
     synchronized (this) {
       this.memberCount = 0;
     }
@@ -367,7 +367,7 @@ public class DataCacheBean extends BaseEJB {
   /////////////////////////////////////////////////////////////////
   public void resetDemographicAssignments() throws TCException {
   /////////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "EJB DataCacheBean resetDemographicAssignments called.");
+    log.debug( "EJB DataCacheBean resetDemographicAssignments called.");
     synchronized (this) {
       this.demographicAssignmentsCached = false;
     }
@@ -377,7 +377,7 @@ public class DataCacheBean extends BaseEJB {
   /////////////////////////////////////////////////////////////////
   public void resetSectorFiles() throws TCException {
   /////////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "EJB DataCacheBean resetSectorFiles called.");
+    log.debug( "EJB DataCacheBean resetSectorFiles called.");
     synchronized (this) {
       this.sectorFilesCached = false;
     }
@@ -387,7 +387,7 @@ public class DataCacheBean extends BaseEJB {
   /////////////////////////////////////////////////////////////////
   public void resetTitles() throws TCException {
   /////////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "EJB DataCacheBean resetTitles called.");
+    log.debug( "EJB DataCacheBean resetTitles called.");
     synchronized (this) {
       this.titlesCached = false;
     }
@@ -396,7 +396,7 @@ public class DataCacheBean extends BaseEJB {
   /////////////////////////////////////////////////////////////////
   public void resetOrganizations() throws TCException {
   /////////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "EJB DataCacheBean resetOrganizations called.");
+    log.debug( "EJB DataCacheBean resetOrganizations called.");
     synchronized (this) {
       this.organizationsCached = false;
     }
@@ -405,7 +405,7 @@ public class DataCacheBean extends BaseEJB {
   /////////////////////////////////////////////////////////////////
   public void resetExperienceTypes() throws TCException {
   /////////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "EJB DataCacheBean resetExperienceTypes called.");
+    log.debug( "EJB DataCacheBean resetExperienceTypes called.");
     synchronized (this) {
       this.experienceTypesCached = false;
     }
@@ -415,7 +415,7 @@ public class DataCacheBean extends BaseEJB {
   /////////////////////////////////////////////////////////////////
   public void resetLanguages() throws TCException {
   /////////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "EJB DataCacheBean resetLanguages called.");
+    log.debug( "EJB DataCacheBean resetLanguages called.");
     synchronized (this) {
       this.languagesCached = false;
     }
@@ -425,7 +425,7 @@ public class DataCacheBean extends BaseEJB {
   /////////////////////////////////////////////////////////////////
   public void resetContactSubjects() throws TCException {
   /////////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "EJB DataCacheBean resetContactSubjects called.");
+    log.debug( "EJB DataCacheBean resetContactSubjects called.");
     synchronized (this) {
       this.contactSubjectsCached = false;
     }
@@ -435,7 +435,7 @@ public class DataCacheBean extends BaseEJB {
   /////////////////////////////////////////////////////////////////
   public void resetDegrees() throws TCException {
   /////////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "EJB DataCacheBean resetDegrees called.");
+    log.debug( "EJB DataCacheBean resetDegrees called.");
     synchronized (this) {
       this.degreeLevelsCached = false;
     }
@@ -445,7 +445,7 @@ public class DataCacheBean extends BaseEJB {
   /////////////////////////////////////////////////////////////////
   public void resetSkills() throws TCException {
   /////////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "EJB DataCacheBean resetSkills called.");
+    log.debug( "EJB DataCacheBean resetSkills called.");
     synchronized (this) {
       this.skillsCached = false;
     }
@@ -455,7 +455,7 @@ public class DataCacheBean extends BaseEJB {
   /////////////////////////////////////////////////////////////////
   public void resetSkillTypes() throws TCException {
   /////////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "EJB DataCacheBean resetSkillTypes called.");
+    log.debug( "EJB DataCacheBean resetSkillTypes called.");
     synchronized (this) {
       this.skillTypesCached = false;
     }
@@ -465,7 +465,7 @@ public class DataCacheBean extends BaseEJB {
   /////////////////////////////////////////////////////////////////
   public void resetJobLevels() throws TCException {
   /////////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "EJB DataCacheBean resetJobLevels called.");
+    log.debug( "EJB DataCacheBean resetJobLevels called.");
     synchronized (this) {
       this.jobLevelsCached = false;
     }
@@ -475,7 +475,7 @@ public class DataCacheBean extends BaseEJB {
   /////////////////////////////////////////////////////////////////
   public void resetJobs() throws TCException {
   /////////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "EJB DataCacheBean resetJobs called.");
+    log.debug( "EJB DataCacheBean resetJobs called.");
     synchronized (this) {
       this.jobsCached = false;
     }
@@ -485,7 +485,7 @@ public class DataCacheBean extends BaseEJB {
   /////////////////////////////////////////////////////////////////
   public void resetPayPeriods() throws TCException {
   /////////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "EJB DataCacheBean resetPayPeriods called.");
+    log.debug( "EJB DataCacheBean resetPayPeriods called.");
     synchronized (this) {
       this.payPeriodsCached = false;
     }
@@ -495,7 +495,7 @@ public class DataCacheBean extends BaseEJB {
   /////////////////////////////////////////////////////////////////
   public void resetEditors() throws TCException {
   /////////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "EJB DataCacheBean resetEditors called.");
+    log.debug( "EJB DataCacheBean resetEditors called.");
     synchronized (this) {
       this.editorTypesCached = false;
     }
@@ -505,7 +505,7 @@ public class DataCacheBean extends BaseEJB {
   /////////////////////////////////////////////////////////////////
   public void resetReferrals() throws TCException {
   /////////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "EJB DataCacheBean resetReferrals called.");
+    log.debug( "EJB DataCacheBean resetReferrals called.");
     synchronized (this) {
       this.referralTypesCached = false;
     }
@@ -523,7 +523,7 @@ public class DataCacheBean extends BaseEJB {
   /////////////////////////////////////////////////////////////////
   public void resetTopRankedCoders() throws TCException {
   /////////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "EJB DataCacheBean resetTopRankedCoders called.");
+    log.debug( "EJB DataCacheBean resetTopRankedCoders called.");
     synchronized (this) {
       this.topRankedCodersCached = false;
     }
@@ -533,7 +533,7 @@ public class DataCacheBean extends BaseEJB {
   /////////////////////////////////////////////////////////////////
   public void resetStates() throws TCException {
   /////////////////////////////////////////////////////////////////
-    if (VERBOSE) System.out.println("EJB DataCacheBean resetStates called.");
+    log.debug("EJB DataCacheBean resetStates called.");
     synchronized (this) {
       this.statesCached = false;
     }
@@ -543,7 +543,7 @@ public class DataCacheBean extends BaseEJB {
   /////////////////////////////////////////////////////////////////
   public void resetForums() throws TCException {
   /////////////////////////////////////////////////////////////////
-    if (VERBOSE) System.out.println("EJB DataCacheBean resetForums called.");
+    log.debug("EJB DataCacheBean resetForums called.");
     synchronized (this) {
       this.forumsCached = false;
     }
@@ -553,7 +553,7 @@ public class DataCacheBean extends BaseEJB {
   /////////////////////////////////////////////////////////////////
   public void resetCoderRegions() throws TCException {
   /////////////////////////////////////////////////////////////////
-    if (VERBOSE) System.out.println("EJB DataCacheBean resetCoderRegions called.");
+    log.debug("EJB DataCacheBean resetCoderRegions called.");
     synchronized (this) {
       this.coderRegionsCached = false;
     }
@@ -563,7 +563,7 @@ public class DataCacheBean extends BaseEJB {
   /////////////////////////////////////////////////////////////////
   public void resetCountries() throws TCException {
   /////////////////////////////////////////////////////////////////
-    if (VERBOSE) System.out.println("EJB DataCacheBean resetCountries called.");
+    log.debug("EJB DataCacheBean resetCountries called.");
     synchronized (this) {
       this.countriesCached = false;                
     }
@@ -573,7 +573,7 @@ public class DataCacheBean extends BaseEJB {
   /////////////////////////////////////////////////////////////////
   public void resetNewsItems() throws TCException {
   /////////////////////////////////////////////////////////////////
-    Log.msg( VERBOSE, "ejb.DataCacheBean:resetNewsItems:called." );
+    log.debug("ejb.DataCacheBean:resetNewsItems:called." );
     synchronized (this) {
       this.newsItemsCached = false;
     }
@@ -583,7 +583,7 @@ public class DataCacheBean extends BaseEJB {
   ////////////////////////////////////////////////////////////////////////////////
   public void resetSchools() throws TCException {
   ////////////////////////////////////////////////////////////////////////////////
-    if (VERBOSE) System.out.println("EJB DataCacheBean resetSchools called.");
+    log.debug("EJB DataCacheBean resetSchools called.");
     synchronized (this) {
       this.schoolsCached = false;                
     }
@@ -593,7 +593,7 @@ public class DataCacheBean extends BaseEJB {
   ////////////////////////////////////////////////////////////////////////////////
   public void resetActiveJobAds() throws TCException {
   ////////////////////////////////////////////////////////////////////////////////
-    Log.msg ( VERBOSE, "EJB DataCacheBean resetJobAds called.");
+    log.debug("EJB DataCacheBean resetJobAds called.");
     synchronized (this) {
       this.activeJobAdsCached = false;
     }
@@ -610,7 +610,7 @@ public class DataCacheBean extends BaseEJB {
   //////////////////////////////////////////////////////////////////////////////
   public void resetContests() throws TCException {
   //////////////////////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "EJB DataCacheBean resetContests called.");
+    log.debug( "EJB DataCacheBean resetContests called.");
     synchronized (this) {
       this.contestsCached = false;
     }
@@ -620,7 +620,7 @@ public class DataCacheBean extends BaseEJB {
   //////////////////////////////////////////////////////////////////////////////
   public void resetContestNavs(String strContestNo) throws TCException {
   //////////////////////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE,"EJB DataCacheBean resetContestNavs(String) called.");
+    log.debug("EJB DataCacheBean resetContestNavs(String) called.");
     if (this.contestNavs != null) {
       try {
         synchronized (this) {
@@ -641,7 +641,7 @@ public class DataCacheBean extends BaseEJB {
   //////////////////////////////////////////////////////////////////////////////
   public void resetContestNavs() {
   //////////////////////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE,"EJB DataCacheBean resetContestNavs() called.");
+    log.debug("EJB DataCacheBean resetContestNavs() called.");
     synchronized (this) {
       this.contestNavsCached = false;
     }
@@ -743,7 +743,7 @@ public class DataCacheBean extends BaseEJB {
   //////////////////////////////////////////////////////////////////////////////
     TreeSet result = null;
     try {
-      Log.msg(VERBOSE, "EJB DataCacheBean getContestNavs called.");
+      log.debug( "EJB DataCacheBean getContestNavs called.");
       if (!this.contestNavsCached) {
         synchronized (this) {
           if (this.contestNavs == null) {
@@ -775,7 +775,7 @@ public class DataCacheBean extends BaseEJB {
   //////////////////////////////////////////////////////////////////////////////
   private TreeSet popContestNavs(int contestNo) throws TCException {
   //////////////////////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE,"EJB DataCacheBean popContestNavs called.");
+    log.debug("EJB DataCacheBean popContestNavs called.");
     TreeSet result       = null;
     Connection conn      = null;  
     PreparedStatement ps = null;
@@ -861,7 +861,7 @@ public class DataCacheBean extends BaseEJB {
    *****************************************************************************************
    **/
   private ArrayList popContests() throws TCException {
-    Log.msg ( VERBOSE, "ejb.DataCache.DataCacheBean:popContests():called." );
+    log.debug("ejb.DataCache.DataCacheBean:popContests():called." );
     ArrayList results         = new ArrayList();
     java.sql.Connection conn  = null;
     PreparedStatement ps      = null;
@@ -976,11 +976,9 @@ public class DataCacheBean extends BaseEJB {
   private ArrayList getActiveJobAds() throws TCException {
 //  if ( !this.activeJobAdsCached ) {
       try {
-        if (VERBOSE) {
-          System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-          System.out.println(" GETTING LATEST JOB ADS FROM DB");
-          System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-        }
+        log.debug("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+        log.debug(" GETTING LATEST JOB ADS FROM DB");
+        log.debug("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
         synchronized ( this ) {
           this.activeJobAds       = popActiveJobAds();
           this.activeJobAdsCached = true;
@@ -1003,7 +1001,7 @@ public class DataCacheBean extends BaseEJB {
    ******************************************************************************************
    */
   private ArrayList popActiveJobAds() throws TCException {
-    Log.msg ( VERBOSE, "ejb.DataCache.DataCacheBean:popActiveJobAds():called." );
+    log.debug("ejb.DataCache.DataCacheBean:popActiveJobAds():called." );
     ArrayList results          = new ArrayList();
     java.sql.Connection conn   = null;
     PreparedStatement ps       = null;
@@ -1129,7 +1127,7 @@ public class DataCacheBean extends BaseEJB {
 
   public ArrayList getNotifications() throws TCException {
     try {
-      if (VERBOSE) System.out.println("EJB DataCacheBean getNotifications called.");
+      log.debug("EJB DataCacheBean getNotifications called.");
       if ( !this.notificationsCached ) {
         synchronized (this) {
           this.notifications = popNotifications();
@@ -1144,7 +1142,7 @@ public class DataCacheBean extends BaseEJB {
 
 
   private ArrayList popNotifications() throws TCException {
-    if (VERBOSE) System.out.println("EJB DataCacheBean popNotifications called.");
+    log.debug("EJB DataCacheBean popNotifications called.");
     Connection conn = null;  //conn stands for schools connection
     PreparedStatement ps = null;
     ResultSet rs = null;
@@ -1191,7 +1189,7 @@ public class DataCacheBean extends BaseEJB {
 
   public ArrayList getSchools() throws TCException {
     try {
-      if (VERBOSE) System.out.println("EJB DataCacheBean getSchools called.");
+      log.debug("EJB DataCacheBean getSchools called.");
       if ( !this.schoolsCached ) {
         synchronized (this) {
           this.schools = popSchools();
@@ -1206,7 +1204,7 @@ public class DataCacheBean extends BaseEJB {
 
 
   private ArrayList popSchools() throws TCException {
-    if (VERBOSE) System.out.println("EJB DataCacheBean popSchools called.");
+    log.debug("EJB DataCacheBean popSchools called.");
     Connection conn      = null;  //conn stands for schools connection
     PreparedStatement ps = null;
     ResultSet rs         = null;
@@ -1274,7 +1272,7 @@ public class DataCacheBean extends BaseEJB {
   public ArrayList getCoderTypes() throws TCException {
   /////////////////////////////////////////////////////////////////
     try {
-      if (VERBOSE) System.out.println("EJB DataCacheBean getCoderTypes called.");
+      log.debug("EJB DataCacheBean getCoderTypes called.");
       if ( !this.coderTypesCached ) {
         synchronized (this) {
           this.coderTypes = popCoderTypes();
@@ -1291,7 +1289,7 @@ public class DataCacheBean extends BaseEJB {
   /////////////////////////////////////////////////////////////////
   private ArrayList popCoderTypes() throws TCException {
   /////////////////////////////////////////////////////////////////
-    Log.msg( VERBOSE, "EJB DataCacheBean popCoderTypes called." );
+    log.debug("EJB DataCacheBean popCoderTypes called." );
     Connection conn      = null;
     PreparedStatement ps = null;
     ResultSet rs         = null;
@@ -1339,7 +1337,7 @@ public class DataCacheBean extends BaseEJB {
   /////////////////////////////////////////////////////////////////
     ArrayList result = null;
     try {
-      if (VERBOSE) System.out.println("EJB DataCacheBean getDemographicAssignments called.");
+      log.debug("EJB DataCacheBean getDemographicAssignments called.");
       if ( !this.demographicAssignmentsCached ) {
         synchronized (this) {
           this.demographicAssignments = popDemographicAssignments();
@@ -1369,7 +1367,7 @@ public class DataCacheBean extends BaseEJB {
   /////////////////////////////////////////////////////////////////
   private ArrayList popDemographicAssignments() throws TCException {
   /////////////////////////////////////////////////////////////////
-    Log.msg( VERBOSE, "EJB DataCacheBean popDemographicAssignments called." );
+    log.debug("EJB DataCacheBean popDemographicAssignments called." );
     Connection conn      = null;
     PreparedStatement ps = null;
     ResultSet rs         = null;
@@ -1435,7 +1433,7 @@ public class DataCacheBean extends BaseEJB {
   private void popDemographicAnswers ( Connection conn, ArrayList result, int questionId ) 
     throws TCException {
   /////////////////////////////////////////////////////////////////
-    Log.msg( VERBOSE, "EJB DataCacheBean popDemographicAnswers called." );
+    log.debug("EJB DataCacheBean popDemographicAnswers called." );
     PreparedStatement ps = null;
     ResultSet rs         = null;
     try {
@@ -1482,7 +1480,7 @@ public class DataCacheBean extends BaseEJB {
   public ArrayList getNewsItems() throws TCException {
   /////////////////////////////////////////////////////////////////
     try {
-      if (VERBOSE) System.out.println("EJB DataCacheBean getNewsItems called.");
+      log.debug("EJB DataCacheBean getNewsItems called.");
       if ( !this.newsItemsCached ) {
         synchronized (this) {
           this.newsItems = popNewsItems();
@@ -1499,7 +1497,7 @@ public class DataCacheBean extends BaseEJB {
   /////////////////////////////////////////////////////////////////
   private ArrayList popNewsItems() throws TCException {
   /////////////////////////////////////////////////////////////////
-    Log.msg( VERBOSE, "EJB DataCacheBean popNewsItems called." );
+    log.debug("EJB DataCacheBean popNewsItems called." );
     Connection conn = null; 
     PreparedStatement ps = null;
     ResultSet rs = null;
@@ -1552,7 +1550,7 @@ public class DataCacheBean extends BaseEJB {
 
 
   public ArrayList getCountries() throws TCException {
-    if (VERBOSE) System.out.println("EJB DataCacheBean getCountries called.");
+    log.debug("EJB DataCacheBean getCountries called.");
     if ( !this.countriesCached )  {
       this.countries = popCountries();
       this.countriesCached = true;
@@ -1562,7 +1560,7 @@ public class DataCacheBean extends BaseEJB {
 
   
   private ArrayList popCountries() throws TCException {
-    if (VERBOSE) System.out.println("EJB DataCacheBean popCountries called.");
+    log.debug("EJB DataCacheBean popCountries called.");
     Connection conn = null;  //conn stands for countries connection
     PreparedStatement ps = null;
     ResultSet rs = null;
@@ -1606,7 +1604,7 @@ public class DataCacheBean extends BaseEJB {
 
 
   public ArrayList getCoderRegions() throws TCException {
-    Log.msg ( VERBOSE, "ejb.DataCache.DataCacheBean:getCoderRegions:called" );
+    log.debug("ejb.DataCache.DataCacheBean:getCoderRegions:called" );
     if ( !this.coderRegionsCached )  {
       this.coderRegions = popCoderRegions();
       this.coderRegionsCached = true;
@@ -1616,7 +1614,7 @@ public class DataCacheBean extends BaseEJB {
 
 
   private ArrayList popCoderRegions() throws TCException {
-    Log.msg ( VERBOSE, "ejb.DataCache.DataCacheBean:popCoderRegions:called" );
+    log.debug("ejb.DataCache.DataCacheBean:popCoderRegions:called" );
     Connection conn = null;  //conn stands for regions connection
     PreparedStatement ps = null;
     ResultSet rs = null;
@@ -1700,7 +1698,7 @@ public class DataCacheBean extends BaseEJB {
 
 
   public ArrayList getForums() throws TCException {
-    if (VERBOSE) System.out.println("EJB DataCacheBean getForums called.");
+    log.debug("EJB DataCacheBean getForums called.");
     if ( !this.forumsCached )  {
       synchronized (this) {
         this.forums = popForums();
@@ -1712,7 +1710,7 @@ public class DataCacheBean extends BaseEJB {
 
 
   private ArrayList popForums() throws TCException {
-    if (VERBOSE) System.out.println("EJB DataCacheBean popForums called.");
+    log.debug("EJB DataCacheBean popForums called.");
     Connection conn = null;  //conn stands for forums connection
     PreparedStatement ps = null;
     ResultSet rs = null;
@@ -1745,7 +1743,7 @@ public class DataCacheBean extends BaseEJB {
 
 
   public ArrayList getStates() throws TCException {
-    if (VERBOSE) System.out.println("EJB DataCacheBean getStates called.");
+    log.debug("EJB DataCacheBean getStates called.");
     try {
       if ( !this.statesCached )  {
         synchronized (this) {
@@ -1761,7 +1759,7 @@ public class DataCacheBean extends BaseEJB {
  
  
   private ArrayList popStates() throws TCException {
-    if (VERBOSE) System.out.println("EJB DataCacheBean popStates called.");  
+    log.debug("EJB DataCacheBean popStates called.");  
     Connection conn      = null;  //conn stands for states connection
     PreparedStatement ps = null;
     ResultSet rs         = null;
@@ -1804,7 +1802,7 @@ public class DataCacheBean extends BaseEJB {
 
 
   public ArrayList getSkills() throws TCException {
-    if (VERBOSE) System.out.println("EJB DataCacheBean getSkills called.");
+    log.debug("EJB DataCacheBean getSkills called.");
     if ( !this.skillsCached )  {
       synchronized (this) {
         this.skills = popSkills();
@@ -1816,7 +1814,7 @@ public class DataCacheBean extends BaseEJB {
 
 
   private ArrayList popSkills() throws TCException {
-    if (VERBOSE) System.out.println("EJB DataCacheBean popSkills called.");
+    log.debug("EJB DataCacheBean popSkills called.");
     Connection skconn = null;  //skconn stands for skills connection
     PreparedStatement ps = null;
     ResultSet rs = null;
@@ -1874,7 +1872,7 @@ public class DataCacheBean extends BaseEJB {
   //////////////////////////////////////////////////////////////////
   public ArrayList getReferrals() throws TCException {
   //////////////////////////////////////////////////////////////////
-    Log.msg (VERBOSE, "ejb.DataCacheBean:getReferrals:called." );
+    log.debug( "ejb.DataCacheBean:getReferrals:called." );
     if ( !this.referralTypesCached )  {
       synchronized (this) {
         this.referralTypes = popReferrals();
@@ -1888,7 +1886,7 @@ public class DataCacheBean extends BaseEJB {
   //////////////////////////////////////////////////////////////////
   private ArrayList popReferrals() throws TCException {
   //////////////////////////////////////////////////////////////////
-    Log.msg ( VERBOSE, "ejb.DataCacheBean:popReferrals:called." );
+    log.debug("ejb.DataCacheBean:popReferrals:called." );
     Connection conn      = null;
     PreparedStatement ps = null;
     ResultSet rs         = null;
@@ -1943,7 +1941,7 @@ public class DataCacheBean extends BaseEJB {
   //////////////////////////////////////////////////////////////////
   public ArrayList getPayPeriods() throws TCException {
   //////////////////////////////////////////////////////////////////
-    Log.msg (VERBOSE, "ejb.DataCacheBean:getPayPeriods:called." );
+    log.debug( "ejb.DataCacheBean:getPayPeriods:called." );
     if ( !this.payPeriodsCached )  {
       synchronized (this) {
         this.payPeriods = popPayPeriods();
@@ -1957,7 +1955,7 @@ public class DataCacheBean extends BaseEJB {
   //////////////////////////////////////////////////////////////////
   private ArrayList popPayPeriods() throws TCException {
   //////////////////////////////////////////////////////////////////
-    Log.msg ( VERBOSE, "ejb.DataCacheBean:popPayPeriods:called." );
+    log.debug("ejb.DataCacheBean:popPayPeriods:called." );
     Connection conn      = null; 
     PreparedStatement ps = null;
     ResultSet rs         = null;
@@ -1994,7 +1992,7 @@ public class DataCacheBean extends BaseEJB {
   //////////////////////////////////////////////////////////////////
   public ArrayList getJobLevels() throws TCException {
   //////////////////////////////////////////////////////////////////
-    Log.msg (VERBOSE, "ejb.DataCacheBean:getJobLevels:called." );
+    log.debug( "ejb.DataCacheBean:getJobLevels:called." );
     if ( !this.jobLevelsCached )  {
       synchronized (this) {
         this.jobLevels = popJobLevels();
@@ -2008,7 +2006,7 @@ public class DataCacheBean extends BaseEJB {
   //////////////////////////////////////////////////////////////////
   private ArrayList popJobLevels() throws TCException {
   //////////////////////////////////////////////////////////////////
-    Log.msg ( VERBOSE, "ejb.DataCacheBean:popJobLevels:called." );
+    log.debug("ejb.DataCacheBean:popJobLevels:called." );
     Connection conn      = null;
     PreparedStatement ps = null;
     ResultSet rs         = null;
@@ -2045,7 +2043,7 @@ public class DataCacheBean extends BaseEJB {
   //////////////////////////////////////////////////////////////////
   public ArrayList getJobs() throws TCException {
   //////////////////////////////////////////////////////////////////
-    Log.msg (VERBOSE, "ejb.DataCacheBean:getJobs:called." );
+    log.debug( "ejb.DataCacheBean:getJobs:called." );
     if ( !this.jobsCached ) {
       synchronized (this) {
         this.jobs = popJobs();
@@ -2059,7 +2057,7 @@ public class DataCacheBean extends BaseEJB {
   //////////////////////////////////////////////////////////////////
   private ArrayList popJobs() throws TCException {
   //////////////////////////////////////////////////////////////////
-    Log.msg ( VERBOSE, "ejb.DataCacheBean:popJobs:called." );
+    log.debug("ejb.DataCacheBean:popJobs:called." );
     Connection conn      = null;
     PreparedStatement ps = null;
     ResultSet rs         = null;
@@ -2097,7 +2095,7 @@ public class DataCacheBean extends BaseEJB {
   //////////////////////////////////////////////////////////////////
   public ArrayList getEditors() throws TCException {
   //////////////////////////////////////////////////////////////////
-    Log.msg (VERBOSE, "ejb.DataCacheBean:getEditors:called." );
+    log.debug( "ejb.DataCacheBean:getEditors:called." );
     if ( !this.editorTypesCached )  {
       synchronized (this) {
         this.editorTypes = popEditors();
@@ -2111,7 +2109,7 @@ public class DataCacheBean extends BaseEJB {
   //////////////////////////////////////////////////////////////////
   private ArrayList popEditors() throws TCException {
   //////////////////////////////////////////////////////////////////
-    Log.msg ( VERBOSE, "ejb.DataCacheBean:popEditors:called." );
+    log.debug("ejb.DataCacheBean:popEditors:called." );
     Connection conn      = null;
     PreparedStatement ps = null;
     ResultSet rs         = null;
@@ -2147,7 +2145,7 @@ public class DataCacheBean extends BaseEJB {
 
 
   public ArrayList getSkillTypes() throws TCException {
-    if (VERBOSE) System.out.println("EJB DataCacheBean getSkillTypes called.");
+    log.debug("EJB DataCacheBean getSkillTypes called.");
     if ( !this.skillTypesCached )  {
       synchronized (this) {
         this.skillTypes = popSkillTypes();
@@ -2159,7 +2157,7 @@ public class DataCacheBean extends BaseEJB {
 
 
   private ArrayList popSkillTypes() throws TCException {
-    if (VERBOSE) System.out.println("EJB DataCacheBean popSkillTypes called.");
+    log.debug("EJB DataCacheBean popSkillTypes called.");
     Connection conn = null;  //conn stands for skillTypes connection
     PreparedStatement ps = null;
     ResultSet rs = null;
@@ -2203,7 +2201,7 @@ public class DataCacheBean extends BaseEJB {
  * Begin Degrees Code
  */
   public ArrayList getDegrees() throws TCException {
-    if (VERBOSE) System.out.println("EJB DataCacheBean getDegrees called.");
+    log.debug("EJB DataCacheBean getDegrees called.");
     if (! this.degreeLevelsCached)  {
       synchronized (this) {
         this.degreeLevels = popDegrees();
@@ -2221,7 +2219,7 @@ public class DataCacheBean extends BaseEJB {
  ********************************************************************************************
  */
   private ArrayList popDegrees() throws TCException {
-    if (VERBOSE) System.out.println("EJB DataCacheBean popDegrees called.");
+    log.debug("EJB DataCacheBean popDegrees called.");
     Connection conn      = null;  //cconn stands for countries connection
     PreparedStatement ps = null;
     ResultSet rs         = null;
@@ -2259,7 +2257,7 @@ public class DataCacheBean extends BaseEJB {
  */
 
   public ArrayList getContactSubjects() throws TCException {
-    if (VERBOSE) System.out.println("EJB DataCacheBean getContactSubjects called.");
+    log.debug("EJB DataCacheBean getContactSubjects called.");
     if ( !this.contactSubjectsCached ) {
       synchronized (this) {
         this.contactSubjects = popContactSubjects();
@@ -2277,7 +2275,7 @@ public class DataCacheBean extends BaseEJB {
  ***********************************************************************************************
  */
   private ArrayList popContactSubjects() throws TCException {
-    if (VERBOSE) System.out.println("EJB DataCacheBean popContactSubjects called.");
+    log.debug("EJB DataCacheBean popContactSubjects called.");
     Connection conn      = null;  //conn stands for contactSubjects connection
     PreparedStatement ps = null;
     ResultSet rs         = null;
@@ -2323,7 +2321,7 @@ public class DataCacheBean extends BaseEJB {
   /////////////////////////////////////////////////////////////////////// 
   public ArrayList getLanguages() throws TCException {
   /////////////////////////////////////////////////////////////////////// 
-    Log.msg ( VERBOSE, "ejb.DataCache.DataCacheBean:getLanguages:called." );
+    log.debug("ejb.DataCache.DataCacheBean:getLanguages:called." );
     if ( !this.languagesCached ) {
       synchronized ( this ) {
         this.languages = popLanguages();
@@ -2337,7 +2335,7 @@ public class DataCacheBean extends BaseEJB {
   /////////////////////////////////////////////////////////////////////// 
   private ArrayList popLanguages() throws TCException {
   /////////////////////////////////////////////////////////////////////// 
-    Log.msg ( VERBOSE, "ejb.DataCache.DataCacheBean:popLanguages:called." );
+    log.debug("ejb.DataCache.DataCacheBean:popLanguages:called." );
     Connection conn      = null; 
     PreparedStatement ps = null;
     ResultSet rs         = null;
@@ -2382,7 +2380,7 @@ public class DataCacheBean extends BaseEJB {
   ///////////////////////////////////////////////////////////////////////
   public ArrayList getSectorFiles() throws TCException {
   ///////////////////////////////////////////////////////////////////////
-    Log.msg ( VERBOSE, "ejb.DataCache.DataCacheBean:getSectorFiles:called." );
+    log.debug("ejb.DataCache.DataCacheBean:getSectorFiles:called." );
     if ( !this.sectorFilesCached ) {
       synchronized ( this ) {
         this.sectorFiles = popSectorFiles();
@@ -2404,7 +2402,7 @@ public class DataCacheBean extends BaseEJB {
   ///////////////////////////////////////////////////////////////////////
   public ArrayList getTitles() throws TCException {
   ///////////////////////////////////////////////////////////////////////
-    Log.msg ( VERBOSE, "ejb.DataCache.DataCacheBean:getTitles:called." );
+    log.debug("ejb.DataCache.DataCacheBean:getTitles:called." );
     if ( !this.titlesCached ) {
       synchronized ( this ) {
         this.titles = popTitles();
@@ -2425,7 +2423,7 @@ public class DataCacheBean extends BaseEJB {
   ///////////////////////////////////////////////////////////////////////
   public ArrayList getOrganizations() throws TCException {
   ///////////////////////////////////////////////////////////////////////
-    Log.msg ( VERBOSE, "ejb.DataCache.DataCacheBean:getOrganizations:called." );
+    log.debug("ejb.DataCache.DataCacheBean:getOrganizations:called." );
     if ( !this.organizationsCached ) {
       synchronized ( this ) {
         this.organizations = popOrganizations();
@@ -2446,7 +2444,7 @@ public class DataCacheBean extends BaseEJB {
   ///////////////////////////////////////////////////////////////////////
   public ArrayList getExperienceTypes() throws TCException {
   ///////////////////////////////////////////////////////////////////////
-    Log.msg ( VERBOSE, "ejb.DataCache.DataCacheBean:getExperienceTypes:called." );
+    log.debug("ejb.DataCache.DataCacheBean:getExperienceTypes:called." );
     if ( !this.experienceTypesCached ) {
       synchronized ( this ) {
         this.experienceTypes = popExperienceTypes();
@@ -2495,7 +2493,7 @@ public class DataCacheBean extends BaseEJB {
   ///////////////////////////////////////////////////////////////////////
   private ArrayList popSectorFiles() throws TCException {
   ///////////////////////////////////////////////////////////////////////
-    Log.msg ( VERBOSE, "ejb.DataCache.DataCacheBean:popSectorFiles:called." );
+    log.debug("ejb.DataCache.DataCacheBean:popSectorFiles:called." );
     Connection conn      = null; 
     PreparedStatement ps = null;
     ResultSet rs         = null;
@@ -2531,7 +2529,7 @@ public class DataCacheBean extends BaseEJB {
   ///////////////////////////////////////////////////////////////////////
   private ArrayList popTitles() throws TCException {
   ///////////////////////////////////////////////////////////////////////
-    Log.msg ( VERBOSE, "ejb.DataCache.DataCacheBean:popTitles:called." );
+    log.debug("ejb.DataCache.DataCacheBean:popTitles:called." );
     Connection conn      = null;  //conn stands for contactTitles connection
     PreparedStatement ps = null;
     ResultSet rs         = null;
@@ -2565,7 +2563,7 @@ public class DataCacheBean extends BaseEJB {
   ///////////////////////////////////////////////////////////////////////
   private ArrayList popOrganizations() throws TCException {
   ///////////////////////////////////////////////////////////////////////
-    Log.msg ( VERBOSE, "ejb.DataCache.DataCacheBean:popOrganizations:called." );
+    log.debug("ejb.DataCache.DataCacheBean:popOrganizations:called." );
     Connection conn      = null;
     PreparedStatement ps = null;
     ResultSet rs         = null;
@@ -2599,7 +2597,7 @@ public class DataCacheBean extends BaseEJB {
   ///////////////////////////////////////////////////////////////////////
   private ArrayList popExperienceTypes() throws TCException {
   ///////////////////////////////////////////////////////////////////////
-    Log.msg ( VERBOSE, "ejb.DataCache.DataCacheBean:popExperienceTypes:called." );
+    log.debug("ejb.DataCache.DataCacheBean:popExperienceTypes:called." );
     Connection conn      = null;
     PreparedStatement ps = null;
     ResultSet rs         = null;

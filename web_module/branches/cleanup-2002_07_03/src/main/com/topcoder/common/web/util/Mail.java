@@ -9,18 +9,20 @@ import com.topcoder.ejb.Util.*;
 import com.topcoder.common.web.data.*;
 import com.topcoder.common.web.error.*;
 import com.topcoder.shared.docGen.xml.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
 import com.topcoder.utilities.email.*;
+import com.topcoder.shared.util.logging.Logger;
 
 public class Mail {
 
+  private static Logger log = Logger.getLogger(Mail.class);
   ////////////////////////////////////////////////////////////////////////////////
   public static final boolean sendMail(EMailMessage mail) throws TCException {
   ////////////////////////////////////////////////////////////////////////////////
     InitialContext ctx = null;
     QueueMessageSender qMessSender = null;
     try {
-      ctx = TCContext.getInitial( ApplicationServer.HOST_URL );
+      ctx = (InitialContext)TCContext.getInitial( ApplicationServer.HOST_URL );
       HashMap props = new HashMap();
       props.put( "MailSubject", mail.getMailSubject() );
       props.put( "MailSentDate", new Long(mail.getMailSentDate().getTime()) );
@@ -33,16 +35,16 @@ public class Mail {
       qMessSender.setFaultTolerant(true);
       boolean retVal = qMessSender.sendMessage(props, mail.getMailText());
       if (retVal) {
-        Log.msg("Mail sent.");
+        log.debug("Mail sent.");
         UtilHome home = (UtilHome) ctx.lookup ( ApplicationServer.UTIL );
         Util temp = home.create();
         temp.logMail( mail );
       } else {
-        Log.msg("ERROR: Could not send mail.");
+        log.debug("ERROR: Could not send mail.");
       }
       return retVal;
     } catch (Exception e) {
-      Log.msg("ERROR: Could not send mail.");
+      log.debug("ERROR: Could not send mail.");
       e.printStackTrace();
       return false;
     } finally {

@@ -27,6 +27,9 @@ package com.topcoder.utilities.dwload;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.5  2002/06/11 02:08:36  gpaul
+ *           fixed up the win streak load, it was using the wrong division id on the insert.  also, i cleaned up the case where someone has consequtive streaks in different divisions, it was probably wrong before.
+ *
  *           Revision 1.4  2002/06/06 22:39:35  gpaul
  *           fixed win streak load, it would exclusive on the begining round
  *
@@ -58,7 +61,7 @@ package com.topcoder.utilities.dwload;
  *           added round_problem load
  *
  *           Revision 1.1.2.6  2002/03/19 18:30:42  gpaul
- *           Log.msg instead of system.out.println
+ *           log.debug instead of system.out.println
  *
  *           Revision 1.1.2.5  2002/03/19 01:23:56  gpaul
  *           fixed a couple loads for number_submitted column
@@ -97,10 +100,11 @@ package com.topcoder.utilities.dwload;
  *****************************************************************************/
 import java.sql.*;
 import java.util.*;
-
-import com.topcoder.common.*;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
 
 public class TCLoadAggregate extends TCLoad {
+  private static Logger log = Logger.getLogger(TCLoadAggregate.class);
   // The following set of variables are all configureable from the command
   // line by specifying -variable (where the variable is after the //)
   // followed by the new value
@@ -150,67 +154,67 @@ public class TCLoadAggregate extends TCLoad {
       tmp = retrieveIntParam("failed", params, true, true);
       if(tmp != null) {
         STATUS_FAILED = tmp.intValue();
-        System.out.println("New failed is " + STATUS_FAILED);
+        log.info("New failed is " + STATUS_FAILED);
       }
 
       tmp = retrieveIntParam("succeeded", params, true, true);
       if(tmp != null) {
         STATUS_SUCCEEDED = tmp.intValue();
-        System.out.println("New succeeded is " + STATUS_SUCCEEDED);
+        log.info("New succeeded is " + STATUS_SUCCEEDED);
       }
 
       tmp = retrieveIntParam("opened", params, true, true);
       if(tmp != null) {
         STATUS_OPENED = tmp.intValue();
-        System.out.println("New opened is " + STATUS_OPENED);
+        log.info("New opened is " + STATUS_OPENED);
       }
 
       tmp = retrieveIntParam("submitted", params, true, true);
       if(tmp != null) {
         STATUS_SUBMITTED = tmp.intValue();
-        System.out.println("New submitted is " + STATUS_SUBMITTED);
+        log.info("New submitted is " + STATUS_SUBMITTED);
       }
 
       tmp = retrieveIntParam("chlngsucceeded", params, true, true);
       if(tmp != null) {
         STATUS_CHLNG_SUCCEEDED = tmp.intValue();
-        System.out.println("New chlngsucceeded is " + STATUS_CHLNG_SUCCEEDED);
+        log.info("New chlngsucceeded is " + STATUS_CHLNG_SUCCEEDED);
       }
 
       tmp = retrieveIntParam("passsystest", params, true, true);
       if(tmp != null) {
         STATUS_PASSED_SYS_TEST = tmp.intValue();
-        System.out.println("New passsystest is " + STATUS_PASSED_SYS_TEST);
+        log.info("New passsystest is " + STATUS_PASSED_SYS_TEST);
       }
 
       tmp = retrieveIntParam("failsystest", params, true, true);
       if(tmp != null) {
         STATUS_FAILED_SYS_TEST = tmp.intValue();
-        System.out.println("New failsystest  is " + STATUS_FAILED_SYS_TEST);
+        log.info("New failsystest  is " + STATUS_FAILED_SYS_TEST);
       }
 
       tmp = retrieveIntParam("conswinsdiv1", params, true, true);
       if(tmp != null) {
         CONSEC_WINS_DIV1 = tmp.intValue();
-        System.out.println("New conswinsdiv1  is " + CONSEC_WINS_DIV1);
+        log.info("New conswinsdiv1  is " + CONSEC_WINS_DIV1);
       }
 
       tmp = retrieveIntParam("conswinsdiv2", params, true, true);
       if(tmp != null) {
         CONSEC_WINS_DIV2 = tmp.intValue();
-        System.out.println("New conswinsdiv2  is " + CONSEC_WINS_DIV2);
+        log.info("New conswinsdiv2  is " + CONSEC_WINS_DIV2);
       }
 
       tmp = retrieveIntParam("singrndmatch", params, true, true);
       if(tmp != null) {
         SINGLE_ROUND_MATCH = tmp.intValue();
-        System.out.println("New singrndmatch is " + SINGLE_ROUND_MATCH);
+        log.info("New singrndmatch is " + SINGLE_ROUND_MATCH);
       }
 
       tmpBool = retrieveBooleanParam("fullload", params, true);
       if(tmpBool != null) {
         FULL_LOAD = tmpBool.booleanValue();
-        Log.msg("New fullload flag is " + FULL_LOAD);
+        log.info("New fullload flag is " + FULL_LOAD);
       }
       
     }
@@ -244,7 +248,7 @@ public class TCLoadAggregate extends TCLoad {
  
       loadRoundProblem();
 
-      System.out.println("SUCCESS: Aggregate load ran successfully.");
+      log.info("SUCCESS: Aggregate load ran successfully.");
       return true;
     }
     catch(Exception ex) {
@@ -377,7 +381,7 @@ public class TCLoadAggregate extends TCLoad {
         printLoadProgress(count, "coder_division");
       }
 
-      System.out.println("Records loaded for coder_division: " + count);
+      log.info("Records loaded for coder_division: " + count);
     }
     catch (SQLException sqle) {
       DBMS.printSqlException(true, sqle);
@@ -500,7 +504,7 @@ public class TCLoadAggregate extends TCLoad {
         printLoadProgress(count, "round_division");
       }
 
-      System.out.println("Records loaded for round_division: " + count);
+      log.info("Records loaded for round_division: " + count);
     }
     catch (SQLException sqle) {
       DBMS.printSqlException(true, sqle);
@@ -750,7 +754,7 @@ public class TCLoadAggregate extends TCLoad {
         printLoadProgress(count, "coder_level");
       }
 
-      System.out.println("Records loaded for coder_level: " + count);
+      log.info("Records loaded for coder_level: " + count);
     }
     catch (SQLException sqle) {
       DBMS.printSqlException(true, sqle);
@@ -882,7 +886,7 @@ public class TCLoadAggregate extends TCLoad {
         printLoadProgress(count, "coder_problem_summary");
       }
 
-      System.out.println("Records loaded for coder_problem_summary: " + count);
+      log.info("Records loaded for coder_problem_summary: " + count);
     }
     catch (SQLException sqle) {
       DBMS.printSqlException(true, sqle);
@@ -1044,7 +1048,7 @@ public class TCLoadAggregate extends TCLoad {
           numWins = 0;
         }
       }
-      System.out.println("Records loaded for streak: " + count);
+      log.info("Records loaded for streak: " + count);
     }
     catch (SQLException sqle) {
       DBMS.printSqlException(true, sqle);
@@ -1124,7 +1128,7 @@ public class TCLoadAggregate extends TCLoad {
         printLoadProgress(count, "room_result");
       }
 
-      System.out.println("Records loaded for room_result "+
+      log.info("Records loaded for room_result "+
                          "(submission_points): " + count);
     }
     catch (SQLException sqle) {
@@ -1223,7 +1227,7 @@ public class TCLoadAggregate extends TCLoad {
         close(rs2);
       }
 
-      System.out.println("Records loaded for room_result "+
+      log.info("Records loaded for room_result "+
                          "(point_standard_deviation): " + count);
     }
     catch (SQLException sqle) {
@@ -1450,7 +1454,7 @@ public class TCLoadAggregate extends TCLoad {
 	printLoadProgress(count, "round_problem");
       }
       
-      System.out.println("Round_problem records copied = " + count);
+      log.info("Round_problem records copied = " + count);
     }
     catch (SQLException sqle) {
 	DBMS.printSqlException(true, sqle);

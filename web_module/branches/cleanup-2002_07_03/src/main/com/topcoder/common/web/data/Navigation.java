@@ -6,12 +6,13 @@ import java.sql.*;
 import javax.servlet.http.*;
 import javax.naming.*;
 
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
 import com.topcoder.shared.docGen.xml.*;
 import com.topcoder.common.web.data.*;
 import com.topcoder.common.web.util.*;
 import com.topcoder.ejb.UserServices.*;
 import com.topcoder.ejb.AuthenticationServices.*;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
 * This class stores login information about site navigation.
@@ -20,7 +21,6 @@ import com.topcoder.ejb.AuthenticationServices.*;
 public final class Navigation 
   implements Serializable, HttpSessionBindingListener {
 
-  private static boolean VERBOSE = false;
   private String screen; 
   private Browser browser;
   private boolean loggedIn;
@@ -30,25 +30,24 @@ public final class Navigation
   private transient User user;
   private HashMap sessionObjects;  
   private boolean newNav;
+  private static Logger log = Logger.getLogger(Navigation.class);
  
 
   //////////////////////////////////////////////////////////////////////////
   public void valueBound ( HttpSessionBindingEvent e ) {
   //////////////////////////////////////////////////////////////////////////
-    Log.msg ( VERBOSE, "common.Navigation:valueBound:called" );
+    log.debug("common.Navigation:valueBound:called" );
   }
 
 
   //////////////////////////////////////////////////////////////////////////
   public void valueUnbound ( HttpSessionBindingEvent e ) {
   //////////////////////////////////////////////////////////////////////////
-    if (VERBOSE) {
-      StringBuffer msg = new StringBuffer ( 200           );
-      msg.append ( "common.attr.Navigation:valueUnbound:" );
-      msg.append ( "user.getUserId:"                      );
-      msg.append ( user.getUserId()                       );
-      Log.msg ( msg.toString()                      );
-    }
+    StringBuffer msg = new StringBuffer ( 200           );
+    msg.append ( "common.attr.Navigation:valueUnbound:" );
+    msg.append ( "user.getUserId:"                      );
+    msg.append ( user.getUserId()                       );
+    log.debug ( msg.toString()                      );
     if ( getUser().getLoggedIn().equals("Y") ) {
       Context ctx = null;
       try {
@@ -60,7 +59,7 @@ public final class Navigation
         getUser().setModified ( "U" );
         userEJB.setUser ( getUser() );
       } catch (Exception exception) {
-        Log.msg("common.Navigation:valueUnbound:ERROR:\n"+exception);
+        log.debug("common.Navigation:valueUnbound:ERROR:\n"+exception);
       } finally {
         if (ctx != null) { try { ctx.close(); } catch (Exception ignore) {} }
       }
@@ -309,7 +308,7 @@ public final class Navigation
         user = (User) userSerializable.clone();
         userSerializable = new User();
         serializable = false;
-        Log.msg(VERBOSE, "common.Navigation:makeUserTransient:user made transient");
+        log.debug("common.Navigation:makeUserTransient:user made transient");
       }
     } catch (Exception e) {
       throw new Exception("common.Navigation:makeUserTransient:ERROR:\n"+e);
@@ -324,7 +323,7 @@ public final class Navigation
         userSerializable = (User) user.clone();
         user = new User();
         serializable = true;
-        Log.msg(VERBOSE, "common.Navigation:makeUserSerializable:user made serializable");
+        log.debug("common.Navigation:makeUserSerializable:user made serializable");
       }
     } catch (Exception e) {
       throw new Exception("common.Navigation:makeUserSerializable:ERROR:\n"+e);
@@ -366,10 +365,10 @@ public final class Navigation
   ///////////////////////////////////////////////////////////////
     if (serializable) {
       this.userSerializable=user;
-      Log.msg(VERBOSE, "common.Navigation:setUser:serializable user set");
+      log.debug("common.Navigation:setUser:serializable user set");
     } else {
       this.user=user;
-      Log.msg(VERBOSE, "common.Navigation:setUser:transient user set");
+      log.debug("common.Navigation:setUser:transient user set");
     }
   }
 
@@ -383,7 +382,7 @@ public final class Navigation
   public Scroll getScroll ( int Returns, String sessionKey )
     throws Exception {
   ////////////////////////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "coder:task:getScroll called...");
+    log.debug("coder:task:getScroll called...");
     Scroll result = null; 
     try {   
       if ( sessionObjects.containsKey(sessionKey) ) {

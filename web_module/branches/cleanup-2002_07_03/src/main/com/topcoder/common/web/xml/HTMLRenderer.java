@@ -6,14 +6,14 @@ import javax.naming.*;
 import org.apache.xalan.xslt.*;
 import org.xml.sax.SAXException;
 import java.net.*;
-import com.topcoder.common.Log;
 import com.topcoder.common.web.error.*;
 import com.topcoder.shared.docGen.xml.xsl.*;
 import com.topcoder.shared.docGen.xml.XMLDocument;
+import com.topcoder.shared.util.logging.Logger;
 
 public class HTMLRenderer {
 
-  private static final boolean VERBOSE = false;
+  private static Logger log = Logger.getLogger(HTMLRenderer.class);
 
   public HTMLRenderer() {}
 
@@ -50,7 +50,7 @@ public class HTMLRenderer {
       cache.clear();
     }catch (Exception e) {
       e.printStackTrace();
-      Log.msg("Error in HTMLRendererBean.refresh()");
+      log.debug("Error in HTMLRendererBean.refresh()");
     }  
   }
 }

@@ -1,6 +1,7 @@
 package com.topcoder.common.web.data;
 
 import com.topcoder.shared.docGen.xml.*;
+import com.topcoder.shared.dataAccess.StringUtilities;
 import com.topcoder.common.web.error.*;
 import com.topcoder.common.web.util.*;
 import java.util.*;
@@ -344,9 +345,9 @@ public final class Challenge
       result.addTag( new ValueTag("DefendantName", defHandle) );
       result.addTag( problem.getXML()  );
       result.addTag( new ValueTag("Language", language ) );
-      result.addTag( new ValueTag("ExpectedResult", Conversion.checkNull(Conversion.makePretty(expectedResult))));
+      result.addTag( new ValueTag("ExpectedResult", Conversion.checkNull(StringUtilities.makePretty(expectedResult))));
       result.addTag( new ValueTag("ExpectedResultType", expectedResultType) );
-      result.addTag( new ValueTag("ResultValue", Conversion.checkNull(Conversion.makePretty(resultValue))));
+      result.addTag( new ValueTag("ResultValue", Conversion.checkNull(StringUtilities.makePretty(resultValue))));
       result.addTag( new ValueTag("ResultValueType", resultValueType) );
       result.addTag( new ValueTag("PointValue", pointValue) );
       result.addTag( new ValueTag("PenaltyValue", penaltyValue) );
@@ -357,7 +358,7 @@ public final class Challenge
       result.addTag( new ValueTag("StatusId", statusId) );
       result.addTag( new ValueTag("StatusDesc", statusDesc) );
       result.addTag( new ValueTag("Message", msg) );
-      result.addTag( new ValueTag("Args", Conversion.checkNull(Conversion.makePretty(args))));
+      result.addTag( new ValueTag("Args", Conversion.checkNull(StringUtilities.makePretty(args))));
       result.addTag( new ValueTag("SubmitTime", new java.sql.Timestamp(submitTime).toString()) );
     }catch (Exception e)  {
       throw new TCException("common.web.data.Challenge getXML ERROR: " + e);

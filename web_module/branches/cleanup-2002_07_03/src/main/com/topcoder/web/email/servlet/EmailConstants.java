@@ -2,14 +2,10 @@ package com.topcoder.web.email.servlet;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
-
-import org.apache.log4j.Category;
 import java.util.*;
 
 public class EmailConstants
 {
-	static Category trace = Category.getInstance(EmailConstants.class);
-
 	// default # of fields for an address list
 	private static final int DEFAULT_ADDRESSLIST_NUM_FIELDS = 10;
 

@@ -1,6 +1,6 @@
 package com.topcoder.common.web.constant;
 
-import com.topcoder.common.ApplicationServer;
+import com.topcoder.shared.util.ApplicationServer;
 
 public class TCServlet {
 

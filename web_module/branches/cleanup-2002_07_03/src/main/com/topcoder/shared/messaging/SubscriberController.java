@@ -4,12 +4,12 @@ import java.util.*;
 import java.io.*;
 import javax.jms.*;
 import javax.naming.*;
-
-import com.topcoder.common.*;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.*;
 
 public class SubscriberController extends Thread {
 
-  InitialContext ctx;
+  Context ctx;
   TopicConnectionFactory tconFactory;
   TopicConnection tcon;
   Topic topic;
@@ -29,7 +29,7 @@ public class SubscriberController extends Thread {
   boolean subscriberReady;
   boolean active;
   boolean initInProgress;
-  boolean VERBOSE = false;
+  private static Logger log = Logger.getLogger(SubscriberController.class);
 
   ////////////////////////////////////////////////////////////////////////////////
   public SubscriberController (String factoryName, String topicName) throws NamingException
@@ -73,13 +73,13 @@ public class SubscriberController extends Thread {
   ////////////////////////////////////////////////////////////////////////////////
   public void run() {
   ////////////////////////////////////////////////////////////////////////////////
-    if(VERBOSE) Log.msg(this.topicName + " - In run.");
+    log.debug(this.topicName + " - In run.");
     while (this.active)
     {
-      //Log.msg(this.topicName + " - Run looping.");
+      //log.debug(this.topicName + " - Run looping.");
       if (this.subscriberReady || this.initInProgress)
       {
-        //Log.msg(this.topicName + " - Everything seems fine.");
+        //log.debug(this.topicName + " - Everything seems fine.");
         try{
           Thread.sleep(this.pollTime);
         }catch (Exception e) {}
@@ -88,19 +88,19 @@ public class SubscriberController extends Thread {
 
       if (!this.subscriberReady && !this.initInProgress)
       {
-        Log.msg(this.topicName + " - Houston... we have a problem... attempting to resolve.");
+        log.debug(this.topicName + " - Houston... we have a problem... attempting to resolve.");
         while (this.active && !initJMS())
         {
-          Log.msg(this.topicName + " - Could not resolve problem... trying again...");
+          log.debug(this.topicName + " - Could not resolve problem... trying again...");
           try{
             Thread.sleep(this.errorTime);
           }catch (Exception e) {}
         }
-        Log.msg(this.topicName + " - Houston... the problem has been resolved.");
+        log.debug(this.topicName + " - Houston... the problem has been resolved.");
       }
 
     }
-    Log.msg(VERBOSE,this.topicName + " - Finished running.");
+    log.debug(this.topicName + " - Finished running.");
     close();
   }
 
@@ -139,7 +139,7 @@ public class SubscriberController extends Thread {
     if (this.active = false)
       { return; }
 
-    Log.msg(VERBOSE,this.topicName + " - Deactivated.");
+    log.debug(this.topicName + " - Deactivated.");
     this.active = false;
   }
 
@@ -159,7 +159,7 @@ public class SubscriberController extends Thread {
         try{
           if (System.currentTimeMillis()-timeStamp > consoleMessageTime)
           {
-            if(VERBOSE) Log.msg(this.topicName + " - Listening...");
+            log.debug(this.topicName + " - Listening...");
             timeStamp = System.currentTimeMillis();
           }
           
@@ -167,10 +167,10 @@ public class SubscriberController extends Thread {
           	msg = (ObjectMessage) tsubscriber.receive(blockTime);
           } catch (Exception e) 
           {	
-                  Log.msg("ERROR: Error retreiving next message.");
+                  log.debug("ERROR: Error retreiving next message.");
 	          while(!initJMS())
 	          {
-	            Log.msg("A topic connection could not be established. Retrying...");
+	            log.debug("A topic connection could not be established. Retrying...");
 	            try {
 	              Thread.sleep(5000);
 	            } catch (Exception ex) { ex.printStackTrace(); }
@@ -184,7 +184,7 @@ public class SubscriberController extends Thread {
             msg = null;
           }catch (Exception e1) {e1.printStackTrace();}
           this.subscriberReady = false;
-          Log.msg("SubscriberController error occurred while retrieving message from topic");
+          log.debug("SubscriberController error occurred while retrieving message from topic");
           break;
         }
       }
@@ -242,10 +242,10 @@ public class SubscriberController extends Thread {
       this.tcon.start();
       retVal = true;
       this.subscriberReady = true;
-      if(VERBOSE) Log.msg(this.topicName + " - Subscriber Initialized.");
+      log.debug(this.topicName + " - Subscriber Initialized.");
 
     } catch (Exception e) {
-      Log.msg("ERROR: Could not initialize JMS subscriber.");
+      log.debug("ERROR: Could not initialize JMS subscriber.");
     }
 
     this.initInProgress = false;

@@ -9,7 +9,8 @@
   import javax.transaction.UserTransaction;
   import javax.transaction.Status;
   import com.topcoder.ejb.ContestAdminServices.*;
-  import com.topcoder.common.*;
+  import com.topcoder.shared.util.logging.Logger;
+  import com.topcoder.shared.util.*;
   import com.topcoder.common.web.data.*;
   import com.topcoder.common.web.error.*;
   import com.topcoder.common.web.xml.HTMLRenderer;
@@ -22,8 +23,7 @@
 
 
     private static final String DIR = XSL.DIR + "compilation/";
-    private static final boolean VERBOSE = false;
-
+    private static Logger log = Logger.getLogger(Compilation.class);
 
     ///////////////////////////////////////////////////////////////////////////////////
     public static String process ( HttpServletRequest request, HttpServletResponse response,
@@ -84,7 +84,7 @@
         }
 
         document.addTag(compilationTag);
-        Log.msg(VERBOSE, document.getXML(2) );
+        log.debug(document.getXML(2) );
         String xsldocURLString = DIR+"get_rounds.xsl";
         nav.setScreen(xsldocURLString);
         result = HTMLmaker.render(document, xsldocURLString, null);
@@ -132,7 +132,7 @@
         }
 
         document.addTag(compilationTag);
-        Log.msg(VERBOSE, document.getXML(2) );
+        log.debug(document.getXML(2) );
         String xsldocURLString = DIR+"get_coders.xsl";
         nav.setScreen(xsldocURLString);
         result = HTMLmaker.render(document, xsldocURLString, null);
@@ -181,7 +181,7 @@
         }
 
         document.addTag(compilationTag);
-        Log.msg(VERBOSE, document.getXML(2) );
+        log.debug(document.getXML(2) );
         String xsldocURLString = DIR+"get_compilations.xsl";
         nav.setScreen(xsldocURLString);
         result = HTMLmaker.render(document, xsldocURLString, null);

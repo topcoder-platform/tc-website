@@ -5,13 +5,14 @@ import java.io.*;
 import java.util.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
 import com.topcoder.common.web.data.*;
 import com.topcoder.shared.docGen.xml.*;
 import com.topcoder.common.web.xml.HTMLRenderer;
 import com.topcoder.common.web.constant.*;
 import com.topcoder.common.web.error.*;
-import com.topcoder.common.web.util.*;
+import com.topcoder.common.web.util.Conversion;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.servlet.admin.task.coder.SystemTestCaseReport;
 import com.topcoder.web.servlet.admin.task.coder.Challenge;
 import com.topcoder.web.servlet.admin.task.coder.Compilation;
@@ -21,15 +22,15 @@ public final class TC extends HttpServlet {
 
 
   private              HTMLRenderer renderer         = null;
-  private static final boolean    VERBOSE          = false;
   private static final int        MAX_REPLACEMENTS = 100;
+  private static Logger log = Logger.getLogger(TC.class);
 
 
   ////////////////////////////////////////////////////////////////////////////////
   public synchronized void init ( ServletConfig config ) throws ServletException {
   ////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "SERVLET INIT CALLED");
+    log.debug("SERVLET INIT CALLED");
     ////////////////////////////////////////////////////////
     if (renderer == null) { renderer = new HTMLRenderer(); }
     super.init(config);
@@ -88,7 +89,7 @@ public final class TC extends HttpServlet {
       //////////////////////////////////////////
       String requestTask =    Conversion.checkNull( request.getParameter("Task")    );
       String requestCommand = Conversion.checkNull( request.getParameter("Command") );
-      Log.msg("ADMIN ***** " + requestTask + " ***** " + requestCommand);
+      log.info("ADMIN ***** " + requestTask + " ***** " + requestCommand);
       //************************ no task ************************
       if ( requestTask.equals("") ) {
         if ( requestCommand.equals("") ) {
@@ -173,7 +174,7 @@ public final class TC extends HttpServlet {
         html = renderer.render(document, ne.getUrl(), null);
         out.print ( html );
         out.flush();
-        Log.msg ( "com.topcoder.web.servlet.admin.TC:NAVIGATION ERROR:\n"+ne.getMessage() );
+        log.error ( "com.topcoder.web.servlet.admin.TC:NAVIGATION ERROR:\n"+ne.getMessage() );
       } catch (Exception end) {
         end.printStackTrace();
         try {
@@ -195,7 +196,7 @@ public final class TC extends HttpServlet {
         html = renderer.render(document, XSL.INTERNAL_ERROR_URL, null);
         out.print(html);
         out.flush();
-        Log.msg("com.topcoder.web.servlet.admin.TC:INTERNAL ERROR:\n"+e);
+        log.error("com.topcoder.web.servlet.admin.TC:INTERNAL ERROR:\n"+e);
       } catch (Exception end) {
         end.printStackTrace();
         try {

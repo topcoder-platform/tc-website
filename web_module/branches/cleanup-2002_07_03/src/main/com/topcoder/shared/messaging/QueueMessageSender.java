@@ -5,14 +5,15 @@ import java.io.*;
 import javax.jms.*;
 import javax.naming.*;
 
-import com.topcoder.common.*;
+import com.topcoder.shared.util.logging.Logger;
 
 public class QueueMessageSender {
 
+  private static Logger log = Logger.getLogger(QueueMessageSender.class);
   private static final int PRIMARY = 0;
   private static final int BACKUP = 1;
 
-  InitialContext ctx;
+  Context ctx;
   QueueConnectionFactory qconFactory;
   QueueConnection qcon;
   Queue queue;
@@ -36,7 +37,6 @@ public class QueueMessageSender {
   boolean backupReady;
   boolean faultTolerant;
   Object messObject = null;
-  public static boolean verbose = true;
 
   private boolean ctxCreated = true;
 
@@ -44,7 +44,7 @@ public class QueueMessageSender {
   public QueueMessageSender (String factoryName, String queueName) throws NamingException
   ////////////////////////////////////////////////////////////////////////////////
   {
-    this.ctx = com.topcoder.common.TCContext.getInitial();
+    this.ctx = com.topcoder.shared.util.TCContext.getInitial();
     this.ctxCreated = true;
     initObject(factoryName, queueName);
   }
@@ -134,7 +134,7 @@ public class QueueMessageSender {
         }
         else
         {
-          Log.msg("ERROR: Could not send message on primary queue.");
+          log.debug("ERROR: Could not send message on primary queue.");
           if (reInitPrimary)
           {
             if (faultTolerant)
@@ -182,7 +182,7 @@ public class QueueMessageSender {
         }
         else
         {
-          Log.msg("ERROR: Could not send message on backup queue.");
+          log.debug("ERROR: Could not send message on backup queue.");
           if (reInitBackup)
           {
             // We couldn't send the message, but we've already tried a 
@@ -266,9 +266,9 @@ public class QueueMessageSender {
 
     } catch (JMSException e) {
       retVal = false;
-      Log.msg("ERROR:  Could not write to message queue.");
+      log.debug("ERROR:  Could not write to message queue.");
       e.printStackTrace();
-      Log.msg("QueueMessageSender failed to write to message queue");
+      log.debug("QueueMessageSender failed to write to message queue");
     }
 
     return retVal;
@@ -295,9 +295,9 @@ public class QueueMessageSender {
   ////////////////////////////////////////////////////////////////////////////////
   {
     if (queueType == PRIMARY)
-      { Log.msg(verbose,"Initializing primary JMS queue."); }
+      { log.debug("Initializing primary JMS queue."); }
     else
-      { Log.msg(verbose,"Initializing backup JMS queue."); }
+      { log.debug("Initializing backup JMS queue."); }
 
     String factoryName = "";
     String queueName = "";
@@ -307,8 +307,8 @@ public class QueueMessageSender {
     {
       factoryName = this.factoryName;
       queueName = this.queueName;
-      Log.msg(verbose,"QueueMessageSender: initJMS: factoryName: " + this.factoryName);
-      Log.msg(verbose,"QueueMessageSender: initJMS: queueName: " + this.queueName);
+      log.debug("QueueMessageSender: initJMS: factoryName: " + this.factoryName);
+      log.debug("QueueMessageSender: initJMS: queueName: " + this.queueName);
 
       try {
         this.qconFactory = (QueueConnectionFactory) ctx.lookup(factoryName);
@@ -327,15 +327,15 @@ public class QueueMessageSender {
         this.primaryReady = true;
 
       } catch (Exception e) {
-        Log.msg("ERROR: Could not initialize primary JMS queue.");
+        log.debug("ERROR: Could not initialize primary JMS queue.");
         e.printStackTrace();
       }
     }else
     {
       factoryName = this.factoryName_BKP;
       queueName = this.queueName_BKP;
-      Log.msg(verbose,"QueueMessageSender: initJMS: backup factoryName: " + this.factoryName_BKP);
-      Log.msg(verbose,"QueueMessageSender: initJMS: backup queueName: " + this.queueName_BKP);
+      log.debug("QueueMessageSender: initJMS: backup factoryName: " + this.factoryName_BKP);
+      log.debug("QueueMessageSender: initJMS: backup queueName: " + this.queueName_BKP);
 
       try {
         this.qconFactory_BKP = (QueueConnectionFactory) ctx.lookup(factoryName);
@@ -348,7 +348,7 @@ public class QueueMessageSender {
         this.backupReady = true; 
 
       } catch (Exception e) {
-        Log.msg("ERROR: Could not initialize backup JMS queue.");
+        log.debug("ERROR: Could not initialize backup JMS queue.");
         e.printStackTrace();
       }
     }

@@ -19,7 +19,6 @@ import javax.ejb.CreateException;
 import java.sql.SQLException;
 
 public class Resource implements java.io.Serializable {
-    private static final boolean VERBOSE = false;
     private static java.util.Random rand = new java.util.Random();
     protected SectorObject sector;
     protected Sector sec;
@@ -90,8 +89,6 @@ public class Resource implements java.io.Serializable {
           //temp.sector_id = sector.sector_id;
           //sec.request(Sector.SELECT, temp);
           String temp = sec.findBySectorDesc ( sector.sector_desc );
-if (VERBOSE) System.out.println ( "sector_temp="+temp );
-if (VERBOSE && temp!=null) System.out.println ( "sector_templen="+temp.length() );
           if ( temp!=null && !temp.equals("") ) found = true;
         } catch ( Exception findException ) {
           //findException.printStackTrace();

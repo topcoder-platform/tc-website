@@ -60,7 +60,7 @@ import java.util.*;
 //JDK1.1// import com.sun.java.util.collections.*;
 import java.sql.*;
 import com.coolservlets.forum.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
 /**
  * An Iterator for all the user's Messages in a forum.
  */

@@ -4,22 +4,16 @@ import java.util.*;
 import java.io.*;
 import javax.jms.*;
 import javax.naming.*;
-
-import org.apache.log4j.Category;
-
-import com.topcoder.common.*;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.*;
 
 public class TopicMessagePublisher {
-    /**
-	 * Category for logging.
-	 */
-	private static Category trace = Category.getInstance( TopicMessagePublisher.class.getName() );
-
+  private static Logger log = Logger.getLogger(TopicMessagePublisher.class);
 
   private static final int PRIMARY = 0;
   private static final int BACKUP = 1;
 
-  InitialContext ctx;
+  Context ctx;
   TopicConnectionFactory tconFactory;
   TopicConnection tcon;
   Topic topic;
@@ -41,7 +35,6 @@ public class TopicMessagePublisher {
   boolean primaryReady = false;
   boolean backupReady;
   boolean faultTolerant;
-  public static boolean VERBOSE = true;
 
   ////////////////////////////////////////////////////////////////////////////////
   public TopicMessagePublisher (String factoryName, String topicName) throws NamingException
@@ -102,10 +95,10 @@ public class TopicMessagePublisher {
           reInitPrimary = true;
           if (!initJMS(PRIMARY))
           {
-            trace.error("INITIALIZE PRIMARY FAILED");
+            log.error("INITIALIZE PRIMARY FAILED");
             if (faultTolerant)
             {
-                trace.info("CHANGING ACTIVE TOPIC TO BACKUP");
+                log.info("CHANGING ACTIVE TOPIC TO BACKUP");
               // Tried to reinit the primary topic but we were unsuccessful...
               // switch over to the backup topic.
               activeTopic = BACKUP;
@@ -128,7 +121,7 @@ public class TopicMessagePublisher {
         }
         else
         {
-          trace.error("Could not publish message on primary topic.");
+          log.error("Could not publish message on primary topic.");
           if (reInitPrimary)
           {
             if (faultTolerant)
@@ -176,7 +169,7 @@ public class TopicMessagePublisher {
         }
         else
         {
-          trace.error("Could not publish message on backup topic.");
+          log.error("Could not publish message on backup topic.");
           if (reInitBackup)
           {
             // We couldn't publish the message, but we've already tried a 
@@ -253,7 +246,7 @@ public class TopicMessagePublisher {
       retVal = true;
 
     } catch (JMSException e) {
-      trace.error("Error occurred while publishing a message to the topic", e);
+      log.error("Error occurred while publishing a message to the topic", e);
       retVal = false;
     }
 
@@ -280,9 +273,9 @@ public class TopicMessagePublisher {
   ////////////////////////////////////////////////////////////////////////////////
   {
     if (topicType == PRIMARY)
-      { trace.info("Initializing primary JMS topic."); }
+      { log.info("Initializing primary JMS topic."); }
     else
-      { trace.info("Initializing backup JMS topic."); }
+      { log.info("Initializing backup JMS topic."); }
 
     String factoryName = "";
     String topicName = "";
@@ -315,9 +308,9 @@ public class TopicMessagePublisher {
 
   } catch (Exception e) {
       if (topicType == PRIMARY)
-        { trace.error("Could not initialize primary JMS topic.", e); }
+        { log.error("Could not initialize primary JMS topic.", e); }
       else
-        { trace.error( "Could not initialize backup JMS topic.", e); }
+        { log.error( "Could not initialize backup JMS topic.", e); }
     }
 
     return retVal;
@@ -328,7 +321,7 @@ public class TopicMessagePublisher {
   public synchronized void close ()
   ////////////////////////////////////////////////////////////////////////////////
   {
-      trace.info( "close" );
+      log.info( "close" );
     this.primaryReady = false;
     this.backupReady = false;
 

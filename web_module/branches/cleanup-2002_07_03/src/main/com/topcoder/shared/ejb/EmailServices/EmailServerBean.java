@@ -1,7 +1,7 @@
 package com.topcoder.shared.ejb.EmailServices;
 
 import java.util.*;
-import org.apache.log4j.Category;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.ejb.BaseEJB;
 import java.rmi.RemoteException;
 
@@ -12,6 +12,9 @@ import java.rmi.RemoteException;
  * @version  $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.1.2.1  2002/07/09 14:39:25  gpaul
+ *           no message
+ *
  *           Revision 1.1  2002/05/21 15:45:15  steveb
  *           SB
  *
@@ -66,7 +69,7 @@ public class EmailServerBean extends BaseEJB {
 
     public void ejbCreate () { }
     
-    private static Category trace = Category.getInstance( EmailServerBean.class.getName() );
+    private static Logger log = Logger.getLogger(EmailServerBean.class);
 
     public Date getDate() throws RemoteException {
         try {
@@ -86,7 +89,7 @@ public class EmailServerBean extends BaseEJB {
         int rows;
         Set ret = new HashSet();
 
-        trace.debug("getJobs based on status=" + status);
+        log.debug("getJobs based on status=" + status);
            
         try {
             ctx = new javax.naming.InitialContext();
@@ -146,15 +149,15 @@ public class EmailServerBean extends BaseEJB {
             rs.close();
         } catch ( Exception dberr ) {
             String err = "Failed to get job ids"; 
-            trace.error(err, dberr);
+            log.error(err, dberr);
             throw new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
             if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                trace.error("Failed to close database context", ctxerr); } 
+                log.error("Failed to close database context", ctxerr); } 
             }
             if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                trace.error("Failed to close database connection", connerr); }
+                log.error("Failed to close database connection", connerr); }
             }
         }
         
@@ -170,7 +173,7 @@ public class EmailServerBean extends BaseEJB {
         StringBuffer sqlStmt = new StringBuffer( 500 );
         int rows;
 
-        trace.debug("setJobStatus (jobId " + jobId + ", status " + status + ")");
+        log.debug("setJobStatus (jobId " + jobId + ", status " + status + ")");
            
         try {
             ctx = new javax.naming.InitialContext();
@@ -191,22 +194,22 @@ public class EmailServerBean extends BaseEJB {
             ps.setInt(2, jobId);
             rows = ps.executeUpdate();
             if (rows == 0) {
-                trace.debug("The update had no effect."
+                log.debug("The update had no effect."
                         + " Most likely the job does not exist.");
                 throw new Exception("The update command affected " 
                         + rows + " rows.");
             }
         } catch ( Exception dberr ) {
             String err = "Failed to update job status";
-            trace.error(err, dberr);
+            log.error(err, dberr);
             throw new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
             if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                trace.error("Failed to close database context", ctxerr); } 
+                log.error("Failed to close database context", ctxerr); } 
             }
             if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                trace.error("Failed to close database connection", connerr); }
+                log.error("Failed to close database connection", connerr); }
             }
         }
     }
@@ -220,7 +223,7 @@ public class EmailServerBean extends BaseEJB {
         StringBuffer sqlStmt = new StringBuffer( 500 );
         int rows;
 
-        trace.debug("clearDetailRecords jobId " + jobId);
+        log.debug("clearDetailRecords jobId " + jobId);
            
         try {
             ctx = new javax.naming.InitialContext();
@@ -240,19 +243,19 @@ public class EmailServerBean extends BaseEJB {
                 //normal result
             } else {
                 // must have been an aborted job
-                trace.info("clearDetailRecords removed " + rows + " records from job " + jobId);
+                log.info("clearDetailRecords removed " + rows + " records from job " + jobId);
             }
         } catch ( Exception dberr ) {
             String err = "Failed to clearDetailRecords"; 
-            trace.error(err, dberr);
+            log.error(err, dberr);
             throw new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
             if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                trace.error("Failed to close database context", ctxerr); } 
+                log.error("Failed to close database context", ctxerr); } 
             }
             if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                trace.error("Failed to close database connection", connerr); }
+                log.error("Failed to close database connection", connerr); }
             }
         }
     }
@@ -267,7 +270,7 @@ public class EmailServerBean extends BaseEJB {
         int rows;
         int id = 0;
 
-        trace.debug("addDetailRecord (jobId " + jobId + ")");
+        log.debug("addDetailRecord (jobId " + jobId + ")");
            
         try {
             ctx = new javax.naming.InitialContext();
@@ -305,15 +308,15 @@ public class EmailServerBean extends BaseEJB {
             }
         } catch ( Exception dberr ) {
             String err = "Failed to update job status";
-            trace.error(err, dberr);
+            log.error(err, dberr);
             throw new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
             if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                trace.error("Failed to close database context", ctxerr); } 
+                log.error("Failed to close database context", ctxerr); } 
             }
             if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                trace.error("Failed to close database connection", connerr); }
+                log.error("Failed to close database connection", connerr); }
             }
         }
         
@@ -329,7 +332,7 @@ public class EmailServerBean extends BaseEJB {
         StringBuffer sqlStmt = new StringBuffer( 500 );
         int rows;
 
-        trace.debug("setDetailStatus (jobId " + jobId + ", detailId " + detailId + ", status " + status + ":" + reason + ")");
+        log.debug("setDetailStatus (jobId " + jobId + ", detailId " + detailId + ", status " + status + ":" + reason + ")");
            
         try {
             ctx = new javax.naming.InitialContext();
@@ -354,22 +357,22 @@ public class EmailServerBean extends BaseEJB {
             ps.setInt(4, detailId);
             rows = ps.executeUpdate();
             if (rows == 0) {
-                trace.debug("The update had no effect."
+                log.debug("The update had no effect."
                         + " Most likely the job detail record does not exist.");
                 throw new Exception("The update command affected " 
                         + rows + " rows.");
             }
         } catch ( Exception dberr ) {
             String err = "Failed to update job status";
-            trace.error(err, dberr);
+            log.error(err, dberr);
             throw new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
             if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                trace.error("Failed to close database context", ctxerr); } 
+                log.error("Failed to close database context", ctxerr); } 
             }
             if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                trace.error("Failed to close database connection", connerr); }
+                log.error("Failed to close database connection", connerr); }
             }
         }
     }
@@ -383,7 +386,7 @@ public class EmailServerBean extends BaseEJB {
         StringBuffer sqlStmt = new StringBuffer( 500 );
         int rows;
 
-        trace.debug("setJobBuilt (jobId " + jobId + ")");
+        log.debug("setJobBuilt (jobId " + jobId + ")");
            
         try {
             ctx = new javax.naming.InitialContext();
@@ -405,7 +408,7 @@ public class EmailServerBean extends BaseEJB {
             ps.setInt(3, EmailServer.EMAIL_JOB_TYPE_PRE);
             rows = ps.executeUpdate();
             if (rows == 0) {
-                trace.debug("The update had no effect."
+                log.debug("The update had no effect."
                         + " Most likely the job detail record does not exist"
                         + " or the job was already built.");
                 throw new Exception("The update command affected " 
@@ -413,15 +416,15 @@ public class EmailServerBean extends BaseEJB {
             }
         } catch ( Exception dberr ) {
             String err = "Failed to update job type";
-            trace.error(err, dberr);
+            log.error(err, dberr);
             throw new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
             if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                trace.error("Failed to close database context", ctxerr); } 
+                log.error("Failed to close database context", ctxerr); } 
             }
             if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                trace.error("Failed to close database connection", connerr); }
+                log.error("Failed to close database connection", connerr); }
             }
         }
     }
@@ -435,7 +438,7 @@ public class EmailServerBean extends BaseEJB {
         StringBuffer sqlStmt = new StringBuffer( 500 );
         int rows;
 
-        trace.debug("archiveDetail (jobId " + jobId + ")");
+        log.debug("archiveDetail (jobId " + jobId + ")");
            
         try {
             ctx = new javax.naming.InitialContext();
@@ -458,7 +461,7 @@ public class EmailServerBean extends BaseEJB {
             rows = ps.executeUpdate();
             if (rows == 0) {
                 conn.rollback();  // not that this will do anything...
-                trace.debug("The update had no effect."
+                log.debug("The update had no effect."
                         + " Most likely the job detail record do not exist or"
                         + " have already been archived.");
                 throw new Exception("The update command affected " 
@@ -474,7 +477,7 @@ public class EmailServerBean extends BaseEJB {
             int drows = ps.executeUpdate();
             if (drows != rows) {
                 conn.rollback();
-                trace.debug("The delete did not modify the same number of rows"
+                log.debug("The delete did not modify the same number of rows"
                         + " that the insert added (" + rows + " inserted, "
                         + drows + " deleted). Transaction rolled back.");
                 throw new Exception("Mismatched insert/delete count."
@@ -484,15 +487,15 @@ public class EmailServerBean extends BaseEJB {
             conn.commit();
         } catch ( Exception dberr ) {
             String err = "Failed to archive detail records";
-            trace.error(err, dberr);
+            log.error(err, dberr);
             throw new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
             if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                trace.error("Failed to close database context", ctxerr); } 
+                log.error("Failed to close database context", ctxerr); } 
             }
             if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                trace.error("Failed to close database connection", connerr); }
+                log.error("Failed to close database connection", connerr); }
             }
         }
     }

@@ -4,11 +4,11 @@ import java.util.*;
 import java.io.*;
 import javax.jms.*;
 import javax.naming.*;
-
-import com.topcoder.common.*;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.*;
 
 public class TopicMessageSubscriber {
-
+  private static Logger log = Logger.getLogger(TopicMessageSubscriber.class);
   InitialContext ctx;
 
   String factoryName;
@@ -20,7 +20,6 @@ public class TopicMessageSubscriber {
   protected boolean backupReady;
   private boolean faultTolerant;
   private boolean persistent;
-  boolean VERBOSE = true;
 
   private boolean alive = true;
 
@@ -38,7 +37,7 @@ public class TopicMessageSubscriber {
   public TopicMessageSubscriber (String factoryName, String topicName) throws NamingException
   ////////////////////////////////////////////////////////////////////////////////
   {
-    this.ctx = TCContext.getContestInitial();
+    this.ctx = (InitialContext)TCContext.getContestInitial();
     this.ctxCreated = true;
     initObject(factoryName, topicName);
   }
@@ -140,7 +139,7 @@ public class TopicMessageSubscriber {
   private synchronized void setPrimaryController() 
   ////////////////////////////////////////////////////////////////////////////////
   {
-    if(VERBOSE) Log.msg("Initializing primary subscriber.");
+    log.debug("Initializing primary subscriber.");
 
     if (this.topicSelector.length() > 0) {
       controller = new SubscriberController(factoryName, topicName, this.topicSelector, ctx);
@@ -160,7 +159,7 @@ public class TopicMessageSubscriber {
   private synchronized void setBackupController()
   ////////////////////////////////////////////////////////////////////////////////
   {
-    if(VERBOSE) Log.msg("Initializing backup subscriber.");
+    log.debug("Initializing backup subscriber.");
 
     if (this.topicSelector.length() > 0) {
       controller_BKP = new SubscriberController(factoryName_BKP, topicName_BKP, this.topicSelector, ctx);

@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.*;
 import com.topcoder.shared.docGen.xml.*;
 import com.topcoder.web.email.servlet.*;
+import com.topcoder.shared.util.logging.Logger;
 
 import org.w3c.dom.*;
 import org.xml.sax.InputSource;
@@ -12,7 +13,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.FactoryConfigurationError;   
 import javax.xml.parsers.ParserConfigurationException;
 
-import org.apache.log4j.Category;
 
 /**
  * Bean to store information about an address list member
@@ -24,7 +24,7 @@ import org.apache.log4j.Category;
 public class MemberData
    implements Serializable
 {
-   static Category trace = Category.getInstance(MemberData.class);
+   private static Logger log = Logger.getLogger(MemberData.class);
 
    protected int id;
    // maps field names to values

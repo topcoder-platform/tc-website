@@ -7,7 +7,7 @@ import javax.naming.*;
 import javax.transaction.Status;
 import javax.transaction.UserTransaction;
 
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
 import com.topcoder.common.web.constant.*;
 import com.topcoder.common.web.data.*;
 import com.topcoder.common.web.util.*;
@@ -16,13 +16,14 @@ import com.topcoder.ejb.DataCache.*;
 import com.topcoder.ejb.UserServices.*;
 import com.topcoder.web.reg.servlet.*;
 import com.topcoder.web.reg.servlet.jsp.tag.*;
+import com.topcoder.shared.util.logging.Logger;
 
 
 public class Registration
     extends Task
     implements Serializable
 {
-    boolean VERBOSE = false;
+    private static Logger log = Logger.getLogger(Registration.class);
 
     public static final String PROTOCOL = "http";
     public static final String HOST = ApplicationServer.SERVER_NAME;
@@ -172,7 +173,7 @@ public class Registration
     
     void init()
     {
-        Log.msg(" => REGISTRATION.INIT()");
+        log.info(" => REGISTRATION.INIT()");
         validSteps = new String[] {STEP_0, STEP_1, STEP_2, STEP_3, STEP_4};
         
         if (user == null || user.getUserId() == 0)
@@ -241,11 +242,11 @@ public class Registration
       if ( isStep(STEP_1) && step==null )
       {
         notifications.clear();
-        if (VERBOSE) System.out.println ( "notifications cleared..." );
+        log.debug ( "notifications cleared..." );
       }
-      if (VERBOSE) System.out.println ( "previous step = " + getStep() );
+      log.debug ( "previous step = " + getStep() );
       super.setStep ( step );
-      if (VERBOSE) System.out.println ( "super.setStep("+step+") called..." );
+      log.debug ( "super.setStep("+step+") called..." );
     }
 
     
@@ -263,31 +264,7 @@ public class Registration
     {
         if (user == null || user.getUserId() == 0) return;
 
-        Log.msg(VERBOSE,"loading User data");
-      /*
-        Context context;
-        try
-        {
-            context = TCContext.getInitial();
-            UserServicesHome userServicesHome = (UserServicesHome) context.lookup(ApplicationServer.USER_SERVICES);
-            UserServices userServices = userServicesHome.findByPrimaryKey(new Integer(user.getUserId()));
-            user = userServices.getUser();
-            Log.msg ( VERBOSE, "loadUser():UserServices.getUser() called..." );
-        }
-        catch (Exception e)
-        {
-            if (context != null)
-            {
-                try
-                {
-                    context.close();
-                }
-                catch (Exception e)
-                {
-                }
-            }
-        }
-      */
+        log.info("loading User data");
         
         CoderRegistration coder = (CoderRegistration) user.getUserTypeDetails().get(CODER);
         firstName = checkNull(coder.getFirstName());
@@ -358,7 +335,7 @@ public class Registration
                 }
                 else
                 {
-                    Log.msg(VERBOSE,"No existing response for questionId="+questionId);
+                    log.info("No existing response for questionId="+questionId);
                 }
             }
         }
@@ -392,7 +369,7 @@ public class Registration
     public void process()
         throws TaskException
     {
-        Log.msg(VERBOSE,"Registration.process()");
+        log.info("Registration.process()");
         //if (isStep(STEP_0))
         //{
             //clearErrors();
@@ -496,13 +473,13 @@ public class Registration
             {
                 if ( schoolStateChanged && !isNumber(this.school) && this.country.equals(USA) )
                 {
-                    Log.msg ( VERBOSE, "school State HAS changed..." );
+                    log.debug("school State HAS changed..." );
                     addError(SCHOOL,"Please select your school.");
                     schoolStateChanged = false;
                 }
                 if (!isNumber(this.school) && this.country.equals(USA) ) 
                 {
-                  Log.msg ( VERBOSE, "this.school is not a number =>"+this.school );
+                  log.debug("this.school is not a number =>"+this.school );
                   addError(SCHOOL,"Please select your school.");
                 }
             }
@@ -588,18 +565,18 @@ public class Registration
     
     public String getNextPage()
     {
-        Log.msg(VERBOSE,"Registration.getNextPage()");
+        log.debug("Registration.getNextPage()");
         if (isStep(STEP_0))
         {
-            Log.msg ( VERBOSE, "STEP_0 REG" );
+            log.debug("STEP_0 REG" );
             if (isValid())
             {
-                Log.msg ( VERBOSE, "STEP_0 ISVALID" );
+                log.debug("STEP_0 ISVALID" );
                 return PAGE_1;
             }
             else
             {  
-                Log.msg ( VERBOSE, "STEP_0 INVALID" );
+                log.debug("STEP_0 INVALID" );
                 if ( isRegister() )
                 {
                     return PAGE_5A;
@@ -678,7 +655,7 @@ public class Registration
         value = (value==null?"":value.trim());
         if ( !name.equals("TermDesc") )
         {
-          Log.msg(VERBOSE,"Registration.setAttribute(\""+name+"\",\""+value+"\")");
+          log.debug("Registration.setAttribute(\""+name+"\",\""+value+"\")");
         }
         if (isStep(STEP_1))
         {
@@ -705,7 +682,7 @@ public class Registration
             else if (name.startsWith(NOTIFY_PREFIX))
             {
               setNotification ( name.substring(NOTIFY_PREFIX.length()), value );
-              if (VERBOSE) System.out.println ( "NOTIFICATION SET: " + name.substring(NOTIFY_PREFIX.length()) + "=" + value);
+              log.debug ( "NOTIFICATION SET: " + name.substring(NOTIFY_PREFIX.length()) + "=" + value);
             }
             else return false;
         }
@@ -850,23 +827,23 @@ public class Registration
 
     public void setSchoolState(String value)
     {
-        Log.msg ( VERBOSE, "setSchoolState(" + value + ") called: schoolStateChanged="+schoolStateChanged );
-        Log.msg ( VERBOSE, "this.schoolState = " + this.schoolState );
+        log.debug("setSchoolState(" + value + ") called: schoolStateChanged="+schoolStateChanged );
+        log.debug("this.schoolState = " + this.schoolState );
         schoolStateChanged =  !this.schoolState.equals(checkNull(value));
         this.schoolState = checkNull(value);
-        Log.msg ( VERBOSE, "this.schoolState=" + this.schoolState +": schoolStateChanged="+schoolStateChanged );
+        log.debug("this.schoolState=" + this.schoolState +": schoolStateChanged="+schoolStateChanged );
         
     }
 
     public void setSchool(String value)
     {
-        Log.msg ( VERBOSE, "setSchool(" + value + ") called" );
+        log.debug("setSchool(" + value + ") called" );
         this.school = checkNull(value);
     }
 
     public void setSchoolName(String value)
     {
-        Log.msg ( VERBOSE, "setSchoolName(" + value + ") called" );
+        log.debug("setSchoolName(" + value + ") called" );
         this.schoolName = checkNull(value);
     }
 
@@ -880,10 +857,7 @@ public class Registration
         }
         catch (Exception e)
         {
-            if ( VERBOSE )
-            {
-                e.printStackTrace();
-            }
+            e.printStackTrace();
             return;
         }
         this.notifications.add ( notifyId );
@@ -896,7 +870,7 @@ public class Registration
         if ( this.demographics.containsKey(questionId) ) 
         {
           this.demographics.remove ( questionId );
-          Log.msg ( VERBOSE, "setDemographic: questionId removed from demographics hash: " + questionId );
+          log.debug("setDemographic: questionId removed from demographics hash: " + questionId );
         }
 
         for ( int i = 0; i < value.length; i++ ) 
@@ -915,39 +889,36 @@ public class Registration
         }
         catch (Exception e)
         {
-            if ( VERBOSE ) 
-            {
-                e.printStackTrace();
-            }
+            e.printStackTrace();
             return;
         }
 
         ArrayList answers = null;
         if ( this.demographics.containsKey(questionId) ) {
           answers = (ArrayList) this.demographics.get(questionId);
-          Log.msg ( VERBOSE, "setDemographic: demographics hash: found QId for: " + questionId );
+          log.debug("setDemographic: demographics hash: found QId for: " + questionId );
         } else {
           answers = new ArrayList();
           this.demographics.put(questionId,answers);
-          Log.msg ( VERBOSE, "setDemographic: demographics hash: did not find QId for: " + questionId );
+          log.debug("setDemographic: demographics hash: did not find QId for: " + questionId );
         }
 
         int pos = answers.indexOf ( value ); 
-        Log.msg ( VERBOSE, "setDemographic: found in answer list: " + value + " at " + pos);
+        log.debug("setDemographic: found in answer list: " + value + " at " + pos);
 
         if ( pos > -1 ) {
           answers.remove ( pos );
-          Log.msg ( VERBOSE, "setDemographic: answer list removed: " + pos );
+          log.debug("setDemographic: answer list removed: " + pos );
         }
 
         //if ( !isEmpty(value) ) {
           answers.add ( value );
-          Log.msg ( VERBOSE, "setDemographic: answer list added: " + value );
+          log.debug("setDemographic: answer list added: " + value );
         //}
 
         if ( answers.size() == 0 ) {
           this.demographics.remove ( questionId );
-          Log.msg ( VERBOSE, "setDemographic: questionId removed from demographics hash: " + questionId );
+          log.debug("setDemographic: questionId removed from demographics hash: " + questionId );
         }
 
     } 
@@ -1390,11 +1361,11 @@ public class Registration
             AuthenticationServicesHome authenticationServicesHome = (AuthenticationServicesHome) context.lookup(ApplicationServer.AUTHENTICATION_SERVICES);
             AuthenticationServices authenticationServices = authenticationServicesHome.create();
             exists = !authenticationServices.validHandle(handle);
-            Log.msg(VERBOSE,"Registration.handleExists(\""+handle+"\"): "+exists);
+            log.debug("Registration.handleExists(\""+handle+"\"): "+exists);
         }
         catch (Exception e)
         {
-            Log.msg(e.toString());
+            log.error(e.toString());
             throw new TaskException(e);
         }
         finally
@@ -1407,7 +1378,7 @@ public class Registration
                 }
                 catch (Exception e)
                 {
-                    Log.msg(e.toString());
+                    log.error(e.toString());
                 }
             }
         }
@@ -1429,7 +1400,7 @@ public class Registration
         }
         catch (Exception e)
         {
-            Log.msg(e.toString());
+            log.error(e.toString());
             throw new TaskException(e);
         }
         finally
@@ -1477,7 +1448,7 @@ public class Registration
         }
         catch (Exception e)
         {
-            Log.msg(e.toString());
+            log.error(e.toString());
             throw new TaskException(e);
         }
         return result;
@@ -1501,7 +1472,7 @@ public class Registration
         }
         catch (Exception e)
         {
-            Log.msg(e.toString());
+            log.error(e.toString());
             throw new TaskException(e);
         }
         return result;
@@ -1525,7 +1496,7 @@ public class Registration
         }
         catch (Exception e)
         {
-            Log.msg(e.toString());
+            log.error(e.toString());
             throw new TaskException(e);
         }
         return false;
@@ -1545,7 +1516,7 @@ public class Registration
         }
         catch (Exception e)
         {
-            Log.msg(e.toString());
+            log.error(e.toString());
             throw new TaskException(e);
         }
         finally
@@ -1617,7 +1588,7 @@ public class Registration
     protected void register()
         throws TaskException
     {
-        Log.msg(" <= REGISTRATION.REGISTER()");
+        log.info(" <= REGISTRATION.REGISTER()");
         User user;
         CoderRegistration coder;
         if (isEdit())
@@ -1734,7 +1705,6 @@ public class Registration
         {
             DemographicAssignment assignment = (DemographicAssignment) assignments.get(i);
             DemographicQuestion question = assignment.getDemographicQuestion();
-            //Log.msg ( VERBOSE, "getting question " + question.getDemographicQuestionId() + ": " + question.getDemographicQuestionText() );
             int questionId = question.getDemographicQuestionId();
             ArrayList beanResponseList = getDemographic ( Integer.toString(questionId) );
             ArrayList responseList = getDemographicResponses ( coder.getDemographicResponses(),questionId );
@@ -1744,7 +1714,6 @@ public class Registration
                 for ( int j = 0; j < responseList.size(); j++ ) 
                 {
                     DemographicResponse response = (DemographicResponse) responseList.get(j);
-                    //Log.msg ( VERBOSE, "putting answerIdKey " + response.getDemographicAnswerId()+ ": " + response.getDemographicQuestionId() );
                     if ( responseHash == null ) responseHash = new HashMap ( responseList.size() );
                     responseHash.put ( Integer.toString(response.getDemographicAnswerId()), response );
                 }
@@ -1759,7 +1728,6 @@ public class Registration
                 for ( int j = 0; j < beanResponseList.size(); j++ ) 
                 {
                     String answerStr = (String) beanResponseList.get(j);
-                    //Log.msg ( VERBOSE, "getting beanResponse " + answerStr );
                     int answerId = 0;
                     if ( selectable.equals("Y") || selectable.equals("M") ) 
                     {
@@ -1768,14 +1736,14 @@ public class Registration
                     DemographicResponse response = null;
                     if ( responseHash.containsKey(Integer.toString(answerId)) )
                     {
-                        Log.msg ( VERBOSE, "setting modified to 'U' for " + Integer.toString(answerId) );
+                        log.debug("setting modified to 'U' for " + Integer.toString(answerId) );
                         response = (DemographicResponse) responseHash.get ( Integer.toString(answerId) );
                         response.setModified("U");
                         responseHash.remove ( answerStr );
                     }
                     else
                     {
-                        Log.msg ( VERBOSE, "setting modified to 'A' for " + answerStr );
+                        log.debug("setting modified to 'A' for " + answerStr );
                         response = new DemographicResponse();
                         response.setModified("A");
                         coder.getDemographicResponses().add(response);
@@ -1801,8 +1769,7 @@ public class Registration
                     for (Iterator iterator = responseHash.values().iterator(); iterator.hasNext();) 
                     {
                         DemographicResponse removeResponse = (DemographicResponse) iterator.next();
-                        Log.msg ( VERBOSE, 
-                          "setting modified to 'D' for question: " 
+                        log.debug("setting modified to 'D' for question: " 
                           + removeResponse.getDemographicQuestionId() 
                           + " answer " 
                           + removeResponse.getDemographicAnswerId() 
@@ -1813,7 +1780,7 @@ public class Registration
             }
             else
             {
-                Log.msg(VERBOSE,"No answer for questionId="+questionId);
+                log.debug("No answer for questionId="+questionId);
             }
         } 
 
@@ -1883,7 +1850,7 @@ public class Registration
             {
                 throw new TaskException(ee);
             }
-            Log.msg(e.toString());
+            log.debug(e.toString());
             throw new TaskException(e);
         }
         finally
@@ -1908,7 +1875,7 @@ public class Registration
             }
             catch (Exception e)
             {
-                Log.msg(e.toString());
+                log.info(e.toString());
                 //throw new TaskException(e);
                 addError(REGISTER,"There was a problem sending the activation email. Please contact service@topcoder.com");
             }
@@ -1947,7 +1914,7 @@ public class Registration
         }
         catch (Exception e)
         {
-            Log.msg(e.toString());
+            log.info(e.toString());
             return 0;
         }
     }
@@ -1980,7 +1947,7 @@ public class Registration
         }
         catch (Exception e)
         {
-            Log.msg(e.toString());
+            log.error(e.toString());
             return false;
             //throw new TaskException(e);
         }

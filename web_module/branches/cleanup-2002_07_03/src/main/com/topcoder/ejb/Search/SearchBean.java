@@ -7,14 +7,15 @@ import java.util.*;
 import java.sql.*;
 import weblogic.common.*;
 import java.rmi.RemoteException;
-import com.topcoder.ejb.BaseEJB;
-import com.topcoder.common.*;
+import com.topcoder.shared.ejb.BaseEJB;
+import com.topcoder.shared.util.*;
 import com.topcoder.common.web.data.Scroll;
 import com.topcoder.common.web.data.SortKey;
 import com.topcoder.common.web.data.MemberSearch;
 import com.topcoder.common.web.data.SearchResult;
 import com.topcoder.common.web.data.stat.coder.Coder;
 import com.topcoder.common.web.constant.*;
+import com.topcoder.shared.util.logging.Logger;
 
 /*************************************************************************************************
  *
@@ -30,8 +31,7 @@ import com.topcoder.common.web.constant.*;
 
 public class SearchBean extends BaseEJB {
 
-
- private static final boolean VERBOSE = false;
+  private static Logger log = Logger.getLogger(SearchBean.class);
 
 /**
  *****************************************************************
@@ -44,7 +44,7 @@ public class SearchBean extends BaseEJB {
 
   public MemberSearch getCoders(MemberSearch search)
     throws RemoteException  {
-    Log.msg(VERBOSE, "ejb:Search:getCoders() called...");
+    log.debug("ejb:Search:getCoders() called...");
     Connection conn = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
@@ -95,7 +95,7 @@ public class SearchBean extends BaseEJB {
       query.append( " ORDER BY rating_order, lower_case_handle");
     try {
       conn = DBMS.getDWConnection();
-      Log.msg(VERBOSE, query.toString());
+      log.debug(query.toString());
       ps = conn.prepareStatement(query.toString());
       rs = ps.executeQuery();
       scroll = search.getScroll();
@@ -122,13 +122,13 @@ public class SearchBean extends BaseEJB {
       search.setCoders(result);
  
     } catch (SQLException sqe) {
-      Log.msg("query: \n" + query.toString());
+      log.debug("query: \n" + query.toString());
       DBMS.printSqlException(true, sqe);
       throw new RemoteException (sqe.getMessage());
     } finally {
-      try { if (rs   != null) rs.close();  } catch (Exception ignore) {Log.msg(VERBOSE, "rs   close problem");}
-      try { if (ps   != null) ps.close();  } catch (Exception ignore) {Log.msg(VERBOSE, "ps   close problem");}
-      try { if (conn != null) conn.close();} catch (Exception ignore) {Log.msg(VERBOSE, "conn close problem");}
+      try { if (rs   != null) rs.close();  } catch (Exception ignore) {log.error("rs   close problem");}
+      try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.error("ps   close problem");}
+      try { if (conn != null) conn.close();} catch (Exception ignore) {log.error("conn close problem");}
       rs = null;
       ps = null;
       conn = null;
@@ -151,7 +151,7 @@ public class SearchBean extends BaseEJB {
  */
   public MemberSearch scroll(MemberSearch search)
     throws RemoteException  {
-    Log.msg(VERBOSE, "ejb:Search:scroll() called...");
+    log.debug("ejb:Search:scroll() called...");
     Connection conn = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
@@ -202,7 +202,7 @@ public class SearchBean extends BaseEJB {
       query.append( " ORDER BY rating_order, lower_case_handle");
     try {
       conn = DBMS.getDWConnection();
-      Log.msg(VERBOSE, query.toString());
+      log.debug(query.toString());
       ps = conn.prepareStatement(query.toString());
       rs = ps.executeQuery();
       scroll = search.getScroll();
@@ -250,13 +250,13 @@ public class SearchBean extends BaseEJB {
       else scroll.setAllowNext(true);
       search.setCoders(result);
     } catch (SQLException sqe) {
-      Log.msg("query: \n" + query.toString());
+      log.debug("query: \n" + query.toString());
       DBMS.printSqlException(true, sqe);
       throw new RemoteException (sqe.getMessage());
     } finally {
-      try { if (rs   != null) rs.close();  } catch (Exception ignore) {Log.msg(VERBOSE, "rs   close problem");}
-      try { if (ps   != null) ps.close();  } catch (Exception ignore) {Log.msg(VERBOSE, "ps   close problem");}
-      try { if (conn != null) conn.close();} catch (Exception ignore) {Log.msg(VERBOSE, "conn close problem");}
+      try { if (rs   != null) rs.close();  } catch (Exception ignore) {log.error("rs   close problem");}
+      try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.error("ps   close problem");}
+      try { if (conn != null) conn.close();} catch (Exception ignore) {log.error("conn close problem");}
       rs = null;
       ps = null;
       conn = null;

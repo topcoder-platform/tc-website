@@ -17,7 +17,7 @@ import	javax.naming.*;
 import	javax.sql.DataSource;
 import	com.topcoder.web.render.ejb.WebMenu;
 import	com.topcoder.web.render.ejb.WebMenuObject;
-import	com.topcoder.common.DBMS;
+import	com.topcoder.shared.util.DBMS;
 
 public class WebMenuBean implements javax.ejb.SessionBean {
 
@@ -44,7 +44,7 @@ public class WebMenuBean implements javax.ejb.SessionBean {
 		String	insert = "INSERT INTO WEB_MENU VALUES (  " + menu_id + ", '" + menu_name + "', ?, '" + menu_isenabled + "' )";
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( insert );
 			ps.setBytes( 1, DBMS.serializeBlobObject( menu_content ) );
 			ps.executeUpdate();
@@ -64,7 +64,7 @@ public class WebMenuBean implements javax.ejb.SessionBean {
 		PreparedStatement	ps = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( delete );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
@@ -173,7 +173,7 @@ public class WebMenuBean implements javax.ejb.SessionBean {
 		InputStream	is = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
@@ -252,7 +252,7 @@ public class WebMenuBean implements javax.ejb.SessionBean {
 			return( 0 );
 		int	rc = 0;
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( update.toString() );
 			int	index = 1;
 			if( menu_content != null )

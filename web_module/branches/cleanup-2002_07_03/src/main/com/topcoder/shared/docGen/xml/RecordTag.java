@@ -6,7 +6,6 @@ import java.sql.*;
 
 public class RecordTag extends Tag
 {
-  private static final boolean VERBOSE = false;
   private String name;
   private ArrayList elementList;
 

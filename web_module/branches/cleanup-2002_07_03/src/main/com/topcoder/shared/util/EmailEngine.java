@@ -4,9 +4,9 @@ import java.util.*;
 import java.net.*;
 import java.lang.*;
 import java.io.*;
-import org.apache.log4j.Category;
 import javax.mail.*;
 import javax.mail.internet.*;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * The EmailEngine is responsible for sending email.
@@ -15,6 +15,9 @@ import javax.mail.internet.*;
  * @version  $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.1  2002/07/03 00:30:04  gpaul
+ *           moving over here
+ *
  *           Revision 1.1  2002/05/21 18:42:50  steveb
  *           SB
  *
@@ -41,7 +44,7 @@ public class EmailEngine {
     public static final String SMTP_HOST_ADDR = "172.16.20.41";
     public static final int SMTP_HOST_PORT = 25;
 
-    private static Category trace = Category.getInstance( EmailEngine.class.getName() );
+    private static Logger log = Logger.getLogger(EmailEngine.class);
     
  /**
   * Send an email message.
@@ -71,7 +74,7 @@ public class EmailEngine {
             host = resource.getString("smtp_host_addr");
             port = Integer.parseInt(resource.getString("smtp_host_port"));
         } catch (Exception e) {
-            trace.warn("Failed to read/parse the 'EmailEngineConfig' resource file: " + e.getMessage());
+            log.warn("Failed to read/parse the 'EmailEngineConfig' resource file: " + e.getMessage());
             // ignore it and use the defaults.
         }
         
@@ -119,10 +122,10 @@ public class EmailEngine {
             eMailMessage.setContent(data, "text/plain");
             eMailTransport.send(eMailMessage);
         } catch (NoSuchProviderException e) {
-            trace.error("SMTP transport type not accepted", e);
+            log.error("SMTP transport type not accepted", e);
             throw new Exception("Internal configuration error. SMTP transport not accepted.");
         } catch (MessagingException e) {
-            trace.error("Failed to contact SMTP server", e);
+            log.error("Failed to contact SMTP server", e);
             throw new Exception("Possible configuration error. SMTP server is not responding.");
         } finally {
             if (eMailTransport != null) {

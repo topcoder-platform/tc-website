@@ -4,8 +4,8 @@ import java.util.*;
 import java.io.*;
 import javax.jms.*;
 import javax.naming.*;
-
-import com.topcoder.common.*;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.TCContext;
 
 public class ReceiverController extends Thread {
 
@@ -30,14 +30,14 @@ public class ReceiverController extends Thread {
   boolean active;
   boolean initInProgress;
   boolean transacted;
-  boolean VERBOSE = true;
+  private static Logger log = Logger.getLogger(ReceiverController.class);
 
   ////////////////////////////////////////////////////////////////////////////////
   public ReceiverController (String factoryName, String queueName, boolean isTransacted) throws NamingException
   ////////////////////////////////////////////////////////////////////////////////
   {
     this.transacted = isTransacted;
-    this.ctx = TCContext.getInitial();
+    this.ctx = (InitialContext)TCContext.getInitial();
     initObject(factoryName, queueName, "");
     initJMS();
   }
@@ -65,13 +65,12 @@ public class ReceiverController extends Thread {
   ////////////////////////////////////////////////////////////////////////////////
   public void run() {
   ////////////////////////////////////////////////////////////////////////////////
-    //if(VERBOSE) Log.msg(this.queueName + " - In run.");
     while (active)
     {
-      //Log.msg(this.queueName + " - Run looping.");
+      //log.debug(this.queueName + " - Run looping.");
       if (this.receiverReady || this.initInProgress)
       {
-        //Log.msg(this.queueName + " - Everything seems fine.");
+        //log.debug(this.queueName + " - Everything seems fine.");
         try{
           Thread.sleep(this.pollTime);
         }catch (Exception e) {}
@@ -80,19 +79,19 @@ public class ReceiverController extends Thread {
 
       if (!this.receiverReady && !this.initInProgress)
       {
-        Log.msg(VERBOSE,this.queueName + " - Houston... we have a problem... attempting to resolve.");
+        log.debug(this.queueName + " - Houston... we have a problem... attempting to resolve.");
         while (this.active && !initJMS())
         {
-          Log.msg(VERBOSE,this.queueName + " - Could not resolve problem... trying again...");
+          log.debug(this.queueName + " - Could not resolve problem... trying again...");
           try{
             Thread.sleep(this.errorTime);
           }catch (Exception e) {}
         }
-        Log.msg(VERBOSE,this.queueName + " - Houston... the problem has been resolved.");
+        log.debug(this.queueName + " - Houston... the problem has been resolved.");
       }
 
     }
-    Log.msg(VERBOSE,this.queueName + " - Finished running.");
+    log.debug(this.queueName + " - Finished running.");
     close();
   }
 
@@ -131,7 +130,6 @@ public class ReceiverController extends Thread {
     if (this.active = false)
       { return; }
 
-    //Log.msg(VERBOSE,this.queueName + " - Deactivated.");
     this.active = false;
   }
 
@@ -151,7 +149,7 @@ public class ReceiverController extends Thread {
         try{
           if (System.currentTimeMillis()-timeStamp > consoleMessageTime)
           {
-            Log.msg(VERBOSE,this.queueName + " - Listening... " + (System.currentTimeMillis()-timeStamp));
+            log.debug(this.queueName + " - Listening... " + (System.currentTimeMillis()-timeStamp));
             timeStamp = System.currentTimeMillis();
           }
 
@@ -159,7 +157,7 @@ public class ReceiverController extends Thread {
           	msg = (ObjectMessage) qreceiver.receive(blockTime);
           } catch (Exception e)
           {
-                  Log.msg("ERROR: Error retreiving next message.");
+                  log.debug("ERROR: Error retreiving next message.");
 	          while(!initJMS())
 	          {
 	            System.out.println("A queue connection could not be established. Retrying...");
@@ -175,13 +173,13 @@ public class ReceiverController extends Thread {
           break;
         }catch (Exception e) {
           try{
-            Log.msg("ERROR: could not get next message... rolling back QMR.");
+            log.debug("ERROR: could not get next message... rolling back QMR.");
             e.printStackTrace();
             qsession.rollback();
             msg = null;
           }catch (Exception e1) {e1.printStackTrace();}
           this.receiverReady = false;
-          Log.msg("ReceiverController failed while receiving a message from the queue.");
+          log.debug("ReceiverController failed while receiving a message from the queue.");
           break;
         }
       }
@@ -265,10 +263,9 @@ public class ReceiverController extends Thread {
       this.qcon.start();
       retVal = true;
       this.receiverReady = true;
-      //Log.msg(VERBOSE,this.queueName + " - JMS Initialized.");
 
     } catch (Exception e) {
-      Log.msg("ERROR: Could not initialize JMS queue.");
+      log.debug("ERROR: Could not initialize JMS queue.");
 	  // Matt Murphy 4/14/02 Uncommented the line below to debug.
 	  // Feel free to comment it out if it gets in the way.
       e.printStackTrace();

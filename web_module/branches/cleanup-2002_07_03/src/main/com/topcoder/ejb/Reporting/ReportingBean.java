@@ -7,24 +7,19 @@ import java.sql.*;
 import javax.ejb.*;
 import java.io.Serializable;
 import weblogic.common.*;
-import com.topcoder.ejb.BaseEJB;
-import com.topcoder.common.*;
+import com.topcoder.shared.ejb.BaseEJB;
+import com.topcoder.shared.util.*;
 import com.topcoder.common.web.constant.*;
 import com.topcoder.common.web.data.report.*;
 import com.topcoder.shared.docGen.xml.*;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
 
 
-///////////////////////////////////////////////
 public class ReportingBean extends BaseEJB {
-///////////////////////////////////////////////
+  private static Logger log = Logger.getLogger(ReportingBean.class);
 
-  static final boolean VERBOSE = false;
-
-
-
-  ////////////////////////////////////////////////////////////////////////////
   public RecordTag getDayReg ( java.sql.Timestamp after ) throws RemoteException {
-  ////////////////////////////////////////////////////////////////////////////
     RecordTag result = null;
     try {
       result = getDayReg ( "DayRegs", after );
@@ -36,9 +31,7 @@ public class ReportingBean extends BaseEJB {
   }
 
 
-  ////////////////////////////////////////////////////////////////////////////
   public RecordTag getSchoolCount ( java.sql.Timestamp before ) throws RemoteException {
-  ////////////////////////////////////////////////////////////////////////////
     RecordTag result = null;
     try {
       result = getSchoolCount ( "SchoolCounts", before );
@@ -50,9 +43,7 @@ public class ReportingBean extends BaseEJB {
   }
 
 
-  ////////////////////////////////////////////////////////////////////////////
   public RecordTag getSkillTotal ( java.sql.Timestamp before ) throws RemoteException {
-  ////////////////////////////////////////////////////////////////////////////
     RecordTag result = null;
     try {
       result = getSkillTotal ( "SkillTotals", before );
@@ -65,10 +56,8 @@ public class ReportingBean extends BaseEJB {
 
 
 
-  ////////////////////////////////////////////////////////////////////////////
   public RecordTag getDayReg ( String tagName, java.sql.Timestamp after ) 
     throws RemoteException {
-  ////////////////////////////////////////////////////////////////////////////
     RecordTag result         = null;
     java.sql.Connection conn = null;
     PreparedStatement ps     = null;
@@ -128,10 +117,8 @@ public class ReportingBean extends BaseEJB {
 
 
 
-  ////////////////////////////////////////////////////////////////////////////
   public RecordTag getSkillTotal ( String tagName, java.sql.Timestamp before ) 
     throws RemoteException {
-  ////////////////////////////////////////////////////////////////////////////
     RecordTag result         = null;
     java.sql.Connection conn = null;
     PreparedStatement ps     = null;
@@ -183,7 +170,7 @@ public class ReportingBean extends BaseEJB {
         result.addTag ( record );
       }
     } catch ( SQLException se ) {
-      DBMS.printSqlException ( VERBOSE, se );
+      DBMS.printSqlException ( true, se );
       throw new RemoteException ( "ejb.Reporting:getSkillTotal(String,Timestamp):ERROR:"+se );
     } catch ( Exception e ) {
       e.printStackTrace();
@@ -197,10 +184,8 @@ public class ReportingBean extends BaseEJB {
   }
 
 
-  ////////////////////////////////////////////////////////////////////////////
   public RecordTag getSchoolCount ( String tagName, java.sql.Timestamp before )
     throws RemoteException {
-  ////////////////////////////////////////////////////////////////////////////
     RecordTag result         = null;
     java.sql.Connection conn = null;
     PreparedStatement ps     = null;
@@ -286,7 +271,7 @@ public class ReportingBean extends BaseEJB {
       else 
         conn = DBMS.getConnection();
 
-      Log.msg(VERBOSE, "query:\n" + query.getQuery());
+      log.debug("query:\n" + query.getQuery());
       ps = conn.prepareStatement(query.getQuery());
       rs = ps.executeQuery();
       while(rs.next()) {
@@ -297,7 +282,7 @@ public class ReportingBean extends BaseEJB {
         resultList.add(resultItems);
       }
     } catch (SQLException sqe) {
-      Log.msg("query: " + query);
+      log.debug("query: " + query);
       if (returnTypes!=null) {
         for(int i=0; i<returnTypes.length; i++)
           System.out.print(returnTypes[i] + ",");
@@ -306,7 +291,7 @@ public class ReportingBean extends BaseEJB {
       DBMS.printSqlException(true, sqe);
       throw new RemoteException (sqe.getMessage());
     } catch (Exception e) {
-      Log.msg("query: " + query);
+      log.debug("query: " + query);
       if (returnTypes!=null) {
         for(int i=0; i<returnTypes.length; i++)
           System.out.print(returnTypes[i] + ",");
@@ -315,9 +300,9 @@ public class ReportingBean extends BaseEJB {
       e.printStackTrace();
       throw new RemoteException (e.getMessage());
     } finally {
-      try { if (rs   != null) rs.close();  } catch (Exception ignore) {Log.msg(VERBOSE, "rs   close problem");}
-      try { if (ps   != null) ps.close();  } catch (Exception ignore) {Log.msg(VERBOSE, "ps   close problem");}
-      try { if (conn != null) conn.close();} catch (Exception ignore) {Log.msg(VERBOSE, "conn close problem");}
+      try { if (rs   != null) rs.close();  } catch (Exception ignore) {log.error("rs   close problem");}
+      try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.error("ps   close problem");}
+      try { if (conn != null) conn.close();} catch (Exception ignore) {log.error("conn close problem");}
       rs = null;
       ps = null;
       conn = null;

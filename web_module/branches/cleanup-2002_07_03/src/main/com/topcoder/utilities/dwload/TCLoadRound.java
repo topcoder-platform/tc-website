@@ -23,6 +23,9 @@ package com.topcoder.utilities.dwload;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.7  2002/06/13 03:56:37  gpaul
+ *           fixed the payment stuff to use the round_payment table
+ *
  *           Revision 1.6  2002/06/12 05:13:41  gpaul
  *           exclude people in group_id 14 also
  *
@@ -70,7 +73,7 @@ package com.topcoder.utilities.dwload;
  *           pulled round_problem load out and put it in aggregate load
  *
  *           Revision 1.1.2.2  2002/03/19 18:30:42  gpaul
- *           Log.msg instead of system.out.println
+ *           log.info instead of system.out.println
  *
  *           Revision 1.1.2.1  2002/03/16 20:17:02  gpaul
  *           moving these over from the member dev area.  i've added  a couple fixes to exclude admins from queries.
@@ -105,10 +108,11 @@ package com.topcoder.utilities.dwload;
 import java.sql.*;
 import java.util.*;
 import java.math.*;
-
-import com.topcoder.common.*;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
 
 public class TCLoadRound extends TCLoad {
+  private static Logger log = Logger.getLogger(TCLoadRound.class);
   protected java.sql.Timestamp fStartTime = null;
   protected java.sql.Timestamp fLastLogTime = null;
 
@@ -166,61 +170,61 @@ public class TCLoadRound extends TCLoad {
       tmp = retrieveIntParam("failed", params, true, true);
       if(tmp != null) {
         STATUS_FAILED = tmp.intValue();
-        Log.msg("New failed is " + STATUS_FAILED);
+        log.info("New failed is " + STATUS_FAILED);
       }
 
       tmp = retrieveIntParam("succeeded", params, true, true);
       if(tmp != null) {
         STATUS_SUCCEEDED = tmp.intValue();
-        Log.msg("New succeeded is " + STATUS_SUCCEEDED);
+        log.info("New succeeded is " + STATUS_SUCCEEDED);
       }
 
       tmp = retrieveIntParam("codingseg", params, true, true);
       if(tmp != null) {
         CODING_SEGMENT_ID = tmp.intValue();
-        Log.msg("New coding segment id is " + CODING_SEGMENT_ID);
+        log.info("New coding segment id is " + CODING_SEGMENT_ID);
       }
 
       tmp = retrieveIntParam("opened", params, true, true);
       if(tmp != null) {
         STATUS_OPENED = tmp.intValue();
-        Log.msg("New opened is " + STATUS_OPENED);
+        log.info("New opened is " + STATUS_OPENED);
       }
 
       tmp = retrieveIntParam("passsystest", params, true, true);
       if(tmp != null) {
         STATUS_PASSED_SYS_TEST = tmp.intValue();
-        Log.msg("New passsystest is " + STATUS_PASSED_SYS_TEST);
+        log.info("New passsystest is " + STATUS_PASSED_SYS_TEST);
       }
 
       tmp = retrieveIntParam("failsystest", params, true, true);
       if(tmp != null) {
         STATUS_FAILED_SYS_TEST = tmp.intValue();
-        Log.msg("New failsystest  is " + STATUS_FAILED_SYS_TEST);
+        log.info("New failsystest  is " + STATUS_FAILED_SYS_TEST);
       }
 
       tmp = retrieveIntParam("contestroom", params, true, true);
       if(tmp != null) {
         CONTEST_ROOM = tmp.intValue();
-        Log.msg("New contestroom id is " + CONTEST_ROOM);
+        log.info("New contestroom id is " + CONTEST_ROOM);
       }
 
       tmp = retrieveIntParam("roundlogtype", params, true, true);
       if(tmp != null) {
         ROUND_LOG_TYPE = tmp.intValue();
-        Log.msg("New roundlogtype is " + ROUND_LOG_TYPE);
+        log.info("New roundlogtype is " + ROUND_LOG_TYPE);
       }
 
       tmp = retrieveIntParam("challengenullified", params, true, true);
       if(tmp != null) {
         CHALLENGE_NULLIFIED = tmp.intValue();
-        Log.msg("New challengenullified id is " + CHALLENGE_NULLIFIED);
+        log.info("New challengenullified id is " + CHALLENGE_NULLIFIED);
       }
 
       tmpBool = retrieveBooleanParam("fullload", params, true);
       if(tmpBool != null) {
         FULL_LOAD = tmpBool.booleanValue();
-        Log.msg("New fullload flag is " + FULL_LOAD);
+        log.info("New fullload flag is " + FULL_LOAD);
       }
       
 
@@ -239,7 +243,7 @@ public class TCLoadRound extends TCLoad {
    */
   public boolean performLoad() {
     try {
-      Log.msg("Loading round: " + fRoundId);
+      log.info("Loading round: " + fRoundId);
 
       fStartTime = new java.sql.Timestamp(System.currentTimeMillis());
 
@@ -271,7 +275,7 @@ public class TCLoadRound extends TCLoad {
 
       setLastUpdateTime();
 
-      Log.msg("SUCCESS: Round " + fRoundId +
+      log.info("SUCCESS: Round " + fRoundId +
                          " load ran successfully.");
       return true;
     }
@@ -330,7 +334,7 @@ public class TCLoadRound extends TCLoad {
         if (((String)a.get(i)).indexOf('?') > -1)
           ps.setInt(1, fRoundId);
         count = ps.executeUpdate();
-        Log.msg("" + count + " rows: " + (String)a.get(i));
+        log.info("" + count + " rows: " + (String)a.get(i));
       }
     } catch(SQLException sqle) {
       DBMS.printSqlException(true, sqle);
@@ -537,7 +541,7 @@ public class TCLoadRound extends TCLoad {
         printLoadProgress(count, "rating");
       }
 
-      Log.msg("Rating records updated = " + count);
+      log.info("Rating records updated = " + count);
     }
     catch(SQLException sqle) {
       DBMS.printSqlException(true, sqle);
@@ -683,7 +687,7 @@ public class TCLoadRound extends TCLoad {
 	printLoadProgress(count, "problem_submission");
       }
 
-      Log.msg("Problem_submission records copied = " + count);
+      log.info("Problem_submission records copied = " + count);
     }
     catch (SQLException sqle) {
       DBMS.printSqlException(true, sqle);
@@ -768,7 +772,7 @@ public class TCLoadRound extends TCLoad {
 	printLoadProgress(count, "system_test_case");
       }
 
-      Log.msg("System_test_case records copied = " + count);
+      log.info("System_test_case records copied = " + count);
     }
     catch (SQLException sqle) {
       DBMS.printSqlException(true, sqle);
@@ -895,7 +899,7 @@ public class TCLoadRound extends TCLoad {
 	printLoadProgress(count, "system_test_result");
       }
 
-      Log.msg("System_test_result records copied = " + count);
+      log.info("System_test_result records copied = " + count);
     }
     catch (SQLException sqle) {
       DBMS.printSqlException(true, sqle);
@@ -1047,7 +1051,7 @@ public class TCLoadRound extends TCLoad {
 	printLoadProgress(count, "contest");
       }
 
-      Log.msg("Contest records copied = " + count);
+      log.info("Contest records copied = " + count);
     }
     catch (SQLException sqle) {
       DBMS.printSqlException(true, sqle);
@@ -1231,7 +1235,7 @@ public class TCLoadRound extends TCLoad {
 	printLoadProgress(count, "problem");
       }
 
-      Log.msg("Problem records copied = " + count);
+      log.info("Problem records copied = " + count);
     }
     catch (SQLException sqle) {
       DBMS.printSqlException(true, sqle);
@@ -1390,7 +1394,7 @@ public class TCLoadRound extends TCLoad {
 	printLoadProgress(count, "round");
       }
 
-      Log.msg("Round records copied = " + count);
+      log.info("Round records copied = " + count);
     }
     catch (SQLException sqle) {
       DBMS.printSqlException(true, sqle);
@@ -1566,7 +1570,7 @@ public class TCLoadRound extends TCLoad {
         printLoadProgress(count, "room");
       }
 
-      Log.msg("Room records copied = " + count);
+      log.info("Room records copied = " + count);
     }
     catch (SQLException sqle) {
       DBMS.printSqlException(true, sqle);
@@ -1820,7 +1824,7 @@ public class TCLoadRound extends TCLoad {
 	printLoadProgress(count, "room_result");
       }
 
-      Log.msg("Room_result records copied = " + count);
+      log.info("Room_result records copied = " + count);
     }
     catch (SQLException sqle) {
       DBMS.printSqlException(true, sqle);
@@ -2078,7 +2082,7 @@ public class TCLoadRound extends TCLoad {
 	printLoadProgress(count, "coder_problem");
       }
 
-      Log.msg("Coder_problem records copied = " + count);
+      log.info("Coder_problem records copied = " + count);
     }
     catch (SQLException sqle) {
       DBMS.printSqlException(true, sqle);
@@ -2204,7 +2208,7 @@ public class TCLoadRound extends TCLoad {
         printLoadProgress(count, "challenge");
       }
 
-      Log.msg("Challenge records copied = " + count);
+      log.info("Challenge records copied = " + count);
     }
     catch (SQLException sqle) {
       DBMS.printSqlException(true, sqle);

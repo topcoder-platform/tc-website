@@ -6,7 +6,7 @@ import java.lang.*;
 import java.io.*;
 
 import javax.naming.*;
-import org.apache.log4j.Category;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.*;
 import com.topcoder.shared.ejb.EmailServices.*;
 
@@ -24,6 +24,9 @@ import com.topcoder.shared.ejb.EmailServices.*;
  * @version  $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.1.2.1  2002/07/09 14:39:42  gpaul
+ *           no message
+ *
  *           Revision 1.1  2002/05/21 15:55:20  steveb
  *           SB
  *
@@ -79,7 +82,7 @@ public class EmailJobScheduler {
     private static boolean stopRequested = false;
     private static Thread waitThread = null;
 
-    private static Category trace = Category.getInstance( EmailJobScheduler.class.getName() );
+    private static Logger log = Logger.getLogger(EmailJobScheduler.class);
     
  /**
   * Main scheduler loop.  Cycles through, reading the profile, 
@@ -98,7 +101,7 @@ public class EmailJobScheduler {
                 String msg = "It appears that there is already a schedule service"
                         + " running. Please stop it before starting another.";
                 System.out.println(msg);
-                trace.error(msg);
+                log.error(msg);
                 return;
             }
             runScheduler();
@@ -164,7 +167,7 @@ public class EmailJobScheduler {
         stopRequested = false;
         waitThread = Thread.currentThread();
         StageQueue.start(maxWorkerThreads);
-        trace.info("Started EmailJobScheduler");
+        log.info("Started EmailJobScheduler");
     }
     
  /**
@@ -178,7 +181,7 @@ public class EmailJobScheduler {
         try { 
             resource = ResourceBundle.getBundle("Email");
         } catch (Exception e) {
-            trace.warn("Failed to find the Email resource file: " + e.getMessage());
+            log.warn("Failed to find the Email resource file: " + e.getMessage());
         }
         String newContextFactory = readConfig(resource, "context_factory", contextFactory);
         String newContextProvider = readConfig(resource, "context_provider", contextProvider);
@@ -193,14 +196,14 @@ public class EmailJobScheduler {
                     + " to a very long interval (~" 
                     + (newPollingInterval+18000)/36000 + " hours)";
             System.out.println(msg);
-            trace.warn(msg);
+            log.warn(msg);
         }
         if (newWorkerThreads < 1) newWorkerThreads = 1;
         if (newWorkerThreads > 1000 && newWorkerThreads != maxWorkerThreads) {
             String msg = "WARNING: max_worker_threads has been configured to"
                     + " a very large value (" + newWorkerThreads + ")";
             System.out.println(msg);
-            trace.warn(msg);
+            log.warn(msg);
         }
         if (newMaxEmailsPerSec < 1) newMaxEmailsPerSec = 1;
         
@@ -219,12 +222,12 @@ public class EmailJobScheduler {
             maxWorkerThreads = newWorkerThreads;
             pollingInterval_msec = newPollingInterval;
             maxEmailsPerSec = newMaxEmailsPerSec;
-            trace.debug("Email configuration updated.");
-            trace.debug("Email context_factory: " + contextFactory);
-            trace.debug("Email context_provider: " + contextProvider);
-            trace.debug("Email polling_interval_msec: " + pollingInterval_msec);
-            trace.debug("Email max_worker_threads: " + maxWorkerThreads);
-            trace.debug("Email max_emails_per_second_per_job: " + maxEmailsPerSec);
+            log.debug("Email configuration updated.");
+            log.debug("Email context_factory: " + contextFactory);
+            log.debug("Email context_provider: " + contextProvider);
+            log.debug("Email polling_interval_msec: " + pollingInterval_msec);
+            log.debug("Email max_worker_threads: " + maxWorkerThreads);
+            log.debug("Email max_emails_per_second_per_job: " + maxEmailsPerSec);
             startup();
         }
     }
@@ -284,7 +287,7 @@ public class EmailJobScheduler {
             for ( ; jobItr.hasNext(); ) {
                 int jobId = ((Integer)jobItr.next()).intValue();
                 email.setJobStatus(jobId, email.READY);
-                trace.debug("Changed job " + jobId + " status to Ready (was Active)");
+                log.debug("Changed job " + jobId + " status to Ready (was Active)");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -314,7 +317,7 @@ public class EmailJobScheduler {
             for ( ; !stopRequested && jobItr.hasNext(); ) {
                 // for each ready job that has expired, mark job as incomplete.
                 int jobId = ((Integer)jobItr.next()).intValue();
-                trace.debug("Marking as incomplete job " + jobId);
+                log.debug("Marking as incomplete job " + jobId);
                 email.setJobStatus(jobId, email.INCOMPLETE);
             }
 
@@ -323,7 +326,7 @@ public class EmailJobScheduler {
             for ( ; !stopRequested && jobItr.hasNext(); ) {
                 // for each ready job, create job task, mark job active and add to queue.
                 int jobId = ((Integer)jobItr.next()).intValue();
-                trace.debug("Preparing to queue job " + jobId);
+                log.debug("Preparing to queue job " + jobId);
                 email.setJobStatus(jobId, email.ACTIVE);
                 StageQueue.addTask(new SendEmailTask((Context)(ctx.lookup(new CompositeName())), jobId));
             }
@@ -339,7 +342,7 @@ public class EmailJobScheduler {
   * throughout the life-cycle of the scheduler.
   */
     public static void shutdown() {
-        trace.info("Shutting down EmailJobScheduler");
+        log.info("Shutting down EmailJobScheduler");
         if (waitThread == Thread.currentThread()) waitThread = null;
         StageQueue.stop();
     }

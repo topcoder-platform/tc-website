@@ -10,11 +10,14 @@ package com.topcoder.utilities.dwload;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.2  2002/05/24 19:28:10  gpaul
+ *           added some  code so that we can load just the stuff for the current round in the aggregate load
+ *
  *           Revision 1.1  2002/04/02 21:54:14  gpaul
  *           moving the load over from 153 cvs
  *
  *           Revision 1.1.2.4  2002/03/19 18:30:42  gpaul
- *           Log.msg instead of system.out.println
+ *           Log.debug instead of system.out.println
  *
  *           Revision 1.1.2.3  2002/03/18 20:42:17  gpaul
  *           print timestamp along with progress messsges
@@ -34,10 +37,11 @@ package com.topcoder.utilities.dwload;
  *****************************************************************************/
 import java.sql.*;
 import java.util.*;
-
-import com.topcoder.common.*;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
 
 public abstract class TCLoad {
+  private static Logger log = Logger.getLogger(TCLoad.class);
   protected String USAGE_MESSAGE = null;
 
   /**
@@ -205,7 +209,7 @@ public abstract class TCLoad {
       }
     }
     catch(SQLException sqle) {
-      Log.msg("Error closing ResultSet.");
+      log.error("Error closing ResultSet.");
       sqle.printStackTrace();
     }
   }
@@ -222,7 +226,7 @@ public abstract class TCLoad {
       }
     }
     catch(SQLException sqle) {
-      Log.msg("Error closing Statement.");
+      log.error("Error closing Statement.");
       sqle.printStackTrace();
     }
   }
@@ -253,7 +257,7 @@ public abstract class TCLoad {
     try {
       ps = conn.prepareStatement(sqlStr); 
     } catch (SQLException e) {
-      Log.msg("Error for query: \n" + sqlStr);
+      log.error("Error for query: \n" + sqlStr);
       throw e;
     }
     return ps;
@@ -338,7 +342,7 @@ public abstract class TCLoad {
 
   protected void printLoadProgress(int count, String table) {
     if(count % LOAD_PRINT_INTERVAL == 0) {
-      Log.msg("Loaded " + count + " rows for " + table + "...");
+      log.info("Loaded " + count + " rows for " + table + "...");
     }
   }
 
@@ -465,7 +469,7 @@ public abstract class TCLoad {
   {
     long start = System.currentTimeMillis();
     ResultSet rs = ps.executeQuery();
-    Log.msg("Time in "+ queryName + " query: " +
+    log.info("Time in "+ queryName + " query: " +
                        (System.currentTimeMillis() - start));
     return rs;
   }
