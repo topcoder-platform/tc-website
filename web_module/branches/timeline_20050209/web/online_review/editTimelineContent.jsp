@@ -55,12 +55,6 @@
 <bean:define id="theProject" name="projectForm" property="project" type="com.topcoder.apps.review.projecttracker.Project" />
             <table border="0" cellpadding="0" cellspacing="1" width="100%">
 
-<logic:equal name="projectForm" property="timelineValid" value="false">
-                <tr>
-                    <td colspan="<%=theProject.getTimeline().length+1%>" width="100%" class="errorText">
-                        <html:errors property='timeline' /></td>
-                </tr>
-</logic:equal>
                 <tr>
                     <td colspan="<%=theProject.getTimeline().length+1%>" class="forumTextEven"><strong><bean:message key="prompt.timeline" /></strong></td>
                 </tr>
@@ -70,13 +64,6 @@
 
 <td>
 <table border="0" cellpadding="0" cellspacing="1" class="forumBkgd"  width="100%">
-<logic:equal name="projectForm" property="timelineValid" value="false">
-                <tr>
-                    <td colspan="<%=theProject.getTimeline().length+1%>" width="100%" class="errorText">
-                        <html:errors property='timeline' /></td>
-                </tr>
-</logic:equal>
-
     <tr valign="top">
 	<td class="forumTitleCenter"><img src="images/clear.gif" alt="" width="1" height="1" border="0"></td>
 	<td class="forumTitleCenter" width="8%">
@@ -85,10 +72,10 @@
 	<td class="forumTitleCenter" width="8%">
 	    End
 	</td>
-	<td class="forumTitleCenter" width="55%">
+	<td class="forumTitleCenter" width="59%">
 	    Edit Start
 	</td>
-	<td class="forumTitleCenter"width="14%">
+	<td class="forumTitleCenter"width="10%">
 	    Edit Duration
 	</td>
     </tr>
@@ -131,7 +118,7 @@
 
 		    </td>
                     <td class="forumTextCenterOdd">
-                          <html:text property='<%="phaseLength["+pIdx+"]"%>' size="2" />
+                          <html:text property='<%="phaseLength["+pIdx+"]"%>' size="4" />
                     </td>
                         
                 </tr>

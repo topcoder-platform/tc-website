@@ -118,11 +118,6 @@ private Log log = null;
     private ProjectStatus terminatedStatus = null;
 
     /**
-     * Whether the timeline is valid.
-     */
-    private boolean timelineValid = true;
-
-    /**
      * Whether the reason is valid.
      */
     private boolean reasonValid = true;
@@ -684,15 +679,6 @@ private Log log = null;
     }
 
     /**
-     * Return whether the timeline is valid.
-     *
-     * @return whether the timeline is valid.
-     */
-    public boolean getTimelineValid() {
-        return timelineValid;
-    }
-
-    /**
      * Return whether the participants is valid.
      *
      * @param index The index of participant.
@@ -1039,7 +1025,6 @@ log(Level.INFO, "checkProjectData="+checkProjectData);
 
 
         if (checkTimeline)  {
-            timelineValid = true;
 
             for (int i = 0; i < project.getTimeline().length; i++) {
                 if (!adjustStartDates[i]) {
@@ -1049,7 +1034,7 @@ log(Level.INFO, "checkProjectData="+checkProjectData);
                         errors.add("phase[" + i + "]",
                                 new ActionError("error.format", "Error in the start date"));
                         phaseValid[i] = false;
-                        timelineValid = false;
+                        setValid(false);
                     }
                 }
                 //FIX: check time
@@ -1058,13 +1043,8 @@ log(Level.INFO, "checkProjectData="+checkProjectData);
                     errors.add("phase[" + i + "]",
                                new ActionError("error.format", "Error in the phase duration"));
                     phaseValid[i] = false;
+                    setValid(false);
                 }
-
-            }
-
-
-            if (!timelineValid) {
-                setValid(false);
             }
         }
 
