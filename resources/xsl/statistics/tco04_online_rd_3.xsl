@@ -22,7 +22,7 @@
 
 <xsl:call-template name="Preload"/>
 
-<title>TCO04 Online Round 2 Statistics at TopCoder</title>
+<title>TCO04 Online Round 3 Statistics at TopCoder</title>
 
 <xsl:call-template name="CSS"/>
 
@@ -71,330 +71,249 @@ function openWin(url, name, w, h) {
 <!--body contextual links-->
                         <table width="100%" border="0" cellspacing="0" cellpadding="3">
                             <tr valign="middle">
-                                <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">TCO04 Online Round 2 Problem Set</font></td>
+                                <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">TCO04 Online Round 3 Problem Set</font></td>
                                 <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
                             </tr>
 
                             <tr valign="middle">
-                                <td class="bodyText">September 14, 2004</td>
+                                <td class="bodyText">September 22, 2004</td>
                                 <td class="bodyText" align="right"><a href="mailto:editorial@topcoder.com">Comments / Ideas?</a></td>
                             </tr>
                         </table>
 <!--end contextual links-->
 
-	<h2>Match summary</h2> 
+<h2>Match summary</h2>
 
-	<p> 
-	Round two seemed very tricky for most coders, dispite the low
-	point values for the easy and hard problems.  In fact, 9 red
-	coders were eliminated, 6 of them scoring 0 points or less.  Most
-	people believed that the low scored easy and hard were undervalued.
-	It's often difficult to determine the value for greedy problems because
-	you don't know how fast a coder can prove to his- or herself that the
-	greedy algorithm works.  A tough but mostly standard level 2 problem
-	was the only salvation for a few coders who were fooled by the greedy
-	problems.
-	</p> 
+<p>
+With an average rating of about 2317, the competitors in round 3 of the TCO were
+some of the finest coders in the world.  However, only 50 of them could advance,
+which meant that even some of these fine coders had to be eliminated.  Among the
+titans to fall were notables radeye, WishingBone, and LunaticFringe.  On the
+other end of the spectrum, dmytro, the lowest rated coder in the competition
+beat the odds and moved one step away from the onsite rounds.  While there were
+a few surprises, no one was too shocked when John Dethridge took first by over
+60 points, and snewman was over 100 points ahead of third place coder, ambrose.
+</p>
 
-	<p>
-	<b>haha</b> was the star of this round, scoring slightly less than
-	<b>SnapDragon</b> in points, but taking the lead with two challenges.
-	Heavyweights <b>radeye</b>, <b>snewman</b> and <b>tomek</b> rounded out
-	the top 5.  Incidently, <b>Rustyoldman</b> was the only coder ranked
-	below yellow who made the cut, but he changed colors in the process.
-	</p>
+<p>
+<H1>
+The Problems
+</H1>
+</p>
 
-	<p>
-	<H1> 
-	    The Problems 
-	</H1>
-	</p> 
+<font size="+2">
+<b><a href="/stat?c=problem_statement&amp;pm=2977&amp;rd=5880"
+name="2977">Boxing</a></b>
+</font>
+<A href="Javascript:openProblemRating(2977)"><img hspace="10" border="0"
+height="18" width="60" src="/i/rate_it.gif"/></A><br/>
+Used as: Division One - Level One: <blockquote><table cellspacing="2">
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Value</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      250
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Submission Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      97 / 100 (97.00%)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Success Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      68 / 97 (70.10%)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>High Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      <b>reid</b> for 233.81 points (7 mins 34 secs)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Average Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      174.99 (for 68 correct submissions)
+    </td>
+  </tr>
+</table></blockquote>
 
-	<font size="+2"> 
-	    <b><a href="/stat?c=problem_statement&amp;pm=1119&amp;rd=5879" name="1119">SchoolAssembly</a></b> 
-	</font> 
-	<A href="Javascript:openProblemRating(1119)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/> 
-	Used as: Division One - Level One: <blockquote><table cellspacing="2"> 
-		<tr> 
-		    <td class="bodyText" style="background: #eee;"> 
-			<b>Value</b> 
-		    </td> 
-		    <td class="bodyText" style="background: #eee;"> 
-			200 
-		    </td> 
-		</tr> 
-		<tr> 
-		    <td class="bodyText" style="background: #eee;"> 
-			<b>Submission Rate</b> 
-		    </td> 
-		    <td class="bodyText" style="background: #eee;"> 
-			154 / 184 (83.70%) 
-		    </td> 
-		</tr> 
-		<tr> 
-		    <td class="bodyText" style="background: #eee;"> 
-			<b>Success Rate</b> 
-		    </td> 
-		    <td class="bodyText" style="background: #eee;"> 
-			88 / 154 (57.14%) 
-		    </td> 
-		</tr> 
-		<tr> 
-		    <td class="bodyText" style="background: #eee;"> 
-			<b>High Score</b> 
-		    </td> 
-		    <td class="bodyText" style="background: #eee;"> 
-			<b>indigo9</b> for 198.52 points (2 mins 27 secs) 
-		    </td> 
-		</tr> 
-		<tr> 
-		    <td class="bodyText" style="background: #eee;"> 
-			<b>Average Score</b> 
-		    </td> 
-		    <td class="bodyText" style="background: #eee;"> 
-			165.25 (for 88 correct submissions) 
-		    </td> 
-		</tr> 
-	</table></blockquote> 
+<p>
+This problem can be solved with a greedy algorithm.  First, find the earliest
+interval less than or equal to 1 second that contains 3 judges scoring a hit.
+Next, remove all hits that occur during that interval or before it, and repeat.
+This works because if you can get N hits by time t, that is always better than
+getting N hits by time t+1.  The details of how you do this vary, but all of the
+algorithms I saw boiled down to this approach.
+</p>
 
-	<p>
-	Usually easy problems don't make you think much, but this one
-	was an exception.  Here we are looking for the maximum number
-	of bags we have to buy.  Clearly we can't use brute force to
-	find the worst case,  as there are way too many combinations.
-	In one bag alone, there are 10,626 possible combinations of
-	colors.  Figuring this out for thousands of bags would be
-	undoable in the allotted time.
-	</p>
+<font size="+2">
+<b><a href="/stat?c=problem_statement&amp;pm=2959&amp;rd=5880"
+name="2959">Volleyball</a></b>
+</font>
+<A href="Javascript:openProblemRating(2959)"><img hspace="10" border="0"
+height="18" width="60" src="/i/rate_it.gif"/></A><br/>
+Used as: Division One - Level Two: <blockquote><table cellspacing="2">
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Value</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      500
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Submission Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      73 / 100 (73.00%)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Success Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      57 / 73 (78.08%)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>High Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      <b>SnapDragon</b> for 486.15 points (4 mins 49 secs)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Average Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      321.72 (for 57 correct submissions)
+    </td>
+  </tr>
+</table></blockquote>
 
-	<p>
-	However, for this problem, we are only interested in the very
-	worst possibility.  To solve it, imagine we have 5 buckets, each
-	representing a color.  We'll add beans to buckets one bean at a time.
-	When the bucket has <i>quantity</i> beans in it, it is emptied, and the
-	number of sets is incremented by one.  Each bucket represents beans of
-	a certain color that aren't part of a set.  To maximize the beans
-	placed into buckets, we want to fill each bucket with <i>quantity</i>-1
-	beans.  At that point, no matter what color bean is next, a set is
-	formed.  After the set is formed, the bucket is emptied.  To ensure the
-	worst case, the next <i>quantity</i>-1 beans should go into the empty
-	bucket.  Any other color, and another set is formed early.
-	</p>
+<p>
+There were a couple of ways to do this one.  The most common approach was to use
+memoized recursion.  You want to fill in a 2D table, memo, such that memo[i][j]
+is the probability that a serving team with i points will beat a non-serving
+team with j points.  Then, you just write the standard recursive memoization
+function:
+<pre>
+double win(int server, int nonserver){
+    if(memo[server][nonserver] != -1)return memo[server][nonserver];
+    if(server&gt;=15 &amp;&amp; server &gt;= nonserver + 2)return 1;
+    if(nonserver&gt;=15 &amp;&amp; nonserver &gt;= server + 2)return 0;
+    double ret = 0;
+    ret = p*win(server+1,nonserver) + (1-p)*(1-win(nonserver+1,server));
+    memo[server][nonserver] = ret;
+    return ret;
+}
+</pre>
+The question, however, is how far we recurse before we give up and call it
+quits.  Since the probability is between 0.01 and 0.99, we're safe quitting when
+one team gets to 1000 points.  Even when the probability is 0.01, the game is
+sufficiently unlikely to get up to 1000 points that we can just return 0 or 1
+if it does.<br/><br/>
+An alternative approach is to handle tie games where the score is greater than
+15 with a closed form solution (and deal with the rest of the game as above).  I
+won't work out all the algebra here, but if you churn through it, you end up
+with a probability of <tt>1/(3-2*probWinServe)</tt> that the serving team will
+win a tie game.  Were the constraints less generous, the recursive approach
+would not have been precise enough.
+</p>
 
-	<p>
-	This greedy algorithm should be enough to code a solution which
-	runs fast enough.  However, there is a constant time solution
-	which uses the fact that the last state of the buckets is that
-	4 of them are full of <i>quantity</i>-1 beans.  Therefore, the final number
-	of beans required is:<br/>
-	<pre>quantity * children + (quantity-1) * 4</pre>
-	</p>
+<font size="+2">
+<b><a href="/stat?c=problem_statement&amp;pm=926&amp;rd=5880"
+name="926">LawnMower</a></b>
+</font>
+<A href="Javascript:openProblemRating(926)"><img hspace="10" border="0"
+height="18" width="60" src="/i/rate_it.gif"/></A><br/>
+Used as: Division One - Level Three: <blockquote><table cellspacing="2">
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Value</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      1000
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Submission Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      16 / 100 (16.00%)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Success Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      10 / 16 (62.50%)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>High Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      <b>ZorbaTHut</b> for 654.09 points (23 mins 26 secs)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Average Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      512.92 (for 10 correct submissions)
+    </td>
+  </tr>
+</table></blockquote>
 
-	<p>
-	In all cases, we need to round up this to a multiple of 20,
-	since even if we need only one bean, we need to buy a whole
-	bag.  Therefore, the final formula is:<br/>
-	<pre>(quantity * children + (quantity - 1) * 4 + 19) / 20</pre>
-	</p>
-
-	<font size="+2"> 
-	    <b><a href="/stat?c=problem_statement&amp;pm=2364&amp;rd=5879" name="2364">LinePlotter</a></b> 
-	</font> 
-	<A href="Javascript:openProblemRating(2364)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/> 
-	Used as: Division One - Level Two: <blockquote><table cellspacing="2"> 
-		<tr> 
-		    <td class="bodyText" style="background: #eee;"> 
-			<b>Value</b> 
-		    </td> 
-		    <td class="bodyText" style="background: #eee;"> 
-			600 
-		    </td> 
-		</tr> 
-		<tr> 
-		    <td class="bodyText" style="background: #eee;"> 
-			<b>Submission Rate</b> 
-		    </td> 
-		    <td class="bodyText" style="background: #eee;"> 
-			74 / 184 (40.22%) 
-		    </td> 
-		</tr> 
-		<tr> 
-		    <td class="bodyText" style="background: #eee;"> 
-			<b>Success Rate</b> 
-		    </td> 
-		    <td class="bodyText" style="background: #eee;"> 
-			64 / 74 (86.49%) 
-		    </td> 
-		</tr> 
-		<tr> 
-		    <td class="bodyText" style="background: #eee;"> 
-			<b>High Score</b> 
-		    </td> 
-		    <td class="bodyText" style="background: #eee;"> 
-			<b>Yarin</b> for 543.99 points (9 mins 18 secs) 
-		    </td> 
-		</tr> 
-		<tr> 
-		    <td class="bodyText" style="background: #eee;"> 
-			<b>Average Score</b> 
-		    </td> 
-		    <td class="bodyText" style="background: #eee;"> 
-			365.74 (for 64 correct submissions) 
-		    </td> 
-		</tr> 
-	</table></blockquote> 
-
-	<p>
-	Many knowlegable coders will recognize this as the infamous
-	traveling salesman problem.  Many people know that this problem
-	is NP-complete, but with the number of locations limited to 15,
-	a O(2<sup>n</sup>) solution will run in time.
-	</p>
-
-	<p>
-	The first thing to note is that the time to move the pen is not
-	the cartesian distance, but rather the maximum of the x and y
-	distances.  This is because both motors can run simultaneously.
-	</p>
-
-	<p>
-	To solve the graph problem, We'll use recursion with
-	memoization of 2<sup>n</sup> * n states.  Part of the state
-	will be a bitmask representing which lines have been drawn, and
-	the other part will be which line endpoint the pen is located
-	at.  The recursive function will return the minimum time needed
-	to draw the rest of the lines.
-	</p>
-
-	<p>
-	For each run of the recursive problem, we try drawing each
-	undrawn line starting from either endpoint.  The new state is
-	that the pen is on the other side of the line just drawn, and
-	the bitmask has a bit added for the line just drawn.  We add on
-	the time it takes to move the pen to the endpoint, and then to
-	move the pen (while drawing) to the other endpoint.  By
-	memoizing on the state, we can reduce the runtime to
-	O(2<sup>n</sup> * n).
-	</p>
+<p>
+The first part to a solution for this problem is to iterate over all possible
+placements of the shed.  With a yard no bigger than 12x12, there aren't that
+many ways to place it.  Next, once you have the shed placed, how many spots can
+you reach and still put the mower back in the shed?  The key to figuring this
+out is to first observe that you may go through the shed as many times as you
+like while mowing the lawn.  So, if you can reach a spot, and then get the mower
+back in the shed the same way it started, you can mow that spot regardless of
+which other spots you mow.  Furthermore, if you can't reach a spot and get the
+mower back in the shed afterwards, there is no way to mow it.<br/><br/>
+To figure out which spots we can reach and then return to the shed, we simply
+run two depth first searches.  On the first pass, you mark all of the spot,
+direction pairs which are reachable going forward from the shed.  On the second
+pass, you mark all the spot, direction pairs which are reachable going backwards
+from the shed.  If a spot and direction is reachable going both forwards and
+backwards, then you know that you can get to it, and then back to the shed.
+Since you can go in both directions with a single method, the implementation is
+surprisingly easy, if only you can quickly figure out how to do it.</p>
 
 
-	<font size="+2"> 
-	    <b><a href="/stat?c=problem_statement&amp;pm=2236&amp;rd=5879" name="2236">MLBRecord</a></b> 
-	</font> 
-	<A href="Javascript:openProblemRating(2236)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/> 
-	Used as: Division One - Level Three: <blockquote><table cellspacing="2"> 
-		<tr> 
-		    <td class="bodyText" style="background: #eee;"> 
-			<b>Value</b> 
-		    </td> 
-		    <td class="bodyText" style="background: #eee;"> 
-			900 
-		    </td> 
-		</tr> 
-		<tr> 
-		    <td class="bodyText" style="background: #eee;"> 
-			<b>Submission Rate</b> 
-		    </td> 
-		    <td class="bodyText" style="background: #eee;"> 
-			46 / 184 (25.00%) 
-		    </td> 
-		</tr> 
-		<tr> 
-		    <td class="bodyText" style="background: #eee;"> 
-			<b>Success Rate</b> 
-		    </td> 
-		    <td class="bodyText" style="background: #eee;"> 
-			16 / 46 (34.78%) 
-		    </td> 
-		</tr> 
-		<tr> 
-		    <td class="bodyText" style="background: #eee;"> 
-			<b>High Score</b> 
-		    </td> 
-		    <td class="bodyText" style="background: #eee;"> 
-			<b>haha</b> for 637.39 points (20 mins 3 secs) 
-		    </td> 
-		</tr> 
-		<tr> 
-		    <td class="bodyText" style="background: #eee;"> 
-			<b>Average Score</b> 
-		    </td> 
-		    <td class="bodyText" style="background: #eee;"> 
-			465.11 (for 16 correct submissions) 
-		    </td> 
-		</tr> 
-	</table></blockquote> 
 
-	<p>
-	It's that time of the year again!  Baseball is one of America's
-	greatest games, and the race for the playoffs is generally very
-	tense.  In this problem, we are trying to see if we can stop
-	the worrying, and see if our team is out or in.
-	</p>
 
-	<p>
-	This problem seems at first like it could be solved with
-	maximum flow, but in the end, it turns out to have a very easy
-	greedy solution.  You perform two checks on the team.  If it
-	wins all its remaining games, is it still forced out of the
-	playoffs, and if it loses all its remaining games, is it still
-	in the playoffs.
-	</p>
-
-	<p>
-	One of the other issues is to make sure the wins acheived in
-	the rest of the season are consistent with the number of games
-	played.  We know that each team will play <i>gamesLeft</i>
-	games.  Each game is played by two teams, so the number of
-	games left to be played by all the teams are <i>gamesLeft</i> *
-	<i>numTeams</i> / 2.  The constraints guarantee that this is a whole
-	number.  As it turns out, because of the way the constraints
-	are, we don't have to keep track of which team plays who.  We
-	just assign wins to whichever team we want.  All we have to do
-	is to make sure no team gets more than <i>gamesLeft</i> wins
-	added to their record, and that the total number of wins added
-	equals <i>gamesLeft</i> * <i>numTeams</i> / 2.
-	</p>
-
-	<p>
-	So keeping this in mind, to answer the first question, we
-	assign <i>gamesLeft</i> wins to the team in question.  Then we
-	want to assign wins to the other teams, trying to keep our team
-	from being eliminated.  If there is no possible way to do this,
-	the team is eliminated.  To keep the team at the same rank, we
-	first can assign <i>gamesLeft</i> wins to all the teams that
-	rank higher than it.  If there are any games left, we should
-	first assign wins to teams lower than it, but only enough to
-	make those teams tie the target team.  If we still have wins
-	left to assign, we must assign those wins to the tied teams,
-	but here, it is important to assign wins to teams which have
-	more games left to play, as we can use up more wins on those
-	teams without changing the rank.  If all this is done
-	correctly, and the team still isn't in the top N ranking teams,
-	it has been eliminated.
-	</p>
-
-	<p>
-	A similar procedure is followed for the question of clinching.
-	However, this procedure is a little simpler.  We want to see if
-	it is possible for a team to not make it into the playoffs.  We
-	still have the same constraints on the total wins assigned.
-	Assigning wins to higher ranking teams doesn't help, since
-	those teams cannot push our team out, so we assign wins to
-	teams who are lower ranking until they have enough wins to just
-	tie our team.  We choose the team to assign the wins to based
-	on how close it is to our team's record.  The closer ones are
-	chosen first because they use up fewer wins to tie our team.
-	At the end, if the set of tied teams is not all in the
-	playoffs, then the team cannot clinch.  If our team and all the
-	teams tied with it are in the playoffs, then the team has
-	clinched.
-	</p>
 
 
                         <p>
-                        <img src="/i/m/schveiguy_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=273217"><strong>schveiguy</strong></a><br />
+                        <img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=159052"><strong>lbackstrom</strong></a><br />
                         <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
                         </p>
                     </td>
