@@ -70,7 +70,8 @@
                     <td width="99%" class="bodyText">
                         <p>                        
                         <a class="bodyText" href="/stat?c=member_profile&amp;cr=273217"><strong>schveiguy</strong></a><span class="smallText"></span>
-                        graduated with a Bachelors degree in Computer Science from Worcester Polytechnic 
+                        graduated with a Bachelors degree in Computer Science from Worcester Polytechnic Institute 
+                        and currently works as a Senior Software Developer at Network Engines in Canton, Massachusetts.
                      </td>
                 </tr>
             </table>
