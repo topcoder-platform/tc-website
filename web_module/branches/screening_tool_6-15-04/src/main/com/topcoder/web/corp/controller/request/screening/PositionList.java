@@ -52,7 +52,7 @@ public class PositionList extends BaseScreeningProcessor {
         TCRequest request = getRequest();
 
         // Check if the campaign ID had been provided with request
-        String campaignId = (String) request.getAttribute(Constants.CAMPAIGN_ID);
+        String campaignId = request.getParameter(Constants.CAMPAIGN_ID);
         if (campaignId == null) {
             // notify the user about the error
             log.error("Campaign ID is not specified.");
