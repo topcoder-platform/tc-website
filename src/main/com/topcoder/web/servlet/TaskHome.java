@@ -82,13 +82,21 @@ public final class TaskHome {
                 CoderStatisticsHome home = (CoderStatisticsHome) ctx.lookup(ApplicationServer.CODER_STATISTICS);
                 CoderStatistics temp = home.create();
                 if (nav.getLoggedIn()) {
+
+                    dataRequest = new Request();
+                    dataRequest.setContentHandle("coder_earnings");
+                    dataRequest.setProperty("cr", String.valueOf(nav.getUserId()));
+                    resultMap = dai.getData(dataRequest);
+                    rsc = (ResultSetContainer) resultMap.get("Coder_Earnings");
+                    homeTag.addTag(rsc.getTag("Coder", "Coder"));
+
+                    /*
                     com.topcoder.common.web.data.stat.coder.Coder c = temp.getCoderEarnings(nav.getUser().getUserId());
                     if (c != null)
                         homeTag.addTag(c.getXML());
                     else
                         homeTag.addTag(new com.topcoder.common.web.data.stat.coder.Coder().getXML());
 
-                    /*
                     ArrayList a = temp.getLastCoderComps(nav.getUser().getUserId(), 3);
                     RecordTag rt = new RecordTag("Last3Comps");
                     for (int i = 0; i < a.size(); i++) {
@@ -99,11 +107,8 @@ public final class TaskHome {
                     dataRequest = new Request();
                     dataRequest.setContentHandle("most_recent_coder_comps");
                     dataRequest.setProperty("cr", String.valueOf(nav.getUserId()));
-                    dataRequest.setProperty("sr", "1");
-                    dataRequest.setProperty("er", "3");
                     resultMap = dai.getData(dataRequest);
                     rsc = (ResultSetContainer) resultMap.get("Most_Recent_Coder_Comps");
-
                     homeTag.addTag(rsc.getTag("Last3Comps", "RoomResult"));
 
                     dataRequest = new Request();
