@@ -160,9 +160,14 @@
             <% } %>
 <%-- Statistics ends --%>
 
-<%-- Features begins --%>
-                <tr><td id="<%=level1.equals("features")?"leftNavOn":"leftNav"%>"><a href="/?&t=features&c=index" class="<%=level1.equals("features")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("features")?"bottom":"right"%>.gif" border="0"/>Features</a></td></tr>
-<%-- Features ends --%>
+<%-- Educational Content begins --%>
+                <tr><td id="<%=level1.equals("education")?"leftNavOn":"leftNav"%>"><a href="/?&t=tournaments&c=tourny_index" class="<%=level1.equals("education")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("education")?"bottom":"right"%>.gif" border="0"/>Educational Content</a></td></tr>
+
+            <% if (level1.equals("education")) { %>
+                <tr><td id="<%=level2.equals("alg_tutorials")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=tutorials&d2=index">Algorithm Tutorials</A></td></tr>
+                <tr><td id="<%=level2.equals("features")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?&t=features&c=index">Features</A></td></tr>
+                <tr><td id="<%=level2.equals("tutor_transcripts")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=tutor_transcripts&d2=index">Tutor Transcripts</A></td></tr>
+            <% } %>
 
 <%-- Events begins --%>
                 <tr><td id="<%=level1.equals("events")?"leftNavOn":"leftNav"%>"><a href="/?&t=tournaments&c=tourny_index" class="<%=level1.equals("events")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("events")?"bottom":"right"%>.gif" border="0"/>Events</a></td></tr>
