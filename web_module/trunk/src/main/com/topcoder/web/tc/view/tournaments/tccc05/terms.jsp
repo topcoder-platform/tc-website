@@ -9,7 +9,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>2004 TopCoder Open - Computer Programming Tournament</title>
+<title>2005 TopCoder Collegiate Challenge - Computer Programming Tournament</title>
 <jsp:include page="../../script.jsp" />
 <link type="text/css" rel="stylesheet" href="/css/TCCC05style.css"/>
 </head>
@@ -34,7 +34,7 @@
 
 			<p align="center"><textarea name="terms" rows="20" cols="60" readonly wrap="off"><%=request.getAttribute("terms")%></textarea></p>
 
-			<p align="center"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=<%=agreeProcessor%>">I agree</a> to these terms and wish to participate in the 2004 TopCoder Open.
+			<p align="center"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=<%=agreeProcessor%>">I agree</a> to these terms and wish to participate in the 2005 TopCoder Collegiate Challenge.
 
 			</div>
 		</td>
