@@ -22,11 +22,12 @@ import java.util.ArrayList;
  * @author  rfairfax
  */
 public class AutoPilot {
+    public static final long ADMINISTRATOR_ID = 100129;
 
     public static ResultData finalReviewEmail(FinalReviewData data) {
         try {
             //setup user info
-            TCSubject subject = new TCSubject(100129);
+            TCSubject subject = new TCSubject(ADMINISTRATOR_ID);
             subject.addPrincipal(new RolePrincipal("Administrator", 1));
 
             UserManagerLocal userManager = EJBHelper.getUserManager();
@@ -76,7 +77,7 @@ public class AutoPilot {
     public static ResultData finalReviewFailed(FinalReviewData data, int notFixedItems, String comment) {
         try {
             //setup user info
-            TCSubject subject = new TCSubject(100129);
+            TCSubject subject = new TCSubject(ADMINISTRATOR_ID);
             subject.addPrincipal(new RolePrincipal("Administrator", 1));
 
             UserManagerLocal userManager = EJBHelper.getUserManager();
@@ -141,7 +142,7 @@ public class AutoPilot {
     public static ResultData finalFixes(SolutionData data) {
         try {
             //setup user info
-            TCSubject subject = new TCSubject(100129);
+            TCSubject subject = new TCSubject(ADMINISTRATOR_ID);
             subject.addPrincipal(new RolePrincipal("Administrator", 1));
 
             UserManagerLocal userManager = EJBHelper.getUserManager();
@@ -195,7 +196,7 @@ public class AutoPilot {
     public static ResultData aggregationReview(AggregationReviewData data) {
         try {
             //setup user info
-            TCSubject subject = new TCSubject(100129);
+            TCSubject subject = new TCSubject(ADMINISTRATOR_ID);
             subject.addPrincipal(new RolePrincipal("Administrator", 1));
 
             UserManagerLocal userManager = EJBHelper.getUserManager();
@@ -264,7 +265,7 @@ public class AutoPilot {
     public static ResultData aggregation(AggregationData data) {
         try {
             //setup user info
-            TCSubject subject = new TCSubject(100129);
+            TCSubject subject = new TCSubject(ADMINISTRATOR_ID);
             subject.addPrincipal(new RolePrincipal("Administrator", 1));
 
             UserManagerLocal userManager = EJBHelper.getUserManager();
@@ -320,7 +321,7 @@ public class AutoPilot {
     public static ResultData appeal(AppealData data) {
         try {
             //setup user info
-            TCSubject subject = new TCSubject(100129);
+            TCSubject subject = new TCSubject(ADMINISTRATOR_ID);
             subject.addPrincipal(new RolePrincipal("Administrator", 1));
 
             UserManagerLocal userManager = EJBHelper.getUserManager();
@@ -387,7 +388,7 @@ public class AutoPilot {
     public static ResultData reviewPMReview(ProjectData data) {
         try {
             //setup user info
-            TCSubject subject = new TCSubject(100129);
+            TCSubject subject = new TCSubject(ADMINISTRATOR_ID);
             subject.addPrincipal(new RolePrincipal("Administrator", 1));
 
             UserManagerLocal userManager = EJBHelper.getUserManager();
@@ -480,7 +481,7 @@ public class AutoPilot {
 
     public static ResultData screeningPMReview(ProjectData data) {
         try {
-            TCSubject subject = new TCSubject(100129);
+            TCSubject subject = new TCSubject(ADMINISTRATOR_ID);
             subject.addPrincipal(new RolePrincipal("Administrator", 1));
 
             UserManagerLocal userManager = EJBHelper.getUserManager();
@@ -578,7 +579,7 @@ public class AutoPilot {
     public static ResultData screeningEmail(ScreeningData data) {
         try {
             //setup user info
-            TCSubject subject = new TCSubject(100129);
+            TCSubject subject = new TCSubject(ADMINISTRATOR_ID);
             subject.addPrincipal(new RolePrincipal("Administrator", 1));
 
             UserManagerLocal userManager = EJBHelper.getUserManager();
@@ -663,7 +664,7 @@ public class AutoPilot {
     public static ResultData reviewEmail(ReviewData data) {
         try {
             //setup user info
-            TCSubject subject = new TCSubject(100129);
+            TCSubject subject = new TCSubject(ADMINISTRATOR_ID);
             subject.addPrincipal(new RolePrincipal("Administrator", 1));
 
             UserManagerLocal userManager = EJBHelper.getUserManager();

@@ -672,8 +672,9 @@ public class ProjectAdministration implements Model {
                                 && !rev.equals(newProject.getWinner())) {
                         LogHelper.log("Not sending mail to submitter " + rev.getHandle()
                                     + " because the phase is past review and he is not a winner");
-                    // do not send mails to "fake" submitters
-                    } else if (!RoleHelper.isFakeSubmitter(rev, newProject, user)) {
+                    // do not send mails to "fake" submitters, or to the autopilot user
+                    } else if (!RoleHelper.isFakeSubmitter(rev, newProject, user)
+                               && user.getId() != AutoPilot.ADMINISTRATOR_ID) {
                         mailQueue.add(new ProjectChangeMail(
                                       user, rev, oldProject, newProject, projectData.getReason(), changeType));
                     }
