@@ -159,7 +159,7 @@
                     </td>
 
                     <td class='<%=cssClasses[counter % 2]%>'>
-                        <%=row.getStringItem("state_code") == null ? row.getStringItem("province") : row.getStringItem("state_code")%>
+                        <%=row.getStringItem("state_code").trim().length() == 0 ? row.getStringItem("province") : row.getStringItem("state_code")%>
                     </td>
 
                     <td class='<%=cssClasses[counter % 2]%>' nowrap=nowrap>

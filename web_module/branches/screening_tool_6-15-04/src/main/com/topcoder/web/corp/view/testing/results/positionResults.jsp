@@ -1,5 +1,6 @@
 <%@ page import="java.util.List,com.topcoder.web.corp.common.Constants,
-                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 com.topcoder.web.corp.common.JSPUtils"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -42,12 +43,24 @@ if ( plugin ) {
 
 <!-- Sort the list of results by desired column if required -->
 <%
+    ResultSetContainer results = (ResultSetContainer) request.getAttribute(Constants.POSITION_RESULTS_LIST);
     String sortBy = request.getParameter(Constants.SORT_BY);
     if (sortBy != null) {
-        ResultSetContainer results = (ResultSetContainer) request.getAttribute(Constants.POSITION_RESULTS_LIST);
         if (results != null) {
             results.sortByColumn(sortBy, true);
         }
+    }
+
+    int startIndex = 0;
+
+    try {
+        startIndex = Integer.parseInt(request.getParameter(Constants.PAGE_START_INDEX));
+    } catch(Exception e) {
+        startIndex = 0;
+    }
+
+    if (startIndex >= results.size() || startIndex < 0) {
+        startIndex = 0;
     }
 %>
 
@@ -64,13 +77,14 @@ if ( plugin ) {
             <table border="0" cellspacing="0" cellpadding="0" width="600">
                 <tr valign="top">
                     <td class="bodyText">
+                        <%
+                            List info = (List) request.getAttribute(Constants.POSITION_INFO);
+                            ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) info.get(0);
+                        %>
                         <p><span class=testHead>Position Results</span><br/>
-                        <screen:resultSetRowIterator id="row"
-                                list="<%=(List) request.getAttribute(Constants.POSITION_INFO)%>">
-                        Company Name: <screen:resultSetItem row="<%=row%>" name="company_name" /><br/>
-                        Campaign Name: <screen:resultSetItem row="<%=row%>" name="campaign_name" /><br/>
-                        Position Name: <screen:resultSetItem row="<%=row%>" name="job_desc" /><br/>
-                        </screen:resultSetRowIterator>
+                        Company Name: <%=row.getStringItem("company_name")%><br/>
+                        Campaign Name: <%=row.getStringItem("campaign_name")%><br/>
+                        Position Name: <%=row.getStringItem("job_desc")%><br/>
                         </p>
                     </td>
                 </tr>
@@ -78,12 +92,31 @@ if ( plugin ) {
 
             <br/>
 
+            <%
+                info = (List) request.getAttribute(Constants.POSITION_RESULTS_LIST);
+            %>
             <table border="0" cellspacing="0" cellpadding="0" width="600">
                 <tr valign="top">
-                    <td class="bodyText">Total Candidates:
-                        <b><%= ((List) request.getAttribute(Constants.POSITION_RESULTS_LIST)).size()%></b>
+                    <td class="bodyText">Total Candidates: <b><%= info.size()%></b></td>
+
+                    <td class="bodyText" align=right>Showing <%=startIndex + 1%>-<%=startIndex
+                        + Math.min(info.size() -  startIndex,Constants.PAGE_SIZE)%>:&#160;&#160;&#160;
+                    <%
+                        if (startIndex > 0) {
+                    %>
+                    <A href="/corp/testing/results/positionResults.jsp?<%=Constants.PAGE_START_INDEX%>=<%=startIndex - Constants.PAGE_SIZE%>">
+                        Prev <%=Math.min(startIndex, Constants.PAGE_SIZE)%>
+                    </A>
+                    <%  } %>
+
+                    <%
+                        if (startIndex + Constants.PAGE_SIZE < info.size()) {
+                    %>
+                    | <A href="/corp/testing/results/positionResults.jsp?<%=Constants.PAGE_START_INDEX%>=<%=startIndex + Constants.PAGE_SIZE%>">
+                        Next <%=Math.min(info.size() - startIndex - Constants.PAGE_SIZE,Constants.PAGE_SIZE)%>
+                      </a>
+                    <%  } %>
                     </td>
-                    <td class="bodyText" align=right>Showing 1-20:&#160;&#160;&#160;<A href="/">Prev 20</A> | <A href="/">Next 20</a></td>
                 </tr>
             </table>
 
@@ -92,32 +125,32 @@ if ( plugin ) {
             <table cellspacing="0" cellpadding="0" width="600" class="screeningFrame">
                 <tr>
                     <td class="screeningHeader" width="10%">
-                        <A class=screeningHeader href="/testing/results/positionResults.jsp?<%=Constants.SORT_BY%>=first_name">
+                        <A class=screeningHeader href="/corp/testing/results/positionResults.jsp?<%=Constants.SORT_BY%>=first_name">
                             Name
                         </A>
                     </td>
                     <td class="screeningHeader" width="10%">
-                        <A class=screeningHeader href="/testing/results/positionResults.jsp?<%=Constants.SORT_BY%>=state_code">
+                        <A class=screeningHeader href="/corp/testing/results/positionResults.jsp?<%=Constants.SORT_BY%>=state_code">
                             State/<br/>Province
                         </A>
                     </td>
                     <td class="screeningHeader" width="10%">
-                        <A class=screeningHeader href="/testing/results/positionResults.jsp?<%=Constants.SORT_BY%>=country_name">
+                        <A class=screeningHeader href="/corp/testing/results/positionResults.jsp?<%=Constants.SORT_BY%>=country_name">
                             Country
                         </A>
                     </td>
                     <td class="screeningHeader" width="10%" align=center>
-                        <A class=screeningHeader href="/testing/results/positionResults.jsp?<%=Constants.SORT_BY%>=coder_type_desc">
+                        <A class=screeningHeader href="/corp/testing/results/positionResults.jsp?<%=Constants.SORT_BY%>=coder_type_desc">
                             Type
                         </A>
                     </td>
                     <td class="screeningHeader" width="10%">
-                        <A class=screeningHeader href="/testing/results/positionResults.jsp?<%=Constants.SORT_BY%>=problem_name">
+                        <A class=screeningHeader href="/corp/testing/results/positionResults.jsp?<%=Constants.SORT_BY%>=problem_name">
                             Problem
                         </A>
                     </td>
                     <td class="screeningHeader" width="10%" align=center>
-                        <A class=screeningHeader href="/testing/results/positionResults.jsp?<%=Constants.SORT_BY%>=total_time">
+                        <A class=screeningHeader href="/corp/testing/results/positionResults.jsp?<%=Constants.SORT_BY%>=total_time">
                             Time
                         </A>
                     </td>
@@ -136,42 +169,46 @@ if ( plugin ) {
                     int counter = 0;
                     String[] cssClasses = {"screeningCellEven", "screeningCellOdd"};
                     String[] swfFiles = {"/i/corp/screeningRatingEven.swf", "/i/corp/screeningRatingOdd.swf"};
-                %>
 
-<%--                <screen:resultSetRowIterator id="row" list="<%=(List) request.getAttribute(Constants.POSITION_INFO)%>"> --%>
+                    for (int i = startIndex; i < startIndex + Constants.PAGE_SIZE&& i < info.size(); i++) {
+                        row = (ResultSetContainer.ResultSetRow) info.get(i);
+                %>
 
                 <tr>
 
                     <td class='<%=cssClasses[counter % 2]%>' nowrap=nowrap>
-                        <A href='?<%=Constants.MODULE_KEY%>=<%=Constants.POPULATE_CANDIDATE_PROCESSOR%>&cid=<screen:resultSetItem row="<%=row%>" name="user_id" />'>
-                            <screen:resultSetItem row="<%=row%>" name="first_name" />
-                            <screen:resultSetItem row="<%=row%>" name="middle_name" />
-                            <screen:resultSetItem row="<%=row%>" name="last_name" />
+                        <A href='?<%=Constants.MODULE_KEY%>=<%=Constants.POPULATE_CANDIDATE_PROCESSOR%>&cid=<%=row.getStringItem("user_id")%>'>
+                            <%=row.getStringItem("first_name") + " " + row.getStringItem("middle_name") + " "
+                            + row.getStringItem("last_name") %>
                         </A>
-                    </td>
-
-                    <td class='<%=cssClasses[counter % 2]%>'><screen:resultSetItem row="<%=row%>" name="state_code" /></td>
-
-                    <td class='<%=cssClasses[counter % 2]%>' nowrap=nowrap>
-                        <screen:resultSetItem row="<%=row%>" name="country_name" />
-                    </td>
-
-                    <td class='<%=cssClasses[counter % 2]%>' align=center>
-                        <screen:resultSetItem row="<%=row%>" name="coder_type_desc" />
                     </td>
 
                     <td class='<%=cssClasses[counter % 2]%>'>
-                        <A href='?<%=Constants.MODULE_KEY%>=PopulateProblemDetail&<%=Constants.ROUND_PROBLEM_ID%>=<screen:resultSetItem row="<%=row%>" name="problem_id" />'>
-                            <screen:resultSetItem row="<%=row%>" name="problem_name" />
+                        <%=row.getStringItem("state_code").trim().length() == 0 ? row.getStringItem("province") : row.getStringItem("state_code")%>
+                    </td>
+
+                    <td class='<%=cssClasses[counter % 2]%>' nowrap=nowrap>
+                        <%=row.getStringItem("country_name")%>
+                    </td>
+
+                    <td class='<%=cssClasses[counter % 2]%>' align=center>
+                        <%=row.getStringItem("coder_type_desc")%>
+                    </td>
+
+                    <td class='<%=cssClasses[counter % 2]%>'>
+                        <A href='?<%=Constants.MODULE_KEY%>=PopulateProblemDetail&<%=Constants.ROUND_PROBLEM_ID%>=<%=row.getStringItem("problem_id")%>'>
+                            <%=row.getStringItem("problem_name")%>
                         </A>
                     </td>
 
                     <td class='<%=cssClasses[counter % 2]%>' align=center>
-                         <screen:resultSetItem row="<%=row%>" name="total_time" />
+                        <%=JSPUtils.timeFormat(row.getLongItem("total_time"))%>
                     </td>
 
                     <td class='<%=cssClasses[counter % 2]%>' align=center>
-                        <A href='?<%=Constants.MODULE_KEY%>=ProblemResult&<%=Constants.PROBLEM_ID%>=<screen:resultSetItem row="<%=row%>" name="problem_id" />'>view</A>
+                        <A href='?<%=Constants.MODULE_KEY%>=ProblemResult&<%=Constants.PROBLEM_ID%>="<%=row.getStringItem("problem_id")%>'>
+                            view
+                        </A>
                     </td>
 
                     <td class='<%=cssClasses[counter % 2]%>' align=center>
@@ -207,18 +244,38 @@ if ( plugin ) {
                     </td>
 
                     <td class='<%=cssClasses[counter++ % 2]%>' align=center>
-                        <A href='?<%=Constants.MODULE_KEY%>=<%=Constants.POPULATE_CANDIDATE_PROCESSOR%>&<%=Constants.CANDIDATE_ID%>=<screen:resultSetItem row="<%=row%>" name="user_id" />'>
-                        view
+                        <A href='?<%=Constants.MODULE_KEY%>=<%=Constants.POPULATE_CANDIDATE_PROCESSOR%>&<%=Constants.CANDIDATE_ID%>=<%=row.getStringItem("user_id")%>'>
+                            view
                         </A>
                     </td>
 
                 </tr>
+                <%
+                    }
+                %>
 
             </table>
 
             <table border="0" cellspacing="0" cellpadding="0" width="600">
                 <tr valign="top">
-                    <td class="bodyText" align=right>Showing 1-20:&#160;&#160;&#160;<A href="/">Prev 20</A> | <A href="/">Next 20</a></td>
+                    <td class="bodyText" align=right>Showing <%=startIndex + 1%>-<%=startIndex
+                            + Math.min(info.size() -  startIndex,Constants.PAGE_SIZE)%>:&#160;&#160;&#160;
+                    <%
+                            if (startIndex > 0) {
+                    %>
+                    <A href="/corp/testing/results/positionResults.jsp?<%=Constants.PAGE_START_INDEX%>=<%=startIndex - Constants.PAGE_SIZE%>">
+                        Prev <%=Math.min(startIndex, Constants.PAGE_SIZE)%>
+                    </A>
+                    <%  } %>
+
+                    <%
+                            if (startIndex + Constants.PAGE_SIZE < info.size()) {
+                    %>
+                    | <A href="/corp/testing/results/positionResults.jsp?<%=Constants.PAGE_START_INDEX%>=<%=startIndex + Constants.PAGE_SIZE%>">
+                        Next <%=Math.min(info.size() - startIndex - Constants.PAGE_SIZE,Constants.PAGE_SIZE)%>
+                      </a>
+                    <%  } %>
+                    </td>
                 </tr>
             </table>
 
