@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:template name="calendar">
-            <table width="100%" bgcolor="#333333" cellspacing="0" cellpadding="0" border="0">
+            <table width="100%" bgcolor="#4A4A4A" cellspacing="0" cellpadding="0" border="0">
                 <tr> 
                     <td valign="top">
                         <table width="100%" border="0" cellspacing="1" cellpadding="1">
@@ -67,7 +67,7 @@
                                 <td id="calendarBlankMini">&#160;</td>
                             </tr>
 
-                            <tr><td colspan="7" class="statText" nowrap="nowrap" align="right"><a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=schedule&amp;c=index</xsl:attribute>More 2003 Match Dates&#160;</a></td></tr>
+                            <tr><td colspan="7" class="statText" nowrap="nowrap" align="right"><A class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=schedule&amp;c=index</xsl:attribute>More 2003 Match Dates&#160;</A></td></tr>
                         </table>
                     </td>
                 </tr>
