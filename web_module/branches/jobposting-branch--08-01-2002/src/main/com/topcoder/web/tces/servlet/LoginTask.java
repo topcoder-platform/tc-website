@@ -143,7 +143,7 @@ log.debug("getting handleinput "+handleInput);
         // record in this session that we have authenticated a user.
 
         setUserIdAuthenticated( TCData.getTCInt(rRow,"user_id") );
-
+log.debug("USER ID AUTH = "+Integer.toString(getUserIdAuthenticated()) );
         setMessage("Login OK!");
         setNextPage(TCESConstants.LOGIN_OK_PAGE );
     }
