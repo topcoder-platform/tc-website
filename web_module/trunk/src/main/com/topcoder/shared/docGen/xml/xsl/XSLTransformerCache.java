@@ -2,6 +2,7 @@ package com.topcoder.shared.docGen.xml.xsl;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.distCache.CacheClientPool;
+import com.topcoder.shared.distCache.CacheClient;
 
 import java.rmi.RemoteException;
 
@@ -58,15 +59,16 @@ public class XSLTransformerCache {
         log.debug("XSLTransformerCache.getXSLTransformerWrapper for " + fileName);
         XSLTransformerWrapper result = null;
         try {
+            CacheClient cache = CacheClientPool.getPool().getClient();
             if (fileName == null) throw new Exception("The fileName can not be null.");
-            result = (XSLTransformerWrapper) CacheClientPool.getPool().getClient().get(CACHE_PREFIX+fileName);
+            result = (XSLTransformerWrapper) cache.get(CACHE_PREFIX+fileName);
             if (result==null) {
                 java.io.File file = new java.io.File(fileName);
                 if (!file.exists()) throw new Exception("Unable to find file " + fileName + ".");
                 result = new XSLTransformerWrapper(file);
                 log.debug("adding " + fileName + " to cache.");
-                CacheClientPool.getPool().getClient().set(CACHE_PREFIX+fileName, result, DEFAULT_EXPIRE_TIME);
-                log.debug("cache size is now: " + CacheClientPool.getPool().getClient().size());
+                cache.set(CACHE_PREFIX+fileName, result, DEFAULT_EXPIRE_TIME);
+                log.debug("cache size is now: " + cache.size());
             }
         } catch (Exception e) {
             e.printStackTrace();
