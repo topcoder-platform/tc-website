@@ -17,7 +17,7 @@ String htmlEncode(String s){
     if ((ch=s.charAt(i))=='>'){
       sb.append("&gt;");
     }else if (ch==9){  //we'll go with 2 spaces for a tab
-     sb.append(",");
+     sb.append("  ");
     }else if (ch=='<'){
       sb.append("&lt;");
     }else if (ch==10 || ch==13){
@@ -68,7 +68,7 @@ String htmlEncode(String s){
           <%=htmlEncode(rsc.getTag(key,"ResultRow").getXML(2))%>
 <%      } else if (displayType.equals("")) {
 %>
-        <%=htmlEncode(rsc.toString())%>
+        <%=htmlEncode(rsc.toString("\n", "      "))%>
 <%      }
 %>
 <BR/>
