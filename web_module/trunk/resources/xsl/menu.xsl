@@ -26,7 +26,13 @@
         <TD CLASS="globalNav" WIDTH="100%" HEIGHT="21" BACKGROUND="/i/top_bar_bg.gif" BGCOLOR="#CC0000" NOWRAP="0">
           <A HREF="Javascript:arena()" CLASS="registerNav" onMouseOver="changeImages('image3', 'image3on')" onMouseOut="changeImages('image3', 'image3off')" TARGET="_parent">
             <IMG SRC="/i/menu_applet_off.gif" NAME="image3" ALT="Competition Applet" WIDTH="127" HEIGHT="21" BORDER="0"/>
-          </A>         
+          </A> 
+          <A onMouseOver="changeImages('image7', 'image7on')" onMouseOut="changeImages('image7', 'image7off')" TARGET="_parent">
+            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=practice&amp;c=index</xsl:attribute>
+            <IMG NAME="image7" ALT="Practice Room" WIDTH="100" HEIGHT="21" BORDER="0">
+              <xsl:attribute name="SRC">/i/menu_practice_<xsl:choose><xsl:when test="/TC/Task='practice'">on</xsl:when><xsl:otherwise>off</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
+            </IMG>
+          </A>                  
           <A onMouseOver="changeImages('image2', 'image2on')" onMouseOut="changeImages('image2', 'image2off')" TARGET="_parent">
             <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=index</xsl:attribute>
             <IMG NAME="image2" ALT="Schedule" WIDTH="69" HEIGHT="21" BORDER="0">
@@ -48,13 +54,7 @@
             <IMG NAME="image6" ALT="Development" WIDTH="88" HEIGHT="21" BORDER="0">
               <xsl:attribute name="SRC">/i/menu_dev_<xsl:choose><xsl:when test="/TC/Task='dev'">on</xsl:when><xsl:otherwise>off</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
             </IMG>
-          </A>          
-          <!-- <A onMouseOver="changeImages('image7', 'image7on')" onMouseOut="changeImages('image7', 'image7off')" TARGET="_parent">
-            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
-            <IMG NAME="image7" ALT="Jobs" WIDTH="40" HEIGHT="21" BORDER="0">
-              <xsl:attribute name="SRC">/i/menu_jobs_<xsl:choose><xsl:when test="/TC/Task='jobs'">on</xsl:when><xsl:otherwise>off</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
-            </IMG>
-          </A> -->                             
+          </A>                                     
           <A onMouseOver="changeImages('image8', 'image8on')" onMouseOut="changeImages('image8', 'image8off')" TARGET="_parent">
             <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=index</xsl:attribute>
             <IMG NAME="image8" ALT="News &amp; Events" WIDTH="82" HEIGHT="21" BORDER="0">

@@ -25,7 +25,7 @@ if (document.images) {
   image6on = new Image();
   image6on.src = "/i/menu_dev_on.gif";
   image7on = new Image();
-  image7on.src = "/i/menu_jobs_on.gif";
+  image7on.src = "/i/menu_practice_on.gif";
   image8on = new Image();
   image8on.src = "/i/menu_press_on.gif";  
   image9on = new Image();
@@ -41,7 +41,7 @@ if (document.images) {
   image6off = new Image();
   image6off.src = "/i/menu_dev_off.gif";
   image7off = new Image();
-  image7off.src = "/i/menu_jobs_off.gif";
+  image7off.src = "/i/menu_practice_off.gif";
   image8off = new Image();
   image8off.src = "/i/menu_press_off.gif";  
   image9off = new Image();
