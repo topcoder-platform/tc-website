@@ -37,9 +37,9 @@
                     <td width="10"><img src="/i/clear_10_pix_width.gif" width="10" height="1" border="0"></td>
                     <td>
                         <table cellspacing="0" cellpadding="5" border="0" width="100%">
-                            <tr><td bgcolor="#FFCC33" class="statText"><font color="#CC0000" size="2"><strong>&nbsp;Important Alert&nbsp;</strong></font></td></tr>
-                             <tr><td bgcolor="#FFFFFF"><div align="center"><a href="?module=Static&amp;d1=schedule&amp;d2=sched_march_2003" class="calendarSRMMini"><img src="/i/postpone_match.gif" alt="Due to inclement weather Match 1 will be postponed until March 20th" width="268" height="112" border="0"></a></div></td></tr>
-<!--                             <tr><td width="100%"><div align="center"><img src="/i/banner_challenge_begins.gif" alt="The Challenge Begins 03.13.2003" width="585" height="88" vspace="10" border="0"></div></td></tr>  -->
+<!--                            <tr><td bgcolor="#FFCC33" class="statText"><font color="#CC0000" size="2"><strong>&nbsp;Important Alert&nbsp;</strong></font></td></tr>
+                             <tr><td bgcolor="#FFFFFF"><div align="center"><a href="?module=Static&amp;d1=schedule&amp;d2=sched_march_2003" class="calendarSRMMini"><img src="/i/postpone_match.gif" alt="Due to inclement weather Match 1 will be postponed until March 20th" width="268" height="112" border="0"></a></div></td></tr>  -->
+                             <tr><td width="100%"><div align="center"><img src="/i/banner_challenge_begins.gif" alt="The Challenge Begins 03.20.2003" width="585" height="88" vspace="10" border="0"></div></td></tr>
                         </table>
             
                         <table cellspacing="0" cellpadding="5" border="0" width="100%">
