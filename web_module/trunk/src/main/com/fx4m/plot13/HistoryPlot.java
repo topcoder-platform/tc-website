@@ -367,9 +367,11 @@ public class HistoryPlot
         java.awt.geom.AffineTransform save = g.getTransform();
         g.setFont(Font.decode("SansSerif-plain-25"));
         g.setColor(gridColor);
+/*
         if (data.length > 50 && data[0] == 864 && data[1] == 707 && data[2] == 683)
             g.drawString("You call this progress?", pb, pb - 10);
         else
+*/
             g.drawString("Rating History", pb, pb - 10);
         g.setTransform(save);
 
