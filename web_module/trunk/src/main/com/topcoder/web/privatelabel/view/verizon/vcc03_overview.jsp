@@ -86,7 +86,7 @@ document.write(finalstyle);
                     <td width="127" class="white"><img src="/i/clear.gif" width="127" height="1" border="0"/>
                         <table width="127" border="0" cellpadding="0" cellspacing="5">
                             <tr>
-                                <td>      
+                                <td width="127" class="leftnav" valign="top">
                                     <jsp:include page="verizonLinks.jsp" >
                                         <jsp:param name="selectedTab" value="overview"/>
                                         <jsp:param name="selectedSubtab" value=""/>
