@@ -56,19 +56,19 @@
 						<td bgcolor="#000033" background="/i/steel_darkblue_bg.gif" valign="top" width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
 						<td class="statText" colspan="2" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
 							
-							<h1 class="devSubhead"><strong>Light Weight XML Parser: Design</strong></h1>
+							<h1 class="devSubhead"><strong>Lightweight XML Parser: Design</strong></h1>
 
-							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Light Weight XML Parser: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Lightweight XML Parser: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 							<p><strong>Overview</strong><br />
-							The Light Weight XML Parser component provides an interface to parse all or parts of an XML document without the overhead of DOM or SAX. The light weight XML parser acts as a SAX parser in that it combines the streaming of XML with the ability to only pull out sub-trees (nodes) of an XML document.
+							The Lightweight XML Parser component provides an interface to parse all or parts of an XML document without the overhead of DOM or SAX. The Lightweight XML parser acts as a SAX parser in that it combines the streaming of XML with the ability to only pull out sub-trees (nodes) of an XML document.
 							</p><p>
 							This type of parser is valuable when processing large XML documents or translating documents that are from a trusted source, where the format of the XML is assumed to be valid.
 
 							</p>
 
 							<p><strong>Project Type</strong><br />
-							Component Design Project: Provide a complete design for the Light Weight XML Parser component.<br />
+							Component Design Project: Provide a complete design for the Lightweight XML Parser component.<br />
 							Please review the TopCoder Software <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_meth" class="statText">Component Development Methodology</a> before you submit a solution. 
 							If you're not sure what to submit, go to <a href="/?&amp;t=development&amp;c=tcs_sample_docs" class="statText">Documentation and Sample Submissions</a> for more information.
                             </p>
@@ -122,7 +122,7 @@
 
 							<p>After inquiring for this project please make sure you are registered at www.topcodersoftware.com.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Light Weight XML Parser: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Lightweight XML Parser: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>
 					</td>
 
