@@ -874,6 +874,9 @@
                 <include name="com/topcoder/security/**/*.class" />
                 <include name="com/fx4m/**/*.class" />
             </classes>
+            <classes dir="${resources}">
+                <include name="FileUpload.xml"/>
+            </classes>
             <webinf dir="${resources}/taglib">
                 <include name="tc.tld"/>
                 <include name="rsc-taglib.tld"/>
@@ -882,9 +885,6 @@
             </webinf>
             <webinf dir="${struts.dir}">
                 <include name="*.tld"/>
-            </webinf>
-            <webinf dir="${resources}">
-                <include name="FileUpload.xml"/>
             </webinf>
             <lib dir="${struts.dir}">
                 <include name="*.jar"/>
