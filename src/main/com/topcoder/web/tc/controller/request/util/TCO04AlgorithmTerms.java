@@ -34,11 +34,11 @@ public class TCO04AlgorithmTerms extends TermsBase {
     }
 
     protected int getTermsId() {
-        return Constants.TCO04_TERMS_OF_USE_ID;
+        return Constants.TCO04_ALGORITHM_TERMS_OF_USE_ID;
     }
 
     protected void setSuccessPage() {
-        setNextPage(Constants.TCCC04_TERMS);
+        setNextPage(Constants.TCO04_TERMS);
         setIsNextPageInContext(true);
     }
 
