@@ -159,15 +159,15 @@
  <td class="projectCells" align="right">$<tc:beanWrite name="price" property="PrimaryReviewPrice" format="#,###.00"/></td>
  <td class="projectCells" align="right">$<tc:beanWrite name="price" property="ReviewPrice" format="#,###.00"/></td>
  <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="submission_passed_screening_count"/></td>
- /*
+<%--
  <% if (((TCTimestampResult) resultRow.getItem("opens_on")).compareTo(new TCTimestampResult(new Timestamp(System.currentTimeMillis()))) == 1) { %>
  <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="opens_on" format="MM.dd.yyyy"/></td>
  <% } else { %>
- */
+--%>
  <td class="projectCells" align="center">Open</td>
- /*
+<%--
  <% } %>
- */
+--%>
  <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_start" format="MM.dd.yyyy"/></td>
  <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_end" format="MM.dd.yyyy"/></td>
  <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="available_spots"/></td>
@@ -235,15 +235,15 @@
   <td class="projectCells" align="right">$<tc:beanWrite name="price" property="primaryReviewPrice" format="#,###.00"/></td>
   <td class="projectCells" align="right">$<tc:beanWrite name="price" property="reviewPrice" format="#,###.00"/></td>
   <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="submission_count"/></td>
-  /*
+<%--
  <% if (((TCTimestampResult) resultRow.getItem("opens_on")).compareTo(new TCTimestampResult(new Timestamp(System.currentTimeMillis()))) == 1) { %>
   <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="opens_on" format="MM.dd.yyyy"/></td>
  <% } else { %>
- */
+--%>
   <td class="projectCells" align="center">Open</td>
-  /*
+<%--
  <% } %>
- */
+--%>
  <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_start" format="MM.dd.yyyy"/></td>
  <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_end" format="MM.dd.yyyy"/></td>
  <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="available_spots"/></td>
