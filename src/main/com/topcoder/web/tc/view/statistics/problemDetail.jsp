@@ -82,6 +82,14 @@
              </td>
            </tr>
            <tr>
+             <td class="statTextBig" nowrap=nowrap>
+               Categories:
+             </td>
+             <td class="statText">
+               <rsc:item set="<%=generalInfo%>" name="categories" />
+             </td>
+           </tr>
+           <tr>
              <td class="statTextBig" valign="top">
                <A HREF="Javascript:void openProblemRating(<rsc:item set="<%=generalInfo%>" name="problem_id"/>)" class="statText"><img src="/i/rate_it_blue.gif" width="60" height="18" border="0" hspace="10" align=left/></A>
              </td>
