@@ -224,11 +224,15 @@
   <TR VALIGN="middle">
    <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle" HEIGHT="16">&nbsp;Terms</TD>
   </TR>
-  <TR VALIGN="middle">
-   <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="2" BORDER="0"></TD>
+  <TR>
+   <TD></TD>
+   <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+   <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle">
+    <reg:errorIterator id="error" name="AgreeTerms"><%=error%><BR></reg:errorIterator>
+   </TD>
   </TR>
   <TR>
-   <TD COLSPAN="4" CLASS="errorText" ALIGN="center" VALIGN="middle">
+   <TD COLSPAN="4" CLASS="bodyText" ALIGN="center" VALIGN="middle">
     <TEXTAREA NAME="TermDesc" ROWS="10" COLS="80" READONLY CLASS="bodyText">
 <jsp:include page="terms.txt"/>
     </TEXTAREA>
