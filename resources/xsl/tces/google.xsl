@@ -70,7 +70,7 @@
 <IMG SRC="/i/es/google_sm.gif" WIDTH="143" HEIGHT="59" BORDER="0"/> 
 <P>
 <B>  Looking for interesting work that matters to millions of people?</B><BR/>
-<A HREF="/?&amp;t=tces&amp;c=google_openings&amp;a=secure" CLASS="bodyText">View positions available at Google</A> (login required)
+<A HREF="/?&amp;t=tces&amp;c=google_openings&amp;a=secure" CLASS="bodyText">View positions available at Google</A> 
 </P>
 
 <P>
@@ -201,7 +201,7 @@ To make this vision a reality, Google is looking for exceptional people who like
 </p>
 
 <P>
-<A HREF="/?&amp;t=tces&amp;c=google_openings&amp;a=secure" CLASS="bodyText">View positions available at Google</A> (login required)
+<A HREF="/?&amp;t=tces&amp;c=google_openings&amp;a=secure" CLASS="bodyText">View positions available at Google</A> 
 </P>
 <p>Google's mission is intentionally broad and we actively explore interesting 
         ideas, even when those ideas are risky and not assured of
@@ -240,7 +240,7 @@ We often hear myths and  misconceptions about Google that we would like to dispe
       to work on fascinating things.
 </P>
 <P>
-<A HREF="/?&amp;t=tces&amp;c=google_openings&amp;a=secure" CLASS="bodyText">View positions available at Google</A> (login required)
+<A HREF="/?&amp;t=tces&amp;c=google_openings&amp;a=secure" CLASS="bodyText">View positions available at Google</A> 
 </P> 
 
 <P>
@@ -256,7 +256,7 @@ We often hear myths and  misconceptions about Google that we would like to dispe
 </P>
 
 <P>
-<A HREF="/?&amp;t=tces&amp;c=google_openings&amp;a=secure" CLASS="bodyText">View positions available at Google</A> (login required)
+<A HREF="/?&amp;t=tces&amp;c=google_openings&amp;a=secure" CLASS="bodyText">View positions available at Google</A> 
 </P> 
           
           <P><BR/></P>
