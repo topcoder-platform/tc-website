@@ -141,25 +141,29 @@ function submitConfirm() {
                  </tr>
             
                 <screen:listIterator id="testA" list="<%=profile.getTestSetAList()%>">
-<%-- This while loop changes the color of every other row in table --%>
-                <% Iterator itr = colComponents.iterator();
-                    int row = 0;
-                    String oddeven;
-                    while(itr.hasNext()) {
-                        ComponentSummary summary = (ComponentSummary)itr.next();
-                        row++;
-                        oddeven = (row%2==0)?"Even":"Odd";
-                %>               
+<%-- This while loop changes the color of every other row in table
+                <% if(row.getItem("num_sessions").toString().equals("0")){ %>
+                <TR>
+                    <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+                    <TD COLSPAN="6" VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC">No sessions scheduled for this profile.</TD>               
+                    <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+                </TR>
+                <% } else { %>
+          <%
+              String cparam = Constants.CANDIDATE_ID + '=' + row.getItem("user_id");
+              String sparam = Constants.SESSION_ID + '=' + row.getItem("session_id");
+
+              String color = (even) ? "BGCOLOR='#CCCCCC'" : ""; 
+          %> --%>
                 <tr>
                     <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-                    <td align="center" class="testTable<%=oddeven%>"><a href="JavaScript:getProblemDetail('<screen:beanWrite name="testA" property="roundId" />,<screen:beanWrite name="testA" property="problemId"/>')" class="bodyText"><screen:beanWrite name="testA" property="problemName"/></a></td>
-                    <td align="center" class="testTable<%=oddeven%>"><screen:beanWrite name="testA" property="divisionDesc" /></td>
-                    <td align="center" class="testTable<%=oddeven%>"><screen:beanWrite name="testA" property="difficultyDesc" /></td>
-                    <td colspan="2" align="center" class="testTable<%=oddeven%>"><screen:beanWrite name="testA" property="algorithmicCategoryList" /></td>
+                    <td align="center" class="testTableOdd"><a href="JavaScript:getProblemDetail('<screen:beanWrite name="testA" property="roundId" />,<screen:beanWrite name="testA" property="problemId"/>')" class="bodyText"><screen:beanWrite name="testA" property="problemName"/></a></td>
+                    <td align="center" class="testTableOdd"><screen:beanWrite name="testA" property="divisionDesc" /></td>
+                    <td align="center" class="testTableOdd"><screen:beanWrite name="testA" property="difficultyDesc" /></td>
+                    <td colspan="2" align="center" class="testTableOdd"><screen:beanWrite name="testA" property="algorithmicCategoryList" /></td>
  <%--               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name="testA" property="businessCategoryList" /></TD> --%>
                     <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
                 </tr>
-                <% } %>
                 </screen:listIterator>
            
                 <tr><td colspan="7"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
@@ -179,15 +183,6 @@ function submitConfirm() {
             
                 <input type="hidden" name="testSetBRemove" value="" >
                 <screen:listIterator id="testB" list="<%=profile.getTestSetBList()%>">
-<%-- This while loop changes the color of every other row in table --%>
-                <% Iterator itr = colComponents.iterator();
-                    int row = 0;
-                    String oddeven;
-                    while(itr.hasNext()) {
-                        ComponentSummary summary = (ComponentSummary)itr.next();
-                        row++;
-                        oddeven = (row%2==0)?"Even":"Odd";
-                %>               
                 <input type="hidden" name="testSetB" value="<screen:beanWrite name="testB" property="roundId" />,<screen:beanWrite name="testB" property="problemId"/>" >
                 <tr>
                     <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
@@ -199,7 +194,6 @@ function submitConfirm() {
                     <td align="center" class="testTableOdd"><a href="JavaScript:submitRemove('<screen:beanWrite name="testB" property="roundId" />,<screen:beanWrite name="testB" property="problemId"/>')" CLASS="bodyText">Remove</a></td>
                     <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
                 </tr>
-                <% } %>
                 </screen:listIterator>
 
                 <tr>
