@@ -6,14 +6,24 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>02.21.05<br>11:20 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/index?t=statistics&c=srm231_prob">SRM 231 - Problem Set & Analysis</A></span><br><br>
+      SRM 231 gave division 2 coders a welcome reprieve from the difficulties of the last few matches.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/index?t=statistics&c=srm231_prob">full story</A>&#160;|&#160;
+         <A href="/?t=statistics&c=editorial_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General TopCoder News" border="0" /><br>02.21.05<br>9:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">New /tc homepage</span><br><br>
       Welcome to the new <A href="/tc">www.topcoder.com/tc</A> homepage!  We'll be posting all TC related news here as it happens.
       </td>
    </tr>
-   <tr><td class="newsLinksCell">
-         <A href="http://software.topcoder.com/components/subscriptions.jsp">register</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   <tr><td class="newsLinksCell">&#160;
    </td></tr>
 
 <%--------------------------------------------------------%>
@@ -438,4 +448,42 @@
    </td></tr>
 
 </table>
+<br><br>
+
+<table align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" width="525">
+   <tr>
+      <td class="sidebarTitle" colspan="4">News Archives</td>
+   </tr>
+   <tr>
+      <td class="sidebarText"><A href="/tc?module=Static&d1=home&d2=news_archive_tc"><img src="/i/home/icons/tc.gif" alt="General TopCoder News" border="0" /></A></td>
+      <td class="sidebarText" width="50%"><A href="/tc?module=Static&d1=home&d2=news_archive_tc">General TopCoder News</A></td>
+      <td class="sidebarText"><A href="/?t=news_events&c=index"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /></A></td>
+      <td class="sidebarText" width="50%"><A href="/?t=news_events&c=index">Press Releases & Articles</A></td>
+   </tr>
+   <tr>
+      <td class="sidebarText"><A href="/tc?module=Static&d1=home&d2=news_archive_alg"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /></A></td>
+      <td class="sidebarText"><A href="/tc?module=Static&d1=home&d2=news_archive_alg">Algorithm Competition News</A></td>
+      <td class="sidebarText"><A href="/tc?module=Static&d1=home&d2=news_archive_comp"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /></A></td>
+      <td class="sidebarText"><A href="/tc?module=Static&d1=home&d2=news_archive_comp">Component Competition News</A></td>
+   </tr>
+   <tr>
+      <td class="sidebarText"><A href="/tc?&module=SurveyList"><img src="/i/home/icons/survey.gif" alt="Surveys" border="0" /></A></td>
+      <td class="sidebarText"><A href="/tc?&module=SurveyList">Surveys</A></td>
+      <td class="sidebarText"><A href="/?t=statistics&c=editorial_archive"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /></A></td>
+      <td class="sidebarText"><A href="/?t=statistics&c=editorial_archive">Problem Sets & Analyses</A></td>
+   </tr>
+   <tr>
+      <td class="sidebarText"><A href="/tc?module=Static&d1=home&d2=news_archive_tournie"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /></A></td>
+      <td class="sidebarText"><A href="/tc?module=Static&d1=home&d2=news_archive_tournie">Tournament News</A></td>
+      <td class="sidebarText"><A href="/tc?module=Static&d1=home&d2=news_archive_employment"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /></A></td>
+      <td class="sidebarText"><A href="/tc?module=Static&d1=home&d2=news_archive_employment">Employment Opportunities</A></td>
+   </tr>
+   <tr>
+      <td class="sidebarText"><A href="/tc?module=Static&d1=tutorials&d2=index"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /></A></td>
+      <td class="sidebarText"><A href="/tc?module=Static&d1=tutorials&d2=index">Educational Content</A></td>
+      <td class="sidebarText"><A href="/tc?module=Static&d1=home&d2=news_archive_movies"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /></A></td>
+      <td class="sidebarText"><A href="/tc?module=Static&d1=home&d2=news_archive_movies">Movies</A></td>
+   </tr>
+</table>
+
 <br><br>
