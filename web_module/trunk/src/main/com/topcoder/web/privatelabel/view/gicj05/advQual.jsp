@@ -52,7 +52,6 @@
 			</tr>
 
 
-
 <tr class=sidebarText><td>23-27</td><td>Qualification Set 5/8</td><td align="right">607.63</td></tr>
 <tr class=sidebarText><td>345tyu</td><td>Qualification Set 11/17</td><td align="right">153.07</td></tr>
 <tr class=sidebarText><td>4v1n45h</td><td>Qualification Set 1/9</td><td align="right">466.01</td></tr>
@@ -168,7 +167,6 @@
 <tr class=sidebarText><td>deeptidixit</td><td>Qualification Set 4/7</td><td align="right">195.48</td></tr>
 <tr class=sidebarText><td>deryldza</td><td>Qualification Set 12/16</td><td align="right">170.47</td></tr>
 <tr class=sidebarText><td>devadutt</td><td>Qualification Set 15/20</td><td align="right">524.93</td></tr>
-<tr class=sidebarText><td>DevMaster</td><td>Qualification Set 15/20</td><td align="right">731.50</td></tr>
 <tr class=sidebarText><td>devprakash</td><td>Qualification Set 13/18</td><td align="right">134.91</td></tr>
 <tr class=sidebarText><td>dharmveersingh</td><td>Qualification Set 2/10</td><td align="right">172.60</td></tr>
 <tr class=sidebarText><td>dhaundy</td><td>Qualification Set 3/6</td><td align="right">635.54</td></tr>
@@ -588,6 +586,7 @@
 <tr class=sidebarText><td>zBard</td><td>Qualification Set 12/16</td><td align="right">441.74</td></tr>
 <tr class=sidebarText><td>zw</td><td>Qualification Set 3/6</td><td align="right">737.12</td></tr>
 <tr class=sidebarText><td>ZZZZZ</td><td>Qualification Set 1/9</td><td align="right">192.58</td></tr>
+
 
          </table>
 

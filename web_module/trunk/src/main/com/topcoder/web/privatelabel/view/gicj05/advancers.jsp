@@ -49,7 +49,7 @@
 			</tr>
 			<tr valign="top">
 			<td class="advancersRound"><a href="/pl/?&module=Static&d1=gicj05&d2=advQual" class="topLink">Qualification Round</a></td>
-			<td class="sidebarText" align="right"><a href="/pl/?&module=Static&d1=gicj05&d2=advQual">536</a></td>
+			<td class="sidebarText" align="right"><a href="/pl/?&module=Static&d1=gicj05&d2=advQual">534</a></td>
 			</tr>
 			</table>
 
