@@ -31,6 +31,8 @@ public class Login extends Base {
         }
 
         /* either we weren't processing a login request yet, or it failed */
+        nav.setFolder(null);
+
         setNextPage(Constants.login_form);
         setIsNextPageInContext(true);
     }

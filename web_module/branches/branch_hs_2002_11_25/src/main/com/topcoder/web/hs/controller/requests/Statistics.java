@@ -30,7 +30,12 @@ public class Statistics extends Base {
         Map dataMap = dai.getData(dataRequest);
         request.setAttribute("QUERY_RESPONSE", dataMap);
 
-        setNextPage("/stats/"+request.getParameter(DataAccessConstants.COMMAND)+".jsp");
+        String cmd = request.getParameter(DataAccessConstants.COMMAND);
+
+        nav.setFolder(0, stats);
+        nav.setFolder(1, cmd);
+
+        setNextPage("/stats/"+cmd+".jsp");
         setIsNextPageInContext(true);
     }
 

@@ -14,11 +14,20 @@ import com.topcoder.web.common.RequestProcessor;
  */
 public abstract class Base implements RequestProcessor {
 
+    /* set by the creator */
     protected ServletRequest request;
     protected ServletResponse response;
+
+    /* attached to the request */
+    protected SessionInfoBean info;
+    protected NavZoneBean nav;
+
+    /* used internally */
     protected WebAuthentication auth;
     protected User user;
     protected Authorization hsa;
+
+    /* return values */
     private boolean nextPageInContext = false;
     private String nextPage = "";
 
@@ -37,13 +46,17 @@ public abstract class Base implements RequestProcessor {
       return user.getId() == -1;  // hardcoded userid for anonymous user
     }
 
-    protected void buildSessionInfo() {
-        SessionInfoBean si = new SessionInfoBean();
-        si.setUserId((int)user.getId());
-        si.setHandle(isUserGuest() ? "" : user.getUserName());
-        si.setGroup(isUserGuest() ? 'G' : 'S');  //@@@
-        si.setRating(2500);  //@@@
-        request.setAttribute("SessionInfo", si);
+    protected void addBeans() {
+        SessionInfoBean info = new SessionInfoBean();
+        info.setUserId((int)user.getId());
+        info.setHandle(isUserGuest() ? "" : user.getUserName());
+        info.setGroup(isUserGuest() ? 'G' : 'S');  //@@@
+        info.setRating(2500);  //@@@
+
+        nav = new NavZoneBean();
+
+        request.setAttribute("SessionInfo", info);
+        request.setAttribute("NavZone", nav);
     }
 
     /** Some things we want to do for all subclassed request processors. */
@@ -57,7 +70,7 @@ public abstract class Base implements RequestProcessor {
         if(!hsa.hasPermission(new ClassResource(this.getClass())))
             throw new PermissionException("You must login to view this page.");
 
-        buildSessionInfo();
+        addBeans();
     }
 
     /** Override this to specialize. */
