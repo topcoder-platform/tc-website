@@ -56,6 +56,8 @@
 
 package com.coolservlets.forum;
 
+import com.coolservlets.util.SerializableObject;
+
 import java.util.*;
 //JDK1.1// import com.sun.java.util.collections.*;
 
@@ -63,7 +65,7 @@ import java.util.*;
  * A ForumMessage encapsulates message data. ForumMessages are
  * associated with a particular user of the forum, or can be anonymous.
  */
-public interface ForumMessage {
+public interface ForumMessage extends SerializableObject {
     
     /**
      * Returns the id of the message.

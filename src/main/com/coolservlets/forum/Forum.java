@@ -58,12 +58,13 @@ package com.coolservlets.forum;
 
 import java.util.*;
 import com.coolservlets.*;
+import com.coolservlets.util.SerializableObject;
 
 /**
  * A top level container for discussions. It contains a list of threads, each
  * of which contains a tree of messages.
  */
-public interface Forum {
+public interface Forum extends SerializableObject {
     
     /**
      * Returns the id of the forum.
