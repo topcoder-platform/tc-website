@@ -59,7 +59,7 @@
 				component undergoes a Final Review, and you're done!</p>
 			<p>TopCoder provides considerable documentation about its design and development 
 				processes; if you have not already done so, you should peruse the TopCoder 
-				Software development document archive (available <a href="/tc?module=Static&amp;d1=dev&amp;d2=documentation" target="_blank">here</a>).  
+				Software development document archive (available <a href="/tc?module=Static&d1=dev&d2=support&d3=compDocumentation">here</a>).  
 				The TopCoder Member Guide, Development Design and Review Scorecard, and Jalopy 
 				Configuration File documents should all be of interest to you. The documents 
 				will show you what is expected of your submissions, and the Jalopy 
@@ -840,9 +840,9 @@
 				Each language is a bit different for testing purposes.</p>
 			<ul>
 				<li>
-					<a href="/tc?module=Static&amp;d1=dev&amp;d2=devUnitTestsCSharp">Writing C# Unit Tests</a>
+					<a href="/tc?module=Static&d1=dev&d2=support&d3=devUnitTestsCSharp">Writing C# Unit Tests</a>
 				</li><li>
-					<a href="/tc?module=Static&amp;d1=dev&amp;d2=devUnitTestsJava">Writing Java Unit Tests</a></li></ul>
+					<a href="/tc?module=Static&d1=dev&d2=support&d3=devUnitTestsJava">Writing Java Unit Tests</a></li></ul>
 			<span class=bodySubtitle>Unit Testing Tips</span>
 			<p>It can be very tempting to simply aggregate all of your unit tests into one 
 				function.  However, this greatly reduces the utility of your tests.  
@@ -996,8 +996,7 @@
 			<h2>IX. Review</h2>
 			<p>The submission is out of your hands, and the Review Board will judge it on the 
 				following criteria.  You can find a very detailed summary of the scorecard 
-				here: <a href="/tc?module=Static&amp;d1=dev&amp;d2=devScoreSheet" target="_blank">
-					http://www.topcoder.com/tc?module=Static&amp;d1=dev&amp;d2=devScoreSheet</a></p>
+				<a href="/tc?module=Static&d1=dev&d2=support&d3=devScoreSheet">here</a>.</p>
 			<p><strong>The implementation addresses the functionality as detailed in the component 
 					design documents.  - </strong>Does your component function as the 
 				design specified?  Does it do everything required, in the manner required?</p>

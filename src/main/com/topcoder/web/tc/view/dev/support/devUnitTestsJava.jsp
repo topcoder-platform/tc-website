@@ -38,7 +38,7 @@
 <!-- Center Column Begins -->
 <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br />
 			
-		<p><A href="/tc?module=Static&d1=dev&d2=devTutorial">Back to tutorial</A></p>
+		<p><A href="/tc?module=Static&d1=dev&d2=support&d3=devTutorial">Back to tutorial</A></p>
 
 			<h2>Unit Tests - Java</h2>
 
@@ -154,7 +154,7 @@ public void testSaveAsComplex()
 }</pre>
 		<p>Note the ease with which we can create another test. Many tests will lend themselves to a simple copy. assertTrue is not the only assert function available to us. We can also test equality, inequality, null values, and so forth. For more information, see the <a href="http://www.junit.org/junit/javadoc/index.htm">JUnit javadocs</a>.</p>
 		<h4>Failure Tests</h4>
-		<p>Now we have some tests that test valid input, but what about invalid input? As we can tell from the javadocs from <a href="/tc?module=Static&d1=dev&d2=devTutorial#sectionV">Section V</a>, the SaveAs function should fail if we pass in a null reference.</p>
+		<p>Now we have some tests that test valid input, but what about invalid input? As we can tell from the javadocs from <a href="/tc?module=Static&d1=dev&d2=support&d3=devTutorial#sectionV">Section V</a>, the SaveAs function should fail if we pass in a null reference.</p>
 <pre>/**
  * Tests SaveAs for failure with null input.
  */
@@ -206,7 +206,7 @@ public void tearDown()
 		<pre>ant test</pre>
 		<p>If all your tests compile, they'll run. The results will be logged in the <font face="Courier New" size="2">log/</font> directory, in a text file. Here is a sample of a <a href="/i/development/failed.log">log with failures</a>, as well as a <a href="/i/development/passed.log">successful log</a>.</p>
 
-		<p><A href="/tc?module=Static&d1=dev&d2=devTutorial">Back to tutorial</A></p>
+		<p><A href="/tc?module=Static&d1=dev&d2=support&d3=devTutorial">Back to tutorial</A></p>
 		<p><br/></p>
         </td>
 <!-- Center Column Ends -->
