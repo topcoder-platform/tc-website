@@ -790,7 +790,7 @@
                 <include name="com/topcoder/shared/problem/"/>
                 <include name="com/topcoder/shared/problemParser/"/>
                 <include name="com/topcoder/shared/netCommon/"/>
-                <include name="com/topcoder/common/web/render/"/>
+                <include name="com/topcoder/common/web/"/>
 
                 <exclude name="com/topcoder/web/screening/ejb/" />
             </classes>

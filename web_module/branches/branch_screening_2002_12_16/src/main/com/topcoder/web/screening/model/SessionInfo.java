@@ -342,7 +342,7 @@ public class SessionInfo extends BaseModel {
         c.set(Integer.parseInt(year), 
                months[Integer.parseInt(month)],
                Integer.parseInt(day),
-               Integer.parseInt(hour), 0);
+               Integer.parseInt(hour), 0, 0);
         return c.getTime();
     }
 }

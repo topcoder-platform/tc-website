@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.topcoder.common.web.util.Data;
 import com.topcoder.shared.security.Authentication;
 import com.topcoder.shared.security.Persistor;
 import com.topcoder.web.common.RequestProcessor;
@@ -44,6 +45,14 @@ public class MainServlet extends HttpServlet {
 
         if(!Constants.isInitialized())
             throw new ServletException("Constants did not initialize properly");
+
+        //initialize data types for problem component factory
+        try {
+            Data.initializeDataTypes();
+        }
+        catch(Exception e) {
+            throw new ServletException(e.getMessage());
+        }
     }
 
     /**
