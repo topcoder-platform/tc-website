@@ -31,11 +31,9 @@ public class TextInputTag extends BaseTag {
                 ret.append("onKeyPress=\"").append(onKeyPress).append("\" ");
             }
 
-            log.debug(name + " value is " + value);
             if (value == null) {
                 value = getDefaultValue()==null?null:getDefaultValue().toString();
             }
-            log.debug(name + " value is now " + value);
             if (value != null) {
                 ret.append("value=\"").append(value).append("\" ");
             }
@@ -55,12 +53,12 @@ public class TextInputTag extends BaseTag {
         return SKIP_BODY;
     }
 
+
     /**
      * Sets the value.
      * @param value The value to set
      */
     public void setValue(String value) {
-        log.debug("setting value to " + value);
         this.value = value;
     }
 
@@ -119,4 +117,16 @@ public class TextInputTag extends BaseTag {
     public void setEditable(boolean edit) {
         editable = edit;
     }
+
+    protected void init() {
+        this.value = null;
+        this.size = -1;
+        this.maxlength = -1;
+        this.passw = false;
+        this.aclass = null;
+        this.onKeyPress = null;
+        this.editable = true;
+    }
+
+
 }

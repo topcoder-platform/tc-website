@@ -57,7 +57,7 @@ public abstract class SelectTag extends BaseTag {
         return SKIP_BODY;
     }
 
-    public int doEndTag() throws JspException {
+    public int doEndTag() {
         try {
             JspWriter out = pageContext.getOut();
             if (selectedOnly) {
@@ -66,9 +66,9 @@ public abstract class SelectTag extends BaseTag {
                 out.write(buildSelect());
             }
         } catch (Exception e) {
-            throw new JspException(e.toString());
+            e.printStackTrace();
         }
-        return EVAL_PAGE;
+        return super.doEndTag();
     }
 
     String getSelected() throws JspException {

@@ -34,5 +34,8 @@ public class HiddenInputTag extends BaseTag {
         this.value = value;
     }
 
+    protected void init() {
+        this.value = null;
+    }
 
 }

@@ -36,4 +36,14 @@ public abstract class BaseTag extends BodyTagSupport {
         }
     }
 
+    public int doEndTag() {
+        this.name =null;
+        init();
+        return 1;
+    }
+
+    protected abstract void init();
+
+
+
 }

@@ -14,7 +14,7 @@ public class CheckboxTag extends TagSupport {
     /**
      * Sets the value of <code>name</code>.
      *
-     * @param name
+     * @param val
      */
     public void setName( String val ) {
         name = val;
@@ -23,7 +23,7 @@ public class CheckboxTag extends TagSupport {
     /**
      * Sets the value of <code>value</code>.
      *
-     * @param value
+     * @param val
      */
     public void setValue( String val ) {
         value = val;
@@ -32,7 +32,7 @@ public class CheckboxTag extends TagSupport {
     /**
      * Sets the value of <code>checked</code>.
      *
-     * @param checked
+     * @param val
      */
     public void setChecked( String val ) {
         checked = val;
@@ -46,10 +46,10 @@ public class CheckboxTag extends TagSupport {
         JspWriter out = pageContext.getOut();
         try {
             if(value.equals(checked)) {
-                out.print("<input type=\"checkbox\" name=\"" + name + "\" value=\"" + value + "\" CHECKED>");    
+                out.print("<input type=\"checkbox\" name=\"" + name + "\" value=\"" + value + "\" CHECKED>");
             }
             else {
-                out.print("<input type=\"checkbox\" name=\"" + name + "\" value=\"" + value + "\">");    
+                out.print("<input type=\"checkbox\" name=\"" + name + "\" value=\"" + value + "\">");
             }
         }
         catch(IOException e) {
