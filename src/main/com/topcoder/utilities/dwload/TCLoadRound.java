@@ -167,7 +167,7 @@ public class TCLoadRound extends TCLoad {
 
             getLastUpdateTime();
 
-           clearRound();
+            clearRound();
 
             loadContest();
 
@@ -187,6 +187,7 @@ public class TCLoadRound extends TCLoad {
 
             loadRating();
 
+            //if running for an old round, the rating history load can not be run
             loadRatingHistory();
 
             loadCoderProblem();
@@ -458,7 +459,13 @@ public class TCLoadRound extends TCLoad {
         }
     }
 
-
+    /**
+     * This method can not be run after the fact; meaning, if the
+     * rating table in the transactional database has the rating
+     * for a match that is not the one we're running the load for
+     * then rating history will get hosed up.
+     * @throws Exception
+     */
     private void loadRatingHistory() throws Exception {
         int count = 0;
         int retVal = 0;
