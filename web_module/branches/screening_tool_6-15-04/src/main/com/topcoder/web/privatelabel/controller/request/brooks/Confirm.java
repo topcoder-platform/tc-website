@@ -72,7 +72,7 @@ public class Confirm extends FullRegConfirm {
                     if(!types.containsKey(rinfo.getUploadedFile().getContentType()) )
                     {
                         log.info("DID NOT FIND TYPE " + rinfo.getUploadedFile().getContentType());
-                        addError(Constants.FILE, "Unknown file type (" + rinfo.getUploadedFile().getContentType() + ")");
+                        addError(Constants.FILE, "Unsupported file type (" + rinfo.getUploadedFile().getContentType() + ")");
                     }
                 }
             }
