@@ -8,6 +8,7 @@ import com.topcoder.shared.netCommon.screening.response.ScreeningSubmitResponse;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 import com.topcoder.shared.problem.Problem;
 import com.topcoder.shared.problem.ProblemComponent;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * User: dok
@@ -15,6 +16,7 @@ import com.topcoder.shared.problem.ProblemComponent;
  * Time: 11:17:58 AM
  */
 public class Submit extends Base {
+    protected static final Logger log = Logger.getLogger(Submit.class);
 
     protected void techAssessProcessing() throws Exception {
 
