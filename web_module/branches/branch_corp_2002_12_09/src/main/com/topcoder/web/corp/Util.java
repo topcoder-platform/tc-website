@@ -14,6 +14,8 @@ import com.topcoder.security.NoSuchUserException;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 
 /**
@@ -118,8 +120,9 @@ public class Util {
     {
         InitialContext ic = null;
         try {
-            ic = new InitialContext(
-                com.topcoder.web.common.security.Constants.SECURITY_CONTEXT_ENVIRONMENT
+            ic = (InitialContext)TCContext.getContext(
+                ApplicationServer.SECURITY_CONTEXT_FACTORY,
+                ApplicationServer.SECURITY_PROVIDER_URL
             );
             PrincipalMgrRemoteHome rHome = (PrincipalMgrRemoteHome)
                 ic.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);

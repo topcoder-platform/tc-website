@@ -12,6 +12,8 @@ import com.topcoder.security.policy.PolicyRemote;
 import com.topcoder.security.policy.PolicyRemoteHome;
 import com.topcoder.shared.security.Authorization;
 import com.topcoder.shared.security.Resource;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 
 /**
@@ -52,7 +54,10 @@ public class TCESAuthorization implements Authorization {
     public boolean hasPermission(Resource rc) throws Exception {
         InitialContext ic = null;
         try {
-            ic = new InitialContext(Constants.SECURITY_CONTEXT_ENVIRONMENT);
+            ic = (InitialContext)TCContext.getContext(
+                ApplicationServer.SECURITY_CONTEXT_FACTORY,
+                ApplicationServer.SECURITY_PROVIDER_URL
+            );
             PolicyRemoteHome pHome;
             pHome = (PolicyRemoteHome)ic.lookup(PolicyRemoteHome.EJB_REF_NAME);
             

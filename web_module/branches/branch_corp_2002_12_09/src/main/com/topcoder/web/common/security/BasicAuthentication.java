@@ -16,6 +16,8 @@ import com.topcoder.security.login.LoginRemoteHome;
 import com.topcoder.shared.security.Persistor;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.User;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 
 /**
@@ -155,7 +157,10 @@ public class BasicAuthentication implements WebAuthentication {
     public void login(User user) throws AuthenticationException {
         InitialContext ic = null;
         try {
-            ic = new InitialContext( Constants.SECURITY_CONTEXT_ENVIRONMENT );
+            ic = (InitialContext) TCContext.getContext(
+                ApplicationServer.SECURITY_CONTEXT_FACTORY,
+                ApplicationServer.SECURITY_PROVIDER_URL
+            );
             LoginRemoteHome lrHome;
             lrHome = (LoginRemoteHome)ic.lookup(LoginRemoteHome.EJB_REF_NAME);
             
