@@ -141,7 +141,7 @@ public class NotificationBean implements SessionBean {
             Common.close(conn, ps, rs);
         }
 */
-        return 1L;
+        return 2L;
     }
 
     public void createNotification(String event, long userId, long typeId) {
