@@ -137,12 +137,12 @@ try{
                    <TD   COLSPAN="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
        <logic:iterate name="resultSet" id="resultRow" type="ResultSetContainer.ResultSetRow">
-	        <bean:define id="coderrank" value="3000" />  <%-- @@@ make them all red? --%>
+	        <bean:define id="coderrank" value="3000" />  <%-- @@@ make them all red --%>
                  <TR>
                    <TD VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                    <TD CLASS="statText" HEIGHT="13"><bean:write name="resultRow" property='<%= "item[" + 3 /* order */ + "]" %>'/></TD>
                    <TD CLASS="statText" VALIGN="middle" ALIGN="left">
-					<A HREF="/?module=Statistics&c=school_round_stats&hs=<bean:write name="resultRow" property='<%= "item[" + 0 /* school_id */ + "]" %>'/>" CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 1 /* school full_name */ + "]" %>'/></A>
+					<A HREF="/?module=Statistics&c=school_round_stats&rd=<%=currRound%>&hs=<bean:write name="resultRow" property='<%= "item[" + 0 /* school_id */ + "]" %>'/>" CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 1 /* school full_name */ + "]" %>'/></A>
                    </TD>
                    <TD CLASS="statText" VALIGN="middle" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 2 /* school score */ + "]" %>'/></TD>
                    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
