@@ -22,6 +22,7 @@ public abstract class BaseCredentialReminder extends RegistrationBase {
 
     protected void registrationProcessing() throws TCWebException {
         String email = StringUtils.checkNull(getRequest().getParameter(Constants.EMAIL));
+        setDefault(Constants.COMPANY_ID, StringUtils.checkNull(getRequest().getParameter(Constants.COMPANY_ID)));
 
         StringTokenizer st = new StringTokenizer(email, "@.");
         if (!email.equals("")&&(st.countTokens() < 3
