@@ -106,7 +106,7 @@ public final class SavePMReviewAction extends ReviewAction {
                             scorecard.setPMReviewTimestamp(new java.sql.Timestamp(System.currentTimeMillis()));
 
                             if (scorecard instanceof ScreeningScorecard) {
-                                log(Level.WARNING, "ADVANCED: " + ((SubmissionForm) form).getAdvanced());
+                                log(Level.ERROR, "ADVANCED: " + ((SubmissionForm) form).getAdvanced());
                                 if (((SubmissionForm) form).getIsScreening()) {
                                     ((InitialSubmission)((SubmissionForm) form).getSubmission()).setAdvancedToReview(((SubmissionForm) form).getAdvanced());
                                     
