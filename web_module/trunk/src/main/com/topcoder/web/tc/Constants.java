@@ -9,7 +9,6 @@ import java.util.MissingResourceException;
 public class Constants {
 
 
-    private static final String INT_NOT_FOUND = "******NOT FOUND******";
     private static TCResourceBundle bundle = new TCResourceBundle("TC");
     private static boolean isInitialized = false;
     private static Logger log = Logger.getLogger(Constants.class);
@@ -36,6 +35,7 @@ public class Constants {
     public static String MAX_RATING;
     public static String MIN_NUM_RATINGS;
     public static String MAX_NUM_RATINGS;
+    public static String MAX_DAYS_SINCE_LAST_COMP;
 
     /* pages */
     public static String SURVEY_RESULTS;
@@ -59,6 +59,7 @@ public class Constants {
 
     public static String SIMPLE_SEARCH_RESULTS;
     public static String ADVANCED_SEARCH_RESULTS;
+    public static String ADVANCED_SEARCH;
 
     /* misc constants */
     public static int SRM_SURVEY_QUESTION;
@@ -73,7 +74,6 @@ public class Constants {
     public static void initialize() {
 
         Field[] f = Constants.class.getFields();
-        String value = null;
         for (int i = 0; i < f.length; i++) {
             try {
                 if (!ignore(f[i].getName())) {
