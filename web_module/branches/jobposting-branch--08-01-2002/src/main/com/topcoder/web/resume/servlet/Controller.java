@@ -42,6 +42,9 @@ public class Controller
         try {
             log.debug("In com.topcoder.web.resume.servlet.Controller.service()");
 //            if (request.getContentType() == null || request.getContentType().indexOf(MULTIPART_FORM_DATA) < 0) {
+                Enumeration e = request.getParameterNames();
+                while(e.hasMoreElements())
+                    log.debug(e.nextElement());
                 String taskName = request.getParameter(TASK);
                 if (taskName == null || !isWord(taskName)) {
                     log.debug(TASK + " not found in request. - "+taskName);
