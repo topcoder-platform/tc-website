@@ -20,7 +20,6 @@
             <% } else { %>
                   <a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=radeye_rd2">Round 2</a> 
             <% } %>
-<%--
 
             &nbsp;|&nbsp;
             
@@ -30,7 +29,6 @@
             <% } else { %>
                   <a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=radeye_rd3">Round 3</a> 
             <% } %>
---%>
 <%--
             &nbsp;|&nbsp;
             
