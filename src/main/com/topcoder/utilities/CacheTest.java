@@ -44,9 +44,14 @@ public class CacheTest {
             log.info("big size " + BIG.length());
             log.info("time " + System.currentTimeMillis());
             for (int i=0; i<18000; i++) {
-                cc.set("key"+i, BIG, 50000);
+                cc.set("key"+i, BIG, 500000);
             }
             log.info("time " + System.currentTimeMillis());
+            for (int i=0; i<18000; i++) {
+                cc.get("key"+i);
+            }
+            log.info("time " + System.currentTimeMillis());
+
 
 /*
             for (int i=0; i<10000; i++) {
